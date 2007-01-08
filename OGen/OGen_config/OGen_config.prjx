@@ -1,0 +1,34 @@
+<Project name="OGen_config" standardNamespace="OGen.lib.config" description="" newfilesearch="None" enableviewstate="True" version="1.1" projecttype="C#">
+  <Contents>
+    <File name=".\AssemblyInfo.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\utils.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ConfigurationSettingsBinder.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\COPYING" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\LICENSE.GPL.txt" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\LICENSE.txt" subtype="Code" buildaction="Nothing" dependson="" data="" />
+  </Contents>
+  <References />
+  <DeploymentInformation target="" script="" strategy="File">
+    <Exclude file=".\COPYING.LIB" />
+    <Exclude file=".\LICENSE.LGPL.txt" />
+    <Exclude file=".\LICENSE.txt" />
+    <Exclude file=".\CLOSED\sConfig_xml_CLOSED.cs" />
+  </DeploymentInformation>
+  <Configuration runwithwarnings="True" name="Release">
+    <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="" warninglevel="4" nowarn="" includedebuginformation="False" optimize="True" unsafecodeallowed="False" generateoverflowchecks="False" mainclass="" target="Library" definesymbols="" generatexmldocumentation="True" win32Icon="" noconfig="False" nostdlib="False" />
+    <Execution commandlineparameters="" consolepause="False" />
+    <Output directory=".\bin\Release" assembly="OGen.lib.config" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+  </Configuration>
+  <Configurations active="Release">
+    <Configuration runwithwarnings="True" name="Debug">
+      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="Standard" warninglevel="4" nowarn="" includedebuginformation="True" optimize="False" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="" target="Library" definesymbols="" generatexmldocumentation="True" win32Icon="" noconfig="False" nostdlib="False" />
+      <Execution commandlineparameters="" consolepause="False" />
+      <Output directory=".\bin\Debug" assembly="OGen.lib.config" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+    </Configuration>
+    <Configuration runwithwarnings="True" name="Release">
+      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="" warninglevel="4" nowarn="" includedebuginformation="False" optimize="True" unsafecodeallowed="False" generateoverflowchecks="False" mainclass="" target="Library" definesymbols="" generatexmldocumentation="True" win32Icon="" noconfig="False" nostdlib="False" />
+      <Execution commandlineparameters="" consolepause="False" />
+      <Output directory=".\bin\Release" assembly="OGen.lib.config" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+    </Configuration>
+  </Configurations>
+</Project>

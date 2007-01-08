@@ -1,0 +1,16 @@
+<Combine fileversion="1.0" name="NTier_generator" description="">
+  <StartMode startupentry="NTier_generator" single="True">
+    <Execute entry="NTier_generator" type="None" />
+  </StartMode>
+  <Entries>
+    <Entry filename=".\NTier_generator.prjx" />
+  </Entries>
+  <Configurations active="Debug">
+    <Configuration name="Release">
+      <Entry name="NTier_generator" configurationname="Debug" build="False" />
+    </Configuration>
+    <Configuration name="Debug">
+      <Entry name="NTier_generator" configurationname="Debug" build="False" />
+    </Configuration>
+  </Configurations>
+</Combine>

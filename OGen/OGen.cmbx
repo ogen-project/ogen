@@ -1,0 +1,68 @@
+<Combine fileversion="1.0" name="OGen" description="">
+  <StartMode startupentry="" single="True">
+    <Execute entry="OGen_config" type="None" />
+    <Execute entry="OGen_datalayer" type="None" />
+    <Execute entry="OGen_collections" type="None" />
+    <Execute entry="OGen_collections_UTs" type="None" />
+    <Execute entry="OGen_webforms" type="None" />
+    <Execute entry="OGen_parser" type="None" />
+    <Execute entry="OGen_templates" type="None" />
+    <Execute entry="OGen_generator" type="None" />
+    <Execute entry="OGen_datalayer_UTs" type="None" />
+    <Execute entry="OGen_winforms" type="None" />
+    <Execute entry="OGen_config_UTs" type="None" />
+    <Execute entry="OGen_webforms_UTs" type="None" />
+    <Execute entry="OGen_winforms_UTs" type="None" />
+    <Execute entry="OGen_parser_UTs" type="None" />
+  </StartMode>
+  <Entries>
+    <Entry filename=".\OGen_config\OGen_config.prjx" />
+    <Entry filename=".\OGen_datalayer\OGen_datalayer.prjx" />
+    <Entry filename=".\OGen_collections\OGen_collections.prjx" />
+    <Entry filename=".\OGen_collections_UTs\OGen_collections_UTs.prjx" />
+    <Entry filename=".\OGen_webforms\OGen_webforms.prjx" />
+    <Entry filename=".\OGen_parser\OGen_parser.prjx" />
+    <Entry filename=".\OGen_templates\OGen_templates.prjx" />
+    <Entry filename=".\OGen_generator\OGen_generator.prjx" />
+    <Entry filename=".\OGen_datalayer_UTs\OGen_datalayer_UTs.prjx" />
+    <Entry filename=".\OGen_winforms\OGen_winforms.prjx" />
+    <Entry filename=".\OGen_config_UTs\OGen_config_UTs.prjx" />
+    <Entry filename=".\OGen_webforms_UTs\OGen_webforms_UTs.prjx" />
+    <Entry filename=".\OGen_winforms_UTs\OGen_winforms_UTs.prjx" />
+    <Entry filename=".\OGen_parser_UTs\OGen_parser_UTs.prjx" />
+  </Entries>
+  <Configurations active="Release">
+    <Configuration name="Release">
+      <Entry name="OGen_config" configurationname="Debug" build="False" />
+      <Entry name="OGen_datalayer" configurationname="Debug" build="False" />
+      <Entry name="OGen_collections" configurationname="Debug" build="False" />
+      <Entry name="OGen_collections_UTs" configurationname="Debug" build="False" />
+      <Entry name="OGen_webforms" configurationname="Debug" build="False" />
+      <Entry name="OGen_parser" configurationname="Debug" build="False" />
+      <Entry name="OGen_templates" configurationname="Debug" build="False" />
+      <Entry name="OGen_generator" configurationname="Debug" build="False" />
+      <Entry name="OGen_datalayer_UTs" configurationname="Debug" build="False" />
+      <Entry name="OGen_winforms" configurationname="Debug" build="False" />
+      <Entry name="OGen_config_UTs" configurationname="Debug" build="False" />
+      <Entry name="OGen_webforms_UTs" configurationname="Debug" build="False" />
+      <Entry name="OGen_winforms_UTs" configurationname="Debug" build="False" />
+      <Entry name="OGen_parser_UTs" configurationname="Debug" build="False" />
+    </Configuration>
+    <Configuration name="Debug">
+      <Entry name="OGen_config" configurationname="Debug" build="False" />
+      <Entry name="OGen_datalayer" configurationname="Debug" build="False" />
+      <Entry name="OGen_collections" configurationname="Debug" build="False" />
+      <Entry name="OGen_collections_UTs" configurationname="Debug" build="False" />
+      <Entry name="OGen_webforms" configurationname="Debug" build="False" />
+      <Entry name="OGen_parser" configurationname="Debug" build="False" />
+      <Entry name="OGen_templates" configurationname="Debug" build="False" />
+      <Entry name="OGen_generator" configurationname="Debug" build="False" />
+      <Entry name="OGen_datalayer_UTs" configurationname="Debug" build="False" />
+      <Entry name="OGen_winforms" configurationname="Debug" build="False" />
+      <Entry name="OGen_config_UTs" configurationname="Debug" build="False" />
+      <Entry name="OGen_webforms_UTs" configurationname="Debug" build="False" />
+      <Entry name="OGen_winforms_UTs" configurationname="Debug" build="False" />
+      <Entry name="OGen_parser_UTs" configurationname="Debug" build="False" />
+    </Configuration>
+  </Configurations>
+</Combine>

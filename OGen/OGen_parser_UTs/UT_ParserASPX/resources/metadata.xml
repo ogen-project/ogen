@@ -1,0 +1,69 @@
+<!--
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+This file is part of OGen.
+
+OGen is free software; you can redistribute it and/or modify 
+it under the terms of the GNU General Public License as published by 
+the Free Software Foundation; either version 2 of the License, or 
+(at your option) any later version.
+
+OGen is distributed in the hope that it will be useful, 
+but WITHOUT ANY WARRANTY; without even the implied warranty of 
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License 
+along with OGen; if not, write to the
+
+	Free Software Foundation, Inc., 
+	59 Temple Place, Suite 330, 
+	Boston, MA 02111-1307 USA 
+
+							- or -
+
+	http://www.fsf.org/licensing/licenses/gpl.txt
+
+-->
+<metadata applicationName="NTierTutorial" namespace="OGen.NTier.Tutorial" default_DBServerType="PostgreSQL" default_ConfigMode="DEBUG" subAppName="" pseudoReflectionable="False" sqlScriptOption="RunImmediately" guidDatalayer="0ABE107F-B418-4B22-BD6B-FFADE2266DCA" guidDatalayer_UTs="BD1A67FA-E6B9-4AB5-A342-6AC5F542BC38" guidBusinesslayer="A3350A14-9C0B-4DE7-9DBC-56DA35593DA5" guidTest="94FEF518-6FE4-4C44-AAD0-7049A2E9184E" feedbackEmailAddress="" copyrightText="" copyrightTextLong="">
+  <tables>
+    <table name="Config" isVirtualTable="False" isConfig="True">
+      <fields>
+        <field name="Name" isPK="True" isIdentity="False" defaultValue="" isListItemValue="False" isListItemText="False" isConfig_Name="True" isConfig_Config="False" isConfig_Datatype="False" fkTableName="" fkFieldName="" isNullable="False" size="50" type="character varying" />
+        <field name="Config" isPK="False" isIdentity="False" defaultValue="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="True" isConfig_Datatype="False" fkTableName="" fkFieldName="" isNullable="False" size="50" type="character varying" />
+        <field name="Type" isPK="False" isIdentity="False" defaultValue="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="True" fkTableName="" fkFieldName="" isNullable="False" size="0" type="integer" />
+      </fields>
+      <searches />
+      <updates />
+    </table>
+    <table name="Group" isVirtualTable="False" isConfig="False">
+      <fields>
+        <field name="IDGroup" isPK="True" isIdentity="True" defaultValue="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" fkTableName="" fkFieldName="" isNullable="False" size="0" type="bigint" />
+        <field name="Name" isPK="False" isIdentity="False" defaultValue="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" fkTableName="" fkFieldName="" isNullable="False" size="50" type="character varying" />
+      </fields>
+      <searches />
+      <updates />
+    </table>
+    <table name="User" isVirtualTable="False" isConfig="False">
+      <fields>
+        <field name="IDUser" isPK="True" isIdentity="True" defaultValue="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" fkTableName="" fkFieldName="" isNullable="False" size="0" type="bigint" />
+        <field name="Login" isPK="False" isIdentity="False" defaultValue="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" fkTableName="" fkFieldName="" isNullable="False" size="50" type="character varying" />
+        <field name="Password" isPK="False" isIdentity="False" defaultValue="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" fkTableName="" fkFieldName="" isNullable="False" size="50" type="character varying" />
+      </fields>
+      <searches />
+      <updates />
+    </table>
+    <table name="UserGroup" isVirtualTable="False" isConfig="False">
+      <fields>
+        <field name="IDUser" isPK="True" isIdentity="False" defaultValue="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" fkTableName="" fkFieldName="" isNullable="False" size="0" type="bigint" />
+        <field name="IDGroup" isPK="True" isIdentity="False" defaultValue="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" fkTableName="" fkFieldName="" isNullable="False" size="0" type="bigint" />
+        <field name="Relationdate" isPK="False" isIdentity="False" defaultValue="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" fkTableName="" fkFieldName="" isNullable="False" size="0" type="timestamp without time zone" />
+        <field name="Defaultrelation" isPK="False" isIdentity="False" defaultValue="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" fkTableName="" fkFieldName="" isNullable="False" size="0" type="boolean" />
+      </fields>
+      <searches />
+      <updates />
+    </table>
+  </tables>
+</metadata>

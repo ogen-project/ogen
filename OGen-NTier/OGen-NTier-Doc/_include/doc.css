@@ -1,0 +1,134 @@
+/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+This file is part of OGen.
+
+OGen is free software; you can redistribute it and/or modify 
+it under the terms of the GNU General Public License as published by 
+the Free Software Foundation; either version 2 of the License, or 
+(at your option) any later version.
+
+OGen is distributed in the hope that it will be useful, 
+but WITHOUT ANY WARRANTY; without even the implied warranty of 
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License 
+along with OGen; if not, write to the
+
+	Free Software Foundation, Inc., 
+	59 Temple Place, Suite 330, 
+	Boston, MA 02111-1307 USA 
+
+							- or -
+
+	http://www.fsf.org/licensing/licenses/gpl.txt
+
+*/
+A:hover {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 14px;
+	FONT-FAMILY: Arial;
+	TEXT-ALIGN: justify;
+	/*
+	COLOR: #F00000;
+	TEXT-DECORATION: none;
+	*/
+}
+A:link {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 14px;
+	FONT-FAMILY: Arial;
+	TEXT-ALIGN: justify;
+	/*
+	COLOR: #F00000;
+	TEXT-DECORATION: none;
+	*/
+}
+A:visited {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 14px;
+	FONT-FAMILY: Arial;
+	TEXT-ALIGN: justify;
+	/*
+	COLOR: #F00000;
+	TEXT-DECORATION: none;
+	*/
+}
+
+
+.menu {
+	COLOR: #000000;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 14px;
+	FONT-FAMILY: Arial;
+	TEXT-ALIGN: justify;
+	TEXT-DECORATION: none
+}
+.text {
+	color: #000000;
+	font-weight: normal;
+	font-size: 16px;
+	font-family: Arial;
+	white-space: normal;
+	text-decoration: none;
+}
+.title {
+	color: #000000;
+	font-weight: bold;
+	font-size: 24px;
+	font-family: Arial;
+	white-space: normal;
+	text-decoration: none;
+}
+.subtitle {
+	color: #000000;
+	font-weight: bold;
+	font-size: 18px;
+	font-family: Arial;
+	white-space: normal;
+	text-decoration: none;
+}
+.subtitle_question {
+	color: #000000;
+	font-weight: bold;
+	font-size: 16px;
+	font-family: Arial;
+	white-space: normal;
+	text-decoration: none;
+}
+.code {
+	color: #000000;
+	background-color: #f5f5f5;
+	font-weight: normal;
+	font-size: 14px;
+	font-family: 'Courier New';
+	white-space: normal;
+	text-decoration: none;
+	/*text-indent: 10px;*/
+}
+/*
+.error {
+	color: #FF0000;
+	font-weight: normal;
+	font-size: 14px;
+	font-family: Arial;
+	white-space: normal;
+	text-decoration: none;
+}
+.button {
+	color: #000000;
+	font-weight: normal;
+	font-family: Arial;
+}
+.link {
+	COLOR: #000000;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 12px;
+	FONT-FAMILY: Arial;
+	TEXT-ALIGN: justify;
+	TEXT-DECORATION: none;
+}
+*/

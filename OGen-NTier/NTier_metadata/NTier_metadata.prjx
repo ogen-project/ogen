@@ -1,0 +1,81 @@
+<Project name="NTier_metadata" standardNamespace="OGen.NTier.lib.metadata" description="" newfilesearch="None" enableviewstate="True" version="1.1" projecttype="C#">
+  <Contents>
+    <File name=".\AssemblyInfo.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\COPYING" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\LICENSE.GPL.txt" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\LICENSE.txt" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\ClaSSe" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\DBs" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\DBs\DB" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Field-generic" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Updates-generic" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table\Fields" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table\Fields-generic" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table\Searches" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table\Fields\Field" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table\Searches\Search" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\cDBMetadata.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\utils.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\DBs\cDBMetadata_DBs.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\DBs\iDBMetadata_DBs.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\DBs\DB\cDBMetadata_DB.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\cDBMetadata_Tables.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\iDBMetadata_Tables.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Field-generic\cDBMetadata_Field_ref.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Field-generic\cDBMetadata_Field_refs.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Field-generic\iDBMetadata_Field_refs__base.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Field-generic\iDBMetadata_Field_refs_SearchParameters.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Field-generic\iDBMetadata_Field_refs_UpdateParameters.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table\cDBMetadata_Table.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table\Fields\cDBMetadata_Table_Fields.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table\Fields\iDBMetadata_Table_Fields.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table\Fields\Field\cDBMetadata_Table_Field.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table\Fields-generic\cDBMetadata_Table_Fields_FK.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table\Fields-generic\cDBMetadata_Table_Fields_PK.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table\Searches\cDBMetadata_Table_Searches.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table\Searches\iDBMetadata_Table_Searches.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table\Searches\Search\cDBMetadata_Table_Search.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Updates-generic\cDBMetadata_Updates.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Updates-generic\Update" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Updates-generic\Update\cDBMetadata_Update.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table\DBs" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table\DBs\DB" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table\DBs\cDBMetadata_Table_DBs.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table\DBs\DB\cDBMetadata_Table_DB.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\DBs\DB\Connections" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\DBs\DB\Connections\cDBMetadata_DB_Connections.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\DBs\DB\Connections\Connection" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\DBs\DB\Connections\Connection\cDBMetadata_DB_Connection.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table\Fields\Field\DBs" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table\Fields\Field\DBs\cDBMetadata_Table_Field_DBs.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table\Fields\Field\DBs\DB" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\ClaSSe\Tables\Table\Fields\Field\DBs\DB\cDBMetadata_Table_Field_DB.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+  </Contents>
+  <References>
+    <Reference type="Project" refto="OGen_config" localcopy="True" />
+    <Reference type="Project" refto="OGen_datalayer" localcopy="True" />
+    <Reference type="Project" refto="OGen_collections" localcopy="True" />
+    <Reference type="Gac" refto="Npgsql, Version=0.99.1.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7" localcopy="True" />
+    <Reference type="Gac" refto="MySql.Data, Version=1.0.7.30072, Culture=neutral, PublicKeyToken=c5687fc88969c44d" localcopy="True" />
+  </References>
+  <DeploymentInformation target="" script="" strategy="File" />
+  <Configuration runwithwarnings="True" name="Release">
+    <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="" warninglevel="4" nowarn="" includedebuginformation="False" optimize="True" unsafecodeallowed="False" generateoverflowchecks="False" mainclass="" target="Library" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+    <Execution commandlineparameters="" consolepause="False" />
+    <Output directory=".\bin\Release" assembly="OGen.NTier.lib.metadata" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+  </Configuration>
+  <Configurations active="Release">
+    <Configuration runwithwarnings="True" name="Debug">
+      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="" warninglevel="4" nowarn="" includedebuginformation="True" optimize="False" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="" target="Library" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+      <Execution commandlineparameters="" consolepause="False" />
+      <Output directory=".\bin\Debug" assembly="OGen.NTier.lib.metadata" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+    </Configuration>
+    <Configuration runwithwarnings="True" name="Release">
+      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="" warninglevel="4" nowarn="" includedebuginformation="False" optimize="True" unsafecodeallowed="False" generateoverflowchecks="False" mainclass="" target="Library" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+      <Execution commandlineparameters="" consolepause="False" />
+      <Output directory=".\bin\Release" assembly="OGen.NTier.lib.metadata" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+    </Configuration>
+  </Configurations>
+</Project>

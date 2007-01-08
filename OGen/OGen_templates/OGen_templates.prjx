@@ -1,0 +1,56 @@
+<Project name="OGen_templates" standardNamespace="OGen.lib.templates" description="" newfilesearch="None" enableviewstate="True" version="1.1" projecttype="C#">
+  <Contents>
+    <File name=".\AssemblyInfo.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\COPYING" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\LICENSE.GPL.txt" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\LICENSE.txt" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\utils.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\Template" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\Template\Arguments" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\Template\Conditions" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\Template\Dependencies" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\Template\Outputs" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\Template\Arguments\Argument" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\Template\Conditions\Condition" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\Template\Dependencies\Dependency" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\Template\Outputs\Output" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\cTemplates.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\iTemplates.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\Template\cTemplate.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\Template\Arguments\cArguments.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\Template\Arguments\iArguments.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\Template\Arguments\Argument\cArgument.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\Template\Conditions\cConditions.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\Template\Conditions\iConditions.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\Template\Conditions\Condition\cCondition.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\Template\Dependencies\cDependencies.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\Template\Dependencies\iDependencies.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\Template\Dependencies\Dependency\cDependency.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\Template\Outputs\cOutputs.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\Template\Outputs\iOutputs.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Templates\Template\Outputs\Output\cOutput.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+  </Contents>
+  <References>
+    <Reference type="Project" refto="OGen_collections" localcopy="True" />
+    <Reference type="Project" refto="OGen_webforms" localcopy="True" />
+  </References>
+  <DeploymentInformation target="" script="" strategy="File" />
+  <Configuration runwithwarnings="True" name="Release">
+    <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="" warninglevel="4" nowarn="" includedebuginformation="False" optimize="True" unsafecodeallowed="False" generateoverflowchecks="False" mainclass="" target="Library" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+    <Execution commandlineparameters="" consolepause="False" />
+    <Output directory=".\bin\Release" assembly="OGen.lib.templates" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+  </Configuration>
+  <Configurations active="Release">
+    <Configuration runwithwarnings="True" name="Debug">
+      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="" warninglevel="4" nowarn="" includedebuginformation="True" optimize="False" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="" target="Library" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+      <Execution commandlineparameters="" consolepause="False" />
+      <Output directory=".\bin\Debug" assembly="OGen.lib.templates" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+    </Configuration>
+    <Configuration runwithwarnings="True" name="Release">
+      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="" warninglevel="4" nowarn="" includedebuginformation="False" optimize="True" unsafecodeallowed="False" generateoverflowchecks="False" mainclass="" target="Library" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+      <Execution commandlineparameters="" consolepause="False" />
+      <Output directory=".\bin\Release" assembly="OGen.lib.templates" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+    </Configuration>
+  </Configurations>
+</Project>

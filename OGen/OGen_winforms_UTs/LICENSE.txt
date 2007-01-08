@@ -1,0 +1,53 @@
+
+OGen is licensed under various different licenses.
+
+	GNU GPL: details avaliable in the file LICENSE.GPL.txt
+	GNU FDL: details available in the file LICENSE.FDL.txt
+
+	For your convenience copies of the GNU GPL, GNU LGPL and GNU FDL are located in the file COPYING, COPYING.LIB and COPYING.DOC
+
+	* OGen.lib.config: GNU GPL
+	* OGen.lib.config.UTs: GNU GPL
+	* OGen.lib.datalayer: GNU GPL
+	* OGen.lib.datalayer.UTs: GNU GPL
+	* OGen.lib.collections: GNU GPL
+	* OGen.lib.collections.UTs: GNU GPL
+	* OGen.lib.presentationlayer.webforms: GNU GPL
+	* OGen.lib.presentationlayer.webforms.UTs: GNU GPL
+	* OGen.lib.presentationlayer.winforms: GNU GPL
+	* OGen.lib.presentationlayer.winforms.UTs: GNU GPL
+	* OGen.lib.parser: GNU GPL
+	* OGen.lib.parser.UTs: GNU GPL
+	* OGen.lib.templates: GNU GPL
+	* OGen.lib.generator: GNU GPL
+	* OGen.test: GNU GPL
+	* OGen.NTier.lib.metadata: GNU GPL
+	* OGen.NTier.lib.metadata.UTs: GNU GPL
+	* OGen.NTier.lib.generator: GNU GPL
+	* OGen.NTier.lib.datalayer: GNU GPL
+	* OGen.NTier.lib.datalayer.UTs: GNU GPL
+	* OGen.NTier.lib.businesslayer: GNU GPL
+	* OGen.NTier.lib.businesslayer.UTs: GNU GPL
+	* OGen.NTier.lib.templates: GNU GPL
+	* OGen.NTier.presentationlayer.winforms: GNU GPL
+	* OGen.NTier.presentationlayer.console: GNU GPL
+	* OGen.NTier.test: GNU GPL
+	* OGen.NTier.UTs.lib.businesslayer: GNU GPL
+	* OGen.NTier.UTs.lib.businesslayer.UTs: GNU GPL
+	* OGen.NTier.UTs.lib.datalayer: GNU GPL
+	* OGen.NTier.UTs.lib.datalayer.UTs: GNU GPL
+	* OGen.NTier.UTs.test: GNU GPL
+	* OGen-NTier_UTs-PostgreSQL: GNU GPL
+	* OGen-metadatas: GNU GPL
+	* OGen.Doc.lib.generator: GNU GPL
+	* OGen.Doc.lib.metadata: GNU GPL
+	* OGen.Doc.lib.metadata.UTs: GNU GPL
+	* OGen.Doc.lib.templates: GNU GPL
+	* OGen.Doc.presentationlayer.winforms: GNU GPL
+	* OGen.Doc.presentationlayer.console: GNU GPL
+	* OGen.Doc.test: GNU GPL
+	* OGen-Doc: GNU FDL
+	* OGen-NTier-Doc: GNU FDL
+	* OGen-NTier_UTs-Doc: GNU FDL
+	* OGen-Doc-Doc: GNU FDL
+

@@ -1,0 +1,116 @@
+<Project name="NTier" standardNamespace="OGen.NTier.presentationlayer.winforms" description="" newfilesearch="None" enableviewstate="True" version="1.1" projecttype="C#">
+  <Contents>
+    <File name=".\AssemblyInfo.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\app.config" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\COPYING" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\frm_about.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\frm_about.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\frm_GPL.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\frm_GPL.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\frm_Main.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\frm_Main.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\LICENSE.GPL.txt" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\LICENSE.txt" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\_utils" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\Forms.old" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\UserControls" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\Forms" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\Forms-generic" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\Processes" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\_utils\eInsUpdDel.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\_cMODEL_s000.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\_cMODEL_s010.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\cGenerator_Generate_s000.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\cManage_ConfigTables_s000.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\cManage_ConfigTables_s010.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\cManage_ConfigTables_s020.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\cManage_Configuration_Project_s000.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\cManage_Views_PK_s000.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\cManage_Views_PK_s010.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\cManage_Views_PK_s020.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\Forms\_frmMODEL.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\Forms\_frmMODEL.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\FlowForms\Forms\frmGenerator_Generate_s000.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\Forms\frmGenerator_Generate_s000.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\FlowForms\Forms\frmManage_ConfigTables_s000.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\Forms\frmManage_ConfigTables_s000.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\FlowForms\Forms\frmManage_ConfigTables_s010.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\Forms\frmManage_ConfigTables_s010.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\FlowForms\Forms\frmManage_ConfigTables_s020.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\Forms\frmManage_ConfigTables_s020.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\FlowForms\Forms\frmManage_Views_PK_s000.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\Forms\frmManage_Views_PK_s000.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\FlowForms\Forms\frmManage_Views_PK_s010.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\Forms\frmManage_Views_PK_s010.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\FlowForms\Forms\frmManage_Views_PK_s020.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\Forms\frmManage_Views_PK_s020.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\FlowForms\Forms-generic\frmManage_Configuration_Project_s000.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\Forms-generic\frmManage_Configuration_Project_s000.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\FlowForms\Processes\_PO_MODEL.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\Processes\PO_ConfigTables.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FlowForms\Processes\PO_Manage_Views_PK.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Forms.old\frmManage_Searches.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Forms.old\frmManage_Searches.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\Forms.old\frmManage_Searches_Create_step010.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Forms.old\frmManage_Searches_Create_step010.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\Forms.old\frmManage_Searches_Create_step020.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Forms.old\frmManage_Searches_Create_step020.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\Forms.old\frmManage_Searches_Create_step030.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Forms.old\frmManage_Searches_Create_step030.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\Forms.old\frmManage_Updates.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Forms.old\frmManage_Updates.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\Forms.old\frmManage_Updates_Create_step010.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Forms.old\frmManage_Updates_Create_step010.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\Forms.old\frmManage_Updates_Create_step020.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Forms.old\frmManage_Updates_Create_step020.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\Forms.old\frmManage_Updates_Create_step030.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Forms.old\frmManage_Updates_Create_step030.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\Forms.old\frmManage_Updates_Create_step040.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Forms.old\frmManage_Updates_Create_step040.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\UserControls\ucPick_DBType.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UserControls\ucPick_DBType.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\UserControls\ucPick_Fields.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UserControls\ucPick_Fields.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\UserControls\ucPick_Fields_forCriteria.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UserControls\ucPick_Fields_forCriteria.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\UserControls\ucPick_Searches.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UserControls\ucPick_Searches.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\UserControls\ucPick_Tables.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UserControls\ucPick_Tables.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\Forms" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\Forms\frmConnectionstring.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Forms\frmConnectionstring.resx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+  </Contents>
+  <References>
+    <Reference type="Project" refto="OGen_config" localcopy="True" />
+    <Reference type="Project" refto="OGen_datalayer" localcopy="True" />
+    <Reference type="Project" refto="OGen_generator" localcopy="True" />
+    <Reference type="Project" refto="OGen_templates" localcopy="True" />
+    <Reference type="Project" refto="OGen_collections" localcopy="True" />
+    <Reference type="Project" refto="OGen_webforms" localcopy="True" />
+    <Reference type="Project" refto="NTier_generator" localcopy="True" />
+    <Reference type="Project" refto="OGen_winforms" localcopy="True" />
+    <Reference type="Project" refto="NTier_metadata" localcopy="True" />
+    <Reference type="Project" refto="OGen_parser" localcopy="True" />
+    <Reference type="Project" refto="NTier_templates" localcopy="True" />
+    <Reference type="Gac" refto="Npgsql, Version=0.99.1.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7" localcopy="True" />
+  </References>
+  <DeploymentInformation target="" script="" strategy="File" />
+  <Configuration runwithwarnings="True" name="Release">
+    <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="" warninglevel="4" nowarn="" includedebuginformation="False" optimize="True" unsafecodeallowed="False" generateoverflowchecks="False" mainclass="" target="WinExe" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+    <Execution commandlineparameters="" consolepause="False" />
+    <Output directory=".\bin\Release" assembly="OGen.NTier.presentationlayer.winforms" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+  </Configuration>
+  <Configurations active="Release">
+    <Configuration runwithwarnings="True" name="Debug">
+      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="Standard" warninglevel="4" nowarn="" includedebuginformation="True" optimize="False" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="" target="WinExe" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+      <Execution commandlineparameters="" consolepause="False" />
+      <Output directory=".\bin\Debug" assembly="OGen.NTier.presentationlayer.winforms" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+    </Configuration>
+    <Configuration runwithwarnings="True" name="Release">
+      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="" warninglevel="4" nowarn="" includedebuginformation="False" optimize="True" unsafecodeallowed="False" generateoverflowchecks="False" mainclass="" target="WinExe" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+      <Execution commandlineparameters="" consolepause="False" />
+      <Output directory=".\bin\Release" assembly="OGen.NTier.presentationlayer.winforms" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+    </Configuration>
+  </Configurations>
+</Project>

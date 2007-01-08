@@ -1,0 +1,16 @@
+<Combine fileversion="1.0" name="OGen_config" description="">
+  <StartMode startupentry="OGen_config" single="True">
+    <Execute entry="OGen_config" type="None" />
+  </StartMode>
+  <Entries>
+    <Entry filename=".\OGen_config.prjx" />
+  </Entries>
+  <Configurations active="Debug">
+    <Configuration name="Release">
+      <Entry name="OGen_config" configurationname="Debug" build="False" />
+    </Configuration>
+    <Configuration name="Debug">
+      <Entry name="OGen_config" configurationname="Debug" build="False" />
+    </Configuration>
+  </Configurations>
+</Combine>

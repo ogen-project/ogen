@@ -1,0 +1,41 @@
+<Project name="OGen_datalayer" standardNamespace="OGen.lib.datalayer" description="" newfilesearch="None" enableviewstate="True" version="1.1" projecttype="C#">
+  <Contents>
+    <File name=".\AssemblyInfo.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\cDBConnection.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\cDBTransaction.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\eDBServerTypes.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\utils.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\cDBTable.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\cDBTableField.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\cDBType.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\COPYING" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\LICENSE.GPL.txt" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\LICENSE.txt" subtype="Code" buildaction="Nothing" dependson="" data="" />
+  </Contents>
+  <References>
+    <Reference type="Gac" refto="Npgsql, Version=0.99.1.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7" localcopy="True" />
+    <Reference type="Gac" refto="MySql.Data, Version=1.0.7.30072, Culture=neutral, PublicKeyToken=c5687fc88969c44d" localcopy="True" />
+  </References>
+  <DeploymentInformation target="" script="" strategy="File">
+    <Exclude file=".\COPYING.LIB" />
+    <Exclude file=".\LICENSE.LGPL.txt" />
+    <Exclude file=".\LICENSE.txt" />
+  </DeploymentInformation>
+  <Configuration runwithwarnings="True" name="Release">
+    <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="" warninglevel="4" nowarn="" includedebuginformation="False" optimize="True" unsafecodeallowed="False" generateoverflowchecks="False" mainclass="" target="Library" definesymbols="" generatexmldocumentation="True" win32Icon="" noconfig="False" nostdlib="False" />
+    <Execution commandlineparameters="" consolepause="False" />
+    <Output directory=".\bin\Release" assembly="OGen.lib.datalayer" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+  </Configuration>
+  <Configurations active="Release">
+    <Configuration runwithwarnings="True" name="Debug">
+      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="" warninglevel="4" nowarn="" includedebuginformation="True" optimize="False" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="" target="Library" definesymbols="" generatexmldocumentation="True" win32Icon="" noconfig="False" nostdlib="False" />
+      <Execution commandlineparameters="" consolepause="False" />
+      <Output directory=".\bin\Debug" assembly="OGen.lib.datalayer" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+    </Configuration>
+    <Configuration runwithwarnings="True" name="Release">
+      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="" warninglevel="4" nowarn="" includedebuginformation="False" optimize="True" unsafecodeallowed="False" generateoverflowchecks="False" mainclass="" target="Library" definesymbols="" generatexmldocumentation="True" win32Icon="" noconfig="False" nostdlib="False" />
+      <Execution commandlineparameters="" consolepause="False" />
+      <Output directory=".\bin\Release" assembly="OGen.lib.datalayer" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+    </Configuration>
+  </Configurations>
+</Project>

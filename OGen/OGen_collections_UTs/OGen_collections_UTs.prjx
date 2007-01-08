@@ -1,0 +1,70 @@
+<Project name="OGen_collections_UTs" standardNamespace="OGen.collections.UTs" description="" newfilesearch="None" enableviewstate="True" version="1.1" projecttype="C#">
+  <Contents>
+    <File name=".\AssemblyInfo.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\LICENSE.txt" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\app.config" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\COPYING" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\LICENSE.GPL.txt" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\UT_ClaSS\UT_ClaSS.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\_interfaces" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSS_noR_aggregate" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSS_noR_inherit" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSS_R_aggregate" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSS_R_inherit" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSSe_aggregate" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSSe_inherit" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\_interfaces\iField.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\_interfaces\iFields.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\_interfaces\iTable.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\_interfaces\iTables.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSS_noR_aggregate\cField_noR_aggregate.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSS_noR_aggregate\cFields_noR_aggregate.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSS_noR_aggregate\cTable_noR_aggregate.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSS_noR_aggregate\cTables_noR_aggregate.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSS_noR_inherit\cField_noR_inherit.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSS_noR_inherit\cFields_noR_inherit.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSS_noR_inherit\cTable_noR_inherit.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSS_noR_inherit\cTables_noR_inherit.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSS_R_aggregate\cField_R_aggregate.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSS_R_aggregate\cFields_R_aggregate.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSS_R_aggregate\cTable_R_aggregate.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSS_R_aggregate\cTables_R_aggregate.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSS_R_inherit\cField_R_inherit.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSS_R_inherit\cFields_R_inherit.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSS_R_inherit\cTable_R_inherit.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSS_R_inherit\cTables_R_inherit.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSSe_aggregate\cField_e_aggregate.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSSe_aggregate\cFields_e_aggregate.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSSe_aggregate\cTable_e_aggregate.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSSe_aggregate\cTables_e_aggregate.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSSe_inherit\cField_e_inherit.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSSe_inherit\cFields_e_inherit.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSSe_inherit\cTable_e_inherit.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_ClaSS\metadatas\ClaSSe_inherit\cTables_e_inherit.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UT_SHashtable.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+  </Contents>
+  <References>
+    <Reference type="Gac" refto="nunit.framework, Version=2.2.0.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77" localcopy="True" />
+    <Reference type="Project" refto="OGen_collections" localcopy="True" />
+  </References>
+  <DeploymentInformation target="" script="" strategy="File" />
+  <Configuration runwithwarnings="True" name="Release">
+    <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="" warninglevel="4" nowarn="" includedebuginformation="False" optimize="True" unsafecodeallowed="False" generateoverflowchecks="False" mainclass="" target="Library" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+    <Execution commandlineparameters="" consolepause="False" />
+    <Output directory=".\bin\Release" assembly="OGen.collections.UTs" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+  </Configuration>
+  <Configurations active="Release">
+    <Configuration runwithwarnings="True" name="Debug">
+      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="Standard" warninglevel="4" nowarn="" includedebuginformation="True" optimize="False" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="" target="Library" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+      <Execution commandlineparameters="" consolepause="False" />
+      <Output directory=".\bin\Debug" assembly="OGen.collections.UTs" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+    </Configuration>
+    <Configuration runwithwarnings="True" name="Release">
+      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="" warninglevel="4" nowarn="" includedebuginformation="False" optimize="True" unsafecodeallowed="False" generateoverflowchecks="False" mainclass="" target="Library" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+      <Execution commandlineparameters="" consolepause="False" />
+      <Output directory=".\bin\Release" assembly="OGen.collections.UTs" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+    </Configuration>
+  </Configurations>
+</Project>

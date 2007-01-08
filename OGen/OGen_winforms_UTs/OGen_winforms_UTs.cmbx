@@ -1,0 +1,16 @@
+<Combine fileversion="1.0" name="OGen_winforms_UTs" description="">
+  <StartMode startupentry="OGen_winforms_UTs" single="True">
+    <Execute entry="OGen_winforms_UTs" type="None" />
+  </StartMode>
+  <Entries>
+    <Entry filename=".\OGen_winforms_UTs.prjx" />
+  </Entries>
+  <Configurations active="Debug">
+    <Configuration name="Release">
+      <Entry name="OGen_winforms_UTs" configurationname="Debug" build="False" />
+    </Configuration>
+    <Configuration name="Debug">
+      <Entry name="OGen_winforms_UTs" configurationname="Debug" build="False" />
+    </Configuration>
+  </Configurations>
+</Combine>

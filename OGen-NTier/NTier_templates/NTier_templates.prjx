@@ -1,0 +1,112 @@
+<Project name="NTier_templates" standardNamespace="OGen.NTier.lib.templates" description="" newfilesearch="None" enableviewstate="True" version="1.1" projecttype="C#">
+  <Contents>
+    <File name=".\__XSLT-TEST.txt.xslt" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\app0.config.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\BO0_SomeTable.cs.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\BO_SomeTable.cs.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\COPYING" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\DO0__utils.cs.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\DO0_SomeTable.cs.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\DO__utils.cs.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\DO_SomeTable.cs.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\fnc0_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\fnc0_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\fnc0_SomeTable_isObject-PostgreSQL.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\fnc0_SomeTable_isObject-SQLServer.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\fnc0_SomeTable_Record_count_bySomeCriteria-PostgreSQL.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\fnc0_SomeTable_Record_count_bySomeCriteria-SQLServer.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\fnc0_SomeTable_Record_hasObject_bySomeCriteria-PostgreSQL.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\fnc0_SomeTable_Record_hasObject_bySomeCriteria-SQLServer.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\Global.asax.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\LICENSE.GPL.txt" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\LICENSE.txt" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\RO0_SomeTable.cs.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\SomeApplication.cmbx.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\SomeApplication.ndoc.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\SomeApplication.sln.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\SomeApplication_AssemblyInfo.cs.txt" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\SomeApplication_businesslayer.cmbx.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\SomeApplication_businesslayer.csproj.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\SomeApplication_businesslayer.prjx.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\SomeApplication_datalayer.cmbx.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\SomeApplication_datalayer.csproj.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\SomeApplication_datalayer.prjx.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\SomeApplication_datalayer_UTs.cmbx.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\SomeApplication_datalayer_UTs.csproj.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\SomeApplication_datalayer_UTs.prjx.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\SomeApplication_test.cmbx.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\SomeApplication_test.csproj.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\SomeApplication_test.prjx.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\SomeApplication_test_MainClass.cs.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\SomeNamespace.lib.datalayer.UTs.nunit.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_delObject_bySomeCriteria-PostgreSQL.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_delObject_bySomeCriteria-SQLServer.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_delObject-PostgreSQL.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_delObject-SQLServer.sql.aspx.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_getObject_bySomeCriteria-PostgreSQL.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_getObject_bySomeCriteria-SQLServer.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_getObject-PostgreSQL.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_getObject-SQLServer.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_insObject-PostgreSQL.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_insObject-SQLServer.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_Record_delete_bySomeCriteria-PostgreSQL.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_Record_delete_bySomeCriteria-SQLServer.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_Record_open_bySomeCriteria_fullmode-PostgreSQL.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_Record_open_bySomeCriteria_fullmode-SQLServer.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-PostgreSQL.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-SQLServer.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_Record_open_bySomeCriteria_page-PostgreSQL.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_Record_open_bySomeCriteria_page-SQLServer.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-PostgreSQL.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-SQLServer.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_setObject-PostgreSQL.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_setObject-SQLServer.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_updObject_SomeUpdate-PostgreSQL.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_updObject_SomeUpdate-SQLServer.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_updObject-PostgreSQL.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp0_SomeTable_updObject-SQLServer.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\templates.config.xml" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\UT0_SomeTable.cs.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\UT_app.config.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\UT_SomeTable.cs.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\Web.config" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\Global.asax" subtype="Code" buildaction="Nothing" dependson="" data="" />
+    <File name=".\AssemblyInfo-SharpDevelop.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+  </Contents>
+  <References>
+    <Reference type="Project" refto="OGen_datalayer" localcopy="True" />
+    <Reference type="Project" refto="OGen_collections" localcopy="True" />
+    <Reference type="Project" refto="OGen_config" localcopy="True" />
+    <Reference type="Project" refto="NTier_metadata" localcopy="True" />
+    <Reference type="Project" refto="NTier_datalayer" localcopy="True" />
+    <Reference type="Project" refto="NTier_businesslayer" localcopy="True" />
+    <Reference type="Gac" refto="Npgsql, Version=0.99.1.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7" localcopy="True" />
+  </References>
+  <DeploymentInformation target="" script="" strategy="File" />
+  <Configuration runwithwarnings="True" name="Release">
+    <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="Standard" warninglevel="4" nowarn="" includedebuginformation="False" optimize="True" unsafecodeallowed="False" generateoverflowchecks="False" mainclass="" target="Library" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+    <Execution commandlineparameters="" consolepause="False" />
+    <Output directory=".\bin" assembly="OGen.NTier.lib.templates" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+  </Configuration>
+  <Configurations active="Release">
+    <Configuration runwithwarnings="True" name="Debug">
+      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="Standard" warninglevel="4" nowarn="" includedebuginformation="True" optimize="False" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="" target="Library" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+      <Execution commandlineparameters="" consolepause="False" />
+      <Output directory=".\bin" assembly="OGen.NTier.lib.templates" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+    </Configuration>
+    <Configuration runwithwarnings="True" name="Release">
+      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="Standard" warninglevel="4" nowarn="" includedebuginformation="False" optimize="True" unsafecodeallowed="False" generateoverflowchecks="False" mainclass="" target="Library" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+      <Execution commandlineparameters="" consolepause="False" />
+      <Output directory=".\bin" assembly="OGen.NTier.lib.templates" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+    </Configuration>
+  </Configurations>
+</Project>

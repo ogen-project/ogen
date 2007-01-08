@@ -1,0 +1,84 @@
+<Combine fileversion="1.0" name="NTier" description="">
+  <StartMode startupentry="NTier-console" single="True">
+    <Execute entry="OGen_config" type="None" />
+    <Execute entry="OGen_datalayer" type="None" />
+    <Execute entry="OGen_generator" type="None" />
+    <Execute entry="OGen_templates" type="None" />
+    <Execute entry="OGen_collections" type="None" />
+    <Execute entry="OGen_webforms" type="None" />
+    <Execute entry="OGen_parser" type="None" />
+    <Execute entry="NTier_generator" type="None" />
+    <Execute entry="NTier_datalayer" type="None" />
+    <Execute entry="NTier_businesslayer" type="None" />
+    <Execute entry="OGen_winforms" type="None" />
+    <Execute entry="NTier-console" type="None" />
+    <Execute entry="NTier" type="None" />
+    <Execute entry="NTier_metadata" type="None" />
+    <Execute entry="NTier_templates" type="None" />
+    <Execute entry="NTier_metadata_UTs" type="None" />
+    <Execute entry="NTier_businesslayer_UTs" type="None" />
+    <Execute entry="NTier_datalayer_UTs" type="None" />
+  </StartMode>
+  <Entries>
+    <Entry filename="..\OGen\OGen_config\OGen_config.prjx" />
+    <Entry filename="..\OGen\OGen_datalayer\OGen_datalayer.prjx" />
+    <Entry filename="..\OGen\OGen_generator\OGen_generator.prjx" />
+    <Entry filename="..\OGen\OGen_templates\OGen_templates.prjx" />
+    <Entry filename="..\OGen\OGen_collections\OGen_collections.prjx" />
+    <Entry filename="..\OGen\OGen_webforms\OGen_webforms.prjx" />
+    <Entry filename="..\OGen\OGen_parser\OGen_parser.prjx" />
+    <Entry filename=".\NTier_generator\NTier_generator.prjx" />
+    <Entry filename=".\NTier_datalayer\NTier_datalayer.prjx" />
+    <Entry filename=".\NTier_businesslayer\NTier_businesslayer.prjx" />
+    <Entry filename="..\OGen\OGen_winforms\OGen_winforms.prjx" />
+    <Entry filename=".\NTier-console\NTier-console.prjx" />
+    <Entry filename=".\NTier\NTier.prjx" />
+    <Entry filename=".\NTier_metadata\NTier_metadata.prjx" />
+    <Entry filename=".\NTier_templates\NTier_templates.prjx" />
+    <Entry filename=".\NTier_metadata_UTs\NTier_metadata_UTs.prjx" />
+    <Entry filename=".\NTier_businesslayer_UTs\NTier_businesslayer_UTs.prjx" />
+    <Entry filename=".\NTier_datalayer_UTs\NTier_datalayer_UTs.prjx" />
+  </Entries>
+  <Configurations active="Release">
+    <Configuration name="Release">
+      <Entry name="OGen_config" configurationname="Debug" build="False" />
+      <Entry name="OGen_datalayer" configurationname="Debug" build="False" />
+      <Entry name="OGen_generator" configurationname="Debug" build="False" />
+      <Entry name="OGen_templates" configurationname="Debug" build="False" />
+      <Entry name="OGen_collections" configurationname="Debug" build="False" />
+      <Entry name="OGen_webforms" configurationname="Debug" build="False" />
+      <Entry name="OGen_parser" configurationname="Debug" build="False" />
+      <Entry name="NTier_generator" configurationname="Debug" build="False" />
+      <Entry name="NTier_datalayer" configurationname="Debug" build="False" />
+      <Entry name="NTier_businesslayer" configurationname="Debug" build="False" />
+      <Entry name="OGen_winforms" configurationname="Debug" build="False" />
+      <Entry name="NTier-console" configurationname="Debug" build="False" />
+      <Entry name="NTier" configurationname="Debug" build="False" />
+      <Entry name="NTier_metadata" configurationname="Debug" build="False" />
+      <Entry name="NTier_templates" configurationname="Debug" build="False" />
+      <Entry name="NTier_metadata_UTs" configurationname="Debug" build="False" />
+      <Entry name="NTier_businesslayer_UTs" configurationname="Debug" build="False" />
+      <Entry name="NTier_datalayer_UTs" configurationname="Debug" build="False" />
+    </Configuration>
+    <Configuration name="Debug">
+      <Entry name="OGen_config" configurationname="Debug" build="False" />
+      <Entry name="OGen_datalayer" configurationname="Debug" build="False" />
+      <Entry name="OGen_generator" configurationname="Debug" build="False" />
+      <Entry name="OGen_templates" configurationname="Debug" build="False" />
+      <Entry name="OGen_collections" configurationname="Debug" build="False" />
+      <Entry name="OGen_webforms" configurationname="Debug" build="False" />
+      <Entry name="OGen_parser" configurationname="Debug" build="False" />
+      <Entry name="NTier_generator" configurationname="Debug" build="False" />
+      <Entry name="NTier_datalayer" configurationname="Debug" build="False" />
+      <Entry name="NTier_businesslayer" configurationname="Debug" build="False" />
+      <Entry name="OGen_winforms" configurationname="Debug" build="False" />
+      <Entry name="NTier-console" configurationname="Debug" build="False" />
+      <Entry name="NTier" configurationname="Debug" build="False" />
+      <Entry name="NTier_metadata" configurationname="Debug" build="False" />
+      <Entry name="NTier_templates" configurationname="Debug" build="False" />
+      <Entry name="NTier_metadata_UTs" configurationname="Debug" build="False" />
+      <Entry name="NTier_businesslayer_UTs" configurationname="Debug" build="False" />
+      <Entry name="NTier_datalayer_UTs" configurationname="Debug" build="False" />
+    </Configuration>
+  </Configurations>
+</Combine>

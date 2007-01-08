@@ -1,0 +1,16 @@
+<Combine fileversion="1.0" name="NTier_datalayer" description="">
+  <StartMode startupentry="NTier_datalayer" single="True">
+    <Execute entry="NTier_datalayer" type="None" />
+  </StartMode>
+  <Entries>
+    <Entry filename=".\NTier_datalayer.prjx" />
+  </Entries>
+  <Configurations active="Debug">
+    <Configuration name="Release">
+      <Entry name="NTier_datalayer" configurationname="Debug" build="False" />
+    </Configuration>
+    <Configuration name="Debug">
+      <Entry name="NTier_datalayer" configurationname="Debug" build="False" />
+    </Configuration>
+  </Configurations>
+</Combine>

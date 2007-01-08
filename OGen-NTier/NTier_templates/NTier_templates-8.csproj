@@ -1,0 +1,362 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D5FDB433-994F-404C-B535-FB90B005B6B8}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>OGen.NTier.lib.templates</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>OGen.NTier.lib.templates</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Npgsql, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL" />
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\..\OGen\OGen_collections\OGen_collections-8.csproj">
+      <Name>OGen_collections</Name>
+      <Project>{A6E837F8-780F-4D05-B3ED-2FF1906B5766}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_config\OGen_config-8.csproj">
+      <Name>OGen_config</Name>
+      <Project>{F59063BE-4135-4A4F-ACBD-5129AB83A4EC}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_datalayer\OGen_datalayer-8.csproj">
+      <Name>OGen_datalayer</Name>
+      <Project>{4AE20414-478E-4859-849E-929741A5936C}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_parser\OGen_parser-8.csproj">
+      <Project>{981BC7DE-D93C-446E-861E-60A20E4E3391}</Project>
+      <Name>OGen_parser</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_webforms\OGen_webforms-8.csproj">
+      <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
+      <Name>OGen_webforms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NTier_businesslayer\NTier_businesslayer-8.csproj">
+      <Name>NTier_businesslayer</Name>
+      <Project>{8AEBEA64-6FC4-430C-922C-B88D105AE91C}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\NTier_datalayer\NTier_datalayer-8.csproj">
+      <Name>NTier_datalayer</Name>
+      <Project>{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\NTier_metadata\NTier_metadata-8.csproj">
+      <Name>NTier_metadata</Name>
+      <Project>{0E77A4DB-AF8B-4290-BB33-F9EC97655433}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app0.config.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="BO-BO0_SomeTable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="BO-BO_SomeTable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="BO-SomeApplication_businesslayer-7.1.csproj.aspx" />
+    <Content Include="BO-SomeApplication_businesslayer-8.csproj.aspx" />
+    <Content Include="BO-SomeApplication_businesslayer.cmbx.aspx" />
+    <Content Include="BO-SomeApplication_businesslayer.prjx.aspx" />
+    <Content Include="BO-UT-SomeApplication_businesslayer_UTs-7.1.csproj.aspx" />
+    <Content Include="BO-UT-SomeApplication_businesslayer_UTs-8.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="BO-UT-SomeApplication_businesslayer_UTs.cmbx.aspx" />
+    <Content Include="BO-UT-SomeApplication_businesslayer_UTs.prjx.aspx" />
+    <Content Include="BO-UT-SomeNamespace.lib.businesslayer.UTs.nunit.aspx" />
+    <Content Include="BO-UT-UT0_SomeTable.cs.aspx" />
+    <Content Include="BO-UT-UT_app.config.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="BO-UT-UT_SomeTable.cs.aspx" />
+    <Content Include="DO-DB-OGen_sp0__getTableFields-SQLServer.sql" />
+    <Content Include="DO-DB-OGen_sp0__getTables-SQLServer.sql" />
+    <Content Include="DO-DB-OGen_fnc0__Split-SQLServer.sql" />
+    <Content Include="DO-SC0_SomeTable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-SO0_SomeTable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-UT-UT0__utils.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-fnc0_SomeTable_isObject-MySQL.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable_isObject-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable_isObject-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-MySQL.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-MySQL.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-sp0_SomeTable_delObject-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_delObject-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_delObject-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-sp0_SomeTable_getObject-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_getObject-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_getObject-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-sp0_SomeTable_insObject-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_insObject-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-sp0_SomeTable_insObject-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-sp0_SomeTable_setObject-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_setObject-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_setObject-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-sp0_SomeTable_updObject-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_updObject-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_updObject-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-sp0_SomeTable_updObject_SomeUpdate-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_updObject_SomeUpdate-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_updObject_SomeUpdate-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DO0_SomeTable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DO0__utils.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DO_SomeTable.cs.aspx" />
+    <Content Include="DO-DO__utils.cs.aspx" />
+    <Content Include="DO-RO0_SomeTable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-SomeApplication_datalayer-8.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-SomeApplication_datalayer.cmbx.aspx" />
+    <Content Include="DO-SomeApplication_datalayer-7.1.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-SomeApplication_datalayer.prjx.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-UT-SomeApplication_datalayer_UTs-8.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-UT-SomeApplication_datalayer_UTs.cmbx.aspx" />
+    <Content Include="DO-UT-SomeApplication_datalayer_UTs-7.1.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-UT-SomeApplication_datalayer_UTs.prjx.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-UT-SomeNamespace.lib.datalayer.UTs.nunit.aspx" />
+    <Content Include="DO-UT-UT0_SomeTable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-UT-UT_app.config.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-UT-UT_SomeTable.cs.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="LICENSE.GPL.txt" />
+    <Content Include="LICENSE.txt" />
+    <Content Include="SomeApplication-8.sln.aspx" />
+    <Content Include="SomeApplication.cmbx.aspx" />
+    <Content Include="SomeApplication.ndoc.aspx" />
+    <Content Include="SomeApplication-7.1.sln.aspx" />
+    <Content Include="SomeApplication_AssemblyInfo.cs.txt" />
+    <Content Include="SomeApplication_test-8.csproj.aspx" />
+    <Content Include="SomeApplication_test.cmbx.aspx" />
+    <Content Include="SomeApplication_test-7.1.csproj.aspx" />
+    <Content Include="SomeApplication_test.prjx.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="SomeApplication_test_MainClass.cs.aspx" />
+    <Content Include="templates.config.xml" />
+    <Content Include="Web.config" />
+    <Content Include="__XSLT-TEST.txt.xslt" />
+    <Compile Include="AssemblyInfo-VisualStudio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="COPYING" />
+    <EmbeddedResource Include="Global.asax.resx">
+      <DependentUpon>Global.asax.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
