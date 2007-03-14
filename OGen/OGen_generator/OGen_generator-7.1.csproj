@@ -136,7 +136,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "COPYING"
+                    RelPath = "COPYING.MIT"
                     BuildAction = "None"
                 />
                 <File
@@ -150,7 +150,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "LICENSE.GPL.txt"
+                    RelPath = "LICENSE.MIT.txt"
                     BuildAction = "Content"
                 />
                 <File

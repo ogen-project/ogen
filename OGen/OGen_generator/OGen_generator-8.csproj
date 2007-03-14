@@ -124,8 +124,8 @@
     </Compile>
     <Compile Include="DBConnectionstring.cs" />
     <Compile Include="DBConnectionstrings.cs" />
-    <None Include="COPYING" />
-    <Content Include="LICENSE.GPL.txt" />
+    <None Include="COPYING.MIT" />
+    <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

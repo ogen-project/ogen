@@ -101,7 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="COPYING" />
+    <None Include="COPYING.MIT" />
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -109,7 +109,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="UT_utils.cs" />
-    <Content Include="LICENSE.GPL.txt" />
+    <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

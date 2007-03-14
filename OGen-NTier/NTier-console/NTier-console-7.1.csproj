@@ -159,11 +159,11 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "COPYING"
+                    RelPath = "COPYING.MIT"
                     BuildAction = "None"
                 />
                 <File
-                    RelPath = "LICENSE.GPL.txt"
+                    RelPath = "LICENSE.MIT.txt"
                     BuildAction = "Content"
                 />
                 <File

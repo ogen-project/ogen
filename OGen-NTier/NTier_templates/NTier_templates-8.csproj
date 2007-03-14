@@ -323,7 +323,7 @@
     </Content>
     <Content Include="DO-UT-UT_SomeTable.cs.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="LICENSE.GPL.txt" />
+    <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
     <Content Include="SomeApplication-8.sln.aspx" />
     <Content Include="SomeApplication.cmbx.aspx" />
@@ -347,7 +347,7 @@
       <DependentUpon>Global.asax</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <None Include="COPYING" />
+    <None Include="COPYING.MIT" />
     <EmbeddedResource Include="Global.asax.resx">
       <DependentUpon>Global.asax.cs</DependentUpon>
     </EmbeddedResource>

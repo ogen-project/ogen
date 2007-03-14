@@ -127,10 +127,10 @@
     <Compile Include="utils.cs">
       <SubType>Code</SubType>
     </Compile>
-    <None Include="COPYING" />
+    <None Include="COPYING.MIT" />
     <Content Include="ClaSS_noR\ReadMe.txt" />
     <Content Include="ClaSS_R\ReadMe.txt" />
-    <Content Include="LICENSE.GPL.txt" />
+    <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

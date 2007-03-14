@@ -205,7 +205,7 @@
                     BuildAction = "Content"
                 />
                 <File
-                    RelPath = "COPYING"
+                    RelPath = "COPYING.MIT"
                     BuildAction = "None"
                 />
                 <File
@@ -556,7 +556,7 @@
                     BuildAction = "EmbeddedResource"
                 />
                 <File
-                    RelPath = "LICENSE.GPL.txt"
+                    RelPath = "LICENSE.MIT.txt"
                     BuildAction = "Content"
                 />
                 <File

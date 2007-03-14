@@ -147,9 +147,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="COPYING" />
+    <None Include="COPYING.MIT" />
     <Content Include="App.ico" />
-    <Content Include="LICENSE.GPL.txt" />
+    <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>

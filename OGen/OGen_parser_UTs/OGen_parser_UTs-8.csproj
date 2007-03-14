@@ -107,7 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="COPYING" />
+    <None Include="COPYING.MIT" />
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -117,7 +117,7 @@
     <Compile Include="UT_ParserXSLT\UT_ParserXSLT.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Content Include="LICENSE.GPL.txt" />
+    <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
     <Content Include="UT_ParserASPX\resources\metadata.xml" />
     <Content Include="UT_ParserASPX\resources\template.aspx">

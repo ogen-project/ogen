@@ -114,8 +114,8 @@
     <Compile Include="Flowforms\frmProcessOutput.cs">
       <SubType>Form</SubType>
     </Compile>
-    <None Include="COPYING" />
-    <Content Include="LICENSE.GPL.txt" />
+    <None Include="COPYING.MIT" />
+    <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
     <EmbeddedResource Include="Flowforms\frmProcessOutput.resx">
       <DependentUpon>frmProcessOutput.cs</DependentUpon>
