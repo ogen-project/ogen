@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://ogen.berlios.de" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:simpleType name="someEnum">
+    <xsd:restriction base="xs:string">
+      <xsd:enumeration value="someenum1" />
+      <xsd:enumeration value="someenum2" />
+      <xsd:enumeration value="someenum3" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="someType1">
+    <xsd:attribute name="someAttrib1" type="xs:string" />
+  </xsd:complexType>
+  <xsd:complexType name="someType2">
+    <xsd:attribute name="someAttrib2" type="xs:string" />
+    <xsd:attribute name="someAttrib3" type="xs:string" />
+    <xsd:sequence>
+      <xsd:element name="someCollection" type="someType1" maxOccurs="unbounded" />
+      <xsd:element name="someItem" type="someType1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="someTest" type="someType2" />
+</xsd:schema>

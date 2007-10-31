@@ -1,0 +1,323 @@
+<?xml version="1.0"?>
+<!--
+
+OGen
+Copyright (c) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->
+<xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://ogen.berlios.de"
+	xmlns="http://ogen.berlios.de"
+	elementFormDefault="qualified">
+
+	<!--
+		<dbs>
+			<db dbServerType="PostgreSQL">
+				<dbConnections>
+					<dbConnection configMode="DEBUG" isDefault="True" generateSQL="True" isIndexed_andReadOnly="False" 
+						connectionstring="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;" />
+
+					<dbConnection configMode="!DEBUG" isDefault="True" generateSQL="False" isIndexed_andReadOnly="False" 
+						connectionstring="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;" />
+				</dbConnections>
+			</db>
+
+			<db ... />
+		</dbs>
+		<tables>
+			<table name="Config" friendlyName="" extendedDescription="" 
+				isConfig="True" configName="Name" configConfig="Config" configDatatype="DataType">
+				<tableFields>
+					<tableField name="Name" 
+						defaultValue="" 
+						friendlyName="" extendedDescription="" 
+						isListItemValue="False" isListItemText="False" />
+		
+					<tableField ... />
+				</tableFields>
+				<tableSearches>
+					<tableSearch ... >
+						<tableSearchParameters>
+							<tableFieldRef tableName="User" tableFieldName="Login" paramName="Login" />
+							<tableFieldRef tableName="User" tableFieldName="Password" paramName="Password" />
+				
+							<tableFieldRef ... />
+						</tableSearchParameters>
+						<tableSearchUpdates>
+							<tableSearchUpdate ... >
+								<tableSearchUpdateParameters>
+									<tableFieldRef tableName="User" tableFieldName="Login" paramName="Login" />
+									<tableFieldRef tableName="User" tableFieldName="Password" paramName="Password" />
+						
+									<tableFieldRef ... />
+								</tableSearchUpdateParameters>
+							</tableSearchUpdate>
+						</tableSearchUpdates>
+					</tableSearche>
+					
+					<tableSearch ... />
+				</tableSearches>
+				<tableUpdates>
+					<tableUpdate name="SomeUpdateTest">
+						<tableUpdateParameters>
+							<tableFieldRef tableName="User" tableFieldName="Login" paramName="Login" />
+							<tableFieldRef tableName="User" tableFieldName="Password" paramName="Password" />
+						</tableUpdateParameters>
+					</tableUpdate>
+		
+					<tableUpdate ... />
+				</tableUpdates>
+			</table>
+
+			<table ... />
+		</tables>
+	-->
+
+	<xs:simpleType name="sqlScriptOptionEnumeration">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="OneScriptFile" />
+			<xs:enumeration value="SeparateScriptFiles" />
+			<xs:enumeration value="RunImmediately" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!--
+		<dbConnection configMode="DEBUG" isDefault="True" generateSQL="True" isIndexed_andReadOnly="False" connectionstring="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;" />
+		<dbConnection configMode="!DEBUG" isDefault="True" generateSQL="False" isIndexed_andReadOnly="False" connectionstring="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;" />
+	-->
+	<xs:complexType name="dbConnectionType">
+		<xs:attribute name="configMode" type="xs:string" />
+		<xs:attribute name="isDefault" type="xs:boolean" />
+		<xs:attribute name="generateSQL" type="xs:boolean" />
+		<xs:attribute name="isIndexed_andReadOnly" type="xs:boolean" />
+		<xs:attribute name="connectionstring" type="xs:string" />
+	</xs:complexType>
+	<!--
+		<dbConnections>
+			<dbConnection ... />
+			<dbConnection ... />
+		</dbConnections>
+	-->
+	<xs:complexType name="dbConnectionsType">
+		<xs:sequence>
+			<xs:element name="dbConnection" type="dbConnectionType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--
+		<db dbServerType="PostgreSQL">
+			<dbConnections ... />
+		</db>
+	-->
+	<xs:complexType name="dbType">
+		<xs:attribute name="dbServerType" type="xs:string" />
+		<xs:sequence>
+			<xs:element name="dbConnections" type="dbConnectionsType" />
+		</xs:sequence>
+	</xs:complexType>
+	<!--
+		<dbs>
+			<db ... />
+			<db ... />
+		</dbs>
+	-->
+	<xs:complexType name="dbsType">
+		<xs:sequence>
+			<xs:element name="db" type="dbType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--
+		<tableField name="Name" isPK="True" isIdentity="False" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" fkTableName="" fkFieldName="" isNullable="False" size="50" numericPrecision="0" numericScale="0" />
+	-->
+	<xs:complexType name="tableFieldType">
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="defaultValue" type="xs:string" />
+		<xs:attribute name="friendlyName" type="xs:string" />
+		<xs:attribute name="extendedDescription" type="xs:string" />
+		<xs:attribute name="isListItemValue" type="xs:boolean" />
+		<xs:attribute name="isListItemText" type="xs:boolean" />
+	</xs:complexType>
+	<!--
+		<tableFields>
+			<tableField ... />
+			<tableField ... />
+		</tableFields>
+	-->
+	<xs:complexType name="tableFieldsType">
+		<xs:sequence>
+			<xs:element name="tableField" type="tableFieldType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--
+		<tableFieldRef tableName="User" tableFieldName="Login" paramName="Login" />
+		<tableFieldRef tableName="User" tableFieldName="Password" paramName="Password" />
+	-->
+	<xs:complexType name="tableFieldRefType">
+		<xs:attribute name="tableName" type="xs:string" />
+		<xs:attribute name="tableFieldName" type="xs:string" />
+		<xs:attribute name="paramName" type="xs:string" />
+	</xs:complexType>
+
+	<!--
+		<tableUpdateParameters>
+			<tableFieldRef ... />
+			<tableFieldRef ... />
+		</tableUpdateParameters>
+	-->
+	<xs:complexType name="tableUpdateParametersType">
+		<xs:sequence>
+			<xs:element name="tableFieldRef" type="tableFieldRefType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--
+		<tableUpdate name="SomeUpdateTest">
+			<tableUpdateParameters />
+		</tableUpdate>
+	-->
+	<xs:complexType name="tableUpdateType">
+		<xs:attribute name="name" type="xs:string" />
+		<xs:sequence>
+			<xs:element name="tableUpdateParameters" type="tableUpdateParametersType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--
+		<tableUpdates>
+			<tableUpdate ... />
+			<tableUpdate ... />
+		</tableUpdates>
+	-->
+	<xs:complexType name="tableUpdatesType">
+		<xs:sequence>
+			<xs:element name="tableUpdate" type="tableUpdateType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--
+	tableSearches
+		[]tableSearch
+			tableSearchParameters
+				[]tableFieldRef
+			tableSearchUpdates
+				[]tableSearchUpdate
+					tableSearchUpdateParameters
+						[]tableFieldRef
+	-->
+	<xs:complexType name="tableSearchParametersType">
+		<xs:sequence>
+			<xs:element name="tableFieldRef" type="tableFieldRefType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="tableSearchUpdateParametersType">
+		<xs:sequence>
+			<xs:element name="tableFieldRef" type="tableFieldRefType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tableSearchUpdateType">
+		<xs:attribute name="name" type="xs:string" />
+		<xs:sequence>
+			<xs:element name="tableUpdateParameters" type="tableSearchUpdateParametersType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tableSearchUpdatesType">
+		<xs:sequence>
+			<xs:element name="tableSearchUpdate" type="tableSearchUpdateType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="tableSearchType">
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="isRange" type="xs:boolean" />
+		<xs:attribute name="isExplicitUniqueIndex" type="xs:boolean" />
+		<xs:sequence>
+			<xs:element name="tableSearchParameters" type="tableSearchParametersType" maxOccurs="unbounded" />
+			<xs:element name="tableSearchUpdates" type="tableSearchUpdatesType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tableSearchesType">
+		<xs:sequence>
+			<xs:element name="tableSearch" type="tableSearchType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--
+		<table name="Config" friendlyName="" dbDescription="" extendedDescription="" isVirtualTable="False" 
+			isConfig="True" configName="Name" configConfig="Config" configDatatype="DataType">
+			<tableFields ... />
+			<tableSearches ... />
+			<tableUpdates ... />
+		</table>
+	-->
+	<xs:complexType name="tableType">
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="friendlyName" type="xs:string" />
+		<xs:attribute name="dbDescription" type="xs:string" />
+		<xs:attribute name="extendedDescription" type="xs:string" />
+		<xs:attribute name="isVirtualTable" type="xs:boolean" />
+		<xs:attribute name="isConfig" type="xs:boolean" />
+		<xs:attribute name="configName" type="xs:string" />
+		<xs:attribute name="configConfig" type="xs:string" />
+		<xs:attribute name="configDatatype" type="xs:string" />
+		<xs:sequence>
+			<xs:element name="tableFields" type="tableFieldsType" maxOccurs="unbounded" />
+			<xs:element name="tableSearches" type="tableSearchesType" maxOccurs="unbounded" />
+			<xs:element name="tableUpdates" type="tableUpdatesType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--
+		<tables>
+			<table ... />
+			<table ... />
+		</tables>
+	-->
+	<xs:complexType name="tablesType">
+		<xs:sequence>
+			<xs:element name="table" type="tableType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="metadataExtendedType">
+		<xs:attribute name="applicationName" type="xs:string" />
+		<xs:attribute name="applicationNamespace" type="xs:string" />
+		<xs:attribute name="subAppName" type="xs:string" />
+		<xs:attribute name="pseudoReflectionable" type="xs:string" />
+		<xs:attribute name="sqlScriptOption" type="sqlScriptOptionEnumeration" />
+		<xs:attribute name="guidDatalayer" type="xs:string" />
+		<xs:attribute name="guidDatalayer_UTs" type="xs:string" />
+		<xs:attribute name="guidBusinesslayer" type="xs:string" />
+		<xs:attribute name="guidBusinesslayer_UTs" type="xs:string" />
+		<xs:attribute name="guidTest" type="xs:string" />
+		<xs:attribute name="feedbackEmailAddress" type="xs:string" />
+		<xs:attribute name="copyrightText" type="xs:string" />
+
+		<xs:sequence>
+			<xs:element name="copyrightTextLong" type="xs:string" />
+			<!--
+			<xs:element name="copyrightTextLong" type="copyrightTextLongType" />
+			-->
+			<xs:element name="dbs" type="dbsType" />
+			<xs:element name="tables" type="tablesType" />
+		</xs:sequence>
+	</xs:complexType>
+	<!--
+	<xs:complexType name="copyrightTextLongType" mixed="true">>
+		<xs:sequence>
+			<xs:element name="bold" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	-->
+
+	<xs:element name="metadataExtended" type="metadataExtendedType" />
+</xs:schema>
