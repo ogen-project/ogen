@@ -146,103 +146,57 @@
     <Compile Include="documentation\_base\XS0_authorsType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="documentation\_base\XS0_authorsTypeCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="documentation\_base\XS0_authorType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\_base\XS0_authorTypeCollection.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="documentation\_base\XS0_codeSamplesType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="documentation\_base\XS0_codeSamplesTypeCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="documentation\_base\XS0_codeSampleType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\_base\XS0_codeSampleTypeCollection.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="documentation\_base\XS0_configsType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="documentation\_base\XS0_configsTypeCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="documentation\_base\XS0_configType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\_base\XS0_configTypeCollection.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="documentation\_base\XS0_documentationType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="documentation\_base\XS0_documentationTypeCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="documentation\_base\XS0_documentsType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\_base\XS0_documentsTypeCollection.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="documentation\_base\XS0_documentType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="documentation\_base\XS0_documentTypeCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="documentation\_base\XS0_faqSubjectsType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\_base\XS0_faqSubjectsTypeCollection.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="documentation\_base\XS0_faqSubjectType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="documentation\_base\XS0_faqSubjectTypeCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="documentation\_base\XS0_faqType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\_base\XS0_faqTypeCollection.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="documentation\_base\XS0_linksType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="documentation\_base\XS0_linksTypeCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="documentation\_base\XS0_linkType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\_base\XS0_linkTypeCollection.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="documentation\_base\XS0_subjectsType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="documentation\_base\XS0_subjectsTypeCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="documentation\_base\XS0_subjectType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\_base\XS0_subjectTypeCollection.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="documentation\_base\XS0__documentation.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="documentation\_base\XS0__documentationCollection.cs" />
+    <Compile Include="documentation\_base\XS0__documentationCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="utils.cs">
       <SubType>Code</SubType>
     </Compile>

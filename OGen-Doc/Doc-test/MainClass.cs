@@ -24,17 +24,45 @@ using OGen.Doc.lib.metadata.documentation;
 
 namespace Doc_test {
 	public class MainClass {
-		#region //test2
-//		static void Iteration_found(string message_in) {
-//			Console.WriteLine(
-//				"iterating: {0} . . .",
-//				message_in
-//			);
-//		}
-		#endregion
+		//#region //test2
+		static void Iteration_found(string message_in) {
+			Console.WriteLine(
+				"iterating: {0} . . .",
+				message_in
+			);
+		}
+		//#endregion
 
 		[STAThread]
 		static void Main(string[] args) {
+			XS__RootMetadata _rootmetadata = XS__RootMetadata.Load_fromFile(
+				System.IO.Path.Combine(
+					#if !NET_1_1
+					System.Configuration.ConfigurationManager.AppSettings
+					#else
+					System.Configuration.ConfigurationSettings.AppSettings
+					#endif
+						["ogenPath"],
+
+					@"..\..\OGen-NTier\OGen-NTier-Doc\OGenDoc-metadatas\MD_OGen.OGenDoc-metadata.xml"
+				), 
+				false
+			);
+			Console.WriteLine(_rootmetadata.Read_fromRoot(
+				//"ROOT.documentation[0].subjects.subject.Count"
+				//"ROOT.documentation[0].documentationName"
+				//"ROOT.documentation[0].subjects.subject[0].description"
+				//"ROOT.documentation[0].subjects.subject[2].idSubject"
+				//"ROOT.documentation[0].subjects.subject[18].documents.document[2].idDocument"
+				"ROOT.documentation[0].subjects.subject[19].documents.document[1].document"
+
+			));
+			_rootmetadata.IterateThrough_fromRoot(
+				"ROOT.documentation[n].faqSubjects.faqSubject[n]", 
+				//"ROOT.documentation[n].subjects.subject[n]", 
+				Iteration_found
+			);
+
 
 //			#region test3 - translate bug...
 //Console.WriteLine(OGen.Doc.lib.metadata.utils.translate(
