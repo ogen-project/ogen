@@ -61,8 +61,8 @@ namespace OGen.NTier.presentationlayer.winforms {
 					Base_ref.Refresh();
 					//---
 					//output.DisplayMessage("generating...", true);
-					frm_Main.NTierProject.Metadata.SQLScriptOption = MyForm.SQLscriptOptions;
-					frm_Main.NTierProject.Metadata.PseudoReflectionable = MyForm.pReflection;
+					frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].SQLScriptOption = MyForm.SQLscriptOptions;
+//					frm_Main.NTierProject.Metadata.PseudoReflectionable = MyForm.pReflection;
 					frm_Main.NTierProject.Build(
 						new OGen.lib.generator.cGenerator.dBuild(
 							output.DisplayMessage
@@ -97,7 +97,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 		//#endregion
 		//#region public Methods...
 		public override void Show() {
-			MyForm.pReflection = frm_Main.ntierproject.Metadata.PseudoReflectionable;
+//			MyForm.pReflection = frm_Main.ntierproject.Metadata.PseudoReflectionable;
 			if (frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.hasVirtualTable_withUndefinedKeys()) {
 				switch (System.Windows.Forms.MessageBox.Show(
 					"View's PK must be defined, prior to Generate", 

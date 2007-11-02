@@ -65,8 +65,8 @@ namespace OGen.NTier.lib.generator {
 			string applicationPath_in, 
 			string applicationName_in, 
 			string namespace_in, 
-			OGen.NTier.lib.metadata.metadataExtended.XS_dbType[] dbs_in, 
-			cDBMetadata.dLoadState_fromDB notifyBack_in
+			OGen.NTier.lib.metadata.metadataExtended.XS_dbType[] dbs_in,
+			dNotifyBack notifyBack_in
 		) {
 throw new Exception("// ToDos: not implemented!");
 			//int _justadded;

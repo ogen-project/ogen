@@ -179,21 +179,21 @@ namespace OGen.NTier.presentationlayer.winforms {
 						#region Creating...
 						MyForm.Hide();
 
-						frmProcessOutput output = new frmProcessOutput("Output");
-						output.MdiParent = Base_ref;
-						output.Show();
+						frmProcessOutput _output = new frmProcessOutput("Output");
+						_output.MdiParent = Base_ref;
+						_output.Show();
 
 						frm_Main.ntierproject.New(
 							MyForm.ApplicationPath, 
 							MyForm.ApplicationName, 
 							MyForm.Namespace, 
 							_dbs, 
-							new OGen.NTier.lib.metadata.cDBMetadata.dLoadState_fromDB(
-								output.DisplayMessage
+							new OGen.NTier.lib.generator.cFGenerator.dNotifyBack(
+								_output.DisplayMessage
 							)
 						);
 
-						output.DisplayMessage();
+						_output.DisplayMessage();
 						#endregion
 					}
 					Base_ref.Form_Refresh();

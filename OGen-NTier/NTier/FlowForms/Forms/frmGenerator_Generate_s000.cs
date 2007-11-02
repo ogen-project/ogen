@@ -161,16 +161,16 @@ namespace OGen.NTier.presentationlayer.winforms {
 		private cFlowformForm FlowformForm;
 		#endregion
 		//#region public Properties...
-		public OGen.NTier.lib.metadata.cDBMetadata.eSQLScriptOptions SQLscriptOptions {
+		public OGen.NTier.lib.metadata.metadataExtended.XS_SQLScriptOptionEnumeration SQLscriptOptions {
 			get {
 				if (rbtOneScriptFile.Checked)
-					return OGen.NTier.lib.metadata.cDBMetadata.eSQLScriptOptions.OneScriptFile;
+					return OGen.NTier.lib.metadata.metadataExtended.XS_SQLScriptOptionEnumeration.OneScriptFile;
 				if (rbtSeparateScriptFiles.Checked)
-					return OGen.NTier.lib.metadata.cDBMetadata.eSQLScriptOptions.SeparateScriptFiles;
+					return OGen.NTier.lib.metadata.metadataExtended.XS_SQLScriptOptionEnumeration.SeparateScriptFiles;
 
 				// make it default:
 				//if (rbtRunImmediately.Checked)
-					return OGen.NTier.lib.metadata.cDBMetadata.eSQLScriptOptions.RunImmediately;
+					return OGen.NTier.lib.metadata.metadataExtended.XS_SQLScriptOptionEnumeration.RunImmediately;
 			}
 		}
 		public bool pReflection {
