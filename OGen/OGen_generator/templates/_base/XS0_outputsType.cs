@@ -60,5 +60,22 @@ namespace OGen.lib.templates {
 			get { return outputcollection_; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_outputsType outputsType_in) {
+			int _index = -1;
+
+			outputcollection_.Clear();
+			for (int d = 0; d < outputsType_in.outputcollection_.Count; d++) {
+				outputcollection_.Add(
+					out _index,
+					new XS_outputType()
+				);
+				outputcollection_[_index].CopyFrom(
+					outputsType_in.outputcollection_[d]
+				);
+			}
+		}
+		#endregion
 	}
 }

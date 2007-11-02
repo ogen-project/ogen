@@ -249,7 +249,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 		#endregion
 		#region private void btnNext_Click(...);
 		private void btnNext_Click(object sender, System.EventArgs e) {
-			int _index = -1;
+			int _parameter_index = -1;
 			//string[] _fieldparam;
 			int t = frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection.Search(txtTableName.Text);
 			int s = frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[t].TableSearches.TableSearchCollection.Search(txtSearchName.Text);
@@ -278,31 +278,33 @@ namespace OGen.NTier.presentationlayer.winforms {
 						s
 					].TableSearchUpdates.TableSearchUpdateCollection[
 						u
-].TableUpdateParametersCollection.Add(
-	true, 
-	new OGen.NTier.lib.metadata.metadataExtended.XS_tableSearchUpdateParametersType()
-);
+					].TableUpdateParameters.TableFieldRefCollection.Add(
+						out _parameter_index, 
+						true, 
+						new OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldRefType(
+							lbxFields.Items[f].ToString()
+						)
+					);
 
-frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[
-	t
-].TableSearches.TableSearchCollection[
-	s
-].TableSearchUpdates.TableSearchUpdateCollection[
-	u
-].TableUpdateParametersCollection[
-	_index
-].TableName = txtTableName.Text;
+					frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[
+						t
+					].TableSearches.TableSearchCollection[
+						s
+					].TableSearchUpdates.TableSearchUpdateCollection[
+						u
+					].TableUpdateParameters.TableFieldRefCollection[
+						_parameter_index
+					].TableName = txtTableName.Text;
 
-frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[
-	t
-].TableSearches.TableSearchCollection[
-	s
-].TableSearchUpdates.TableSearchUpdateCollection[
-	u
-].TableUpdateParametersCollection[
-	_index
-].TableFieldName = lbxFields.Items[f].ToString();
-
+					frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[
+						t
+					].TableSearches.TableSearchCollection[
+						s
+					].TableSearchUpdates.TableSearchUpdateCollection[
+						u
+					].TableUpdateParameters.TableFieldRefCollection[
+						_parameter_index
+					].TableFieldName = lbxFields.Items[f].ToString();
 				}
 				frm_Main.NTierProject.hasChanges = true;
 

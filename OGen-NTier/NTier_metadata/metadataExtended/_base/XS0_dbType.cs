@@ -104,5 +104,14 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			set { dbconnections__ = value; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_dbType dbType_in) {
+			int _index = -1;
+
+			dbservertype_ = dbType_in.dbservertype_;
+			if (dbType_in.dbconnections__ != null) dbconnections__.CopyFrom(dbType_in.dbconnections__);
+		}
+		#endregion
 	}
 }

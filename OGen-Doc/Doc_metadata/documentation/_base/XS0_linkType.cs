@@ -119,5 +119,16 @@ namespace OGen.Doc.lib.metadata.documentation {
 			}
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_linkType linkType_in) {
+			int _index = -1;
+
+			idlink_ = linkType_in.idlink_;
+			name_ = linkType_in.name_;
+			description_ = linkType_in.description_;
+			url_ = linkType_in.url_;
+		}
+		#endregion
 	}
 }

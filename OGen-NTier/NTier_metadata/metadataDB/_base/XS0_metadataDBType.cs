@@ -87,5 +87,14 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			set { tables__ = value; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_metadataDBType metadataDBType_in) {
+			int _index = -1;
+
+			applicationname_ = metadataDBType_in.applicationname_;
+			if (metadataDBType_in.tables__ != null) tables__.CopyFrom(metadataDBType_in.tables__);
+		}
+		#endregion
 	}
 }

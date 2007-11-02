@@ -155,5 +155,26 @@ namespace OGen.Doc.lib.metadata.documentation {
 			get { return faqcollection_; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_faqSubjectType faqSubjectType_in) {
+			int _index = -1;
+
+			idfaqsubject_ = faqSubjectType_in.idfaqsubject_;
+			idfaqsubject_parent_ = faqSubjectType_in.idfaqsubject_parent_;
+			name_ = faqSubjectType_in.name_;
+			description_ = faqSubjectType_in.description_;
+			faqcollection_.Clear();
+			for (int d = 0; d < faqSubjectType_in.faqcollection_.Count; d++) {
+				faqcollection_.Add(
+					out _index,
+					new XS_faqType()
+				);
+				faqcollection_[_index].CopyFrom(
+					faqSubjectType_in.faqcollection_[d]
+				);
+			}
+		}
+		#endregion
 	}
 }

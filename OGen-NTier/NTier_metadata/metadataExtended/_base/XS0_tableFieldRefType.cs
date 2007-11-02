@@ -106,5 +106,15 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_tableFieldRefType tableFieldRefType_in) {
+			int _index = -1;
+
+			tablename_ = tableFieldRefType_in.tablename_;
+			tablefieldname_ = tableFieldRefType_in.tablefieldname_;
+			paramname_ = tableFieldRefType_in.paramname_;
+		}
+		#endregion
 	}
 }

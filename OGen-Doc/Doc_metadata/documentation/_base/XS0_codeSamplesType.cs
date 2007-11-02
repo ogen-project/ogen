@@ -86,5 +86,22 @@ namespace OGen.Doc.lib.metadata.documentation {
 			get { return codesamplecollection_; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_codeSamplesType codeSamplesType_in) {
+			int _index = -1;
+
+			codesamplecollection_.Clear();
+			for (int d = 0; d < codeSamplesType_in.codesamplecollection_.Count; d++) {
+				codesamplecollection_.Add(
+					out _index,
+					new XS_codeSampleType()
+				);
+				codesamplecollection_[_index].CopyFrom(
+					codeSamplesType_in.codesamplecollection_[d]
+				);
+			}
+		}
+		#endregion
 	}
 }

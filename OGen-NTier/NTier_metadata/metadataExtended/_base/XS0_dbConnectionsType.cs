@@ -86,5 +86,22 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			get { return dbconnectioncollection_; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_dbConnectionsType dbConnectionsType_in) {
+			int _index = -1;
+
+			dbconnectioncollection_.Clear();
+			for (int d = 0; d < dbConnectionsType_in.dbconnectioncollection_.Count; d++) {
+				dbconnectioncollection_.Add(
+					out _index,
+					new XS_dbConnectionType()
+				);
+				dbconnectioncollection_[_index].CopyFrom(
+					dbConnectionsType_in.dbconnectioncollection_[d]
+				);
+			}
+		}
+		#endregion
 	}
 }

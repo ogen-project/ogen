@@ -208,5 +208,22 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			set { tablefielddbs__ = value; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_tableFieldType tableFieldType_in) {
+			int _index = -1;
+
+			name_ = tableFieldType_in.name_;
+			ispk_ = tableFieldType_in.ispk_;
+			isidentity_ = tableFieldType_in.isidentity_;
+			fktablename_ = tableFieldType_in.fktablename_;
+			fkfieldname_ = tableFieldType_in.fkfieldname_;
+			isnullable_ = tableFieldType_in.isnullable_;
+			size_ = tableFieldType_in.size_;
+			numericprecision_ = tableFieldType_in.numericprecision_;
+			numericscale_ = tableFieldType_in.numericscale_;
+			if (tableFieldType_in.tablefielddbs__ != null) tablefielddbs__.CopyFrom(tableFieldType_in.tablefielddbs__);
+		}
+		#endregion
 	}
 }

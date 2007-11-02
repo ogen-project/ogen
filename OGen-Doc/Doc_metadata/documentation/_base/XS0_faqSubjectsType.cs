@@ -86,5 +86,22 @@ namespace OGen.Doc.lib.metadata.documentation {
 			get { return faqsubjectcollection_; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_faqSubjectsType faqSubjectsType_in) {
+			int _index = -1;
+
+			faqsubjectcollection_.Clear();
+			for (int d = 0; d < faqSubjectsType_in.faqsubjectcollection_.Count; d++) {
+				faqsubjectcollection_.Add(
+					out _index,
+					new XS_faqSubjectType()
+				);
+				faqsubjectcollection_[_index].CopyFrom(
+					faqSubjectsType_in.faqsubjectcollection_[d]
+				);
+			}
+		}
+		#endregion
 	}
 }

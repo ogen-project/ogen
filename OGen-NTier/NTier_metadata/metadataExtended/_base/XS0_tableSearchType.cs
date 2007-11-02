@@ -154,5 +154,17 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			set { tablesearchupdates__ = value; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_tableSearchType tableSearchType_in) {
+			int _index = -1;
+
+			name_ = tableSearchType_in.name_;
+			isrange_ = tableSearchType_in.isrange_;
+			isexplicituniqueindex_ = tableSearchType_in.isexplicituniqueindex_;
+			if (tableSearchType_in.tablesearchparameters__ != null) tablesearchparameters__.CopyFrom(tableSearchType_in.tablesearchparameters__);
+			if (tableSearchType_in.tablesearchupdates__ != null) tablesearchupdates__.CopyFrom(tableSearchType_in.tablesearchupdates__);
+		}
+		#endregion
 	}
 }

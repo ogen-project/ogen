@@ -256,5 +256,24 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			set { tableupdates__ = value; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_tableType tableType_in) {
+			int _index = -1;
+
+			name_ = tableType_in.name_;
+			friendlyname_ = tableType_in.friendlyname_;
+			dbdescription_ = tableType_in.dbdescription_;
+			extendeddescription_ = tableType_in.extendeddescription_;
+			isvirtualtable_ = tableType_in.isvirtualtable_;
+			isconfig_ = tableType_in.isconfig_;
+			configname_ = tableType_in.configname_;
+			configconfig_ = tableType_in.configconfig_;
+			configdatatype_ = tableType_in.configdatatype_;
+			if (tableType_in.tablefields__ != null) tablefields__.CopyFrom(tableType_in.tablefields__);
+			if (tableType_in.tablesearches__ != null) tablesearches__.CopyFrom(tableType_in.tablesearches__);
+			if (tableType_in.tableupdates__ != null) tableupdates__.CopyFrom(tableType_in.tableupdates__);
+		}
+		#endregion
 	}
 }

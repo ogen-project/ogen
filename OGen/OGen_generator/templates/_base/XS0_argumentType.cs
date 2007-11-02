@@ -70,5 +70,14 @@ namespace OGen.lib.templates {
 			}
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_argumentType argumentType_in) {
+			int _index = -1;
+
+			name_ = argumentType_in.name_;
+			value_ = argumentType_in.value_;
+		}
+		#endregion
 	}
 }

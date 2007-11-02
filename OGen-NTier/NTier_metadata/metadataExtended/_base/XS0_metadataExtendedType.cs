@@ -263,5 +263,26 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			set { tables__ = value; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_metadataExtendedType metadataExtendedType_in) {
+			int _index = -1;
+
+			applicationname_ = metadataExtendedType_in.applicationname_;
+			applicationnamespace_ = metadataExtendedType_in.applicationnamespace_;
+			subappname_ = metadataExtendedType_in.subappname_;
+			pseudoreflectionable_ = metadataExtendedType_in.pseudoreflectionable_;
+			sqlscriptoption_ = metadataExtendedType_in.sqlscriptoption_;
+			guiddatalayer_ = metadataExtendedType_in.guiddatalayer_;
+			guiddatalayer_uts_ = metadataExtendedType_in.guiddatalayer_uts_;
+			guidbusinesslayer_ = metadataExtendedType_in.guidbusinesslayer_;
+			guidbusinesslayer_uts_ = metadataExtendedType_in.guidbusinesslayer_uts_;
+			guidtest_ = metadataExtendedType_in.guidtest_;
+			feedbackemailaddress_ = metadataExtendedType_in.feedbackemailaddress_;
+			copyrighttext_ = metadataExtendedType_in.copyrighttext_;copyrighttextlong_ = metadataExtendedType_in.copyrighttextlong_;
+			if (metadataExtendedType_in.dbs__ != null) dbs__.CopyFrom(metadataExtendedType_in.dbs__);
+			if (metadataExtendedType_in.tables__ != null) tables__.CopyFrom(metadataExtendedType_in.tables__);
+		}
+		#endregion
 	}
 }

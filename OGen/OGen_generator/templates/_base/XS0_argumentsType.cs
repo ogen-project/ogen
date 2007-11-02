@@ -60,5 +60,22 @@ namespace OGen.lib.templates {
 			get { return argumentcollection_; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_argumentsType argumentsType_in) {
+			int _index = -1;
+
+			argumentcollection_.Clear();
+			for (int d = 0; d < argumentsType_in.argumentcollection_.Count; d++) {
+				argumentcollection_.Add(
+					out _index,
+					new XS_argumentType()
+				);
+				argumentcollection_[_index].CopyFrom(
+					argumentsType_in.argumentcollection_[d]
+				);
+			}
+		}
+		#endregion
 	}
 }

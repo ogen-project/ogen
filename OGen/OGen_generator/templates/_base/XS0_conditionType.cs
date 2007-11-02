@@ -70,5 +70,14 @@ namespace OGen.lib.templates {
 			}
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_conditionType conditionType_in) {
+			int _index = -1;
+
+			eval_ = conditionType_in.eval_;
+			to_ = conditionType_in.to_;
+		}
+		#endregion
 	}
 }

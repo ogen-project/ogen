@@ -49,7 +49,9 @@
     <None Include="LICENSE.MIT.txt" />
     <None Include="LICENSE.txt" />
     <None Include="templates.config.xml" />
-    <None Include="XS-XS0_SomeClassCollection.cs.aspx" />
+    <None Include="XS-XS0_SomeClassCollection.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
     <None Include="XS-XS0_SomeEnumeration.cs.aspx">
     </None>
     <None Include="XS-XS0_SomeClass.cs.aspx">

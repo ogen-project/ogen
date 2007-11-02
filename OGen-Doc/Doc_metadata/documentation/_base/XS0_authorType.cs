@@ -119,5 +119,16 @@ namespace OGen.Doc.lib.metadata.documentation {
 			}
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_authorType authorType_in) {
+			int _index = -1;
+
+			idauthor_ = authorType_in.idauthor_;
+			name_ = authorType_in.name_;
+			copyrighttext_ = authorType_in.copyrighttext_;
+			feedbackemailaddress_ = authorType_in.feedbackemailaddress_;
+		}
+		#endregion
 	}
 }

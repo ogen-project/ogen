@@ -115,5 +115,15 @@ namespace OGen.Doc.lib.metadata.documentation {
 			set { document_ = value; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_documentType documentType_in) {
+			int _index = -1;
+
+			iddocument_ = documentType_in.iddocument_;
+			name_ = documentType_in.name_;
+			description_ = documentType_in.description_;document_ = documentType_in.document_;
+		}
+		#endregion
 	}
 }

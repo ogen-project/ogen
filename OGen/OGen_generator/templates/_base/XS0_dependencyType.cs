@@ -57,5 +57,13 @@ namespace OGen.lib.templates {
 			}
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_dependencyType dependencyType_in) {
+			int _index = -1;
+
+			name_ = dependencyType_in.name_;
+		}
+		#endregion
 	}
 }

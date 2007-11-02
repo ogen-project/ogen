@@ -26,13 +26,6 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 	{
 		public XS0_tableSearchUpdateType (
 		) {
-			tableupdateparameterscollection_ = new 
-#if !NET_1_1
-				OGenRootrefSimpleCollection<XS_tableSearchUpdateParametersType, XS__RootMetadata>()
-#else
-				XS_tableSearchUpdateParametersTypeCollection()
-#endif
-			;
 		}
 		public XS0_tableSearchUpdateType (
 			string name_in
@@ -59,7 +52,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public object parent_ref {
 			set {
 				parent_ref_ = value;
-				tableupdateparameterscollection_.parent_ref = this;
+				if (tableupdateparameters__ != null) tableupdateparameters__.parent_ref = this;
 			}
 			get { return parent_ref_; }
 		}
@@ -71,7 +64,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public XS__RootMetadata root_ref {
 			set {
 				root_ref_ = value;
-				tableupdateparameterscollection_.root_ref = value;
+				if (tableupdateparameters__ != null) tableupdateparameters__.root_ref = value;
 			}
 			get { return root_ref_; }
 		}
@@ -89,31 +82,35 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
-		#region public ... TableUpdateParametersCollection { get; }
-		private 
-#if !NET_1_1
-			OGenRootrefSimpleCollection<XS_tableSearchUpdateParametersType, XS__RootMetadata>
-#else
-			XS_tableSearchUpdateParametersTypeCollection
-#endif
-			tableupdateparameterscollection_;
-
-		[XmlElement("tableUpdateParameters")]
-		public XS_tableSearchUpdateParametersType[] tableupdateparameterscollection__xml {
-			get { return tableupdateparameterscollection_.cols__; }
-			set { tableupdateparameterscollection_.cols__ = value; }
-		}
+		#region public XS_tableSearchUpdateParametersType TableUpdateParameters { get; set; }
+		private XS_tableSearchUpdateParametersType tableupdateparameters__;
 
 		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenRootrefSimpleCollection<XS_tableSearchUpdateParametersType, XS__RootMetadata>
-#else
-			XS_tableSearchUpdateParametersTypeCollection
-#endif
-		TableUpdateParametersCollection
-		{
-			get { return tableupdateparameterscollection_; }
+		public XS_tableSearchUpdateParametersType TableUpdateParameters {
+			get {
+				if (tableupdateparameters__ == null) {
+					tableupdateparameters__ = new XS_tableSearchUpdateParametersType();
+				}
+				return tableupdateparameters__;
+			}
+			set {
+				tableupdateparameters__ = value;
+			}
+		}
+
+		[XmlElement("tableUpdateParameters")]
+		public XS_tableSearchUpdateParametersType tableupdateparameters__xml {
+			get { return tableupdateparameters__; }
+			set { tableupdateparameters__ = value; }
+		}
+		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_tableSearchUpdateType tableSearchUpdateType_in) {
+			int _index = -1;
+
+			name_ = tableSearchUpdateType_in.name_;
+			if (tableSearchUpdateType_in.tableupdateparameters__ != null) tableupdateparameters__.CopyFrom(tableSearchUpdateType_in.tableupdateparameters__);
 		}
 		#endregion
 	}

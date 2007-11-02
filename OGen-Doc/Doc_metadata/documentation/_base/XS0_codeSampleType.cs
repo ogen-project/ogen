@@ -89,5 +89,13 @@ namespace OGen.Doc.lib.metadata.documentation {
 			set { code_ = value; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_codeSampleType codeSampleType_in) {
+			int _index = -1;
+
+			idcodesample_ = codeSampleType_in.idcodesample_;code_ = codeSampleType_in.code_;
+		}
+		#endregion
 	}
 }

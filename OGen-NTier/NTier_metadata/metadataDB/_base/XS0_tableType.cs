@@ -141,5 +141,16 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			set { tablefields__ = value; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_tableType tableType_in) {
+			int _index = -1;
+
+			name_ = tableType_in.name_;
+			isvirtualtable_ = tableType_in.isvirtualtable_;
+			if (tableType_in.tabledbs__ != null) tabledbs__.CopyFrom(tableType_in.tabledbs__);
+			if (tableType_in.tablefields__ != null) tablefields__.CopyFrom(tableType_in.tablefields__);
+		}
+		#endregion
 	}
 }

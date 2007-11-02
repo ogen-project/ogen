@@ -132,5 +132,17 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_dbConnectionType dbConnectionType_in) {
+			int _index = -1;
+
+			configmode_ = dbConnectionType_in.configmode_;
+			isdefault_ = dbConnectionType_in.isdefault_;
+			generatesql_ = dbConnectionType_in.generatesql_;
+			isindexed_andreadonly_ = dbConnectionType_in.isindexed_andreadonly_;
+			connectionstring_ = dbConnectionType_in.connectionstring_;
+		}
+		#endregion
 	}
 }

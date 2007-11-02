@@ -86,5 +86,22 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			get { return tablesearchcollection_; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_tableSearchesType tableSearchesType_in) {
+			int _index = -1;
+
+			tablesearchcollection_.Clear();
+			for (int d = 0; d < tableSearchesType_in.tablesearchcollection_.Count; d++) {
+				tablesearchcollection_.Add(
+					out _index,
+					new XS_tableSearchType()
+				);
+				tablesearchcollection_[_index].CopyFrom(
+					tableSearchesType_in.tablesearchcollection_[d]
+				);
+			}
+		}
+		#endregion
 	}
 }

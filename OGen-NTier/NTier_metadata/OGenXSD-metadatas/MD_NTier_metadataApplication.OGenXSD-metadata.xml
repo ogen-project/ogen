@@ -66,8 +66,8 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 		<specificCase word="dbConnection" translation="DBConnection" />
 		<specificCase word="dbConnections" translation="DBConnections" />
 		<specificCase word="dbConnectionType" translation="DBConnectionType" />
+		<specificCase word="dbConnectionsType" translation="DbConnectionsType" />
 		<specificCase word="dbDefaultValue" translation="DBDefaultValue" />
-		<specificCase word="dbDescription" translation="DBDescription" />
 		<specificCase word="dbDescription" translation="DBDescription" />
 		<specificCase word="dbFieldName" translation="DBFieldName" />
 		<specificCase word="dbs" translation="DBs" />

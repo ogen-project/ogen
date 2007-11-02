@@ -272,5 +272,24 @@ namespace OGen.Doc.lib.metadata.documentation {
 			set { faqsubjects__ = value; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_documentationType documentationType_in) {
+			int _index = -1;
+
+			documentationname_ = documentationType_in.documentationname_;
+			projecturl_ = documentationType_in.projecturl_;
+			copyrighttext_ = documentationType_in.copyrighttext_;
+			feedbackemailaddress_ = documentationType_in.feedbackemailaddress_;
+			version_ = documentationType_in.version_;
+			date_ = documentationType_in.date_;
+			if (documentationType_in.configs__ != null) configs__.CopyFrom(documentationType_in.configs__);
+			if (documentationType_in.subjects__ != null) subjects__.CopyFrom(documentationType_in.subjects__);
+			if (documentationType_in.authors__ != null) authors__.CopyFrom(documentationType_in.authors__);
+			if (documentationType_in.codesamples__ != null) codesamples__.CopyFrom(documentationType_in.codesamples__);
+			if (documentationType_in.links__ != null) links__.CopyFrom(documentationType_in.links__);
+			if (documentationType_in.faqsubjects__ != null) faqsubjects__.CopyFrom(documentationType_in.faqsubjects__);
+		}
+		#endregion
 	}
 }

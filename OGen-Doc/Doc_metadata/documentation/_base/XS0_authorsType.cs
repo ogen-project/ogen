@@ -86,5 +86,22 @@ namespace OGen.Doc.lib.metadata.documentation {
 			get { return authorcollection_; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_authorsType authorsType_in) {
+			int _index = -1;
+
+			authorcollection_.Clear();
+			for (int d = 0; d < authorsType_in.authorcollection_.Count; d++) {
+				authorcollection_.Add(
+					out _index,
+					new XS_authorType()
+				);
+				authorcollection_[_index].CopyFrom(
+					authorsType_in.authorcollection_[d]
+				);
+			}
+		}
+		#endregion
 	}
 }

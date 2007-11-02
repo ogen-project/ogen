@@ -232,7 +232,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	<xs:complexType name="tableSearchUpdateType">
 		<xs:attribute name="name" type="xs:string" />
 		<xs:sequence>
-			<xs:element name="tableUpdateParameters" type="tableSearchUpdateParametersType" maxOccurs="unbounded" />
+			<xs:element name="tableUpdateParameters" type="tableSearchUpdateParametersType" />
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="tableSearchUpdatesType">

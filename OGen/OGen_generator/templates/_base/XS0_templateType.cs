@@ -171,5 +171,19 @@ namespace OGen.lib.templates {
 			set { dependencies__ = value; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_templateType templateType_in) {
+			int _index = -1;
+
+			name_ = templateType_in.name_;
+			parsertype_ = templateType_in.parsertype_;
+			iterationtype_ = templateType_in.iterationtype_;
+			if (templateType_in.arguments__ != null) arguments__.CopyFrom(templateType_in.arguments__);
+			if (templateType_in.conditions__ != null) conditions__.CopyFrom(templateType_in.conditions__);
+			if (templateType_in.outputs__ != null) outputs__.CopyFrom(templateType_in.outputs__);
+			if (templateType_in.dependencies__ != null) dependencies__.CopyFrom(templateType_in.dependencies__);
+		}
+		#endregion
 	}
 }

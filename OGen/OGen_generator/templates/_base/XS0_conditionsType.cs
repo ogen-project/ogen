@@ -60,5 +60,22 @@ namespace OGen.lib.templates {
 			get { return conditioncollection_; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_conditionsType conditionsType_in) {
+			int _index = -1;
+
+			conditioncollection_.Clear();
+			for (int d = 0; d < conditionsType_in.conditioncollection_.Count; d++) {
+				conditioncollection_.Add(
+					out _index,
+					new XS_conditionType()
+				);
+				conditioncollection_[_index].CopyFrom(
+					conditionsType_in.conditioncollection_[d]
+				);
+			}
+		}
+		#endregion
 	}
 }

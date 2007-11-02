@@ -65,5 +65,15 @@ namespace OGen.lib.templates {
 			}
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_outputType outputType_in) {
+			int _index = -1;
+
+			to_ = outputType_in.to_;
+			type_ = outputType_in.type_;
+			mode_ = outputType_in.mode_;
+		}
+		#endregion
 	}
 }

@@ -145,5 +145,18 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			}
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_tableFieldDBType tableFieldDBType_in) {
+			int _index = -1;
+
+			dbservertype_ = tableFieldDBType_in.dbservertype_;
+			dbtype_ = tableFieldDBType_in.dbtype_;
+			dbdescription_ = tableFieldDBType_in.dbdescription_;
+			dbdefaultvalue_ = tableFieldDBType_in.dbdefaultvalue_;
+			dbcollationname_ = tableFieldDBType_in.dbcollationname_;
+			dbfieldname_ = tableFieldDBType_in.dbfieldname_;
+		}
+		#endregion
 	}
 }

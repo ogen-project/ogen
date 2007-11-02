@@ -86,5 +86,22 @@ namespace OGen.Doc.lib.metadata.documentation {
 			get { return configcollection_; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_configsType configsType_in) {
+			int _index = -1;
+
+			configcollection_.Clear();
+			for (int d = 0; d < configsType_in.configcollection_.Count; d++) {
+				configcollection_.Add(
+					out _index,
+					new XS_configType()
+				);
+				configcollection_[_index].CopyFrom(
+					configsType_in.configcollection_[d]
+				);
+			}
+		}
+		#endregion
 	}
 }

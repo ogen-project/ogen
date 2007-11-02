@@ -93,5 +93,14 @@ namespace OGen.Doc.lib.metadata.documentation {
 			}
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_configType configType_in) {
+			int _index = -1;
+
+			name_ = configType_in.name_;
+			value_ = configType_in.value_;
+		}
+		#endregion
 	}
 }

@@ -280,6 +280,50 @@ if (_aux_rootmetadata.ExtendedMetadata.isSimple) {%><%=""%>
 				}
 			}
 		}%>
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(<%=XS_%><%=_aux_complextype.Name%> <%=_aux_complextype.Name%>_in) {
+			int _index = -1;
+<%
+		for (int a = 0; a < _aux_complextype.Attribute.Count; a++) {%><%=""%>
+			<%=_aux_complextype.Attribute[a].Name.ToLower()%>_ = <%=_aux_complextype.Name%>_in.<%=_aux_complextype.Attribute[a].Name.ToLower()%>_;<%
+		}
+
+		//////////////////////////////////////////////////////////////
+
+		for (int e = 0; e < _aux_elements.Count; e++) {
+			if (_aux_elements[e].MaxOccurs == XS_Element.MaxOccursEnum.unbounded) {%><%=""%>
+			<%=_aux_elements[e].Name.ToLower()%>collection_.Clear();
+			for (int d = 0; d < <%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower()%>collection_.Count; d++) {
+				<%=_aux_elements[e].Name.ToLower()%>collection_.Add(
+					out _index,
+					new <%=XS_%><%=_aux_elements[e].Type%>()
+				);
+				<%=_aux_elements[e].Name.ToLower()%>collection_[_index].CopyFrom(
+					<%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower()%>collection_[d]
+				);
+			}<%
+
+		//////////////////////////////////////////////////////////////
+
+			} else {
+				_aux_ntype = OGen.XSD.lib.metadata.utils.Convert_NType(
+					_aux_rootmetadata,
+					_aux_elements[e].Type,
+					out _aux_isstandardntype
+				);
+				if (_aux_isstandardntype) {%>
+			<%=_aux_elements[e].Name.ToLower()%>_ = <%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower()%>_;<%
+
+		//////////////////////////////////////////////////////////////
+
+				} else {%>
+			if (<%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower()%>__ != null) <%=_aux_elements[e].Name.ToLower()%>__.CopyFrom(<%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower()%>__);<%
+				}
+			}
+		}%>
+		}
+		#endregion
 	}
 }<%
 //-----------------------------------------------------------------------------------------

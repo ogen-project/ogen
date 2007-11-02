@@ -139,5 +139,16 @@ namespace OGen.Doc.lib.metadata.documentation {
 			set { documents__ = value; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_subjectType subjectType_in) {
+			int _index = -1;
+
+			idsubject_ = subjectType_in.idsubject_;
+			idsubject_parent_ = subjectType_in.idsubject_parent_;
+			name_ = subjectType_in.name_;description_ = subjectType_in.description_;
+			if (subjectType_in.documents__ != null) documents__.CopyFrom(subjectType_in.documents__);
+		}
+		#endregion
 	}
 }

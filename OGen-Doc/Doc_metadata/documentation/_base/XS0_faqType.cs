@@ -102,5 +102,14 @@ namespace OGen.Doc.lib.metadata.documentation {
 			set { answer_ = value; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_faqType faqType_in) {
+			int _index = -1;
+
+			idfaq_ = faqType_in.idfaq_;
+			question_ = faqType_in.question_;answer_ = faqType_in.answer_;
+		}
+		#endregion
 	}
 }

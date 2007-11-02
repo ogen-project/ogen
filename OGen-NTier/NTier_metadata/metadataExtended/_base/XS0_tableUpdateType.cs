@@ -104,5 +104,14 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			set { tableupdateparameters__ = value; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_tableUpdateType tableUpdateType_in) {
+			int _index = -1;
+
+			name_ = tableUpdateType_in.name_;
+			if (tableUpdateType_in.tableupdateparameters__ != null) tableupdateparameters__.CopyFrom(tableUpdateType_in.tableupdateparameters__);
+		}
+		#endregion
 	}
 }

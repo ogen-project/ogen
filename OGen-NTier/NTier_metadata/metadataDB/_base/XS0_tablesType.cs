@@ -86,5 +86,22 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			get { return tablecollection_; }
 		}
 		#endregion
+
+		#region public void CopyFrom(...);
+		public void CopyFrom(XS_tablesType tablesType_in) {
+			int _index = -1;
+
+			tablecollection_.Clear();
+			for (int d = 0; d < tablesType_in.tablecollection_.Count; d++) {
+				tablecollection_.Add(
+					out _index,
+					new XS_tableType()
+				);
+				tablecollection_[_index].CopyFrom(
+					tablesType_in.tablecollection_[d]
+				);
+			}
+		}
+		#endregion
 	}
 }
