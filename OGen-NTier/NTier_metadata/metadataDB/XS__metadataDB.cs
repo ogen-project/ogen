@@ -29,9 +29,9 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 
 		public static XS__metadataDB Load_fromDB(
 			XS__metadataDB.Load_fromDBDelegate notifyBack_in, 
-			string subAppName_in, 
+			string subAppName_in,
 
-			params DBConnectionParam[] dbConnectionParam_in
+			params DBSimpleConnectionstring[] dbConnectionParam_in
 		) {
 			return Load_fromDB(
 				notifyBack_in, 
@@ -48,9 +48,9 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			string subAppName_in, 
 
 			XS__RootMetadata root_ref_in, 
-			int index_in, 
+			int index_in,
 
-			params DBConnectionParam[] dbConnectionParam_in
+			params DBSimpleConnectionstring[] dbConnectionParam_in
 		) {
 			#region XS__metadataDB _output = ...;
 			XS__metadataDB _output = new XS__metadataDB();

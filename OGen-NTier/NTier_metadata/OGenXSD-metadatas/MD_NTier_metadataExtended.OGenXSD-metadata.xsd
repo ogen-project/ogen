@@ -17,7 +17,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	xmlns="http://ogen.berlios.de"
 	elementFormDefault="qualified">
 
-	<!--
+<!--
+	<metadataExtended applicationName="" applicationNamespace="" subAppName="" pseudoReflectionable="" sqlScriptOption=""
+		guidDatalayer="" guidDatalayer_UTs="" guidBusinesslayer="" guidBusinesslayer_UTs="" guidTest=""
+		feedbackEmailAddress="" copyrightText="">
+		<copyrightTextLong>...</copyrightTextLong>
 		<dbs>
 			<db dbServerType="PostgreSQL">
 				<dbConnections>
@@ -78,7 +82,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 			<table ... />
 		</tables>
-	-->
+</metadataExtended>
+-->
 
 	<xs:simpleType name="sqlScriptOptionEnumeration">
 		<xs:restriction base="xs:string">

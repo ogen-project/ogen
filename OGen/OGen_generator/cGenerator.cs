@@ -76,12 +76,14 @@ namespace OGen.lib.generator {
 		#endregion
 		#region DBConnectionstrings DBConnectionstrings { get; }
 		private DBConnectionstrings dbconnectionstrings_;
+
 		public DBConnectionstrings DBConnectionstrings {
 			get { return dbconnectionstrings_; }
 		}
 		#endregion
 		#region string OutputDir { get; }
 		private string outputdir_;
+
 		public string OutputDir {
 			get { return outputdir_; }
 		}

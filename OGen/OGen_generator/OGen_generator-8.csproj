@@ -109,6 +109,12 @@
     <Compile Include="cGenerator.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DBConnectionstring.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBConnectionstrings.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="metadatas\Metadata.cs" />
     <Compile Include="metadatas\MetadataCollection.cs" />
     <Compile Include="metadatas\Metadatas.cs" />
@@ -174,8 +180,6 @@
     <Compile Include="utils.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DBConnectionstring.cs" />
-    <Compile Include="DBConnectionstrings.cs" />
     <None Include="COPYING.MIT" />
     <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />

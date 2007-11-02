@@ -82,7 +82,7 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 			_generator.Open(
 				filePath_in, 
 				true, 
-				new cDBMetadata.dLoadState_fromDB(
+				new cFGenerator.dNotifyBack(
 					Notify
 				)
 			);

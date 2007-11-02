@@ -18,21 +18,6 @@ using OGen.lib.datalayer.PostgreSQL;
 using OGen.lib.datalayer.SQLServer;
 
 namespace OGen.lib.datalayer {
-	#region public struct DBConnectionParam { ... }
-	public struct DBConnectionParam {
-		public DBConnectionParam(
-			DBServerTypes dbServerType_in,
-			string connectionstring_in
-		) {
-			DBServerType = dbServerType_in;
-			Connectionstring = connectionstring_in;
-		}
-
-		public DBServerTypes DBServerType;
-		public string Connectionstring;
-	}
-	#endregion
-
 	public class DBUtilssupport {
 		private DBUtilssupport() {}
 

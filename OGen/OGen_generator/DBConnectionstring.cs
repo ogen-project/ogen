@@ -17,14 +17,15 @@ using System;
 using OGen.lib.datalayer;
 
 namespace OGen.lib.generator {
-	public class DBConnectionstring : IDisposable {
+	public class DBConnectionstring : DBSimpleConnectionstring, IDisposable {
 		#region public DBConnectionstring(...);
 		public DBConnectionstring(
 			DBServerTypes dbServerType_in, 
 			string connectionstring_in
+		) : base (
+			dbServerType_in, 
+			connectionstring_in
 		) {
-			dbservertype_ = dbServerType_in;
-			connectionstring_ = connectionstring_in;
 			connection_ = null;
 		}
 		~DBConnectionstring() {
@@ -44,6 +45,7 @@ namespace OGen.lib.generator {
 
 		#region internal DBConnection Connection { get; set; }
 		private DBConnection connection_;
+
 		internal DBConnection Connection {
 			get { return connection_; }
 			set { connection_ = value; }
@@ -59,21 +61,6 @@ namespace OGen.lib.generator {
 		/// IMPORTANT NOTICE - VERY UNSTABLE AUXILIAR VARIABLE
 		/// </summary>
 		internal bool exists_aux__;
-
-		#region public DBServerTypes DBServerType { get; set; }
-		private DBServerTypes dbservertype_;
-		public DBServerTypes DBServerType {
-			get { return dbservertype_; }
-			set { dbservertype_ = value; }
-		}
-		#endregion
-		#region public string Connectionstring { get; set; }
-		private string connectionstring_;
-		public string Connectionstring {
-			get { return connectionstring_; }
-			set { connectionstring_ = value; }
-		}
-		#endregion
 
 		#region internal void Connection_createInstance();
 		internal void Connection_createInstance() {

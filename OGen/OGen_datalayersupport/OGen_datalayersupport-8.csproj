@@ -49,6 +49,7 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="DBConnectionsupport.cs" />
     <Compile Include="DBServerTypes.cs" />
+    <Compile Include="DBSimpleConnectionstring.cs" />
     <Compile Include="DBUtilssupport.cs" />
     <Compile Include="DBType.cs" />
     <None Include="COPYING.MIT" />

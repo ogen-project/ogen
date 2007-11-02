@@ -101,7 +101,11 @@ namespace OGen.Doc.lib.generator {
 			#region Checking...
 			if (this.hasChanges) {
 				if (!force_doNOTsave_in) {
-					throw new Exception(string.Format("{0}.{1}.Open(): - must save before open", this.GetType().Namespace, this.GetType().Name));
+					throw new Exception(string.Format(
+						"{0}.{1}.Open(): - must save before open", 
+						this.GetType().Namespace, 
+						this.GetType().Name
+					));
 				}
 			}
 			#endregion
@@ -124,7 +128,11 @@ namespace OGen.Doc.lib.generator {
 				(this.hasChanges) && 
 				(!force_doNOTsave_in)
 			) {
-				throw new Exception(string.Format("{0}.{1}.Open(): - must save before open", this.GetType().Namespace, this.GetType().Name));
+				throw new Exception(string.Format(
+					"{0}.{1}.Open(): - must save before open", 
+					this.GetType().Namespace, 
+					this.GetType().Name
+				));
 			}
 
 			filename_ = string.Empty;

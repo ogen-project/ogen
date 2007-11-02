@@ -17,7 +17,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	xmlns="http://ogen.berlios.de"
 	elementFormDefault="qualified">
 
-	<!--
+<!--
+	<metadataDB applicationName="...">
 		<tables>
 			<table name="Config" isVirtualTable="False">
 				<tableDBs>
@@ -49,7 +50,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 			<table ... />
 		</tables>
-	-->
+	</metadataDB>
+-->
 
 	<!--
 			<tableDB dbServerType="PostgreSQL" dbTableName="IHaveAStyle" />

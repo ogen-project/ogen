@@ -17,6 +17,7 @@ using System.Collections;
 using System.IO;
 using OGen.lib.templates;
 using OGen.lib.generator;
+using OGen.lib.datalayer;
 using OGen.NTier.lib.metadata;
 
 namespace OGen.NTier.lib.generator {
@@ -27,8 +28,10 @@ namespace OGen.NTier.lib.generator {
 		}
 		#endregion
 
-		#region private Properties...
+		#region public Delegates...
+		public delegate void dNotifyBack(string message_in, bool onANewLine_in);
 		#endregion
+
 		//#region public Properties...
 		#region public string Filename { get; }
 		private string filename_;
@@ -48,18 +51,16 @@ namespace OGen.NTier.lib.generator {
 			get { return (filename_ != string.Empty); }
 		}
 		#endregion
-		#region public cDBMetadata Metadata { get ; }
-		private cDBMetadata metadata_;
-		public cDBMetadata Metadata {
+		#region public XS__RootMetadata Metadata { get ; }
+		private XS__RootMetadata metadata_;
+		public XS__RootMetadata Metadata {
 			get { return metadata_; }
 		}
 		#endregion
 		//#endregion
 
-		#region private Methods...
-		#endregion
 		//#region public Methods...
-		#region public void New(...);
+		//#region public void New(...);
 		public void New(
 			string applicationPath_in, 
 			string applicationName_in, 
@@ -67,125 +68,95 @@ namespace OGen.NTier.lib.generator {
 			cDBMetadata_DB[] dbs_in, 
 			cDBMetadata.dLoadState_fromDB notifyBack_in
 		) {
-			int _justadded;
+throw new Exception("// ToDos: not implemented!");
+			//int _justadded;
 
-			if (notifyBack_in != null) notifyBack_in("creating...", true);
-			#region cDBMetadata _metadata_temp = new cDBMetadata(); ...;
-			cDBMetadata _metadata_temp = new cDBMetadata();
-			_metadata_temp.ApplicationName = applicationName_in;
-			_metadata_temp.Namespace = namespace_in;
-			_metadata_temp.DBs.Clear();
-			for (int d = 0; d < dbs_in.Length; d++) {
-				_justadded = _metadata_temp.DBs.Add(
-					dbs_in[d].DBServerType, 
-					false
-				);
-				_metadata_temp.DBs[_justadded].CopyFrom(
-					dbs_in[d]
-				);
+			//if (notifyBack_in != null) notifyBack_in("creating...", true);
+			//#region cDBMetadata _metadata_temp = new cDBMetadata(); ...;
+			//cDBMetadata _metadata_temp = new cDBMetadata();
+			//_metadata_temp.ApplicationName = applicationName_in;
+			//_metadata_temp.Namespace = namespace_in;
+			//_metadata_temp.DBs.Clear();
+			//for (int d = 0; d < dbs_in.Length; d++) {
+			//    _justadded = _metadata_temp.DBs.Add(
+			//        dbs_in[d].DBServerType, 
+			//        false
+			//    );
+			//    _metadata_temp.DBs[_justadded].CopyFrom(
+			//        dbs_in[d]
+			//    );
 
-				//if (d == 0) {
-				//    // ToDos: here! document this behaviour and describe it throught unit testing
-				//    // first item in the array, represents default db connection
-				//    _metadata_temp.Default_DBServerType = _metadata_temp.DBs[_justadded].DBServerType;
-				//    _metadata_temp.Default_ConfigMode = _metadata_temp.DBs[_justadded].Connections[0].ConfigMode;
-				//}
-			}
-			_metadata_temp.GUIDDatalayer = System.Guid.NewGuid().ToString("D").ToUpper();
-			_metadata_temp.GUIDDatalayer_UTs = System.Guid.NewGuid().ToString("D").ToUpper();
-			_metadata_temp.GUIDBusinesslayer = System.Guid.NewGuid().ToString("D").ToUpper();
-			_metadata_temp.GUIDBusinesslayer_UTs = System.Guid.NewGuid().ToString("D").ToUpper();
-			_metadata_temp.GUIDTest = System.Guid.NewGuid().ToString("D").ToUpper();
-			#endregion
+			//    //if (d == 0) {
+			//    //    // ToDos: here! document this behaviour and describe it throught unit testing
+			//    //    // first item in the array, represents default db connection
+			//    //    _metadata_temp.Default_DBServerType = _metadata_temp.DBs[_justadded].DBServerType;
+			//    //    _metadata_temp.Default_ConfigMode = _metadata_temp.DBs[_justadded].Connections[0].ConfigMode;
+			//    //}
+			//}
+			//_metadata_temp.GUIDDatalayer = System.Guid.NewGuid().ToString("D").ToUpper();
+			//_metadata_temp.GUIDDatalayer_UTs = System.Guid.NewGuid().ToString("D").ToUpper();
+			//_metadata_temp.GUIDBusinesslayer = System.Guid.NewGuid().ToString("D").ToUpper();
+			//_metadata_temp.GUIDBusinesslayer_UTs = System.Guid.NewGuid().ToString("D").ToUpper();
+			//_metadata_temp.GUIDTest = System.Guid.NewGuid().ToString("D").ToUpper();
+			//#endregion
 
-			if (notifyBack_in != null) notifyBack_in("- generating xml file", true);
-			#region string _xmlfile = ...;
-			string _xmlfile = string.Format(
-				//"{0}{1}OGen-metadatas{1}MD_{2}-{3}.OGen-metadata.xml", 
-				"{0}{1}OGen-metadatas{1}MD_{2}.OGen-metadata.xml", 
-				/*0*/applicationPath_in, 
-				/*1*/System.IO.Path.DirectorySeparatorChar, 
-				/*2*/applicationName_in
+			//if (notifyBack_in != null) notifyBack_in("- generating xml file", true);
+			//#region string _xmlfile = ...;
+			//string _xmlfile = string.Format(
+			//    //"{0}{1}OGen-metadatas{1}MD_{2}-{3}.OGen-metadata.xml", 
+			//    "{0}{1}OGen-metadatas{1}MD_{2}.OGen-metadata.xml", 
+			//    /*0*/applicationPath_in, 
+			//    /*1*/System.IO.Path.DirectorySeparatorChar, 
+			//    /*2*/applicationName_in
 
-				// first item in the array, represents default db connection
-				///*3*/, dbs_in[0].DBServerType.ToString()
-			);
-			#endregion
-			_metadata_temp.SaveState_toFile(_xmlfile);
+			//    // first item in the array, represents default db connection
+			//    ///*3*/, dbs_in[0].DBServerType.ToString()
+			//);
+			//#endregion
+			//_metadata_temp.SaveState_toFile(_xmlfile);
 
-			if (notifyBack_in != null) notifyBack_in("... finished!", true);
-			if (notifyBack_in != null) notifyBack_in("", true);
+			//if (notifyBack_in != null) notifyBack_in("... finished!", true);
+			//if (notifyBack_in != null) notifyBack_in("", true);
 
-			Open(_xmlfile, true, notifyBack_in);
+			//Open(_xmlfile, true, notifyBack_in);
 		}
-		#endregion
+		//#endregion
 //		#region public void Open(...);
 		public void Open(
 			string filename_in, 
-			bool force_doNOTsave_in, 
-			cDBMetadata.dLoadState_fromDB notifyBack_in
+			bool force_doNOTsave_in,
+			dNotifyBack notifyBack_in
 		) {
 			#region Checking...
 			if (this.hasChanges) {
 				if (!force_doNOTsave_in) {
-					throw new Exception(string.Format("{0}.{1}.Open(): - must save before open", this.GetType().Namespace, this.GetType().Name));
+					throw new Exception(string.Format(
+						"{0}.{1}.Open(): - must save before open", 
+						this.GetType().Namespace, 
+						this.GetType().Name
+					));
 				}
 			}
 			#endregion
 			filename_ = filename_in;
 
 			if (notifyBack_in != null) notifyBack_in("opening...", true);
-			#region cDBMetadata _metadata_temp = new cDBMetadata().LoadState_fromFile(filename_);
 			if (notifyBack_in != null) notifyBack_in("- reading configuration from xml file", true);
-			cDBMetadata _metadata_temp = new cDBMetadata();
-			_metadata_temp.LoadState_fromFile(
-				filename_, 
-				cDBMetadata.eMetadata.All
-			);
-			#endregion
-//			#region metadata_.LoadState_fromDB(...);
-			if (notifyBack_in != null) notifyBack_in("- reading metadata from db", true);
-			metadata_ = new cDBMetadata();
-
-// ToDos: here!
-metadata_.Tables.Clear();
-for (int d = 0; d < _metadata_temp.DBs.Count; d++) {
-	for (int c = 0; c < _metadata_temp.DBs[d].Connections.Count; c++) {
-		if (_metadata_temp.DBs[d].Connections[c].GenerateSQL) {
-			//_metadata_temp.DBs[d].Connections[c].Connectionstring
-			metadata_.LoadState_fromDB(
-				(notifyBack_in != null) 
-					? new cDBMetadata.dLoadState_fromDB(
-						notifyBack_in
-					) 
-					: null,
-				_metadata_temp.DBs[d].DBServerType,
-				_metadata_temp.DBs[d].Connections[c].Connectionstring, 
-				_metadata_temp.SubAppName, 
+			metadata_ = XS__RootMetadata.Load_fromFile(
+				filename_,
 				false
 			);
 
-		}
-	}
-}
-			//metadata_.LoadState_fromDB(
-			//    (notifyBack_in != null) 
-			//        ? new cDBMetadata.dLoadState_fromDB(
-			//            notifyBack_in
-			//        ) 
-			//        : null, 
-			//    _metadata_temp.Default_DBServerType, 
-			//    _metadata_temp.Default_Connectionstring(), 
-			//    _metadata_temp.SubAppName
-			//);
-//			#endregion
-			#region metadata_.LoadState_fromFile(filename_, All_butDatabaseER);
-			if (notifyBack_in != null) notifyBack_in("- updating metadata with xml file", true);
-			metadata_.LoadState_fromFile(
-				filename_, 
-				cDBMetadata.eMetadata.All_butDatabaseER
-			);
-			#endregion
+			if (notifyBack_in != null) notifyBack_in("- reading metadata from db", true);
+			metadata_.MetadataDBCollection[0]
+				= OGen.NTier.lib.metadata.metadataDB.XS__metadataDB.Load_fromDB(
+					null,
+					metadata_.MetadataExtendedCollection[0].SubAppName,
+					metadata_,
+					0,
+					metadata_dbconnectionstrings().Convert_toArray()
+				);
+
 			if (notifyBack_in != null) notifyBack_in("... finished", true);
 		}
 //		#endregion
@@ -195,24 +166,30 @@ for (int d = 0; d < _metadata_temp.DBs.Count; d++) {
 				(this.hasChanges) && 
 				(!force_doNOTsave_in)
 			) {
-				throw new Exception(string.Format("{0}.{1}.Open(): - must save before open", this.GetType().Namespace, this.GetType().Name));
+				throw new Exception(string.Format(
+					"{0}.{1}.Open(): - must save before open", 
+					this.GetType().Namespace, 
+					this.GetType().Name
+				));
 			}
 
 			filename_ = string.Empty;
 		}
 		#endregion
-		#region public void Save(...);
+		//#region public void Save(...);
 		public void Save() {
-			if (this.hasChanges) {
+			throw new Exception("// ToDos: not implemented!");
 
-				metadata_.SaveState_toFile(
-					filename_
-				);
+			//if (this.hasChanges) {
 
-				haschanges_ = false;
-			}
+			//    metadata_.SaveState_toFile(
+			//        filename_
+			//    );
+
+			//    haschanges_ = false;
+			//}
 		}
-		#endregion
+		//#endregion
 //		#region public void Build(cGenerator.dBuild notifyBase_in);
 		public void Build(cGenerator.dBuild notifyBase_in) {
 			#region string _outputDir = ...;
@@ -220,35 +197,20 @@ for (int d = 0; d < _metadata_temp.DBs.Count; d++) {
 				Path.GetDirectoryName(filename_)
 			).FullName;
 			#endregion
-			#region string _metadata0 = ...;
-			string _metadata0 = string.Format(
-//				"{0}{1}OGen-metadatas{1}MD0_{2}-{3}.OGen-metadata.xml",
-				"{0}{1}OGen-metadatas{1}MD0_{2}.OGen-metadata.xml", 
-				/*00*/ _outputDir, 
-				/*01*/ Path.DirectorySeparatorChar, 
-				/*02*/ metadata_.ApplicationName
-//				, /*03*/ metadata_.Default_DBServerType.ToString()
-			);
-			#endregion
 			if (notifyBase_in != null) notifyBase_in("generating...", true);
-			metadata_.SaveState_toFile(_metadata0);
 
+// ToDos: now! need to save MetadataDB to xml file
 
-
-
-DBConnectionstrings _dbconnectionstrings = new DBConnectionstrings();
-for (int _dbservertype = 0; _dbservertype < metadata_.DBs.Count; _dbservertype++) {
-	for (int _con = 0; _con < metadata_.DBs[_dbservertype].Connections.Count; _con++) {
-		if (metadata_.DBs[_dbservertype].Connections[_con].GenerateSQL)
-			_dbconnectionstrings.Add(
-				metadata_.DBs[_dbservertype].DBServerType, 
-				metadata_.DBs[_dbservertype].Connections[_con].Connectionstring
-			);
-	}
-}
-
-
-
+			MetaFile[] _metafiles = new MetaFile[metadata_.MetadataFiles.MetadataFiles.Count];
+			for (int i = 0; i < metadata_.MetadataFiles.MetadataFiles.Count; i++) {
+				_metafiles[i] = new MetaFile(
+					Path.Combine(
+						Path.GetDirectoryName(filename_), 
+						metadata_.MetadataFiles.MetadataFiles[i].XMLFilename
+					),
+					metadata_.MetadataFiles.MetadataFiles[i].XMLFileType
+				);
+			}
 
 			new cGenerator(
 				#if !NET_1_1
@@ -257,12 +219,9 @@ for (int _dbservertype = 0; _dbservertype < metadata_.DBs.Count; _dbservertype++
 				System.Configuration.ConfigurationSettings.AppSettings
 				#endif
 					["Templates"],
-				_dbconnectionstrings, 
+				metadata_dbconnectionstrings(), 
 				_outputDir, 
-				new MetaFile(
-					filename_, 
-					cDBMetadata.ROOT
-				)
+				_metafiles
 			).Build(
 				notifyBase_in, 
 				metadata_
@@ -270,6 +229,54 @@ for (int _dbservertype = 0; _dbservertype < metadata_.DBs.Count; _dbservertype++
 			if (notifyBase_in != null) notifyBase_in("...finished", true);
 		}
 //		#endregion
+		#region private DBConnectionstrings metadata_dbconnectionstrings();
+		private DBConnectionstrings metadata_dbconnectionstrings(
+		) {
+			//#region int _paramCount = ...;
+			//int _paramCount = 0;
+			//for (int d = 0; d < metadata_.MetadataExtendedCollection[0].DBs.DBCollection.Count; d++)
+			//    for (int c = 0; c < metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].DBConnections.DBConnectionCollection.Count; c++)
+			//        if (metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].DBConnections.DBConnectionCollection[c].generateSQL)
+			//            _paramCount++;
+			//#endregion
+			//DBSimpleConnectionstring[] _output = new DBSimpleConnectionstring[_paramCount];
+			//_paramCount = 0;
+
+			//for (int d = 0; d < metadata_.MetadataExtendedCollection[0].DBs.DBCollection.Count; d++) {
+			//    for (int c = 0; c < metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].DBConnections.DBConnectionCollection.Count; c++) {
+			//        if (metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].DBConnections.DBConnectionCollection[c].generateSQL) {
+			//            _output[_paramCount] = new DBSimpleConnectionstring(
+			//                (DBServerTypes)Enum.Parse(
+			//                    typeof(DBServerTypes),
+			//                    metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].DBServerType
+			//                ),
+			//                metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].DBConnections.DBConnectionCollection[c].Connectionstring
+			//            );
+			//            _paramCount++;
+			//        }
+			//    }
+			//}
+
+			//return _output;
+
+			DBConnectionstrings _output = new DBConnectionstrings();
+			for (int d = 0; d < metadata_.MetadataExtendedCollection[0].DBs.DBCollection.Count; d++) {
+				for (int c = 0; c < metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].DBConnections.DBConnectionCollection.Count; c++) {
+					if (metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].DBConnections.DBConnectionCollection[c].generateSQL) {
+						_output.Add(
+							(DBServerTypes)Enum.Parse(
+								typeof(DBServerTypes), 
+								metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].DBServerType
+							), 
+							metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].DBConnections.DBConnectionCollection[c].Connectionstring
+						);
+					}
+				}
+			}
+
+			return _output;
+		}
+		#endregion
 		//#endregion
 	}
 }

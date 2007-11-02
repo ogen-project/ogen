@@ -80,5 +80,14 @@ namespace OGen.lib.generator {
 			);
 		}
 		#endregion
+
+		#region public DBConnectionstring[] Convert_toArray();
+		public DBConnectionstring[] Convert_toArray() {
+			DBConnectionstring[] _output 
+				= new DBConnectionstring[dbconnectionstrings_.Count];
+			dbconnectionstrings_.CopyTo(_output);
+			return _output;
+		}
+		#endregion
 	}
 }
