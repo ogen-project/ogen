@@ -246,8 +246,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<xs:attribute name="isRange" type="xs:boolean" />
 		<xs:attribute name="isExplicitUniqueIndex" type="xs:boolean" />
 		<xs:sequence>
-			<xs:element name="tableSearchParameters" type="tableSearchParametersType" maxOccurs="unbounded" />
-			<xs:element name="tableSearchUpdates" type="tableSearchUpdatesType" maxOccurs="unbounded" />
+			<xs:element name="tableSearchParameters" type="tableSearchParametersType" />
+			<xs:element name="tableSearchUpdates" type="tableSearchUpdatesType" />
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="tableSearchesType">
@@ -275,9 +275,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<xs:attribute name="configConfig" type="xs:string" />
 		<xs:attribute name="configDatatype" type="xs:string" />
 		<xs:sequence>
-			<xs:element name="tableFields" type="tableFieldsType" maxOccurs="unbounded" />
-			<xs:element name="tableSearches" type="tableSearchesType" maxOccurs="unbounded" />
-			<xs:element name="tableUpdates" type="tableUpdatesType" maxOccurs="unbounded" />
+			<xs:element name="tableFields" type="tableFieldsType" />
+			<xs:element name="tableSearches" type="tableSearchesType" />
+			<xs:element name="tableUpdates" type="tableUpdatesType" />
 		</xs:sequence>
 	</xs:complexType>
 

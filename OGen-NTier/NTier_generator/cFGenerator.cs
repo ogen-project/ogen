@@ -65,7 +65,7 @@ namespace OGen.NTier.lib.generator {
 			string applicationPath_in, 
 			string applicationName_in, 
 			string namespace_in, 
-			cDBMetadata_DB[] dbs_in, 
+			OGen.NTier.lib.metadata.metadataExtended.XS_dbType[] dbs_in, 
 			cDBMetadata.dLoadState_fromDB notifyBack_in
 		) {
 throw new Exception("// ToDos: not implemented!");
@@ -148,7 +148,7 @@ throw new Exception("// ToDos: not implemented!");
 			);
 
 			if (notifyBack_in != null) notifyBack_in("- reading metadata from db", true);
-			metadata_.MetadataDBCollection[0]
+			OGen.NTier.lib.metadata.metadataDB.XS__metadataDB _metadatadb 
 				= OGen.NTier.lib.metadata.metadataDB.XS__metadataDB.Load_fromDB(
 					null,
 					metadata_.MetadataExtendedCollection[0].SubAppName,
@@ -156,6 +156,28 @@ throw new Exception("// ToDos: not implemented!");
 					0,
 					metadata_dbconnectionstrings().Convert_toArray()
 				);
+			for (int i = 0; i < metadata_.MetadataFiles.MetadataFiles.Count; i++) {
+				if (
+					metadata_.MetadataFiles.MetadataFiles[i].XMLFileType
+					==
+					OGen.NTier.lib.metadata.metadataDB.XS__metadataDB.METADATADB
+				) {
+					if (notifyBack_in != null) notifyBack_in("- saving db metadata to xml file", true);
+					metadata_.MetadataDBCollection[0].SaveState_toFile(
+						Path.Combine(
+							Path.GetDirectoryName(filename_), 
+							metadata_.MetadataFiles.MetadataFiles[i].XMLFilename
+						)
+					);
+					break;
+				}
+			}
+
+			if (notifyBack_in != null) notifyBack_in("- re-reading configuration from xml file", true);
+			metadata_ = XS__RootMetadata.Load_fromFile(
+				filename_,
+				false
+			);
 
 			if (notifyBack_in != null) notifyBack_in("... finished", true);
 		}

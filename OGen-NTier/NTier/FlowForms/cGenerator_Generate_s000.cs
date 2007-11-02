@@ -98,7 +98,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 		//#region public Methods...
 		public override void Show() {
 			MyForm.pReflection = frm_Main.ntierproject.Metadata.PseudoReflectionable;
-			if (frm_Main.ntierproject.Metadata.Tables.hasVirtualTable_withUndefinedKeys()) {
+			if (frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.hasVirtualTable_withUndefinedKeys()) {
 				switch (System.Windows.Forms.MessageBox.Show(
 					"View's PK must be defined, prior to Generate", 
 					"Warning", 

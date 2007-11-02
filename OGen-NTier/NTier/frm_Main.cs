@@ -463,7 +463,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 							frm_Main.NTierProject.Open(
 								openfile.FileName, 
 								false,
-								new OGen.NTier.lib.metadata.cDBMetadata.dLoadState_fromDB(
+								new OGen.NTier.lib.generator.cFGenerator.dNotifyBack(
 									output.DisplayMessage
 								)
 							);

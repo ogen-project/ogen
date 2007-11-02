@@ -25,5 +25,29 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		) {
 		}
 		#endregion
+
+		#region public bool hasVirtualTable_withUndefinedKeys();
+		public bool hasVirtualTable_withUndefinedKeys() {
+			for (int t = 0; t < TableCollection.Count; t++)
+				if (TableCollection[t].isVirtualTable)
+					if (
+						root_ref.MetadataDBCollection[0].Tables.TableCollection[
+							TableCollection[t].Name
+						].TableFields_onlyPK().TableFieldCollection.Count == 0
+					)
+						return true;
+
+			return false;
+		}
+		#endregion
+		#region public bool hasConfigTable();
+		public bool hasConfigTable() {
+			for (int t = 0; t < TableCollection.Count; t++)
+				if (TableCollection[t].isConfig)
+					return true;
+
+			return false;
+		}
+		#endregion
 	}
 }

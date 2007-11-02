@@ -104,7 +104,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 		//#region public Methods...
 		public override void Show() {
 			MyForm.hasConfigTable
-				= frm_Main.ntierproject.Metadata.Tables.hasConfigTable();
+				= frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.hasConfigTable();
 
 			base.Show();
 		}

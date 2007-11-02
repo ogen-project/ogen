@@ -31,5 +31,19 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		) {
 		}
 		#endregion
+
+		#region public XS_tableFieldsType TableFields_onlyPK();
+		public XS_tableFieldsType TableFields_onlyPK(){
+			XS_tableFieldsType _output = new XS_tableFieldsType();
+
+			for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
+				if (TableFields.TableFieldCollection[f].isPK)
+					_output.TableFieldCollection.Add(
+						TableFields.TableFieldCollection[f]
+					);
+
+			return _output;
+		}
+		#endregion
 	}
 }

@@ -131,8 +131,8 @@ namespace OGen.NTier.presentationlayer.winforms {
 						return;
 					}
 					#endregion
-					OGen.NTier.lib.metadata.cDBMetadata_DB[] _dbs 
-						= MyForm.UnBind_DBConnections();
+					OGen.NTier.lib.metadata.metadataExtended.XS_dbType[]
+						_dbs = MyForm.UnBind_DBConnections();
 					#region More Checking...
 					if (_dbs.Length == 0) {
 						System.Windows.Forms.MessageBox.Show(
@@ -146,26 +146,32 @@ namespace OGen.NTier.presentationlayer.winforms {
 					#endregion
 					if (mode_ == eMode.Update) {
 						#region Updating...
-						frm_Main.ntierproject.Metadata.DBs.Clear();
+						frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].DBs.DBCollection.Clear();
+						int _justadded = -1;
 						for (int d = 0; d < _dbs.Length; d++) {
-							int _justadded = frm_Main.ntierproject.Metadata.DBs.Add(
-								_dbs[d].DBServerType, 
-								false
+							frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].DBs.DBCollection.Add(
+								out _justadded,
+								false, 
+								new OGen.NTier.lib.metadata.metadataExtended.XS_dbType(
+									_dbs[d].DBServerType.ToString()
+								)
 							);
-							frm_Main.ntierproject.Metadata.DBs[_justadded].CopyFrom(
+							frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].DBs.DBCollection[
+								_justadded
+							].CopyFrom(
 								_dbs[d]
 							);
 							//if (d == 0) {
 							//    // ToDos: here! document this behaviour and describe it throught unit testing
 							//    // first item in the array, represents default db connection
-							//    frm_Main.ntierproject.Metadata.Default_DBServerType = frm_Main.ntierproject.Metadata.DBs[_justadded].DBServerType;
-							//    frm_Main.ntierproject.Metadata.Default_ConfigMode = frm_Main.ntierproject.Metadata.DBs[_justadded].Connections[0].ConfigMode;
+							//    frm_Main.ntierproject.Metadata.Default_DBServerType = frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].DBs.DBCollection[_justadded].DBServerType;
+							//    frm_Main.ntierproject.Metadata.Default_ConfigMode = frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].DBs.DBCollection[_justadded].Connections[0].ConfigMode;
 							//}
 						}
 
-						frm_Main.ntierproject.Metadata.ApplicationName 
+						frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].ApplicationName
 							= MyForm.ApplicationName;
-						frm_Main.ntierproject.Metadata.Namespace 
+						frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].ApplicationNamespace
 							= MyForm.Namespace;
 						#endregion
 						frm_Main.NTierProject.hasChanges = true;
@@ -217,21 +223,22 @@ namespace OGen.NTier.presentationlayer.winforms {
 			if (mode_ == eMode.Update) {
 				#region MyForm. ... = frm_Main.ntierproject. ...;
 				MyForm.ApplicationName 
-					= frm_Main.ntierproject.Metadata.ApplicationName;
+					= frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].ApplicationName;
 				MyForm.Namespace 
-					= frm_Main.ntierproject.Metadata.Namespace;
+					= frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].ApplicationNamespace;
 				MyForm.ApplicationPath 
 					= System.IO.Path.GetDirectoryName(
 						frm_Main.ntierproject.Filename
 					);
 				#endregion
-				#region cDBMetadata_DB[] _dbmetadata_dbs = frm_Main.ntierproject.Metadata.DBs;
-				OGen.NTier.lib.metadata.cDBMetadata_DB[] _dbmetadata_dbs 
-					= new OGen.NTier.lib.metadata.cDBMetadata_DB[
-						frm_Main.ntierproject.Metadata.DBs.Count
+				#region XS_dbType[] _dbmetadata_dbs = frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].DBs.DBCollection;
+				OGen.NTier.lib.metadata.metadataExtended.XS_dbType[] _dbmetadata_dbs 
+					= new OGen.NTier.lib.metadata.metadataExtended.XS_dbType[
+						frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].DBs.DBCollection.Count
 					];
-				for (int d = 0; d < frm_Main.ntierproject.Metadata.DBs.Count; d++) {
-					_dbmetadata_dbs[d] = frm_Main.ntierproject.Metadata.DBs[d];
+				for (int d = 0; d < frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].DBs.DBCollection.Count; d++) {
+					_dbmetadata_dbs[d] 
+						= frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].DBs.DBCollection[d];
 				}
 				#endregion
 				MyForm.Bind_DBConnections(

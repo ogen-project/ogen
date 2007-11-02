@@ -379,12 +379,12 @@ namespace OGen.NTier.presentationlayer.winforms {
 		/// first item in the array, represents default db connection
 		/// </summary>
 		/// <returns></returns>
-		public OGen.NTier.lib.metadata.cDBMetadata_DB[] UnBind_DBConnections() {
-			OGen.NTier.lib.metadata.cDBMetadata_DB[] DBConnections_out;
+		public OGen.NTier.lib.metadata.metadataExtended.XS_dbType[] UnBind_DBConnections() {
+			OGen.NTier.lib.metadata.metadataExtended.XS_dbType[] DBConnections_out;
 			ArrayList _dbservertypes;
 			DBServerTypes _dbservertype;
 			int _dbindex;
-			int _justadded;
+			int _justadded = -1;
 
 			_dbservertypes = new ArrayList();
 			for (int i = 0; i < lvwConnections.Items.Count; i++) {
@@ -425,15 +425,13 @@ namespace OGen.NTier.presentationlayer.winforms {
 			}
 			//---
 			DBConnections_out 
-				= new OGen.NTier.lib.metadata.cDBMetadata_DB[
+				= new OGen.NTier.lib.metadata.metadataExtended.XS_dbType[
 					_dbservertypes.Count
 				];
 			//---
 			for (int i = 0; i < _dbservertypes.Count; i++) {
-				DBConnections_out[i] = new OGen.NTier.lib.metadata.cDBMetadata_DB(
-// ToDos: here! check this...
-null, 
-					(DBServerTypes)_dbservertypes[i]
+				DBConnections_out[i] = new OGen.NTier.lib.metadata.metadataExtended.XS_dbType(
+					((DBServerTypes)_dbservertypes[i]).ToString()
 				);
 			}
 
@@ -447,19 +445,25 @@ null,
 						].Text
 					);
 				_dbindex = _dbservertypes.IndexOf(_dbservertype);
-				_justadded = DBConnections_out[_dbindex].Connections.Add(
-true, // ToDos: here!
-					lvwConnections.Items[i].SubItems[
-						(int)eConnectionColumns.DBMode
-					].Text, 
-					true
+				DBConnections_out[_dbindex].DBConnections.DBConnectionCollection.Add(
+					out _justadded, 
+					true, 
+					new OGen.NTier.lib.metadata.metadataExtended.XS_dbConnectionType(
+						lvwConnections.Items[i].SubItems[
+							(int)eConnectionColumns.DBMode
+						].Text
+					)
 				);
-				DBConnections_out[_dbindex].Connections[_justadded].Connectionstring
+
+// ToDos: here!
+DBConnections_out[_dbindex].DBConnections.DBConnectionCollection[_justadded].generateSQL = true;
+
+				DBConnections_out[_dbindex].DBConnections.DBConnectionCollection[_justadded].Connectionstring
 					= lvwConnections.Items[i].SubItems[
 						(int)eConnectionColumns.DBConnectionstring
 					].Text;
 
-				DBConnections_out[_dbindex].Connections[_justadded].isDefault = (
+				DBConnections_out[_dbindex].DBConnections.DBConnectionCollection[_justadded].isDefault = (
 					lvwConnections.Items[i].SubItems[(int)eConnectionColumns.Default].Text
 					!=
 					string.Empty
@@ -474,13 +478,13 @@ true, // ToDos: here!
 			lvwConnections.Items.Clear();
 		}
 		public void Bind_DBConnections(
-			OGen.NTier.lib.metadata.cDBMetadata_DB[] dbMetadata_DB_in
+			OGen.NTier.lib.metadata.metadataExtended.XS_dbType[] dbMetadata_DB_in
 			//, OGen.lib.datalayer.DBServerTypes default_DBServerType_in,
 			//string default_Mode_in
 		) {
 			lvwConnections.Items.Clear();
 			for (int _db = 0; _db < dbMetadata_DB_in.Length; _db++) {
-				for (int _con = 0; _con < dbMetadata_DB_in[_db].Connections.Count; _con++) {
+				for (int _con = 0; _con < dbMetadata_DB_in[_db].DBConnections.DBConnectionCollection.Count; _con++) {
 					lvwConnections.Items.Add(
 						new ListViewItem(
 							new string[] {
@@ -491,8 +495,8 @@ true, // ToDos: here!
 								//) ? "*" : string.Empty, 
 								string.Empty, 
 								dbMetadata_DB_in[_db].DBServerType.ToString(), 
-								dbMetadata_DB_in[_db].Connections[_con].ConfigMode,
-								dbMetadata_DB_in[_db].Connections[_con].Connectionstring
+								dbMetadata_DB_in[_db].DBConnections.DBConnectionCollection[_con].ConfigMode,
+								dbMetadata_DB_in[_db].DBConnections.DBConnectionCollection[_con].Connectionstring
 							}
 						)
 					);

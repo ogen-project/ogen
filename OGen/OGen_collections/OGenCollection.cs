@@ -194,6 +194,28 @@ namespace OGen.lib.collections {
 			return -1;
 		}
 		#endregion
+		#region public void Add(...);
+		public void Add(bool ifNotExists_in, params C[] col_in) {
+			for (int i = 0; i < col_in.Length; i++) {
+				if (ifNotExists_in) {
+					if (Search(col_in[i].CollectionName) == -1) {
+						Add(col_in[i]);
+					}
+				}
+			}
+		}
+		public void Add(out int returnIndex_out, bool ifNotExists_in, params C[] col_in) {
+			returnIndex_out = -1;
+			for (int i = 0; i < col_in.Length; i++) {
+				if (ifNotExists_in) {
+					returnIndex_out = Search(col_in[i].CollectionName);
+					if (returnIndex_out == -1) {
+						Add(out returnIndex_out, col_in[i]);
+					}
+				}
+			}
+		}
+		#endregion
 		#region public void Remove(T memberName_in);
 		public void Remove(T memberName_in) {
 			RemoveAt(
@@ -251,7 +273,7 @@ namespace OGen.lib.collections {
 			cols_.Clear();
 		}
 		#endregion
-		#region public void Add(params C[] col_in);
+		#region public void Add(...);
 		/// <summary>
 		/// adds one or more items to the collection
 		/// </summary>

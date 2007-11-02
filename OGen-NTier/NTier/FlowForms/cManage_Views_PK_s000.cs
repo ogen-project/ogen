@@ -102,7 +102,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 		#endregion
 		//#region public Methods...
 		public override void Show() {
-			MyForm.hasVirtualTable_withUndefinedKeys = frm_Main.ntierproject.Metadata.Tables.hasVirtualTable_withUndefinedKeys();
+			MyForm.hasVirtualTable_withUndefinedKeys = frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.hasVirtualTable_withUndefinedKeys();
 
 			base.Show();
 		}

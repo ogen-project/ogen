@@ -36,11 +36,12 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public bool isConfig_Name {
 			get {
-				return (
-					((XS_tableType)((XS_tableFieldsType)((XS_tableFieldsTypeCollection)parent_ref).parent_ref).parent_ref).ConfigName
-					==
-					Name
-				);
+throw new Exception("// ToDos: now! not implemented!");
+//				return (
+//					((XS_tableType)((XS_tableFieldsType)((XS_tableFieldsTypeCollection)parent_ref).parent_ref).parent_ref).ConfigName
+//					==
+//					Name
+//				);
 			}
 		}
 		#endregion
@@ -48,11 +49,12 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public bool isConfig_Config {
 			get {
-				return (
-					((XS_tableType)((XS_tableFieldsType)((XS_tableFieldsTypeCollection)parent_ref).parent_ref).parent_ref).ConfigConfig
-					==
-					Name
-				);
+throw new Exception("// ToDos: now! not implemented!");
+//				return (
+//					((XS_tableType)((XS_tableFieldsType)((XS_tableFieldsTypeCollection)parent_ref).parent_ref).parent_ref).ConfigConfig
+//					==
+//					Name
+//				);
 			}
 		}
 		#endregion
@@ -60,11 +62,12 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public bool isConfig_Datatype {
 			get {
-				return (
-					((XS_tableType)((XS_tableFieldsType)((XS_tableFieldsTypeCollection)parent_ref).parent_ref).parent_ref).ConfigDatatype
-					==
-					Name
-				);
+throw new Exception("// ToDos: now! not implemented!");
+//				return (
+//					((XS_tableType)((XS_tableFieldsType)((XS_tableFieldsTypeCollection)parent_ref).parent_ref).parent_ref).ConfigDatatype
+//					==
+//					Name
+//				);
 			}
 		}
 		#endregion

@@ -26,20 +26,6 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 	{
 		public XS0_tableSearchType (
 		) {
-			tablesearchparameterscollection_ = new 
-#if !NET_1_1
-				OGenRootrefSimpleCollection<XS_tableSearchParametersType, XS__RootMetadata>()
-#else
-				XS_tableSearchParametersTypeCollection()
-#endif
-			;
-			tablesearchupdatescollection_ = new 
-#if !NET_1_1
-				OGenRootrefSimpleCollection<XS_tableSearchUpdatesType, XS__RootMetadata>()
-#else
-				XS_tableSearchUpdatesTypeCollection()
-#endif
-			;
 		}
 		public XS0_tableSearchType (
 			string name_in
@@ -66,8 +52,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public object parent_ref {
 			set {
 				parent_ref_ = value;
-				tablesearchparameterscollection_.parent_ref = this;
-				tablesearchupdatescollection_.parent_ref = this;
+				if (tablesearchparameters__ != null) tablesearchparameters__.parent_ref = this;
+				if (tablesearchupdates__ != null) tablesearchupdates__.parent_ref = this;
 			}
 			get { return parent_ref_; }
 		}
@@ -79,8 +65,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public XS__RootMetadata root_ref {
 			set {
 				root_ref_ = value;
-				tablesearchparameterscollection_.root_ref = value;
-				tablesearchupdatescollection_.root_ref = value;
+				if (tablesearchparameters__ != null) tablesearchparameters__.root_ref = value;
+				if (tablesearchupdates__ != null) tablesearchupdates__.root_ref = value;
 			}
 			get { return root_ref_; }
 		}
@@ -124,58 +110,48 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
-		#region public ... TableSearchParametersCollection { get; }
-		private 
-#if !NET_1_1
-			OGenRootrefSimpleCollection<XS_tableSearchParametersType, XS__RootMetadata>
-#else
-			XS_tableSearchParametersTypeCollection
-#endif
-			tablesearchparameterscollection_;
+		#region public XS_tableSearchParametersType TableSearchParameters { get; set; }
+		private XS_tableSearchParametersType tablesearchparameters__;
+
+		[XmlIgnore()]
+		public XS_tableSearchParametersType TableSearchParameters {
+			get {
+				if (tablesearchparameters__ == null) {
+					tablesearchparameters__ = new XS_tableSearchParametersType();
+				}
+				return tablesearchparameters__;
+			}
+			set {
+				tablesearchparameters__ = value;
+			}
+		}
 
 		[XmlElement("tableSearchParameters")]
-		public XS_tableSearchParametersType[] tablesearchparameterscollection__xml {
-			get { return tablesearchparameterscollection_.cols__; }
-			set { tablesearchparameterscollection_.cols__ = value; }
-		}
-
-		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenRootrefSimpleCollection<XS_tableSearchParametersType, XS__RootMetadata>
-#else
-			XS_tableSearchParametersTypeCollection
-#endif
-		TableSearchParametersCollection
-		{
-			get { return tablesearchparameterscollection_; }
+		public XS_tableSearchParametersType tablesearchparameters__xml {
+			get { return tablesearchparameters__; }
+			set { tablesearchparameters__ = value; }
 		}
 		#endregion
-		#region public ... TableSearchUpdatesCollection { get; }
-		private 
-#if !NET_1_1
-			OGenRootrefSimpleCollection<XS_tableSearchUpdatesType, XS__RootMetadata>
-#else
-			XS_tableSearchUpdatesTypeCollection
-#endif
-			tablesearchupdatescollection_;
-
-		[XmlElement("tableSearchUpdates")]
-		public XS_tableSearchUpdatesType[] tablesearchupdatescollection__xml {
-			get { return tablesearchupdatescollection_.cols__; }
-			set { tablesearchupdatescollection_.cols__ = value; }
-		}
+		#region public XS_tableSearchUpdatesType TableSearchUpdates { get; set; }
+		private XS_tableSearchUpdatesType tablesearchupdates__;
 
 		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenRootrefSimpleCollection<XS_tableSearchUpdatesType, XS__RootMetadata>
-#else
-			XS_tableSearchUpdatesTypeCollection
-#endif
-		TableSearchUpdatesCollection
-		{
-			get { return tablesearchupdatescollection_; }
+		public XS_tableSearchUpdatesType TableSearchUpdates {
+			get {
+				if (tablesearchupdates__ == null) {
+					tablesearchupdates__ = new XS_tableSearchUpdatesType();
+				}
+				return tablesearchupdates__;
+			}
+			set {
+				tablesearchupdates__ = value;
+			}
+		}
+
+		[XmlElement("tableSearchUpdates")]
+		public XS_tableSearchUpdatesType tablesearchupdates__xml {
+			get { return tablesearchupdates__; }
+			set { tablesearchupdates__ = value; }
 		}
 		#endregion
 	}

@@ -254,26 +254,54 @@ namespace OGen.NTier.presentationlayer.winforms {
 		#endregion
 		#region private void btnNext_Click(...);
 		private void btnNext_Click(object sender, System.EventArgs e) {
-			string[]	_param_tablefield;
+			string[] _param_tablefield;
+			int _index;
 
-			int t = frm_Main.NTierProject.Metadata.Tables.Search(txtTableName.Text);
-			if (frm_Main.NTierProject.Metadata.Tables[t].Searches.Search(txtSearchName.Text) != -1) {
+			int t = frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection.Search(txtTableName.Text);
+			if (frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[t].TableSearches.TableSearchCollection.Search(txtSearchName.Text) != -1) {
 				MessageBox.Show("Search already exists, choose a diferent name", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			} else {
-				int s = frm_Main.NTierProject.Metadata.Tables[t].Searches.Add(txtSearchName.Text, true);
+				int s;
+				frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[t].TableSearches.TableSearchCollection.Add(
+					out s, 
+					true, 
+					new OGen.NTier.lib.metadata.metadataExtended.XS_tableSearchType(
+						txtSearchName.Text
+					)
+				);
 
-				frm_Main.NTierProject.Metadata.Tables[t].Searches[s].isRange = cbxIsRange.Checked;
-				frm_Main.NTierProject.Metadata.Tables[t].Searches[s].isExplicitUniqueIndex = cbxIsExplicitUniqueIndex.Checked;
+				frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[t].TableSearches.TableSearchCollection[s].isRange = cbxIsRange.Checked;
+				frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[t].TableSearches.TableSearchCollection[s].isExplicitUniqueIndex = cbxIsExplicitUniqueIndex.Checked;
 
 				for (int f = 0; f < Parent_ref.FieldsName.GetLength(0); f++) {
 					_param_tablefield = Parent_ref.FieldsName[f, 1].ToString().Split(new char[] { '\\' });
 					
-					frm_Main.NTierProject.Metadata.Tables[t].Searches[s].SearchParameters.Add(
-						_param_tablefield[0], 
-						_param_tablefield[1], 
-						true, 
-						Parent_ref.FieldsName[f, 0]
+					frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[
+						t
+					].TableSearches.TableSearchCollection[
+						s
+					].TableSearchParameters.TableFieldRefCollection.Add(
+						out _index, 
+						new OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldRefType(
+							Parent_ref.FieldsName[f, 0]
+						)
 					);
+
+					frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[
+						t
+					].TableSearches.TableSearchCollection[
+						s
+					].TableSearchParameters.TableFieldRefCollection[
+						_index
+					].TableName = _param_tablefield[0];
+
+					frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[
+						t
+					].TableSearches.TableSearchCollection[
+						s
+					].TableSearchParameters.TableFieldRefCollection[
+						_index
+					].TableFieldName = _param_tablefield[1];
 				}
 				frm_Main.NTierProject.hasChanges = true;
 
