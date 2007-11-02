@@ -56,18 +56,18 @@ namespace OGen.NTier.presentationlayer.winforms {
 		#endregion
 
 		public void Manage_Views_PK() {
-			int t = frm_Main.NTierProject.Metadata.Tables.Search(ViewName);
+			int t = frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection.Search(ViewName);
 
 			// Clean Keys:
-			for (int f = 0; f < frm_Main.NTierProject.Metadata.Tables[t].Fields.Count; f++) {
-				frm_Main.NTierProject.Metadata.Tables[t].Fields[f].isIdentity = false;
-				frm_Main.NTierProject.Metadata.Tables[t].Fields[f].isPK = false;
+			for (int f = 0; f < frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection.Count; f++) {
+				frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].isIdentity = false;
+				frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].isPK = false;
 			}
 
 			// Reset Keys:
 			for (int k = 0; k < ViewPKs.Length; k++) {
-				frm_Main.NTierProject.Metadata.Tables[t].Fields[
-					frm_Main.NTierProject.Metadata.Tables[t].Fields.Search(
+				frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[
+					frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection.Search(
 						ViewPKs[k]
 					)
 				].isPK = true;

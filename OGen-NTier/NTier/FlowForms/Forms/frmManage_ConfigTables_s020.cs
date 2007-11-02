@@ -238,7 +238,9 @@ frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
 ].TableFields.TableFieldCollection[
 	frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[
 		TableName_
-	].TableFields.TableFieldCollection[f].Name
+	].TableFields.TableFieldCollection[
+		f
+	].Name
 ].canBeConfig_Name
 				) {
 					cbxName.Items.Add(
@@ -267,7 +269,22 @@ frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
 					)
 						cbxName.SelectedIndex
 							= cbxName.Items.Count - 1;
-				} else if (frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName_].TableFields.TableFieldCollection[f].canBeConfig_Config) {
+				} else if (
+//frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[
+//	TableName_
+//].TableFields.TableFieldCollection[
+//	f
+//].canBeConfig_Config
+frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
+	TableName_
+].TableFields.TableFieldCollection[
+	frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[
+		TableName_
+	].TableFields.TableFieldCollection[
+		f
+	].Name
+].canBeConfig_Config
+				) {
 					cbxConfig.Items.Add(
 						frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName_].TableFields.TableFieldCollection[f].Name
 					);
