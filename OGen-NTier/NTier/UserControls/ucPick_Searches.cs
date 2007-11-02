@@ -91,9 +91,9 @@ namespace OGen.NTier.presentationlayer.winforms {
 		#region public void Bind_Searches(...);
 		public void Bind_Searches(int Table_, bool MultipleSelection_) {
 			lvwSearches.Items.Clear();
-			for (int s = 0; s < frm_Main.NTierProject.Metadata.Tables[Table_].Searches.Count; s++) {
+			for (int s = 0; s < frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[Table_].TableSearches.TableSearchCollection.Count; s++) {
 				lvwSearches.Items.Add(
-					frm_Main.NTierProject.Metadata.Tables[Table_].Searches[s].Name
+					frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[Table_].TableSearches.TableSearchCollection[s].Name
 				);
 			}
 			lvwSearches.MultiSelect = MultipleSelection_;

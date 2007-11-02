@@ -142,7 +142,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 		#region public void Bind_Fields();
 		public void Bind_Fields() {
 			this.Pick_Fields_forCriteria.Bind_Fields(
-				frm_Main.NTierProject.Metadata.Tables.Search(
+				frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection.Search(
 					Parent_ref.Parent_ref.TableName
 				)
 			);

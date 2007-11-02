@@ -249,22 +249,60 @@ namespace OGen.NTier.presentationlayer.winforms {
 		#endregion
 		#region private void btnNext_Click(...);
 		private void btnNext_Click(object sender, System.EventArgs e) {
+			int _index = -1;
 			//string[] _fieldparam;
-			int t = frm_Main.NTierProject.Metadata.Tables.Search(txtTableName.Text);
-			int s = frm_Main.NTierProject.Metadata.Tables[t].Searches.Search(txtSearchName.Text);
-			if (frm_Main.NTierProject.Metadata.Tables[t].Searches[s].Updates.Search(txtUpdateName.Text) != -1) {
+			int t = frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection.Search(txtTableName.Text);
+			int s = frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[t].TableSearches.TableSearchCollection.Search(txtSearchName.Text);
+			if (frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[t].TableSearches.TableSearchCollection[s].TableSearchUpdates.TableSearchUpdateCollection.Search(txtUpdateName.Text) != -1) {
 				MessageBox.Show("Update already exists, choose a diferent name", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			} else {
-				int u = frm_Main.NTierProject.Metadata.Tables[t].Searches[s].Updates.Add(txtUpdateName.Text, true);
+				int u;
+				frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[
+					t
+				].TableSearches.TableSearchCollection[
+					s
+				].TableSearchUpdates.TableSearchUpdateCollection.Add(
+					out u, 
+					true, 
+					new OGen.NTier.lib.metadata.metadataExtended.XS_tableSearchUpdateType(
+						txtUpdateName.Text
+					)
+				);
 
 				for (int f = 0; f < lbxFields.Items.Count; f++) {
 					//_fieldparam = lbxFields.Items[f].ToString().Split(new char[] { '\\' });
 					
-					frm_Main.NTierProject.Metadata.Tables[t].Searches[s].Updates[u].UpdateParameters.Add(
-						txtTableName.Text, //_fieldparam[0], 
-						lbxFields.Items[f].ToString(), //_fieldparam[1], 
-						true
-					);
+					frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[
+						t
+					].TableSearches.TableSearchCollection[
+						s
+					].TableSearchUpdates.TableSearchUpdateCollection[
+						u
+].TableUpdateParametersCollection.Add(
+	true, 
+	new OGen.NTier.lib.metadata.metadataExtended.XS_tableSearchUpdateParametersType()
+);
+
+frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[
+	t
+].TableSearches.TableSearchCollection[
+	s
+].TableSearchUpdates.TableSearchUpdateCollection[
+	u
+].TableUpdateParametersCollection[
+	_index
+].TableName = txtTableName.Text;
+
+frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[
+	t
+].TableSearches.TableSearchCollection[
+	s
+].TableSearchUpdates.TableSearchUpdateCollection[
+	u
+].TableUpdateParametersCollection[
+	_index
+].TableFieldName = lbxFields.Items[f].ToString();
+
 				}
 				frm_Main.NTierProject.hasChanges = true;
 

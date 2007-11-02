@@ -70,29 +70,26 @@ namespace OGen.NTier.presentationlayer.winforms {
 		#endregion
 
 		public void ConfigTables() {
-			for (int f = 0; f < frm_Main.ntierproject.Metadata.Tables[TableName].Fields.Count; f++) {
-				frm_Main.ntierproject.Metadata.Tables[TableName].Fields[f].isConfig_Name = false;
-				frm_Main.ntierproject.Metadata.Tables[TableName].Fields[f].isConfig_Config = false;
-				frm_Main.ntierproject.Metadata.Tables[TableName].Fields[f].isConfig_Datatype = false;
-				//frm_Main.ntierproject.Metadata.Tables[TableName].Searches.RemoveAt("byName");
-			}
+			frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].ConfigName = string.Empty;
+			frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].ConfigConfig = string.Empty;
+			frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].ConfigDatatype = string.Empty;
 
 			switch (Choice) {
 				case eInsUpdDel.Delete:
-					frm_Main.ntierproject.Metadata.Tables[TableName].isConfig = false;
+					frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].isConfig = false;
 					break;
 				case eInsUpdDel.Update:
 				case eInsUpdDel.Insert:
-					frm_Main.ntierproject.Metadata.Tables[TableName].isConfig = true;
+					frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].isConfig = true;
 
-					frm_Main.ntierproject.Metadata.Tables[TableName].Fields[NameField].isConfig_Name = true;
-					frm_Main.ntierproject.Metadata.Tables[TableName].Fields[ConfigField].isConfig_Config = true;
-					frm_Main.ntierproject.Metadata.Tables[TableName].Fields[DatatypeField].isConfig_Datatype = true;
+					frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].ConfigName = NameField;
+					frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].ConfigConfig = ConfigField;
+					frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].ConfigDatatype = DatatypeField;
 
-					//int s = frm_Main.ntierproject.Metadata.Tables[TableName].Searches.Add("byName", true);
-					//frm_Main.ntierproject.Metadata.Tables[TableName].Searches[s].isExplicitUniqueIndex = true;
-					//frm_Main.ntierproject.Metadata.Tables[TableName].Searches[s].isRange = false;
-					//frm_Main.ntierproject.Metadata.Tables[TableName].Searches[s].SearchParameters.Add(
+					//int s = frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].Searches.Add("byName", true);
+					//frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].Searches[s].isExplicitUniqueIndex = true;
+					//frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].Searches[s].isRange = false;
+					//frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].Searches[s].SearchParameters.Add(
 					//	TableName, 
 					//	NameField, 
 					//	true, 

@@ -61,6 +61,14 @@ namespace OGen.lib.datalayer {
 		#endregion
 #endif
 
+		#region public static DBUtils GetInstance(...);
+//		public static DBUtils GetInstance(
+//			string dbServerType_in
+//		) {
+//			return GetInstance(
+//				(DBServerTypes)Enum.Parse(typeof(DBServerTypes), dbServerType_in)
+//			);
+//		}
 		public static DBUtils GetInstance(
 			DBServerTypes dbServerType_in
 		) {
@@ -84,6 +92,7 @@ namespace OGen.lib.datalayer {
 				)
 			);
 		}
+		#endregion
 		#endregion
 	}
 }

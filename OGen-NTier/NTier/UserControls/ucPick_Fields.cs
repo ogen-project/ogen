@@ -98,27 +98,32 @@ namespace OGen.NTier.presentationlayer.winforms {
 		}
 		#endregion
 		#region public void Bind_Fields(...);
-		public void Bind_Fields(eType FieldType_, bool MultipleSelection_, int SpecificTable_, eType SelectionType_) {
+		public void Bind_Fields(
+			eType FieldType_, 
+			bool MultipleSelection_, 
+			int SpecificTable_, 
+			eType SelectionType_
+		) {
 			bool _canAdd;
 			lvwFields.Items.Clear();
 			
 			for ( // tweaked for-cycle!
 				int t = (SpecificTable_ >= 0) ? SpecificTable_ : 0; 
-				t < frm_Main.NTierProject.Metadata.Tables.Count; 
+				t < frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection.Count;
 				t++
 			) {
-				for (int f = 0; f < frm_Main.NTierProject.Metadata.Tables[t].Fields.Count; f++) {
+				for (int f = 0; f < frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection.Count; f++) {
 					_canAdd = false;
 
 					switch (FieldType_) {
 						case eType.OnlyIdentityKey:
-							_canAdd = frm_Main.NTierProject.Metadata.Tables[t].Fields[f].isIdentity;
+							_canAdd = frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].isIdentity;
 							break;
 						case eType.OnlyPrimaryKeys:
-							_canAdd = frm_Main.NTierProject.Metadata.Tables[t].Fields[f].isPK;
+							_canAdd = frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].isPK;
 							break;
 						case eType.NoKeys:
-							_canAdd = !frm_Main.NTierProject.Metadata.Tables[t].Fields[f].isPK;
+							_canAdd = !frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].isPK;
 							break;
 						case eType.All:
 							_canAdd = true;
@@ -132,8 +137,8 @@ namespace OGen.NTier.presentationlayer.winforms {
 							//new ListViewItem(
 								string.Format( 
 									"{0}{1}", 
-									(SpecificTable_ >= 0) ? "" : frm_Main.NTierProject.Metadata.Tables[t].Name + "\\", 
-									frm_Main.NTierProject.Metadata.Tables[t].Fields[f].Name
+									(SpecificTable_ >= 0) ? "" : frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].Name + "\\", 
+									frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].Name
 								)
 							//)
 						);
@@ -141,15 +146,15 @@ namespace OGen.NTier.presentationlayer.winforms {
 						switch (SelectionType_) {
 							case eType.OnlyIdentityKey:
 								lvwFields.Items[lvwFields.Items.Count - 1].Selected = 
-									frm_Main.NTierProject.Metadata.Tables[t].Fields[f].isIdentity;
+									frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].isIdentity;
 								break;
 							case eType.OnlyPrimaryKeys:
 								lvwFields.Items[lvwFields.Items.Count - 1].Selected = 
-									frm_Main.NTierProject.Metadata.Tables[t].Fields[f].isPK;
+									frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].isPK;
 								break;
 							case eType.NoKeys:
 								lvwFields.Items[lvwFields.Items.Count - 1].Selected = 
-									!frm_Main.NTierProject.Metadata.Tables[t].Fields[f].isPK;
+									!frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].isPK;
 								break;
 							case eType.All:
 								lvwFields.Items[lvwFields.Items.Count - 1].Selected = true;

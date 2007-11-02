@@ -102,28 +102,42 @@ namespace OGen.NTier.presentationlayer.winforms {
 		public void Bind_Tables(eTypeSelection TypeSelection_, bool MultipleSelection_) {
 			bool _canAdd;
 			lvwTables.Items.Clear();
-			for (int t = 0; t < frm_Main.NTierProject.Metadata.Tables.Count; t++) {
+			for (int t = 0; t < frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection.Count; t++) {
 				_canAdd = false;
 
 				switch (TypeSelection_) {
 					case eTypeSelection.OnlyTables:
-						_canAdd = !frm_Main.NTierProject.Metadata.Tables[t].isVirtualTable;
+						_canAdd = !frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
+							t
+						].isVirtualTable;
 						break;
 					case eTypeSelection.OnlyViews:
-						_canAdd = frm_Main.NTierProject.Metadata.Tables[t].isVirtualTable;
+						_canAdd = frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
+							t
+						].isVirtualTable;
 						break;
 					case eTypeSelection.OnlyViews_withNoKeys:
 						_canAdd = (
-							frm_Main.NTierProject.Metadata.Tables[t].isVirtualTable
+							frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
+								t
+							].isVirtualTable
 							&&
-							(frm_Main.NTierProject.Metadata.Tables[t].Fields_onlyPK.Count == 0)
+							(frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
+								t
+							].TableFields_onlyPK().TableFieldCollection.Count == 0)
 						);
 						break;
 					case eTypeSelection.OnlyConfigTables:
-						_canAdd = frm_Main.NTierProject.Metadata.Tables[t].isConfig;
+						_canAdd = frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[
+							frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
+								t
+							].Name
+						].isConfig;
 						break;
 					case eTypeSelection.NoConfigTables:
-						_canAdd = frm_Main.NTierProject.Metadata.Tables[t].canBeConfig();
+						_canAdd = frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
+							t
+						].canBeConfig();
 						break;
 					case eTypeSelection.All:
 						_canAdd = true;
@@ -132,7 +146,9 @@ namespace OGen.NTier.presentationlayer.winforms {
 				if (_canAdd) {
 					lvwTables.Items.Add(
 						//new ListViewItem(
-							frm_Main.NTierProject.Metadata.Tables[t].Name
+							frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
+								t
+							].Name
 						//)
 					);
 				}

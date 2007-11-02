@@ -77,7 +77,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 		//#region public Methods...
 		public override void Show() {
 			MyForm.Bind(
-				frm_Main.ntierproject.Metadata.Tables.Search(
+				frm_Main.ntierproject.Metadata.MetadataDBCollection[0].Tables.TableCollection.Search(
 					MyProcess.ViewName
 				)
 			);

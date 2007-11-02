@@ -31,5 +31,68 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		) {
 		}
 		#endregion
+
+		#region public bool isBool { get; }
+		[XmlIgnore()]
+		public bool isBool {
+			get {
+//				return OGen.lib.datalayer.utils.isBool(DBType_generic.Value);
+				return TableFieldDBs.TableFieldDBCollection[0].isBool;
+			}
+		}
+		#endregion
+		#region public bool isDateTime { get; }
+		[XmlIgnore()]
+		public bool isDateTime {
+			get {
+//				return OGen.lib.datalayer.utils.isDateTime(DBType_generic.Value);
+				return TableFieldDBs.TableFieldDBCollection[0].isDateTime;
+			}
+		}
+		#endregion
+		#region public bool isInt { get; }
+		[XmlIgnore()]
+		public bool isInt {
+			get {
+//				return OGen.lib.datalayer.utils.isInt(DBType_generic.Value);
+				return TableFieldDBs.TableFieldDBCollection[0].isInt;
+			}
+		}
+		#endregion
+		#region public bool isDecimal { get; }
+		[XmlIgnore()]
+		public bool isDecimal {
+			get {
+//				return OGen.lib.datalayer.utils.isDecimal(DBType_generic.Value);
+				return TableFieldDBs.TableFieldDBCollection[0].isDecimal;
+			}
+		}
+		#endregion
+		#region public bool isText { get; }
+		[XmlIgnore()]
+		public bool isText {
+			get {
+//				return OGen.lib.datalayer.utils.isText(DBType_generic.Value);
+				return TableFieldDBs.TableFieldDBCollection[0].isText;
+			}
+		}
+		#endregion
+
+		#region public bool canBeConfig_... { get; }
+		[XmlIgnore()]
+		public bool canBeConfig_Name {
+			get { return isText && isPK; }
+		}
+
+		[XmlIgnore()]
+		public bool canBeConfig_Config {
+			get { return isText && !isPK; }
+		}
+
+		[XmlIgnore()]
+		public bool canBeConfig_Type {
+			get { return isInt && !isPK; }
+		}
+		#endregion
 	}
 }

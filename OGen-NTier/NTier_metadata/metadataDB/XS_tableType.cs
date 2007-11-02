@@ -33,7 +33,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		#endregion
 
 		#region public XS_tableFieldsType TableFields_onlyPK();
-		public XS_tableFieldsType TableFields_onlyPK(){
+		public XS_tableFieldsType TableFields_onlyPK() {
 			XS_tableFieldsType _output = new XS_tableFieldsType();
 
 			for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
@@ -43,6 +43,46 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 					);
 
 			return _output;
+		}
+		#endregion
+		#region public int hasIdentityKey();
+		public int hasIdentityKey() {
+			for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
+				if (TableFields.TableFieldCollection[f].isIdentity)
+					return f;
+
+			return -1;
+		}
+		#endregion
+		#region public bool canBeConfig();
+		public bool canBeConfig() {
+			bool canBeConfig_out = (
+				!root_ref.MetadataExtendedCollection[0].Tables.TableCollection[Name].isConfig
+				&&
+				(hasIdentityKey() == -1)
+				&&
+				(TableFields_onlyPK().TableFieldCollection.Count == 1)
+				&&
+				(TableFields.TableFieldCollection.Count >= 3)
+			);
+			if (canBeConfig_out) {
+				int _numFields_thatCanBeName = 0;
+				int _numFields_thatCanBeConfig = 0;
+				int _numFields_thatCanBeType = 0;
+				for (int f = 0; f < TableFields.TableFieldCollection.Count; f++) {
+					if (TableFields.TableFieldCollection[f].canBeConfig_Name) _numFields_thatCanBeName++;
+					if (TableFields.TableFieldCollection[f].canBeConfig_Config) _numFields_thatCanBeConfig++;
+					if (TableFields.TableFieldCollection[f].canBeConfig_Type) _numFields_thatCanBeType++;
+				}
+				canBeConfig_out = (
+					(_numFields_thatCanBeName == 1)
+					&&
+					(_numFields_thatCanBeConfig >= 1)
+					&&
+					(_numFields_thatCanBeType >= 1)
+				);
+			}
+			return canBeConfig_out;
 		}
 		#endregion
 	}

@@ -145,7 +145,9 @@ namespace OGen.NTier.presentationlayer.winforms {
 		#region public void Bind_Updates();
 		public void Bind_Searches() {
 			this.Pick_Searches.Bind_Searches(
-				frm_Main.NTierProject.Metadata.Tables.Search(Parent_ref.TableName), 
+				frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection.Search(
+					Parent_ref.TableName
+				),
 				false
 			);
 		}
