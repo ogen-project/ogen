@@ -147,6 +147,8 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			int _output = -1;
 
 			for (int i = 0; i < col_in.Length; i++) {
+				col_in[i].parent_ref = this;
+				col_in[i].root_ref = root_ref;
 				_output = cols_.Add(col_in[i]);
 			}
 

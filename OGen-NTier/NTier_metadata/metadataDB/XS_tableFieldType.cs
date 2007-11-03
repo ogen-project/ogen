@@ -32,11 +32,51 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 
+		#region public XS_tableType parent_table_ref { get; }
+		private XS_tableType parent_table_ref__ = null;
+
+		public XS_tableType parent_table_ref {
+			get {
+				if (parent_table_ref__ == null) {
+					parent_table_ref__ 
+						= (XS_tableType)(
+							(XS_tableFieldsType)(
+								(
+									#if !NET_1_1
+									OGenRootrefCollection<XS_tableFieldType, XS__RootMetadata>
+									#else
+									XS_tableFieldTypeCollection
+									#endif
+								)parent_ref
+							).parent_ref
+						).parent_ref;
+				}
+				return parent_table_ref__;
+			}
+		}
+		#endregion
+		#region public metadataExtended.XS_tableFieldType parallel_ref { get; }
+		private OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType parallel_ref__ = null;
+
+		public OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType parallel_ref {
+			get {
+				if (parallel_ref__ == null) {
+					parallel_ref__
+						= root_ref.MetadataExtendedCollection[0].Tables.TableCollection[
+							parent_table_ref.Name
+						].TableFields.TableFieldCollection[
+							Name
+						];
+				}
+				return parallel_ref__;
+			}
+		}
+		#endregion
+
 		#region public bool isBool { get; }
 		[XmlIgnore()]
 		public bool isBool {
 			get {
-//				return OGen.lib.datalayer.utils.isBool(DBType_generic.Value);
 				return TableFieldDBs.TableFieldDBCollection[0].isBool;
 			}
 		}
@@ -45,7 +85,6 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlIgnore()]
 		public bool isDateTime {
 			get {
-//				return OGen.lib.datalayer.utils.isDateTime(DBType_generic.Value);
 				return TableFieldDBs.TableFieldDBCollection[0].isDateTime;
 			}
 		}
@@ -54,7 +93,6 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlIgnore()]
 		public bool isInt {
 			get {
-//				return OGen.lib.datalayer.utils.isInt(DBType_generic.Value);
 				return TableFieldDBs.TableFieldDBCollection[0].isInt;
 			}
 		}
@@ -63,7 +101,6 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlIgnore()]
 		public bool isDecimal {
 			get {
-//				return OGen.lib.datalayer.utils.isDecimal(DBType_generic.Value);
 				return TableFieldDBs.TableFieldDBCollection[0].isDecimal;
 			}
 		}
@@ -72,7 +109,6 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlIgnore()]
 		public bool isText {
 			get {
-//				return OGen.lib.datalayer.utils.isText(DBType_generic.Value);
 				return TableFieldDBs.TableFieldDBCollection[0].isText;
 			}
 		}

@@ -31,5 +31,21 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		) {
 		}
 		#endregion
+
+		#region public metadataDB.XS_tableType parallel_ref { get; }
+		private OGen.NTier.lib.metadata.metadataDB.XS_tableType parallel_ref__ = null;
+
+		public OGen.NTier.lib.metadata.metadataDB.XS_tableType parallel_ref {
+			get {
+				if (parallel_ref__ == null) {
+					parallel_ref__
+						= root_ref.MetadataDBCollection[0].Tables.TableCollection[
+							Name
+						];
+				}
+				return parallel_ref__;
+			}
+		}
+		#endregion
 	}
 }

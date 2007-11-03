@@ -26,27 +26,59 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 
-		#region public bool hasVirtualTable_withUndefinedKeys();
-		public bool hasVirtualTable_withUndefinedKeys() {
-			for (int t = 0; t < TableCollection.Count; t++)
-				if (TableCollection[t].isVirtualTable)
-					if (
-						root_ref.MetadataDBCollection[0].Tables.TableCollection[
-							TableCollection[t].Name
-						].TableFields_onlyPK().TableFieldCollection.Count == 0
-					)
-						return true;
+		#region public bool hasVirtualTable_withUndefinedKeys { get; }
+		private bool hasvirtualtable_withundefinedkeys_DONE__ = false;
+		private bool hasvirtualtable_withundefinedkeys__;
 
-			return false;
+		public bool hasVirtualTable_withUndefinedKeys {
+			get {
+				// this isn't very safe, there's no way to assure that PKs won't be
+				// added or removed, but by the time this method is called
+				// there won't be any more adding or removing
+
+				if (!hasvirtualtable_withundefinedkeys_DONE__) {
+					hasvirtualtable_withundefinedkeys__ = false;
+					for (int t = 0; t < TableCollection.Count; t++)
+						if (TableCollection[t].isVirtualTable)
+							if (
+								TableCollection[t].parallel_ref
+									.TableFields_onlyPK.TableFieldCollection
+										.Count == 0
+							) {
+								hasvirtualtable_withundefinedkeys__ = true;
+								break;
+							}
+
+					hasvirtualtable_withundefinedkeys_DONE__ = true;
+				}
+
+				return hasvirtualtable_withundefinedkeys__;
+			}
 		}
 		#endregion
-		#region public bool hasConfigTable();
-		public bool hasConfigTable() {
-			for (int t = 0; t < TableCollection.Count; t++)
-				if (TableCollection[t].isConfig)
-					return true;
+		#region public bool hasConfigTable { get; }
+		private bool hasconfigtable__;
+		private bool hasconfigtable_DONE__ = false;
 
-			return false;
+		public bool hasConfigTable {
+			get {
+				// this isn't very safe, there's no way to assure that PKs won't be
+				// added or removed, but by the time this method is called
+				// there won't be any more adding or removing
+
+				if (!hasconfigtable_DONE__) {
+					hasconfigtable__ = false;
+					for (int t = 0; t < TableCollection.Count; t++)
+						if (TableCollection[t].isConfig) {
+							hasconfigtable__ = true;
+							break;
+						}
+
+					hasconfigtable_DONE__ = true;
+				}
+
+				return hasconfigtable__;
+			}
 		}
 		#endregion
 	}

@@ -37,8 +37,6 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlIgnore()]
 		public int DBType_inDB {
 			get {
-				//return int.Parse(base.Property_standard["type"));
-
 				return DBUtilssupport.GetInstance(
 					(DBServerTypes)Enum.Parse(typeof(DBServerTypes), DBServerType)
 				).Convert.XDbType_Parse(

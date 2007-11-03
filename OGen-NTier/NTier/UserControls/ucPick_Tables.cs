@@ -124,7 +124,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 							&&
 							(frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
 								t
-							].TableFields_onlyPK().TableFieldCollection.Count == 0)
+							].TableFields_onlyPK.TableFieldCollection.Count == 0)
 						);
 						break;
 					case eTypeSelection.OnlyConfigTables:
@@ -137,7 +137,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 					case eTypeSelection.NoConfigTables:
 						_canAdd = frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
 							t
-						].canBeConfig();
+						].canBeConfig;
 						break;
 					case eTypeSelection.All:
 						_canAdd = true;

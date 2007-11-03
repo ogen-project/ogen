@@ -25,5 +25,32 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		) {
 		}
 		#endregion
+
+		#region public bool hasExplicitUniqueIndex { get; }
+		private bool hasexplicituniqueindex_DONE__ = false;
+		private bool hasexplicituniqueindex__;
+
+		public bool hasExplicitUniqueIndex {
+			get {
+				// this isn't very safe, there's no way to assure that PKs won't be
+				// added or removed, but by the time this method is called
+				// there won't be any more adding or removing
+
+				if (!hasexplicituniqueindex_DONE__) {
+					hasexplicituniqueindex__ = false;
+					for (int s = 0; s < TableSearchCollection.Count; s++) {
+						if (TableSearchCollection[s].isExplicitUniqueIndex) {
+							hasexplicituniqueindex__ = true;
+							break;
+						}
+					}
+
+					hasexplicituniqueindex_DONE__ = true;
+				}
+
+				return hasexplicituniqueindex__;
+			}
+		}
+		#endregion
 	}
 }

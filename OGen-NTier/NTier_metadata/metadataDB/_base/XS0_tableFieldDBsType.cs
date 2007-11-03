@@ -28,7 +28,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		) {
 			tablefielddbcollection_ = new 
 #if !NET_1_1
-				OGenRootrefCollection<XS_tableFieldDBType, XS__RootMetadata>()
+				OGenRootrefCollection<XS_tableFieldDBType, XS__RootMetadata, KEY_tableFieldDBType>()
 #else
 				XS_tableFieldDBTypeCollection()
 #endif
@@ -62,7 +62,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		#region public ... TableFieldDBCollection { get; }
 		private 
 #if !NET_1_1
-			OGenRootrefCollection<XS_tableFieldDBType, XS__RootMetadata>
+			OGenRootrefCollection<XS_tableFieldDBType, XS__RootMetadata, KEY_tableFieldDBType>
 #else
 			XS_tableFieldDBTypeCollection
 #endif
@@ -70,14 +70,28 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 
 		[XmlElement("tableFieldDB")]
 		public XS_tableFieldDBType[] tablefielddbcollection__xml {
-			get { return tablefielddbcollection_.cols__; }
+			get {
+
+//TableFieldDBCollection[
+//    //new KEY_tableFieldDBType(
+//    //    KEY_tableFieldDBType.KeyEnum.DBServerType, 
+//    //    ""
+//    //), 
+//    //new KEY_tableFieldDBType(
+//    //    KEY_tableFieldDBType.KeyEnum.DBType, 
+//    //    ""
+//    //)
+//    XS_tableFieldDBType.Keys_builder("", "")
+//].DBType;
+
+				return tablefielddbcollection_.cols__; }
 			set { tablefielddbcollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public
 #if !NET_1_1
-			OGenRootrefCollection<XS_tableFieldDBType, XS__RootMetadata>
+			OGenRootrefCollection<XS_tableFieldDBType, XS__RootMetadata, KEY_tableFieldDBType>
 #else
 			XS_tableFieldDBTypeCollection
 #endif

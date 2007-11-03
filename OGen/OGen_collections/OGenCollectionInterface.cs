@@ -27,11 +27,13 @@ namespace OGen.lib.collections {
 			set;
 		}
 	}
-	//public interface OGenSimpleCollectionInterface<R> {
-	//	R root_ref { get; } 
-	//}
-	public interface OGenCollectionInterface<T> {
-		T CollectionName { get; }
+	public interface OGenCollectionInterface<C, K>
+		where K : struct
+	{
+		K[] Keys { get; }
+
+		bool Equals_compareKeysOnly(C collectionItem_in);
+		bool Keys_compare(params K[] keys_in);
 	}
 }
 #endif

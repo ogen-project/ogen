@@ -32,16 +32,52 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 
+		#region public XS_tableType parent_table_ref { get; }
+		private XS_tableType parent_table_ref__ = null;
+
+		public XS_tableType parent_table_ref {
+			get {
+				if (parent_table_ref__ == null) {
+					parent_table_ref__ 
+						= (XS_tableType)(
+							(XS_tableFieldsType)(
+								(
+									#if !NET_1_1
+									OGenRootrefCollection<XS_tableFieldType, XS__RootMetadata>
+									#else
+									XS_tableFieldTypeCollection
+									#endif
+								)parent_ref
+							).parent_ref
+						).parent_ref;
+				}
+				return parent_table_ref__;
+			}
+		}
+		#endregion
+		#region public metadataDB.XS_tableFieldType parallel_ref { get; }
+		private OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType parallel_ref__ = null;
+
+		public OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType parallel_ref {
+			get {
+				if (parallel_ref__ == null) {
+					parallel_ref__
+						= root_ref.MetadataDBCollection[0].Tables.TableCollection[
+							parent_table_ref.Name
+						].TableFields.TableFieldCollection[
+							Name
+						];
+				}
+				return parallel_ref__;
+			}
+		}
+		#endregion
+
 		#region public bool isConfig_Name { get; }
 		[XmlIgnore()]
 		public bool isConfig_Name {
 			get {
-throw new Exception("// ToDos: now! not implemented!");
-//				return (
-//					((XS_tableType)((XS_tableFieldsType)((XS_tableFieldsTypeCollection)parent_ref).parent_ref).parent_ref).ConfigName
-//					==
-//					Name
-//				);
+				return (parent_table_ref.ConfigName == Name);
 			}
 		}
 		#endregion
@@ -49,12 +85,7 @@ throw new Exception("// ToDos: now! not implemented!");
 		[XmlIgnore()]
 		public bool isConfig_Config {
 			get {
-throw new Exception("// ToDos: now! not implemented!");
-//				return (
-//					((XS_tableType)((XS_tableFieldsType)((XS_tableFieldsTypeCollection)parent_ref).parent_ref).parent_ref).ConfigConfig
-//					==
-//					Name
-//				);
+				return (parent_table_ref.ConfigConfig == Name);
 			}
 		}
 		#endregion
@@ -62,12 +93,7 @@ throw new Exception("// ToDos: now! not implemented!");
 		[XmlIgnore()]
 		public bool isConfig_Datatype {
 			get {
-throw new Exception("// ToDos: now! not implemented!");
-//				return (
-//					((XS_tableType)((XS_tableFieldsType)((XS_tableFieldsTypeCollection)parent_ref).parent_ref).parent_ref).ConfigDatatype
-//					==
-//					Name
-//				);
+				return (parent_table_ref.ConfigDatatype == Name);
 			}
 		}
 		#endregion
