@@ -29,12 +29,10 @@ XS_Schema _aux_schema = _aux_rootmetadata.SchemaCollection[_arg_SchemaName];
 XS_ComplexType _aux_complextype = _aux_schema.ComplexType[_arg_ComplexTypeName];
 XS_ElementCollection _aux_elements = _aux_complextype.Sequence.Element;
 
-string _aux_complextype_keys_ntype = string.Empty;
-string _aux_complextype_keys_name = string.Empty;
+ComplexTypeItem[] _aux_complextype_keys = null;
 bool _aux_complextype_mustimplementcollection = _aux_complextype.mustImplementCollection(
-	_arg_SchemaName, 
-	out _aux_complextype_keys_ntype, 
-	out _aux_complextype_keys_name
+	_arg_SchemaName,
+	out _aux_complextype_keys
 );
 
 bool _aux_isstandardntype;
@@ -171,11 +169,19 @@ if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%>
 			}
 		}
 		#endregion<%
-if (_aux_complextype_keys_name != string.Empty) {%>
-		#region public <%=XS_%><%=_aux_complextype.Name%> this[<%=_aux_complextype_keys_ntype%> <%=_aux_complextype_keys_name%>_in] { get; }
-		public <%=XS_%><%=_aux_complextype.Name%> this[<%=_aux_complextype_keys_ntype%> <%=_aux_complextype_keys_name%>_in] {
+if (_aux_complextype_keys != null) {%>
+		#region public <%=XS_%><%=_aux_complextype.Name%> this[...] { get; }
+		public <%=XS_%><%=_aux_complextype.Name%> this[<%
+		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
+			<%=_aux_complextype_keys[k].NType%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
+		}%>
+		] {
 			get {
-				int _index = Search(<%=_aux_complextype_keys_name%>_in);
+				int _index = Search(<%
+		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
+			<%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
+		}%>
+				);
 				return (_index == -1)
 					? null
 					: 
@@ -189,34 +195,41 @@ if (_aux_complextype_keys_name != string.Empty) {%>
 		#endregion
 
 		#region public void Remove(...);
-		public void Remove(string <%=_aux_complextype_keys_name%>_in) {
+		public void Remove(<%
+		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
+			<%=_aux_complextype_keys[k].NType%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
+		}%>
+		) {
 			RemoveAt(
-				Search(<%=_aux_complextype_keys_name%>_in)
+				Search(<%
+		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
+			<%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
+		}%>
+				)
 			);
 		}
 		#endregion
 		#region public int Search(...);
-		public int Search(string <%=_aux_complextype_keys_name%>_in) {
+		public int Search(<%
+		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
+			<%=_aux_complextype_keys[k].NType%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
+		}%>
+		) {
 			for (int i = 0; i < cols_.Count; i++) {
-				if (
-/*
-#if NET_1_1
-((<%=XS_%><%=_aux_complextype.Name%>)cols_[i])
-#else
-cols_[i]
-#endif
-	.<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_complextype_keys_name)%>.ToLower()
-==
-<%=_aux_complextype_keys_name%>_in.ToLower() 
-*/
-#if NET_1_1
-((<%=XS_%><%=_aux_complextype.Name%>)cols_[i])
-#else
-cols_[i]
-#endif
-	.<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_complextype_keys_name)%>.Equals(
-		<%=_aux_complextype_keys_name%>_in
-	)
+				if (<%
+				for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
+					(
+						#if NET_1_1
+						((<%=XS_%><%=_aux_complextype.Name%>)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_complextype_keys[k].Name)%><%=(_aux_complextype_keys[k].CaseSensitive) ? "" : ".ToLower()"%>
+						==
+						<%=_aux_complextype_keys[k].Name%>_in<%=(_aux_complextype_keys[k].CaseSensitive) ? "" : ".ToLower()"%> 
+					)
+					<%=(k == _aux_complextype_keys.Length - 1) ? "" : "&&"%><%
+				}%>
 				) {
 					return i;
 				}
@@ -225,27 +238,21 @@ cols_[i]
 			return -1;
 		}
 		public int Search(<%=XS_%><%=_aux_complextype.Name%> collectionItem_in) {
-throw new Exception("not implemented!");
 			for (int i = 0; i < cols_.Count; i++) {
-				if (
-/*
-#if NET_1_1
-((<%=XS_%><%=_aux_complextype.Name%>)cols_[i])
-#else
-cols_[i]
-#endif
-	.<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_complextype_keys_name)%>.ToLower()
-==
-collectionItem_in.<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_complextype_keys_name)%>.ToLower()
-*/
-#if NET_1_1
-((<%=XS_%><%=_aux_complextype.Name%>)cols_[i])
-#else
-cols_[i]
-#endif
-	.<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_complextype_keys_name)%>.Equals(
-		collectionItem_in.<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_complextype_keys_name)%>
-	)
+				if (<%
+				for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
+					(
+						#if NET_1_1
+						((<%=XS_%><%=_aux_complextype.Name%>)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_complextype_keys[k].Name)%><%=(_aux_complextype_keys[k].CaseSensitive) ? "" : ".ToLower()"%>
+						==
+						collectionItem_in.<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_complextype_keys[k].Name)%><%=(_aux_complextype_keys[k].CaseSensitive) ? "" : ".ToLower()"%>
+					)
+					<%=(k == _aux_complextype_keys.Length - 1) ? "" : "&&"%><%
+				}%>
 				) {
 					return i;
 				}
@@ -304,12 +311,12 @@ if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%>
 			int j = col_in.Length - 1;
 			if (j >= 0) {
 				lock (cols_) {
-#if NET_1_1
+					#if NET_1_1
 					returnIndex_out = cols_.Add(col_in[j]);
-#else
+					#else
 					cols_.Add(col_in[j]);
 					returnIndex_out = cols_.Count - 1;
-#endif
+					#endif
 				}
 			}
 		}

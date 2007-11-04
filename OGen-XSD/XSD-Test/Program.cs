@@ -50,18 +50,26 @@ namespace OGen.XSD.presentationlayer.test {
 			string ntype = string.Empty;
 			string name = string.Empty;
 			bool must = false;
+			ComplexTypeItem[] _complex = null;
 			for (int c = 0; c < _root.SchemaCollection[0].ComplexType.Count; c++) {
 				must = _root.SchemaCollection[0].ComplexType[c].mustImplementCollection(
-					"metadata",
-					out ntype,
-					out name
+					"metadataExtended",
+					out _complex
 				);
 				Console.WriteLine(
-					"{0}:{1}:{2}", 
-					must, 
-					ntype, 
-					name
+					"{0}:{1}",
+					_root.SchemaCollection[0].ComplexType[c].Name, 
+					must
 				);
+				if (_complex != null) {
+					for (int k = 0; k < _complex.Length; k++)
+						Console.WriteLine(
+							"\t{0}:{1}:{2}",
+							_complex[k].Name,
+							_complex[k].NType,
+							_complex[k].CaseSensitive
+						);
+				}
 			}
 			PressAnyKey();
 			return;

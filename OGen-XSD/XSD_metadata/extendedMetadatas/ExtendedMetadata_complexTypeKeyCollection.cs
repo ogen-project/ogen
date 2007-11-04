@@ -20,9 +20,9 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.XSD.lib.metadata {
-	#region public class ExtendedMetadata_complexTypeKeysCollection { ... }
-	public class ExtendedMetadata_complexTypeKeysCollection {
-		public ExtendedMetadata_complexTypeKeysCollection() {
+	#region public class ExtendedMetadata_complexTypeKeyCollection { ... }
+	public class ExtendedMetadata_complexTypeKeyCollection {
+		public ExtendedMetadata_complexTypeKeyCollection() {
 			cols_ = new ArrayList();
 		}
 
@@ -36,7 +36,7 @@ namespace OGen.XSD.lib.metadata {
 			set {
 				parent_ref_ = value;
 				for (int i = 0; i < cols_.Count; i++) {
-					((ExtendedMetadata_complexTypeKeys)cols_[i]).parent_ref = this;
+					((ExtendedMetadata_complexTypeKey)cols_[i]).parent_ref = this;
 				}
 			}
 		}
@@ -51,18 +51,18 @@ namespace OGen.XSD.lib.metadata {
 			set {
 				root_ref_ = value;
 				for (int i = 0; i < cols_.Count; i++) {
-					((ExtendedMetadata_complexTypeKeys)cols_[i]).root_ref = value;
+					((ExtendedMetadata_complexTypeKey)cols_[i]).root_ref = value;
 				}
 			}
 		}
 		#endregion
 
-		#region internal ExtendedMetadata_complexTypeKeys[] cols__ { get; set; }
+		#region internal ExtendedMetadata_complexTypeKey[] cols__ { get; set; }
 		private ArrayList cols_;
 
-		internal ExtendedMetadata_complexTypeKeys[] cols__ {
+		internal ExtendedMetadata_complexTypeKey[] cols__ {
 			get {
-				ExtendedMetadata_complexTypeKeys[] _output = new ExtendedMetadata_complexTypeKeys[cols_.Count];
+				ExtendedMetadata_complexTypeKey[] _output = new ExtendedMetadata_complexTypeKey[cols_.Count];
 				cols_.CopyTo(_output);
 				return _output;
 			}
@@ -85,19 +85,19 @@ namespace OGen.XSD.lib.metadata {
 		}
 		#endregion
 
-		#region public ExtendedMetadata_complexTypeKeys this[int index_in] { get; }
-		public ExtendedMetadata_complexTypeKeys this[int index_in] {
+		#region public ExtendedMetadata_complexTypeKey this[int index_in] { get; }
+		public ExtendedMetadata_complexTypeKey this[int index_in] {
 			get {
-				return (ExtendedMetadata_complexTypeKeys)cols_[index_in];
+				return (ExtendedMetadata_complexTypeKey)cols_[index_in];
 			}
 		}
 		#endregion
-		#region public ExtendedMetadata_complexTypeKeys this[string name_in] { get; }
-		public ExtendedMetadata_complexTypeKeys this[string name_in] {
+		#region public ExtendedMetadata_complexTypeKey this[string name_in] { get; }
+		public ExtendedMetadata_complexTypeKey this[string name_in] {
 			get {
 				for (int i = 0; i < cols_.Count; i++) {
-					if (((ExtendedMetadata_complexTypeKeys)cols_[i]).Name == name_in) {
-						return (ExtendedMetadata_complexTypeKeys)cols_[i];
+					if (((ExtendedMetadata_complexTypeKey)cols_[i]).Name == name_in) {
+						return (ExtendedMetadata_complexTypeKey)cols_[i];
 					}
 				}
 
@@ -106,8 +106,8 @@ namespace OGen.XSD.lib.metadata {
 		}
 		#endregion
 
-		#region public int Add(params ExtendedMetadata_complexTypeKeys[] col_in);
-		public int Add(params ExtendedMetadata_complexTypeKeys[] col_in) {
+		#region public int Add(params ExtendedMetadata_complexTypeKey[] col_in);
+		public int Add(params ExtendedMetadata_complexTypeKey[] col_in) {
 			int _output = -1;
 
 			for (int i = 0; i < col_in.Length; i++) {

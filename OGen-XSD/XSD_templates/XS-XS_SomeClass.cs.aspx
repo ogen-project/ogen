@@ -28,12 +28,10 @@ XS_Schema _aux_schema = _aux_rootmetadata.SchemaCollection[_arg_SchemaName];
 
 XS_ComplexType _aux_complextype = _aux_schema.ComplexType[_arg_ComplexTypeName];
 
-string _aux_complextype_keys_ntype = string.Empty;
-string _aux_complextype_keys_name = string.Empty;
+ComplexTypeItem[] _aux_complextype_keys = null;
 bool _aux_complextype_mustimplementcollection = _aux_complextype.mustImplementCollection(
-	_arg_SchemaName, 
-	out _aux_complextype_keys_ntype, 
-	out _aux_complextype_keys_name
+	_arg_SchemaName,
+	out _aux_complextype_keys
 );
 
 string XS0_ = _aux_rootmetadata.ExtendedMetadata.PrefixGenerated;
@@ -63,11 +61,15 @@ namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Eleme
 		) : base (
 		) {
 		}<%
-		if (_aux_complextype_keys_name != string.Empty) {%>
-		public <%=XS_%><%=_aux_complextype.Name%>(
-			<%=_aux_complextype_keys_ntype%> <%=_aux_complextype_keys_name%>_in
-		) : base (
-			<%=_aux_complextype_keys_name%>_in
+		if (_aux_complextype_keys != null) {%>
+		public <%=XS_%><%=_aux_complextype.Name%>(<%
+		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
+			<%=_aux_complextype_keys[k].NType%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
+		}%>
+		) : base (<%
+		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
+			<%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
+		}%>
 		) {
 		}<%
 		}%>

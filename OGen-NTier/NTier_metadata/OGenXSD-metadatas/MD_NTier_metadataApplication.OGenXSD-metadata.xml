@@ -35,8 +35,13 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 		<specificCase word="db" translation="DB" />
 		<specificCase word="dbCollationName" translation="DBCollationName" />
 
-		<complexTypeKeys name="dbConnectionType" keys="configMode" />
-		<complexTypeKeys name="dbType" keys="dbServerType" />
+		<complexType name="dbConnectionType">
+			<complexTypeKey name="configMode" caseSensitive="false" />
+		</complexType>
+
+		<complexType name="dbType">
+			<complexTypeKey name="dbServerType" caseSensitive="false" />
+		</complexType>
 	</metadata>
 	<metadata names="someTest" indexPath="SomeAttrib3">
 		...
@@ -95,26 +100,59 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 		<specificCase word="isRange" translation="isRange" />
 		<specificCase word="isVirtualTable" translation="isVirtualTable" />
 
-
 		<!-- caseSensitive="true" -->
-		<complexTypeKeys name="dbConnectionType" keys="configMode" caseSensitive="true" />
-		<complexTypeKeys name="dbType" keys="dbServerType" caseSensitive="true" />
-		<complexTypeKeys name="tableDBType" keys="dbServerType" caseSensitive="true" />
-		<complexTypeKeys name="tableFieldDBType" keys="dbServerType" caseSensitive="true" />
-		<complexTypeKeys name="tableSearchType" keys="name" caseSensitive="true" />
-		<complexTypeKeys name="tableSearchUpdateType" keys="name" caseSensitive="true" />
-		<complexTypeKeys name="tableUpdateType" keys="name" caseSensitive="true" />
+		<complexType name="dbConnectionType">
+			<complexTypeKey name="configMode" caseSensitive="true" />
+		</complexType>
+		<complexType name="dbType">
+			<complexTypeKey name="dbServerType" caseSensitive="true" />
+		</complexType>
+		<complexType name="tableDBType">
+			<complexTypeKey name="dbServerType" caseSensitive="true" />
+		</complexType>
+		<complexType name="tableFieldDBType">
+			<complexTypeKey name="dbServerType" caseSensitive="true" />
+		</complexType>
+		<complexType name="tableSearchType">
+			<complexTypeKey name="name" caseSensitive="true" />
+		</complexType>
+		<complexType name="tableSearchUpdateType">
+			<complexTypeKey name="name" caseSensitive="true" />
+		</complexType>
+		<complexType name="tableUpdateType">
+			<complexTypeKey name="name" caseSensitive="true" />
+		</complexType>
 		<!-- caseSensitive="false" -->
-		<complexTypeKeys name="tableFieldRefType" keys="paramName" caseSensitive="false" />
-		<complexTypeKeys name="tableFieldType" keys="name" caseSensitive="false" />
-		<complexTypeKeys name="tableType" keys="name" caseSensitive="false" />
+		<complexType name="tableFieldRefType">
+			<complexTypeKey name="paramName" caseSensitive="false" />
+		</complexType>
+		<complexType name="tableFieldType">
+			<complexTypeKey name="name" caseSensitive="false" />
+		</complexType>
+		<complexType name="tableType">
+			<complexTypeKey name="name" caseSensitive="false" />
+		</complexType>
 		<!--
-		<complexTypeKeys name="tableDBsType" keys="" caseSensitive="true" />
-		<complexTypeKeys name="tableFieldsType" keys="" caseSensitive="true" />
-		<complexTypeKeys name="tableSearchesType" keys="" caseSensitive="true" />
-		<complexTypeKeys name="tableSearchParametersType" keys="" caseSensitive="true" />
-		<complexTypeKeys name="tableSearchUpdateParametersType" keys="" caseSensitive="true" />
-		<complexTypeKeys name="tableSearchUpdatesType" keys="" caseSensitive="true" />
-		<complexTypeKeys name="tableUpdatesType" keys="" caseSensitive="true" />
+		<complexType name="tableDBsType">
+			<complexTypeKey name="" caseSensitive="true" />
+		</complexType>
+		<complexType name="tableFieldsType">
+			<complexTypeKey name="" caseSensitive="true" />
+		</complexType>
+		<complexType name="tableSearchesType">
+			<complexTypeKey name="" caseSensitive="true" />
+		</complexType>
+		<complexType name="tableSearchParametersType">
+			<complexTypeKey name="" caseSensitive="true" />
+		</complexType>
+		<complexType name="tableSearchUpdateParametersType">
+			<complexTypeKey name="" caseSensitive="true" />
+		</complexType>
+		<complexType name="tableSearchUpdatesType">
+			<complexTypeKey name="" caseSensitive="true" />
+		</complexType>
+		<complexType name="tableUpdatesType">
+			<complexTypeKey name="" caseSensitive="true" />
+		</complexType>
 		-->
 </metadata>

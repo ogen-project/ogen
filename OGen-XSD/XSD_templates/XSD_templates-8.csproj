@@ -50,11 +50,13 @@
     <None Include="LICENSE.txt" />
     <None Include="templates.config.xml" />
     <None Include="XS-XS0_SomeClassCollection.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </None>
     <None Include="XS-XS0_SomeEnumeration.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </None>
     <None Include="XS-XS0_SomeClass.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </None>
     <None Include="Web.config" />
     <None Include="XS-XS0__BaseClassCollection.cs.aspx">

@@ -29,17 +29,14 @@ XS_Schema _aux_schema = _aux_rootmetadata.SchemaCollection[_arg_SchemaName];
 XS_ComplexType _aux_complextype = _aux_schema.ComplexType[_arg_ComplexTypeName];
 XS_ElementCollection _aux_elements = _aux_complextype.Sequence.Element;
 
-string _aux_complextype_keys_ntype = string.Empty;
-string _aux_complextype_keys_name = string.Empty;
+ComplexTypeItem[] _aux_complextype_keys = null;
 bool _aux_complextype_mustimplementcollection = _aux_complextype.mustImplementCollection(
-	_arg_SchemaName, 
-	out _aux_complextype_keys_ntype, 
-	out _aux_complextype_keys_name
+	_arg_SchemaName,
+	out _aux_complextype_keys
 );
 
 bool __aux_isCollection = false;
-string __aux_isCollection_ntype = string.Empty;
-string __aux_isCollection_name = string.Empty;
+ComplexTypeItem[] __aux_isCollection_items = null;
 
 bool _aux_isstandardntype;
 string _aux_ntype;
@@ -73,19 +70,22 @@ namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Eleme
 				if (_aux_elements[e].MaxOccurs == XS_Element.MaxOccursEnum.unbounded) {
 					__aux_isCollection = _aux_elements[e].isCollection(
 						_arg_SchemaName, 
-						out __aux_isCollection_ntype, 
-						out __aux_isCollection_name
+						out __aux_isCollection_items
 					);%><%=""%>
 			<%=_aux_elements[e].Name.ToLower()%>collection_ = new <%=XS_%><%=_aux_elements[e].Type%>Collection();<%
 				}
 			}%>
 		}<%
-		if (_aux_complextype_keys_name != string.Empty) {%>
-		public <%=XS0_%><%=_aux_complextype.Name%> (
-			<%=_aux_complextype_keys_ntype%> <%=_aux_complextype_keys_name%>_in
+		if (_aux_complextype_keys != null) {%>
+		public <%=XS0_%><%=_aux_complextype.Name%> (<%
+		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
+			<%=_aux_complextype_keys[k].NType%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
+		}%>
 		) : this (
-		) {
-			<%=_aux_complextype_keys_name.ToLower()%>_ = <%=_aux_complextype_keys_name%>_in;
+		) {<%
+		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
+			<%=_aux_complextype_keys[k].Name.ToLower()%>_ = <%=_aux_complextype_keys[k].Name%>_in;<%
+		}%>
 		}<%
 		}
 

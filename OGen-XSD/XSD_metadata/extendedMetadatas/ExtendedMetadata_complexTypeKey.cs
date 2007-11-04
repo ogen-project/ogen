@@ -20,11 +20,11 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.XSD.lib.metadata {
-	public class ExtendedMetadata_complexTypeKeys {
-		public ExtendedMetadata_complexTypeKeys(
+	public class ExtendedMetadata_complexTypeKey {
+		public ExtendedMetadata_complexTypeKey(
 		) {
 		}
-		public ExtendedMetadata_complexTypeKeys(
+		public ExtendedMetadata_complexTypeKey(
 			string name_in
 		) : this (
 		) {
@@ -44,16 +44,16 @@ namespace OGen.XSD.lib.metadata {
 			}
 		}
 		#endregion
-		#region public string Keys { get; set; }
-		private string keys_;
+		#region public bool caseSensitive { get; set; }
+		private bool casesensitive_;
 
-		[XmlAttribute("keys")]
-		public string Keys {
+		[XmlAttribute("caseSensitive")]
+		public bool caseSensitive {
 			get {
-				return keys_;
+				return casesensitive_;
 			}
 			set {
-				keys_ = value;
+				casesensitive_ = value;
 			}
 		}
 		#endregion

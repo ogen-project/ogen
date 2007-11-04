@@ -48,8 +48,10 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="extendedMetadatas\ExtendedMetadata.cs" />
     <Compile Include="extendedMetadatas\ExtendedMetadata_caseTypeEnum.cs" />
-    <Compile Include="extendedMetadatas\ExtendedMetadata_complexTypeKeys.cs" />
-    <Compile Include="extendedMetadatas\ExtendedMetadata_complexTypeKeysCollection.cs" />
+    <Compile Include="extendedMetadatas\ExtendedMetadata_complexType.cs" />
+    <Compile Include="extendedMetadatas\ExtendedMetadata_complexTypeCollection.cs" />
+    <Compile Include="extendedMetadatas\ExtendedMetadata_complexTypeKey.cs" />
+    <Compile Include="extendedMetadatas\ExtendedMetadata_complexTypeKeyCollection.cs" />
     <Compile Include="extendedMetadatas\ExtendedMetadata_metadataIndex.cs" />
     <Compile Include="extendedMetadatas\ExtendedMetadata_metadataIndexCollection.cs" />
     <Compile Include="extendedMetadatas\ExtendedMetadata_specificCase.cs" />

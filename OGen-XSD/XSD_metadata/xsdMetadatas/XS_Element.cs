@@ -20,6 +20,22 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.XSD.lib.metadata {
+	public struct ComplexTypeItem {
+		public ComplexTypeItem(
+			string name_in,
+			string nType_in,
+			bool caseSensitive_in
+		) {
+			Name = name_in;
+			NType = nType_in;
+			CaseSensitive = caseSensitive_in;
+		}
+
+		public string NType;
+		public string Name;
+		public bool CaseSensitive;
+	}
+
 	public class XS_Element {
 		public XS_Element(
 		) {
@@ -135,30 +151,45 @@ namespace OGen.XSD.lib.metadata {
 		#region public bool isCollection(...);
 		public bool isCollection(
 			string schemaName_in, 
-
-			out string ntype_out, 
-			out string name_out
+			out ComplexTypeItem[] complexTypeCollection_out
 		) {
-			ntype_out = string.Empty;
-			name_out = string.Empty;
+			complexTypeCollection_out = null;
 
-			ExtendedMetadata_complexTypeKeys _complextypekeys
-				= root_ref.ExtendedMetadata.ComplexTypeKeys[Type];
+			ExtendedMetadata_complexType _complextype
+				= root_ref.ExtendedMetadata.ComplexType[
+					Type
+				];
 
-			if (_complextypekeys != null) {
+			if (_complextype != null) {
 				XS_Schema _schema = root_ref_.SchemaCollection[schemaName_in];
 
 				for (int c = 0; c < _schema.ComplexType.Count; c++) {
-					for (int a = 0; a < _schema.ComplexType[c].Attribute.Count; a++) {
-						if (_schema.ComplexType[c].Attribute[a].Name == _complextypekeys.Keys) {
-							ntype_out = _schema.ComplexType[c].Attribute[a].NType;
-							name_out = _schema.ComplexType[c].Attribute[a].Name;
-							return true;
+					if (
+						_schema.ComplexType[c].Name
+						==
+						_complextype.Name
+					) {
+						complexTypeCollection_out = new ComplexTypeItem[_complextype.ComplexTypeKey.Count];
+						for (int k = 0; k < _complextype.ComplexTypeKey.Count; k++) {
+							for (int a = 0; a < _schema.ComplexType[c].Attribute.Count; a++) {
+								if (
+									_schema.ComplexType[c].Attribute[a].Name 
+									== 
+									_complextype.ComplexTypeKey[k].Name
+								) {
+									complexTypeCollection_out[k] = new ComplexTypeItem(
+										_schema.ComplexType[c].Attribute[a].Name,
+										_schema.ComplexType[c].Attribute[a].NType,
+										_complextype.ComplexTypeKey[k].caseSensitive
+									);
+									break;
+								}
+							}
 						}
+						return true;
 					}
 				}
 			}
-
 			return false;
 		}
 		#endregion

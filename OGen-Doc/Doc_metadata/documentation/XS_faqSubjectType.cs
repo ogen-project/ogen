@@ -34,22 +34,9 @@ namespace OGen.Doc.lib.metadata.documentation {
 
 		#region public ... parent_ref_faqSubjectTypeCollection { get; }
 		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenRootrefCollection<XS_faqSubjectType, XS__RootMetadata>
-#else
-			XS_faqSubjectTypeCollection
-#endif
-			parent_ref_faqSubjectTypeCollection {
-
+		public XS_faqSubjectTypeCollection parent_ref_faqSubjectTypeCollection {
 			get {
-					return (
-#if !NET_1_1
-						OGenRootrefCollection<XS_faqSubjectType, XS__RootMetadata>
-#else
-						XS_faqSubjectTypeCollection
-#endif
-					)parent_ref;
+				return (XS_faqSubjectTypeCollection)parent_ref;
 			}
 		}
 		#endregion

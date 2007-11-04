@@ -35,7 +35,7 @@ namespace OGen.XSD.lib.metadata {
 			set {
 				parent_ref_ = value;
 
-				complextypekeyscollection_.parent_ref = this;
+				complextypecollection_.parent_ref = this;
 				specificcasecollections_.parent_ref = this;
 				metadataindexcollection_.parent_ref = this;
 			}
@@ -50,7 +50,7 @@ namespace OGen.XSD.lib.metadata {
 			set {
 				root_ref_ = value;
 
-				complextypekeyscollection_.root_ref = value;
+				complextypecollection_.root_ref = value;
 				specificcasecollections_.root_ref = value;
 				metadataindexcollection_.root_ref = value;
 			}
@@ -251,22 +251,22 @@ namespace OGen.XSD.lib.metadata {
 		}
 		#endregion
 
-		#region public ... ComplexTypeKeys { get; }
-		private ExtendedMetadata_complexTypeKeysCollection complextypekeyscollection_
-			= new ExtendedMetadata_complexTypeKeysCollection();
+		#region public ExtendedMetadata_complexTypeCollection ComplexType { get; }
+		private ExtendedMetadata_complexTypeCollection complextypecollection_
+			= new ExtendedMetadata_complexTypeCollection();
 
-		[XmlElement("complexTypeKeys")]
-		public ExtendedMetadata_complexTypeKeys[] complextypekeyscollection__xml {
-			get { return complextypekeyscollection_.cols__; }
-			set { complextypekeyscollection_.cols__ = value; }
+		[XmlElement("complexType")]
+		public ExtendedMetadata_complexType[] complextypecollection__xml {
+			get { return complextypecollection_.cols__; }
+			set { complextypecollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
-		public ExtendedMetadata_complexTypeKeysCollection ComplexTypeKeys {
-			get { return complextypekeyscollection_; }
+		public ExtendedMetadata_complexTypeCollection ComplexType {
+			get { return complextypecollection_; }
 		}
 		#endregion
-		#region public ... SpecificCase { get; }
+		#region public ExtendedMetadata_specificCaseCollection SpecificCase { get; }
 		private ExtendedMetadata_specificCaseCollection specificcasecollections_
 			= new ExtendedMetadata_specificCaseCollection();
 
@@ -283,7 +283,7 @@ namespace OGen.XSD.lib.metadata {
 			get { return specificcasecollections_; }
 		}
 		#endregion
-		#region public ... MetadataIndex { get; }
+		#region public ExtendedMetadata_metadataIndexCollection MetadataIndex { get; }
 		private ExtendedMetadata_metadataIndexCollection metadataindexcollection_
 			= new ExtendedMetadata_metadataIndexCollection();
 

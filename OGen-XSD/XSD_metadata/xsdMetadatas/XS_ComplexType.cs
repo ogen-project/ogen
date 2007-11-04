@@ -119,12 +119,9 @@ namespace OGen.XSD.lib.metadata {
 		#region public bool mustImplementCollection(...);
 		public bool mustImplementCollection(
 			string schemaName_in, 
-
-			out string keys_ntype_out, 
-			out string keys_name_out
+			out ComplexTypeItem[] complexTypeCollection_out
 		) {
-			keys_ntype_out = string.Empty;
-			keys_name_out = string.Empty;
+			complexTypeCollection_out = null;
 
 			XS_Schema _schema = root_ref_.SchemaCollection[schemaName_in];
 			for (int c = 0; c < _schema.ComplexType.Count; c++) {
@@ -139,16 +136,27 @@ namespace OGen.XSD.lib.metadata {
 					) {
 						// then this ComplexType must implement a Collection
 
-						ExtendedMetadata_complexTypeKeys _complextypekeys
-							= root_ref_.ExtendedMetadata.ComplexTypeKeys[
+						ExtendedMetadata_complexType _complextype
+							= root_ref_.ExtendedMetadata.ComplexType[
 								Name
 							];
 
-						if (_complextypekeys != null) {
-							for (int a = 0; a < Attribute.Count; a++) {
-								if (Attribute[a].Name == _complextypekeys.Keys) {
-									keys_name_out = Attribute[a].Name;
-									keys_ntype_out = Attribute[a].NType;
+						if (_complextype != null) {
+							complexTypeCollection_out = new ComplexTypeItem[_complextype.ComplexTypeKey.Count];
+							for (int k = 0; k < _complextype.ComplexTypeKey.Count; k++) {
+								for (int a = 0; a < Attribute.Count; a++) {
+									if (
+										Attribute[a].Name 
+										== 
+										_complextype.ComplexTypeKey[k].Name
+									) {
+										complexTypeCollection_out[k] = new ComplexTypeItem(
+											Attribute[a].Name,
+											Attribute[a].NType,
+											_complextype.ComplexTypeKey[k].caseSensitive
+										);
+										break;
+									}
 								}
 							}
 						}
