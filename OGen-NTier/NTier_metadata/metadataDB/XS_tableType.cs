@@ -59,6 +59,8 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 
 				if (tablefields_onlypk__ == null) {
 					tablefields_onlypk__ = new XS_tableFieldsType();
+					tablefields_onlypk__.parent_ref = this;
+					tablefields_onlypk__.root_ref = root_ref;
 
 					for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
 						if (TableFields.TableFieldCollection[f].isPK)

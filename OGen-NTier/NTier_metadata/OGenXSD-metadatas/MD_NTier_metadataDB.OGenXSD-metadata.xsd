@@ -28,17 +28,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 					<tableDB ... />
 				</tableDBs>
 				<tableFields>
-					<tableField name="Name" 
+					<tableField name="name" 
 						isPK="True" isIdentity="False" isNullable="False" 
 						fkTableName="" fkFieldName="" 
 						size="50" numericPrecision="0" numericScale="0">
 
 						<tableFieldDBs>
 							<tableFieldDB dbServerType="PostgreSQL" dbType="character varying" 
-								dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="" />
+								dbDescription="" dbDefaultValue="" dbCollationName="" 
+								dbFieldName="name" />
 
 							<tableFieldDB dbServerType="SQLServer" dbType="varchar" 
-								dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="" />
+								dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" 
+								dbFieldName="Name" />
 
 							<tableFieldDB ... />
 						</tableFieldDBs>

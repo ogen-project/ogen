@@ -126,12 +126,22 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "extendedMetadatas\ExtendedMetadata_complexTypeKeys.cs"
+                    RelPath = "extendedMetadatas\ExtendedMetadata_complexType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "extendedMetadatas\ExtendedMetadata_complexTypeKeysCollection.cs"
+                    RelPath = "extendedMetadatas\ExtendedMetadata_complexTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "extendedMetadatas\ExtendedMetadata_complexTypeKey.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "extendedMetadatas\ExtendedMetadata_complexTypeKeyCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
