@@ -19,20 +19,10 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS0_documentsType
-#if !NET_1_1
-		: OGenRootrefCollectionInterface<XS__RootMetadata> 
-#endif
-	{
+	public class XS0_documentsType {
 		public XS0_documentsType (
 		) {
-			documentcollection_ = new 
-#if !NET_1_1
-				OGenRootrefCollection<XS_documentType, XS__RootMetadata>()
-#else
-				XS_documentTypeCollection()
-#endif
-			;
+			documentcollection_ = new XS_documentTypeCollection();
 		}
 
 		#region public object parent_ref { get; }
@@ -59,14 +49,8 @@ namespace OGen.Doc.lib.metadata.documentation {
 			get { return root_ref_; }
 		}
 		#endregion
-		#region public ... DocumentCollection { get; }
-		private 
-#if !NET_1_1
-			OGenRootrefCollection<XS_documentType, XS__RootMetadata>
-#else
-			XS_documentTypeCollection
-#endif
-			documentcollection_;
+		#region public XS_documentTypeCollection DocumentCollection { get; }
+		private XS_documentTypeCollection documentcollection_;
 
 		[XmlElement("document")]
 		public XS_documentType[] documentcollection__xml {
@@ -75,14 +59,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 
 		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenRootrefCollection<XS_documentType, XS__RootMetadata>
-#else
-			XS_documentTypeCollection
-#endif
-		DocumentCollection
-		{
+		public XS_documentTypeCollection DocumentCollection {
 			get { return documentcollection_; }
 		}
 		#endregion

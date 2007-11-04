@@ -19,11 +19,7 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public class XS0_templateType
-#if !NET_1_1
-		: OGenCollectionInterface<string>
-#endif
-	{
+	public class XS0_templateType {
 		public XS0_templateType (
 		) {
 		}
@@ -33,17 +29,6 @@ namespace OGen.lib.templates {
 		) {
 			name_ = name_in;
 		}
-
-#if !NET_1_1
-		#region public string CollectionName { get; }
-		[XmlIgnore()]
-		public string CollectionName {
-			get {
-				return Name;
-			}
-		}
-		#endregion
-#endif
 		#region public string Name { get; set; }
 		private string name_;
 

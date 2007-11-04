@@ -15,14 +15,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Xml.Serialization;
 using System.Collections;
-
-using OGen.lib.collections;
+#if !NET_1_1
+using System.Collections.Generic;
+#endif
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	#region public class XS_dbConnectionTypeCollection { ... }
 	public class XS_dbConnectionTypeCollection {
 		public XS_dbConnectionTypeCollection() {
-			cols_ = new ArrayList();
+			cols_ = new
+				#if NET_1_1
+				ArrayList()
+				#else
+				List<XS_dbConnectionType>()
+				#endif
+			;
 		}
 
 		#region public object parent_ref { get; }
@@ -35,7 +41,12 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			set {
 				parent_ref_ = value;
 				for (int i = 0; i < cols_.Count; i++) {
-					((XS_dbConnectionType)cols_[i]).parent_ref = this;
+					#if NET_1_1
+					((XS_dbConnectionType)cols_[i])
+					#else
+					cols_[i]
+					#endif
+						.parent_ref = this;
 				}
 			}
 		}
@@ -50,14 +61,33 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			set {
 				root_ref_ = value;
 				for (int i = 0; i < cols_.Count; i++) {
-					((XS_dbConnectionType)cols_[i]).root_ref = value;
+					#if NET_1_1
+					((XS_dbConnectionType)cols_[i])
+					#else
+					cols_[i]
+					#endif
+						.root_ref = value;
 				}
+			}
+		}
+		#endregion
+		#region private void refresh_refs(params XS_dbConnectionType[] col_in);
+		private void refresh_refs(params XS_dbConnectionType[] col_in) {
+			for (int i = 0; i < col_in.Length; i++) {
+				col_in[i].parent_ref = this;
+				col_in[i].root_ref = root_ref;
 			}
 		}
 		#endregion
 
 		#region internal XS_dbConnectionType[] cols__ { get; set; }
-		private ArrayList cols_;
+		private 
+			#if NET_1_1
+			ArrayList
+			#else
+			List<XS_dbConnectionType>
+			#endif
+		cols_;
 
 		internal XS_dbConnectionType[] cols__ {
 			get {
@@ -87,7 +117,12 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		#region public XS_dbConnectionType this[int index_in] { get; }
 		public XS_dbConnectionType this[int index_in] {
 			get {
-				return (XS_dbConnectionType)cols_[index_in];
+				return 
+					#if NET_1_1
+					(XS_dbConnectionType)
+					#endif
+					cols_[index_in]
+				;
 			}
 		}
 		#endregion
@@ -97,33 +132,45 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 				int _index = Search(configMode_in);
 				return (_index == -1)
 					? null
-					: (XS_dbConnectionType)cols_[_index];
+					: 
+						#if NET_1_1
+						(XS_dbConnectionType)
+						#endif
+						cols_[_index]
+				;
 			}
 		}
 		#endregion
+
+		#region public void Remove(...);
+		public void Remove(string configMode_in) {
+			RemoveAt(
+				Search(configMode_in)
+			);
+		}
+		#endregion
 		#region public int Search(...);
-		public int Search(string configMode_in, bool caseSensitive_in) {
+		public int Search(string configMode_in) {
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
-					(
-						caseSensitive_in
-						&&
-						(
-							configMode_in.ToLower() 
-							== 
-							((XS_dbConnectionType)cols_[i]).ConfigMode.ToLower()
-						)
-					)
-					||
-					(
-						!caseSensitive_in
-						&&
-						(
-							configMode_in
-							==
-							((XS_dbConnectionType)cols_[i]).ConfigMode
-						)
-					)
+/*
+#if NET_1_1
+((XS_dbConnectionType)cols_[i])
+#else
+cols_[i]
+#endif
+	.ConfigMode.ToLower()
+==
+configMode_in.ToLower() 
+*/
+#if NET_1_1
+((XS_dbConnectionType)cols_[i])
+#else
+cols_[i]
+#endif
+	.ConfigMode.Equals(
+		configMode_in
+	)
 				) {
 					return i;
 				}
@@ -131,9 +178,29 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 			return -1;
 		}
-		public int Search(string configMode_in) {
+		public int Search(XS_dbConnectionType collectionItem_in) {
+throw new Exception("not implemented!");
 			for (int i = 0; i < cols_.Count; i++) {
-				if (configMode_in.Equals(((XS_dbConnectionType)cols_[i]).ConfigMode)) {
+				if (
+/*
+#if NET_1_1
+((XS_dbConnectionType)cols_[i])
+#else
+cols_[i]
+#endif
+	.ConfigMode.ToLower()
+==
+collectionItem_in.ConfigMode.ToLower()
+*/
+#if NET_1_1
+((XS_dbConnectionType)cols_[i])
+#else
+cols_[i]
+#endif
+	.ConfigMode.Equals(
+		collectionItem_in.ConfigMode
+	)
+				) {
 					return i;
 				}
 			}
@@ -141,20 +208,63 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			return -1;
 		}
 		#endregion
-
-		#region public int Add(params XS_dbConnectionType[] col_in);
-		public int Add(params XS_dbConnectionType[] col_in) {
-			int _output = -1;
-
+		#region public void Add(...);
+		public virtual void Add(bool ifNotExists_in, params XS_dbConnectionType[] col_in) {
 			for (int i = 0; i < col_in.Length; i++) {
-				col_in[i].parent_ref = this;
-				col_in[i].root_ref = root_ref;
-				_output = cols_.Add(col_in[i]);
+				if (ifNotExists_in) {
+					if (Search(col_in[i]) == -1) {
+						Add(col_in[i]);
+					}
+				}
+			}
+		}
+		public virtual void Add(out int returnIndex_out, bool ifNotExists_in, params XS_dbConnectionType[] col_in) {
+			returnIndex_out = -1;
+			for (int i = 0; i < col_in.Length; i++) {
+				if (ifNotExists_in) {
+					returnIndex_out = Search(col_in[i]);
+					if (returnIndex_out == -1) {
+						Add(out returnIndex_out, col_in[i]);
+					}
+				}
+			}
+		}
+		#endregion
+		#region public void Clear();
+		public void Clear() {
+			cols_.Clear();
+		}
+		#endregion
+		#region public void RemoveAt(int index_in);
+		public void RemoveAt(int index_in) {
+			cols_.RemoveAt(index_in);
+		}
+		#endregion
+		#region public void Add(...);
+		public void Add(params XS_dbConnectionType[] col_in) {
+			int _index = -1;
+			Add(out _index, col_in);
+		}
+		public void Add(out int returnIndex_out, params XS_dbConnectionType[] col_in) {
+			refresh_refs(col_in);
+
+			returnIndex_out = -1;
+			for (int i = 0; i < col_in.Length - 1; i++) {
+				cols_.Add(col_in[i]);
 			}
 
-			return _output;
+			int j = col_in.Length - 1;
+			if (j >= 0) {
+				lock (cols_) {
+#if NET_1_1
+					returnIndex_out = cols_.Add(col_in[j]);
+#else
+					cols_.Add(col_in[j]);
+					returnIndex_out = cols_.Count - 1;
+#endif
+				}
+			}
 		}
 		#endregion
 	}
-	#endregion
 }

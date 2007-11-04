@@ -23,11 +23,7 @@ using OGen.lib.generator;
 
 namespace OGen.XSD.lib.metadata {
 	[System.Xml.Serialization.XmlRootAttribute("metadata")]
-	public class ExtendedMetadata : iClaSSe_metadata
-#if !NET_1_1
-		, OGenRootrefCollectionInterface<RootMetadata>
-#endif
-	{
+	public class ExtendedMetadata : iClaSSe_metadata {
 		//public ExtendedMetadata() {
 		//}
 
@@ -256,13 +252,8 @@ namespace OGen.XSD.lib.metadata {
 		#endregion
 
 		#region public ... ComplexTypeKeys { get; }
-#if !NET_1_1
-		private OGenRootrefCollection<ExtendedMetadata_complexTypeKeys, RootMetadata, string> complextypekeyscollection_
-			= new OGenRootrefCollection<ExtendedMetadata_complexTypeKeys, RootMetadata, string>();
-#else
 		private ExtendedMetadata_complexTypeKeysCollection complextypekeyscollection_
 			= new ExtendedMetadata_complexTypeKeysCollection();
-#endif
 
 		[XmlElement("complexTypeKeys")]
 		public ExtendedMetadata_complexTypeKeys[] complextypekeyscollection__xml {
@@ -271,24 +262,13 @@ namespace OGen.XSD.lib.metadata {
 		}
 
 		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenRootrefCollection<ExtendedMetadata_complexTypeKeys, RootMetadata, string>
-#else
-			ExtendedMetadata_complexTypeKeysCollection
-#endif
-		ComplexTypeKeys {
+		public ExtendedMetadata_complexTypeKeysCollection ComplexTypeKeys {
 			get { return complextypekeyscollection_; }
 		}
 		#endregion
 		#region public ... SpecificCase { get; }
-#if !NET_1_1
-		private OGenRootrefCollection<ExtendedMetadata_specificCase, RootMetadata, string> specificcasecollections_
-			= new OGenRootrefCollection<ExtendedMetadata_specificCase, RootMetadata, string>();
-#else
 		private ExtendedMetadata_specificCaseCollection specificcasecollections_
 			= new ExtendedMetadata_specificCaseCollection();
-#endif
 
 		[XmlElement("specificCase")]
 		public ExtendedMetadata_specificCase[] specificcase__xml {
@@ -298,23 +278,14 @@ namespace OGen.XSD.lib.metadata {
 
 		[XmlIgnore()]
 		public
-#if !NET_1_1
-			OGenRootrefCollection<ExtendedMetadata_specificCase, RootMetadata, string>
-#else
 			ExtendedMetadata_specificCaseCollection
-#endif
 		SpecificCase {
 			get { return specificcasecollections_; }
 		}
 		#endregion
 		#region public ... MetadataIndex { get; }
-#if !NET_1_1
-		private OGenRootrefCollection<ExtendedMetadata_metadataIndex, RootMetadata, string> metadataindexcollection_
-			= new OGenRootrefCollection<ExtendedMetadata_metadataIndex, RootMetadata, string>();
-#else
 		private ExtendedMetadata_metadataIndexCollection metadataindexcollection_
 			= new ExtendedMetadata_metadataIndexCollection();
-#endif
 
 		[XmlElement("metadataIndex")]
 		public ExtendedMetadata_metadataIndex[] metadataindex__xml {
@@ -324,11 +295,7 @@ namespace OGen.XSD.lib.metadata {
 
 		[XmlIgnore()]
 		public
-#if !NET_1_1
-			OGenRootrefCollection<ExtendedMetadata_metadataIndex, RootMetadata, string>
-#else
 			ExtendedMetadata_metadataIndexCollection
-#endif
 		MetadataIndex {
 			get { return metadataindexcollection_; }
 		}

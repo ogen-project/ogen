@@ -19,20 +19,10 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS0_authorsType
-#if !NET_1_1
-		: OGenRootrefCollectionInterface<XS__RootMetadata> 
-#endif
-	{
+	public class XS0_authorsType {
 		public XS0_authorsType (
 		) {
-			authorcollection_ = new 
-#if !NET_1_1
-				OGenRootrefCollection<XS_authorType, XS__RootMetadata>()
-#else
-				XS_authorTypeCollection()
-#endif
-			;
+			authorcollection_ = new XS_authorTypeCollection();
 		}
 
 		#region public object parent_ref { get; }
@@ -59,14 +49,8 @@ namespace OGen.Doc.lib.metadata.documentation {
 			get { return root_ref_; }
 		}
 		#endregion
-		#region public ... AuthorCollection { get; }
-		private 
-#if !NET_1_1
-			OGenRootrefCollection<XS_authorType, XS__RootMetadata>
-#else
-			XS_authorTypeCollection
-#endif
-			authorcollection_;
+		#region public XS_authorTypeCollection AuthorCollection { get; }
+		private XS_authorTypeCollection authorcollection_;
 
 		[XmlElement("author")]
 		public XS_authorType[] authorcollection__xml {
@@ -75,14 +59,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 
 		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenRootrefCollection<XS_authorType, XS__RootMetadata>
-#else
-			XS_authorTypeCollection
-#endif
-		AuthorCollection
-		{
+		public XS_authorTypeCollection AuthorCollection {
 			get { return authorcollection_; }
 		}
 		#endregion

@@ -15,14 +15,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Xml.Serialization;
 using System.Collections;
-
-using OGen.lib.collections;
+#if !NET_1_1
+using System.Collections.Generic;
+#endif
 
 namespace OGen.Doc.lib.metadata.documentation {
-	#region public class XS_faqSubjectTypeCollection { ... }
 	public class XS_faqSubjectTypeCollection {
 		public XS_faqSubjectTypeCollection() {
-			cols_ = new ArrayList();
+			cols_ = new
+				#if NET_1_1
+				ArrayList()
+				#else
+				List<XS_faqSubjectType>()
+				#endif
+			;
 		}
 
 		#region public object parent_ref { get; }
@@ -35,7 +41,12 @@ namespace OGen.Doc.lib.metadata.documentation {
 			set {
 				parent_ref_ = value;
 				for (int i = 0; i < cols_.Count; i++) {
-					((XS_faqSubjectType)cols_[i]).parent_ref = this;
+					#if NET_1_1
+					((XS_faqSubjectType)cols_[i])
+					#else
+					cols_[i]
+					#endif
+						.parent_ref = this;
 				}
 			}
 		}
@@ -50,14 +61,33 @@ namespace OGen.Doc.lib.metadata.documentation {
 			set {
 				root_ref_ = value;
 				for (int i = 0; i < cols_.Count; i++) {
-					((XS_faqSubjectType)cols_[i]).root_ref = value;
+					#if NET_1_1
+					((XS_faqSubjectType)cols_[i])
+					#else
+					cols_[i]
+					#endif
+						.root_ref = value;
 				}
+			}
+		}
+		#endregion
+		#region private void refresh_refs(params XS_faqSubjectType[] col_in);
+		private void refresh_refs(params XS_faqSubjectType[] col_in) {
+			for (int i = 0; i < col_in.Length; i++) {
+				col_in[i].parent_ref = this;
+				col_in[i].root_ref = root_ref;
 			}
 		}
 		#endregion
 
 		#region internal XS_faqSubjectType[] cols__ { get; set; }
-		private ArrayList cols_;
+		private 
+			#if NET_1_1
+			ArrayList
+			#else
+			List<XS_faqSubjectType>
+			#endif
+		cols_;
 
 		internal XS_faqSubjectType[] cols__ {
 			get {
@@ -87,7 +117,12 @@ namespace OGen.Doc.lib.metadata.documentation {
 		#region public XS_faqSubjectType this[int index_in] { get; }
 		public XS_faqSubjectType this[int index_in] {
 			get {
-				return (XS_faqSubjectType)cols_[index_in];
+				return 
+					#if NET_1_1
+					(XS_faqSubjectType)
+					#endif
+					cols_[index_in]
+				;
 			}
 		}
 		#endregion
@@ -97,33 +132,45 @@ namespace OGen.Doc.lib.metadata.documentation {
 				int _index = Search(idFAQSubject_in);
 				return (_index == -1)
 					? null
-					: (XS_faqSubjectType)cols_[_index];
+					: 
+						#if NET_1_1
+						(XS_faqSubjectType)
+						#endif
+						cols_[_index]
+				;
 			}
 		}
 		#endregion
+
+		#region public void Remove(...);
+		public void Remove(string idFAQSubject_in) {
+			RemoveAt(
+				Search(idFAQSubject_in)
+			);
+		}
+		#endregion
 		#region public int Search(...);
-		public int Search(string idFAQSubject_in, bool caseSensitive_in) {
+		public int Search(string idFAQSubject_in) {
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
-					(
-						caseSensitive_in
-						&&
-						(
-							idFAQSubject_in.ToLower() 
-							== 
-							((XS_faqSubjectType)cols_[i]).IDFAQSubject.ToLower()
-						)
-					)
-					||
-					(
-						!caseSensitive_in
-						&&
-						(
-							idFAQSubject_in
-							==
-							((XS_faqSubjectType)cols_[i]).IDFAQSubject
-						)
-					)
+/*
+#if NET_1_1
+((XS_faqSubjectType)cols_[i])
+#else
+cols_[i]
+#endif
+	.IDFAQSubject.ToLower()
+==
+idFAQSubject_in.ToLower() 
+*/
+#if NET_1_1
+((XS_faqSubjectType)cols_[i])
+#else
+cols_[i]
+#endif
+	.IDFAQSubject.Equals(
+		idFAQSubject_in
+	)
 				) {
 					return i;
 				}
@@ -131,9 +178,29 @@ namespace OGen.Doc.lib.metadata.documentation {
 
 			return -1;
 		}
-		public int Search(string idFAQSubject_in) {
+		public int Search(XS_faqSubjectType collectionItem_in) {
+throw new Exception("not implemented!");
 			for (int i = 0; i < cols_.Count; i++) {
-				if (idFAQSubject_in.Equals(((XS_faqSubjectType)cols_[i]).IDFAQSubject)) {
+				if (
+/*
+#if NET_1_1
+((XS_faqSubjectType)cols_[i])
+#else
+cols_[i]
+#endif
+	.IDFAQSubject.ToLower()
+==
+collectionItem_in.IDFAQSubject.ToLower()
+*/
+#if NET_1_1
+((XS_faqSubjectType)cols_[i])
+#else
+cols_[i]
+#endif
+	.IDFAQSubject.Equals(
+		collectionItem_in.IDFAQSubject
+	)
+				) {
 					return i;
 				}
 			}
@@ -141,20 +208,63 @@ namespace OGen.Doc.lib.metadata.documentation {
 			return -1;
 		}
 		#endregion
-
-		#region public int Add(params XS_faqSubjectType[] col_in);
-		public int Add(params XS_faqSubjectType[] col_in) {
-			int _output = -1;
-
+		#region public void Add(...);
+		public virtual void Add(bool ifNotExists_in, params XS_faqSubjectType[] col_in) {
 			for (int i = 0; i < col_in.Length; i++) {
-				col_in[i].parent_ref = this;
-				col_in[i].root_ref = root_ref;
-				_output = cols_.Add(col_in[i]);
+				if (ifNotExists_in) {
+					if (Search(col_in[i]) == -1) {
+						Add(col_in[i]);
+					}
+				}
+			}
+		}
+		public virtual void Add(out int returnIndex_out, bool ifNotExists_in, params XS_faqSubjectType[] col_in) {
+			returnIndex_out = -1;
+			for (int i = 0; i < col_in.Length; i++) {
+				if (ifNotExists_in) {
+					returnIndex_out = Search(col_in[i]);
+					if (returnIndex_out == -1) {
+						Add(out returnIndex_out, col_in[i]);
+					}
+				}
+			}
+		}
+		#endregion
+		#region public void Clear();
+		public void Clear() {
+			cols_.Clear();
+		}
+		#endregion
+		#region public void RemoveAt(int index_in);
+		public void RemoveAt(int index_in) {
+			cols_.RemoveAt(index_in);
+		}
+		#endregion
+		#region public void Add(...);
+		public void Add(params XS_faqSubjectType[] col_in) {
+			int _index = -1;
+			Add(out _index, col_in);
+		}
+		public void Add(out int returnIndex_out, params XS_faqSubjectType[] col_in) {
+			refresh_refs(col_in);
+
+			returnIndex_out = -1;
+			for (int i = 0; i < col_in.Length - 1; i++) {
+				cols_.Add(col_in[i]);
 			}
 
-			return _output;
+			int j = col_in.Length - 1;
+			if (j >= 0) {
+				lock (cols_) {
+#if NET_1_1
+					returnIndex_out = cols_.Add(col_in[j]);
+#else
+					cols_.Add(col_in[j]);
+					returnIndex_out = cols_.Count - 1;
+#endif
+				}
+			}
 		}
 		#endregion
 	}
-	#endregion
 }

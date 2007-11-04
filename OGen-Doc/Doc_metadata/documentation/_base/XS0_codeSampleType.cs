@@ -19,11 +19,7 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS0_codeSampleType
-#if !NET_1_1
-		: OGenRootrefCollectionInterface<XS__RootMetadata> , OGenCollectionInterface<string>
-#endif
-	{
+	public class XS0_codeSampleType {
 		public XS0_codeSampleType (
 		) {
 		}
@@ -33,17 +29,6 @@ namespace OGen.Doc.lib.metadata.documentation {
 		) {
 			idcodesample_ = idCodeSample_in;
 		}
-
-#if !NET_1_1
-		#region public string CollectionName { get; }
-		[XmlIgnore()]
-		public string CollectionName {
-			get {
-				return IDCodeSample;
-			}
-		}
-		#endregion
-#endif
 
 		#region public object parent_ref { get; }
 		private object parent_ref_;

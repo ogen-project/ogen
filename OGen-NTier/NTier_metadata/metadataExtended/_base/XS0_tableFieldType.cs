@@ -19,11 +19,7 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public class XS0_tableFieldType
-#if !NET_1_1
-		: OGenRootrefCollectionInterface<XS__RootMetadata> , OGenCollectionInterface<string>
-#endif
-	{
+	public class XS0_tableFieldType {
 		public XS0_tableFieldType (
 		) {
 		}
@@ -33,17 +29,6 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		) {
 			name_ = name_in;
 		}
-
-#if !NET_1_1
-		#region public string CollectionName { get; }
-		[XmlIgnore()]
-		public string CollectionName {
-			get {
-				return Name;
-			}
-		}
-		#endregion
-#endif
 
 		#region public object parent_ref { get; }
 		private object parent_ref_;

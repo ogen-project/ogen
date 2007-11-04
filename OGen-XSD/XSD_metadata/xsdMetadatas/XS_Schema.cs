@@ -25,11 +25,7 @@ namespace OGen.XSD.lib.metadata {
 	//[XmlRoot("xs___schema")]
 	[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.w3.org/2001/XMLSchema")]
 	[System.Xml.Serialization.XmlRootAttribute("schema", Namespace="http://www.w3.org/2001/XMLSchema", IsNullable=false)]
-	public class XS_Schema : iClaSSe_metadata
-#if !NET_1_1
-	 , OGenRootrefCollectionInterface<RootMetadata> 
-#endif
-	{
+	public class XS_Schema : iClaSSe_metadata {
 		public XS_Schema() {
 		}
 
@@ -138,13 +134,8 @@ namespace OGen.XSD.lib.metadata {
 		#endregion
 
 		#region public ... SimpleType { get; }
-#if !NET_1_1
-		private OGenRootrefCollection<XS_SimpleType, RootMetadata, string> simpletypecollection_
-			= new OGenRootrefCollection<XS_SimpleType, RootMetadata, string>();
-#else
 		private XS_SimpleTypeCollection simpletypecollection_
 			= new XS_SimpleTypeCollection();
-#endif
 
 		[XmlElement("simpleType")]
 		//[XmlArray("simpleType")]
@@ -155,24 +146,12 @@ namespace OGen.XSD.lib.metadata {
 		}
 
 		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenRootrefCollection<XS_SimpleType, RootMetadata, string>
-#else
-			XS_SimpleTypeCollection
-#endif
-		SimpleType {
+		public XS_SimpleTypeCollection SimpleType {
 			get { return simpletypecollection_; }
 		}
 		#endregion
 		#region public ... ComplexType { get; }
-#if !NET_1_1
-		private OGenRootrefCollection<XS_ComplexType, RootMetadata, string> complextypecollection_
-			= new OGenRootrefCollection<XS_ComplexType, RootMetadata, string>();
-#else
-		private XS_ComplexTypeCollection complextypecollection_
-			= new XS_ComplexTypeCollection();
-#endif
+		private XS_ComplexTypeCollection complextypecollection_ = new XS_ComplexTypeCollection();
 
 		[XmlElement("complexType")]
 		//[XmlArray("complexType")]
@@ -184,13 +163,7 @@ namespace OGen.XSD.lib.metadata {
 		}
 
 		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenRootrefCollection<XS_ComplexType, RootMetadata, string>
-#else
-			XS_ComplexTypeCollection
-#endif
-		ComplexType {
+		public XS_ComplexTypeCollection ComplexType {
 			get { return complextypecollection_; }
 		}
 		#endregion

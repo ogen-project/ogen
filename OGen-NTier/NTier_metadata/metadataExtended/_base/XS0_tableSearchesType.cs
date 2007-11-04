@@ -19,20 +19,10 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public class XS0_tableSearchesType
-#if !NET_1_1
-		: OGenRootrefCollectionInterface<XS__RootMetadata> 
-#endif
-	{
+	public class XS0_tableSearchesType {
 		public XS0_tableSearchesType (
 		) {
-			tablesearchcollection_ = new 
-#if !NET_1_1
-				OGenRootrefCollection<XS_tableSearchType, XS__RootMetadata>()
-#else
-				XS_tableSearchTypeCollection()
-#endif
-			;
+			tablesearchcollection_ = new XS_tableSearchTypeCollection();
 		}
 
 		#region public object parent_ref { get; }
@@ -59,14 +49,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			get { return root_ref_; }
 		}
 		#endregion
-		#region public ... TableSearchCollection { get; }
-		private 
-#if !NET_1_1
-			OGenRootrefCollection<XS_tableSearchType, XS__RootMetadata>
-#else
-			XS_tableSearchTypeCollection
-#endif
-			tablesearchcollection_;
+		#region public XS_tableSearchTypeCollection TableSearchCollection { get; }
+		private XS_tableSearchTypeCollection tablesearchcollection_;
 
 		[XmlElement("tableSearch")]
 		public XS_tableSearchType[] tablesearchcollection__xml {
@@ -75,14 +59,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 
 		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenRootrefCollection<XS_tableSearchType, XS__RootMetadata>
-#else
-			XS_tableSearchTypeCollection
-#endif
-		TableSearchCollection
-		{
+		public XS_tableSearchTypeCollection TableSearchCollection {
 			get { return tablesearchcollection_; }
 		}
 		#endregion

@@ -41,13 +41,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 					parent_table_ref__ 
 						= (XS_tableType)(
 							(XS_tableFieldsType)(
-								(
-									#if !NET_1_1
-									OGenRootrefCollection<XS_tableFieldType, XS__RootMetadata>
-									#else
-									XS_tableFieldTypeCollection
-									#endif
-								)parent_ref
+								(XS_tableFieldTypeCollection)parent_ref
 							).parent_ref
 						).parent_ref;
 				}

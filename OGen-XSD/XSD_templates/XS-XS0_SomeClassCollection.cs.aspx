@@ -27,7 +27,7 @@ RootMetadata _aux_rootmetadata = RootMetadata.Load_fromFile(
 XS_Schema _aux_schema = _aux_rootmetadata.SchemaCollection[_arg_SchemaName];
 
 XS_ComplexType _aux_complextype = _aux_schema.ComplexType[_arg_ComplexTypeName];
-OGenCollection<XS_Element, string> _aux_elements = _aux_complextype.Sequence.Element;
+XS_ElementCollection _aux_elements = _aux_complextype.Sequence.Element;
 
 string _aux_complextype_keys_ntype = string.Empty;
 string _aux_complextype_keys_name = string.Empty;
@@ -58,15 +58,20 @@ if ((_aux_rootmetadata.ExtendedMetadata.CopyrightText != string.Empty) && (_aux_
 }%>using System;
 using System.Xml.Serialization;
 using System.Collections;
+#if !NET_1_1
+using System.Collections.Generic;
+#endif
 
-using OGen.lib.collections;
-
-namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Element.Name%> {<%--
-#if NET_1_1--%>
-	#region public class <%=XS_%><%=_aux_complextype.Name%>Collection { ... }
+namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Element.Name%> {
 	public class <%=XS_%><%=_aux_complextype.Name%>Collection {
 		public <%=XS_%><%=_aux_complextype.Name%>Collection() {
-			cols_ = new ArrayList();
+			cols_ = new
+				#if NET_1_1
+				ArrayList()
+				#else
+				List<<%=XS_%><%=_aux_complextype.Name%>>()
+				#endif
+			;
 		}
 <%
 if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%>
@@ -80,7 +85,12 @@ if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%>
 			set {
 				parent_ref_ = value;
 				for (int i = 0; i < cols_.Count; i++) {
-					((<%=XS_%><%=_aux_complextype.Name%>)cols_[i]).parent_ref = this;
+					#if NET_1_1
+					((<%=XS_%><%=_aux_complextype.Name%>)cols_[i])
+					#else
+					cols_[i]
+					#endif
+						.parent_ref = this;
 				}
 			}
 		}
@@ -95,15 +105,34 @@ if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%>
 			set {
 				root_ref_ = value;
 				for (int i = 0; i < cols_.Count; i++) {
-					((<%=XS_%><%=_aux_complextype.Name%>)cols_[i]).root_ref = value;
+					#if NET_1_1
+					((<%=XS_%><%=_aux_complextype.Name%>)cols_[i])
+					#else
+					cols_[i]
+					#endif
+						.root_ref = value;
 				}
+			}
+		}
+		#endregion
+		#region private void refresh_refs(params <%=XS_%><%=_aux_complextype.Name%>[] col_in);
+		private void refresh_refs(params <%=XS_%><%=_aux_complextype.Name%>[] col_in) {
+			for (int i = 0; i < col_in.Length; i++) {
+				col_in[i].parent_ref = this;
+				col_in[i].root_ref = root_ref;
 			}
 		}
 		#endregion<%
 }%>
 
 		#region internal <%=XS_%><%=_aux_complextype.Name%>[] cols__ { get; set; }
-		private ArrayList cols_;
+		private 
+			#if NET_1_1
+			ArrayList
+			#else
+			List<<%=XS_%><%=_aux_complextype.Name%>>
+			#endif
+		cols_;
 
 		internal <%=XS_%><%=_aux_complextype.Name%>[] cols__ {
 			get {
@@ -133,83 +162,159 @@ if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%>
 		#region public <%=XS_%><%=_aux_complextype.Name%> this[int index_in] { get; }
 		public <%=XS_%><%=_aux_complextype.Name%> this[int index_in] {
 			get {
-				return (<%=XS_%><%=_aux_complextype.Name%>)cols_[index_in];
+				return 
+					#if NET_1_1
+					(<%=XS_%><%=_aux_complextype.Name%>)
+					#endif
+					cols_[index_in]
+				;
 			}
 		}
 		#endregion<%
-		if (_aux_complextype_keys_name != string.Empty) {%>
+if (_aux_complextype_keys_name != string.Empty) {%>
 		#region public <%=XS_%><%=_aux_complextype.Name%> this[<%=_aux_complextype_keys_ntype%> <%=_aux_complextype_keys_name%>_in] { get; }
 		public <%=XS_%><%=_aux_complextype.Name%> this[<%=_aux_complextype_keys_ntype%> <%=_aux_complextype_keys_name%>_in] {
 			get {
 				int _index = Search(<%=_aux_complextype_keys_name%>_in);
 				return (_index == -1)
 					? null
-					: (<%=XS_%><%=_aux_complextype.Name%>)cols_[_index];
+					: 
+						#if NET_1_1
+						(<%=XS_%><%=_aux_complextype.Name%>)
+						#endif
+						cols_[_index]
+				;
 			}
 		}
 		#endregion
-		#region public int Search(...);<%
-		if (_aux_complextype_keys_ntype == "string") {%>
-		public int Search(string <%=_aux_complextype_keys_name%>_in, bool caseSensitive_in) {
+
+		#region public void Remove(...);
+		public void Remove(string <%=_aux_complextype_keys_name%>_in) {
+			RemoveAt(
+				Search(<%=_aux_complextype_keys_name%>_in)
+			);
+		}
+		#endregion
+		#region public int Search(...);
+		public int Search(string <%=_aux_complextype_keys_name%>_in) {
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
-					(
-						caseSensitive_in
-						&&
-						(
-							<%=_aux_complextype_keys_name%>_in.ToLower() 
-							== 
-							((XS_<%=_aux_complextype.Name%>)cols_[i]).<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_complextype_keys_name)%>.ToLower()
-						)
-					)
-					||
-					(
-						!caseSensitive_in
-						&&
-						(
-							<%=_aux_complextype_keys_name%>_in
-							==
-							((XS_<%=_aux_complextype.Name%>)cols_[i]).<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_complextype_keys_name)%>
-						)
-					)
+/*
+#if NET_1_1
+((<%=XS_%><%=_aux_complextype.Name%>)cols_[i])
+#else
+cols_[i]
+#endif
+	.<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_complextype_keys_name)%>.ToLower()
+==
+<%=_aux_complextype_keys_name%>_in.ToLower() 
+*/
+#if NET_1_1
+((<%=XS_%><%=_aux_complextype.Name%>)cols_[i])
+#else
+cols_[i]
+#endif
+	.<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_complextype_keys_name)%>.Equals(
+		<%=_aux_complextype_keys_name%>_in
+	)
 				) {
 					return i;
 				}
 			}
 
 			return -1;
-		}<%
-		}%>
-		public int Search(<%=_aux_complextype_keys_ntype%> <%=_aux_complextype_keys_name%>_in) {
+		}
+		public int Search(<%=XS_%><%=_aux_complextype.Name%> collectionItem_in) {
+throw new Exception("not implemented!");
 			for (int i = 0; i < cols_.Count; i++) {
-				if (<%=_aux_complextype_keys_name%>_in.Equals(((<%=XS_%><%=_aux_complextype.Name%>)cols_[i]).<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_complextype_keys_name)%>)) {
+				if (
+/*
+#if NET_1_1
+((<%=XS_%><%=_aux_complextype.Name%>)cols_[i])
+#else
+cols_[i]
+#endif
+	.<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_complextype_keys_name)%>.ToLower()
+==
+collectionItem_in.<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_complextype_keys_name)%>.ToLower()
+*/
+#if NET_1_1
+((<%=XS_%><%=_aux_complextype.Name%>)cols_[i])
+#else
+cols_[i]
+#endif
+	.<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_complextype_keys_name)%>.Equals(
+		collectionItem_in.<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_complextype_keys_name)%>
+	)
+				) {
 					return i;
 				}
 			}
 
 			return -1;
 		}
+		#endregion
+		#region public void Add(...);
+		public virtual void Add(bool ifNotExists_in, params <%=XS_%><%=_aux_complextype.Name%>[] col_in) {
+			for (int i = 0; i < col_in.Length; i++) {
+				if (ifNotExists_in) {
+					if (Search(col_in[i]) == -1) {
+						Add(col_in[i]);
+					}
+				}
+			}
+		}
+		public virtual void Add(out int returnIndex_out, bool ifNotExists_in, params <%=XS_%><%=_aux_complextype.Name%>[] col_in) {
+			returnIndex_out = -1;
+			for (int i = 0; i < col_in.Length; i++) {
+				if (ifNotExists_in) {
+					returnIndex_out = Search(col_in[i]);
+					if (returnIndex_out == -1) {
+						Add(out returnIndex_out, col_in[i]);
+					}
+				}
+			}
+		}
 		#endregion<%
-		}%>
-
-		#region public int Add(params <%=XS_%><%=_aux_complextype.Name%>[] col_in);
-		public int Add(params <%=XS_%><%=_aux_complextype.Name%>[] col_in) {
-			int _output = -1;
-
-			for (int i = 0; i < col_in.Length; i++) {<%
-if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%>
-				col_in[i].parent_ref = this;
-				col_in[i].root_ref = root_ref;<%
 }%>
-				_output = cols_.Add(col_in[i]);
+		#region public void Clear();
+		public void Clear() {
+			cols_.Clear();
+		}
+		#endregion
+		#region public void RemoveAt(int index_in);
+		public void RemoveAt(int index_in) {
+			cols_.RemoveAt(index_in);
+		}
+		#endregion
+		#region public void Add(...);
+		public void Add(params <%=XS_%><%=_aux_complextype.Name%>[] col_in) {
+			int _index = -1;
+			Add(out _index, col_in);
+		}
+		public void Add(out int returnIndex_out, params <%=XS_%><%=_aux_complextype.Name%>[] col_in) {<%
+if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%>
+			refresh_refs(col_in);
+<%}%>
+			returnIndex_out = -1;
+			for (int i = 0; i < col_in.Length - 1; i++) {
+				cols_.Add(col_in[i]);
 			}
 
-			return _output;
+			int j = col_in.Length - 1;
+			if (j >= 0) {
+				lock (cols_) {
+#if NET_1_1
+					returnIndex_out = cols_.Add(col_in[j]);
+#else
+					cols_.Add(col_in[j]);
+					returnIndex_out = cols_.Count - 1;
+#endif
+				}
+			}
 		}
 		#endregion
 	}
-	#endregion<%--
-#endif--%>
 }<%
 //-----------------------------------------------------------------------------------------
 %>

@@ -19,20 +19,10 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS0_linksType
-#if !NET_1_1
-		: OGenRootrefCollectionInterface<XS__RootMetadata> 
-#endif
-	{
+	public class XS0_linksType {
 		public XS0_linksType (
 		) {
-			linkcollection_ = new 
-#if !NET_1_1
-				OGenRootrefCollection<XS_linkType, XS__RootMetadata>()
-#else
-				XS_linkTypeCollection()
-#endif
-			;
+			linkcollection_ = new XS_linkTypeCollection();
 		}
 
 		#region public object parent_ref { get; }
@@ -59,14 +49,8 @@ namespace OGen.Doc.lib.metadata.documentation {
 			get { return root_ref_; }
 		}
 		#endregion
-		#region public ... LinkCollection { get; }
-		private 
-#if !NET_1_1
-			OGenRootrefCollection<XS_linkType, XS__RootMetadata>
-#else
-			XS_linkTypeCollection
-#endif
-			linkcollection_;
+		#region public XS_linkTypeCollection LinkCollection { get; }
+		private XS_linkTypeCollection linkcollection_;
 
 		[XmlElement("link")]
 		public XS_linkType[] linkcollection__xml {
@@ -75,14 +59,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 
 		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenRootrefCollection<XS_linkType, XS__RootMetadata>
-#else
-			XS_linkTypeCollection
-#endif
-		LinkCollection
-		{
+		public XS_linkTypeCollection LinkCollection {
 			get { return linkcollection_; }
 		}
 		#endregion

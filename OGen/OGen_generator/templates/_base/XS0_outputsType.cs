@@ -19,28 +19,13 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public class XS0_outputsType
-#if !NET_1_1
-#endif
-	{
+	public class XS0_outputsType {
 		public XS0_outputsType (
 		) {
-			outputcollection_ = new 
-#if !NET_1_1
-				OGenSimpleCollection<XS_outputType>()
-#else
-				XS_outputTypeCollection()
-#endif
-			;
+			outputcollection_ = new XS_outputTypeCollection();
 		}
-		#region public ... OutputCollection { get; }
-		private 
-#if !NET_1_1
-			OGenSimpleCollection<XS_outputType>
-#else
-			XS_outputTypeCollection
-#endif
-			outputcollection_;
+		#region public XS_outputTypeCollection OutputCollection { get; }
+		private XS_outputTypeCollection outputcollection_;
 
 		[XmlElement("output")]
 		public XS_outputType[] outputcollection__xml {
@@ -49,14 +34,7 @@ namespace OGen.lib.templates {
 		}
 
 		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenSimpleCollection<XS_outputType>
-#else
-			XS_outputTypeCollection
-#endif
-		OutputCollection
-		{
+		public XS_outputTypeCollection OutputCollection {
 			get { return outputcollection_; }
 		}
 		#endregion

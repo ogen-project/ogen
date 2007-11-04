@@ -15,14 +15,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Xml.Serialization;
 using System.Collections;
-
-using OGen.lib.collections;
+#if !NET_1_1
+using System.Collections.Generic;
+#endif
 
 namespace OGen.Doc.lib.metadata.documentation {
-	#region public class XS_faqSubjectsTypeCollection { ... }
 	public class XS_faqSubjectsTypeCollection {
 		public XS_faqSubjectsTypeCollection() {
-			cols_ = new ArrayList();
+			cols_ = new
+				#if NET_1_1
+				ArrayList()
+				#else
+				List<XS_faqSubjectsType>()
+				#endif
+			;
 		}
 
 		#region public object parent_ref { get; }
@@ -35,7 +41,12 @@ namespace OGen.Doc.lib.metadata.documentation {
 			set {
 				parent_ref_ = value;
 				for (int i = 0; i < cols_.Count; i++) {
-					((XS_faqSubjectsType)cols_[i]).parent_ref = this;
+					#if NET_1_1
+					((XS_faqSubjectsType)cols_[i])
+					#else
+					cols_[i]
+					#endif
+						.parent_ref = this;
 				}
 			}
 		}
@@ -50,14 +61,33 @@ namespace OGen.Doc.lib.metadata.documentation {
 			set {
 				root_ref_ = value;
 				for (int i = 0; i < cols_.Count; i++) {
-					((XS_faqSubjectsType)cols_[i]).root_ref = value;
+					#if NET_1_1
+					((XS_faqSubjectsType)cols_[i])
+					#else
+					cols_[i]
+					#endif
+						.root_ref = value;
 				}
+			}
+		}
+		#endregion
+		#region private void refresh_refs(params XS_faqSubjectsType[] col_in);
+		private void refresh_refs(params XS_faqSubjectsType[] col_in) {
+			for (int i = 0; i < col_in.Length; i++) {
+				col_in[i].parent_ref = this;
+				col_in[i].root_ref = root_ref;
 			}
 		}
 		#endregion
 
 		#region internal XS_faqSubjectsType[] cols__ { get; set; }
-		private ArrayList cols_;
+		private 
+			#if NET_1_1
+			ArrayList
+			#else
+			List<XS_faqSubjectsType>
+			#endif
+		cols_;
 
 		internal XS_faqSubjectsType[] cols__ {
 			get {
@@ -87,24 +117,50 @@ namespace OGen.Doc.lib.metadata.documentation {
 		#region public XS_faqSubjectsType this[int index_in] { get; }
 		public XS_faqSubjectsType this[int index_in] {
 			get {
-				return (XS_faqSubjectsType)cols_[index_in];
+				return 
+					#if NET_1_1
+					(XS_faqSubjectsType)
+					#endif
+					cols_[index_in]
+				;
 			}
 		}
 		#endregion
+		#region public void Clear();
+		public void Clear() {
+			cols_.Clear();
+		}
+		#endregion
+		#region public void RemoveAt(int index_in);
+		public void RemoveAt(int index_in) {
+			cols_.RemoveAt(index_in);
+		}
+		#endregion
+		#region public void Add(...);
+		public void Add(params XS_faqSubjectsType[] col_in) {
+			int _index = -1;
+			Add(out _index, col_in);
+		}
+		public void Add(out int returnIndex_out, params XS_faqSubjectsType[] col_in) {
+			refresh_refs(col_in);
 
-		#region public int Add(params XS_faqSubjectsType[] col_in);
-		public int Add(params XS_faqSubjectsType[] col_in) {
-			int _output = -1;
-
-			for (int i = 0; i < col_in.Length; i++) {
-				col_in[i].parent_ref = this;
-				col_in[i].root_ref = root_ref;
-				_output = cols_.Add(col_in[i]);
+			returnIndex_out = -1;
+			for (int i = 0; i < col_in.Length - 1; i++) {
+				cols_.Add(col_in[i]);
 			}
 
-			return _output;
+			int j = col_in.Length - 1;
+			if (j >= 0) {
+				lock (cols_) {
+#if NET_1_1
+					returnIndex_out = cols_.Add(col_in[j]);
+#else
+					cols_.Add(col_in[j]);
+					returnIndex_out = cols_.Count - 1;
+#endif
+				}
+			}
 		}
 		#endregion
 	}
-	#endregion
 }

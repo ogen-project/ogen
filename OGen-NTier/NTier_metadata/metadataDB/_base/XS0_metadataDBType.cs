@@ -19,11 +19,7 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
-	public class XS0_metadataDBType
-#if !NET_1_1
-		: OGenRootrefCollectionInterface<XS__RootMetadata> 
-#endif
-	{
+	public class XS0_metadataDBType {
 		public XS0_metadataDBType (
 		) {
 		}

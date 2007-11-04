@@ -19,33 +19,7 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
-	#region public struct KEY_tableFieldDBType { ... }
-	public struct KEY_tableFieldDBType {
-		public KEY_tableFieldDBType(
-			KeyEnum type_in,
-			object value_in
-		) {
-			Type = type_in;
-			Value = value_in;
-		}
-
-		public enum KeyEnum : int {
-			DBServerType = 0,
-			DBType = 1
-		}
-
-		public KeyEnum Type;
-		public object Value;
-	}
-	#endregion
-
-	public class XS0_tableFieldDBType
-#if !NET_1_1
-		: 
-			OGenRootrefCollectionInterface<XS__RootMetadata>, 
-			OGenCollectionInterface<XS_tableFieldDBType, KEY_tableFieldDBType>
-#endif
-	{
+	public class XS0_tableFieldDBType {
 		public XS0_tableFieldDBType (
 		) {
 		}
@@ -55,93 +29,6 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		) {
 			dbservertype_ = dbServerType_in;
 		}
-
-#if !NET_1_1
-		//#region public string CollectionName { get; }
-		//[XmlIgnore()]
-		//public string CollectionName {
-		//    get {
-		//        return DBServerType;
-		//    }
-		//}
-		//#endregion
-
-		#region public KEY_tableFieldDBType[] Keys { get; }
-		private KEY_tableFieldDBType[] keys__ = null;
-
-		public KEY_tableFieldDBType[] Keys {
-			get {
-				if (keys__ == null) {
-					keys__ = new KEY_tableFieldDBType[] {
-						new KEY_tableFieldDBType(KEY_tableFieldDBType.KeyEnum.DBServerType, dbservertype_), 
-						new KEY_tableFieldDBType(KEY_tableFieldDBType.KeyEnum.DBType, dbtype_)
-					};
-				} else {
-					keys__[0].Value = dbservertype_;
-					keys__[1].Value = dbtype_;
-				}
-				return keys__;
-			}
-		}
-		#endregion
-		#region	public bool Keys_compare(params KEY_tableFieldDBType[] keys_in);
-		public bool Keys_compare(params KEY_tableFieldDBType[] keys_in) {
-			int _keyMatches = 0;
-			for (int k = 0; k < keys_in.Length; k++) {
-				switch (keys_in[k].Type) {
-					case KEY_tableFieldDBType.KeyEnum.DBServerType:
-						if (
-							((string)keys_in[k].Value).ToLower() 
-							== 
-							dbservertype_.ToLower()
-						)
-							_keyMatches++;
-						else 
-							return false;
-						break;
-					case KEY_tableFieldDBType.KeyEnum.DBType:
-						if (
-							(string)keys_in[k].Value 
-							== 
-							dbtype_
-						)
-							_keyMatches++;
-						else 
-							return false;
-						break;
-					default:
-						throw new Exception("...");
-				}
-			}
-
-			return (
-				_keyMatches == keys_in.Length
-			);
-		}
-		#endregion
-		#region public bool Equals_compareKeysOnly(XS_tableFieldDBType tableFieldDBType_in);
-		public bool Equals_compareKeysOnly(XS_tableFieldDBType tableFieldDBType_in) {
-			return Keys_compare(tableFieldDBType_in.Keys());
-		}
-		#endregion
-		#region public static KEY_tableFieldDBType[] Keys_builder(...);
-		public static KEY_tableFieldDBType[] Keys_builder(
-			string dbServerType_in, 
-			string dbType_in
-		) {
-			return new KEY_tableFieldDBType[] {
-				new KEY_tableFieldDBType(
-					KEY_tableFieldDBType.KeyEnum.DBServerType, 
-					dbServerType_in
-				), 
-				new KEY_tableFieldDBType(
-					KEY_tableFieldDBType.KeyEnum.DBType, 
-					dbType_in
-				)
-			};
-		}
-		#endregion
-#endif
 
 		#region public object parent_ref { get; }
 		private object parent_ref_;

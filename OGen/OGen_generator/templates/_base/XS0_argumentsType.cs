@@ -19,28 +19,13 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public class XS0_argumentsType
-#if !NET_1_1
-#endif
-	{
+	public class XS0_argumentsType {
 		public XS0_argumentsType (
 		) {
-			argumentcollection_ = new 
-#if !NET_1_1
-				OGenCollection<XS_argumentType, string>()
-#else
-				XS_argumentTypeCollection()
-#endif
-			;
+			argumentcollection_ = new XS_argumentTypeCollection();
 		}
-		#region public ... ArgumentCollection { get; }
-		private 
-#if !NET_1_1
-			OGenCollection<XS_argumentType, string>
-#else
-			XS_argumentTypeCollection
-#endif
-			argumentcollection_;
+		#region public XS_argumentTypeCollection ArgumentCollection { get; }
+		private XS_argumentTypeCollection argumentcollection_;
 
 		[XmlElement("argument")]
 		public XS_argumentType[] argumentcollection__xml {
@@ -49,14 +34,7 @@ namespace OGen.lib.templates {
 		}
 
 		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenCollection<XS_argumentType, string>
-#else
-			XS_argumentTypeCollection
-#endif
-		ArgumentCollection
-		{
+		public XS_argumentTypeCollection ArgumentCollection {
 			get { return argumentcollection_; }
 		}
 		#endregion

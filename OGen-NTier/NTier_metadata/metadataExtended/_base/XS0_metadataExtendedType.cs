@@ -19,11 +19,7 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public class XS0_metadataExtendedType
-#if !NET_1_1
-		: OGenRootrefCollectionInterface<XS__RootMetadata> 
-#endif
-	{
+	public class XS0_metadataExtendedType {
 		public XS0_metadataExtendedType (
 		) {
 		}

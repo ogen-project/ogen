@@ -114,8 +114,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 				for (int t = 0; t < _tables_aux.Length; t++) {
 					#region _table = ...; _table.Name = ...;
 					_searchindex = _output.Tables.TableCollection.Search(
-						_tables_aux[t].Name,
-						true
+						_tables_aux[t].Name
 					);
 					if (_searchindex >= 0) {
 						_table = _output.Tables.TableCollection[_searchindex];
@@ -130,8 +129,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 
 					#region _tabledb = ...; _tabledb.DBServerType = ...;
 					_searchindex = _table.TableDBs.TableDBCollection.Search(
-						dbConnectionParam_in[c].DBServerType.ToString(),
-						true
+						dbConnectionParam_in[c].DBServerType.ToString()
 					);
 					if (_searchindex >= 0) {
 						_tabledb = _table.TableDBs.TableDBCollection[_searchindex];
@@ -152,8 +150,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 
 						#region _field = ...; _field.Name = ...;
 						_searchindex = _table.TableFields.TableFieldCollection.Search(
-							_fields_aux[f].Name,
-							true
+							_fields_aux[f].Name
 						);
 						if (_searchindex >= 0) {
 							_field = _table.TableFields.TableFieldCollection[_searchindex];
@@ -175,8 +172,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 
 						#region _fielddb = ...; _fielddb.DBServerType = ...;
 						_searchindex = _field.TableFieldDBs.TableFieldDBCollection.Search(
-							dbConnectionParam_in[c].DBServerType.ToString(),
-							true
+							dbConnectionParam_in[c].DBServerType.ToString()
 						);
 						if (_searchindex >= 0) {
 							_fielddb = _field.TableFieldDBs.TableFieldDBCollection[_searchindex];

@@ -21,7 +21,6 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.XSD.lib.metadata {
-#if NET_1_1
 	#region public class ExtendedMetadata_metadataIndexCollection { ... }
 	public class ExtendedMetadata_metadataIndexCollection {
 		public ExtendedMetadata_metadataIndexCollection() {
@@ -121,5 +120,4 @@ namespace OGen.XSD.lib.metadata {
 		#endregion
 	}
 	#endregion
-#endif
 }

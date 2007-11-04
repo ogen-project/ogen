@@ -20,11 +20,7 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.XSD.lib.metadata {
-	public class ExtendedMetadata_complexTypeKeys
-#if !NET_1_1
-		: OGenCollectionInterface<string>, OGenRootrefCollectionInterface<RootMetadata>
-#endif
-	{
+	public class ExtendedMetadata_complexTypeKeys {
 		public ExtendedMetadata_complexTypeKeys(
 		) {
 		}
@@ -84,15 +80,5 @@ namespace OGen.XSD.lib.metadata {
 			get { return root_ref_; }
 		}
 		#endregion
-#if !NET_1_1
-		#region public string CollectionName { get; }
-		[XmlIgnore()]
-		public string CollectionName {
-			get {
-				return Name;
-			}
-		}
-		#endregion
-#endif
 	}
 }

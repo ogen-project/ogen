@@ -19,11 +19,7 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.XSD.lib.metadata {
-	public class XS_Sequence
-#if !NET_1_1
-		: OGenRootrefCollectionInterface<RootMetadata>
-#endif
-	{
+	public class XS_Sequence {
 		public XS_Sequence(
 		) {
 		}
@@ -56,13 +52,8 @@ namespace OGen.XSD.lib.metadata {
 		#endregion
 
 		#region public ... Element { get; }
-#if !NET_1_1
-		private OGenRootrefCollection<XS_Element, RootMetadata, string> elementcollection_
-			= new OGenRootrefCollection<XS_Element, RootMetadata, string>();
-#else
 		private XS_ElementCollection elementcollection_
 			= new XS_ElementCollection();
-#endif
 
 		[XmlElement("element")]
 		//[XmlArray("element")]
@@ -73,13 +64,7 @@ namespace OGen.XSD.lib.metadata {
 		}
 
 		[XmlIgnore()]
-		public 
-#if !NET_1_1
-		OGenRootrefCollection<XS_Element, RootMetadata, string>
-#else
-		XS_ElementCollection
-#endif
-		Element {
+		public XS_ElementCollection Element {
 			get { return elementcollection_; }
 		}
 		#endregion

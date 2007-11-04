@@ -19,11 +19,7 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public class XS0_dbConnectionType
-#if !NET_1_1
-		: OGenRootrefCollectionInterface<XS__RootMetadata> , OGenCollectionInterface<string>
-#endif
-	{
+	public class XS0_dbConnectionType {
 		public XS0_dbConnectionType (
 		) {
 		}
@@ -33,17 +29,6 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		) {
 			configmode_ = configMode_in;
 		}
-
-#if !NET_1_1
-		#region public string CollectionName { get; }
-		[XmlIgnore()]
-		public string CollectionName {
-			get {
-				return ConfigMode;
-			}
-		}
-		#endregion
-#endif
 
 		#region public object parent_ref { get; }
 		private object parent_ref_;

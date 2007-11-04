@@ -19,10 +19,7 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public class XS0_outputType
-#if !NET_1_1
-#endif
-	{
+	public class XS0_outputType {
 		public XS0_outputType (
 		) {
 		}

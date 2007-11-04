@@ -143,37 +143,55 @@
     <Compile Include="templates\XS__templates.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="templates\_base\XS0_argumentsType.cs" />
+    <Compile Include="templates\_base\XS0_argumentsType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="templates\_base\XS0_argumentsTypeCollection.cs" />
     <Compile Include="templates\_base\XS0_argumentType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="templates\_base\XS0_conditionsType.cs" />
+    <Compile Include="templates\_base\XS0_argumentTypeCollection.cs" />
+    <Compile Include="templates\_base\XS0_conditionsType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="templates\_base\XS0_conditionsTypeCollection.cs" />
     <Compile Include="templates\_base\XS0_conditionType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="templates\_base\XS0_dependenciesType.cs" />
+    <Compile Include="templates\_base\XS0_conditionTypeCollection.cs" />
+    <Compile Include="templates\_base\XS0_dependenciesType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="templates\_base\XS0_dependenciesTypeCollection.cs" />
     <Compile Include="templates\_base\XS0_dependencyType.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="templates\_base\XS0_dependencyTypeCollection.cs" />
     <Compile Include="templates\_base\XS0_outputEnumeration.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="templates\_base\XS0_outputModeEnumeration.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="templates\_base\XS0_outputsType.cs" />
+    <Compile Include="templates\_base\XS0_outputsType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="templates\_base\XS0_outputsTypeCollection.cs" />
     <Compile Include="templates\_base\XS0_outputType.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="templates\_base\XS0_outputTypeCollection.cs" />
     <Compile Include="templates\_base\XS0_parserEnumeration.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="templates\_base\XS0_templatesType.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="templates\_base\XS0_templatesTypeCollection.cs" />
     <Compile Include="templates\_base\XS0_templateType.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="templates\_base\XS0_templateTypeCollection.cs" />
     <Compile Include="templates\_base\XS0__templates.cs">
       <SubType>Code</SubType>
     </Compile>

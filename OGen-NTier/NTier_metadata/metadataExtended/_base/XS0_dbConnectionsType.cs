@@ -19,20 +19,10 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public class XS0_dbConnectionsType
-#if !NET_1_1
-		: OGenRootrefCollectionInterface<XS__RootMetadata> 
-#endif
-	{
+	public class XS0_dbConnectionsType {
 		public XS0_dbConnectionsType (
 		) {
-			dbconnectioncollection_ = new 
-#if !NET_1_1
-				OGenRootrefCollection<XS_dbConnectionType, XS__RootMetadata>()
-#else
-				XS_dbConnectionTypeCollection()
-#endif
-			;
+			dbconnectioncollection_ = new XS_dbConnectionTypeCollection();
 		}
 
 		#region public object parent_ref { get; }
@@ -59,14 +49,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			get { return root_ref_; }
 		}
 		#endregion
-		#region public ... DBConnectionCollection { get; }
-		private 
-#if !NET_1_1
-			OGenRootrefCollection<XS_dbConnectionType, XS__RootMetadata>
-#else
-			XS_dbConnectionTypeCollection
-#endif
-			dbconnectioncollection_;
+		#region public XS_dbConnectionTypeCollection DBConnectionCollection { get; }
+		private XS_dbConnectionTypeCollection dbconnectioncollection_;
 
 		[XmlElement("dbConnection")]
 		public XS_dbConnectionType[] dbconnectioncollection__xml {
@@ -75,14 +59,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 
 		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenRootrefCollection<XS_dbConnectionType, XS__RootMetadata>
-#else
-			XS_dbConnectionTypeCollection
-#endif
-		DBConnectionCollection
-		{
+		public XS_dbConnectionTypeCollection DBConnectionCollection {
 			get { return dbconnectioncollection_; }
 		}
 		#endregion

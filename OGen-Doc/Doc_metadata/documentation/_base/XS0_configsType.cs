@@ -19,20 +19,10 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS0_configsType
-#if !NET_1_1
-		: OGenRootrefCollectionInterface<XS__RootMetadata> 
-#endif
-	{
+	public class XS0_configsType {
 		public XS0_configsType (
 		) {
-			configcollection_ = new 
-#if !NET_1_1
-				OGenRootrefCollection<XS_configType, XS__RootMetadata>()
-#else
-				XS_configTypeCollection()
-#endif
-			;
+			configcollection_ = new XS_configTypeCollection();
 		}
 
 		#region public object parent_ref { get; }
@@ -59,14 +49,8 @@ namespace OGen.Doc.lib.metadata.documentation {
 			get { return root_ref_; }
 		}
 		#endregion
-		#region public ... ConfigCollection { get; }
-		private 
-#if !NET_1_1
-			OGenRootrefCollection<XS_configType, XS__RootMetadata>
-#else
-			XS_configTypeCollection
-#endif
-			configcollection_;
+		#region public XS_configTypeCollection ConfigCollection { get; }
+		private XS_configTypeCollection configcollection_;
 
 		[XmlElement("config")]
 		public XS_configType[] configcollection__xml {
@@ -75,14 +59,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 
 		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenRootrefCollection<XS_configType, XS__RootMetadata>
-#else
-			XS_configTypeCollection
-#endif
-		ConfigCollection
-		{
+		public XS_configTypeCollection ConfigCollection {
 			get { return configcollection_; }
 		}
 		#endregion

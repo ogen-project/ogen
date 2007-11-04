@@ -19,20 +19,10 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public class XS0_tableUpdateParametersType
-#if !NET_1_1
-		: OGenRootrefCollectionInterface<XS__RootMetadata> 
-#endif
-	{
+	public class XS0_tableUpdateParametersType {
 		public XS0_tableUpdateParametersType (
 		) {
-			tablefieldrefcollection_ = new 
-#if !NET_1_1
-				OGenRootrefCollection<XS_tableFieldRefType, XS__RootMetadata>()
-#else
-				XS_tableFieldRefTypeCollection()
-#endif
-			;
+			tablefieldrefcollection_ = new XS_tableFieldRefTypeCollection();
 		}
 
 		#region public object parent_ref { get; }
@@ -59,14 +49,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			get { return root_ref_; }
 		}
 		#endregion
-		#region public ... TableFieldRefCollection { get; }
-		private 
-#if !NET_1_1
-			OGenRootrefCollection<XS_tableFieldRefType, XS__RootMetadata>
-#else
-			XS_tableFieldRefTypeCollection
-#endif
-			tablefieldrefcollection_;
+		#region public XS_tableFieldRefTypeCollection TableFieldRefCollection { get; }
+		private XS_tableFieldRefTypeCollection tablefieldrefcollection_;
 
 		[XmlElement("tableFieldRef")]
 		public XS_tableFieldRefType[] tablefieldrefcollection__xml {
@@ -75,14 +59,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 
 		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenRootrefCollection<XS_tableFieldRefType, XS__RootMetadata>
-#else
-			XS_tableFieldRefTypeCollection
-#endif
-		TableFieldRefCollection
-		{
+		public XS_tableFieldRefTypeCollection TableFieldRefCollection {
 			get { return tablefieldrefcollection_; }
 		}
 		#endregion

@@ -21,11 +21,7 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.XSD.lib.metadata {
-	public class ExtendedMetadata_metadataIndex
-#if !NET_1_1
-		: OGenCollectionInterface<string>, OGenRootrefCollectionInterface<RootMetadata>
-#endif
-	{
+	public class ExtendedMetadata_metadataIndex {
 		#region public string Metadata { get; set; }
 		private string metadata_;
 
@@ -75,15 +71,5 @@ namespace OGen.XSD.lib.metadata {
 			get { return root_ref_; }
 		}
 		#endregion
-#if !NET_1_1
-		#region public string CollectionName { get; }
-		[XmlIgnore()]
-		public string CollectionName {
-			get {
-				return Metadata;
-			}
-		}
-		#endregion
-#endif
 	}
 }

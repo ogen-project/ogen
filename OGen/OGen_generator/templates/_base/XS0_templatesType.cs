@@ -19,28 +19,13 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public class XS0_templatesType
-#if !NET_1_1
-#endif
-	{
+	public class XS0_templatesType {
 		public XS0_templatesType (
 		) {
-			templatecollection_ = new 
-#if !NET_1_1
-				OGenCollection<XS_templateType, string>()
-#else
-				XS_templateTypeCollection()
-#endif
-			;
+			templatecollection_ = new XS_templateTypeCollection();
 		}
-		#region public ... TemplateCollection { get; }
-		private 
-#if !NET_1_1
-			OGenCollection<XS_templateType, string>
-#else
-			XS_templateTypeCollection
-#endif
-			templatecollection_;
+		#region public XS_templateTypeCollection TemplateCollection { get; }
+		private XS_templateTypeCollection templatecollection_;
 
 		[XmlElement("template")]
 		public XS_templateType[] templatecollection__xml {
@@ -49,14 +34,7 @@ namespace OGen.lib.templates {
 		}
 
 		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenCollection<XS_templateType, string>
-#else
-			XS_templateTypeCollection
-#endif
-		TemplateCollection
-		{
+		public XS_templateTypeCollection TemplateCollection {
 			get { return templatecollection_; }
 		}
 		#endregion

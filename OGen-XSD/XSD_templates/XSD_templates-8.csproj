@@ -50,17 +50,16 @@
     <None Include="LICENSE.txt" />
     <None Include="templates.config.xml" />
     <None Include="XS-XS0_SomeClassCollection.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
     </None>
     <None Include="XS-XS0_SomeEnumeration.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </None>
     <None Include="XS-XS0_SomeClass.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
     </None>
     <None Include="Web.config" />
-    <None Include="XS-XS0__BaseClassCollection.cs.aspx" />
+    <None Include="XS-XS0__BaseClassCollection.cs.aspx">
+    </None>
     <None Include="XS-XS_SomeClass.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -83,12 +82,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="XS-XS0__BaseClass.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="XS-XS0__RootMetadata.cs.aspx">
     </Content>
     <Content Include="XS-XS__BaseClass.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="XS-XS__RootMetadata.cs.aspx">
     </Content>

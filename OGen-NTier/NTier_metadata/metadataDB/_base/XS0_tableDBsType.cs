@@ -19,20 +19,10 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
-	public class XS0_tableDBsType
-#if !NET_1_1
-		: OGenRootrefCollectionInterface<XS__RootMetadata> 
-#endif
-	{
+	public class XS0_tableDBsType {
 		public XS0_tableDBsType (
 		) {
-			tabledbcollection_ = new 
-#if !NET_1_1
-				OGenRootrefCollection<XS_tableDBType, XS__RootMetadata>()
-#else
-				XS_tableDBTypeCollection()
-#endif
-			;
+			tabledbcollection_ = new XS_tableDBTypeCollection();
 		}
 
 		#region public object parent_ref { get; }
@@ -59,14 +49,8 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			get { return root_ref_; }
 		}
 		#endregion
-		#region public ... TableDBCollection { get; }
-		private 
-#if !NET_1_1
-			OGenRootrefCollection<XS_tableDBType, XS__RootMetadata>
-#else
-			XS_tableDBTypeCollection
-#endif
-			tabledbcollection_;
+		#region public XS_tableDBTypeCollection TableDBCollection { get; }
+		private XS_tableDBTypeCollection tabledbcollection_;
 
 		[XmlElement("tableDB")]
 		public XS_tableDBType[] tabledbcollection__xml {
@@ -75,14 +59,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 
 		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenRootrefCollection<XS_tableDBType, XS__RootMetadata>
-#else
-			XS_tableDBTypeCollection
-#endif
-		TableDBCollection
-		{
+		public XS_tableDBTypeCollection TableDBCollection {
 			get { return tabledbcollection_; }
 		}
 		#endregion

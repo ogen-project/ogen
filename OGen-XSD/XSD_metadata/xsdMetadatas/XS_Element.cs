@@ -20,11 +20,7 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.XSD.lib.metadata {
-	public class XS_Element 
-#if !NET_1_1
-		: OGenCollectionInterface<string>, OGenRootrefCollectionInterface<RootMetadata>
-#endif
-	{
+	public class XS_Element {
 		public XS_Element(
 		) {
 		}
@@ -63,14 +59,6 @@ namespace OGen.XSD.lib.metadata {
 			get { return root_ref_; }
 		}
 		#endregion
-#if !NET_1_1
-		#region public string CollectionName { get; }
-		[XmlIgnore()]
-		public string CollectionName {
-			get { return Name; }
-		}
-		#endregion
-#endif
 		#region //public string NType { get; set; }
 		//[XmlIgnore()]
 		//public string NType {

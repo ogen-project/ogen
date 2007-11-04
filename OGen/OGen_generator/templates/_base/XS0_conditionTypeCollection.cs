@@ -15,19 +15,31 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Xml.Serialization;
 using System.Collections;
-
-using OGen.lib.collections;
+#if !NET_1_1
+using System.Collections.Generic;
+#endif
 
 namespace OGen.lib.templates {
-	#region public class XS_conditionTypeCollection { ... }
 	public class XS_conditionTypeCollection {
 		public XS_conditionTypeCollection() {
-			cols_ = new ArrayList();
+			cols_ = new
+				#if NET_1_1
+				ArrayList()
+				#else
+				List<XS_conditionType>()
+				#endif
+			;
 		}
 
 
 		#region internal XS_conditionType[] cols__ { get; set; }
-		private ArrayList cols_;
+		private 
+			#if NET_1_1
+			ArrayList
+			#else
+			List<XS_conditionType>
+			#endif
+		cols_;
 
 		internal XS_conditionType[] cols__ {
 			get {
@@ -57,7 +69,12 @@ namespace OGen.lib.templates {
 		#region public XS_conditionType this[int index_in] { get; }
 		public XS_conditionType this[int index_in] {
 			get {
-				return (XS_conditionType)cols_[index_in];
+				return 
+					#if NET_1_1
+					(XS_conditionType)
+					#endif
+					cols_[index_in]
+				;
 			}
 		}
 		#endregion
@@ -67,33 +84,45 @@ namespace OGen.lib.templates {
 				int _index = Search(eval_in);
 				return (_index == -1)
 					? null
-					: (XS_conditionType)cols_[_index];
+					: 
+						#if NET_1_1
+						(XS_conditionType)
+						#endif
+						cols_[_index]
+				;
 			}
 		}
 		#endregion
+
+		#region public void Remove(...);
+		public void Remove(string eval_in) {
+			RemoveAt(
+				Search(eval_in)
+			);
+		}
+		#endregion
 		#region public int Search(...);
-		public int Search(string eval_in, bool caseSensitive_in) {
+		public int Search(string eval_in) {
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
-					(
-						caseSensitive_in
-						&&
-						(
-							eval_in.ToLower() 
-							== 
-							((XS_conditionType)cols_[i]).Eval.ToLower()
-						)
-					)
-					||
-					(
-						!caseSensitive_in
-						&&
-						(
-							eval_in
-							==
-							((XS_conditionType)cols_[i]).Eval
-						)
-					)
+/*
+#if NET_1_1
+((XS_conditionType)cols_[i])
+#else
+cols_[i]
+#endif
+	.Eval.ToLower()
+==
+eval_in.ToLower() 
+*/
+#if NET_1_1
+((XS_conditionType)cols_[i])
+#else
+cols_[i]
+#endif
+	.Eval.Equals(
+		eval_in
+	)
 				) {
 					return i;
 				}
@@ -101,9 +130,29 @@ namespace OGen.lib.templates {
 
 			return -1;
 		}
-		public int Search(string eval_in) {
+		public int Search(XS_conditionType collectionItem_in) {
+throw new Exception("not implemented!");
 			for (int i = 0; i < cols_.Count; i++) {
-				if (eval_in.Equals(((XS_conditionType)cols_[i]).Eval)) {
+				if (
+/*
+#if NET_1_1
+((XS_conditionType)cols_[i])
+#else
+cols_[i]
+#endif
+	.Eval.ToLower()
+==
+collectionItem_in.Eval.ToLower()
+*/
+#if NET_1_1
+((XS_conditionType)cols_[i])
+#else
+cols_[i]
+#endif
+	.Eval.Equals(
+		collectionItem_in.Eval
+	)
+				) {
 					return i;
 				}
 			}
@@ -111,18 +160,61 @@ namespace OGen.lib.templates {
 			return -1;
 		}
 		#endregion
-
-		#region public int Add(params XS_conditionType[] col_in);
-		public int Add(params XS_conditionType[] col_in) {
-			int _output = -1;
-
+		#region public void Add(...);
+		public virtual void Add(bool ifNotExists_in, params XS_conditionType[] col_in) {
 			for (int i = 0; i < col_in.Length; i++) {
-				_output = cols_.Add(col_in[i]);
+				if (ifNotExists_in) {
+					if (Search(col_in[i]) == -1) {
+						Add(col_in[i]);
+					}
+				}
+			}
+		}
+		public virtual void Add(out int returnIndex_out, bool ifNotExists_in, params XS_conditionType[] col_in) {
+			returnIndex_out = -1;
+			for (int i = 0; i < col_in.Length; i++) {
+				if (ifNotExists_in) {
+					returnIndex_out = Search(col_in[i]);
+					if (returnIndex_out == -1) {
+						Add(out returnIndex_out, col_in[i]);
+					}
+				}
+			}
+		}
+		#endregion
+		#region public void Clear();
+		public void Clear() {
+			cols_.Clear();
+		}
+		#endregion
+		#region public void RemoveAt(int index_in);
+		public void RemoveAt(int index_in) {
+			cols_.RemoveAt(index_in);
+		}
+		#endregion
+		#region public void Add(...);
+		public void Add(params XS_conditionType[] col_in) {
+			int _index = -1;
+			Add(out _index, col_in);
+		}
+		public void Add(out int returnIndex_out, params XS_conditionType[] col_in) {
+			returnIndex_out = -1;
+			for (int i = 0; i < col_in.Length - 1; i++) {
+				cols_.Add(col_in[i]);
 			}
 
-			return _output;
+			int j = col_in.Length - 1;
+			if (j >= 0) {
+				lock (cols_) {
+#if NET_1_1
+					returnIndex_out = cols_.Add(col_in[j]);
+#else
+					cols_.Add(col_in[j]);
+					returnIndex_out = cols_.Count - 1;
+#endif
+				}
+			}
 		}
 		#endregion
 	}
-	#endregion
 }

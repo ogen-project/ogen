@@ -19,28 +19,13 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public class XS0_dependenciesType
-#if !NET_1_1
-#endif
-	{
+	public class XS0_dependenciesType {
 		public XS0_dependenciesType (
 		) {
-			dependencycollection_ = new 
-#if !NET_1_1
-				OGenCollection<XS_dependencyType, string>()
-#else
-				XS_dependencyTypeCollection()
-#endif
-			;
+			dependencycollection_ = new XS_dependencyTypeCollection();
 		}
-		#region public ... DependencyCollection { get; }
-		private 
-#if !NET_1_1
-			OGenCollection<XS_dependencyType, string>
-#else
-			XS_dependencyTypeCollection
-#endif
-			dependencycollection_;
+		#region public XS_dependencyTypeCollection DependencyCollection { get; }
+		private XS_dependencyTypeCollection dependencycollection_;
 
 		[XmlElement("dependency")]
 		public XS_dependencyType[] dependencycollection__xml {
@@ -49,14 +34,7 @@ namespace OGen.lib.templates {
 		}
 
 		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenCollection<XS_dependencyType, string>
-#else
-			XS_dependencyTypeCollection
-#endif
-		DependencyCollection
-		{
+		public XS_dependencyTypeCollection DependencyCollection {
 			get { return dependencycollection_; }
 		}
 		#endregion

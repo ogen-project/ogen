@@ -19,20 +19,10 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public class XS0_tableSearchUpdatesType
-#if !NET_1_1
-		: OGenRootrefCollectionInterface<XS__RootMetadata> 
-#endif
-	{
+	public class XS0_tableSearchUpdatesType {
 		public XS0_tableSearchUpdatesType (
 		) {
-			tablesearchupdatecollection_ = new 
-#if !NET_1_1
-				OGenRootrefCollection<XS_tableSearchUpdateType, XS__RootMetadata>()
-#else
-				XS_tableSearchUpdateTypeCollection()
-#endif
-			;
+			tablesearchupdatecollection_ = new XS_tableSearchUpdateTypeCollection();
 		}
 
 		#region public object parent_ref { get; }
@@ -59,14 +49,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			get { return root_ref_; }
 		}
 		#endregion
-		#region public ... TableSearchUpdateCollection { get; }
-		private 
-#if !NET_1_1
-			OGenRootrefCollection<XS_tableSearchUpdateType, XS__RootMetadata>
-#else
-			XS_tableSearchUpdateTypeCollection
-#endif
-			tablesearchupdatecollection_;
+		#region public XS_tableSearchUpdateTypeCollection TableSearchUpdateCollection { get; }
+		private XS_tableSearchUpdateTypeCollection tablesearchupdatecollection_;
 
 		[XmlElement("tableSearchUpdate")]
 		public XS_tableSearchUpdateType[] tablesearchupdatecollection__xml {
@@ -75,14 +59,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 
 		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenRootrefCollection<XS_tableSearchUpdateType, XS__RootMetadata>
-#else
-			XS_tableSearchUpdateTypeCollection
-#endif
-		TableSearchUpdateCollection
-		{
+		public XS_tableSearchUpdateTypeCollection TableSearchUpdateCollection {
 			get { return tablesearchupdatecollection_; }
 		}
 		#endregion

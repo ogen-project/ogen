@@ -19,20 +19,10 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
-	public class XS0_tableFieldDBsType
-#if !NET_1_1
-		: OGenRootrefCollectionInterface<XS__RootMetadata> 
-#endif
-	{
+	public class XS0_tableFieldDBsType {
 		public XS0_tableFieldDBsType (
 		) {
-			tablefielddbcollection_ = new 
-#if !NET_1_1
-				OGenRootrefCollection<XS_tableFieldDBType, XS__RootMetadata, KEY_tableFieldDBType>()
-#else
-				XS_tableFieldDBTypeCollection()
-#endif
-			;
+			tablefielddbcollection_ = new XS_tableFieldDBTypeCollection();
 		}
 
 		#region public object parent_ref { get; }
@@ -59,44 +49,17 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			get { return root_ref_; }
 		}
 		#endregion
-		#region public ... TableFieldDBCollection { get; }
-		private 
-#if !NET_1_1
-			OGenRootrefCollection<XS_tableFieldDBType, XS__RootMetadata, KEY_tableFieldDBType>
-#else
-			XS_tableFieldDBTypeCollection
-#endif
-			tablefielddbcollection_;
+		#region public XS_tableFieldDBTypeCollection TableFieldDBCollection { get; }
+		private XS_tableFieldDBTypeCollection tablefielddbcollection_;
 
 		[XmlElement("tableFieldDB")]
 		public XS_tableFieldDBType[] tablefielddbcollection__xml {
-			get {
-
-//TableFieldDBCollection[
-//    //new KEY_tableFieldDBType(
-//    //    KEY_tableFieldDBType.KeyEnum.DBServerType, 
-//    //    ""
-//    //), 
-//    //new KEY_tableFieldDBType(
-//    //    KEY_tableFieldDBType.KeyEnum.DBType, 
-//    //    ""
-//    //)
-//    XS_tableFieldDBType.Keys_builder("", "")
-//].DBType;
-
-				return tablefielddbcollection_.cols__; }
+			get { return tablefielddbcollection_.cols__; }
 			set { tablefielddbcollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenRootrefCollection<XS_tableFieldDBType, XS__RootMetadata, KEY_tableFieldDBType>
-#else
-			XS_tableFieldDBTypeCollection
-#endif
-		TableFieldDBCollection
-		{
+		public XS_tableFieldDBTypeCollection TableFieldDBCollection {
 			get { return tablefielddbcollection_; }
 		}
 		#endregion

@@ -19,20 +19,10 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS0_faqSubjectsType
-#if !NET_1_1
-		: OGenRootrefCollectionInterface<XS__RootMetadata> 
-#endif
-	{
+	public class XS0_faqSubjectsType {
 		public XS0_faqSubjectsType (
 		) {
-			faqsubjectcollection_ = new 
-#if !NET_1_1
-				OGenRootrefCollection<XS_faqSubjectType, XS__RootMetadata>()
-#else
-				XS_faqSubjectTypeCollection()
-#endif
-			;
+			faqsubjectcollection_ = new XS_faqSubjectTypeCollection();
 		}
 
 		#region public object parent_ref { get; }
@@ -59,14 +49,8 @@ namespace OGen.Doc.lib.metadata.documentation {
 			get { return root_ref_; }
 		}
 		#endregion
-		#region public ... FAQSubjectCollection { get; }
-		private 
-#if !NET_1_1
-			OGenRootrefCollection<XS_faqSubjectType, XS__RootMetadata>
-#else
-			XS_faqSubjectTypeCollection
-#endif
-			faqsubjectcollection_;
+		#region public XS_faqSubjectTypeCollection FAQSubjectCollection { get; }
+		private XS_faqSubjectTypeCollection faqsubjectcollection_;
 
 		[XmlElement("faqSubject")]
 		public XS_faqSubjectType[] faqsubjectcollection__xml {
@@ -75,14 +59,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 
 		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenRootrefCollection<XS_faqSubjectType, XS__RootMetadata>
-#else
-			XS_faqSubjectTypeCollection
-#endif
-		FAQSubjectCollection
-		{
+		public XS_faqSubjectTypeCollection FAQSubjectCollection {
 			get { return faqsubjectcollection_; }
 		}
 		#endregion

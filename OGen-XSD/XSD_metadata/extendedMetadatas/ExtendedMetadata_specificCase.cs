@@ -20,11 +20,7 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.XSD.lib.metadata {
-	public class ExtendedMetadata_specificCase
-#if !NET_1_1
-		: OGenCollectionInterface<string>, OGenRootrefCollectionInterface<RootMetadata>
-#endif
-	{
+	public class ExtendedMetadata_specificCase {
 		#region public string Word { get; set; }
 		private string word_;
 
@@ -74,15 +70,5 @@ namespace OGen.XSD.lib.metadata {
 			get { return root_ref_; }
 		}
 		#endregion
-#if !NET_1_1
-		#region public string CollectionName { get; }
-		[XmlIgnore()]
-		public string CollectionName {
-			get {
-				return Word;
-			}
-		}
-		#endregion
-#endif
 	}
 }

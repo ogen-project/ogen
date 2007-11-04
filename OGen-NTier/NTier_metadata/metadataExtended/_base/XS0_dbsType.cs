@@ -19,20 +19,10 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public class XS0_dbsType
-#if !NET_1_1
-		: OGenRootrefCollectionInterface<XS__RootMetadata> 
-#endif
-	{
+	public class XS0_dbsType {
 		public XS0_dbsType (
 		) {
-			dbcollection_ = new 
-#if !NET_1_1
-				OGenRootrefCollection<XS_dbType, XS__RootMetadata>()
-#else
-				XS_dbTypeCollection()
-#endif
-			;
+			dbcollection_ = new XS_dbTypeCollection();
 		}
 
 		#region public object parent_ref { get; }
@@ -59,14 +49,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			get { return root_ref_; }
 		}
 		#endregion
-		#region public ... DBCollection { get; }
-		private 
-#if !NET_1_1
-			OGenRootrefCollection<XS_dbType, XS__RootMetadata>
-#else
-			XS_dbTypeCollection
-#endif
-			dbcollection_;
+		#region public XS_dbTypeCollection DBCollection { get; }
+		private XS_dbTypeCollection dbcollection_;
 
 		[XmlElement("db")]
 		public XS_dbType[] dbcollection__xml {
@@ -75,14 +59,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 
 		[XmlIgnore()]
-		public
-#if !NET_1_1
-			OGenRootrefCollection<XS_dbType, XS__RootMetadata>
-#else
-			XS_dbTypeCollection
-#endif
-		DBCollection
-		{
+		public XS_dbTypeCollection DBCollection {
 			get { return dbcollection_; }
 		}
 		#endregion
