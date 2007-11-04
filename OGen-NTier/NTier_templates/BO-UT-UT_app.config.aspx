@@ -16,27 +16,26 @@ string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryStr
 #endregion
 
 #region varaux...
-cDBMetadata _aux_metadata;
-if (cDBMetadata.Metacache.Contains(_arg_MetadataFilepath)) {
-	_aux_metadata = (cDBMetadata)cDBMetadata.Metacache[_arg_MetadataFilepath];
-} else {
-	_aux_metadata = new cDBMetadata();
-	_aux_metadata.LoadState_fromFile(_arg_MetadataFilepath);
-	cDBMetadata.Metacache.Add(_arg_MetadataFilepath, _aux_metadata);
-}
+XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
+	_arg_MetadataFilepath, 
+	true
+);
+XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
+XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 
 string[] _aux_configmodes = _aux_metadata.ConfigModes();
+
 #endregion
 //-----------------------------------------------------------------------------------------
 %><configuration>
 	<appSettings>
-		<add key="applications" value="<%=_aux_metadata.ApplicationName%>" />
+		<add key="applications" value="<%=_aux_ex_metadata.ApplicationName%>" />
 
-		<add key="<%=_aux_metadata.ApplicationName%>:ConfigModes" value="<%
+		<add key="<%=_aux_ex_metadata.ApplicationName%>:ConfigModes" value="<%
 		for (int _cm = 0; _cm < _aux_configmodes.Length; _cm++) {
 			%><%=_aux_configmodes[_cm]%><%=(_cm == _aux_configmodes.Length - 1) ? "" : ":"%><%
 		}%>" />
-		<add key="<%=_aux_metadata.ApplicationName%>:DBServerTypes" value="<%
+		<add key="<%=_aux_ex_metadata.ApplicationName%>:DBServerTypes" value="<%
 		for (int _db = 0; _db < _aux_metadata.DBs.Count; _db++) {
 			%><%=_aux_metadata.DBs[_db].DBServerType.ToString()%><%=(_db == _aux_metadata.DBs.Count - 1) ? "" : ":"%><%
 		}%>" />
@@ -45,7 +44,7 @@ string[] _aux_configmodes = _aux_metadata.ConfigModes();
 		//<add key="OGen-NTier_UTs:DBServerType_default" value="< %=_aux_metadata.DBs.FirstDefaultAvailable_DBServerType().ToString()% >" />
 		for (int d = 0; d < _aux_metadata.DBs.Count; d++) {
 			for (int c = 0; c < _aux_metadata.DBs[d].Connections.Count; c++) {%>
-		<add key="<%=_aux_metadata.ApplicationName%>:DBConnection:<%=_aux_metadata.DBs[d].Connections[c].ConfigMode%>:<%=_aux_metadata.DBs[d].DBServerType.ToString()%>" value="<%=_aux_metadata.DBs[d].Connections[c].isDefault%>::<%=_aux_metadata.DBs[d].Connections[c].GenerateSQL%>::<%=_aux_metadata.DBs[d].Connections[c].isIndexed_andReadOnly%>::<%=_aux_metadata.DBs[d].Connections[c].Connectionstring%>"/><%
+		<add key="<%=_aux_ex_metadata.ApplicationName%>:DBConnection:<%=_aux_metadata.DBs[d].Connections[c].ConfigMode%>:<%=_aux_metadata.DBs[d].DBServerType.ToString()%>" value="<%=_aux_metadata.DBs[d].Connections[c].isDefault%>::<%=_aux_metadata.DBs[d].Connections[c].GenerateSQL%>::<%=_aux_metadata.DBs[d].Connections[c].isIndexed_andReadOnly%>::<%=_aux_metadata.DBs[d].Connections[c].Connectionstring%>"/><%
 			}
 		}%>
 

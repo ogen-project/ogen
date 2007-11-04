@@ -16,26 +16,28 @@ string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryStr
 #endregion
 
 #region varaux...
-cDBMetadata _aux_metadata;
-if (cDBMetadata.Metacache.Contains(_arg_MetadataFilepath)) {
-	_aux_metadata = (cDBMetadata)cDBMetadata.Metacache[_arg_MetadataFilepath];
-} else {
-	_aux_metadata = new cDBMetadata();
-	_aux_metadata.LoadState_fromFile(_arg_MetadataFilepath);
-	cDBMetadata.Metacache.Add(_arg_MetadataFilepath, _aux_metadata);
-}
+XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
+	_arg_MetadataFilepath, 
+	true
+);
+XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
+XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 
 //cDBMetadata_Table _aux_table;
-//cDBMetadata_Table_Field _aux_field;
-//int _aux_table_hasidentitykey;
+//
+//OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
+//OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
+//
+//int _aux_db_table.hasIdentityKey;
 //string[] _aux_configmodes = _aux_metadata.ConfigModes();
+
 #endregion
 //-----------------------------------------------------------------------------------------
-if ((_aux_metadata.CopyrightText != string.Empty) && (_aux_metadata.CopyrightTextLong != string.Empty)) {
-%>#region <%=_aux_metadata.CopyrightText%>
+if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.CopyrightTextLong != string.Empty)) {
+%>#region <%=_aux_ex_metadata.CopyrightText%>
 /*
 
-<%=_aux_metadata.CopyrightTextLong%>
+<%=_aux_ex_metadata.CopyrightTextLong%>
 
 */
 #endregion
@@ -50,10 +52,10 @@ using System.Text.RegularExpressions;
 
 using OGen.lib.datalayer;
 
-using <%=_aux_metadata.Namespace%>.lib.datalayer;
-using <%=_aux_metadata.Namespace%>.lib.businesslayer;
+using <%=_aux_ex_metadata.Namespace%>.lib.datalayer;
+using <%=_aux_ex_metadata.Namespace%>.lib.businesslayer;
 
-namespace <%=_aux_metadata.Namespace%>.test {
+namespace <%=_aux_ex_metadata.Namespace%>.test {
 	class MainClass {
 		[STAThread]
 		static void Main(string[] args) {

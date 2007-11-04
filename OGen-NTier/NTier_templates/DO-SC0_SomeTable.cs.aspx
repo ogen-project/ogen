@@ -18,29 +18,34 @@ string _arg_TableName = System.Web.HttpUtility.UrlDecode(Request.QueryString["Ta
 #endregion
 
 #region varaux...
-cDBMetadata _aux_metadata;
-if (cDBMetadata.Metacache.Contains(_arg_MetadataFilepath)) {
-	_aux_metadata = (cDBMetadata)cDBMetadata.Metacache[_arg_MetadataFilepath];
-} else {
-	_aux_metadata = new cDBMetadata();
-	_aux_metadata.LoadState_fromFile(_arg_MetadataFilepath);
-	cDBMetadata.Metacache.Add(_arg_MetadataFilepath, _aux_metadata);
-}
-cDBMetadata_Table _aux_table = _aux_metadata.Tables[_arg_TableName];
-int _aux_table_hasidentitykey = _aux_table.hasIdentityKey();
-bool _aux_table_searches_hasexplicituniqueindex = _aux_table.Searches.hasExplicitUniqueIndex();
+XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
+	_arg_MetadataFilepath, 
+	true
+);
+XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
+XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 
-cDBMetadata_Table_Field _aux_field;
-string _aux_field_name;
-cDBMetadata_Update _aux_update;
-int firstKey = _aux_table.firstKey();
+OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table 
+	= _aux_db_metadata.Tables.TableCollection[
+		_arg_TableName
+	];
+OGen.NTier.lib.metadata.metadataExtended.XS_tableType _aux_ex_table
+	= _aux_db_table.parallel_ref;
+
+OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
+OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
+
+string _aux_xx_field_name;
+
+OGen.NTier.lib.metadata.metadataExtended.XS_tableUpdateType _aux_ex_update;
+
 #endregion
 //-----------------------------------------------------------------------------------------
-if ((_aux_metadata.CopyrightText != string.Empty) && (_aux_metadata.CopyrightTextLong != string.Empty)) {
-%>#region <%=_aux_metadata.CopyrightText%>
+if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.CopyrightTextLong != string.Empty)) {
+%>#region <%=_aux_ex_metadata.CopyrightText%>
 /*
 
-<%=_aux_metadata.CopyrightTextLong%>
+<%=_aux_ex_metadata.CopyrightTextLong%>
 
 */
 #endregion
@@ -48,19 +53,19 @@ if ((_aux_metadata.CopyrightText != string.Empty) && (_aux_metadata.CopyrightTex
 }%>using System;
 using System.Xml.Serialization;
 
-namespace <%=_aux_metadata.Namespace%>.lib.datalayer {
-	[XmlRoot("collectionOf_<%=_aux_table.Name%>")]
-	public class SC0_<%=_aux_table.Name%> {
-		#region public SC0_<%=_aux_table.Name%>(...);
-		public SC0_<%=_aux_table.Name%>() {
+namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
+	[XmlRoot("collectionOf_<%=_aux_db_table.Name%>")]
+	public class SC0_<%=_aux_db_table.Name%> {
+		#region public SC0_<%=_aux_db_table.Name%>(...);
+		public SC0_<%=_aux_db_table.Name%>() {
 		}
 		#endregion
 
-		#region public SO0_<%=_aux_table.Name%>[] SO0_<%=_aux_table.Name%> { get; set; }
-		private SO0_<%=_aux_table.Name%>[] <%=_aux_table.Name.ToLower()%>_;
+		#region public SO0_<%=_aux_db_table.Name%>[] SO0_<%=_aux_db_table.Name%> { get; set; }
+		private SO0_<%=_aux_db_table.Name%>[] <%=_aux_table.Name.ToLower()%>_;
 
-		[XmlElement("oneItemOf_<%=_aux_table.Name%>")]
-		public SO0_<%=_aux_table.Name%>[] SO0_<%=_aux_table.Name%> {
+		[XmlElement("oneItemOf_<%=_aux_db_table.Name%>")]
+		public SO0_<%=_aux_db_table.Name%>[] SO0_<%=_aux_db_table.Name%> {
 			get { return <%=_aux_table.Name.ToLower()%>_; }
 			set { <%=_aux_table.Name.ToLower()%>_ = value; }
 		}

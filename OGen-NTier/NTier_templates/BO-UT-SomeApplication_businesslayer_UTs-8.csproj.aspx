@@ -16,19 +16,21 @@ string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryStr
 #endregion
 
 #region varaux...
-cDBMetadata _aux_metadata;
-if (cDBMetadata.Metacache.Contains(_arg_MetadataFilepath)) {
-	_aux_metadata = (cDBMetadata)cDBMetadata.Metacache[_arg_MetadataFilepath];
-} else {
-	_aux_metadata = new cDBMetadata();
-	_aux_metadata.LoadState_fromFile(_arg_MetadataFilepath);
-	cDBMetadata.Metacache.Add(_arg_MetadataFilepath, _aux_metadata);
-}
+XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
+	_arg_MetadataFilepath, 
+	true
+);
+XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
+XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 
 cDBMetadata_Table _aux_table;
-cDBMetadata_Table_Field _aux_field;
-int _aux_table_hasidentitykey;
+
+OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
+OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
+
+int _aux_db_table.hasIdentityKey;
 //string[] _aux_configmodes = _aux_metadata.ConfigModes();
+
 #endregion
 //-----------------------------------------------------------------------------------------
 %><Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -43,7 +45,7 @@ int _aux_table_hasidentitykey;
     </ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName><%=_aux_metadata.Namespace%>.lib.businesslayer.UTs-2.0</AssemblyName>
+    <AssemblyName><%=_aux_ex_metadata.Namespace%>.lib.businesslayer.UTs-2.0</AssemblyName>
     <AssemblyOriginatorKeyFile>
     </AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
@@ -51,7 +53,7 @@ int _aux_table_hasidentitykey;
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
     <OutputType>Library</OutputType>
-    <RootNamespace><%=_aux_metadata.Namespace%>.lib.businesslayer.UTs-2.0</RootNamespace>
+    <RootNamespace><%=_aux_ex_metadata.Namespace%>.lib.businesslayer.UTs-2.0</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <StartupObject>
     </StartupObject>
@@ -135,13 +137,13 @@ int _aux_table_hasidentitykey;
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <ProjectReference Include="..\<%=_aux_metadata.ApplicationName%>_businesslayer\<%=_aux_metadata.ApplicationName%>_businesslayer-8.csproj">
-      <Name><%=_aux_metadata.ApplicationName%>_businesslayer</Name>
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_businesslayer\<%=_aux_ex_metadata.ApplicationName%>_businesslayer-8.csproj">
+      <Name><%=_aux_ex_metadata.ApplicationName%>_businesslayer</Name>
       <Project>{<%=_aux_metadata.GUIDBusinesslayer%>}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-    <ProjectReference Include="..\<%=_aux_metadata.ApplicationName%>_datalayer\<%=_aux_metadata.ApplicationName%>_datalayer-8.csproj">
-      <Name><%=_aux_metadata.ApplicationName%>_datalayer</Name>
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_datalayer\<%=_aux_ex_metadata.ApplicationName%>_datalayer-8.csproj">
+      <Name><%=_aux_ex_metadata.ApplicationName%>_datalayer</Name>
       <Project>{<%=_aux_metadata.GUIDDatalayer%>}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
@@ -153,10 +155,10 @@ int _aux_table_hasidentitykey;
     </Compile><%
 		for (int t = 0; t < _aux_metadata.Tables.Count; t++) {
 			_aux_table = _aux_metadata.Tables[t];%>
-    <Compile Include="UT_<%=_aux_table.Name%>.cs">
+    <Compile Include="UT_<%=_aux_db_table.Name%>.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\UT0_<%=_aux_table.Name%>.cs">
+    <Compile Include="_base\UT0_<%=_aux_db_table.Name%>.cs">
       <SubType>Code</SubType>
     </Compile><%
 		}%>

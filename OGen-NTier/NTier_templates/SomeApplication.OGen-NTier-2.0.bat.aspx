@@ -17,28 +17,30 @@ string _arg_OGenPath = System.Web.HttpUtility.UrlDecode(Request.QueryString["OGe
 #endregion
 
 #region varaux...
-cDBMetadata _aux_metadata;
-if (cDBMetadata.Metacache.Contains(_arg_MetadataFilepath)) {
-	_aux_metadata = (cDBMetadata)cDBMetadata.Metacache[_arg_MetadataFilepath];
-} else {
-	_aux_metadata = new cDBMetadata();
-	_aux_metadata.LoadState_fromFile(_arg_MetadataFilepath);
-	cDBMetadata.Metacache.Add(_arg_MetadataFilepath, _aux_metadata);
-}
+XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
+	_arg_MetadataFilepath, 
+	true
+);
+XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
+XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 
 cDBMetadata_Table _aux_table;
-cDBMetadata_Table_Field _aux_field;
-int _aux_table_hasidentitykey;
+
+OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
+OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
+
+int _aux_db_table.hasIdentityKey;
 //string[] _aux_configmodes = _aux_metadata.ConfigModes();
+
 #endregion
 //-----------------------------------------------------------------------------------------
 %>@ECHO OFF
 IF "<%=_arg_OGenPath%>" == "" GOTO error1
 IF NOT EXIST "<%=_arg_OGenPath%>\OGen.NTier.presentationlayer.console-2.0.exe" GOTO error2
-IF NOT EXIST "%~d0%~p0OGen-metadatas\MD_<%=_aux_metadata.ApplicationName%>.OGen-metadata.xml" GOTO error3
+IF NOT EXIST "%~d0%~p0OGen-metadatas\MD_<%=_aux_ex_metadata.ApplicationName%>.OGen-metadata.xml" GOTO error3
 
 
-"<%=_arg_OGenPath%>\OGen.NTier.presentationlayer.console-2.0.exe" "%~d0%~p0OGen-metadatas\MD_<%=_aux_metadata.ApplicationName%>.OGen-metadata.xml"
+"<%=_arg_OGenPath%>\OGen.NTier.presentationlayer.console-2.0.exe" "%~d0%~p0OGen-metadatas\MD_<%=_aux_ex_metadata.ApplicationName%>.OGen-metadata.xml"
 PAUSE
 GOTO eof
 
@@ -53,7 +55,7 @@ GOTO eof
 	PAUSE
 GOTO eof
 :error3
-	ECHO Can't find: "%~d0%~p0OGen-metadatas\MD_<%=_aux_metadata.ApplicationName%>.OGen-metadata.xml"
+	ECHO Can't find: "%~d0%~p0OGen-metadatas\MD_<%=_aux_ex_metadata.ApplicationName%>.OGen-metadata.xml"
 	ECHO %~n0%~x0 needs some tweaking
 	PAUSE
 GOTO eof

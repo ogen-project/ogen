@@ -36,27 +36,22 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableType _aux_ex_table
                                                             	
 OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
 OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
+
 string _aux_xx_field_name;
+
 OGen.NTier.lib.metadata.metadataExtended.XS_tableUpdateType _aux_ex_update;
-//int firstKey = _aux_db_table.firstKey;
-
 /*
-cDBMetadata _aux_metadata;
-if (cDBMetadata.Metacache.Contains(_arg_MetadataFilepath)) {
-	_aux_metadata = (cDBMetadata)cDBMetadata.Metacache[_arg_MetadataFilepath];
-} else {
-	_aux_metadata = new cDBMetadata();
-	_aux_metadata.LoadState_fromFile(_arg_MetadataFilepath);
-	cDBMetadata.Metacache.Add(_arg_MetadataFilepath, _aux_metadata);
-}
-cDBMetadata_Table _aux_table = _aux_metadata.Tables[_arg_TableName];
-int _aux_table_hasidentitykey = _aux_table.hasIdentityKey();
-bool _aux_table_searches_hasexplicituniqueindex = _aux_table.Searches.hasExplicitUniqueIndex();
+OGen.NTier.lib.metadata.metadataExtended.XS_tableUpdateType _aux_ex_update 
+	= _aux_ex_table.TableUpdates.TableUpdateCollection[_arg_UpdateName];
 
-cDBMetadata_Table_Field _aux_field;
-string _aux_field_name;
-cDBMetadata_Update _aux_update;
-int firstKey = _aux_table.firstKey();
+
+cDBMetadata_Table_Search _aux_search = _aux_table.Searches[_arg_SearchName];
+cDBMetadata_Update update = _aux_search.Updates[_arg_UpdateName];
+
+XS_tableSearchType _aux_ex_search
+	= _aux_ex_table.TableSearches.TableSearchCollection[_arg_SearchName];
+XS_tableSearchUpdateType _aux_ex_update 
+	= _aux_ex_search.TableSearchUpdates.TableSearchUpdateCollection[_arg_UpdateName];
 */
 #endregion
 //-----------------------------------------------------------------------------------------
@@ -78,14 +73,14 @@ using OGen.NTier.lib.datalayer;
 
 namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 	/// <summary>
-	/// <%=_aux_table.Name%> DataObject which provides access to <%=_aux_table.Name%> <%=(_aux_table.isVirtualTable) ? "view" : "table"%> at Database.<%--
+	/// <%=_aux_db_table.Name%> DataObject which provides access to <%=_aux_db_table.Name%> <%=(_aux_table.isVirtualTable) ? "view" : "table"%> at Database.<%--
 #if NET_1_1
 	/// <note type="implementnotes">
-	/// Access must be made via <see cref="DO_<%=_aux_table.Name%>">DO_<%=_aux_table.Name%></see>.
+	/// Access must be made via <see cref="DO_<%=_aux_db_table.Name%>">DO_<%=_aux_db_table.Name%></see>.
 	/// </note>
 #endif--%>
 	/// </summary>
-	[DOClassAttribute("<%=_aux_table.Name%>", "<%=_aux_table.FriendlyName%>", "<%=_aux_table.DBDescription%>", "<%=_aux_table.ExtendedDescription%>", <%=_aux_table.isVirtualTable.ToString().ToLower()%>, <%=_aux_table.isConfig.ToString().ToLower()%>)]
+	[DOClassAttribute("<%=_aux_db_table.Name%>", "<%=_aux_table.FriendlyName%>", "<%=_aux_table.DBDescription%>", "<%=_aux_table.ExtendedDescription%>", <%=_aux_table.isVirtualTable.ToString().ToLower()%>, <%=_aux_table.isConfig.ToString().ToLower()%>)]
 	public 
 #if !NET_1_1
 		partial 
@@ -94,17 +89,17 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 #endif
 		class 
 #if !NET_1_1
-		DO_<%=_aux_table.Name%> 
+		DO_<%=_aux_db_table.Name%> 
 #else
-		DO0_<%=_aux_table.Name%> 
+		DO0_<%=_aux_db_table.Name%> 
 #endif
 		: DO__base {
-		#region public DO_<%=_aux_table.Name%>();
+		#region public DO_<%=_aux_db_table.Name%>();
 #if !NET_1_1
 		///
-		public DO_<%=_aux_table.Name%>
+		public DO_<%=_aux_db_table.Name%>
 #else
-		internal DO0_<%=_aux_table.Name%>
+		internal DO0_<%=_aux_db_table.Name%>
 #endif
 		() : base(
 #if !NET_1_1
@@ -134,9 +129,9 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 			/// Making the use of Database Transactions possible on a sequence of operations across multiple DataObjects.
 			/// </summary>
 			/// <param name="connection_in">opened Database connection with an initiated Transaction</param>
-			public DO_<%=_aux_table.Name%>
+			public DO_<%=_aux_db_table.Name%>
 #else
-			internal DO0_<%=_aux_table.Name%>
+			internal DO0_<%=_aux_db_table.Name%>
 #endif
 		(
 			DBConnection connection_in
@@ -148,113 +143,33 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 		}
 		#endregion
 
-		#region Properties...<%
-		if (_aux_metadata.PseudoReflectionable) {%>
-		public static pr<%=_aux_metadata.ApplicationName%>_<%=_aux_table.Name%> pReflection;<%
-		}%>
-		#region public FO0_<%=_aux_table.Name%> Fields { get; set; }
-		internal SO0_<%=_aux_table.Name%> fields_;
+		#region Properties...
+		#region public FO0_<%=_aux_db_table.Name%> Fields { get; set; }
+		internal SO0_<%=_aux_db_table.Name%> fields_;
 
-		public SO0_<%=_aux_table.Name%> Fields {
+		public SO0_<%=_aux_db_table.Name%> Fields {
 			get { return fields_; }
 			set { fields_ = value; }
 		}
 		#endregion
-		#region public RO0_<%=_aux_table.Name%> Record { get; }
-		private RO0_<%=_aux_table.Name%> record__;
+		#region public RO0_<%=_aux_db_table.Name%> Record { get; }
+		private RO0_<%=_aux_db_table.Name%> record__;
 
 		/// <summary>
 		/// Exposes RecordObject.
 		/// </summary>
-		public RO0_<%=_aux_table.Name%> Record {
+		public RO0_<%=_aux_db_table.Name%> Record {
 			get {
 				if (record__ == null) {
 					// instantiating for the first time and
 					// only because it became needed, otherwise
 					// never instantiated...
-					record__ = new RO0_<%=_aux_table.Name%>(this);
+					record__ = new RO0_<%=_aux_db_table.Name%>(this);
 				}
 				return record__;
 			}
 		}
-		#endregion<%--
-		#region public bool hasChanges { get; }
-		internal bool haschanges_;
-		/// <summary>
-		/// Indicates if changes have been made to DO0_<%=_aux_table.Name%> properties since last time getObject method was run.
-		/// </summary>
-		public 
-#if NET_1_1
-			virtual 
-#endif
-			bool hasChanges {
-			get { return haschanges_; }
-		}
 		#endregion
-		//---<%
-		for (int f = 0; f < _aux_table.Fields.Count; f++) {
-			_aux_field = _aux_table.Fields[f];
-
-			if (_aux_field.isNullable && !_aux_field.isPK) {%>
-		#region public bool <%=_aux_field.Name%>_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at <%=_aux_table.Name%>'s <%=_aux_field.Name%>.
-		/// </summary>
-		public 
-#if NET_1_1
-			virtual 
-#endif
-			bool <%=_aux_field.Name%>_isNull {
-			get { return (<%=_aux_field.Name.ToLower()%>_ == null); }<%
-			// ToDos: here! fmonteiro
-			if (true || !_aux_table.isVirtualTable) {%>
-			set {
-				//if (value) <%=_aux_field.Name.ToLower()%>_ = null;
-
-				if ((value) && (<%=_aux_field.Name.ToLower()%>_ != null)) {
-					<%=_aux_field.Name.ToLower()%>_ = null;
-					haschanges_ = true;
-				}
-			}<%
-			}%>
-		}
-		#endregion<%
-			}%>
-		#region public <%=_aux_field.DBType_generic.FWType%> <%=_aux_field.Name%> { get; set; }
-		internal <%=(_aux_field.isNullable && !_aux_field.isPK) ? "object" : _aux_field.DBType_generic.FWType%> <%=_aux_field.Name.ToLower()%>_;// = <%=(_aux_field.DefaultValue == "") ? _aux_field.DBType_generic.FWEmptyValue : _aux_field.DefaultValue%>;
-		
-		/// <summary>
-		/// <%=_aux_table.Name%>'s <%=_aux_field.Name%>.
-		/// </summary>
-		[XmlElement("<%=_aux_field.Name%>")]
-		[DOPropertyAttribute("<%=_aux_field.Name%>", <%=_aux_field.isPK.ToString().ToLower()%>, <%=_aux_field.isIdentity.ToString().ToLower()%>, <%=_aux_field.isNullable.ToString().ToLower()%>, <%=(_aux_field.DefaultValue == string.Empty) ? "\"\"" : _aux_field.DefaultValue%>, "<%=_aux_field.FK_TableName%>", "<%=_aux_field.FK_FieldName%>", <%=_aux_field.isConfig_Name.ToString().ToLower()%>, <%=_aux_field.isConfig_Config.ToString().ToLower()%>, <%=_aux_field.isConfig_Datatype.ToString().ToLower()%>, <%=_aux_field.isBool.ToString().ToLower()%>, <%=_aux_field.isDateTime.ToString().ToLower()%>, <%=_aux_field.isInt.ToString().ToLower()%>, <%=_aux_field.isDecimal.ToString().ToLower()%>, <%=_aux_field.isText.ToString().ToLower()%>)]
-		public 
-#if NET_1_1
-			virtual 
-#endif
-			<%=_aux_field.DBType_generic.FWType%> <%=_aux_field.Name%> {
-			get {<%
-			if (_aux_field.isNullable && !_aux_field.isPK) {%>
-				return (<%=_aux_field.DBType_generic.FWType%>)((<%=_aux_field.Name.ToLower()%>_ == null) ? <%=(_aux_field.DefaultValue == "") ? _aux_field.DBType_generic.FWEmptyValue : _aux_field.DefaultValue%> : <%=_aux_field.Name.ToLower()%>_);<%
-			} else {%>
-				return <%=_aux_field.Name.ToLower()%>_;<%
-			}%>
-			}
-			set {
-				if (<%
-					if (_aux_field.DBType_generic.FWType.ToLower() == "string") {%>
-					(value != null)
-					&&<%
-					}%>
-					(!value.Equals(<%=_aux_field.Name.ToLower()%>_))
-				) {
-					<%=_aux_field.Name.ToLower()%>_ = value;
-					haschanges_ = true;
-				}
-			}
-		}
-		#endregion<%
-		}%>--%>
 		#endregion
 
 		#region Methods...
@@ -275,14 +190,14 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 						logfile_in
 					);
 		}
-		#region public SC0_<%=_aux_table.Name%> Serialize();
-		public SO0_<%=_aux_table.Name%> Serialize() {
+		#region public SC0_<%=_aux_db_table.Name%> Serialize();
+		public SO0_<%=_aux_db_table.Name%> Serialize() {
 			return Fields;
 		}
 		#endregion
 		#region public void clrObject();
 		/// <summary>
-		/// Clears all DO0_<%=_aux_table.Name%> properties, assigning them with their appropriate default property value.
+		/// Clears all DO0_<%=_aux_db_table.Name%> properties, assigning them with their appropriate default property value.
 		/// </summary>
 		public 
 #if NET_1_1
@@ -297,42 +212,42 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 			<%=_aux_field.Name%> = <%=(_aux_field.DefaultValue == "") ? _aux_field.DBType_generic.FWEmptyValue : _aux_field.DefaultValue%>;<%
 				}
 			}--%>
-			Fields = new SO0_<%=_aux_table.Name%>();
+			Fields = new SO0_<%=_aux_db_table.Name%>();
 		}
 		#endregion
 		#region public bool getObject(...);
 		/// <summary>
-		/// Selects <%=_aux_table.Name%> values from Database and assigns them to the appropriate DO0_<%=_aux_table.Name%> property.
+		/// Selects <%=_aux_db_table.Name%> values from Database and assigns them to the appropriate DO0_<%=_aux_db_table.Name%> property.
 		/// </summary>
-		/// <returns>True if <%=_aux_table.Name%> exists at Database, False if not</returns>
+		/// <returns>True if <%=_aux_db_table.Name%> exists at Database, False if not</returns>
 		public 
 #if NET_1_1
 			virtual 
 #endif
 		bool getObject() {
 			return getObject(<%
-				for (int k = 0; k < _aux_table.Fields_onlyPK.Count; k++) {
-					_aux_field = _aux_table.Fields_onlyPK[k];%><%=""%>
-				Fields.<%=_aux_field.Name%><%=(k != _aux_table.Fields_onlyPK.Count - 1) ? ", " : ""%><%
+				for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
+					_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%><%=""%>
+				Fields.<%=_aux_db_field.Name%><%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}%>
 			);
 		}
 		/// <summary>
-		/// Selects <%=_aux_table.Name%> values from Database and assigns them to the appropriate DO0_<%=_aux_table.Name%> property.
+		/// Selects <%=_aux_db_table.Name%> values from Database and assigns them to the appropriate DO0_<%=_aux_db_table.Name%> property.
 		/// </summary><%
-		for (int k = 0; k < _aux_table.Fields_onlyPK.Count; k++) {
-			_aux_field = _aux_table.Fields_onlyPK[k];%><%=""%>
-		/// <param name="<%=_aux_field.Name%>_in"><%=_aux_field.Name%></param><%
+		for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
+			_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%><%=""%>
+		/// <param name="<%=_aux_db_field.Name%>_in"><%=_aux_db_field.Name%></param><%
 		}%>
-		/// <returns>True if <%=_aux_table.Name%> exists at Database, False if not</returns>
+		/// <returns>True if <%=_aux_db_table.Name%> exists at Database, False if not</returns>
 		public 
 #if NET_1_1
 			virtual 
 #endif
 			bool getObject(<%
-			for (int k = 0; k < _aux_table.Fields_onlyPK.Count; k++) {
-				_aux_field = _aux_table.Fields_onlyPK[k];%><%=""%>
-			<%=_aux_field.DBType_generic.FWType%> <%=_aux_field.Name%>_in<%=(k != _aux_table.Fields_onlyPK.Count - 1) ? ", " : ""%><%
+			for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
+				_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%><%=""%>
+			<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%>_in<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 			}%>
 		) {<%
 			if (_aux_db_table.hasIdentityKey != -1) {
@@ -345,7 +260,7 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 					base.Connection.newDBDataParameter("<%=_aux_field.Name%>_", DbType.<%=_aux_field.DBType_generic.Value.ToString()%>, ParameterDirection.<%=(_aux_field.isPK) ? "Input" : ""%>Output, <%=(_aux_field.isPK) ? _aux_field.Name + "_in" : "null"%>, <%=_aux_field.Size%><%=(_aux_field.isDecimal) ? ", " + _aux_field.Numeric_Precision + ", " + _aux_field.Numeric_Scale : ""%>)<%=(f != _aux_table.Fields.Count - 1) ? ", " : ""%><%
 					}%>
 				};
-				base.Connection.Execute_SQLFunction("sp0_<%=_aux_table.Name%>_getObject", _dataparameters);
+				base.Connection.Execute_SQLFunction("sp0_<%=_aux_db_table.Name%>_getObject", _dataparameters);
 
 				if (_dataparameters[<%=_aux_db_table.firstKey%>].Value != DBNull.Value) {<%
 					for (int f = 0; f < _aux_table.Fields.Count; f++) {
@@ -377,7 +292,7 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 		if (!_aux_table.isVirtualTable) {%>
 		#region public void delObject(...);
 		/// <summary>
-		/// Deletes <%=_aux_table.Name%> from Database.
+		/// Deletes <%=_aux_db_table.Name%> from Database.
 		/// </summary>
 		public 
 #if NET_1_1
@@ -392,7 +307,7 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 			);
 		}
 		/// <summary>
-		/// Deletes <%=_aux_table.Name%> from Database.
+		/// Deletes <%=_aux_db_table.Name%> from Database.
 		/// </summary><%
 		for (int k = 0; k < _aux_table.Fields_onlyPK.Count; k++) {
 			_aux_field = _aux_table.Fields_onlyPK[k];%><%=""%>
@@ -414,7 +329,7 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 				base.Connection.newDBDataParameter("<%=_aux_field.Name%>_", DbType.<%=_aux_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_field.Name%>_in, <%=_aux_field.Size%><%=(_aux_field.isDecimal) ? ", " + _aux_field.Numeric_Precision + ", " + _aux_field.Numeric_Scale : ""%>)<%=(k != _aux_table.Fields_onlyPK.Count - 1) ? ", " : ""%><%
 				}%>
 			};
-			base.Connection.Execute_SQLFunction("sp0_<%=_aux_table.Name%>_delObject", _dataparameters);
+			base.Connection.Execute_SQLFunction("sp0_<%=_aux_db_table.Name%>_delObject", _dataparameters);
 
 			clrObject();
 		}
@@ -422,9 +337,9 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 		}%>
 		#region public bool isObject(...);
 		/// <summary>
-		/// Checks to see if <%=_aux_table.Name%> exists at Database
+		/// Checks to see if <%=_aux_db_table.Name%> exists at Database
 		/// </summary>
-		/// <returns>True if <%=_aux_table.Name%> exists at Database, False if not</returns>
+		/// <returns>True if <%=_aux_db_table.Name%> exists at Database, False if not</returns>
 		public 
 #if NET_1_1
 			virtual 
@@ -438,13 +353,13 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 			);
 		}
 		/// <summary>
-		/// Checks to see if <%=_aux_table.Name%> exists at Database
+		/// Checks to see if <%=_aux_db_table.Name%> exists at Database
 		/// </summary><%
 		for (int k = 0; k < _aux_table.Fields_onlyPK.Count; k++) {
 			_aux_field = _aux_table.Fields_onlyPK[k];%><%=""%>
 		/// <param name="<%=_aux_field.Name%>_in"><%=_aux_field.Name%></param><%
 		}%>
-		/// <returns>True if <%=_aux_table.Name%> exists at Database, False if not</returns>
+		/// <returns>True if <%=_aux_db_table.Name%> exists at Database, False if not</returns>
 		public 
 #if NET_1_1
 			virtual 
@@ -463,7 +378,7 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 			};
 
 			return (bool)base.Connection.Execute_SQLFunction(
-				"fnc0_<%=_aux_table.Name%>_isObject", 
+				"fnc0_<%=_aux_db_table.Name%>_isObject", 
 				_dataparameters, 
 				DbType.Boolean, 
 				0
@@ -474,7 +389,7 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 		if (_aux_db_table.hasIdentityKey == -1) {%>
 		#region public bool setObject(...);
 		/// <summary>
-		/// Inserts/Updates <%=_aux_table.Name%> values into/on Database. Inserts if <%=_aux_table.Name%> doesn't exist or Updates if <%=_aux_table.Name%> already exists.
+		/// Inserts/Updates <%=_aux_db_table.Name%> values into/on Database. Inserts if <%=_aux_db_table.Name%> doesn't exist or Updates if <%=_aux_db_table.Name%> already exists.
 		/// </summary>
 		/// <param name="forceUpdate_in">assign with True if you wish to force an Update (even if no changes have been made since last time getObject method was run) and False if not</param>
 		/// <returns>True if it didn't exist (INSERT), and False if it did exist (UPDATE)</returns>
@@ -506,7 +421,7 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 					base.Connection.newDBDataParameter("Output_", DbType.Int32, ParameterDirection.Output, null, 0)
 				};
 				base.Connection.Execute_SQLFunction(
-					"sp0_<%=_aux_table.Name%>_setObject", 
+					"sp0_<%=_aux_db_table.Name%>_setObject", 
 					_dataparameters
 				);
 
@@ -554,7 +469,7 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 										/*00*/ NameField,
 										/*01*/ ConfigField,
 										/*02*/ DatatypeField,
-										/*03*/ _aux_table.Name, 
+										/*03*/ _aux_db_table.Name, 
 #if MySQL
 										/*04*/ (_aux_metadata.DBs.FirstDefaultAvailable_DBServerType() == DBServerTypes.MySQL) ? "`" :"\""
 #else
@@ -595,7 +510,7 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 		} else {%>
 		#region public <%=_aux_table.Fields[_aux_db_table.hasIdentityKey].DBType_generic.FWType%> insObject(...);
 		/// <summary>
-		/// Inserts <%=_aux_table.Name%> values into Database.
+		/// Inserts <%=_aux_db_table.Name%> values into Database.
 		/// </summary>
 		/// <param name="selectIdentity_in">assign with True if you wish to retrieve insertion sequence/identity seed and with False if not</param><%
 		if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) { %>
@@ -627,7 +542,7 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 				base.Connection.newDBDataParameter("SelectIdentity_", DbType.Boolean, ParameterDirection.Input, selectIdentity_in, 1)
 			};
 			base.Connection.Execute_SQLFunction(
-				"sp0_<%=_aux_table.Name%>_insObject", 
+				"sp0_<%=_aux_db_table.Name%>_insObject", 
 				_dataparameters
 			);
 
@@ -647,7 +562,7 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 		#endregion
 		#region public void updObject(...);
 		/// <summary>
-		/// Updates <%=_aux_table.Name%> values on Database.
+		/// Updates <%=_aux_db_table.Name%> values on Database.
 		/// </summary>
 		/// <param name="forceUpdate_in">assign with True if you wish to force an Update (even if no changes have been made since last time getObject method was run) and False if not</param><%
 		if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) { %>
@@ -674,7 +589,7 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 					}%>
 				};
 				base.Connection.Execute_SQLFunction(
-					"sp0_<%=_aux_table.Name%>_updObject", 
+					"sp0_<%=_aux_db_table.Name%>_updObject", 
 					_dataparameters
 				);
 				<%if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
@@ -710,14 +625,14 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 		#region public void ???Object_<%=_aux_table.Searches[s].Name%>
 		#region public bool getObject_<%=_aux_table.Searches[s].Name%>(...);
 		/// <summary>
-		/// Selects <%=_aux_table.Name%> values from Database (based on the search condition) and assigns them to the appropriate DO0_<%=_aux_table.Name%> property.
+		/// Selects <%=_aux_db_table.Name%> values from Database (based on the search condition) and assigns them to the appropriate DO0_<%=_aux_db_table.Name%> property.
 		/// </summary><%
 		for (int f = 0; f < _aux_table.Searches[s].SearchParameters.Count; f++) {
 			_aux_field = _aux_table.Searches[s].SearchParameters[f].Field;
 			_aux_xx_field_name = _aux_table.Searches[s].SearchParameters[f].ParamName;%><%=""%>
 		/// <param name="<%=_aux_xx_field_name%>_search_in"><%=_aux_xx_field_name%> search condition</param><%
 		}%>
-		/// <returns>True if <%=_aux_table.Name%> exists at Database, False if not</returns>
+		/// <returns>True if <%=_aux_db_table.Name%> exists at Database, False if not</returns>
 		public bool getObject_<%=_aux_table.Searches[s].Name%>(<%
 			for (int f = 0; f < _aux_table.Searches[s].SearchParameters.Count; f++) {
 				_aux_field = _aux_table.Searches[s].SearchParameters[f].Field;
@@ -737,7 +652,7 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 				}%>
 			};
 			base.Connection.Execute_SQLFunction(
-				"sp0_<%=_aux_table.Name%>_getObject_<%=_aux_table.Searches[s].Name%>", 
+				"sp0_<%=_aux_db_table.Name%>_getObject_<%=_aux_table.Searches[s].Name%>", 
 				_dataparameters
 			);
 
@@ -768,14 +683,14 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 		if (!_aux_table.isVirtualTable) {%>
 		#region public bool delObject_<%=_aux_table.Searches[s].Name%>(...);
 		/// <summary>
-		/// Deletes <%=_aux_table.Name%> from Database (based on the search condition).
+		/// Deletes <%=_aux_db_table.Name%> from Database (based on the search condition).
 		/// </summary><%
 		for (int f = 0; f < _aux_table.Searches[s].SearchParameters.Count; f++) {
 			_aux_field = _aux_table.Searches[s].SearchParameters[f].Field;
 			_aux_xx_field_name = _aux_table.Searches[s].SearchParameters[f].ParamName;%><%=""%>
 		/// <param name="<%=_aux_xx_field_name%>_search_in"> <%=_aux_xx_field_name%> search condition</param><%
 		}%>
-		/// <returns>True if <%=_aux_table.Name%> existed and was Deleted at Database, False if it didn't exist</returns>
+		/// <returns>True if <%=_aux_db_table.Name%> existed and was Deleted at Database, False if it didn't exist</returns>
 		public bool delObject_<%=_aux_table.Searches[s].Name%>(<%
 			for (int f = 0; f < _aux_table.Searches[s].SearchParameters.Count; f++) {
 				_aux_field = _aux_table.Searches[s].SearchParameters[f].Field;
@@ -792,7 +707,7 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 
 				base.Connection.newDBDataParameter("Exists_", DbType.Boolean, ParameterDirection.Output, null, 1)
 			};
-			base.Connection.Execute_SQLFunction("sp0_<%=_aux_table.Name%>_delObject_<%=_aux_table.Searches[s].Name%>", _dataparameters);
+			base.Connection.Execute_SQLFunction("sp0_<%=_aux_db_table.Name%>_delObject_<%=_aux_table.Searches[s].Name%>", _dataparameters);
 
 			return ((bool)_dataparameters[<%=_aux_table.Searches[s].SearchParameters.Count%>].Value);
 		}
@@ -800,14 +715,14 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 		}%>
 		#region public bool isObject_<%=_aux_table.Searches[s].Name%>(...);
 		/// <summary>
-		/// Checks to see if <%=_aux_table.Name%> exists at Database (based on the search condition).
+		/// Checks to see if <%=_aux_db_table.Name%> exists at Database (based on the search condition).
 		/// </summary><%
 		for (int f = 0; f < _aux_table.Searches[s].SearchParameters.Count; f++) {
 			_aux_field = _aux_table.Searches[s].SearchParameters[f].Field;
 			_aux_xx_field_name = _aux_table.Searches[s].SearchParameters[f].ParamName;%><%=""%>
 		/// <param name="<%=_aux_xx_field_name%>_search_in"><%=_aux_xx_field_name%> search condition</param><%
 		}%>
-		/// <returns>True if <%=_aux_table.Name%> exists at Database, False if not</returns>
+		/// <returns>True if <%=_aux_db_table.Name%> exists at Database, False if not</returns>
 		public bool isObject_<%=_aux_table.Searches[s].Name%>(<%
 			for (int f = 0; f < _aux_table.Searches[s].SearchParameters.Count; f++) {
 				_aux_field = _aux_table.Searches[s].SearchParameters[f].Field;
@@ -823,7 +738,7 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 				}%>
 			};
 			return (bool)base.Connection.Execute_SQLFunction(
-				"fnc0_<%=_aux_table.Name%>_isObject_<%=_aux_table.Searches[s].Name%>", 
+				"fnc0_<%=_aux_db_table.Name%>_isObject_<%=_aux_table.Searches[s].Name%>", 
 				_dataparameters, 
 				DbType.Boolean, 
 				0
@@ -849,7 +764,7 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 			_aux_ex_update = _aux_table.Updates[u];%>
 		#region public void updObject_<%=_aux_ex_update.Name%>(...);
 		/// <summary>
-		/// Updates <%=_aux_table.Name%> specific(only) values on Database.
+		/// Updates <%=_aux_db_table.Name%> specific(only) values on Database.
 		/// </summary>
 		/// <param name="forceUpdate_in">assign with True if you wish to force an Update (even if no changes have been made since last time getObject method was run) and False if not</param><%
 		if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) { %>
@@ -874,7 +789,7 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 					}%>
 				};
 				base.Connection.Execute_SQLFunction(
-					"sp0_<%=_aux_table.Name%>_updObject_<%=_aux_ex_update.Name%>", 
+					"sp0_<%=_aux_db_table.Name%>_updObject_<%=_aux_ex_update.Name%>", 
 					_dataparameters
 				);
 				<%if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>

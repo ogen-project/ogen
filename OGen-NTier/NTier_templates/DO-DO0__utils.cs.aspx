@@ -19,26 +19,28 @@ string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryStr
 #endregion
 
 #region varaux...
-cDBMetadata _aux_metadata;
-if (cDBMetadata.Metacache.Contains(_arg_MetadataFilepath)) {
-	_aux_metadata = (cDBMetadata)cDBMetadata.Metacache[_arg_MetadataFilepath];
-} else {
-	_aux_metadata = new cDBMetadata();
-	_aux_metadata.LoadState_fromFile(_arg_MetadataFilepath);
-	cDBMetadata.Metacache.Add(_arg_MetadataFilepath, _aux_metadata);
-}
+XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
+	_arg_MetadataFilepath, 
+	true
+);
+XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
+XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 
 cDBMetadata_Table _aux_table;
-cDBMetadata_Table_Field _aux_field;
-int _aux_table_hasidentitykey;
+
+OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
+OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
+
+int _aux_db_table.hasIdentityKey;
 string[] _aux_configmodes = _aux_metadata.ConfigModes();
+
 #endregion
 //-----------------------------------------------------------------------------------------
-if ((_aux_metadata.CopyrightText != string.Empty) && (_aux_metadata.CopyrightTextLong != string.Empty)) {
-%>#region <%=_aux_metadata.CopyrightText%>
+if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.CopyrightTextLong != string.Empty)) {
+%>#region <%=_aux_ex_metadata.CopyrightText%>
 /*
 
-<%=_aux_metadata.CopyrightTextLong%>
+<%=_aux_ex_metadata.CopyrightTextLong%>
 
 */
 #endregion
@@ -52,9 +54,9 @@ using OGen.lib.datalayer.<%=_aux_metadata.DBs[d].DBServerType.ToString()%>;<%
 }%>
 using OGen.NTier.lib.datalayer;
 
-namespace <%=_aux_metadata.Namespace%>.lib.datalayer {
+namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 	/// <summary>
-	/// utils DataObject which works as a repository of useful Properties and Methods for DataObjects at <%=_aux_metadata.Namespace%>.lib.datalayer namespace.<%--
+	/// utils DataObject which works as a repository of useful Properties and Methods for DataObjects at <%=_aux_ex_metadata.Namespace%>.lib.datalayer namespace.<%--
 #if NET_1_1
 	/// <note type="implementnotes">
 	/// Access must be made via <see cref="DO__utils">DO__utils</see>.
@@ -95,7 +97,7 @@ namespace <%=_aux_metadata.Namespace%>.lib.datalayer {
 		/// <summary>
 		/// Application's Name
 		/// </summary>
-		public const string ApplicationName = "<%=_aux_metadata.ApplicationName%>";
+		public const string ApplicationName = "<%=_aux_ex_metadata.ApplicationName%>";
 
 		#region public static Properties...
 		#region public static string DBServerType { get; }
@@ -236,10 +238,6 @@ namespace <%=_aux_metadata.Namespace%>.lib.datalayer {
 		}
 		#endregion
 		#endregion<%
-		if (_aux_metadata.PseudoReflectionable) {%>
-
-		public static pr<%=_aux_metadata.ApplicationName%> pReflection;<%
-		}%><%
 
 		if (true) { // new scope!
 			string NameField;
@@ -249,7 +247,7 @@ namespace <%=_aux_metadata.Namespace%>.lib.datalayer {
 			for (int t = 0; t < _aux_metadata.Tables.Count; t++) {
 				_aux_table = _aux_metadata.Tables[t];
 				if (_aux_table.isConfig) {%>
-		#region public static Methods - DB.<%=_aux_table.Name%>...<%
+		#region public static Methods - DB.<%=_aux_db_table.Name%>...<%
 					NameField = "";
 					ConfigField = "";
 					DatatypeField = "";
@@ -298,13 +296,13 @@ namespace <%=_aux_metadata.Namespace%>.lib.datalayer {
 		public static void <%=ConfigTable.Rows[r][NameField]%>_reset() { <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_beenRead = false; }
 		private static bool <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_ = true;
 		/// <summary>
-		/// <%=ConfigTable.Rows[r][NameField]%> config which provides access to table <%=_aux_table.Name%> at Database.
+		/// <%=ConfigTable.Rows[r][NameField]%> config which provides access to table <%=_aux_db_table.Name%> at Database.
 		/// </summary>
 		public static bool <%=ConfigTable.Rows[r][NameField]%> {
 			get {
 				if (!<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_beenRead) {
-					#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_ = DO_<%=_aux_table.Name%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-					DO_<%=_aux_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_table.Name%>();
+					#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_ = DO_<%=_aux_db_table.Name%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+					DO_<%=_aux_db_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
 					<%=_aux_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
 					<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_ = bool.Parse(<%=_aux_table.Name.ToLower()%>.Fields.<%=ConfigField%>);
 					<%=_aux_table.Name.ToLower()%>.Dispose(); <%=_aux_table.Name.ToLower()%> = null;
@@ -315,8 +313,8 @@ namespace <%=_aux_metadata.Namespace%>.lib.datalayer {
 				return <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_;
 			}
 			set {
-				#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_table.Name%>.<%=ConfigField%> = value;
-				DO_<%=_aux_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_table.Name%>();
+				#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_db_table.Name%>.<%=ConfigField%> = value;
+				DO_<%=_aux_db_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
 				<%=_aux_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
 				<%=_aux_table.Name.ToLower()%>.Fields.<%=ConfigField%> = value.ToString();
 				<%=_aux_table.Name.ToLower()%>.setObject(false);
@@ -339,13 +337,13 @@ namespace <%=_aux_metadata.Namespace%>.lib.datalayer {
 		/// </summary>
 		public static void <%=ConfigTable.Rows[r][NameField]%>_reset() { <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_beenRead = false; }
 		/// <summary>
-		/// <%=ConfigTable.Rows[r][NameField]%> config which provides access to table <%=_aux_table.Name%> at Database.
+		/// <%=ConfigTable.Rows[r][NameField]%> config which provides access to table <%=_aux_db_table.Name%> at Database.
 		/// </summary>
 		public static int <%=ConfigTable.Rows[r][NameField]%> {
 			get {
 				if (!<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_beenRead) {
-					#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_table.Name%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-					DO_<%=_aux_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_table.Name%>();
+					#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_db_table.Name%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+					DO_<%=_aux_db_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
 					<%=_aux_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
 					<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = int.Parse(<%=_aux_table.Name.ToLower()%>.Fields.<%=ConfigField%>);
 					<%=_aux_table.Name.ToLower()%>.Dispose(); <%=_aux_table.Name.ToLower()%> = null;
@@ -356,8 +354,8 @@ namespace <%=_aux_metadata.Namespace%>.lib.datalayer {
 				return <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>;
 			}
 			set {
-				#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_table.Name%>.<%=ConfigField%> = value;
-				DO_<%=_aux_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_table.Name%>();
+				#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_db_table.Name%>.<%=ConfigField%> = value;
+				DO_<%=_aux_db_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
 				<%=_aux_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
 				<%=_aux_table.Name.ToLower()%>.Fields.<%=ConfigField%> = value.ToString();
 				<%=_aux_table.Name.ToLower()%>.setObject(false);
@@ -379,7 +377,7 @@ namespace <%=_aux_metadata.Namespace%>.lib.datalayer {
 		/// </summary>
 		public static void <%=ConfigTable.Rows[r][NameField]%>_reset() { <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = null; }
 		/// <summary>
-		/// <%=ConfigTable.Rows[r][NameField]%> config which provides access to table <%=_aux_table.Name%> at Database.
+		/// <%=ConfigTable.Rows[r][NameField]%> config which provides access to table <%=_aux_db_table.Name%> at Database.
 		/// </summary>
 		public static string <%=ConfigTable.Rows[r][NameField]%> {
 			get {
@@ -389,8 +387,8 @@ namespace <%=_aux_metadata.Namespace%>.lib.datalayer {
 					||
 					(<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> == null)
 				) {
-					#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_table.Name%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-					DO_<%=_aux_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_table.Name%>();
+					#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_db_table.Name%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+					DO_<%=_aux_db_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
 					<%=_aux_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
 					<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = <%=_aux_table.Name.ToLower()%>.Fields.<%=ConfigField%>;
 					<%=_aux_table.Name.ToLower()%>.Dispose(); <%=_aux_table.Name.ToLower()%> = null;
@@ -399,8 +397,8 @@ namespace <%=_aux_metadata.Namespace%>.lib.datalayer {
 				return <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>;
 			}
 			set {
-				#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_table.Name%>.<%=ConfigField%> = value;
-				DO_<%=_aux_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_table.Name%>();
+				#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_db_table.Name%>.<%=ConfigField%> = value;
+				DO_<%=_aux_db_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
 				<%=_aux_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
 				<%=_aux_table.Name.ToLower()%>.Fields.<%=ConfigField%> = value;
 				<%=_aux_table.Name.ToLower()%>.setObject(false);
@@ -421,7 +419,7 @@ namespace <%=_aux_metadata.Namespace%>.lib.datalayer {
 		/// </summary>
 		public static void <%=ConfigTable.Rows[r][NameField]%>_reset() { <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = null; }
 		/// <summary>
-		/// <%=ConfigTable.Rows[r][NameField]%> config which provides access to table <%=_aux_table.Name%> at Database.
+		/// <%=ConfigTable.Rows[r][NameField]%> config which provides access to table <%=_aux_db_table.Name%> at Database.
 		/// </summary>
 		public static string[] <%=ConfigTable.Rows[r][NameField]%> {
 			get {
@@ -431,8 +429,8 @@ namespace <%=_aux_metadata.Namespace%>.lib.datalayer {
 					||
 					(<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> == null)
 				) {
-					#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_table.Name%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-					DO_<%=_aux_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_table.Name%>();
+					#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_db_table.Name%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+					DO_<%=_aux_db_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
 					<%=_aux_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
 					<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = <%=_aux_table.Name.ToLower()%>.Fields.<%=ConfigField%>.Split((char)10);
 					<%=_aux_table.Name.ToLower()%>.Dispose(); <%=_aux_table.Name.ToLower()%> = null;
@@ -441,8 +439,8 @@ namespace <%=_aux_metadata.Namespace%>.lib.datalayer {
 				return <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>;
 			}
 			set {
-				#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_table.Name%>.<%=ConfigField%> = value;
-				DO_<%=_aux_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_table.Name%>();
+				#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_db_table.Name%>.<%=ConfigField%> = value;
+				DO_<%=_aux_db_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
 				<%=_aux_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
 
 
@@ -473,161 +471,6 @@ namespace <%=_aux_metadata.Namespace%>.lib.datalayer {
 			}
 		}%>
 	}
-	<%
-	if (_aux_metadata.PseudoReflectionable) {
-	for (int t = 0; t < _aux_metadata.Tables.Count; t++) {
-		_aux_table = _aux_metadata.Tables[t];
-		_aux_table_hasidentitykey = _aux_table.hasIdentityKey();
-		for (int f = 0; f < _aux_table.Fields.Count; f++) {
-			_aux_field = _aux_table.Fields[f];%>
-	#region public struct pr<%=_aux_metadata.ApplicationName%>_<%=_aux_table.Name%>_<%=_aux_field.Name%> : ...;
-	public struct pr<%=_aux_metadata.ApplicationName%>_<%=_aux_table.Name%>_<%=_aux_field.Name%> : iprField {
-		public string Name { get { return "<%=_aux_field.Name%>"; } }
-		public int Size { get { return <%=_aux_field.Size%>; } }
-		public bool isNullable { get { return <%=_aux_field.isNullable.ToString().ToLower()%>; } }
-
-		public bool isIdentity { get { return <%=_aux_field.isIdentity.ToString().ToLower()%>; } }
-		public bool isPK { get { return <%=_aux_field.isPK.ToString().ToLower()%>; } }
-
-		public bool isBool { get { return <%=_aux_field.isBool.ToString().ToLower()%>; } }
-		public bool isDateTime { get { return <%=_aux_field.isDateTime.ToString().ToLower()%>; } }
-		public bool isInt { get { return <%=_aux_field.isInt.ToString().ToLower()%>; } }
-		public bool isDecimal { get { return <%=_aux_field.isDecimal.ToString().ToLower()%>; } }
-		public bool isText { get { return <%=_aux_field.isText.ToString().ToLower()%>; } }
-
-		public DbType DBType_generic { get { return DbType.<%=_aux_field.DBType_generic.Value%>; } }<%
-		//public object DBType_inDB { get { return < %=_aux_field.DBType_inDB% >; } }%>
-
-		public iprTable FK_Table { get { return <%=(_aux_field.FK.TableName == "") ? "null" : "DO__utils.pReflection.Tables[\"" + _aux_field.FK.TableName + "\"]"%>; } }
-		public iprField FK_Field { get { return <%=(_aux_field.FK.TableName == "") ? "null" : "DO_" + _aux_field.FK.TableName + ".pReflection.Fields[\"" + _aux_field.FK.FieldName + "\"]"%>; } }
-
-		public Type TypeOf { get { return typeof(<%=_aux_field.DBType_generic.FWType%>); } }
-		public /*<%=_aux_field.DBType_generic.FWType%> */object EmptyValue { get { return <%=_aux_field.DBType_generic.FWEmptyValue%>; } }
-		//public /*<%=_aux_field.DBType_generic.FWType%> */object DefaultValue { get { return <%=_aux_field.DBType_generic.FWEmptyValue%>; } }
-
-		//public <%=_aux_field.DBType_generic.FWType%> getValueIn(DO_<%=_aux_table.Name%> <%=_aux_table.Name%>_) {
-		//	return <%=_aux_table.Name%>_.<%=_aux_field.Name%>;
-		//}
-		//public void setValueIn(DO_<%=_aux_table.Name%> <%=_aux_table.Name%>_, <%=_aux_field.DBType_generic.FWType%> Value_) {
-		//	<%=_aux_table.Name%>_.<%=_aux_field.Name%> = Value_;
-		//}
-		//public void setObject_withEmptyValue(DO_<%=_aux_table.Name%> <%=_aux_table.Name%>_) {
-		//	<%=_aux_table.Name%>_.<%=_aux_field.Name%> = <%=_aux_field.DBType_generic.FWEmptyValue%>;
-		//}
-		////public void setObject_withDefaultValue(DO_<%=_aux_table.Name%> <%=_aux_table.Name%>_) {
-		////	<%=_aux_table.Name%>_.<%=_aux_field.Name%> = <%=_aux_field.DBType_generic.FWEmptyValue%>;
-		////}
-	}
-	#endregion<%
-		}%>
-	#region public struct pr<%=_aux_metadata.ApplicationName%>_<%=_aux_table.Name%>;
-	public struct pr<%=_aux_metadata.ApplicationName%>_<%=_aux_table.Name%> : iprTable {
-		#region public sFields Fields { get; }
-		#region public struct sFields;
-		public struct sFields : iprFields {
-			public int Count { get { return <%=_aux_table.Fields.Count%>; } }<%
-			for (int f = 0; f < _aux_table.Fields.Count; f++) {
-				_aux_field = _aux_table.Fields[f];%>
-			public pr<%=_aux_metadata.ApplicationName%>_<%=_aux_table.Name%>_<%=_aux_field.Name%> <%=_aux_field.Name%>;<%
-			}
-			%>
-
-			#region public iprField this[int Index_] { get; }
-			public iprField this[int Index_] {
-				get {
-					switch (Index_) {<%
-						for (int f = 0; f < _aux_table.Fields.Count; f++) {
-							_aux_field = _aux_table.Fields[f];%>
-						case <%=f%>:
-							return <%=_aux_field.Name%>;<%
-						}%>
-						default:
-							return null;
-					}
-				}
-			}
-			#endregion
-			#region public iprField this[string Name_] { get; }
-			public iprField this[string Name_] {
-				get {
-					switch (Name_) {<%
-						for (int f = 0; f < _aux_table.Fields.Count; f++) {
-							_aux_field = _aux_table.Fields[f];%>
-						case "<%=_aux_field.Name%>":
-							return <%=_aux_field.Name%>;<%
-						}%>
-						default:
-							return null;
-					}
-				}
-			}
-			#endregion
-		}
-		#endregion
-
-		private static sFields fields;
-		public iprFields Fields {
-			get { return fields; }
-		}
-		#endregion
-
-		public string Name { get { return "<%=_aux_table.Name%>"; } }
-		#region public iprField IdentityKey { get; }
-		public iprField IdentityKey {
-			get { return <%=(_aux_table_hasidentitykey == -1) ? "null" : "fields[" + _aux_table.hasIdentityKey() + "]"%>; }
-		}
-		#endregion
-	}
-	#endregion<%
-	}%>
-	#region public struct pr<%=_aux_metadata.ApplicationName%>;
-	public struct pr<%=_aux_metadata.ApplicationName%> {
-		#region public sTables Tables { get; }
-		#region public struct sTables;
-		public struct sTables {
-			<%for (int t = 0; t < _aux_metadata.Tables.Count; t++) {
-				_aux_table = _aux_metadata.Tables[t];%>
-			public pr<%=_aux_metadata.ApplicationName%>_<%=_aux_table.Name%> <%=_aux_table.Name%>;<%
-			}%>
-
-			public int Count { get { return <%=_aux_metadata.Tables.Count%>; } }
-			#region public iprTable this[int Index_] { get; }
-			public iprTable this[int Index_] {
-				get {
-					switch (Index_) {<%
-						for (int t = 0; t < _aux_metadata.Tables.Count; t++) {
-							_aux_table = _aux_metadata.Tables[t];%>
-						case <%=t%>:
-							return <%=_aux_table.Name%>;<%
-						}%>
-						default:
-							return null;
-					}
-				}
-			}
-			#endregion
-			#region public iprTable this[string Name_] { get; }
-			public iprTable this[string Name_] {
-				get {
-					switch (Name_) {<%
-						for (int t = 0; t < _aux_metadata.Tables.Count; t++) {
-							_aux_table = _aux_metadata.Tables[t];%>
-						case "<%=_aux_table.Name%>":
-							return <%=_aux_table.Name%>;<%
-						}%>
-						default:
-							return null;
-					}
-				}
-			}
-			#endregion
-		}
-		#endregion
-		public sTables Tables;
-		#endregion
-	}
-	#endregion<%
-	}%>
 }<%
 //-----------------------------------------------------------------------------------------
 %>

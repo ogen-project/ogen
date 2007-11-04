@@ -20,28 +20,32 @@ string _arg_TableName = System.Web.HttpUtility.UrlDecode(Request.QueryString["Ta
 #region varaux...
 DBServerTypes _aux_dbservertype = DBServerTypes.PostgreSQL;
 
-cDBMetadata _aux_metadata;
-if (cDBMetadata.Metacache.Contains(_arg_MetadataFilepath)) {
-	_aux_metadata = (cDBMetadata)cDBMetadata.Metacache[_arg_MetadataFilepath];
-} else {
-	_aux_metadata = new cDBMetadata();
-	_aux_metadata.LoadState_fromFile(_arg_MetadataFilepath);
-	cDBMetadata.Metacache.Add(_arg_MetadataFilepath, _aux_metadata);
-}
-cDBMetadata_Table _aux_table = _aux_metadata.Tables[_arg_TableName];
-int _aux_table_hasidentitykey = _aux_table.hasIdentityKey();
-bool _aux_table_searches_hasexplicituniqueindex = _aux_table.Searches.hasExplicitUniqueIndex();
+XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
+	_arg_MetadataFilepath, 
+	true
+);
+XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
+XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 
-cDBMetadata_Table_Field _aux_field;
+OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table 
+	= _aux_db_metadata.Tables.TableCollection[
+		_arg_TableName
+	];
+OGen.NTier.lib.metadata.metadataExtended.XS_tableType _aux_ex_table
+	= _aux_db_table.parallel_ref;
+
+OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
+OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
+
 #endregion
 //-----------------------------------------------------------------------------------------
-%>CREATE OR REPLACE FUNCTION "sp0_<%=_aux_table.Name%>_insObject"(<%
+%>CREATE OR REPLACE FUNCTION "sp0_<%=_aux_db_table.Name%>_insObject"(<%
 	for (int f = 0; f < _aux_table.Fields_noPK.Count; f++) {
 		_aux_field = _aux_table.Fields_noPK[f];
 		%>"<%=_aux_field.Name%>_" <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%>, <%
 	}
 %> "SelectIdentity_" boolean)
-RETURNS <%=_aux_table.Fields[_aux_table_hasidentitykey].DBs[_aux_dbservertype].DBType_inDB_name%>
+RETURNS <%=_aux_table.Fields[_aux_db_table.hasIdentityKey].DBs[_aux_dbservertype].DBType_inDB_name%>
 AS $BODY$
 	/**********************************
 	 *  returns                       *
@@ -51,20 +55,20 @@ AS $BODY$
 	 **********************************/
 
 	DECLARE
-		IdentityKey <%=_aux_table.Fields[_aux_table_hasidentitykey].DBs[_aux_dbservertype].DBType_inDB_name%> = CAST(0 AS <%=_aux_table.Fields[_aux_table_hasidentitykey].DBs[_aux_dbservertype].DBType_inDB_name%>);
+		IdentityKey <%=_aux_table.Fields[_aux_db_table.hasIdentityKey].DBs[_aux_dbservertype].DBType_inDB_name%> = CAST(0 AS <%=_aux_table.Fields[_aux_db_table.hasIdentityKey].DBs[_aux_dbservertype].DBType_inDB_name%>);
 	BEGIN<%
-		if (_aux_table_searches_hasexplicituniqueindex) {%>
-		IF ("fnc0_<%=_aux_table.Name%>__ConstraintExist"(
-			CAST(0 AS <%=_aux_table.Fields[_aux_table_hasidentitykey].DBs[_aux_dbservertype].DBType_inDB_name%>), <%
+		if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
+		IF ("fnc0_<%=_aux_db_table.Name%>__ConstraintExist"(
+			CAST(0 AS <%=_aux_table.Fields[_aux_db_table.hasIdentityKey].DBs[_aux_dbservertype].DBType_inDB_name%>), <%
 			for (int f = 0; f < _aux_table.Fields_noPK.Count; f++) {
 				_aux_field = _aux_table.Fields_noPK[f];%>
 			"<%=_aux_field.Name%>_"<%=(f != _aux_table.Fields_noPK.Count - 1) ? ", " : ""%><%
 			}%>
 		)) THEN
-			IdentityKey := CAST(-1 AS <%=_aux_table.Fields[_aux_table_hasidentitykey].DBs[_aux_dbservertype].DBType_inDB_name%>);
+			IdentityKey := CAST(-1 AS <%=_aux_table.Fields[_aux_db_table.hasIdentityKey].DBs[_aux_dbservertype].DBType_inDB_name%>);
 		ELSE<%
 		}%>
-			INSERT INTO "<%=_aux_table.Name%>" (<%
+			INSERT INTO "<%=_aux_db_table.Name%>" (<%
 				for (int f = 0; f < _aux_table.Fields_noPK.Count; f++) {
 					_aux_field = _aux_table.Fields_noPK[f];%>
 				"<%=_aux_field.Name%>"<%=(f != _aux_table.Fields_noPK.Count - 1) ? ", " : ""%><%
@@ -77,19 +81,19 @@ AS $BODY$
 			);
 			IF ("SelectIdentity_") THEN
 				SELECT
-					"<%=_aux_table.Fields[_aux_table_hasidentitykey].Name%>"
+					"<%=_aux_table.Fields[_aux_db_table.hasIdentityKey].Name%>"
 				INTO
 					IdentityKey
-				FROM "<%=_aux_table.Name%>"
-				ORDER BY "<%=_aux_table.Fields[_aux_table_hasidentitykey].Name%>" DESC LIMIT 1;
+				FROM "<%=_aux_db_table.Name%>"
+				ORDER BY "<%=_aux_table.Fields[_aux_db_table.hasIdentityKey].Name%>" DESC LIMIT 1;
 			ELSE
-				IdentityKey := CAST(0 AS <%=_aux_table.Fields[_aux_table_hasidentitykey].DBs[_aux_dbservertype].DBType_inDB_name%>);
+				IdentityKey := CAST(0 AS <%=_aux_table.Fields[_aux_db_table.hasIdentityKey].DBs[_aux_dbservertype].DBType_inDB_name%>);
 			END IF;<%
-		if (_aux_table_searches_hasexplicituniqueindex) {%>
+		if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 		END IF;<%
 		}%>
 
-		RETURN IdentityKey AS "<%=_aux_table.Fields[_aux_table_hasidentitykey].Name%>_";
+		RETURN IdentityKey AS "<%=_aux_table.Fields[_aux_db_table.hasIdentityKey].Name%>_";
 	END;
 $BODY$ LANGUAGE 'plpgsql' VOLATILE;
 

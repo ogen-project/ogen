@@ -22,19 +22,21 @@ string _arg_OGenPath = System.Web.HttpUtility.UrlDecode(Request.QueryString["OGe
 #endregion
 
 #region varaux...
-cDBMetadata _aux_metadata;
-if (cDBMetadata.Metacache.Contains(_arg_MetadataFilepath)) {
-	_aux_metadata = (cDBMetadata)cDBMetadata.Metacache[_arg_MetadataFilepath];
-} else {
-	_aux_metadata = new cDBMetadata();
-	_aux_metadata.LoadState_fromFile(_arg_MetadataFilepath);
-	cDBMetadata.Metacache.Add(_arg_MetadataFilepath, _aux_metadata);
-}
+XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
+	_arg_MetadataFilepath, 
+	true
+);
+XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
+XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 
 //cDBMetadata_Table _aux_table;
-//cDBMetadata_Table_Field _aux_field;
-//int _aux_table_hasidentitykey;
+//
+//OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
+//OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
+//
+//int _aux_db_table.hasIdentityKey;
 //string[] _aux_configmodes = _aux_metadata.ConfigModes();
+
 #endregion
 //-----------------------------------------------------------------------------------------
 %><project SchemaVersion="1.3">
@@ -43,8 +45,8 @@ if (cDBMetadata.Metacache.Contains(_arg_MetadataFilepath)) {
         <assembly location="<%=System.IO.Path.Combine(_arg_OGenPath, "OGen.lib.datalayer-1.1.dll")%>" documentation="<%=System.IO.Path.Combine(_arg_OGenPath, "OGen.lib.datalayer-1.1.xml")%>" />
         <assembly location="<%=System.IO.Path.Combine(_arg_OGenPath, "OGen.NTier.lib.datalayer-1.1.dll")%>" documentation="<%=System.IO.Path.Combine(_arg_OGenPath, "OGen.NTier.lib.datalayer-1.1.xml")%>" />
         <assembly location="<%=System.IO.Path.Combine(_arg_OGenPath, "OGen.NTier.lib.businesslayer-1.1.dll")%>" documentation="<%=System.IO.Path.Combine(_arg_OGenPath, "OGen.NTier.lib.businesslayer-1.1.xml")%>" />
-        <assembly location=".\<%=_aux_metadata.ApplicationName%>_datalayer\bin\Debug\<%=_aux_metadata.Namespace%>.lib.datalayer-1.1.dll" documentation=".\<%=_aux_metadata.ApplicationName%>_datalayer\bin\Debug\<%=_aux_metadata.Namespace%>.lib.datalayer-1.1.xml" />
-        <assembly location=".\<%=_aux_metadata.ApplicationName%>_businesslayer\bin\Debug\<%=_aux_metadata.Namespace%>.lib.businesslayer-1.1.dll" documentation=".\<%=_aux_metadata.ApplicationName%>_businesslayer\bin\Debug\<%=_aux_metadata.Namespace%>.lib.businesslayer-1.1.xml" />
+        <assembly location=".\<%=_aux_ex_metadata.ApplicationName%>_datalayer\bin\Debug\<%=_aux_ex_metadata.Namespace%>.lib.datalayer-1.1.dll" documentation=".\<%=_aux_ex_metadata.ApplicationName%>_datalayer\bin\Debug\<%=_aux_ex_metadata.Namespace%>.lib.datalayer-1.1.xml" />
+        <assembly location=".\<%=_aux_ex_metadata.ApplicationName%>_businesslayer\bin\Debug\<%=_aux_ex_metadata.Namespace%>.lib.businesslayer-1.1.dll" documentation=".\<%=_aux_ex_metadata.ApplicationName%>_businesslayer\bin\Debug\<%=_aux_ex_metadata.Namespace%>.lib.businesslayer-1.1.xml" />
     </assemblies>
     <documenters>
         <documenter name="JavaDoc">
@@ -62,11 +64,11 @@ if (cDBMetadata.Metacache.Contains(_arg_MetadataFilepath)) {
             <property name="Title" value="An NDoc Documented Class Library" />
         </documenter>
         <documenter name="MSDN">
-            <property name="OutputDirectory" value=".\<%=_aux_metadata.ApplicationName%>-NDoc\" />
-            <property name="HtmlHelpName" value="<%=_aux_metadata.ApplicationName%>" />
-            <property name="Title" value="<%=_aux_metadata.ApplicationName%> Programmer's Reference" />
+            <property name="OutputDirectory" value=".\<%=_aux_ex_metadata.ApplicationName%>-NDoc\" />
+            <property name="HtmlHelpName" value="<%=_aux_ex_metadata.ApplicationName%>" />
+            <property name="Title" value="<%=_aux_ex_metadata.ApplicationName%> Programmer's Reference" />
             <property name="OutputTarget" value="Web" />
-            <property name="CopyrightText" value="<%=_aux_metadata.CopyrightText%>" />
+            <property name="CopyrightText" value="<%=_aux_ex_metadata.CopyrightText%>" />
             <property name="FeedbackEmailAddress" value="<%=_aux_metadata.FeedbackEmailAddress%>" />
         </documenter>
         <documenter name="MSDN 2003">

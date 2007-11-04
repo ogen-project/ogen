@@ -21,26 +21,35 @@ string _arg_SearchName = System.Web.HttpUtility.UrlDecode(Request.QueryString["S
 #region varaux...
 DBServerTypes _aux_dbservertype = DBServerTypes.SQLServer;
 
-cDBMetadata _aux_metadata;
-if (cDBMetadata.Metacache.Contains(_arg_MetadataFilepath)) {
-	_aux_metadata = (cDBMetadata)cDBMetadata.Metacache[_arg_MetadataFilepath];
-} else {
-	_aux_metadata = new cDBMetadata();
-	_aux_metadata.LoadState_fromFile(_arg_MetadataFilepath);
-	cDBMetadata.Metacache.Add(_arg_MetadataFilepath, _aux_metadata);
-}
-cDBMetadata_Table _aux_table = _aux_metadata.Tables[_arg_TableName];
-cDBMetadata_Table_Search _aux_search = _aux_table.Searches[_arg_SearchName];
+XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
+	_arg_MetadataFilepath, 
+	true
+);
+XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
+XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 
-string _aux_field_name;
-cDBMetadata_Table_Field _aux_field;
+OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table 
+	= _aux_db_metadata.Tables.TableCollection[
+		_arg_TableName
+	];
+OGen.NTier.lib.metadata.metadataExtended.XS_tableType _aux_ex_table
+	= _aux_db_table.parallel_ref;
+
+XS_tableSearchType _aux_ex_search
+	= _aux_ex_table.TableSearches.TableSearchCollection[_arg_SearchName];
+
+string _aux_xx_field_name;
+
+OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
+OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
+
 #endregion
 //-----------------------------------------------------------------------------------------
-%>CREATE FUNCTION [dbo].[fnc0_<%=_aux_table.Name%>_Record_count_<%=_aux_search.Name%>](<%
+%>CREATE FUNCTION [dbo].[fnc0_<%=_aux_db_table.Name%>_Record_count_<%=_aux_search.Name%>](<%
 	for (int f = 0; f < _aux_search.SearchParameters.Count; f++) {
 		_aux_field = _aux_search.SearchParameters[f].Field;
-		_aux_field_name = _aux_search.SearchParameters[f].ParamName;%>
-	@<%=_aux_field_name%>_search_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_field.Size + ")" : ""%><%=(_aux_field.isDecimal && (_aux_field.Numeric_Scale > 0)) ? " (" + _aux_field.Numeric_Precision + ", " + _aux_field.Numeric_Scale + ")" : ""%><%=(f != _aux_search.SearchParameters.Count - 1) ? ", " : ""%><%
+		_aux_xx_field_name = _aux_search.SearchParameters[f].ParamName;%>
+	@<%=_aux_xx_field_name%>_search_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_field.Size + ")" : ""%><%=(_aux_field.isDecimal && (_aux_field.Numeric_Scale > 0)) ? " (" + _aux_field.Numeric_Precision + ", " + _aux_field.Numeric_Scale + ")" : ""%><%=(f != _aux_search.SearchParameters.Count - 1) ? ", " : ""%><%
 	}%>
 )
 RETURNS BigInt
@@ -49,11 +58,11 @@ BEGIN
 	SET @Record_count_out = 0
 
 	SELECT @Record_count_out = COUNT([<%=_aux_table.Fields_onlyPK[0].Name%>])
-	FROM [dbo].[fnc_<%=_aux_table.Name%>_Record_open_<%=_aux_search.Name%>](<%
+	FROM [dbo].[fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_search.Name%>](<%
 		for (int f = 0; f < _aux_search.SearchParameters.Count; f++) {
 			_aux_field = _aux_search.SearchParameters[f].Field;
-			_aux_field_name = _aux_search.SearchParameters[f].ParamName;%>
-		@<%=_aux_field_name%>_search_<%=(f != _aux_search.SearchParameters.Count - 1) ? ", " : ""%><%
+			_aux_xx_field_name = _aux_search.SearchParameters[f].ParamName;%>
+		@<%=_aux_xx_field_name%>_search_<%=(f != _aux_search.SearchParameters.Count - 1) ? ", " : ""%><%
 		}%>
 	)
 

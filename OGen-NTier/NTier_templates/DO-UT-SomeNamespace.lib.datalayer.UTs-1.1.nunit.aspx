@@ -22,9 +22,13 @@ string _arg_Namespace = System.Web.HttpUtility.UrlDecode(Request.QueryString["Na
 //_aux_metadata.LoadState_fromFile(_arg_MetadataFilepath);
 
 //cDBMetadata_Table _aux_table;
-//cDBMetadata_Table_Field _aux_field;
-//int _aux_table_hasidentitykey;
+//
+//OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
+//OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
+//
+//int _aux_db_table.hasIdentityKey;
 ////string[] _aux_configmodes = _aux_metadata.ConfigModes();
+
 #endregion
 //-----------------------------------------------------------------------------------------
 %><NUnitProject>

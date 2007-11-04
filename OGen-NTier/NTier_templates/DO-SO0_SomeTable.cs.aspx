@@ -18,29 +18,34 @@ string _arg_TableName = System.Web.HttpUtility.UrlDecode(Request.QueryString["Ta
 #endregion
 
 #region varaux...
-cDBMetadata _aux_metadata;
-if (cDBMetadata.Metacache.Contains(_arg_MetadataFilepath)) {
-	_aux_metadata = (cDBMetadata)cDBMetadata.Metacache[_arg_MetadataFilepath];
-} else {
-	_aux_metadata = new cDBMetadata();
-	_aux_metadata.LoadState_fromFile(_arg_MetadataFilepath);
-	cDBMetadata.Metacache.Add(_arg_MetadataFilepath, _aux_metadata);
-}
-cDBMetadata_Table _aux_table = _aux_metadata.Tables[_arg_TableName];
-int _aux_table_hasidentitykey = _aux_table.hasIdentityKey();
-bool _aux_table_searches_hasexplicituniqueindex = _aux_table.Searches.hasExplicitUniqueIndex();
+XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
+	_arg_MetadataFilepath, 
+	true
+);
+XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
+XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 
-cDBMetadata_Table_Field _aux_field;
-string _aux_field_name;
-cDBMetadata_Update _aux_update;
-int firstKey = _aux_table.firstKey();
+OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table 
+	= _aux_db_metadata.Tables.TableCollection[
+		_arg_TableName
+	];
+OGen.NTier.lib.metadata.metadataExtended.XS_tableType _aux_ex_table
+	= _aux_db_table.parallel_ref;
+
+OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
+OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
+
+string _aux_xx_field_name;
+
+OGen.NTier.lib.metadata.metadataExtended.XS_tableUpdateType _aux_ex_update;
+
 #endregion
 //-----------------------------------------------------------------------------------------
-if ((_aux_metadata.CopyrightText != string.Empty) && (_aux_metadata.CopyrightTextLong != string.Empty)) {
-%>#region <%=_aux_metadata.CopyrightText%>
+if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.CopyrightTextLong != string.Empty)) {
+%>#region <%=_aux_ex_metadata.CopyrightText%>
 /*
 
-<%=_aux_metadata.CopyrightTextLong%>
+<%=_aux_ex_metadata.CopyrightTextLong%>
 
 */
 #endregion
@@ -50,13 +55,13 @@ using System.Xml.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
-namespace <%=_aux_metadata.Namespace%>.lib.datalayer {
+namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 	/// <summary>
-	/// <%=_aux_table.Name%> SerializableObject which provides fields access at <%=_aux_table.Name%> <%=(_aux_table.isVirtualTable) ? "view" : "table"%> at Database.
+	/// <%=_aux_db_table.Name%> SerializableObject which provides fields access at <%=_aux_db_table.Name%> <%=(_aux_table.isVirtualTable) ? "view" : "table"%> at Database.
 	/// </summary>
-	public class SO0_<%=_aux_table.Name%> {
-		#region public SO0_<%=_aux_table.Name%>();
-		public SO0_<%=_aux_table.Name%>(
+	public class SO0_<%=_aux_db_table.Name%> {
+		#region public SO0_<%=_aux_db_table.Name%>();
+		public SO0_<%=_aux_db_table.Name%>(
 		) : this (<%
 		for (int f = 0; f < _aux_table.Fields.Count; f++) {
 			_aux_field = _aux_table.Fields[f];%><%=""%>
@@ -64,7 +69,7 @@ namespace <%=_aux_metadata.Namespace%>.lib.datalayer {
 		}%>
 		) {
 		}
-		public SO0_<%=_aux_table.Name%>(<%
+		public SO0_<%=_aux_db_table.Name%>(<%
 		for (int f = 0; f < _aux_table.Fields.Count; f++) {
 			_aux_field = _aux_table.Fields[f];%><%=""%>
 			<%=_aux_field.DBType_generic.FWType%> <%=_aux_field.Name%>_in<%=(f != _aux_table.Fields.Count - 1) ? ", " : ""%><%
@@ -84,7 +89,7 @@ namespace <%=_aux_metadata.Namespace%>.lib.datalayer {
 		internal bool haschanges_;
 
 		/// <summary>
-		/// Indicates if changes have been made to FO0_<%=_aux_table.Name%> properties since last time getObject method was run.
+		/// Indicates if changes have been made to FO0_<%=_aux_db_table.Name%> properties since last time getObject method was run.
 		/// </summary>
 		public 
 #if NET_1_1
@@ -101,7 +106,7 @@ namespace <%=_aux_metadata.Namespace%>.lib.datalayer {
 			if (_aux_field.isNullable && !_aux_field.isPK) {%>
 		#region public bool <%=_aux_field.Name%>_isNull { get; set; }
 		/// <summary>
-		/// Allows assignement of null and check if null at <%=_aux_table.Name%>'s <%=_aux_field.Name%>.
+		/// Allows assignement of null and check if null at <%=_aux_db_table.Name%>'s <%=_aux_field.Name%>.
 		/// </summary>
 		[XmlIgnore]
 		public 
@@ -128,7 +133,7 @@ namespace <%=_aux_metadata.Namespace%>.lib.datalayer {
 		internal <%=(_aux_field.isNullable && !_aux_field.isPK) ? "object" : _aux_field.DBType_generic.FWType%> <%=_aux_field.Name.ToLower()%>_;// = <%=(_aux_field.DefaultValue == "") ? _aux_field.DBType_generic.FWEmptyValue : _aux_field.DefaultValue%>;
 		
 		/// <summary>
-		/// <%=_aux_table.Name%>'s <%=_aux_field.Name%>.
+		/// <%=_aux_db_table.Name%>'s <%=_aux_field.Name%>.
 		/// </summary>
 		[XmlElement("<%=_aux_field.Name%>")]
 		[DOPropertyAttribute(
