@@ -126,10 +126,14 @@ namespace OGen.Doc.lib.metadata.documentation {
 			}
 		}
 		#endregion
-		#region public XS_authorType this[string idAuthor_in] { get; }
-		public XS_authorType this[string idAuthor_in] {
+		#region public XS_authorType this[...] { get; }
+		public XS_authorType this[
+			string idAuthor_in
+		] {
 			get {
-				int _index = Search(idAuthor_in);
+				int _index = Search(
+					idAuthor_in
+				);
 				return (_index == -1)
 					? null
 					: 
@@ -143,34 +147,33 @@ namespace OGen.Doc.lib.metadata.documentation {
 		#endregion
 
 		#region public void Remove(...);
-		public void Remove(string idAuthor_in) {
+		public void Remove(
+			string idAuthor_in
+		) {
 			RemoveAt(
-				Search(idAuthor_in)
+				Search(
+					idAuthor_in
+				)
 			);
 		}
 		#endregion
 		#region public int Search(...);
-		public int Search(string idAuthor_in) {
+		public int Search(
+			string idAuthor_in
+		) {
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
-/*
-#if NET_1_1
-((XS_authorType)cols_[i])
-#else
-cols_[i]
-#endif
-	.IDAuthor.ToLower()
-==
-idAuthor_in.ToLower() 
-*/
-#if NET_1_1
-((XS_authorType)cols_[i])
-#else
-cols_[i]
-#endif
-	.IDAuthor.Equals(
-		idAuthor_in
-	)
+					(
+						#if NET_1_1
+						((XS_authorType)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.IDAuthor
+						==
+						idAuthor_in 
+					)
+					
 				) {
 					return i;
 				}
@@ -179,27 +182,19 @@ cols_[i]
 			return -1;
 		}
 		public int Search(XS_authorType collectionItem_in) {
-throw new Exception("not implemented!");
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
-/*
-#if NET_1_1
-((XS_authorType)cols_[i])
-#else
-cols_[i]
-#endif
-	.IDAuthor.ToLower()
-==
-collectionItem_in.IDAuthor.ToLower()
-*/
-#if NET_1_1
-((XS_authorType)cols_[i])
-#else
-cols_[i]
-#endif
-	.IDAuthor.Equals(
-		collectionItem_in.IDAuthor
-	)
+					(
+						#if NET_1_1
+						((XS_authorType)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.IDAuthor
+						==
+						collectionItem_in.IDAuthor
+					)
+					
 				) {
 					return i;
 				}
@@ -256,12 +251,12 @@ cols_[i]
 			int j = col_in.Length - 1;
 			if (j >= 0) {
 				lock (cols_) {
-#if NET_1_1
+					#if NET_1_1
 					returnIndex_out = cols_.Add(col_in[j]);
-#else
+					#else
 					cols_.Add(col_in[j]);
 					returnIndex_out = cols_.Count - 1;
-#endif
+					#endif
 				}
 			}
 		}

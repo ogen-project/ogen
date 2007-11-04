@@ -126,10 +126,14 @@ namespace OGen.Doc.lib.metadata.documentation {
 			}
 		}
 		#endregion
-		#region public XS_codeSampleType this[string idCodeSample_in] { get; }
-		public XS_codeSampleType this[string idCodeSample_in] {
+		#region public XS_codeSampleType this[...] { get; }
+		public XS_codeSampleType this[
+			string idCodeSample_in
+		] {
 			get {
-				int _index = Search(idCodeSample_in);
+				int _index = Search(
+					idCodeSample_in
+				);
 				return (_index == -1)
 					? null
 					: 
@@ -143,34 +147,33 @@ namespace OGen.Doc.lib.metadata.documentation {
 		#endregion
 
 		#region public void Remove(...);
-		public void Remove(string idCodeSample_in) {
+		public void Remove(
+			string idCodeSample_in
+		) {
 			RemoveAt(
-				Search(idCodeSample_in)
+				Search(
+					idCodeSample_in
+				)
 			);
 		}
 		#endregion
 		#region public int Search(...);
-		public int Search(string idCodeSample_in) {
+		public int Search(
+			string idCodeSample_in
+		) {
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
-/*
-#if NET_1_1
-((XS_codeSampleType)cols_[i])
-#else
-cols_[i]
-#endif
-	.IDCodeSample.ToLower()
-==
-idCodeSample_in.ToLower() 
-*/
-#if NET_1_1
-((XS_codeSampleType)cols_[i])
-#else
-cols_[i]
-#endif
-	.IDCodeSample.Equals(
-		idCodeSample_in
-	)
+					(
+						#if NET_1_1
+						((XS_codeSampleType)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.IDCodeSample
+						==
+						idCodeSample_in 
+					)
+					
 				) {
 					return i;
 				}
@@ -179,27 +182,19 @@ cols_[i]
 			return -1;
 		}
 		public int Search(XS_codeSampleType collectionItem_in) {
-throw new Exception("not implemented!");
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
-/*
-#if NET_1_1
-((XS_codeSampleType)cols_[i])
-#else
-cols_[i]
-#endif
-	.IDCodeSample.ToLower()
-==
-collectionItem_in.IDCodeSample.ToLower()
-*/
-#if NET_1_1
-((XS_codeSampleType)cols_[i])
-#else
-cols_[i]
-#endif
-	.IDCodeSample.Equals(
-		collectionItem_in.IDCodeSample
-	)
+					(
+						#if NET_1_1
+						((XS_codeSampleType)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.IDCodeSample
+						==
+						collectionItem_in.IDCodeSample
+					)
+					
 				) {
 					return i;
 				}
@@ -256,12 +251,12 @@ cols_[i]
 			int j = col_in.Length - 1;
 			if (j >= 0) {
 				lock (cols_) {
-#if NET_1_1
+					#if NET_1_1
 					returnIndex_out = cols_.Add(col_in[j]);
-#else
+					#else
 					cols_.Add(col_in[j]);
 					returnIndex_out = cols_.Count - 1;
-#endif
+					#endif
 				}
 			}
 		}

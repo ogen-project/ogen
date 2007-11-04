@@ -48,12 +48,28 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 		<specificCase word="faqSubject" translation="FAQSubject" />
 		<specificCase word="faq" translation="FAQ" />
 
-		<complexTypeKeys name="configType" keys="name" />
-		<complexTypeKeys name="subjectType" keys="idSubject" />
-		<complexTypeKeys name="documentType" keys="idDocument" />
-		<complexTypeKeys name="authorType" keys="idAuthor" />
-		<complexTypeKeys name="codeSampleType" keys="idCodeSample" />
-		<complexTypeKeys name="linkType" keys="idLink" />
-		<complexTypeKeys name="faqSubjectType" keys="idFAQSubject" />
-		<complexTypeKeys name="faqType" keys="idFAQ" />
+		<complexType name="configType">
+			<complexTypeKey name="name" caseSensitive="true" />
+		</complexType>
+		<complexType name="subjectType">
+			<complexTypeKey name="idSubject" caseSensitive="true" />
+		</complexType>
+		<complexType name="documentType">
+			<complexTypeKey name="idDocument" caseSensitive="true" />
+		</complexType>
+		<complexType name="authorType">
+			<complexTypeKey name="idAuthor" caseSensitive="true" />
+		</complexType>
+		<complexType name="codeSampleType">
+			<complexTypeKey name="idCodeSample" caseSensitive="true" />
+		</complexType>
+		<complexType name="linkType">
+			<complexTypeKey name="idLink" caseSensitive="true" />
+		</complexType>
+		<complexType name="faqSubjectType">
+			<complexTypeKey name="idFAQSubject" caseSensitive="true" />
+		</complexType>
+		<complexType name="faqType">
+			<complexTypeKey name="idFAQ" caseSensitive="true" />
+		</complexType>
 </metadata>

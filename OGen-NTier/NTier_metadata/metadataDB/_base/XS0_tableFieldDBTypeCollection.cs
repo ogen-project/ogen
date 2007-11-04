@@ -126,10 +126,14 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			}
 		}
 		#endregion
-		#region public XS_tableFieldDBType this[string dbServerType_in] { get; }
-		public XS_tableFieldDBType this[string dbServerType_in] {
+		#region public XS_tableFieldDBType this[...] { get; }
+		public XS_tableFieldDBType this[
+			string dbServerType_in
+		] {
 			get {
-				int _index = Search(dbServerType_in);
+				int _index = Search(
+					dbServerType_in
+				);
 				return (_index == -1)
 					? null
 					: 
@@ -143,34 +147,33 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		#endregion
 
 		#region public void Remove(...);
-		public void Remove(string dbServerType_in) {
+		public void Remove(
+			string dbServerType_in
+		) {
 			RemoveAt(
-				Search(dbServerType_in)
+				Search(
+					dbServerType_in
+				)
 			);
 		}
 		#endregion
 		#region public int Search(...);
-		public int Search(string dbServerType_in) {
+		public int Search(
+			string dbServerType_in
+		) {
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
-/*
-#if NET_1_1
-((XS_tableFieldDBType)cols_[i])
-#else
-cols_[i]
-#endif
-	.DBServerType.ToLower()
-==
-dbServerType_in.ToLower() 
-*/
-#if NET_1_1
-((XS_tableFieldDBType)cols_[i])
-#else
-cols_[i]
-#endif
-	.DBServerType.Equals(
-		dbServerType_in
-	)
+					(
+						#if NET_1_1
+						((XS_tableFieldDBType)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.DBServerType
+						==
+						dbServerType_in 
+					)
+					
 				) {
 					return i;
 				}
@@ -179,27 +182,19 @@ cols_[i]
 			return -1;
 		}
 		public int Search(XS_tableFieldDBType collectionItem_in) {
-throw new Exception("not implemented!");
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
-/*
-#if NET_1_1
-((XS_tableFieldDBType)cols_[i])
-#else
-cols_[i]
-#endif
-	.DBServerType.ToLower()
-==
-collectionItem_in.DBServerType.ToLower()
-*/
-#if NET_1_1
-((XS_tableFieldDBType)cols_[i])
-#else
-cols_[i]
-#endif
-	.DBServerType.Equals(
-		collectionItem_in.DBServerType
-	)
+					(
+						#if NET_1_1
+						((XS_tableFieldDBType)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.DBServerType
+						==
+						collectionItem_in.DBServerType
+					)
+					
 				) {
 					return i;
 				}
@@ -256,12 +251,12 @@ cols_[i]
 			int j = col_in.Length - 1;
 			if (j >= 0) {
 				lock (cols_) {
-#if NET_1_1
+					#if NET_1_1
 					returnIndex_out = cols_.Add(col_in[j]);
-#else
+					#else
 					cols_.Add(col_in[j]);
 					returnIndex_out = cols_.Count - 1;
-#endif
+					#endif
 				}
 			}
 		}

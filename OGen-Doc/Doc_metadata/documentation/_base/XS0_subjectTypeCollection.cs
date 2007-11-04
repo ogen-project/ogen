@@ -126,10 +126,14 @@ namespace OGen.Doc.lib.metadata.documentation {
 			}
 		}
 		#endregion
-		#region public XS_subjectType this[string idSubject_in] { get; }
-		public XS_subjectType this[string idSubject_in] {
+		#region public XS_subjectType this[...] { get; }
+		public XS_subjectType this[
+			string idSubject_in
+		] {
 			get {
-				int _index = Search(idSubject_in);
+				int _index = Search(
+					idSubject_in
+				);
 				return (_index == -1)
 					? null
 					: 
@@ -143,34 +147,33 @@ namespace OGen.Doc.lib.metadata.documentation {
 		#endregion
 
 		#region public void Remove(...);
-		public void Remove(string idSubject_in) {
+		public void Remove(
+			string idSubject_in
+		) {
 			RemoveAt(
-				Search(idSubject_in)
+				Search(
+					idSubject_in
+				)
 			);
 		}
 		#endregion
 		#region public int Search(...);
-		public int Search(string idSubject_in) {
+		public int Search(
+			string idSubject_in
+		) {
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
-/*
-#if NET_1_1
-((XS_subjectType)cols_[i])
-#else
-cols_[i]
-#endif
-	.IDSubject.ToLower()
-==
-idSubject_in.ToLower() 
-*/
-#if NET_1_1
-((XS_subjectType)cols_[i])
-#else
-cols_[i]
-#endif
-	.IDSubject.Equals(
-		idSubject_in
-	)
+					(
+						#if NET_1_1
+						((XS_subjectType)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.IDSubject
+						==
+						idSubject_in 
+					)
+					
 				) {
 					return i;
 				}
@@ -179,27 +182,19 @@ cols_[i]
 			return -1;
 		}
 		public int Search(XS_subjectType collectionItem_in) {
-throw new Exception("not implemented!");
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
-/*
-#if NET_1_1
-((XS_subjectType)cols_[i])
-#else
-cols_[i]
-#endif
-	.IDSubject.ToLower()
-==
-collectionItem_in.IDSubject.ToLower()
-*/
-#if NET_1_1
-((XS_subjectType)cols_[i])
-#else
-cols_[i]
-#endif
-	.IDSubject.Equals(
-		collectionItem_in.IDSubject
-	)
+					(
+						#if NET_1_1
+						((XS_subjectType)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.IDSubject
+						==
+						collectionItem_in.IDSubject
+					)
+					
 				) {
 					return i;
 				}
@@ -256,12 +251,12 @@ cols_[i]
 			int j = col_in.Length - 1;
 			if (j >= 0) {
 				lock (cols_) {
-#if NET_1_1
+					#if NET_1_1
 					returnIndex_out = cols_.Add(col_in[j]);
-#else
+					#else
 					cols_.Add(col_in[j]);
 					returnIndex_out = cols_.Count - 1;
-#endif
+					#endif
 				}
 			}
 		}

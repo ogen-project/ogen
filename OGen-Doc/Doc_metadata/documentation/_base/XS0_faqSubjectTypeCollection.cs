@@ -126,10 +126,14 @@ namespace OGen.Doc.lib.metadata.documentation {
 			}
 		}
 		#endregion
-		#region public XS_faqSubjectType this[string idFAQSubject_in] { get; }
-		public XS_faqSubjectType this[string idFAQSubject_in] {
+		#region public XS_faqSubjectType this[...] { get; }
+		public XS_faqSubjectType this[
+			string idFAQSubject_in
+		] {
 			get {
-				int _index = Search(idFAQSubject_in);
+				int _index = Search(
+					idFAQSubject_in
+				);
 				return (_index == -1)
 					? null
 					: 
@@ -143,34 +147,33 @@ namespace OGen.Doc.lib.metadata.documentation {
 		#endregion
 
 		#region public void Remove(...);
-		public void Remove(string idFAQSubject_in) {
+		public void Remove(
+			string idFAQSubject_in
+		) {
 			RemoveAt(
-				Search(idFAQSubject_in)
+				Search(
+					idFAQSubject_in
+				)
 			);
 		}
 		#endregion
 		#region public int Search(...);
-		public int Search(string idFAQSubject_in) {
+		public int Search(
+			string idFAQSubject_in
+		) {
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
-/*
-#if NET_1_1
-((XS_faqSubjectType)cols_[i])
-#else
-cols_[i]
-#endif
-	.IDFAQSubject.ToLower()
-==
-idFAQSubject_in.ToLower() 
-*/
-#if NET_1_1
-((XS_faqSubjectType)cols_[i])
-#else
-cols_[i]
-#endif
-	.IDFAQSubject.Equals(
-		idFAQSubject_in
-	)
+					(
+						#if NET_1_1
+						((XS_faqSubjectType)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.IDFAQSubject
+						==
+						idFAQSubject_in 
+					)
+					
 				) {
 					return i;
 				}
@@ -179,27 +182,19 @@ cols_[i]
 			return -1;
 		}
 		public int Search(XS_faqSubjectType collectionItem_in) {
-throw new Exception("not implemented!");
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
-/*
-#if NET_1_1
-((XS_faqSubjectType)cols_[i])
-#else
-cols_[i]
-#endif
-	.IDFAQSubject.ToLower()
-==
-collectionItem_in.IDFAQSubject.ToLower()
-*/
-#if NET_1_1
-((XS_faqSubjectType)cols_[i])
-#else
-cols_[i]
-#endif
-	.IDFAQSubject.Equals(
-		collectionItem_in.IDFAQSubject
-	)
+					(
+						#if NET_1_1
+						((XS_faqSubjectType)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.IDFAQSubject
+						==
+						collectionItem_in.IDFAQSubject
+					)
+					
 				) {
 					return i;
 				}
@@ -256,12 +251,12 @@ cols_[i]
 			int j = col_in.Length - 1;
 			if (j >= 0) {
 				lock (cols_) {
-#if NET_1_1
+					#if NET_1_1
 					returnIndex_out = cols_.Add(col_in[j]);
-#else
+					#else
 					cols_.Add(col_in[j]);
 					returnIndex_out = cols_.Count - 1;
-#endif
+					#endif
 				}
 			}
 		}

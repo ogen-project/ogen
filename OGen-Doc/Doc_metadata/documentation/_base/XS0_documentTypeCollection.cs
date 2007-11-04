@@ -126,10 +126,14 @@ namespace OGen.Doc.lib.metadata.documentation {
 			}
 		}
 		#endregion
-		#region public XS_documentType this[string idDocument_in] { get; }
-		public XS_documentType this[string idDocument_in] {
+		#region public XS_documentType this[...] { get; }
+		public XS_documentType this[
+			string idDocument_in
+		] {
 			get {
-				int _index = Search(idDocument_in);
+				int _index = Search(
+					idDocument_in
+				);
 				return (_index == -1)
 					? null
 					: 
@@ -143,34 +147,33 @@ namespace OGen.Doc.lib.metadata.documentation {
 		#endregion
 
 		#region public void Remove(...);
-		public void Remove(string idDocument_in) {
+		public void Remove(
+			string idDocument_in
+		) {
 			RemoveAt(
-				Search(idDocument_in)
+				Search(
+					idDocument_in
+				)
 			);
 		}
 		#endregion
 		#region public int Search(...);
-		public int Search(string idDocument_in) {
+		public int Search(
+			string idDocument_in
+		) {
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
-/*
-#if NET_1_1
-((XS_documentType)cols_[i])
-#else
-cols_[i]
-#endif
-	.IDDocument.ToLower()
-==
-idDocument_in.ToLower() 
-*/
-#if NET_1_1
-((XS_documentType)cols_[i])
-#else
-cols_[i]
-#endif
-	.IDDocument.Equals(
-		idDocument_in
-	)
+					(
+						#if NET_1_1
+						((XS_documentType)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.IDDocument
+						==
+						idDocument_in 
+					)
+					
 				) {
 					return i;
 				}
@@ -179,27 +182,19 @@ cols_[i]
 			return -1;
 		}
 		public int Search(XS_documentType collectionItem_in) {
-throw new Exception("not implemented!");
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
-/*
-#if NET_1_1
-((XS_documentType)cols_[i])
-#else
-cols_[i]
-#endif
-	.IDDocument.ToLower()
-==
-collectionItem_in.IDDocument.ToLower()
-*/
-#if NET_1_1
-((XS_documentType)cols_[i])
-#else
-cols_[i]
-#endif
-	.IDDocument.Equals(
-		collectionItem_in.IDDocument
-	)
+					(
+						#if NET_1_1
+						((XS_documentType)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.IDDocument
+						==
+						collectionItem_in.IDDocument
+					)
+					
 				) {
 					return i;
 				}
@@ -256,12 +251,12 @@ cols_[i]
 			int j = col_in.Length - 1;
 			if (j >= 0) {
 				lock (cols_) {
-#if NET_1_1
+					#if NET_1_1
 					returnIndex_out = cols_.Add(col_in[j]);
-#else
+					#else
 					cols_.Add(col_in[j]);
 					returnIndex_out = cols_.Count - 1;
-#endif
+					#endif
 				}
 			}
 		}

@@ -126,10 +126,14 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
-		#region public XS_dbConnectionType this[string configMode_in] { get; }
-		public XS_dbConnectionType this[string configMode_in] {
+		#region public XS_dbConnectionType this[...] { get; }
+		public XS_dbConnectionType this[
+			string configMode_in
+		] {
 			get {
-				int _index = Search(configMode_in);
+				int _index = Search(
+					configMode_in
+				);
 				return (_index == -1)
 					? null
 					: 
@@ -143,34 +147,33 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		#endregion
 
 		#region public void Remove(...);
-		public void Remove(string configMode_in) {
+		public void Remove(
+			string configMode_in
+		) {
 			RemoveAt(
-				Search(configMode_in)
+				Search(
+					configMode_in
+				)
 			);
 		}
 		#endregion
 		#region public int Search(...);
-		public int Search(string configMode_in) {
+		public int Search(
+			string configMode_in
+		) {
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
-/*
-#if NET_1_1
-((XS_dbConnectionType)cols_[i])
-#else
-cols_[i]
-#endif
-	.ConfigMode.ToLower()
-==
-configMode_in.ToLower() 
-*/
-#if NET_1_1
-((XS_dbConnectionType)cols_[i])
-#else
-cols_[i]
-#endif
-	.ConfigMode.Equals(
-		configMode_in
-	)
+					(
+						#if NET_1_1
+						((XS_dbConnectionType)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.ConfigMode
+						==
+						configMode_in 
+					)
+					
 				) {
 					return i;
 				}
@@ -179,27 +182,19 @@ cols_[i]
 			return -1;
 		}
 		public int Search(XS_dbConnectionType collectionItem_in) {
-throw new Exception("not implemented!");
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
-/*
-#if NET_1_1
-((XS_dbConnectionType)cols_[i])
-#else
-cols_[i]
-#endif
-	.ConfigMode.ToLower()
-==
-collectionItem_in.ConfigMode.ToLower()
-*/
-#if NET_1_1
-((XS_dbConnectionType)cols_[i])
-#else
-cols_[i]
-#endif
-	.ConfigMode.Equals(
-		collectionItem_in.ConfigMode
-	)
+					(
+						#if NET_1_1
+						((XS_dbConnectionType)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.ConfigMode
+						==
+						collectionItem_in.ConfigMode
+					)
+					
 				) {
 					return i;
 				}
@@ -256,12 +251,12 @@ cols_[i]
 			int j = col_in.Length - 1;
 			if (j >= 0) {
 				lock (cols_) {
-#if NET_1_1
+					#if NET_1_1
 					returnIndex_out = cols_.Add(col_in[j]);
-#else
+					#else
 					cols_.Add(col_in[j]);
 					returnIndex_out = cols_.Count - 1;
-#endif
+					#endif
 				}
 			}
 		}

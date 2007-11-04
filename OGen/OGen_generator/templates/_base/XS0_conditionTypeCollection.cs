@@ -78,10 +78,14 @@ namespace OGen.lib.templates {
 			}
 		}
 		#endregion
-		#region public XS_conditionType this[string eval_in] { get; }
-		public XS_conditionType this[string eval_in] {
+		#region public XS_conditionType this[...] { get; }
+		public XS_conditionType this[
+			string eval_in
+		] {
 			get {
-				int _index = Search(eval_in);
+				int _index = Search(
+					eval_in
+				);
 				return (_index == -1)
 					? null
 					: 
@@ -95,34 +99,33 @@ namespace OGen.lib.templates {
 		#endregion
 
 		#region public void Remove(...);
-		public void Remove(string eval_in) {
+		public void Remove(
+			string eval_in
+		) {
 			RemoveAt(
-				Search(eval_in)
+				Search(
+					eval_in
+				)
 			);
 		}
 		#endregion
 		#region public int Search(...);
-		public int Search(string eval_in) {
+		public int Search(
+			string eval_in
+		) {
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
-/*
-#if NET_1_1
-((XS_conditionType)cols_[i])
-#else
-cols_[i]
-#endif
-	.Eval.ToLower()
-==
-eval_in.ToLower() 
-*/
-#if NET_1_1
-((XS_conditionType)cols_[i])
-#else
-cols_[i]
-#endif
-	.Eval.Equals(
-		eval_in
-	)
+					(
+						#if NET_1_1
+						((XS_conditionType)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.Eval
+						==
+						eval_in 
+					)
+					
 				) {
 					return i;
 				}
@@ -131,27 +134,19 @@ cols_[i]
 			return -1;
 		}
 		public int Search(XS_conditionType collectionItem_in) {
-throw new Exception("not implemented!");
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
-/*
-#if NET_1_1
-((XS_conditionType)cols_[i])
-#else
-cols_[i]
-#endif
-	.Eval.ToLower()
-==
-collectionItem_in.Eval.ToLower()
-*/
-#if NET_1_1
-((XS_conditionType)cols_[i])
-#else
-cols_[i]
-#endif
-	.Eval.Equals(
-		collectionItem_in.Eval
-	)
+					(
+						#if NET_1_1
+						((XS_conditionType)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.Eval
+						==
+						collectionItem_in.Eval
+					)
+					
 				) {
 					return i;
 				}
@@ -206,12 +201,12 @@ cols_[i]
 			int j = col_in.Length - 1;
 			if (j >= 0) {
 				lock (cols_) {
-#if NET_1_1
+					#if NET_1_1
 					returnIndex_out = cols_.Add(col_in[j]);
-#else
+					#else
 					cols_.Add(col_in[j]);
 					returnIndex_out = cols_.Count - 1;
-#endif
+					#endif
 				}
 			}
 		}

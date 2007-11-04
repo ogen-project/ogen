@@ -178,9 +178,9 @@ if (_aux_complextype_keys != null) {%>
 		] {
 			get {
 				int _index = Search(<%
-		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
-			<%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
-		}%>
+				for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
+					<%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
+				}%>
 				);
 				return (_index == -1)
 					? null
@@ -202,9 +202,9 @@ if (_aux_complextype_keys != null) {%>
 		) {
 			RemoveAt(
 				Search(<%
-		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
-			<%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
-		}%>
+				for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
+					<%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
+				}%>
 				)
 			);
 		}

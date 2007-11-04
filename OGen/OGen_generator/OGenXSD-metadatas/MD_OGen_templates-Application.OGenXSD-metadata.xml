@@ -48,11 +48,21 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 		<specificCase word="isConfig" translation="isConfig" />
 -->
 
-		<complexTypeKeys name="templateType" keys="name" />
-		<complexTypeKeys name="argumentType" keys="name" />
-		<complexTypeKeys name="conditionType" keys="eval" />
-		<complexTypeKeys name="dependencyType" keys="name" />
+		<complexType name="templateType">
+			<complexTypeKey name="name" caseSensitive="true" />
+		</complexType>
+		<complexType name="argumentType">
+			<complexTypeKey name="name" caseSensitive="true" />
+		</complexType>
+		<complexType name="conditionType">
+			<complexTypeKey name="eval" caseSensitive="true" />
+		</complexType>
+		<complexType name="dependencyType">
+			<complexTypeKey name="name" caseSensitive="true" />
+		</complexType>
 <!--
-		<complexTypeKeys name="outputType" keys="to" />
+		<complexType name="outputType">
+			<complexTypeKey name="to" caseSensitive="true" />
+		</complexType>
 -->
 </metadata>
