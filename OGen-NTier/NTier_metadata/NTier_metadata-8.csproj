@@ -118,9 +118,7 @@
     <Compile Include="metadataDB\_base\XS0_tableFieldDBType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="metadataDB\_base\XS0_tableFieldDBTypeCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="metadataDB\_base\XS0_tableFieldDBTypeCollection.cs" />
     <Compile Include="metadataDB\_base\XS0_tableFieldsType.cs" />
     <Compile Include="metadataDB\_base\XS0_tableFieldsTypeCollection.cs" />
     <Compile Include="metadataDB\_base\XS0_tableFieldType.cs" />

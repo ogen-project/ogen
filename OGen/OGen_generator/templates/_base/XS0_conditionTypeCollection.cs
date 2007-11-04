@@ -156,23 +156,86 @@ namespace OGen.lib.templates {
 		}
 		#endregion
 		#region public void Add(...);
-		public virtual void Add(bool ifNotExists_in, params XS_conditionType[] col_in) {
+		public virtual void Add(
+			bool onlyIfNotExists_in,
+			string eval_in
+		) {
+			if (
+				// even if exists
+				!onlyIfNotExists_in
+				||
+				// doesn't exist
+				(Search(
+					eval_in
+				) == -1)
+			) {
+				Add(
+					eval_in
+				);
+			}
+		}
+		public virtual void Add(
+			out int returnIndex_out, 
+			bool onlyIfNotExists_in, 
+			string eval_in
+		) {
+			if (
+				// even if exists
+				!onlyIfNotExists_in
+				||
+				// doesn't exist
+				((returnIndex_out = Search(
+					eval_in
+				)) == -1)
+			) {
+				Add(
+					out returnIndex_out,
+					eval_in
+				);
+			}
+		}
+		public void Add(
+			string eval_in
+		) {
+			Add(new XS_conditionType(
+				eval_in
+			));
+		}
+		public void Add(
+			out int returnIndex_out,
+			string eval_in
+		) {
+			Add(
+				out returnIndex_out, 
+				new XS_conditionType(
+					eval_in
+				)
+			);
+		}
+		public virtual void Add(bool onlyIfNotExists_in, params XS_conditionType[] col_in) {
 			for (int i = 0; i < col_in.Length; i++) {
-				if (ifNotExists_in) {
-					if (Search(col_in[i]) == -1) {
-						Add(col_in[i]);
-					}
+				if (
+					// even if exists
+					!onlyIfNotExists_in
+					||
+					// doesn't exist
+					(Search(col_in[i]) == -1)
+				) {
+					Add(col_in[i]);
 				}
 			}
 		}
-		public virtual void Add(out int returnIndex_out, bool ifNotExists_in, params XS_conditionType[] col_in) {
+		public virtual void Add(out int returnIndex_out, bool onlyIfNotExists_in, params XS_conditionType[] col_in) {
 			returnIndex_out = -1;
 			for (int i = 0; i < col_in.Length; i++) {
-				if (ifNotExists_in) {
-					returnIndex_out = Search(col_in[i]);
-					if (returnIndex_out == -1) {
-						Add(out returnIndex_out, col_in[i]);
-					}
+				if (
+					// even if exists
+					!onlyIfNotExists_in
+					||
+					// doesn't exist
+					((returnIndex_out = Search(col_in[i])) == -1)
+				) {
+					Add(out returnIndex_out, col_in[i]);
 				}
 			}
 		}
