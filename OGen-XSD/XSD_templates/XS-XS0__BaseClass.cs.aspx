@@ -47,7 +47,11 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Element.Name%> {
+	#if NET_1_1
 	public class <%=XS0__%><%=_aux_schema.Element.Name%> : <%=XS_%><%=_aux_schema.Element.Type%>, iClaSSe_metadata {
+	#else
+	public partial class <%=XS__%><%=_aux_schema.Element.Name%> : <%=XS_%><%=_aux_schema.Element.Type%>, iClaSSe_metadata {
+	#endif
 
 		public const string <%=_aux_schema.Element.Name.ToUpper()%> = "<%=_aux_schema.Element.Name%>";
 		public const string ROOT = "ROOT";
@@ -118,8 +122,8 @@ if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%>
 				} catch (Exception _ex) {
 					throw new Exception(string.Format(
 						"\n---\n{0}.{1}.Load_fromFile():\nERROR READING XML:\n{2}\n---\n{3}",
-						typeof(<%=XS0__%><%=_aux_schema.Element.Name%>).Namespace, 
-						typeof(<%=XS0__%><%=_aux_schema.Element.Name%>).Name, 
+						typeof(<%=XS__%><%=_aux_schema.Element.Name%>).Namespace, 
+						typeof(<%=XS__%><%=_aux_schema.Element.Name%>).Name, 
 						filePath_in[i],
 						_ex.Message
 					));

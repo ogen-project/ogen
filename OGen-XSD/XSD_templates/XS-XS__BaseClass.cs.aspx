@@ -48,7 +48,11 @@ using OGen.lib.collections;
 
 namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Element.Name%> {
 	[System.Xml.Serialization.XmlRootAttribute("<%=_aux_schema.Element.Name%>")]
+	#if NET_1_1
 	public class <%=XS__%><%=_aux_schema.Element.Name%> : <%=XS0__%><%=_aux_schema.Element.Name%> {
+	#else
+	public partial class <%=XS__%><%=_aux_schema.Element.Name%> {
+	#endif
 	}
 }<%
 //-----------------------------------------------------------------------------------------

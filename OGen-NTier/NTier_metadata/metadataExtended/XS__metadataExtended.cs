@@ -19,6 +19,10 @@ using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
 	[System.Xml.Serialization.XmlRootAttribute("metadataExtended")]
+	#if NET_1_1
 	public class XS__metadataExtended : XS0__metadataExtended {
+	#else
+	public partial class XS__metadataExtended {
+	#endif
 	}
 }

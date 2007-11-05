@@ -84,10 +84,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="XS-XS0__BaseClass.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="XS-XS0__RootMetadata.cs.aspx">
     </Content>
     <Content Include="XS-XS__BaseClass.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="XS-XS__RootMetadata.cs.aspx">
     </Content>

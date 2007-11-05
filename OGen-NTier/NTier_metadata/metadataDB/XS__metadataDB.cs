@@ -20,7 +20,12 @@ using OGen.lib.datalayer;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
 	[System.Xml.Serialization.XmlRootAttribute("metadataDB")]
+	#if NET_1_1
 	public class XS__metadataDB : XS0__metadataDB {
+	#else
+	public partial class XS__metadataDB {
+	#endif
+
 //		#region public static XS__metadataDB Load_fromDB(...);
 		public delegate void Load_fromDBDelegate(
 			string message_in, 

@@ -49,9 +49,17 @@ using <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_rootmetadata.Sch
 }%>
 
 namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%> {
+	#if NET_1_1
 	public class <%=XS0__%>RootMetadata : iClaSSe_metadata {
-		#region public <%=XS0__%>RootMetadata(...);
+	#else
+	public partial class <%=XS__%>RootMetadata : iClaSSe_metadata {
+	#endif
+		#region public <%=XS__%>RootMetadata(...);
+		#if NET_1_1
 		public <%=XS0__%>RootMetadata(
+		#else
+		public <%=XS__%>RootMetadata(
+		#endif
 			string metadataFilepath_in
 		) {
 			string _metadataPath = System.IO.Path.GetDirectoryName(metadataFilepath_in);

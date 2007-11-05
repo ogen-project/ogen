@@ -19,7 +19,11 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	#if NET_1_1
 	public class XS0__metadataExtended : XS_metadataExtendedType, iClaSSe_metadata {
+	#else
+	public partial class XS__metadataExtended : XS_metadataExtendedType, iClaSSe_metadata {
+	#endif
 
 		public const string METADATAEXTENDED = "metadataExtended";
 		public const string ROOT = "ROOT";
@@ -65,8 +69,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 				} catch (Exception _ex) {
 					throw new Exception(string.Format(
 						"\n---\n{0}.{1}.Load_fromFile():\nERROR READING XML:\n{2}\n---\n{3}",
-						typeof(XS0__metadataExtended).Namespace, 
-						typeof(XS0__metadataExtended).Name, 
+						typeof(XS__metadataExtended).Namespace, 
+						typeof(XS__metadataExtended).Name, 
 						filePath_in[i],
 						_ex.Message
 					));

@@ -19,6 +19,10 @@ using OGen.lib.collections;
 
 namespace OGen.lib.templates {
 	[System.Xml.Serialization.XmlRootAttribute("templates")]
+	#if NET_1_1
 	public class XS__templates : XS0__templates {
+	#else
+	public partial class XS__templates {
+	#endif
 	}
 }

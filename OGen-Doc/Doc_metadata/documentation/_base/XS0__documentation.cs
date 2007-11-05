@@ -19,7 +19,11 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
+	#if NET_1_1
 	public class XS0__documentation : XS_documentationType, iClaSSe_metadata {
+	#else
+	public partial class XS__documentation : XS_documentationType, iClaSSe_metadata {
+	#endif
 
 		public const string DOCUMENTATION = "documentation";
 		public const string ROOT = "ROOT";
@@ -65,8 +69,8 @@ namespace OGen.Doc.lib.metadata.documentation {
 				} catch (Exception _ex) {
 					throw new Exception(string.Format(
 						"\n---\n{0}.{1}.Load_fromFile():\nERROR READING XML:\n{2}\n---\n{3}",
-						typeof(XS0__documentation).Namespace, 
-						typeof(XS0__documentation).Name, 
+						typeof(XS__documentation).Namespace, 
+						typeof(XS__documentation).Name, 
 						filePath_in[i],
 						_ex.Message
 					));

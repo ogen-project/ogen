@@ -47,13 +47,19 @@ using <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_rootmetadata.Sch
 }%>
 
 namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%> {
+	#if NET_1_1
 	public class <%=XS__%>RootMetadata : <%=XS0__%>RootMetadata {
+	#else
+	public partial class <%=XS__%>RootMetadata {
+	#endif
+		#if NET_1_1
 		public <%=XS__%>RootMetadata (
 			string metadataFilepath_in
 		) : base (
 			metadataFilepath_in
 		) {
 		}
+		#endif
 	}
 }<%
 //-----------------------------------------------------------------------------------------

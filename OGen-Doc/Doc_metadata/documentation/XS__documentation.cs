@@ -19,6 +19,10 @@ using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
 	[System.Xml.Serialization.XmlRootAttribute("documentation")]
+	#if NET_1_1
 	public class XS__documentation : XS0__documentation {
+	#else
+	public partial class XS__documentation {
+	#endif
 	}
 }
