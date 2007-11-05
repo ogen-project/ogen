@@ -19,12 +19,18 @@ using OGen.lib.collections;
 using OGen.Doc.lib.metadata.documentation;
 
 namespace OGen.Doc.lib.metadata {
+	#if NET_1_1
 	public class XS__RootMetadata : XS0__RootMetadata {
+	#else
+	public partial class XS__RootMetadata {
+	#endif
+		#if NET_1_1
 		public XS__RootMetadata (
 			string metadataFilepath_in
 		) : base (
 			metadataFilepath_in
 		) {
 		}
+		#endif
 	}
 }

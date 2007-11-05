@@ -21,9 +21,17 @@ using OGen.lib.collections;
 using OGen.Doc.lib.metadata.documentation;
 
 namespace OGen.Doc.lib.metadata {
+	#if NET_1_1
 	public class XS0__RootMetadata : iClaSSe_metadata {
-		#region public XS0__RootMetadata(...);
+	#else
+	public partial class XS__RootMetadata : iClaSSe_metadata {
+	#endif
+		#region public XS__RootMetadata(...);
+		#if NET_1_1
 		public XS0__RootMetadata(
+		#else
+		public XS__RootMetadata(
+		#endif
 			string metadataFilepath_in
 		) {
 			string _metadataPath = System.IO.Path.GetDirectoryName(metadataFilepath_in);
