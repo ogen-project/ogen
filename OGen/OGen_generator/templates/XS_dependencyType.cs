@@ -19,7 +19,7 @@ using OGen.lib.collections;
 
 namespace OGen.lib.templates {
 	#if NET_1_1
-	public class XS_dependencyType : XS0_dependencyType
+	public class XS_dependencyType : XS0_dependencyType {
 	#else
 	public partial class XS_dependencyType {
 	#endif

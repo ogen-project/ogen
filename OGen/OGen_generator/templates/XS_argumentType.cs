@@ -19,7 +19,7 @@ using OGen.lib.collections;
 
 namespace OGen.lib.templates {
 	#if NET_1_1
-	public class XS_argumentType : XS0_argumentType
+	public class XS_argumentType : XS0_argumentType {
 	#else
 	public partial class XS_argumentType {
 	#endif

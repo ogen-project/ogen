@@ -19,7 +19,7 @@ using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
 	#if NET_1_1
-	public class XS_dbConnectionType : XS0_dbConnectionType
+	public class XS_dbConnectionType : XS0_dbConnectionType {
 	#else
 	public partial class XS_dbConnectionType {
 	#endif

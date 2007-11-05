@@ -19,7 +19,7 @@ using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
 	#if NET_1_1
-	public class XS_faqType : XS0_faqType
+	public class XS_faqType : XS0_faqType {
 	#else
 	public partial class XS_faqType {
 	#endif

@@ -19,7 +19,7 @@ using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
 	#if NET_1_1
-	public class XS_tablesType : XS0_tablesType
+	public class XS_tablesType : XS0_tablesType {
 	#else
 	public partial class XS_tablesType {
 	#endif

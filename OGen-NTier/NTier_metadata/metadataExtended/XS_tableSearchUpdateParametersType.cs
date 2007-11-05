@@ -19,7 +19,7 @@ using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
 	#if NET_1_1
-	public class XS_tableSearchUpdateParametersType : XS0_tableSearchUpdateParametersType
+	public class XS_tableSearchUpdateParametersType : XS0_tableSearchUpdateParametersType {
 	#else
 	public partial class XS_tableSearchUpdateParametersType {
 	#endif

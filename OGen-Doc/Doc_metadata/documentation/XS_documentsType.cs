@@ -19,7 +19,7 @@ using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
 	#if NET_1_1
-	public class XS_documentsType : XS0_documentsType
+	public class XS_documentsType : XS0_documentsType {
 	#else
 	public partial class XS_documentsType {
 	#endif

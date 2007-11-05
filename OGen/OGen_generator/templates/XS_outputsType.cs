@@ -19,7 +19,7 @@ using OGen.lib.collections;
 
 namespace OGen.lib.templates {
 	#if NET_1_1
-	public class XS_outputsType : XS0_outputsType
+	public class XS_outputsType : XS0_outputsType {
 	#else
 	public partial class XS_outputsType {
 	#endif

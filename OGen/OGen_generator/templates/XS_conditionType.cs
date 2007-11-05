@@ -19,7 +19,7 @@ using OGen.lib.collections;
 
 namespace OGen.lib.templates {
 	#if NET_1_1
-	public class XS_conditionType : XS0_conditionType
+	public class XS_conditionType : XS0_conditionType {
 	#else
 	public partial class XS_conditionType {
 	#endif
