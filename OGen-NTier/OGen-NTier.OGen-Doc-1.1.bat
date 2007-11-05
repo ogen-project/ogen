@@ -11,10 +11,10 @@
 @ECHO OFF
 
 IF NOT EXIST "%~d0%~p0..\distro\bin\OGen.Doc.presentationlayer.console-1.1.exe" GOTO error1
-IF NOT EXIST "%~d0%~p0OGen-NTier-Doc\OGenDoc-metadatas\MD_OGen-NTier.OGenDoc-metadata.xml" GOTO error2
+IF NOT EXIST "%~d0%~p0OGen-NTier-Doc\OGenDoc-metadatas\MD_OGen.OGenDoc-metadata.xml" GOTO error2
 
 
-"%~d0%~p0..\distro\bin\OGen.Doc.presentationlayer.console-1.1.exe" "%~d0%~p0OGen-NTier-Doc\OGenDoc-metadatas\MD_OGen-NTier.OGenDoc-metadata.xml"
+"%~d0%~p0..\distro\bin\OGen.Doc.presentationlayer.console-1.1.exe" "%~d0%~p0OGen-NTier-Doc\OGenDoc-metadatas\MD_OGen.OGenDoc-metadata.xml"
 
 
 PAUSE
@@ -27,7 +27,7 @@ GOTO eof
 	PAUSE
 GOTO eof
 :error2
-	ECHO Can't find: "%~d0%~p0OGen-NTier-Doc\OGenDoc-metadatas\MD_OGen-NTier.OGenDoc-metadata.xml"
+	ECHO Can't find: "%~d0%~p0OGen-NTier-Doc\OGenDoc-metadatas\MD_OGen.OGenDoc-metadata.xml"
 	ECHO %~n0%~x0 needs some tweaking
 	PAUSE
 GOTO eof

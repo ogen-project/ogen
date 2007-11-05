@@ -46,8 +46,16 @@ GOTO eof
 
 
 :clearBin
-	IF EXIST "%thisdir%..\%1\%2\bin" RMDIR /S /Q "%thisdir%..\%1\%2\bin"
-	IF EXIST "%thisdir%..\%1\%2\obj" RMDIR /S /Q "%thisdir%..\%1\%2\obj"
+	IF EXIST "%thisdir%..\%1\%2\bin" (
+		RMDIR /S /Q "%thisdir%..\%1\%2\bin">nul
+		::IF NOT ERRORLEVEL 1 ECHO can't delete: "%thisdir%..\%1\%2\bin"
+		IF EXIST "%thisdir%..\%1\%2\bin" ECHO can't delete: "%thisdir%..\%1\%2\bin"
+	)
+	IF EXIST "%thisdir%..\%1\%2\obj" (
+		RMDIR /S /Q "%thisdir%..\%1\%2\obj">nul
+		::IF NOT ERRORLEVEL 1 ECHO can't delete: "%thisdir%..\%1\%2\obj"
+		IF EXIST "%thisdir%..\%1\%2\obj" ECHO can't delete: "%thisdir%..\%1\%2\obj"
+	)
 
 
 :eof
