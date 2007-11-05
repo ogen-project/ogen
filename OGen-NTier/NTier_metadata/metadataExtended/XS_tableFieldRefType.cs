@@ -31,5 +31,54 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		) {
 		}
 		#endregion
+
+		#region public XS_tableType Table_ref { get; }
+		private XS_tableType table_ref__ = null;
+
+		public XS_tableType Table_ref {
+			get {
+				if (table_ref__ == null) {
+					#region Checking...
+					if (TableName == string.Empty)
+						throw new Exception(string.Format(
+							"{0}.{1}.TableIndex(): - no ref present", 
+							this.GetType().Namespace, 
+							this.GetType().Name
+						));
+					#endregion
+
+					table_ref__ = root_ref.MetadataExtendedCollection[0].Tables.TableCollection[TableName];
+				}
+
+				return table_ref__;
+			}
+		}
+		#endregion
+		#region public XS_tableFieldType TableField_ref { get; }
+		private XS_tableFieldType tablefield_ref__ = null;
+
+		public XS_tableFieldType TableField_ref {
+			get {
+				if (tablefield_ref__ == null) {
+					#region Checking...
+					if (
+						(TableName == string.Empty)
+						||
+						(TableFieldName == string.Empty)
+					)
+						throw new Exception(string.Format(
+							"{0}.{1}.FieldIndex(): - no ref present", 
+							this.GetType().Namespace, 
+							this.GetType().Name
+						));
+					#endregion
+
+					tablefield_ref__ = table_ref__.TableFields.TableFieldCollection[TableFieldName];
+				}
+
+				return tablefield_ref__;
+			}
+		}
+		#endregion
 	}
 }

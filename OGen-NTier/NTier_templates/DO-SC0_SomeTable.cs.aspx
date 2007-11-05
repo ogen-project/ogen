@@ -11,7 +11,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 --%><%@ Page language="c#" contenttype="text/html" %>
 <%@ import namespace="OGen.lib.datalayer" %>
-<%@ import namespace="OGen.NTier.lib.metadata" %><%
+<%@ import namespace="OGen.NTier.lib.metadata" %>
+<%@ import namespace="OGen.NTier.lib.metadata.metadataExtended" %>
+<%@ import namespace="OGen.NTier.lib.metadata.metadataDB" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 string _arg_TableName = System.Web.HttpUtility.UrlDecode(Request.QueryString["TableName"]);
@@ -25,7 +27,7 @@ XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
 XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 
-OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table 
+OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table
 	= _aux_db_metadata.Tables.TableCollection[
 		_arg_TableName
 	];

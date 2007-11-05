@@ -13,7 +13,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <%//@ assembly name="OGen.lib.datalayer, Version=0.1.2033.30004, Culture=neutral,PublicKeyToken=66a788813bfe4b51" %>
 <%//@ assembly name="OGen.NTier.lib.metadata, Version=0.1.2033.30005, Culture=neutral,PublicKeyToken=66a788813bfe4b51" %>
 <%@ import namespace="OGen.lib.datalayer" %>
-<%@ import namespace="OGen.NTier.lib.metadata" %><%
+<%@ import namespace="OGen.NTier.lib.metadata" %>
+<%@ import namespace="OGen.NTier.lib.metadata.metadataExtended" %>
+<%@ import namespace="OGen.NTier.lib.metadata.metadataDB" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 #endregion
@@ -26,12 +28,12 @@ XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
 XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 
-cDBMetadata_Table _aux_table;
+OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table;
+OGen.NTier.lib.metadata.metadataExtended.XS_tableType _aux_ex_table;
 
 OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
 OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 
-int _aux_db_table.hasIdentityKey;
 string[] _aux_configmodes = _aux_metadata.ConfigModes();
 
 #endregion

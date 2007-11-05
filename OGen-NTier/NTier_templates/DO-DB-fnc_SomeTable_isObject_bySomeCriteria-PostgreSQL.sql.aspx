@@ -11,7 +11,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 --%><%@ Page language="c#" contenttype="text/html" %>
 <%@ import namespace="OGen.lib.datalayer" %>
-<%@ import namespace="OGen.NTier.lib.metadata" %><%
+<%@ import namespace="OGen.NTier.lib.metadata" %>
+<%@ import namespace="OGen.NTier.lib.metadata.metadataExtended" %>
+<%@ import namespace="OGen.NTier.lib.metadata.metadataDB" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 string _arg_TableName = System.Web.HttpUtility.UrlDecode(Request.QueryString["TableName"]);
@@ -28,8 +30,12 @@ XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
 XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 
-int _aux_table_index = _aux_metadata.Tables.Search(_arg_TableName);
-cDBMetadata_Table _aux_table = _aux_metadata.Tables[_aux_table_index];
+OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table
+	= _aux_db_metadata.Tables.TableCollection[
+		_arg_TableName
+	];
+OGen.NTier.lib.metadata.metadataExtended.XS_tableType _aux_ex_table
+	= _aux_db_table.parallel_ref;
 
 XS_tableSearchType _aux_ex_search
 	= _aux_ex_table.TableSearches.TableSearchCollection[_arg_SearchName];
@@ -45,7 +51,7 @@ bool makeItAComment = false;
 //-----------------------------------------------------------------------------------------
 %>CREATE OR REPLACE FUNCTION "fnc_<%=_aux_db_table.Name%>_isObject_<%=_aux_search.Name%>"(<%
 for (int f = 0; f < _aux_search.SearchParameters.Count; f++) {
-	if (_aux_search.SearchParameters[f].TableIndex() != _aux_table_index) makeItAComment = true;
+	if (_aux_search.SearchParameters[f].Table_ref.Name.ToLower() != _arg_TableName.ToLower()) makeItAComment = true;
 	_aux_field = _aux_search.SearchParameters[f].Field;
 	_aux_xx_field_name = _aux_search.SearchParameters[f].ParamName;%>
 	"<%=_aux_xx_field_name%>_search_" <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(f != _aux_search.SearchParameters.Count - 1) ? ", " : ""%><%
