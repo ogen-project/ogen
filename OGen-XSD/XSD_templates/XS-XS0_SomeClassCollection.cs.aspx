@@ -61,8 +61,16 @@ using System.Collections.Generic;
 #endif
 
 namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Element.Name%> {
+	#if NET_1_1
 	public class <%=XS0_%><%=_aux_complextype.Name%>Collection {
+	#else
+	public partial class <%=XS_%><%=_aux_complextype.Name%>Collection {
+	#endif
+		#if NET_1_1
 		public <%=XS0_%><%=_aux_complextype.Name%>Collection() {
+		#else
+		public <%=XS_%><%=_aux_complextype.Name%>Collection() {
+		#endif
 			cols_ = new
 				#if NET_1_1
 				ArrayList()

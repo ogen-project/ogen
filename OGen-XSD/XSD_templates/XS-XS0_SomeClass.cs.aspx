@@ -63,17 +63,11 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Element.Name%> {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class 
-		#if NET_1_1
-			<%=XS0_%><%=_aux_complextype.Name%>
-		#else
-			<%=XS_%><%=_aux_complextype.Name%>
-		#endif
-	{<%
+	#if NET_1_1
+	public class <%=XS0_%><%=_aux_complextype.Name%> {
+	#else
+	public partial <%=XS_%><%=_aux_complextype.Name%> {
+	#endif<%
 if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%><%=""%>
 
 		#region public object parent_ref { get; }

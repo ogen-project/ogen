@@ -55,15 +55,11 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Element.Name%> {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class <%=XS_%><%=_aux_complextype.Name%>
-		#if NET_1_1
-			: <%=XS0_%><%=_aux_complextype.Name%>
-		#endif
-	{
+	#if NET_1_1
+	public class <%=XS_%><%=_aux_complextype.Name%> : <%=XS0_%><%=_aux_complextype.Name%>
+	#else
+	public partial class <%=XS_%><%=_aux_complextype.Name%> {
+	#endif
 		public <%=XS_%><%=_aux_complextype.Name%> (
 		) {
 		}<%
