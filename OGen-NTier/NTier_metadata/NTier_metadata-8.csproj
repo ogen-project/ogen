@@ -96,14 +96,23 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="metadataDB\XS_metadataDBType.cs" />
+    <Compile Include="metadataDB\XS_metadataDBTypeCollection.cs" />
     <Compile Include="metadataDB\XS_tableDBsType.cs" />
+    <Compile Include="metadataDB\XS_tableDBsTypeCollection.cs" />
     <Compile Include="metadataDB\XS_tableDBType.cs" />
+    <Compile Include="metadataDB\XS_tableDBTypeCollection.cs" />
     <Compile Include="metadataDB\XS_tableFieldDBsType.cs" />
+    <Compile Include="metadataDB\XS_tableFieldDBsTypeCollection.cs" />
     <Compile Include="metadataDB\XS_tableFieldDBType.cs" />
+    <Compile Include="metadataDB\XS_tableFieldDBTypeCollection.cs" />
     <Compile Include="metadataDB\XS_tableFieldsType.cs" />
+    <Compile Include="metadataDB\XS_tableFieldsTypeCollection.cs" />
     <Compile Include="metadataDB\XS_tableFieldType.cs" />
+    <Compile Include="metadataDB\XS_tableFieldTypeCollection.cs" />
     <Compile Include="metadataDB\XS_tablesType.cs" />
+    <Compile Include="metadataDB\XS_tablesTypeCollection.cs" />
     <Compile Include="metadataDB\XS_tableType.cs" />
+    <Compile Include="metadataDB\XS_tableTypeCollection.cs" />
     <Compile Include="metadataDB\XS__metadataDB.cs" />
     <Compile Include="metadataDB\_base\XS0_metadataDBType.cs" />
     <Compile Include="metadataDB\_base\XS0_metadataDBTypeCollection.cs" />
@@ -111,13 +120,9 @@
     <Compile Include="metadataDB\_base\XS0_tableDBsTypeCollection.cs" />
     <Compile Include="metadataDB\_base\XS0_tableDBType.cs" />
     <Compile Include="metadataDB\_base\XS0_tableDBTypeCollection.cs" />
-    <Compile Include="metadataDB\_base\XS0_tableFieldDBsType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="metadataDB\_base\XS0_tableFieldDBsType.cs" />
     <Compile Include="metadataDB\_base\XS0_tableFieldDBsTypeCollection.cs" />
-    <Compile Include="metadataDB\_base\XS0_tableFieldDBType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="metadataDB\_base\XS0_tableFieldDBType.cs" />
     <Compile Include="metadataDB\_base\XS0_tableFieldDBTypeCollection.cs" />
     <Compile Include="metadataDB\_base\XS0_tableFieldsType.cs" />
     <Compile Include="metadataDB\_base\XS0_tableFieldsTypeCollection.cs" />
@@ -130,112 +135,85 @@
     <Compile Include="metadataDB\_base\XS0__metadataDB.cs" />
     <Compile Include="metadataDB\_base\XS0__metadataDBCollection.cs" />
     <Compile Include="metadataExtended\XS_dbConnectionsType.cs" />
+    <Compile Include="metadataExtended\XS_dbConnectionsTypeCollection.cs" />
     <Compile Include="metadataExtended\XS_dbConnectionType.cs" />
+    <Compile Include="metadataExtended\XS_dbConnectionTypeCollection.cs" />
     <Compile Include="metadataExtended\XS_dbsType.cs" />
+    <Compile Include="metadataExtended\XS_dbsTypeCollection.cs" />
     <Compile Include="metadataExtended\XS_dbType.cs" />
+    <Compile Include="metadataExtended\XS_dbTypeCollection.cs" />
     <Compile Include="metadataExtended\XS_metadataExtendedType.cs" />
+    <Compile Include="metadataExtended\XS_metadataExtendedTypeCollection.cs" />
     <Compile Include="metadataExtended\XS_tableFieldRefType.cs" />
+    <Compile Include="metadataExtended\XS_tableFieldRefTypeCollection.cs" />
     <Compile Include="metadataExtended\XS_tableFieldsType.cs" />
+    <Compile Include="metadataExtended\XS_tableFieldsTypeCollection.cs" />
     <Compile Include="metadataExtended\XS_tableFieldType.cs" />
+    <Compile Include="metadataExtended\XS_tableFieldTypeCollection.cs" />
     <Compile Include="metadataExtended\XS_tableSearchesType.cs" />
+    <Compile Include="metadataExtended\XS_tableSearchesTypeCollection.cs" />
     <Compile Include="metadataExtended\XS_tableSearchParametersType.cs" />
+    <Compile Include="metadataExtended\XS_tableSearchParametersTypeCollection.cs" />
     <Compile Include="metadataExtended\XS_tableSearchType.cs" />
+    <Compile Include="metadataExtended\XS_tableSearchTypeCollection.cs" />
     <Compile Include="metadataExtended\XS_tableSearchUpdateParametersType.cs" />
+    <Compile Include="metadataExtended\XS_tableSearchUpdateParametersTypeCollection.cs" />
     <Compile Include="metadataExtended\XS_tableSearchUpdatesType.cs" />
+    <Compile Include="metadataExtended\XS_tableSearchUpdatesTypeCollection.cs" />
     <Compile Include="metadataExtended\XS_tableSearchUpdateType.cs" />
+    <Compile Include="metadataExtended\XS_tableSearchUpdateTypeCollection.cs" />
     <Compile Include="metadataExtended\XS_tablesType.cs" />
+    <Compile Include="metadataExtended\XS_tablesTypeCollection.cs" />
     <Compile Include="metadataExtended\XS_tableType.cs" />
+    <Compile Include="metadataExtended\XS_tableTypeCollection.cs" />
     <Compile Include="metadataExtended\XS_tableUpdateParametersType.cs" />
+    <Compile Include="metadataExtended\XS_tableUpdateParametersTypeCollection.cs" />
     <Compile Include="metadataExtended\XS_tableUpdatesType.cs" />
+    <Compile Include="metadataExtended\XS_tableUpdatesTypeCollection.cs" />
     <Compile Include="metadataExtended\XS_tableUpdateType.cs" />
+    <Compile Include="metadataExtended\XS_tableUpdateTypeCollection.cs" />
     <Compile Include="metadataExtended\XS__metadataExtended.cs" />
-    <Compile Include="metadataExtended\_base\XS0_dbConnectionsType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="metadataExtended\_base\XS0_dbConnectionsType.cs" />
     <Compile Include="metadataExtended\_base\XS0_dbConnectionsTypeCollection.cs" />
-    <Compile Include="metadataExtended\_base\XS0_dbConnectionType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="metadataExtended\_base\XS0_dbConnectionType.cs" />
     <Compile Include="metadataExtended\_base\XS0_dbConnectionTypeCollection.cs" />
-    <Compile Include="metadataExtended\_base\XS0_dbsType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="metadataExtended\_base\XS0_dbsType.cs" />
     <Compile Include="metadataExtended\_base\XS0_dbsTypeCollection.cs" />
-    <Compile Include="metadataExtended\_base\XS0_dbType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="metadataExtended\_base\XS0_dbTypeCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="metadataExtended\_base\XS0_metadataExtendedType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="metadataExtended\_base\XS0_dbType.cs" />
+    <Compile Include="metadataExtended\_base\XS0_dbTypeCollection.cs" />
+    <Compile Include="metadataExtended\_base\XS0_metadataExtendedType.cs" />
     <Compile Include="metadataExtended\_base\XS0_metadataExtendedTypeCollection.cs" />
-    <Compile Include="metadataExtended\_base\XS0_sqlScriptOptionEnumeration.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="metadataExtended\_base\XS0_tableFieldRefType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="metadataExtended\_base\XS0_sqlScriptOptionEnumeration.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableFieldRefType.cs" />
     <Compile Include="metadataExtended\_base\XS0_tableFieldRefTypeCollection.cs" />
-    <Compile Include="metadataExtended\_base\XS0_tableFieldsType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="metadataExtended\_base\XS0_tableFieldsType.cs" />
     <Compile Include="metadataExtended\_base\XS0_tableFieldsTypeCollection.cs" />
-    <Compile Include="metadataExtended\_base\XS0_tableFieldType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="metadataExtended\_base\XS0_tableFieldType.cs" />
     <Compile Include="metadataExtended\_base\XS0_tableFieldTypeCollection.cs" />
-    <Compile Include="metadataExtended\_base\XS0_tableSearchesType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="metadataExtended\_base\XS0_tableSearchesType.cs" />
     <Compile Include="metadataExtended\_base\XS0_tableSearchesTypeCollection.cs" />
-    <Compile Include="metadataExtended\_base\XS0_tableSearchParametersType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="metadataExtended\_base\XS0_tableSearchParametersType.cs" />
     <Compile Include="metadataExtended\_base\XS0_tableSearchParametersTypeCollection.cs" />
-    <Compile Include="metadataExtended\_base\XS0_tableSearchType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="metadataExtended\_base\XS0_tableSearchType.cs" />
     <Compile Include="metadataExtended\_base\XS0_tableSearchTypeCollection.cs" />
-    <Compile Include="metadataExtended\_base\XS0_tableSearchUpdateParametersType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="metadataExtended\_base\XS0_tableSearchUpdateParametersType.cs" />
     <Compile Include="metadataExtended\_base\XS0_tableSearchUpdateParametersTypeCollection.cs" />
-    <Compile Include="metadataExtended\_base\XS0_tableSearchUpdatesType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="metadataExtended\_base\XS0_tableSearchUpdatesType.cs" />
     <Compile Include="metadataExtended\_base\XS0_tableSearchUpdatesTypeCollection.cs" />
-    <Compile Include="metadataExtended\_base\XS0_tableSearchUpdateType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="metadataExtended\_base\XS0_tableSearchUpdateType.cs" />
     <Compile Include="metadataExtended\_base\XS0_tableSearchUpdateTypeCollection.cs" />
-    <Compile Include="metadataExtended\_base\XS0_tablesType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="metadataExtended\_base\XS0_tablesType.cs" />
     <Compile Include="metadataExtended\_base\XS0_tablesTypeCollection.cs" />
-    <Compile Include="metadataExtended\_base\XS0_tableType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="metadataExtended\_base\XS0_tableType.cs" />
     <Compile Include="metadataExtended\_base\XS0_tableTypeCollection.cs" />
-    <Compile Include="metadataExtended\_base\XS0_tableUpdateParametersType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="metadataExtended\_base\XS0_tableUpdateParametersType.cs" />
     <Compile Include="metadataExtended\_base\XS0_tableUpdateParametersTypeCollection.cs" />
-    <Compile Include="metadataExtended\_base\XS0_tableUpdatesType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="metadataExtended\_base\XS0_tableUpdatesType.cs" />
     <Compile Include="metadataExtended\_base\XS0_tableUpdatesTypeCollection.cs" />
-    <Compile Include="metadataExtended\_base\XS0_tableUpdateType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="metadataExtended\_base\XS0_tableUpdateType.cs" />
     <Compile Include="metadataExtended\_base\XS0_tableUpdateTypeCollection.cs" />
-    <Compile Include="metadataExtended\_base\XS0__metadataExtended.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="metadataExtended\_base\XS0__metadataExtendedCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="metadataExtended\_base\XS0__metadataExtended.cs" />
+    <Compile Include="metadataExtended\_base\XS0__metadataExtendedCollection.cs" />
     <Compile Include="XS__RootMetadata.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -275,6 +253,10 @@
       <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
       <Name>OGen_webforms-8</Name>
     </ProjectReference>
+    <Folder Include="metadataDB" />
+    <Folder Include="metadataDB\_base" />
+    <Folder Include="metadataExtended" />
+    <Folder Include="metadataExtended\_base" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

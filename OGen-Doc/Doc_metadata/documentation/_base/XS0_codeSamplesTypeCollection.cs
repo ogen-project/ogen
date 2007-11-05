@@ -20,8 +20,8 @@ using System.Collections.Generic;
 #endif
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS_codeSamplesTypeCollection {
-		public XS_codeSamplesTypeCollection() {
+	public class XS0_codeSamplesTypeCollection {
+		public XS0_codeSamplesTypeCollection() {
 			cols_ = new
 				#if NET_1_1
 				ArrayList()

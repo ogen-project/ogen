@@ -41,6 +41,21 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</outputs>
 		<dependencies />
 	</template>
+	<template name="XS-XS_SomeClassCollection.cs.aspx" 
+			parserType="aspx" 
+			iterationType="ROOT.schema[n].complexType[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata.applicationName}.OGenXSD-metadata.xml" />
+			<argument name="SchemaName" value="${ROOT.schema[n].element.name}" />
+			<argument name="ComplexTypeName" value="${ROOT.schema[n].complexType[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.schema[n].element.name}/${ROOT.metadata.prefix}${ROOT.schema[n].complexType[n].name}Collection.cs" 
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
 	<template name="XS-XS0_SomeClass.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.schema[n].complexType[n]">

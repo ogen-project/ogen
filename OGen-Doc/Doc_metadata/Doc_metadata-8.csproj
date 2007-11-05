@@ -92,127 +92,73 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="documentation\XS_authorsType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\XS_authorType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\XS_codeSamplesType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\XS_codeSampleType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\XS_configsType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\XS_configType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\XS_documentationType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\XS_documentsType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\XS_documentType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\XS_faqSubjectsType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\XS_faqSubjectType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\XS_faqType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\XS_linksType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\XS_linkType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\XS_subjectsType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\XS_subjectType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\XS__documentation.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\_base\XS0_authorsType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="documentation\XS_authorsType.cs" />
+    <Compile Include="documentation\XS_authorsTypeCollection.cs" />
+    <Compile Include="documentation\XS_authorType.cs" />
+    <Compile Include="documentation\XS_authorTypeCollection.cs" />
+    <Compile Include="documentation\XS_codeSamplesType.cs" />
+    <Compile Include="documentation\XS_codeSamplesTypeCollection.cs" />
+    <Compile Include="documentation\XS_codeSampleType.cs" />
+    <Compile Include="documentation\XS_codeSampleTypeCollection.cs" />
+    <Compile Include="documentation\XS_configsType.cs" />
+    <Compile Include="documentation\XS_configsTypeCollection.cs" />
+    <Compile Include="documentation\XS_configType.cs" />
+    <Compile Include="documentation\XS_configTypeCollection.cs" />
+    <Compile Include="documentation\XS_documentationType.cs" />
+    <Compile Include="documentation\XS_documentationTypeCollection.cs" />
+    <Compile Include="documentation\XS_documentsType.cs" />
+    <Compile Include="documentation\XS_documentsTypeCollection.cs" />
+    <Compile Include="documentation\XS_documentType.cs" />
+    <Compile Include="documentation\XS_documentTypeCollection.cs" />
+    <Compile Include="documentation\XS_faqSubjectsType.cs" />
+    <Compile Include="documentation\XS_faqSubjectsTypeCollection.cs" />
+    <Compile Include="documentation\XS_faqSubjectType.cs" />
+    <Compile Include="documentation\XS_faqSubjectTypeCollection.cs" />
+    <Compile Include="documentation\XS_faqType.cs" />
+    <Compile Include="documentation\XS_faqTypeCollection.cs" />
+    <Compile Include="documentation\XS_linksType.cs" />
+    <Compile Include="documentation\XS_linksTypeCollection.cs" />
+    <Compile Include="documentation\XS_linkType.cs" />
+    <Compile Include="documentation\XS_linkTypeCollection.cs" />
+    <Compile Include="documentation\XS_subjectsType.cs" />
+    <Compile Include="documentation\XS_subjectsTypeCollection.cs" />
+    <Compile Include="documentation\XS_subjectType.cs" />
+    <Compile Include="documentation\XS_subjectTypeCollection.cs" />
+    <Compile Include="documentation\XS__documentation.cs" />
+    <Compile Include="documentation\_base\XS0_authorsType.cs" />
     <Compile Include="documentation\_base\XS0_authorsTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0_authorType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="documentation\_base\XS0_authorType.cs" />
     <Compile Include="documentation\_base\XS0_authorTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0_codeSamplesType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="documentation\_base\XS0_codeSamplesType.cs" />
     <Compile Include="documentation\_base\XS0_codeSamplesTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0_codeSampleType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="documentation\_base\XS0_codeSampleType.cs" />
     <Compile Include="documentation\_base\XS0_codeSampleTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0_configsType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="documentation\_base\XS0_configsType.cs" />
     <Compile Include="documentation\_base\XS0_configsTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0_configType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="documentation\_base\XS0_configType.cs" />
     <Compile Include="documentation\_base\XS0_configTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0_documentationType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="documentation\_base\XS0_documentationType.cs" />
     <Compile Include="documentation\_base\XS0_documentationTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0_documentsType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="documentation\_base\XS0_documentsType.cs" />
     <Compile Include="documentation\_base\XS0_documentsTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0_documentType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="documentation\_base\XS0_documentType.cs" />
     <Compile Include="documentation\_base\XS0_documentTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0_faqSubjectsType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="documentation\_base\XS0_faqSubjectsType.cs" />
     <Compile Include="documentation\_base\XS0_faqSubjectsTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0_faqSubjectType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="documentation\_base\XS0_faqSubjectType.cs" />
     <Compile Include="documentation\_base\XS0_faqSubjectTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0_faqType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="documentation\_base\XS0_faqType.cs" />
     <Compile Include="documentation\_base\XS0_faqTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0_linksType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="documentation\_base\XS0_linksType.cs" />
     <Compile Include="documentation\_base\XS0_linksTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0_linkType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="documentation\_base\XS0_linkType.cs" />
     <Compile Include="documentation\_base\XS0_linkTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0_subjectsType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="documentation\_base\XS0_subjectsType.cs" />
     <Compile Include="documentation\_base\XS0_subjectsTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0_subjectType.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="documentation\_base\XS0_subjectType.cs" />
     <Compile Include="documentation\_base\XS0_subjectTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0__documentation.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\_base\XS0__documentationCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="documentation\_base\XS0__documentation.cs" />
+    <Compile Include="documentation\_base\XS0__documentationCollection.cs" />
     <Compile Include="utils.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -231,6 +177,8 @@
       <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
       <Name>OGen_webforms-8</Name>
     </ProjectReference>
+    <Folder Include="documentation" />
+    <Folder Include="documentation\_base" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

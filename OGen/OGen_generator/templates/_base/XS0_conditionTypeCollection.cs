@@ -20,8 +20,8 @@ using System.Collections.Generic;
 #endif
 
 namespace OGen.lib.templates {
-	public class XS_conditionTypeCollection {
-		public XS_conditionTypeCollection() {
+	public class XS0_conditionTypeCollection {
+		public XS0_conditionTypeCollection() {
 			cols_ = new
 				#if NET_1_1
 				ArrayList()

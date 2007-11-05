@@ -187,7 +187,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "templates\XS_argumentsTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "templates\XS_argumentType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "templates\XS_argumentTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -197,7 +207,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "templates\XS_conditionsTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "templates\XS_conditionType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "templates\XS_conditionTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -207,7 +227,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "templates\XS_dependenciesTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "templates\XS_dependencyType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "templates\XS_dependencyTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -217,7 +247,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "templates\XS_outputsTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "templates\XS_outputType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "templates\XS_outputTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -227,7 +267,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "templates\XS_templatesTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "templates\XS_templateType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "templates\XS_templateTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

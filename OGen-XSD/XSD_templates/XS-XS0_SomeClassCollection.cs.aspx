@@ -61,8 +61,8 @@ using System.Collections.Generic;
 #endif
 
 namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Element.Name%> {
-	public class <%=XS_%><%=_aux_complextype.Name%>Collection {
-		public <%=XS_%><%=_aux_complextype.Name%>Collection() {
+	public class <%=XS0_%><%=_aux_complextype.Name%>Collection {
+		public <%=XS0_%><%=_aux_complextype.Name%>Collection() {
 			cols_ = new
 				#if NET_1_1
 				ArrayList()

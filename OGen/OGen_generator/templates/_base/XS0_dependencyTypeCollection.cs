@@ -20,8 +20,8 @@ using System.Collections.Generic;
 #endif
 
 namespace OGen.lib.templates {
-	public class XS_dependencyTypeCollection {
-		public XS_dependencyTypeCollection() {
+	public class XS0_dependencyTypeCollection {
+		public XS0_dependencyTypeCollection() {
 			cols_ = new
 				#if NET_1_1
 				ArrayList()

@@ -141,7 +141,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "documentation\XS_authorsTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "documentation\XS_authorType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "documentation\XS_authorTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -151,7 +161,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "documentation\XS_codeSamplesTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "documentation\XS_codeSampleType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "documentation\XS_codeSampleTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -161,7 +181,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "documentation\XS_configsTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "documentation\XS_configType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "documentation\XS_configTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -171,7 +201,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "documentation\XS_documentationTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "documentation\XS_documentsType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "documentation\XS_documentsTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -181,7 +221,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "documentation\XS_documentTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "documentation\XS_faqSubjectsType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "documentation\XS_faqSubjectsTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -191,7 +241,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "documentation\XS_faqSubjectTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "documentation\XS_faqType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "documentation\XS_faqTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -201,7 +261,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "documentation\XS_linksTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "documentation\XS_linkType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "documentation\XS_linkTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -211,7 +281,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "documentation\XS_subjectsTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "documentation\XS_subjectType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "documentation\XS_subjectTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

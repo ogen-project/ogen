@@ -157,151 +157,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "ClaSSe\cDBMetadata.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\utils.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\DBs\cDBMetadata_DBs.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\DBs\iDBMetadata_DBs.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\DBs\DB\cDBMetadata_DB.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\DBs\DB\Connections\cDBMetadata_DB_Connections.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\DBs\DB\Connections\Connection\cDBMetadata_DB_Connection.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\Tables\cDBMetadata_Tables.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\Tables\iDBMetadata_Tables.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\Tables\Field-generic\cDBMetadata_Field_ref.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\Tables\Field-generic\cDBMetadata_Field_refs.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\Tables\Field-generic\iDBMetadata_Field_refs__base.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\Tables\Field-generic\iDBMetadata_Field_refs_SearchParameters.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\Tables\Field-generic\iDBMetadata_Field_refs_UpdateParameters.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\Tables\Table\cDBMetadata_Table.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\Tables\Table\DBs\cDBMetadata_Table_DBs.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\Tables\Table\DBs\DB\cDBMetadata_Table_DB.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\Tables\Table\Fields\cDBMetadata_Table_Fields.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\Tables\Table\Fields\iDBMetadata_Table_Fields.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\Tables\Table\Fields\Field\cDBMetadata_Table_Field.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\Tables\Table\Fields\Field\DBs\cDBMetadata_Table_Field_DBs.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\Tables\Table\Fields\Field\DBs\DB\cDBMetadata_Table_Field_DB.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\Tables\Table\Fields-generic\cDBMetadata_Table_Fields_FK.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\Tables\Table\Fields-generic\cDBMetadata_Table_Fields_PK.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\Tables\Table\Searches\cDBMetadata_Table_Searches.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\Tables\Table\Searches\iDBMetadata_Table_Searches.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\Tables\Table\Searches\Search\cDBMetadata_Table_Search.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\Tables\Updates-generic\cDBMetadata_Updates.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ClaSSe\Tables\Updates-generic\Update\cDBMetadata_Update.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "metadataDB\XS__metadataDB.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -312,7 +167,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "metadataDB\XS_metadataDBTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "metadataDB\XS_tableDBsType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "metadataDB\XS_tableDBsTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -322,7 +187,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "metadataDB\XS_tableDBTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "metadataDB\XS_tableFieldDBsType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "metadataDB\XS_tableFieldDBsTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -332,7 +207,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "metadataDB\XS_tableFieldDBTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "metadataDB\XS_tableFieldsType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "metadataDB\XS_tableFieldsTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -342,12 +227,27 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "metadataDB\XS_tableFieldTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "metadataDB\XS_tablesType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "metadataDB\XS_tablesTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "metadataDB\XS_tableType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "metadataDB\XS_tableTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -462,7 +362,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "metadataExtended\XS_dbConnectionsTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "metadataExtended\XS_dbConnectionType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "metadataExtended\XS_dbConnectionTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -472,7 +382,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "metadataExtended\XS_dbsTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "metadataExtended\XS_dbType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "metadataExtended\XS_dbTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -482,7 +402,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "metadataExtended\XS_metadataExtendedTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "metadataExtended\XS_tableFieldRefType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "metadataExtended\XS_tableFieldRefTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -492,7 +422,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "metadataExtended\XS_tableFieldsTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "metadataExtended\XS_tableFieldType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "metadataExtended\XS_tableFieldTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -502,7 +442,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "metadataExtended\XS_tableSearchesTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "metadataExtended\XS_tableSearchParametersType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "metadataExtended\XS_tableSearchParametersTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -512,7 +462,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "metadataExtended\XS_tableSearchTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "metadataExtended\XS_tableSearchUpdateParametersType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "metadataExtended\XS_tableSearchUpdateParametersTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -522,7 +482,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "metadataExtended\XS_tableSearchUpdatesTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "metadataExtended\XS_tableSearchUpdateType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "metadataExtended\XS_tableSearchUpdateTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -532,7 +502,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "metadataExtended\XS_tablesTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "metadataExtended\XS_tableType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "metadataExtended\XS_tableTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -542,12 +522,27 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "metadataExtended\XS_tableUpdateParametersTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "metadataExtended\XS_tableUpdatesType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "metadataExtended\XS_tableUpdatesTypeCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "metadataExtended\XS_tableUpdateType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "metadataExtended\XS_tableUpdateTypeCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
