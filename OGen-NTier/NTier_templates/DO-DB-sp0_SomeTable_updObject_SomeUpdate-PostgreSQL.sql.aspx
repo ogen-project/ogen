@@ -45,7 +45,11 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 
 #endregion
 //-----------------------------------------------------------------------------------------
-%>CREATE OR REPLACE FUNCTION "sp0__APAGAR"(
+
+// ToDos: later!
+throw new Exception("not implemented! (DO-DB-sp0_SomeTable_updObject_SomeUpdate-PostgreSQL.sql.aspx)");
+
+%>CREATE OR REPLACE FUNCTION "sp0_<%=_aux_db_table.Name%>_updObject_<%=aux_update.Name%>"(
 )
 returns boolean
 as $BODY$

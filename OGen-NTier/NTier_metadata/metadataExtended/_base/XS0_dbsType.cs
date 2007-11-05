@@ -49,6 +49,32 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			get { return root_ref_; }
 		}
 		#endregion
+		#region public string NameCase_defaultProvider { get; set; }
+		private string namecase_defaultprovider_;
+
+		[XmlAttribute("nameCase_defaultProvider")]
+		public string NameCase_defaultProvider {
+			get {
+				return namecase_defaultprovider_;
+			}
+			set {
+				namecase_defaultprovider_ = value;
+			}
+		}
+		#endregion
+		#region public string Description_defaultProvider { get; set; }
+		private string description_defaultprovider_;
+
+		[XmlAttribute("description_defaultProvider")]
+		public string Description_defaultProvider {
+			get {
+				return description_defaultprovider_;
+			}
+			set {
+				description_defaultprovider_ = value;
+			}
+		}
+		#endregion
 		#region public XS_dbTypeCollection DBCollection { get; }
 		private XS_dbTypeCollection dbcollection_;
 
@@ -68,6 +94,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public void CopyFrom(XS_dbsType dbsType_in) {
 			int _index = -1;
 
+			namecase_defaultprovider_ = dbsType_in.namecase_defaultprovider_;
+			description_defaultprovider_ = dbsType_in.description_defaultprovider_;
 			dbcollection_.Clear();
 			for (int d = 0; d < dbsType_in.dbcollection_.Count; d++) {
 				dbcollection_.Add(

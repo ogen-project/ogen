@@ -45,9 +45,6 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableUpdateType _aux_ex_update
 	= _aux_ex_table.TableUpdates.TableUpdateCollection[_arg_UpdateName];
 
 
-cDBMetadata_Table_Search _aux_search = _aux_table.Searches[_arg_SearchName];
-cDBMetadata_Update update = _aux_search.Updates[_arg_UpdateName];
-
 XS_tableSearchType _aux_ex_search
 	= _aux_ex_table.TableSearches.TableSearchCollection[_arg_SearchName];
 XS_tableSearchUpdateType _aux_ex_update 

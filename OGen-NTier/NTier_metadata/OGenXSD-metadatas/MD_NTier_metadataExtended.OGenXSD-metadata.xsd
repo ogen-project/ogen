@@ -22,7 +22,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		guidDatalayer="" guidDatalayer_UTs="" guidBusinesslayer="" guidBusinesslayer_UTs="" guidTest=""
 		feedbackEmailAddress="" copyrightText="">
 		<copyrightTextLong>...</copyrightTextLong>
-		<dbs>
+		<dbs 
+			nameCase_defaultProvider="PostgreSQL"
+			description_defaultProvider="PostgreSQL">
+
 			<db dbServerType="PostgreSQL">
 				<dbConnections>
 					<dbConnection configMode="DEBUG" isDefault="True" generateSQL="True" isIndexed_andReadOnly="False" 
@@ -128,12 +131,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</xs:sequence>
 	</xs:complexType>
 	<!--
-		<dbs>
+		<dbs 
+			nameCase_defaultProvider="PostgreSQL"
+			description_defaultProvider="PostgreSQL">
+
 			<db ... />
 			<db ... />
 		</dbs>
 	-->
 	<xs:complexType name="dbsType">
+		<xs:attribute name="nameCase_defaultProvider" type="xs:string" />
+		<xs:attribute name="description_defaultProvider" type="xs:string" />
+
 		<xs:sequence>
 			<xs:element name="db" type="dbType" maxOccurs="unbounded" />
 		</xs:sequence>
