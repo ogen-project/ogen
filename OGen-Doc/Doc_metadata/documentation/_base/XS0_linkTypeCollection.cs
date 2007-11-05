@@ -20,8 +20,16 @@ using System.Collections.Generic;
 #endif
 
 namespace OGen.Doc.lib.metadata.documentation {
+	#if NET_1_1
 	public class XS0_linkTypeCollection {
+	#else
+	public partial class XS_linkTypeCollection {
+	#endif
+		#if NET_1_1
 		public XS0_linkTypeCollection() {
+		#else
+		public XS_linkTypeCollection() {
+		#endif
 			cols_ = new
 				#if NET_1_1
 				ArrayList()

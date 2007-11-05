@@ -20,8 +20,16 @@ using System.Collections.Generic;
 #endif
 
 namespace OGen.Doc.lib.metadata.documentation {
+	#if NET_1_1
 	public class XS0_faqSubjectsTypeCollection {
+	#else
+	public partial class XS_faqSubjectsTypeCollection {
+	#endif
+		#if NET_1_1
 		public XS0_faqSubjectsTypeCollection() {
+		#else
+		public XS_faqSubjectsTypeCollection() {
+		#endif
 			cols_ = new
 				#if NET_1_1
 				ArrayList()

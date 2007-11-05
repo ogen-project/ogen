@@ -20,6 +20,10 @@ using System.Collections.Generic;
 #endif
 
 namespace OGen.Doc.lib.metadata.documentation {
+	#if NET_1_1
 	public class XS_documentsTypeCollection : XS0_documentsTypeCollection {
+	#else
+	public partial class XS_documentsTypeCollection {
+	#endif
 	}
 }

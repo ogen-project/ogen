@@ -20,8 +20,16 @@ using System.Collections.Generic;
 #endif
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	#if NET_1_1
 	public class XS0_dbTypeCollection {
+	#else
+	public partial class XS_dbTypeCollection {
+	#endif
+		#if NET_1_1
 		public XS0_dbTypeCollection() {
+		#else
+		public XS_dbTypeCollection() {
+		#endif
 			cols_ = new
 				#if NET_1_1
 				ArrayList()

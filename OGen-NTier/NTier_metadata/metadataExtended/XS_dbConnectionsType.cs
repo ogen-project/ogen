@@ -18,17 +18,14 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class XS_dbConnectionsType
-		#if NET_1_1
-			: XS0_dbConnectionsType
-		#endif
-	{
+	#if NET_1_1
+	public class XS_dbConnectionsType : XS0_dbConnectionsType
+	#else
+	public partial class XS_dbConnectionsType {
+	#endif
 		public XS_dbConnectionsType (
 		) {
+			dbconnectioncollection_ = new XS_dbConnectionTypeCollection();
 		}
 	}
 }

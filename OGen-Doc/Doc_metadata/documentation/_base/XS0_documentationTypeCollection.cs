@@ -20,8 +20,16 @@ using System.Collections.Generic;
 #endif
 
 namespace OGen.Doc.lib.metadata.documentation {
+	#if NET_1_1
 	public class XS0_documentationTypeCollection {
+	#else
+	public partial class XS_documentationTypeCollection {
+	#endif
+		#if NET_1_1
 		public XS0_documentationTypeCollection() {
+		#else
+		public XS_documentationTypeCollection() {
+		#endif
 			cols_ = new
 				#if NET_1_1
 				ArrayList()

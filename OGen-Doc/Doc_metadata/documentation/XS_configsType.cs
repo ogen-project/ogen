@@ -18,17 +18,14 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class XS_configsType
-		#if NET_1_1
-			: XS0_configsType
-		#endif
-	{
+	#if NET_1_1
+	public class XS_configsType : XS0_configsType
+	#else
+	public partial class XS_configsType {
+	#endif
 		public XS_configsType (
 		) {
+			configcollection_ = new XS_configTypeCollection();
 		}
 	}
 }

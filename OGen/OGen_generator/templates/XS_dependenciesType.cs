@@ -18,17 +18,14 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class XS_dependenciesType
-		#if NET_1_1
-			: XS0_dependenciesType
-		#endif
-	{
+	#if NET_1_1
+	public class XS_dependenciesType : XS0_dependenciesType
+	#else
+	public partial class XS_dependenciesType {
+	#endif
 		public XS_dependenciesType (
 		) {
+			dependencycollection_ = new XS_dependencyTypeCollection();
 		}
 	}
 }

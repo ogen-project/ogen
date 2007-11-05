@@ -18,17 +18,14 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class XS_tablesType
-		#if NET_1_1
-			: XS0_tablesType
-		#endif
-	{
+	#if NET_1_1
+	public class XS_tablesType : XS0_tablesType
+	#else
+	public partial class XS_tablesType {
+	#endif
 		public XS_tablesType (
 		) {
+			tablecollection_ = new XS_tableTypeCollection();
 		}
 
 		#region public bool hasVirtualTable_withUndefinedKeys { get; }

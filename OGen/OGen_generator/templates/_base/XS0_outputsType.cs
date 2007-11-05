@@ -19,17 +19,11 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class 
-		#if NET_1_1
-			XS0_outputsType
-		#else
-			XS_outputsType
-		#endif
-	{
+	#if NET_1_1
+	public class XS0_outputsType {
+	#else
+	public partial XS_outputsType {
+	#endif
 		#region public XS_outputTypeCollection OutputCollection { get; }
 		internal XS_outputTypeCollection outputcollection_;
 

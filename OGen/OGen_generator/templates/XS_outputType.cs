@@ -18,15 +18,11 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class XS_outputType
-		#if NET_1_1
-			: XS0_outputType
-		#endif
-	{
+	#if NET_1_1
+	public class XS_outputType : XS0_outputType
+	#else
+	public partial class XS_outputType {
+	#endif
 		public XS_outputType (
 		) {
 		}

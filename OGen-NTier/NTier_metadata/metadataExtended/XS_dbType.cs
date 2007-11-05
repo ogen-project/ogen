@@ -18,15 +18,11 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class XS_dbType
-		#if NET_1_1
-			: XS0_dbType
-		#endif
-	{
+	#if NET_1_1
+	public class XS_dbType : XS0_dbType
+	#else
+	public partial class XS_dbType {
+	#endif
 		public XS_dbType (
 		) {
 		}

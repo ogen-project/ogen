@@ -18,15 +18,11 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class XS_tableSearchUpdateType
-		#if NET_1_1
-			: XS0_tableSearchUpdateType
-		#endif
-	{
+	#if NET_1_1
+	public class XS_tableSearchUpdateType : XS0_tableSearchUpdateType
+	#else
+	public partial class XS_tableSearchUpdateType {
+	#endif
 		public XS_tableSearchUpdateType (
 		) {
 		}

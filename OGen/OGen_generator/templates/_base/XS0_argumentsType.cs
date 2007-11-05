@@ -19,17 +19,11 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class 
-		#if NET_1_1
-			XS0_argumentsType
-		#else
-			XS_argumentsType
-		#endif
-	{
+	#if NET_1_1
+	public class XS0_argumentsType {
+	#else
+	public partial XS_argumentsType {
+	#endif
 		#region public XS_argumentTypeCollection ArgumentCollection { get; }
 		internal XS_argumentTypeCollection argumentcollection_;
 

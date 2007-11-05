@@ -18,15 +18,11 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class XS_argumentType
-		#if NET_1_1
-			: XS0_argumentType
-		#endif
-	{
+	#if NET_1_1
+	public class XS_argumentType : XS0_argumentType
+	#else
+	public partial class XS_argumentType {
+	#endif
 		public XS_argumentType (
 		) {
 		}

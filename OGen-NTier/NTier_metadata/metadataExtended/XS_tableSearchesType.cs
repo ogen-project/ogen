@@ -18,17 +18,14 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class XS_tableSearchesType
-		#if NET_1_1
-			: XS0_tableSearchesType
-		#endif
-	{
+	#if NET_1_1
+	public class XS_tableSearchesType : XS0_tableSearchesType
+	#else
+	public partial class XS_tableSearchesType {
+	#endif
 		public XS_tableSearchesType (
 		) {
+			tablesearchcollection_ = new XS_tableSearchTypeCollection();
 		}
 
 		#region public bool hasExplicitUniqueIndex { get; }

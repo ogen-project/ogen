@@ -20,6 +20,10 @@ using System.Collections.Generic;
 #endif
 
 namespace OGen.NTier.lib.metadata.metadataDB {
+	#if NET_1_1
 	public class XS_tablesTypeCollection : XS0_tablesTypeCollection {
+	#else
+	public partial class XS_tablesTypeCollection {
+	#endif
 	}
 }

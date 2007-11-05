@@ -18,17 +18,14 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class XS_faqSubjectType
-		#if NET_1_1
-			: XS0_faqSubjectType
-		#endif
-	{
+	#if NET_1_1
+	public class XS_faqSubjectType : XS0_faqSubjectType
+	#else
+	public partial class XS_faqSubjectType {
+	#endif
 		public XS_faqSubjectType (
 		) {
+			faqcollection_ = new XS_faqTypeCollection();
 		}
 		public XS_faqSubjectType (
 			string idFAQSubject_in

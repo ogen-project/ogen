@@ -18,17 +18,14 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class XS_documentsType
-		#if NET_1_1
-			: XS0_documentsType
-		#endif
-	{
+	#if NET_1_1
+	public class XS_documentsType : XS0_documentsType
+	#else
+	public partial class XS_documentsType {
+	#endif
 		public XS_documentsType (
 		) {
+			documentcollection_ = new XS_documentTypeCollection();
 		}
 	}
 }

@@ -20,8 +20,16 @@ using System.Collections.Generic;
 #endif
 
 namespace OGen.lib.templates {
+	#if NET_1_1
 	public class XS0_argumentsTypeCollection {
+	#else
+	public partial class XS_argumentsTypeCollection {
+	#endif
+		#if NET_1_1
 		public XS0_argumentsTypeCollection() {
+		#else
+		public XS_argumentsTypeCollection() {
+		#endif
 			cols_ = new
 				#if NET_1_1
 				ArrayList()

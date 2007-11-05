@@ -52,7 +52,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.schema[n].element.name}/${ROOT.metadata.prefix}${ROOT.schema[n].complexType[n].name}Collection.cs" 
-				type="File" mode="Replace" />
+				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
 	</template>

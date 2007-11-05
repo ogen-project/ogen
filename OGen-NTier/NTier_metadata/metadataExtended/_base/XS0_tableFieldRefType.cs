@@ -19,17 +19,11 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class 
-		#if NET_1_1
-			XS0_tableFieldRefType
-		#else
-			XS_tableFieldRefType
-		#endif
-	{
+	#if NET_1_1
+	public class XS0_tableFieldRefType {
+	#else
+	public partial XS_tableFieldRefType {
+	#endif
 
 		#region public object parent_ref { get; }
 		internal object parent_ref_;

@@ -18,15 +18,11 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class XS_tableFieldType
-		#if NET_1_1
-			: XS0_tableFieldType
-		#endif
-	{
+	#if NET_1_1
+	public class XS_tableFieldType : XS0_tableFieldType
+	#else
+	public partial class XS_tableFieldType {
+	#endif
 		public XS_tableFieldType (
 		) {
 		}

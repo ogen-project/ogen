@@ -18,15 +18,11 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class XS_faqType
-		#if NET_1_1
-			: XS0_faqType
-		#endif
-	{
+	#if NET_1_1
+	public class XS_faqType : XS0_faqType
+	#else
+	public partial class XS_faqType {
+	#endif
 		public XS_faqType (
 		) {
 		}

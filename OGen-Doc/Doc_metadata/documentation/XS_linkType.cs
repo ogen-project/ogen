@@ -18,15 +18,11 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class XS_linkType
-		#if NET_1_1
-			: XS0_linkType
-		#endif
-	{
+	#if NET_1_1
+	public class XS_linkType : XS0_linkType
+	#else
+	public partial class XS_linkType {
+	#endif
 		public XS_linkType (
 		) {
 		}

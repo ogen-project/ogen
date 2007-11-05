@@ -19,15 +19,11 @@ using OGen.lib.collections;
 using OGen.lib.datalayer;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class XS_tableFieldDBType
-		#if NET_1_1
-			: XS0_tableFieldDBType
-		#endif
-	{
+	#if NET_1_1
+	public class XS_tableFieldDBType : XS0_tableFieldDBType
+	#else
+	public partial class XS_tableFieldDBType {
+	#endif
 		public XS_tableFieldDBType (
 		) {
 		}

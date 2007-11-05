@@ -19,17 +19,11 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class 
-		#if NET_1_1
-			XS0_outputType
-		#else
-			XS_outputType
-		#endif
-	{
+	#if NET_1_1
+	public class XS0_outputType {
+	#else
+	public partial XS_outputType {
+	#endif
 		#region public string To { get; set; }
 		internal string to_;
 

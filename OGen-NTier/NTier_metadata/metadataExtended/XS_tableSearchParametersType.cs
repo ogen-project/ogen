@@ -18,17 +18,14 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class XS_tableSearchParametersType
-		#if NET_1_1
-			: XS0_tableSearchParametersType
-		#endif
-	{
+	#if NET_1_1
+	public class XS_tableSearchParametersType : XS0_tableSearchParametersType
+	#else
+	public partial class XS_tableSearchParametersType {
+	#endif
 		public XS_tableSearchParametersType (
 		) {
+			tablefieldrefcollection_ = new XS_tableFieldRefTypeCollection();
 		}
 	}
 }

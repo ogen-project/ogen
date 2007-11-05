@@ -19,17 +19,11 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public 
-		#if !NET_1_1
-			partial
-		#endif
-		class 
-		#if NET_1_1
-			XS0_faqSubjectsType
-		#else
-			XS_faqSubjectsType
-		#endif
-	{
+	#if NET_1_1
+	public class XS0_faqSubjectsType {
+	#else
+	public partial XS_faqSubjectsType {
+	#endif
 
 		#region public object parent_ref { get; }
 		internal object parent_ref_;

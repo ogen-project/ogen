@@ -27,12 +27,16 @@ RootMetadata _aux_rootmetadata = RootMetadata.Load_fromFile(
 XS_Schema _aux_schema = _aux_rootmetadata.SchemaCollection[_arg_SchemaName];
 
 XS_ComplexType _aux_complextype = _aux_schema.ComplexType[_arg_ComplexTypeName];
+XS_ElementCollection _aux_elements = _aux_complextype.Sequence.Element;
 
 ComplexTypeItem[] _aux_complextype_keys = null;
 bool _aux_complextype_mustimplementcollection = _aux_complextype.mustImplementCollection(
 	_arg_SchemaName,
 	out _aux_complextype_keys
 );
+
+bool __aux_isCollection = false;
+ComplexTypeItem[] __aux_isCollection_items = null;
 
 string XS0_ = _aux_rootmetadata.ExtendedMetadata.PrefixGenerated;
 string XS_ = _aux_rootmetadata.ExtendedMetadata.Prefix;
@@ -61,7 +65,16 @@ namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Eleme
 	public partial class <%=XS_%><%=_aux_complextype.Name%> {
 	#endif
 		public <%=XS_%><%=_aux_complextype.Name%> (
-		) {
+		) {<%
+			for (int e = 0; e < _aux_elements.Count; e++) {
+				if (_aux_elements[e].MaxOccurs == XS_Element.MaxOccursEnum.unbounded) {
+					__aux_isCollection = _aux_elements[e].isCollection(
+						_arg_SchemaName, 
+						out __aux_isCollection_items
+					);%><%=""%>
+			<%=_aux_elements[e].Name.ToLower()%>collection_ = new <%=XS_%><%=_aux_elements[e].Type%>Collection();<%
+				}
+			}%>
 		}<%
 		if (_aux_complextype_keys != null) {%>
 		public <%=XS_%><%=_aux_complextype.Name%> (<%
