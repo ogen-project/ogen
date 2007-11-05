@@ -23,9 +23,5 @@ namespace OGen.Doc.lib.metadata.documentation {
 	#else
 	public partial class XS_faqSubjectsType {
 	#endif
-		public XS_faqSubjectsType (
-		) {
-			faqsubjectcollection_ = new XS_faqSubjectTypeCollection();
-		}
 	}
 }

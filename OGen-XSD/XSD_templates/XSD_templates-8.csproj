@@ -63,6 +63,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </None>
     <None Include="XS-XS_SomeClass.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -94,7 +95,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="XS-XS__BaseClass.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="XS-XS__RootMetadata.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>

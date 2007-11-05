@@ -23,10 +23,6 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 	#else
 	public partial class XS_tableSearchesType {
 	#endif
-		public XS_tableSearchesType (
-		) {
-			tablesearchcollection_ = new XS_tableSearchTypeCollection();
-		}
 
 		#region public bool hasExplicitUniqueIndex { get; }
 		private bool hasexplicituniqueindex_DONE__ = false;

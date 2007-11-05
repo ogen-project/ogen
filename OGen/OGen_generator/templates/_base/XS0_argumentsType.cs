@@ -25,7 +25,8 @@ namespace OGen.lib.templates {
 	public partial class XS_argumentsType {
 	#endif
 		#region public XS_argumentTypeCollection ArgumentCollection { get; }
-		internal XS_argumentTypeCollection argumentcollection_;
+		internal XS_argumentTypeCollection argumentcollection_ 
+			= new XS_argumentTypeCollection();
 
 		[XmlElement("argument")]
 		public XS_argumentType[] argumentcollection__xml {

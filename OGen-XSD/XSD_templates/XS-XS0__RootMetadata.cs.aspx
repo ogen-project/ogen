@@ -212,8 +212,8 @@ namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%> {
 			}%>
 			throw new Exception(string.Format(
 				"\n---\n{0}.{1}.Read_fromRoot(string what_in): can't handle: {2}\n---",
-				typeof(<%=XS0__%>RootMetadata).Namespace,
-				typeof(<%=XS0__%>RootMetadata).Name,
+				typeof(<%=XS__%>RootMetadata).Namespace,
+				typeof(<%=XS__%>RootMetadata).Name,
 				what_in
 			));
 		}
@@ -268,8 +268,8 @@ namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%> {
 			if (!_didit) {
 				throw new Exception(string.Format(
 					"\n---\n{0}.{1}.IterateThrough_fromRoot(...): can't handle: {2}\n---",
-					typeof(<%=XS0__%>RootMetadata).Namespace,
-					typeof(<%=XS0__%>RootMetadata).Name,
+					typeof(<%=XS__%>RootMetadata).Namespace,
+					typeof(<%=XS__%>RootMetadata).Name,
 					iteration_in
 				));
 			}

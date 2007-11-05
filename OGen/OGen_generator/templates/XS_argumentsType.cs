@@ -23,9 +23,5 @@ namespace OGen.lib.templates {
 	#else
 	public partial class XS_argumentsType {
 	#endif
-		public XS_argumentsType (
-		) {
-			argumentcollection_ = new XS_argumentTypeCollection();
-		}
 	}
 }

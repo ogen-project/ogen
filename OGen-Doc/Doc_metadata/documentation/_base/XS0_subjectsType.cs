@@ -50,7 +50,8 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS_subjectTypeCollection SubjectCollection { get; }
-		internal XS_subjectTypeCollection subjectcollection_;
+		internal XS_subjectTypeCollection subjectcollection_ 
+			= new XS_subjectTypeCollection();
 
 		[XmlElement("subject")]
 		public XS_subjectType[] subjectcollection__xml {

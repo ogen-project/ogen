@@ -23,8 +23,5 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 	#else
 	public partial class XS_metadataDBType {
 	#endif
-		public XS_metadataDBType (
-		) {
-		}
 	}
 }

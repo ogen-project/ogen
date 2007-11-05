@@ -50,7 +50,8 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS_authorTypeCollection AuthorCollection { get; }
-		internal XS_authorTypeCollection authorcollection_;
+		internal XS_authorTypeCollection authorcollection_ 
+			= new XS_authorTypeCollection();
 
 		[XmlElement("author")]
 		public XS_authorType[] authorcollection__xml {

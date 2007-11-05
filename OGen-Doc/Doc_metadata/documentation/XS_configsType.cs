@@ -23,9 +23,5 @@ namespace OGen.Doc.lib.metadata.documentation {
 	#else
 	public partial class XS_configsType {
 	#endif
-		public XS_configsType (
-		) {
-			configcollection_ = new XS_configTypeCollection();
-		}
 	}
 }

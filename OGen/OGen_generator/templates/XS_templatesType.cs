@@ -23,9 +23,5 @@ namespace OGen.lib.templates {
 	#else
 	public partial class XS_templatesType {
 	#endif
-		public XS_templatesType (
-		) {
-			templatecollection_ = new XS_templateTypeCollection();
-		}
 	}
 }

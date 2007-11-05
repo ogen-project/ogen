@@ -25,7 +25,8 @@ namespace OGen.lib.templates {
 	public partial class XS_outputsType {
 	#endif
 		#region public XS_outputTypeCollection OutputCollection { get; }
-		internal XS_outputTypeCollection outputcollection_;
+		internal XS_outputTypeCollection outputcollection_ 
+			= new XS_outputTypeCollection();
 
 		[XmlElement("output")]
 		public XS_outputType[] outputcollection__xml {

@@ -35,9 +35,6 @@ bool _aux_complextype_mustimplementcollection = _aux_complextype.mustImplementCo
 	out _aux_complextype_keys
 );
 
-bool __aux_isCollection = false;
-ComplexTypeItem[] __aux_isCollection_items = null;
-
 string XS0_ = _aux_rootmetadata.ExtendedMetadata.PrefixGenerated;
 string XS_ = _aux_rootmetadata.ExtendedMetadata.Prefix;
 string XS0__ = _aux_rootmetadata.ExtendedMetadata.PrefixBaseGenerated;
@@ -63,20 +60,11 @@ namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Eleme
 	public class <%=XS_%><%=_aux_complextype.Name%> : <%=XS0_%><%=_aux_complextype.Name%> {
 	#else
 	public partial class <%=XS_%><%=_aux_complextype.Name%> {
-	#endif
-		public <%=XS_%><%=_aux_complextype.Name%> (
-		) {<%
-			for (int e = 0; e < _aux_elements.Count; e++) {
-				if (_aux_elements[e].MaxOccurs == XS_Element.MaxOccursEnum.unbounded) {
-					__aux_isCollection = _aux_elements[e].isCollection(
-						_arg_SchemaName, 
-						out __aux_isCollection_items
-					);%><%=""%>
-			<%=_aux_elements[e].Name.ToLower()%>collection_ = new <%=XS_%><%=_aux_elements[e].Type%>Collection();<%
-				}
-			}%>
-		}<%
+	#endif<%
 		if (_aux_complextype_keys != null) {%>
+		public <%=XS_%><%=_aux_complextype.Name%> (
+		) {
+		}
 		public <%=XS_%><%=_aux_complextype.Name%> (<%
 		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
 			<%=_aux_complextype_keys[k].NType%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%

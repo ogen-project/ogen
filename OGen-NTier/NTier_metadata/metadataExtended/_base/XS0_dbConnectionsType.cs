@@ -50,7 +50,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public XS_dbConnectionTypeCollection DBConnectionCollection { get; }
-		internal XS_dbConnectionTypeCollection dbconnectioncollection_;
+		internal XS_dbConnectionTypeCollection dbconnectioncollection_ 
+			= new XS_dbConnectionTypeCollection();
 
 		[XmlElement("dbConnection")]
 		public XS_dbConnectionType[] dbconnectioncollection__xml {

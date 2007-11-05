@@ -23,9 +23,5 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 	#else
 	public partial class XS_tableFieldsType {
 	#endif
-		public XS_tableFieldsType (
-		) {
-			tablefieldcollection_ = new XS_tableFieldTypeCollection();
-		}
 	}
 }

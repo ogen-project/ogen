@@ -23,9 +23,5 @@ namespace OGen.Doc.lib.metadata.documentation {
 	#else
 	public partial class XS_codeSamplesType {
 	#endif
-		public XS_codeSamplesType (
-		) {
-			codesamplecollection_ = new XS_codeSampleTypeCollection();
-		}
 	}
 }

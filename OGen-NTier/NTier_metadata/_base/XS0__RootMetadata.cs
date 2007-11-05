@@ -213,8 +213,8 @@ namespace OGen.NTier.lib.metadata {
 			}
 			throw new Exception(string.Format(
 				"\n---\n{0}.{1}.Read_fromRoot(string what_in): can't handle: {2}\n---",
-				typeof(XS0__RootMetadata).Namespace,
-				typeof(XS0__RootMetadata).Name,
+				typeof(XS__RootMetadata).Namespace,
+				typeof(XS__RootMetadata).Name,
 				what_in
 			));
 		}
@@ -303,8 +303,8 @@ namespace OGen.NTier.lib.metadata {
 			if (!_didit) {
 				throw new Exception(string.Format(
 					"\n---\n{0}.{1}.IterateThrough_fromRoot(...): can't handle: {2}\n---",
-					typeof(XS0__RootMetadata).Namespace,
-					typeof(XS0__RootMetadata).Name,
+					typeof(XS__RootMetadata).Namespace,
+					typeof(XS__RootMetadata).Name,
 					iteration_in
 				));
 			}

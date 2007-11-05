@@ -23,10 +23,6 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 	#else
 	public partial class XS_tablesType {
 	#endif
-		public XS_tablesType (
-		) {
-			tablecollection_ = new XS_tableTypeCollection();
-		}
 
 		#region public bool hasVirtualTable_withUndefinedKeys { get; }
 		private bool hasvirtualtable_withundefinedkeys_DONE__ = false;

@@ -50,7 +50,8 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS_documentTypeCollection DocumentCollection { get; }
-		internal XS_documentTypeCollection documentcollection_;
+		internal XS_documentTypeCollection documentcollection_ 
+			= new XS_documentTypeCollection();
 
 		[XmlElement("document")]
 		public XS_documentType[] documentcollection__xml {

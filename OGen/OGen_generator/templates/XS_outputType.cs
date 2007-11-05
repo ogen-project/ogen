@@ -23,8 +23,5 @@ namespace OGen.lib.templates {
 	#else
 	public partial class XS_outputType {
 	#endif
-		public XS_outputType (
-		) {
-		}
 	}
 }

@@ -50,7 +50,8 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS_configTypeCollection ConfigCollection { get; }
-		internal XS_configTypeCollection configcollection_;
+		internal XS_configTypeCollection configcollection_ 
+			= new XS_configTypeCollection();
 
 		[XmlElement("config")]
 		public XS_configType[] configcollection__xml {

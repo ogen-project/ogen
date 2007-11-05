@@ -23,9 +23,5 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 	#else
 	public partial class XS_tableUpdatesType {
 	#endif
-		public XS_tableUpdatesType (
-		) {
-			tableupdatecollection_ = new XS_tableUpdateTypeCollection();
-		}
 	}
 }

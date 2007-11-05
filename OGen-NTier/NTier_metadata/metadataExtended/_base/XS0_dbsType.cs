@@ -76,7 +76,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public XS_dbTypeCollection DBCollection { get; }
-		internal XS_dbTypeCollection dbcollection_;
+		internal XS_dbTypeCollection dbcollection_ 
+			= new XS_dbTypeCollection();
 
 		[XmlElement("db")]
 		public XS_dbType[] dbcollection__xml {

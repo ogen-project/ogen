@@ -50,7 +50,8 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS_codeSampleTypeCollection CodeSampleCollection { get; }
-		internal XS_codeSampleTypeCollection codesamplecollection_;
+		internal XS_codeSampleTypeCollection codesamplecollection_ 
+			= new XS_codeSampleTypeCollection();
 
 		[XmlElement("codeSample")]
 		public XS_codeSampleType[] codesamplecollection__xml {

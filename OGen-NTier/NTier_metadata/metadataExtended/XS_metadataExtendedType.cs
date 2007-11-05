@@ -23,8 +23,5 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 	#else
 	public partial class XS_metadataExtendedType {
 	#endif
-		public XS_metadataExtendedType (
-		) {
-		}
 	}
 }

@@ -25,7 +25,8 @@ namespace OGen.lib.templates {
 	public partial class XS_templatesType {
 	#endif
 		#region public XS_templateTypeCollection TemplateCollection { get; }
-		internal XS_templateTypeCollection templatecollection_;
+		internal XS_templateTypeCollection templatecollection_ 
+			= new XS_templateTypeCollection();
 
 		[XmlElement("template")]
 		public XS_templateType[] templatecollection__xml {

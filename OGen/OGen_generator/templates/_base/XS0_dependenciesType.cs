@@ -25,7 +25,8 @@ namespace OGen.lib.templates {
 	public partial class XS_dependenciesType {
 	#endif
 		#region public XS_dependencyTypeCollection DependencyCollection { get; }
-		internal XS_dependencyTypeCollection dependencycollection_;
+		internal XS_dependencyTypeCollection dependencycollection_ 
+			= new XS_dependencyTypeCollection();
 
 		[XmlElement("dependency")]
 		public XS_dependencyType[] dependencycollection__xml {

@@ -50,7 +50,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public XS_tableUpdateTypeCollection TableUpdateCollection { get; }
-		internal XS_tableUpdateTypeCollection tableupdatecollection_;
+		internal XS_tableUpdateTypeCollection tableupdatecollection_ 
+			= new XS_tableUpdateTypeCollection();
 
 		[XmlElement("tableUpdate")]
 		public XS_tableUpdateType[] tableupdatecollection__xml {

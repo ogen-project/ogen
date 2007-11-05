@@ -146,7 +146,8 @@ if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%><%=""%>
 		for (int e = 0; e < _aux_elements.Count; e++) {
 			if (_aux_elements[e].MaxOccurs == XS_Element.MaxOccursEnum.unbounded) {%>
 		#region public <%=XS_%><%=_aux_elements[e].Type%>Collection <%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_elements[e].Name)%>Collection { get; }
-		internal <%=XS_%><%=_aux_elements[e].Type%>Collection <%=_aux_elements[e].Name.ToLower()%>collection_;
+		internal <%=XS_%><%=_aux_elements[e].Type%>Collection <%=_aux_elements[e].Name.ToLower()%>collection_ 
+			= new <%=XS_%><%=_aux_elements[e].Type%>Collection();
 
 		[XmlElement("<%=_aux_elements[e].Name%>")]
 		public <%=XS_%><%=_aux_elements[e].Type%>[] <%=_aux_elements[e].Name.ToLower()%>collection__xml {

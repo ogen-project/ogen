@@ -25,7 +25,6 @@ namespace OGen.Doc.lib.metadata.documentation {
 	#endif
 		public XS_faqSubjectType (
 		) {
-			faqcollection_ = new XS_faqTypeCollection();
 		}
 		public XS_faqSubjectType (
 			string idFAQSubject_in

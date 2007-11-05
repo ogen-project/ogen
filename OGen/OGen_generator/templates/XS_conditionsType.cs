@@ -23,9 +23,5 @@ namespace OGen.lib.templates {
 	#else
 	public partial class XS_conditionsType {
 	#endif
-		public XS_conditionsType (
-		) {
-			conditioncollection_ = new XS_conditionTypeCollection();
-		}
 	}
 }

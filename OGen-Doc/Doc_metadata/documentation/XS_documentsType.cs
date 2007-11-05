@@ -23,9 +23,5 @@ namespace OGen.Doc.lib.metadata.documentation {
 	#else
 	public partial class XS_documentsType {
 	#endif
-		public XS_documentsType (
-		) {
-			documentcollection_ = new XS_documentTypeCollection();
-		}
 	}
 }

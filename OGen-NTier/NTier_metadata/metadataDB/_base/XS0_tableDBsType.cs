@@ -50,7 +50,8 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 		#region public XS_tableDBTypeCollection TableDBCollection { get; }
-		internal XS_tableDBTypeCollection tabledbcollection_;
+		internal XS_tableDBTypeCollection tabledbcollection_ 
+			= new XS_tableDBTypeCollection();
 
 		[XmlElement("tableDB")]
 		public XS_tableDBType[] tabledbcollection__xml {

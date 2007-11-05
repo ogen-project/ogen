@@ -102,7 +102,8 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS_faqTypeCollection FAQCollection { get; }
-		internal XS_faqTypeCollection faqcollection_;
+		internal XS_faqTypeCollection faqcollection_ 
+			= new XS_faqTypeCollection();
 
 		[XmlElement("faq")]
 		public XS_faqType[] faqcollection__xml {

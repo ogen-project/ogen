@@ -23,8 +23,5 @@ namespace OGen.Doc.lib.metadata.documentation {
 	#else
 	public partial class XS_documentationType {
 	#endif
-		public XS_documentationType (
-		) {
-		}
 	}
 }

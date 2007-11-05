@@ -23,9 +23,5 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 	#else
 	public partial class XS_tableSearchUpdateParametersType {
 	#endif
-		public XS_tableSearchUpdateParametersType (
-		) {
-			tablefieldrefcollection_ = new XS_tableFieldRefTypeCollection();
-		}
 	}
 }

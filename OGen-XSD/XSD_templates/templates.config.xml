@@ -54,7 +54,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<output to="${CONFIG.outputPath}/${ROOT.schema[n].element.name}/${ROOT.metadata.prefix}${ROOT.schema[n].complexType[n].name}Collection.cs" 
 				type="File" mode="Create_doNotReplace" />
 <!--
-<output to="${CONFIG.outputPath}/${ROOT.schema[n].element.name}/${ROOT.metadata.prefix}${ROOT.schema[n].complexType[n].name}Collection.no-svn.cs" 
+<output to="${CONFIG.outputPath}/${ROOT.schema[n].element.name}/${ROOT.metadata.prefix}${ROOT.schema[n].complexType[n].name}Collection.DEV-TEST.no-svn.cs" 
 type="File" mode="Replace" />
 -->
 		</outputs>
@@ -88,7 +88,7 @@ type="File" mode="Replace" />
 			<output to="${CONFIG.outputPath}/${ROOT.schema[n].element.name}/${ROOT.metadata.prefix}${ROOT.schema[n].complexType[n].name}.cs" 
 				type="File" mode="Create_doNotReplace" />
 <!--
-<output to="${CONFIG.outputPath}/${ROOT.schema[n].element.name}/${ROOT.metadata.prefix}${ROOT.schema[n].complexType[n].name}.no-svn.cs" 
+<output to="${CONFIG.outputPath}/${ROOT.schema[n].element.name}/${ROOT.metadata.prefix}${ROOT.schema[n].complexType[n].name}.DEV-TEST.no-svn.cs" 
 type="File" mode="Replace" />
 -->
 		</outputs>
@@ -138,7 +138,7 @@ type="File" mode="Replace" />
 			<output to="${CONFIG.outputPath}/${ROOT.schema[n].element.name}/${ROOT.metadata.prefixBase}${ROOT.schema[n].element.name}.cs" 
 				type="File" mode="Create_doNotReplace" />
 <!--
-<output to="${CONFIG.outputPath}/${ROOT.schema[n].element.name}/${ROOT.metadata.prefixBase}${ROOT.schema[n].element.name}.no-svn.cs" 
+<output to="${CONFIG.outputPath}/${ROOT.schema[n].element.name}/${ROOT.metadata.prefixBase}${ROOT.schema[n].element.name}.DEV-TEST.no-svn.cs" 
 type="File" mode="Replace" />
 -->
 		</outputs>
@@ -196,7 +196,7 @@ iterationType="ROOT.schema">
 			<output to="${CONFIG.outputPath}/${ROOT.metadata.prefixBase}RootMetadata.cs" 
 				type="File" mode="Create_doNotReplace" />
 <!--
-<output to="${CONFIG.outputPath}/${ROOT.metadata.prefixBase}RootMetadata.no-svn.cs" 
+<output to="${CONFIG.outputPath}/${ROOT.metadata.prefixBase}RootMetadata.DEV-TEST.no-svn.cs" 
 type="File" mode="Replace" />
 -->
 		</outputs>

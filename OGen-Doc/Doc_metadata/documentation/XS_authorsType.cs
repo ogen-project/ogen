@@ -23,9 +23,5 @@ namespace OGen.Doc.lib.metadata.documentation {
 	#else
 	public partial class XS_authorsType {
 	#endif
-		public XS_authorsType (
-		) {
-			authorcollection_ = new XS_authorTypeCollection();
-		}
 	}
 }

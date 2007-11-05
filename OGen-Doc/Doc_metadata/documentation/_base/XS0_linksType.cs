@@ -50,7 +50,8 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS_linkTypeCollection LinkCollection { get; }
-		internal XS_linkTypeCollection linkcollection_;
+		internal XS_linkTypeCollection linkcollection_ 
+			= new XS_linkTypeCollection();
 
 		[XmlElement("link")]
 		public XS_linkType[] linkcollection__xml {

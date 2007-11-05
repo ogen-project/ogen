@@ -23,9 +23,5 @@ namespace OGen.lib.templates {
 	#else
 	public partial class XS_outputsType {
 	#endif
-		public XS_outputsType (
-		) {
-			outputcollection_ = new XS_outputTypeCollection();
-		}
 	}
 }

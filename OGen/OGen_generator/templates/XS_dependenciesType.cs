@@ -23,9 +23,5 @@ namespace OGen.lib.templates {
 	#else
 	public partial class XS_dependenciesType {
 	#endif
-		public XS_dependenciesType (
-		) {
-			dependencycollection_ = new XS_dependencyTypeCollection();
-		}
 	}
 }

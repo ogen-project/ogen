@@ -25,7 +25,8 @@ namespace OGen.lib.templates {
 	public partial class XS_conditionsType {
 	#endif
 		#region public XS_conditionTypeCollection ConditionCollection { get; }
-		internal XS_conditionTypeCollection conditioncollection_;
+		internal XS_conditionTypeCollection conditioncollection_ 
+			= new XS_conditionTypeCollection();
 
 		[XmlElement("condition")]
 		public XS_conditionType[] conditioncollection__xml {

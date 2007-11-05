@@ -23,9 +23,5 @@ namespace OGen.Doc.lib.metadata.documentation {
 	#else
 	public partial class XS_linksType {
 	#endif
-		public XS_linksType (
-		) {
-			linkcollection_ = new XS_linkTypeCollection();
-		}
 	}
 }
