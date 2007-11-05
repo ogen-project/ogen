@@ -66,7 +66,7 @@ namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Eleme
 	#if NET_1_1
 	public class <%=XS0_%><%=_aux_complextype.Name%> {
 	#else
-	public partial <%=XS_%><%=_aux_complextype.Name%> {
+	public partial class <%=XS_%><%=_aux_complextype.Name%> {
 	#endif<%
 if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%><%=""%>
 

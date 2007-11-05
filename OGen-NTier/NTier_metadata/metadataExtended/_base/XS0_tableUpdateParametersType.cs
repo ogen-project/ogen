@@ -22,7 +22,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 	#if NET_1_1
 	public class XS0_tableUpdateParametersType {
 	#else
-	public partial XS_tableUpdateParametersType {
+	public partial class XS_tableUpdateParametersType {
 	#endif
 
 		#region public object parent_ref { get; }

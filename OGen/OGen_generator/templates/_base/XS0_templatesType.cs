@@ -22,7 +22,7 @@ namespace OGen.lib.templates {
 	#if NET_1_1
 	public class XS0_templatesType {
 	#else
-	public partial XS_templatesType {
+	public partial class XS_templatesType {
 	#endif
 		#region public XS_templateTypeCollection TemplateCollection { get; }
 		internal XS_templateTypeCollection templatecollection_;

@@ -22,7 +22,7 @@ namespace OGen.lib.templates {
 	#if NET_1_1
 	public class XS0_argumentType {
 	#else
-	public partial XS_argumentType {
+	public partial class XS_argumentType {
 	#endif
 		#region public string Name { get; set; }
 		internal string name_;

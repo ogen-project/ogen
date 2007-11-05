@@ -22,7 +22,7 @@ namespace OGen.lib.templates {
 	#if NET_1_1
 	public class XS0_dependencyType {
 	#else
-	public partial XS_dependencyType {
+	public partial class XS_dependencyType {
 	#endif
 		#region public string Name { get; set; }
 		internal string name_;

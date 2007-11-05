@@ -20,6 +20,10 @@ using System.Collections.Generic;
 #endif
 
 namespace OGen.lib.templates {
+	#if NET_1_1
 	public class XS_templateTypeCollection : XS0_templateTypeCollection {
+	#else
+	public partial class XS_templateTypeCollection {
+	#endif
 	}
 }

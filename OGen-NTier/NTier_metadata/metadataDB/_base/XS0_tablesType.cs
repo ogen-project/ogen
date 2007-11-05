@@ -22,7 +22,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 	#if NET_1_1
 	public class XS0_tablesType {
 	#else
-	public partial XS_tablesType {
+	public partial class XS_tablesType {
 	#endif
 
 		#region public object parent_ref { get; }

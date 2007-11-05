@@ -22,7 +22,7 @@ namespace OGen.lib.templates {
 	#if NET_1_1
 	public class XS0_conditionsType {
 	#else
-	public partial XS_conditionsType {
+	public partial class XS_conditionsType {
 	#endif
 		#region public XS_conditionTypeCollection ConditionCollection { get; }
 		internal XS_conditionTypeCollection conditioncollection_;

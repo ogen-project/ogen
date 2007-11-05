@@ -22,7 +22,7 @@ namespace OGen.lib.templates {
 	#if NET_1_1
 	public class XS0_outputsType {
 	#else
-	public partial XS_outputsType {
+	public partial class XS_outputsType {
 	#endif
 		#region public XS_outputTypeCollection OutputCollection { get; }
 		internal XS_outputTypeCollection outputcollection_;

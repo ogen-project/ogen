@@ -22,7 +22,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 	#if NET_1_1
 	public class XS0_faqType {
 	#else
-	public partial XS_faqType {
+	public partial class XS_faqType {
 	#endif
 
 		#region public object parent_ref { get; }

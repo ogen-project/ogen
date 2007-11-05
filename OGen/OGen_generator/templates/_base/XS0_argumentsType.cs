@@ -22,7 +22,7 @@ namespace OGen.lib.templates {
 	#if NET_1_1
 	public class XS0_argumentsType {
 	#else
-	public partial XS_argumentsType {
+	public partial class XS_argumentsType {
 	#endif
 		#region public XS_argumentTypeCollection ArgumentCollection { get; }
 		internal XS_argumentTypeCollection argumentcollection_;
