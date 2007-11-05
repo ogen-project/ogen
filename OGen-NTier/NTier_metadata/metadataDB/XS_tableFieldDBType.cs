@@ -19,19 +19,23 @@ using OGen.lib.collections;
 using OGen.lib.datalayer;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
-	public class XS_tableFieldDBType : XS0_tableFieldDBType {
-		#region public XS_tableFieldDBType(...);
-		public XS_tableFieldDBType(
-		) : base (
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class XS_tableFieldDBType
+		#if NET_1_1
+			: XS0_tableFieldDBType
+		#endif
+	{
+		public XS_tableFieldDBType (
 		) {
 		}
-		public XS_tableFieldDBType(
+		public XS_tableFieldDBType (
 			string dbServerType_in
-		) : base (
-			dbServerType_in
 		) {
+			dbservertype_ = dbServerType_in;
 		}
-		#endregion
 
 		#region public int DBType_inDB { get; set; }
 		[XmlIgnore()]

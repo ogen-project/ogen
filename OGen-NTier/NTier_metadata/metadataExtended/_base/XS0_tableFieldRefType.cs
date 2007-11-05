@@ -19,19 +19,20 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public class XS0_tableFieldRefType {
-		public XS0_tableFieldRefType (
-		) {
-		}
-		public XS0_tableFieldRefType (
-			string paramName_in
-		) : this (
-		) {
-			paramname_ = paramName_in;
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_tableFieldRefType
+		#else
+			XS_tableFieldRefType
+		#endif
+	{
 
 		#region public object parent_ref { get; }
-		private object parent_ref_;
+		internal object parent_ref_;
 
 		[XmlIgnore()]
 		public object parent_ref {
@@ -42,7 +43,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
-		private XS__RootMetadata root_ref_;
+		internal XS__RootMetadata root_ref_;
 
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
@@ -53,7 +54,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string TableName { get; set; }
-		private string tablename_;
+		internal string tablename_;
 
 		[XmlAttribute("tableName")]
 		public string TableName {
@@ -66,7 +67,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string TableFieldName { get; set; }
-		private string tablefieldname_;
+		internal string tablefieldname_;
 
 		[XmlAttribute("tableFieldName")]
 		public string TableFieldName {
@@ -79,7 +80,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string ParamName { get; set; }
-		private string paramname_;
+		internal string paramname_;
 
 		[XmlAttribute("paramName")]
 		public string ParamName {

@@ -18,19 +18,23 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
-	public class XS_tableFieldType : XS0_tableFieldType {
-		#region public XS_tableFieldType(...);
-		public XS_tableFieldType(
-		) : base (
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class XS_tableFieldType
+		#if NET_1_1
+			: XS0_tableFieldType
+		#endif
+	{
+		public XS_tableFieldType (
 		) {
 		}
-		public XS_tableFieldType(
+		public XS_tableFieldType (
 			string name_in
-		) : base (
-			name_in
 		) {
+			name_ = name_in;
 		}
-		#endregion
 
 		#region public XS_tableType parent_table_ref { get; }
 		private XS_tableType parent_table_ref__ = null;

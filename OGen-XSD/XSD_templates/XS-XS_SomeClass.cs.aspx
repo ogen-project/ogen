@@ -55,25 +55,29 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Element.Name%> {
-	public class <%=XS_%><%=_aux_complextype.Name%> : <%=XS0_%><%=_aux_complextype.Name%> {
-		#region public <%=XS_%><%=_aux_complextype.Name%>(...);
-		public <%=XS_%><%=_aux_complextype.Name%>(
-		) : base (
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class <%=XS_%><%=_aux_complextype.Name%>
+		#if NET_1_1
+			: <%=XS0_%><%=_aux_complextype.Name%>
+		#endif
+	{
+		public <%=XS_%><%=_aux_complextype.Name%> (
 		) {
 		}<%
 		if (_aux_complextype_keys != null) {%>
-		public <%=XS_%><%=_aux_complextype.Name%>(<%
+		public <%=XS_%><%=_aux_complextype.Name%> (<%
 		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
 			<%=_aux_complextype_keys[k].NType%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
 		}%>
-		) : base (<%
+		) {<%
 		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
-			<%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
+			<%=_aux_complextype_keys[k].Name.ToLower()%>_ = <%=_aux_complextype_keys[k].Name%>_in;<%
 		}%>
-		) {
 		}<%
 		}%>
-		#endregion
 	}
 }<%
 //-----------------------------------------------------------------------------------------

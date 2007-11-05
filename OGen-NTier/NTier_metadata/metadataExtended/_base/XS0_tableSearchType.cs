@@ -19,19 +19,20 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public class XS0_tableSearchType {
-		public XS0_tableSearchType (
-		) {
-		}
-		public XS0_tableSearchType (
-			string name_in
-		) : this (
-		) {
-			name_ = name_in;
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_tableSearchType
+		#else
+			XS_tableSearchType
+		#endif
+	{
 
 		#region public object parent_ref { get; }
-		private object parent_ref_;
+		internal object parent_ref_;
 
 		[XmlIgnore()]
 		public object parent_ref {
@@ -44,7 +45,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
-		private XS__RootMetadata root_ref_;
+		internal XS__RootMetadata root_ref_;
 
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
@@ -57,7 +58,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string Name { get; set; }
-		private string name_;
+		internal string name_;
 
 		[XmlAttribute("name")]
 		public string Name {
@@ -70,7 +71,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public bool isRange { get; set; }
-		private bool isrange_;
+		internal bool isrange_;
 
 		[XmlAttribute("isRange")]
 		public bool isRange {
@@ -83,7 +84,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public bool isExplicitUniqueIndex { get; set; }
-		private bool isexplicituniqueindex_;
+		internal bool isexplicituniqueindex_;
 
 		[XmlAttribute("isExplicitUniqueIndex")]
 		public bool isExplicitUniqueIndex {
@@ -96,7 +97,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public XS_tableSearchParametersType TableSearchParameters { get; set; }
-		private XS_tableSearchParametersType tablesearchparameters__;
+		internal XS_tableSearchParametersType tablesearchparameters__;
 
 		[XmlIgnore()]
 		public XS_tableSearchParametersType TableSearchParameters {
@@ -118,7 +119,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public XS_tableSearchUpdatesType TableSearchUpdates { get; set; }
-		private XS_tableSearchUpdatesType tablesearchupdates__;
+		internal XS_tableSearchUpdatesType tablesearchupdates__;
 
 		[XmlIgnore()]
 		public XS_tableSearchUpdatesType TableSearchUpdates {

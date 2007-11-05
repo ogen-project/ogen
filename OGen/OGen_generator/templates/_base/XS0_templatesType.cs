@@ -19,13 +19,19 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public class XS0_templatesType {
-		public XS0_templatesType (
-		) {
-			templatecollection_ = new XS_templateTypeCollection();
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_templatesType
+		#else
+			XS_templatesType
+		#endif
+	{
 		#region public XS_templateTypeCollection TemplateCollection { get; }
-		private XS_templateTypeCollection templatecollection_;
+		internal XS_templateTypeCollection templatecollection_;
 
 		[XmlElement("template")]
 		public XS_templateType[] templatecollection__xml {

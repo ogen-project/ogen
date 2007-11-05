@@ -24,7 +24,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		#endif
 		class XS_tableType
 		#if NET_1_1
-			: XS0_tableType 
+			: XS0_tableType
 		#endif
 	{
 		public XS_tableType (

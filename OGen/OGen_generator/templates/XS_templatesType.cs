@@ -18,12 +18,17 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public class XS_templatesType : XS0_templatesType {
-		#region public XS_templatesType(...);
-		public XS_templatesType(
-		) : base (
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class XS_templatesType
+		#if NET_1_1
+			: XS0_templatesType
+		#endif
+	{
+		public XS_templatesType (
 		) {
 		}
-		#endregion
 	}
 }

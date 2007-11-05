@@ -19,18 +19,19 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public class XS0_dependencyType {
-		public XS0_dependencyType (
-		) {
-		}
-		public XS0_dependencyType (
-			string name_in
-		) : this (
-		) {
-			name_ = name_in;
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_dependencyType
+		#else
+			XS_dependencyType
+		#endif
+	{
 		#region public string Name { get; set; }
-		private string name_;
+		internal string name_;
 
 		[XmlAttribute("name")]
 		public string Name {

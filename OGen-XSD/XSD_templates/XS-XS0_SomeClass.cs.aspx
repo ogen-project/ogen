@@ -63,36 +63,21 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Element.Name%> {
-	public class <%=XS0_%><%=_aux_complextype.Name%> {
-		public <%=XS0_%><%=_aux_complextype.Name%> (
-		) {<%
-			for (int e = 0; e < _aux_elements.Count; e++) {
-				if (_aux_elements[e].MaxOccurs == XS_Element.MaxOccursEnum.unbounded) {
-					__aux_isCollection = _aux_elements[e].isCollection(
-						_arg_SchemaName, 
-						out __aux_isCollection_items
-					);%><%=""%>
-			<%=_aux_elements[e].Name.ToLower()%>collection_ = new <%=XS_%><%=_aux_elements[e].Type%>Collection();<%
-				}
-			}%>
-		}<%
-		if (_aux_complextype_keys != null) {%>
-		public <%=XS0_%><%=_aux_complextype.Name%> (<%
-		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
-			<%=_aux_complextype_keys[k].NType%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
-		}%>
-		) : this (
-		) {<%
-		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
-			<%=_aux_complextype_keys[k].Name.ToLower()%>_ = <%=_aux_complextype_keys[k].Name%>_in;<%
-		}%>
-		}<%
-		}
-
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			<%=XS0_%><%=_aux_complextype.Name%>
+		#else
+			<%=XS_%><%=_aux_complextype.Name%>
+		#endif
+	{<%
 if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%><%=""%>
 
 		#region public object parent_ref { get; }
-		private object parent_ref_;
+		internal object parent_ref_;
 
 		[XmlIgnore()]
 		public object parent_ref {
@@ -119,7 +104,7 @@ if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%><%=""%>
 		}
 		#endregion
 		#region public <%=XS__%>RootMetadata root_ref { get; }
-		private <%=XS__%>RootMetadata root_ref_;
+		internal <%=XS__%>RootMetadata root_ref_;
 
 		[XmlIgnore()]
 		public <%=XS__%>RootMetadata root_ref {
@@ -149,7 +134,7 @@ if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%><%=""%>
 
 		for (int a = 0; a < _aux_complextype.Attribute.Count; a++) {%>
 		#region public <%=_aux_complextype.Attribute[a].NType%> <%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_complextype.Attribute[a].Name)%> { get; set; }
-		private <%=_aux_complextype.Attribute[a].NType%> <%=_aux_complextype.Attribute[a].Name.ToLower()%>_;
+		internal <%=_aux_complextype.Attribute[a].NType%> <%=_aux_complextype.Attribute[a].Name.ToLower()%>_;
 
 		[XmlAttribute("<%=_aux_complextype.Attribute[a].Name%>")]
 		public <%=_aux_complextype.Attribute[a].NType%> <%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_complextype.Attribute[a].Name)%> {
@@ -167,7 +152,7 @@ if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%><%=""%>
 		for (int e = 0; e < _aux_elements.Count; e++) {
 			if (_aux_elements[e].MaxOccurs == XS_Element.MaxOccursEnum.unbounded) {%>
 		#region public <%=XS_%><%=_aux_elements[e].Type%>Collection <%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_elements[e].Name)%>Collection { get; }
-		private <%=XS_%><%=_aux_elements[e].Type%>Collection <%=_aux_elements[e].Name.ToLower()%>collection_;
+		internal <%=XS_%><%=_aux_elements[e].Type%>Collection <%=_aux_elements[e].Name.ToLower()%>collection_;
 
 		[XmlElement("<%=_aux_elements[e].Name%>")]
 		public <%=XS_%><%=_aux_elements[e].Type%>[] <%=_aux_elements[e].Name.ToLower()%>collection__xml {
@@ -191,7 +176,7 @@ if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%><%=""%>
 				);
 				if (_aux_isstandardntype) {%>
 		#region public <%=_aux_ntype%> <%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_elements[e].Name)%> { get; set; }
-		private <%=_aux_ntype%> <%=_aux_elements[e].Name.ToLower()%>_;
+		internal <%=_aux_ntype%> <%=_aux_elements[e].Name.ToLower()%>_;
 
 		[XmlElement("<%=_aux_elements[e].Name%>")]
 		public <%=_aux_ntype%> <%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_elements[e].Name)%> {
@@ -204,7 +189,7 @@ if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%><%=""%>
 
 				} else {%>
 		#region public <%=XS_%><%=_aux_elements[e].Type%> <%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_elements[e].Name)%> { get; set; }
-		private <%=XS_%><%=_aux_elements[e].Type%> <%=_aux_elements[e].Name.ToLower()%>__;
+		internal <%=XS_%><%=_aux_elements[e].Type%> <%=_aux_elements[e].Name.ToLower()%>__;
 
 		[XmlIgnore()]
 		public <%=XS_%><%=_aux_elements[e].Type%> <%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_elements[e].Name)%> {

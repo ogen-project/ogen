@@ -18,19 +18,23 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS_faqSubjectType : XS0_faqSubjectType {
-		#region public XS_faqSubjectType(...);
-		public XS_faqSubjectType(
-		) : base (
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class XS_faqSubjectType
+		#if NET_1_1
+			: XS0_faqSubjectType
+		#endif
+	{
+		public XS_faqSubjectType (
 		) {
 		}
-		public XS_faqSubjectType(
+		public XS_faqSubjectType (
 			string idFAQSubject_in
-		) : base (
-			idFAQSubject_in
 		) {
+			idfaqsubject_ = idFAQSubject_in;
 		}
-		#endregion
 
 		#region public ... parent_ref_faqSubjectTypeCollection { get; }
 		[XmlIgnore()]

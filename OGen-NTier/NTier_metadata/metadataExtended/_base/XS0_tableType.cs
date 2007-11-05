@@ -19,19 +19,20 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public class XS0_tableType {
-		public XS0_tableType (
-		) {
-		}
-		public XS0_tableType (
-			string name_in
-		) : this (
-		) {
-			name_ = name_in;
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_tableType
+		#else
+			XS_tableType
+		#endif
+	{
 
 		#region public object parent_ref { get; }
-		private object parent_ref_;
+		internal object parent_ref_;
 
 		[XmlIgnore()]
 		public object parent_ref {
@@ -45,7 +46,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
-		private XS__RootMetadata root_ref_;
+		internal XS__RootMetadata root_ref_;
 
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
@@ -59,7 +60,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string Name { get; set; }
-		private string name_;
+		internal string name_;
 
 		[XmlAttribute("name")]
 		public string Name {
@@ -72,7 +73,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string FriendlyName { get; set; }
-		private string friendlyname_;
+		internal string friendlyname_;
 
 		[XmlAttribute("friendlyName")]
 		public string FriendlyName {
@@ -85,7 +86,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string DBDescription { get; set; }
-		private string dbdescription_;
+		internal string dbdescription_;
 
 		[XmlAttribute("dbDescription")]
 		public string DBDescription {
@@ -98,7 +99,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string ExtendedDescription { get; set; }
-		private string extendeddescription_;
+		internal string extendeddescription_;
 
 		[XmlAttribute("extendedDescription")]
 		public string ExtendedDescription {
@@ -111,7 +112,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public bool isVirtualTable { get; set; }
-		private bool isvirtualtable_;
+		internal bool isvirtualtable_;
 
 		[XmlAttribute("isVirtualTable")]
 		public bool isVirtualTable {
@@ -124,7 +125,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public bool isConfig { get; set; }
-		private bool isconfig_;
+		internal bool isconfig_;
 
 		[XmlAttribute("isConfig")]
 		public bool isConfig {
@@ -137,7 +138,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string ConfigName { get; set; }
-		private string configname_;
+		internal string configname_;
 
 		[XmlAttribute("configName")]
 		public string ConfigName {
@@ -150,7 +151,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string ConfigConfig { get; set; }
-		private string configconfig_;
+		internal string configconfig_;
 
 		[XmlAttribute("configConfig")]
 		public string ConfigConfig {
@@ -163,7 +164,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string ConfigDatatype { get; set; }
-		private string configdatatype_;
+		internal string configdatatype_;
 
 		[XmlAttribute("configDatatype")]
 		public string ConfigDatatype {
@@ -176,7 +177,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public XS_tableFieldsType TableFields { get; set; }
-		private XS_tableFieldsType tablefields__;
+		internal XS_tableFieldsType tablefields__;
 
 		[XmlIgnore()]
 		public XS_tableFieldsType TableFields {
@@ -198,7 +199,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public XS_tableSearchesType TableSearches { get; set; }
-		private XS_tableSearchesType tablesearches__;
+		internal XS_tableSearchesType tablesearches__;
 
 		[XmlIgnore()]
 		public XS_tableSearchesType TableSearches {
@@ -220,7 +221,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public XS_tableUpdatesType TableUpdates { get; set; }
-		private XS_tableUpdatesType tableupdates__;
+		internal XS_tableUpdatesType tableupdates__;
 
 		[XmlIgnore()]
 		public XS_tableUpdatesType TableUpdates {

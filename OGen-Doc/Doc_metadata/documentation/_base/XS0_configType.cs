@@ -19,19 +19,20 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS0_configType {
-		public XS0_configType (
-		) {
-		}
-		public XS0_configType (
-			string name_in
-		) : this (
-		) {
-			name_ = name_in;
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_configType
+		#else
+			XS_configType
+		#endif
+	{
 
 		#region public object parent_ref { get; }
-		private object parent_ref_;
+		internal object parent_ref_;
 
 		[XmlIgnore()]
 		public object parent_ref {
@@ -42,7 +43,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
-		private XS__RootMetadata root_ref_;
+		internal XS__RootMetadata root_ref_;
 
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
@@ -53,7 +54,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string Name { get; set; }
-		private string name_;
+		internal string name_;
 
 		[XmlAttribute("name")]
 		public string Name {
@@ -66,7 +67,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string Value { get; set; }
-		private string value_;
+		internal string value_;
 
 		[XmlAttribute("value")]
 		public string Value {

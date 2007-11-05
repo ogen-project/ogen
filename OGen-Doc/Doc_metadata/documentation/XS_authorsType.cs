@@ -18,12 +18,17 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS_authorsType : XS0_authorsType {
-		#region public XS_authorsType(...);
-		public XS_authorsType(
-		) : base (
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class XS_authorsType
+		#if NET_1_1
+			: XS0_authorsType
+		#endif
+	{
+		public XS_authorsType (
 		) {
 		}
-		#endregion
 	}
 }

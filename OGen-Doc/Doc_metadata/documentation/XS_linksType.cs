@@ -18,12 +18,17 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS_linksType : XS0_linksType {
-		#region public XS_linksType(...);
-		public XS_linksType(
-		) : base (
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class XS_linksType
+		#if NET_1_1
+			: XS0_linksType
+		#endif
+	{
+		public XS_linksType (
 		) {
 		}
-		#endregion
 	}
 }

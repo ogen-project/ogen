@@ -18,18 +18,22 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public class XS_argumentType : XS0_argumentType {
-		#region public XS_argumentType(...);
-		public XS_argumentType(
-		) : base (
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class XS_argumentType
+		#if NET_1_1
+			: XS0_argumentType
+		#endif
+	{
+		public XS_argumentType (
 		) {
 		}
-		public XS_argumentType(
+		public XS_argumentType (
 			string name_in
-		) : base (
-			name_in
 		) {
+			name_ = name_in;
 		}
-		#endregion
 	}
 }

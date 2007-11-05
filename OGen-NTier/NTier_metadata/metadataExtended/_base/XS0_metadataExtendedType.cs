@@ -19,13 +19,20 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public class XS0_metadataExtendedType {
-		public XS0_metadataExtendedType (
-		) {
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_metadataExtendedType
+		#else
+			XS_metadataExtendedType
+		#endif
+	{
 
 		#region public object parent_ref { get; }
-		private object parent_ref_;
+		internal object parent_ref_;
 
 		[XmlIgnore()]
 		public object parent_ref {
@@ -38,7 +45,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
-		private XS__RootMetadata root_ref_;
+		internal XS__RootMetadata root_ref_;
 
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
@@ -51,7 +58,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string ApplicationName { get; set; }
-		private string applicationname_;
+		internal string applicationname_;
 
 		[XmlAttribute("applicationName")]
 		public string ApplicationName {
@@ -64,7 +71,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string ApplicationNamespace { get; set; }
-		private string applicationnamespace_;
+		internal string applicationnamespace_;
 
 		[XmlAttribute("applicationNamespace")]
 		public string ApplicationNamespace {
@@ -77,7 +84,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string SubAppName { get; set; }
-		private string subappname_;
+		internal string subappname_;
 
 		[XmlAttribute("subAppName")]
 		public string SubAppName {
@@ -90,7 +97,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string PseudoReflectionable { get; set; }
-		private string pseudoreflectionable_;
+		internal string pseudoreflectionable_;
 
 		[XmlAttribute("pseudoReflectionable")]
 		public string PseudoReflectionable {
@@ -103,7 +110,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public XS_SQLScriptOptionEnumeration SQLScriptOption { get; set; }
-		private XS_SQLScriptOptionEnumeration sqlscriptoption_;
+		internal XS_SQLScriptOptionEnumeration sqlscriptoption_;
 
 		[XmlAttribute("sqlScriptOption")]
 		public XS_SQLScriptOptionEnumeration SQLScriptOption {
@@ -116,7 +123,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string GuidDatalayer { get; set; }
-		private string guiddatalayer_;
+		internal string guiddatalayer_;
 
 		[XmlAttribute("guidDatalayer")]
 		public string GuidDatalayer {
@@ -129,7 +136,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string GuidDatalayer_UTs { get; set; }
-		private string guiddatalayer_uts_;
+		internal string guiddatalayer_uts_;
 
 		[XmlAttribute("guidDatalayer_UTs")]
 		public string GuidDatalayer_UTs {
@@ -142,7 +149,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string GuidBusinesslayer { get; set; }
-		private string guidbusinesslayer_;
+		internal string guidbusinesslayer_;
 
 		[XmlAttribute("guidBusinesslayer")]
 		public string GuidBusinesslayer {
@@ -155,7 +162,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string GuidBusinesslayer_UTs { get; set; }
-		private string guidbusinesslayer_uts_;
+		internal string guidbusinesslayer_uts_;
 
 		[XmlAttribute("guidBusinesslayer_UTs")]
 		public string GuidBusinesslayer_UTs {
@@ -168,7 +175,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string GuidTest { get; set; }
-		private string guidtest_;
+		internal string guidtest_;
 
 		[XmlAttribute("guidTest")]
 		public string GuidTest {
@@ -181,7 +188,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string FeedbackEmailAddress { get; set; }
-		private string feedbackemailaddress_;
+		internal string feedbackemailaddress_;
 
 		[XmlAttribute("feedbackEmailAddress")]
 		public string FeedbackEmailAddress {
@@ -194,7 +201,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string CopyrightText { get; set; }
-		private string copyrighttext_;
+		internal string copyrighttext_;
 
 		[XmlAttribute("copyrightText")]
 		public string CopyrightText {
@@ -207,7 +214,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string CopyrightTextLong { get; set; }
-		private string copyrighttextlong_;
+		internal string copyrighttextlong_;
 
 		[XmlElement("copyrightTextLong")]
 		public string CopyrightTextLong {
@@ -216,7 +223,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public XS_dbsType DBs { get; set; }
-		private XS_dbsType dbs__;
+		internal XS_dbsType dbs__;
 
 		[XmlIgnore()]
 		public XS_dbsType DBs {
@@ -238,7 +245,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public XS_tablesType Tables { get; set; }
-		private XS_tablesType tables__;
+		internal XS_tablesType tables__;
 
 		[XmlIgnore()]
 		public XS_tablesType Tables {

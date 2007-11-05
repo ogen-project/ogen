@@ -25,13 +25,14 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		#endif
 		class 
 		#if NET_1_1
-			XS0_tableType 
+			XS0_tableType
 		#else
-			XS_tableType 
+			XS_tableType
 		#endif
 	{
+
 		#region public object parent_ref { get; }
-		private object parent_ref_;
+		internal object parent_ref_;
 
 		[XmlIgnore()]
 		public object parent_ref {
@@ -44,7 +45,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
-		private XS__RootMetadata root_ref_;
+		internal XS__RootMetadata root_ref_;
 
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
@@ -70,7 +71,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 		#region public bool isVirtualTable { get; set; }
-		private bool isvirtualtable_;
+		internal bool isvirtualtable_;
 
 		[XmlAttribute("isVirtualTable")]
 		public bool isVirtualTable {
@@ -83,7 +84,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 		#region public XS_tableDBsType TableDBs { get; set; }
-		private XS_tableDBsType tabledbs__;
+		internal XS_tableDBsType tabledbs__;
 
 		[XmlIgnore()]
 		public XS_tableDBsType TableDBs {
@@ -105,7 +106,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 		#region public XS_tableFieldsType TableFields { get; set; }
-		private XS_tableFieldsType tablefields__;
+		internal XS_tableFieldsType tablefields__;
 
 		[XmlIgnore()]
 		public XS_tableFieldsType TableFields {

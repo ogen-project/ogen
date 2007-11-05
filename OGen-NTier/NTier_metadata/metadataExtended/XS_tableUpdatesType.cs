@@ -18,12 +18,17 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public class XS_tableUpdatesType : XS0_tableUpdatesType {
-		#region public XS_tableUpdatesType(...);
-		public XS_tableUpdatesType(
-		) : base (
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class XS_tableUpdatesType
+		#if NET_1_1
+			: XS0_tableUpdatesType
+		#endif
+	{
+		public XS_tableUpdatesType (
 		) {
 		}
-		#endregion
 	}
 }

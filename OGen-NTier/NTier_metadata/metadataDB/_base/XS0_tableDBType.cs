@@ -19,19 +19,20 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
-	public class XS0_tableDBType {
-		public XS0_tableDBType (
-		) {
-		}
-		public XS0_tableDBType (
-			string dbServerType_in
-		) : this (
-		) {
-			dbservertype_ = dbServerType_in;
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_tableDBType
+		#else
+			XS_tableDBType
+		#endif
+	{
 
 		#region public object parent_ref { get; }
-		private object parent_ref_;
+		internal object parent_ref_;
 
 		[XmlIgnore()]
 		public object parent_ref {
@@ -42,7 +43,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
-		private XS__RootMetadata root_ref_;
+		internal XS__RootMetadata root_ref_;
 
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
@@ -53,7 +54,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 		#region public string DBServerType { get; set; }
-		private string dbservertype_;
+		internal string dbservertype_;
 
 		[XmlAttribute("dbServerType")]
 		public string DBServerType {
@@ -66,7 +67,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 		#region public string DBTableName { get; set; }
-		private string dbtablename_;
+		internal string dbtablename_;
 
 		[XmlAttribute("dbTableName")]
 		public string DBTableName {
@@ -79,7 +80,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 		#region public string DBDescription { get; set; }
-		private string dbdescription_;
+		internal string dbdescription_;
 
 		[XmlAttribute("dbDescription")]
 		public string DBDescription {

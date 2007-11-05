@@ -18,12 +18,17 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public class XS_metadataExtendedType : XS0_metadataExtendedType {
-		#region public XS_metadataExtendedType(...);
-		public XS_metadataExtendedType(
-		) : base (
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class XS_metadataExtendedType
+		#if NET_1_1
+			: XS0_metadataExtendedType
+		#endif
+	{
+		public XS_metadataExtendedType (
 		) {
 		}
-		#endregion
 	}
 }

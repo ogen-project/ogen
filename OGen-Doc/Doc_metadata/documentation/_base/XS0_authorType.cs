@@ -19,19 +19,20 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS0_authorType {
-		public XS0_authorType (
-		) {
-		}
-		public XS0_authorType (
-			string idAuthor_in
-		) : this (
-		) {
-			idauthor_ = idAuthor_in;
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_authorType
+		#else
+			XS_authorType
+		#endif
+	{
 
 		#region public object parent_ref { get; }
-		private object parent_ref_;
+		internal object parent_ref_;
 
 		[XmlIgnore()]
 		public object parent_ref {
@@ -42,7 +43,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
-		private XS__RootMetadata root_ref_;
+		internal XS__RootMetadata root_ref_;
 
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
@@ -53,7 +54,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string IDAuthor { get; set; }
-		private string idauthor_;
+		internal string idauthor_;
 
 		[XmlAttribute("idAuthor")]
 		public string IDAuthor {
@@ -66,7 +67,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string Name { get; set; }
-		private string name_;
+		internal string name_;
 
 		[XmlAttribute("name")]
 		public string Name {
@@ -79,7 +80,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string CopyrightText { get; set; }
-		private string copyrighttext_;
+		internal string copyrighttext_;
 
 		[XmlAttribute("copyrightText")]
 		public string CopyrightText {
@@ -92,7 +93,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string FeedbackEmailAddress { get; set; }
-		private string feedbackemailaddress_;
+		internal string feedbackemailaddress_;
 
 		[XmlAttribute("feedbackEmailAddress")]
 		public string FeedbackEmailAddress {

@@ -19,13 +19,20 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS0_documentationType {
-		public XS0_documentationType (
-		) {
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_documentationType
+		#else
+			XS_documentationType
+		#endif
+	{
 
 		#region public object parent_ref { get; }
-		private object parent_ref_;
+		internal object parent_ref_;
 
 		[XmlIgnore()]
 		public object parent_ref {
@@ -42,7 +49,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
-		private XS__RootMetadata root_ref_;
+		internal XS__RootMetadata root_ref_;
 
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
@@ -59,7 +66,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string DocumentationName { get; set; }
-		private string documentationname_;
+		internal string documentationname_;
 
 		[XmlAttribute("documentationName")]
 		public string DocumentationName {
@@ -72,7 +79,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string ProjectURL { get; set; }
-		private string projecturl_;
+		internal string projecturl_;
 
 		[XmlAttribute("projectURL")]
 		public string ProjectURL {
@@ -85,7 +92,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string CopyrightText { get; set; }
-		private string copyrighttext_;
+		internal string copyrighttext_;
 
 		[XmlAttribute("copyrightText")]
 		public string CopyrightText {
@@ -98,7 +105,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string FeedbackEmailAddress { get; set; }
-		private string feedbackemailaddress_;
+		internal string feedbackemailaddress_;
 
 		[XmlAttribute("feedbackEmailAddress")]
 		public string FeedbackEmailAddress {
@@ -111,7 +118,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string Version { get; set; }
-		private string version_;
+		internal string version_;
 
 		[XmlAttribute("version")]
 		public string Version {
@@ -124,7 +131,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string Date { get; set; }
-		private string date_;
+		internal string date_;
 
 		[XmlAttribute("date")]
 		public string Date {
@@ -137,7 +144,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS_configsType Configs { get; set; }
-		private XS_configsType configs__;
+		internal XS_configsType configs__;
 
 		[XmlIgnore()]
 		public XS_configsType Configs {
@@ -159,7 +166,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS_subjectsType Subjects { get; set; }
-		private XS_subjectsType subjects__;
+		internal XS_subjectsType subjects__;
 
 		[XmlIgnore()]
 		public XS_subjectsType Subjects {
@@ -181,7 +188,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS_authorsType Authors { get; set; }
-		private XS_authorsType authors__;
+		internal XS_authorsType authors__;
 
 		[XmlIgnore()]
 		public XS_authorsType Authors {
@@ -203,7 +210,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS_codeSamplesType CodeSamples { get; set; }
-		private XS_codeSamplesType codesamples__;
+		internal XS_codeSamplesType codesamples__;
 
 		[XmlIgnore()]
 		public XS_codeSamplesType CodeSamples {
@@ -225,7 +232,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS_linksType Links { get; set; }
-		private XS_linksType links__;
+		internal XS_linksType links__;
 
 		[XmlIgnore()]
 		public XS_linksType Links {
@@ -247,7 +254,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS_faqSubjectsType FAQSubjects { get; set; }
-		private XS_faqSubjectsType faqsubjects__;
+		internal XS_faqSubjectsType faqsubjects__;
 
 		[XmlIgnore()]
 		public XS_faqSubjectsType FAQSubjects {

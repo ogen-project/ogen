@@ -19,13 +19,19 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public class XS0_outputsType {
-		public XS0_outputsType (
-		) {
-			outputcollection_ = new XS_outputTypeCollection();
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_outputsType
+		#else
+			XS_outputsType
+		#endif
+	{
 		#region public XS_outputTypeCollection OutputCollection { get; }
-		private XS_outputTypeCollection outputcollection_;
+		internal XS_outputTypeCollection outputcollection_;
 
 		[XmlElement("output")]
 		public XS_outputType[] outputcollection__xml {

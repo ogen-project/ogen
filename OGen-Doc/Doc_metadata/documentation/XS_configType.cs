@@ -18,18 +18,22 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS_configType : XS0_configType {
-		#region public XS_configType(...);
-		public XS_configType(
-		) : base (
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class XS_configType
+		#if NET_1_1
+			: XS0_configType
+		#endif
+	{
+		public XS_configType (
 		) {
 		}
-		public XS_configType(
+		public XS_configType (
 			string name_in
-		) : base (
-			name_in
 		) {
+			name_ = name_in;
 		}
-		#endregion
 	}
 }

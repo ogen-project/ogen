@@ -18,12 +18,17 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
-	public class XS_tablesType : XS0_tablesType {
-		#region public XS_tablesType(...);
-		public XS_tablesType(
-		) : base (
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class XS_tablesType
+		#if NET_1_1
+			: XS0_tablesType
+		#endif
+	{
+		public XS_tablesType (
 		) {
 		}
-		#endregion
 	}
 }

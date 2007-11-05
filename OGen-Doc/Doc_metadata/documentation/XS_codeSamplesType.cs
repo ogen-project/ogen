@@ -18,12 +18,17 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS_codeSamplesType : XS0_codeSamplesType {
-		#region public XS_codeSamplesType(...);
-		public XS_codeSamplesType(
-		) : base (
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class XS_codeSamplesType
+		#if NET_1_1
+			: XS0_codeSamplesType
+		#endif
+	{
+		public XS_codeSamplesType (
 		) {
 		}
-		#endregion
 	}
 }

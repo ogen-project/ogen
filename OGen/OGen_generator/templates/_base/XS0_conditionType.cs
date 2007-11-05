@@ -19,18 +19,19 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public class XS0_conditionType {
-		public XS0_conditionType (
-		) {
-		}
-		public XS0_conditionType (
-			string eval_in
-		) : this (
-		) {
-			eval_ = eval_in;
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_conditionType
+		#else
+			XS_conditionType
+		#endif
+	{
 		#region public string Eval { get; set; }
-		private string eval_;
+		internal string eval_;
 
 		[XmlAttribute("eval")]
 		public string Eval {
@@ -43,7 +44,7 @@ namespace OGen.lib.templates {
 		}
 		#endregion
 		#region public string To { get; set; }
-		private string to_;
+		internal string to_;
 
 		[XmlAttribute("to")]
 		public string To {

@@ -18,18 +18,22 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS_linkType : XS0_linkType {
-		#region public XS_linkType(...);
-		public XS_linkType(
-		) : base (
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class XS_linkType
+		#if NET_1_1
+			: XS0_linkType
+		#endif
+	{
+		public XS_linkType (
 		) {
 		}
-		public XS_linkType(
+		public XS_linkType (
 			string idLink_in
-		) : base (
-			idLink_in
 		) {
+			idlink_ = idLink_in;
 		}
-		#endregion
 	}
 }

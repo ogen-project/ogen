@@ -18,18 +18,22 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public class XS_tableSearchType : XS0_tableSearchType {
-		#region public XS_tableSearchType(...);
-		public XS_tableSearchType(
-		) : base (
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class XS_tableSearchType
+		#if NET_1_1
+			: XS0_tableSearchType
+		#endif
+	{
+		public XS_tableSearchType (
 		) {
 		}
-		public XS_tableSearchType(
+		public XS_tableSearchType (
 			string name_in
-		) : base (
-			name_in
 		) {
+			name_ = name_in;
 		}
-		#endregion
 	}
 }

@@ -19,19 +19,20 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
-	public class XS0_tableFieldType {
-		public XS0_tableFieldType (
-		) {
-		}
-		public XS0_tableFieldType (
-			string name_in
-		) : this (
-		) {
-			name_ = name_in;
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_tableFieldType
+		#else
+			XS_tableFieldType
+		#endif
+	{
 
 		#region public object parent_ref { get; }
-		private object parent_ref_;
+		internal object parent_ref_;
 
 		[XmlIgnore()]
 		public object parent_ref {
@@ -43,7 +44,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
-		private XS__RootMetadata root_ref_;
+		internal XS__RootMetadata root_ref_;
 
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
@@ -55,7 +56,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 		#region public string Name { get; set; }
-		private string name_;
+		internal string name_;
 
 		[XmlAttribute("name")]
 		public string Name {
@@ -68,7 +69,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 		#region public bool isPK { get; set; }
-		private bool ispk_;
+		internal bool ispk_;
 
 		[XmlAttribute("isPK")]
 		public bool isPK {
@@ -81,7 +82,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 		#region public bool isIdentity { get; set; }
-		private bool isidentity_;
+		internal bool isidentity_;
 
 		[XmlAttribute("isIdentity")]
 		public bool isIdentity {
@@ -94,7 +95,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 		#region public string FKTableName { get; set; }
-		private string fktablename_;
+		internal string fktablename_;
 
 		[XmlAttribute("fkTableName")]
 		public string FKTableName {
@@ -107,7 +108,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 		#region public string FKFieldName { get; set; }
-		private string fkfieldname_;
+		internal string fkfieldname_;
 
 		[XmlAttribute("fkFieldName")]
 		public string FKFieldName {
@@ -120,7 +121,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 		#region public bool isNullable { get; set; }
-		private bool isnullable_;
+		internal bool isnullable_;
 
 		[XmlAttribute("isNullable")]
 		public bool isNullable {
@@ -133,7 +134,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 		#region public int Size { get; set; }
-		private int size_;
+		internal int size_;
 
 		[XmlAttribute("size")]
 		public int Size {
@@ -146,7 +147,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 		#region public int NumericPrecision { get; set; }
-		private int numericprecision_;
+		internal int numericprecision_;
 
 		[XmlAttribute("numericPrecision")]
 		public int NumericPrecision {
@@ -159,7 +160,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 		#region public int NumericScale { get; set; }
-		private int numericscale_;
+		internal int numericscale_;
 
 		[XmlAttribute("numericScale")]
 		public int NumericScale {
@@ -172,7 +173,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 		#region public XS_tableFieldDBsType TableFieldDBs { get; set; }
-		private XS_tableFieldDBsType tablefielddbs__;
+		internal XS_tableFieldDBsType tablefielddbs__;
 
 		[XmlIgnore()]
 		public XS_tableFieldDBsType TableFieldDBs {

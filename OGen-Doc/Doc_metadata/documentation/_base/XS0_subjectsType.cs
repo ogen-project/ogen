@@ -19,14 +19,20 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS0_subjectsType {
-		public XS0_subjectsType (
-		) {
-			subjectcollection_ = new XS_subjectTypeCollection();
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_subjectsType
+		#else
+			XS_subjectsType
+		#endif
+	{
 
 		#region public object parent_ref { get; }
-		private object parent_ref_;
+		internal object parent_ref_;
 
 		[XmlIgnore()]
 		public object parent_ref {
@@ -38,7 +44,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
-		private XS__RootMetadata root_ref_;
+		internal XS__RootMetadata root_ref_;
 
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
@@ -50,7 +56,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS_subjectTypeCollection SubjectCollection { get; }
-		private XS_subjectTypeCollection subjectcollection_;
+		internal XS_subjectTypeCollection subjectcollection_;
 
 		[XmlElement("subject")]
 		public XS_subjectType[] subjectcollection__xml {

@@ -19,19 +19,20 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS0_subjectType {
-		public XS0_subjectType (
-		) {
-		}
-		public XS0_subjectType (
-			string idSubject_in
-		) : this (
-		) {
-			idsubject_ = idSubject_in;
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_subjectType
+		#else
+			XS_subjectType
+		#endif
+	{
 
 		#region public object parent_ref { get; }
-		private object parent_ref_;
+		internal object parent_ref_;
 
 		[XmlIgnore()]
 		public object parent_ref {
@@ -43,7 +44,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
-		private XS__RootMetadata root_ref_;
+		internal XS__RootMetadata root_ref_;
 
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
@@ -55,7 +56,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string IDSubject { get; set; }
-		private string idsubject_;
+		internal string idsubject_;
 
 		[XmlAttribute("idSubject")]
 		public string IDSubject {
@@ -68,7 +69,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string IDSubject_parent { get; set; }
-		private string idsubject_parent_;
+		internal string idsubject_parent_;
 
 		[XmlAttribute("idSubject_parent")]
 		public string IDSubject_parent {
@@ -81,7 +82,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string Name { get; set; }
-		private string name_;
+		internal string name_;
 
 		[XmlAttribute("name")]
 		public string Name {
@@ -94,7 +95,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string Description { get; set; }
-		private string description_;
+		internal string description_;
 
 		[XmlElement("description")]
 		public string Description {
@@ -103,7 +104,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS_documentsType Documents { get; set; }
-		private XS_documentsType documents__;
+		internal XS_documentsType documents__;
 
 		[XmlIgnore()]
 		public XS_documentsType Documents {

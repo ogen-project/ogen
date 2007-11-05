@@ -19,14 +19,20 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public class XS0_tableUpdatesType {
-		public XS0_tableUpdatesType (
-		) {
-			tableupdatecollection_ = new XS_tableUpdateTypeCollection();
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_tableUpdatesType
+		#else
+			XS_tableUpdatesType
+		#endif
+	{
 
 		#region public object parent_ref { get; }
-		private object parent_ref_;
+		internal object parent_ref_;
 
 		[XmlIgnore()]
 		public object parent_ref {
@@ -38,7 +44,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
-		private XS__RootMetadata root_ref_;
+		internal XS__RootMetadata root_ref_;
 
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
@@ -50,7 +56,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public XS_tableUpdateTypeCollection TableUpdateCollection { get; }
-		private XS_tableUpdateTypeCollection tableupdatecollection_;
+		internal XS_tableUpdateTypeCollection tableupdatecollection_;
 
 		[XmlElement("tableUpdate")]
 		public XS_tableUpdateType[] tableupdatecollection__xml {

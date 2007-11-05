@@ -18,18 +18,22 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS_documentType : XS0_documentType {
-		#region public XS_documentType(...);
-		public XS_documentType(
-		) : base (
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class XS_documentType
+		#if NET_1_1
+			: XS0_documentType
+		#endif
+	{
+		public XS_documentType (
 		) {
 		}
-		public XS_documentType(
+		public XS_documentType (
 			string idDocument_in
-		) : base (
-			idDocument_in
 		) {
+			iddocument_ = idDocument_in;
 		}
-		#endregion
 	}
 }

@@ -18,18 +18,22 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public class XS_dependencyType : XS0_dependencyType {
-		#region public XS_dependencyType(...);
-		public XS_dependencyType(
-		) : base (
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class XS_dependencyType
+		#if NET_1_1
+			: XS0_dependencyType
+		#endif
+	{
+		public XS_dependencyType (
 		) {
 		}
-		public XS_dependencyType(
+		public XS_dependencyType (
 			string name_in
-		) : base (
-			name_in
 		) {
+			name_ = name_in;
 		}
-		#endregion
 	}
 }

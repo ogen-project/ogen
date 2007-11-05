@@ -19,19 +19,20 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS0_faqType {
-		public XS0_faqType (
-		) {
-		}
-		public XS0_faqType (
-			string idFAQ_in
-		) : this (
-		) {
-			idfaq_ = idFAQ_in;
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_faqType
+		#else
+			XS_faqType
+		#endif
+	{
 
 		#region public object parent_ref { get; }
-		private object parent_ref_;
+		internal object parent_ref_;
 
 		[XmlIgnore()]
 		public object parent_ref {
@@ -42,7 +43,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
-		private XS__RootMetadata root_ref_;
+		internal XS__RootMetadata root_ref_;
 
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
@@ -53,7 +54,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string IDFAQ { get; set; }
-		private string idfaq_;
+		internal string idfaq_;
 
 		[XmlAttribute("idFAQ")]
 		public string IDFAQ {
@@ -66,7 +67,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string Question { get; set; }
-		private string question_;
+		internal string question_;
 
 		[XmlAttribute("question")]
 		public string Question {
@@ -79,7 +80,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string Answer { get; set; }
-		private string answer_;
+		internal string answer_;
 
 		[XmlElement("answer")]
 		public string Answer {

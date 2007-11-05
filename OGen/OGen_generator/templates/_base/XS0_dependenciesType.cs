@@ -19,13 +19,19 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public class XS0_dependenciesType {
-		public XS0_dependenciesType (
-		) {
-			dependencycollection_ = new XS_dependencyTypeCollection();
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_dependenciesType
+		#else
+			XS_dependenciesType
+		#endif
+	{
 		#region public XS_dependencyTypeCollection DependencyCollection { get; }
-		private XS_dependencyTypeCollection dependencycollection_;
+		internal XS_dependencyTypeCollection dependencycollection_;
 
 		[XmlElement("dependency")]
 		public XS_dependencyType[] dependencycollection__xml {

@@ -19,13 +19,19 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public class XS0_conditionsType {
-		public XS0_conditionsType (
-		) {
-			conditioncollection_ = new XS_conditionTypeCollection();
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_conditionsType
+		#else
+			XS_conditionsType
+		#endif
+	{
 		#region public XS_conditionTypeCollection ConditionCollection { get; }
-		private XS_conditionTypeCollection conditioncollection_;
+		internal XS_conditionTypeCollection conditioncollection_;
 
 		[XmlElement("condition")]
 		public XS_conditionType[] conditioncollection__xml {

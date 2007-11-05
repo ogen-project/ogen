@@ -18,18 +18,22 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
-	public class XS_tableDBType : XS0_tableDBType {
-		#region public XS_tableDBType(...);
-		public XS_tableDBType(
-		) : base (
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class XS_tableDBType
+		#if NET_1_1
+			: XS0_tableDBType
+		#endif
+	{
+		public XS_tableDBType (
 		) {
 		}
-		public XS_tableDBType(
+		public XS_tableDBType (
 			string dbServerType_in
-		) : base (
-			dbServerType_in
 		) {
+			dbservertype_ = dbServerType_in;
 		}
-		#endregion
 	}
 }

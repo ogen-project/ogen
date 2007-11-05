@@ -19,19 +19,20 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS0_documentType {
-		public XS0_documentType (
-		) {
-		}
-		public XS0_documentType (
-			string idDocument_in
-		) : this (
-		) {
-			iddocument_ = idDocument_in;
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_documentType
+		#else
+			XS_documentType
+		#endif
+	{
 
 		#region public object parent_ref { get; }
-		private object parent_ref_;
+		internal object parent_ref_;
 
 		[XmlIgnore()]
 		public object parent_ref {
@@ -42,7 +43,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
-		private XS__RootMetadata root_ref_;
+		internal XS__RootMetadata root_ref_;
 
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
@@ -53,7 +54,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string IDDocument { get; set; }
-		private string iddocument_;
+		internal string iddocument_;
 
 		[XmlAttribute("idDocument")]
 		public string IDDocument {
@@ -66,7 +67,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string Name { get; set; }
-		private string name_;
+		internal string name_;
 
 		[XmlAttribute("name")]
 		public string Name {
@@ -79,7 +80,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string Description { get; set; }
-		private string description_;
+		internal string description_;
 
 		[XmlAttribute("description")]
 		public string Description {
@@ -92,7 +93,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public string Document { get; set; }
-		private string document_;
+		internal string document_;
 
 		[XmlElement("document")]
 		public string Document {

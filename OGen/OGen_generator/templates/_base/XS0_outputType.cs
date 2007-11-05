@@ -19,12 +19,19 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public class XS0_outputType {
-		public XS0_outputType (
-		) {
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_outputType
+		#else
+			XS_outputType
+		#endif
+	{
 		#region public string To { get; set; }
-		private string to_;
+		internal string to_;
 
 		[XmlAttribute("to")]
 		public string To {
@@ -37,7 +44,7 @@ namespace OGen.lib.templates {
 		}
 		#endregion
 		#region public XS_OutputEnumeration Type { get; set; }
-		private XS_OutputEnumeration type_;
+		internal XS_OutputEnumeration type_;
 
 		[XmlAttribute("type")]
 		public XS_OutputEnumeration Type {
@@ -50,7 +57,7 @@ namespace OGen.lib.templates {
 		}
 		#endregion
 		#region public XS_OutputModeEnumeration Mode { get; set; }
-		private XS_OutputModeEnumeration mode_;
+		internal XS_OutputModeEnumeration mode_;
 
 		[XmlAttribute("mode")]
 		public XS_OutputModeEnumeration Mode {

@@ -19,14 +19,20 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS0_faqSubjectsType {
-		public XS0_faqSubjectsType (
-		) {
-			faqsubjectcollection_ = new XS_faqSubjectTypeCollection();
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_faqSubjectsType
+		#else
+			XS_faqSubjectsType
+		#endif
+	{
 
 		#region public object parent_ref { get; }
-		private object parent_ref_;
+		internal object parent_ref_;
 
 		[XmlIgnore()]
 		public object parent_ref {
@@ -38,7 +44,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
-		private XS__RootMetadata root_ref_;
+		internal XS__RootMetadata root_ref_;
 
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
@@ -50,7 +56,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS_faqSubjectTypeCollection FAQSubjectCollection { get; }
-		private XS_faqSubjectTypeCollection faqsubjectcollection_;
+		internal XS_faqSubjectTypeCollection faqsubjectcollection_;
 
 		[XmlElement("faqSubject")]
 		public XS_faqSubjectType[] faqsubjectcollection__xml {

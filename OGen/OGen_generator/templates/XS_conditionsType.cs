@@ -18,12 +18,17 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public class XS_conditionsType : XS0_conditionsType {
-		#region public XS_conditionsType(...);
-		public XS_conditionsType(
-		) : base (
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class XS_conditionsType
+		#if NET_1_1
+			: XS0_conditionsType
+		#endif
+	{
+		public XS_conditionsType (
 		) {
 		}
-		#endregion
 	}
 }

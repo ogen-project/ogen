@@ -19,18 +19,19 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public class XS0_templateType {
-		public XS0_templateType (
-		) {
-		}
-		public XS0_templateType (
-			string name_in
-		) : this (
-		) {
-			name_ = name_in;
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_templateType
+		#else
+			XS_templateType
+		#endif
+	{
 		#region public string Name { get; set; }
-		private string name_;
+		internal string name_;
 
 		[XmlAttribute("name")]
 		public string Name {
@@ -43,7 +44,7 @@ namespace OGen.lib.templates {
 		}
 		#endregion
 		#region public XS_ParserEnumeration ParserType { get; set; }
-		private XS_ParserEnumeration parsertype_;
+		internal XS_ParserEnumeration parsertype_;
 
 		[XmlAttribute("parserType")]
 		public XS_ParserEnumeration ParserType {
@@ -56,7 +57,7 @@ namespace OGen.lib.templates {
 		}
 		#endregion
 		#region public string IterationType { get; set; }
-		private string iterationtype_;
+		internal string iterationtype_;
 
 		[XmlAttribute("iterationType")]
 		public string IterationType {
@@ -69,7 +70,7 @@ namespace OGen.lib.templates {
 		}
 		#endregion
 		#region public XS_argumentsType Arguments { get; set; }
-		private XS_argumentsType arguments__;
+		internal XS_argumentsType arguments__;
 
 		[XmlIgnore()]
 		public XS_argumentsType Arguments {
@@ -91,7 +92,7 @@ namespace OGen.lib.templates {
 		}
 		#endregion
 		#region public XS_conditionsType Conditions { get; set; }
-		private XS_conditionsType conditions__;
+		internal XS_conditionsType conditions__;
 
 		[XmlIgnore()]
 		public XS_conditionsType Conditions {
@@ -113,7 +114,7 @@ namespace OGen.lib.templates {
 		}
 		#endregion
 		#region public XS_outputsType Outputs { get; set; }
-		private XS_outputsType outputs__;
+		internal XS_outputsType outputs__;
 
 		[XmlIgnore()]
 		public XS_outputsType Outputs {
@@ -135,7 +136,7 @@ namespace OGen.lib.templates {
 		}
 		#endregion
 		#region public XS_dependenciesType Dependencies { get; set; }
-		private XS_dependenciesType dependencies__;
+		internal XS_dependenciesType dependencies__;
 
 		[XmlIgnore()]
 		public XS_dependenciesType Dependencies {

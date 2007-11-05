@@ -19,14 +19,20 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public class XS0_dbsType {
-		public XS0_dbsType (
-		) {
-			dbcollection_ = new XS_dbTypeCollection();
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_dbsType
+		#else
+			XS_dbsType
+		#endif
+	{
 
 		#region public object parent_ref { get; }
-		private object parent_ref_;
+		internal object parent_ref_;
 
 		[XmlIgnore()]
 		public object parent_ref {
@@ -38,7 +44,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
-		private XS__RootMetadata root_ref_;
+		internal XS__RootMetadata root_ref_;
 
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
@@ -50,7 +56,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string NameCase_defaultProvider { get; set; }
-		private string namecase_defaultprovider_;
+		internal string namecase_defaultprovider_;
 
 		[XmlAttribute("nameCase_defaultProvider")]
 		public string NameCase_defaultProvider {
@@ -63,7 +69,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string Description_defaultProvider { get; set; }
-		private string description_defaultprovider_;
+		internal string description_defaultprovider_;
 
 		[XmlAttribute("description_defaultProvider")]
 		public string Description_defaultProvider {
@@ -76,7 +82,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public XS_dbTypeCollection DBCollection { get; }
-		private XS_dbTypeCollection dbcollection_;
+		internal XS_dbTypeCollection dbcollection_;
 
 		[XmlElement("db")]
 		public XS_dbType[] dbcollection__xml {

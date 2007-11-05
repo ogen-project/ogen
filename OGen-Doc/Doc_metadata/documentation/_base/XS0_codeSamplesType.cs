@@ -19,14 +19,20 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS0_codeSamplesType {
-		public XS0_codeSamplesType (
-		) {
-			codesamplecollection_ = new XS_codeSampleTypeCollection();
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_codeSamplesType
+		#else
+			XS_codeSamplesType
+		#endif
+	{
 
 		#region public object parent_ref { get; }
-		private object parent_ref_;
+		internal object parent_ref_;
 
 		[XmlIgnore()]
 		public object parent_ref {
@@ -38,7 +44,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
-		private XS__RootMetadata root_ref_;
+		internal XS__RootMetadata root_ref_;
 
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
@@ -50,7 +56,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public XS_codeSampleTypeCollection CodeSampleCollection { get; }
-		private XS_codeSampleTypeCollection codesamplecollection_;
+		internal XS_codeSampleTypeCollection codesamplecollection_;
 
 		[XmlElement("codeSample")]
 		public XS_codeSampleType[] codesamplecollection__xml {

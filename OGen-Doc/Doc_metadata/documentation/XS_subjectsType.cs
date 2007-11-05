@@ -18,12 +18,17 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS_subjectsType : XS0_subjectsType {
-		#region public XS_subjectsType(...);
-		public XS_subjectsType(
-		) : base (
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class XS_subjectsType
+		#if NET_1_1
+			: XS0_subjectsType
+		#endif
+	{
+		public XS_subjectsType (
 		) {
 		}
-		#endregion
 	}
 }

@@ -19,18 +19,19 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.lib.templates {
-	public class XS0_argumentType {
-		public XS0_argumentType (
-		) {
-		}
-		public XS0_argumentType (
-			string name_in
-		) : this (
-		) {
-			name_ = name_in;
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_argumentType
+		#else
+			XS_argumentType
+		#endif
+	{
 		#region public string Name { get; set; }
-		private string name_;
+		internal string name_;
 
 		[XmlAttribute("name")]
 		public string Name {
@@ -43,7 +44,7 @@ namespace OGen.lib.templates {
 		}
 		#endregion
 		#region public string Value { get; set; }
-		private string value_;
+		internal string value_;
 
 		[XmlAttribute("value")]
 		public string Value {

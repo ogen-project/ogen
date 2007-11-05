@@ -19,19 +19,20 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
-	public class XS0_dbConnectionType {
-		public XS0_dbConnectionType (
-		) {
-		}
-		public XS0_dbConnectionType (
-			string configMode_in
-		) : this (
-		) {
-			configmode_ = configMode_in;
-		}
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_dbConnectionType
+		#else
+			XS_dbConnectionType
+		#endif
+	{
 
 		#region public object parent_ref { get; }
-		private object parent_ref_;
+		internal object parent_ref_;
 
 		[XmlIgnore()]
 		public object parent_ref {
@@ -42,7 +43,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
-		private XS__RootMetadata root_ref_;
+		internal XS__RootMetadata root_ref_;
 
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
@@ -53,7 +54,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string ConfigMode { get; set; }
-		private string configmode_;
+		internal string configmode_;
 
 		[XmlAttribute("configMode")]
 		public string ConfigMode {
@@ -66,7 +67,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public bool isDefault { get; set; }
-		private bool isdefault_;
+		internal bool isdefault_;
 
 		[XmlAttribute("isDefault")]
 		public bool isDefault {
@@ -79,7 +80,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public bool generateSQL { get; set; }
-		private bool generatesql_;
+		internal bool generatesql_;
 
 		[XmlAttribute("generateSQL")]
 		public bool generateSQL {
@@ -92,7 +93,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public bool isIndexed_andReadOnly { get; set; }
-		private bool isindexed_andreadonly_;
+		internal bool isindexed_andreadonly_;
 
 		[XmlAttribute("isIndexed_andReadOnly")]
 		public bool isIndexed_andReadOnly {
@@ -105,7 +106,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		#region public string Connectionstring { get; set; }
-		private string connectionstring_;
+		internal string connectionstring_;
 
 		[XmlAttribute("connectionstring")]
 		public string Connectionstring {
