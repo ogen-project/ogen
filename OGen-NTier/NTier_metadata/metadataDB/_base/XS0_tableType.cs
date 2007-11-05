@@ -19,17 +19,17 @@ using System.Collections;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
-	public class XS0_tableType {
-		public XS0_tableType (
-		) {
-		}
-		public XS0_tableType (
-			string name_in
-		) : this (
-		) {
-			name_ = name_in;
-		}
-
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class 
+		#if NET_1_1
+			XS0_tableType 
+		#else
+			XS_tableType 
+		#endif
+	{
 		#region public object parent_ref { get; }
 		private object parent_ref_;
 
@@ -57,7 +57,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 		#region public string Name { get; set; }
-		private string name_;
+		internal string name_;
 
 		[XmlAttribute("name")]
 		public string Name {

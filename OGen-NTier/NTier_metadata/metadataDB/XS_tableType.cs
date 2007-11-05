@@ -18,19 +18,23 @@ using System.Xml.Serialization;
 using OGen.lib.collections;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
-	public class XS_tableType : XS0_tableType {
-		#region public XS_tableType(...);
-		public XS_tableType(
-		) : base (
+	public 
+		#if !NET_1_1
+			partial
+		#endif
+		class XS_tableType
+		#if NET_1_1
+			: XS0_tableType 
+		#endif
+	{
+		public XS_tableType (
 		) {
 		}
-		public XS_tableType(
+		public XS_tableType (
 			string name_in
-		) : base (
-			name_in
 		) {
+			name_ = name_in;
 		}
-		#endregion
 
 		#region public metadataExtended.XS_tableType parallel_ref { get; }
 		private OGen.NTier.lib.metadata.metadataExtended.XS_tableType parallel_ref__ = null;
