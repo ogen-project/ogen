@@ -13,21 +13,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
+using System.IO;
 using System.Xml.Serialization;
 
-namespace OGen.Doc.lib.metadata.documentation {
+namespace OGen.NTier.lib.metadata.metadataDB {
 	#if NET_1_1
-	public class XS_configType : XS0_configType {
+	public class XS__metadataDBCollection : XS0__metadataDBCollection {
 	#else
-	public partial class XS_configType {
+	public partial class XS__metadataDBCollection {
 	#endif
-		public XS_configType (
-		) {
-		}
-		public XS_configType (
-			string name_in
-		) {
-			name_ = name_in;
-		}
+
+		// ToDos: add your code here
 	}
 }

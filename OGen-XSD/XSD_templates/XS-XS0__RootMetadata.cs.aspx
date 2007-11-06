@@ -42,17 +42,17 @@ if ((_aux_rootmetadata.ExtendedMetadata.CopyrightText != string.Empty) && (_aux_
 using System.Xml.Serialization;
 using System.Collections;
 
-using OGen.lib.metadata;
-using OGen.lib.collections;<%
+using OGen.lib.generator;
+using OGen.lib.metadata;<%
 for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {%>
 using <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>;<%
 }%>
 
 namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%> {
 	#if NET_1_1
-	public class <%=XS0__%>RootMetadata : iClaSSe_metadata {
+	public class <%=XS0__%>RootMetadata : MetadataInterface {
 	#else
-	public partial class <%=XS__%>RootMetadata : iClaSSe_metadata {
+	public partial class <%=XS__%>RootMetadata : MetadataInterface {
 	#endif
 		#region public <%=XS__%>RootMetadata(...);
 		#if NET_1_1
@@ -221,7 +221,7 @@ namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%> {
 		#region public void IterateThrough_fromRoot(...);
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
-			cClaSSe.dIteration_found iteration_found_in
+			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in
 		) {
 			bool _didit = false;
 			string _begin;

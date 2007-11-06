@@ -16,11 +16,17 @@ using System;
 using System.IO;
 using System.Xml.Serialization;
 
-using OGen.lib.collections;
-
 namespace OGen.NTier.lib.metadata.metadataDB {
-	public class XS__metadataDBCollection {
+	#if NET_1_1
+	public class XS0__metadataDBCollection {
+	#else
+	public partial class XS__metadataDBCollection {
+	#endif
+		#if NET_1_1
+		public XS0__metadataDBCollection(
+		#else
 		public XS__metadataDBCollection(
+		#endif
 			XS__metadataDB[] metadatadbcollection_in
 		) {
 			metadatadbcollection_ = metadatadbcollection_in;

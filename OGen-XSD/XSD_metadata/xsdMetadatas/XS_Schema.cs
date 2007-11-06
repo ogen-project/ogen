@@ -25,7 +25,7 @@ namespace OGen.XSD.lib.metadata {
 	//[XmlRoot("xs___schema")]
 	[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.w3.org/2001/XMLSchema")]
 	[System.Xml.Serialization.XmlRootAttribute("schema", Namespace="http://www.w3.org/2001/XMLSchema", IsNullable=false)]
-	public class XS_Schema : iClaSSe_metadata {
+	public class XS_Schema : MetadataInterface {
 		public XS_Schema() {
 		}
 
@@ -268,7 +268,7 @@ namespace OGen.XSD.lib.metadata {
 
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
-			cClaSSe.dIteration_found iteration_found_in
+			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in
 		) {
 			OGen.lib.generator.utils.ReflectThrough(
 				this,

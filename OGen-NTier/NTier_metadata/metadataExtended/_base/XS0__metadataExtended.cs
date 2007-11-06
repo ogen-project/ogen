@@ -16,13 +16,13 @@ using System;
 using System.IO;
 using System.Xml.Serialization;
 
-using OGen.lib.collections;
+using OGen.lib.generator;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
 	#if NET_1_1
-	public class XS0__metadataExtended : XS_metadataExtendedType, iClaSSe_metadata {
+	public class XS0__metadataExtended : XS_metadataExtendedType, MetadataInterface {
 	#else
-	public partial class XS__metadataExtended : XS_metadataExtendedType, iClaSSe_metadata {
+	public partial class XS__metadataExtended : XS_metadataExtendedType, MetadataInterface {
 	#endif
 
 		public const string METADATAEXTENDED = "metadataExtended";
@@ -167,7 +167,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		#region public void IterateThrough_fromRoot(...);
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
-			cClaSSe.dIteration_found iteration_found_in
+			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in
 		) {
 			OGen.lib.generator.utils.ReflectThrough(
 				this, 

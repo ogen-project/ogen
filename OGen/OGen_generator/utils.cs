@@ -33,9 +33,19 @@ namespace OGen.lib.generator {
 		public string Root;
 	}
 	#endregion
+	public interface MetadataInterface {
+		string Read_fromRoot(string what_in);
+
+		void IterateThrough_fromRoot(
+			string iteration_in, 
+			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in
+		);
+	}
 
 	public class utils {
 		private utils() { }
+
+		public delegate void IterationFoundDelegate(string message_in);
 
 		#region public static int MetaFile_find(...);
 		public static int MetaFile_find(
@@ -87,7 +97,7 @@ namespace OGen.lib.generator {
 		public static string ReflectThrough(
 			object someClass_in,
 			string path_in,
-			cClaSSe.dIteration_found iteration_found_in,
+			IterationFoundDelegate iteration_found_in,
 			string iteration_in,
 			string pathTranslated_in,
 			bool returnValue_in,
@@ -109,7 +119,7 @@ namespace OGen.lib.generator {
 		public static string ReflectThrough(
 			object someClass_in, 
 			string path_in, 
-			cClaSSe.dIteration_found iteration_found_in, 
+			IterationFoundDelegate iteration_found_in, 
 			string iteration_in, 
 			string pathTranslated_in, 
 			bool returnValue_in, 

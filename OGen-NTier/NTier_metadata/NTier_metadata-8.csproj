@@ -114,6 +114,7 @@
     <Compile Include="metadataDB\XS_tableType.cs" />
     <Compile Include="metadataDB\XS_tableTypeCollection.cs" />
     <Compile Include="metadataDB\XS__metadataDB.cs" />
+    <Compile Include="metadataDB\XS__metadataDBCollection.cs" />
     <Compile Include="metadataDB\_base\XS0_metadataDBType.cs" />
     <Compile Include="metadataDB\_base\XS0_metadataDBTypeCollection.cs" />
     <Compile Include="metadataDB\_base\XS0_tableDBsType.cs" />
@@ -173,6 +174,7 @@
     <Compile Include="metadataExtended\XS_tableUpdateType.cs" />
     <Compile Include="metadataExtended\XS_tableUpdateTypeCollection.cs" />
     <Compile Include="metadataExtended\XS__metadataExtended.cs" />
+    <Compile Include="metadataExtended\XS__metadataExtendedCollection.cs" />
     <Compile Include="metadataExtended\_base\XS0_dbConnectionsType.cs" />
     <Compile Include="metadataExtended\_base\XS0_dbConnectionsTypeCollection.cs" />
     <Compile Include="metadataExtended\_base\XS0_dbConnectionType.cs" />

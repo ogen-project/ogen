@@ -20,9 +20,10 @@ using System.Collections;
 
 using OGen.lib.metadata;
 using OGen.lib.collections;
+using OGen.lib.generator;
 
 namespace OGen.XSD.lib.metadata {
-	public class RootMetadata : iClaSSe_metadata {
+	public class RootMetadata : MetadataInterface {
 		public RootMetadata(
 			string metadataFilepath_in
 		) {
@@ -195,7 +196,7 @@ namespace OGen.XSD.lib.metadata {
 		#region public void IterateThrough_fromRoot(...);
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
-			cClaSSe.dIteration_found iteration_found_in
+			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in
 		) {
 			bool _didit = false;
 			if (

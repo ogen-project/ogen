@@ -41,7 +41,7 @@ if ((_aux_rootmetadata.ExtendedMetadata.CopyrightText != string.Empty) && (_aux_
 }%>using System;
 using System.Xml.Serialization;
 
-using OGen.lib.collections;<%
+<%
 for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {%>
 using <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>;<%
 }%>

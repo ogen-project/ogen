@@ -16,11 +16,17 @@ using System;
 using System.IO;
 using System.Xml.Serialization;
 
-using OGen.lib.collections;
-
 namespace OGen.Doc.lib.metadata.documentation {
-	public class XS__documentationCollection {
+	#if NET_1_1
+	public class XS0__documentationCollection {
+	#else
+	public partial class XS__documentationCollection {
+	#endif
+		#if NET_1_1
+		public XS0__documentationCollection(
+		#else
 		public XS__documentationCollection(
+		#endif
 			XS__documentation[] documentationcollection_in
 		) {
 			documentationcollection_ = documentationcollection_in;

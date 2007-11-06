@@ -44,13 +44,13 @@ if ((_aux_rootmetadata.ExtendedMetadata.CopyrightText != string.Empty) && (_aux_
 using System.IO;
 using System.Xml.Serialization;
 
-using OGen.lib.collections;
+using OGen.lib.generator;
 
 namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Element.Name%> {
 	#if NET_1_1
-	public class <%=XS0__%><%=_aux_schema.Element.Name%> : <%=XS_%><%=_aux_schema.Element.Type%>, iClaSSe_metadata {
+	public class <%=XS0__%><%=_aux_schema.Element.Name%> : <%=XS_%><%=_aux_schema.Element.Type%>, MetadataInterface {
 	#else
-	public partial class <%=XS__%><%=_aux_schema.Element.Name%> : <%=XS_%><%=_aux_schema.Element.Type%>, iClaSSe_metadata {
+	public partial class <%=XS__%><%=_aux_schema.Element.Name%> : <%=XS_%><%=_aux_schema.Element.Type%>, MetadataInterface {
 	#endif
 
 		public const string <%=_aux_schema.Element.Name.ToUpper()%> = "<%=_aux_schema.Element.Name%>";
@@ -233,7 +233,7 @@ if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%>
 		#region public void IterateThrough_fromRoot(...);
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
-			cClaSSe.dIteration_found iteration_found_in
+			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in
 		) {
 			OGen.lib.generator.utils.ReflectThrough(
 				this, <%--

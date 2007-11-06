@@ -16,13 +16,13 @@ using System;
 using System.IO;
 using System.Xml.Serialization;
 
-using OGen.lib.collections;
+using OGen.lib.generator;
 
 namespace OGen.lib.templates {
 	#if NET_1_1
-	public class XS0__templates : XS_templatesType, iClaSSe_metadata {
+	public class XS0__templates : XS_templatesType, MetadataInterface {
 	#else
-	public partial class XS__templates : XS_templatesType, iClaSSe_metadata {
+	public partial class XS__templates : XS_templatesType, MetadataInterface {
 	#endif
 
 		public const string TEMPLATES = "templates";
@@ -142,7 +142,7 @@ namespace OGen.lib.templates {
 		#region public void IterateThrough_fromRoot(...);
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
-			cClaSSe.dIteration_found iteration_found_in
+			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in
 		) {
 			OGen.lib.generator.utils.ReflectThrough(
 				this, 

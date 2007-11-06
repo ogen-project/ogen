@@ -16,13 +16,13 @@ using System;
 using System.IO;
 using System.Xml.Serialization;
 
-using OGen.lib.collections;
+using OGen.lib.generator;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
 	#if NET_1_1
-	public class XS0__metadataDB : XS_metadataDBType, iClaSSe_metadata {
+	public class XS0__metadataDB : XS_metadataDBType, MetadataInterface {
 	#else
-	public partial class XS__metadataDB : XS_metadataDBType, iClaSSe_metadata {
+	public partial class XS__metadataDB : XS_metadataDBType, MetadataInterface {
 	#endif
 
 		public const string METADATADB = "metadataDB";
@@ -167,7 +167,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		#region public void IterateThrough_fromRoot(...);
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
-			cClaSSe.dIteration_found iteration_found_in
+			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in
 		) {
 			OGen.lib.generator.utils.ReflectThrough(
 				this, 

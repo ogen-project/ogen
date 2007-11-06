@@ -47,8 +47,6 @@ if ((_aux_rootmetadata.ExtendedMetadata.CopyrightText != string.Empty) && (_aux_
 }%>using System;
 using System.Xml.Serialization;
 
-using OGen.lib.collections;
-
 namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Element.Name%> {
 	public enum <%=XS_%><%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_arg_SimpleTypeName)%> {<%
 	for (int e = 0; e < _aux_enumeration.Count; e++) {%><%=""%>

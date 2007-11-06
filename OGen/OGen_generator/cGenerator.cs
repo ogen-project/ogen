@@ -61,7 +61,7 @@ namespace OGen.lib.generator {
 		#region private Fields/Properties...
 		private Uri xmltemplatesfileuri_;
 		private string xmltemplatesdir_;
-		private iClaSSe_metadata metadata_;
+		private MetadataInterface metadata_;
 		private XS__templates templates_;
 		private int template_;
 		private dBuild notifyback_;
@@ -568,7 +568,7 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 		private void build(
 			dBuild notifyBack_in, 
 //			bool loadMetadata_in, 
-			iClaSSe_metadata metadata_in
+			MetadataInterface metadata_in
 		) {
 			notifyback_ = notifyBack_in;
 			//notifyback_("- common items", true);
@@ -648,7 +648,7 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 						#region RUNNING: templates_[template_] ...
 						metadata_.IterateThrough_fromRoot(
 							templates_.TemplateCollection[template_].IterationType,
-							new cClaSSe.dIteration_found(notifyme)
+							new utils.IterationFoundDelegate(notifyme)
 						);
 						#endregion
 
@@ -728,7 +728,7 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 //		}
 		public void Build(
 			dBuild notifyBack_in, 
-			iClaSSe_metadata metadata_in
+			MetadataInterface metadata_in
 		) {
 			build(
 				notifyBack_in, 

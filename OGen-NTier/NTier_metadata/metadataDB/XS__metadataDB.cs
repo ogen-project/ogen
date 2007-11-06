@@ -15,7 +15,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Xml.Serialization;
 
-using OGen.lib.collections;
 using OGen.lib.datalayer;
 
 namespace OGen.NTier.lib.metadata.metadataDB {

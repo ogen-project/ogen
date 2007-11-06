@@ -23,7 +23,7 @@ using OGen.lib.generator;
 
 namespace OGen.lib.metadata {
 	[System.Xml.Serialization.XmlRootAttribute("metadatas")]
-	public class Metadatas : iClaSSe_metadata {
+	public class Metadatas : MetadataInterface {
 		//public Metadatas() {
 		//}
 
@@ -118,7 +118,7 @@ namespace OGen.lib.metadata {
 
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
-			cClaSSe.dIteration_found iteration_found_in
+			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in
 		) {
 			OGen.lib.generator.utils.ReflectThrough(
 				this, 

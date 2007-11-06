@@ -15,8 +15,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Xml.Serialization;
 
-using OGen.lib.collections;
-
 namespace OGen.NTier.lib.metadata.metadataExtended {
 	public enum XS_SQLScriptOptionEnumeration {
 		OneScriptFile = 0, 

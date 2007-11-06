@@ -53,8 +53,6 @@ if ((_aux_rootmetadata.ExtendedMetadata.CopyrightText != string.Empty) && (_aux_
 }%>using System;
 using System.Xml.Serialization;
 
-using OGen.lib.collections;
-
 namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Element.Name%> {
 	#if NET_1_1
 	public class <%=XS_%><%=_aux_complextype.Name%> : <%=XS0_%><%=_aux_complextype.Name%> {

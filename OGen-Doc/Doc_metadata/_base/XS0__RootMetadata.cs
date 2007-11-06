@@ -16,15 +16,15 @@ using System;
 using System.Xml.Serialization;
 using System.Collections;
 
+using OGen.lib.generator;
 using OGen.lib.metadata;
-using OGen.lib.collections;
 using OGen.Doc.lib.metadata.documentation;
 
 namespace OGen.Doc.lib.metadata {
 	#if NET_1_1
-	public class XS0__RootMetadata : iClaSSe_metadata {
+	public class XS0__RootMetadata : MetadataInterface {
 	#else
-	public partial class XS__RootMetadata : iClaSSe_metadata {
+	public partial class XS__RootMetadata : MetadataInterface {
 	#endif
 		#region public XS__RootMetadata(...);
 		#if NET_1_1
@@ -172,7 +172,7 @@ namespace OGen.Doc.lib.metadata {
 		#region public void IterateThrough_fromRoot(...);
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
-			cClaSSe.dIteration_found iteration_found_in
+			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in
 		) {
 			bool _didit = false;
 			string _begin;

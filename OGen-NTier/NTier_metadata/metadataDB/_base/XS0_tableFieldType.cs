@@ -16,8 +16,6 @@ using System;
 using System.Xml.Serialization;
 using System.Collections;
 
-using OGen.lib.collections;
-
 namespace OGen.NTier.lib.metadata.metadataDB {
 	#if NET_1_1
 	public class XS0_tableFieldType {

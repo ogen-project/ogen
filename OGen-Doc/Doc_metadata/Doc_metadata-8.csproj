@@ -125,6 +125,7 @@
     <Compile Include="documentation\XS_subjectType.cs" />
     <Compile Include="documentation\XS_subjectTypeCollection.cs" />
     <Compile Include="documentation\XS__documentation.cs" />
+    <Compile Include="documentation\XS__documentationCollection.cs" />
     <Compile Include="documentation\_base\XS0_authorsType.cs" />
     <Compile Include="documentation\_base\XS0_authorsTypeCollection.cs" />
     <Compile Include="documentation\_base\XS0_authorType.cs" />
