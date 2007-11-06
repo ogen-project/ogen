@@ -60,12 +60,12 @@
     </None>
     <None Include="Web.config" />
     <None Include="XS-XS0__BaseClassCollection.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
     </None>
     <None Include="XS-XS_SomeClass.cs.aspx">
+    </None>
+    <None Include="XS-XS__BaseClassCollection.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </None>
-    <None Include="XS-XS__BaseClassCollection.cs.aspx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\OGen\OGen_collections\OGen_collections-8.csproj">
@@ -90,15 +90,13 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="XS-XS0__RootMetadata.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="XS-XS_SomeClassCollection.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="XS-XS__BaseClass.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="XS-XS__RootMetadata.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
     </Content>
   </ItemGroup>
 </Project>

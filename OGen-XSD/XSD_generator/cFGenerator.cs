@@ -18,6 +18,8 @@ using System.IO;
 using OGen.lib.templates;
 using OGen.lib.generator;
 using OGen.XSD.lib.metadata;
+using OGen.XSD.lib.metadata.schema;
+using OGen.XSD.lib.metadata.metadata;
 
 namespace OGen.XSD.lib.generator {
 	public class cFGenerator {
@@ -48,10 +50,10 @@ namespace OGen.XSD.lib.generator {
 			get { return (filenameextendedmetadata_ != string.Empty); }
 		}
 		#endregion
-		#region public RootMetadata RootMetadata { get ; }
-		private RootMetadata rootmetadata_;
+		#region public XS__RootMetadata RootMetadata { get ; }
+		private XS__RootMetadata rootmetadata_;
 
-		public RootMetadata RootMetadata {
+		public XS__RootMetadata RootMetadata {
 			get { return rootmetadata_; }
 		}
 		#endregion
@@ -113,7 +115,7 @@ namespace OGen.XSD.lib.generator {
 			if (notifyBack_in != null) notifyBack_in("opening...", true);
 			if (notifyBack_in != null) notifyBack_in("- reading metadata from xml files", true);
 
-			rootmetadata_ = RootMetadata.Load_fromFile(
+			rootmetadata_ = XS__RootMetadata.Load_fromFile(
 				filenameextendedmetadata_,
 				false
 			);
@@ -165,7 +167,7 @@ namespace OGen.XSD.lib.generator {
 			MetaFile[] _metafiles = new MetaFile[1 + rootmetadata_.MetadataFiles.MetadataFiles.Count];
 			_metafiles[0] = new MetaFile(
 				filenameextendedmetadata_,
-				ExtendedMetadata.METADATA
+				XS__metadata.METADATA
 			);
 			for (int i = 0; i < rootmetadata_.MetadataFiles.MetadataFiles.Count; i++) {
 				_metafiles[1 + i] = new MetaFile(
@@ -173,7 +175,7 @@ namespace OGen.XSD.lib.generator {
 						Path.GetDirectoryName(filenameextendedmetadata_), 
 						rootmetadata_.MetadataFiles.MetadataFiles[i].XMLFilename
 					),
-					XS_Schema.SCHEMA
+					XS__schema.SCHEMA
 				);
 			}
 			new cGenerator(

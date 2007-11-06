@@ -22,6 +22,8 @@ using System.IO;
 using System.Text;
 
 using OGen.XSD.lib.metadata;
+using OGen.XSD.lib.metadata.schema;
+using OGen.XSD.lib.metadata.metadata;
 
 namespace OGen.XSD.presentationlayer.test {
 	public class Program {
@@ -35,7 +37,7 @@ namespace OGen.XSD.presentationlayer.test {
 			Console.WriteLine();
 		}
 		public static void Main(string[] args) {
-			RootMetadata _root = new RootMetadata(
+			XS__RootMetadata _root = new XS__RootMetadata(
 				System.IO.Path.Combine(
 					#if !NET_1_1
 					System.Configuration.ConfigurationManager.AppSettings
@@ -51,14 +53,14 @@ namespace OGen.XSD.presentationlayer.test {
 			string name = string.Empty;
 			bool must = false;
 			ComplexTypeItem[] _complex = null;
-			for (int c = 0; c < _root.SchemaCollection[0].ComplexType.Count; c++) {
-				must = _root.SchemaCollection[0].ComplexType[c].mustImplementCollection(
+			for (int c = 0; c < _root.SchemaCollection[0].ComplexTypeCollection.Count; c++) {
+				must = _root.SchemaCollection[0].ComplexTypeCollection[c].mustImplementCollection(
 					"metadataExtended",
 					out _complex
 				);
 				Console.WriteLine(
 					"{0}:{1}",
-					_root.SchemaCollection[0].ComplexType[c].Name, 
+					_root.SchemaCollection[0].ComplexTypeCollection[c].Name, 
 					must
 				);
 				if (_complex != null) {
@@ -107,61 +109,61 @@ namespace OGen.XSD.presentationlayer.test {
 			#endregion
 
 
-			XS_Schema _schema = new XS_Schema();
+			XS__schema _schema = new XS__schema();
 //			_schema.xmlNS_xs = "http://www.w3.org/2001/XMLSchema";
 			_schema.TargetNamespace = "http://ogen.berlios.de";
 			_schema.xmlNS = "http://ogen.berlios.de";
 			_schema.ElementFormDefault = "qualified";
 			
-			XS_SimpleType _simpletype = new XS_SimpleType();
+			XS_simpleTypeType _simpletype = new XS_simpleTypeType();
 			_simpletype.Name = "someEnum";
 			_simpletype.Restriction.Base = "xs:string";
-			_simpletype.Restriction.Enumeration.Add(
-				new XS_Enumeration("someenum1"), 
-				new XS_Enumeration("someenum2"), 
-				new XS_Enumeration("someenum3")
+			_simpletype.Restriction.EnumerationCollection.Add(
+				new XS_enumerationType("someenum1"), 
+				new XS_enumerationType("someenum2"), 
+				new XS_enumerationType("someenum3")
 			);
-			_schema.SimpleType.Add(
+			_schema.SimpleTypeCollection.Add(
 				_simpletype
 			);
 
-			XS_Attribute _attrib1 = new XS_Attribute();
+			XS_attributeType _attrib1 = new XS_attributeType();
 			_attrib1.Name = "someAttrib1";
 			_attrib1.Type = "xs:string";
-			XS_ComplexType _someType1 = new XS_ComplexType();
+			OGen.XSD.lib.metadata.schema.XS_complexTypeType _someType1 = new OGen.XSD.lib.metadata.schema.XS_complexTypeType();
 			_someType1.Name = "someType1";
-			_someType1.Attribute.Add(
+			_someType1.AttributeCollection.Add(
 				_attrib1
 			);
 
-			XS_Attribute _attrib2 = new XS_Attribute();
+			XS_attributeType _attrib2 = new XS_attributeType();
 			_attrib2.Name = "someAttrib2";
 			_attrib2.Type = "xs:string";
-			XS_Attribute _attrib3 = new XS_Attribute();
+			XS_attributeType _attrib3 = new XS_attributeType();
 			_attrib3.Name = "someAttrib3";
 			_attrib3.Type = "xs:string";
-			XS_ComplexType _someType2 = new XS_ComplexType();
+			OGen.XSD.lib.metadata.schema.XS_complexTypeType _someType2 = new OGen.XSD.lib.metadata.schema.XS_complexTypeType();
 			_someType2.Name = "someType2";
-			_someType2.Attribute.Add(
+			_someType2.AttributeCollection.Add(
 				_attrib2, 
 				_attrib3
 			);
 
-			XS_Element _element1 = new XS_Element();
+			XS_elementType _element1 = new XS_elementType();
 			_element1.Name = "someCollection";
 			_element1.Type = "someType1";
 			_element1.MaxOccurs 
 				//= MaxOccursEnum.unbounded;
-				= XS_Element.MaxOccursEnum.unbounded;
-			XS_Element _element2 = new XS_Element();
+				= XS_MaxOccursType.unbounded;
+			XS_elementType _element2 = new XS_elementType();
 			_element2.Name = "someItem";
 			_element2.Type = "someType1";
-			_someType2.Sequence.Element.Add(
+			_someType2.Sequence.ElementCollection.Add(
 				_element1, 
 				_element2
 			);
 
-			_schema.ComplexType.Add(
+			_schema.ComplexTypeCollection.Add(
 				_someType1, 
 				_someType2
 			);
@@ -175,7 +177,7 @@ namespace OGen.XSD.presentationlayer.test {
 
 Console.WriteLine(
 	"'{0}' == '{1}'", 
-	_schema.SimpleType[0].Restriction.Enumeration[2].Value, 
+	_schema.SimpleTypeCollection[0].Restriction.EnumerationCollection[2].Value, 
 	_schema.Read_fromRoot("ROOT.simpleType[0].restriction.enumeration[2].value")
 );
 PressAnyKey();
@@ -196,7 +198,7 @@ PressAnyKey();
 			_schema.SaveState_toFile(_filepath);
 			Output(_schema);
 			PressAnyKey();
-			_schema = XS_Schema.Load_fromFile(_filepath)[0];
+			_schema = XS__schema.Load_fromFile(_filepath)[0];
 			Output(_schema);
 			PressAnyKey();
 		}
@@ -205,22 +207,22 @@ public static void notifyme(string message_in) {
 	Console.WriteLine("{{{0}}}", message_in);
 }
 
-		public static void Output(XS_Schema schema_in) {
+		public static void Output(XS__schema schema_in) {
 			Console.WriteLine(
 				"<xs:schema targetNamespace=\"{0}\" elementFormDefault=\"{1}\">", 
 				schema_in.TargetNamespace, 
 				schema_in.ElementFormDefault
 			);
-			for (int i = 0; i < schema_in.SimpleType.Count; i++) {
+			for (int i = 0; i < schema_in.SimpleTypeCollection.Count; i++) {
 				Console.WriteLine(
 					"\t<xs:simpleType name=\"{0}\" />", 
-					schema_in.SimpleType[i].Name
+					schema_in.SimpleTypeCollection[i].Name
 				);
 			}
-			for (int i = 0; i < schema_in.ComplexType.Count; i++) {
+			for (int i = 0; i < schema_in.ComplexTypeCollection.Count; i++) {
 				Console.WriteLine(
 					"\t<xs:complexType name=\"{0}\" />", 
-					schema_in.ComplexType[i].Name
+					schema_in.ComplexTypeCollection[i].Name
 				);
 			}
 			Console.WriteLine(

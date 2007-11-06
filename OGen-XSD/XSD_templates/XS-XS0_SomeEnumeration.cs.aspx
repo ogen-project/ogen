@@ -12,7 +12,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 --%><%@ Page language="c#" contenttype="text/plain" %>
 <%//@ import namespace="OGen.lib.datalayer" %>
 <%@ import namespace="OGen.XSD.lib.metadata" %>
-<%@ import namespace="OGen.lib.collections" %><%
+<%@ import namespace="OGen.XSD.lib.metadata.schema" %>
+<%@ import namespace="OGen.XSD.lib.metadata.metadata" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 string _arg_SchemaName = System.Web.HttpUtility.UrlDecode(Request.QueryString["SchemaName"]);
@@ -20,26 +21,26 @@ string _arg_SimpleTypeName = System.Web.HttpUtility.UrlDecode(Request.QueryStrin
 #endregion
 
 #region varaux...
-RootMetadata _aux_rootmetadata = RootMetadata.Load_fromFile(
+XS__RootMetadata _aux_rootmetadata = XS__RootMetadata.Load_fromFile(
 	_arg_MetadataFilepath,
 	true
 );
-XS_Schema _aux_schema = _aux_rootmetadata.SchemaCollection[_arg_SchemaName];
+XS_schemaType _aux_schema = _aux_rootmetadata.SchemaCollection[_arg_SchemaName];
 
-XS_EnumerationCollection _aux_enumeration 
-	= _aux_schema.SimpleType[_arg_SimpleTypeName].Restriction.Enumeration;
+XS_enumerationTypeCollection _aux_enumeration 
+	= _aux_schema.SimpleTypeCollection[_arg_SimpleTypeName].Restriction.EnumerationCollection;
 
-string XS0_ = _aux_rootmetadata.ExtendedMetadata.PrefixGenerated;
-string XS_ = _aux_rootmetadata.ExtendedMetadata.Prefix;
-string XS0__ = _aux_rootmetadata.ExtendedMetadata.PrefixBaseGenerated;
-string XS__ = _aux_rootmetadata.ExtendedMetadata.PrefixBase;
+string XS0_ = _aux_rootmetadata.MetadataCollection[0].PrefixGenerated;
+string XS_ = _aux_rootmetadata.MetadataCollection[0].Prefix;
+string XS0__ = _aux_rootmetadata.MetadataCollection[0].PrefixBaseGenerated;
+string XS__ = _aux_rootmetadata.MetadataCollection[0].PrefixBase;
 #endregion
 //-----------------------------------------------------------------------------------------
-if ((_aux_rootmetadata.ExtendedMetadata.CopyrightText != string.Empty) && (_aux_rootmetadata.ExtendedMetadata.CopyrightTextLong != string.Empty)) {
-%>#region <%=_aux_rootmetadata.ExtendedMetadata.CopyrightText%>
+if ((_aux_rootmetadata.MetadataCollection[0].CopyrightText != string.Empty) && (_aux_rootmetadata.MetadataCollection[0].CopyrightTextLong != string.Empty)) {
+%>#region <%=_aux_rootmetadata.MetadataCollection[0].CopyrightText%>
 /*
 
-<%=_aux_rootmetadata.ExtendedMetadata.CopyrightTextLong%>
+<%=_aux_rootmetadata.MetadataCollection[0].CopyrightTextLong%>
 
 */
 #endregion
@@ -47,8 +48,8 @@ if ((_aux_rootmetadata.ExtendedMetadata.CopyrightText != string.Empty) && (_aux_
 }%>using System;
 using System.Xml.Serialization;
 
-namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Element.Name%> {
-	public enum <%=XS_%><%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_arg_SimpleTypeName)%> {<%
+namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_schema.Element.Name%> {
+	public enum <%=XS_%><%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_arg_SimpleTypeName)%> {<%
 	for (int e = 0; e < _aux_enumeration.Count; e++) {%><%=""%>
 		<%=_aux_enumeration[e].Value%> = <%=e.ToString()%>, <%
 	}%>

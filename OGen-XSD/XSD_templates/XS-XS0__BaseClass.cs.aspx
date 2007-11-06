@@ -12,30 +12,31 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 --%><%@ Page language="c#" contenttype="text/plain" %>
 <%//@ import namespace="OGen.lib.datalayer" %>
 <%@ import namespace="OGen.XSD.lib.metadata" %>
-<%@ import namespace="OGen.lib.collections" %><%
+<%@ import namespace="OGen.XSD.lib.metadata.schema" %>
+<%@ import namespace="OGen.XSD.lib.metadata.metadata" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 string _arg_SchemaName = System.Web.HttpUtility.UrlDecode(Request.QueryString["SchemaName"]);
 #endregion
 
 #region varaux...
-RootMetadata _aux_rootmetadata = RootMetadata.Load_fromFile(
+XS__RootMetadata _aux_rootmetadata = XS__RootMetadata.Load_fromFile(
 	_arg_MetadataFilepath,
 	true
 );
-XS_Schema _aux_schema = _aux_rootmetadata.SchemaCollection[_arg_SchemaName];
+XS_schemaType _aux_schema = _aux_rootmetadata.SchemaCollection[_arg_SchemaName];
 
-string XS0_ = _aux_rootmetadata.ExtendedMetadata.PrefixGenerated;
-string XS_ = _aux_rootmetadata.ExtendedMetadata.Prefix;
-string XS0__ = _aux_rootmetadata.ExtendedMetadata.PrefixBaseGenerated;
-string XS__ = _aux_rootmetadata.ExtendedMetadata.PrefixBase;
+string XS0_ = _aux_rootmetadata.MetadataCollection[0].PrefixGenerated;
+string XS_ = _aux_rootmetadata.MetadataCollection[0].Prefix;
+string XS0__ = _aux_rootmetadata.MetadataCollection[0].PrefixBaseGenerated;
+string XS__ = _aux_rootmetadata.MetadataCollection[0].PrefixBase;
 #endregion
 //-----------------------------------------------------------------------------------------
-if ((_aux_rootmetadata.ExtendedMetadata.CopyrightText != string.Empty) && (_aux_rootmetadata.ExtendedMetadata.CopyrightTextLong != string.Empty)) {
-%>#region <%=_aux_rootmetadata.ExtendedMetadata.CopyrightText%>
+if ((_aux_rootmetadata.MetadataCollection[0].CopyrightText != string.Empty) && (_aux_rootmetadata.MetadataCollection[0].CopyrightTextLong != string.Empty)) {
+%>#region <%=_aux_rootmetadata.MetadataCollection[0].CopyrightText%>
 /*
 
-<%=_aux_rootmetadata.ExtendedMetadata.CopyrightTextLong%>
+<%=_aux_rootmetadata.MetadataCollection[0].CopyrightTextLong%>
 
 */
 #endregion
@@ -46,7 +47,7 @@ using System.Xml.Serialization;
 
 using OGen.lib.generator;
 
-namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Element.Name%> {
+namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_schema.Element.Name%> {
 	#if NET_1_1
 	public class <%=XS0__%><%=_aux_schema.Element.Name%> : <%=XS_%><%=_aux_schema.Element.Type%>, MetadataInterface {
 	#else
@@ -56,20 +57,20 @@ namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Eleme
 		public const string <%=_aux_schema.Element.Name.ToUpper()%> = "<%=_aux_schema.Element.Name%>";
 		public const string ROOT = "ROOT";
 		public const string ROOT_<%=_aux_schema.Element.Name.ToUpper()%> = ROOT + "." + <%=_aux_schema.Element.Name.ToUpper()%>;
-		#region public string Root_<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_schema.Element.Name)%> { get; }
+		#region public string Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name)%> { get; }
 		protected string root_<%=_aux_schema.Element.Name.ToLower()%>_ = null;
 
 		[XmlIgnore()]
-		public string Root_<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_schema.Element.Name)%> {
+		public string Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name)%> {
 			get { return root_<%=_aux_schema.Element.Name.ToLower()%>_; }
 		}
 		#endregion<%--
 
-		#region //public <%=XS_%><%=_aux_schema.Element.Type%> <%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_schema.Element.Name)%> { get; set; }
+		#region //public <%=XS_%><%=_aux_schema.Element.Type%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name)%> { get; set; }
 //		private <%=XS_%><%=_aux_schema.Element.Type%> <%=_aux_schema.Element.Name.ToLower()%>__;
 //
 //		[XmlIgnore()]
-//		public <%=XS_%><%=_aux_schema.Element.Type%> <%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_schema.Element.Name)%> {
+//		public <%=XS_%><%=_aux_schema.Element.Type%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name)%> {
 //			get {
 //				if (<%=_aux_schema.Element.Name.ToLower()%>__ == null) {
 //					<%=_aux_schema.Element.Name.ToLower()%>__ = new <%=XS_%><%=_aux_schema.Element.Type%>();
@@ -92,7 +93,7 @@ namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Eleme
 		public static <%=XS__%><%=_aux_schema.Element.Name%>[] Load_fromFile(
 			params string[] filePath_in
 		) {<%
-if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%>
+if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 			return Load_fromFile(
 				null, 
 				filePath_in
@@ -129,7 +130,7 @@ if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%>
 					));
 				}
 				_output[i].root_<%=_aux_schema.Element.Name.ToLower()%>_ = ROOT + "." + <%=_aux_schema.Element.Name.ToUpper()%> + "[" + i + "]";<%
-if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%>
+if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 
 				_output[i].parent_ref = root_ref_in; // ToDos: now!
 				if (root_ref_in != null) _output[i].root_ref = root_ref_in;<%
@@ -142,7 +143,7 @@ if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%>
 		public static <%=XS__%><%=_aux_schema.Element.Name%>[] Load_fromURI(
 			params Uri[] filePath_in
 		) {<%
-if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%>
+if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 			return Load_fromURI(
 				null, 
 				filePath_in
@@ -163,7 +164,7 @@ if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%>
 					)[0];
 					// no need! everything's been taken care at: <%=XS__%><%=_aux_schema.Element.Name%>.Load_fromFile(...)
 					//_output[i].root_<%=_aux_schema.Element.Name.ToLower()%>_ = ROOT + "." + <%=_aux_schema.Element.Name.ToUpper()%> + "[" + i + "]";<%
-if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%>
+if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 					//_output[i].parent_ref = root_ref_in; // ToDos: now!
 					//if (root_ref_in != null) _output[i].root_ref = root_ref_in;<%
 }%>
@@ -187,7 +188,7 @@ if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%>
 						));
 					}
 					_output[i].root_<%=_aux_schema.Element.Name.ToLower()%>_ = ROOT + "." + <%=_aux_schema.Element.Name.ToUpper()%> + "[" + i + "]";<%
-if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%>
+if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 					_output[i].parent_ref = root_ref_in; // ToDos: now!
 					if (root_ref_in != null) _output[i].root_ref = root_ref_in;<%
 }%>
@@ -219,12 +220,12 @@ if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%>
 				this, <%--
 				// ROOT_<%=_aux_schema.Element.Name.ToUpper()%>,
 				--%>
-				Root_<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_schema.Element.Name)%>, 
+				Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name)%>, 
 				null, 
 				what_in, <%--
 				// ROOT_<%=_aux_schema.Element.Name.ToUpper()%>,
 				--%>
-				Root_<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_schema.Element.Name)%>, 
+				Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name)%>, 
 				true, 
 				true
 			);
@@ -239,12 +240,12 @@ if (!_aux_rootmetadata.ExtendedMetadata.isSimple) {%>
 				this, <%--
 				// ROOT_<%=_aux_schema.Element.Name.ToUpper()%>,
 				--%>
-				Root_<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_schema.Element.Name)%>, 
+				Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name)%>, 
 				iteration_found_in, 
 				iteration_in, <%--
 				// ROOT_<%=_aux_schema.Element.Name.ToUpper()%>,
 				--%>
-				Root_<%=_aux_rootmetadata.ExtendedMetadata.CaseTranslate(_aux_schema.Element.Name)%>, 
+				Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name)%>, 
 				false, 
 				true
 			);

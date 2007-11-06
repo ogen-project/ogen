@@ -46,16 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="extendedMetadatas\ExtendedMetadata.cs" />
-    <Compile Include="extendedMetadatas\ExtendedMetadata_caseTypeEnum.cs" />
-    <Compile Include="extendedMetadatas\ExtendedMetadata_complexType.cs" />
-    <Compile Include="extendedMetadatas\ExtendedMetadata_complexTypeCollection.cs" />
-    <Compile Include="extendedMetadatas\ExtendedMetadata_complexTypeKey.cs" />
-    <Compile Include="extendedMetadatas\ExtendedMetadata_complexTypeKeyCollection.cs" />
-    <Compile Include="extendedMetadatas\ExtendedMetadata_metadataIndex.cs" />
-    <Compile Include="extendedMetadatas\ExtendedMetadata_metadataIndexCollection.cs" />
-    <Compile Include="extendedMetadatas\ExtendedMetadata_specificCase.cs" />
-    <Compile Include="extendedMetadatas\ExtendedMetadata_specificCaseCollection.cs" />
     <Compile Include="metadata\XS_complexTypeKeyType.cs" />
     <Compile Include="metadata\XS_complexTypeKeyTypeCollection.cs" />
     <Compile Include="metadata\XS_complexTypeType.cs" />
@@ -81,7 +71,6 @@
     <Compile Include="metadata\_base\XS0_specificCaseTypeCollection.cs" />
     <Compile Include="metadata\_base\XS0__metadata.cs" />
     <Compile Include="metadata\_base\XS0__metadataCollection.cs" />
-    <Compile Include="RootMetadata.cs" />
     <Compile Include="schema\utils.cs" />
     <Compile Include="schema\XS_attributeType.cs" />
     <Compile Include="schema\XS_attributeTypeCollection.cs" />
@@ -120,21 +109,6 @@
     <Compile Include="schema\_base\XS0_simpleTypeTypeCollection.cs" />
     <Compile Include="schema\_base\XS0__schema.cs" />
     <Compile Include="schema\_base\XS0__schemaCollection.cs" />
-    <Compile Include="xsdMetadatas\utils.cs" />
-    <Compile Include="xsdMetadatas\XS_Attribute.cs" />
-    <Compile Include="xsdMetadatas\XS_AttributeCollection.cs" />
-    <Compile Include="xsdMetadatas\XS_ComplexType.cs" />
-    <Compile Include="xsdMetadatas\XS_ComplexTypeCollection.cs" />
-    <Compile Include="xsdMetadatas\XS_Element.cs" />
-    <Compile Include="xsdMetadatas\XS_ElementCollection.cs" />
-    <Compile Include="xsdMetadatas\XS_Enumeration.cs" />
-    <Compile Include="xsdMetadatas\XS_EnumerationCollection.cs" />
-    <Compile Include="xsdMetadatas\XS_Restriction.cs" />
-    <Compile Include="xsdMetadatas\XS_Schema.cs" />
-    <Compile Include="xsdMetadatas\XS_SchemaCollection.cs" />
-    <Compile Include="xsdMetadatas\XS_Sequence.cs" />
-    <Compile Include="xsdMetadatas\XS_SimpleType.cs" />
-    <Compile Include="xsdMetadatas\XS_SimpleTypeCollection.cs" />
     <Compile Include="XS__RootMetadata.cs" />
     <Compile Include="_base\XS0__RootMetadata.cs" />
     <None Include="COPYING.MIT" />
@@ -154,10 +128,5 @@
       <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
       <Name>OGen_webforms-8</Name>
     </ProjectReference>
-    <Folder Include="metadata" />
-    <Folder Include="metadata\_base" />
-    <Folder Include="schema" />
-    <Folder Include="schema\_base" />
-    <Folder Include="_base" />
   </ItemGroup>
 </Project>
