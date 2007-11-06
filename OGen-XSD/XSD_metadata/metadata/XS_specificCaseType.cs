@@ -21,5 +21,13 @@ namespace OGen.XSD.lib.metadata.metadata {
 	#else
 	public partial class XS_specificCaseType {
 	#endif
+		public XS_specificCaseType (
+		) {
+		}
+		public XS_specificCaseType (
+			string word_in
+		) {
+			word_ = word_in;
+		}
 	}
 }

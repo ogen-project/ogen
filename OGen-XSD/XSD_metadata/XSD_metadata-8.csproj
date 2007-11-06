@@ -82,6 +82,7 @@
     <Compile Include="metadata\_base\XS0__metadata.cs" />
     <Compile Include="metadata\_base\XS0__metadataCollection.cs" />
     <Compile Include="RootMetadata.cs" />
+    <Compile Include="schema\utils.cs" />
     <Compile Include="schema\XS_attributeType.cs" />
     <Compile Include="schema\XS_attributeTypeCollection.cs" />
     <Compile Include="schema\XS_complexTypeType.cs" />

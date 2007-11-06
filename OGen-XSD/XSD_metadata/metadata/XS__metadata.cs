@@ -14,6 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using System.Xml.Serialization;
+using System.Collections;
 
 namespace OGen.XSD.lib.metadata.metadata {
 	[System.Xml.Serialization.XmlRootAttribute("metadata")]
@@ -22,5 +23,50 @@ namespace OGen.XSD.lib.metadata.metadata {
 	#else
 	public partial class XS__metadata {
 	#endif
+
+		#region public string CaseTranslate(string word_in);
+		private Hashtable casetranslate_;
+
+		public string CaseTranslate(string word_in) {
+			if (casetranslate_ == null) {
+				casetranslate_ = new Hashtable();
+			}
+			if (casetranslate_.Contains(word_in)) {
+				return (string)casetranslate_[word_in];
+			} else {
+				XS_specificCaseType _case = SpecificCaseCollection[word_in];
+				string _output = (_case == null) 
+					? string.Empty 
+					: _case.Translation;
+				if (_output != string.Empty) {
+					casetranslate_.Add(word_in, _output);
+					return _output;
+				} else {
+					switch (CaseType) {
+						case XS_CaseTypeEnumeration.PascalCase:
+							if (word_in.Length > 0) {
+								_output
+									= word_in[0].ToString().ToUpper()
+									+ word_in.Substring(1);
+							} else {
+								_output = word_in;
+							}
+							casetranslate_.Add(word_in, _output);
+							return _output;
+						case XS_CaseTypeEnumeration.camelCase:
+						case XS_CaseTypeEnumeration.lowercase:
+						case XS_CaseTypeEnumeration.UPPERCASE:
+						case XS_CaseTypeEnumeration._invalid_:
+							// ToDos: later!
+							throw new Exception("not implemented!");
+						case XS_CaseTypeEnumeration.none:
+						default:
+							casetranslate_.Add(word_in, word_in);
+							return word_in;
+					}
+				}
+			}
+		}
+		#endregion
 	}
 }
