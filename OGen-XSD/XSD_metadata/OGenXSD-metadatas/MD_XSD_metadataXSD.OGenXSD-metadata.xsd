@@ -178,7 +178,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 		<xs:sequence>
 			<xs:element name="simpleType" type="simpleTypeType" maxOccurs="unbounded" />
-			<xs:element name="complexType" type="complexType" maxOccurs="unbounded" />
+			<xs:element name="complexType" type="complexTypeType" maxOccurs="unbounded" />
 
 			<xs:element name="element" type="elementType" />
 		</xs:sequence>
