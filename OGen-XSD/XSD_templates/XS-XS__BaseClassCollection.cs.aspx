@@ -46,49 +46,12 @@ using System.Xml.Serialization;
 
 namespace <%=_aux_rootmetadata.ExtendedMetadata.Namespace%>.<%=_aux_schema.Element.Name%> {
 	#if NET_1_1
-	public class <%=XS0__%><%=_aux_schema.Element.Name%>Collection {
+	public class <%=XS__%><%=_aux_schema.Element.Name%>Collection : <%=XS0__%><%=_aux_schema.Element.Name%>Collection {
 	#else
 	public partial class <%=XS__%><%=_aux_schema.Element.Name%>Collection {
 	#endif
-		#if NET_1_1
-		public <%=XS0__%><%=_aux_schema.Element.Name%>Collection(
-		#else
-		public <%=XS__%><%=_aux_schema.Element.Name%>Collection(
-		#endif
-			<%=XS__%><%=_aux_schema.Element.Name%>[] <%=_aux_schema.Element.Name.ToLower()%>collection_in
-		) {
-			<%=_aux_schema.Element.Name.ToLower()%>collection_ = <%=_aux_schema.Element.Name.ToLower()%>collection_in;
-		}
 
-		#region public <%=XS__%><%=_aux_schema.Element.Name%> this[...] { get; }
-		private <%=XS__%><%=_aux_schema.Element.Name%>[] <%=_aux_schema.Element.Name.ToLower()%>collection_;
-
-		public <%=XS__%><%=_aux_schema.Element.Name%> this[int index_in] {
-			get {
-				return <%=_aux_schema.Element.Name.ToLower()%>collection_[index_in];
-			}
-		}
-		public <%=XS__%><%=_aux_schema.Element.Name%> this[string name_in] {
-			get {
-				// ToDos: later! performance
-
-				for (int i = 0; i < <%=_aux_schema.Element.Name.ToLower()%>collection_.Length; i++) {
-					if (<%=_aux_schema.Element.Name.ToLower()%>collection_[i].<%=_aux_rootmetadata.ExtendedMetadata.MetadataIndex[_aux_schema.Element.Name].Index%> == name_in) {
-						return <%=_aux_schema.Element.Name.ToLower()%>collection_[i];
-					}
-				}
-				throw new Exception(string.Format(
-					"{0}.{1}[string name_in]: can't find: {2}",
-					typeof(<%=XS__%><%=_aux_schema.Element.Name%>Collection).Namespace, 
-					typeof(<%=XS__%><%=_aux_schema.Element.Name%>Collection).Name, 
-					name_in
-				));
-			}
-		}
-		#endregion
-		public int Count { get {
-			return <%=_aux_schema.Element.Name.ToLower()%>collection_.Length;
-		} }
+		// ToDos: add your code here
 	}
 }<%
 //-----------------------------------------------------------------------------------------

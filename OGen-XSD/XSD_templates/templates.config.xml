@@ -112,6 +112,30 @@ type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
+	<template name="XS-XS__BaseClassCollection.cs.aspx" 
+			parserType="aspx" 
+			iterationType="ROOT.schema[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata.applicationName}.OGenXSD-metadata.xml" />
+			<argument name="SchemaName" value="${ROOT.schema[n].element.name}" />
+		</arguments>
+		<conditions>
+			<condition eval="ROOT.metadata.isSimple" to="False" />
+		</conditions>
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.schema[n].element.name}/_base/${ROOT.metadata.prefix}${ROOT.schema[n].element.name}Collection.cs" 
+
+
+type="File" mode="Replace" />
+
+
+<!--
+<output to="${CONFIG.outputPath}/${ROOT.schema[n].element.name}/_base/${ROOT.metadata.prefix}${ROOT.schema[n].element.name}Collection.DEV-TEST.no-svn.cs" 
+type="File" mode="Replace" />
+-->
+		</outputs>
+		<dependencies />
+	</template>
 	<template name="XS-XS0__BaseClass.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.schema[n]">
