@@ -21,5 +21,66 @@ namespace OGen.XSD.lib.metadata.schema {
 	#else
 	public partial class XS_complexTypeType {
 	#endif
+		public XS_complexTypeType (
+		) {
+		}
+		public XS_complexTypeType (
+			string name_in
+		) {
+			name_ = name_in;
+		}
+
+		#region public bool mustImplementCollection(...);
+		public bool mustImplementCollection(
+			string schemaName_in, 
+			out ComplexTypeItem[] complexTypeCollection_out
+		) {
+			complexTypeCollection_out = null;
+
+			XS__schema _schema = root_ref_.SchemaCollection[schemaName_in];
+			for (int c = 0; c < _schema.ComplexTypeCollection.Count; c++) {
+				for (int e = 0; e < _schema.ComplexTypeCollection[c].Sequence.ElementCollection.Count; e++) {
+					if (
+						// if there's an Element pointing this ComplexType
+						(_schema.ComplexTypeCollection[c].Sequence.ElementCollection[e].Type == Name)
+						&&
+						// and if this Element occurance is unbounded
+						(_schema.ComplexTypeCollection[c].Sequence.ElementCollection[e].MaxOccurs
+							== XS_MaxOccursType.unbounded)
+					) {
+						// then this ComplexType must implement a Collection
+
+						OGen.XSD.lib.metadata.metadata.XS_complexTypeType _complextype
+							= root_ref_.MetadataCollection[0].ComplexTypeCollection[
+								Name
+							];
+
+						if (_complextype != null) {
+							complexTypeCollection_out = new ComplexTypeItem[_complextype.ComplexTypeKeyCollection.Count];
+							for (int k = 0; k < _complextype.ComplexTypeKeyCollection.Count; k++) {
+								for (int a = 0; a < AttributeCollection.Count; a++) {
+									if (
+										AttributeCollection[a].Name 
+										== 
+										_complextype.ComplexTypeKeyCollection[k].Name
+									) {
+										complexTypeCollection_out[k] = new ComplexTypeItem(
+											AttributeCollection[a].Name,
+											AttributeCollection[a].NType,
+											_complextype.ComplexTypeKeyCollection[k].caseSensitive
+										);
+										break;
+									}
+								}
+							}
+						}
+
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+		#endregion
 	}
 }

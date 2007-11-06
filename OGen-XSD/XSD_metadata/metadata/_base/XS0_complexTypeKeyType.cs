@@ -58,11 +58,11 @@ namespace OGen.XSD.lib.metadata.metadata {
 			}
 		}
 		#endregion
-		#region public bool CaseSensitive { get; set; }
+		#region public bool caseSensitive { get; set; }
 		internal bool casesensitive_;
 
 		[XmlAttribute("caseSensitive")]
-		public bool CaseSensitive {
+		public bool caseSensitive {
 			get {
 				return casesensitive_;
 			}

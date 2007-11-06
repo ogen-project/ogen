@@ -21,5 +21,13 @@ namespace OGen.XSD.lib.metadata.metadata {
 	#else
 	public partial class XS_complexTypeType {
 	#endif
+		public XS_complexTypeType (
+		) {
+		}
+		public XS_complexTypeType (
+			string name_in
+		) {
+			name_ = name_in;
+		}
 	}
 }

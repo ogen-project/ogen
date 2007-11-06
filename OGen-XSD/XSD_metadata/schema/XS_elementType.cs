@@ -16,6 +16,22 @@ using System;
 using System.Xml.Serialization;
 
 namespace OGen.XSD.lib.metadata.schema {
+	public struct ComplexTypeItem {
+		public ComplexTypeItem(
+			string name_in,
+			string nType_in,
+			bool caseSensitive_in
+		) {
+			Name = name_in;
+			NType = nType_in;
+			CaseSensitive = caseSensitive_in;
+		}
+
+		public string NType;
+		public string Name;
+		public bool CaseSensitive;
+	}
+
 	#if NET_1_1
 	public class XS_elementType : XS0_elementType {
 	#else
@@ -29,5 +45,57 @@ namespace OGen.XSD.lib.metadata.schema {
 		) {
 			name_ = name_in;
 		}
+
+		//public const string MAXOCCURSENUM_UNBOUNDED = "unbounded";
+		public enum MaxOccursEnum {
+			_undefined_ = 0, 
+			unbounded = 1
+		}
+
+		#region public bool isCollection(...);
+		public bool isCollection(
+			string schemaName_in, 
+			out ComplexTypeItem[] complexTypeCollection_out
+		) {
+			complexTypeCollection_out = null;
+
+			OGen.XSD.lib.metadata.metadata.XS_complexTypeType _complextype
+				= root_ref.MetadataCollection[0].ComplexTypeCollection[
+					Type
+				];
+
+			if (_complextype != null) {
+				XS__schema _schema = root_ref_.SchemaCollection[schemaName_in];
+
+				for (int c = 0; c < _schema.ComplexTypeCollection.Count; c++) {
+					if (
+						_schema.ComplexTypeCollection[c].Name
+						==
+						_complextype.Name
+					) {
+						complexTypeCollection_out = new ComplexTypeItem[_complextype.ComplexTypeKeyCollection.Count];
+						for (int k = 0; k < _complextype.ComplexTypeKeyCollection.Count; k++) {
+							for (int a = 0; a < _schema.ComplexTypeCollection[c].AttributeCollection.Count; a++) {
+								if (
+									_schema.ComplexTypeCollection[c].AttributeCollection[a].Name 
+									== 
+									_complextype.ComplexTypeKeyCollection[k].Name
+								) {
+									complexTypeCollection_out[k] = new ComplexTypeItem(
+										_schema.ComplexTypeCollection[c].AttributeCollection[a].Name,
+										_schema.ComplexTypeCollection[c].AttributeCollection[a].NType,
+										_complextype.ComplexTypeKeyCollection[k].caseSensitive
+									);
+									break;
+								}
+							}
+						}
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+		#endregion
 	}
 }

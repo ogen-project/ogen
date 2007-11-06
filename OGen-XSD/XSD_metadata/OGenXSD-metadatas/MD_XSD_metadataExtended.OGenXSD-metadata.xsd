@@ -96,6 +96,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</complexType>
 	-->
 	<xs:complexType name="complexTypeType">
+		<xs:attribute name="name" type="xs:string" />
+
 		<xs:sequence>
 			<xs:element name="complexTypeKey" type="complexTypeKeyType" maxOccurs="unbounded" />
 		</xs:sequence>

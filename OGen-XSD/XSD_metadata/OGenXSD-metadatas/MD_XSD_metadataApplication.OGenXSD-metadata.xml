@@ -50,12 +50,12 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 		<specificCase word="xmlns" translation="xmlNS" />
 		<specificCase word="xs" translation="xs" />
 		<specificCase word="xsdVarType" translation="XSDVarType" />
+		<specificCase word="caseSensitive" translation="caseSensitive" />
 
-<!--
+
 		<complexType name="complexTypeType">
 			<complexTypeKey name="name" caseSensitive="true" />
 		</complexType>
--->
 		<complexType name="simpleType">
 			<complexTypeKey name="name" caseSensitive="true" />
 		</complexType>
