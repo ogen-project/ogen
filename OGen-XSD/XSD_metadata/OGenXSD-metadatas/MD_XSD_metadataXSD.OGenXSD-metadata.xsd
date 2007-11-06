@@ -46,7 +46,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	</xs:schema>
 -->
 
-
+<!--
 	<xs:simpleType name="xsdVarType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="xs:string" />
@@ -57,7 +57,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<xs:enumeration value="xs:date" />
 		</xs:restriction>
 	</xs:simpleType>
-
+-->
 
 	<!--
 		<xs:enumeration value="xxx" />
@@ -76,7 +76,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	-->
 	<xs:complexType name="attributeType">
 		<xs:attribute name="name" type="xs:string" />
-		<xs:attribute name="type" type="xsdVarType" />
+		<!--
+		<xs:attribute name="type" type="xsdVarType" /> -->
+		<xs:attribute name="type" type="xs:string" />
 	</xs:complexType>
 
 
@@ -104,7 +106,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</xs:restriction>
 	-->
 	<xs:complexType name="restrictionType">
-		<xs:attribute name="base" type="xsdVarType" />
+		<!--
+		<xs:attribute name="base" type="xsdVarType" /> -->
+		<xs:attribute name="base" type="xs:string" />
 
 		<xs:sequence>
 			<xs:element name="enumeration" type="enumerationType" maxOccurs="unbounded" />

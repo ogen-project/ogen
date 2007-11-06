@@ -37,14 +37,6 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 			metadata="schema" 
 			index="xmlNS" />
 
-		<specificCase word="xmlns" translation="xmlNS" />
-		<specificCase word="xs" translation="xs" />
-		<specificCase word="xsdVarType" translation="XSDVarType" />
-
-		<complexType name="simpleType">
-			<complexTypeKey name="name" caseSensitive="true" />
-		</complexType>
-
 <!--
 		<specificCase word="xxx" translation="XXX" />
 
@@ -55,4 +47,24 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 		</complexType>
 -->
 
+		<specificCase word="xmlns" translation="xmlNS" />
+		<specificCase word="xs" translation="xs" />
+		<specificCase word="xsdVarType" translation="XSDVarType" />
+<!--
+		<complexType name="simpleType">
+			<complexTypeKey name="name" caseSensitive="true" />
+		</complexType>
+		<complexType name="enumerationType">
+			<complexTypeKey name="value" caseSensitive="true" />
+		</complexType>
+		<complexType name="complexTypeType">
+			<complexTypeKey name="name" caseSensitive="true" />
+		</complexType>
+		<complexType name="attributeType">
+			<complexTypeKey name="name" caseSensitive="true" />
+		</complexType>
+		<complexType name="elementType">
+			<complexTypeKey name="name" caseSensitive="true" />
+		</complexType>
+-->
 </metadata>
