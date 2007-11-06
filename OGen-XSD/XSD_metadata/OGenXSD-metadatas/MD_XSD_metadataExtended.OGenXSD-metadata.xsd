@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<!--
+
+OGen
+Copyright (c) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->
+<xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://ogen.berlios.de"
+	xmlns="http://ogen.berlios.de"
+	elementFormDefault="qualified">
+
+	<!--
+		<metadata
+			applicationName="XXX_metadata" 
+			namespace="OGen.XXX.lib.metadata" 
+			caseType="PascalCase"
+			allowSettersOnObjects="false"
+			isSimple="false"
+			prefix="XS_"
+			prefixGenerated="XS0_"
+			prefixBase="XS__"
+			prefixBaseGenerated="XS0__"
+			copyrightText="Copyright (C) 2002 Francisco Monteiro">
+		
+				<copyrightTextLong>OGen ...</copyrightTextLong>
+		
+				<metadataIndex metadata="metadataExtended" index="ApplicationName" />
+				<metadataIndex ... />
+		
+				<specificCase word="db" translation="DB" />
+				<specificCase ... />
+		
+				<complexType name="dbConnectionType">
+					<complexTypeKey name="configMode" caseSensitive="true" />
+					<complexTypeKey ... />
+				</complexType>
+				<complexType ... />
+		</metadata>
+	-->
+
+	<xs:simpleType name="caseTypeEnumeration">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="_invalid_" />
+			<xs:enumeration value="none" />
+
+			<xs:enumeration value="PascalCase" />
+			<xs:enumeration value="camelCase" />
+			<xs:enumeration value="UPPERCASE" />
+			<xs:enumeration value="lowercase" />
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<!--
+		<metadataIndex metadata="metadataExtended" index="ApplicationName" />
+		<metadataIndex ... />
+	-->
+	<xs:complexType name="metadataIndexType">
+		<xs:attribute name="metadata" type="xs:string" />
+		<xs:attribute name="index" type="xs:string" />
+	</xs:complexType>
+
+
+	<!--
+		<specificCase word="db" translation="DB" />
+		<specificCase ... />
+	-->
+	<xs:complexType name="specificCaseType">
+		<xs:attribute name="word" type="xs:string" />
+		<xs:attribute name="translation" type="xs:string" />
+	</xs:complexType>
+
+
+	<!--
+		<complexTypeKey name="configMode" caseSensitive="true" />
+		<complexTypeKey ... />
+	-->
+	<xs:complexType name="complexTypeKeyType">
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="caseSensitive" type="xs:boolean" />
+	</xs:complexType>
+
+
+	<!--
+		<complexType name="dbConnectionType">
+			<complexTypeKey name="configMode" caseSensitive="true" />
+			<complexTypeKey ... />
+		</complexType>
+	-->
+	<xs:complexType name="complexTypeType">
+		<xs:sequence>
+			<xs:element name="complexTypeKey" type="complexTypeKeyType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<!--
+		<metadata
+			applicationName="XXX_metadata" 
+			namespace="OGen.XXX.lib.metadata" 
+			caseType="PascalCase"
+			allowSettersOnObjects="false"
+			isSimple="false"
+			prefix="XS_"
+			prefixGenerated="XS0_"
+			prefixBase="XS__"
+			prefixBaseGenerated="XS0__"
+			copyrightText="Copyright (C) 2002 Francisco Monteiro">
+		
+				<copyrightTextLong>OGen ...</copyrightTextLong>
+		
+				<metadataIndex ... />
+				<metadataIndex ... />
+		
+				<specificCase ... />
+				<specificCase ... />
+		
+				<complexType ... />
+				<complexType ... />
+		</metadata>
+	-->
+	<xs:complexType name="metadataType">
+		<xs:attribute name="applicationName" type="xs:string" />
+		<xs:attribute name="namespace" type="xs:string" />
+		<xs:attribute name="caseType" type="caseTypeEnumeration" />
+		<xs:attribute name="allowSettersOnObjects" type="xs:boolean" />
+		<xs:attribute name="isSimple" type="xs:boolean" />
+		<xs:attribute name="prefix" type="xs:string" />
+		<xs:attribute name="prefixGenerated" type="xs:string" />
+		<xs:attribute name="prefixBase" type="xs:string" />
+		<xs:attribute name="prefixBaseGenerated" type="xs:string" />
+		<xs:attribute name="copyrightText" type="xs:string" />
+
+		<xs:sequence>
+			<xs:element name="copyrightTextLong" type="xs:string" />
+
+			<xs:element name="metadataIndex" type="metadataIndexType" maxOccurs="unbounded" />
+			<xs:element name="specificCase" type="specificCaseType" maxOccurs="unbounded" />
+			<xs:element name="complexType" type="complexTypeType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:element name="metadata" type="metadataType" />
+</xs:schema>
