@@ -49,6 +49,19 @@ namespace OGen.XSD.lib.metadata.schema {
 			get { return root_ref_; }
 		}
 		#endregion
+		#region public string Name { get; set; }
+		internal string name_;
+
+		[XmlAttribute("name")]
+		public string Name {
+			get {
+				return name_;
+			}
+			set {
+				name_ = value;
+			}
+		}
+		#endregion
 		#region public XS_attributeTypeCollection AttributeCollection { get; }
 		internal XS_attributeTypeCollection attributecollection_ 
 			= new XS_attributeTypeCollection();
@@ -91,6 +104,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		public void CopyFrom(XS_complexTypeType complexTypeType_in) {
 			int _index = -1;
 
+			name_ = complexTypeType_in.name_;
 			attributecollection_.Clear();
 			for (int d = 0; d < complexTypeType_in.attributecollection_.Count; d++) {
 				attributecollection_.Add(

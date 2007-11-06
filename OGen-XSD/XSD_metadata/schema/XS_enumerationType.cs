@@ -21,5 +21,13 @@ namespace OGen.XSD.lib.metadata.schema {
 	#else
 	public partial class XS_enumerationType {
 	#endif
+		public XS_enumerationType (
+		) {
+		}
+		public XS_enumerationType (
+			string value_in
+		) {
+			value_ = value_in;
+		}
 	}
 }

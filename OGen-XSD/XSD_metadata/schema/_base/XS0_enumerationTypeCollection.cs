@@ -134,6 +134,168 @@ namespace OGen.XSD.lib.metadata.schema {
 			}
 		}
 		#endregion
+		#region public XS_enumerationType this[...] { get; }
+		public XS_enumerationType this[
+			string value_in
+		] {
+			get {
+				int _index = Search(
+					value_in
+				);
+				return (_index == -1)
+					? null
+					: 
+						#if NET_1_1
+						(XS_enumerationType)
+						#endif
+						cols_[_index]
+				;
+			}
+		}
+		#endregion
+
+		#region public void Remove(...);
+		public void Remove(
+			string value_in
+		) {
+			RemoveAt(
+				Search(
+					value_in
+				)
+			);
+		}
+		#endregion
+		#region public int Search(...);
+		public int Search(
+			string value_in
+		) {
+			for (int i = 0; i < cols_.Count; i++) {
+				if (
+					(
+						#if NET_1_1
+						((XS_enumerationType)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.Value
+						==
+						value_in 
+					)
+					
+				) {
+					return i;
+				}
+			}
+
+			return -1;
+		}
+		public int Search(XS_enumerationType collectionItem_in) {
+			for (int i = 0; i < cols_.Count; i++) {
+				if (
+					(
+						#if NET_1_1
+						((XS_enumerationType)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.Value
+						==
+						collectionItem_in.Value
+					)
+					
+				) {
+					return i;
+				}
+			}
+
+			return -1;
+		}
+		#endregion
+		#region public void Add(...);
+		public virtual void Add(
+			bool onlyIfNotExists_in,
+			string value_in
+		) {
+			if (
+				// even if exists
+				!onlyIfNotExists_in
+				||
+				// doesn't exist
+				(Search(
+					value_in
+				) == -1)
+			) {
+				Add(
+					value_in
+				);
+			}
+		}
+		public virtual void Add(
+			out int returnIndex_out, 
+			bool onlyIfNotExists_in, 
+			string value_in
+		) {
+			if (
+				// even if exists
+				!onlyIfNotExists_in
+				||
+				// doesn't exist
+				((returnIndex_out = Search(
+					value_in
+				)) == -1)
+			) {
+				Add(
+					out returnIndex_out,
+					value_in
+				);
+			}
+		}
+		public void Add(
+			string value_in
+		) {
+			Add(new XS_enumerationType(
+				value_in
+			));
+		}
+		public void Add(
+			out int returnIndex_out,
+			string value_in
+		) {
+			Add(
+				out returnIndex_out, 
+				new XS_enumerationType(
+					value_in
+				)
+			);
+		}
+		public virtual void Add(bool onlyIfNotExists_in, params XS_enumerationType[] col_in) {
+			for (int i = 0; i < col_in.Length; i++) {
+				if (
+					// even if exists
+					!onlyIfNotExists_in
+					||
+					// doesn't exist
+					(Search(col_in[i]) == -1)
+				) {
+					Add(col_in[i]);
+				}
+			}
+		}
+		public virtual void Add(out int returnIndex_out, bool onlyIfNotExists_in, params XS_enumerationType[] col_in) {
+			returnIndex_out = -1;
+			for (int i = 0; i < col_in.Length; i++) {
+				if (
+					// even if exists
+					!onlyIfNotExists_in
+					||
+					// doesn't exist
+					((returnIndex_out = Search(col_in[i])) == -1)
+				) {
+					Add(out returnIndex_out, col_in[i]);
+				}
+			}
+		}
+		#endregion
 		#region public void Clear();
 		public void Clear() {
 			cols_.Clear();

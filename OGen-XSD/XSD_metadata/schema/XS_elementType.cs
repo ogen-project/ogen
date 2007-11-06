@@ -21,5 +21,13 @@ namespace OGen.XSD.lib.metadata.schema {
 	#else
 	public partial class XS_elementType {
 	#endif
+		public XS_elementType (
+		) {
+		}
+		public XS_elementType (
+			string name_in
+		) {
+			name_ = name_in;
+		}
 	}
 }

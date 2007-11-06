@@ -21,6 +21,14 @@ namespace OGen.XSD.lib.metadata.schema {
 	#else
 	public partial class XS_attributeType {
 	#endif
+		public XS_attributeType (
+		) {
+		}
+		public XS_attributeType (
+			string name_in
+		) {
+			name_ = name_in;
+		}
 
 		#region public string NType { get; set; }
 		[XmlIgnore()]

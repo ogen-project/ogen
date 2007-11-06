@@ -134,6 +134,168 @@ namespace OGen.XSD.lib.metadata.schema {
 			}
 		}
 		#endregion
+		#region public XS_attributeType this[...] { get; }
+		public XS_attributeType this[
+			string name_in
+		] {
+			get {
+				int _index = Search(
+					name_in
+				);
+				return (_index == -1)
+					? null
+					: 
+						#if NET_1_1
+						(XS_attributeType)
+						#endif
+						cols_[_index]
+				;
+			}
+		}
+		#endregion
+
+		#region public void Remove(...);
+		public void Remove(
+			string name_in
+		) {
+			RemoveAt(
+				Search(
+					name_in
+				)
+			);
+		}
+		#endregion
+		#region public int Search(...);
+		public int Search(
+			string name_in
+		) {
+			for (int i = 0; i < cols_.Count; i++) {
+				if (
+					(
+						#if NET_1_1
+						((XS_attributeType)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.Name
+						==
+						name_in 
+					)
+					
+				) {
+					return i;
+				}
+			}
+
+			return -1;
+		}
+		public int Search(XS_attributeType collectionItem_in) {
+			for (int i = 0; i < cols_.Count; i++) {
+				if (
+					(
+						#if NET_1_1
+						((XS_attributeType)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.Name
+						==
+						collectionItem_in.Name
+					)
+					
+				) {
+					return i;
+				}
+			}
+
+			return -1;
+		}
+		#endregion
+		#region public void Add(...);
+		public virtual void Add(
+			bool onlyIfNotExists_in,
+			string name_in
+		) {
+			if (
+				// even if exists
+				!onlyIfNotExists_in
+				||
+				// doesn't exist
+				(Search(
+					name_in
+				) == -1)
+			) {
+				Add(
+					name_in
+				);
+			}
+		}
+		public virtual void Add(
+			out int returnIndex_out, 
+			bool onlyIfNotExists_in, 
+			string name_in
+		) {
+			if (
+				// even if exists
+				!onlyIfNotExists_in
+				||
+				// doesn't exist
+				((returnIndex_out = Search(
+					name_in
+				)) == -1)
+			) {
+				Add(
+					out returnIndex_out,
+					name_in
+				);
+			}
+		}
+		public void Add(
+			string name_in
+		) {
+			Add(new XS_attributeType(
+				name_in
+			));
+		}
+		public void Add(
+			out int returnIndex_out,
+			string name_in
+		) {
+			Add(
+				out returnIndex_out, 
+				new XS_attributeType(
+					name_in
+				)
+			);
+		}
+		public virtual void Add(bool onlyIfNotExists_in, params XS_attributeType[] col_in) {
+			for (int i = 0; i < col_in.Length; i++) {
+				if (
+					// even if exists
+					!onlyIfNotExists_in
+					||
+					// doesn't exist
+					(Search(col_in[i]) == -1)
+				) {
+					Add(col_in[i]);
+				}
+			}
+		}
+		public virtual void Add(out int returnIndex_out, bool onlyIfNotExists_in, params XS_attributeType[] col_in) {
+			returnIndex_out = -1;
+			for (int i = 0; i < col_in.Length; i++) {
+				if (
+					// even if exists
+					!onlyIfNotExists_in
+					||
+					// doesn't exist
+					((returnIndex_out = Search(col_in[i])) == -1)
+				) {
+					Add(out returnIndex_out, col_in[i]);
+				}
+			}
+		}
+		#endregion
 		#region public void Clear();
 		public void Clear() {
 			cols_.Clear();
