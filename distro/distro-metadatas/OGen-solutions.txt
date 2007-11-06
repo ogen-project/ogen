@@ -10,3 +10,4 @@ OGen-NTier\OGen-NTier-Doc\OGenDoc-metadatas
 OGen-NTier_UTs\OGen-metadatas
 OGen-Doc\Doc_metadata\OGenXSD-metadatas
 OGen-Doc\OGen-Doc-Doc\OGenDoc-metadatas
+OGen-XSD\XSD_metadata\OGenXSD-metadatas
