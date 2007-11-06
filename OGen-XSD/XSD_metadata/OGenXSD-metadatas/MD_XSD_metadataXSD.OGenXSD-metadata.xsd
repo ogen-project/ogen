@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<!--
+
+OGen
+Copyright (c) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->
+<xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://ogen.berlios.de"
+	xmlns="http://ogen.berlios.de"
+	elementFormDefault="qualified">
+<!--
+	<xs:schema 
+		xmlns:xs="xxx"
+		targetNamespace="xxx"
+		xmlns="xxx"
+		elementFormDefault="xxx">
+
+		<xs:simpleType name="xxx">
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="xxx" />
+				<xs:enumeration ... />
+			</xs:restriction>
+		</xs:simpleType>
+		<xs:simpleType ... />
+
+		<xs:complexType name="xxx">
+			<xs:attribute name="xxx" type="xs:string" />
+			<xs:attribute ... />
+
+			<xs:sequence>
+				<xs:element name="xxx" type="xxx" maxOccurs="unbounded" />
+				<xs:element ... />
+			</xs:sequence>
+		</xs:complexType>
+		<xs:complexType ... />
+
+		<xs:element name="xxx" type="xxx" />
+	</xs:schema>
+-->
+
+
+	<xs:simpleType name="xsdVarType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="xs:string" />
+			<xs:enumeration value="xs:decimal" />
+			<xs:enumeration value="xs:integer" />
+			<xs:enumeration value="xs:boolean" />
+			<xs:enumeration value="xs:time" />
+			<xs:enumeration value="xs:date" />
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<!--
+		<xs:enumeration value="xxx" />
+		<xs:enumeration value="yyy" />
+		<xs:enumeration value="zzz" />
+	-->
+	<xs:complexType name="enumerationType">
+		<xs:attribute name="value" type="xs:string" />
+	</xs:complexType>
+
+
+	<!--
+		<xs:attribute name="xxx" type="xs:string" />
+		<xs:attribute name="xxx" type="xs:string" />
+		<xs:attribute name="xxx" type="xs:string" />
+	-->
+	<xs:complexType name="attributeType">
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="type" type="xsdVarType" />
+	</xs:complexType>
+
+
+	<xs:simpleType name="maxOccursType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="unbounded" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--
+		<xs:element name="xxx" type="xxx"  />
+		<xs:element name="xxx" type="xxx" maxOccurs="unbounded" />
+		<xs:element name="xxx" type="xxx" />
+	-->
+	<xs:complexType name="elementType">
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="type" type="xs:string" />
+		<xs:attribute name="maxOccurs" type="maxOccursType" />
+	</xs:complexType>
+
+
+	<!--
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="xxx" />
+			<xs:enumeration ... />
+		</xs:restriction>
+	-->
+	<xs:complexType name="restrictionType">
+		<xs:attribute name="base" type="xsdVarType" />
+
+		<xs:sequence>
+			<xs:element name="enumeration" type="enumerationType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<!--
+		<xs:simpleType name="xxx">
+			<xs:restriction ... />
+		</xs:simpleType>
+	-->
+	<xs:complexType name="simpleTypeType">
+		<xs:attribute name="name" type="xs:string" />
+
+		<xs:sequence>
+			<xs:element name="restriction" type="restrictionType" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<!--
+		<xs:sequence>
+			<xs:element name="xxx" type="xxx" maxOccurs="unbounded" />
+			<xs:element ... />
+		</xs:sequence>
+	-->
+	<xs:complexType name="sequenceType">
+		<xs:sequence>
+			<xs:element name="element" type="elementType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+<!--
+		<xs:complexType name="xxx">
+			<xs:attribute name="xxx" type="xs:string" />
+			<xs:attribute ... />
+
+			<xs:sequence ... />
+		</xs:complexType>
+-->
+	<xs:complexType name="complexTypeType">
+		<xs:sequence>
+			<xs:element name="attribute" type="attributeType" maxOccurs="unbounded" />
+			<xs:element name="sequence" type="sequenceType" />
+		</xs:sequence>
+	</xs:complexType>
+
+<!--
+	<xs:schema 
+		xmlns:xs="xxx"
+		targetNamespace="xxx"
+		xmlns="xxx"
+		elementFormDefault="xxx">
+
+		<xs:simpleType ... />
+		<xs:simpleType ... />
+
+		<xs:complexType ... />
+		<xs:complexType ... />
+
+		<xs:element name="xxx" type="xxx" />
+	</xs:schema>
+-->
+	<xs:complexType name="schemaType">
+		<xs:attribute name="xs" type="xs:string" />
+		<xs:attribute name="targetNamespace" type="xs:string" />
+		<xs:attribute name="xmlns" type="xs:string" />
+		<xs:attribute name="elementFormDefault" type="xs:string" />
+
+		<xs:sequence>
+			<xs:element name="simpleType" type="simpleTypeType" maxOccurs="unbounded" />
+			<xs:element name="complexType" type="complexType" maxOccurs="unbounded" />
+
+			<xs:element name="element" type="elementType" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:element name="schema" type="schemaType" />
+</xs:schema>

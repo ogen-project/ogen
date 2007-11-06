@@ -35,7 +35,7 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 			index="ApplicationName" />
 		<metadataIndex 
 			metadata="metadataXSD" 
-			index="ApplicationName" />
+			index="xmlns" />
 
 <!--
 		<specificCase word="xxx" translation="XXX" />
@@ -46,4 +46,5 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 			<complexTypeKey name="zzz" caseSensitive="true" />
 		</complexType>
 -->
+
 </metadata>
