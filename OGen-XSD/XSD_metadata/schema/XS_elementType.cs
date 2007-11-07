@@ -46,12 +46,6 @@ namespace OGen.XSD.lib.metadata.schema {
 			name_ = name_in;
 		}
 
-		//public const string MAXOCCURSENUM_UNBOUNDED = "unbounded";
-		public enum MaxOccursEnum {
-			_undefined_ = 0, 
-			unbounded = 1
-		}
-
 		#region public bool isCollection(...);
 		public bool isCollection(
 			string schemaName_in, 

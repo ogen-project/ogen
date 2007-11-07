@@ -84,6 +84,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 	<xs:simpleType name="maxOccursType">
 		<xs:restriction base="xs:string">
+			<xs:enumeration value="_undefined_" />
 			<xs:enumeration value="unbounded" />
 		</xs:restriction>
 	</xs:simpleType>

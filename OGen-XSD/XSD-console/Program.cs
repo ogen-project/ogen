@@ -64,9 +64,11 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 						);
 						Console.WriteLine();
 						Console.WriteLine();
+
 #if DEBUG
 _begin_ticks = DateTime.Now.Ticks;
 #endif
+
 						Console.WriteLine("--- NTier_metadata");
 						DoIt(
 							System.IO.Path.Combine(

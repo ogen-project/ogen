@@ -17,6 +17,7 @@ using System.Xml.Serialization;
 
 namespace OGen.XSD.lib.metadata.schema {
 	public enum XS_MaxOccursType {
-		unbounded = 0, 
+		_undefined_ = 0, 
+		unbounded = 1, 
 	}
 }
