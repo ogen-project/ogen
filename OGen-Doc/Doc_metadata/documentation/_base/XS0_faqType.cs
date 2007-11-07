@@ -76,7 +76,12 @@ namespace OGen.Doc.lib.metadata.documentation {
 
 		[XmlElement("answer")]
 		public string Answer {
-			get { return answer_; }
+			get {
+// ToDos: here!
+				return (answer_.IndexOf("\r\n") >= 0)
+					? answer_
+					: answer_.Replace("\n", "\r\n");
+			}
 			set { answer_ = value; }
 		}
 		#endregion

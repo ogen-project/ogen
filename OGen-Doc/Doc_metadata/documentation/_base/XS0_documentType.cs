@@ -89,7 +89,12 @@ namespace OGen.Doc.lib.metadata.documentation {
 
 		[XmlElement("document")]
 		public string Document {
-			get { return document_; }
+			get {
+// ToDos: here!
+				return (document_.IndexOf("\r\n") >= 0)
+					? document_
+					: document_.Replace("\n", "\r\n");
+			}
 			set { document_ = value; }
 		}
 		#endregion

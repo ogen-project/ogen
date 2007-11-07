@@ -210,7 +210,12 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 		[XmlElement("copyrightTextLong")]
 		public string CopyrightTextLong {
-			get { return copyrighttextlong_; }
+			get {
+// ToDos: here!
+				return (copyrighttextlong_.IndexOf("\r\n") >= 0)
+					? copyrighttextlong_
+					: copyrighttextlong_.Replace("\n", "\r\n");
+			}
 			set { copyrighttextlong_ = value; }
 		}
 		#endregion

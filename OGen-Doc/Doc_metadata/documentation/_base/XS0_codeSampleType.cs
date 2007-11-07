@@ -63,7 +63,12 @@ namespace OGen.Doc.lib.metadata.documentation {
 
 		[XmlElement("code")]
 		public string Code {
-			get { return code_; }
+			get {
+// ToDos: here!
+				return (code_.IndexOf("\r\n") >= 0)
+					? code_
+					: code_.Replace("\n", "\r\n");
+			}
 			set { code_ = value; }
 		}
 		#endregion

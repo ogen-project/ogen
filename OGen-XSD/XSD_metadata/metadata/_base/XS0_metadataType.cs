@@ -187,8 +187,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlElement("copyrightTextLong")]
 		public string CopyrightTextLong {
 			get {
-				//return copyrighttextlong_;
-
+// ToDos: here!
 				return (copyrighttextlong_.IndexOf("\r\n") >= 0)
 					? copyrighttextlong_
 					: copyrighttextlong_.Replace("\n", "\r\n");

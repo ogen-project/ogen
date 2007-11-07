@@ -174,7 +174,16 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 
 		[XmlElement("<%=_aux_elements[e].Name%>")]
 		public <%=_aux_ntype%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_elements[e].Name)%> {
-			get { return <%=_aux_elements[e].Name.ToLower()%>_; }
+			get {<%
+				if (_aux_ntype == "string") {%>
+// ToDos: here!
+				return (<%=_aux_elements[e].Name.ToLower()%>_.IndexOf("\r\n") >= 0)
+					? <%=_aux_elements[e].Name.ToLower()%>_
+					: <%=_aux_elements[e].Name.ToLower()%>_.Replace("\n", "\r\n");<%
+				} else {%>
+				return <%=_aux_elements[e].Name.ToLower()%>_;<%
+				}%>
+			}
 			set { <%=_aux_elements[e].Name.ToLower()%>_ = value; }
 		}
 		#endregion<%
