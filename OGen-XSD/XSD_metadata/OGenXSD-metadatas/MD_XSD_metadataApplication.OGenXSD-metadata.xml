@@ -35,7 +35,7 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 			index="ApplicationName" />
 		<metadataIndex 
 			metadata="schema" 
-			index="xmlNS" />
+			index="Element.Name" />
 
 <!--
 		<specificCase word="xxx" translation="XXX" />

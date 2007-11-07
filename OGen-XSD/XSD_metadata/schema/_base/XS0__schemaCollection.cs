@@ -45,7 +45,7 @@ namespace OGen.XSD.lib.metadata.schema {
 				// ToDos: later! performance
 
 				for (int i = 0; i < schemacollection_.Length; i++) {
-					if (schemacollection_[i].xmlNS == name_in) {
+					if (schemacollection_[i].Element.Name == name_in) {
 						return schemacollection_[i];
 					}
 				}
