@@ -103,11 +103,11 @@ namespace OGen.XSD.lib.metadata.metadata {
 			}
 		}
 		#endregion
-		#region public bool IsSimple { get; set; }
+		#region public bool isSimple { get; set; }
 		internal bool issimple_;
 
 		[XmlAttribute("isSimple")]
-		public bool IsSimple {
+		public bool isSimple {
 			get {
 				return issimple_;
 			}

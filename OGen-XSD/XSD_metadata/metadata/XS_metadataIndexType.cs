@@ -21,5 +21,13 @@ namespace OGen.XSD.lib.metadata.metadata {
 	#else
 	public partial class XS_metadataIndexType {
 	#endif
+		public XS_metadataIndexType (
+		) {
+		}
+		public XS_metadataIndexType (
+			string metadata_in
+		) {
+			metadata_ = metadata_in;
+		}
 	}
 }
