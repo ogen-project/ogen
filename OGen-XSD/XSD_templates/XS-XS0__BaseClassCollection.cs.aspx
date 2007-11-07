@@ -74,7 +74,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_schema.
 				// ToDos: later! performance
 
 				for (int i = 0; i < <%=_aux_schema.Element.Name.ToLower()%>collection_.Length; i++) {
-					if (<%=_aux_schema.Element.Name.ToLower()%>collection_[i].<%=_aux_rootmetadata.MetadataCollection[0].MetadataIndex[_aux_schema.Element.Name].Index%> == name_in) {
+					if (<%=_aux_schema.Element.Name.ToLower()%>collection_[i].<%=_aux_rootmetadata.MetadataCollection[0].MetadataIndexCollection[_aux_schema.Element.Name].Index%> == name_in) {
 						return <%=_aux_schema.Element.Name.ToLower()%>collection_[i];
 					}
 				}

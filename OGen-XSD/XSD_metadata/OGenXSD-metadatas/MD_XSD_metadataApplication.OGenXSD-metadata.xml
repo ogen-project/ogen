@@ -51,12 +51,12 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 		<specificCase word="xs" translation="xs" />
 		<specificCase word="xsdVarType" translation="XSDVarType" />
 		<specificCase word="caseSensitive" translation="caseSensitive" />
-
+		<specificCase word="isSimple" translation="isSimple" />
 
 		<complexType name="complexTypeType">
 			<complexTypeKey name="name" caseSensitive="true" />
 		</complexType>
-		<complexType name="simpleType">
+		<complexType name="simpleTypeType">
 			<complexTypeKey name="name" caseSensitive="true" />
 		</complexType>
 		<complexType name="enumerationType">
@@ -67,6 +67,11 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 		</complexType>
 		<complexType name="elementType">
 			<complexTypeKey name="name" caseSensitive="true" />
+		</complexType>
+
+
+		<complexType name="metadataIndexType">
+			<complexTypeKey name="metadata" caseSensitive="true" />
 		</complexType>
 
 

@@ -16,7 +16,12 @@ using System;
 using System.Xml.Serialization;
 
 namespace OGen.XSD.lib.metadata.schema {
-	[System.Xml.Serialization.XmlRootAttribute("schema")]
+	[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.w3.org/2001/XMLSchema")]
+	[System.Xml.Serialization.XmlRootAttribute(
+		"schema", 
+		Namespace="http://www.w3.org/2001/XMLSchema", 
+		IsNullable=false
+	)]
 	#if NET_1_1
 	public class XS__schema : XS0__schema {
 	#else

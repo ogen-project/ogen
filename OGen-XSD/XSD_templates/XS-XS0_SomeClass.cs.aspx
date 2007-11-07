@@ -82,7 +82,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 				<%=_aux_elements[e].Name.ToLower()%>collection_.parent_ref = this;<%
 
 					} else {
-						_aux_ntype = OGen.XSD.lib.metadata.utils.Convert_NType(
+						_aux_ntype = OGen.XSD.lib.metadata.schema.utils.Convert_NType(
 							_aux_rootmetadata,
 							_aux_elements[e].Type,
 							out _aux_isstandardntype
@@ -109,7 +109,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 				<%=_aux_elements[e].Name.ToLower()%>collection_.root_ref = value;<%
 
 					} else {
-						_aux_ntype = OGen.XSD.lib.metadata.utils.Convert_NType(
+						_aux_ntype = OGen.XSD.lib.metadata.schema.utils.Convert_NType(
 							_aux_rootmetadata,
 							_aux_elements[e].Type,
 							out _aux_isstandardntype
@@ -163,7 +163,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 		//////////////////////////////////////////////////////////////
 
 			} else {
-				_aux_ntype = OGen.XSD.lib.metadata.utils.Convert_NType(
+				_aux_ntype = OGen.XSD.lib.metadata.schema.utils.Convert_NType(
 					_aux_rootmetadata,
 					_aux_elements[e].Type,
 					out _aux_isstandardntype
@@ -234,7 +234,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 		//////////////////////////////////////////////////////////////
 
 			} else {
-				_aux_ntype = OGen.XSD.lib.metadata.utils.Convert_NType(
+				_aux_ntype = OGen.XSD.lib.metadata.schema.utils.Convert_NType(
 					_aux_rootmetadata,
 					_aux_elements[e].Type,
 					out _aux_isstandardntype
