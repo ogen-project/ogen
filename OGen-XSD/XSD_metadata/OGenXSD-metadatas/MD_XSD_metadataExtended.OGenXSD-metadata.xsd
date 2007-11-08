@@ -29,12 +29,24 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			prefixBase="XS__"
 			prefixBaseGenerated="XS0__"
 			copyrightText="Copyright (C) 2002 Francisco Monteiro">
-		
 				<copyrightTextLong>OGen ...</copyrightTextLong>
-		
-				<metadataIndex metadata="metadataExtended" index="ApplicationName" />
+				<metadataIndex metadata="metadataExtended" index="ApplicationName">
+
+SPECIFIC for metadataExtended
+
+					<specificCase word="db" translation="DB" />
+					<specificCase ... />
+			
+					<complexType name="dbConnectionType">
+						<complexTypeKey name="configMode" caseSensitive="true" />
+						<complexTypeKey ... />
+					</complexType>
+					<complexType ... />
+				</metadataIndex>
 				<metadataIndex ... />
-		
+
+SHARED by all
+
 				<specificCase word="db" translation="DB" />
 				<specificCase ... />
 		
