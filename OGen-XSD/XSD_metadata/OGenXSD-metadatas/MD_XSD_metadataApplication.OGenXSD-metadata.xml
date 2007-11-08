@@ -36,6 +36,13 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 
 			<specificCase word="isSimple" translation="isSimple" />
 			<specificCase word="caseSensitive" translation="caseSensitive" />
+
+			<complexType name="metadataIndexType">
+				<complexTypeKey name="metadata" caseSensitive="true" />
+			</complexType>
+			<complexType name="specificCaseType">
+				<complexTypeKey name="word" caseSensitive="true" />
+			</complexType>
 		</metadataIndex>
 		<metadataIndex 
 			metadata="schema" 
@@ -44,6 +51,19 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 			<specificCase word="xmlns" translation="xmlNS" />
 			<specificCase word="xs" translation="xs" />
 			<specificCase word="xsdVarType" translation="XSDVarType" />
+
+			<complexType name="simpleTypeType">
+				<complexTypeKey name="name" caseSensitive="true" />
+			</complexType>
+			<complexType name="elementType">
+				<complexTypeKey name="name" caseSensitive="true" />
+			</complexType>
+			<complexType name="enumerationType">
+				<complexTypeKey name="value" caseSensitive="true" />
+			</complexType>
+			<complexType name="attributeType">
+				<complexTypeKey name="name" caseSensitive="true" />
+			</complexType>
 		</metadataIndex>
 
 <!--
@@ -58,27 +78,5 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 
 		<complexType name="complexTypeType">
 			<complexTypeKey name="name" caseSensitive="true" />
-		</complexType>
-		<complexType name="simpleTypeType">
-			<complexTypeKey name="name" caseSensitive="true" />
-		</complexType>
-		<complexType name="enumerationType">
-			<complexTypeKey name="value" caseSensitive="true" />
-		</complexType>
-		<complexType name="attributeType">
-			<complexTypeKey name="name" caseSensitive="true" />
-		</complexType>
-		<complexType name="elementType">
-			<complexTypeKey name="name" caseSensitive="true" />
-		</complexType>
-
-
-		<complexType name="metadataIndexType">
-			<complexTypeKey name="metadata" caseSensitive="true" />
-		</complexType>
-
-
-		<complexType name="specificCaseType">
-			<complexTypeKey name="word" caseSensitive="true" />
 		</complexType>
 </metadata>

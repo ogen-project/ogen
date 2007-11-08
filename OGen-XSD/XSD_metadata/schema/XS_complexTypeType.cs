@@ -36,6 +36,8 @@ namespace OGen.XSD.lib.metadata.schema {
 			out ComplexTypeItem[] complexTypeCollection_out
 		) {
 			complexTypeCollection_out = null;
+			int _index = -1;
+			OGen.XSD.lib.metadata.metadata.XS_complexTypeType _complextype;
 
 			XS__schema _schema = root_ref_.SchemaCollection[schemaName_in];
 			for (int c = 0; c < _schema.ComplexTypeCollection.Count; c++) {
@@ -50,11 +52,30 @@ namespace OGen.XSD.lib.metadata.schema {
 					) {
 						// then this ComplexType must implement a Collection
 
-						OGen.XSD.lib.metadata.metadata.XS_complexTypeType _complextype
-							= root_ref_.MetadataCollection[0].ComplexTypeCollection[
-								Name
-							];
+						#region _complextype = ...;
+						#region _index = ...;
+						if (schemaName_in != string.Empty)
+							_index = root_ref_.MetadataCollection[0].MetadataIndexCollection.Search(schemaName_in);
+						else
+							_index = -1;
+						#endregion
+						if (_index != -1)
+							// note: if not found null will be returned! 
+							// so don't glue this if block with the next
+							// or have this in consideration when you do it
+							_complextype
+								= root_ref_.MetadataCollection[0].MetadataIndexCollection[_index].ComplexTypeCollection[
+									Name
+								];
+						else
+							_complextype = null;
 
+						if (_complextype == null)
+							_complextype
+								= root_ref_.MetadataCollection[0].ComplexTypeCollection[
+									Name
+								];
+						#endregion
 						if (_complextype != null) {
 							complexTypeCollection_out = new ComplexTypeItem[_complextype.ComplexTypeKeyCollection.Count];
 							for (int k = 0; k < _complextype.ComplexTypeKeyCollection.Count; k++) {
