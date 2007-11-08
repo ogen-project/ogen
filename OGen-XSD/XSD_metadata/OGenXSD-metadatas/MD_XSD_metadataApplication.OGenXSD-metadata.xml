@@ -32,10 +32,19 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 
 		<metadataIndex 
 			metadata="metadata" 
-			index="ApplicationName" />
+			index="ApplicationName">
+
+			<specificCase word="isSimple" translation="isSimple" />
+			<specificCase word="caseSensitive" translation="caseSensitive" />
+		</metadataIndex>
 		<metadataIndex 
 			metadata="schema" 
-			index="Element.Name" />
+			index="Element.Name">
+
+			<specificCase word="xmlns" translation="xmlNS" />
+			<specificCase word="xs" translation="xs" />
+			<specificCase word="xsdVarType" translation="XSDVarType" />
+		</metadataIndex>
 
 <!--
 		<specificCase word="xxx" translation="XXX" />
@@ -46,12 +55,6 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 			<complexTypeKey name="zzz" caseSensitive="true" />
 		</complexType>
 -->
-
-		<specificCase word="xmlns" translation="xmlNS" />
-		<specificCase word="xs" translation="xs" />
-		<specificCase word="xsdVarType" translation="XSDVarType" />
-		<specificCase word="caseSensitive" translation="caseSensitive" />
-		<specificCase word="isSimple" translation="isSimple" />
 
 		<complexType name="complexTypeType">
 			<complexTypeKey name="name" caseSensitive="true" />

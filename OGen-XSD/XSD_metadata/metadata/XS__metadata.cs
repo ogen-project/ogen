@@ -40,14 +40,22 @@ namespace OGen.XSD.lib.metadata.metadata {
 				return (string)casetranslate_cache_[_key];
 			} else {
 				#region XS_specificCaseType _case = ...;
+				int _index = -1;
 				XS_specificCaseType _case;
 				if (
 					// (no schema provided)
 					(schemaName_in == string.Empty)
 					||
 					(
+						// (can't find specific schema)
+						(_index = MetadataIndexCollection.Search(schemaName_in))
+						==
+						-1
+					)
+					||
+					(
 						// (not found at specific schema)
-						(_case = MetadataIndexCollection[schemaName_in].SpecificCaseCollection[word_in])
+						(_case = MetadataIndexCollection[_index].SpecificCaseCollection[word_in])
 						==
 						null
 					)
