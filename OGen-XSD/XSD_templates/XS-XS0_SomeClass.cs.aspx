@@ -85,6 +85,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 						_aux_ntype = OGen.XSD.lib.metadata.schema.utils.Convert_NType(
 							_aux_rootmetadata,
 							_aux_elements[e].Type,
+							_arg_SchemaName,
 							out _aux_isstandardntype
 						);
 						if (!_aux_isstandardntype) {%>
@@ -112,6 +113,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 						_aux_ntype = OGen.XSD.lib.metadata.schema.utils.Convert_NType(
 							_aux_rootmetadata,
 							_aux_elements[e].Type,
+							_arg_SchemaName,
 							out _aux_isstandardntype
 						);
 						if (!_aux_isstandardntype) {%>
@@ -126,11 +128,11 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 }
 
 		for (int a = 0; a < _aux_complextype.AttributeCollection.Count; a++) {%>
-		#region public <%=_aux_complextype.AttributeCollection[a].NType%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_complextype.AttributeCollection[a].Name)%> { get; set; }
-		internal <%=_aux_complextype.AttributeCollection[a].NType%> <%=_aux_complextype.AttributeCollection[a].Name.ToLower()%>_;
+		#region public <%=_aux_complextype.AttributeCollection[a].NType(_arg_SchemaName)%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_complextype.AttributeCollection[a].Name, _arg_SchemaName)%> { get; set; }
+		internal <%=_aux_complextype.AttributeCollection[a].NType(_arg_SchemaName)%> <%=_aux_complextype.AttributeCollection[a].Name.ToLower()%>_;
 
 		[XmlAttribute("<%=_aux_complextype.AttributeCollection[a].Name%>")]
-		public <%=_aux_complextype.AttributeCollection[a].NType%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_complextype.AttributeCollection[a].Name)%> {
+		public <%=_aux_complextype.AttributeCollection[a].NType(_arg_SchemaName)%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_complextype.AttributeCollection[a].Name, _arg_SchemaName)%> {
 			get {
 				return <%=_aux_complextype.AttributeCollection[a].Name.ToLower()%>_;
 			}
@@ -144,7 +146,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 <%
 		for (int e = 0; e < _aux_elements.Count; e++) {
 			if (_aux_elements[e].MaxOccurs == XS_MaxOccursType.unbounded) {%>
-		#region public <%=XS_%><%=_aux_elements[e].Type%>Collection <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_elements[e].Name)%>Collection { get; }
+		#region public <%=XS_%><%=_aux_elements[e].Type%>Collection <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_elements[e].Name, _arg_SchemaName)%>Collection { get; }
 		internal <%=XS_%><%=_aux_elements[e].Type%>Collection <%=_aux_elements[e].Name.ToLower()%>collection_ 
 			= new <%=XS_%><%=_aux_elements[e].Type%>Collection();
 
@@ -155,7 +157,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 		}
 
 		[XmlIgnore()]
-		public <%=XS_%><%=_aux_elements[e].Type%>Collection <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_elements[e].Name)%>Collection {
+		public <%=XS_%><%=_aux_elements[e].Type%>Collection <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_elements[e].Name, _arg_SchemaName)%>Collection {
 			get { return <%=_aux_elements[e].Name.ToLower()%>collection_; }
 		}
 		#endregion<%
@@ -166,14 +168,15 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 				_aux_ntype = OGen.XSD.lib.metadata.schema.utils.Convert_NType(
 					_aux_rootmetadata,
 					_aux_elements[e].Type,
+					_arg_SchemaName,
 					out _aux_isstandardntype
 				);
 				if (_aux_isstandardntype) {%>
-		#region public <%=_aux_ntype%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_elements[e].Name)%> { get; set; }
+		#region public <%=_aux_ntype%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_elements[e].Name, _arg_SchemaName)%> { get; set; }
 		internal <%=_aux_ntype%> <%=_aux_elements[e].Name.ToLower()%>_;
 
 		[XmlElement("<%=_aux_elements[e].Name%>")]
-		public <%=_aux_ntype%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_elements[e].Name)%> {
+		public <%=_aux_ntype%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_elements[e].Name, _arg_SchemaName)%> {
 			get {<%
 				if (_aux_ntype == "string") {%>
 // ToDos: here!
@@ -191,11 +194,11 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 		//////////////////////////////////////////////////////////////
 
 				} else {%>
-		#region public <%=XS_%><%=_aux_elements[e].Type%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_elements[e].Name)%> { get; set; }
+		#region public <%=XS_%><%=_aux_elements[e].Type%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_elements[e].Name, _arg_SchemaName)%> { get; set; }
 		internal <%=XS_%><%=_aux_elements[e].Type%> <%=_aux_elements[e].Name.ToLower()%>__;
 
 		[XmlIgnore()]
-		public <%=XS_%><%=_aux_elements[e].Type%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_elements[e].Name)%> {
+		public <%=XS_%><%=_aux_elements[e].Type%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_elements[e].Name, _arg_SchemaName)%> {
 			get {
 				if (<%=_aux_elements[e].Name.ToLower()%>__ == null) {
 					<%=_aux_elements[e].Name.ToLower()%>__ = new <%=XS_%><%=_aux_elements[e].Type%>();
@@ -246,6 +249,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 				_aux_ntype = OGen.XSD.lib.metadata.schema.utils.Convert_NType(
 					_aux_rootmetadata,
 					_aux_elements[e].Type,
+					_arg_SchemaName,
 					out _aux_isstandardntype
 				);
 				if (_aux_isstandardntype) {%>

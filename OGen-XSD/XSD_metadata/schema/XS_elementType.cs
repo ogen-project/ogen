@@ -77,7 +77,7 @@ namespace OGen.XSD.lib.metadata.schema {
 								) {
 									complexTypeCollection_out[k] = new ComplexTypeItem(
 										_schema.ComplexTypeCollection[c].AttributeCollection[a].Name,
-										_schema.ComplexTypeCollection[c].AttributeCollection[a].NType,
+										_schema.ComplexTypeCollection[c].AttributeCollection[a].NType(schemaName_in),
 										_complextype.ComplexTypeKeyCollection[k].caseSensitive
 									);
 									break;

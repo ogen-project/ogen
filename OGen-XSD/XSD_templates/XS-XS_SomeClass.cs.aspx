@@ -66,7 +66,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_schema.
 		}
 		public <%=XS_%><%=_aux_complextype.Name%> (<%
 		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
-			<%=_aux_complextype_keys[k].NType%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
+			<%=_aux_complextype_keys[k].NType(_arg_SchemaName)%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
 		}%>
 		) {<%
 		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>

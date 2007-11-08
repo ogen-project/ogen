@@ -30,15 +30,13 @@ namespace OGen.XSD.lib.metadata.schema {
 			name_ = name_in;
 		}
 
-		#region public string NType { get; set; }
-		[XmlIgnore()]
-		public string NType {
-			get {
-				return utils.Convert_NType(
-					root_ref,
-					type_
-				);
-			}
+		#region public string NType(...);
+		public string NType(string schemaName_in) {
+			return utils.Convert_NType(
+				root_ref,
+				type_, 
+				schemaName_in
+			);
 		}
 		#endregion
 	}

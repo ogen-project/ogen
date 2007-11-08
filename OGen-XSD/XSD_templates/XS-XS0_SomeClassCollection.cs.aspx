@@ -182,7 +182,7 @@ if (_aux_complextype_keys != null) {%>
 		#region public <%=XS_%><%=_aux_complextype.Name%> this[...] { get; }
 		public <%=XS_%><%=_aux_complextype.Name%> this[<%
 		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
-			<%=_aux_complextype_keys[k].NType%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
+			<%=_aux_complextype_keys[k].NType(_arg_SchemaName)%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
 		}%>
 		] {
 			get {
@@ -206,7 +206,7 @@ if (_aux_complextype_keys != null) {%>
 		#region public void Remove(...);
 		public void Remove(<%
 		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
-			<%=_aux_complextype_keys[k].NType%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
+			<%=_aux_complextype_keys[k].NType(_arg_SchemaName)%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
 		}%>
 		) {
 			RemoveAt(
@@ -221,7 +221,7 @@ if (_aux_complextype_keys != null) {%>
 		#region public int Search(...);
 		public int Search(<%
 		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
-			<%=_aux_complextype_keys[k].NType%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
+			<%=_aux_complextype_keys[k].NType(_arg_SchemaName)%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
 		}%>
 		) {
 			for (int i = 0; i < cols_.Count; i++) {
@@ -233,7 +233,7 @@ if (_aux_complextype_keys != null) {%>
 						#else
 						cols_[i]
 						#endif
-							.<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_complextype_keys[k].Name)%><%=(_aux_complextype_keys[k].CaseSensitive) ? "" : ".ToLower()"%>
+							.<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_complextype_keys[k].Name, _arg_SchemaName)%><%=(_aux_complextype_keys[k].CaseSensitive) ? "" : ".ToLower()"%>
 						==
 						<%=_aux_complextype_keys[k].Name%>_in<%=(_aux_complextype_keys[k].CaseSensitive) ? "" : ".ToLower()"%> 
 					)
@@ -256,9 +256,9 @@ if (_aux_complextype_keys != null) {%>
 						#else
 						cols_[i]
 						#endif
-							.<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_complextype_keys[k].Name)%><%=(_aux_complextype_keys[k].CaseSensitive) ? "" : ".ToLower()"%>
+							.<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_complextype_keys[k].Name, _arg_SchemaName)%><%=(_aux_complextype_keys[k].CaseSensitive) ? "" : ".ToLower()"%>
 						==
-						collectionItem_in.<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_complextype_keys[k].Name)%><%=(_aux_complextype_keys[k].CaseSensitive) ? "" : ".ToLower()"%>
+						collectionItem_in.<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_complextype_keys[k].Name, _arg_SchemaName)%><%=(_aux_complextype_keys[k].CaseSensitive) ? "" : ".ToLower()"%>
 					)
 					<%=(k == _aux_complextype_keys.Length - 1) ? "" : "&&"%><%
 				}%>
@@ -274,7 +274,7 @@ if (_aux_complextype_keys != null) {%>
 		public virtual void Add(
 			bool onlyIfNotExists_in,<%
 		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
-			<%=_aux_complextype_keys[k].NType%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
+			<%=_aux_complextype_keys[k].NType(_arg_SchemaName)%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
 		}%>
 		) {
 			if (
@@ -299,7 +299,7 @@ if (_aux_complextype_keys != null) {%>
 			out int returnIndex_out, 
 			bool onlyIfNotExists_in, <%
 		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
-			<%=_aux_complextype_keys[k].NType%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
+			<%=_aux_complextype_keys[k].NType(_arg_SchemaName)%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
 		}%>
 		) {
 			if (
@@ -323,7 +323,7 @@ if (_aux_complextype_keys != null) {%>
 		}
 		public void Add(<%
 		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
-			<%=_aux_complextype_keys[k].NType%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
+			<%=_aux_complextype_keys[k].NType(_arg_SchemaName)%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
 		}%>
 		) {
 			Add(new <%=XS_%><%=_aux_complextype.Name%>(<%
@@ -335,7 +335,7 @@ if (_aux_complextype_keys != null) {%>
 		public void Add(
 			out int returnIndex_out,<%
 		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
-			<%=_aux_complextype_keys[k].NType%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
+			<%=_aux_complextype_keys[k].NType(_arg_SchemaName)%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
 		}%>
 		) {
 			Add(

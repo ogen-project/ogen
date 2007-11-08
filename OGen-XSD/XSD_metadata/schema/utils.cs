@@ -22,12 +22,14 @@ namespace OGen.XSD.lib.metadata.schema {
 		#region public static string Convert_NType(...);
 		public static string Convert_NType(
 			XS__RootMetadata root_ref_in,
-			string xsdType_in
+			string xsdType_in, 
+			string schemaName_in
 		) {
 			bool isStandardNType_out;
 			return Convert_NType(
 				root_ref_in,
 				xsdType_in,
+				schemaName_in, 
 				out isStandardNType_out
 			);
 		}
@@ -35,6 +37,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		public static string Convert_NType(
 			XS__RootMetadata root_ref_in, 
 			string xsdType_in, 
+			string schemaName_in, 
 			out bool isStandardNType_out
 		) {
 			isStandardNType_out = true;
@@ -58,7 +61,10 @@ namespace OGen.XSD.lib.metadata.schema {
 						root_ref_in.MetadataCollection[0].Prefix,
 						(root_ref_in == null)
 							? xsdType_in
-							: root_ref_in.MetadataCollection[0].CaseTranslate(xsdType_in)
+							: root_ref_in.MetadataCollection[0].CaseTranslate(
+								xsdType_in, 
+								schemaName_in
+							)
 					);
 			}
 		}

@@ -25,21 +25,43 @@ namespace OGen.XSD.lib.metadata.metadata {
 	#endif
 
 		#region public string CaseTranslate(string word_in);
-		private Hashtable casetranslate_;
+		private Hashtable casetranslate_cache_;
 
-		public string CaseTranslate(string word_in) {
-			if (casetranslate_ == null) {
-				casetranslate_ = new Hashtable();
+		public string CaseTranslate(
+			string word_in, 
+			string schemaName_in
+		) {
+			string _key = word_in + "|" + schemaName_in;
+
+			if (casetranslate_cache_ == null) {
+				casetranslate_cache_ = new Hashtable();
 			}
-			if (casetranslate_.Contains(word_in)) {
-				return (string)casetranslate_[word_in];
+			if (casetranslate_cache_.Contains(_key)) {
+				return (string)casetranslate_cache_[_key];
 			} else {
-				XS_specificCaseType _case = SpecificCaseCollection[word_in];
+				#region XS_specificCaseType _case = ...;
+				XS_specificCaseType _case;
+				if (
+					// (no schema provided)
+					(schemaName_in == string.Empty)
+					||
+					(
+						// (not found at specific schema)
+						(_case = MetadataIndexCollection[schemaName_in].SpecificCaseCollection[word_in])
+						==
+						null
+					)
+				) {
+					// look in generic
+					_case = SpecificCaseCollection[word_in];
+				}
+				#endregion
+
 				string _output = (_case == null) 
 					? string.Empty 
 					: _case.Translation;
 				if (_output != string.Empty) {
-					casetranslate_.Add(word_in, _output);
+					casetranslate_cache_.Add(_key, _output);
 					return _output;
 				} else {
 					switch (CaseType) {
@@ -51,7 +73,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 							} else {
 								_output = word_in;
 							}
-							casetranslate_.Add(word_in, _output);
+							casetranslate_cache_.Add(_key, _output);
 							return _output;
 						case XS_CaseTypeEnumeration.camelCase:
 						case XS_CaseTypeEnumeration.lowercase:
@@ -61,7 +83,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 							throw new Exception("not implemented!");
 						case XS_CaseTypeEnumeration.none:
 						default:
-							casetranslate_.Add(word_in, word_in);
+							casetranslate_cache_.Add(_key, word_in);
 							return word_in;
 					}
 				}

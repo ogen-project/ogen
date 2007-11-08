@@ -57,20 +57,20 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_schema.
 		public const string <%=_aux_schema.Element.Name.ToUpper()%> = "<%=_aux_schema.Element.Name%>";
 		public const string ROOT = "ROOT";
 		public const string ROOT_<%=_aux_schema.Element.Name.ToUpper()%> = ROOT + "." + <%=_aux_schema.Element.Name.ToUpper()%>;
-		#region public string Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name)%> { get; }
+		#region public string Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name, _arg_SchemaName)%> { get; }
 		protected string root_<%=_aux_schema.Element.Name.ToLower()%>_ = null;
 
 		[XmlIgnore()]
-		public string Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name)%> {
+		public string Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name, _arg_SchemaName)%> {
 			get { return root_<%=_aux_schema.Element.Name.ToLower()%>_; }
 		}
 		#endregion<%--
 
-		#region //public <%=XS_%><%=_aux_schema.Element.Type%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name)%> { get; set; }
+		#region //public <%=XS_%><%=_aux_schema.Element.Type%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name, _arg_SchemaName)%> { get; set; }
 //		private <%=XS_%><%=_aux_schema.Element.Type%> <%=_aux_schema.Element.Name.ToLower()%>__;
 //
 //		[XmlIgnore()]
-//		public <%=XS_%><%=_aux_schema.Element.Type%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name)%> {
+//		public <%=XS_%><%=_aux_schema.Element.Type%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name, _arg_SchemaName)%> {
 //			get {
 //				if (<%=_aux_schema.Element.Name.ToLower()%>__ == null) {
 //					<%=_aux_schema.Element.Name.ToLower()%>__ = new <%=XS_%><%=_aux_schema.Element.Type%>();
@@ -220,12 +220,12 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 				this, <%--
 				// ROOT_<%=_aux_schema.Element.Name.ToUpper()%>,
 				--%>
-				Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name)%>, 
+				Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name, _arg_SchemaName)%>, 
 				null, 
 				what_in, <%--
 				// ROOT_<%=_aux_schema.Element.Name.ToUpper()%>,
 				--%>
-				Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name)%>, 
+				Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name, _arg_SchemaName)%>, 
 				true, 
 				true
 			);
@@ -240,12 +240,12 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 				this, <%--
 				// ROOT_<%=_aux_schema.Element.Name.ToUpper()%>,
 				--%>
-				Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name)%>, 
+				Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name, _arg_SchemaName)%>, 
 				iteration_found_in, 
 				iteration_in, <%--
 				// ROOT_<%=_aux_schema.Element.Name.ToUpper()%>,
 				--%>
-				Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name)%>, 
+				Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name, _arg_SchemaName)%>, 
 				false, 
 				true
 			);

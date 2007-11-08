@@ -49,7 +49,7 @@ if ((_aux_rootmetadata.MetadataCollection[0].CopyrightText != string.Empty) && (
 using System.Xml.Serialization;
 
 namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_schema.Element.Name%> {
-	public enum <%=XS_%><%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_arg_SimpleTypeName)%> {<%
+	public enum <%=XS_%><%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_arg_SimpleTypeName, _arg_SchemaName)%> {<%
 	for (int e = 0; e < _aux_enumeration.Count; e++) {%><%=""%>
 		<%=_aux_enumeration[e].Value%> = <%=e.ToString()%>, <%
 	}%>

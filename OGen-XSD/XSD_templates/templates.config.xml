@@ -182,6 +182,7 @@ iterationType="ROOT.schema">
 
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="SchemaName" value="${ROOT.schema[n].element.name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata[0].isSimple" to="False" />
