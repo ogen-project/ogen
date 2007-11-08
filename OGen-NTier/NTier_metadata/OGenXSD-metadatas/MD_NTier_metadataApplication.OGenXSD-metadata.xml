@@ -30,8 +30,16 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</copyrightTextLong>
 
+
 <!--
-	<metadata names="metadata" indexPath="ApplicationName">
+ToDos: here!
+
+rename:
+	<metadataIndex metadata="metadata" index="ApplicationName" />
+	<metadata name="metadata" indexPath="ApplicationName" />
+-->
+<!--
+	<metadataIndex metadata="metadata" index="ApplicationName">
 		<specificCase word="db" translation="DB" />
 		<specificCase word="dbCollationName" translation="DBCollationName" />
 
@@ -42,13 +50,23 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 		<complexType name="dbType">
 			<complexTypeKey name="dbServerType" caseSensitive="false" />
 		</complexType>
-	</metadata>
-	<metadata names="someTest" indexPath="SomeAttrib3">
+	</metadataIndex>
+	<metadataIndex metadata="someTest" index="SomeAttrib3">
 		...
-	</metadata>
-	<metadata names="metadata|someTest" indexPath="">
-		...
-	</metadata>
+	</metadataIndex>
+
+
+shared
+	<specificCase word="db" translation="DB" />
+	<specificCase word="dbCollationName" translation="DBCollationName" />
+
+	<complexType name="dbConnectionType">
+		<complexTypeKey name="configMode" caseSensitive="false" />
+	</complexType>
+
+	<complexType name="dbType">
+		<complexTypeKey name="dbServerType" caseSensitive="false" />
+	</complexType>
 -->
 
 		<metadataIndex 

@@ -60,12 +60,23 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 
 	<!--
-		<metadataIndex metadata="metadataExtended" index="ApplicationName" />
+		<metadataIndex metadata="metadataExtended" index="ApplicationName">
+			<specificCase ... />
+			<specificCase ... />
+
+			<complexType ... />
+			<complexType ... />
+		</metadataIndex>
 		<metadataIndex ... />
 	-->
 	<xs:complexType name="metadataIndexType">
 		<xs:attribute name="metadata" type="xs:string" />
 		<xs:attribute name="index" type="xs:string" />
+
+		<xs:sequence>
+			<xs:element name="specificCase" type="specificCaseType" maxOccurs="unbounded" />
+			<xs:element name="complexType" type="complexTypeType" maxOccurs="unbounded" />
+		</xs:sequence>
 	</xs:complexType>
 
 

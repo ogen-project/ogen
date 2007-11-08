@@ -30,6 +30,8 @@ namespace OGen.XSD.lib.metadata.metadata {
 		public object parent_ref {
 			set {
 				parent_ref_ = value;
+				specificcasecollection_.parent_ref = this;
+				complextypecollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
 		}
@@ -41,6 +43,8 @@ namespace OGen.XSD.lib.metadata.metadata {
 		public XS__RootMetadata root_ref {
 			set {
 				root_ref_ = value;
+				specificcasecollection_.root_ref = value;
+				complextypecollection_.root_ref = value;
 			}
 			get { return root_ref_; }
 		}
@@ -71,6 +75,36 @@ namespace OGen.XSD.lib.metadata.metadata {
 			}
 		}
 		#endregion
+		#region public XS_specificCaseTypeCollection SpecificCaseCollection { get; }
+		internal XS_specificCaseTypeCollection specificcasecollection_ 
+			= new XS_specificCaseTypeCollection();
+
+		[XmlElement("specificCase")]
+		public XS_specificCaseType[] specificcasecollection__xml {
+			get { return specificcasecollection_.cols__; }
+			set { specificcasecollection_.cols__ = value; }
+		}
+
+		[XmlIgnore()]
+		public XS_specificCaseTypeCollection SpecificCaseCollection {
+			get { return specificcasecollection_; }
+		}
+		#endregion
+		#region public XS_complexTypeTypeCollection ComplexTypeCollection { get; }
+		internal XS_complexTypeTypeCollection complextypecollection_ 
+			= new XS_complexTypeTypeCollection();
+
+		[XmlElement("complexType")]
+		public XS_complexTypeType[] complextypecollection__xml {
+			get { return complextypecollection_.cols__; }
+			set { complextypecollection_.cols__ = value; }
+		}
+
+		[XmlIgnore()]
+		public XS_complexTypeTypeCollection ComplexTypeCollection {
+			get { return complextypecollection_; }
+		}
+		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_metadataIndexType metadataIndexType_in) {
@@ -78,6 +112,26 @@ namespace OGen.XSD.lib.metadata.metadata {
 
 			metadata_ = metadataIndexType_in.metadata_;
 			index_ = metadataIndexType_in.index_;
+			specificcasecollection_.Clear();
+			for (int d = 0; d < metadataIndexType_in.specificcasecollection_.Count; d++) {
+				specificcasecollection_.Add(
+					out _index,
+					new XS_specificCaseType()
+				);
+				specificcasecollection_[_index].CopyFrom(
+					metadataIndexType_in.specificcasecollection_[d]
+				);
+			}
+			complextypecollection_.Clear();
+			for (int d = 0; d < metadataIndexType_in.complextypecollection_.Count; d++) {
+				complextypecollection_.Add(
+					out _index,
+					new XS_complexTypeType()
+				);
+				complextypecollection_[_index].CopyFrom(
+					metadataIndexType_in.complextypecollection_[d]
+				);
+			}
 		}
 		#endregion
 	}
