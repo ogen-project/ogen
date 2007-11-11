@@ -11,7 +11,6 @@
 @ECHO OFF
 SET thisdir=%~dp0
 
-IF '%1' == '/test' GOTO test
 IF NOT '%1' == '' GOTO error1
 
 
@@ -21,7 +20,7 @@ IF NOT EXIST "%thisdir%..\distro-metadatas\OGen-projects.txt" GOTO error3
 
 SET errorFound=
 FOR /F "usebackq tokens=1,2,3,4,5,6,7,8,9 delims=, " %%a IN (`TYPE "%thisdir%..\distro-metadatas\OGen-projects.txt"`) DO (
-	CALL %0 /test %%a %%b %%c %%d %%e %%f %%g %%h %%i %%j
+	CALL :test %%a %%b %%c %%d %%e %%f %%g %%h %%i %%j
 )
 IF '%errorFound%' == '' ECHO no errors!
 SET errorFound=

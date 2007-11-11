@@ -40,7 +40,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
         ProjectType = "Local"
         ProductVersion = "7.10.3077"
         SchemaVersion = "2.0"
-        ProjectGuid = "{<%=_aux_metadata.GUIDDatalayer%>}"
+        ProjectGuid = "{<%=_aux_ex_metadata.GUIDDatalayer%>}"
     >
         <Build>
             <Settings
@@ -66,8 +66,8 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "DEBUG;TRACE;NET_1_1<%
-					for (int d = 0; d < _aux_metadata.DBs.Count; d++) {
-						string _dbservertype = _aux_metadata.DBs[d].DBServerType.ToString();
+					for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
+						string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();
 						%>;<%=_dbservertype%><%
 					}%>"
                     DocumentationFile = "bin\Debug\<%=_aux_ex_metadata.Namespace%>.lib.datalayer-1.1.xml"
@@ -90,8 +90,8 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "TRACE;NET_1_1<%
-					for (int d = 0; d < _aux_metadata.DBs.Count; d++) {
-						string _dbservertype = _aux_metadata.DBs[d].DBServerType.ToString();
+					for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
+						string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();
 						%>;<%=_dbservertype%><%
 					}%>"
                     DocumentationFile = ""
@@ -129,10 +129,10 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                     AssemblyName = "OGen.lib.datalayer-1.1"
                     AssemblyFolderKey = "hklm\dn\ogen"
                 /><%
-                for (int d = 0; d < _aux_metadata.DBs.Count; d++) {%>
+                for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {%>
                 <Reference
-                    Name = "OGen.lib.datalayer.<%=_aux_metadata.DBs[d].DBServerType.ToString()%>-1.1"
-                    AssemblyName = "OGen.lib.datalayer.<%=_aux_metadata.DBs[d].DBServerType.ToString()%>-1.1"
+                    Name = "OGen.lib.datalayer.<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%>-1.1"
+                    AssemblyName = "OGen.lib.datalayer.<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%>-1.1"
                     AssemblyFolderKey = "hklm\dn\ogen"
                 /><%
                 }%>

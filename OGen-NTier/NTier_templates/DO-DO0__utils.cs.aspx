@@ -51,8 +51,8 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 using System.Data;
 
 using OGen.lib.datalayer;<%
-for (int d = 0; d < _aux_metadata.DBs.Count; d++) {%>
-using OGen.lib.datalayer.<%=_aux_metadata.DBs[d].DBServerType.ToString()%>;<%
+for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {%>
+using OGen.lib.datalayer.<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%>;<%
 }%>
 using OGen.NTier.lib.datalayer;
 
@@ -167,8 +167,8 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 		) {
 			switch (dbServerType_in) {<%
 
-			//for (int d = 0; d < _aux_metadata.DBs.Count; d++) {
-			//	string _dbservertype = _aux_metadata.DBs[d].DBServerType.ToString();
+			//for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
+			//	string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();
 
 			string[] _dbservertypes = Enum.GetNames(typeof(DBServerTypes));
 			for (int i = 0; i < 
@@ -269,8 +269,8 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 						}
 					}
 					DBConnection connection = DBConnectionsupport.CreateInstance(
-						_aux_metadata.DBs.FirstDefaultAvailable_DBServerType(), 
-						_aux_metadata.DBs.FirstDefaultAvailable_Connectionstring()
+						_aux_ex_metadata.DBs.DBCollection.FirstDefaultAvailable_DBServerType(), 
+						_aux_ex_metadata.DBs.DBCollection.FirstDefaultAvailable_Connectionstring()
 					);
 					ConfigTable = connection.Execute_SQLQuery_returnDataTable(
 						string.Format(
@@ -280,7 +280,7 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 							/*02*/ DatatypeField,
 							/*03*/ _aux_table.Name, 
 #if MySQL
-							/*04*/ (_aux_metadata.DBs.FirstDefaultAvailable_DBServerType() == DBServerTypes.MySQL) ? "`" :"\""
+							/*04*/ (_aux_ex_metadata.DBs.DBCollection.FirstDefaultAvailable_DBServerType() == DBServerTypes.MySQL) ? "`" :"\""
 #else
 							/*04*/ "\""
 #endif

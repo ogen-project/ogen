@@ -37,15 +37,15 @@ XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedColle
 //-----------------------------------------------------------------------------------------
 %>Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_datalayer", "<%=_aux_ex_metadata.ApplicationName%>_datalayer\<%=_aux_ex_metadata.ApplicationName%>_datalayer-8.csproj", "{<%=_aux_metadata.GUIDDatalayer%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_datalayer", "<%=_aux_ex_metadata.ApplicationName%>_datalayer\<%=_aux_ex_metadata.ApplicationName%>_datalayer-8.csproj", "{<%=_aux_ex_metadata.GUIDDatalayer%>}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_datalayer_UTs", "<%=_aux_ex_metadata.ApplicationName%>_datalayer_UTs\<%=_aux_ex_metadata.ApplicationName%>_datalayer_UTs-8.csproj", "{<%=_aux_metadata.GUIDDatalayer_UTs%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_datalayer_UTs", "<%=_aux_ex_metadata.ApplicationName%>_datalayer_UTs\<%=_aux_ex_metadata.ApplicationName%>_datalayer_UTs-8.csproj", "{<%=_aux_ex_metadata.GUIDDatalayer_UTs%>}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer", "<%=_aux_ex_metadata.ApplicationName%>_businesslayer\<%=_aux_ex_metadata.ApplicationName%>_businesslayer-8.csproj", "{<%=_aux_metadata.GUIDBusinesslayer%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer", "<%=_aux_ex_metadata.ApplicationName%>_businesslayer\<%=_aux_ex_metadata.ApplicationName%>_businesslayer-8.csproj", "{<%=_aux_ex_metadata.GUIDBusinesslayer%>}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs", "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs-8.csproj", "{<%=_aux_metadata.GUIDBusinesslayer_UTs%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs", "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs-8.csproj", "{<%=_aux_ex_metadata.GUIDBusinesslayer_UTs%>}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_test", "<%=_aux_ex_metadata.ApplicationName%>_test\<%=_aux_ex_metadata.ApplicationName%>_test-8.csproj", "{<%=_aux_metadata.GUIDTest%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_test", "<%=_aux_ex_metadata.ApplicationName%>_test\<%=_aux_ex_metadata.ApplicationName%>_test-8.csproj", "{<%=_aux_ex_metadata.GUIDTest%>}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,26 +53,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{<%=_aux_metadata.GUIDDatalayer%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{<%=_aux_metadata.GUIDDatalayer%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{<%=_aux_metadata.GUIDDatalayer%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{<%=_aux_metadata.GUIDDatalayer%>}.Release|Any CPU.Build.0 = Release|Any CPU
-		{<%=_aux_metadata.GUIDDatalayer_UTs%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{<%=_aux_metadata.GUIDDatalayer_UTs%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{<%=_aux_metadata.GUIDDatalayer_UTs%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{<%=_aux_metadata.GUIDDatalayer_UTs%>}.Release|Any CPU.Build.0 = Release|Any CPU
-		{<%=_aux_metadata.GUIDBusinesslayer%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{<%=_aux_metadata.GUIDBusinesslayer%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{<%=_aux_metadata.GUIDBusinesslayer%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{<%=_aux_metadata.GUIDBusinesslayer%>}.Release|Any CPU.Build.0 = Release|Any CPU
-		{<%=_aux_metadata.GUIDBusinesslayer_UTs%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{<%=_aux_metadata.GUIDBusinesslayer_UTs%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{<%=_aux_metadata.GUIDBusinesslayer_UTs%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{<%=_aux_metadata.GUIDBusinesslayer_UTs%>}.Release|Any CPU.Build.0 = Release|Any CPU
-		{<%=_aux_metadata.GUIDTest%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{<%=_aux_metadata.GUIDTest%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{<%=_aux_metadata.GUIDTest%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{<%=_aux_metadata.GUIDTest%>}.Release|Any CPU.Build.0 = Release|Any CPU
+		{<%=_aux_ex_metadata.GUIDDatalayer%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{<%=_aux_ex_metadata.GUIDDatalayer%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{<%=_aux_ex_metadata.GUIDDatalayer%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{<%=_aux_ex_metadata.GUIDDatalayer%>}.Release|Any CPU.Build.0 = Release|Any CPU
+		{<%=_aux_ex_metadata.GUIDDatalayer_UTs%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{<%=_aux_ex_metadata.GUIDDatalayer_UTs%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{<%=_aux_ex_metadata.GUIDDatalayer_UTs%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{<%=_aux_ex_metadata.GUIDDatalayer_UTs%>}.Release|Any CPU.Build.0 = Release|Any CPU
+		{<%=_aux_ex_metadata.GUIDBusinesslayer%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{<%=_aux_ex_metadata.GUIDBusinesslayer%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{<%=_aux_ex_metadata.GUIDBusinesslayer%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{<%=_aux_ex_metadata.GUIDBusinesslayer%>}.Release|Any CPU.Build.0 = Release|Any CPU
+		{<%=_aux_ex_metadata.GUIDBusinesslayer_UTs%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{<%=_aux_ex_metadata.GUIDBusinesslayer_UTs%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{<%=_aux_ex_metadata.GUIDBusinesslayer_UTs%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{<%=_aux_ex_metadata.GUIDBusinesslayer_UTs%>}.Release|Any CPU.Build.0 = Release|Any CPU
+		{<%=_aux_ex_metadata.GUIDTest%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{<%=_aux_ex_metadata.GUIDTest%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{<%=_aux_ex_metadata.GUIDTest%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{<%=_aux_ex_metadata.GUIDTest%>}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

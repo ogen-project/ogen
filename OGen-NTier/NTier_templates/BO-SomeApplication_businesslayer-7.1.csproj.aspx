@@ -40,7 +40,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
         ProjectType = "Local"
         ProductVersion = "7.10.3077"
         SchemaVersion = "2.0"
-        ProjectGuid = "{<%=_aux_metadata.GUIDBusinesslayer%>}"
+        ProjectGuid = "{<%=_aux_ex_metadata.GUIDBusinesslayer%>}"
     >
         <Build>
             <Settings
@@ -118,7 +118,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                 />
                 <Reference
                     Name = "<%=_aux_ex_metadata.ApplicationName%>_datalayer-1.1"
-                    Project = "{<%=_aux_metadata.GUIDDatalayer%>}"
+                    Project = "{<%=_aux_ex_metadata.GUIDDatalayer%>}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
@@ -126,10 +126,10 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                     AssemblyName = "OGen.lib.datalayer-1.1"
                     AssemblyFolderKey = "hklm\dn\ogen"
                 /><%
-                for (int d = 0; d < _aux_metadata.DBs.Count; d++) {%>
+                for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {%>
                 <Reference
-                    Name = "OGen.lib.datalayer.<%=_aux_metadata.DBs[d].DBServerType.ToString()%>-1.1"
-                    AssemblyName = "OGen.lib.datalayer.<%=_aux_metadata.DBs[d].DBServerType.ToString()%>-1.1"
+                    Name = "OGen.lib.datalayer.<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%>-1.1"
+                    AssemblyName = "OGen.lib.datalayer.<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%>-1.1"
                     AssemblyFolderKey = "hklm\dn\ogen"
                 /><%
                 }%>

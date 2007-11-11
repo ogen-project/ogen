@@ -40,7 +40,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
     <ProjectType>Local</ProjectType>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{<%=_aux_metadata.GUIDDatalayer%>}</ProjectGuid>
+    <ProjectGuid>{<%=_aux_ex_metadata.GUIDDatalayer%>}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ApplicationIcon>
@@ -72,8 +72,8 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;DEBUG;NET_2_0<%
-	for (int d = 0; d < _aux_metadata.DBs.Count; d++) {
-		string _dbservertype = _aux_metadata.DBs[d].DBServerType.ToString();
+	for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
+		string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();
 		%>;<%=_dbservertype%><%
 	}%></DefineConstants>
     <DocumentationFile>bin\Debug\<%=_aux_ex_metadata.Namespace%>.lib.datalayer-2.0.xml</DocumentationFile>
@@ -98,8 +98,8 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;NET_2_0<%
-	for (int d = 0; d < _aux_metadata.DBs.Count; d++) {
-		string _dbservertype = _aux_metadata.DBs[d].DBServerType.ToString();
+	for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
+		string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();
 		%>;<%=_dbservertype%><%
 	}%></DefineConstants>
     <DocumentationFile>
@@ -122,9 +122,9 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
       <Name>OGen.lib.datalayer-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
     </Reference><%
-    for (int d = 0; d < _aux_metadata.DBs.Count; d++) {%>
-    <Reference Include="OGen.lib.datalayer.<%=_aux_metadata.DBs[d].DBServerType.ToString()%>-2.0">
-      <Name>OGen.lib.datalayer.<%=_aux_metadata.DBs[d].DBServerType.ToString()%>-2.0</Name>
+    for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {%>
+    <Reference Include="OGen.lib.datalayer.<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%>-2.0">
+      <Name>OGen.lib.datalayer.<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%>-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
     </Reference><%
     }%>

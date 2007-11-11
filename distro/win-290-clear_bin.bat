@@ -12,9 +12,6 @@
 SET thisdir=%~dp0
 
 
-IF NOT '%1' == '' GOTO clearBin
-
-
 IF NOT EXIST "%thisdir%distro-metadatas\OGen-solutions.txt" GOTO error2
 IF NOT EXIST "%thisdir%distro-metadatas\OGen-projects.txt" GOTO error3
 
@@ -25,7 +22,7 @@ PAUSE
 
 
 FOR /F "usebackq tokens=1,2,3,4,5,6,7,8 delims=, " %%a IN (`TYPE "%thisdir%distro-metadatas\OGen-projects.txt"`) DO (
-	CALL %0 %%a %%b %%c %%d %%e %%f %%g %%h
+	CALL :clearBin %%a %%b %%c %%d %%e %%f %%g %%h
 )
 PAUSE
 GOTO eof

@@ -457,8 +457,8 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 									}
 								}
 								DBConnection connection = DBConnectionsupport.CreateInstance(
-									_aux_metadata.DBs.FirstDefaultAvailable_DBServerType(), 
-									_aux_metadata.DBs.FirstDefaultAvailable_Connectionstring()
+									_aux_ex_metadata.DBs.DBCollection.FirstDefaultAvailable_DBServerType(), 
+									_aux_ex_metadata.DBs.DBCollection.FirstDefaultAvailable_Connectionstring()
 								);
 								ConfigTable = connection.Execute_SQLQuery_returnDataTable(
 									string.Format(
@@ -468,7 +468,7 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 										/*02*/ DatatypeField,
 										/*03*/ _aux_db_table.Name, 
 #if MySQL
-										/*04*/ (_aux_metadata.DBs.FirstDefaultAvailable_DBServerType() == DBServerTypes.MySQL) ? "`" :"\""
+										/*04*/ (_aux_ex_metadata.DBs.DBCollection.FirstDefaultAvailable_DBServerType() == DBServerTypes.MySQL) ? "`" :"\""
 #else
 										/*04*/ "\""
 #endif

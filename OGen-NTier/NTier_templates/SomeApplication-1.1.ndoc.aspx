@@ -71,7 +71,7 @@ XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedColle
             <property name="Title" value="<%=_aux_ex_metadata.ApplicationName%> Programmer's Reference" />
             <property name="OutputTarget" value="Web" />
             <property name="CopyrightText" value="<%=_aux_ex_metadata.CopyrightText%>" />
-            <property name="FeedbackEmailAddress" value="<%=_aux_metadata.FeedbackEmailAddress%>" />
+            <property name="FeedbackEmailAddress" value="<%=_aux_ex_metadata.FeedbackEmailAddress%>" />
         </documenter>
         <documenter name="MSDN 2003">
             <property name="OutputDirectory" value=".\doc\" />
