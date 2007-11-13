@@ -52,14 +52,14 @@ AS $BODY$
 	DECLARE
 		-- nothing to declare!
 	BEGIN<%
-		for (int s = 0; s < _aux_table.Searches.Count; s++) {
-			if (_aux_table.Searches[s].isExplicitUniqueIndex) {%>
+		for (int s = 0; s < _aux_ex_table.TableSearches.TableSearchCollection.Count; s++) {
+			if (_aux_ex_table.TableSearches.TableSearchCollection[s].isExplicitUniqueIndex) {%>
 		IF EXISTS(
 			SELECT
 				true -- whatever, just checking existence
-			FROM "fnc_<%=_aux_db_table.Name%>_isObject_<%=_aux_table.Searches[s].Name%>"(<%
-			for (int p = 0; p < _aux_table.Searches[s].SearchParameters.Count; p++) {%>
-				$<%=_aux_table.Fields.Search(_aux_table.Searches[s].SearchParameters[p].FieldName) + 1%><%=(p != _aux_table.Searches[s].SearchParameters.Count - 1) ? ", " : ""%><%
+			FROM "fnc_<%=_aux_db_table.Name%>_isObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>"(<%
+			for (int p = 0; p < _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count; p++) {%>
+				$<%=_aux_table.Fields.Search(_aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[p].FieldName) + 1%><%=(p != _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count - 1) ? ", " : ""%><%
 			}%>
 			)
 			WHERE NOT (<%

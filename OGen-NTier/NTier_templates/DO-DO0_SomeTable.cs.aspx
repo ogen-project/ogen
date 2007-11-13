@@ -617,30 +617,30 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 
 
 
-		for (int s = 0; s < _aux_table.Searches.Count; s++) {
-			if (!_aux_table.Searches[s].isRange) {%>
-		#region public void ???Object_<%=_aux_table.Searches[s].Name%>
-		#region public bool getObject_<%=_aux_table.Searches[s].Name%>(...);
+		for (int s = 0; s < _aux_ex_table.TableSearches.TableSearchCollection.Count; s++) {
+			if (!_aux_ex_table.TableSearches.TableSearchCollection[s].isRange) {%>
+		#region public void ???Object_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>
+		#region public bool getObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(...);
 		/// <summary>
 		/// Selects <%=_aux_db_table.Name%> values from Database (based on the search condition) and assigns them to the appropriate DO0_<%=_aux_db_table.Name%> property.
 		/// </summary><%
-		for (int f = 0; f < _aux_table.Searches[s].SearchParameters.Count; f++) {
-			_aux_field = _aux_table.Searches[s].SearchParameters[f].Field;
-			_aux_xx_field_name = _aux_table.Searches[s].SearchParameters[f].ParamName;%><%=""%>
+		for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count; f++) {
+			_aux_field = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].Field;
+			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].ParamName;%><%=""%>
 		/// <param name="<%=_aux_xx_field_name%>_search_in"><%=_aux_xx_field_name%> search condition</param><%
 		}%>
 		/// <returns>True if <%=_aux_db_table.Name%> exists at Database, False if not</returns>
-		public bool getObject_<%=_aux_table.Searches[s].Name%>(<%
-			for (int f = 0; f < _aux_table.Searches[s].SearchParameters.Count; f++) {
-				_aux_field = _aux_table.Searches[s].SearchParameters[f].Field;
-				_aux_xx_field_name = _aux_table.Searches[s].SearchParameters[f].ParamName;%><%=""%>
-			<%=_aux_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in<%=(f != _aux_table.Searches[s].SearchParameters.Count - 1) ? ", " : ""%><%
+		public bool getObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
+			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count; f++) {
+				_aux_field = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].Field;
+				_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].ParamName;%><%=""%>
+			<%=_aux_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count - 1) ? ", " : ""%><%
 			}%>
 		) {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
-				for (int f = 0; f < _aux_table.Searches[s].SearchParameters.Count; f++) {
-					_aux_field = _aux_table.Searches[s].SearchParameters[f].Field;
-					_aux_xx_field_name = _aux_table.Searches[s].SearchParameters[f].ParamName;%>
+				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count; f++) {
+					_aux_field = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].Field;
+					_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].ParamName;%>
 				base.Connection.newDBDataParameter("<%=_aux_xx_field_name%>_search_", DbType.<%=_aux_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_xx_field_name%>_search_in, <%=_aux_field.Size%><%=(_aux_field.isDecimal) ? ", " + _aux_field.Numeric_Precision + ", " + _aux_field.Numeric_Scale : ""%>), <%
 				}
 				for (int f = 0; f < _aux_table.Fields.Count; f++) {
@@ -649,21 +649,21 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 				}%>
 			};
 			base.Connection.Execute_SQLFunction(
-				"sp0_<%=_aux_db_table.Name%>_getObject_<%=_aux_table.Searches[s].Name%>", 
+				"sp0_<%=_aux_db_table.Name%>_getObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>", 
 				_dataparameters
 			);
 
-			if (_dataparameters[<%=_aux_table.Searches[s].SearchParameters.Count + _aux_db_table.firstKey%>].Value != DBNull.Value) {<%
+			if (_dataparameters[<%=_aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count + _aux_db_table.firstKey%>].Value != DBNull.Value) {<%
 				for (int f = 0; f < _aux_table.Fields.Count; f++) {
 					_aux_field = _aux_table.Fields[f];%>
-				if (_dataparameters[<%=_aux_table.Searches[s].SearchParameters.Count + f%>].Value == System.DBNull.Value) {<%
+				if (_dataparameters[<%=_aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count + f%>].Value == System.DBNull.Value) {<%
 					if (_aux_field.isNullable && !_aux_field.isPK) {%><%=""%>
 					Fields.<%=_aux_field.Name%>_isNull = true;<%
 					} else {%><%=""%>
 					Fields.<%=_aux_field.Name%> = <%=_aux_field.DBType_generic.FWEmptyValue%>;<%
 					}%>
 				} else {
-					Fields.<%=_aux_field.Name%> = (<%=_aux_field.DBType_generic.FWType%>)_dataparameters[<%=_aux_table.Searches[s].SearchParameters.Count + f%>].Value;
+					Fields.<%=_aux_field.Name%> = (<%=_aux_field.DBType_generic.FWType%>)_dataparameters[<%=_aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count + f%>].Value;
 				}<%
 				}%>
 
@@ -678,64 +678,64 @@ namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
 		}
 		#endregion<%
 		if (!_aux_table.isVirtualTable) {%>
-		#region public bool delObject_<%=_aux_table.Searches[s].Name%>(...);
+		#region public bool delObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(...);
 		/// <summary>
 		/// Deletes <%=_aux_db_table.Name%> from Database (based on the search condition).
 		/// </summary><%
-		for (int f = 0; f < _aux_table.Searches[s].SearchParameters.Count; f++) {
-			_aux_field = _aux_table.Searches[s].SearchParameters[f].Field;
-			_aux_xx_field_name = _aux_table.Searches[s].SearchParameters[f].ParamName;%><%=""%>
+		for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count; f++) {
+			_aux_field = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].Field;
+			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].ParamName;%><%=""%>
 		/// <param name="<%=_aux_xx_field_name%>_search_in"> <%=_aux_xx_field_name%> search condition</param><%
 		}%>
 		/// <returns>True if <%=_aux_db_table.Name%> existed and was Deleted at Database, False if it didn't exist</returns>
-		public bool delObject_<%=_aux_table.Searches[s].Name%>(<%
-			for (int f = 0; f < _aux_table.Searches[s].SearchParameters.Count; f++) {
-				_aux_field = _aux_table.Searches[s].SearchParameters[f].Field;
-				_aux_xx_field_name = _aux_table.Searches[s].SearchParameters[f].ParamName;%><%=""%>
-			<%=_aux_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in<%=(f != _aux_table.Searches[s].SearchParameters.Count - 1) ? ", " : ""%><%
+		public bool delObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
+			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count; f++) {
+				_aux_field = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].Field;
+				_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].ParamName;%><%=""%>
+			<%=_aux_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count - 1) ? ", " : ""%><%
 			}%>
 		) {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
-				for (int f = 0; f < _aux_table.Searches[s].SearchParameters.Count; f++) {
-					_aux_field = _aux_table.Searches[s].SearchParameters[f].Field;
-					_aux_xx_field_name = _aux_table.Searches[s].SearchParameters[f].ParamName;%>
+				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count; f++) {
+					_aux_field = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].Field;
+					_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].ParamName;%>
 				base.Connection.newDBDataParameter("<%=_aux_xx_field_name%>_search_", DbType.<%=_aux_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_xx_field_name%>_search_in, <%=_aux_field.Size%><%=(_aux_field.isDecimal) ? ", " + _aux_field.Numeric_Precision + ", " + _aux_field.Numeric_Scale : ""%>), <%
 				}%>
 
 				base.Connection.newDBDataParameter("Exists_", DbType.Boolean, ParameterDirection.Output, null, 1)
 			};
-			base.Connection.Execute_SQLFunction("sp0_<%=_aux_db_table.Name%>_delObject_<%=_aux_table.Searches[s].Name%>", _dataparameters);
+			base.Connection.Execute_SQLFunction("sp0_<%=_aux_db_table.Name%>_delObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>", _dataparameters);
 
-			return ((bool)_dataparameters[<%=_aux_table.Searches[s].SearchParameters.Count%>].Value);
+			return ((bool)_dataparameters[<%=_aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count%>].Value);
 		}
 		#endregion<%
 		}%>
-		#region public bool isObject_<%=_aux_table.Searches[s].Name%>(...);
+		#region public bool isObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(...);
 		/// <summary>
 		/// Checks to see if <%=_aux_db_table.Name%> exists at Database (based on the search condition).
 		/// </summary><%
-		for (int f = 0; f < _aux_table.Searches[s].SearchParameters.Count; f++) {
-			_aux_field = _aux_table.Searches[s].SearchParameters[f].Field;
-			_aux_xx_field_name = _aux_table.Searches[s].SearchParameters[f].ParamName;%><%=""%>
+		for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count; f++) {
+			_aux_field = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].Field;
+			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].ParamName;%><%=""%>
 		/// <param name="<%=_aux_xx_field_name%>_search_in"><%=_aux_xx_field_name%> search condition</param><%
 		}%>
 		/// <returns>True if <%=_aux_db_table.Name%> exists at Database, False if not</returns>
-		public bool isObject_<%=_aux_table.Searches[s].Name%>(<%
-			for (int f = 0; f < _aux_table.Searches[s].SearchParameters.Count; f++) {
-				_aux_field = _aux_table.Searches[s].SearchParameters[f].Field;
-				_aux_xx_field_name = _aux_table.Searches[s].SearchParameters[f].ParamName;%><%=""%>
-			<%=_aux_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in<%=(f != _aux_table.Searches[s].SearchParameters.Count - 1) ? ", " : ""%><%
+		public bool isObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
+			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count; f++) {
+				_aux_field = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].Field;
+				_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].ParamName;%><%=""%>
+			<%=_aux_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count - 1) ? ", " : ""%><%
 			}%>
 		) {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
-				for (int f = 0; f < _aux_table.Searches[s].SearchParameters.Count; f++) {
-					_aux_field = _aux_table.Searches[s].SearchParameters[f].Field;
-					_aux_xx_field_name = _aux_table.Searches[s].SearchParameters[f].ParamName;%>
-				base.Connection.newDBDataParameter("<%=_aux_xx_field_name%>_search_", DbType.<%=_aux_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_xx_field_name%>_search_in, <%=_aux_field.Size%><%=(_aux_field.isDecimal) ? ", " + _aux_field.Numeric_Precision + ", " + _aux_field.Numeric_Scale : ""%>)<%=(f != _aux_table.Searches[s].SearchParameters.Count - 1) ? ", " : ""%><%
+				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count; f++) {
+					_aux_field = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].Field;
+					_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].ParamName;%>
+				base.Connection.newDBDataParameter("<%=_aux_xx_field_name%>_search_", DbType.<%=_aux_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_xx_field_name%>_search_in, <%=_aux_field.Size%><%=(_aux_field.isDecimal) ? ", " + _aux_field.Numeric_Precision + ", " + _aux_field.Numeric_Scale : ""%>)<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count - 1) ? ", " : ""%><%
 				}%>
 			};
 			return (bool)base.Connection.Execute_SQLFunction(
-				"fnc0_<%=_aux_db_table.Name%>_isObject_<%=_aux_table.Searches[s].Name%>", 
+				"fnc0_<%=_aux_db_table.Name%>_isObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>", 
 				_dataparameters, 
 				DbType.Boolean, 
 				0
