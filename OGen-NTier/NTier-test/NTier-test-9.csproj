@@ -1,0 +1,137 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2AAFDEA0-0EC3-4757-AEA9-C142BEDAA545}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OGen.NTier.presentationlayer.test</RootNamespace>
+    <AssemblyName>OGen.NTier.presentationlayer.test-2.0</AssemblyName>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>False</DelaySign>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NET_2_0</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>PdbOnly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NET_2_0</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Npgsql, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <None Include="app.config" />
+    <None Include="COPYING.MIT" />
+    <None Include="LICENSE.MIT.txt" />
+    <None Include="LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OGen\OGen_collections\OGen_collections-8.csproj">
+      <Project>{A6E837F8-780F-4D05-B3ED-2FF1906B5766}</Project>
+      <Name>OGen_collections-8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_datalayersupport\OGen_datalayersupport-8.csproj">
+      <Project>{88D87481-CC3F-49C7-A013-758387F3452E}</Project>
+      <Name>OGen_datalayersupport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_datalayer_PostgreSQL\OGen_datalayer_PostgreSQL-8.csproj">
+      <Project>{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}</Project>
+      <Name>OGen_datalayer_PostgreSQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_datalayer_SQLServer\OGen_datalayer_SQLServer-8.csproj">
+      <Project>{F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7}</Project>
+      <Name>OGen_datalayer_SQLServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_datalayer__base\OGen_datalayer__base-8.csproj">
+      <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
+      <Name>OGen_datalayer__base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_generator\OGen_generator-8.csproj">
+      <Project>{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}</Project>
+      <Name>OGen_generator-8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_parser\OGen_parser-8.csproj">
+      <Project>{981BC7DE-D93C-446E-861E-60A20E4E3391}</Project>
+      <Name>OGen_parser-8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_webforms\OGen_webforms-8.csproj">
+      <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
+      <Name>OGen_webforms-8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_winforms\OGen_winforms-8.csproj">
+      <Project>{B3835B3F-C899-416F-BA94-625A4B32A4AC}</Project>
+      <Name>OGen_winforms-8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NTier_businesslayer\NTier_businesslayer-8.csproj">
+      <Project>{8AEBEA64-6FC4-430C-922C-B88D105AE91C}</Project>
+      <Name>NTier_businesslayer-8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NTier_datalayer\NTier_datalayer-8.csproj">
+      <Project>{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}</Project>
+      <Name>NTier_datalayer-8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NTier_generator\NTier_generator-8.csproj">
+      <Project>{BC9835E7-8878-479D-BC0F-909FA77344DD}</Project>
+      <Name>NTier_generator-8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NTier_metadata\NTier_metadata-8.csproj">
+      <Project>{0E77A4DB-AF8B-4290-BB33-F9EC97655433}</Project>
+      <Name>NTier_metadata-8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NTier_templates\NTier_templates-8.csproj">
+      <Project>{D5FDB433-994F-404C-B535-FB90B005B6B8}</Project>
+      <Name>NTier_templates-8</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

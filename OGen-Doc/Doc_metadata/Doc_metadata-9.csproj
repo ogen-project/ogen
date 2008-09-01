@@ -1,0 +1,192 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9DF6791A-1771-4EB6-8FEB-7F54AC2D9078}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>OGen.Doc.lib.metadata-2.0</AssemblyName>
+    <AssemblyOriginatorKeyFile>..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>OGen.Doc.lib.metadata</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE;NET_2_0</DefineConstants>
+    <DocumentationFile>bin\Debug\OGen.Doc.lib.metadata-2.0.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;NET_2_0</DefineConstants>
+    <DocumentationFile>bin\Release\OGen.Doc.lib.metadata-2.0.xml</DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\..\OGen\OGen_collections\OGen_collections-8.csproj">
+      <Name>OGen_collections</Name>
+      <Project>{A6E837F8-780F-4D05-B3ED-2FF1906B5766}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\XS_authorsType.cs" />
+    <Compile Include="documentation\XS_authorsTypeCollection.cs" />
+    <Compile Include="documentation\XS_authorType.cs" />
+    <Compile Include="documentation\XS_authorTypeCollection.cs" />
+    <Compile Include="documentation\XS_codeSamplesType.cs" />
+    <Compile Include="documentation\XS_codeSamplesTypeCollection.cs" />
+    <Compile Include="documentation\XS_codeSampleType.cs" />
+    <Compile Include="documentation\XS_codeSampleTypeCollection.cs" />
+    <Compile Include="documentation\XS_configsType.cs" />
+    <Compile Include="documentation\XS_configsTypeCollection.cs" />
+    <Compile Include="documentation\XS_configType.cs" />
+    <Compile Include="documentation\XS_configTypeCollection.cs" />
+    <Compile Include="documentation\XS_documentationType.cs" />
+    <Compile Include="documentation\XS_documentationTypeCollection.cs" />
+    <Compile Include="documentation\XS_documentsType.cs" />
+    <Compile Include="documentation\XS_documentsTypeCollection.cs" />
+    <Compile Include="documentation\XS_documentType.cs" />
+    <Compile Include="documentation\XS_documentTypeCollection.cs" />
+    <Compile Include="documentation\XS_faqSubjectsType.cs" />
+    <Compile Include="documentation\XS_faqSubjectsTypeCollection.cs" />
+    <Compile Include="documentation\XS_faqSubjectType.cs" />
+    <Compile Include="documentation\XS_faqSubjectTypeCollection.cs" />
+    <Compile Include="documentation\XS_faqType.cs" />
+    <Compile Include="documentation\XS_faqTypeCollection.cs" />
+    <Compile Include="documentation\XS_linksType.cs" />
+    <Compile Include="documentation\XS_linksTypeCollection.cs" />
+    <Compile Include="documentation\XS_linkType.cs" />
+    <Compile Include="documentation\XS_linkTypeCollection.cs" />
+    <Compile Include="documentation\XS_subjectsType.cs" />
+    <Compile Include="documentation\XS_subjectsTypeCollection.cs" />
+    <Compile Include="documentation\XS_subjectType.cs" />
+    <Compile Include="documentation\XS_subjectTypeCollection.cs" />
+    <Compile Include="documentation\XS__documentation.cs" />
+    <Compile Include="documentation\XS__documentationCollection.cs" />
+    <Compile Include="documentation\_base\XS0_authorsType.cs" />
+    <Compile Include="documentation\_base\XS0_authorsTypeCollection.cs" />
+    <Compile Include="documentation\_base\XS0_authorType.cs" />
+    <Compile Include="documentation\_base\XS0_authorTypeCollection.cs" />
+    <Compile Include="documentation\_base\XS0_codeSamplesType.cs" />
+    <Compile Include="documentation\_base\XS0_codeSamplesTypeCollection.cs" />
+    <Compile Include="documentation\_base\XS0_codeSampleType.cs" />
+    <Compile Include="documentation\_base\XS0_codeSampleTypeCollection.cs" />
+    <Compile Include="documentation\_base\XS0_configsType.cs" />
+    <Compile Include="documentation\_base\XS0_configsTypeCollection.cs" />
+    <Compile Include="documentation\_base\XS0_configType.cs" />
+    <Compile Include="documentation\_base\XS0_configTypeCollection.cs" />
+    <Compile Include="documentation\_base\XS0_documentationType.cs" />
+    <Compile Include="documentation\_base\XS0_documentationTypeCollection.cs" />
+    <Compile Include="documentation\_base\XS0_documentsType.cs" />
+    <Compile Include="documentation\_base\XS0_documentsTypeCollection.cs" />
+    <Compile Include="documentation\_base\XS0_documentType.cs" />
+    <Compile Include="documentation\_base\XS0_documentTypeCollection.cs" />
+    <Compile Include="documentation\_base\XS0_faqSubjectsType.cs" />
+    <Compile Include="documentation\_base\XS0_faqSubjectsTypeCollection.cs" />
+    <Compile Include="documentation\_base\XS0_faqSubjectType.cs" />
+    <Compile Include="documentation\_base\XS0_faqSubjectTypeCollection.cs" />
+    <Compile Include="documentation\_base\XS0_faqType.cs" />
+    <Compile Include="documentation\_base\XS0_faqTypeCollection.cs" />
+    <Compile Include="documentation\_base\XS0_linksType.cs" />
+    <Compile Include="documentation\_base\XS0_linksTypeCollection.cs" />
+    <Compile Include="documentation\_base\XS0_linkType.cs" />
+    <Compile Include="documentation\_base\XS0_linkTypeCollection.cs" />
+    <Compile Include="documentation\_base\XS0_subjectsType.cs" />
+    <Compile Include="documentation\_base\XS0_subjectsTypeCollection.cs" />
+    <Compile Include="documentation\_base\XS0_subjectType.cs" />
+    <Compile Include="documentation\_base\XS0_subjectTypeCollection.cs" />
+    <Compile Include="documentation\_base\XS0__documentation.cs" />
+    <Compile Include="documentation\_base\XS0__documentationCollection.cs" />
+    <Compile Include="utils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="XS__RootMetadata.cs" />
+    <Compile Include="_base\XS0__RootMetadata.cs" />
+    <None Include="COPYING.MIT" />
+    <Content Include="LICENSE.MIT.txt" />
+    <Content Include="LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OGen\OGen_generator\OGen_generator-8.csproj">
+      <Project>{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}</Project>
+      <Name>OGen_generator-8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_webforms\OGen_webforms-8.csproj">
+      <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
+      <Name>OGen_webforms-8</Name>
+    </ProjectReference>
+    <Folder Include="documentation" />
+    <Folder Include="documentation\_base" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
