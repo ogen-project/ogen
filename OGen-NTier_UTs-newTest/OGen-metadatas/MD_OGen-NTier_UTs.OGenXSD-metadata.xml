@@ -12,9 +12,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 -->
 <metadatas>
 	<metadata
-		xmlFilename="MD_OGen-NTier_UTs..OGenXSD-metadataDB.xml"
+		xmlFilename="MD_OGen-NTier_UTs.OGenXSD-metadataDB.xml"
 		xmlFileType="metadataDB" />
 	<metadata
-		xmlFilename="MD_OGen-NTier_UTs..OGenXSD-metadataExtended.xml"
+		xmlFilename="MD_OGen-NTier_UTs.OGenXSD-metadataExtended.xml"
 		xmlFileType="metadataExtended" />
 </metadatas>
