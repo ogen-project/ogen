@@ -1,7 +1,7 @@
 ﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{37C5F3D1-D158-4E05-BB2D-CD32553FB993}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -259,63 +259,83 @@
     </Compile>
     <EmbeddedResource Include="FlowForms\Forms-generic\frmManage_Configuration_Project_s000.resx">
       <DependentUpon>frmManage_Configuration_Project_s000.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FlowForms\Forms\frmGenerator_Generate_s000.resx">
       <DependentUpon>frmGenerator_Generate_s000.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FlowForms\Forms\frmManage_ConfigTables_s000.resx">
       <DependentUpon>frmManage_ConfigTables_s000.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FlowForms\Forms\frmManage_ConfigTables_s010.resx">
       <DependentUpon>frmManage_ConfigTables_s010.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FlowForms\Forms\frmManage_ConfigTables_s020.resx">
       <DependentUpon>frmManage_ConfigTables_s020.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FlowForms\Forms\frmManage_Views_PK_s000.resx">
       <DependentUpon>frmManage_Views_PK_s000.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FlowForms\Forms\frmManage_Views_PK_s010.resx">
       <DependentUpon>frmManage_Views_PK_s010.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FlowForms\Forms\frmManage_Views_PK_s020.resx">
       <DependentUpon>frmManage_Views_PK_s020.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FlowForms\Forms\_frmMODEL.resx">
       <DependentUpon>_frmMODEL.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms.old\frmManage_Searches.resx">
       <DependentUpon>frmManage_Searches.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms.old\frmManage_Searches_Create_step010.resx">
       <DependentUpon>frmManage_Searches_Create_step010.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms.old\frmManage_Searches_Create_step020.resx">
       <DependentUpon>frmManage_Searches_Create_step020.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms.old\frmManage_Searches_Create_step030.resx">
       <DependentUpon>frmManage_Searches_Create_step030.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms.old\frmManage_Updates.resx">
       <DependentUpon>frmManage_Updates.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms.old\frmManage_Updates_Create_step010.resx">
       <DependentUpon>frmManage_Updates_Create_step010.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms.old\frmManage_Updates_Create_step020.resx">
       <DependentUpon>frmManage_Updates_Create_step020.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms.old\frmManage_Updates_Create_step030.resx">
       <DependentUpon>frmManage_Updates_Create_step030.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms.old\frmManage_Updates_Create_step040.resx">
       <DependentUpon>frmManage_Updates_Create_step040.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmConnectionstring.resx">
       <DependentUpon>frmConnectionstring.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_about.resx">
       <DependentUpon>frm_about.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Main.resx">
       <DependentUpon>frm_Main.cs</DependentUpon>
@@ -323,18 +343,23 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucPick_DBType.resx">
       <DependentUpon>ucPick_DBType.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucPick_Fields.resx">
       <DependentUpon>ucPick_Fields.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucPick_Fields_forCriteria.resx">
       <DependentUpon>ucPick_Fields_forCriteria.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucPick_Searches.resx">
       <DependentUpon>ucPick_Searches.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucPick_Tables.resx">
       <DependentUpon>ucPick_Tables.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
