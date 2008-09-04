@@ -39,7 +39,7 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 	<tables>
 
 <!--
-		<table name="IHaveAStyle" isConfig="False">
+		<table name="IHaveAStyle" isConfig="False" configName="" configConfig="" configDatatype="" >
 			<dbs>
 				<db dbServerType="PostgreSQL" tableName="IHaveAStyle" />
 				<db dbServerType="SQLServer" tableName="i_Have_MyOwn_style" />
@@ -74,161 +74,161 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 		</table>
 		<table name="Group" friendlyName="" extendedDescription="" isConfig="False" configName="" configConfig="" configDatatype="" >
 			<tableFields>
-				<tableField name="IDGroup" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="Name" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
+				<tableField name="IDGroup" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="Name" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
 			</tableFields>
 			<tableSearches />
 			<tableUpdates />
 		</table>
 		<table name="GroupPermition" friendlyName="" extendedDescription="" isConfig="False" configName="" configConfig="" configDatatype="" >
 			<tableFields>
-				<tableField name="IDGroup" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="IDPermition" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
+				<tableField name="IDGroup" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="IDPermition" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
 			</tableFields>
 			<tableSearches />
 			<tableUpdates />
 		</table>
-		<table name="Language" friendlyName="" extendedDescription="" isConfig="False">
+		<table name="Language" friendlyName="" extendedDescription="" isConfig="False" configName="" configConfig="" configDatatype="" >
 			<tableFields>
-				<tableField name="IDLanguage" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="IDWord_name" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
+				<tableField name="IDLanguage" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="IDWord_name" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
 			</tableFields>
 			<tableSearches />
 			<tableUpdates />
 		</table>
-		<table name="Log" friendlyName="" extendedDescription="" isConfig="False">
+		<table name="Log" friendlyName="" extendedDescription="" isConfig="False" configName="" configConfig="" configDatatype="" >
 			<tableFields>
-				<tableField name="IDLog" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="IDLogcode" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="IDUser_posted" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="Date_posted" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="Logdata" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
+				<tableField name="IDLog" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="IDLogcode" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="IDUser_posted" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="Date_posted" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="Logdata" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
 			</tableFields>
 			<tableSearches />
 			<tableUpdates />
 		</table>
-		<table name="Logcode" friendlyName="" extendedDescription="" isConfig="False">
+		<table name="Logcode" friendlyName="" extendedDescription="" isConfig="False" configName="" configConfig="" configDatatype="" >
 			<tableFields>
-				<tableField name="IDLogcode" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="Warning" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="Error" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="Code" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="Description" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
+				<tableField name="IDLogcode" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="Warning" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="Error" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="Code" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="Description" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
 			</tableFields>
 			<tableSearches />
 			<tableUpdates />
 		</table>
-		<table name="Permition" friendlyName="" extendedDescription="" isConfig="False">
+		<table name="Permition" friendlyName="" extendedDescription="" isConfig="False" configName="" configConfig="" configDatatype="" >
 			<tableFields>
-				<tableField name="IDPermition" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="Name" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
+				<tableField name="IDPermition" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="Name" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
 			</tableFields>
 			<tableSearches />
 			<tableUpdates />
 		</table>
-		<table name="User" friendlyName="" extendedDescription="" isConfig="False">
+		<table name="User" friendlyName="" extendedDescription="" isConfig="False" configName="" configConfig="" configDatatype="" >
 			<tableFields>
-				<tableField name="IDUser" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="Login" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="Password" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="SomeNullValue" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
+				<tableField name="IDUser" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="Login" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="Password" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="SomeNullValue" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
 			</tableFields>
 			<tableSearches>
 				<tableSearch name="all" isRange="True" isExplicitUniqueIndex="False">
-					<searchParameters />
-					<updates />
+					<tableSearchParameters />
+					<tableSearchUpdates />
 				</tableSearch>
 				<tableSearch name="byLogin" isRange="False" isExplicitUniqueIndex="True">
-					<searchParameters>
-						<fieldRef tableName="User" fieldName="Login" paramName="Login" />
-					</searchParameters>
-					<updates />
+					<tableSearchParameters>
+						<tableFieldRef tableName="User" fieldName="Login" paramName="Login" />
+					</tableSearchParameters>
+					<tableSearchUpdates />
 				</tableSearch>
 				<tableSearch name="byGroup" isRange="True" isExplicitUniqueIndex="False">
-					<searchParameters>
-						<fieldRef tableName="UserGroup" fieldName="IDGroup" paramName="IDGroup" />
-					</searchParameters>
-					<updates>
-						<update name="SomeUpdateTest">
-							<updateParameters>
-								<fieldRef tableName="User" fieldName="Password" paramName="Password" />
-							</updateParameters>
-						</update>
-					</updates>
+					<tableSearchParameters>
+						<tableFieldRef tableName="UserGroup" fieldName="IDGroup" paramName="IDGroup" />
+					</tableSearchParameters>
+					<tableSearchUpdates>
+						<tableSearchUpdate name="SomeUpdateTest">
+							<tableSearchUpdateParameters>
+								<tableFieldRef tableName="User" fieldName="Password" paramName="Password" />
+							</tableSearchUpdateParameters>
+						</tableSearchUpdate>
+					</tableSearchUpdates>
 				</tableSearch>
 			</tableSearches>
 			<tableUpdates>
-				<update name="SomeUpdateTest">
-					<updateParameters>
-						<fieldRef tableName="User" fieldName="Password" paramName="Password" />
-					</updateParameters>
-				</update>
+				<tableUpdate name="SomeUpdateTest">
+					<tableUpdateParameters>
+						<tableFieldRef tableName="User" fieldName="Password" paramName="Password" />
+					</tableUpdateParameters>
+				</tableUpdate>
 			</tableUpdates>
 		</table>
-		<table name="UserGroup" friendlyName="" extendedDescription="" isConfig="False">
+		<table name="UserGroup" friendlyName="" extendedDescription="" isConfig="False" configName="" configConfig="" configDatatype="" >
 			<tableFields>
-				<tableField name="IDUser" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="IDGroup" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="Relationdate" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="Defaultrelation" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
+				<tableField name="IDUser" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="IDGroup" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="Relationdate" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="Defaultrelation" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
 			</tableFields>
 			<tableSearches>
 				<tableSearch name="byUser_Defaultrelation" isRange="True" isExplicitUniqueIndex="False">
-					<searchParameters>
-						<fieldRef tableName="UserGroup" fieldName="IDUser" paramName="IDUser" />
-						<fieldRef tableName="UserGroup" fieldName="Relationdate" paramName="Relationdate" />
-					</searchParameters>
-					<updates>
-						<update name="SomeUpdateTest">
-							<updateParameters>
-								<fieldRef tableName="UserGroup" fieldName="Relationdate" paramName="Relationdate" />
-							</updateParameters>
-						</update>
-					</updates>
+					<tableSearchParameters>
+						<tableFieldRef tableName="UserGroup" fieldName="IDUser" paramName="IDUser" />
+						<tableFieldRef tableName="UserGroup" fieldName="Relationdate" paramName="Relationdate" />
+					</tableSearchParameters>
+					<tableSearchUpdates>
+						<tableSearchUpdate name="SomeUpdateTest">
+							<tableSearchUpdateParameters>
+								<tableFieldRef tableName="UserGroup" fieldName="Relationdate" paramName="Relationdate" />
+							</tableSearchUpdateParameters>
+						</tableSearchUpdate>
+					</tableSearchUpdates>
 				</tableSearch>
 			</tableSearches>
 			<tableUpdates />
 		</table>
-		<table name="Word" friendlyName="" extendedDescription="" isConfig="False">
+		<table name="Word" friendlyName="" extendedDescription="" isConfig="False" configName="" configConfig="" configDatatype="" >
 			<tableFields>
-				<tableField name="IDWord" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="DeleteThisTestField" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
+				<tableField name="IDWord" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="DeleteThisTestField" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
 			</tableFields>
 			<tableSearches />
 			<tableUpdates />
 		</table>
-		<table name="WordLanguage" friendlyName="" extendedDescription="" isConfig="False">
+		<table name="WordLanguage" friendlyName="" extendedDescription="" isConfig="False" configName="" configConfig="" configDatatype="" >
 			<tableFields>
-				<tableField name="IDWord" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="IDLanguage" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="Translation" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
+				<tableField name="IDWord" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="IDLanguage" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="Translation" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
 			</tableFields>
 			<tableSearches />
 			<tableUpdates />
 		</table>
-		<table name="vUserDefaultGroup" friendlyName="" extendedDescription="" isConfig="False">
+		<table name="vUserDefaultGroup" friendlyName="" extendedDescription="" isConfig="False" configName="" configConfig="" configDatatype="" >
 			<tableFields>
-				<tableField name="IDUser" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="Login" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="IDGroup" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="Name" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="Relationdate" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
+				<tableField name="IDUser" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="Login" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="IDGroup" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="Name" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="Relationdate" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
 			</tableFields>
 			<tableSearches>
 				<tableSearch name="all" isRange="True" isExplicitUniqueIndex="False">
-					<searchParameters />
-					<updates />
+					<tableSearchParameters />
+					<tableSearchUpdates />
 				</tableSearch>
 			</tableSearches>
 			<tableUpdates />
 		</table>
-		<table name="vUserGroup" friendlyName="" extendedDescription="" isConfig="False">
+		<table name="vUserGroup" friendlyName="" extendedDescription="" isConfig="False" configName="" configConfig="" configDatatype="" >
 			<tableFields>
-				<tableField name="IDUser" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="Login" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="IDGroup" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="Name" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
-				<tableField name="Relationdate" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="False" isConfig_Config="False" isConfig_Datatype="False" aditionalInfo="" />
+				<tableField name="IDUser" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="Login" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="IDGroup" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="Name" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
+				<tableField name="Relationdate" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" />
 			</tableFields>
 			<tableSearches />
 			<tableUpdates />

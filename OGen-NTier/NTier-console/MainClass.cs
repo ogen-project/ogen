@@ -57,7 +57,8 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 								#endif
 									["ogenPath"],
 
-								@"..\..\OGen-NTier_UTs\OGen-metadatas\MD_OGen-NTier_UTs.OGen-metadata.xml"
+								//@"..\..\OGen-NTier_UTs\OGen-metadatas\MD_OGen-NTier_UTs.OGen-metadata.xml"
+								@"..\..\OGen-NTier_UTs-newTest\OGen-metadatas\MD_OGen-NTier_UTs.OGenXSD-metadata.xml"
 							)
 						);
 						Console.WriteLine("time: {0}", new DateTime(DateTime.Now.Ticks - _begin_ticks).ToString("HH'H' mm'm' ss's' fff"));
