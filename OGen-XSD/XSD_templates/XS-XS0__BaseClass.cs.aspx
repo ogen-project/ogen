@@ -122,11 +122,12 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 					);
 				} catch (Exception _ex) {
 					throw new Exception(string.Format(
-						"\n---\n{0}.{1}.Load_fromFile():\nERROR READING XML:\n{2}\n---\n{3}",
+						"\n---\n{0}.{1}.Load_fromFile():\nERROR READING XML:\n{2}\n---\n{3}\n---\n{4}\n---\n",
 						typeof(<%=XS__%><%=_aux_schema.Element.Name%>).Namespace, 
 						typeof(<%=XS__%><%=_aux_schema.Element.Name%>).Name, 
 						filePath_in[i],
-						_ex.Message
+						_ex.Message,
+						_ex.InnerException
 					));
 				}
 				_output[i].root_<%=_aux_schema.Element.Name.ToLower()%>_ = ROOT + "." + <%=_aux_schema.Element.Name.ToUpper()%> + "[" + i + "]";<%
