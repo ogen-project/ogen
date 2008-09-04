@@ -1,27 +1,13 @@
-﻿<metadataDB>
-	<dbs>
-		<db dbServerType="PostgreSQL">
-			<dbConnections>
-				<dbConnection configMode="DEBUG" isDefault="True" generateSQL="True" isIndexed_andReadOnly="False" connectionstring="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;" />
-				<dbConnection configMode="!DEBUG" isDefault="True" generateSQL="False" isIndexed_andReadOnly="False" connectionstring="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;" />
-			</dbConnections>
-		</db>
-		<db dbServerType="SQLServer">
-			<dbConnections>
-				<dbConnection configMode="DEBUG" isDefault="False" generateSQL="True" isIndexed_andReadOnly="False" connectionstring="server=127.0.0.1;uid=sa;pwd=passpub;database=OGen-NTier_UTs;" />
-				<dbConnection configMode="!DEBUG" isDefault="False" generateSQL="False" isIndexed_andReadOnly="False" connectionstring="server=127.0.0.1;uid=sa;pwd=passpub;database=OGen-NTier_UTs;" />
-			</dbConnections>
-		</db>
-	</dbs>
+﻿<metadataDB applicationName="OGen-NTier_UTs">
 	<tables>
 
 <!--
 		<table name="IHaveAStyle" isVirtualTable="False">
-			<dbs>
-				<db dbServerType="PostgreSQL" tableName="IHaveAStyle" />
-				<db dbServerType="SQLServer" tableName="i_Have_MyOwn_style" />
-				<db dbServerType="MySQL" tableName="i_have_a_lower_style" />
-			</dbs>
+			<tableDBs>
+				<db dbServerType="PostgreSQL" tableName="IHaveAStyle" dbDescription="" />
+				<db dbServerType="SQLServer" tableName="i_Have_MyOwn_style" dbDescription="" />
+				<db dbServerType="MySQL" tableName="i_have_a_lower_style" dbDescription="" />
+			</tableDBs>
 			<tableFields>
 				<tableField name="IDIHaveAStyle" isPK="True" isIdentity="True" defaultValue="" fkTableName="" fkFieldName="" isNullable="False" size="0">
 					<tableFieldDBs>
@@ -35,7 +21,7 @@
 -->
 
 		<table name="Config" dbDescription="" isVirtualTable="False">
-			<dbs />
+			<tableDBs />
 			<tableFields>
 				<tableField name="Name" isPK="True" isIdentity="False" defaultValue="" fkTableName="" fkFieldName="" isNullable="False" size="50" aditionalInfo="" numericPrecision="0" numericScale="0">
 					<tableFieldDBs>
@@ -64,7 +50,7 @@
 			</tableFields>
 		</table>
 		<table name="Group" dbDescription="" isVirtualTable="False">
-			<dbs />
+			<tableDBs />
 			<tableFields>
 				<tableField name="IDGroup" isPK="True" isIdentity="True" defaultValue="" fkTableName="" fkFieldName="" isNullable="False" size="0" aditionalInfo="" numericPrecision="19" numericScale="0">
 					<tableFieldDBs>
@@ -81,7 +67,7 @@
 			</tableFields>
 		</table>
 		<table name="GroupPermition" dbDescription="" isVirtualTable="False">
-			<dbs />
+			<tableDBs />
 			<tableFields>
 				<tableField name="IDGroup" isPK="True" isIdentity="False" defaultValue="" fkTableName="Group" fkFieldName="IDGroup" isNullable="False" size="0" aditionalInfo="" numericPrecision="19" numericScale="0">
 					<tableFieldDBs>
@@ -98,7 +84,7 @@
 			</tableFields>
 		</table>
 		<table name="Language" dbDescription="" isVirtualTable="False">
-			<dbs />
+			<tableDBs />
 			<tableFields>
 				<tableField name="IDLanguage" isPK="True" isIdentity="True" defaultValue="" fkTableName="" fkFieldName="" isNullable="False" size="0" aditionalInfo="" numericPrecision="19" numericScale="0">
 					<tableFieldDBs>
@@ -115,7 +101,7 @@
 			</tableFields>
 		</table>
 		<table name="Log" dbDescription="" isVirtualTable="False">
-			<dbs />
+			<tableDBs />
 			<tableFields>
 				<tableField name="IDLog" isPK="True" isIdentity="True" defaultValue="" fkTableName="" fkFieldName="" isNullable="False" size="0" aditionalInfo="" numericPrecision="19" numericScale="0">
 					<tableFieldDBs>
@@ -150,7 +136,7 @@
 			</tableFields>
 		</table>
 		<table name="Logcode" dbDescription="" isVirtualTable="False">
-			<dbs />
+			<tableDBs />
 			<tableFields>
 				<tableField name="IDLogcode" isPK="True" isIdentity="True" defaultValue="" fkTableName="" fkFieldName="" isNullable="False" size="0" aditionalInfo="" numericPrecision="19" numericScale="0">
 					<tableFieldDBs>
@@ -185,7 +171,7 @@
 			</tableFields>
 		</table>
 		<table name="Permition" dbDescription="" isVirtualTable="False">
-			<dbs />
+			<tableDBs />
 			<tableFields>
 				<tableField name="IDPermition" isPK="True" isIdentity="True" defaultValue="" fkTableName="" fkFieldName="" isNullable="False" size="0" aditionalInfo="" numericPrecision="19" numericScale="0">
 					<tableFieldDBs>
@@ -202,7 +188,7 @@
 			</tableFields>
 		</table>
 		<table name="User" dbDescription="" isVirtualTable="False">
-			<dbs />
+			<tableDBs />
 			<tableFields>
 				<tableField name="IDUser" isPK="True" isIdentity="True" defaultValue="" fkTableName="" fkFieldName="" isNullable="False" size="0" aditionalInfo="" numericPrecision="19" numericScale="0">
 					<tableFieldDBs>
@@ -231,7 +217,7 @@
 			</tableFields>
 		</table>
 		<table name="UserGroup" dbDescription="" isVirtualTable="False">
-			<dbs />
+			<tableDBs />
 			<tableFields>
 				<tableField name="IDUser" isPK="True" isIdentity="False" defaultValue="" fkTableName="User" fkFieldName="IDUser" isNullable="False" size="0" aditionalInfo="" numericPrecision="19" numericScale="0">
 					<tableFieldDBs>
@@ -260,7 +246,7 @@
 			</tableFields>
 		</table>
 		<table name="Word" dbDescription="" isVirtualTable="False">
-			<dbs />
+			<tableDBs />
 			<tableFields>
 				<tableField name="IDWord" isPK="True" isIdentity="True" defaultValue="" fkTableName="" fkFieldName="" isNullable="False" size="0" aditionalInfo="" numericPrecision="19" numericScale="0">
 					<tableFieldDBs>
@@ -277,7 +263,7 @@
 			</tableFields>
 		</table>
 		<table name="WordLanguage" dbDescription="" isVirtualTable="False">
-			<dbs />
+			<tableDBs />
 			<tableFields>
 				<tableField name="IDWord" isPK="True" isIdentity="False" defaultValue="" fkTableName="Word" fkFieldName="IDWord" isNullable="False" size="0" aditionalInfo="" numericPrecision="19" numericScale="0">
 					<tableFieldDBs>
@@ -300,7 +286,7 @@
 			</tableFields>
 		</table>
 		<table name="vUserDefaultGroup" dbDescription="" isVirtualTable="True">
-			<dbs />
+			<tableDBs />
 			<tableFields>
 				<tableField name="IDUser" isPK="True" isIdentity="False" defaultValue="" fkTableName="" fkFieldName="" isNullable="False" size="0" aditionalInfo="" numericPrecision="19" numericScale="0">
 					<tableFieldDBs>
@@ -335,7 +321,7 @@
 			</tableFields>
 		</table>
 		<table name="vUserGroup" dbDescription="" isVirtualTable="True">
-			<dbs />
+			<tableDBs />
 			<tableFields>
 				<tableField name="IDUser" isPK="True" isIdentity="False" defaultValue="" fkTableName="" fkFieldName="" isNullable="False" size="0" aditionalInfo="" numericPrecision="19" numericScale="0">
 					<tableFieldDBs>
