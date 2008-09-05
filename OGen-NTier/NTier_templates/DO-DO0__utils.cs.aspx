@@ -246,8 +246,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			string ConfigField;
 			string DatatypeField;
 			System.Data.DataTable ConfigTable;
-			for (int t = 0; t < _aux_metadata.Tables.Count; t++) {
-				_aux_table = _aux_metadata.Tables[t];
+			for (int t = 0; t < _aux_ex_metadata.Tables.TableCollection.Count; t++) {
+				_aux_table = _aux_ex_metadata.Tables.TableCollection[t];
 				if (_aux_table.isConfig) {%>
 		#region public static Methods - DB.<%=_aux_db_table.Name%>...<%
 					NameField = "";

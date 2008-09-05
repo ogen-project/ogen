@@ -65,22 +65,22 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		#region public SO0_<%=_aux_db_table.Name%>();
 		public SO0_<%=_aux_db_table.Name%>(
 		) : this (<%
-		for (int f = 0; f < _aux_table.Fields.Count; f++) {
-			_aux_field = _aux_table.Fields[f];%><%=""%>
+		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+			_aux_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
 			<%=(_aux_field.DefaultValue == "") ? _aux_field.DBType_generic.FWEmptyValue : _aux_field.DefaultValue%><%=(f != _aux_table.Fields.Count - 1) ? ", " : ""%><%
 		}%>
 		) {
 		}
 		public SO0_<%=_aux_db_table.Name%>(<%
-		for (int f = 0; f < _aux_table.Fields.Count; f++) {
-			_aux_field = _aux_table.Fields[f];%><%=""%>
+		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+			_aux_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
 			<%=_aux_field.DBType_generic.FWType%> <%=_aux_field.Name%>_in<%=(f != _aux_table.Fields.Count - 1) ? ", " : ""%><%
 		}%>
 		) {
 			haschanges_ = false;
 			//---<%
-			for (int f = 0; f < _aux_table.Fields.Count; f++) {
-				_aux_field = _aux_table.Fields[f];%><%=""%>
+			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+				_aux_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
 			<%=_aux_field.Name.ToLower()%>_ = <%=_aux_field.Name%>_in;<%
 			}%>
 		}
