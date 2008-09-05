@@ -56,9 +56,9 @@ using OGen.lib.datalayer.<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.To
 }%>
 using OGen.NTier.lib.datalayer;
 
-namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 	/// <summary>
-	/// utils DataObject which works as a repository of useful Properties and Methods for DataObjects at <%=_aux_ex_metadata.Namespace%>.lib.datalayer namespace.<%--
+	/// utils DataObject which works as a repository of useful Properties and Methods for DataObjects at <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer namespace.<%--
 #if NET_1_1
 	/// <note type="implementnotes">
 	/// Access must be made via <see cref="DO__utils">DO__utils</see>.

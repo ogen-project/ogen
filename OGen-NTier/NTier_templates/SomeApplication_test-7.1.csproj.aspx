@@ -46,7 +46,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "<%=_aux_ex_metadata.Namespace%>.test-1.1"
+                AssemblyName = "<%=_aux_ex_metadata.ApplicationNamespace%>.test-1.1"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -55,7 +55,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                 OutputType = "Exe"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "<%=_aux_ex_metadata.Namespace%>.test"
+                RootNamespace = "<%=_aux_ex_metadata.ApplicationNamespace%>.test"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >

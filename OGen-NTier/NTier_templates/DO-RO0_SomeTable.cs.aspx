@@ -57,7 +57,7 @@ using System.Data;
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
 
-namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 	/// <summary>
 	/// <%=_aux_db_table.Name%> RecordObject which provides access to searches defined for <%=_aux_db_table.Name%> table at Database.
 	/// </summary>

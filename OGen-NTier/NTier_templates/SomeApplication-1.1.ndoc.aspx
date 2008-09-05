@@ -47,8 +47,8 @@ XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedColle
         <assembly location="<%=System.IO.Path.Combine(_arg_OGenPath, "OGen.lib.datalayer-1.1.dll")%>" documentation="<%=System.IO.Path.Combine(_arg_OGenPath, "OGen.lib.datalayer-1.1.xml")%>" />
         <assembly location="<%=System.IO.Path.Combine(_arg_OGenPath, "OGen.NTier.lib.datalayer-1.1.dll")%>" documentation="<%=System.IO.Path.Combine(_arg_OGenPath, "OGen.NTier.lib.datalayer-1.1.xml")%>" />
         <assembly location="<%=System.IO.Path.Combine(_arg_OGenPath, "OGen.NTier.lib.businesslayer-1.1.dll")%>" documentation="<%=System.IO.Path.Combine(_arg_OGenPath, "OGen.NTier.lib.businesslayer-1.1.xml")%>" />
-        <assembly location=".\<%=_aux_ex_metadata.ApplicationName%>_datalayer\bin\Debug\<%=_aux_ex_metadata.Namespace%>.lib.datalayer-1.1.dll" documentation=".\<%=_aux_ex_metadata.ApplicationName%>_datalayer\bin\Debug\<%=_aux_ex_metadata.Namespace%>.lib.datalayer-1.1.xml" />
-        <assembly location=".\<%=_aux_ex_metadata.ApplicationName%>_businesslayer\bin\Debug\<%=_aux_ex_metadata.Namespace%>.lib.businesslayer-1.1.dll" documentation=".\<%=_aux_ex_metadata.ApplicationName%>_businesslayer\bin\Debug\<%=_aux_ex_metadata.Namespace%>.lib.businesslayer-1.1.xml" />
+        <assembly location=".\<%=_aux_ex_metadata.ApplicationName%>_datalayer\bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer-1.1.dll" documentation=".\<%=_aux_ex_metadata.ApplicationName%>_datalayer\bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer-1.1.xml" />
+        <assembly location=".\<%=_aux_ex_metadata.ApplicationName%>_businesslayer\bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer-1.1.dll" documentation=".\<%=_aux_ex_metadata.ApplicationName%>_businesslayer\bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer-1.1.xml" />
     </assemblies>
     <documenters>
         <documenter name="JavaDoc">

@@ -53,7 +53,7 @@ using System.Data;
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
 
-namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 	/// <summary>
 	/// <%=_aux_db_table.Name%> DataObject which provides access to <%=_aux_db_table.Name%> <%=(_aux_table.isVirtualTable) ? "view" : "table"%> at Database.
 	/// </summary>

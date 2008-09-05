@@ -55,11 +55,11 @@ using System.Xml.Serialization;
 using OGen.NTier.lib.datalayer;
 using OGen.NTier.lib.businesslayer;
 
-using <%=_aux_ex_metadata.Namespace%>.lib.datalayer;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer;
 
-namespace <%=_aux_ex_metadata.Namespace%>.lib.businesslayer {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 	/// <summary>
-	/// <%=_aux_db_table.Name%> BusinessObject which provides access to <see cref="<%=_aux_ex_metadata.Namespace%>.lib.datalayer.DO_<%=_aux_db_table.Name%>">DO_<%=_aux_db_table.Name%></see> for the Business Layer.<%--
+	/// <%=_aux_db_table.Name%> BusinessObject which provides access to <see cref="<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.DO_<%=_aux_db_table.Name%>">DO_<%=_aux_db_table.Name%></see> for the Business Layer.<%--
 #if NET_1_1
 	/// <note type="implementnotes">
 	/// Access must be made via <see cref="BO_<%=_aux_db_table.Name%>">BO_<%=_aux_db_table.Name%></see>.

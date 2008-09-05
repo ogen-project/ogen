@@ -55,9 +55,9 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 using System.Data;
 using NUnit.Framework;
 
-using <%=_aux_ex_metadata.Namespace%>.lib.datalayer;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer;
 
-namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer.UTs {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.UTs {
 	public class UT0_<%=_aux_db_table.Name%> { public UT0_<%=_aux_db_table.Name%>() {}
 
 		#region protected Properties...

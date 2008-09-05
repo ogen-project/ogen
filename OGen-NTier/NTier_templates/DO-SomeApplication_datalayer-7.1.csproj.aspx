@@ -46,7 +46,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "<%=_aux_ex_metadata.Namespace%>.lib.datalayer-1.1"
+                AssemblyName = "<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer-1.1"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -55,7 +55,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "<%=_aux_ex_metadata.Namespace%>.lib.datalayer"
+                RootNamespace = "<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >
@@ -70,7 +70,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 						string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();
 						%>;<%=_dbservertype%><%
 					}%>"
-                    DocumentationFile = "bin\Debug\<%=_aux_ex_metadata.Namespace%>.lib.datalayer-1.1.xml"
+                    DocumentationFile = "bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer-1.1.xml"
                     DebugSymbols = "true"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"

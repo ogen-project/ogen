@@ -114,11 +114,11 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
-		#region public string GuidDatalayer { get; set; }
+		#region public string GUIDDatalayer { get; set; }
 		internal string guiddatalayer_;
 
 		[XmlAttribute("guidDatalayer")]
-		public string GuidDatalayer {
+		public string GUIDDatalayer {
 			get {
 				return guiddatalayer_;
 			}
@@ -127,11 +127,11 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
-		#region public string GuidDatalayer_UTs { get; set; }
+		#region public string GUIDDatalayer_UTs { get; set; }
 		internal string guiddatalayer_uts_;
 
 		[XmlAttribute("guidDatalayer_UTs")]
-		public string GuidDatalayer_UTs {
+		public string GUIDDatalayer_UTs {
 			get {
 				return guiddatalayer_uts_;
 			}
@@ -140,11 +140,11 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
-		#region public string GuidBusinesslayer { get; set; }
+		#region public string GUIDBusinesslayer { get; set; }
 		internal string guidbusinesslayer_;
 
 		[XmlAttribute("guidBusinesslayer")]
-		public string GuidBusinesslayer {
+		public string GUIDBusinesslayer {
 			get {
 				return guidbusinesslayer_;
 			}
@@ -153,11 +153,11 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
-		#region public string GuidBusinesslayer_UTs { get; set; }
+		#region public string GUIDBusinesslayer_UTs { get; set; }
 		internal string guidbusinesslayer_uts_;
 
 		[XmlAttribute("guidBusinesslayer_UTs")]
-		public string GuidBusinesslayer_UTs {
+		public string GUIDBusinesslayer_UTs {
 			get {
 				return guidbusinesslayer_uts_;
 			}
@@ -166,11 +166,11 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
-		#region public string GuidTest { get; set; }
+		#region public string GUIDTest { get; set; }
 		internal string guidtest_;
 
 		[XmlAttribute("guidTest")]
-		public string GuidTest {
+		public string GUIDTest {
 			get {
 				return guidtest_;
 			}

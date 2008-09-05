@@ -41,9 +41,9 @@ using System.Data;
 
 using OGen.lib.datalayer;
 
-namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 	/// <summary>
-	/// utils DataObject which works as a repository of useful Properties and Methods for DataObjects at <%=_aux_ex_metadata.Namespace%>.lib.datalayer namespace.
+	/// utils DataObject which works as a repository of useful Properties and Methods for DataObjects at <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer namespace.
 	/// </summary>
 	public sealed 
 #if !NET_1_1

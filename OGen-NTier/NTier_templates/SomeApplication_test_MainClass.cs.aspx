@@ -54,10 +54,10 @@ using System.Text.RegularExpressions;
 
 using OGen.lib.datalayer;
 
-using <%=_aux_ex_metadata.Namespace%>.lib.datalayer;
-using <%=_aux_ex_metadata.Namespace%>.lib.businesslayer;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;
 
-namespace <%=_aux_ex_metadata.Namespace%>.test {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.test {
 	class MainClass {
 		[STAThread]
 		static void Main(string[] args) {

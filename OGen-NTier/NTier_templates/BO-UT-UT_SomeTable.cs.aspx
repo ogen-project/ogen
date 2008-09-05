@@ -51,9 +51,9 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 using System.Data;
 using NUnit.Framework;
 
-using <%=_aux_ex_metadata.Namespace%>.lib.businesslayer;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;
 
-namespace <%=_aux_ex_metadata.Namespace%>.lib.businesslayer.UTs {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.UTs {
 	[TestFixture]
 	public class UT_<%=_aux_db_table.Name%> : UT0_<%=_aux_db_table.Name%> {
 		public UT_<%=_aux_db_table.Name%>() {}

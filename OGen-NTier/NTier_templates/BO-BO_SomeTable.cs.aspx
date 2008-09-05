@@ -49,11 +49,11 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 <%
 }%>using System;
 
-using <%=_aux_ex_metadata.Namespace%>.lib.datalayer;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer;
 
-namespace <%=_aux_ex_metadata.Namespace%>.lib.businesslayer {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 	/// <summary>
-	/// <%=_aux_db_table.Name%> BusinessObject which provides access to <see cref="<%=_aux_ex_metadata.Namespace%>.lib.datalayer.DO_<%=_aux_db_table.Name%>">DO_<%=_aux_db_table.Name%></see> for the Business Layer.
+	/// <%=_aux_db_table.Name%> BusinessObject which provides access to <see cref="<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.DO_<%=_aux_db_table.Name%>">DO_<%=_aux_db_table.Name%></see> for the Business Layer.
 	/// </summary>
 	public sealed 
 #if !NET_1_1

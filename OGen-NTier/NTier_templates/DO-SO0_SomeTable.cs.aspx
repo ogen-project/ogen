@@ -57,7 +57,7 @@ using System.Xml.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
-namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 	/// <summary>
 	/// <%=_aux_db_table.Name%> SerializableObject which provides fields access at <%=_aux_db_table.Name%> <%=(_aux_table.isVirtualTable) ? "view" : "table"%> at Database.
 	/// </summary>

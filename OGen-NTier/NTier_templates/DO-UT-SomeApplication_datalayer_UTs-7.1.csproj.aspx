@@ -46,7 +46,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "<%=_aux_ex_metadata.Namespace%>.lib.datalayer.UTs-1.1"
+                AssemblyName = "<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.UTs-1.1"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -55,7 +55,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "<%=_aux_ex_metadata.Namespace%>.lib.datalayer.UTs"
+                RootNamespace = "<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.UTs"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >
@@ -162,8 +162,10 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                     SubType = "Code"
                     BuildAction = "Compile"
                 /><%
-                for (int t = 0; t < _aux_metadata.Tables.Count; t++) {
-					_aux_table = _aux_metadata.Tables[t];%>
+                //for (int t = 0; t < _aux_metadata.Tables.Count; t++) {
+				for (int t = 0; t < _aux_db_metadata.Tables.TableCollection.Count; t++) {
+					//_aux_table = _aux_metadata.Tables[t];
+					_aux_table = _aux_db_metadata.Tables.TableCollection[t]%>
                 <File
                     RelPath = "UT_<%=_aux_db_table.Name%>.cs"
                     SubType = "Code"

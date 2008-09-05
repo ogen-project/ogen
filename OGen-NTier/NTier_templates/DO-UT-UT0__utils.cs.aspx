@@ -42,9 +42,9 @@ using NUnit.Framework;
 
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
-using <%=_aux_ex_metadata.Namespace%>.lib.datalayer;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer;
 
-namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer.UTs {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.UTs {
 	internal class UT0__utils {
 		private UT0__utils() {}
 		#region static UT0__utils();

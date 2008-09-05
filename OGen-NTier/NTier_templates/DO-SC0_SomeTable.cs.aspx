@@ -55,7 +55,7 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 }%>using System;
 using System.Xml.Serialization;
 
-namespace <%=_aux_ex_metadata.Namespace%>.lib.datalayer {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 	[XmlRoot("collectionOf_<%=_aux_db_table.Name%>")]
 	public class SC0_<%=_aux_db_table.Name%> {
 		#region public SC0_<%=_aux_db_table.Name%>(...);
