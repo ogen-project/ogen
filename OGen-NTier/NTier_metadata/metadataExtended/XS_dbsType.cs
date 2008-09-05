@@ -21,5 +21,29 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 	#else
 	public partial class XS_dbsType {
 	#endif
+
+		#region public string[] ConfigModes();
+		public string[] ConfigModes() {
+			string _configmodes = string.Empty;
+
+			for (int i = 0; i < DBCollection.Count; i++) {
+				for (int j = 0; j < DBCollection[i].DBConnections.DBConnectionCollection.Count; j++) {
+					if (_configmodes.IndexOf(string.Format(
+						"{0}:",
+						DBCollection[i].DBConnections.DBConnectionCollection[j].ConfigMode
+					)) < 0) {
+						_configmodes += string.Format(
+							"{0}:",
+							DBCollection[i].DBConnections.DBConnectionCollection[j].ConfigMode
+						);
+					}
+				}
+			}
+			if (_configmodes.Length > 0)
+				_configmodes = _configmodes.Substring(0, _configmodes.Length - 1);
+
+			return _configmodes.Split(':');
+		}
+		#endregion
 	}
 }
