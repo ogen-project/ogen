@@ -157,8 +157,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 		#endregion
 		//---<%
 		}
-		for (int f = 0; f < _aux_table.Fields.Count; f++) {
-			_aux_field = _aux_table.Fields[f];
+		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+			_aux_field = _aux_db_table.TableFields.TableFieldCollection[f];
 
 			if (_aux_field.isNullable && !_aux_field.isPK) {%>
 		#region public bool <%=_aux_field.Name%>_isNull { get; set; }
