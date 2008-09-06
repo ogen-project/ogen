@@ -646,6 +646,17 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 					#endregion
 					if (_finishedDependencies == templates_.TemplateCollection[template_].Dependencies.DependencyCollection.Count) {
 						#region RUNNING: templates_[template_] ...
+
+						notifyback_(
+							string.Format(
+								"#{0}/{1} - {2} ... ",
+								_finishedTemplates.Count,
+								templates_.TemplateCollection.Count,
+								templates_.TemplateCollection[template_].Name
+							),
+							false
+						);
+
 						metadata_.IterateThrough_fromRoot(
 							templates_.TemplateCollection[template_].IterationType,
 							new utils.IterationFoundDelegate(notifyme)
@@ -656,15 +667,7 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 						_finishedTemplates.Add(templates_.TemplateCollection[template_].Name);
 						_finished = false;
 
-						notifyback_(
-							string.Format(
-								"#{0}/{1} - {2}", 
-								_finishedTemplates.Count, 
-								templates_.TemplateCollection.Count, 
-								templates_.TemplateCollection[template_].Name
-							), 
-							true
-						);
+						notifyback_("DONE!", true);
 					}
 					#endregion
 				}
