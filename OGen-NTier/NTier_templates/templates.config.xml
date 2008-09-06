@@ -318,12 +318,12 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[n].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataExtended[n].tables.table[n].name}" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_datalayer_UTs/_base/UT0_${ROOT.metadataExtended[n].tables.table[n].name}.cs" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}_datalayer_UTs/_base/UT0_${ROOT.metadataExtended[0].tables.table[n].name}.cs" 
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
@@ -626,7 +626,7 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 
 <!-- XXX:TO_DOS
 	ROOT.metadata.tables.table[n].name
@@ -658,17 +658,17 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 <!-- XXX:TO_DOS
 			<condition eval="ROOT.metadata.dbs.supports_PostgreSQL" to="True" />
 XXX:TO_DOS -->
-			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="True" />
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 <!-- XXX:TO_DOS
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}__ConstraintExist" 
@@ -684,17 +684,17 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 <!-- XXX:TO_DOS
 			<condition eval="ROOT.metadata.dbs.supports_SQLServer" to="True" />
 XXX:TO_DOS -->
-			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="True" />
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 <!-- XXX:TO_DOS
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}__ConstraintExist"
@@ -709,21 +709,21 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n].searches.search[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
 <!-- XXX:TO_DOS
 			<condition eval="ROOT.metadata.dbs.supports_MySQL" to="True" />
 XXX:TO_DOS -->
-			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-MySQL/sql0-${ROOT.metadataExtended[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 <!-- XXX:TO_DOS
-			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_Function" mode="Replace" />
 XXX:TO_DOS -->
 		</outputs>
