@@ -13,14 +13,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <templates>
 	<!--template name="__XSLT-TEST.txt.xslt" 
 			parserType="xslt"
-			iterationType="ROOT.metadata.tables.table[n]">
+			iterationType="ROOT.metadataDB[n].tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[n].tables.table[n]}" />
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/__XSLT-TEST-${ROOT.metadata.tables.table[n].name}.txt" 
+			<output to="${CONFIG.outputPath}/__XSLT-TEST-${ROOT.metadataDB[n].tables.table[n]}.txt" 
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
@@ -30,9 +30,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadataExtended[0]">
 		<arguments />
 		<conditions>
-			<!--condition eval="ROOT.metadata.dbs.supports_PostgreSQL" to="True" /-->
-			<!--condition eval="ROOT.metadata.dbs.supports_SQLServer" to="True" /-->
-			<!--condition eval="ROOT.metadata.dbs.supports_MySQL" to="True" /-->
+<!-- XXX:REMOVE_COMMENT
+			<condition eval="ROOT.metadata.dbs.supports_PostgreSQL" to="True" />
+			<condition eval="ROOT.metadata.dbs.supports_SQLServer" to="True" />
+			<condition eval="ROOT.metadata.dbs.supports_MySQL" to="True" />
+XXX:REMOVE_COMMENT -->
 		</conditions>
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
@@ -44,6 +46,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</outputs>
 		<dependencies />
 	</template>
+<!-- XXX:REMOVE_COMMENT
 	<template name="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" 
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[n].tables.table[n]">
@@ -64,6 +67,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<dependency name="emptyfile.txt" />
 		</dependencies>
 	</template>
+XXX:REMOVE_COMMENT -->
 	<template name="app0.config.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0]">
@@ -315,25 +319,25 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadataDB[n].tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataEX[0].tables.table[n].name}" />
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_datalayer_UTs/_base/UT0_${ROOT.metadataDB[0].tables.table[n].name}.cs" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_datalayer_UTs/_base/UT0_${ROOT.metadataEX[0].tables.table[n].name}.cs" 
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
 	<template name="DO-UT-UT_SomeTable.cs.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[0].tables.table[n]">
+			iterationType="ROOT.metadataEX[0].tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataEX[0].tables.table[n].name}" />
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_datalayer_UTs/UT_${ROOT.metadataDB[0].tables.table[n].name}.cs" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_datalayer_UTs/UT_${ROOT.metadataEX[0].tables.table[n].name}.cs" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -348,9 +352,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_datalayer_UTs/app.config" 
 				type="File" mode="Create_doNotReplace" />
-			<output to="${CONFIG.outputPath}/${ROOT.metadata.namespace}.lib.datalayer.UTs-1.1.config" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationNamespace}.lib.datalayer.UTs-1.1.config" 
 				type="File" mode="Create_doNotReplace" />
-			<output to="${CONFIG.outputPath}/${ROOT.metadata.namespace}.lib.datalayer.UTs-2.0.config" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationNamespace}.lib.datalayer.UTs-2.0.config" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -359,13 +363,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0]">
 		<arguments>
-			<!--argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD0_${ROOT.metadataExtended[n].applicationName}-${ROOT.metadata.default_DBServerType}.OGen-metadata.xml" /-->
+			<!-- XXX:NO_NEED 
+				<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD0_${ROOT.metadataExtended[n].applicationName}-${ROOT.metadata.default_DBServerType}.OGen-metadata.xml" />
+			XXX:NOT_NEED -->
 			<argument name="ApplicationName" value="${ROOT.metadataExtended[n].applicationName}" />
-			<argument name="Namespace" value="${ROOT.metadata.namespace}" />
+			<argument name="Namespace" value="${ROOT.metadataExtended[n].applicationNamespace}" />
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadata.namespace}.lib.datalayer.UTs-1.1.nunit" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationNamespace}.lib.datalayer.UTs-1.1.nunit" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -374,13 +380,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0]">
 		<arguments>
-			<!--argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD0_${ROOT.metadataExtended[n].applicationName}-${ROOT.metadata.default_DBServerType}.OGen-metadata.xml" /-->
+			<!-- XXX:NO_NEED
+				<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD0_${ROOT.metadataExtended[n].applicationName}-${ROOT.metadata.default_DBServerType}.OGen-metadata.xml" />
+			XXX:NO_NEED -->
 			<argument name="ApplicationName" value="${ROOT.metadataExtended[n].applicationName}" />
-			<argument name="Namespace" value="${ROOT.metadata.namespace}" />
+			<argument name="Namespace" value="${ROOT.metadataExtended[n].applicationNamespace}" />
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadata.namespace}.lib.datalayer.UTs-2.0.nunit" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationNamespace}.lib.datalayer.UTs-2.0.nunit" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -413,28 +421,28 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	</template>
 	<template name="BO-UT-UT0_SomeTable.cs.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[0].tables.table[n]">
+			iterationType="ROOT.metadataEX[0].tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataEX[0].tables.table[n].name}" />
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_businesslayer_UTs/_base/UT0_${ROOT.metadataDB[0].tables.table[n].name}.cs" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_businesslayer_UTs/_base/UT0_${ROOT.metadataEX[0].tables.table[n].name}.cs" 
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
 	<template name="BO-UT-UT_SomeTable.cs.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[0].tables.table[n]">
+			iterationType="ROOT.metadataEX[0].tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataEX[0].tables.table[n].name}" />
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_businesslayer_UTs/UT_${ROOT.metadataDB[0].tables.table[n].name}.cs" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_businesslayer_UTs/UT_${ROOT.metadataEX[0].tables.table[n].name}.cs" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -449,9 +457,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_businesslayer_UTs/app.config" 
 				type="File" mode="Create_doNotReplace" />
-			<output to="${CONFIG.outputPath}/${ROOT.metadata.namespace}.lib.businesslayer.UTs-1.1.config" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationNamespace}.lib.businesslayer.UTs-1.1.config" 
 				type="File" mode="Create_doNotReplace" />
-			<output to="${CONFIG.outputPath}/${ROOT.metadata.namespace}.lib.businesslayer.UTs-2.0.config" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationNamespace}.lib.businesslayer.UTs-2.0.config" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -460,13 +468,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0]">
 		<arguments>
-			<!--argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD0_${ROOT.metadataExtended[n].applicationName}-${ROOT.metadata.default_DBServerType}.OGen-metadata.xml" /-->
+			<!-- XXX:NO_NEED
+				<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD0_${ROOT.metadataExtended[n].applicationName}-${ROOT.metadata.default_DBServerType}.OGen-metadata.xml" />
+			XXX:NO_NEED -->
 			<argument name="ApplicationName" value="${ROOT.metadataExtended[n].applicationName}" />
-			<argument name="Namespace" value="${ROOT.metadata.namespace}" />
+			<argument name="Namespace" value="${ROOT.metadataExtended[n].applicationNamespace}" />
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadata.namespace}.lib.businesslayer.UTs-1.1.nunit" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationNamespace}.lib.businesslayer.UTs-1.1.nunit" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -475,13 +485,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0]">
 		<arguments>
-			<!--argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD0_${ROOT.metadataExtended[n].applicationName}-${ROOT.metadata.default_DBServerType}.OGen-metadata.xml" /-->
+			<!-- XXX:NO_NEED
+				<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD0_${ROOT.metadataExtended[n].applicationName}-${ROOT.metadata.default_DBServerType}.OGen-metadata.xml" />
+			XXX:NO_NEED -->
 			<argument name="ApplicationName" value="${ROOT.metadataExtended[n].applicationName}" />
-			<argument name="Namespace" value="${ROOT.metadata.namespace}" />
+			<argument name="Namespace" value="${ROOT.metadataExtended[n].applicationNamespace}" />
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadata.namespace}.lib.businesslayer.UTs-2.0.nunit" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationNamespace}.lib.businesslayer.UTs-2.0.nunit" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -514,108 +526,115 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	</template>
 	<template name="DO-RO0_SomeTable.cs.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[0].tables.table[n]">
+			iterationType="ROOT.metadataEX[0].tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataEX[0].tables.table[n].name}" />
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_datalayer/_base/RO0_${ROOT.metadataDB[0].tables.table[n].name}.cs" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_datalayer/_base/RO0_${ROOT.metadataEX[0].tables.table[n].name}.cs" 
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
 	<template name="DO-DO0_SomeTable.cs.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[0].tables.table[n]">
+			iterationType="ROOT.metadataEX[0].tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataEX[0].tables.table[n].name}" />
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_datalayer/_base/DO0_${ROOT.metadataDB[0].tables.table[n].name}.cs" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_datalayer/_base/DO0_${ROOT.metadataEX[0].tables.table[n].name}.cs" 
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
 	<template name="DO-SO0_SomeTable.cs.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[0].tables.table[n]">
+			iterationType="ROOT.metadataEX[0].tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataEX[0].tables.table[n].name}" />
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_datalayer/_base/SO0_${ROOT.metadataDB[0].tables.table[n].name}.cs" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_datalayer/_base/SO0_${ROOT.metadataEX[0].tables.table[n].name}.cs" 
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
 	<template name="DO-SC0_SomeTable.cs.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[0].tables.table[n]">
+			iterationType="ROOT.metadataEX[0].tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataEX[0].tables.table[n].name}" />
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_datalayer/_base/SC0_${ROOT.metadataDB[0].tables.table[n].name}.cs" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_datalayer/_base/SC0_${ROOT.metadataEX[0].tables.table[n].name}.cs" 
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
 	<template name="DO-DO_SomeTable.cs.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[0].tables.table[n]">
+			iterationType="ROOT.metadataEX[0].tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataEX[0].tables.table[n].name}" />
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_datalayer/DO_${ROOT.metadataDB[0].tables.table[n].name}.cs" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_datalayer/DO_${ROOT.metadataEX[0].tables.table[n].name}.cs" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
 	</template>
 	<template name="BO-BO0_SomeTable.cs.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[0].tables.table[n]">
+			iterationType="ROOT.metadataEX[0].tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataEX[0].tables.table[n].name}" />
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_businesslayer/_base/BO0_${ROOT.metadataDB[0].tables.table[n].name}.cs" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_businesslayer/_base/BO0_${ROOT.metadataEX[0].tables.table[n].name}.cs" 
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
 	<template name="BO-BO_SomeTable.cs.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[0].tables.table[n]">
+			iterationType="ROOT.metadataEX[0].tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataEX[0].tables.table[n].name}" />
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_businesslayer/BO_${ROOT.metadataDB[0].tables.table[n].name}.cs" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_businesslayer/BO_${ROOT.metadataEX[0].tables.table[n].name}.cs" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
 	</template>
 	<template name="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadata.tables.table[n]">
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+
+<!-- XXX:TO_DOS
+	ROOT.metadata.tables.table[n].name
+	ROOT.metadataDB[0].tables.table[n].name
+	ROOT.metadataDB[0].tables.table[n].tableDBs.tableDB[???].dbTableName
+XXX:TO_DOS -->
+
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata.dbs.supports_MySQL" to="True" />
@@ -624,7 +643,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="fnc0_${ROOT.metadata.tables.table[n].name}__ConstraintExist" 
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}__ConstraintExist" 
 				type="MySQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -636,7 +655,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata.dbs.supports_PostgreSQL" to="True" />
@@ -645,7 +664,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="fnc0_${ROOT.metadata.tables.table[n].name}__ConstraintExist" 
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}__ConstraintExist" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -658,7 +677,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata.dbs.supports_SQLServer" to="True" />
@@ -667,7 +686,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-			<output to="fnc0_${ROOT.metadata.tables.table[n].name}__ConstraintExist"
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}__ConstraintExist"
 				type="SQLServer_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -679,7 +698,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -689,7 +708,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="fnc0_${ROOT.metadata.tables.table[n].name}_isObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="MySQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -701,7 +720,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -711,7 +730,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="fnc0_${ROOT.metadata.tables.table[n].name}_isObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -724,7 +743,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -734,7 +753,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-			<output to="fnc0_${ROOT.metadata.tables.table[n].name}_isObject_${ROOT.metadata.tables.table[n].searches.search[n].name}"
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadata.tables.table[n].searches.search[n].name}"
 				type="SQLServer_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -746,7 +765,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata.dbs.supports_MySQL" to="True" />
@@ -754,7 +773,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="fnc0_${ROOT.metadata.tables.table[n].name}_isObject"
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject"
 				type="MySQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies />
@@ -764,7 +783,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata.dbs.supports_PostgreSQL" to="True" />
@@ -772,7 +791,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="fnc0_${ROOT.metadata.tables.table[n].name}_isObject" 
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -784,7 +803,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata.dbs.supports_SQLServer" to="True" />
@@ -792,7 +811,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-			<output to="fnc0_${ROOT.metadata.tables.table[n].name}_isObject"
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject"
 				type="SQLServer_Function" mode="Replace" />
 		</outputs>
 		<dependencies />
@@ -802,7 +821,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -812,7 +831,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="fnc0_${ROOT.metadata.tables.table[n].name}_Record_count_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_count_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="MySQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -824,7 +843,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -834,7 +853,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="fnc0_${ROOT.metadata.tables.table[n].name}_Record_count_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_count_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -847,7 +866,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -857,7 +876,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-			<output to="fnc0_${ROOT.metadata.tables.table[n].name}_Record_count_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_count_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="SQLServer_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -869,7 +888,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -879,7 +898,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="fnc0_${ROOT.metadata.tables.table[n].name}_Record_hasObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_hasObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="MySQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -891,7 +910,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -901,7 +920,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="fnc0_${ROOT.metadata.tables.table[n].name}_Record_hasObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_hasObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -914,7 +933,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -924,7 +943,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-			<output to="fnc0_${ROOT.metadata.tables.table[n].name}_Record_hasObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_hasObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="SQLServer_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -936,7 +955,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata.dbs.supports_MySQL" to="True" />
@@ -946,7 +965,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_insObject" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_insObject" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -958,7 +977,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata.dbs.supports_PostgreSQL" to="True" />
@@ -968,7 +987,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_insObject" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_insObject" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -981,7 +1000,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata.dbs.supports_SQLServer" to="True" />
@@ -991,7 +1010,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_insObject" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_insObject" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1003,7 +1022,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata.dbs.supports_MySQL" to="True" />
@@ -1013,7 +1032,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_updObject" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_updObject" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1025,7 +1044,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata.dbs.supports_PostgreSQL" to="True" />
@@ -1035,7 +1054,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_updObject" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_updObject" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1048,7 +1067,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata.dbs.supports_SQLServer" to="True" />
@@ -1058,7 +1077,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_updObject" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_updObject" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1070,7 +1089,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata.dbs.supports_MySQL" to="True" />
@@ -1080,7 +1099,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_setObject" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_setObject" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies />
@@ -1090,7 +1109,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata.dbs.supports_PostgreSQL" to="True" />
@@ -1100,7 +1119,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_setObject" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_setObject" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1112,7 +1131,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata.dbs.supports_SQLServer" to="True" />
@@ -1122,7 +1141,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_setObject" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_setObject" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies />
@@ -1132,7 +1151,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata.dbs.supports_MySQL" to="True" />
@@ -1142,7 +1161,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_delObject" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies />
@@ -1152,7 +1171,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata.dbs.supports_PostgreSQL" to="True" />
@@ -1162,7 +1181,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_delObject" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1174,7 +1193,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata.dbs.supports_SQLServer" to="True" />
@@ -1184,7 +1203,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_delObject" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies />
@@ -1194,7 +1213,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1205,7 +1224,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_delObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1217,7 +1236,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1228,7 +1247,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_delObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1241,7 +1260,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1252,7 +1271,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_delObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1264,7 +1283,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1275,7 +1294,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_Record_delete_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_delete_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1287,7 +1306,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1298,7 +1317,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_Record_delete_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_delete_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1312,7 +1331,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1323,7 +1342,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_Record_delete_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_delete_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1335,7 +1354,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1345,7 +1364,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="fnc_${ROOT.metadata.tables.table[n].name}_isObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="MySQL_Function" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -1355,7 +1374,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1365,7 +1384,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="fnc_${ROOT.metadata.tables.table[n].name}_isObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="PostgreSQL_Function" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies>
@@ -1377,7 +1396,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1387,7 +1406,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-			<output to="fnc_${ROOT.metadata.tables.table[n].name}_isObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="SQLServer_Function" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -1397,7 +1416,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1407,7 +1426,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="fnc_${ROOT.metadata.tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="MySQL_Function" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -1417,7 +1436,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1427,7 +1446,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="fnc_${ROOT.metadata.tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="PostgreSQL_Function" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies>
@@ -1440,7 +1459,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1450,7 +1469,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-			<output to="fnc_${ROOT.metadata.tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="SQLServer_Function" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -1460,7 +1479,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1470,7 +1489,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp_${ROOT.metadata.tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="sp_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="MySQL_StoredProcedure" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies>
@@ -1482,7 +1501,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1492,7 +1511,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp_${ROOT.metadata.tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="sp_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="PostgreSQL_Function" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies>
@@ -1506,7 +1525,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1516,7 +1535,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp_${ROOT.metadata.tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="sp_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies>
@@ -1528,7 +1547,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata.dbs.supports_MySQL" to="True" />
@@ -1536,7 +1555,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_getObject" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies />
@@ -1546,7 +1565,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata.dbs.supports_PostgreSQL" to="True" />
@@ -1554,7 +1573,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_getObject" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1566,7 +1585,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata.dbs.supports_SQLServer" to="True" />
@@ -1574,7 +1593,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_getObject" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies />
@@ -1584,7 +1603,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1594,7 +1613,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_getObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1606,7 +1625,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1616,7 +1635,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_getObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1629,7 +1648,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1639,7 +1658,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_getObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1651,7 +1670,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1661,7 +1680,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}_fullmode" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}_fullmode" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1673,7 +1692,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1683,7 +1702,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}_fullmode" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}_fullmode" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1696,7 +1715,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1706,7 +1725,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}_fullmode" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}_fullmode" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1718,7 +1737,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1728,7 +1747,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}_page" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}_page" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1740,7 +1759,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1750,7 +1769,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}_page" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}_page" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1764,7 +1783,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1774,7 +1793,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}_page" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}_page" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1786,7 +1805,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1796,7 +1815,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}_page_fullmode" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}_page_fullmode" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1808,7 +1827,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1818,7 +1837,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}_page_fullmode" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}_page_fullmode" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1831,7 +1850,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 		</arguments>
 		<conditions>
@@ -1841,7 +1860,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}_page_fullmode" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadata.tables.table[n].searches.search[n].name}_page_fullmode" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1853,7 +1872,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n].updates.update[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 			<argument name="UpdateName" value="${ROOT.metadata.tables.table[n].searches.search[n].updates.update[n].name}" />
 		</arguments>
@@ -1863,7 +1882,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_Record_update_${ROOT.metadata.tables.table[n].searches.search[n].updates.update[n].name}_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_update_${ROOT.metadata.tables.table[n].searches.search[n].updates.update[n].name}_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1875,7 +1894,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n].updates.update[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 			<argument name="UpdateName" value="${ROOT.metadata.tables.table[n].searches.search[n].updates.update[n].name}" />
 		</arguments>
@@ -1885,7 +1904,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_Record_update_${ROOT.metadata.tables.table[n].searches.search[n].updates.update[n].name}_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_update_${ROOT.metadata.tables.table[n].searches.search[n].updates.update[n].name}_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1898,7 +1917,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].searches.search[n].updates.update[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadata.tables.table[n].searches.search[n].name}" />
 			<argument name="UpdateName" value="${ROOT.metadata.tables.table[n].searches.search[n].updates.update[n].name}" />
 		</arguments>
@@ -1908,7 +1927,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_Record_update_${ROOT.metadata.tables.table[n].searches.search[n].updates.update[n].name}_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_update_${ROOT.metadata.tables.table[n].searches.search[n].updates.update[n].name}_${ROOT.metadata.tables.table[n].searches.search[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1920,7 +1939,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].updates.update[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="UpdateName" value="${ROOT.metadata.tables.table[n].updates.update[n].name}" />
 		</arguments>
 		<conditions>
@@ -1929,7 +1948,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_updObject_${ROOT.metadata.tables.table[n].updates.update[n].name}" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_updObject_${ROOT.metadata.tables.table[n].updates.update[n].name}" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1941,7 +1960,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].updates.update[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="UpdateName" value="${ROOT.metadata.tables.table[n].updates.update[n].name}" />
 		</arguments>
 		<conditions>
@@ -1950,7 +1969,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_updObject_${ROOT.metadata.tables.table[n].updates.update[n].name}" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_updObject_${ROOT.metadata.tables.table[n].updates.update[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1963,7 +1982,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadata.tables.table[n].updates.update[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadata.tables.table[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 			<argument name="UpdateName" value="${ROOT.metadata.tables.table[n].updates.update[n].name}" />
 		</arguments>
 		<conditions>
@@ -1972,7 +1991,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-			<output to="sp0_${ROOT.metadata.tables.table[n].name}_updObject_${ROOT.metadata.tables.table[n].updates.update[n].name}" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_updObject_${ROOT.metadata.tables.table[n].updates.update[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
