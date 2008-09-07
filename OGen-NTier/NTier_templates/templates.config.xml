@@ -15,7 +15,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			parserType="xslt"
 			iterationType="ROOT.metadataDB[n].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[n].tables.table[n]}" />
 		</arguments>
 		<conditions />
@@ -51,14 +51,14 @@ XXX:TO_DOS -->
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[n].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[n].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata.dbs.supports_PostgreSQL" to="True" />
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 			<output to="v0_${ROOT.metadataDB[n].tables.table[n].name}__onlyKeys"
 				type="PostgreSQL_View" mode="Replace" />
@@ -640,10 +640,10 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<condition eval="ROOT.metadata.dbs.supports_MySQL" to="True" />
 XXX:TO_DOS -->
-			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="True" />
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-MySQL/sql0-${ROOT.metadataExtended[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 <!-- XXX:TO_DOS
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}__ConstraintExist" 
@@ -788,7 +788,7 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
@@ -797,7 +797,7 @@ XXX:TO_DOS -->
 XXX:TO_DOS -->
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-MySQL/sql0-${ROOT.metadataExtended[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 <!-- XXX:TO_DOS
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject"
@@ -810,7 +810,7 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
@@ -819,7 +819,7 @@ XXX:TO_DOS -->
 XXX:TO_DOS -->
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 <!-- XXX:TO_DOS
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject" 
@@ -834,7 +834,7 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
@@ -843,7 +843,7 @@ XXX:TO_DOS -->
 XXX:TO_DOS -->
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 <!-- XXX:TO_DOS
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject"
@@ -1014,7 +1014,7 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
@@ -1027,7 +1027,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-MySQL/sql0-${ROOT.metadataExtended[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 <!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_insObject" 
@@ -1042,7 +1042,7 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
@@ -1055,7 +1055,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 <!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_insObject" 
@@ -1071,7 +1071,7 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
@@ -1084,7 +1084,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 <!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_insObject" 
@@ -1099,7 +1099,7 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
@@ -1112,7 +1112,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-MySQL/sql0-${ROOT.metadataExtended[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 <!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_updObject" 
@@ -1127,7 +1127,7 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
@@ -1140,7 +1140,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 <!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_updObject" 
@@ -1156,7 +1156,7 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
@@ -1169,7 +1169,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 <!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_updObject" 
@@ -1184,7 +1184,7 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
@@ -1197,7 +1197,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-MySQL/sql0-${ROOT.metadataExtended[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 <!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_setObject" 
@@ -1210,7 +1210,7 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
@@ -1223,7 +1223,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 <!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_setObject" 
@@ -1238,7 +1238,7 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
@@ -1251,7 +1251,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 <!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_setObject" 
@@ -1264,18 +1264,18 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 <!-- XXX:TO_DOS
 			<condition eval="ROOT.metadata.dbs.supports_MySQL" to="True" />
 XXX:TO_DOS -->
-			<!-- condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="False" / -->
+			<!-- condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="False" / -->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-MySQL/sql0-${ROOT.metadataExtended[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 <!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject" 
@@ -1288,18 +1288,18 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 <!-- XXX:TO_DOS
 			<condition eval="ROOT.metadata.dbs.supports_PostgreSQL" to="True" />
 XXX:TO_DOS -->
-			<!-- condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="False" / -->
+			<!-- condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="False" / -->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 <!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject" 
@@ -1314,18 +1314,18 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
 <!-- XXX:TO_DOS
 			<condition eval="ROOT.metadata.dbs.supports_SQLServer" to="True" />
 XXX:TO_DOS -->
-			<!-- condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="False" / -->
+			<!-- condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="False" / -->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 <!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject" 
@@ -1732,7 +1732,7 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
@@ -1741,7 +1741,7 @@ XXX:TO_DOS -->
 XXX:TO_DOS -->
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-MySQL/sql0-${ROOT.metadataExtended[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 <!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject" 
@@ -1754,7 +1754,7 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
@@ -1763,7 +1763,7 @@ XXX:TO_DOS -->
 XXX:TO_DOS -->
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 <!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject" 
@@ -1778,7 +1778,7 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
@@ -1787,7 +1787,7 @@ XXX:TO_DOS -->
 XXX:TO_DOS -->
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 <!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject" 
