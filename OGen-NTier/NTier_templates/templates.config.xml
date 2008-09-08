@@ -197,6 +197,19 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+	<template name="SomeApplication-9.sln.aspx" 
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-9.sln" 
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
 	<template name="DO-SomeApplication_datalayer-7.1.csproj.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0]">
@@ -219,6 +232,8 @@ XXX:TO_DOS -->
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_datalayer/${ROOT.metadataExtended[n].applicationName}_datalayer-8.csproj" 
+				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_datalayer/${ROOT.metadataExtended[n].applicationName}_datalayer-9.csproj" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -246,6 +261,8 @@ XXX:TO_DOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_datalayer_UTs/${ROOT.metadataExtended[n].applicationName}_datalayer_UTs-8.csproj" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_datalayer_UTs/${ROOT.metadataExtended[n].applicationName}_datalayer_UTs-9.csproj" 
+				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -272,6 +289,8 @@ XXX:TO_DOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_businesslayer/${ROOT.metadataExtended[n].applicationName}_businesslayer-8.csproj" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_businesslayer/${ROOT.metadataExtended[n].applicationName}_businesslayer-9.csproj" 
+				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -297,6 +316,8 @@ XXX:TO_DOS -->
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_test/${ROOT.metadataExtended[n].applicationName}_test-8.csproj" 
+				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_test/${ROOT.metadataExtended[n].applicationName}_test-9.csproj" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -415,6 +436,8 @@ XXX:TO_DOS -->
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_businesslayer_UTs/${ROOT.metadataExtended[n].applicationName}_businesslayer_UTs-8.csproj" 
+				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}_businesslayer_UTs/${ROOT.metadataExtended[n].applicationName}_businesslayer_UTs-9.csproj" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
