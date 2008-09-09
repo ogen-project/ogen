@@ -436,6 +436,9 @@
     </Content>
     <Content Include="templates.config.xml" />
     <Content Include="Web.config" />
+    <Content Include="_templates.config.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="__XSLT-TEST.txt.xslt" />
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>

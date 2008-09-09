@@ -314,6 +314,7 @@
     <Content Include="SomeApplication_test_MainClass.cs.aspx" />
     <Content Include="templates.config.xml" />
     <Content Include="Web.config" />
+    <Content Include="_templates.config.aspx" />
     <Content Include="__XSLT-TEST.txt.xslt" />
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>

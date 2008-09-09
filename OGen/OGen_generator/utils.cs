@@ -74,6 +74,8 @@ namespace OGen.lib.generator {
 			out string end_out
 		) {
 			if (
+				(whereRootLike_in.Length <= rootExpression_in.Length)
+				&&
 				(begin_out = rootExpression_in.Substring(0, whereRootLike_in.Length))
 					== whereRootLike_in
 			) {
