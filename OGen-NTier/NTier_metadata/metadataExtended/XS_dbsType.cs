@@ -14,6 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using System.Xml.Serialization;
+using OGen.lib.datalayer;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
 	#if NET_1_1
@@ -21,6 +22,53 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 	#else
 	public partial class XS_dbsType {
 	#endif
+
+		#region public bool supports_SQLServer { get; }
+		[XmlIgnore()]
+		[XmlAttribute("supports_SQLServer")]
+		public bool Supports_SQLServer {
+			get {
+				for (int d = 0; d < DBCollection.Count; d++) {
+					if (DBCollection[d].DBServerType == DBServerTypes.SQLServer.ToString()) {
+						return true;
+					}
+				}
+				return false;
+			}
+		}
+		#endregion
+		#region public bool supports_PostgreSQL { get; }
+		[XmlIgnore()]
+		[XmlAttribute("supports_PostgreSQL")]
+		public bool Supports_PostgreSQL {
+			get {
+#if PostgreSQL
+				for (int d = 0; d < DBCollection.Count; d++) {
+					if (DBCollection[d].DBServerType == DBServerTypes.PostgreSQL.ToString()) {
+						return true;
+					}
+				}
+#endif
+				return false;
+			}
+		}
+		#endregion
+		#region public bool supports_MySQL { get; }
+		[XmlIgnore()]
+		[XmlAttribute("supports_MySQL")]
+		public bool Supports_MySQL {
+			get {
+#if MySQL
+				for (int d = 0; d < DBCollection.Count; d++) {
+					if (DBCollection[d].DBServerType == DBServerTypes.MySQL.ToString()) {
+						return true;
+					}
+				}
+#endif
+				return false;
+			}
+		}
+		#endregion
 
 		#region public string[] ConfigModes();
 		public string[] ConfigModes() {

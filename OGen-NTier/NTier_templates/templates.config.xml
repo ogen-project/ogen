@@ -30,11 +30,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_MySQL" to="True" />
-XXX:TO_DOS -->
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+XXX:NO_NEED -->
 		</conditions>
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
@@ -46,7 +46,6 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-<!-- XXX:TO_DOS
 	<template name="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" 
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[n].tables.table[n]">
@@ -55,19 +54,20 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[n].tables.table[n].name}" />
 		</arguments>
 		<conditions>
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TODOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 			<output to="v0_${ROOT.metadataDB[n].tables.table[n].name}__onlyKeys"
 				type="PostgreSQL_View" mode="Replace" />
+XXX:TODOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="emptyfile.txt" />
 		</dependencies>
 	</template>
-XXX:TO_DOS -->
 	<template name="app0.config.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
@@ -650,28 +650,19 @@ XXX:TO_DOS -->
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
-
-<!-- XXX:TO_DOS
-	ROOT.metadata.tables.table[n].name
-	ROOT.metadataDB[0].tables.table[n].name
-	ROOT.metadataDB[0].tables.table[n].tableDBs.tableDB[???].dbTableName
-XXX:TO_DOS -->
-
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_MySQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
+XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}__ConstraintExist" 
 				type="MySQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
@@ -685,15 +676,13 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}__ConstraintExist" 
 				type="PostgreSQL_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -711,15 +700,13 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}__ConstraintExist"
 				type="SQLServer_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -737,15 +724,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[0].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_MySQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataDB[0].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -763,15 +748,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -790,15 +773,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}"
 				type="SQLServer_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -815,14 +796,12 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_MySQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject"
 				type="MySQL_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -837,14 +816,12 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject" 
 				type="PostgreSQL_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -861,14 +838,12 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject"
 				type="SQLServer_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -884,15 +859,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_MySQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_count_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -910,15 +883,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_count_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -937,15 +908,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_count_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -963,15 +932,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_MySQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_hasObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -989,15 +956,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_hasObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -1016,15 +981,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_hasObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -1041,18 +1004,14 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_MySQL" to="True" />
-XXX:TO_DOS -->
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadata.tables.table[n].hasIdentityKey" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="True" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_insObject" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -1069,18 +1028,14 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadata.tables.table[n].hasIdentityKey" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="True" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_insObject" 
 				type="PostgreSQL_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -1098,18 +1053,14 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadata.tables.table[n].hasIdentityKey" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="True" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_insObject" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -1126,18 +1077,14 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_MySQL" to="True" />
-XXX:TO_DOS -->
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadata.tables.table[n].hasIdentityKey" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="True" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_updObject" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -1154,18 +1101,14 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadata.tables.table[n].hasIdentityKey" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="True" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_updObject" 
 				type="PostgreSQL_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -1183,18 +1126,14 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadata.tables.table[n].hasIdentityKey" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="True" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_updObject" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -1211,18 +1150,14 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_MySQL" to="True" />
-XXX:TO_DOS -->
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadata.tables.table[n].hasIdentityKey" to="False" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="False" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_setObject" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -1237,18 +1172,14 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadata.tables.table[n].hasIdentityKey" to="False" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="False" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_setObject" 
 				type="PostgreSQL_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -1265,18 +1196,14 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadata.tables.table[n].hasIdentityKey" to="False" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="False" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_setObject" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -1291,16 +1218,14 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_MySQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 			<!-- condition eval="ROOT.metadataDB[0].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="False" / -->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -1315,16 +1240,14 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 			<!-- condition eval="ROOT.metadataDB[0].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="False" / -->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject" 
 				type="PostgreSQL_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -1341,16 +1264,14 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 			<!-- condition eval="ROOT.metadataDB[0].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="False" / -->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -1366,16 +1287,14 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_MySQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -1393,16 +1312,14 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -1421,16 +1338,14 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -1448,16 +1363,14 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_MySQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_delete_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -1475,16 +1388,14 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_delete_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -1504,16 +1415,14 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_delete_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -1531,15 +1440,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_MySQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_Function" mode="Create_doNotReplace" />
 XXX:TO_DOS -->
@@ -1555,15 +1462,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Create_doNotReplace" />
 XXX:TO_DOS -->
@@ -1581,15 +1486,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_Function" mode="Create_doNotReplace" />
 XXX:TO_DOS -->
@@ -1605,15 +1508,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_MySQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_Function" mode="Create_doNotReplace" />
 XXX:TO_DOS -->
@@ -1629,15 +1530,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Create_doNotReplace" />
 XXX:TO_DOS -->
@@ -1656,15 +1555,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_Function" mode="Create_doNotReplace" />
 XXX:TO_DOS -->
@@ -1680,15 +1577,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_MySQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_StoredProcedure" mode="Create_doNotReplace" />
 XXX:TO_DOS -->
@@ -1706,15 +1601,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Create_doNotReplace" />
 XXX:TO_DOS -->
@@ -1734,15 +1627,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Create_doNotReplace" />
 XXX:TO_DOS -->
@@ -1759,14 +1650,12 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_MySQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -1781,14 +1670,12 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject" 
 				type="PostgreSQL_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -1805,14 +1692,12 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -1828,15 +1713,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_MySQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -1854,15 +1737,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -1881,15 +1762,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -1907,15 +1786,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_MySQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_fullmode" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -1933,15 +1810,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_fullmode" 
 				type="PostgreSQL_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -1960,15 +1835,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_fullmode" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -1986,15 +1859,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_MySQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_page" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -2012,15 +1883,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_page" 
 				type="PostgreSQL_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -2040,15 +1909,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_page" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -2066,15 +1933,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_MySQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_page_fullmode" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -2092,15 +1957,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_page_fullmode" 
 				type="PostgreSQL_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -2119,15 +1982,13 @@ XXX:TO_DOS -->
 			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_page_fullmode" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -2146,14 +2007,12 @@ XXX:TO_DOS -->
 			<argument name="UpdateName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_MySQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_update_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n].name}_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -2172,14 +2031,12 @@ XXX:TO_DOS -->
 			<argument name="UpdateName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_update_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n].name}_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -2199,14 +2056,12 @@ XXX:TO_DOS -->
 			<argument name="UpdateName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_update_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n].name}_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -2224,14 +2079,12 @@ XXX:TO_DOS -->
 			<argument name="UpdateName" value="${ROOT.metadataExtended[n].tables.table[n].tableUpdates.tableUpdate[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_MySQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_updObject_${ROOT.metadataExtended[n].tables.table[n].tableUpdates.tableUpdate[n].name}" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -2249,14 +2102,12 @@ XXX:TO_DOS -->
 			<argument name="UpdateName" value="${ROOT.metadataExtended[n].tables.table[n].tableUpdates.tableUpdate[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataExtended[n].tables.table[n].name}_updObject_${ROOT.metadataExtended[n].tables.table[n].tableUpdates.tableUpdate[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -2275,14 +2126,12 @@ XXX:TO_DOS -->
 			<argument name="UpdateName" value="${ROOT.metadataExtended[n].tables.table[n].tableUpdates.tableUpdate[n].name}" />
 		</arguments>
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 		</conditions>
 		<outputs>
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
-<!-- XXX:TO_DOS
 			<output to="sp0_${ROOT.metadataExtended[n].tables.table[n].name}_updObject_${ROOT.metadataExtended[n].tables.table[n].tableUpdates.tableUpdate[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -2296,18 +2145,16 @@ XXX:TO_DOS -->
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 		</conditions>
 		<outputs>
-<!--
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
--->
 			<output to="OGen_fnc0__Split" 
 				type="PostgreSQL_Function" mode="Replace" />
-		</outputs>
+XXX:TO_DOS -->
+			</outputs>
 		<dependencies />
 	</template>
 	<template name="DO-DB-OGen_fnc0__Split-SQLServer.sql" 
@@ -2315,16 +2162,12 @@ XXX:TO_DOS -->
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 		</conditions>
 		<outputs>
-<!--
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
--->
-<!-- XXX:TO_DOS
 			<output to="OGen_fnc0__Split" 
 				type="SQLServer_Function" mode="Replace" />
 XXX:TO_DOS -->
@@ -2336,18 +2179,16 @@ XXX:TO_DOS -->
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 		</conditions>
 		<outputs>
-<!--
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
--->
 			<output to="v0__getTables" 
 				type="PostgreSQL_View" mode="Replace" />
-		</outputs>
+XXX:TO_DOS -->
+			</outputs>
 		<dependencies />
 	</template>
 	<template name="DO-DB-OGen_sp0__getTables-PostgreSQL.sql" 
@@ -2355,16 +2196,12 @@ XXX:TO_DOS -->
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 		</conditions>
 		<outputs>
-<!--
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
--->
-<!-- XXX:TO_DOS
 			<output to="OGen_sp0__getTables" 
 				type="PostgreSQL_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -2379,16 +2216,12 @@ XXX:TO_DOS -->
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 		</conditions>
 		<outputs>
-<!--
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
--->
-<!-- XXX:TO_DOS
 			<output to="OGen_sp0__getTables" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -2402,17 +2235,15 @@ XXX:TO_DOS -->
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 		</conditions>
 		<outputs>
-<!--
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
--->
 			<output to="v0__getTables" 
 				type="PostgreSQL_View" mode="Replace" />
+XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
@@ -2421,16 +2252,12 @@ XXX:TO_DOS -->
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_PostgreSQL" to="True" />
-XXX:TO_DOS -->
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 		</conditions>
 		<outputs>
-<!--
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
--->
-<!-- XXX:TO_DOS
 			<output to="OGen_sp0__getTableFields" 
 				type="PostgreSQL_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
@@ -2444,20 +2271,16 @@ XXX:TO_DOS -->
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
 		<conditions>
-<!-- XXX:TO_DOS
-			<condition eval="ROOT.metadataExtended[n].dbs.supports_SQLServer" to="True" />
-XXX:TO_DOS -->
-		</conditions>
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+	</conditions>
 		<outputs>
-<!--
+<!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
--->
-<!-- XXX:TO_DOS
 			<output to="OGen_sp0__getTableFields" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 XXX:TO_DOS -->
-		</outputs>
+	</outputs>
 		<dependencies />
 	</template>
 </templates>
