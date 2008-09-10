@@ -59,7 +59,7 @@ using OGen.NTier.lib.datalayer;
 
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 	/// <summary>
-	/// <%=_aux_db_table.Name%> SerializableObject which provides fields access at <%=_aux_db_table.Name%> <%=(_aux_table.isVirtualTable) ? "view" : "table"%> at Database.
+	/// <%=_aux_db_table.Name%> SerializableObject which provides fields access at <%=_aux_db_table.Name%> <%=(_aux_db_table.isVirtualTable) ? "view" : "table"%> at Database.
 	/// </summary>
 	public class SO0_<%=_aux_db_table.Name%> {
 		#region public SO0_<%=_aux_db_table.Name%>();
@@ -67,14 +67,14 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		) : this (<%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
-			<%=(_aux_field.DefaultValue == "") ? _aux_field.DBType_generic.FWEmptyValue : _aux_field.DefaultValue%><%=(f != _aux_table.Fields.Count - 1) ? ", " : ""%><%
+			<%=(_aux_field.DefaultValue == "") ? _aux_field.DBType_generic.FWEmptyValue : _aux_field.DefaultValue%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 		}%>
 		) {
 		}
 		public SO0_<%=_aux_db_table.Name%>(<%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
-			<%=_aux_field.DBType_generic.FWType%> <%=_aux_field.Name%>_in<%=(f != _aux_table.Fields.Count - 1) ? ", " : ""%><%
+			<%=_aux_field.DBType_generic.FWType%> <%=_aux_field.Name%>_in<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 		}%>
 		) {
 			haschanges_ = false;
@@ -102,7 +102,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		}
 		#endregion
 		//---<%
-		for (int f = 0; f < _aux_table.Fields.Count; f++) {
+		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_field = _aux_table.Fields[f];
 
 			if (_aux_field.isNullable && !_aux_field.isPK) {%>
@@ -118,7 +118,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		bool <%=_aux_field.Name%>_isNull {
 			get { return (<%=_aux_field.Name.ToLower()%>_ == null); }<%
 			// ToDos: here! fmonteiro
-			if (true || !_aux_table.isVirtualTable) {%>
+			if (true || !_aux_db_table.isVirtualTable) {%>
 			set {
 				//if (value) <%=_aux_field.Name.ToLower()%>_ = null;
 
@@ -156,11 +156,11 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			<%=_aux_field.isBool.ToString().ToLower()%>, 
 			<%=_aux_field.isDateTime.ToString().ToLower()%>, 
 			<%=_aux_field.isInt.ToString().ToLower()%>, 
-			<%=_aux_field.isDecimal.ToString().ToLower()%>, 
+			<%=_aux_db_field.isDecimal.ToString().ToLower()%>, 
 			<%=_aux_field.isText.ToString().ToLower()%>, 
 			<%=_aux_field.isListItemValue.ToString().ToLower()%>, 
 			<%=_aux_field.isListItemText.ToString().ToLower()%>, 
-			<%=_aux_field.Size%>, 
+			<%=_aux_db_field.Size%>, 
 			"<%=_aux_field.AditionalInfo%>"
 		)]
 		public 

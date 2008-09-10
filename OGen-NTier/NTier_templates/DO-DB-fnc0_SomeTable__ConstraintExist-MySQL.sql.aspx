@@ -42,9 +42,9 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 #endregion
 //-----------------------------------------------------------------------------------------
 %>CREATE FUNCTION `fnc0_<%=_aux_db_table.Name%>__ConstraintExist`(<%
-	for (int f = 0; f < _aux_table.Fields.Count; f++) {
+	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_field = _aux_table.Fields[f];%>
-	`<%=_aux_field.Name%>` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? "(" + _aux_field.Size + ")" : ""%><%=(f != _aux_table.Fields.Count - 1) ? ", " : ""%><%
+	`<%=_aux_field.Name%>` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%>
 )
 	RETURNS BOOLEAN
@@ -59,15 +59,15 @@ BEGIN
 		SELECT
 			true INTO `ConstraintExist`
 		FROM `fnc_<%=_aux_db_table.Name%>_isObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>`(<%
-		for (int p = 0; p < _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count; p++) {%>
-			`<%=_aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[p].FieldName%>`<%=(p != _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count - 1) ? ", " : ""%><%
+		for (int p = 0; p < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.Count; p++) {%>
+			`<%=_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[p].TableField_refName%>`<%=(p != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.Count - 1) ? ", " : ""%><%
 		}%>
 		)
 		WHERE
 			NOT (<%
-				for (int f = 0; f < _aux_table.Fields_onlyPK.Count; f++) {
-					_aux_field = _aux_table.Fields_onlyPK[f];%>
-				(`<%=_aux_field.Name%>` = `<%=_aux_field.Name%>`)<%=(f != _aux_table.Fields_onlyPK.Count - 1) ? " AND" : ""%><%
+				for (int f = 0; f < _aux_table.TableFields_onlyPK.TableFieldCollection.Count; f++) {
+					_aux_field = _aux_table.TableFields_onlyPK.TableFieldCollection[f];%>
+				(`<%=_aux_field.Name%>` = `<%=_aux_field.Name%>`)<%=(f != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
 				}%>
 			)
 	END IF;

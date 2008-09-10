@@ -48,9 +48,9 @@ string _aux_xx_field_name;
 #endregion
 //-----------------------------------------------------------------------------------------
 %>CREATE OR REPLACE FUNCTION "sp0_<%=_aux_db_table.Name%>_Record_open_<%=_aux_search.Name%>_page_fullmode"(<%
-	for (int f = 0; f < _aux_search.SearchParameters.Count; f++) {
-		_aux_field = _aux_search.SearchParameters[f].Field;
-		_aux_xx_field_name = _aux_search.SearchParameters[f].ParamName;%>
+	for (int f = 0; f < _aux_search.TableSearchParameters.Count; f++) {
+		_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+		_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
 	"<%=_aux_xx_field_name%>_search_" <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%>, <%
 	}%>
 	"page_" Int,
@@ -63,21 +63,21 @@ AS $BODY$
 	BEGIN
 		FOR _Output IN
 			SELECT<%
-			for (int f = 0; f < _aux_table.Fields.Count; f++) {
+			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 				_aux_field = _aux_table.Fields[f];%>
-				t1."<%=_aux_field.Name%>"<%=(f != _aux_table.Fields.Count - 1) ? ", " : ""%><%
+				t1."<%=_aux_field.Name%>"<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 			}%>
 			FROM "<%=_aux_db_table.Name%>" t1
 			INNER JOIN "sp_<%=_aux_db_table.Name%>_Record_open_<%=_aux_search.Name%>"(<%
-			for (int f = 0; f < _aux_search.SearchParameters.Count; f++) {
-				_aux_field = _aux_search.SearchParameters[f].Field;
-				_aux_xx_field_name = _aux_search.SearchParameters[f].ParamName;%>
-				"<%=_aux_xx_field_name%>_search_"<%=(f != _aux_search.SearchParameters.Count - 1) ? ", " : ""%><%
+			for (int f = 0; f < _aux_search.TableSearchParameters.Count; f++) {
+				_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+				_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
+				"<%=_aux_xx_field_name%>_search_"<%=(f != _aux_search.TableSearchParameters.Count - 1) ? ", " : ""%><%
 			}%>
 			) t2 ON (<%
-			for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-				_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-				(t2."<%=_aux_field.Name%>" = t1."<%=_aux_field.Name%>")<%=(k != _aux_table.Fields_onlyPK.Count - 1) ? " AND" : ""%><%
+			for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+				_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%>
+				(t2."<%=_aux_field.Name%>" = t1."<%=_aux_field.Name%>")<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
 			}%>
 			)
 

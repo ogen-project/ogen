@@ -66,7 +66,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 	/// </note>
 #endif--%>
 	/// </summary>
-	[DOClassAttribute("<%=_aux_db_table.Name%>", "<%=_aux_table.FriendlyName%>", "<%=_aux_table.DBDescription%>", "<%=_aux_table.ExtendedDescription%>", <%=_aux_table.isVirtualTable.ToString().ToLower()%>, <%=_aux_table.isConfig.ToString().ToLower()%>)]
+	[DOClassAttribute("<%=_aux_db_table.Name%>", "<%=_aux_table.FriendlyName%>", "<%=_aux_table.DBDescription%>", "<%=_aux_table.ExtendedDescription%>", <%=_aux_db_table.isVirtualTable.ToString().ToLower()%>, <%=_aux_table.isConfig.ToString().ToLower()%>)]
 	public 
 #if !NET_1_1
 		partial 
@@ -197,11 +197,11 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 			<%=_aux_field.isBool.ToString().ToLower()%>, 
 			<%=_aux_field.isDateTime.ToString().ToLower()%>, 
 			<%=_aux_field.isInt.ToString().ToLower()%>, 
-			<%=_aux_field.isDecimal.ToString().ToLower()%>, 
+			<%=_aux_db_field.isDecimal.ToString().ToLower()%>, 
 			<%=_aux_field.isText.ToString().ToLower()%>, 
 			<%=_aux_field.isListItemValue.ToString().ToLower()%>, 
 			<%=_aux_field.isListItemText.ToString().ToLower()%>, 
-			<%=_aux_field.Size%>, 
+			<%=_aux_db_field.Size%>, 
 			"<%=_aux_field.AditionalInfo%>"
 		)]
 		public 

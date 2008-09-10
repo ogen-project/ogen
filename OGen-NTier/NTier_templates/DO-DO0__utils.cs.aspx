@@ -253,7 +253,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 					NameField = "";
 					ConfigField = "";
 					DatatypeField = "";
-					for (int f = 0; f < _aux_table.Fields.Count; f++) {
+					for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 						_aux_field = _aux_table.Fields[f];
 						if (_aux_field.isConfig_Name) {
 							NameField = _aux_field.Name;

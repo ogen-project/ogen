@@ -48,10 +48,10 @@ string _aux_xx_field_name;
 #endregion
 //-----------------------------------------------------------------------------------------
 %>CREATE OR REPLACE FUNCTION "sp0_<%=_aux_db_table.Name%>_delObject_<%=_aux_search.Name%>"(<%
-for (int f = 0; f < _aux_search.SearchParameters.Count; f++) {
-	_aux_field = _aux_search.SearchParameters[f].Field;
-	_aux_xx_field_name = _aux_search.SearchParameters[f].ParamName;%>
-	"<%=_aux_xx_field_name%>_search_" <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(f != _aux_search.SearchParameters.Count - 1) ? ", " : ""%><%
+for (int f = 0; f < _aux_search.TableSearchParameters.Count; f++) {
+	_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+	_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
+	"<%=_aux_xx_field_name%>_search_" <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(f != _aux_search.TableSearchParameters.Count - 1) ? ", " : ""%><%
 }%>
 )
 RETURNS bool AS $BODY$
@@ -60,22 +60,22 @@ RETURNS bool AS $BODY$
 		_<%=_aux_db_table.Name%> "v0_<%=_aux_db_table.Name%>__onlyKeys";
 	BEGIN
 		SELECT<%
-		for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-			_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
+		for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+			_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%>
 			"<%=_aux_field.Name%>", <%
 		}%>
 			true
 		INTO<%
-		for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-			_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
+		for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+			_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%>
 			_<%=_aux_db_table.Name%>."<%=_aux_field.Name%>", <%
 		}%>
 			_Exists
 		FROM "fnc_<%=_aux_db_table.Name%>_isObject_<%=_aux_search.Name%>"(<%
-			for (int f = 0; f < _aux_search.SearchParameters.Count; f++) {
-				_aux_field = _aux_search.SearchParameters[f].Field;
-				_aux_xx_field_name = _aux_search.SearchParameters[f].ParamName;%>
-			"<%=_aux_xx_field_name%>_search_"<%=(f != _aux_search.SearchParameters.Count - 1) ? ", " : ""%><%
+			for (int f = 0; f < _aux_search.TableSearchParameters.Count; f++) {
+				_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+				_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
+			"<%=_aux_xx_field_name%>_search_"<%=(f != _aux_search.TableSearchParameters.Count - 1) ? ", " : ""%><%
 			}%>
 		);
 
@@ -83,9 +83,9 @@ RETURNS bool AS $BODY$
 			DELETE
 			FROM "<%=_aux_db_table.Name%>"
 			WHERE<%
-			for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-				_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-				("<%=_aux_field.Name%>" = _<%=_aux_db_table.Name%>."<%=_aux_field.Name%>")<%=(k !=_aux_table.Fields_onlyPK.Count - 1) ? " AND" : ""%><%
+			for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+				_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%>
+				("<%=_aux_field.Name%>" = _<%=_aux_db_table.Name%>."<%=_aux_field.Name%>")<%=(k !=_aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
 			}%>
 			;
 

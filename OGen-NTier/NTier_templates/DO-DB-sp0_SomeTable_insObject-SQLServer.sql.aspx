@@ -42,34 +42,34 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 #endregion
 //-----------------------------------------------------------------------------------------
 %>CREATE PROCEDURE [dbo].[sp0_<%=_aux_db_table.Name%>_insObject]<%
-	for (int f = 0; f < _aux_table.Fields.Count; f++) {
+	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_field = _aux_table.Fields[f];%>
-	@<%=_aux_field.Name%>_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_field.Size + ")" : ""%><%=(_aux_field.isDecimal && (_aux_field.Numeric_Scale > 0)) ? " (" + _aux_field.Numeric_Precision + ", " + _aux_field.Numeric_Scale + ")" : ""%><%=(_aux_field.isIdentity) ? " OUT" : ""%>, <%
+	@<%=_aux_field.Name%>_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(_aux_field.isIdentity) ? " OUT" : ""%>, <%
 	}%>
 	@SelectIdentity_ Bit
 AS<%
 	if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 	DECLARE @ConstraintExist Bit
 	SET @ConstraintExist = [dbo].[fnc0_<%=_aux_db_table.Name%>__ConstraintExist](<%
-		for (int f = 0; f < _aux_table.Fields.Count; f++) {
+		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_field = _aux_table.Fields[f];%><%=""%>
-		<%=(_aux_field.isPK) ? _aux_field.DBs[_aux_dbservertype].DBType_generic_DBEmptyValue() : "@" + _aux_field.Name + "_"%><%=(f != _aux_table.Fields.Count - 1) ? ", " : ""%><%
+		<%=(_aux_field.isPK) ? _aux_field.DBs[_aux_dbservertype].DBType_generic_DBEmptyValue() : "@" + _aux_field.Name + "_"%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 		}%>
 	)
 	IF (@ConstraintExist = 0) BEGIN<%
 	}%>
 		INSERT INTO [<%=_aux_db_table.Name%>] (<%
-			for (int f = 0; f < _aux_table.Fields.Count; f++) {
+			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 				if (_aux_db_table.hasIdentityKey != f) {
 					_aux_field = _aux_table.Fields[f];%>
-			[<%=_aux_field.Name%>]<%=(f != _aux_table.Fields.Count - 1) ? ", " : ""%><%
+			[<%=_aux_field.Name%>]<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}
 			}%>
 		) VALUES (<%
-			for (int f = 0; f < _aux_table.Fields.Count; f++) {
+			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 				if (_aux_db_table.hasIdentityKey != f) {
 					_aux_field = _aux_table.Fields[f];%>
-			@<%=_aux_field.Name%>_<%=(f != _aux_table.Fields.Count - 1) ? ", " : ""%><%
+			@<%=_aux_field.Name%>_<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}
 			}%>
 		)

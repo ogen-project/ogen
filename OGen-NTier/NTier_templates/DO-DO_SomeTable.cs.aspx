@@ -55,7 +55,7 @@ using OGen.NTier.lib.datalayer;
 
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 	/// <summary>
-	/// <%=_aux_db_table.Name%> DataObject which provides access to <%=_aux_db_table.Name%> <%=(_aux_table.isVirtualTable) ? "view" : "table"%> at Database.
+	/// <%=_aux_db_table.Name%> DataObject which provides access to <%=_aux_db_table.Name%> <%=(_aux_db_table.isVirtualTable) ? "view" : "table"%> at Database.
 	/// </summary>
 	public sealed 
 #if !NET_1_1

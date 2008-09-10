@@ -48,10 +48,10 @@ string _aux_xx_field_name;
 #endregion
 //-----------------------------------------------------------------------------------------
 %>CREATE PROCEDURE `sp0_<%=_aux_db_table.Name%>_Record_delete_<%=_aux_search.Name%>`(<%
-for (int f = 0; f < _aux_search.SearchParameters.Count; f++) {
-	_aux_field = _aux_search.SearchParameters[f].Field;
-	_aux_xx_field_name = _aux_search.SearchParameters[f].ParamName;%>
-	IN `<%=_aux_xx_field_name%>_search_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? "(" + _aux_field.Size + ")" : ""%><%=(f != _aux_search.SearchParameters.Count - 1) ? ", " : ""%><%
+for (int f = 0; f < _aux_search.TableSearchParameters.Count; f++) {
+	_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+	_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
+	IN `<%=_aux_xx_field_name%>_search_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_search.TableSearchParameters.Count - 1) ? ", " : ""%><%
 }%>
 )
 	NOT DETERMINISTIC
@@ -61,15 +61,15 @@ BEGIN
 	DELETE `<%=_aux_db_table.Name%>`
 	FROM `<%=_aux_db_table.Name%>` t1
 	INNER JOIN `fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_search.Name%>`(<%
-	for (int f = 0; f < _aux_search.SearchParameters.Count; f++) {
-		_aux_field = _aux_search.SearchParameters[f].Field;
-		_aux_xx_field_name = _aux_search.SearchParameters[f].ParamName;%>
-		`<%=_aux_xx_field_name%>_search_`<%=(f != _aux_search.SearchParameters.Count - 1) ? ", " : ""%><%
+	for (int f = 0; f < _aux_search.TableSearchParameters.Count; f++) {
+		_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+		_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
+		`<%=_aux_xx_field_name%>_search_`<%=(f != _aux_search.TableSearchParameters.Count - 1) ? ", " : ""%><%
 	}%>
 	) t2 ON<%
-	for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-		_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-		(t2.`<%=_aux_field.Name%>` = t1.`<%=_aux_field.Name%>`)<%=(k != _aux_table.Fields_onlyPK.Count - 1) ? " AND" : ""%><%
+	for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+		_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%>
+		(t2.`<%=_aux_field.Name%>` = t1.`<%=_aux_field.Name%>`)<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
 	}%>;
 END;
 

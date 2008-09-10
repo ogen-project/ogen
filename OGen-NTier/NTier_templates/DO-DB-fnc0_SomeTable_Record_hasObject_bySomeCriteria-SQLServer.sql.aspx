@@ -48,15 +48,15 @@ string _aux_xx_field_name;
 #endregion
 //-----------------------------------------------------------------------------------------
 %>CREATE FUNCTION [dbo].[fnc0_<%=_aux_db_table.Name%>_Record_hasObject_<%=_aux_search.Name%>](<%
-for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-	_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-	@<%=_aux_field.Name%>_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_field.Size + ")" : ""%><%=(_aux_field.isDecimal && (_aux_field.Numeric_Scale > 0)) ? " (" + _aux_field.Numeric_Precision + ", " + _aux_field.Numeric_Scale + ")" : ""%><%=(k != _aux_table.Fields_onlyPK.Count - 1) ? ", " : ""%><%
+for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+	_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%>
+	@<%=_aux_field.Name%>_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 }
-for (int f = 0; f < _aux_search.SearchParameters.Count; f++) {
-	_aux_field = _aux_search.SearchParameters[f].Field;
-	_aux_xx_field_name = _aux_search.SearchParameters[f].ParamName;
+for (int f = 0; f < _aux_search.TableSearchParameters.Count; f++) {
+	_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+	_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;
 	%>, 
-	@<%=_aux_xx_field_name%>_search_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_field.Size + ")" : ""%><%=(_aux_field.isDecimal && (_aux_field.Numeric_Scale > 0)) ? " (" + _aux_field.Numeric_Precision + ", " + _aux_field.Numeric_Scale + ")" : ""%><%
+	@<%=_aux_xx_field_name%>_search_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%
 }%>
 )
 RETURNS BIT
@@ -66,17 +66,17 @@ BEGIN
 
 	SELECT @Record_hasObject_out = 1
 	FROM [dbo].[fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_search.Name%>](<%
-		for (int f = 0; f < _aux_search.SearchParameters.Count; f++) {
-			//_aux_field = _aux_metadata.Tables[_aux_search.SearchParameters[f].TableIndex].Fields[_aux_search.SearchParameters[f].FieldIndex];
-			_aux_field = _aux_search.SearchParameters[f].Field;
-			_aux_xx_field_name = _aux_search.SearchParameters[f].ParamName;%>
-		@<%=_aux_xx_field_name%>_search_<%=(f != _aux_search.SearchParameters.Count - 1) ? ", " : ""%><%
+		for (int f = 0; f < _aux_search.TableSearchParameters.Count; f++) {
+			//_aux_field = _aux_metadata.Tables[_aux_search.TableSearchParameters.TableFieldRefCollection[f].TableIndex].Fields[_aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_refIndex];
+			_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+			_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
+		@<%=_aux_xx_field_name%>_search_<%=(f != _aux_search.TableSearchParameters.Count - 1) ? ", " : ""%><%
 		}%>
 	)
 	WHERE<%
-	for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-		_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-		([<%=_aux_field.Name%>] = @<%=_aux_field.Name%>_)<%=(k != _aux_table.Fields_onlyPK.Count - 1) ? " AND" : ""%><%
+	for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+		_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%>
+		([<%=_aux_field.Name%>] = @<%=_aux_field.Name%>_)<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
 	}%>
 
 	RETURN @Record_hasObject_out

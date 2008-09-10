@@ -42,9 +42,9 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 #endregion
 //-----------------------------------------------------------------------------------------
 %>CREATE PROCEDURE `sp0_<%=_aux_db_table.Name%>_insObject`(<%
-	for (int f = 0; f < _aux_table.Fields.Count; f++) {
+	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_field = _aux_table.Fields[f];%><%=""%>
-	<%=(_aux_field.isIdentity) ? "OUT" : "IN"%> `<%=_aux_field.Name%>_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? "(" + _aux_field.Size + ")" : ""%>, <%
+	<%=(_aux_field.isIdentity) ? "OUT" : "IN"%> `<%=_aux_field.Name%>_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%>, <%
 	}%>
 	IN `SelectIdentity_` BOOLEAN
 )
@@ -55,25 +55,25 @@ BEGIN<%
 	if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 	DECLARE `ConstraintExist` BOOLEAN;
 	SET `ConstraintExist` = `fnc0_<%=_aux_db_table.Name%>__ConstraintExist`(<%
-		for (int f = 0; f < _aux_table.Fields.Count; f++) {
+		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_field = _aux_table.Fields[f];%><%=""%>
-		<%=(_aux_field.isPK) ? _aux_field.DBs[_aux_dbservertype].DBType_generic_DBEmptyValue() : "`" + _aux_field.Name + "_`"%><%=(f != _aux_table.Fields.Count - 1) ? ", " : ""%><%
+		<%=(_aux_field.isPK) ? _aux_field.DBs[_aux_dbservertype].DBType_generic_DBEmptyValue() : "`" + _aux_field.Name + "_`"%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 		}%>
 	);
 	IF (NOT `ConstraintExist`) THEN<%
 	}%>
 		INSERT INTO `<%=_aux_db_table.Name%>` (<%
-			for (int f = 0; f < _aux_table.Fields.Count; f++) {
+			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 				if (_aux_db_table.hasIdentityKey != f) {
 					_aux_field = _aux_table.Fields[f];%>
-			`<%=_aux_field.Name%>`<%=(f != _aux_table.Fields.Count - 1) ? ", " : ""%><%
+			`<%=_aux_field.Name%>`<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}
 			}%>
 		) VALUES (<%
-			for (int f = 0; f < _aux_table.Fields.Count; f++) {
+			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 				if (_aux_db_table.hasIdentityKey != f) {
 					_aux_field = _aux_table.Fields[f];%>
-			`<%=_aux_field.Name%>_`<%=(f != _aux_table.Fields.Count - 1) ? ", " : ""%><%
+			`<%=_aux_field.Name%>_`<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}
 			}%>
 		);

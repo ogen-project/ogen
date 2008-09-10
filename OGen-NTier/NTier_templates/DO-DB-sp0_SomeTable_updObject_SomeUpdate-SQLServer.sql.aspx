@@ -48,13 +48,13 @@ string aux_string;
 #endregion
 //-----------------------------------------------------------------------------------------
 %>CREATE PROCEDURE [dbo].[sp0_<%=_aux_db_table.Name%>_updObject_<%=aux_update.Name%>]<%
-for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-	_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-	@<%=_aux_field.Name%>_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_field.Size + ")" : ""%><%=(_aux_field.isDecimal && (_aux_field.Numeric_Scale > 0)) ? " (" + _aux_field.Numeric_Precision + ", " + _aux_field.Numeric_Scale + ")" : ""%>, <%
+for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+	_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%>
+	@<%=_aux_field.Name%>_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%>, <%
 }
-for (int f = 0; f < aux_update.UpdateParameters.Count; f++) {
-	_aux_field = aux_update.UpdateParameters[f].Field;%>
-	@<%=_aux_field.Name%>_update_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_field.Size + ")" : ""%><%=(_aux_field.isDecimal && (_aux_field.Numeric_Scale > 0)) ? " (" + _aux_field.Numeric_Precision + ", " + _aux_field.Numeric_Scale + ")" : ""%><%=(f != aux_update.UpdateParameters.Count - 1) ? ", " : ""%><%
+for (int f = 0; f < aux_update.TableUpdateParameters.TableFieldRefCollection.Count; f++) {
+	_aux_field = aux_update.TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;%>
+	@<%=_aux_field.Name%>_update_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(f != aux_update.TableUpdateParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 }
 if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>, 
 	@ConstraintExist_ Bit OUT<%
@@ -62,20 +62,20 @@ if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>,
 AS<%
 if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 	SET @ConstraintExist_ = [dbo].[fnc0_<%=_aux_db_table.Name%>__ConstraintExist](<%
-	for (int f = 0; f < _aux_table.Fields.Count; f++) {
+	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_field = _aux_table.Fields[f];
 
 		if (_aux_field.isPK) {
 			aux_string = "@" + _aux_field.Name + "_";
 		} else {
 			aux_string = "NULL";
-			for (int uf = 0; uf < aux_update.UpdateParameters.Count; uf++) {
-				if (_aux_field.Name == aux_update.UpdateParameters[uf].Field.Name) {
+			for (int uf = 0; uf < aux_update.TableUpdateParameters.TableFieldRefCollection.Count; uf++) {
+				if (_aux_field.Name == aux_update.TableUpdateParameters.TableFieldRefCollection[uf].Field.Name) {
 					aux_string = "@" + _aux_field.Name + "_update_";
 				}
 			}
 		}%><%=""%>
-		<%=aux_string%><%=(f != _aux_table.Fields.Count - 1) ? ", " : ""%><%
+		<%=aux_string%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%>
 	)
 
@@ -83,14 +83,14 @@ if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 }%>
 		UPDATE [<%=_aux_db_table.Name%>]
 		SET<%
-		for (int f = 0; f < aux_update.UpdateParameters.Count; f++) {
-			_aux_field = aux_update.UpdateParameters[f].Field;%>
-			[<%=_aux_field.Name%>] = @<%=_aux_field.Name%>_update_<%=(f != aux_update.UpdateParameters.Count - 1) ? ", " : ""%><%
+		for (int f = 0; f < aux_update.TableUpdateParameters.TableFieldRefCollection.Count; f++) {
+			_aux_field = aux_update.TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;%>
+			[<%=_aux_field.Name%>] = @<%=_aux_field.Name%>_update_<%=(f != aux_update.TableUpdateParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 		}%>
 		WHERE<%
-		for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-			_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-			([<%=_aux_field.Name%>] = @<%=_aux_field.Name%>_)<%=(k != _aux_table.Fields_onlyPK.Count - 1) ? " AND" : ""%><%
+		for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+			_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%>
+			([<%=_aux_field.Name%>] = @<%=_aux_field.Name%>_)<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
 		}
 if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 	END<%

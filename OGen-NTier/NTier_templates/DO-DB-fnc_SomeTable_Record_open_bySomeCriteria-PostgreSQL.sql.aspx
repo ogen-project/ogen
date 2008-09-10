@@ -50,12 +50,12 @@ bool makeItAComment = false;
 #endregion
 //-----------------------------------------------------------------------------------------
 %>CREATE OR REPLACE FUNCTION "fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_search.Name%>"(<%
-	for (int f = 0; f < _aux_search.SearchParameters.Count; f++) {
-		if (_aux_search.SearchParameters[f].TableName != _aux_table.Name)
+	for (int f = 0; f < _aux_search.TableSearchParameters.Count; f++) {
+		if (_aux_search.TableSearchParameters.TableFieldRefCollection[f].TableName != _aux_table.Name)
 			makeItAComment = true;
-		_aux_field = _aux_search.SearchParameters[f].Field;
-		_aux_xx_field_name = _aux_search.SearchParameters[f].ParamName;%>
-	"<%=_aux_xx_field_name%>_search_" <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(f != _aux_search.SearchParameters.Count - 1) ? ", " : ""%><%
+		_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+		_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
+	"<%=_aux_xx_field_name%>_search_" <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(f != _aux_search.TableSearchParameters.Count - 1) ? ", " : ""%><%
 	}%>
 )
 RETURNS SETOF "v0_<%=_aux_db_table.Name%>__onlyKeys"
@@ -65,16 +65,16 @@ AS $BODY$
 	BEGIN
 		FOR _Output IN
 			SELECT<%
-				for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-					_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-				"<%=_aux_field.Name%>"<%=(k != _aux_table.Fields_onlyPK.Count - 1) ? ", " : ""%><%
+				for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+					_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%>
+				"<%=_aux_field.Name%>"<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}%>
-			FROM "<%=_aux_db_table.Name%>"<%=((makeItAComment) || (_aux_search.SearchParameters.Count == 0)) ? "/*" : ""%>
+			FROM "<%=_aux_db_table.Name%>"<%=((makeItAComment) || (_aux_search.TableSearchParameters.Count == 0)) ? "/*" : ""%>
 			WHERE<%
-		for (int f = 0; f < _aux_search.SearchParameters.Count; f++) {
-			_aux_field = _aux_search.SearchParameters[f].Field;
-			_aux_xx_field_name = _aux_search.SearchParameters[f].ParamName;
-			if (_aux_field.isNullable && !_aux_table.isVirtualTable) {%>
+		for (int f = 0; f < _aux_search.TableSearchParameters.Count; f++) {
+			_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+			_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;
+			if (_aux_field.isNullable && !_aux_db_table.isVirtualTable) {%>
 				((
 					("<%=_aux_field.Name%>_search_" IS NULL)
 					AND
@@ -83,11 +83,11 @@ AS $BODY$
 					NOT ("<%=_aux_field.Name%>_search_" IS NULL)
 					AND
 					("<%=_aux_field.Name%>" <%=(_aux_field.isText) ? "LIKE '%' ||" : "="%> "<%=_aux_field.Name%>_search_"<%=(_aux_field.isText) ? " || '%' /*COLLATE " + _aux_field.DBs[_aux_dbservertype].DBCollationName + "*/" : ""%>)
-				))<%=(f != _aux_search.SearchParameters.Count - 1) ? " AND" : ""%><%
+				))<%=(f != _aux_search.TableSearchParameters.Count - 1) ? " AND" : ""%><%
 			} else {%>
-				("<%=_aux_field.Name%>" <%=(_aux_field.isText) ? "LIKE '%' ||" : "="%> "<%=_aux_xx_field_name%>_search_"<%=(_aux_field.isText) ? " || '%' /*COLLATE " + _aux_field.DBs[_aux_dbservertype].DBCollationName + "*/" : ""%>)<%=(f != _aux_search.SearchParameters.Count - 1) ? " AND" : ""%><%
+				("<%=_aux_field.Name%>" <%=(_aux_field.isText) ? "LIKE '%' ||" : "="%> "<%=_aux_xx_field_name%>_search_"<%=(_aux_field.isText) ? " || '%' /*COLLATE " + _aux_field.DBs[_aux_dbservertype].DBCollationName + "*/" : ""%>)<%=(f != _aux_search.TableSearchParameters.Count - 1) ? " AND" : ""%><%
 			}
-		}%><%=((makeItAComment) || (_aux_search.SearchParameters.Count == 0)) ? "*/" : ""%>
+		}%><%=((makeItAComment) || (_aux_search.TableSearchParameters.Count == 0)) ? "*/" : ""%>
 		LOOP
 			RETURN NEXT _Output;
 		END LOOP;

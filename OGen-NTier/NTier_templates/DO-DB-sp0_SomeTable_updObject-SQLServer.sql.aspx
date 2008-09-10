@@ -44,9 +44,9 @@ bool isFirst;
 #endregion
 //-----------------------------------------------------------------------------------------
 %>CREATE PROCEDURE [dbo].[sp0_<%=_aux_db_table.Name%>_updObject]<%
-	for (int f = 0; f < _aux_table.Fields.Count; f++) {
+	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_field = _aux_table.Fields[f];%>
-	@<%=_aux_field.Name%>_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_field.Size + ")" : ""%><%=(_aux_field.isDecimal && (_aux_field.Numeric_Scale > 0)) ? " (" + _aux_field.Numeric_Precision + ", " + _aux_field.Numeric_Scale + ")" : ""%><%=(f != _aux_table.Fields.Count - 1) ? ", " : ""%><%
+	@<%=_aux_field.Name%>_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%><%
 	if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>, 
 	@ConstraintExist_ Bit OUT<%
@@ -54,9 +54,9 @@ bool isFirst;
 AS<%
 	if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 	SET @ConstraintExist_ = [dbo].[fnc0_<%=_aux_db_table.Name%>__ConstraintExist](<%
-		for (int f = 0; f < _aux_table.Fields.Count; f++) {
+		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_field = _aux_table.Fields[f];%>
-		@<%=_aux_field.Name%>_<%=(f != _aux_table.Fields.Count - 1) ? ", " : ""%><%
+		@<%=_aux_field.Name%>_<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 		}%>
 	)
 
@@ -65,7 +65,7 @@ AS<%
 		UPDATE [<%=_aux_db_table.Name%>]
 		SET<%
 		isFirst = true;
-		for (int f = 0; f < _aux_table.Fields.Count; f++) {
+		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_field = _aux_table.Fields[f];
 			if (!_aux_field.isIdentity) {
 				if (!isFirst) {

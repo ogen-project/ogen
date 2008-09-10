@@ -224,17 +224,17 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 #endif
 		bool getObject() {
 			return getObject(<%
-				for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-					_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%><%=""%>
-				Fields.<%=_aux_db_field.Name%><%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+				for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+					_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%><%=""%>
+				Fields.<%=_aux_db_field.Name%><%=(k != _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}%>
 			);
 		}
 		/// <summary>
 		/// Selects <%=_aux_db_table.Name%> values from Database and assigns them to the appropriate DO0_<%=_aux_db_table.Name%> property.
 		/// </summary><%
-		for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-			_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%><%=""%>
+		for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+			_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%><%=""%>
 		/// <param name="<%=_aux_db_field.Name%>_in"><%=_aux_db_field.Name%></param><%
 		}%>
 		/// <returns>True if <%=_aux_db_table.Name%> exists at Database, False if not</returns>
@@ -243,10 +243,10 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			virtual 
 #endif
 			bool getObject(<%
-			for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-				_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];
+			for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+				_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];
 				_aux_ex_field = _aux_db_field.parallel_ref;%><%=""%>
-			<%=_aux_ex_field.DBType_generic.FWType%> <%=_aux_db_field.Name%>_in<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+			<%=_aux_ex_field.DBType_generic.FWType%> <%=_aux_db_field.Name%>_in<%=(k != _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count - 1) ? ", " : ""%><%
 			}%>
 		) {<%
 			if (_aux_db_table.hasIdentityKey != -1) {
@@ -301,17 +301,17 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 #endif
 		void delObject() {
 			delObject(<%
-				for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-					_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%><%=""%>
-				Fields.<%=_aux_db_field.Name%><%=(k != _aux_db_table.TableFields_onlyPK.Count - 1) ? ", " : ""%><%
+				for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+					_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%><%=""%>
+				Fields.<%=_aux_db_field.Name%><%=(k != _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}%>
 			);
 		}
 		/// <summary>
 		/// Deletes <%=_aux_db_table.Name%> from Database.
 		/// </summary><%
-		for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-			_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%><%=""%>
+		for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+			_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%><%=""%>
 		/// <param name="<%=_aux_db_field.Name%>_in"><%=_aux_db_field.Name%></param><%
 		}%>
 		public 
@@ -319,17 +319,17 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			virtual 
 #endif
 		void delObject(<%
-			for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-				_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];
+			for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+				_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];
 				_aux_ex_field = _aux_db_field.parallel_ref;%><%=""%>
-			<%=_aux_ex_field.DBType_generic.FWType%> <%=_aux_db_field.Name%>_in<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+			<%=_aux_ex_field.DBType_generic.FWType%> <%=_aux_db_field.Name%>_in<%=(k != _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count - 1) ? ", " : ""%><%
 			}%>
 		) {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
-				for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-					_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];
+				for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+					_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];
 					_aux_ex_field = _aux_db_field.parallel_ref%>
-				base.Connection.newDBDataParameter("<%=_aux_db_field.Name%>_", DbType.<%=_aux_ex_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_db_field.Name%>_in, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+				base.Connection.newDBDataParameter("<%=_aux_db_field.Name%>_", DbType.<%=_aux_ex_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_db_field.Name%>_in, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=(k != _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}%>
 			};
 			base.Connection.Execute_SQLFunction("sp0_<%=_aux_db_table.Name%>_delObject", _dataparameters);
@@ -349,17 +349,17 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 #endif
 		bool isObject() {
 			return isObject(<%
-				for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-					_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%><%=""%>
-				Fields.<%=_aux_db_field.Name%><%=(k != _aux_db_table.Fields_onlyPK.Count - 1) ? ", " : ""%><%
+				for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+					_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%><%=""%>
+				Fields.<%=_aux_db_field.Name%><%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}%>
 			);
 		}
 		/// <summary>
 		/// Checks to see if <%=_aux_db_table.Name%> exists at Database
 		/// </summary><%
-		for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-			_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%><%=""%>
+		for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+			_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%><%=""%>
 		/// <param name="<%=_aux_db_field.Name%>_in"><%=_aux_db_field.Name%></param><%
 		}%>
 		/// <returns>True if <%=_aux_db_table.Name%> exists at Database, False if not</returns>
@@ -368,17 +368,17 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			virtual 
 #endif
 		bool isObject(<%
-			for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-				_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];
+			for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+				_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];
 				_aux_ex_field = _aux_db_field.parallel_ref;%><%=""%>
-			<%=_aux_ex_field.DBType_generic.FWType%> <%=_aux_db_field.Name%>_in<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+			<%=_aux_ex_field.DBType_generic.FWType%> <%=_aux_db_field.Name%>_in<%=(k != _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count - 1) ? ", " : ""%><%
 			}%>
 		) {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
-				for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-					_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];
+				for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+					_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];
 					_aux_ex_field = _aux_db_field.parallel_ref;%>
-				base.Connection.newDBDataParameter("<%=_aux_db_field.Name%>_", DbType.<%=_aux_ex_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_db_field.Name%>_in, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : "" %><%
+				base.Connection.newDBDataParameter("<%=_aux_db_field.Name%>_", DbType.<%=_aux_ex_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_db_field.Name%>_in, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=(k != _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count - 1) ? ", " : "" %><%
 				}%>
 			};
 
@@ -536,15 +536,16 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			} %>
 		) {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
-				for (int f = 0; f < _aux_table.Fields.Count; f++) {
-					_aux_field = _aux_table.Fields[f];%>
-				base.Connection.newDBDataParameter("<%=_aux_field.Name%>_", DbType.<%=_aux_field.DBType_generic.Value.ToString()%>, ParameterDirection.<%=(_aux_field.isIdentity) ? "Out" : "In"%>put, <%=
-(_aux_field.isIdentity) 
+				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
+					_aux_ex_field = _aux_db_field.parallel_ref;%>
+				base.Connection.newDBDataParameter("<%=_aux_db_field.Name%>_", DbType.<%=_aux_ex_field.DBType_generic.Value.ToString()%>, ParameterDirection.<%=(_aux_db_field.isIdentity) ? "Out" : "In"%>put, <%=
+(_aux_db_field.isIdentity) 
 	? "null" 
-	: ((_aux_field.isNullable) 
-		? "Fields." + _aux_field.Name + "_isNull ? null : (object)Fields." + _aux_field.Name 
-		: "Fields." + _aux_field.Name
-	)%>, <%=_aux_field.Size%><%=(_aux_field.isDecimal) ? ", " + _aux_field.Numeric_Precision + ", " + _aux_field.Numeric_Scale : ""%>), <%
+	: ((_aux_db_field.isNullable) 
+		? "Fields." + _aux_db_field.Name + "_isNull ? null : (object)Fields." + _aux_db_field.Name 
+		: "Fields." + _aux_db_field.Name
+	)%>, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>), <%
 				}%>
 
 				base.Connection.newDBDataParameter("SelectIdentity_", DbType.Boolean, ParameterDirection.Input, selectIdentity_in, 1)
@@ -554,10 +555,12 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 				_dataparameters
 			);
 
-			<%_aux_field = _aux_table.Fields[_aux_db_table.hasIdentityKey];
-			%>Fields.<%=_aux_field.Name%> = (<%=_aux_field.DBType_generic.FWType%>)_dataparameters[<%=_aux_db_table.hasIdentityKey%>].Value;<%
+			<%
+			_aux_db_field = _aux_db_table.Fields[_aux_db_table.hasIdentityKey];
+			_aux_ex_field = _aux_db_field.parallel_ref;
+			%>Fields.<%=_aux_db_field.Name%> = (<%=_aux_ex_field.DBType_generic.FWType%>)_dataparameters[<%=_aux_db_table.hasIdentityKey%>].Value;<%
 			if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
-			constraintExist_out = (Fields.<%=_aux_field.Name%> == -1L);
+			constraintExist_out = (Fields.<%=_aux_db_field.Name%> == -1L);
 			if (!constraintExist_out) {
 				Fields.haschanges_ = false;
 			}<%
@@ -565,7 +568,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			Fields.haschanges_ = false;
 			<%}%>
 
-			return Fields.<%=_aux_field.Name%>;
+			return Fields.<%=_aux_db_field.Name%>;
 		}
 		#endregion
 		#region public void updObject(...);
@@ -583,13 +586,14 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		void updObject(bool forceUpdate_in<%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? ", out bool constraintExist_out" : ""%>) {
 			if (forceUpdate_in || Fields.haschanges_) {
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
-					for (int f = 0; f < _aux_table.Fields.Count; f++) {
-						_aux_field = _aux_table.Fields[f];%>
-					base.Connection.newDBDataParameter("<%=_aux_field.Name%>_", DbType.<%=_aux_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=
-((_aux_field.isNullable) 
-	? "Fields." + _aux_field.Name + "_isNull ? null : (object)Fields." + _aux_field.Name 
-	: "Fields." + _aux_field.Name
-)%>, <%=_aux_field.Size%><%=(_aux_field.isDecimal) ? ", " + _aux_field.Numeric_Precision + ", " + _aux_field.Numeric_Scale : ""%>)<%=((f != _aux_table.Fields.Count - 1) || (_aux_ex_table.TableSearches.hasExplicitUniqueIndex)) ? ", " : ""%><%
+					for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+						_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
+						_aux_ex_field = _aux_db_field.parallel_ref;%>
+					base.Connection.newDBDataParameter("<%=_aux_db_field.Name%>_", DbType.<%=_aux_ex_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=
+((_aux_db_field.isNullable) 
+	? "Fields." + _aux_db_field.Name + "_isNull ? null : (object)Fields." + _aux_db_field.Name 
+	: "Fields." + _aux_db_field.Name
+)%>, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=((f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) || (_aux_ex_table.TableSearches.hasExplicitUniqueIndex)) ? ", " : ""%><%
 					}%><%
 					if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 
@@ -601,7 +605,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 					_dataparameters
 				);
 				<%if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
-				constraintExist_out = <%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? "(bool)_dataparameters[" + (_aux_table.Fields.Count) + "].Value" : "false"%>;
+				constraintExist_out = <%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? "(bool)_dataparameters[" + (_aux_db_table.TableFields.TableFieldCollection.Count) + "].Value" : "false"%>;
 				if (!constraintExist_out) {
 					Fields.haschanges_ = false;
 				}<%
@@ -635,28 +639,30 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		/// <summary>
 		/// Selects <%=_aux_db_table.Name%> values from Database (based on the search condition) and assigns them to the appropriate DO0_<%=_aux_db_table.Name%> property.
 		/// </summary><%
-		for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count; f++) {
-			_aux_field = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].Field;
-			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].ParamName;%><%=""%>
+		for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.Count; f++) {
+			_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 		/// <param name="<%=_aux_xx_field_name%>_search_in"><%=_aux_xx_field_name%> search condition</param><%
 		}%>
 		/// <returns>True if <%=_aux_db_table.Name%> exists at Database, False if not</returns>
 		public bool getObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
-			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count; f++) {
-				_aux_field = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].Field;
-				_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].ParamName;%><%=""%>
-			<%=_aux_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count - 1) ? ", " : ""%><%
+			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.Count; f++) {
+				_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+				_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
+			<%=_aux_ex_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.Count - 1) ? ", " : ""%><%
 			}%>
 		) {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
-				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count; f++) {
-					_aux_field = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].Field;
-					_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].ParamName;%>
-				base.Connection.newDBDataParameter("<%=_aux_xx_field_name%>_search_", DbType.<%=_aux_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_xx_field_name%>_search_in, <%=_aux_field.Size%><%=(_aux_field.isDecimal) ? ", " + _aux_field.Numeric_Precision + ", " + _aux_field.Numeric_Scale : ""%>), <%
+				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.Count; f++) {
+					_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+					_aux_db_field = _aux_ex_field.parallel_ref;
+					_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
+				base.Connection.newDBDataParameter("<%=_aux_xx_field_name%>_search_", DbType.<%=_aux_ex_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_xx_field_name%>_search_in, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>), <%
 				}
-				for (int f = 0; f < _aux_table.Fields.Count; f++) {
-					_aux_field = _aux_table.Fields[f];%>
-				base.Connection.newDBDataParameter("<%=_aux_field.Name%>", DbType.<%=_aux_field.DBType_generic.Value.ToString()%>, ParameterDirection.Output, null, <%=_aux_field.Size%><%=(_aux_field.isDecimal) ? ", " + _aux_field.Numeric_Precision + ", " + _aux_field.Numeric_Scale : ""%>)<%=(f != _aux_table.Fields.Count - 1) ? ", " : ""%><%
+				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
+					_aux_ex_field = _aux_db_field.parallel_ref;%>
+				base.Connection.newDBDataParameter("<%=_aux_db_field.Name%>", DbType.<%=_aux_ex_field.DBType_generic.Value.ToString()%>, ParameterDirection.Output, null, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}%>
 			};
 			base.Connection.Execute_SQLFunction(
@@ -664,17 +670,18 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 				_dataparameters
 			);
 
-			if (_dataparameters[<%=_aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count + _aux_db_table.firstKey%>].Value != DBNull.Value) {<%
-				for (int f = 0; f < _aux_table.Fields.Count; f++) {
-					_aux_field = _aux_table.Fields[f];%>
-				if (_dataparameters[<%=_aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count + f%>].Value == System.DBNull.Value) {<%
-					if (_aux_field.isNullable && !_aux_field.isPK) {%><%=""%>
+			if (_dataparameters[<%=_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.Count + _aux_db_table.firstKey%>].Value != DBNull.Value) {<%
+				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
+					_aux_ex_field = _aux_db_field.parallel_ref;%>
+				if (_dataparameters[<%=_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.Count + f%>].Value == System.DBNull.Value) {<%
+					if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%>
 					Fields.<%=_aux_field.Name%>_isNull = true;<%
 					} else {%><%=""%>
-					Fields.<%=_aux_field.Name%> = <%=_aux_field.DBType_generic.FWEmptyValue%>;<%
+					Fields.<%=_aux_db_field.Name%> = <%=_aux_ex_field.DBType_generic.FWEmptyValue%>;<%
 					}%>
 				} else {
-					Fields.<%=_aux_field.Name%> = (<%=_aux_field.DBType_generic.FWType%>)_dataparameters[<%=_aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count + f%>].Value;
+					Fields.<%=_aux_db_field.Name%> = (<%=_aux_ex_field.DBType_generic.FWType%>)_dataparameters[<%=_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.Count + f%>].Value;
 				}<%
 				}%>
 
@@ -688,36 +695,37 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			return false;
 		}
 		#endregion<%
-		if (!_aux_table.isVirtualTable) {%>
+		if (!_aux_db_table.isVirtualTable) {%>
 		#region public bool delObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(...);
 		/// <summary>
 		/// Deletes <%=_aux_db_table.Name%> from Database (based on the search condition).
 		/// </summary><%
-		for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count; f++) {
-			_aux_field = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].Field;
-			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].ParamName;%><%=""%>
+		for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.Count; f++) {
+			_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 		/// <param name="<%=_aux_xx_field_name%>_search_in"> <%=_aux_xx_field_name%> search condition</param><%
 		}%>
 		/// <returns>True if <%=_aux_db_table.Name%> existed and was Deleted at Database, False if it didn't exist</returns>
 		public bool delObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
-			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count; f++) {
-				_aux_field = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].Field;
-				_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].ParamName;%><%=""%>
-			<%=_aux_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count - 1) ? ", " : ""%><%
+			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.Count; f++) {
+				_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+				_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
+			<%=_aux_ex_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.Count - 1) ? ", " : ""%><%
 			}%>
 		) {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
-				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count; f++) {
-					_aux_field = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].Field;
-					_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].ParamName;%>
-				base.Connection.newDBDataParameter("<%=_aux_xx_field_name%>_search_", DbType.<%=_aux_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_xx_field_name%>_search_in, <%=_aux_field.Size%><%=(_aux_field.isDecimal) ? ", " + _aux_field.Numeric_Precision + ", " + _aux_field.Numeric_Scale : ""%>), <%
+				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.Count; f++) {
+					_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+					_aux_db_field = _aux_ex_field.parallel_ref;
+					_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
+				base.Connection.newDBDataParameter("<%=_aux_xx_field_name%>_search_", DbType.<%=_aux_ex_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_xx_field_name%>_search_in, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>), <%
 				}%>
 
 				base.Connection.newDBDataParameter("Exists_", DbType.Boolean, ParameterDirection.Output, null, 1)
 			};
 			base.Connection.Execute_SQLFunction("sp0_<%=_aux_db_table.Name%>_delObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>", _dataparameters);
 
-			return ((bool)_dataparameters[<%=_aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count%>].Value);
+			return ((bool)_dataparameters[<%=_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.Count%>].Value);
 		}
 		#endregion<%
 		}%>
@@ -725,24 +733,25 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		/// <summary>
 		/// Checks to see if <%=_aux_db_table.Name%> exists at Database (based on the search condition).
 		/// </summary><%
-		for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count; f++) {
-			_aux_field = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].Field;
-			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].ParamName;%><%=""%>
+		for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.Count; f++) {
+			_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 		/// <param name="<%=_aux_xx_field_name%>_search_in"><%=_aux_xx_field_name%> search condition</param><%
 		}%>
 		/// <returns>True if <%=_aux_db_table.Name%> exists at Database, False if not</returns>
 		public bool isObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
-			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count; f++) {
-				_aux_field = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].Field;
-				_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].ParamName;%><%=""%>
-			<%=_aux_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count - 1) ? ", " : ""%><%
+			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.Count; f++) {
+				_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+				_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
+			<%=_aux_ex_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.Count - 1) ? ", " : ""%><%
 			}%>
 		) {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
-				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count; f++) {
-					_aux_field = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].Field;
-					_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters[f].ParamName;%>
-				base.Connection.newDBDataParameter("<%=_aux_xx_field_name%>_search_", DbType.<%=_aux_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_xx_field_name%>_search_in, <%=_aux_field.Size%><%=(_aux_field.isDecimal) ? ", " + _aux_field.Numeric_Precision + ", " + _aux_field.Numeric_Scale : ""%>)<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].SearchParameters.Count - 1) ? ", " : ""%><%
+				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.Count; f++) {
+					_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+					_aux_db_field = _aux_ex_field.parallel_ref;
+					_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
+				base.Connection.newDBDataParameter("<%=_aux_xx_field_name%>_search_", DbType.<%=_aux_ex_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_xx_field_name%>_search_in, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.Count - 1) ? ", " : ""%><%
 				}%>
 			};
 			return (bool)base.Connection.Execute_SQLFunction(
@@ -768,8 +777,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 %>
 		#endregion
 		#region Methods - Updates...<%
-		for (int u = 0; u < _aux_table.Updates.Count; u++) {
-			_aux_ex_update = _aux_table.Updates[u];%>
+		for (int u = 0; u < _aux_ex_table.TableUpdates.TableUpdateCollection.Count; u++) {
+			_aux_ex_update = _aux_ex_table.TableUpdates.TableUpdateCollection[u];%>
 		#region public void updObject_<%=_aux_ex_update.Name%>(...);
 		/// <summary>
 		/// Updates <%=_aux_db_table.Name%> specific(only) values on Database.
@@ -785,11 +794,15 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		void updObject_<%=_aux_ex_update.Name%>(bool forceUpdate_in<%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? ", out bool constraintExist_out" : ""%>) {
 			if (forceUpdate_in || Fields.haschanges_) {
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
-					for (int f = 0; f < _aux_table.Fields_onlyPK.Count; f++) { _aux_field = _aux_table.Fields_onlyPK[f];%>
-					base.Connection.newDBDataParameter("<%=_aux_field.Name%>", DbType.<%=_aux_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%="Fields." + _aux_field.Name%>, <%=_aux_field.Size%><%=(_aux_field.isDecimal) ? ", " + _aux_field.Numeric_Precision + ", " + _aux_field.Numeric_Scale : ""%>), <%
+					for (int f = 0; f < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; f++) {
+						_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[f];
+						_aux_ex_field = _aux_db_field.parallel_ref;%>
+					base.Connection.newDBDataParameter("<%=_aux_db_field.Name%>", DbType.<%=_aux_ex_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%="Fields." + _aux_db_field.Name%>, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>), <%
 					}
-					for (int f = 0; f < _aux_ex_update.UpdateParameters.Count; f++) { _aux_field = _aux_ex_update.UpdateParameters[f].Field;%>
-					base.Connection.newDBDataParameter("<%=_aux_field.Name%>_update", DbType.<%=_aux_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%="Fields." + _aux_field.Name%>, <%=_aux_field.Size%><%=(_aux_field.isDecimal) ? ", " + _aux_field.Numeric_Precision + ", " + _aux_field.Numeric_Scale : ""%>)<%=((f != _aux_ex_update.UpdateParameters.Count - 1) || (_aux_ex_table.TableSearches.hasExplicitUniqueIndex)) ? ", " : ""%><%
+					for (int f = 0; f < _aux_ex_update.TableUpdateParameters.TableFieldRefCollection.Count; f++) {
+						_aux_ex_field = _aux_ex_update.TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;
+						_aux_db_field = _aux_ex_field.parallel_ref;%>
+					base.Connection.newDBDataParameter("<%=_aux_ex_field.Name%>_update", DbType.<%=_aux_ex_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%="Fields." + _aux_ex_field.Name%>, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=((f != _aux_ex_update.TableUpdateParameters.TableFieldRefCollection.Count - 1) || (_aux_ex_table.TableSearches.hasExplicitUniqueIndex)) ? ", " : ""%><%
 					}
 					if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 
@@ -801,7 +814,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 					_dataparameters
 				);
 				<%if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
-				constraintExist_out = <%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? "(bool)_dataparameters[" + (_aux_table.Fields.Count) + "].Value" : "false"%>;
+				constraintExist_out = <%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? "(bool)_dataparameters[" + (_aux_db_table.TableFields.TableFieldCollection.Count) + "].Value" : "false"%>;
 				if (!constraintExist_out) {
 					Fields.haschanges_ = false;
 				}<%

@@ -42,9 +42,9 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 #endregion
 //-----------------------------------------------------------------------------------------
 %>CREATE PROCEDURE `sp0_<%=_aux_db_table.Name%>_getObject`(<%
-	for (int f = 0; f < _aux_table.Fields.Count; f++) {
+	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_field = _aux_table.Fields[f];%>
-	OUT `<%=_aux_field.Name%>_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? "(" + _aux_field.Size + ")" : ""%><%=(f != _aux_table.Fields.Count - 1) ? ", " : ""%><%
+	OUT `<%=_aux_field.Name%>_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%>
 )
 	NOT DETERMINISTIC
@@ -61,21 +61,21 @@ BEGIN<%if (_aux_metadata.CopyrightTextLong != string.Empty) {
 	DECLARE `Exists` BOOLEAN DEFAULT false;
 
 	SELECT<%
-		for (int f = 0; f < _aux_table.Fields.Count; f++) {
+		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_field = _aux_table.Fields[f];%>
 		`<%=_aux_field.Name%>_` = `<%=_aux_field.Name%>`, <%
 		}%>
 		true INTO `Exists`
 	FROM `<%=_aux_db_table.Name%>`
 	WHERE<%
-		for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-			_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k]; %>
-		(`<%=_aux_field.Name%>` = `<%=_aux_field.Name%>_`)<%=(k != _aux_table.Fields_onlyPK.Count - 1) ? " AND" : ""%><%
+		for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+			_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k]; %>
+		(`<%=_aux_field.Name%>` = `<%=_aux_field.Name%>_`)<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
 		}%>;
 
 	IF (NOT `Exists`) THEN<%
-		for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-			_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k]; %>
+		for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
+			_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k]; %>
 		SET `<%=_aux_field.Name%>_` = NULL;<%
 		}%>
 	END IF;
