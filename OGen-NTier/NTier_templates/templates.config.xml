@@ -2154,7 +2154,7 @@ XXX:TO_DOS -->
 XXX:TO_DOS -->
 			<output to="OGen_fnc0__Split" 
 				type="PostgreSQL_Function" mode="Replace" />
-			</outputs>
+		</outputs>
 		<dependencies />
 	</template>
 	<template name="DO-DB-OGen_fnc0__Split-SQLServer.sql" 
@@ -2188,7 +2188,7 @@ XXX:TO_DOS -->
 XXX:TO_DOS -->
 			<output to="v0__getTables" 
 				type="PostgreSQL_View" mode="Replace" />
-			</outputs>
+		</outputs>
 		<dependencies />
 	</template>
 	<template name="DO-DB-OGen_sp0__getTables-PostgreSQL.sql" 
@@ -2272,7 +2272,7 @@ XXX:TO_DOS -->
 		<arguments />
 		<conditions>
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
-	</conditions>
+		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
@@ -2280,7 +2280,7 @@ XXX:TO_DOS -->
 XXX:TO_DOS -->
 			<output to="OGen_sp0__getTableFields" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
-	</outputs>
+		</outputs>
 		<dependencies />
 	</template>
 </templates>
