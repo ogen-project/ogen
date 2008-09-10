@@ -2151,9 +2151,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="OGen_fnc0__Split" 
 				type="PostgreSQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 			</outputs>
 		<dependencies />
 	</template>
@@ -2168,9 +2168,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="OGen_fnc0__Split" 
 				type="SQLServer_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
@@ -2185,9 +2185,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="v0__getTables" 
 				type="PostgreSQL_View" mode="Replace" />
-XXX:TO_DOS -->
 			</outputs>
 		<dependencies />
 	</template>
@@ -2202,9 +2202,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="OGen_sp0__getTables" 
 				type="PostgreSQL_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-OGen_fnc0__Split-PostgreSQL.sql" />
@@ -2222,9 +2222,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="OGen_sp0__getTables" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-OGen_fnc0__Split-SQLServer.sql" />
@@ -2241,9 +2241,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="v0__getTables" 
 				type="PostgreSQL_View" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
@@ -2258,9 +2258,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="OGen_sp0__getTableFields" 
 				type="PostgreSQL_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-OGen_v0__getTableFields-PostgreSQL.sql" />
@@ -2277,9 +2277,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="OGen_sp0__getTableFields" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 	</outputs>
 		<dependencies />
 	</template>
