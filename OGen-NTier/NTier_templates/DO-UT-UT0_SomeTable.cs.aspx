@@ -65,57 +65,57 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.UTs {
 
 		[Test]
 		public void UT_<%=(_aux_db_table.hasIdentityKey != -1) ? "Ins" : "Set"%>GetDelSequence() {
-			DO_<%=_aux_db_table.Name%> _<%=_aux_table.Name.ToLower()%>;
+			DO_<%=_aux_db_table.Name%> _<%=_aux_db_table.Name.ToLower()%>;
 			try {
-				_<%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
+				_<%=_aux_db_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
 			} catch (Exception e) {
 				Assert.IsTrue(false, "some error trying to instantiate DO_<%=_aux_db_table.Name%>\n---\n{0}\n---", e.Message);
 				return; // no need...
 			}
-			_<%=_aux_table.Name.ToLower()%>.Connection.Open();
-			_<%=_aux_table.Name.ToLower()%>.Connection.Transaction.Begin();
+			_<%=_aux_db_table.Name.ToLower()%>.Connection.Open();
+			_<%=_aux_db_table.Name.ToLower()%>.Connection.Transaction.Begin();
 
 
 <%
 
 
 
-			for (int f = 0; f < _aux_table.Fields.Count; f++) {
+			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 				if (f == _aux_db_table.hasIdentityKey) continue;
-				_aux_field = _aux_table.Fields[f];%><%=""%>
-			_<%=_aux_table.Name.ToLower()%>.Fields.<%=_aux_field.Name%> = <%=_aux_field.DBType_generic.FWUnitTestValue%>;<%
+				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
+			_<%=_aux_db_table.Name.ToLower()%>.Fields.<%=_aux_db_field.Name%> = <%=_aux_db_field.DBType_generic.FWUnitTestValue%>;<%
 			}
 
 
 
 			if (_aux_db_table.hasIdentityKey != -1) {
 				if (!_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {
-					_aux_field = _aux_table.Fields[_aux_db_table.hasIdentityKey];%><%=""%>
-			<%=_aux_field.DBType_generic.FWType%> _<%=_aux_field.Name.ToLower()%>;
+					_aux_db_field = _aux_db_table.Fields[_aux_db_table.hasIdentityKey];%><%=""%>
+			<%=_aux_db_field.DBType_generic.FWType%> _<%=_aux_db_field.Name.ToLower()%>;
 			try {
-				_<%=_aux_field.Name.ToLower()%> = _<%=_aux_table.Name.ToLower()%>.insObject(true);
+				_<%=_aux_db_field.Name.ToLower()%> = _<%=_aux_db_table.Name.ToLower()%>.insObject(true);
 			} catch (Exception e) {
 				Assert.IsTrue(false, "some error running insObject\n---\n{0}\n---", e.Message);
 				return; // no need...
 			}
-			Assert.IsTrue(_<%=_aux_field.Name.ToLower()%> > 0L, "failed to retrieve identity seed (insObject)");
-			_<%=_aux_table.Name.ToLower()%>.clrObject();
+			Assert.IsTrue(_<%=_aux_db_field.Name.ToLower()%> > 0L, "failed to retrieve identity seed (insObject)");
+			_<%=_aux_db_table.Name.ToLower()%>.clrObject();
 			bool _exists;
 			try {
-				_exists = _<%=_aux_table.Name.ToLower()%>.getObject(_<%=_aux_field.Name.ToLower()%>);
+				_exists = _<%=_aux_db_table.Name.ToLower()%>.getObject(_<%=_aux_db_field.Name.ToLower()%>);
 			} catch (Exception e) {
 				Assert.IsTrue(false, "some error running getObject\n---\n{0}\n---", e.Message);
 				return; // no need...
 			}
 			Assert.IsTrue(_exists, "can't read inserted item (getObject)");<%
-					for (int f = 0; f < _aux_table.Fields.Count; f++) {
+					for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 						if (f == _aux_db_table.hasIdentityKey) continue;
-						_aux_field = _aux_table.Fields[f];%><%=""%>
-			Assert.AreEqual(<%=_aux_field.DBType_generic.FWUnitTestValue%>, _<%=_aux_table.Name.ToLower()%>.Fields.<%=_aux_field.Name%>, "inserted values difer those just read (insObject/getObject)");<%
+						_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
+			Assert.AreEqual(<%=_aux_db_field.DBType_generic.FWUnitTestValue%>, _<%=_aux_db_table.Name.ToLower()%>.Fields.<%=_aux_db_field.Name%>, "inserted values difer those just read (insObject/getObject)");<%
 					}
-					_aux_field = _aux_table.Fields[_aux_db_table.hasIdentityKey];%>
+					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey];%>
 			try {
-				_<%=_aux_table.Name.ToLower()%>.delObject(_<%=_aux_field.Name.ToLower()%>);
+				_<%=_aux_db_table.Name.ToLower()%>.delObject(_<%=_aux_db_field.Name.ToLower()%>);
 			} catch (Exception e) {
 				Assert.IsTrue(false, "some error trying to delete (delObject)\n---\n{0}\n---", e.Message);
 				return; // no need...
@@ -136,10 +136,10 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.UTs {
 
 
 
-			_<%=_aux_table.Name.ToLower()%>.Connection.Transaction.Rollback();
-			_<%=_aux_table.Name.ToLower()%>.Connection.Transaction.Terminate();
-			_<%=_aux_table.Name.ToLower()%>.Connection.Close();
-			_<%=_aux_table.Name.ToLower()%>.Dispose(); _<%=_aux_table.Name.ToLower()%> = null;
+			_<%=_aux_db_table.Name.ToLower()%>.Connection.Transaction.Rollback();
+			_<%=_aux_db_table.Name.ToLower()%>.Connection.Transaction.Terminate();
+			_<%=_aux_db_table.Name.ToLower()%>.Connection.Close();
+			_<%=_aux_db_table.Name.ToLower()%>.Dispose(); _<%=_aux_db_table.Name.ToLower()%> = null;
 		}
 	}
 }<%
