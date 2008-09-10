@@ -35,7 +35,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableType _aux_ex_table
 OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
 OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 
-//string[] _aux_configmodes = _aux_metadata.ConfigModes();
+//string[] _aux_configmodes = _aux_ex_metadata.DBs.ConfigModes();
 
 #endregion
 //-----------------------------------------------------------------------------------------

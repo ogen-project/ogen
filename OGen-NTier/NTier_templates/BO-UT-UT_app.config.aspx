@@ -25,7 +25,7 @@ XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
 XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 
-string[] _aux_configmodes = _aux_metadata.ConfigModes();
+string[] _aux_configmodes = _aux_ex_metadata.DBs.ConfigModes();
 
 #endregion
 //-----------------------------------------------------------------------------------------
@@ -46,7 +46,7 @@ string[] _aux_configmodes = _aux_metadata.ConfigModes();
 		//<add key="OGen-NTier_UTs:DBServerType_default" value="< %=_aux_ex_metadata.DBs.DBCollection.FirstDefaultAvailable_DBServerType().ToString()% >" />
 		for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
 			for (int c = 0; c < _aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection.Count; c++) {%>
-		<add key="<%=_aux_ex_metadata.ApplicationName%>:DBConnection:<%=_aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection[c].ConfigMode%>:<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%>" value="<%=_aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection[c].isDefault%>::<%=_aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection[c].GenerateSQL%>::<%=_aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection[c].isIndexed_andReadOnly%>::<%=_aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection[c].Connectionstring%>"/><%
+		<add key="<%=_aux_ex_metadata.ApplicationName%>:DBConnection:<%=_aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection[c].ConfigMode%>:<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%>" value="<%=_aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection[c].isDefault%>::<%=_aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection[c].generateSQL%>::<%=_aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection[c].isIndexed_andReadOnly%>::<%=_aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection[c].Connectionstring%>"/><%
 			}
 		}%>
 

@@ -373,9 +373,9 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}_datalayer_UTs/app.config" 
 				type="File" mode="Create_doNotReplace" />
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationNamespace}.lib.datalayer.UTs-1.1.config" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationNamespace}.lib.datalayer.UTs-1.1.config" 
 				type="File" mode="Create_doNotReplace" />
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationNamespace}.lib.datalayer.UTs-2.0.config" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationNamespace}.lib.datalayer.UTs-2.0.config" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -388,11 +388,11 @@ XXX:TODOS -->
 				<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD0_${ROOT.metadataDB[n].applicationName}-${ROOT.metadata.default_DBServerType}.OGen-metadata.xml" />
 			XXX:NOT_NEED -->
 			<argument name="ApplicationName" value="${ROOT.metadataDB[n].applicationName}" />
-			<argument name="Namespace" value="${ROOT.metadataDB[n].applicationNamespace}" />
+			<argument name="Namespace" value="${ROOT.metadataExtended[0].applicationNamespace}" />
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationNamespace}.lib.datalayer.UTs-1.1.nunit" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationNamespace}.lib.datalayer.UTs-1.1.nunit" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -405,11 +405,11 @@ XXX:TODOS -->
 				<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD0_${ROOT.metadataDB[n].applicationName}-${ROOT.metadata.default_DBServerType}.OGen-metadata.xml" />
 			XXX:NO_NEED -->
 			<argument name="ApplicationName" value="${ROOT.metadataDB[n].applicationName}" />
-			<argument name="Namespace" value="${ROOT.metadataDB[n].applicationNamespace}" />
+			<argument name="Namespace" value="${ROOT.metadataExtended[0].applicationNamespace}" />
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationNamespace}.lib.datalayer.UTs-2.0.nunit" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationNamespace}.lib.datalayer.UTs-2.0.nunit" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -480,9 +480,9 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}_businesslayer_UTs/app.config" 
 				type="File" mode="Create_doNotReplace" />
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationNamespace}.lib.businesslayer.UTs-1.1.config" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationNamespace}.lib.businesslayer.UTs-1.1.config" 
 				type="File" mode="Create_doNotReplace" />
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationNamespace}.lib.businesslayer.UTs-2.0.config" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationNamespace}.lib.businesslayer.UTs-2.0.config" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -495,11 +495,11 @@ XXX:TODOS -->
 				<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD0_${ROOT.metadataDB[n].applicationName}-${ROOT.metadata.default_DBServerType}.OGen-metadata.xml" />
 			XXX:NO_NEED -->
 			<argument name="ApplicationName" value="${ROOT.metadataDB[n].applicationName}" />
-			<argument name="Namespace" value="${ROOT.metadataDB[n].applicationNamespace}" />
+			<argument name="Namespace" value="${ROOT.metadataExtended[0].applicationNamespace}" />
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationNamespace}.lib.businesslayer.UTs-1.1.nunit" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationNamespace}.lib.businesslayer.UTs-1.1.nunit" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -512,11 +512,11 @@ XXX:TODOS -->
 				<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD0_${ROOT.metadataDB[n].applicationName}-${ROOT.metadata.default_DBServerType}.OGen-metadata.xml" />
 			XXX:NO_NEED -->
 			<argument name="ApplicationName" value="${ROOT.metadataDB[n].applicationName}" />
-			<argument name="Namespace" value="${ROOT.metadataDB[n].applicationNamespace}" />
+			<argument name="Namespace" value="${ROOT.metadataExtended[0].applicationNamespace}" />
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationNamespace}.lib.businesslayer.UTs-2.0.nunit" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationNamespace}.lib.businesslayer.UTs-2.0.nunit" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
