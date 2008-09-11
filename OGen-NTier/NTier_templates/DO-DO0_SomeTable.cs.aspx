@@ -207,7 +207,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 				if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%>
 			<%=_aux_db_field.Name%>_isNull = true;<%
 				} else {%><%=""%>
-			<%=_aux_db_field.Name%> = <%=(_aux_ex_field.DefaultValue == "") ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_field.DefaultValue%>;<%
+			<%=_aux_db_field.Name%> = <%=(_aux_ex_field.DefaultValue == "") ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_ex_field.DefaultValue%>;<%
 				}
 			}--%>
 			Fields = new SO0_<%=_aux_db_table.Name%>();

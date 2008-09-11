@@ -55,7 +55,7 @@ bool makeItAComment = false;
 			makeItAComment = true;
 		_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 		_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-	`<%=_aux_xx_field_name%>_search_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+	`<%=_aux_xx_field_name%>_search_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 	}%>
 )
 	RETURNS TABLE
@@ -80,7 +80,7 @@ RETURN<%if (_aux_metadata.CopyrightTextLong != string.Empty) {
 for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
 	_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 	_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;
-	if (_aux_field.isNullable && !_aux_db_table.isVirtualTable) {%>
+	if (_aux_db_field.isNullable && !_aux_db_table.isVirtualTable) {%>
 		((
 			(`<%=_aux_field.Name%>_search_` IS NULL)
 			AND
@@ -88,10 +88,10 @@ for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Co
 		) OR (
 			NOT (`<%=_aux_field.Name%>_search_` IS NULL)
 			AND
-			(`<%=_aux_field.Name%>` <%=(_aux_field.isText) ? "LIKE '%' +" : "="%> `<%=_aux_xx_field_name%>_search_`<%=(_aux_field.isText) ? " + '%' COLLATE " + _aux_field.DBs[_aux_dbservertype].DBCollationName : ""%>)
+			(`<%=_aux_field.Name%>` <%=(_aux_db_field.isText) ? "LIKE '%' +" : "="%> `<%=_aux_xx_field_name%>_search_`<%=(_aux_db_field.isText) ? " + '%' COLLATE " + _aux_field.DBs[_aux_dbservertype].DBCollationName : ""%>)
 		))<%=(f != _aux_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? " AND" : ""%><%
 	} else {%>
-		(`<%=_aux_field.Name%>` <%=(_aux_field.isText) ? "LIKE '%' +" : "="%> `<%=_aux_xx_field_name%>_search_`<%=(_aux_field.isText) ? " + '%' COLLATE " + _aux_field.DBs[_aux_dbservertype].DBCollationName : ""%>)<%=(f != _aux_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? " AND" : ""%><%
+		(`<%=_aux_field.Name%>` <%=(_aux_db_field.isText) ? "LIKE '%' +" : "="%> `<%=_aux_xx_field_name%>_search_`<%=(_aux_db_field.isText) ? " + '%' COLLATE " + _aux_field.DBs[_aux_dbservertype].DBCollationName : ""%>)<%=(f != _aux_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? " AND" : ""%><%
 	}
 }%><%=((makeItAComment) || (_aux_search.TableSearchParameters.TableFieldRefCollection.Count == 0)) ? "*/" : ""%>
 

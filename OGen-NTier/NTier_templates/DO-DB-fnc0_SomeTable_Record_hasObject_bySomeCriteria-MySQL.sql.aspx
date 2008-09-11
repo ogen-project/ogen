@@ -50,13 +50,13 @@ string _aux_xx_field_name;
 %>CREATE FUNCTION `fnc0_<%=_aux_db_table.Name%>_Record_hasObject_<%=_aux_search.Name%>`(<%
 for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 	_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-	`<%=_aux_field.Name%>_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+	`<%=_aux_field.Name%>_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 }
 for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
 	_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 	_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;
 	%>, 
-	`<%=_aux_xx_field_name%>_search_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%
+	`<%=_aux_xx_field_name%>_search_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%
 }%>
 )
 	RETURNS BOOLEAN

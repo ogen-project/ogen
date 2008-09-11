@@ -45,5 +45,19 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
+		#region public bool isListItem(...);
+		public bool isListItem() {
+			for (int f = 0; f < TableFields.TableFieldCollection.Count; f++) {
+				if (
+					(TableFields.TableFieldCollection[f].isListItemText)
+					||
+					(TableFields.TableFieldCollection[f].isListItemValue)
+				) {
+					return true;
+				}
+			}
+			return false;
+		}
+		#endregion
 	}
 }

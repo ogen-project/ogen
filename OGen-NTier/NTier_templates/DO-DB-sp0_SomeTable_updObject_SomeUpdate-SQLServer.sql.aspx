@@ -50,11 +50,11 @@ string aux_string;
 %>CREATE PROCEDURE [dbo].[sp0_<%=_aux_db_table.Name%>_updObject_<%=aux_update.Name%>]<%
 for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 	_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-	@<%=_aux_field.Name%>_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%>, <%
+	@<%=_aux_field.Name%>_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%>, <%
 }
 for (int f = 0; f < aux_update.TableUpdateParameters.TableFieldRefCollection.Count; f++) {
 	_aux_field = aux_update.TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;%>
-	@<%=_aux_field.Name%>_update_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(f != aux_update.TableUpdateParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+	@<%=_aux_field.Name%>_update_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(f != aux_update.TableUpdateParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 }
 if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>, 
 	@ConstraintExist_ Bit OUT<%
@@ -65,7 +65,7 @@ if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_field = _aux_table.TableFields.TableFieldCollection[f];
 
-		if (_aux_field.isPK) {
+		if (_aux_db_field.isPK) {
 			aux_string = "@" + _aux_field.Name + "_";
 		} else {
 			aux_string = "NULL";

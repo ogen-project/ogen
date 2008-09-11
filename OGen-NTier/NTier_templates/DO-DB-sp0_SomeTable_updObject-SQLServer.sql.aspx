@@ -46,7 +46,7 @@ bool isFirst;
 %>CREATE PROCEDURE [dbo].[sp0_<%=_aux_db_table.Name%>_updObject]<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
-	@<%=_aux_field.Name%>_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
+	@<%=_aux_field.Name%>_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%><%
 	if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>, 
 	@ConstraintExist_ Bit OUT<%
@@ -67,7 +67,7 @@ AS<%
 		isFirst = true;
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_field = _aux_table.TableFields.TableFieldCollection[f];
-			if (!_aux_field.isIdentity) {
+			if (!_aux_db_field.isIdentity) {
 				if (!isFirst) {
 					%>, <%
 				} else {

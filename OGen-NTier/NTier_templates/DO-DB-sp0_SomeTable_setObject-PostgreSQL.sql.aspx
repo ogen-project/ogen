@@ -112,7 +112,7 @@ $BODY$
 				%>"fnc0_<%=_aux_db_table.Name%>__ConstraintExist"(<%
 				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 					_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
-				<%=(_aux_field.isPK) ? _aux_field.DBs[_aux_dbservertype].DBType_generic_DBEmptyValue() : "\"" + _aux_field.Name + "_\""%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
+				<%=(_aux_db_field.isPK) ? _aux_field.DBs[_aux_dbservertype].DBType_generic_DBEmptyValue() : "\"" + _aux_field.Name + "_\""%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}%>
 			)<%
 			} else {

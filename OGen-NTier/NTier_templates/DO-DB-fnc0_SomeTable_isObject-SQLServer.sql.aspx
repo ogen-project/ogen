@@ -44,7 +44,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 %>CREATE FUNCTION [dbo].[fnc0_<%=_aux_db_table.Name%>_isObject](<%
 	for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 		_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-	@<%=_aux_field.Name%>_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+	@<%=_aux_field.Name%>_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%>
 )
 RETURNS Bit

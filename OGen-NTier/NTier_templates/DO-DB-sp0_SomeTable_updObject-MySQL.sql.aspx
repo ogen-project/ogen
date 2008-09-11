@@ -46,7 +46,7 @@ bool isFirst;
 %>CREATE PROCEDURE `sp0_<%=_aux_db_table.Name%>_updObject`(<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
-	IN `<%=_aux_field.Name%>_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
+	IN `<%=_aux_field.Name%>_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%><%
 	if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>, 
 	OUT `ConstraintExist_` BOOLEAN<%
@@ -71,7 +71,7 @@ BEGIN<%
 		isFirst = true;
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_field = _aux_table.TableFields.TableFieldCollection[f];
-			if (!_aux_field.isIdentity) {
+			if (!_aux_db_field.isIdentity) {
 				if (!isFirst) {
 					%>, <%
 				} else {

@@ -146,7 +146,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile><%
-		for (int t = 0; t < _aux_db_metadata.Tables.TableCollection.Count.; t++) {
+		for (int t = 0; t < _aux_db_metadata.Tables.TableCollection.Count; t++) {
 			_aux_db_table = _aux_db_metadata.Tables.TableCollection[t];%>
     <Compile Include="BO_<%=_aux_db_table.Name%>.cs">
       <SubType>Code</SubType>

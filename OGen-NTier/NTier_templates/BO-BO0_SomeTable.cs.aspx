@@ -33,7 +33,7 @@ OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table
 OGen.NTier.lib.metadata.metadataExtended.XS_tableType _aux_ex_table
 	= _aux_db_table.parallel_ref;
 
-bool isListItem = _aux_table.isListItem();
+bool isListItem = _aux_ex_table.isListItem();
 
 OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
 OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
@@ -158,59 +158,60 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 		//---<%
 		}
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-			_aux_field = _aux_db_table.TableFields.TableFieldCollection[f];
+			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
+			_aux_ex_field = _aux_db_field.parallel_ref;
 
-			if (_aux_field.isNullable && !_aux_field.isPK) {%>
-		#region public bool <%=_aux_field.Name%>_isNull { get; set; }
+			if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%>
+		#region public bool <%=_aux_db_field.Name%>_isNull { get; set; }
 		/// <summary>
-		/// Allows assignement of null and check if null at <%=_aux_db_table.Name%>'s <%=_aux_field.Name%>.
+		/// Allows assignement of null and check if null at <%=_aux_db_table.Name%>'s <%=_aux_db_field.Name%>.
 		/// </summary>
 		public 
 #if NET_1_1
 			virtual 
 #endif
-		bool <%=_aux_field.Name%>_isNull {
-			get { return mainAggregate.Fields.<%=_aux_field.Name%>_isNull; }
-			set { mainAggregate.Fields.<%=_aux_field.Name%>_isNull = value; }
+		bool <%=_aux_db_field.Name%>_isNull {
+			get { return mainAggregate.Fields.<%=_aux_db_field.Name%>_isNull; }
+			set { mainAggregate.Fields.<%=_aux_db_field.Name%>_isNull = value; }
 		}
 		#endregion<%
 			}%>
-		#region public <%=_aux_db_field.DBType_generic.FWType%> <%=_aux_field.Name%> { get; set; }
+		#region public <%=_aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%> { get; set; }
 		/// <summary>
-		/// <%=_aux_db_table.Name%>'s <%=_aux_field.Name%>.
+		/// <%=_aux_db_table.Name%>'s <%=_aux_db_field.Name%>.
 		/// </summary>
 		[DOPropertyAttribute(
-			"<%=_aux_field.Name%>", 
-			"<%=_aux_field.FriendlyName%>", 
-			"<%=_aux_field.ExtendedDescription%>", 
-			<%=_aux_field.isPK.ToString().ToLower()%>, 
-			<%=_aux_field.isIdentity.ToString().ToLower()%>, 
-			<%=_aux_field.isNullable.ToString().ToLower()%>, 
-			"<%=_aux_field.DefaultValue%>", <%--
-			<%=(_aux_field.DefaultValue == string.Empty) ? "null" : _aux_field.DefaultValue%>,
-			<%=(_aux_field.DefaultValue == string.Empty) ? "\"\"" : _aux_field.DefaultValue%>, --%>
-			"<%=_aux_field.FK_TableName%>", 
-			"<%=_aux_field.FK_FieldName%>", 
+			"<%=_aux_db_field.Name%>", 
+			"<%=_aux_ex_field.FriendlyName%>", 
+			"<%=_aux_ex_field.ExtendedDescription%>", 
+			<%=_aux_db_field.isPK.ToString().ToLower()%>, 
+			<%=_aux_db_field.isIdentity.ToString().ToLower()%>, 
+			<%=_aux_db_field.isNullable.ToString().ToLower()%>, 
+			"<%=_aux_ex_field.DefaultValue%>", <%--
+			<%=(_aux_ex_field.DefaultValue == string.Empty) ? "null" : _aux_ex_field.DefaultValue%>,
+			<%=(_aux_ex_field.DefaultValue == string.Empty) ? "\"\"" : _aux_ex_field.DefaultValue%>, --%>
+			"<%=_aux_db_field.FKTableName%>", 
+			"<%=_aux_db_field.FKFieldName%>", 
 			<%=_aux_ex_field.isConfig_Name.ToString().ToLower()%>, 
 			<%=_aux_ex_field.isConfig_Config.ToString().ToLower()%>, 
 			<%=_aux_ex_field.isConfig_Datatype.ToString().ToLower()%>, 
-			<%=_aux_field.isBool.ToString().ToLower()%>, 
-			<%=_aux_field.isDateTime.ToString().ToLower()%>, 
-			<%=_aux_field.isInt.ToString().ToLower()%>, 
+			<%=_aux_db_field.isBool.ToString().ToLower()%>, 
+			<%=_aux_db_field.isDateTime.ToString().ToLower()%>, 
+			<%=_aux_db_field.isInt.ToString().ToLower()%>, 
 			<%=_aux_db_field.isDecimal.ToString().ToLower()%>, 
-			<%=_aux_field.isText.ToString().ToLower()%>, 
-			<%=_aux_field.isListItemValue.ToString().ToLower()%>, 
-			<%=_aux_field.isListItemText.ToString().ToLower()%>, 
+			<%=_aux_db_field.isText.ToString().ToLower()%>, 
+			<%=_aux_ex_field.isListItemValue.ToString().ToLower()%>, 
+			<%=_aux_ex_field.isListItemText.ToString().ToLower()%>, 
 			<%=_aux_db_field.Size%>, 
-			"<%=_aux_field.AditionalInfo%>"
+			""
 		)]
 		public 
 #if NET_1_1
 			virtual 
 #endif
-		<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_field.Name%> {
-			get { return mainAggregate.Fields.<%=_aux_field.Name%>; }
-			set { mainAggregate.Fields.<%=_aux_field.Name%> = value; }
+		<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%> {
+			get { return mainAggregate.Fields.<%=_aux_db_field.Name%>; }
+			set { mainAggregate.Fields.<%=_aux_db_field.Name%> = value; }
 		}
 		#endregion<%
 		}%>

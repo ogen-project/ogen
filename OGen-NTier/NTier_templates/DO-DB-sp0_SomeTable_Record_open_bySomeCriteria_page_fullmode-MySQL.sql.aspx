@@ -52,7 +52,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 		//_aux_field = _aux_metadata.Tables[_aux_search.TableSearchParameters.TableFieldRefCollection[f].TableIndex].TableFields.TableFieldCollection[_aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_refIndex];
 		_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 		_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-	IN `<%=_aux_xx_field_name%>_search_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%>, <%
+	IN `<%=_aux_xx_field_name%>_search_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%>, <%
 	}%>
 	IN `page_` Int,
 	IN `page_numRecords_` Int
@@ -72,7 +72,7 @@ BEGIN
 		`ID_range` BigInt IDENTITY,<%
 		for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 			_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-		`<%=_aux_field.Name%>` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+		`<%=_aux_field.Name%>` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 		}%>
 	);
 	

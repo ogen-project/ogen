@@ -55,11 +55,11 @@ string _aux_xx_field_name;
 for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
 	_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 	_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-	IN `<%=_aux_xx_field_name%>_search_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%>, <%
+	IN `<%=_aux_xx_field_name%>_search_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%>, <%
 }
 for (int f = 0; f < update.TableUpdateParameters.TableFieldRefCollection.Count; f++) {
 	_aux_field = update.TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;%>
-	IN `<%=_aux_field.Name%>_update_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != update.TableUpdateParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+	IN `<%=_aux_field.Name%>_update_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != update.TableUpdateParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 }%>
 )
 	NOT DETERMINISTIC

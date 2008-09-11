@@ -51,14 +51,14 @@ string _aux_xx_field_name;
 	for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
 		_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 		_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-	@<%=_aux_xx_field_name%>_search_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%>, <%
+	@<%=_aux_xx_field_name%>_search_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%>, <%
 	}%>
 
 	@Exists_ BIT OUT
 AS<%
 	for (int f = 0; f < _aux_table.TableFields_onlyPK.TableFieldCollection.Count; f++) {
 		_aux_field = _aux_table.TableFields_onlyPK.TableFieldCollection[f];%>
-	DECLARE @<%=_aux_field.Name%> <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%
+	DECLARE @<%=_aux_field.Name%> <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%
 	}%>
 
 	SET @Exists_ = 0
