@@ -1,0 +1,53 @@
+/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+
+SELECT
+t1.TABLE_NAME,
+	t1.COLUMN_NAME AS "Name",
+	CASE
+		WHEN t1.IS_NULLABLE = 'No' THEN
+			CAST(0 AS unsigned)
+		ELSE
+			CAST(1 AS unsigned)
+		END AS "isNullable",
+	t1.DATA_TYPE AS "Type",
+	t1.CHARACTER_MAXIMUM_LENGTH AS "Size",
+	CASE
+		WHEN ((t6.TABLE_TYPE != 'VIEW') AND (t1.COLUMN_KEY = 'PRI')) THEN
+			CAST(1 AS unsigned)
+		ELSE
+			CAST(0 AS unsigned)
+	END AS "isPK",
+	CASE
+		WHEN ((t6.TABLE_TYPE != 'VIEW') AND (t1.EXTRA = 'auto_increment')) THEN
+			CAST(1 AS unsigned)
+		ELSE
+			CAST(0 AS unsigned)
+	END AS "isIdentity",
+	NULL AS "FK_TableName",
+	NULL AS "FK_FieldName", 
+	t1.COLUMN_DEFAULT, 
+	t1.COLLATION_NAME, 
+	CAST(0 AS unsigned) as "NUMERIC_PRECISION", 
+	CAST(0 AS unsigned) as "NUMERIC_SCALE"
+FROM INFORMATION_SCHEMA.COLUMNS t1
+	LEFT JOIN INFORMATION_SCHEMA.TABLES t6 ON ((t6.TABLE_SCHEMA = t1.TABLE_SCHEMA) AND (t6.TABLE_NAME = t1.TABLE_NAME))
+WHERE
+	(t1.TABLE_SCHEMA = 'test')
+	AND
+	(
+		(t1.TABLE_NAME = 'user')
+		OR
+		(t1.TABLE_NAME = 'UserGroup')
+	)
+ORDER BY t1.TABLE_NAME, t1.ORDINAL_POSITION

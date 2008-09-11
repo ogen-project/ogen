@@ -1,0 +1,378 @@
+<solution name="OGen-NTier">
+	<assemblies>
+		<assembly name="OGen.NTier.lib.datalayer">
+			<assemblies>
+				<assembly name="OGen.lib.datalayer">
+					<assemblies>
+						<assembly name="OGen.lib.config" />
+						<assembly name="Npgsql" />
+					</assemblies>
+				</assembly>
+			</assemblies>
+		</assembly>
+
+		<assembly name="OGen.NTier.lib.businesslayer">
+			<assemblies>
+				<assembly name="OGen.NTier.lib.datalayer">
+					<assemblies>
+						<assembly name="OGen.lib.datalayer">
+							<assemblies>
+								<assembly name="OGen.lib.config" />
+								<assembly name="Npgsql" />
+							</assemblies>
+						</assembly>
+					</assemblies>
+				</assembly>
+			</assemblies>
+		</assembly>
+
+		<assembly name="OGen.NTier.lib.metadata">
+			<assemblies>
+				<assembly name="OGen.lib.collections" />
+				<assembly name="OGen.lib.datalayer">
+					<assemblies>
+						<assembly name="OGen.lib.config" />
+						<assembly name="Npgsql" />
+					</assemblies>
+				</assembly>
+			</assemblies>
+		</assembly>
+
+		<assembly name="OGen.NTier.lib.generator">
+			<assemblies>
+				<assembly name="OGen.lib.config" />
+				<assembly name="OGen.lib.templates">
+					<assemblies>
+						<assembly name="OGen.lib.collections" />
+						<assembly name="OGen.lib.webforms" />
+					</assemblies>
+				</assembly>
+				<assembly name="OGen.lib.generator">
+					<assemblies>
+						<assembly name="OGen.lib.collections" />
+						<assembly name="OGen.lib.datalayer">
+							<assemblies>
+								<assembly name="OGen.lib.config" />
+								<assembly name="Npgsql" />
+							</assemblies>
+						</assembly>
+						<assembly name="OGen.lib.parser">
+							<assemblies>
+								<assembly name="OGen.lib.webforms" />
+							</assemblies>
+						</assembly>
+						<assembly name="OGen.lib.templates">
+							<assemblies>
+								<assembly name="OGen.lib.collections" />
+								<assembly name="OGen.lib.webforms" />
+							</assemblies>
+						</assembly>
+					</assemblies>
+				</assembly>
+				<assembly name="OGen.NTier.lib.metadata">
+					<assemblies>
+						<assembly name="OGen.lib.collections" />
+						<assembly name="OGen.lib.datalayer">
+							<assemblies>
+								<assembly name="OGen.lib.config" />
+								<assembly name="Npgsql" />
+							</assemblies>
+						</assembly>
+					</assemblies>
+				</assembly>
+			</assemblies>
+		</assembly>
+
+		<assembly name="OGen.NTier.lib.templates">
+			<assemblies>
+				<assembly name="OGen.NTier.lib.metadata">
+					<assemblies>
+						<assembly name="OGen.lib.collections" />
+						<assembly name="OGen.lib.datalayer">
+							<assemblies>
+								<assembly name="OGen.lib.config" />
+								<assembly name="Npgsql" />
+							</assemblies>
+						</assembly>
+					</assemblies>
+				</assembly>
+				<assembly name="OGen.NTier.lib.datalayer">
+					<assemblies>
+						<assembly name="OGen.lib.datalayer">
+							<assemblies>
+								<assembly name="OGen.lib.config" />
+								<assembly name="Npgsql" />
+							</assemblies>
+						</assembly>
+					</assemblies>
+				</assembly>
+				<assembly name="OGen.NTier.lib.businesslayer">
+					<assemblies>
+						<assembly name="OGen.NTier.lib.datalayer">
+							<assemblies>
+								<assembly name="OGen.lib.datalayer">
+									<assemblies>
+										<assembly name="OGen.lib.config" />
+										<assembly name="Npgsql" />
+									</assemblies>
+								</assembly>
+							</assemblies>
+						</assembly>
+					</assemblies>
+				</assembly>
+				<assembly name="OGen.lib.parser">
+					<assemblies>
+						<assembly name="OGen.lib.webforms" />
+					</assemblies>
+				</assembly>
+			</assemblies>
+		</assembly>
+
+		<assembly name="OGen.NTier.presentationlayer.console">
+			<assemblies>
+				<assembly name="OGen.NTier.lib.templates">
+					<assemblies>
+						<assembly name="OGen.NTier.lib.metadata">
+							<assemblies>
+								<assembly name="OGen.lib.collections" />
+								<assembly name="OGen.lib.datalayer">
+									<assemblies>
+										<assembly name="OGen.lib.config" />
+										<assembly name="Npgsql" />
+									</assemblies>
+								</assembly>
+							</assemblies>
+						</assembly>
+						<assembly name="OGen.NTier.lib.datalayer">
+							<assemblies>
+								<assembly name="OGen.lib.datalayer">
+									<assemblies>
+										<assembly name="OGen.lib.config" />
+										<assembly name="Npgsql" />
+									</assemblies>
+								</assembly>
+							</assemblies>
+						</assembly>
+						<assembly name="OGen.NTier.lib.businesslayer">
+							<assemblies>
+								<assembly name="OGen.NTier.lib.datalayer">
+									<assemblies>
+										<assembly name="OGen.lib.datalayer">
+											<assemblies>
+												<assembly name="OGen.lib.config" />
+												<assembly name="Npgsql" />
+											</assemblies>
+										</assembly>
+									</assemblies>
+								</assembly>
+							</assemblies>
+						</assembly>
+					</assemblies>
+				</assembly>
+				<assembly name="OGen.lib.generator">
+					<assemblies>
+						<assembly name="OGen.lib.collections" />
+						<assembly name="OGen.lib.datalayer">
+							<assemblies>
+								<assembly name="OGen.lib.config" />
+								<assembly name="Npgsql" />
+							</assemblies>
+						</assembly>
+						<assembly name="OGen.lib.parser">
+							<assemblies>
+								<assembly name="OGen.lib.webforms" />
+							</assemblies>
+						</assembly>
+						<assembly name="OGen.lib.templates">
+							<assemblies>
+								<assembly name="OGen.lib.collections" />
+								<assembly name="OGen.lib.webforms" />
+							</assemblies>
+						</assembly>
+					</assemblies>
+				</assembly>
+				<assembly name="OGen.NTier.lib.metadata">
+					<assemblies>
+						<assembly name="OGen.lib.collections" />
+						<assembly name="OGen.lib.datalayer">
+							<assemblies>
+								<assembly name="OGen.lib.config" />
+								<assembly name="Npgsql" />
+							</assemblies>
+						</assembly>
+					</assemblies>
+				</assembly>
+				<assembly name="OGen.NTier.lib.generator">
+					<assemblies>
+						<assembly name="OGen.lib.config" />
+						<assembly name="OGen.lib.templates">
+							<assemblies>
+								<assembly name="OGen.lib.collections" />
+								<assembly name="OGen.lib.webforms" />
+							</assemblies>
+						</assembly>
+						<assembly name="OGen.lib.generator">
+							<assemblies>
+								<assembly name="OGen.lib.collections" />
+								<assembly name="OGen.lib.datalayer">
+									<assemblies>
+										<assembly name="OGen.lib.config" />
+										<assembly name="Npgsql" />
+									</assemblies>
+								</assembly>
+								<assembly name="OGen.lib.parser">
+									<assemblies>
+										<assembly name="OGen.lib.webforms" />
+									</assemblies>
+								</assembly>
+								<assembly name="OGen.lib.templates">
+									<assemblies>
+										<assembly name="OGen.lib.collections" />
+										<assembly name="OGen.lib.webforms" />
+									</assemblies>
+								</assembly>
+							</assemblies>
+						</assembly>
+						<assembly name="OGen.NTier.lib.metadata">
+							<assemblies>
+								<assembly name="OGen.lib.collections" />
+								<assembly name="OGen.lib.datalayer">
+									<assemblies>
+										<assembly name="OGen.lib.config" />
+										<assembly name="Npgsql" />
+									</assemblies>
+								</assembly>
+							</assemblies>
+						</assembly>
+					</assemblies>
+				</assembly>
+			</assemblies>
+		</assembly>
+
+		<assembly name="OGen.NTier.presentationlayer.winforms">
+			<assemblies>
+				<assembly name="OGen.NTier.lib.templates">
+					<assemblies>
+						<assembly name="OGen.NTier.lib.metadata">
+							<assemblies>
+								<assembly name="OGen.lib.collections" />
+								<assembly name="OGen.lib.datalayer">
+									<assemblies>
+										<assembly name="OGen.lib.config" />
+										<assembly name="Npgsql" />
+									</assemblies>
+								</assembly>
+							</assemblies>
+						</assembly>
+						<assembly name="OGen.NTier.lib.datalayer">
+							<assemblies>
+								<assembly name="OGen.lib.datalayer">
+									<assemblies>
+										<assembly name="OGen.lib.config" />
+										<assembly name="Npgsql" />
+									</assemblies>
+								</assembly>
+							</assemblies>
+						</assembly>
+						<assembly name="OGen.NTier.lib.businesslayer">
+							<assemblies>
+								<assembly name="OGen.NTier.lib.datalayer">
+									<assemblies>
+										<assembly name="OGen.lib.datalayer">
+											<assemblies>
+												<assembly name="OGen.lib.config" />
+												<assembly name="Npgsql" />
+											</assemblies>
+										</assembly>
+									</assemblies>
+								</assembly>
+							</assemblies>
+						</assembly>
+					</assemblies>
+				</assembly>
+				<assembly name="OGen.lib.generator">
+					<assemblies>
+						<assembly name="OGen.lib.collections" />
+						<assembly name="OGen.lib.datalayer">
+							<assemblies>
+								<assembly name="OGen.lib.config" />
+								<assembly name="Npgsql" />
+							</assemblies>
+						</assembly>
+						<assembly name="OGen.lib.parser">
+							<assemblies>
+								<assembly name="OGen.lib.webforms" />
+							</assemblies>
+						</assembly>
+						<assembly name="OGen.lib.templates">
+							<assemblies>
+								<assembly name="OGen.lib.collections" />
+								<assembly name="OGen.lib.webforms" />
+							</assemblies>
+						</assembly>
+					</assemblies>
+				</assembly>
+				<assembly name="OGen.NTier.lib.metadata">
+					<assemblies>
+						<assembly name="OGen.lib.collections" />
+						<assembly name="OGen.lib.datalayer">
+							<assemblies>
+								<assembly name="OGen.lib.config" />
+								<assembly name="Npgsql" />
+							</assemblies>
+						</assembly>
+					</assemblies>
+				</assembly>
+				<assembly name="OGen.NTier.lib.generator">
+					<assemblies>
+						<assembly name="OGen.lib.config" />
+						<assembly name="OGen.lib.templates">
+							<assemblies>
+								<assembly name="OGen.lib.collections" />
+								<assembly name="OGen.lib.webforms" />
+							</assemblies>
+						</assembly>
+						<assembly name="OGen.lib.generator">
+							<assemblies>
+								<assembly name="OGen.lib.collections" />
+								<assembly name="OGen.lib.datalayer">
+									<assemblies>
+										<assembly name="OGen.lib.config" />
+										<assembly name="Npgsql" />
+									</assemblies>
+								</assembly>
+								<assembly name="OGen.lib.parser">
+									<assemblies>
+										<assembly name="OGen.lib.webforms" />
+									</assemblies>
+								</assembly>
+								<assembly name="OGen.lib.templates">
+									<assemblies>
+										<assembly name="OGen.lib.collections" />
+										<assembly name="OGen.lib.webforms" />
+									</assemblies>
+								</assembly>
+							</assemblies>
+						</assembly>
+						<assembly name="OGen.NTier.lib.metadata">
+							<assemblies>
+								<assembly name="OGen.lib.collections" />
+								<assembly name="OGen.lib.datalayer">
+									<assemblies>
+										<assembly name="OGen.lib.config" />
+										<assembly name="Npgsql" />
+									</assemblies>
+								</assembly>
+							</assemblies>
+						</assembly>
+					</assemblies>
+				</assembly>
+				<assembly name="OGen.lib.winforms">
+					<assemblies>
+						<assembly name="OGen.lib.collections" />
+					</assemblies>
+				</assembly>
+			</assemblies>
+		</assembly>
+	</assemblies>
+</solution>

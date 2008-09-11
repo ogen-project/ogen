@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<!--
+
+OGen
+Copyright (c) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->
+<xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://ogen.berlios.de"
+	xmlns="http://ogen.berlios.de"
+	elementFormDefault="qualified">
+
+<!--
+	<metadataDB applicationName="...">
+		<tables>
+			<table name="config" isVirtualTable="False">
+				<tableDBs>
+					<tableDB dbServerType="PostgreSQL" dbTableName="config" dbDescription="" />
+					<tableDB dbServerType="SQLServer" dbTableName="Config" dbDescription="" />
+
+					<tableDB ... />
+				</tableDBs>
+				<tableFields>
+					<tableField name="name" 
+						isPK="True" isIdentity="False" isNullable="False" 
+						fkTableName="" fkFieldName="" 
+						size="50" numericPrecision="0" numericScale="0">
+
+						<tableFieldDBs>
+							<tableFieldDB dbServerType="PostgreSQL" dbType="character varying" 
+								dbDescription="" dbDefaultValue="" dbCollationName="" 
+								dbFieldName="name" />
+
+							<tableFieldDB dbServerType="SQLServer" dbType="varchar" 
+								dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" 
+								dbFieldName="Name" />
+
+							<tableFieldDB ... />
+						</tableFieldDBs>
+					</tableField>
+
+					<tableField ... />
+				</tableFields>
+			</table>
+
+			<table ... />
+		</tables>
+	</metadataDB>
+-->
+
+	<!--
+			<tableDB dbServerType="PostgreSQL" dbTableName="IHaveAStyle" />
+			<tableDB dbServerType="SQLServer" dbTableName="i_Have_MyOwn_style" />
+			<tableDB dbServerType="MySQL" dbTableName="i_have_a_lower_style" />
+	-->
+	<xs:complexType name="tableDBType">
+		<xs:attribute name="dbServerType" type="xs:string" />
+		<xs:attribute name="dbTableName" type="xs:string" />
+		<xs:attribute name="dbDescription" type="xs:string" />
+	</xs:complexType>
+	<!--
+		<tableDBs>
+			<tableDB ... />
+			<tableDB ... />
+		</tableDBs>
+	-->
+	<xs:complexType name="tableDBsType">
+		<xs:sequence>
+			<xs:element name="tableDB" type="tableDBType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--
+			<tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="" />
+			<tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="" />
+	-->
+	<xs:complexType name="tableFieldDBType">
+		<xs:attribute name="dbServerType" type="xs:string" />
+		<xs:attribute name="dbType" type="xs:string" />
+		<xs:attribute name="dbDescription" type="xs:string" />
+		<xs:attribute name="dbDefaultValue" type="xs:string" />
+		<xs:attribute name="dbCollationName" type="xs:string" />
+		<xs:attribute name="dbFieldName" type="xs:string" />
+	</xs:complexType>
+	<!--
+		<tableFieldDBs>
+			<tableFieldDB ... />
+			<tableFieldDB ... />
+		</tableFieldDBs>
+	-->
+	<xs:complexType name="tableFieldDBsType">
+		<xs:sequence>
+			<xs:element name="tableFieldDB" type="tableFieldDBType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--
+			<tableField name="Name" isPK="True" isIdentity="False" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="False" isListItemText="False" isConfig_Name="True" isConfig_Config="False" isConfig_Datatype="False" fkTableName="" fkFieldName="" isNullable="False" size="50" numericPrecision="0" numericScale="0">
+				<tableFieldDBs ... />
+			</tableField>
+	-->
+	<xs:complexType name="tableFieldType">
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="isPK" type="xs:boolean" />
+		<xs:attribute name="isIdentity" type="xs:boolean" />
+		<xs:attribute name="fkTableName" type="xs:string" />
+		<xs:attribute name="fkFieldName" type="xs:string" />
+		<xs:attribute name="isNullable" type="xs:boolean" />
+		<xs:attribute name="size" type="xs:integer" />
+		<xs:attribute name="numericPrecision" type="xs:integer" />
+		<xs:attribute name="numericScale" type="xs:integer" />
+		<xs:sequence>
+			<xs:element name="tableFieldDBs" type="tableFieldDBsType" />
+		</xs:sequence>
+	</xs:complexType>
+	<!--
+			<tableFields>
+				<tableField ... />
+				<tableField ... />
+			</tableFields>
+	-->
+	<xs:complexType name="tableFieldsType">
+		<xs:sequence>
+			<xs:element name="tableField" type="tableFieldType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--
+		<table name="Config" friendlyName="" dbDescription="" extendedDescription="" isVirtualTable="False" isConfig="True">
+			<tableDBs ... />
+			<tableFields ... />
+		</table>
+	-->
+	<xs:complexType name="tableType">
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="isVirtualTable" type="xs:boolean" />
+		<xs:sequence>
+			<xs:element name="tableDBs" type="tableDBsType" />
+			<xs:element name="tableFields" type="tableFieldsType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--
+		<tables>
+			<table ... />
+			<table ... />
+		</tables>
+	-->
+	<xs:complexType name="tablesType">
+		<xs:sequence>
+			<xs:element name="table" type="tableType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="metadataDBType">
+		<xs:attribute name="applicationName" type="xs:string" />
+
+		<xs:sequence>
+			<xs:element name="tables" type="tablesType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="metadataDB" type="metadataDBType" />
+</xs:schema>
