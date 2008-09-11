@@ -418,6 +418,10 @@
     <Content Include="SomeApplication-7.1.sln.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="SomeApplication-9.sln.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="SomeApplication-MD0_SomeApplication.OGenXSD-metadataExtended.xml.aspx" />
     <Content Include="SomeApplication.OGen-NTier-1.1.bat.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>

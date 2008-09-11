@@ -25,6 +25,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</outputs>
 		<dependencies />
 	</template-->
+	<template name="SomeApplication-MD0_SomeApplication.OGenXSD-metadataExtended.xml.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/OGen-metadatas/MD0_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadataExtended.xml"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
 	<template name="emptyfile.txt" 
 			parserType="none"
 			iterationType="ROOT.metadataDB[0]">
