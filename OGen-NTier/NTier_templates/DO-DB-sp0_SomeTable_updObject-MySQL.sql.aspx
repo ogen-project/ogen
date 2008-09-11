@@ -46,7 +46,7 @@ bool isFirst;
 %>CREATE PROCEDURE `sp0_<%=_aux_db_table.Name%>_updObject`(<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
-	IN `<%=_aux_db_field.Name%>_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBFieldName%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
+	IN `<%=_aux_db_field.Name%>_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%><%
 	if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>, 
 	OUT `ConstraintExist_` BOOLEAN<%

@@ -123,152 +123,223 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app0.config.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-BO0_SomeTable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-BO_SomeTable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-SomeApplication_businesslayer-7.1.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-SomeApplication_businesslayer-8.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-UT-SomeApplication_businesslayer_UTs-7.1.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-UT-SomeApplication_businesslayer_UTs-8.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-UT-SomeNamespace.lib.businesslayer.UTs-1.1.nunit.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-UT-SomeNamespace.lib.businesslayer.UTs-2.0.nunit.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-UT-UT0_SomeTable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-UT-UT_app.config.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-UT-UT_SomeTable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-OGen_sp0__getTableFields-SQLServer.sql" />
     <Content Include="DO-DB-OGen_sp0__getTables-SQLServer.sql" />
     <Content Include="DO-DB-OGen_fnc0__Split-SQLServer.sql" />
     <Content Include="DO-SC0_SomeTable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-SO0_SomeTable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-UT-SomeNamespace.lib.datalayer.UTs-1.1.nunit.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-UT-SomeNamespace.lib.datalayer.UTs-2.0.nunit.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-UT-UT0__utils.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc0_SomeTable_isObject-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc0_SomeTable_isObject-PostgreSQL.sql.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc0_SomeTable_isObject-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_delObject-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_delObject-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_delObject-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_getObject-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_getObject-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_getObject-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_insObject-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_insObject-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_insObject-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_setObject-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_setObject-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_setObject-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_updObject-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_updObject-PostgreSQL.sql.aspx">
       <SubType>ASPXCodeBehind</SubType>
@@ -280,64 +351,91 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_updObject_SomeUpdate-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_updObject_SomeUpdate-SQLServer.sql.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DO0_SomeTable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DO0__utils.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DO_SomeTable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DO__utils.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-RO0_SomeTable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-SomeApplication_datalayer-8.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-SomeApplication_datalayer-7.1.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-UT-SomeApplication_datalayer_UTs-8.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-UT-SomeApplication_datalayer_UTs-7.1.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-UT-UT0_SomeTable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-UT-UT_app.config.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-UT-UT_SomeTable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
     <Content Include="SomeApplication-1.1.ndoc.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="SomeApplication-2.0.ndoc.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="SomeApplication-8.sln.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="SomeApplication-7.1.sln.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="SomeApplication-9.sln.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="SomeApplication-MD0_SomeApplication.OGenXSD-metadataExtended.xml.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="SomeApplication.OGen-NTier-1.1.bat.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="SomeApplication.OGen-NTier-2.0.bat.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="SomeApplication_AssemblyInfo.cs.txt" />
     <Content Include="SomeApplication_test-8.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="SomeApplication_test-7.1.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="SomeApplication_test_MainClass.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
@@ -345,6 +443,7 @@
     <Content Include="templates.config.xml" />
     <Content Include="Web.config" />
     <Content Include="_templates.config.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="__XSLT-TEST.txt.xslt" />
     <Compile Include="AssemblyInfo.cs">

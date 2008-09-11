@@ -44,7 +44,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 %>CREATE OR REPLACE FUNCTION "fnc0_<%=_aux_db_table.Name%>_isObject"(<%
 	for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 		_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];
-	%>"<%=_aux_db_field.Name%>_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBFieldName%><%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+	%>"<%=_aux_db_field.Name%>_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%>)
 RETURNS boolean
 AS $BODY$

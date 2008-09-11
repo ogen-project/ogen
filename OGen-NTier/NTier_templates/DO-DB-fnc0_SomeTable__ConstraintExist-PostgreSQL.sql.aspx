@@ -44,7 +44,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 %>CREATE OR REPLACE FUNCTION "fnc0_<%=_aux_db_table.Name%>__ConstraintExist"(<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
-	%>"<%=_aux_db_field.Name%>_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBFieldName%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
+	%>"<%=_aux_db_field.Name%>_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}
 %>)
 RETURNS boolean

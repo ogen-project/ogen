@@ -52,7 +52,7 @@ string _aux_xx_field_name;
 		//_aux_ex_field = er.Tables[_aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableIndex].TableFields.TableFieldCollection[_aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_refIndex];
 		_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 		_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-	IN `<%=_aux_xx_field_name%>_search_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBFieldName%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+	IN `<%=_aux_xx_field_name%>_search_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 	}%>
 )
 	NOT DETERMINISTIC
@@ -62,7 +62,7 @@ BEGIN
 	CREATE TEMPORARY TABLE `#Table_temp` (<%
 	for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 		_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-		`<%=_aux_db_field.Name%>` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBFieldName%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+		`<%=_aux_db_field.Name%>` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%>
 	);
 	

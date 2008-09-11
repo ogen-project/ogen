@@ -50,11 +50,11 @@ string aux_string;
 %>CREATE PROCEDURE `sp0_<%=_aux_db_table.Name%>_updObject_<%=aux_update.Name%>`(<%
 for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 	_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-	IN `<%=_aux_db_field.Name%>_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBFieldName%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%>, <%
+	IN `<%=_aux_db_field.Name%>_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%>, <%
 }
 for (int f = 0; f <_aux_ex_update.TableUpdateParameters.TableFieldRefCollection.Count; f++) {
 	_aux_ex_field =_aux_ex_update.TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;%>
-	IN `<%=_aux_ex_field.Name%>_update_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBFieldName%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f !=_aux_ex_update.TableUpdateParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+	IN `<%=_aux_ex_field.Name%>_update_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f !=_aux_ex_update.TableUpdateParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 }
 if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>, 
 	OUT `ConstraintExist_` BOOLEAN<%
