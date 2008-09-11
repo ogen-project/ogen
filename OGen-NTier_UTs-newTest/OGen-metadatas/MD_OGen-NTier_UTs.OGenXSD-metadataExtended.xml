@@ -36,9 +36,8 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 		</db>
 	</dbs>
 	<tables>
-
 <!--
-		<table name="IHaveAStyle" isConfig="false" configName="" configConfig="" configDatatype="" >
+		<table name="IHaveAStyle" isConfig="false" configName="" configConfig="" configDatatype="">
 			<dbs>
 				<db dbServerType="PostgreSQL" tableName="IHaveAStyle" />
 				<db dbServerType="SQLServer" tableName="i_Have_MyOwn_style" />
@@ -55,8 +54,7 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 			</tableFields>
 		</table>
 -->
-
-		<table name="Config" friendlyName="" extendedDescription="" isConfig="true" configName="Name" configConfig="Config" configDatatype="DataType" >
+		<table name="Config" friendlyName="" extendedDescription="" isConfig="true" configName="Name" configConfig="Config" configDatatype="DataType">
 			<tableFields>
 				<tableField name="Name" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Config" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
@@ -64,38 +62,28 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 				<tableField name="Description" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
 			<tableSearches>
-				<tableSearch name="all" isRange="true" isExplicitUniqueIndex="false">
-					<tableSearchParameters />
-					<tableSearchUpdates />
-				</tableSearch>
+				<tableSearch name="all" isRange="true" isExplicitUniqueIndex="false" />
 			</tableSearches>
-			<tableUpdates />
 		</table>
-		<table name="Group" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
+		<table name="Group" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
 				<tableField name="IDGroup" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Name" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
-			<tableSearches />
-			<tableUpdates />
 		</table>
-		<table name="GroupPermition" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
+		<table name="GroupPermition" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
 				<tableField name="IDGroup" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="IDPermition" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
-			<tableSearches />
-			<tableUpdates />
 		</table>
-		<table name="Language" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
+		<table name="Language" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
 				<tableField name="IDLanguage" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="IDWord_name" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
-			<tableSearches />
-			<tableUpdates />
 		</table>
-		<table name="Log" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
+		<table name="Log" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
 				<tableField name="IDLog" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="IDLogcode" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
@@ -103,10 +91,8 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 				<tableField name="Date_posted" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Logdata" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
-			<tableSearches />
-			<tableUpdates />
 		</table>
-		<table name="Logcode" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
+		<table name="Logcode" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
 				<tableField name="IDLogcode" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Warning" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
@@ -114,18 +100,14 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 				<tableField name="Code" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Description" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
-			<tableSearches />
-			<tableUpdates />
 		</table>
-		<table name="Permition" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
+		<table name="Permition" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
 				<tableField name="IDPermition" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Name" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
-			<tableSearches />
-			<tableUpdates />
 		</table>
-		<table name="User" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
+		<table name="User" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
 				<tableField name="IDUser" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Login" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
@@ -133,15 +115,11 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 				<tableField name="SomeNullValue" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
 			<tableSearches>
-				<tableSearch name="all" isRange="true" isExplicitUniqueIndex="false">
-					<tableSearchParameters />
-					<tableSearchUpdates />
-				</tableSearch>
+				<tableSearch name="all" isRange="true" isExplicitUniqueIndex="false" />
 				<tableSearch name="byLogin" isRange="false" isExplicitUniqueIndex="true">
 					<tableSearchParameters>
 						<tableFieldRef tableName="User" fieldName="Login" paramName="Login" />
 					</tableSearchParameters>
-					<tableSearchUpdates />
 				</tableSearch>
 				<tableSearch name="byGroup" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
@@ -164,7 +142,7 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 				</tableUpdate>
 			</tableUpdates>
 		</table>
-		<table name="UserGroup" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
+		<table name="UserGroup" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
 				<tableField name="IDUser" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="IDGroup" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
@@ -186,26 +164,21 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 					</tableSearchUpdates>
 				</tableSearch>
 			</tableSearches>
-			<tableUpdates />
 		</table>
-		<table name="Word" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
+		<table name="Word" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
 				<tableField name="IDWord" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="DeleteThisTestField" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
-			<tableSearches />
-			<tableUpdates />
 		</table>
-		<table name="WordLanguage" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
+		<table name="WordLanguage" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
 				<tableField name="IDWord" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="IDLanguage" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Translation" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
-			<tableSearches />
-			<tableUpdates />
 		</table>
-		<table name="vUserDefaultGroup" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
+		<table name="vUserDefaultGroup" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
 				<tableField name="IDUser" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Login" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
@@ -214,14 +187,10 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 				<tableField name="Relationdate" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
 			<tableSearches>
-				<tableSearch name="all" isRange="true" isExplicitUniqueIndex="false">
-					<tableSearchParameters />
-					<tableSearchUpdates />
-				</tableSearch>
+				<tableSearch name="all" isRange="true" isExplicitUniqueIndex="false" />
 			</tableSearches>
-			<tableUpdates />
 		</table>
-		<table name="vUserGroup" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
+		<table name="vUserGroup" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
 				<tableField name="IDUser" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Login" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
@@ -229,8 +198,6 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 				<tableField name="Name" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Relationdate" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
-			<tableSearches />
-			<tableUpdates />
 		</table>
 	</tables>
 </metadataExtended>

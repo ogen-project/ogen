@@ -37,6 +37,8 @@ XS_dbConnectionType _aux_db_connection;
 XS_tableSearchType _aux_ex_search;
 XS_tableSearchUpdateType _aux_ex_search_update;
 XS_tableUpdateType _aux_ex_update;
+
+XS_tableFieldRefType _aux_ex_field_ref;
 #endregion
 //-----------------------------------------------------------------------------------------
 if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.CopyrightTextLong != string.Empty)) {
@@ -68,12 +70,11 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 			<dbConnections><%
 		for (int c = 0; c < _aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection.Count; c++) {
 			_aux_db_connection = _aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection[c];%>
-				<dbConnection configMode="<%=
-					_aux_db_connection.ConfigMode%>" isDefault="<%=
-					_aux_db_connection.isDefault.ToString().ToLower()%>" generateSQL="<%=
-					_aux_db_connection.generateSQL.ToString().ToLower()%>" isIndexed_andReadOnly="<%=
-					_aux_db_connection.isIndexed_andReadOnly.ToString().ToLower()%>" connectionstring="<%=
-					_aux_db_connection.Connectionstring%>" /><%
+				<dbConnection configMode="<%=_aux_db_connection.ConfigMode
+					%>" isDefault="<%=_aux_db_connection.isDefault.ToString().ToLower()
+					%>" generateSQL="<%=_aux_db_connection.generateSQL.ToString().ToLower()
+					%>" isIndexed_andReadOnly="<%=_aux_db_connection.isIndexed_andReadOnly.ToString().ToLower()
+					%>" connectionstring="<%=_aux_db_connection.Connectionstring%>" /><%
 		}%>
 			</dbConnections>
 		</db><%
@@ -81,7 +82,7 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 	</dbs>
 	<tables>
 <!--
-		<table name="IHaveAStyle" isConfig="false" configName="" configConfig="" configDatatype="" >
+		<table name="IHaveAStyle" isConfig="false" configName="" configConfig="" configDatatype="">
 			<dbs>
 				<db dbServerType="PostgreSQL" tableName="IHaveAStyle" />
 				<db dbServerType="SQLServer" tableName="i_Have_MyOwn_style" />
@@ -101,32 +102,79 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 	for (int t = 0; t < _aux_db_metadata.Tables.TableCollection.Count; t++) {
 		_aux_db_table = _aux_db_metadata.Tables.TableCollection[t];
 		_aux_ex_table = _aux_db_table.parallel_ref;%>
-		<table name="<%=_aux_db_table.Name%>" friendlyName="<%=
-			(_aux_ex_table != null) ? _aux_ex_table.FriendlyName : ""%>" extendedDescription="<%=
-			(_aux_ex_table != null) ? _aux_ex_table.ExtendedDescription : ""%>" isConfig="<%=
-			(_aux_ex_table != null) ? _aux_ex_table.isConfig.ToString().ToLower() : "false"%>" configName="<%=
-			(_aux_ex_table != null) ? _aux_ex_table.ConfigName : ""%>" configConfig="<%=
-			(_aux_ex_table != null) ? _aux_ex_table.ConfigConfig : ""%>" configDatatype="<%=
-			(_aux_ex_table != null) ? _aux_ex_table.ConfigDatatype : ""%>" >
+		<table name="<%=_aux_db_table.Name
+			%>" friendlyName="<%=(_aux_ex_table != null) ? _aux_ex_table.FriendlyName : ""
+			%>" extendedDescription="<%=(_aux_ex_table != null) ? _aux_ex_table.ExtendedDescription : ""
+			%>" isConfig="<%=(_aux_ex_table != null) ? _aux_ex_table.isConfig.ToString().ToLower() : "false"
+			%>" configName="<%=(_aux_ex_table != null) ? _aux_ex_table.ConfigName : ""
+			%>" configConfig="<%=(_aux_ex_table != null) ? _aux_ex_table.ConfigConfig : ""
+			%>" configDatatype="<%=(_aux_ex_table != null) ? _aux_ex_table.ConfigDatatype : ""%>">
 			<tableFields><%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 				_aux_ex_field = _aux_db_field.parallel_ref;%>
-				<tableField name="<%=
-					_aux_db_field.Name%>" defaultValue="<%=
-					(_aux_ex_field != null) ? _aux_ex_field.DefaultValue : ""%>" friendlyName="<%=
-					(_aux_ex_field != null) ? _aux_ex_field.FriendlyName : ""%>" extendedDescription="<%=
-					(_aux_ex_field != null) ? _aux_ex_field.ExtendedDescription : ""%>" isListItemValue="<%=
-					(_aux_ex_field != null) ? (_aux_ex_field.isListItemValue.ToString().ToLower()) : "false"%>" isListItemText="<%=
-					(_aux_ex_field != null) ? (_aux_ex_field.isListItemText.ToString().ToLower()) : "false"%>" /><%
+				<tableField name="<%=_aux_db_field.Name
+					%>" defaultValue="<%=(_aux_ex_field != null) ? _aux_ex_field.DefaultValue : ""
+					%>" friendlyName="<%=(_aux_ex_field != null) ? _aux_ex_field.FriendlyName : ""
+					%>" extendedDescription="<%=(_aux_ex_field != null) ? _aux_ex_field.ExtendedDescription : ""
+					%>" isListItemValue="<%=(_aux_ex_field != null) ? (_aux_ex_field.isListItemValue.ToString().ToLower()) : "false"
+					%>" isListItemText="<%=(_aux_ex_field != null) ? (_aux_ex_field.isListItemText.ToString().ToLower()) : "false"%>" /><%
 			}%>
 			</tableFields>
-<%--
-			<tableSearches>
-				<tableSearch name="all" isRange="true" isExplicitUniqueIndex="false">
-					<tableSearchParameters />
-					<tableSearchUpdates />
-				</tableSearch>
+			<tableSearches><%
+			if (_aux_ex_table != null) {
+				for (int s = 0; s < _aux_ex_table.TableSearches.TableSearchCollection.Count; s++) {
+					_aux_ex_search = _aux_ex_table.TableSearches.TableSearchCollection[s];%>
+				<tableSearch name="<%=_aux_ex_search.Name
+					%>" isRange="<%=_aux_ex_search.isRange.ToString().ToLower()
+					%>" isExplicitUniqueIndex="<%=_aux_ex_search.isExplicitUniqueIndex.ToString().ToLower()%>"<%=
+						(
+							(_aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count != 0)
+							||
+							(_aux_ex_search.TableSearchUpdates.TableSearchUpdateCollection.Count != 0)
+						) ? "" : " /" %>><%
+
+
+					if (_aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count != 0) {%>
+					<tableSearchParameters><%
+						for (int p = 0; p < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; p++) {
+							_aux_ex_field_ref = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[p];%>
+						<tableFieldRef tableName="<%=_aux_ex_field_ref.TableName
+								%>" fieldName="<%=_aux_ex_field_ref.TableFieldName
+								%>" paramName="<%=_aux_ex_field_ref.ParamName%>" /><%
+						}%>
+					</tableSearchParameters><%
+					}
+
+
+					if (_aux_ex_search.TableSearchUpdates.TableSearchUpdateCollection.Count != 0) {%>
+					<tableSearchUpdates><%
+						for (int u = 0; u < _aux_ex_search.TableSearchUpdates.TableSearchUpdateCollection.Count; u++) {
+							_aux_ex_search_update = _aux_ex_search.TableSearchUpdates.TableSearchUpdateCollection[u];%>
+						<tableSearchUpdate name="<%=_aux_ex_search_update.Name%>"><%
+								for (int p = 0; p < _aux_ex_search_update.TableUpdateParameters.TableFieldRefCollection.Count; p++) {
+									_aux_ex_field_ref = _aux_ex_search_update.TableUpdateParameters.TableFieldRefCollection[p];%>
+							<tableFieldRef tableName="<%=_aux_ex_field_ref.TableName
+								%>" fieldName="<%=_aux_ex_field_ref.TableFieldName
+								%>" paramName="<%=_aux_ex_field_ref.ParamName
+								%>" /><%
+								}%>
+						</tableSearchUpdate><%
+						}%>
+					</tableSearchUpdates><%
+					}
+
+
+					if (
+						(_aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count != 0)
+						||
+						(_aux_ex_search.TableSearchUpdates.TableSearchUpdateCollection.Count != 0)
+					) {%>
+				</tableSearch><%
+					}
+				}
+			}%>
+<!--
 				<tableSearch name="byUser_Defaultrelation" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
 						<tableFieldRef tableName="UserGroup" fieldName="IDUser" paramName="IDUser" />
@@ -140,15 +188,36 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 						</tableSearchUpdate>
 					</tableSearchUpdates>
 				</tableSearch>
+-->
 			</tableSearches>
-			<tableUpdates>
+			<tableUpdates><%
+		if (
+			(_aux_ex_table != null)
+			&&
+			(_aux_ex_table.TableUpdates.TableUpdateCollection.Count != 0)
+		) {
+			for (int u = 0; u < _aux_ex_table.TableUpdates.TableUpdateCollection.Count; u++) {
+				_aux_ex_update = _aux_ex_table.TableUpdates.TableUpdateCollection[u];%>
+				<tableUpdate name="<%=_aux_ex_update.Name%>">
+					<tableUpdateParameters><%
+						for (int p = 0; p < _aux_ex_update.TableUpdateParameters.TableFieldRefCollection.Count; p++) {
+							_aux_ex_field_ref = _aux_ex_update.TableUpdateParameters.TableFieldRefCollection[p];%>
+						<tableFieldRef tableName="<%=_aux_ex_field_ref.TableName
+							%>" fieldName="<%=_aux_ex_field_ref.TableFieldName
+							%>" paramName="<%=_aux_ex_field_ref.ParamName%>" /><%
+						}%>
+					</tableUpdateParameters>
+				</tableUpdate><%
+			}
+		}%>
+<!--
 				<tableUpdate name="SomeUpdateTest">
 					<tableUpdateParameters>
 						<tableFieldRef tableName="User" fieldName="Password" paramName="Password" />
 					</tableUpdateParameters>
 				</tableUpdate>
+-->
 			</tableUpdates>
---%>
 		</table><%
 	}
 %>
