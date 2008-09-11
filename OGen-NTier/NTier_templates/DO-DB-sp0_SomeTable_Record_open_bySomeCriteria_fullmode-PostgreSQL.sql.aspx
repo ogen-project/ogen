@@ -47,11 +47,11 @@ string _aux_xx_field_name;
 
 #endregion
 //-----------------------------------------------------------------------------------------
-%>CREATE OR REPLACE FUNCTION "sp0_<%=_aux_db_table.Name%>_Record_open_<%=_aux_search.Name%>_fullmode"(<%
-	for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
-		_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
-		_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-	"<%=_aux_xx_field_name%>_search_" <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(f != _aux_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+%>CREATE OR REPLACE FUNCTION "sp0_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>_fullmode"(<%
+	for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
+		_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+		_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
+	"<%=_aux_xx_field_name%>_search_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_inDB_name%><%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 	}%>
 )
 RETURNS SETOF "<%=_aux_db_table.Name%>"
@@ -62,27 +62,27 @@ AS $BODY$
 		FOR _Output IN
 			SELECT<%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-				_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
-				t1."<%=_aux_field.Name%>"<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
+				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
+				t1."<%=_aux_db_field.Name%>"<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 			}%>
 			FROM "<%=_aux_db_table.Name%>" t1
-			INNER JOIN "sp_<%=_aux_db_table.Name%>_Record_open_<%=_aux_search.Name%>"(<%
-			for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
-				_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
-				_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-				"<%=_aux_xx_field_name%>_search_"<%=(f != _aux_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+			INNER JOIN "sp_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>"(<%
+			for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
+				_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+				_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
+				"<%=_aux_xx_field_name%>_search_"<%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 			}%>
 			) t2 ON (<%
 			for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 				_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-				(t2."<%=_aux_field.Name%>" = t1."<%=_aux_field.Name%>")<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
+				(t2."<%=_aux_db_field.Name%>" = t1."<%=_aux_db_field.Name%>")<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
 			}%>
 			)
 
-			-- change where condition in: "fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_search.Name%>"
+			-- change where condition in: "fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>"
 			-- NOT HERE!
 
-			-- change order by in: "sp_<%=_aux_db_table.Name%>_Record_open_<%=_aux_search.Name%>"
+			-- change order by in: "sp_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>"
 			-- NOT HERE!
 
 		LOOP

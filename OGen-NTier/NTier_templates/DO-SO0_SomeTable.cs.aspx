@@ -103,7 +103,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		#endregion
 		//---<%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-			_aux_db_field = _aux_table.TableFields.TableFieldCollection[f];
+			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 			_aux_ex_field = _aux_db_field.parallel_ref;
 
 			if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%>

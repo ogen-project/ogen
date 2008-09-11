@@ -50,11 +50,11 @@ string aux_string;
 %>CREATE PROCEDURE `sp0_<%=_aux_db_table.Name%>_updObject_<%=aux_update.Name%>`(<%
 for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 	_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-	IN `<%=_aux_field.Name%>_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%>, <%
+	IN `<%=_aux_db_field.Name%>_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%>, <%
 }
-for (int f = 0; f < aux_update.TableUpdateParameters.TableFieldRefCollection.Count; f++) {
-	_aux_field = aux_update.TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;%>
-	IN `<%=_aux_field.Name%>_update_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != aux_update.TableUpdateParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+for (int f = 0; f <_aux_ex_update.TableUpdateParameters.TableFieldRefCollection.Count; f++) {
+	_aux_ex_field =_aux_ex_update.TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;%>
+	IN `<%=_aux_ex_field.Name%>_update_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f !=_aux_ex_update.TableUpdateParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 }
 if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>, 
 	OUT `ConstraintExist_` BOOLEAN<%
@@ -67,15 +67,15 @@ BEGIN<%
 if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 	SET `ConstraintExist_` = `fnc0_<%=_aux_db_table.Name%>__ConstraintExist`(<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-		_aux_field = _aux_table.TableFields.TableFieldCollection[f];
+		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 
 		if (_aux_db_field.isPK) {
-			aux_string = "`" + _aux_field.Name + "_`";
+			aux_string = "`" + _aux_db_field.Name + "_`";
 		} else {
 			aux_string = "NULL";
-			for (int uf = 0; uf < aux_update.TableUpdateParameters.TableFieldRefCollection.Count; uf++) {
-				if (_aux_field.Name == aux_update.TableUpdateParameters.TableFieldRefCollection[uf].Field.Name) {
-					aux_string = "`" + _aux_field.Name + "_update_`";
+			for (int uf = 0; uf <_aux_ex_update.TableUpdateParameters.TableFieldRefCollection.Count; uf++) {
+				if (_aux_db_field.Name == _aux_ex_update.TableUpdateParameters.TableFieldRefCollection[uf].Field.Name) {
+					aux_string = "`" + _aux_db_field.Name + "_update_`";
 				}
 			}
 		}%><%=""%>
@@ -87,14 +87,14 @@ if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 }%>
 		UPDATE `<%=_aux_db_table.Name%>`
 		SET<%
-		for (int f = 0; f < aux_update.TableUpdateParameters.TableFieldRefCollection.Count; f++) {
-			_aux_field = aux_update.TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;%>
-			`<%=_aux_field.Name%>` = `<%=_aux_field.Name%>_update_`<%=(f != aux_update.TableUpdateParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+		for (int f = 0; f <_aux_ex_update.TableUpdateParameters.TableFieldRefCollection.Count; f++) {
+			_aux_ex_field =_aux_ex_update.TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;%>
+			`<%=_aux_ex_field.Name%>` = `<%=_aux_ex_field.Name%>_update_`<%=(f !=_aux_ex_update.TableUpdateParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 		}%>
 		WHERE<%
 		for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 			_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-			(`<%=_aux_field.Name%>` = `<%=_aux_field.Name%>_`)<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
+			(`<%=_aux_db_field.Name%>` = `<%=_aux_db_field.Name%>_`)<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
 		}%>;<%
 if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 	END IF;<%

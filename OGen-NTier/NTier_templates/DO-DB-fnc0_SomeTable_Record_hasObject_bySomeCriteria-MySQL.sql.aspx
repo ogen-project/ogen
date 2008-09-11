@@ -47,16 +47,16 @@ string _aux_xx_field_name;
 
 #endregion
 //-----------------------------------------------------------------------------------------
-%>CREATE FUNCTION `fnc0_<%=_aux_db_table.Name%>_Record_hasObject_<%=_aux_search.Name%>`(<%
+%>CREATE FUNCTION `fnc0_<%=_aux_db_table.Name%>_Record_hasObject_<%=_aux_ex_search.Name%>`(<%
 for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 	_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-	`<%=_aux_field.Name%>_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+	`<%=_aux_db_field.Name%>_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 }
-for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
-	_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
-	_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;
+for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
+	_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+	_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;
 	%>, 
-	`<%=_aux_xx_field_name%>_search_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%
+	`<%=_aux_xx_field_name%>_search_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%
 }%>
 )
 	RETURNS BOOLEAN
@@ -74,18 +74,18 @@ BEGIN<%if (_aux_metadata.CopyrightTextLong != string.Empty) {
 	DECLARE `Record_hasObject_out` BOOLEAN DEFAULT false;
 
 	SELECT true INTO `Record_hasObject_out`
-	FROM `fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_search.Name%>`(<%
-		for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
-			//_aux_field = _aux_metadata.Tables[_aux_search.TableSearchParameters.TableFieldRefCollection[f].TableIndex].TableFields.TableFieldCollection[_aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_refIndex];
-			_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
-			_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-		`<%=_aux_xx_field_name%>_search_`<%=(f != _aux_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+	FROM `fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>`(<%
+		for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
+			//_aux_ex_field = _aux_metadata.Tables[_aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableIndex].TableFields.TableFieldCollection[_aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_refIndex];
+			_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+			_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
+		`<%=_aux_xx_field_name%>_search_`<%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 		}%>
 	)
 	WHERE<%
 	for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 		_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-		(`<%=_aux_field.Name%>` = `<%=_aux_field.Name%>_`)<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
+		(`<%=_aux_db_field.Name%>` = `<%=_aux_db_field.Name%>_`)<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
 	}%>;
 
 	RETURN `Record_hasObject_out`;

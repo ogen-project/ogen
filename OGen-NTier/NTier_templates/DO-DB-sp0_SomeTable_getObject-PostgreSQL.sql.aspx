@@ -44,7 +44,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 %>CREATE OR REPLACE FUNCTION "sp0_<%=_aux_db_table.Name%>_getObject"(<%
 	for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 		_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];
-	%>"<%=_aux_field.Name%>_" <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+	%>"<%=_aux_db_field.Name%>_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_inDB_name%><%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%>)
 RETURNS "<%=_aux_db_table.Name%>"
 AS $BODY$
@@ -55,27 +55,27 @@ AS $BODY$
 
 		SELECT<%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-				_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
-			"<%=_aux_field.Name%>", <%
+				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
+			"<%=_aux_db_field.Name%>", <%
 			}%>
 			true
 		INTO<%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-				_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
-			_Output."<%=_aux_field.Name%>", <%
+				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
+			_Output."<%=_aux_db_field.Name%>", <%
 			}%>
 			_Exists
 		FROM "<%=_aux_db_table.Name%>"
 		WHERE<%
 			for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 				_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-			("<%=_aux_field.Name%>" = "<%=_aux_field.Name%>_")<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
+			("<%=_aux_db_field.Name%>" = "<%=_aux_db_field.Name%>_")<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
 			}%>;
 
 		IF NOT (_Exists) THEN<%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-				_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
-			_Output."<%=_aux_field.Name%>" := NULL;<%
+				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
+			_Output."<%=_aux_db_field.Name%>" := NULL;<%
 			}%>
 		END IF;
 

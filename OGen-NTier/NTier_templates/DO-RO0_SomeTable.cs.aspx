@@ -107,7 +107,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 					_serialisableobject[Current] 
 						= new SO0_<%=_aux_db_table.Name%>(<%
 							for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-								_aux_db_field = _aux_table.TableFields.TableFieldCollection[f];%><%=""%>
+								_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
 							parent_ref_.Fields.<%=_aux_db_field.Name%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? "," : ""%><%
 							}%>
 						);
@@ -136,7 +136,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			for (int i = 0; i < serialisableobject_in.Length; i++) {
 				_datarow = _datatable.NewRow();<%
 				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-					_aux_db_field = _aux_table.TableFields.TableFieldCollection[f];%><%=""%>
+					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
 				_datarow["<%=_aux_db_field.Name%>"] = serialisableobject_in[i].<%=_aux_db_field.Name%>;<%
 				}%>
 
@@ -164,7 +164,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			if (base.read()) {
 				if (base.Fullmode) {<%
 					for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-						_aux_db_field = _aux_table.TableFields.TableFieldCollection[f];
+						_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 						_aux_ex_field = _aux_db_field.parallel_ref;%><%=""%>
 					if (base.Record.Rows[Current]["<%=_aux_db_field.Name%>"] == System.DBNull.Value) {<%
 						if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%><%
@@ -183,7 +183,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 					parent_ref_.Fields.haschanges_ = false;
 				} else {<%
 					for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-						_aux_db_field = _aux_table.TableFields.TableFieldCollection[k];
+						_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[k];
 						_aux_ex_field = _aux_db_field.parallel_ref;
 					//parent_ref_.< %=_aux_db_field.Name.ToLower()% >_ = (< %=_aux_db_field.DBType_generic.FWType% >)base.Record.Rows[Current]["< %=_aux_db_field.Name% >"];
 					%>
@@ -408,7 +408,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		public bool hasObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
 			for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 				_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%><%=""%>
-			<%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%>_in<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+			<%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%>_in<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 			}
 			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 				_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
@@ -420,7 +420,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
 			for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 				_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%><%=""%>
-				parent_ref_.Connection.newDBDataParameter("<%=_aux_db_field.Name%>_", DbType.<%=_aux_db_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_db_field.Name%>_in, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+				parent_ref_.Connection.newDBDataParameter("<%=_aux_db_field.Name%>_", DbType.<%=_aux_db_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_db_field.Name%>_in, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 			}
 			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 				_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;

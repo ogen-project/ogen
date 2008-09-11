@@ -45,8 +45,8 @@ bool isFirst;
 //-----------------------------------------------------------------------------------------
 %>CREATE PROCEDURE `sp0_<%=_aux_db_table.Name%>_updObject`(<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-		_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
-	IN `<%=_aux_field.Name%>_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
+		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
+	IN `<%=_aux_db_field.Name%>_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%><%
 	if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>, 
 	OUT `ConstraintExist_` BOOLEAN<%
@@ -59,8 +59,8 @@ BEGIN<%
 	if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 	SET `ConstraintExist_` = `fnc0_<%=_aux_db_table.Name%>__ConstraintExist`(<%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-			_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
-		`<%=_aux_field.Name%>_`<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
+			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
+		`<%=_aux_db_field.Name%>_`<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 		}%>
 	);
 
@@ -70,18 +70,18 @@ BEGIN<%
 		SET<%
 		isFirst = true;
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-			_aux_field = _aux_table.TableFields.TableFieldCollection[f];
+			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 			if (!_aux_db_field.isIdentity) {
 				if (!isFirst) {
 					%>, <%
 				} else {
 					isFirst = false;
 				}%>
-			`<%=_aux_field.Name%>` = `<%=_aux_field.Name%>_`<%
+			`<%=_aux_db_field.Name%>` = `<%=_aux_db_field.Name%>_`<%
 			}
 		}%>
 		WHERE
-			`<%=_aux_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].Name%>` = `<%=_aux_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].Name%>_`;<%
+			`<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].Name%>` = `<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].Name%>_`;<%
 	if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 	END IF;<%
 	}%>

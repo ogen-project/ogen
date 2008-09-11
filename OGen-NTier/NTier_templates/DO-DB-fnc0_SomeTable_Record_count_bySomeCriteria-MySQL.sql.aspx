@@ -47,11 +47,11 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 
 #endregion
 //-----------------------------------------------------------------------------------------
-%>CREATE FUNCTION `fnc0_<%=_aux_db_table.Name%>_Record_count_<%=_aux_search.Name%>`(<%
-	for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
-		_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
-		_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-	`<%=_aux_xx_field_name%>_search_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+%>CREATE FUNCTION `fnc0_<%=_aux_db_table.Name%>_Record_count_<%=_aux_ex_search.Name%>`(<%
+	for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
+		_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+		_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
+	`<%=_aux_xx_field_name%>_search_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 	}%>
 )
 	RETURNS BIGINT
@@ -68,12 +68,12 @@ BEGIN<%if (_aux_metadata.CopyrightTextLong != string.Empty) {
 }%>
 	DECLARE `Record_count_out` BIGINT DEFAULT 0;
 
-	SELECT COUNT(`<%=_aux_table.TableFields_onlyPK.TableFieldCollection[0].Name%>`) INTO `Record_count_out`
-	FROM `fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_search.Name%>`(<%
-		for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
-			_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
-			_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-		`<%=_aux_xx_field_name%>_search_`<%=(f != _aux_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+	SELECT COUNT(`<%=_aux_db_table.TableFields_onlyPK.TableFieldCollection[0].Name%>`) INTO `Record_count_out`
+	FROM `fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>`(<%
+		for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
+			_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+			_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
+		`<%=_aux_xx_field_name%>_search_`<%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 		}%>
 	);
 

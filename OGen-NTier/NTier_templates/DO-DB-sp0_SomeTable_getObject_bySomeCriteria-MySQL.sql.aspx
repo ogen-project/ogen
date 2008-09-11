@@ -47,15 +47,15 @@ string _aux_xx_field_name;
 
 #endregion
 //-----------------------------------------------------------------------------------------
-%>CREATE PROCEDURE `sp0_<%=_aux_db_table.Name%>_getObject_<%=_aux_search.Name%>`(<%
-for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
-	_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
-	_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-	IN `<%=_aux_xx_field_name%>_search_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%>, <%
+%>CREATE PROCEDURE `sp0_<%=_aux_db_table.Name%>_getObject_<%=_aux_ex_search.Name%>`(<%
+for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
+	_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+	_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
+	IN `<%=_aux_xx_field_name%>_search_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%>, <%
 }
 for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-	_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
-	IN `<%=_aux_field.Name%>` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%> OUT<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
+	_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
+	IN `<%=_aux_db_field.Name%>` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%> OUT<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 }%>
 )
 	NOT DETERMINISTIC
@@ -73,28 +73,28 @@ BEGIN<%if (_aux_metadata.CopyrightTextLong != string.Empty) {
 
 	SELECT<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-		_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
-		t1.`<%=_aux_field.Name%>` INTO `<%=_aux_field.Name%>`, <%
+		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
+		t1.`<%=_aux_db_field.Name%>` INTO `<%=_aux_db_field.Name%>`, <%
 	}%>
 		true INTO `Exists`
 	FROM `<%=_aux_db_table.Name%>` t1
-	INNER JOIN `fnc_<%=_aux_db_table.Name%>_isObject_<%=_aux_search.Name%>`(<%
-	for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
-		_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
-		_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-		`<%=_aux_xx_field_name%>_search_`<%=(f != _aux_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+	INNER JOIN `fnc_<%=_aux_db_table.Name%>_isObject_<%=_aux_ex_search.Name%>`(<%
+	for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
+		_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+		_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
+		`<%=_aux_xx_field_name%>_search_`<%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 	}%>
 	) t2 ON (<%
 	for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 		_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-		(t2.`<%=_aux_field.Name%>` = t1.`<%=_aux_field.Name%>`)<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
+		(t2.`<%=_aux_db_field.Name%>` = t1.`<%=_aux_db_field.Name%>`)<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
 	}%>
 	);
 
 	IF (NOT `Exists`) THEN<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-		_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
-		SET `<%=_aux_field.Name%>` = NULL;<%
+		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
+		SET `<%=_aux_db_field.Name%>` = NULL;<%
 	}%>
 	END IF;
 END

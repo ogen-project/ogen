@@ -66,7 +66,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 	/// </note>
 #endif--%>
 	/// </summary>
-	[DOClassAttribute("<%=_aux_db_table.Name%>", "<%=_aux_table.FriendlyName%>", "<%=_aux_table.DBDescription%>", "<%=_aux_table.ExtendedDescription%>", <%=_aux_db_table.isVirtualTable.ToString().ToLower()%>, <%=_aux_ex_table.isConfig.ToString().ToLower()%>)]
+	[DOClassAttribute("<%=_aux_db_table.Name%>", "<%=_aux_ex_table.FriendlyName%>", "<%=_aux_ex_table.DBDescription%>", "<%=_aux_ex_table.ExtendedDescription%>", <%=_aux_db_table.isVirtualTable.ToString().ToLower()%>, <%=_aux_ex_table.isConfig.ToString().ToLower()%>)]
 	public 
 #if !NET_1_1
 		partial 
@@ -140,7 +140,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 			virtual 
 #endif
 			string ListItemValue {
-			get { return <%=_aux_table.ListItemValue.Name%><%=(_aux_table.ListItemValue.DBType_generic.FWType != "string") ? ".ToString()" : ""%>; }
+			get { return <%=_aux_ex_table.ListItemValue.Name%><%=(_aux_ex_table.ListItemValue.DBType_generic.FWType != "string") ? ".ToString()" : ""%>; }
 		}
 		#endregion
 		#region public string ListItemText { get; }
@@ -152,7 +152,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 			virtual 
 #endif
 			string ListItemText {
-			get { return <%=_aux_table.ListItemText.Name%><%=(_aux_table.ListItemText.DBType_generic.FWType != "string") ? ".ToString()" : ""%>; }
+			get { return <%=_aux_ex_table.ListItemText.Name%><%=(_aux_ex_table.ListItemText.DBType_generic.FWType != "string") ? ".ToString()" : ""%>; }
 		}
 		#endregion
 		//---<%

@@ -70,6 +70,30 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			}
 		}
 		#endregion
+		#region public XS_tableFieldsType TableFields_noPK { get; }
+		private XS_tableFieldsType tablefields_nopk__ = null;
+
+		public XS_tableFieldsType TableFields_nopk {
+			get {
+				// this isn't very safe, there's no way to assure that PKs won't be
+				// added or removed, but by the time this method is called
+				// there won't be any more adding or removing
+
+				if (tablefields_nopk__ == null) {
+					tablefields_nopk__ = new XS_tableFieldsType();
+					tablefields_nopk__.parent_ref = this;
+					tablefields_nopk__.root_ref = root_ref;
+
+					for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
+						if (!TableFields.TableFieldCollection[f].isPK)
+							tablefields_nopk__.TableFieldCollection.Add(
+								TableFields.TableFieldCollection[f]
+							);
+				}
+				return tablefields_nopk__;
+			}
+		}
+		#endregion
 		#region public int hasIdentityKey { get; }
 		private int hasidentitykey__ = -2;
 

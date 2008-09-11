@@ -47,11 +47,11 @@ string _aux_xx_field_name;
 
 #endregion
 //-----------------------------------------------------------------------------------------
-%>CREATE OR REPLACE FUNCTION "fnc0_<%=_aux_db_table.Name%>_isObject_<%=_aux_search.Name%>"(<%
-for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
-	_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
-	_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-	"<%=_aux_xx_field_name%>_search_" <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(f != _aux_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+%>CREATE OR REPLACE FUNCTION "fnc0_<%=_aux_db_table.Name%>_isObject_<%=_aux_ex_search.Name%>"(<%
+for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
+	_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+	_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
+	"<%=_aux_xx_field_name%>_search_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_inDB_name%><%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 }%>
 )
 RETURNS bool AS $BODY$
@@ -59,11 +59,11 @@ RETURNS bool AS $BODY$
 		RETURN EXISTS(
 			SELECT
 				true -- whatever, just checking existence
-			FROM "fnc_<%=_aux_db_table.Name%>_isObject_<%=_aux_search.Name%>"(<%
-			for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
-				_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
-				_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-				"<%=_aux_xx_field_name%>_search_"<%=(f != _aux_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+			FROM "fnc_<%=_aux_db_table.Name%>_isObject_<%=_aux_ex_search.Name%>"(<%
+			for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
+				_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+				_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
+				"<%=_aux_xx_field_name%>_search_"<%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 			}%>
 			)
 		);

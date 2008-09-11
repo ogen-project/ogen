@@ -30,6 +30,31 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			name_ = name_in;
 		}
 
+		#region public XS_tableFieldType ListItemValue { get; }
+		public XS_tableFieldType ListItemValue {
+			get {
+				for (int f = 0; f < TableFields.TableFieldCollection.Count; f++) {
+					if (TableFields.TableFieldCollection[f].isListItemValue) {
+						return TableFields.TableFieldCollection[f];
+					}
+				}
+				return null;
+			}
+		}
+		#endregion
+		#region public XS_tableFieldType ListItemText { get; }
+		public XS_tableFieldType ListItemText {
+			get {
+				for (int f = 0; f < TableFields.TableFieldCollection.Count; f++) {
+					if (TableFields.TableFieldCollection[f].isListItemText) {
+						return TableFields.TableFieldCollection[f];
+					}
+				}
+				return null;
+			}
+		}
+		#endregion
+
 		#region public metadataDB.XS_tableType parallel_ref { get; }
 		private OGen.NTier.lib.metadata.metadataDB.XS_tableType parallel_ref__ = null;
 

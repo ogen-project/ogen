@@ -247,24 +247,25 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			string DatatypeField;
 			System.Data.DataTable ConfigTable;
 			for (int t = 0; t < _aux_ex_metadata.Tables.TableCollection.Count; t++) {
-				_aux_table = _aux_ex_metadata.Tables.TableCollection[t];
+				_aux_ex_table = _aux_ex_metadata.Tables.TableCollection[t];
+				_aux_db_table = _aux_ex_table.parallel_ref;
 				if (_aux_ex_table.isConfig) {%>
 		#region public static Methods - DB.<%=_aux_db_table.Name%>...<%
 					NameField = "";
 					ConfigField = "";
 					DatatypeField = "";
 					for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-						_aux_field = _aux_table.TableFields.TableFieldCollection[f];
+						_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 						if (_aux_ex_field.isConfig_Name) {
-							NameField = _aux_field.Name;
+							NameField = _aux_db_field.Name;
 							continue;
 						}
 						if (_aux_ex_field.isConfig_Config) {
-							ConfigField = _aux_field.Name;
+							ConfigField = _aux_db_field.Name;
 							continue;
 						}
 						if (_aux_ex_field.isConfig_Datatype) {
-							DatatypeField = _aux_field.Name;
+							DatatypeField = _aux_db_field.Name;
 							continue;
 						}
 					}
@@ -278,7 +279,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 							/*00*/ NameField,
 							/*01*/ ConfigField,
 							/*02*/ DatatypeField,
-							/*03*/ _aux_table.Name, 
+							/*03*/ _aux_ex_table.Name, 
 #if MySQL
 							/*04*/ (_aux_ex_metadata.DBs.DBCollection.FirstDefaultAvailable_DBServerType() == DBServerTypes.MySQL) ? "`" :"\""
 #else
@@ -304,10 +305,10 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			get {
 				if (!<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_beenRead) {
 					#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_ = DO_<%=_aux_db_table.Name%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-					DO_<%=_aux_db_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
-					<%=_aux_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-					<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_ = bool.Parse(<%=_aux_table.Name.ToLower()%>.Fields.<%=ConfigField%>);
-					<%=_aux_table.Name.ToLower()%>.Dispose(); <%=_aux_table.Name.ToLower()%> = null;
+					DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
+					<%=_aux_db_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+					<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_ = bool.Parse(<%=_aux_db_table.Name.ToLower()%>.Fields.<%=ConfigField%>);
+					<%=_aux_db_table.Name.ToLower()%>.Dispose(); <%=_aux_db_table.Name.ToLower()%> = null;
 					#endregion
 					// ToDos: here! if second assembly instance, one cache could override data from the other
 					//<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_beenRead = true;
@@ -316,11 +317,11 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			}
 			set {
 				#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_db_table.Name%>.<%=ConfigField%> = value;
-				DO_<%=_aux_db_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
-				<%=_aux_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-				<%=_aux_table.Name.ToLower()%>.Fields.<%=ConfigField%> = value.ToString();
-				<%=_aux_table.Name.ToLower()%>.setObject(false);
-				<%=_aux_table.Name.ToLower()%>.Dispose(); <%=_aux_table.Name.ToLower()%> = null;
+				DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
+				<%=_aux_db_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+				<%=_aux_db_table.Name.ToLower()%>.Fields.<%=ConfigField%> = value.ToString();
+				<%=_aux_db_table.Name.ToLower()%>.setObject(false);
+				<%=_aux_db_table.Name.ToLower()%>.Dispose(); <%=_aux_db_table.Name.ToLower()%> = null;
 
 				<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_ = value;
 				<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_beenRead = true;
@@ -345,10 +346,10 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			get {
 				if (!<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_beenRead) {
 					#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_db_table.Name%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-					DO_<%=_aux_db_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
-					<%=_aux_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-					<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = int.Parse(<%=_aux_table.Name.ToLower()%>.Fields.<%=ConfigField%>);
-					<%=_aux_table.Name.ToLower()%>.Dispose(); <%=_aux_table.Name.ToLower()%> = null;
+					DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
+					<%=_aux_db_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+					<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = int.Parse(<%=_aux_db_table.Name.ToLower()%>.Fields.<%=ConfigField%>);
+					<%=_aux_db_table.Name.ToLower()%>.Dispose(); <%=_aux_db_table.Name.ToLower()%> = null;
 					#endregion
 					// ToDos: here! if second assembly instance, one cache could override data from the other
 					//<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_beenRead = true;
@@ -357,11 +358,11 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			}
 			set {
 				#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_db_table.Name%>.<%=ConfigField%> = value;
-				DO_<%=_aux_db_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
-				<%=_aux_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-				<%=_aux_table.Name.ToLower()%>.Fields.<%=ConfigField%> = value.ToString();
-				<%=_aux_table.Name.ToLower()%>.setObject(false);
-				<%=_aux_table.Name.ToLower()%>.Dispose(); <%=_aux_table.Name.ToLower()%> = null;
+				DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
+				<%=_aux_db_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+				<%=_aux_db_table.Name.ToLower()%>.Fields.<%=ConfigField%> = value.ToString();
+				<%=_aux_db_table.Name.ToLower()%>.setObject(false);
+				<%=_aux_db_table.Name.ToLower()%>.Dispose(); <%=_aux_db_table.Name.ToLower()%> = null;
 
 				<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = value;
 				<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_beenRead = true;
@@ -390,21 +391,21 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 					(<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> == null)
 				) {
 					#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_db_table.Name%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-					DO_<%=_aux_db_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
-					<%=_aux_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-					<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = <%=_aux_table.Name.ToLower()%>.Fields.<%=ConfigField%>;
-					<%=_aux_table.Name.ToLower()%>.Dispose(); <%=_aux_table.Name.ToLower()%> = null;
+					DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
+					<%=_aux_db_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+					<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = <%=_aux_db_table.Name.ToLower()%>.Fields.<%=ConfigField%>;
+					<%=_aux_db_table.Name.ToLower()%>.Dispose(); <%=_aux_db_table.Name.ToLower()%> = null;
 					#endregion
 				}
 				return <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>;
 			}
 			set {
 				#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_db_table.Name%>.<%=ConfigField%> = value;
-				DO_<%=_aux_db_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
-				<%=_aux_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-				<%=_aux_table.Name.ToLower()%>.Fields.<%=ConfigField%> = value;
-				<%=_aux_table.Name.ToLower()%>.setObject(false);
-				<%=_aux_table.Name.ToLower()%>.Dispose(); <%=_aux_table.Name.ToLower()%> = null;
+				DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
+				<%=_aux_db_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+				<%=_aux_db_table.Name.ToLower()%>.Fields.<%=ConfigField%> = value;
+				<%=_aux_db_table.Name.ToLower()%>.setObject(false);
+				<%=_aux_db_table.Name.ToLower()%>.Dispose(); <%=_aux_db_table.Name.ToLower()%> = null;
 
 				<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = value;
 				#endregion
@@ -432,23 +433,23 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 					(<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> == null)
 				) {
 					#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_db_table.Name%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-					DO_<%=_aux_db_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
-					<%=_aux_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-					<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = <%=_aux_table.Name.ToLower()%>.Fields.<%=ConfigField%>.Split((char)10);
-					<%=_aux_table.Name.ToLower()%>.Dispose(); <%=_aux_table.Name.ToLower()%> = null;
+					DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
+					<%=_aux_db_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+					<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = <%=_aux_db_table.Name.ToLower()%>.Fields.<%=ConfigField%>.Split((char)10);
+					<%=_aux_db_table.Name.ToLower()%>.Dispose(); <%=_aux_db_table.Name.ToLower()%> = null;
 					#endregion
 				}
 				return <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>;
 			}
 			set {
 				#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_db_table.Name%>.<%=ConfigField%> = value;
-				DO_<%=_aux_db_table.Name%> <%=_aux_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
-				<%=_aux_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+				DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
+				<%=_aux_db_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
 
 
-				<%=_aux_table.Name.ToLower()%>.Fields.<%=ConfigField%> = string.Empty;
+				<%=_aux_db_table.Name.ToLower()%>.Fields.<%=ConfigField%> = string.Empty;
 				for (int i = 0; i < value.Length; i++) {
-					<%=_aux_table.Name.ToLower()%>.Fields.<%=ConfigField%> += string.Format(
+					<%=_aux_db_table.Name.ToLower()%>.Fields.<%=ConfigField%> += string.Format(
 						"{0}{1}",
 						(i != 0) ? ((char)10).ToString() : string.Empty, 
 						value[i]
@@ -456,8 +457,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 				}
 
 
-				<%=_aux_table.Name.ToLower()%>.setObject(false);
-				<%=_aux_table.Name.ToLower()%>.Dispose(); <%=_aux_table.Name.ToLower()%> = null;
+				<%=_aux_db_table.Name.ToLower()%>.setObject(false);
+				<%=_aux_db_table.Name.ToLower()%>.Dispose(); <%=_aux_db_table.Name.ToLower()%> = null;
 
 				<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = value;
 				#endregion

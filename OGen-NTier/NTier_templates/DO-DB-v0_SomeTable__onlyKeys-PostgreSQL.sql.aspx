@@ -46,7 +46,7 @@ AS
 	SELECT<%
 		for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 			_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-		"<%=_aux_field.Name%>"<%=(k == _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? "" : ", "%><%
+		"<%=_aux_db_field.Name%>"<%=(k == _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? "" : ", "%><%
 		}%>
 	FROM "<%=_aux_db_table.Name%>"
 ;

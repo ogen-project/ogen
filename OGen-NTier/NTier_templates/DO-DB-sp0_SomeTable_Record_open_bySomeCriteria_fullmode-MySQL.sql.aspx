@@ -47,12 +47,12 @@ string _aux_xx_field_name;
 
 #endregion
 //-----------------------------------------------------------------------------------------
-%>CREATE PROCEDURE `sp0_<%=_aux_db_table.Name%>_Record_open_<%=_aux_search.Name%>_fullmode`(<%
-	for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
-		//_aux_field = er.Tables[_aux_search.TableSearchParameters.TableFieldRefCollection[f].TableIndex].TableFields.TableFieldCollection[_aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_refIndex];
-		_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
-		_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-	IN `<%=_aux_xx_field_name%>_search_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+%>CREATE PROCEDURE `sp0_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>_fullmode`(<%
+	for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
+		//_aux_ex_field = er.Tables[_aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableIndex].TableFields.TableFieldCollection[_aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_refIndex];
+		_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+		_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
+	IN `<%=_aux_xx_field_name%>_search_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 	}%>
 )
 	NOT DETERMINISTIC
@@ -62,40 +62,40 @@ BEGIN
 	CREATE TEMPORARY TABLE `#Table_temp` (<%
 	for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 		_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-		`<%=_aux_field.Name%>` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+		`<%=_aux_db_field.Name%>` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%>
 	);
 	
 	INSERT INTO `#Table_temp` (<%
 		for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 			_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-		`<%=_aux_field.Name%>`<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+		`<%=_aux_db_field.Name%>`<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 		}%>
 	);
-	CALL `sp_<%=_aux_db_table.Name%>_Record_open_<%=_aux_search.Name%>`(<%
-	for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
-		_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
-		_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;
-		%>`<%=_aux_xx_field_name%>_search_`<%=(f != _aux_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+	CALL `sp_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>`(<%
+	for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
+		_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+		_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;
+		%>`<%=_aux_xx_field_name%>_search_`<%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 	}%>);
 
 	SELECT<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-		_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
-		t1.`<%=_aux_field.Name%>`<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
+		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
+		t1.`<%=_aux_db_field.Name%>`<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%>
 	FROM `<%=_aux_db_table.Name%>` t1
 		INNER JOIN `#Table_temp` t2 ON (<%
 		for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 			_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-			(t2.`<%=_aux_field.Name%>` = t1.`<%=_aux_field.Name%>`)<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? "AND " : ""%><%
+			(t2.`<%=_aux_db_field.Name%>` = t1.`<%=_aux_db_field.Name%>`)<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? "AND " : ""%><%
 		}%>
 		);
 
-	-- CHANGE where CONDITION IN: `fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_search.Name%>`
+	-- CHANGE where CONDITION IN: `fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>`
 	-- NOT HERE!
 
-	-- CHANGE order by IN: `sp_<%=_aux_db_table.Name%>_Record_open_<%=_aux_search.Name%>`
+	-- CHANGE order by IN: `sp_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>`
 	-- NOT HERE!
 
 	DROP TABLE `#Table_temp`;

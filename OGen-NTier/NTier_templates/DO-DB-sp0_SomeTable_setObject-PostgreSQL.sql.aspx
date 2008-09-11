@@ -43,8 +43,8 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 //-----------------------------------------------------------------------------------------
 %>CREATE OR REPLACE FUNCTION "sp0_<%=_aux_db_table.Name%>_setObject"(<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-		_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
-	"<%=_aux_field.Name%>_" <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
+		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
+	"<%=_aux_db_field.Name%>_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_inDB_name%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%>
 )
 RETURNS int4 AS
@@ -71,7 +71,7 @@ $BODY$
 			WHERE<%
 				for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 					_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-				("<%=_aux_field.Name%>" = "<%=_aux_field.Name%>_")<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
+				("<%=_aux_db_field.Name%>" = "<%=_aux_db_field.Name%>_")<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
 				}%>
 		);
 		IF (_Exists) THEN
@@ -79,30 +79,30 @@ $BODY$
 			if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {
 				%>"fnc0_<%=_aux_db_table.Name%>__ConstraintExist"(<%
 				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-					_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
-				"<%=_aux_field.Name%>_"<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
+					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
+				"<%=_aux_db_field.Name%>_"<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}%>
 			)<%
 			} else {
 				%>0<%
 			}%>;<%
-			if (_aux_table.Fields_noPK.Count == 0) {%>
+			if (_aux_db_table.TableFields_nopk.TableFieldCollection.Count == 0) {%>
 			/* no need!<%
 			}%>
 			IF NOT (_ConstraintExist) THEN
 				UPDATE "<%=_aux_db_table.Name%>"
 				SET<%
-					for (int nk = 0; nk < _aux_table.Fields_noPK.Count; nk++) {
-						_aux_field = _aux_table.Fields_noPK[nk];%>
-					"<%=_aux_field.Name%>" = "<%=_aux_field.Name%>_"<%=(nk != _aux_table.Fields_noPK.Count - 1) ? ", " : ""%><%
+					for (int nk = 0; nk < _aux_db_table.TableFields_nopk.TableFieldCollection.Count; nk++) {
+						_aux_db_field = _aux_db_table.TableFields_nopk.TableFieldCollection[nk];%>
+					"<%=_aux_db_field.Name%>" = "<%=_aux_db_field.Name%>_"<%=(nk != _aux_db_table.TableFields_nopk.TableFieldCollection.Count - 1) ? ", " : ""%><%
 					}%>
 				WHERE<%
 					for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 						_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-					("<%=_aux_field.Name%>" = "<%=_aux_field.Name%>_")<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
+					("<%=_aux_db_field.Name%>" = "<%=_aux_db_field.Name%>_")<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
 					}%>;
 			END IF;<%
-			if (_aux_table.Fields_noPK.Count == 0) {
+			if (_aux_db_table.TableFields_nopk.TableFieldCollection.Count == 0) {
 			%>
 			*/<%
 			}%>
@@ -111,8 +111,8 @@ $BODY$
 			if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {
 				%>"fnc0_<%=_aux_db_table.Name%>__ConstraintExist"(<%
 				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-					_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
-				<%=(_aux_db_field.isPK) ? _aux_field.DBs[_aux_dbservertype].DBType_generic_DBEmptyValue() : "\"" + _aux_field.Name + "_\""%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
+					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
+				<%=(_aux_db_field.isPK) ? _aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_generic_DBEmptyValue() : "\"" + _aux_db_field.Name + "_\""%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}%>
 			)<%
 			} else {
@@ -121,13 +121,13 @@ $BODY$
 			IF NOT (_ConstraintExist) THEN
 				INSERT INTO "<%=_aux_db_table.Name%>" (<%
 					for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-						_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
-					"<%=_aux_field.Name%>"<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
+						_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
+					"<%=_aux_db_field.Name%>"<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 					}%>
 				) VALUES (<%
 					for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-						_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
-					"<%=_aux_field.Name%>_"<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
+						_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
+					"<%=_aux_db_field.Name%>_"<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 					}%>
 				);
 			END IF;
