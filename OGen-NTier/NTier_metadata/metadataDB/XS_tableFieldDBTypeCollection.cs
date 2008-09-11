@@ -18,6 +18,7 @@ using System.Collections;
 #if !NET_1_1
 using System.Collections.Generic;
 #endif
+using OGen.lib.datalayer;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
 	#if NET_1_1
@@ -25,5 +26,52 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 	#else
 	public partial class XS_tableFieldDBTypeCollection {
 	#endif
+
+		#region public XS_tableFieldDBType this[...] { get; }
+		public XS_tableFieldDBType this[
+			DBServerTypes dbServerType_in
+		] {
+			get {
+				int _index = Search(
+					dbServerType_in
+				);
+				return (_index == -1)
+					? null
+					:
+						#if NET_1_1
+						(XS_tableFieldDBType)
+						#endif
+							cols_[_index]
+				;
+			}
+		}
+		#endregion
+
+		#region public int Search(...);
+		public int Search(
+			DBServerTypes dbServerType_in
+		) {
+			for (int i = 0; i < cols_.Count; i++) {
+				if (
+					(
+						#if NET_1_1
+						((XS_tableFieldDBType)cols_[i])
+						#else
+						cols_[i]
+						#endif
+							.DBServerType
+						==
+						dbServerType_in.ToString()
+					)
+					
+				) {
+					return i;
+				}
+			}
+
+			return -1;
+		}
+		#endregion
+
 	}
 }

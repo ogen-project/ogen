@@ -44,12 +44,13 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 <%=_aux_ex_metadata.CopyrightTextLong%>
 
 --><%
-}%><metadataExtended 
+}%>
+<metadataExtended 
 	applicationName="<%=_aux_ex_metadata.ApplicationName%>" 
 	applicationNamespace="<%=_aux_ex_metadata.ApplicationNamespace%>" 
 	subAppName="<%=_aux_ex_metadata.SubAppName%>" 
 	pseudoReflectionable="<%=_aux_ex_metadata.PseudoReflectionable%>" 
-	sqlScriptOption="RunImmediately" 
+	sqlScriptOption="<%=_aux_ex_metadata.SQLScriptOption%>" 
 	guidDatalayer="<%=_aux_ex_metadata.GUIDDatalayer%>" 
 	guidDatalayer_UTs="<%=_aux_ex_metadata.GUIDDatalayer_UTs%>" 
 	guidBusinesslayer="<%=_aux_ex_metadata.GUIDBusinesslayer%>" 
