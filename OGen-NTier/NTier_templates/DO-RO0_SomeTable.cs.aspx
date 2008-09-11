@@ -213,6 +213,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		/// </summary><%
 		for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 			_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+			_aux_db_field = _aux_ex_field.parallel_ref;
 			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 		/// <param name="<%=_aux_xx_field_name%>_search_in"><%=_aux_xx_field_name%> search condition</param><%
 		}%>
@@ -227,6 +228,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			Open_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
 				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 					_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+					_aux_db_field = _aux_ex_field.parallel_ref;
 					_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 				<%=_aux_xx_field_name%>_search_in<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 				}
@@ -240,6 +242,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		/// </summary><%
 		for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 			_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+			_aux_db_field = _aux_ex_field.parallel_ref;
 			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 		/// <param name="<%=_aux_xx_field_name%>_search_in"><%=_aux_xx_field_name%> search condition</param><%
 		}%>
@@ -247,6 +250,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		public void Open_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
 			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 				_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+				_aux_db_field = _aux_ex_field.parallel_ref;
 				_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 			<%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 			}%><%=(_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count != 0) ? ", " : ""%>
@@ -255,6 +259,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
 				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 					_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+					_aux_db_field = _aux_ex_field.parallel_ref;
 					_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 				parent_ref_.Connection.newDBDataParameter("<%=_aux_xx_field_name%>_search_", DbType.<%=_aux_db_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_xx_field_name%>_search_in, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 				}%>
@@ -275,6 +280,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		/// </summary><%
 		for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 			_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+			_aux_db_field = _aux_ex_field.parallel_ref;
 			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 		/// <param name="<%=_aux_xx_field_name%>_search_in"><%=_aux_xx_field_name%> search condition</param><%
 		}%>
@@ -283,6 +289,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		public void Open_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
 			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 				_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+				_aux_db_field = _aux_ex_field.parallel_ref;
 				_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 			<%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 			}
@@ -293,6 +300,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			Open_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
 				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 					_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+					_aux_db_field = _aux_ex_field.parallel_ref;
 					_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 				<%=_aux_xx_field_name%>_search_in<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 				}
@@ -308,6 +316,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		/// </summary><%
 		for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 			_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+			_aux_db_field = _aux_ex_field.parallel_ref;
 			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 		/// <param name="<%=_aux_xx_field_name%>_search_in"><%=_aux_xx_field_name%> search condition</param><%
 		}%>
@@ -317,6 +326,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		public void Open_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
 			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 				_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+				_aux_db_field = _aux_ex_field.parallel_ref;
 				_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 			<%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 			}
@@ -328,6 +338,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
 				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 					_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+					_aux_db_field = _aux_ex_field.parallel_ref;
 					_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 				parent_ref_.Connection.newDBDataParameter("<%=_aux_xx_field_name%>_search_", DbType.<%=_aux_db_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_xx_field_name%>_search_in, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>), <%
 				}%>
@@ -345,45 +356,51 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		}
 		#endregion<%
 		if (!_aux_db_table.isVirtualTable) {
-			for (int u = 0; u < _aux_ex_table.TableSearches.TableSearchCollection[s].Updates.Count; u++) {
+			for (int u = 0; u < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchUpdates.TableSearchUpdateCollection.Count; u++) {
 		%>
-		#region public bool Update_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Updates[u].Name%>_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(...);
+		#region public bool Update_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchUpdates.TableSearchUpdateCollection[u].Name%>_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(...);
 		/// <summary>
 		/// Updates (some) <%=_aux_db_table.Name%> values on Database based on the '<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>' search.
 		/// </summary><%
 		for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 			_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+			_aux_db_field = _aux_ex_field.parallel_ref;
 			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 		/// <param name="<%=_aux_xx_field_name%>_search_in"><%=_aux_xx_field_name%> search condition</param><%
 		}
-		for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].Updates[u].TableUpdateParameters.TableFieldRefCollection.Count; f++) {
-			_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].Updates[u].TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;%><%=""%>
+		for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchUpdates.TableSearchUpdateCollection[u].TableUpdateParameters.TableFieldRefCollection.Count; f++) {
+			_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchUpdates.TableSearchUpdateCollection[u].TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;
+			_aux_db_field = _aux_ex_field.parallel_ref;%><%=""%>
 		/// <param name="<%=_aux_ex_field.Name%>_update_in"><%=_aux_ex_field.Name%> update value</param><%
 		}%>
-		public void Update_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Updates[u].Name%>_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
+		public void Update_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchUpdates.TableSearchUpdateCollection[u].Name%>_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
 			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 				_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+				_aux_db_field = _aux_ex_field.parallel_ref;
 				_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 			<%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in, <%
 			}
-			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].Updates[u].TableUpdateParameters.TableFieldRefCollection.Count; f++) {
-				_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].Updates[u].TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;%><%=""%>
-			<%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_ex_field.Name%>_update_in<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].Updates[u].TableUpdateParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchUpdates.TableSearchUpdateCollection[u].TableUpdateParameters.TableFieldRefCollection.Count; f++) {
+				_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchUpdates.TableSearchUpdateCollection[u].TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;
+				_aux_db_field = _aux_ex_field.parallel_ref;%><%=""%>
+			<%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_ex_field.Name%>_update_in<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchUpdates.TableSearchUpdateCollection[u].TableUpdateParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 			}%>
 		) {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
 				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 					_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+					_aux_db_field = _aux_ex_field.parallel_ref;
 					_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
 				parent_ref_.Connection.newDBDataParameter("<%=_aux_xx_field_name%>_search_", DbType.<%=_aux_db_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_xx_field_name%>_search_in, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>), <%
 				}
-				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].Updates[u].TableUpdateParameters.TableFieldRefCollection.Count; f++) {
-					_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].Updates[u].TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;%>
-				parent_ref_.Connection.newDBDataParameter("<%=_aux_ex_field.Name%>_update_", DbType.<%=_aux_db_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_ex_field.Name%>_update_in, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].Updates[u].TableUpdateParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchUpdates.TableSearchUpdateCollection[u].TableUpdateParameters.TableFieldRefCollection.Count; f++) {
+					_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchUpdates.TableSearchUpdateCollection[u].TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;
+					_aux_db_field = _aux_ex_field.parallel_ref;%>
+				parent_ref_.Connection.newDBDataParameter("<%=_aux_ex_field.Name%>_update_", DbType.<%=_aux_db_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_ex_field.Name%>_update_in, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchUpdates.TableSearchUpdateCollection[u].TableUpdateParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 				}%>
 			};
 			parent_ref_.Connection.Execute_SQLFunction(
-				"sp0_<%=_aux_db_table.Name%>_Record_update_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Updates[u].Name%>_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>", 
+				"sp0_<%=_aux_db_table.Name%>_Record_update_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchUpdates.TableSearchUpdateCollection[u].Name%>_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>", 
 				_dataparameters
 			);
 		}
@@ -401,6 +418,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		}
 		for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 			_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+			_aux_db_field = _aux_ex_field.parallel_ref;
 			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
 		/// <param name="<%=_aux_xx_field_name%>_search_in"><%=_aux_xx_field_name%> search condition</param><%
 		}%>
@@ -412,6 +430,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			}
 			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 				_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+				_aux_db_field = _aux_ex_field.parallel_ref;
 				_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;
 			%>, 
 			<%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in<%
@@ -424,6 +443,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			}
 			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 				_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+				_aux_db_field = _aux_ex_field.parallel_ref;
 				_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;
 				%>, 
 				parent_ref_.Connection.newDBDataParameter("<%=_aux_xx_field_name%>_search_", DbType.<%=_aux_db_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_xx_field_name%>_search_in, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%
@@ -443,6 +463,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		/// </summary><%
 		for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 			_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+			_aux_db_field = _aux_ex_field.parallel_ref;
 			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 		/// <param name="<%=_aux_xx_field_name%>_search_in"><%=_aux_xx_field_name%> search condition</param><%
 		}%>
@@ -450,6 +471,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		public long Count_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
 			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 				_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+				_aux_db_field = _aux_ex_field.parallel_ref;
 				_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 			<%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 			}%>
@@ -457,6 +479,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
 				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 					_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+					_aux_db_field = _aux_ex_field.parallel_ref;
 					_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
 				parent_ref_.Connection.newDBDataParameter("<%=_aux_xx_field_name%>_search_", DbType.<%=_aux_db_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_xx_field_name%>_search_in, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 				}%>
@@ -477,12 +500,14 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		/// </summary><%
 		for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 			_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+			_aux_db_field = _aux_ex_field.parallel_ref;
 			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 		/// <param name="<%=_aux_xx_field_name%>_search_in"><%=_aux_xx_field_name%> search condition</param><%
 		}%>
 		public void Delete_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
 			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 				_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+				_aux_db_field = _aux_ex_field.parallel_ref;
 				_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 			<%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 			}%>
@@ -490,6 +515,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
 				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 					_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+					_aux_db_field = _aux_ex_field.parallel_ref;
 					_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
 				parent_ref_.Connection.newDBDataParameter("<%=_aux_xx_field_name%>_search_", DbType.<%=_aux_db_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_xx_field_name%>_search_in, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 				}%>

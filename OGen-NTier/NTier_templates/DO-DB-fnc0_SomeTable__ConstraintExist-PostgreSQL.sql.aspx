@@ -59,13 +59,13 @@ AS $BODY$
 				true -- whatever, just checking existence
 			FROM "fnc_<%=_aux_db_table.Name%>_isObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>"(<%
 			for (int p = 0; p < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; p++) {%>
-				$<%=_aux_table.Fields.Search(_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[p].TableField_refName) + 1%><%=(p != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+				$<%=_aux_ex_table.TableFields.TableFieldCollection.Search(_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[p].TableField_refName) + 1%><%=(p != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 			}%>
 			)
 			WHERE NOT (<%
 				for (int f = 0; f < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; f++) {
 					_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[f];%>
-				("<%=_aux_db_field.Name%>" = $<%=_aux_table.Fields.Search(_aux_db_field.Name) + 1%>)<%=(f != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
+				("<%=_aux_db_field.Name%>" = $<%=_aux_db_table.TableFields.TableFieldCollection.Search(_aux_db_field.Name) + 1%>)<%=(f != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
 				}%>
 			)
 		) THEN

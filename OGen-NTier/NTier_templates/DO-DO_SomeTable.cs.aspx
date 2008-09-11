@@ -77,7 +77,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		/// <param name="connection_in">opened Database connection with an initiated Transaction</param>
 		public DO_<%=_aux_db_table.Name%>(DBConnection connection_in) : base(connection_in) {
 		}<%
-		//~DO_< %=_aux_table.Name% >() {
+		//~DO_< %=_aux_db_table.Name% >() {
 		//	cleanUp();
 		//}
 		//public new void Dispose() {

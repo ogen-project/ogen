@@ -270,8 +270,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 						}
 					}
 					DBConnection connection = DBConnectionsupport.CreateInstance(
-						_aux_ex_metadata.DBs.DBCollection.FirstDefaultAvailable_DBServerType(), 
-						_aux_ex_metadata.DBs.DBCollection.FirstDefaultAvailable_Connectionstring()
+						_aux_ex_metadata.DBs.DB_FirstDefaultAvailable.DBServerType, 
+						_aux_ex_metadata.DBs.DBConnection_FirstDefaultAvailable.Connectionstring
 					);
 					ConfigTable = connection.Execute_SQLQuery_returnDataTable(
 						string.Format(

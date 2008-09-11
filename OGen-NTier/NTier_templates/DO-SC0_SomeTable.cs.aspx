@@ -64,12 +64,12 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		#endregion
 
 		#region public SO0_<%=_aux_db_table.Name%>[] SO0_<%=_aux_db_table.Name%> { get; set; }
-		private SO0_<%=_aux_db_table.Name%>[] <%=_aux_table.Name.ToLower()%>_;
+		private SO0_<%=_aux_db_table.Name%>[] <%=_aux_db_table.Name.ToLower()%>_;
 
 		[XmlElement("oneItemOf_<%=_aux_db_table.Name%>")]
 		public SO0_<%=_aux_db_table.Name%>[] SO0_<%=_aux_db_table.Name%> {
-			get { return <%=_aux_table.Name.ToLower()%>_; }
-			set { <%=_aux_table.Name.ToLower()%>_ = value; }
+			get { return <%=_aux_db_table.Name.ToLower()%>_; }
+			set { <%=_aux_db_table.Name.ToLower()%>_ = value; }
 		}
 		#endregion
 	}

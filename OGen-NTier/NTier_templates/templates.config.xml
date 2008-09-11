@@ -60,9 +60,9 @@ XXX:NO_NEED -->
 <!-- XXX:TODOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TODOS -->
 			<output to="v0_${ROOT.metadataDB[n].tables.table[n].name}__onlyKeys"
 				type="PostgreSQL_View" mode="Replace" />
-XXX:TODOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="emptyfile.txt" />
@@ -683,9 +683,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}__ConstraintExist" 
 				type="PostgreSQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" />
@@ -707,9 +707,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}__ConstraintExist"
 				type="SQLServer_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" />
@@ -731,9 +731,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataDB[0].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
@@ -755,9 +755,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" />
@@ -780,9 +780,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}"
 				type="SQLServer_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" />
@@ -802,9 +802,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject"
 				type="MySQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
@@ -822,9 +822,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject" 
 				type="PostgreSQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="emptyfile.txt" />
@@ -844,9 +844,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject"
 				type="SQLServer_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
@@ -866,9 +866,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_count_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
@@ -890,9 +890,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_count_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
@@ -915,9 +915,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_count_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
@@ -939,9 +939,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_hasObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
@@ -963,9 +963,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_hasObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
@@ -988,9 +988,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_hasObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
@@ -1012,9 +1012,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_insObject" 
 				type="MySQL_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx" />
@@ -1036,9 +1036,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_insObject" 
 				type="PostgreSQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx" />
@@ -1061,9 +1061,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_insObject" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx" />
@@ -1085,9 +1085,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_updObject" 
 				type="MySQL_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx" />
@@ -1109,9 +1109,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_updObject" 
 				type="PostgreSQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx" />
@@ -1134,9 +1134,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_updObject" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx" />
@@ -1158,9 +1158,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_setObject" 
 				type="MySQL_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
@@ -1180,9 +1180,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_setObject" 
 				type="PostgreSQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="emptyfile.txt" />
@@ -1204,9 +1204,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_setObject" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
@@ -1226,9 +1226,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject" 
 				type="MySQL_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
@@ -1248,9 +1248,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject" 
 				type="PostgreSQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="emptyfile.txt" />
@@ -1272,9 +1272,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
@@ -1295,9 +1295,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
@@ -1320,9 +1320,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
@@ -1346,9 +1346,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
@@ -1371,9 +1371,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_delete_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
@@ -1396,9 +1396,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_delete_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" />
@@ -1423,9 +1423,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_delete_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
@@ -1447,9 +1447,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_Function" mode="Create_doNotReplace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
@@ -1469,9 +1469,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Create_doNotReplace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="emptyfile.txt" />
@@ -1493,9 +1493,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_Function" mode="Create_doNotReplace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
@@ -1515,9 +1515,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_Function" mode="Create_doNotReplace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
@@ -1537,9 +1537,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Create_doNotReplace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" />
@@ -1562,9 +1562,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_Function" mode="Create_doNotReplace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
@@ -1584,9 +1584,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_StoredProcedure" mode="Create_doNotReplace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
@@ -1608,9 +1608,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Create_doNotReplace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" />
@@ -1634,9 +1634,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Create_doNotReplace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
@@ -1656,9 +1656,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject" 
 				type="MySQL_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
@@ -1676,9 +1676,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject" 
 				type="PostgreSQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="emptyfile.txt" />
@@ -1698,9 +1698,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
@@ -1720,9 +1720,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
@@ -1744,9 +1744,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" />
@@ -1769,9 +1769,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" />
@@ -1793,9 +1793,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_fullmode" 
 				type="MySQL_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
@@ -1817,9 +1817,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_fullmode" 
 				type="PostgreSQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
@@ -1842,9 +1842,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_fullmode" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
@@ -1866,9 +1866,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_page" 
 				type="MySQL_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
@@ -1890,9 +1890,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_page" 
 				type="PostgreSQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" />
@@ -1916,9 +1916,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_page" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
@@ -1940,9 +1940,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_page_fullmode" 
 				type="MySQL_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
@@ -1964,9 +1964,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_page_fullmode" 
 				type="PostgreSQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
@@ -1989,9 +1989,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_page_fullmode" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
@@ -2013,9 +2013,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_update_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n].name}_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
@@ -2037,9 +2037,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_update_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n].name}_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
@@ -2062,9 +2062,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_update_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n].name}_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
@@ -2085,9 +2085,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-MySQL/sql0-${ROOT.metadataExtended[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_updObject_${ROOT.metadataExtended[n].tables.table[n].tableUpdates.tableUpdate[n].name}" 
 				type="MySQL_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx" />
@@ -2108,9 +2108,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[n].tables.table[n].name}_updObject_${ROOT.metadataExtended[n].tables.table[n].tableUpdates.tableUpdate[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="emptyfile.txt" />
@@ -2132,9 +2132,9 @@ XXX:TO_DOS -->
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[n].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
+XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[n].tables.table[n].name}_updObject_${ROOT.metadataExtended[n].tables.table[n].tableUpdates.tableUpdate[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
-XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency name="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx" />

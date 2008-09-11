@@ -140,7 +140,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 			virtual 
 #endif
 			string ListItemValue {
-			get { return <%=_aux_ex_table.ListItemValue.Name%><%=(_aux_ex_table.ListItemValue.DBType_generic.FWType != "string") ? ".ToString()" : ""%>; }
+			get { return <%=_aux_ex_table.ListItemValue.Name%><%=(_aux_ex_table.ListItemValue.parallel_ref.DBType_generic.FWType != "string") ? ".ToString()" : ""%>; }
 		}
 		#endregion
 		#region public string ListItemText { get; }
@@ -152,7 +152,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 			virtual 
 #endif
 			string ListItemText {
-			get { return <%=_aux_ex_table.ListItemText.Name%><%=(_aux_ex_table.ListItemText.DBType_generic.FWType != "string") ? ".ToString()" : ""%>; }
+			get { return <%=_aux_ex_table.ListItemText.Name%><%=(_aux_ex_table.ListItemText.parallel_ref.DBType_generic.FWType != "string") ? ".ToString()" : ""%>; }
 		}
 		#endregion
 		//---<%

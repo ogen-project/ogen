@@ -66,7 +66,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		public SO0_<%=_aux_db_table.Name%>(
 		) : this (<%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
+			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
+			_aux_ex_field = _aux_db_field.parallel_ref;%><%=""%>
 			<%=(_aux_ex_field.DefaultValue == "") ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_ex_field.DefaultValue%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 		}%>
 		) {
