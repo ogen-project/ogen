@@ -43,7 +43,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 //-----------------------------------------------------------------------------------------
 %>CREATE PROCEDURE [dbo].[sp0_<%=_aux_db_table.Name%>_setObject]<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-		_aux_field = _aux_table.Fields[f];%>
+		_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
 	@<%=_aux_field.Name%>_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%>, <%
 	}%>
 
@@ -53,11 +53,11 @@ AS
 	DECLARE @ConstraintExist Bit
 
 	IF NOT EXISTS (
-		SELECT NULL--[<%=_aux_table.Fields[0].Name%>]
+		SELECT NULL--[<%=_aux_table.TableFields.TableFieldCollection[0].Name%>]
 		FROM [<%=_aux_db_table.Name%>]
 		WHERE<%
-			for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
-				_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%>
+			for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
+				_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
 			([<%=_aux_field.Name%>] = @<%=_aux_field.Name%>_)<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
 			}%>
 	) BEGIN
@@ -66,7 +66,7 @@ AS
 		if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {
 			%>"dbo"."fnc0_<%=_aux_db_table.Name%>__ConstraintExist"(<%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-				_aux_field = _aux_table.Fields[f];%><%=""%>
+				_aux_field = _aux_table.TableFields.TableFieldCollection[f];%><%=""%>
 			<%=(_aux_field.isPK) ? _aux_field.DBs[_aux_dbservertype].DBType_generic_DBEmptyValue() : "@" + _aux_field.Name + "_"%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 			}%>
 		)<%
@@ -76,12 +76,12 @@ AS
 		IF (@ConstraintExist = 0) BEGIN
 			INSERT INTO [<%=_aux_db_table.Name%>] (<%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-				_aux_field = _aux_table.Fields[f];%>
+				_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
 				[<%=_aux_field.Name%>]<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 			}%>
 			) VALUES (<%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-				_aux_field = _aux_table.Fields[f];%>
+				_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
 				@<%=_aux_field.Name%>_<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 			}%>
 			)
@@ -98,7 +98,7 @@ AS
 		if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {
 			%>"dbo"."fnc0_<%=_aux_db_table.Name%>__ConstraintExist"(<%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-				_aux_field = _aux_table.Fields[f];%>
+				_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
 			@<%=_aux_field.Name%>_<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 			}%>
 		)<%
@@ -116,8 +116,8 @@ AS
 				[<%=_aux_field.Name%>] = @<%=_aux_field.Name%>_<%=(nk != _aux_table.Fields_noPK.Count - 1) ? ", " : ""%><%
 				}%>
 			WHERE<%
-				for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
-					_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%>
+				for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
+					_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
 				([<%=_aux_field.Name%>] = @<%=_aux_field.Name%>_)<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
 				}%>
 		END<%

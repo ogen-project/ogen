@@ -47,7 +47,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 		%>"<%=_aux_field.Name%>_" <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%>, <%
 	}
 %> "SelectIdentity_" boolean)
-RETURNS <%=_aux_table.Fields[_aux_db_table.hasIdentityKey].DBs[_aux_dbservertype].DBType_inDB_name%>
+RETURNS <%=_aux_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].DBs[_aux_dbservertype].DBType_inDB_name%>
 AS $BODY$
 	/**********************************
 	 *  returns                       *
@@ -57,17 +57,17 @@ AS $BODY$
 	 **********************************/
 
 	DECLARE
-		IdentityKey <%=_aux_table.Fields[_aux_db_table.hasIdentityKey].DBs[_aux_dbservertype].DBType_inDB_name%> = CAST(0 AS <%=_aux_table.Fields[_aux_db_table.hasIdentityKey].DBs[_aux_dbservertype].DBType_inDB_name%>);
+		IdentityKey <%=_aux_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].DBs[_aux_dbservertype].DBType_inDB_name%> = CAST(0 AS <%=_aux_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].DBs[_aux_dbservertype].DBType_inDB_name%>);
 	BEGIN<%
 		if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 		IF ("fnc0_<%=_aux_db_table.Name%>__ConstraintExist"(
-			CAST(0 AS <%=_aux_table.Fields[_aux_db_table.hasIdentityKey].DBs[_aux_dbservertype].DBType_inDB_name%>), <%
+			CAST(0 AS <%=_aux_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].DBs[_aux_dbservertype].DBType_inDB_name%>), <%
 			for (int f = 0; f < _aux_table.Fields_noPK.Count; f++) {
 				_aux_field = _aux_table.Fields_noPK[f];%>
 			"<%=_aux_field.Name%>_"<%=(f != _aux_table.Fields_noPK.Count - 1) ? ", " : ""%><%
 			}%>
 		)) THEN
-			IdentityKey := CAST(-1 AS <%=_aux_table.Fields[_aux_db_table.hasIdentityKey].DBs[_aux_dbservertype].DBType_inDB_name%>);
+			IdentityKey := CAST(-1 AS <%=_aux_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].DBs[_aux_dbservertype].DBType_inDB_name%>);
 		ELSE<%
 		}%>
 			INSERT INTO "<%=_aux_db_table.Name%>" (<%
@@ -83,19 +83,19 @@ AS $BODY$
 			);
 			IF ("SelectIdentity_") THEN
 				SELECT
-					"<%=_aux_table.Fields[_aux_db_table.hasIdentityKey].Name%>"
+					"<%=_aux_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].Name%>"
 				INTO
 					IdentityKey
 				FROM "<%=_aux_db_table.Name%>"
-				ORDER BY "<%=_aux_table.Fields[_aux_db_table.hasIdentityKey].Name%>" DESC LIMIT 1;
+				ORDER BY "<%=_aux_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].Name%>" DESC LIMIT 1;
 			ELSE
-				IdentityKey := CAST(0 AS <%=_aux_table.Fields[_aux_db_table.hasIdentityKey].DBs[_aux_dbservertype].DBType_inDB_name%>);
+				IdentityKey := CAST(0 AS <%=_aux_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].DBs[_aux_dbservertype].DBType_inDB_name%>);
 			END IF;<%
 		if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 		END IF;<%
 		}%>
 
-		RETURN IdentityKey AS "<%=_aux_table.Fields[_aux_db_table.hasIdentityKey].Name%>_";
+		RETURN IdentityKey AS "<%=_aux_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].Name%>_";
 	END;
 $BODY$ LANGUAGE 'plpgsql' VOLATILE;
 

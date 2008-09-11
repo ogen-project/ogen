@@ -67,14 +67,14 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		) : this (<%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
-			<%=(_aux_field.DefaultValue == "") ? _aux_field.DBType_generic.FWEmptyValue : _aux_field.DefaultValue%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
+			<%=(_aux_field.DefaultValue == "") ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_field.DefaultValue%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 		}%>
 		) {
 		}
 		public SO0_<%=_aux_db_table.Name%>(<%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
-			<%=_aux_field.DBType_generic.FWType%> <%=_aux_field.Name%>_in<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
+			<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_field.Name%>_in<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 		}%>
 		) {
 			haschanges_ = false;
@@ -103,7 +103,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		#endregion
 		//---<%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-			_aux_field = _aux_table.Fields[f];
+			_aux_field = _aux_table.TableFields.TableFieldCollection[f];
 
 			if (_aux_field.isNullable && !_aux_field.isPK) {%>
 		#region public bool <%=_aux_field.Name%>_isNull { get; set; }
@@ -131,8 +131,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		}
 		#endregion<%
 			}%>
-		#region public <%=_aux_field.DBType_generic.FWType%> <%=_aux_field.Name%> { get; set; }
-		internal <%=(_aux_field.isNullable && !_aux_field.isPK) ? "object" : _aux_field.DBType_generic.FWType%> <%=_aux_field.Name.ToLower()%>_;// = <%=(_aux_field.DefaultValue == "") ? _aux_field.DBType_generic.FWEmptyValue : _aux_field.DefaultValue%>;
+		#region public <%=_aux_db_field.DBType_generic.FWType%> <%=_aux_field.Name%> { get; set; }
+		internal <%=(_aux_field.isNullable && !_aux_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_field.Name.ToLower()%>_;// = <%=(_aux_field.DefaultValue == "") ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_field.DefaultValue%>;
 		
 		/// <summary>
 		/// <%=_aux_db_table.Name%>'s <%=_aux_field.Name%>.
@@ -150,9 +150,9 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			<%=(_aux_field.DefaultValue == string.Empty) ? "\"\"" : _aux_field.DefaultValue%>, --%>
 			"<%=_aux_field.FK_TableName%>", 
 			"<%=_aux_field.FK_FieldName%>", 
-			<%=_aux_field.isConfig_Name.ToString().ToLower()%>, 
-			<%=_aux_field.isConfig_Config.ToString().ToLower()%>, 
-			<%=_aux_field.isConfig_Datatype.ToString().ToLower()%>, 
+			<%=_aux_ex_field.isConfig_Name.ToString().ToLower()%>, 
+			<%=_aux_ex_field.isConfig_Config.ToString().ToLower()%>, 
+			<%=_aux_ex_field.isConfig_Datatype.ToString().ToLower()%>, 
 			<%=_aux_field.isBool.ToString().ToLower()%>, 
 			<%=_aux_field.isDateTime.ToString().ToLower()%>, 
 			<%=_aux_field.isInt.ToString().ToLower()%>, 
@@ -167,17 +167,17 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 #if NET_1_1
 			virtual 
 #endif
-		<%=_aux_field.DBType_generic.FWType%> <%=_aux_field.Name%> {
+		<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_field.Name%> {
 			get {<%
 			if (_aux_field.isNullable && !_aux_field.isPK) {%>
-				return (<%=_aux_field.DBType_generic.FWType%>)((<%=_aux_field.Name.ToLower()%>_ == null) ? <%=(_aux_field.DefaultValue == "") ? _aux_field.DBType_generic.FWEmptyValue : _aux_field.DefaultValue%> : <%=_aux_field.Name.ToLower()%>_);<%
+				return (<%=_aux_db_field.DBType_generic.FWType%>)((<%=_aux_field.Name.ToLower()%>_ == null) ? <%=(_aux_field.DefaultValue == "") ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_field.DefaultValue%> : <%=_aux_field.Name.ToLower()%>_);<%
 			} else {%>
 				return <%=_aux_field.Name.ToLower()%>_;<%
 			}%>
 			}
 			set {
 				if (<%
-					if (_aux_field.DBType_generic.FWType.ToLower() == "string") {%>
+					if (_aux_db_field.DBType_generic.FWType.ToLower() == "string") {%>
 					(value != null)
 					&&<%
 					}%>

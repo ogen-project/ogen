@@ -14,6 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using System.Xml.Serialization;
+using OGen.lib.datalayer;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
 	#if NET_1_1
@@ -102,6 +103,14 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		public bool isText {
 			get {
 				return TableFieldDBs.TableFieldDBCollection[0].isText;
+			}
+		}
+		#endregion
+
+		#region public cDBType DBType_generic { get; }
+		public cDBType DBType_generic {
+			get {
+				return TableFieldDBs.TableFieldDBCollection[0].DBType_generic;
 			}
 		}
 		#endregion

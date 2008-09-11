@@ -70,6 +70,44 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 
+		#region public XS_dbType DBConnection_FirstDefaultAvailable { get; }
+		private XS_dbConnectionType dbconnection_firstdefaultavailable__ = null;
+
+		public XS_dbConnectionType DBConnection_FirstDefaultAvailable {
+			get {
+				if (dbconnection_firstdefaultavailable__ == null) {
+					for (int d = 0; d < DBCollection.Count; d++) {
+						for (int dd = 0; dd < DBCollection[d].DBConnections.DBConnectionCollection.Count; dd++) {
+							if (DBCollection[d].DBConnections.DBConnectionCollection[dd].isDefault) {
+								db_firstdefaultavailable__ 
+									= DBCollection[d];
+								dbconnection_firstdefaultavailable__ 
+									= DBCollection[d].DBConnections.DBConnectionCollection[dd];
+
+								return dbconnection_firstdefaultavailable__;
+							}
+						}
+					}
+				}
+
+				return dbconnection_firstdefaultavailable__;
+			}
+		}
+		#endregion
+		#region public XS_dbType DB_FirstDefaultAvailable { get; }
+		private XS_dbType db_firstdefaultavailable__ = null;
+
+		public XS_dbType DB_FirstDefaultAvailable {
+			get {
+				if (db_firstdefaultavailable__ == null) {
+					XS_dbConnectionType _aux = DBConnection_FirstDefaultAvailable;
+				}
+
+				return db_firstdefaultavailable__;
+			}
+		}
+		#endregion
+
 		#region public string[] ConfigModes();
 		public string[] ConfigModes() {
 			string _configmodes = string.Empty;

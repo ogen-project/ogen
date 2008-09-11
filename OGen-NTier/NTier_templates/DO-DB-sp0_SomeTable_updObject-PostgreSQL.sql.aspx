@@ -43,7 +43,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 //-----------------------------------------------------------------------------------------
 %>CREATE OR REPLACE FUNCTION "sp0_<%=_aux_db_table.Name%>_updObject"(<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-		_aux_field = _aux_table.Fields[f];
+		_aux_field = _aux_table.TableFields.TableFieldCollection[f];
 	%>"<%=_aux_field.Name%>_" <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}
 %>)
@@ -59,7 +59,7 @@ AS $BODY$
 	if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 		IF ("fnc0_<%=_aux_db_table.Name%>__ConstraintExist"(<%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-				_aux_field = _aux_table.Fields[f];%>
+				_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
 			"<%=_aux_field.Name%>_"<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 			}%>
 		)) THEN

@@ -43,7 +43,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 //-----------------------------------------------------------------------------------------
 %>CREATE FUNCTION [dbo].[fnc0_<%=_aux_db_table.Name%>__ConstraintExist](<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-		_aux_field = _aux_table.Fields[f];%>
+		_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
 	@<%=_aux_field.Name%> <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%>
 )
@@ -58,8 +58,8 @@ BEGIN
 		SELECT
 			@ConstraintExist = 1
 		FROM [dbo].[fnc_<%=_aux_db_table.Name%>_isObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>](<%
-		for (int p = 0; p < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.Count; p++) {%>
-			@<%=_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[p].TableField_refName%><%=(p != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.Count - 1) ? ", " : ""%><%
+		for (int p = 0; p < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; p++) {%>
+			@<%=_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[p].TableField_refName%><%=(p != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 		}%>
 		)
 		WHERE

@@ -90,7 +90,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.UTs {
 
 			if (_aux_db_table.hasIdentityKey != -1) {
 				if (!_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {
-					_aux_db_field = _aux_db_table.Fields[_aux_db_table.hasIdentityKey];%><%=""%>
+					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey];%><%=""%>
 			<%=_aux_db_field.DBType_generic.FWType%> _<%=_aux_db_field.Name.ToLower()%>;
 			try {
 				_<%=_aux_db_field.Name.ToLower()%> = _<%=_aux_db_table.Name.ToLower()%>.insObject(true);

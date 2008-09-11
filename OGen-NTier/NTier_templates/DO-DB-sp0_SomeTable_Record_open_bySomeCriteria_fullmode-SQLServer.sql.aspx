@@ -48,43 +48,43 @@ string _aux_xx_field_name;
 #endregion
 //-----------------------------------------------------------------------------------------
 %>CREATE PROCEDURE [dbo].[sp0_<%=_aux_db_table.Name%>_Record_open_<%=_aux_search.Name%>_fullmode]<%
-	for (int f = 0; f < _aux_search.TableSearchParameters.Count; f++) {
-		//_aux_field = er.Tables[_aux_search.TableSearchParameters.TableFieldRefCollection[f].TableIndex].Fields[_aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_refIndex];
+	for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
+		//_aux_field = er.Tables[_aux_search.TableSearchParameters.TableFieldRefCollection[f].TableIndex].TableFields.TableFieldCollection[_aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_refIndex];
 		_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 		_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-	@<%=_aux_xx_field_name%>_search_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(f != _aux_search.TableSearchParameters.Count - 1) ? ", " : ""%><%
+	@<%=_aux_xx_field_name%>_search_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(f != _aux_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 	}%>
 AS
 	CREATE TABLE [#Table_temp] (
 		[ID_range] BigInt IDENTITY,<%
-	for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
-		_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%>
+	for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
+		_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
 		[<%=_aux_field.Name%>] <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%>
 	)
 	
 	INSERT INTO [#Table_temp] (<%
-		for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
-			_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%>
+		for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
+			_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
 		[<%=_aux_field.Name%>]<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 		}%>
 	)
 	EXEC [dbo].[sp_<%=_aux_db_table.Name%>_Record_open_<%=_aux_search.Name%>] <%
-	for (int f = 0; f < _aux_search.TableSearchParameters.Count; f++) {
+	for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
 		_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 		_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;
-		%>@<%=_aux_xx_field_name%>_search_<%=(f != _aux_search.TableSearchParameters.Count - 1) ? ", " : ""%><%
+		%>@<%=_aux_xx_field_name%>_search_<%=(f != _aux_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 	}%>
 
 	SELECT<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-		_aux_field = _aux_table.Fields[f];%>
+		_aux_field = _aux_table.TableFields.TableFieldCollection[f];%>
 		t1.[<%=_aux_field.Name%>]<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%>
 	FROM [<%=_aux_db_table.Name%>] t1
 		INNER JOIN [#Table_temp] t2 ON (<%
-		for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
-			_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%>
+		for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
+			_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
 			(t2.[<%=_aux_field.Name%>] = t1.[<%=_aux_field.Name%>]<%=(_aux_field.isText) ? " COLLATE SQL_Latin1_General_CP1_CI_AI" : ""%>)<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? "AND " : ""%><%
 		}%>
 		)

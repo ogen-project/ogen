@@ -248,22 +248,22 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			System.Data.DataTable ConfigTable;
 			for (int t = 0; t < _aux_ex_metadata.Tables.TableCollection.Count; t++) {
 				_aux_table = _aux_ex_metadata.Tables.TableCollection[t];
-				if (_aux_table.isConfig) {%>
+				if (_aux_ex_table.isConfig) {%>
 		#region public static Methods - DB.<%=_aux_db_table.Name%>...<%
 					NameField = "";
 					ConfigField = "";
 					DatatypeField = "";
 					for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-						_aux_field = _aux_table.Fields[f];
-						if (_aux_field.isConfig_Name) {
+						_aux_field = _aux_table.TableFields.TableFieldCollection[f];
+						if (_aux_ex_field.isConfig_Name) {
 							NameField = _aux_field.Name;
 							continue;
 						}
-						if (_aux_field.isConfig_Config) {
+						if (_aux_ex_field.isConfig_Config) {
 							ConfigField = _aux_field.Name;
 							continue;
 						}
-						if (_aux_field.isConfig_Datatype) {
+						if (_aux_ex_field.isConfig_Datatype) {
 							DatatypeField = _aux_field.Name;
 							continue;
 						}

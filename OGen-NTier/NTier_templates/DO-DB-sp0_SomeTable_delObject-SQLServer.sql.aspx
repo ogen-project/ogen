@@ -42,16 +42,16 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 #endregion
 //-----------------------------------------------------------------------------------------
 %>CREATE PROCEDURE [dbo].[sp0_<%=_aux_db_table.Name%>_delObject]<%
-	for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
-		_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%>
+	for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
+		_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
 	@<%=_aux_field.Name%>_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%>
 AS
 	DELETE
 	FROM [<%=_aux_db_table.Name%>]
 	WHERE<%
-		for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
-			_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%>
+		for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
+			_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
 		([<%=_aux_field.Name%>] = @<%=_aux_field.Name%>_)<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
 		}%>
 --GO

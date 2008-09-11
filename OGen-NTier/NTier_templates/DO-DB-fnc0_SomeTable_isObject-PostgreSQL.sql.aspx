@@ -42,8 +42,8 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 #endregion
 //-----------------------------------------------------------------------------------------
 %>CREATE OR REPLACE FUNCTION "fnc0_<%=_aux_db_table.Name%>_isObject"(<%
-	for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
-		_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];
+	for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
+		_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];
 	%>"<%=_aux_field.Name%>_" <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%>)
 RETURNS boolean
@@ -54,8 +54,8 @@ AS $BODY$
 				true -- whatever, just checking existence
 			FROM "<%=_aux_db_table.Name%>"
 			WHERE<%
-				for (int k = 0; k < _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection.Count; k++) {
-					_aux_db_field = _aux_db_table.TableTableFields_onlyPK.TableFieldCollection.TableFieldCollection[k];%>
+				for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
+					_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
 				("<%=_aux_field.Name%>" = "<%=_aux_field.Name%>_")<%=(k != _aux_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
 				}%>
 		);

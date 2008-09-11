@@ -48,10 +48,10 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 #endregion
 //-----------------------------------------------------------------------------------------
 %>CREATE FUNCTION [dbo].[fnc0_<%=_aux_db_table.Name%>_Record_count_<%=_aux_search.Name%>](<%
-	for (int f = 0; f < _aux_search.TableSearchParameters.Count; f++) {
+	for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
 		_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 		_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-	@<%=_aux_xx_field_name%>_search_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(f != _aux_search.TableSearchParameters.Count - 1) ? ", " : ""%><%
+	@<%=_aux_xx_field_name%>_search_ <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(f != _aux_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 	}%>
 )
 RETURNS BigInt
@@ -61,10 +61,10 @@ BEGIN
 
 	SELECT @Record_count_out = COUNT([<%=_aux_table.TableFields_onlyPK.TableFieldCollection[0].Name%>])
 	FROM [dbo].[fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_search.Name%>](<%
-		for (int f = 0; f < _aux_search.TableSearchParameters.Count; f++) {
+		for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
 			_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 			_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-		@<%=_aux_xx_field_name%>_search_<%=(f != _aux_search.TableSearchParameters.Count - 1) ? ", " : ""%><%
+		@<%=_aux_xx_field_name%>_search_<%=(f != _aux_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 		}%>
 	)
 

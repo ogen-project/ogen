@@ -48,7 +48,7 @@ string _aux_xx_field_name;
 #endregion
 //-----------------------------------------------------------------------------------------
 %>CREATE PROCEDURE `sp0_<%=_aux_db_table.Name%>_delObject_<%=_aux_search.Name%>`(<%
-	for (int f = 0; f < _aux_search.TableSearchParameters.Count; f++) {
+	for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
 		_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 		_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
 	IN `<%=_aux_xx_field_name%>_search_` <%=_aux_field.DBs[_aux_dbservertype].DBType_inDB_name%><%=(_aux_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%>, <%
@@ -74,10 +74,10 @@ BEGIN<%
 		}%>
 		true INTO `Exists_`
 	FROM `fnc_<%=_aux_db_table.Name%>_isObject_<%=_aux_search.Name%>`(<%
-		for (int f = 0; f < _aux_search.TableSearchParameters.Count; f++) {
+		for (int f = 0; f < _aux_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
 			_aux_field = _aux_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 			_aux_xx_field_name = _aux_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-		`<%=_aux_xx_field_name%>_search_`<%=(f != _aux_search.TableSearchParameters.Count - 1) ? ", " : ""%><%
+		`<%=_aux_xx_field_name%>_search_`<%=(f != _aux_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 		}%>
 	);
 

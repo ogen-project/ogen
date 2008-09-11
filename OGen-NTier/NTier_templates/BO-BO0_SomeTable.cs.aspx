@@ -66,7 +66,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 	/// </note>
 #endif--%>
 	/// </summary>
-	[DOClassAttribute("<%=_aux_db_table.Name%>", "<%=_aux_table.FriendlyName%>", "<%=_aux_table.DBDescription%>", "<%=_aux_table.ExtendedDescription%>", <%=_aux_db_table.isVirtualTable.ToString().ToLower()%>, <%=_aux_table.isConfig.ToString().ToLower()%>)]
+	[DOClassAttribute("<%=_aux_db_table.Name%>", "<%=_aux_table.FriendlyName%>", "<%=_aux_table.DBDescription%>", "<%=_aux_table.ExtendedDescription%>", <%=_aux_db_table.isVirtualTable.ToString().ToLower()%>, <%=_aux_ex_table.isConfig.ToString().ToLower()%>)]
 	public 
 #if !NET_1_1
 		partial 
@@ -175,7 +175,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 		}
 		#endregion<%
 			}%>
-		#region public <%=_aux_field.DBType_generic.FWType%> <%=_aux_field.Name%> { get; set; }
+		#region public <%=_aux_db_field.DBType_generic.FWType%> <%=_aux_field.Name%> { get; set; }
 		/// <summary>
 		/// <%=_aux_db_table.Name%>'s <%=_aux_field.Name%>.
 		/// </summary>
@@ -191,9 +191,9 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 			<%=(_aux_field.DefaultValue == string.Empty) ? "\"\"" : _aux_field.DefaultValue%>, --%>
 			"<%=_aux_field.FK_TableName%>", 
 			"<%=_aux_field.FK_FieldName%>", 
-			<%=_aux_field.isConfig_Name.ToString().ToLower()%>, 
-			<%=_aux_field.isConfig_Config.ToString().ToLower()%>, 
-			<%=_aux_field.isConfig_Datatype.ToString().ToLower()%>, 
+			<%=_aux_ex_field.isConfig_Name.ToString().ToLower()%>, 
+			<%=_aux_ex_field.isConfig_Config.ToString().ToLower()%>, 
+			<%=_aux_ex_field.isConfig_Datatype.ToString().ToLower()%>, 
 			<%=_aux_field.isBool.ToString().ToLower()%>, 
 			<%=_aux_field.isDateTime.ToString().ToLower()%>, 
 			<%=_aux_field.isInt.ToString().ToLower()%>, 
@@ -208,7 +208,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 #if NET_1_1
 			virtual 
 #endif
-		<%=_aux_field.DBType_generic.FWType%> <%=_aux_field.Name%> {
+		<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_field.Name%> {
 			get { return mainAggregate.Fields.<%=_aux_field.Name%>; }
 			set { mainAggregate.Fields.<%=_aux_field.Name%> = value; }
 		}
