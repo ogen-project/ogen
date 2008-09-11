@@ -44,7 +44,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 %>CREATE FUNCTION `fnc0_<%=_aux_db_table.Name%>__ConstraintExist`(<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
-	`<%=_aux_db_field.Name%>` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
+	`<%=_aux_db_field.Name%>` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBFieldName%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%>
 )
 	RETURNS BOOLEAN

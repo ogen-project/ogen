@@ -54,13 +54,13 @@ for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection
 	if (_aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].Table_ref.Name.ToLower() != _arg_TableName.ToLower()) makeItAComment = true;
 	_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 	_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-	`<%=_aux_xx_field_name%>_search_` <%=_aux_ex_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+	`<%=_aux_xx_field_name%>_search_` <%=_aux_ex_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBFieldName%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 }%>
 )
 	RETURNS `finalresult` TABLE (<%
 		for (int f = 0; f < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; f++) {
 			_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[f];%>
-		`<%=_aux_db_field.Name%>` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_inDB_name%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+		`<%=_aux_db_field.Name%>` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBFieldName%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 		}%>
 	)
 	NOT DETERMINISTIC

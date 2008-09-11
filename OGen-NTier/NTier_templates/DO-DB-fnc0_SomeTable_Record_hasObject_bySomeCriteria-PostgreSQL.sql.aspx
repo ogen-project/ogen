@@ -50,13 +50,13 @@ string _aux_xx_field_name;
 %>CREATE OR REPLACE FUNCTION "fnc0_<%=_aux_db_table.Name%>_Record_hasObject_<%=_aux_ex_search.Name%>"(<%
 for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 	_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-	"<%=_aux_db_field.Name%>_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_inDB_name%><%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+	"<%=_aux_db_field.Name%>_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBFieldName%><%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 }
 for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
 	_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 	_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;
 	%>, 
-	"<%=_aux_xx_field_name%>_search_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_inDB_name%><%
+	"<%=_aux_xx_field_name%>_search_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBFieldName%><%
 }%>
 )
 RETURNS bool AS $BODY$
