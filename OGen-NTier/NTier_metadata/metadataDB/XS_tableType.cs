@@ -31,14 +31,28 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 
 		#region public metadataExtended.XS_tableType parallel_ref { get; }
+		private bool parallel_ref__exists = true;
 		private OGen.NTier.lib.metadata.metadataExtended.XS_tableType parallel_ref__ = null;
 
 		public OGen.NTier.lib.metadata.metadataExtended.XS_tableType parallel_ref {
 			get {
-				if (parallel_ref__ == null) {
+				if (
+					parallel_ref__exists
+					&&
+					(parallel_ref__ == null)
+				) {
+					int t
+						= root_ref.MetadataExtendedCollection[0].Tables.TableCollection.Search(
+							Name
+						);
+					if (t < 0) {
+						parallel_ref__exists = false;
+						return null;
+					}
+
 					parallel_ref__ 
 						= root_ref.MetadataExtendedCollection[0].Tables.TableCollection[
-							Name
+							t
 						];
 				}
 				return parallel_ref__;

@@ -46,18 +46,19 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 --><%
 }%><metadataExtended 
 	applicationName="<%=_aux_ex_metadata.ApplicationName%>" 
-	applicationNamespace="<%=_aux_ex_metadata.ApplicationName%>" 
-	subAppName="" 
-	pseudoReflectionable="false" 
+	applicationNamespace="<%=_aux_ex_metadata.ApplicationNamespace%>" 
+	subAppName="<%=_aux_ex_metadata.SubAppName%>" 
+	pseudoReflectionable="<%=_aux_ex_metadata.PseudoReflectionable%>" 
 	sqlScriptOption="RunImmediately" 
 	guidDatalayer="<%=_aux_ex_metadata.GUIDDatalayer%>" 
 	guidDatalayer_UTs="<%=_aux_ex_metadata.GUIDDatalayer_UTs%>" 
 	guidBusinesslayer="<%=_aux_ex_metadata.GUIDBusinesslayer%>" 
 	guidBusinesslayer_UTs="<%=_aux_ex_metadata.GUIDBusinesslayer_UTs%>" 
 	guidTest="<%=_aux_ex_metadata.GUIDTest%>" 
-	feedbackEmailAddress="fmonteiro@users.berlios.de" 
+	feedbackEmailAddress="<%=_aux_ex_metadata.FeedbackEmailAddress%>" 
 	copyrightText="<%=_aux_ex_metadata.CopyrightText%>">
 	<copyrightTextLong><%=_aux_ex_metadata.CopyrightTextLong%></copyrightTextLong>
+<!--
 	<dbs
 		nameCase_defaultProvider="PostgreSQL"
 		description_defaultProvider="PostgreSQL">
@@ -67,17 +68,15 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 				<dbConnection configMode="!DEBUG" isDefault="true" generateSQL="false" isIndexed_andReadOnly="false" connectionstring="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;" />
 			</dbConnections>
 		</db>
-		<!--
 		<db dbServerType="SQLServer">
 			<dbConnections>
 				<dbConnection configMode="DEBUG" isDefault="false" generateSQL="true" isIndexed_andReadOnly="false" connectionstring="server=127.0.0.1;uid=sa;pwd=passpub;database=OGen-NTier_UTs;" />
 				<dbConnection configMode="!DEBUG" isDefault="false" generateSQL="false" isIndexed_andReadOnly="false" connectionstring="server=127.0.0.1;uid=sa;pwd=passpub;database=OGen-NTier_UTs;" />
 			</dbConnections>
 		</db>
-		-->
 	</dbs>
+-->
 	<tables>
-
 <!--
 		<table name="IHaveAStyle" isConfig="false" configName="" configConfig="" configDatatype="" >
 			<dbs>
@@ -95,126 +94,24 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 				</tableField>
 			</tableFields>
 		</table>
--->
-<%
-//for (int t = 0; t < _aux
-%>
-		<table name="Config" friendlyName="" extendedDescription="" isConfig="true" configName="Name" configConfig="Config" configDatatype="DataType" >
-			<tableFields>
-				<tableField name="Name" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Config" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Type" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Description" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+--><%
+	for (int t = 0; t < _aux_db_metadata.Tables.TableCollection.Count; t++) {
+		_aux_db_table = _aux_db_metadata.Tables.TableCollection[t];
+		_aux_ex_table = _aux_db_table.parallel_ref;%>
+		<table name="<%=_aux_db_table.Name%>" friendlyName="" extendedDescription="" isConfig="true" configName="Name" configConfig="Config" configDatatype="DataType" >
+			<tableFields><%
+			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
+				_aux_ex_field = _aux_db_field.parallel_ref;%>
+				<tableField name="<%=_aux_db_field.Name%>" defaultValue="<%=(_aux_ex_field != null) ? _aux_ex_field.DefaultValue : ""%>" friendlyName="<%=(_aux_ex_field != null) ? _aux_ex_field.FriendlyName : ""%>" extendedDescription="<%=(_aux_ex_field != null) ? _aux_ex_field.ExtendedDescription : ""%>" isListItemValue="<%=(_aux_ex_field != null) ? (_aux_ex_field.isListItemValue ? "true" : "false") : "false"%>" isListItemText="<%=(_aux_ex_field != null) ? (_aux_ex_field.isListItemText ? "true" : "false") : "false"%>" /><%
+			}%>
 			</tableFields>
+<%--
 			<tableSearches>
 				<tableSearch name="all" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters />
 					<tableSearchUpdates />
 				</tableSearch>
-			</tableSearches>
-			<tableUpdates />
-		</table>
-		<table name="Group" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
-			<tableFields>
-				<tableField name="IDGroup" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Name" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-			</tableFields>
-			<tableSearches />
-			<tableUpdates />
-		</table>
-		<table name="GroupPermition" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
-			<tableFields>
-				<tableField name="IDGroup" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="IDPermition" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-			</tableFields>
-			<tableSearches />
-			<tableUpdates />
-		</table>
-		<table name="Language" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
-			<tableFields>
-				<tableField name="IDLanguage" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="IDWord_name" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-			</tableFields>
-			<tableSearches />
-			<tableUpdates />
-		</table>
-		<table name="Log" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
-			<tableFields>
-				<tableField name="IDLog" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="IDLogcode" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="IDUser_posted" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Date_posted" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Logdata" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-			</tableFields>
-			<tableSearches />
-			<tableUpdates />
-		</table>
-		<table name="Logcode" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
-			<tableFields>
-				<tableField name="IDLogcode" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Warning" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Error" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Code" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Description" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-			</tableFields>
-			<tableSearches />
-			<tableUpdates />
-		</table>
-		<table name="Permition" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
-			<tableFields>
-				<tableField name="IDPermition" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Name" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-			</tableFields>
-			<tableSearches />
-			<tableUpdates />
-		</table>
-		<table name="User" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
-			<tableFields>
-				<tableField name="IDUser" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Login" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Password" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="SomeNullValue" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-			</tableFields>
-			<tableSearches>
-				<tableSearch name="all" isRange="true" isExplicitUniqueIndex="false">
-					<tableSearchParameters />
-					<tableSearchUpdates />
-				</tableSearch>
-				<tableSearch name="byLogin" isRange="false" isExplicitUniqueIndex="true">
-					<tableSearchParameters>
-						<tableFieldRef tableName="User" fieldName="Login" paramName="Login" />
-					</tableSearchParameters>
-					<tableSearchUpdates />
-				</tableSearch>
-				<tableSearch name="byGroup" isRange="true" isExplicitUniqueIndex="false">
-					<tableSearchParameters>
-						<tableFieldRef tableName="UserGroup" fieldName="IDGroup" paramName="IDGroup" />
-					</tableSearchParameters>
-					<tableSearchUpdates>
-						<tableSearchUpdate name="SomeUpdateTest">
-							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="User" fieldName="Password" paramName="Password" />
-							</tableSearchUpdateParameters>
-						</tableSearchUpdate>
-					</tableSearchUpdates>
-				</tableSearch>
-			</tableSearches>
-			<tableUpdates>
-				<tableUpdate name="SomeUpdateTest">
-					<tableUpdateParameters>
-						<tableFieldRef tableName="User" fieldName="Password" paramName="Password" />
-					</tableUpdateParameters>
-				</tableUpdate>
-			</tableUpdates>
-		</table>
-		<table name="UserGroup" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
-			<tableFields>
-				<tableField name="IDUser" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="IDGroup" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Relationdate" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Defaultrelation" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-			</tableFields>
-			<tableSearches>
 				<tableSearch name="byUser_Defaultrelation" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
 						<tableFieldRef tableName="UserGroup" fieldName="IDUser" paramName="IDUser" />
@@ -229,52 +126,17 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 					</tableSearchUpdates>
 				</tableSearch>
 			</tableSearches>
-			<tableUpdates />
-		</table>
-		<table name="Word" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
-			<tableFields>
-				<tableField name="IDWord" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="DeleteThisTestField" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-			</tableFields>
-			<tableSearches />
-			<tableUpdates />
-		</table>
-		<table name="WordLanguage" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
-			<tableFields>
-				<tableField name="IDWord" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="IDLanguage" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Translation" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-			</tableFields>
-			<tableSearches />
-			<tableUpdates />
-		</table>
-		<table name="vUserDefaultGroup" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
-			<tableFields>
-				<tableField name="IDUser" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Login" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="IDGroup" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Name" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Relationdate" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-			</tableFields>
-			<tableSearches>
-				<tableSearch name="all" isRange="true" isExplicitUniqueIndex="false">
-					<tableSearchParameters />
-					<tableSearchUpdates />
-				</tableSearch>
-			</tableSearches>
-			<tableUpdates />
-		</table>
-		<table name="vUserGroup" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="" >
-			<tableFields>
-				<tableField name="IDUser" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Login" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="IDGroup" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Name" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Relationdate" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-			</tableFields>
-			<tableSearches />
-			<tableUpdates />
-		</table>
+			<tableUpdates>
+				<tableUpdate name="SomeUpdateTest">
+					<tableUpdateParameters>
+						<tableFieldRef tableName="User" fieldName="Password" paramName="Password" />
+					</tableUpdateParameters>
+				</tableUpdate>
+			</tableUpdates>
+--%>
+		</table><%
+	}
+%>
 	</tables>
 </metadataExtended><%
 //-----------------------------------------------------------------------------------------
