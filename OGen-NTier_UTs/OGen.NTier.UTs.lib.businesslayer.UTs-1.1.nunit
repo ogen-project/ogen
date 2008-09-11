@@ -1,6 +1,0 @@
-<NUnitProject>
-  <Settings activeconfig="Default" />
-  <Config name="Default" binpathtype="Auto">
-    <assembly path="OGen-NTier_UTs_businesslayer_UTs\bin\Debug\OGen.NTier.UTs.lib.businesslayer.UTs-1.1.dll" />
-  </Config>
-</NUnitProject>
