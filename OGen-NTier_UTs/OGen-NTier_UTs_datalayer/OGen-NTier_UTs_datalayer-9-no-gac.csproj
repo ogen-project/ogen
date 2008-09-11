@@ -1,0 +1,321 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2C45EF1A-75BE-4B12-A232-62DEB5662239}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>OGen.NTier.UTs.lib.datalayer-2.0</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>OGen.NTier.UTs.lib.datalayer</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;DEBUG;NET_2_0;PostgreSQL;SQLServer</DefineConstants>
+    <DocumentationFile>bin\Debug\OGen.NTier.UTs.lib.datalayer-2.0.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;NET_2_0;PostgreSQL;SQLServer</DefineConstants>
+    <DocumentationFile>bin\Release\OGen.NTier.UTs.lib.datalayer-2.0.xml</DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\DO0__utils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DO__utils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DO_Config.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\DO0_Config.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\RO0_Config.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SO0_Config.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SC0_Config.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DO_Group.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\DO0_Group.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\RO0_Group.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SO0_Group.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SC0_Group.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DO_GroupPermition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\DO0_GroupPermition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\RO0_GroupPermition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SO0_GroupPermition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SC0_GroupPermition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DO_Language.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\DO0_Language.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\RO0_Language.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SO0_Language.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SC0_Language.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DO_Log.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\DO0_Log.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\RO0_Log.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SO0_Log.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SC0_Log.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DO_Logcode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\DO0_Logcode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\RO0_Logcode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SO0_Logcode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SC0_Logcode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DO_Permition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\DO0_Permition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\RO0_Permition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SO0_Permition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SC0_Permition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DO_User.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\DO0_User.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\RO0_User.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SO0_User.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SC0_User.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DO_UserGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\DO0_UserGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\RO0_UserGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SO0_UserGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SC0_UserGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DO_Word.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\DO0_Word.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\RO0_Word.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SO0_Word.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SC0_Word.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DO_WordLanguage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\DO0_WordLanguage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\RO0_WordLanguage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SO0_WordLanguage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SC0_WordLanguage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DO_vUserDefaultGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\DO0_vUserDefaultGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\RO0_vUserDefaultGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SO0_vUserDefaultGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SC0_vUserDefaultGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DO_vUserGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\DO0_vUserGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\RO0_vUserGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SO0_vUserGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\SC0_vUserGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="COPYING.MIT" />
+    <None Include="LICENSE.MIT.txt" />
+    <None Include="LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OGen-NTier\NTier_datalayer\NTier_datalayer-9.csproj">
+      <Project>{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}</Project>
+      <Name>NTier_datalayer-9</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_datalayer_PostgreSQL\OGen_datalayer_PostgreSQL-9.csproj">
+      <Project>{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}</Project>
+      <Name>OGen_datalayer_PostgreSQL-9</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_datalayer_SQLServer\OGen_datalayer_SQLServer-9.csproj">
+      <Project>{F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7}</Project>
+      <Name>OGen_datalayer_SQLServer-9</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj">
+      <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
+      <Name>OGen_datalayer__base-9</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
