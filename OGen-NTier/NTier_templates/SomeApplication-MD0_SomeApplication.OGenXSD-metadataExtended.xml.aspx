@@ -32,10 +32,11 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableType _aux_ex_table;
 OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
 OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 
-//OGen.NTier.lib.metadata.metadataExtended.XS_tableUpdateType _aux_ex_update;
-//OGen.NTier.lib.metadata.metadataExtended.XS_tableSearchType _aux_ex_search;
-//OGen.NTier.lib.metadata.metadataExtended.XS_tableSearchUpdateType _aux_ex_search_update;
-//_aux_ex_metadata.ApplicationName
+XS_dbConnectionType _aux_db_connection;
+
+XS_tableSearchType _aux_ex_search;
+XS_tableSearchUpdateType _aux_ex_search_update;
+XS_tableUpdateType _aux_ex_update;
 #endregion
 //-----------------------------------------------------------------------------------------
 if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.CopyrightTextLong != string.Empty)) {
@@ -59,24 +60,25 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 	feedbackEmailAddress="<%=_aux_ex_metadata.FeedbackEmailAddress%>" 
 	copyrightText="<%=_aux_ex_metadata.CopyrightText%>">
 	<copyrightTextLong><%=_aux_ex_metadata.CopyrightTextLong%></copyrightTextLong>
-<!--
 	<dbs
-		nameCase_defaultProvider="PostgreSQL"
-		description_defaultProvider="PostgreSQL">
-		<db dbServerType="PostgreSQL">
-			<dbConnections>
-				<dbConnection configMode="DEBUG" isDefault="true" generateSQL="true" isIndexed_andReadOnly="false" connectionstring="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;" />
-				<dbConnection configMode="!DEBUG" isDefault="true" generateSQL="false" isIndexed_andReadOnly="false" connectionstring="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;" />
+		nameCase_defaultProvider="<%=_aux_ex_metadata.DBs.NameCase_defaultProvider%>"
+		description_defaultProvider="<%=_aux_ex_metadata.DBs.Description_defaultProvider%>"><%
+	for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {%>
+		<db dbServerType="<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType%>">
+			<dbConnections><%
+		for (int c = 0; c < _aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection.Count; c++) {
+			_aux_db_connection = _aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection[c];%>
+				<dbConnection configMode="<%=
+					_aux_db_connection.ConfigMode%>" isDefault="<%=
+					_aux_db_connection.isDefault.ToString().ToLower()%>" generateSQL="<%=
+					_aux_db_connection.generateSQL.ToString().ToLower()%>" isIndexed_andReadOnly="<%=
+					_aux_db_connection.isIndexed_andReadOnly.ToString().ToLower()%>" connectionstring="<%=
+					_aux_db_connection.Connectionstring%>" /><%
+		}%>
 			</dbConnections>
-		</db>
-		<db dbServerType="SQLServer">
-			<dbConnections>
-				<dbConnection configMode="DEBUG" isDefault="false" generateSQL="true" isIndexed_andReadOnly="false" connectionstring="server=127.0.0.1;uid=sa;pwd=passpub;database=OGen-NTier_UTs;" />
-				<dbConnection configMode="!DEBUG" isDefault="false" generateSQL="false" isIndexed_andReadOnly="false" connectionstring="server=127.0.0.1;uid=sa;pwd=passpub;database=OGen-NTier_UTs;" />
-			</dbConnections>
-		</db>
+		</db><%
+	}%>
 	</dbs>
--->
 	<tables>
 <!--
 		<table name="IHaveAStyle" isConfig="false" configName="" configConfig="" configDatatype="" >
@@ -99,12 +101,24 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 	for (int t = 0; t < _aux_db_metadata.Tables.TableCollection.Count; t++) {
 		_aux_db_table = _aux_db_metadata.Tables.TableCollection[t];
 		_aux_ex_table = _aux_db_table.parallel_ref;%>
-		<table name="<%=_aux_db_table.Name%>" friendlyName="" extendedDescription="" isConfig="true" configName="Name" configConfig="Config" configDatatype="DataType" >
+		<table name="<%=_aux_db_table.Name%>" friendlyName="<%=
+			(_aux_ex_table != null) ? _aux_ex_table.FriendlyName : ""%>" extendedDescription="<%=
+			(_aux_ex_table != null) ? _aux_ex_table.ExtendedDescription : ""%>" isConfig="<%=
+			(_aux_ex_table != null) ? _aux_ex_table.isConfig.ToString().ToLower() : "false"%>" configName="<%=
+			(_aux_ex_table != null) ? _aux_ex_table.ConfigName : ""%>" configConfig="<%=
+			(_aux_ex_table != null) ? _aux_ex_table.ConfigConfig : ""%>" configDatatype="<%=
+			(_aux_ex_table != null) ? _aux_ex_table.ConfigDatatype : ""%>" >
 			<tableFields><%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 				_aux_ex_field = _aux_db_field.parallel_ref;%>
-				<tableField name="<%=_aux_db_field.Name%>" defaultValue="<%=(_aux_ex_field != null) ? _aux_ex_field.DefaultValue : ""%>" friendlyName="<%=(_aux_ex_field != null) ? _aux_ex_field.FriendlyName : ""%>" extendedDescription="<%=(_aux_ex_field != null) ? _aux_ex_field.ExtendedDescription : ""%>" isListItemValue="<%=(_aux_ex_field != null) ? (_aux_ex_field.isListItemValue ? "true" : "false") : "false"%>" isListItemText="<%=(_aux_ex_field != null) ? (_aux_ex_field.isListItemText ? "true" : "false") : "false"%>" /><%
+				<tableField name="<%=
+					_aux_db_field.Name%>" defaultValue="<%=
+					(_aux_ex_field != null) ? _aux_ex_field.DefaultValue : ""%>" friendlyName="<%=
+					(_aux_ex_field != null) ? _aux_ex_field.FriendlyName : ""%>" extendedDescription="<%=
+					(_aux_ex_field != null) ? _aux_ex_field.ExtendedDescription : ""%>" isListItemValue="<%=
+					(_aux_ex_field != null) ? (_aux_ex_field.isListItemValue.ToString().ToLower()) : "false"%>" isListItemText="<%=
+					(_aux_ex_field != null) ? (_aux_ex_field.isListItemText.ToString().ToLower()) : "false"%>" /><%
 			}%>
 			</tableFields>
 <%--
