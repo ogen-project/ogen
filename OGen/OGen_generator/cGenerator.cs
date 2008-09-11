@@ -546,7 +546,16 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 //_con.Execute_SQLQuery(_parsedOutput);
 for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 	if (!dbconnectionstrings_[d].enabled_aux__) continue;
-	dbconnectionstrings_[d].Connection.Execute_SQLQuery(_parsedOutput);
+	try {
+		dbconnectionstrings_[d].Connection.Execute_SQLQuery(_parsedOutput);
+	} catch (Exception _ex) {
+		throw new Exception(string.Format(
+			"---\n{0}\n---\nTEMPLATE: {1}\n---\nQUERY:\n\n{2}\n---\n",
+			"",//_ex.Message,
+			templates_.TemplateCollection[template_].Name,
+			_parsedOutput
+		));
+	}
 }
 								break;
 							}

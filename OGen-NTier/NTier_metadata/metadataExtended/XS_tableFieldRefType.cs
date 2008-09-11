@@ -71,7 +71,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 						));
 					#endregion
 
-					tablefield_ref__ = table_ref__.TableFields.TableFieldCollection[TableFieldName];
+					tablefield_ref__ = Table_ref.TableFields.TableFieldCollection[TableFieldName];
 				}
 
 				return tablefield_ref__;
