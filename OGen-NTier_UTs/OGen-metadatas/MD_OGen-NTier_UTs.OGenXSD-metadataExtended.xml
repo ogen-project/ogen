@@ -403,71 +403,6 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 -->
 			</tableUpdates>
 		</table>
-		<table name="Word" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
-			<tableFields>
-				<tableField name="IDWord" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="DeleteThisTestField" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-			</tableFields>
-			<tableSearches>
-<!--
-				<tableSearch name="byUser_Defaultrelation" isRange="true" isExplicitUniqueIndex="false">
-					<tableSearchParameters>
-						<tableFieldRef tableName="UserGroup" fieldName="IDUser" paramName="IDUser" />
-						<tableFieldRef tableName="UserGroup" fieldName="Relationdate" paramName="Relationdate" />
-					</tableSearchParameters>
-					<tableSearchUpdates>
-						<tableSearchUpdate name="SomeUpdateTest">
-							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="UserGroup" fieldName="Relationdate" paramName="Relationdate" />
-							</tableSearchUpdateParameters>
-						</tableSearchUpdate>
-					</tableSearchUpdates>
-				</tableSearch>
--->
-			</tableSearches>
-			<tableUpdates>
-<!--
-				<tableUpdate name="SomeUpdateTest">
-					<tableUpdateParameters>
-						<tableFieldRef tableName="User" tableFieldName="Password" paramName="Password" />
-					</tableUpdateParameters>
-				</tableUpdate>
--->
-			</tableUpdates>
-		</table>
-		<table name="WordLanguage" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
-			<tableFields>
-				<tableField name="IDWord" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="IDLanguage" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Translation" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-			</tableFields>
-			<tableSearches>
-<!--
-				<tableSearch name="byUser_Defaultrelation" isRange="true" isExplicitUniqueIndex="false">
-					<tableSearchParameters>
-						<tableFieldRef tableName="UserGroup" fieldName="IDUser" paramName="IDUser" />
-						<tableFieldRef tableName="UserGroup" fieldName="Relationdate" paramName="Relationdate" />
-					</tableSearchParameters>
-					<tableSearchUpdates>
-						<tableSearchUpdate name="SomeUpdateTest">
-							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="UserGroup" fieldName="Relationdate" paramName="Relationdate" />
-							</tableSearchUpdateParameters>
-						</tableSearchUpdate>
-					</tableSearchUpdates>
-				</tableSearch>
--->
-			</tableSearches>
-			<tableUpdates>
-<!--
-				<tableUpdate name="SomeUpdateTest">
-					<tableUpdateParameters>
-						<tableFieldRef tableName="User" tableFieldName="Password" paramName="Password" />
-					</tableUpdateParameters>
-				</tableUpdate>
--->
-			</tableUpdates>
-		</table>
 		<table name="vUserDefaultGroup" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
 				<tableField name="IDUser" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
@@ -511,6 +446,71 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 				<tableField name="IDGroup" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Name" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Relationdate" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+			</tableFields>
+			<tableSearches>
+<!--
+				<tableSearch name="byUser_Defaultrelation" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="UserGroup" fieldName="IDUser" paramName="IDUser" />
+						<tableFieldRef tableName="UserGroup" fieldName="Relationdate" paramName="Relationdate" />
+					</tableSearchParameters>
+					<tableSearchUpdates>
+						<tableSearchUpdate name="SomeUpdateTest">
+							<tableSearchUpdateParameters>
+								<tableFieldRef tableName="UserGroup" fieldName="Relationdate" paramName="Relationdate" />
+							</tableSearchUpdateParameters>
+						</tableSearchUpdate>
+					</tableSearchUpdates>
+				</tableSearch>
+-->
+			</tableSearches>
+			<tableUpdates>
+<!--
+				<tableUpdate name="SomeUpdateTest">
+					<tableUpdateParameters>
+						<tableFieldRef tableName="User" tableFieldName="Password" paramName="Password" />
+					</tableUpdateParameters>
+				</tableUpdate>
+-->
+			</tableUpdates>
+		</table>
+		<table name="Word" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
+			<tableFields>
+				<tableField name="IDWord" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="DeleteThisTestField" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+			</tableFields>
+			<tableSearches>
+<!--
+				<tableSearch name="byUser_Defaultrelation" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="UserGroup" fieldName="IDUser" paramName="IDUser" />
+						<tableFieldRef tableName="UserGroup" fieldName="Relationdate" paramName="Relationdate" />
+					</tableSearchParameters>
+					<tableSearchUpdates>
+						<tableSearchUpdate name="SomeUpdateTest">
+							<tableSearchUpdateParameters>
+								<tableFieldRef tableName="UserGroup" fieldName="Relationdate" paramName="Relationdate" />
+							</tableSearchUpdateParameters>
+						</tableSearchUpdate>
+					</tableSearchUpdates>
+				</tableSearch>
+-->
+			</tableSearches>
+			<tableUpdates>
+<!--
+				<tableUpdate name="SomeUpdateTest">
+					<tableUpdateParameters>
+						<tableFieldRef tableName="User" tableFieldName="Password" paramName="Password" />
+					</tableUpdateParameters>
+				</tableUpdate>
+-->
+			</tableUpdates>
+		</table>
+		<table name="WordLanguage" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
+			<tableFields>
+				<tableField name="IDWord" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IDLanguage" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="Translation" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
 			<tableSearches>
 <!--

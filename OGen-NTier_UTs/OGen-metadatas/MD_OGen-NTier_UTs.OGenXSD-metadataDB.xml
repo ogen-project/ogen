@@ -272,52 +272,6 @@
         </tableField>
       </tableFields>
     </table>
-    <table name="Word" isVirtualTable="false">
-      <tableDBs>
-        <tableDB dbServerType="PostgreSQL" dbTableName="Word" dbDescription="" />
-        <tableDB dbServerType="SQLServer" dbTableName="Word" dbDescription="" />
-      </tableDBs>
-      <tableFields>
-        <tableField name="IDWord" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
-          <tableFieldDBs>
-            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="nextval('&quot;Word_IDWord_seq&quot;'::regclass)" dbCollationName="" dbFieldName="IDWord" />
-            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDWord" />
-          </tableFieldDBs>
-        </tableField>
-        <tableField name="DeleteThisTestField" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="1" numericScale="0">
-          <tableFieldDBs>
-            <tableFieldDB dbServerType="PostgreSQL" dbType="boolean" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="DeleteThisTestField" />
-            <tableFieldDB dbServerType="SQLServer" dbType="bit" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="DeleteThisTestField" />
-          </tableFieldDBs>
-        </tableField>
-      </tableFields>
-    </table>
-    <table name="WordLanguage" isVirtualTable="false">
-      <tableDBs>
-        <tableDB dbServerType="PostgreSQL" dbTableName="WordLanguage" dbDescription="" />
-        <tableDB dbServerType="SQLServer" dbTableName="WordLanguage" dbDescription="" />
-      </tableDBs>
-      <tableFields>
-        <tableField name="IDWord" isPK="true" isIdentity="false" fkTableName="Word" fkFieldName="IDWord" isNullable="false" size="0" numericPrecision="19" numericScale="0">
-          <tableFieldDBs>
-            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDWord" />
-            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDWord" />
-          </tableFieldDBs>
-        </tableField>
-        <tableField name="IDLanguage" isPK="true" isIdentity="false" fkTableName="Language" fkFieldName="IDLanguage" isNullable="false" size="0" numericPrecision="19" numericScale="0">
-          <tableFieldDBs>
-            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDLanguage" />
-            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDLanguage" />
-          </tableFieldDBs>
-        </tableField>
-        <tableField name="Translation" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="2048" numericPrecision="0" numericScale="0">
-          <tableFieldDBs>
-            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Translation" />
-            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Translation" />
-          </tableFieldDBs>
-        </tableField>
-      </tableFields>
-    </table>
     <table name="vUserDefaultGroup" isVirtualTable="true">
       <tableDBs>
         <tableDB dbServerType="PostgreSQL" dbTableName="vUserDefaultGroup" dbDescription="" />
@@ -390,6 +344,52 @@
           <tableFieldDBs>
             <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp without time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Relationdate" />
             <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Relationdate" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="Word" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="Word" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="Word" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDWord" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="nextval('&quot;Word_IDWord_seq&quot;'::regclass)" dbCollationName="" dbFieldName="IDWord" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDWord" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="DeleteThisTestField" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="1" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="boolean" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="DeleteThisTestField" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bit" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="DeleteThisTestField" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="WordLanguage" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="WordLanguage" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="WordLanguage" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDWord" isPK="true" isIdentity="false" fkTableName="Word" fkFieldName="IDWord" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDWord" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDWord" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IDLanguage" isPK="true" isIdentity="false" fkTableName="Language" fkFieldName="IDLanguage" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDLanguage" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDLanguage" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Translation" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="2048" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Translation" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Translation" />
           </tableFieldDBs>
         </tableField>
       </tableFields>
