@@ -156,6 +156,12 @@ throw new Exception("// ToDos: not implemented!");
 					0,
 					metadata_dbconnectionstrings().Convert_toArray()
 				);
+			// NOTE: this is very important, every parameter / information
+			// that's not comming from the database is empty,
+			// and needs to be filled in order to be serialized to the xml file:
+			_metadatadb.ApplicationName = metadata_.MetadataExtendedCollection[0].ApplicationName;
+
+
 			for (int i = 0; i < metadata_.MetadataFiles.MetadataFiles.Count; i++) {
 				if (
 					metadata_.MetadataFiles.MetadataFiles[i].XMLFileType
@@ -164,7 +170,7 @@ throw new Exception("// ToDos: not implemented!");
 				) {
 					if (notifyBack_in != null) notifyBack_in("- saving db metadata to xml file", true);
 
-					//--- OLD
+					//--- BUG: using old db information
 					//metadata_.MetadataDBCollection[0].SaveState_toFile(
 					//    Path.Combine(
 					//        Path.GetDirectoryName(filename_),
@@ -172,7 +178,7 @@ throw new Exception("// ToDos: not implemented!");
 					//    )
 					//);
 
-					//--- NEW!
+					//--- DEBUG: using new db information
 					_metadatadb.SaveState_toFile(
 						Path.Combine(
 							Path.GetDirectoryName(filename_),
