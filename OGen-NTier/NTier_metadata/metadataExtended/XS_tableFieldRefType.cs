@@ -45,7 +45,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 						));
 					#endregion
 
-					table_ref__ = root_ref.MetadataExtendedCollection[0].Tables.TableCollection[TableName];
+					table_ref__ 
+						= root_ref.MetadataExtendedCollection[0].Tables.TableCollection[
+							TableName
+						];
 				}
 
 				return table_ref__;
@@ -71,7 +74,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 						));
 					#endregion
 
-					tablefield_ref__ = Table_ref.TableFields.TableFieldCollection[TableFieldName];
+					tablefield_ref__ 
+						= Table_ref.TableFields.TableFieldCollection[
+							TableFieldName
+						];
 				}
 
 				return tablefield_ref__;

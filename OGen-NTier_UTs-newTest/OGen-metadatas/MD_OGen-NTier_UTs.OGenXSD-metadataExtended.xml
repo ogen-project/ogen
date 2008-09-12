@@ -118,17 +118,17 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 				<tableSearch name="all" isRange="true" isExplicitUniqueIndex="false" />
 				<tableSearch name="byLogin" isRange="false" isExplicitUniqueIndex="true">
 					<tableSearchParameters>
-						<tableFieldRef tableName="User" fieldName="Login" paramName="Login" />
+						<tableFieldRef tableName="User" tableFieldName="Login" paramName="Login" />
 					</tableSearchParameters>
 				</tableSearch>
 				<tableSearch name="byGroup" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="UserGroup" fieldName="IDGroup" paramName="IDGroup" />
+						<tableFieldRef tableName="UserGroup" tableFieldName="IDGroup" paramName="IDGroup" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="User" fieldName="Password" paramName="Password" />
+								<tableFieldRef tableName="User" tableFieldName="Password" paramName="Password" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
@@ -137,7 +137,7 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 			<tableUpdates>
 				<tableUpdate name="SomeUpdateTest">
 					<tableUpdateParameters>
-						<tableFieldRef tableName="User" fieldName="Password" paramName="Password" />
+						<tableFieldRef tableName="User" tableFieldName="Password" paramName="Password" />
 					</tableUpdateParameters>
 				</tableUpdate>
 			</tableUpdates>
@@ -152,13 +152,13 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 			<tableSearches>
 				<tableSearch name="byUser_Defaultrelation" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="UserGroup" fieldName="IDUser" paramName="IDUser" />
-						<tableFieldRef tableName="UserGroup" fieldName="Relationdate" paramName="Relationdate" />
+						<tableFieldRef tableName="UserGroup" tableFieldName="IDUser" paramName="IDUser" />
+						<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="UserGroup" fieldName="Relationdate" paramName="Relationdate" />
+								<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
