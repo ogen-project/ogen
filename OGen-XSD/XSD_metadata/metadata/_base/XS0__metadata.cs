@@ -68,11 +68,12 @@ namespace OGen.XSD.lib.metadata.metadata {
 					);
 				} catch (Exception _ex) {
 					throw new Exception(string.Format(
-						"\n---\n{0}.{1}.Load_fromFile():\nERROR READING XML:\n{2}\n---\n{3}",
+						"\n---\n{0}.{1}.Load_fromFile():\nERROR READING XML:\n{2}\n---\n{3}\n---\n{4}\n---\n",
 						typeof(XS__metadata).Namespace, 
 						typeof(XS__metadata).Name, 
 						filePath_in[i],
-						_ex.Message
+						_ex.Message,
+						_ex.InnerException
 					));
 				}
 				_output[i].root_metadata_ = ROOT + "." + METADATA + "[" + i + "]";

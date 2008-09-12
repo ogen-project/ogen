@@ -68,11 +68,12 @@ namespace OGen.Doc.lib.metadata.documentation {
 					);
 				} catch (Exception _ex) {
 					throw new Exception(string.Format(
-						"\n---\n{0}.{1}.Load_fromFile():\nERROR READING XML:\n{2}\n---\n{3}",
+						"\n---\n{0}.{1}.Load_fromFile():\nERROR READING XML:\n{2}\n---\n{3}\n---\n{4}\n---\n",
 						typeof(XS__documentation).Namespace, 
 						typeof(XS__documentation).Name, 
 						filePath_in[i],
-						_ex.Message
+						_ex.Message,
+						_ex.InnerException
 					));
 				}
 				_output[i].root_documentation_ = ROOT + "." + DOCUMENTATION + "[" + i + "]";

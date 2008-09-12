@@ -30,7 +30,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public object parent_ref {
 			set {
 				parent_ref_ = value;
-				if (tableupdateparameters__ != null) tableupdateparameters__.parent_ref = this;
+				if (tablesearchupdateparameters__ != null) tablesearchupdateparameters__.parent_ref = this;
 			}
 			get { return parent_ref_; }
 		}
@@ -42,7 +42,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public XS__RootMetadata root_ref {
 			set {
 				root_ref_ = value;
-				if (tableupdateparameters__ != null) tableupdateparameters__.root_ref = value;
+				if (tablesearchupdateparameters__ != null) tablesearchupdateparameters__.root_ref = value;
 			}
 			get { return root_ref_; }
 		}
@@ -60,26 +60,26 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
-		#region public XS_tableSearchUpdateParametersType TableUpdateParameters { get; set; }
-		internal XS_tableSearchUpdateParametersType tableupdateparameters__;
+		#region public XS_tableSearchUpdateParametersType TableSearchUpdateParameters { get; set; }
+		internal XS_tableSearchUpdateParametersType tablesearchupdateparameters__;
 
 		[XmlIgnore()]
-		public XS_tableSearchUpdateParametersType TableUpdateParameters {
+		public XS_tableSearchUpdateParametersType TableSearchUpdateParameters {
 			get {
-				if (tableupdateparameters__ == null) {
-					tableupdateparameters__ = new XS_tableSearchUpdateParametersType();
+				if (tablesearchupdateparameters__ == null) {
+					tablesearchupdateparameters__ = new XS_tableSearchUpdateParametersType();
 				}
-				return tableupdateparameters__;
+				return tablesearchupdateparameters__;
 			}
 			set {
-				tableupdateparameters__ = value;
+				tablesearchupdateparameters__ = value;
 			}
 		}
 
-		[XmlElement("tableUpdateParameters")]
-		public XS_tableSearchUpdateParametersType tableupdateparameters__xml {
-			get { return tableupdateparameters__; }
-			set { tableupdateparameters__ = value; }
+		[XmlElement("tableSearchUpdateParameters")]
+		public XS_tableSearchUpdateParametersType tablesearchupdateparameters__xml {
+			get { return tablesearchupdateparameters__; }
+			set { tablesearchupdateparameters__ = value; }
 		}
 		#endregion
 
@@ -88,7 +88,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			int _index = -1;
 
 			name_ = tableSearchUpdateType_in.name_;
-			if (tableSearchUpdateType_in.tableupdateparameters__ != null) tableupdateparameters__.CopyFrom(tableSearchUpdateType_in.tableupdateparameters__);
+			if (tableSearchUpdateType_in.tablesearchupdateparameters__ != null) tablesearchupdateparameters__.CopyFrom(tableSearchUpdateType_in.tablesearchupdateparameters__);
 		}
 		#endregion
 	}

@@ -1,7 +1,7 @@
 ﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0E77A4DB-AF8B-4290-BB33-F9EC97655433}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -224,8 +224,17 @@
       <SubType>Code</SubType>
     </Compile>
     <None Include="COPYING.MIT" />
+    <None Include="OGenXSD-metadatas\COPYING.MIT" />
+    <None Include="OGenXSD-metadatas\MD_NTier_metadataDB.OGenXSD-metadata.xsd" />
+    <None Include="OGenXSD-metadatas\MD_NTier_metadataExtended.OGenXSD-metadata.xsd" />
+    <None Include="OGenXSD-metadatas\_old-stuff\MD_NTier_metadata.OGenXSD-metadata.xsd" />
+    <None Include="OGenXSD-metadatas\_old-stuff\MD_NTier_someTest.OGenXSD-metadata.xsd" />
     <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
+    <Content Include="OGenXSD-metadatas\LICENSE.MIT.txt" />
+    <Content Include="OGenXSD-metadatas\LICENSE.txt" />
+    <Content Include="OGenXSD-metadatas\MD_NTier_metadata.OGenXSD-metadata.xml" />
+    <Content Include="OGenXSD-metadatas\MD_NTier_metadataApplication.OGenXSD-metadata.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\OGen\OGen_datalayersupport\OGen_datalayersupport-8.csproj">

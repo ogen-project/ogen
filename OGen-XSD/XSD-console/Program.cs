@@ -59,7 +59,8 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 								#endif
 									["ogenPath"],
 
-								@"..\..\OGen\OGen_generator\OGenXSD-metadatas\MD_OGen_templates.OGenXSD-metadata.xml"
+								//@"..\..\OGen\OGen_generator\OGenXSD-metadatas\MD_OGen_templates.OGenXSD-metadata.xml"
+								@"..\..\OGen-NTier\NTier_metadata\OGenXSD-metadatas\MD_NTier_metadata.OGenXSD-metadata.xml"
 							)
 						);
 						Console.WriteLine();

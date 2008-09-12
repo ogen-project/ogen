@@ -140,7 +140,7 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 						for (int p = 0; p < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; p++) {
 							_aux_ex_field_ref = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[p];%>
 						<tableFieldRef tableName="<%=_aux_ex_field_ref.TableName
-								%>" fieldName="<%=_aux_ex_field_ref.TableFieldName
+								%>" tableFieldName="<%=_aux_ex_field_ref.TableFieldName
 								%>" paramName="<%=_aux_ex_field_ref.ParamName%>" /><%
 						}%>
 					</tableSearchParameters><%
@@ -151,14 +151,16 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 					<tableSearchUpdates><%
 						for (int u = 0; u < _aux_ex_search.TableSearchUpdates.TableSearchUpdateCollection.Count; u++) {
 							_aux_ex_search_update = _aux_ex_search.TableSearchUpdates.TableSearchUpdateCollection[u];%>
-						<tableSearchUpdate name="<%=_aux_ex_search_update.Name%>"><%
-								for (int p = 0; p < _aux_ex_search_update.TableUpdateParameters.TableFieldRefCollection.Count; p++) {
-									_aux_ex_field_ref = _aux_ex_search_update.TableUpdateParameters.TableFieldRefCollection[p];%>
-							<tableFieldRef tableName="<%=_aux_ex_field_ref.TableName
-								%>" fieldName="<%=_aux_ex_field_ref.TableFieldName
-								%>" paramName="<%=_aux_ex_field_ref.ParamName
-								%>" /><%
-								}%>
+						<tableSearchUpdate name="<%=_aux_ex_search_update.Name%>">
+							<tableSearchUpdateParameters><%
+								for (int p = 0; p < _aux_ex_search_update.TableSearchUpdateParameters.TableFieldRefCollection.Count; p++) {
+									_aux_ex_field_ref = _aux_ex_search_update.TableSearchUpdateParameters.TableFieldRefCollection[p];%>
+								<tableFieldRef tableName="<%=_aux_ex_field_ref.TableName
+									%>" tableFieldName="<%=_aux_ex_field_ref.TableFieldName
+									%>" paramName="<%=_aux_ex_field_ref.ParamName
+									%>" /><%
+									}%>
+							</tableSearchUpdateParameters>
 						</tableSearchUpdate><%
 						}%>
 					</tableSearchUpdates><%
@@ -203,7 +205,7 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 						for (int p = 0; p < _aux_ex_update.TableUpdateParameters.TableFieldRefCollection.Count; p++) {
 							_aux_ex_field_ref = _aux_ex_update.TableUpdateParameters.TableFieldRefCollection[p];%>
 						<tableFieldRef tableName="<%=_aux_ex_field_ref.TableName
-							%>" fieldName="<%=_aux_ex_field_ref.TableFieldName
+							%>" tableFieldName="<%=_aux_ex_field_ref.TableFieldName
 							%>" paramName="<%=_aux_ex_field_ref.ParamName%>" /><%
 						}%>
 					</tableUpdateParameters>
@@ -213,7 +215,7 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 <!--
 				<tableUpdate name="SomeUpdateTest">
 					<tableUpdateParameters>
-						<tableFieldRef tableName="User" fieldName="Password" paramName="Password" />
+						<tableFieldRef tableName="User" tableFieldName="Password" paramName="Password" />
 					</tableUpdateParameters>
 				</tableUpdate>
 -->

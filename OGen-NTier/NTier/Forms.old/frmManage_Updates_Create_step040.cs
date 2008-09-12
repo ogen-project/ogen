@@ -278,7 +278,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 						s
 					].TableSearchUpdates.TableSearchUpdateCollection[
 						u
-					].TableUpdateParameters.TableFieldRefCollection.Add(
+					].TableSearchUpdateParameters.TableFieldRefCollection.Add(
 						out _parameter_index, 
 						true, 
 						new OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldRefType(
@@ -292,7 +292,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 						s
 					].TableSearchUpdates.TableSearchUpdateCollection[
 						u
-					].TableUpdateParameters.TableFieldRefCollection[
+					].TableSearchUpdateParameters.TableFieldRefCollection[
 						_parameter_index
 					].TableName = txtTableName.Text;
 
@@ -302,7 +302,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 						s
 					].TableSearchUpdates.TableSearchUpdateCollection[
 						u
-					].TableUpdateParameters.TableFieldRefCollection[
+					].TableSearchUpdateParameters.TableFieldRefCollection[
 						_parameter_index
 					].TableFieldName = lbxFields.Items[f].ToString();
 				}
