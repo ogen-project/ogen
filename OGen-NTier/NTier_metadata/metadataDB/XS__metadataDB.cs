@@ -184,6 +184,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 							_fielddb = new XS_tableFieldDBType(
 								dbConnectionParam_in[c].DBServerType.ToString()
 							);
+							_field.TableFieldDBs.TableFieldDBCollection.Add(_fielddb);
 						}
 						#endregion
 						_fielddb.DBType = _fields_aux[f].DBType_inDB_name;
