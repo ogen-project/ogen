@@ -163,9 +163,19 @@ throw new Exception("// ToDos: not implemented!");
 					OGen.NTier.lib.metadata.metadataDB.XS__metadataDB.METADATADB
 				) {
 					if (notifyBack_in != null) notifyBack_in("- saving db metadata to xml file", true);
-					metadata_.MetadataDBCollection[0].SaveState_toFile(
+
+					//--- OLD
+					//metadata_.MetadataDBCollection[0].SaveState_toFile(
+					//    Path.Combine(
+					//        Path.GetDirectoryName(filename_),
+					//        metadata_.MetadataFiles.MetadataFiles[i].XMLFilename
+					//    )
+					//);
+
+					//--- NEW!
+					_metadatadb.SaveState_toFile(
 						Path.Combine(
-							Path.GetDirectoryName(filename_), 
+							Path.GetDirectoryName(filename_),
 							metadata_.MetadataFiles.MetadataFiles[i].XMLFilename
 						)
 					);
