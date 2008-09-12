@@ -182,26 +182,26 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 		/// </summary>
 		[DOPropertyAttribute(
 			"<%=_aux_db_field.Name%>", 
-			"<%=_aux_ex_field.FriendlyName%>", 
-			"<%=_aux_ex_field.ExtendedDescription%>", 
+			"<%=(_aux_ex_field == null) ? "" : _aux_ex_field.FriendlyName%>", 
+			"<%=(_aux_ex_field == null) ? "" : _aux_ex_field.ExtendedDescription%>", 
 			<%=_aux_db_field.isPK.ToString().ToLower()%>, 
 			<%=_aux_db_field.isIdentity.ToString().ToLower()%>, 
 			<%=_aux_db_field.isNullable.ToString().ToLower()%>, 
-			"<%=_aux_ex_field.DefaultValue%>", <%--
+			"<%=(_aux_ex_field == null) ? "" : _aux_ex_field.DefaultValue%>", <%--
 			<%=(_aux_ex_field.DefaultValue == string.Empty) ? "null" : _aux_ex_field.DefaultValue%>,
 			<%=(_aux_ex_field.DefaultValue == string.Empty) ? "\"\"" : _aux_ex_field.DefaultValue%>, --%>
 			"<%=_aux_db_field.FKTableName%>", 
 			"<%=_aux_db_field.FKFieldName%>", 
-			<%=_aux_ex_field.isConfig_Name.ToString().ToLower()%>, 
-			<%=_aux_ex_field.isConfig_Config.ToString().ToLower()%>, 
-			<%=_aux_ex_field.isConfig_Datatype.ToString().ToLower()%>, 
-			<%=_aux_db_field.isBool.ToString().ToLower()%>, 
+			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.isConfig_Name.ToString().ToLower()%>, 
+			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.isConfig_Config.ToString().ToLower()%>, 
+			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.isConfig_Datatype.ToString().ToLower()%>, 
+			<%=(_aux_ex_field == null) ? "false" : _aux_db_field.isBool.ToString().ToLower()%>, 
 			<%=_aux_db_field.isDateTime.ToString().ToLower()%>, 
 			<%=_aux_db_field.isInt.ToString().ToLower()%>, 
 			<%=_aux_db_field.isDecimal.ToString().ToLower()%>, 
 			<%=_aux_db_field.isText.ToString().ToLower()%>, 
-			<%=_aux_ex_field.isListItemValue.ToString().ToLower()%>, 
-			<%=_aux_ex_field.isListItemText.ToString().ToLower()%>, 
+			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.isListItemValue.ToString().ToLower()%>, 
+			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.isListItemText.ToString().ToLower()%>, 
 			<%=_aux_db_field.Size%>, 
 			""
 		)]
