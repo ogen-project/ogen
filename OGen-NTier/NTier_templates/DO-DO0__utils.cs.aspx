@@ -256,6 +256,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 					DatatypeField = "";
 					for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 						_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
+						_aux_ex_field = _aux_db_field.parallel_ref;
 						if (_aux_ex_field.isConfig_Name) {
 							NameField = _aux_db_field.Name;
 							continue;
@@ -270,7 +271,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 						}
 					}
 					DBConnection connection = DBConnectionsupport.CreateInstance(
-						_aux_ex_metadata.DBs.DB_FirstDefaultAvailable.DBServerType, 
+						// ToDos: here! .net fw 2.0 specific
+						(DBServerTypes)Enum.Parse(typeof(DBServerTypes), _aux_ex_metadata.DBs.DB_FirstDefaultAvailable.DBServerType), 
 						_aux_ex_metadata.DBs.DBConnection_FirstDefaultAvailable.Connectionstring
 					);
 					ConfigTable = connection.Execute_SQLQuery_returnDataTable(

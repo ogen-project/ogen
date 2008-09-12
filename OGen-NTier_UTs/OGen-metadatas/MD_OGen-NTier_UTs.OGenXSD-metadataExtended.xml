@@ -66,7 +66,7 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 			</tableFields>
 		</table>
 -->
-		<table name="Config" friendlyName="" extendedDescription="" isConfig="true" configName="Name" configConfig="Config" configDatatype="DataType">
+		<table name="Config" friendlyName="" extendedDescription="" isConfig="true" configName="Name" configConfig="Config" configDatatype="Type">
 			<tableFields>
 				<tableField name="Name" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Config" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
