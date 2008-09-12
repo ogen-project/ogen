@@ -519,7 +519,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		}
 		#endregion<%
 		} else {%>
-		#region public <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].DBType_generic%> insObject(...);
+		#region public <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].DBType_generic.FWType%> insObject(...);
 		/// <summary>
 		/// Inserts <%=_aux_db_table.Name%> values into Database.
 		/// </summary>
