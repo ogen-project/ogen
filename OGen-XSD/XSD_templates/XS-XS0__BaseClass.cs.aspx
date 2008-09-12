@@ -120,6 +120,8 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 					_output[i] = (<%=XS__%><%=_aux_schema.Element.Name%>)new XmlSerializer(typeof(<%=XS__%><%=_aux_schema.Element.Name%>)).Deserialize(
 						_stream
 					);
+					_stream.Close();
+					_stream.Dispose();
 				} catch (Exception _ex) {
 					throw new Exception(string.Format(
 						"\n---\n{0}.{1}.Load_fromFile():\nERROR READING XML:\n{2}\n---\n{3}\n---\n{4}\n---\n",
@@ -154,7 +156,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 			<%=XS__%>RootMetadata root_ref_in, 
 			params Uri[] filePath_in
 		) {<%
-}%>
+}%><%=""%>
 			<%=XS__%><%=_aux_schema.Element.Name%>[] _output 
 				= new <%=XS__%><%=_aux_schema.Element.Name%>[filePath_in.Length];
 
@@ -213,6 +215,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 			);
 			_file.Flush();
 			_file.Close();
+			_file.Dispose();
 		}
 		#endregion
 		#region public string Read_fromRoot(string what_in);

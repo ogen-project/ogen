@@ -66,6 +66,8 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 					_output[i] = (XS__metadataDB)new XmlSerializer(typeof(XS__metadataDB)).Deserialize(
 						_stream
 					);
+					_stream.Close();
+					_stream.Dispose();
 				} catch (Exception _ex) {
 					throw new Exception(string.Format(
 						"\n---\n{0}.{1}.Load_fromFile():\nERROR READING XML:\n{2}\n---\n{3}\n---\n{4}\n---\n",
@@ -96,7 +98,8 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		public static XS__metadataDB[] Load_fromURI(
 			XS__RootMetadata root_ref_in, 
 			params Uri[] filePath_in
-		) {XS__metadataDB[] _output 
+		) {
+			XS__metadataDB[] _output 
 				= new XS__metadataDB[filePath_in.Length];
 
 			for (int i = 0; i < filePath_in.Length; i++) {
@@ -150,6 +153,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			);
 			_file.Flush();
 			_file.Close();
+			_file.Dispose();
 		}
 		#endregion
 		#region public string Read_fromRoot(string what_in);

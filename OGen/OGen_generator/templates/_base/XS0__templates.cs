@@ -57,13 +57,16 @@ namespace OGen.lib.templates {
 					_output[i] = (XS__templates)new XmlSerializer(typeof(XS__templates)).Deserialize(
 						_stream
 					);
+					_stream.Close();
+					_stream.Dispose();
 				} catch (Exception _ex) {
 					throw new Exception(string.Format(
-						"\n---\n{0}.{1}.Load_fromFile():\nERROR READING XML:\n{2}\n---\n{3}",
+						"\n---\n{0}.{1}.Load_fromFile():\nERROR READING XML:\n{2}\n---\n{3}\n---\n{4}\n---\n",
 						typeof(XS__templates).Namespace, 
 						typeof(XS__templates).Name, 
 						filePath_in[i],
-						_ex.Message
+						_ex.Message,
+						_ex.InnerException
 					));
 				}
 				_output[i].root_templates_ = ROOT + "." + TEMPLATES + "[" + i + "]";
@@ -74,7 +77,8 @@ namespace OGen.lib.templates {
 		#region public static XS__templates[] Load_fromURI(...);
 		public static XS__templates[] Load_fromURI(
 			params Uri[] filePath_in
-		) {XS__templates[] _output 
+		) {
+			XS__templates[] _output 
 				= new XS__templates[filePath_in.Length];
 
 			for (int i = 0; i < filePath_in.Length; i++) {
@@ -124,6 +128,7 @@ namespace OGen.lib.templates {
 			);
 			_file.Flush();
 			_file.Close();
+			_file.Dispose();
 		}
 		#endregion
 		#region public string Read_fromRoot(string what_in);
