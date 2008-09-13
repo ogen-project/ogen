@@ -388,58 +388,89 @@ WHERE
 			return _query.ToString();
 		}
 		#endregion
-//		#region public override string getTableFields_query(...);
+		#region public override string getTableFields_query(...);
 		public override string getTableFields_query(
 			string tableName_in
 		) {
+			string _database = Connectionstring_database();
+			#region return "SELECT ...";
+			return string.Format(@"
+SELECT
+	_columns.table_name,
 
-// ToDos: here! 1 - Connectionstring_database() not supported!
-// ToDos: here! 2 - CAST(1 AS Signed Int) carefull on how provider converts server var to .net var, 
-//					check DBConnection.getTableFields(...);
-throw new Exception("not implemented!");
+	_columns.column_name,
 
-//			string _database = Connectionstring_database();
-//			#region return "SELECT ...";
-//			return string.Format(@"
-//SELECT
-//	t1.TABLE_NAME AS ""table_name"",
-//	t1.COLUMN_NAME AS ""Name"", 
-//--	CASE
-//--		WHEN t1.IS_NULLABLE = 'NO' THEN
-//			CAST(0 AS Signed Int)
-//--		ELSE
-//--			CAST(1 AS Signed Int)
-//--	END
-//	AS ""isNullable"", 
-//	t1.DATA_TYPE AS ""Type"", 
-//	t1.CHARACTER_MAXIMUM_LENGTH AS ""Size"", 
-//	CASE
-//		WHEN ((t6.TABLE_TYPE != 'VIEW') AND (t1.COLUMN_KEY = 'PRI')) THEN
-//			CAST(1 AS Signed Int)
-//		ELSE
-//			CAST(0 AS Signed Int)
-//	END AS ""isPK"", 
-//	CASE
-//		WHEN ((t6.TABLE_TYPE != 'VIEW') AND (t1.EXTRA = 'auto_increment')) THEN
-//			CAST(1 AS Signed Int)
-//		ELSE
-//			CAST(0 AS Signed Int)
-//	END AS ""isIdentity"", 
-//	NULL AS ""FK_TableName"", 
-//	NULL AS ""FK_FieldName""
-//FROM INFORMATION_SCHEMA.COLUMNS AS t1
-//	LEFT JOIN INFORMATION_SCHEMA.TABLES t6 ON ((t6.TABLE_SCHEMA = t1.TABLE_SCHEMA) AND (t6.TABLE_NAME = t1.TABLE_NAME))
-//WHERE 
-//	(t1.TABLE_NAME = '{0}') 
-//	AND
-//	(t1.TABLE_SCHEMA = '{1}')
-//ORDER BY t1.TABLE_NAME, t1.ORDINAL_POSITION
-//",
-//				tableName_in,
-//				Connectionstring_DBName
-//			);
-//			#endregion
+	CASE
+		WHEN ((_tables.table_type = 'VIEW') OR (_columns.is_nullable = 'No')) THEN
+			CAST(0 AS unsigned)
+		ELSE
+			CAST(1 AS unsigned)
+	END 
+	AS is_nullable,
+
+	_columns.data_type,
+
+	_columns.character_maximum_length,
+
+	CASE
+		WHEN ((_tables.table_type != 'VIEW') AND (_columns.column_key = 'PRI')) THEN
+			CAST(1 AS unsigned)
+		ELSE
+			CAST(0 AS unsigned)
+	END 
+	AS is_key_column_usage_PKs,
+
+	CASE
+		WHEN ((_tables.table_type != 'VIEW') AND (_columns.extra = 'auto_increment')) THEN
+			CAST(1 AS unsigned)
+		ELSE
+			CAST(0 AS unsigned)
+	END 
+	AS is_identity,
+
+	_key_column_usage.referenced_table_name
+	AS fk_table_name,
+
+	_key_column_usage.referenced_column_name
+	AS fk_column_name,
+
+	_columns.column_default,
+
+	_columns.collation_name,
+
+	_columns.numeric_precision,
+
+	_columns.numeric_scale
+
+FROM information_schema.columns AS _columns
+
+	LEFT JOIN information_schema.tables AS _tables ON (
+
+
+		(_tables.table_schema = _columns.table_schema)
+		AND
+		(_tables.table_name = _columns.table_name)
+	)
+	LEFT JOIN information_schema.key_column_usage AS _key_column_usage ON (
+		(_key_column_usage.table_name = _columns.table_name)
+		AND
+		(_key_column_usage.column_name = _columns.column_name)
+		AND
+		(_key_column_usage.referenced_table_schema = '{1}')
+		AND 
+		(_key_column_usage.referenced_table_name is not null)
+	)
+WHERE
+	(_columns.table_schema = '{0}')
+ORDER BY
+	_columns.table_name,
+	_columns.ordinal_position
+",
+				tableName_in,
+				Connectionstring_DBName
+			);
+			#endregion
 		}
-//		#endregion
+		#endregion
 	}
 }

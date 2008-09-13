@@ -72,7 +72,7 @@ FROM information_schema.columns AS _columns
 		AND
 		(_key_column_usage.column_name = _columns.column_name)
 		AND
-		(_key_column_usage.referenced_table_schema = ("OGen-NTier_UTs"))
+		(_key_column_usage.referenced_table_schema = 'OGen-NTier_UTs')
 		AND 
 		(_key_column_usage.referenced_table_name is not null)
 	)
