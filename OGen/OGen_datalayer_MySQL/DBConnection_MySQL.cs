@@ -392,7 +392,7 @@ WHERE
 		public override string getTableFields_query(
 			string tableName_in
 		) {
-			string _database = Connectionstring_database();
+			string _database = Connectionstring_DBName;
 			#region return "SELECT ...";
 			return string.Format(@"
 SELECT

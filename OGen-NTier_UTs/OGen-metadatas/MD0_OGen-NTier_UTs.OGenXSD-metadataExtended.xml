@@ -46,6 +46,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				<dbConnection configMode="!DEBUG" isDefault="false" generateSQL="false" isIndexed_andReadOnly="false" connectionstring="server=127.0.0.1;uid=sa;pwd=passpub;database=OGen-NTier_UTs;" />
 			</dbConnections>
 		</db>
+		<db dbServerType="MySQL">
+			<dbConnections>
+				<dbConnection configMode="DEBUG" isDefault="false" generateSQL="true" isIndexed_andReadOnly="false" connectionstring="server=127.0.0.1;uid=root;pwd=passpub;database=OGen-NTier_UTs;" />
+				<dbConnection configMode="!DEBUG" isDefault="false" generateSQL="false" isIndexed_andReadOnly="false" connectionstring="server=127.0.0.1;uid=root;pwd=passpub;database=OGen-NTier_UTs;" />
+			</dbConnections>
+		</db>
 	</dbs>
 	<tables>
 <!--

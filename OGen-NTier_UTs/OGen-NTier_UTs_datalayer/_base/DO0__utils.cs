@@ -18,6 +18,7 @@ using System.Data;
 using OGen.lib.datalayer;
 using OGen.lib.datalayer.PostgreSQL;
 using OGen.lib.datalayer.SQLServer;
+using OGen.lib.datalayer.MySQL;
 using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.datalayer {
@@ -135,6 +136,13 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #if SQLServer
 				case "SQLServer":
 					return new DBConnection_SQLServer(
+						connectionstring_in, 
+						logfile_in
+					);
+#endif
+#if MySQL
+				case "MySQL":
+					return new DBConnection_MySQL(
 						connectionstring_in, 
 						logfile_in
 					);
