@@ -208,7 +208,7 @@ namespace OGen.lib.datalayer.MySQL {
 			}
 			throw new Exception(
 				string.Format(
-					"{0}.{1}.ParseParameter(): - error parsing db connectionstring: '{2}'",
+					"{0}.{1}.ParseParameter(): - error parsing db connectionstring: 'MySQL|{2}'",
 					typeof(DBUtils_connectionString_MySQL).Namespace,
 					typeof(DBUtils_connectionString_MySQL).Name,
 					connectionstring_in

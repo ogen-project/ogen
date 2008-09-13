@@ -209,13 +209,15 @@ namespace OGen.lib.datalayer.SQLServer {
 					command_in.ExecuteNonQuery();
 					//Execute_SQLFunction_out = null;
 				}
-			} catch (Exception e) {
+			} catch (Exception _ex) {
 				throw new Exception(
 					string.Format(
-						"Stored Procedure: {0}\nConnectionString: {1}\nexception: {2}\n",
+						"Stored Procedure: {0}\nConnectionString: {1}|{2}\nexception: {3}\ninner-exception: {4}\n",
 						function_in,
+						DBServerType, 
 						connectionstring_,
-						e.ToString()
+						_ex.Message, 
+						_ex.InnerException
 					)
 				);
 			}

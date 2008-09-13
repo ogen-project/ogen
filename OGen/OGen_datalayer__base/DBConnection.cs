@@ -486,14 +486,16 @@ namespace OGen.lib.datalayer {
 			command_in.CommandType = CommandType.Text;
 			try {
 				command_in.ExecuteNonQuery();
-			} catch (Exception e) {
+			} catch (Exception _ex) {
 				#region throw new Exception("...");
 				throw new Exception(
 					string.Format(
-						"--- query:\n{0}\n\n--- ConnectionString:\n{1}\n\n--- exception:\n{2}\n",
+						"--- query:\n{0}\n\n--- ConnectionString:\n{1}|{2}\n\n--- exception:\n{3}\n\n--- inner-exception:\n{4}\n",
 						query_in,
+						DBServerType, 
 						connectionstring_, 
-						e.ToString()
+						_ex.Message, 
+						_ex.InnerException
 					)
 				);
 				#endregion
@@ -568,14 +570,16 @@ namespace OGen.lib.datalayer {
 			try {
 				Execute_SQLQuery_returnDataSet_out = new DataSet();
 				_dataadapter.Fill(Execute_SQLQuery_returnDataSet_out);
-			} catch (Exception e) {
+			} catch (Exception _ex) {
 				#region throw new Exception("...");
 				throw new Exception(
 					string.Format(
-						"query: {0}\nConnectionString: {1}\nexception: {2}\n",
+						"query: {0}\nConnectionString: {1}|{2}\nexception: {3}\ninner-exception: {4}\n",
 						query_in,
-						connectionstring_, 
-						e.ToString()
+						DBServerType, 
+						connectionstring_,
+						_ex.Message,
+						_ex.InnerException
 					)
 				);
 				#endregion
@@ -813,14 +817,16 @@ namespace OGen.lib.datalayer {
 			try {
 				Execute_SQLFunction_returnDataSet_out = new DataSet();
 				_dataadapter.Fill(Execute_SQLFunction_returnDataSet_out);
-			} catch (Exception e) {
+			} catch (Exception _ex) {
 				throw new Exception(
 					string.Format(
-						"Stored Procedure: {0}\nParameters: {1}\nConnectionString: {2}\nexception: {3}\n",
+						"Stored Procedure: {0}\nParameters: {1}\nConnectionString: {2}|{3}\nexception: {4}\ninner-exception: {5}\n",
 						function_in,
 						dataParameters_in,
+						DBServerType, 
 						connectionstring_,
-						e.ToString()
+						_ex.Message, 
+						_ex.InnerException
 					)
 				);
 			}

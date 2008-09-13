@@ -550,10 +550,12 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 		dbconnectionstrings_[d].Connection.Execute_SQLQuery(_parsedOutput);
 	} catch (Exception _ex) {
 		throw new Exception(string.Format(
-			"---\n{0}\n---\nTEMPLATE: {1}\n---\nQUERY:\n\n{2}\n---\n",
-			"",//_ex.Message,
+			"---\nTEMPLATE: {0}\n---\nQUERY:\n\n{1}\n---\nDBServerType:\n\n{2}\n---\nEXCEPTION:\n\n{3}\n---\nINNER-EXCEPTION:\n\n{4}\n---\n",
 			templates_.TemplateCollection[template_].Name,
-			_parsedOutput
+			_parsedOutput, 
+			dbconnectionstrings_[d].DBServerType.ToString(), 
+			_ex.Message,
+			_ex.InnerException
 		));
 	}
 }

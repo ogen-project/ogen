@@ -241,7 +241,7 @@ namespace OGen.lib.datalayer.PostgreSQL {
 			}
 			throw new Exception(
 				string.Format(
-					"{0}.{1}.ParseParameter(): - error parsing db connectionstring: '{2}'",
+					"{0}.{1}.ParseParameter(): - error parsing db connectionstring: 'PostgreSQL|{2}'",
 					typeof(DBUtils_connectionString_PostgreSQL).Namespace,
 					typeof(DBUtils_connectionString_PostgreSQL).Name,
 					connectionstring_in
