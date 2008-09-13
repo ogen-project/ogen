@@ -57,13 +57,13 @@ string _aux_xx_field_name;
 	NOT DETERMINISTIC
 	SQL SECURITY DEFINER
 	COMMENT ''
-BEGIN<%if (_aux_metadata.CopyrightTextLong != string.Empty) {
-%>
+BEGIN<%if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {
+%><%--
 /*
 
 <%=_aux_ex_metadata.CopyrightTextLong%>
 
-*/<%
+*/--%><%
 }%>
 	SELECT<%
 	for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {

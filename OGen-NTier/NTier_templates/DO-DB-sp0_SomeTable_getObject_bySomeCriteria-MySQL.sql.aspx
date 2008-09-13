@@ -61,13 +61,13 @@ for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 	NOT DETERMINISTIC
 	SQL SECURITY DEFINER
 	COMMENT ''
-BEGIN<%if (_aux_metadata.CopyrightTextLong != string.Empty) {
-%>
+BEGIN<%if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {
+%><%--
 /*
 
 <%=_aux_ex_metadata.CopyrightTextLong%>
 
-*/<%
+*/--%><%
 }%>
 	DECLARE `Exists` BOOLEAN DEFAULT false;
 

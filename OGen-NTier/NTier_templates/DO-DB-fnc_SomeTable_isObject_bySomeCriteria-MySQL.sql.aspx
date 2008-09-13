@@ -66,13 +66,13 @@ for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection
 	NOT DETERMINISTIC
 	SQL SECURITY DEFINER
 	COMMENT ''
-BEGIN<%if (_aux_metadata.CopyrightTextLong != string.Empty) {
-%>
+BEGIN<%if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {
+%><%--
 /*
 
 <%=_aux_ex_metadata.CopyrightTextLong%>
 
-*/<%
+*/--%><%
 }%>
 	INSERT INTO `finalresult`
 	SELECT<%

@@ -52,12 +52,12 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 	SQL SECURITY DEFINER
 	COMMENT ''
 BEGIN<%if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {
-%>
+%><%--
 /*
 
 <%=_aux_ex_metadata.CopyrightTextLong%>
 
-*/<%
+*/--%><%
 }%>
 	DECLARE `isObject` BOOLEAN DEFAULT false;
 

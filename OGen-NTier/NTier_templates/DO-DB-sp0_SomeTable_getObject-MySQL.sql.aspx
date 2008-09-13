@@ -50,13 +50,13 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 	NOT DETERMINISTIC
 	SQL SECURITY DEFINER
 	COMMENT ''
-BEGIN<%if (_aux_metadata.CopyrightTextLong != string.Empty) {
-%>
+BEGIN<%if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {
+%><%--
 /*
 
 <%=_aux_ex_metadata.CopyrightTextLong%>
 
-*/<%
+*/--%><%
 }%>
 	DECLARE `Exists` BOOLEAN DEFAULT false;
 

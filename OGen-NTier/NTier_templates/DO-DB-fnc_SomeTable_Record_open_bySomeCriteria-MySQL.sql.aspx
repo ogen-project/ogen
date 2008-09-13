@@ -62,13 +62,13 @@ bool makeItAComment = false;
 	NOT DETERMINISTIC
 	SQL SECURITY DEFINER
 	COMMENT ''
-RETURN<%if (_aux_metadata.CopyrightTextLong != string.Empty) {
-%>
+RETURN<%if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {
+%><%--
 /*
 
 <%=_aux_ex_metadata.CopyrightTextLong%>
 
-*/<%
+*/--%><%
 }%>
 	SELECT<%
 		for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
