@@ -340,60 +340,54 @@ ORDER BY SCHEMA_NAME
 			;
 		}
 		#endregion
-//		#region public override string getTables_query(string subAppName_in);
+		#region public override string getTables_query(string subAppName_in);
 		public override string getTables_query(
 			string dbName_in, 
 			string subAppName_in
 		) {
+			StringBuilder _query = new StringBuilder(string.Empty);
+			string _database = Connectionstring_DBName;
+			#region _query.Append("SELECT ...");
+			_query.Append(string.Format(@"
+SELECT
+	TABLE_NAME AS ""table_name"",
+	CASE
+		WHEN (TABLE_TYPE = 'VIEW') THEN
+			CAST(1 AS Signed Int)
+		ELSE
+			CAST(0 AS Signed Int)
+	END AS ""is_view""
+FROM INFORMATION_SCHEMA.TABLES
+WHERE
+	(
+		(TABLE_TYPE = 'BASE TABLE')
+		OR
+		(TABLE_TYPE = 'VIEW')
+	)
+	AND
+	(TABLE_SCHEMA = '{0}')
+", 
+				_database
+			));
+			#endregion
+			if (subAppName_in != "" ) {
+				_query.Append("AND (");
+				string[] _subAppNames = subAppName_in.Split('|');
+				for (int i = 0; i < _subAppNames.Length; i++) {
+					_query.Append(string.Format(
+						"(TABLE_NAME {0} '{1}'){2}",
+						(_subAppNames[i].IndexOf('%') >= 0) ? "LIKE" : "=",
+						_subAppNames[i],
+						(i == _subAppNames.Length - 1) ? "" : " OR "
+					));
+				}
+				_query.Append(") ");
+			}
+			_query.Append(@"ORDER BY ""Name"" ");
 
-// ToDos: here! 1 - Connectionstring_database() not supported!
-// ToDos: here! 2 - CAST(1 AS Signed Int) carefull on how provider converts server var to .net var, 
-//					check DBConnection.getTables(...);
-throw new Exception("not implemented!");
-
-//			StringBuilder _query = new StringBuilder(string.Empty);
-//			string _database = Connectionstring_database();
-//			#region _query.Append("SELECT ...");
-//			_query.Append(string.Format(@"
-//SELECT
-//	TABLE_NAME AS ""Name"",
-//	CASE
-//		WHEN (TABLE_TYPE = 'VIEW') THEN
-//			CAST(1 AS Signed Int)
-//		ELSE
-//			CAST(0 AS Signed Int)
-//	END AS ""isVT""
-//FROM INFORMATION_SCHEMA.TABLES
-//WHERE
-//	(
-//		(TABLE_TYPE = 'BASE TABLE')
-//		OR
-//		(TABLE_TYPE = 'VIEW')
-//	)
-//	AND
-//	(TABLE_SCHEMA = '{0}')
-//", 
-//				_database
-//			));
-//			#endregion
-//			if (subAppName_in != "" ) {
-//				_query.Append("AND (");
-//				string[] _subAppNames = subAppName_in.Split('|');
-//				for (int i = 0; i < _subAppNames.Length; i++) {
-//					_query.Append(string.Format(
-//						"(TABLE_NAME {0} '{1}'){2}",
-//						(_subAppNames[i].IndexOf('%') >= 0) ? "LIKE" : "=",
-//						_subAppNames[i],
-//						(i == _subAppNames.Length - 1) ? "" : " OR "
-//					));
-//				}
-//				_query.Append(") ");
-//			}
-//			_query.Append(@"ORDER BY ""Name"" ");
-
-//			return _query.ToString();
+			return _query.ToString();
 		}
-//		#endregion
+		#endregion
 //		#region public override string getTableFields_query(...);
 		public override string getTableFields_query(
 			string tableName_in
@@ -408,6 +402,7 @@ throw new Exception("not implemented!");
 //			#region return "SELECT ...";
 //			return string.Format(@"
 //SELECT
+//	t1.TABLE_NAME AS ""table_name"",
 //	t1.COLUMN_NAME AS ""Name"", 
 //--	CASE
 //--		WHEN t1.IS_NULLABLE = 'NO' THEN
