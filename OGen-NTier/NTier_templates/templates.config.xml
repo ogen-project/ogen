@@ -68,6 +68,7 @@ XXX:NO_NEED -->
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
 <!-- XXX:TODOS
@@ -810,6 +811,7 @@ XXX:TO_DOS -->
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -830,6 +832,7 @@ XXX:TO_DOS -->
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -852,6 +855,7 @@ XXX:TO_DOS -->
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1664,6 +1668,7 @@ XXX:TO_DOS -->
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1684,6 +1689,7 @@ XXX:TO_DOS -->
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1706,6 +1712,7 @@ XXX:TO_DOS -->
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS

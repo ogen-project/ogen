@@ -212,7 +212,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			}--%>
 			Fields = new SO0_<%=_aux_db_table.Name%>();
 		}
-		#endregion
+		#endregion<%
+if (!_aux_db_table.isVirtualTable) {%>
 		#region public bool getObject(...);
 		/// <summary>
 		/// Selects <%=_aux_db_table.Name%> values from Database and assigns them to the appropriate DO0_<%=_aux_db_table.Name%> property.
@@ -289,8 +290,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 
 			return false;
 		}
-		#endregion<%
-		if (!_aux_db_table.isVirtualTable) {%>
+		#endregion
 		#region public void delObject(...);
 		/// <summary>
 		/// Deletes <%=_aux_db_table.Name%> from Database.
@@ -336,8 +336,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 
 			clrObject();
 		}
-		#endregion<%
-		}%>
+		#endregion
 		#region public bool isObject(...);
 		/// <summary>
 		/// Checks to see if <%=_aux_db_table.Name%> exists at Database
@@ -390,7 +389,6 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			);
 		}
 		#endregion<%
-		if (!_aux_db_table.isVirtualTable) {
 		if (_aux_db_table.hasIdentityKey == -1) {%>
 		#region public bool setObject(...);
 		/// <summary>

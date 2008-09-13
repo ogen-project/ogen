@@ -141,7 +141,7 @@ namespace OGen.NTier.UTs.test {
 						#region _config.Record.Open_...(false);
 						_conter = DateTime.Now.Ticks;
 
-						_config.Record.Open_all(false);
+						_config.Record.Open_all();
 						while (_config.Record.Read()) ;
 						_config.Record.Close();
 
@@ -156,7 +156,7 @@ namespace OGen.NTier.UTs.test {
 						#region _config.delObject();
 						_conter = DateTime.Now.Ticks;
 
-						_config.Record.Open_all(true);
+						_config.Record.Open_all();
 						while (_config.Record.Read()) {
 							if (_config.Fields.Config == "DELETE THIS, IT IS A TEST") {
 								_config.delObject();
@@ -206,7 +206,7 @@ namespace OGen.NTier.UTs.test {
 							_user.insObject(true, out _constraint);
 						}
 
-						_user.Record.Open_all(true);
+						_user.Record.Open_all();
 						while (_user.Record.Read()) {
 							if (_user.Fields.Password == "DELETE THIS, IT IS A TEST") {
 								_user.delObject();

@@ -96,7 +96,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			"IDUser", 
 			"", 
 			"", 
-			true, 
+			false, 
 			false, 
 			false, 
 			"", 

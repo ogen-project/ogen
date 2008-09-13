@@ -102,7 +102,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				_datatable.Rows.Add(_datarow);
 			}
 
-			Open(true, _datatable);
+			Open(_datatable);
 		}
 		#endregion
 		#region public override bool Read();
@@ -111,42 +111,24 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		/// </summary>
 		/// <returns>False if End Of Record has been reached, True if not</returns>
 		public override bool Read() {
-			return Read(false);
-		}
-
-		/// <summary>
-		/// Reads values from Record, assigns them to the appropriate WordLanguage DataObject property, finally it steps current iteration at the Record forward and returns a bool value indicating if End Of Record has been reached.
-		/// </summary>
-		/// <param name="doNOTgetObject_in">do NOT get object: - if set to true, only PKs will be available for reading, you should be carefull (updates aren't advisable, other issues may occur)</param>
-		/// <returns>False if End Of Record has been reached, True if not</returns>
-		public override bool Read(bool doNOTgetObject_in) {
 			if (base.read()) {
-				if (base.Fullmode) {
-					if (base.Record.Rows[Current]["IDWord"] == System.DBNull.Value) {
-						parent_ref_.Fields.idword_ = 0L;
-					} else {
-						parent_ref_.Fields.idword_ = (long)base.Record.Rows[Current]["IDWord"];
-					}
-					if (base.Record.Rows[Current]["IDLanguage"] == System.DBNull.Value) {
-						parent_ref_.Fields.idlanguage_ = 0L;
-					} else {
-						parent_ref_.Fields.idlanguage_ = (long)base.Record.Rows[Current]["IDLanguage"];
-					}
-					if (base.Record.Rows[Current]["Translation"] == System.DBNull.Value) {
-						parent_ref_.Fields.Translation_isNull = true;
-					} else {
-						parent_ref_.Fields.translation_ = (string)base.Record.Rows[Current]["Translation"];
-					}
-
-					parent_ref_.Fields.haschanges_ = false;
+				if (base.Record.Rows[Current]["IDWord"] == System.DBNull.Value) {
+					parent_ref_.Fields.idword_ = 0L;
 				} else {
-					parent_ref_.Fields.IDWord = (long)((base.Record.Rows[Current]["IDWord"] == System.DBNull.Value) ? 0L : base.Record.Rows[Current]["IDWord"]);
-					parent_ref_.Fields.IDLanguage = (long)((base.Record.Rows[Current]["IDLanguage"] == System.DBNull.Value) ? 0L : base.Record.Rows[Current]["IDLanguage"]);
-
-					if (!doNOTgetObject_in) {
-						parent_ref_.getObject();
-					}
+					parent_ref_.Fields.idword_ = (long)base.Record.Rows[Current]["IDWord"];
 				}
+				if (base.Record.Rows[Current]["IDLanguage"] == System.DBNull.Value) {
+					parent_ref_.Fields.idlanguage_ = 0L;
+				} else {
+					parent_ref_.Fields.idlanguage_ = (long)base.Record.Rows[Current]["IDLanguage"];
+				}
+				if (base.Record.Rows[Current]["Translation"] == System.DBNull.Value) {
+					parent_ref_.Fields.Translation_isNull = true;
+				} else {
+					parent_ref_.Fields.translation_ = (string)base.Record.Rows[Current]["Translation"];
+				}
+
+				parent_ref_.Fields.haschanges_ = false;
 
 				return true;
 			} else {

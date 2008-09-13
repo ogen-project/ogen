@@ -104,7 +104,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				_datatable.Rows.Add(_datarow);
 			}
 
-			Open(true, _datatable);
+			Open(_datatable);
 		}
 		#endregion
 		#region public override bool Read();
@@ -113,46 +113,29 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		/// </summary>
 		/// <returns>False if End Of Record has been reached, True if not</returns>
 		public override bool Read() {
-			return Read(false);
-		}
-
-		/// <summary>
-		/// Reads values from Record, assigns them to the appropriate Config DataObject property, finally it steps current iteration at the Record forward and returns a bool value indicating if End Of Record has been reached.
-		/// </summary>
-		/// <param name="doNOTgetObject_in">do NOT get object: - if set to true, only PKs will be available for reading, you should be carefull (updates aren't advisable, other issues may occur)</param>
-		/// <returns>False if End Of Record has been reached, True if not</returns>
-		public override bool Read(bool doNOTgetObject_in) {
 			if (base.read()) {
-				if (base.Fullmode) {
-					if (base.Record.Rows[Current]["Name"] == System.DBNull.Value) {
-						parent_ref_.Fields.name_ = string.Empty;
-					} else {
-						parent_ref_.Fields.name_ = (string)base.Record.Rows[Current]["Name"];
-					}
-					if (base.Record.Rows[Current]["Config"] == System.DBNull.Value) {
-						parent_ref_.Fields.config_ = string.Empty;
-					} else {
-						parent_ref_.Fields.config_ = (string)base.Record.Rows[Current]["Config"];
-					}
-					if (base.Record.Rows[Current]["Type"] == System.DBNull.Value) {
-						parent_ref_.Fields.type_ = 0;
-					} else {
-						parent_ref_.Fields.type_ = (int)base.Record.Rows[Current]["Type"];
-					}
-					if (base.Record.Rows[Current]["Description"] == System.DBNull.Value) {
-						parent_ref_.Fields.description_ = string.Empty;
-					} else {
-						parent_ref_.Fields.description_ = (string)base.Record.Rows[Current]["Description"];
-					}
-
-					parent_ref_.Fields.haschanges_ = false;
+				if (base.Record.Rows[Current]["Name"] == System.DBNull.Value) {
+					parent_ref_.Fields.name_ = string.Empty;
 				} else {
-					parent_ref_.Fields.Name = (string)((base.Record.Rows[Current]["Name"] == System.DBNull.Value) ? string.Empty : base.Record.Rows[Current]["Name"]);
-
-					if (!doNOTgetObject_in) {
-						parent_ref_.getObject();
-					}
+					parent_ref_.Fields.name_ = (string)base.Record.Rows[Current]["Name"];
 				}
+				if (base.Record.Rows[Current]["Config"] == System.DBNull.Value) {
+					parent_ref_.Fields.config_ = string.Empty;
+				} else {
+					parent_ref_.Fields.config_ = (string)base.Record.Rows[Current]["Config"];
+				}
+				if (base.Record.Rows[Current]["Type"] == System.DBNull.Value) {
+					parent_ref_.Fields.type_ = 0;
+				} else {
+					parent_ref_.Fields.type_ = (int)base.Record.Rows[Current]["Type"];
+				}
+				if (base.Record.Rows[Current]["Description"] == System.DBNull.Value) {
+					parent_ref_.Fields.description_ = string.Empty;
+				} else {
+					parent_ref_.Fields.description_ = (string)base.Record.Rows[Current]["Description"];
+				}
+
+				parent_ref_.Fields.haschanges_ = false;
 
 				return true;
 			} else {
@@ -170,28 +153,11 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		/// </summary>
 		public void Open_all(
 		) {
-			Open_all(
-				true
-			);
-		}
-
-		/// <summary>
-		/// Opens Record, based on 'all' search. It selects Config values from Database based on the 'all' search and assigns them to the Record, opening it.
-		/// </summary>
-		/// <param name="fullmode_in">Sets Record mode to Fullmode if True, or Not if False</param>
-		public void Open_all(
-			bool fullmode_in
-		) {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
 			};
 			base.Open(
-				string.Format(
-					"sp{0}_Config_Record_open_all{1}", 
-					fullmode_in ? "0" : "", 
-					fullmode_in ? "_fullmode" : ""
-				), 
-				_dataparameters, 
-				fullmode_in
+				"sp0_Config_Record_open_all_fullmode", 
+				_dataparameters
 			);
 		}
 
@@ -201,24 +167,6 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		/// <param name="page_in">page number</param>
 		/// <param name="page_numRecords_in">number of records per page</param>
 		public void Open_all(
-			int page_in, 
-			int page_numRecords_in
-		) {
-			Open_all(
-				true, 
-				page_in, 
-				page_numRecords_in
-			);
-		}
-
-		/// <summary>
-		/// Opens Record, based on 'all' search. It selects Config values from Database based on the 'all' search and assigns them to the Record, opening it.
-		/// </summary>
-		/// <param name="fullmode_in">Sets Record mode to Fullmode if True, or Not if False</param>
-		/// <param name="page_in">page number</param>
-		/// <param name="page_numRecords_in">number of records per page</param>
-		public void Open_all(
-			bool fullmode_in, 
 			int page_in, 
 			int page_numRecords_in
 		) {
@@ -227,12 +175,8 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				parent_ref_.Connection.newDBDataParameter("page_numRecords_", DbType.Int32, ParameterDirection.Input, page_numRecords_in, 0)
 			};
 			base.Open(
-				string.Format(
-					"sp0_Config_Record_open_all_page{0}", 
-					fullmode_in ? "_fullmode" : ""
-				), 
-				_dataparameters, 
-				fullmode_in
+				"sp0_Config_Record_open_all_page_fullmode", 
+				_dataparameters
 			);
 		}
 		#endregion

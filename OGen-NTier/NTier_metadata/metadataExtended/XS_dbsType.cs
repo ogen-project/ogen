@@ -13,6 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
+using System.Collections;
 using System.Xml.Serialization;
 using OGen.lib.datalayer;
 
@@ -67,6 +68,20 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 #endif
 				return false;
 			}
+		}
+		#endregion
+
+		#region public string[] SupportedDBServerTypes();
+		public string[] SupportedDBServerTypes() {
+			ArrayList _dbservertypes = new ArrayList();
+			for (int d = 0; d < DBCollection.Count; d++) {
+				if (!_dbservertypes.Contains(
+					DBCollection[d].DBServerType
+				))
+					_dbservertypes.Add(DBCollection[d].DBServerType);
+			}
+
+			return (string[])_dbservertypes.ToArray(typeof(string));
 		}
 		#endregion
 

@@ -143,7 +143,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 				_datatable.Rows.Add(_datarow);
 			}
 
-			Open(true, _datatable);
+			Open(_datatable);
 		}
 		#endregion
 		#region public override bool Read();
@@ -152,48 +152,25 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		/// </summary>
 		/// <returns>False if End Of Record has been reached, True if not</returns>
 		public override bool Read() {
-			return Read(false);
-		}
-
-		/// <summary>
-		/// Reads values from Record, assigns them to the appropriate <%=_aux_db_table.Name%> DataObject property, finally it steps current iteration at the Record forward and returns a bool value indicating if End Of Record has been reached.
-		/// </summary>
-		/// <param name="doNOTgetObject_in">do NOT get object: - if set to true, only PKs will be available for reading, you should be carefull (updates aren't advisable, other issues may occur)</param>
-		/// <returns>False if End Of Record has been reached, True if not</returns>
-		public override bool Read(bool doNOTgetObject_in) {
-			if (base.read()) {
-				if (base.Fullmode) {<%
-					for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-						_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
-						_aux_ex_field = _aux_db_field.parallel_ref;%><%=""%>
-					if (base.Record.Rows[Current]["<%=_aux_db_field.Name%>"] == System.DBNull.Value) {<%
-						if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%><%
-						// parent_ref_.< %=_aux_db_field.Name.ToLower()% >_ = null;%>
-						parent_ref_.Fields.<%=_aux_db_field.Name%>_isNull = true;<%
-						} else {%><%=""%>
-						parent_ref_.Fields.<%=_aux_db_field.Name.ToLower()%>_ = <%=_aux_db_field.DBType_generic.FWEmptyValue%>;<%
-						}%>
-					} else {
-						parent_ref_.Fields.<%=_aux_db_field.Name.ToLower()%>_ = (<%=_aux_db_field.DBType_generic.FWType%>)base.Record.Rows[Current]["<%=_aux_db_field.Name%>"];
-					}<%
-					//parent_ref_.Fields.< %=_aux_db_field.Name% > = (< %=_aux_db_field.DBType_generic.FWType% >)base.Record.Rows[Current]["< %=_aux_db_field.Name% >"];
-					//parent_ref_.Fields.< %=_aux_db_field.Name% > = (base.Record.Rows[Current]["< %=_aux_db_field.Name% >"] == System.DBNull.Value) ? < %=_aux_db_field.DBType_generic.FWEmptyValue% > : (< %=_aux_db_field.DBType_generic.FWType% >)base.Record.Rows[Current]["< %=_aux_db_field.Name% >"];
+			if (base.read()) {<%
+				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
+					_aux_ex_field = _aux_db_field.parallel_ref;%><%=""%>
+				if (base.Record.Rows[Current]["<%=_aux_db_field.Name%>"] == System.DBNull.Value) {<%
+					if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%><%
+					// parent_ref_.< %=_aux_db_field.Name.ToLower()% >_ = null;%>
+					parent_ref_.Fields.<%=_aux_db_field.Name%>_isNull = true;<%
+					} else {%><%=""%>
+					parent_ref_.Fields.<%=_aux_db_field.Name.ToLower()%>_ = <%=_aux_db_field.DBType_generic.FWEmptyValue%>;<%
 					}%>
+				} else {
+					parent_ref_.Fields.<%=_aux_db_field.Name.ToLower()%>_ = (<%=_aux_db_field.DBType_generic.FWType%>)base.Record.Rows[Current]["<%=_aux_db_field.Name%>"];
+				}<%
+				//parent_ref_.Fields.< %=_aux_db_field.Name% > = (< %=_aux_db_field.DBType_generic.FWType% >)base.Record.Rows[Current]["< %=_aux_db_field.Name% >"];
+				//parent_ref_.Fields.< %=_aux_db_field.Name% > = (base.Record.Rows[Current]["< %=_aux_db_field.Name% >"] == System.DBNull.Value) ? < %=_aux_db_field.DBType_generic.FWEmptyValue% > : (< %=_aux_db_field.DBType_generic.FWType% >)base.Record.Rows[Current]["< %=_aux_db_field.Name% >"];
+				}%>
 
-					parent_ref_.Fields.haschanges_ = false;
-				} else {<%
-					for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-						_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[k];
-						_aux_ex_field = _aux_db_field.parallel_ref;
-					//parent_ref_.< %=_aux_db_field.Name.ToLower()% >_ = (< %=_aux_db_field.DBType_generic.FWType% >)base.Record.Rows[Current]["< %=_aux_db_field.Name% >"];
-					%>
-					parent_ref_.Fields.<%=_aux_db_field.Name%> = (<%=_aux_db_field.DBType_generic.FWType%>)((base.Record.Rows[Current]["<%=_aux_db_field.Name%>"] == System.DBNull.Value) ? <%=_aux_db_field.DBType_generic.FWEmptyValue%> : base.Record.Rows[Current]["<%=_aux_db_field.Name%>"]);<%
-					}%>
-
-					if (!doNOTgetObject_in) {
-						parent_ref_.getObject();
-					}
-				}
+				parent_ref_.Fields.haschanges_ = false;
 
 				return true;
 			} else {
@@ -207,7 +184,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		for (int s = 0; s < _aux_ex_table.TableSearches.TableSearchCollection.Count; s++) {
 			if (_aux_ex_table.TableSearches.TableSearchCollection[s].isRange) {%>
 		#region public void ????_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>
-		#region public void Open_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(...);
+		#region public void Open_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(...);<%--
 		/// <summary>
 		/// Opens Record, based on '<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>' search. It selects <%=_aux_db_table.Name%> values from Database based on the '<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>' search and assigns them to the Record, opening it.
 		/// </summary><%
@@ -235,8 +212,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 				%><%=(_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count != 0) ? ", " : ""%>
 				true
 			);
-		}
-
+		}--%>
 		/// <summary>
 		/// Opens Record, based on '<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>' search. It selects <%=_aux_db_table.Name%> values from Database based on the '<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>' search and assigns them to the Record, opening it.
 		/// </summary><%
@@ -246,15 +222,13 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 		/// <param name="<%=_aux_xx_field_name%>_search_in"><%=_aux_xx_field_name%> search condition</param><%
 		}%>
-		/// <param name="fullmode_in">Sets Record mode to Fullmode if True, or Not if False</param>
 		public void Open_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
 			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 				_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 				_aux_db_field = _aux_ex_field.parallel_ref;
 				_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 			<%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
-			}%><%=(_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count != 0) ? ", " : ""%>
-			bool fullmode_in
+			}%>
 		) {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
 				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
@@ -265,16 +239,11 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 				}%>
 			};
 			base.Open(
-				string.Format(
-					"sp{0}_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>{1}", 
-					fullmode_in ? "0" : "", 
-					fullmode_in ? "_fullmode" : ""
-				), 
-				_dataparameters, 
-				fullmode_in
+				"sp0_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>_fullmode", 
+				_dataparameters
 			);
 		}
-
+<%--
 		/// <summary>
 		/// Opens Record, based on '<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>' search. It selects <%=_aux_db_table.Name%> values from Database based on the '<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>' search and assigns them to the Record, opening it.
 		/// </summary><%
@@ -310,7 +279,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 				page_numRecords_in
 			);
 		}
-
+--%>
 		/// <summary>
 		/// Opens Record, based on '<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>' search. It selects <%=_aux_db_table.Name%> values from Database based on the '<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>' search and assigns them to the Record, opening it.
 		/// </summary><%
@@ -320,7 +289,6 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 		/// <param name="<%=_aux_xx_field_name%>_search_in"><%=_aux_xx_field_name%> search condition</param><%
 		}%>
-		/// <param name="fullmode_in">Sets Record mode to Fullmode if True, or Not if False</param>
 		/// <param name="page_in">page number</param>
 		/// <param name="page_numRecords_in">number of records per page</param>
 		public void Open_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
@@ -331,7 +299,6 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			<%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 			}
 			%><%=(_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count != 0) ? ", " : ""%>
-			bool fullmode_in, 
 			int page_in, 
 			int page_numRecords_in
 		) {
@@ -346,12 +313,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 				parent_ref_.Connection.newDBDataParameter("page_numRecords_", DbType.Int32, ParameterDirection.Input, page_numRecords_in, 0)
 			};
 			base.Open(
-				string.Format(
-					"sp0_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>_page{0}", 
-					fullmode_in ? "_fullmode" : ""
-				), 
-				_dataparameters, 
-				fullmode_in
+				"sp0_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>_page_fullmode", 
+				_dataparameters
 			);
 		}
 		#endregion<%

@@ -79,18 +79,15 @@ namespace OGen.NTier.UTs.lib.datalayer.UTs {
 				Assert.IsTrue(_usergroup.Fields.Defaultrelation_isNull, "DO_UserGroup.Defaultrelation expected to be nullable ({0})", DBConnectionsupport.GetDBServerType(UT0__utils.DBConnections[c]));
 				#endregion
 				#region test2...
-				for (int i = 0; i < 2; i++) { // test both fullmode and not
-					_usergroup.Record.Open_byUser_Defaultrelation(
-						_iduser,
-						null,
-						(i == 0) // test both fullmode and not
-					);
-					while (_usergroup.Record.Read()) {
-						Assert.IsTrue(_usergroup.Fields.Relationdate_isNull, "DO_UserGroup.Relationdate expected to be nullable ({0})", DBConnectionsupport.GetDBServerType(UT0__utils.DBConnections[c]));
-						Assert.IsTrue(_usergroup.Fields.Defaultrelation_isNull, "DO_UserGroup.Defaultrelation expected to be nullable ({0})", DBConnectionsupport.GetDBServerType(UT0__utils.DBConnections[c]));
-					}
-					_usergroup.Record.Close();
+				_usergroup.Record.Open_byUser_Defaultrelation(
+					_iduser,
+					null
+				);
+				while (_usergroup.Record.Read()) {
+					Assert.IsTrue(_usergroup.Fields.Relationdate_isNull, "DO_UserGroup.Relationdate expected to be nullable ({0})", DBConnectionsupport.GetDBServerType(UT0__utils.DBConnections[c]));
+					Assert.IsTrue(_usergroup.Fields.Defaultrelation_isNull, "DO_UserGroup.Defaultrelation expected to be nullable ({0})", DBConnectionsupport.GetDBServerType(UT0__utils.DBConnections[c]));
 				}
+				_usergroup.Record.Close();
 				#endregion
 				#region test3...
 				Assert.IsTrue(

@@ -35,6 +35,7 @@ OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
 OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 
 string[] _aux_configmodes = _aux_ex_metadata.DBs.ConfigModes();
+string[] _aux_supportedDBServerTypes = _aux_ex_metadata.DBs.SupportedDBServerTypes();
 
 #endregion
 //-----------------------------------------------------------------------------------------
@@ -170,17 +171,10 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			//for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
 			//	string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();
 
-			string[] _dbservertypes = Enum.GetNames(typeof(DBServerTypes));
-			for (int i = 0; i < 
-
-				// skipping invalid, hence - 1
-				_dbservertypes.Length - 1; 
-
-				i++) {
-				string _dbservertype = _dbservertypes[i];%>
-#if <%=_dbservertype%>
-				case "<%=_dbservertype%>":
-					return new DBConnection_<%=_dbservertype%>(
+			for (int i = 0; i < _aux_supportedDBServerTypes.Length; i++) {%>
+#if <%=_aux_supportedDBServerTypes[i]%>
+				case "<%=_aux_supportedDBServerTypes[i]%>":
+					return new DBConnection_<%=_aux_supportedDBServerTypes[i]%>(
 						connectionstring_in, 
 						logfile_in
 					);
