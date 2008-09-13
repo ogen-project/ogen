@@ -12,48 +12,148 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 
 SELECT
-	_t1.table_name,
-	_t1.column_name,
+	_columns.table_name,
+
+	_columns.column_name,
+
 	CASE
-		WHEN _t1.is_nullable = 'No' THEN
+		WHEN ((_tables.table_type = 'VIEW') OR (_columns.is_nullable = 'No')) THEN
 			CAST(0 AS unsigned)
 		ELSE
 			CAST(1 AS unsigned)
-		END AS "is_nullable",
-	_t1.data_type,
-	_t1.character_maximum_length,
+	END 
+	AS is_nullable,
+
+	_columns.data_type,
+
+	_columns.character_maximum_length,
+
 	CASE
-		WHEN ((t6.table_type != 'VIEW') AND (_t1.column_key = 'PRI')) THEN
+		WHEN ((_tables.table_type != 'VIEW') AND (_columns.column_key = 'PRI')) THEN
 			CAST(1 AS unsigned)
 		ELSE
 			CAST(0 AS unsigned)
-	END AS "is_pk",
+	END 
+	AS is_key_column_usage_PKs,
+
 	CASE
-		WHEN ((t6.table_type != 'VIEW') AND (_t1.extra = 'auto_increment')) THEN
+		WHEN ((_tables.table_type != 'VIEW') AND (_columns.extra = 'auto_increment')) THEN
 			CAST(1 AS unsigned)
 		ELSE
 			CAST(0 AS unsigned)
-	END AS "is_identity",
-	NULL AS "fk_table_name",
-	NULL AS "fk_field_name", 
-	_t1.column_default, 
-	_t1.collation_name, 
-	_t1.numeric_precision, 
-	_t1.numeric_scale
-FROM information_schema.columns _t1
-	LEFT JOIN information_schema.tables t6 ON (
-		(t6.table_schema = _t1.table_schema) 
-		AND 
-		(t6.table_name = _t1.table_name)
+	END 
+	AS is_identity,
+
+	_fk.fk_table_name,
+
+	_fk.fk_column_name,
+
+	_columns.column_default,
+
+	_columns.collation_name,
+
+	_columns.numeric_precision,
+
+	_columns.numeric_scale
+
+FROM information_schema.columns AS _columns
+
+	LEFT JOIN information_schema.tables AS _tables ON (
+		(_tables.table_catalog = _columns.table_catalog)
+		AND
+		(_tables.table_schema = _columns.table_schema)
+		AND
+		(_tables.table_name = _columns.table_name)
 	)
+
+	LEFT JOIN (
+		SELECT
+			_key_column_usage.table_name,
+			_key_column_usage.column_name,
+			_key_column_usage.table_catalog,
+			_key_column_usage.table_schema
+		FROM information_schema.table_constraints AS _table_constraints
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage ON
+			(_key_column_usage.constraint_catalog = _table_constraints.constraint_catalog)
+			AND
+			(_key_column_usage.constraint_schema = _table_constraints.constraint_schema)
+			AND
+			(_key_column_usage.constraint_name = _table_constraints.constraint_name)
+			AND
+			(_table_constraints.constraint_type = 'PRIMARY KEY')
+	) AS _key_column_usage_PKs ON
+		(_key_column_usage_PKs.table_catalog = _columns.table_catalog)
+		AND
+		(_key_column_usage_PKs.table_schema = _columns.table_schema)
+		AND
+		(_key_column_usage_PKs.table_name = _columns.table_name)
+		AND
+		(_key_column_usage_PKs.column_name = _columns.column_name)
+
+	LEFT JOIN (
+/*
+		SELECT
+			_ccu2.table_name AS fk_table_name,
+			_ccu2.column_name AS fk_column_name,
+
+			_tc2.table_name,
+			_kcu2.column_name,
+			_tc2.table_catalog,
+			_tc2.table_schema
+		FROM information_schema.table_constraints _tc2
+		INNER JOIN information_schema.constraint_column_usage _ccu2 ON
+			(_ccu2.constraint_catalog = _tc2.constraint_catalog)
+			AND
+			(_ccu2.constraint_schema = _tc2.constraint_schema)
+			AND
+			(_ccu2.constraint_name = _tc2.constraint_name)
+		INNER JOIN  information_schema.key_column_usage _kcu2 ON
+			(_kcu2.constraint_catalog = _ccu2.constraint_catalog)
+			AND
+			(_kcu2.constraint_schema = _ccu2.constraint_schema)
+			AND
+			(_kcu2.constraint_name = _ccu2.constraint_name)
+		WHERE
+			_tc2.constraint_type = 'FOREIGN KEY'
+*/
+
+		SELECT
+			_key_column_usage_PKs.table_name AS fk_table_name,
+			_key_column_usage_PKs.column_name AS fk_column_name,
+
+			_key_column_usage_FKs.table_name,
+			_key_column_usage_FKs.column_name,
+			_key_column_usage_FKs.table_catalog,
+			_key_column_usage_FKs.table_schema
+		FROM information_schema.referential_constraints AS _referential_constraints
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage_FKs ON
+			(_key_column_usage_FKs.constraint_catalog = _referential_constraints.constraint_catalog)
+			AND
+			(_key_column_usage_FKs.constraint_schema = _referential_constraints.constraint_schema)
+			AND
+			(_key_column_usage_FKs.constraint_name = _referential_constraints.constraint_name)
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage_PKs ON
+			(_key_column_usage_PKs.constraint_catalog = _referential_constraints.constraint_catalog)
+			AND
+			(_key_column_usage_PKs.constraint_schema = _referential_constraints.constraint_schema)
+			AND
+			(_key_column_usage_PKs.constraint_name = _referential_constraints.unique_constraint_name)
+	) AS _fk ON
+		(_fk.table_catalog = _columns.table_catalog)
+		AND
+		(_fk.table_schema = _columns.table_schema)
+		AND
+		(_fk.table_name = _columns.table_name)
+		AND
+		(_fk.column_name = _columns.column_name)
 WHERE
-	(_t1.table_schema = 'OGen-NTier_UTs')
+	(_columns.table_schema = 'OGen-NTier_UTs')
 	AND
 	(
-		(_t1.table_name = 'User')
+		(_columns.table_name = 'User')
 		OR
-		(_t1.table_name = 'UserGroup')
+		(_columns.table_name = 'UserGroup')
 	)
 ORDER BY
-	_t1.table_name, 
-	_t1.ordinal_position
+	_columns.table_name,
+	_columns.ordinal_position
