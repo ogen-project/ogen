@@ -34,7 +34,7 @@ SELECT
 		ELSE
 			CAST(0 AS unsigned)
 	END 
-	AS is_key_column_usage_PKs,
+	AS is_pk,
 
 	CASE
 		WHEN ((_tables.table_type != 'VIEW') AND (_columns.extra = 'auto_increment')) THEN

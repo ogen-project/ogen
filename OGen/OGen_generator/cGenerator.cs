@@ -533,7 +533,7 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 										case XS_OutputEnumeration.PostgreSQL_Function: 
 										case XS_OutputEnumeration.PostgreSQL_StoredProcedure: 
 										case XS_OutputEnumeration.PostgreSQL_View: 
-											// No Need! unlike SQL Server,
+											// No Need! unlike SQL Server and MySQL,
 											// PostgreSQL allows:
 											// "CREATE OR REPLACE FUNCTION/VIEW" :)
 											break;

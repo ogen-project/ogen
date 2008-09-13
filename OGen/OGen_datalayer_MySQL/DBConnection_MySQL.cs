@@ -245,18 +245,15 @@ WHERE
 			);
 		}
 		#endregion
-//		#region public override string SQLFunction_delete_query(...);
+		#region public override string SQLFunction_delete_query(...);
 		public override string SQLFunction_delete_query(string name_in) {
-
-// ToDos: here! i'm half sure database name is needed!
-throw new Exception("not implemented!");
-
-			//return string.Format(
-			//	"DROP FUNCTION `{0}`",
-			//	name_in
-			//);
+			return string.Format(
+				"USE `{0}`; DROP FUNCTION `{1}`;",
+				Connectionstring_DBName, 
+				name_in
+			);
 		}
-//		#endregion
+		#endregion
 		#region public override string SQLStoredProcedure_exists_query(...);
 		public override string SQLStoredProcedure_exists_query(string name_in) {
 			string _database = Connectionstring_DBName;
@@ -278,18 +275,15 @@ WHERE
 			);
 		}
 		#endregion
-//		#region public override string SQLStoredProcedure_delete_query(...);
+		#region public override string SQLStoredProcedure_delete_query(...);
 		public override string SQLStoredProcedure_delete_query(string name_in) {
-
-// ToDos: here! i'm half sure database name is needed!
-throw new Exception("not implemented!");
-
-			//return string.Format(
-			//	"DROP PROCEDURE `{0}`",
-			//	name_in
-			//);
+			return string.Format(
+				"USE `{0}`; DROP PROCEDURE `{1}`",
+				Connectionstring_DBName,
+				name_in
+			);
 		}
-//		#endregion
+		#endregion
 		#region public override string SQLView_exists_query(...);
 		public override string SQLView_exists_query(string name_in) {
 			string _database = Connectionstring_DBName;
@@ -311,18 +305,15 @@ WHERE
 			);
 		}
 		#endregion
-//		#region public override string SQLView_delete_query(...);
+		#region public override string SQLView_delete_query(...);
 		public override string SQLView_delete_query(string name_in) {
-
-// ToDos: here! i'm half sure database name is needed!
-throw new Exception("not implemented!");
-
-			//return string.Format(
-			//	"DROP VIEW `{0}`",
-			//	name_in
-			//);
+			return string.Format(
+				"USE `{0}`; DROP VIEW `{1}`",
+				Connectionstring_DBName,
+				name_in
+			);
 		}
-//		#endregion
+		#endregion
 		//---
 		//---
 		#region public override string getDBs_query();
@@ -418,7 +409,7 @@ SELECT
 		ELSE
 			CAST(0 AS unsigned)
 	END 
-	AS is_key_column_usage_PKs,
+	AS is_pk,
 
 	CASE
 		WHEN ((_tables.table_type != 'VIEW') AND (_columns.extra = 'auto_increment')) THEN
@@ -461,7 +452,13 @@ FROM information_schema.columns AS _columns
 		(_key_column_usage.referenced_table_name is not null)
 	)
 WHERE
-	(_columns.table_schema = '{0}')
+	(_columns.table_schema = '{1}')
+	AND
+	(
+		('' = '{0}')
+		OR
+		(_columns.table_name = '{0}')
+	)
 ORDER BY
 	_columns.table_name,
 	_columns.ordinal_position

@@ -148,7 +148,17 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 					_tabledb.DBDescription = _tables_aux[t].DBDescription;
 
 					for (int f = 0; f < _fields_aux.Length; f++) {
-						if (_tables_aux[t].Name != _fields_aux[f].TableName) {
+						if (
+#if MySQL
+							(
+								(dbConnectionParam_in[c].DBServerType == DBServerTypes.MySQL)
+								&&
+								(_tables_aux[t].Name.ToLower() != _fields_aux[f].TableName.ToLower())
+							)
+							||
+#endif
+							(_tables_aux[t].Name != _fields_aux[f].TableName)
+						) {
 							continue;
 						}
 
@@ -176,7 +186,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 
 						#region _fielddb = ...; _fielddb.DBServerType = ...;
 						_searchindex = _field.TableFieldDBs.TableFieldDBCollection.Search(
-							dbConnectionParam_in[c].DBServerType.ToString()
+							dbConnectionParam_in[c].DBServerType
 						);
 						if (_searchindex >= 0) {
 							_fielddb = _field.TableFieldDBs.TableFieldDBCollection[_searchindex];
