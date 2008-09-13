@@ -12,42 +12,48 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 
 SELECT
-t1.TABLE_NAME,
-	t1.COLUMN_NAME AS "Name",
+	_t1.table_name,
+	_t1.column_name,
 	CASE
-		WHEN t1.IS_NULLABLE = 'No' THEN
+		WHEN _t1.is_nullable = 'No' THEN
 			CAST(0 AS unsigned)
 		ELSE
 			CAST(1 AS unsigned)
-		END AS "isNullable",
-	t1.DATA_TYPE AS "Type",
-	t1.CHARACTER_MAXIMUM_LENGTH AS "Size",
+		END AS "is_nullable",
+	_t1.data_type,
+	_t1.character_maximum_length,
 	CASE
-		WHEN ((t6.TABLE_TYPE != 'VIEW') AND (t1.COLUMN_KEY = 'PRI')) THEN
+		WHEN ((t6.table_type != 'VIEW') AND (_t1.column_key = 'PRI')) THEN
 			CAST(1 AS unsigned)
 		ELSE
 			CAST(0 AS unsigned)
-	END AS "isPK",
+	END AS "is_pk",
 	CASE
-		WHEN ((t6.TABLE_TYPE != 'VIEW') AND (t1.EXTRA = 'auto_increment')) THEN
+		WHEN ((t6.table_type != 'VIEW') AND (_t1.extra = 'auto_increment')) THEN
 			CAST(1 AS unsigned)
 		ELSE
 			CAST(0 AS unsigned)
-	END AS "isIdentity",
-	NULL AS "FK_TableName",
-	NULL AS "FK_FieldName", 
-	t1.COLUMN_DEFAULT, 
-	t1.COLLATION_NAME, 
-	CAST(0 AS unsigned) as "NUMERIC_PRECISION", 
-	CAST(0 AS unsigned) as "NUMERIC_SCALE"
-FROM INFORMATION_SCHEMA.COLUMNS t1
-	LEFT JOIN INFORMATION_SCHEMA.TABLES t6 ON ((t6.TABLE_SCHEMA = t1.TABLE_SCHEMA) AND (t6.TABLE_NAME = t1.TABLE_NAME))
+	END AS "is_identity",
+	NULL AS "fk_table_name",
+	NULL AS "fk_field_name", 
+	_t1.column_default, 
+	_t1.collation_name, 
+	_t1.numeric_precision, 
+	_t1.numeric_scale
+FROM information_schema.columns _t1
+	LEFT JOIN information_schema.tables t6 ON (
+		(t6.table_schema = _t1.table_schema) 
+		AND 
+		(t6.table_name = _t1.table_name)
+	)
 WHERE
-	(t1.TABLE_SCHEMA = 'test')
+	(_t1.table_schema = 'OGen-NTier_UTs')
 	AND
 	(
-		(t1.TABLE_NAME = 'user')
+		(_t1.table_name = 'User')
 		OR
-		(t1.TABLE_NAME = 'UserGroup')
+		(_t1.table_name = 'UserGroup')
 	)
-ORDER BY t1.TABLE_NAME, t1.ORDINAL_POSITION
+ORDER BY
+	_t1.table_name, 
+	_t1.ordinal_position
