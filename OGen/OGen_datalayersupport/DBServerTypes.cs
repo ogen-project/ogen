@@ -20,7 +20,9 @@ namespace OGen.lib.datalayer {
 		PostgreSQL = 0, 
 #endif
 		SQLServer = 1, 
-
-		invalid = 2
+#if MySQL
+		MySQL = 2, 
+#endif
+		invalid = 3
 	}
 }

@@ -14,7 +14,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using OGen.lib.datalayer;
+#if PostgreSQL
 using OGen.lib.datalayer.PostgreSQL;
+#endif
+#if MySQL
+using OGen.lib.datalayer.MySQL;
+#endif
 using OGen.lib.datalayer.SQLServer;
 
 namespace OGen.lib.datalayer {
@@ -48,8 +53,8 @@ namespace OGen.lib.datalayer {
 		#endregion
 #if MySQL
 		#region private static DBUtils_MySQL dbUtils_MySQL { get; }
-		private static DBUtils_SQLServer dbutils_mysql__;
-		private static DBUtils_SQLServer dbUtils_MySQL {
+		private static DBUtils_MySQL dbutils_mysql__;
+		private static DBUtils_MySQL dbUtils_MySQL {
 			get{
 				if (dbutils_mysql__ == null) {
 					dbutils_mysql__ = new DBUtils_MySQL();

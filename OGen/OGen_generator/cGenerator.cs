@@ -245,9 +245,9 @@ namespace OGen.lib.generator {
 						}
 #endif
 #if MySQL
-						case XS_OutputEnumeration.eType.MySQL_Function: 
-						case XS_OutputEnumeration.eType.MySQL_StoredProcedure: 
-						case XS_OutputEnumeration.eType.MySQL_View: {
+						case XS_OutputEnumeration.MySQL_Function: 
+						case XS_OutputEnumeration.MySQL_StoredProcedure: 
+						case XS_OutputEnumeration.MySQL_View: {
 							if (!dbconnectionstrings_.Contains_disableIfNot(DBServerTypes.MySQL)) continue;
 //							_con = (cDBConnection)connection_[DBServerTypes.MySQL];
 							break;
