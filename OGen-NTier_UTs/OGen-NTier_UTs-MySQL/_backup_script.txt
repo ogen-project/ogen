@@ -1,0 +1,87 @@
+<Quest.Toad.ImportExport.ExportEngine>
+	<FileConfiguration ExcelFile="False" Clipboard="False" FileFormatType="InsertStatements" FileOverwrite="False" FileSuffix="" FileDirectory="X:\OGen.berlios.de\trunk\OGen-NTier_UTs\OGen-NTier_UTs-MySQL" FileExtension="sql" Delimiter="," QuoteChar="'" HeaderRow="False" AlwaysQuoteString="False" RowsIncrement="5000" LineFeed="Windows" Width="50" TableScript="True" SchemaAppend="True" Encoding="Western European (Windows)" BlockInsert="False" BlockInsertValue="500" IdentityInsert="False" Overwrite="False" OnlyQuoteWhenNeeded="False" UpperKeywords="True" ExcelUseOpen="True" AddExcelWorksheetsAsNeeded="False" HeaderBackColor="LightGray" ExcelAtType="ActiveCell" ExcelAtLocation="" />
+	<Schemas Tables="True" Views="True">
+		<Schema>mysql://root@localhost/DATABASE/OGen-NTier_UTs</Schema>
+	</Schemas>
+	<Options>
+		<TableOption TableLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/permition">
+			<Fields>
+				<Field ColumnName="IDPermition" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/permition/COLUMNS/IDPermition" Include="True" FixedWidth="50" />
+				<Field ColumnName="Name" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/permition/COLUMNS/Name" Include="True" FixedWidth="50" />
+			</Fields>
+		</TableOption>
+		<TableOption TableLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/UserGroup">
+			<Fields>
+				<Field ColumnName="IDUser" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/UserGroup/COLUMNS/IDUser" Include="True" FixedWidth="50" />
+				<Field ColumnName="IDGroup" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/UserGroup/COLUMNS/IDGroup" Include="True" FixedWidth="50" />
+				<Field ColumnName="Relationdate" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/UserGroup/COLUMNS/Relationdate" Include="True" FixedWidth="50" />
+				<Field ColumnName="Defaultrelation" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/UserGroup/COLUMNS/Defaultrelation" Include="True" FixedWidth="50" />
+			</Fields>
+		</TableOption>
+		<TableOption TableLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/word">
+			<Fields>
+				<Field ColumnName="IDWord" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/word/COLUMNS/IDWord" Include="True" FixedWidth="50" />
+				<Field ColumnName="DeleteThisTestField" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/word/COLUMNS/DeleteThisTestField" Include="True" FixedWidth="50" />
+			</Fields>
+		</TableOption>
+		<TableOption TableLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/grouppermition">
+			<Fields>
+				<Field ColumnName="IDGroup" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/grouppermition/COLUMNS/IDGroup" Include="True" FixedWidth="50" />
+				<Field ColumnName="IDPermition" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/grouppermition/COLUMNS/IDPermition" Include="True" FixedWidth="50" />
+			</Fields>
+		</TableOption>
+		<TableOption TableLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/group">
+			<Fields>
+				<Field ColumnName="IDGroup" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/group/COLUMNS/IDGroup" Include="True" FixedWidth="50" />
+				<Field ColumnName="Name" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/group/COLUMNS/Name" Include="True" FixedWidth="50" />
+			</Fields>
+		</TableOption>
+		<TableOption TableLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/language">
+			<Fields>
+				<Field ColumnName="IDLanguage" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/language/COLUMNS/IDLanguage" Include="True" FixedWidth="50" />
+				<Field ColumnName="IDWord_name" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/language/COLUMNS/IDWord_name" Include="True" FixedWidth="50" />
+			</Fields>
+		</TableOption>
+		<TableOption TableLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/user">
+			<Fields>
+				<Field ColumnName="IDUser" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/user/COLUMNS/IDUser" Include="True" FixedWidth="50" />
+				<Field ColumnName="Login" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/user/COLUMNS/Login" Include="True" FixedWidth="50" />
+				<Field ColumnName="Password" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/user/COLUMNS/Password" Include="True" FixedWidth="50" />
+				<Field ColumnName="SomeNullValue" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/user/COLUMNS/SomeNullValue" Include="True" FixedWidth="50" />
+			</Fields>
+		</TableOption>
+		<TableOption TableLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/config">
+			<Fields>
+				<Field ColumnName="Name" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/config/COLUMNS/Name" Include="True" FixedWidth="50" />
+				<Field ColumnName="Config" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/config/COLUMNS/Config" Include="True" FixedWidth="50" />
+				<Field ColumnName="Type" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/config/COLUMNS/Type" Include="True" FixedWidth="50" />
+				<Field ColumnName="Description" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/config/COLUMNS/Description" Include="True" FixedWidth="50" />
+			</Fields>
+		</TableOption>
+		<TableOption TableLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/wordlanguage">
+			<Fields>
+				<Field ColumnName="IDWord" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/wordlanguage/COLUMNS/IDWord" Include="True" FixedWidth="50" />
+				<Field ColumnName="IDLanguage" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/wordlanguage/COLUMNS/IDLanguage" Include="True" FixedWidth="50" />
+				<Field ColumnName="Translation" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/wordlanguage/COLUMNS/Translation" Include="True" FixedWidth="50" />
+			</Fields>
+		</TableOption>
+		<TableOption TableLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/log">
+			<Fields>
+				<Field ColumnName="IDLog" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/log/COLUMNS/IDLog" Include="True" FixedWidth="50" />
+				<Field ColumnName="IDLogcode" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/log/COLUMNS/IDLogcode" Include="True" FixedWidth="50" />
+				<Field ColumnName="IDUser_posted" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/log/COLUMNS/IDUser_posted" Include="True" FixedWidth="50" />
+				<Field ColumnName="Date_posted" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/log/COLUMNS/Date_posted" Include="True" FixedWidth="50" />
+				<Field ColumnName="Logdata" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/log/COLUMNS/Logdata" Include="True" FixedWidth="50" />
+			</Fields>
+		</TableOption>
+		<TableOption TableLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/logcode">
+			<Fields>
+				<Field ColumnName="IDLogcode" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/logcode/COLUMNS/IDLogcode" Include="True" FixedWidth="50" />
+				<Field ColumnName="Warning" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/logcode/COLUMNS/Warning" Include="True" FixedWidth="50" />
+				<Field ColumnName="Error" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/logcode/COLUMNS/Error" Include="True" FixedWidth="50" />
+				<Field ColumnName="Code" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/logcode/COLUMNS/Code" Include="True" FixedWidth="50" />
+				<Field ColumnName="Description" ColumnLocation="mysql://root@localhost/TABLE/OGen-NTier_UTs/logcode/COLUMNS/Description" Include="True" FixedWidth="50" />
+			</Fields>
+		</TableOption>
+	</Options>
+</Quest.Toad.ImportExport.ExportEngine>
