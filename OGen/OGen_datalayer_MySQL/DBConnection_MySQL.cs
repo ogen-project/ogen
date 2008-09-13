@@ -224,31 +224,27 @@ namespace OGen.lib.datalayer.MySQL {
 
 
 		//---
-//		#region public override string SQLFunction_exists_query(...);
+		#region public override string SQLFunction_exists_query(...);
 		public override string SQLFunction_exists_query(string name_in) {
-
-// ToDos: here!
-throw new Exception("not implemented!");
-
-//			string _database = Connectionstring_database();
-//			return string.Format(
-//				#region "SELECT ...", 
-//@"
-//SELECT null
-//FROM INFORMATION_SCHEMA.ROUTINES
-//WHERE
-//	(routine_type = 'FUNCTION')
-//	AND
-//	(routine_name = '{0}')
-//	AND
-//	(routine_schema = '{1}')
-//", 
-//					#endregion
-//					name_in, 
-//					_database
-//			);
+			string _database = Connectionstring_DBName;
+			return string.Format(
+				#region "SELECT ...",
+@"
+SELECT null
+FROM INFORMATION_SCHEMA.ROUTINES
+WHERE
+	(routine_type = 'FUNCTION')
+	AND
+	(routine_name = '{0}')
+	AND
+	(routine_schema = '{1}')
+",
+				#endregion
+				name_in,
+				_database
+			);
 		}
-//		#endregion
+		#endregion
 //		#region public override string SQLFunction_delete_query(...);
 		public override string SQLFunction_delete_query(string name_in) {
 
@@ -256,36 +252,32 @@ throw new Exception("not implemented!");
 throw new Exception("not implemented!");
 
 			//return string.Format(
-			//    "DROP FUNCTION `{0}`",
-			//    name_in
+			//	"DROP FUNCTION `{0}`",
+			//	name_in
 			//);
 		}
 //		#endregion
-//		#region public override string SQLStoredProcedure_exists_query(...);
+		#region public override string SQLStoredProcedure_exists_query(...);
 		public override string SQLStoredProcedure_exists_query(string name_in) {
-
-// ToDos: here!
-throw new Exception("not implemented!");
-
-//            string _database = Connectionstring_database();
-//            return string.Format(
-//                #region "SELECT ...",
-//@"
-//SELECT null
-//FROM INFORMATION_SCHEMA.ROUTINES
-//WHERE
-//	(routine_type = 'PROCEDURE')
-//	AND
-//	(routine_name = '{0}')
-//	AND
-//	(routine_schema = '{1}')
-//",
-//                    name_in,
-//                    _database
-//                #endregion
-//            );
+			string _database = Connectionstring_DBName;
+			return string.Format(
+				#region "SELECT ...",
+@"
+SELECT null
+FROM INFORMATION_SCHEMA.ROUTINES
+WHERE
+	(routine_type = 'PROCEDURE')
+	AND
+	(routine_name = '{0}')
+	AND
+	(routine_schema = '{1}')
+",
+				name_in,
+				_database
+				#endregion
+			);
 		}
-//		#endregion
+		#endregion
 //		#region public override string SQLStoredProcedure_delete_query(...);
 		public override string SQLStoredProcedure_delete_query(string name_in) {
 
@@ -293,36 +285,32 @@ throw new Exception("not implemented!");
 throw new Exception("not implemented!");
 
 			//return string.Format(
-			//    "DROP PROCEDURE `{0}`",
-			//    name_in
+			//	"DROP PROCEDURE `{0}`",
+			//	name_in
 			//);
 		}
 //		#endregion
-//		#region public override string SQLView_exists_query(...);
+		#region public override string SQLView_exists_query(...);
 		public override string SQLView_exists_query(string name_in) {
-
-// ToDos: here!
-throw new Exception("not implemented!");
-
-//            string _database = Connectionstring_database();
-//            return string.Format(
-//                #region "SELECT ...",
-//@"
-//SELECT null
-//FROM INFORMATION_SCHEMA.TABLES
-//WHERE
-//	(TABLE_TYPE = 'VIEW')
-//	AND
-//	(TABLE_NAME = '{0}')
-//	AND
-//	(TABLE_SCHEMA = '{1}')
-//",
-//                name_in,
-//                _database
-//                #endregion
-//            );
-        }
-//		#endregion
+			string _database = Connectionstring_DBName;
+			return string.Format(
+				#region "SELECT ...",
+@"
+SELECT null
+FROM INFORMATION_SCHEMA.TABLES
+WHERE
+	(TABLE_TYPE = 'VIEW')
+	AND
+	(TABLE_NAME = '{0}')
+	AND
+	(TABLE_SCHEMA = '{1}')
+",
+				name_in,
+				_database
+				#endregion
+			);
+		}
+		#endregion
 //		#region public override string SQLView_delete_query(...);
 		public override string SQLView_delete_query(string name_in) {
 
@@ -330,8 +318,8 @@ throw new Exception("not implemented!");
 throw new Exception("not implemented!");
 
 			//return string.Format(
-			//    "DROP VIEW `{0}`",
-			//    name_in
+			//	"DROP VIEW `{0}`",
+			//	name_in
 			//);
 		}
 //		#endregion
@@ -363,10 +351,10 @@ ORDER BY SCHEMA_NAME
 //					check DBConnection.getTables(...);
 throw new Exception("not implemented!");
 
-//            StringBuilder _query = new StringBuilder(string.Empty);
-//            string _database = Connectionstring_database();
-//            #region _query.Append("SELECT ...");
-//            _query.Append(string.Format(@"
+//			StringBuilder _query = new StringBuilder(string.Empty);
+//			string _database = Connectionstring_database();
+//			#region _query.Append("SELECT ...");
+//			_query.Append(string.Format(@"
 //SELECT
 //	TABLE_NAME AS ""Name"",
 //	CASE
@@ -385,25 +373,25 @@ throw new Exception("not implemented!");
 //	AND
 //	(TABLE_SCHEMA = '{0}')
 //", 
-//                _database
-//            ));
-//            #endregion
-//            if (subAppName_in != "" ) {
-//                _query.Append("AND (");
-//                string[] _subAppNames = subAppName_in.Split('|');
-//                for (int i = 0; i < _subAppNames.Length; i++) {
-//                    _query.Append(string.Format(
-//                        "(TABLE_NAME {0} '{1}'){2}",
-//                        (_subAppNames[i].IndexOf('%') >= 0) ? "LIKE" : "=",
-//                        _subAppNames[i],
-//                        (i == _subAppNames.Length - 1) ? "" : " OR "
-//                    ));
-//                }
-//                _query.Append(") ");
-//            }
-//            _query.Append(@"ORDER BY ""Name"" ");
+//				_database
+//			));
+//			#endregion
+//			if (subAppName_in != "" ) {
+//				_query.Append("AND (");
+//				string[] _subAppNames = subAppName_in.Split('|');
+//				for (int i = 0; i < _subAppNames.Length; i++) {
+//					_query.Append(string.Format(
+//						"(TABLE_NAME {0} '{1}'){2}",
+//						(_subAppNames[i].IndexOf('%') >= 0) ? "LIKE" : "=",
+//						_subAppNames[i],
+//						(i == _subAppNames.Length - 1) ? "" : " OR "
+//					));
+//				}
+//				_query.Append(") ");
+//			}
+//			_query.Append(@"ORDER BY ""Name"" ");
 
-//            return _query.ToString();
+//			return _query.ToString();
 		}
 //		#endregion
 //		#region public override string getTableFields_query(...);
@@ -416,9 +404,9 @@ throw new Exception("not implemented!");
 //					check DBConnection.getTableFields(...);
 throw new Exception("not implemented!");
 
-//            string _database = Connectionstring_database();
-//            #region return "SELECT ...";
-//            return string.Format(@"
+//			string _database = Connectionstring_database();
+//			#region return "SELECT ...";
+//			return string.Format(@"
 //SELECT
 //	t1.COLUMN_NAME AS ""Name"", 
 //--	CASE
@@ -452,10 +440,10 @@ throw new Exception("not implemented!");
 //	(t1.TABLE_SCHEMA = '{1}')
 //ORDER BY t1.TABLE_NAME, t1.ORDINAL_POSITION
 //",
-//                tableName_in,
-//                Connectionstring_DBName
-//            );
-//            #endregion
+//				tableName_in,
+//				Connectionstring_DBName
+//			);
+//			#endregion
 		}
 //		#endregion
 	}
