@@ -181,7 +181,21 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 						_field.NumericPrecision = _fields_aux[f].Numeric_Precision;
 						_field.NumericScale = _fields_aux[f].Numeric_Scale;
 						_field.Size = _fields_aux[f].Size;
+#if MySQL
+						if (
+							(dbConnectionParam_in[c].DBServerType == DBServerTypes.MySQL)
+							&&
+							(_field.FKTableName == string.Empty)
+						) {
+							_field.FKTableName = _fields_aux[f].FK_TableName;
+						} else if (
+							(dbConnectionParam_in[c].DBServerType != DBServerTypes.MySQL)
+						) {
+							_field.FKTableName = _fields_aux[f].FK_TableName;
+						}
+#else
 						_field.FKTableName = _fields_aux[f].FK_TableName;
+#endif
 						_field.FKFieldName = _fields_aux[f].FK_FieldName;
 
 						#region _fielddb = ...; _fielddb.DBServerType = ...;

@@ -67,7 +67,7 @@ AS
 			%>"dbo"."fnc0_<%=_aux_db_table.Name%>__ConstraintExist"(<%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
-			<%=(_aux_db_field.isPK) ? _aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_generic_DBEmptyValue() : "@" + _aux_db_field.Name + "_"%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
+			<%=(_aux_db_field.isPK) ? _aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_generic.FWEmptyValue : "@" + _aux_db_field.Name + "_"%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 			}%>
 		)<%
 		} else {
