@@ -67,7 +67,9 @@ XXX:NO_NEED -->
 			<argument name="TableName" value="${ROOT.metadataDB[n].tables.table[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
@@ -667,8 +669,10 @@ XXX:TODOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
-			<condition eval="ROOT.metadataDB[0].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="True" />
+-->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].parallel_ref.tableSearches.hasExplicitUniqueIndex" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -690,8 +694,10 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
-			<condition eval="ROOT.metadataDB[0].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="True" />
+-->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].parallel_ref.tableSearches.hasExplicitUniqueIndex" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -714,8 +720,10 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
-			<condition eval="ROOT.metadataDB[0].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="True" />
+-->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].parallel_ref.tableSearches.hasExplicitUniqueIndex" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -735,18 +743,20 @@ XXX:TO_DOS -->
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[0].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataDB[0].tables.table[n].parallel_ref.tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
-			<condition eval="ROOT.metadataDB[0].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
+-->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].parallel_ref.tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataDB[0].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataDB[0].tables.table[n].parallel_ref.tableSearches.tableSearche[n].name}" 
 				type="MySQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -755,22 +765,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_isObject_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -780,22 +792,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}"
+			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_isObject_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}"
 				type="SQLServer_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -810,7 +824,9 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
@@ -831,7 +847,9 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
@@ -854,7 +872,9 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
@@ -869,22 +889,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-MySQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_count_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_count_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -893,22 +915,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_count_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_count_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -918,22 +942,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-SQLServer.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_count_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_count_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -942,22 +968,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-MySQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_hasObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_hasObject_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -966,22 +994,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_hasObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_hasObject_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -991,22 +1021,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-SQLServer.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_Record_hasObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_hasObject_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1021,7 +1053,9 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="True" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
@@ -1045,7 +1079,9 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="True" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
@@ -1070,7 +1106,9 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="True" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
@@ -1094,7 +1132,9 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="True" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
@@ -1118,7 +1158,9 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="True" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
@@ -1143,7 +1185,9 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="True" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
@@ -1167,7 +1211,9 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="False" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
@@ -1189,7 +1235,9 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="False" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
@@ -1213,7 +1261,9 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="False" />
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
@@ -1235,8 +1285,10 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
-			<!-- condition eval="ROOT.metadataDB[0].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="False" / -->
+-->
+			<!-- condition eval="ROOT.metadataDB[0].tables.table[n].parallel_ref.tableSearches.hasExplicitUniqueIndex" to="False" / -->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
@@ -1257,8 +1309,10 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
-			<!-- condition eval="ROOT.metadataDB[0].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="False" / -->
+-->
+			<!-- condition eval="ROOT.metadataDB[0].tables.table[n].parallel_ref.tableSearches.hasExplicitUniqueIndex" to="False" / -->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
@@ -1281,8 +1335,10 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
-			<!-- condition eval="ROOT.metadataDB[0].tables.table[n].tableSearches.hasExplicitUniqueIndex" to="False" / -->
+-->
+			<!-- condition eval="ROOT.metadataDB[0].tables.table[n].parallel_ref.tableSearches.hasExplicitUniqueIndex" to="False" / -->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
@@ -1297,23 +1353,25 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-MySQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
-			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].isVirtualTable" to="False" />
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_delObject_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1322,23 +1380,25 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
-			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].isVirtualTable" to="False" />
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_delObject_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1348,23 +1408,25 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-SQLServer.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
-			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].isVirtualTable" to="False" />
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_delObject_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1373,23 +1435,25 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-MySQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
-			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].isVirtualTable" to="False" />
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_delete_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_delete_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1398,23 +1462,25 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
-			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].isVirtualTable" to="False" />
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_delete_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_delete_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1425,23 +1491,25 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-SQLServer.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
-			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].isVirtualTable" to="False" />
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_delete_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_delete_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1450,44 +1518,48 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="fnc_${ROOT.metadataExtended[0].tables.table[n].name}_isObject_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_Function" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
 	</template>
 	<template name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="fnc_${ROOT.metadataExtended[0].tables.table[n].name}_isObject_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies>
@@ -1496,66 +1568,72 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="fnc_${ROOT.metadataExtended[0].tables.table[n].name}_isObject_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_Function" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
 	</template>
 	<template name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="fnc_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_Function" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
 	</template>
 	<template name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="fnc_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies>
@@ -1565,44 +1643,48 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="fnc_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="fnc_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_Function" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
 	</template>
 	<template name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="sp_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_StoredProcedure" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies>
@@ -1611,22 +1693,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="sp_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies>
@@ -1637,22 +1721,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="sp_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies>
@@ -1667,7 +1753,9 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
@@ -1688,7 +1776,9 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
@@ -1711,7 +1801,9 @@ XXX:TO_DOS -->
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
 			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
@@ -1726,22 +1818,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-MySQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_getObject_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1750,22 +1844,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_getObject_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1775,22 +1871,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-SQLServer.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="False" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_getObject_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1799,22 +1897,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-MySQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_fullmode" 
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}_fullmode" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1823,22 +1923,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_fullmode" 
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}_fullmode" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1848,22 +1950,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-SQLServer.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_fullmode" 
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}_fullmode" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1872,22 +1976,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-MySQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_page" 
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}_page" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1896,22 +2002,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_page" 
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}_page" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1922,22 +2030,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-SQLServer.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_page" 
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}_page" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1946,22 +2056,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-MySQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_page_fullmode" 
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}_page_fullmode" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1970,22 +2082,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_page_fullmode" 
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}_page_fullmode" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -1995,22 +2109,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-SQLServer.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
-			<condition eval="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].isRange" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_open_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}_page_fullmode" 
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}_page_fullmode" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -2019,22 +2135,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-MySQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
-			<argument name="UpdateName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="UpdateName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_update_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n].name}_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_update_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n].name}_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -2043,22 +2161,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
-			<argument name="UpdateName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="UpdateName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[n].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_update_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n].name}_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_update_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n].name}_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -2068,22 +2188,24 @@ XXX:TO_DOS -->
 	</template>
 	<template name="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-SQLServer.sql.aspx" 
 			parserType="aspx" 
-			iterationType="ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n]">
+			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" />
-			<argument name="UpdateName" value="${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n].name}" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" />
+			<argument name="UpdateName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-SQLServer/sql0-${ROOT.metadataDB[n].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_Record_update_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n].name}_${ROOT.metadataDB[n].tables.table[n].tableSearches.tableSearche[n].name}" 
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_update_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].updates.update[n].name}_${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearche[n].name}" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -2099,7 +2221,9 @@ XXX:TO_DOS -->
 			<argument name="UpdateName" value="${ROOT.metadataExtended[n].tables.table[n].tableUpdates.tableUpdate[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -2122,7 +2246,9 @@ XXX:TO_DOS -->
 			<argument name="UpdateName" value="${ROOT.metadataExtended[n].tables.table[n].tableUpdates.tableUpdate[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -2146,7 +2272,9 @@ XXX:TO_DOS -->
 			<argument name="UpdateName" value="${ROOT.metadataExtended[n].tables.table[n].tableUpdates.tableUpdate[n].name}" />
 		</arguments>
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -2165,7 +2293,9 @@ XXX:TO_DOS -->
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -2182,7 +2312,9 @@ XXX:TO_DOS -->
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -2199,7 +2331,9 @@ XXX:TO_DOS -->
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -2216,7 +2350,9 @@ XXX:TO_DOS -->
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -2236,7 +2372,9 @@ XXX:TO_DOS -->
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -2255,7 +2393,9 @@ XXX:TO_DOS -->
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -2272,7 +2412,9 @@ XXX:TO_DOS -->
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -2291,7 +2433,9 @@ XXX:TO_DOS -->
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
 		<conditions>
+<!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
