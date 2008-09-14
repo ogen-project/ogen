@@ -158,6 +158,7 @@
     <Content Include="BO-UT-UT_SomeTable.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="DO-DB-OGen_sp0__getTableFields-MySQL.sql" />
     <Content Include="DO-DB-OGen_sp0__getTableFields-SQLServer.sql" />
     <Content Include="DO-DB-OGen_sp0__getTables-SQLServer.sql" />
     <Content Include="DO-DB-OGen_fnc0__Split-SQLServer.sql" />

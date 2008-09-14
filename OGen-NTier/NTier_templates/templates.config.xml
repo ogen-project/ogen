@@ -2447,4 +2447,23 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+	<template name="DO-DB-OGen_sp0__getTableFields-MySQL.sql"
+			parserType="none"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments />
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[n].applicationName}-MySQL/sql0-${ROOT.metadataDB[n].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="OGen_sp0__getTableFields"
+				type="MySQL_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
 </templates>
