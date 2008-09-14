@@ -64,7 +64,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.UTs {
 		#endregion
 
 		[Test]
-		public void UT_<%=(_aux_db_table.hasIdentityKey != -1) ? "Ins" : "Set"%>GetDelSequence() {
+		public void UT_<%=(_aux_db_table.hasIdentityKey) ? "Ins" : "Set"%>GetDelSequence() {
 			DO_<%=_aux_db_table.Name%> _<%=_aux_db_table.Name.ToLower()%>;
 			try {
 				_<%=_aux_db_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
@@ -81,16 +81,16 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.UTs {
 
 
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-				if (f == _aux_db_table.hasIdentityKey) continue;
+				if (f == _aux_db_table.IdentityKey) continue;
 				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
 			_<%=_aux_db_table.Name.ToLower()%>.Fields.<%=_aux_db_field.Name%> = <%=_aux_db_field.DBType_generic.FWUnitTestValue%>;<%
 			}
 
 
 
-			if (_aux_db_table.hasIdentityKey != -1) {
+			if (_aux_db_table.hasIdentityKey) {
 				if (!_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {
-					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey];%><%=""%>
+					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey];%><%=""%>
 			<%=_aux_db_field.DBType_generic.FWType%> _<%=_aux_db_field.Name.ToLower()%>;
 			try {
 				_<%=_aux_db_field.Name.ToLower()%> = _<%=_aux_db_table.Name.ToLower()%>.insObject(true);
@@ -109,11 +109,11 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.UTs {
 			}
 			Assert.IsTrue(_exists, "can't read inserted item (getObject)");<%
 					for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-						if (f == _aux_db_table.hasIdentityKey) continue;
+						if (f == _aux_db_table.IdentityKey) continue;
 						_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
 			Assert.AreEqual(<%=_aux_db_field.DBType_generic.FWUnitTestValue%>, _<%=_aux_db_table.Name.ToLower()%>.Fields.<%=_aux_db_field.Name%>, "inserted values difer those just read (insObject/getObject)");<%
 					}
-					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey];%>
+					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey];%>
 			try {
 				_<%=_aux_db_table.Name.ToLower()%>.delObject(_<%=_aux_db_field.Name.ToLower()%>);
 			} catch (Exception e) {

@@ -108,24 +108,50 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			}
 		}
 		#endregion
-		#region public int hasIdentityKey { get; }
-		private int hasidentitykey__ = -2;
+		#region public bool hasIdentityKey { get; }
+		private bool hasidentitykey__beenread = false;
+		private bool hasidentitykey__;
 
-		public int hasIdentityKey {
+//		[XmlIgnore()]
+//		[XmlAttribute("hasIdentityKey")]
+		public bool hasIdentityKey {
 			get {
 				// this isn't very safe, there's no way to assure that PKs won't be
 				// added or removed, but by the time this method is called
 				// there won't be any more adding or removing
 
-				if (hasidentitykey__ == -2) {
-					hasidentitykey__ = -1;
+				if (!hasidentitykey__beenread) {
+					hasidentitykey__ = false;
 					for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
 						if (TableFields.TableFieldCollection[f].isIdentity) {
-							hasidentitykey__ = f;
+							hasidentitykey__ = true;
 							break;
 						}
 				}
 				return hasidentitykey__;
+			}
+		}
+		#endregion
+		#region public int IdentityKey { get; }
+		private int identitykey__ = -2;
+
+//		[XmlIgnore()]
+//		[XmlAttribute("identityKey")]
+		public int IdentityKey {
+			get {
+				// this isn't very safe, there's no way to assure that PKs won't be
+				// added or removed, but by the time this method is called
+				// there won't be any more adding or removing
+
+				if (identitykey__ == -2) {
+					identitykey__ = -1;
+					for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
+						if (TableFields.TableFieldCollection[f].isIdentity) {
+							identitykey__ = f;
+							break;
+						}
+				}
+				return identitykey__;
 			}
 		}
 		#endregion
@@ -170,7 +196,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 						canbeconfig__ = (
 							!parallel_ref.isConfig
 							&&
-							(hasIdentityKey == -1)
+							!hasIdentityKey
 							&&
 							(TableFields_onlyPK.TableFieldCollection.Count == 1)
 							&&

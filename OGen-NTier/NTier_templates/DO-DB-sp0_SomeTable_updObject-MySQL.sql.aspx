@@ -81,7 +81,7 @@ BEGIN<%
 			}
 		}%>
 		WHERE
-			`<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].Name%>` = `<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].Name%>_`;<%
+			`<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].Name%>` = `<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].Name%>_`;<%
 	if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 	END IF;<%
 	}%>

@@ -250,8 +250,8 @@ if (!_aux_db_table.isVirtualTable) {%>
 			<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%>_in<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 			}%>
 		) {<%
-			if (_aux_db_table.hasIdentityKey != -1) {
-				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey];%>
+			if (_aux_db_table.hasIdentityKey) {
+				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey];%>
 			if (<%=_aux_db_field.Name%>_in != <%=_aux_db_field.DBType_generic.FWEmptyValue%>) {<%
 			}%>
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
@@ -281,7 +281,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 					Fields.haschanges_ = false;
 					return true;
 				}<%
-			if (_aux_db_table.hasIdentityKey != -1) {%>
+			if (_aux_db_table.hasIdentityKey) {%>
 			}<%
 			}%>
 
@@ -389,7 +389,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 			);
 		}
 		#endregion<%
-		if (_aux_db_table.hasIdentityKey == -1) {%>
+		if (!_aux_db_table.hasIdentityKey) {%>
 		#region public bool setObject(...);
 		/// <summary>
 		/// Inserts/Updates <%=_aux_db_table.Name%> values into/on Database. Inserts if <%=_aux_db_table.Name%> doesn't exist or Updates if <%=_aux_db_table.Name%> already exists.
@@ -517,7 +517,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 		}
 		#endregion<%
 		} else {%>
-		#region public <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].DBType_generic.FWType%> insObject(...);
+		#region public <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].DBType_generic.FWType%> insObject(...);
 		/// <summary>
 		/// Inserts <%=_aux_db_table.Name%> values into Database.
 		/// </summary>
@@ -530,7 +530,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 #if NET_1_1
 			virtual 
 #endif
-		<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].DBType_generic.FWType%> insObject(
+		<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].DBType_generic.FWType%> insObject(
 			bool selectIdentity_in<%
 			if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) { %>, 
 			out bool constraintExist_out<%
@@ -557,9 +557,9 @@ if (!_aux_db_table.isVirtualTable) {%>
 			);
 
 			<%
-			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey];
+			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey];
 			_aux_ex_field = _aux_db_field.parallel_ref;
-			%>Fields.<%=_aux_db_field.Name%> = (<%=_aux_db_field.DBType_generic.FWType%>)_dataparameters[<%=_aux_db_table.hasIdentityKey%>].Value;<%
+			%>Fields.<%=_aux_db_field.Name%> = (<%=_aux_db_field.DBType_generic.FWType%>)_dataparameters[<%=_aux_db_table.IdentityKey%>].Value;<%
 			if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 			constraintExist_out = (Fields.<%=_aux_db_field.Name%> == -1L);
 			if (!constraintExist_out) {

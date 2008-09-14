@@ -60,27 +60,27 @@ AS<%
 	}%>
 		INSERT INTO [<%=_aux_db_table.Name%>] (<%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-				if (_aux_db_table.hasIdentityKey != f) {
+				if (_aux_db_table.IdentityKey != f) {
 					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
 			[<%=_aux_db_field.Name%>]<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}
 			}%>
 		) VALUES (<%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-				if (_aux_db_table.hasIdentityKey != f) {
+				if (_aux_db_table.IdentityKey != f) {
 					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
 			@<%=_aux_db_field.Name%>_<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}
 			}%>
 		)
 		IF (@SelectIdentity_ = 1) BEGIN
-			SET @<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey]%>_ = @@IDENTITY
+			SET @<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey]%>_ = @@IDENTITY
 		END ELSE BEGIN
-			SET @<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey]%>_ = CAST(0 AS <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].DBs[_aux_dbservertype].DBType%>)
+			SET @<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey]%>_ = CAST(0 AS <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>)
 		END<%
 	if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 	END ELSE BEGIN
-		SET @<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey]%>_ = CAST(-1 AS <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].DBs[_aux_dbservertype].DBType%>)
+		SET @<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey]%>_ = CAST(-1 AS <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>)
 	END<%
 	}%>
 --GO

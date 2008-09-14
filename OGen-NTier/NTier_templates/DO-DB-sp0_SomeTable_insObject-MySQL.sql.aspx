@@ -64,27 +64,27 @@ BEGIN<%
 	}%>
 		INSERT INTO `<%=_aux_db_table.Name%>` (<%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-				if (_aux_db_table.hasIdentityKey != f) {
+				if (_aux_db_table.IdentityKey != f) {
 					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
 			`<%=_aux_db_field.Name%>`<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}
 			}%>
 		) VALUES (<%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-				if (_aux_db_table.hasIdentityKey != f) {
+				if (_aux_db_table.IdentityKey != f) {
 					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
 			`<%=_aux_db_field.Name%>_`<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}
 			}%>
 		);
 		IF (`SelectIdentity_`) THEN
-			SET `<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey]%>_` = @@IDENTITY;
+			SET `<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].Name%>_` = @@IDENTITY;
 		ELSE
-			SET `<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey]%>_` = CAST(0 AS SIGNED INTEGER/*<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].DBs[_aux_dbservertype].DBType%>*/);
+			SET `<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].Name%>_` = CAST(0 AS SIGNED INTEGER/*<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>*/);
 		END IF;<%
 	if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 	ELSE
-		SET `<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey]%>_` = CAST(-1 AS SIGNED INTEGER/*<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.hasIdentityKey].DBs[_aux_dbservertype].DBType%>*/);
+		SET `<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].Name%>_` = CAST(-1 AS SIGNED INTEGER/*<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>*/);
 	END IF;<%
 	}%>
 END;

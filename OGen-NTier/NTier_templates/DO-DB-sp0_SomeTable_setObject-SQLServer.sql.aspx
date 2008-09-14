@@ -91,7 +91,7 @@ AS
 
 	// Comment: no need to update if table has only (it's) keys,
 	// no other fields to update
-	if (_aux_db_table.TableFields.TableFieldCollection.Count == _aux_db_table.TableFields.TableFieldCollection.Count_onlyPK()) {%>
+	if (_aux_db_table.TableFields.TableFieldCollection.Count == _aux_db_table.TableFields.TableFieldCollection.Count_onlyPK) {%>
 		SET @ConstraintExist = 0<%
 	} else {%>
 		SET @ConstraintExist = <%

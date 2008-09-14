@@ -25,5 +25,24 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 	#else
 	public partial class XS_tableFieldTypeCollection {
 	#endif
+
+		#region public int Count_onlyPK { get; }
+		private int count_onlypk__ = -2;
+
+		public int Count_onlyPK {
+			get {
+				if (count_onlypk__ == -2) {
+					int _count = 0;
+					for (int f = 0; f < this.Count; f++) {
+						if (this[f].isPK) _count++;
+					}
+
+					count_onlypk__ = _count;
+				}
+
+				return count_onlypk__;
+			}
+		}
+		#endregion
 	}
 }
