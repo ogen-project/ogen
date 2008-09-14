@@ -224,20 +224,54 @@ if (_aux_complextype_keys != null) {%>
 			<%=_aux_complextype_keys[k].NType%> <%=_aux_complextype_keys[k].Name%>_in<%=(k == _aux_complextype_keys.Length - 1) ? "" : ","%><%
 		}%>
 		) {
+			return Search(<%
+			for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
+				<%=_aux_complextype_keys[k].Name%>_in, 
+				<%=(_aux_complextype_keys[k].CaseSensitive) ? "true" : "false"%><%=(k != _aux_complextype_keys.Length - 1) ? ", " : ""%><%
+			}%>
+			);
+		}
+
+		public int Search(<%
+		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
+			<%=_aux_complextype_keys[k].NType%> <%=_aux_complextype_keys[k].Name%>_in, 
+			bool <%=_aux_complextype_keys[k].Name%>_caseSensitive_in<%=(k != _aux_complextype_keys.Length - 1) ? ", " : ""%><%
+		}%>
+		) {
 			for (int i = 0; i < cols_.Count; i++) {
 				if (<%
 				for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
 					(
-						#if NET_1_1
-						((<%=XS_%><%=_aux_complextype.Name%>)cols_[i])
-						#else
-						cols_[i]
-						#endif
-							.<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_complextype_keys[k].Name, _arg_SchemaName)%><%=(_aux_complextype_keys[k].CaseSensitive) ? "" : ".ToLower()"%>
-						==
-						<%=_aux_complextype_keys[k].Name%>_in<%=(_aux_complextype_keys[k].CaseSensitive) ? "" : ".ToLower()"%> 
-					)
-					<%=(k == _aux_complextype_keys.Length - 1) ? "" : "&&"%><%
+						(
+							<%=_aux_complextype_keys[k].Name%>_caseSensitive_in
+							&&
+							(
+								#if NET_1_1
+								((<%=XS_%><%=_aux_complextype.Name%>)cols_[i])
+								#else
+								cols_[i]
+								#endif
+									.<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_complextype_keys[k].Name, _arg_SchemaName)%>
+								==
+								<%=_aux_complextype_keys[k].Name%>_in 
+							)
+						)
+						||
+						(
+							!<%=_aux_complextype_keys[k].Name%>_caseSensitive_in
+							&&
+							(
+								#if NET_1_1
+								((<%=XS_%><%=_aux_complextype.Name%>)cols_[i])
+								#else
+								cols_[i]
+								#endif
+									.<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_complextype_keys[k].Name, _arg_SchemaName)%>.ToLower()
+								==
+								<%=_aux_complextype_keys[k].Name%>_in.ToLower()
+							)
+						)
+					)<%=(k == _aux_complextype_keys.Length - 1) ? "" : " &&"%><%
 				}%>
 				) {
 					return i;

@@ -121,19 +121,49 @@ namespace OGen.lib.templates {
 		public int Search(
 			string eval_in
 		) {
+			return Search(
+				eval_in, 
+				true
+			);
+		}
+
+		public int Search(
+			string eval_in, 
+			bool eval_caseSensitive_in
+		) {
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
 					(
-						#if NET_1_1
-						((XS_conditionType)cols_[i])
-						#else
-						cols_[i]
-						#endif
-							.Eval
-						==
-						eval_in 
+						(
+							eval_caseSensitive_in
+							&&
+							(
+								#if NET_1_1
+								((XS_conditionType)cols_[i])
+								#else
+								cols_[i]
+								#endif
+									.Eval
+								==
+								eval_in 
+							)
+						)
+						||
+						(
+							!eval_caseSensitive_in
+							&&
+							(
+								#if NET_1_1
+								((XS_conditionType)cols_[i])
+								#else
+								cols_[i]
+								#endif
+									.Eval.ToLower()
+								==
+								eval_in.ToLower()
+							)
+						)
 					)
-					
 				) {
 					return i;
 				}

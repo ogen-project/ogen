@@ -169,19 +169,49 @@ namespace OGen.Doc.lib.metadata.documentation {
 		public int Search(
 			string idAuthor_in
 		) {
+			return Search(
+				idAuthor_in, 
+				true
+			);
+		}
+
+		public int Search(
+			string idAuthor_in, 
+			bool idAuthor_caseSensitive_in
+		) {
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
 					(
-						#if NET_1_1
-						((XS_authorType)cols_[i])
-						#else
-						cols_[i]
-						#endif
-							.IDAuthor
-						==
-						idAuthor_in 
+						(
+							idAuthor_caseSensitive_in
+							&&
+							(
+								#if NET_1_1
+								((XS_authorType)cols_[i])
+								#else
+								cols_[i]
+								#endif
+									.IDAuthor
+								==
+								idAuthor_in 
+							)
+						)
+						||
+						(
+							!idAuthor_caseSensitive_in
+							&&
+							(
+								#if NET_1_1
+								((XS_authorType)cols_[i])
+								#else
+								cols_[i]
+								#endif
+									.IDAuthor.ToLower()
+								==
+								idAuthor_in.ToLower()
+							)
+						)
 					)
-					
 				) {
 					return i;
 				}

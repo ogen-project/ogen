@@ -169,19 +169,49 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public int Search(
 			string paramName_in
 		) {
+			return Search(
+				paramName_in, 
+				false
+			);
+		}
+
+		public int Search(
+			string paramName_in, 
+			bool paramName_caseSensitive_in
+		) {
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
 					(
-						#if NET_1_1
-						((XS_tableFieldRefType)cols_[i])
-						#else
-						cols_[i]
-						#endif
-							.ParamName.ToLower()
-						==
-						paramName_in.ToLower() 
+						(
+							paramName_caseSensitive_in
+							&&
+							(
+								#if NET_1_1
+								((XS_tableFieldRefType)cols_[i])
+								#else
+								cols_[i]
+								#endif
+									.ParamName
+								==
+								paramName_in 
+							)
+						)
+						||
+						(
+							!paramName_caseSensitive_in
+							&&
+							(
+								#if NET_1_1
+								((XS_tableFieldRefType)cols_[i])
+								#else
+								cols_[i]
+								#endif
+									.ParamName.ToLower()
+								==
+								paramName_in.ToLower()
+							)
+						)
 					)
-					
 				) {
 					return i;
 				}

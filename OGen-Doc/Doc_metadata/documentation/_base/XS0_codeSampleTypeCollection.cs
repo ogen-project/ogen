@@ -169,19 +169,49 @@ namespace OGen.Doc.lib.metadata.documentation {
 		public int Search(
 			string idCodeSample_in
 		) {
+			return Search(
+				idCodeSample_in, 
+				true
+			);
+		}
+
+		public int Search(
+			string idCodeSample_in, 
+			bool idCodeSample_caseSensitive_in
+		) {
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
 					(
-						#if NET_1_1
-						((XS_codeSampleType)cols_[i])
-						#else
-						cols_[i]
-						#endif
-							.IDCodeSample
-						==
-						idCodeSample_in 
+						(
+							idCodeSample_caseSensitive_in
+							&&
+							(
+								#if NET_1_1
+								((XS_codeSampleType)cols_[i])
+								#else
+								cols_[i]
+								#endif
+									.IDCodeSample
+								==
+								idCodeSample_in 
+							)
+						)
+						||
+						(
+							!idCodeSample_caseSensitive_in
+							&&
+							(
+								#if NET_1_1
+								((XS_codeSampleType)cols_[i])
+								#else
+								cols_[i]
+								#endif
+									.IDCodeSample.ToLower()
+								==
+								idCodeSample_in.ToLower()
+							)
+						)
 					)
-					
 				) {
 					return i;
 				}

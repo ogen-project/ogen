@@ -169,19 +169,49 @@ namespace OGen.Doc.lib.metadata.documentation {
 		public int Search(
 			string idSubject_in
 		) {
+			return Search(
+				idSubject_in, 
+				true
+			);
+		}
+
+		public int Search(
+			string idSubject_in, 
+			bool idSubject_caseSensitive_in
+		) {
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
 					(
-						#if NET_1_1
-						((XS_subjectType)cols_[i])
-						#else
-						cols_[i]
-						#endif
-							.IDSubject
-						==
-						idSubject_in 
+						(
+							idSubject_caseSensitive_in
+							&&
+							(
+								#if NET_1_1
+								((XS_subjectType)cols_[i])
+								#else
+								cols_[i]
+								#endif
+									.IDSubject
+								==
+								idSubject_in 
+							)
+						)
+						||
+						(
+							!idSubject_caseSensitive_in
+							&&
+							(
+								#if NET_1_1
+								((XS_subjectType)cols_[i])
+								#else
+								cols_[i]
+								#endif
+									.IDSubject.ToLower()
+								==
+								idSubject_in.ToLower()
+							)
+						)
 					)
-					
 				) {
 					return i;
 				}

@@ -169,19 +169,49 @@ namespace OGen.XSD.lib.metadata.schema {
 		public int Search(
 			string value_in
 		) {
+			return Search(
+				value_in, 
+				true
+			);
+		}
+
+		public int Search(
+			string value_in, 
+			bool value_caseSensitive_in
+		) {
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
 					(
-						#if NET_1_1
-						((XS_enumerationType)cols_[i])
-						#else
-						cols_[i]
-						#endif
-							.Value
-						==
-						value_in 
+						(
+							value_caseSensitive_in
+							&&
+							(
+								#if NET_1_1
+								((XS_enumerationType)cols_[i])
+								#else
+								cols_[i]
+								#endif
+									.Value
+								==
+								value_in 
+							)
+						)
+						||
+						(
+							!value_caseSensitive_in
+							&&
+							(
+								#if NET_1_1
+								((XS_enumerationType)cols_[i])
+								#else
+								cols_[i]
+								#endif
+									.Value.ToLower()
+								==
+								value_in.ToLower()
+							)
+						)
 					)
-					
 				) {
 					return i;
 				}
