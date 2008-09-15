@@ -12,165 +12,136 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 AS 
-	SELECT
-	--	_field.table_catalog,
-	--	_field.table_name,
+			SELECT
+				_field.table_name,
+				_field.column_name,
 
-
-		_field.column_name,
-
-		CASE
-			WHEN (_table.table_type = 'VIEW') THEN
-				CAST(0 AS INT)
-			WHEN _field.is_nullable = 'YES' THEN
-				CAST(1 AS INT)
-			ELSE
-				CAST(0 AS INT)
-		END
-		AS is_nullable,
-
-		_field.data_type
-		AS data_type,
-
-	--	_field.udt_name
-	--	AS udt_name,
-
-		_field.character_maximum_length
-		AS character_maximum_length,
-
-		CASE
-			WHEN (_table.table_type = 'VIEW') THEN
-				CAST(0 AS INT)
-			WHEN (_field.column_name = _pk.column_name) THEN
-				CAST(1 AS INT)
-			ELSE
-				CAST(0 AS INT)
-		END
-		AS is_pk,
-
-		CASE
-			WHEN (_table.table_type = 'VIEW') THEN
-				CAST(0 AS INT)
-			ELSE
 				CASE
-					WHEN (_field.column_default LIKE 'nextval(''%') THEN
+					WHEN (_table.table_type = 'VIEW') THEN
+						CAST(0 AS INT)
+					WHEN _field.is_nullable = 'YES' THEN
 						CAST(1 AS INT)
 					ELSE
 						CAST(0 AS INT)
 				END
-		END
-		AS is_identity,
+				AS is_nullable,
 
-		_fk.fk_table_name AS fk_table_name,
+				_field.data_type
+				AS data_type,
 
-		_fk.fk_column_name AS fk_column_name,
+				_field.character_maximum_length
+				AS character_maximum_length,
 
-		_field.column_default,
+				CASE
+					WHEN (_table.table_type = 'VIEW') THEN
+						CAST(0 AS INT)
+					WHEN (_field.column_name = _pk.column_name) THEN
+						CAST(1 AS INT)
+					ELSE
+						CAST(0 AS INT)
+				END
+				AS is_pk,
 
-		_field.collation_name,
+				CASE
+					WHEN (_table.table_type = 'VIEW') THEN
+						CAST(0 AS INT)
+					ELSE
+						CASE
+							WHEN (_field.column_default LIKE 'nextval(''%') THEN
+								CAST(1 AS INT)
+							ELSE
+								CAST(0 AS INT)
+						END
+				END
+				AS is_identity,
 
-		_field.numeric_precision,
+				_fk.fk_table_name AS fk_table_name,
 
-		_field.numeric_scale
+				_fk.fk_column_name AS fk_column_name,
 
-	FROM information_schema.columns AS _field
+				_field.column_default,
 
-		LEFT JOIN information_schema.tables _table ON (
-			(_table.table_catalog = _field.table_catalog)
-			AND
-			(_table.table_schema = _field.table_schema)
-			AND
-			(_table.table_name = _field.table_name)
-		)
+				_field.collation_name,
 
-		LEFT JOIN (
-			SELECT
-				_kcu.table_name,
-				_kcu.column_name,
-				_kcu.table_catalog,
-				_kcu.table_schema
-			FROM information_schema.table_constraints _tc
-			INNER JOIN information_schema.key_column_usage _kcu ON
-				(_kcu.constraint_catalog = _tc.constraint_catalog)
-				AND
-				(_kcu.constraint_schema = _tc.constraint_schema)
-				AND
-				(_kcu.constraint_name = _tc.constraint_name)
-				AND
-				(_tc.constraint_type = 'PRIMARY KEY')
-		) _pk ON
-			(_pk.table_catalog = _field.table_catalog)
-			AND
-			(_pk.table_schema = _field.table_schema)
-			AND
-			(_pk.table_name = _field.table_name)
-			AND
-			(_pk.column_name = _field.column_name)
+				_field.numeric_precision,
 
-		LEFT JOIN (
-	/*
-			SELECT
-				_ccu2.table_name AS fk_table_name,
-				_ccu2.column_name AS fk_column_name,
+				_field.numeric_scale
 
-				_tc2.table_name,
-				_kcu2.column_name,
-				_tc2.table_catalog,
-				_tc2.table_schema
-			FROM information_schema.table_constraints _tc2
-			INNER JOIN information_schema.constraint_column_usage _ccu2 ON
-				(_ccu2.constraint_catalog = _tc2.constraint_catalog)
-				AND
-				(_ccu2.constraint_schema = _tc2.constraint_schema)
-				AND
-				(_ccu2.constraint_name = _tc2.constraint_name)
-			INNER JOIN  information_schema.key_column_usage _kcu2 ON
-				(_kcu2.constraint_catalog = _ccu2.constraint_catalog)
-				AND
-				(_kcu2.constraint_schema = _ccu2.constraint_schema)
-				AND
-				(_kcu2.constraint_name = _ccu2.constraint_name)
+			FROM information_schema.columns AS _field
+
+				LEFT JOIN information_schema.tables _table ON (
+					(_table.table_catalog = _field.table_catalog)
+					AND
+					(_table.table_schema = _field.table_schema)
+					AND
+					(_table.table_name = _field.table_name)
+				)
+
+				LEFT JOIN (
+					SELECT
+						_kcu.table_name,
+						_kcu.column_name,
+						_kcu.table_catalog,
+						_kcu.table_schema
+					FROM information_schema.table_constraints _tc
+					INNER JOIN information_schema.key_column_usage _kcu ON
+						(_kcu.constraint_catalog = _tc.constraint_catalog)
+						AND
+						(_kcu.constraint_schema = _tc.constraint_schema)
+						AND
+						(_kcu.constraint_name = _tc.constraint_name)
+						AND
+						(_tc.constraint_type = 'PRIMARY KEY')
+				) _pk ON
+					(_pk.table_catalog = _field.table_catalog)
+					AND
+					(_pk.table_schema = _field.table_schema)
+					AND
+					(_pk.table_name = _field.table_name)
+					AND
+					(_pk.column_name = _field.column_name)
+
+				LEFT JOIN (
+					SELECT
+						_pk.table_name AS fk_table_name,
+						_pk.column_name AS fk_column_name,
+
+						_fks.table_name,
+						_fks.column_name,
+						_fks.table_catalog,
+						_fks.table_schema
+					FROM information_schema.referential_constraints _rc
+					INNER JOIN information_schema.key_column_usage _fks ON
+						(_fks.constraint_catalog = _rc.constraint_catalog)
+						AND
+						(_fks.constraint_schema = _rc.constraint_schema)
+						AND
+						(_fks.constraint_name = _rc.constraint_name)
+					INNER JOIN information_schema.key_column_usage _pk ON
+						(_pk.constraint_catalog = _rc.constraint_catalog)
+						AND
+						(_pk.constraint_schema = _rc.constraint_schema)
+						AND
+						(_pk.constraint_name = _rc.unique_constraint_name)
+				) _fk ON
+					(_fk.table_catalog = _field.table_catalog)
+					AND
+					(_fk.table_schema = _field.table_schema)
+					AND
+					(_fk.table_name = _field.table_name)
+					AND
+					(_fk.column_name = _field.column_name)
+/*
 			WHERE
-				_tc2.constraint_type = 'FOREIGN KEY'
-	*/
-
-			SELECT
-				_pk.table_name AS fk_table_name,
-				_pk.column_name AS fk_column_name,
-
-				_fks.table_name,
-				_fks.column_name,
-				_fks.table_catalog,
-				_fks.table_schema
-			FROM information_schema.referential_constraints _rc
-			INNER JOIN information_schema.key_column_usage _fks ON
-				(_fks.constraint_catalog = _rc.constraint_catalog)
+				(_field.table_catalog = "dbName_")
 				AND
-				(_fks.constraint_schema = _rc.constraint_schema)
-				AND
-				(_fks.constraint_name = _rc.constraint_name)
-			INNER JOIN information_schema.key_column_usage _pk ON
-				(_pk.constraint_catalog = _rc.constraint_catalog)
-				AND
-				(_pk.constraint_schema = _rc.constraint_schema)
-				AND
-				(_pk.constraint_name = _rc.unique_constraint_name)
-		) _fk ON
-			(_fk.table_catalog = _field.table_catalog)
-			AND
-			(_fk.table_schema = _field.table_schema)
-			AND
-			(_fk.table_name = _field.table_name)
-			AND
-			(_fk.column_name = _field.column_name)
-
-	--WHERE
-	--	(_field.table_catalog = '{0}')
-	--	AND
-	--	(_field.table_name = '{1}')
-	--	AND
-	--	(_field.table_name = 'UserGroup') OR (_field.table_name = 'User') OR (_field.table_name = 'Group')
-
-	ORDER BY
-		_field.table_name,
-		_field.ordinal_position
+				(
+					('' = "tableName_")
+					OR
+					(_field.table_name = "tableName_")
+				)
+*/
+			ORDER BY
+				_field.table_name,
+			--	_field.column_name,
+				_field.ordinal_position

@@ -159,6 +159,10 @@ FROM information_schema.columns AS _columns
 		(_fk.column_name = _columns.column_name)
 
 WHERE
+--	(_columns.table_schema = 'public')
+--	AND
+--	(_columns.table_name NOT LIKE 'v0%')
+--	AND
 --	(_columns.table_catalog = '{0}')
 --	AND
 --	(

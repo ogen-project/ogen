@@ -106,7 +106,17 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 				);
 				#endregion
 				#region _fields_aux = ...;
-				_getTableFields_exists = _connection.SQLStoredProcedure_exists(OGEN_SP0__GETTABLEFIELDS);
+				switch ((DBServerTypes)Enum.Parse(typeof(DBServerTypes), _connection.DBServerType)) {
+#if PostgreSQL
+					case DBServerTypes.PostgreSQL:
+						_getTableFields_exists = _connection.SQLFunction_exists(OGEN_SP0__GETTABLEFIELDS);
+						break;
+#endif
+					default:
+						_getTableFields_exists = _connection.SQLStoredProcedure_exists(OGEN_SP0__GETTABLEFIELDS);
+						break;
+				}
+
 				_fields_aux = _connection.getTableFields(
 					// _tables_aux[t].Name, // get's specific table fields
 					string.Empty, // get's fields for all tables

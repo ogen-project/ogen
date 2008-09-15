@@ -146,6 +146,10 @@ RETURNS SETOF "v0__getTableFields" AS $BODY$
 					(_fk.column_name = _field.column_name)
 
 			WHERE
+				(_field.table_schema = 'public')
+				AND
+				(_field.table_name NOT LIKE 'v0%')
+				AND
 				(_field.table_catalog = "dbName_")
 				AND
 				(
