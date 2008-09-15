@@ -53,7 +53,8 @@ for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count;
 	@<%=_aux_db_field.Name%>_ <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%>, <%
 }
 for (int f = 0; f <_aux_ex_update.TableUpdateParameters.TableFieldRefCollection.Count; f++) {
-	_aux_ex_field =_aux_ex_update.TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;%>
+	_aux_ex_field =_aux_ex_update.TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;
+	_aux_db_field = _aux_ex_field.parallel_ref;%>
 	@<%=_aux_ex_field.Name%>_update_ <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(f !=_aux_ex_update.TableUpdateParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 }
 if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>, 
