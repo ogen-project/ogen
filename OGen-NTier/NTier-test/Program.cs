@@ -55,10 +55,38 @@ namespace OGen.NTier.presentationlayer.test {
 		//}
 		#endregion
 
+		public static void notifyme(string message_in) {
+			Console.WriteLine(message_in);
+		}
+
 		static void Main(string[] args) {
-//			XS__metadataDB _dbmetadatas = XS__metadataDB.Load_fromDB(
-//				
-//			);
+			string _file1 = 
+			    System.IO.Path.Combine(
+			        #if !NET_1_1
+			        System.Configuration.ConfigurationManager.AppSettings
+			        #else
+			        System.Configuration.ConfigurationSettings.AppSettings
+			        #endif
+			            ["ogenPath"],
+
+					@"..\..\OGen-NTier_UTs\OGen-metadatas\MD_OGen-NTier_UTs.OGenXSD-metadata.xml"
+			    )
+			;
+			XS__RootMetadata _root = new XS__RootMetadata(
+				_file1
+			);
+			_root.IterateThrough_fromRoot(
+				"ROOT.metadataExtended[n].tables.table[n]", 
+				new OGen.lib.generator.utils.IterationFoundDelegate(notifyme)
+			);
+			Console.WriteLine("done!\n");
+
+			_root.IterateThrough_fromRoot(
+				"ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearch[n]",
+				new OGen.lib.generator.utils.IterationFoundDelegate(notifyme)
+			);
+			Console.WriteLine("done!\n");
+
 
 			Console.WriteLine();
 			Console.ReadLine();
