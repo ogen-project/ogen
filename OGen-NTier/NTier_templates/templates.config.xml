@@ -1520,7 +1520,7 @@ XXX:TO_DOS -->
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[n].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[n].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
 			<argument name="SearchName" value="${ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearch[n].name}" />
 		</arguments>

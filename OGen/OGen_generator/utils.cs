@@ -96,6 +96,8 @@ namespace OGen.lib.generator {
 		}
 		#endregion
 
+//		#region public static string ReflectThrough(...);
+		#region public static string ReflectThrough(...);
 		public static string ReflectThrough(
 			object someClass_in,
 			string path_in,
@@ -118,6 +120,8 @@ namespace OGen.lib.generator {
 				out _valueHasBeenFound
 			);
 		}
+		#endregion
+
 		public static string ReflectThrough(
 			object someClass_in, 
 			string path_in, 
@@ -131,7 +135,7 @@ namespace OGen.lib.generator {
 			valueHasBeenFound_out = false;
 
 #if DEBUG
-const bool _usePerformance = true;
+const bool _usePerformance = false;
 #endif
 
 			if (
@@ -430,5 +434,6 @@ _usePerformance &&
 
 			return _output;
 		}
+//		#endregion
 	}
 }

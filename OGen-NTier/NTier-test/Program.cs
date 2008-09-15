@@ -75,12 +75,21 @@ namespace OGen.NTier.presentationlayer.test {
 			XS__RootMetadata _root = new XS__RootMetadata(
 				_file1
 			);
+
+			Console.WriteLine(
+				"TableName: {0}", 
+				_root.Read_fromRoot("ROOT.metadataExtended[0].tables.table[0].name")
+			);
 			_root.IterateThrough_fromRoot(
 				"ROOT.metadataExtended[n].tables.table[n]", 
 				new OGen.lib.generator.utils.IterationFoundDelegate(notifyme)
 			);
 			Console.WriteLine("done!\n");
 
+			Console.WriteLine(
+				"SearchName: {0}", 
+				_root.Read_fromRoot("ROOT.metadataExtended[0].tables.table[0].tableSearches.tableSearch[0].name")
+			);
 			_root.IterateThrough_fromRoot(
 				"ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearch[n]",
 				new OGen.lib.generator.utils.IterationFoundDelegate(notifyme)
