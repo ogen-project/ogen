@@ -59,7 +59,7 @@ AS $BODY$
 				true -- whatever, just checking existence
 			FROM "fnc_<%=_aux_db_table.Name%>_isObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>"(<%
 			for (int p = 0; p < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; p++) {%>
-				$<%=_aux_ex_table.TableFields.TableFieldCollection.Search(_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[p].TableField_refName) + 1%><%=(p != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+				$<%=_aux_ex_table.TableFields.TableFieldCollection.Search(_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[p].TableField_ref.Name) + 1%><%=(p != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 			}%>
 			)
 			WHERE NOT (<%
