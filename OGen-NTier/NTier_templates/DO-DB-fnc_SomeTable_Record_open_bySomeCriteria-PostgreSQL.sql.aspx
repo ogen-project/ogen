@@ -54,6 +54,7 @@ bool makeItAComment = false;
 		if (_aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableName != _aux_db_table.Name)
 			makeItAComment = true;
 		_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+		_aux_db_field = _aux_ex_field.parallel_ref;
 		_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
 	"<%=_aux_xx_field_name%>_search_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 	}%>
@@ -73,6 +74,7 @@ AS $BODY$
 			WHERE<%
 		for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
 			_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+			_aux_db_field = _aux_ex_field.parallel_ref;
 			_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;
 			if (_aux_db_field.isNullable && !_aux_db_table.isVirtualTable) {%>
 				((
