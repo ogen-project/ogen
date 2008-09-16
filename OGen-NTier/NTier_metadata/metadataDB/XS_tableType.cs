@@ -258,7 +258,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("tableSearches_hasExplicitUniqueIndex")]
 		public bool tableSearches_hasExplicitUniqueIndex {
 			get {
-				parallel_ref.TableSearches.hasExplicitUniqueIndex;
+				return parallel_ref.TableSearches.hasExplicitUniqueIndex;
 			}
 		}
 		#endregion

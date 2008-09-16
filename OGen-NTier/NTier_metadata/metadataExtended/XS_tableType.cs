@@ -60,7 +60,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("hasPK")]
 		public bool hasPK {
 			get {
-				parallel_ref.hasPK;
+				return parallel_ref.hasPK;
 			}
 		}
 		#endregion
