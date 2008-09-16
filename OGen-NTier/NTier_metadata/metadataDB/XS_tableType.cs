@@ -108,12 +108,36 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			}
 		}
 		#endregion
+		#region public bool hasPK { get; }
+		private bool haspk__beenread = false;
+		private bool haspk__;
+
+		[XmlIgnore()]
+		[XmlAttribute("hasPK")]
+		public bool hasPK {
+			get {
+				// this isn't very safe, there's no way to assure that PKs won't be
+				// added or removed, but by the time this method is called
+				// there won't be any more adding or removing
+
+				if (!haspk__beenread) {
+					haspk__ = false;
+					for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
+						if (TableFields.TableFieldCollection[f].isPK) {
+							haspk__ = true;
+							break;
+						}
+				}
+				return haspk__;
+			}
+		}
+		#endregion
 		#region public bool hasIdentityKey { get; }
 		private bool hasidentitykey__beenread = false;
 		private bool hasidentitykey__;
 
-//		[XmlIgnore()]
-//		[XmlAttribute("hasIdentityKey")]
+		[XmlIgnore()]
+		[XmlAttribute("hasIdentityKey")]
 		public bool hasIdentityKey {
 			get {
 				// this isn't very safe, there's no way to assure that PKs won't be
