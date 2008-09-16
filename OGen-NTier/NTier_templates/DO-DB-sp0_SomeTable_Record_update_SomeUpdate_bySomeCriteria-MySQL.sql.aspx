@@ -59,7 +59,8 @@ for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection
 	IN `<%=_aux_xx_field_name%>_search_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%>, <%
 }
 for (int f = 0; f < update.TableUpdateParameters.TableFieldRefCollection.Count; f++) {
-	_aux_ex_field = update.TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;%>
+	_aux_ex_field = update.TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;
+	_aux_db_field = _aux_ex_field.parallel_ref;%>
 	IN `<%=_aux_ex_field.Name%>_update_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != update.TableUpdateParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 }%>
 )
