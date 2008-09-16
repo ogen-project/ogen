@@ -55,6 +55,16 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 
+		#region public bool hasPK { get; }
+		[XmlIgnore()]
+		[XmlAttribute("hasPK")]
+		public bool hasPK {
+			get {
+				parallel_ref.hasPK;
+			}
+		}
+		#endregion
+
 		#region public metadataDB.XS_tableType parallel_ref { get; }
 		private bool parallel_ref__exists = true;
 		private OGen.NTier.lib.metadata.metadataDB.XS_tableType parallel_ref__ = null;

@@ -253,5 +253,14 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			}
 		}
 		#endregion
+		#region public bool tableSearches_hasExplicitUniqueIndex { get; }
+		[XmlIgnore()]
+		[XmlAttribute("tableSearches_hasExplicitUniqueIndex")]
+		public bool tableSearches_hasExplicitUniqueIndex {
+			get {
+				parallel_ref.TableSearches.hasExplicitUniqueIndex;
+			}
+		}
+		#endregion
 	}
 }

@@ -33,6 +33,7 @@ namespace OGen.lib.generator {
 		public string Root;
 	}
 	#endregion
+	#region public interface MetadataInterface { ... }
 	public interface MetadataInterface {
 		string Read_fromRoot(string what_in);
 
@@ -41,6 +42,7 @@ namespace OGen.lib.generator {
 			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in
 		);
 	}
+	#endregion
 
 	public class utils {
 		private utils() { }
