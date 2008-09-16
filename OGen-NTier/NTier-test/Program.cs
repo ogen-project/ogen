@@ -77,10 +77,12 @@ namespace OGen.NTier.presentationlayer.test {
 			);
 
 			Console.WriteLine(
-				"TableName: '{0}' : '{1}' : '{2}'", 
+				"TableName: '{0}' : '{1}' : '{2}' : '{3}' : '{4}'", 
 				_root.Read_fromRoot("ROOT.metadataExtended[0].tables.table[0].name"),
 				_root.Read_fromRoot("ROOT.metadataDB[0].tables.table[0].hasPK"), 
-				_root.Read_fromRoot("ROOT.metadataDB[0].tables.table[0].parallel_ref.name")
+				_root.Read_fromRoot("ROOT.metadataDB[0].tables.table[0].parallel_ref.name"), 
+				_root.Read_fromRoot("ROOT.metadataDB[0].tables.table[0].hasPK"),
+				_root.Read_fromRoot("ROOT.metadataExtended[0].tables.table[0].parallel_ref.hasPK")
 			);
 			_root.IterateThrough_fromRoot(
 				"ROOT.metadataExtended[n].tables.table[n]", 
