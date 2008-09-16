@@ -50,6 +50,7 @@ string _aux_xx_field_name;
 %>CREATE PROCEDURE [dbo].[sp_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>]<%
 	for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
 		_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+		_aux_db_field = _aux_ex_field.parallel_ref;
 		_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
 	@<%=_aux_xx_field_name%>_search_ <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.isText) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && _aux_db_field.NumericScale > 0) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 	}%>
