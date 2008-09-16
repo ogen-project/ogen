@@ -156,10 +156,18 @@ throw new Exception("// ToDos: not implemented!");
 					0,
 					metadata_dbconnectionstrings().Convert_toArray()
 				);
+
 			// NOTE: this is very important, every parameter / information
 			// that's not comming from the database is empty,
 			// and needs to be filled in order to be serialized to the xml file:
 			_metadatadb.ApplicationName = metadata_.MetadataExtendedCollection[0].ApplicationName;
+			for (int t = 0; t < metadata_.MetadataExtendedCollection[0].Tables.TableCollection.Count; t++) {
+				for (int f = 0; f < metadata_.MetadataExtendedCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection.Count; f++) {
+					if (metadata_.MetadataExtendedCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].isViewPK) {
+						metadata_.MetadataExtendedCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].parallel_ref.isPK = true;
+					}
+				}
+			}
 
 
 			for (int i = 0; i < metadata_.MetadataFiles.MetadataFiles.Count; i++) {

@@ -58,6 +58,19 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
+		#region public bool isViewPK { get; set; }
+		internal bool isviewpk_;
+
+		[XmlAttribute("isViewPK")]
+		public bool isViewPK {
+			get {
+				return isviewpk_;
+			}
+			set {
+				isviewpk_ = value;
+			}
+		}
+		#endregion
 		#region public string DefaultValue { get; set; }
 		internal string defaultvalue_;
 
@@ -129,6 +142,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			int _index = -1;
 
 			name_ = tableFieldType_in.name_;
+			isviewpk_ = tableFieldType_in.isviewpk_;
 			defaultvalue_ = tableFieldType_in.defaultvalue_;
 			friendlyname_ = tableFieldType_in.friendlyname_;
 			extendeddescription_ = tableFieldType_in.extendeddescription_;

@@ -135,12 +135,13 @@ namespace OGen.lib.generator {
 			valueHasBeenFound_out = false;
 
 #if DEBUG
-const bool _usePerformance = false;
+const bool _usePerformance1 = false;
+const bool _usePerformance2 = false;
 #endif
 
 			if (
 #if DEBUG
-_usePerformance && (
+_usePerformance1 && (
 #endif
 				(
 					returnValue_in
@@ -252,7 +253,7 @@ _usePerformance && (
 					_indexOfSquareBrackets_begin = _aux1.Length;
 					if (
 #if DEBUG
-_usePerformance && (
+_usePerformance2 && (
 #endif
 
 (_indexOfSquareBrackets_begin > iteration_in.Length)
@@ -285,7 +286,7 @@ _usePerformance && (
 					if (_value.GetType().IsArray) {
 						if (
 #if DEBUG
-_usePerformance && 
+_usePerformance1 && 
 #endif
 							returnValue_in
 						) {
@@ -301,7 +302,7 @@ _usePerformance &&
 							int i = 
 								(
 #if DEBUG
-_usePerformance &&
+_usePerformance1 &&
 #endif
 									returnValue_in
 								)

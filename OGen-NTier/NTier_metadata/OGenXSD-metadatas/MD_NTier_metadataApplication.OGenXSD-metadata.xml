@@ -128,6 +128,7 @@ shared
 		<specificCase word="isListItemValue" translation="isListItemValue" />
 		<specificCase word="isNullable" translation="isNullable" />
 		<specificCase word="isPK" translation="isPK" />
+		<specificCase word="isViewPK" translation="isViewPK" />
 		<specificCase word="isRange" translation="isRange" />
 		<specificCase word="isVirtualTable" translation="isVirtualTable" />
 
