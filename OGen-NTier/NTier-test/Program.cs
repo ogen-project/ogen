@@ -77,8 +77,10 @@ namespace OGen.NTier.presentationlayer.test {
 			);
 
 			Console.WriteLine(
-				"TableName: {0}", 
-				_root.Read_fromRoot("ROOT.metadataExtended[0].tables.table[0].name")
+				"TableName: '{0}' : '{1}' : '{2}'", 
+				_root.Read_fromRoot("ROOT.metadataExtended[0].tables.table[0].name"),
+				_root.Read_fromRoot("ROOT.metadataDB[0].tables.table[0].hasPK"), 
+				_root.Read_fromRoot("ROOT.metadataDB[0].tables.table[0].parallel_ref.name")
 			);
 			_root.IterateThrough_fromRoot(
 				"ROOT.metadataExtended[n].tables.table[n]", 
@@ -87,7 +89,7 @@ namespace OGen.NTier.presentationlayer.test {
 			Console.WriteLine("done!\n");
 
 			Console.WriteLine(
-				"SearchName: {0}", 
+				"SearchName: '{0}'", 
 				_root.Read_fromRoot("ROOT.metadataExtended[0].tables.table[0].tableSearches.tableSearch[0].name")
 			);
 			_root.IterateThrough_fromRoot(

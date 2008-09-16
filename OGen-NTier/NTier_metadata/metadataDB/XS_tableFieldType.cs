@@ -34,6 +34,8 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		#region public XS_tableType parent_table_ref { get; }
 		private XS_tableType parent_table_ref__ = null;
 
+		[XmlIgnore()]
+//		[XmlElement("parallel_ref")]
 		public XS_tableType parent_table_ref {
 			get {
 				if (parent_table_ref__ == null) {

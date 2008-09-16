@@ -51,6 +51,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		private bool parallel_ref__exists = true;
 		private OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType parallel_ref__ = null;
 
+		[XmlIgnore()]
+//		[XmlElement("parallel_ref")]
 		public OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType parallel_ref {
 			get {
 				if (
