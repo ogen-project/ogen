@@ -40,7 +40,7 @@ namespace OGen.lib.generator {
 		void IterateThrough_fromRoot(
 			string iteration_in,
 			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in,
-			out bool valueHasBeenFound_out
+			ref bool valueHasBeenFound_out
 		);
 	}
 	#endregion
@@ -120,7 +120,7 @@ namespace OGen.lib.generator {
 				pathTranslated_in,
 				returnValue_in,
 				anyAttribute_notJustXml,
-				out _valueHasBeenFound
+				ref _valueHasBeenFound
 			);
 		}
 		#endregion
@@ -133,10 +133,9 @@ namespace OGen.lib.generator {
 			string pathTranslated_in, 
 			bool returnValue_in, 
 			bool anyAttribute_notJustXml, 
-			out bool valueHasBeenFound_out
+			ref bool valueHasBeenFound_out
 		) {
 			string _output = null;
-			valueHasBeenFound_out = false;
 
 #if DEBUG
 const bool _usePerformance1 = true;
@@ -193,6 +192,7 @@ _usePerformance1 && (
 			}
 
 			if (iteration_in == pathTranslated_in) {
+				valueHasBeenFound_out = true;
 				if (iteration_found_in != null) iteration_found_in(path_in);
 			}
 
@@ -360,7 +360,7 @@ _usePerformance5 &&
 								), 
 								returnValue_in, 
 								anyAttribute_notJustXml,
-								out valueHasBeenFound_out
+								ref valueHasBeenFound_out
 							);
 							if (returnValue_in && valueHasBeenFound_out)
 								return _output;
@@ -382,7 +382,7 @@ _usePerformance5 &&
 							), 
 							returnValue_in, 
 							anyAttribute_notJustXml,
-							out valueHasBeenFound_out
+							ref valueHasBeenFound_out
 						);
 						if (returnValue_in && valueHasBeenFound_out)
 							return _output;

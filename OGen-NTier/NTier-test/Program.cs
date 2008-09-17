@@ -60,7 +60,7 @@ namespace OGen.NTier.presentationlayer.test {
 		}
 
 		static void Main(string[] args) {
-			bool _found;
+			bool _found = false;
 			string _file1 = 
 			    System.IO.Path.Combine(
 			        #if !NET_1_1
@@ -87,7 +87,7 @@ namespace OGen.NTier.presentationlayer.test {
 			_root.IterateThrough_fromRoot(
 				"ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearch[n].tableSearchUpdates.tableSearchUpdate[n]",
 				new OGen.lib.generator.utils.IterationFoundDelegate(notifyme), 
-				out _found
+				ref _found
 			);
 			Console.WriteLine(
 				"found? '{0}'",
@@ -114,7 +114,7 @@ namespace OGen.NTier.presentationlayer.test {
 			_root.IterateThrough_fromRoot(
 				"ROOT.metadataExtended[n].tables.table[n]",
 				new OGen.lib.generator.utils.IterationFoundDelegate(notifyme),
-				out _found
+				ref _found
 			);
 			Console.WriteLine((_found) ? "done!\n" : "nothing to do\n");
 
@@ -125,7 +125,7 @@ namespace OGen.NTier.presentationlayer.test {
 			_root.IterateThrough_fromRoot(
 				"ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearch[n]",
 				new OGen.lib.generator.utils.IterationFoundDelegate(notifyme),
-				out _found
+				ref _found
 			);
 			Console.WriteLine((_found) ? "done!\n" : "nothing to do\n");
 

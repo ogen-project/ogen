@@ -668,11 +668,11 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 							false
 						);
 
-						bool _valuehasbeenfound_out;
+						bool _valuehasbeenfound_out = false;
 						metadata_.IterateThrough_fromRoot(
 							templates_.TemplateCollection[template_].IterationType,
 							new utils.IterationFoundDelegate(notifyme),
-							out _valuehasbeenfound_out
+							ref _valuehasbeenfound_out
 						);
 						#endregion
 

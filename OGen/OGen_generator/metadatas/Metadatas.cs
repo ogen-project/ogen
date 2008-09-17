@@ -119,7 +119,7 @@ namespace OGen.lib.metadata {
 		public void IterateThrough_fromRoot(
 			string iteration_in,
 			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in,
-			out bool valueHasBeenFound_out
+			ref bool valueHasBeenFound_out
 		) {
 			OGen.lib.generator.utils.ReflectThrough(
 				this,
@@ -129,7 +129,7 @@ namespace OGen.lib.metadata {
 				ROOT_METADATA,
 				false,
 				true,
-				out valueHasBeenFound_out
+				ref valueHasBeenFound_out
 			);
 		}
 	}

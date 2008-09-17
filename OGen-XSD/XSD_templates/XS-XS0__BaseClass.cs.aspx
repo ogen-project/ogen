@@ -239,7 +239,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
 			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in,
-			out bool valueHasBeenFound_out
+			ref bool valueHasBeenFound_out
 		) {
 			OGen.lib.generator.utils.ReflectThrough(
 				this, <%--
@@ -253,7 +253,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 				Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name, _arg_SchemaName)%>, 
 				false, 
 				true, 
-				out valueHasBeenFound_out
+				ref valueHasBeenFound_out
 			);
 		}
 		#endregion

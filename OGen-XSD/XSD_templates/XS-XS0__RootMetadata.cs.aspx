@@ -224,7 +224,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
 			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in,
-			out bool valueHasBeenFound_out
+			ref bool valueHasBeenFound_out
 		) {
 			valueHasBeenFound_out = false;
 			bool _didit = false;
@@ -249,7 +249,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 								_end
 							), 
 							iteration_found_in, 
-							out valueHasBeenFound_out
+							ref valueHasBeenFound_out
 						);
 					}
 					_didit = true;
@@ -265,7 +265,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 							_end
 						),
 						iteration_found_in, 
-						out valueHasBeenFound_out
+						ref valueHasBeenFound_out
 					);
 
 					_didit = true;

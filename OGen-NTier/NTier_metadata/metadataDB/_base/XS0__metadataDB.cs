@@ -173,7 +173,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
 			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in,
-			out bool valueHasBeenFound_out
+			ref bool valueHasBeenFound_out
 		) {
 			OGen.lib.generator.utils.ReflectThrough(
 				this, 
@@ -183,7 +183,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 				Root_MetadataDB, 
 				false, 
 				true, 
-				out valueHasBeenFound_out
+				ref valueHasBeenFound_out
 			);
 		}
 		#endregion
