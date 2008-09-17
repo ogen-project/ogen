@@ -88,18 +88,18 @@ namespace OGen.NTier.UTs.test {
 
 			const int _cycles = 50;
 			DBConnection[] _cons = new DBConnection[] {
-				//#region new DBConnection(DBServerTypes.SQLServer, ...), 
-				//DBConnectionsupport.CreateInstance(
-				//    DBServerTypes.SQLServer,
+				#region new DBConnection(DBServerTypes.SQLServer, ...), 
+				DBConnectionsupport.CreateInstance(
+				    DBServerTypes.SQLServer,
 					
-				//    DBUtilssupport.GetInstance(DBServerTypes.SQLServer).ConnectionString.Build(
-				//        "127.0.0.1", 
-				//        "sa", 
-				//        "passpub", 
-				//        "OGen-NTier_UTs"
-				//    )
-				//), 
-				//#endregion
+				    DBUtilssupport.GetInstance(DBServerTypes.SQLServer).ConnectionString.Build(
+				        "127.0.0.1", 
+				        "sa", 
+				        "passpub", 
+				        "OGen-NTier_UTs"
+				    )
+				),  
+				#endregion
 				#region new DBConnection(DBServerTypes.PostgreSQL, ...)
 				DBConnectionsupport.CreateInstance(
 					DBServerTypes.PostgreSQL,
@@ -109,19 +109,19 @@ namespace OGen.NTier.UTs.test {
 						"passpub", 
 						"OGen-NTier_UTs"
 					)
-				), 
-				#endregion
-				#region new DBConnection(DBServerTypes.MySQL, ...)
-				DBConnectionsupport.CreateInstance(
-					DBServerTypes.MySQL,
-					DBUtilssupport.GetInstance(DBServerTypes.MySQL).ConnectionString.Build(
-						"127.0.0.1", 
-						"root", 
-						"passpub", 
-						"OGen-NTier_UTs"
-					)
 				)
 				#endregion
+				//#region new DBConnection(DBServerTypes.MySQL, ...)
+				//, DBConnectionsupport.CreateInstance(
+				//    DBServerTypes.MySQL,
+				//    DBUtilssupport.GetInstance(DBServerTypes.MySQL).ConnectionString.Build(
+				//        "127.0.0.1", 
+				//        "root", 
+				//        "passpub", 
+				//        "OGen-NTier_UTs"
+				//    )
+				//)
+				//#endregion
 			};
 
 			long _conter = 0L;

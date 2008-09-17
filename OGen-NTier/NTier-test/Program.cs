@@ -60,6 +60,7 @@ namespace OGen.NTier.presentationlayer.test {
 		}
 
 		static void Main(string[] args) {
+			bool _found;
 			string _file1 = 
 			    System.IO.Path.Combine(
 			        #if !NET_1_1
@@ -77,6 +78,32 @@ namespace OGen.NTier.presentationlayer.test {
 			);
 
 			Console.WriteLine(
+				"null? '{0}'", 
+				(_root.Read_fromRoot(
+					"ROOT.metadataExtended[0].tables.table[0].tableSearches.tableSearch[0].name"
+				) == null)
+			);
+
+			_root.IterateThrough_fromRoot(
+				"ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearch[n].tableSearchUpdates.tableSearchUpdate[n]",
+				new OGen.lib.generator.utils.IterationFoundDelegate(notifyme), 
+				out _found
+			);
+			Console.WriteLine(
+				"found? '{0}'",
+				_found
+			);
+			return;
+
+
+
+
+
+
+
+
+
+			Console.WriteLine(
 				"TableName: '{0}' : '{1}' : '{2}' : '{3}' : '{4}'", 
 				_root.Read_fromRoot("ROOT.metadataExtended[0].tables.table[0].name"),
 				_root.Read_fromRoot("ROOT.metadataDB[0].tables.table[0].hasPK"), 
@@ -85,10 +112,11 @@ namespace OGen.NTier.presentationlayer.test {
 				_root.Read_fromRoot("ROOT.metadataExtended[0].tables.table[0].parallel_ref.hasPK")
 			);
 			_root.IterateThrough_fromRoot(
-				"ROOT.metadataExtended[n].tables.table[n]", 
-				new OGen.lib.generator.utils.IterationFoundDelegate(notifyme)
+				"ROOT.metadataExtended[n].tables.table[n]",
+				new OGen.lib.generator.utils.IterationFoundDelegate(notifyme),
+				out _found
 			);
-			Console.WriteLine("done!\n");
+			Console.WriteLine((_found) ? "done!\n" : "nothing to do\n");
 
 			Console.WriteLine(
 				"SearchName: '{0}'", 
@@ -96,9 +124,10 @@ namespace OGen.NTier.presentationlayer.test {
 			);
 			_root.IterateThrough_fromRoot(
 				"ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearch[n]",
-				new OGen.lib.generator.utils.IterationFoundDelegate(notifyme)
+				new OGen.lib.generator.utils.IterationFoundDelegate(notifyme),
+				out _found
 			);
-			Console.WriteLine("done!\n");
+			Console.WriteLine((_found) ? "done!\n" : "nothing to do\n");
 
 
 			Console.WriteLine();

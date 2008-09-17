@@ -223,8 +223,10 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 		#region public void IterateThrough_fromRoot(...);
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
-			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in
+			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in,
+			out bool valueHasBeenFound_out
 		) {
+			valueHasBeenFound_out = false;
 			bool _didit = false;
 			string _begin;
 			string _indexstring;
@@ -246,7 +248,8 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 								i,
 								_end
 							), 
-							iteration_found_in
+							iteration_found_in, 
+							out valueHasBeenFound_out
 						);
 					}
 					_didit = true;
@@ -261,8 +264,10 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 							_indexint,
 							_end
 						),
-						iteration_found_in
+						iteration_found_in, 
+						out valueHasBeenFound_out
 					);
+
 					_didit = true;
 				}
 			}<%

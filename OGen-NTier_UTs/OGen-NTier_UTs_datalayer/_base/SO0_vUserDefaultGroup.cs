@@ -76,7 +76,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			"IDUser", 
 			"", 
 			"", 
-			false, 
+			true, 
 			false, 
 			false, 
 			"", 

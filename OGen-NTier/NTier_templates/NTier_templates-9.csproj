@@ -325,7 +325,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-SQLServer.sql.aspx">
       <SubType>ASPXCodeBehind</SubType>

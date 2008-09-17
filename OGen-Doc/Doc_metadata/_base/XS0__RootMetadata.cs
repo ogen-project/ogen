@@ -172,8 +172,10 @@ namespace OGen.Doc.lib.metadata {
 		#region public void IterateThrough_fromRoot(...);
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
-			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in
+			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in,
+			out bool valueHasBeenFound_out
 		) {
+			valueHasBeenFound_out = false;
 			bool _didit = false;
 			string _begin;
 			string _indexstring;
@@ -194,7 +196,8 @@ namespace OGen.Doc.lib.metadata {
 								i,
 								_end
 							), 
-							iteration_found_in
+							iteration_found_in, 
+							out valueHasBeenFound_out
 						);
 					}
 					_didit = true;
@@ -209,8 +212,10 @@ namespace OGen.Doc.lib.metadata {
 							_indexint,
 							_end
 						),
-						iteration_found_in
+						iteration_found_in, 
+						out valueHasBeenFound_out
 					);
+
 					_didit = true;
 				}
 			}

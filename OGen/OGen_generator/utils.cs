@@ -38,8 +38,9 @@ namespace OGen.lib.generator {
 		string Read_fromRoot(string what_in);
 
 		void IterateThrough_fromRoot(
-			string iteration_in, 
-			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in
+			string iteration_in,
+			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in,
+			out bool valueHasBeenFound_out
 		);
 	}
 	#endregion
@@ -134,6 +135,7 @@ namespace OGen.lib.generator {
 			bool anyAttribute_notJustXml, 
 			out bool valueHasBeenFound_out
 		) {
+			string _output = null;
 			valueHasBeenFound_out = false;
 
 #if DEBUG
@@ -147,6 +149,17 @@ const bool _usePerformance2 = false;
 const bool _usePerformance3 = true;
 const bool _usePerformance5 = false;
 #endif
+
+//Console.WriteLine(
+//    "class: {0}\npath: {1}\niteration: {2}\npathTranslated: {3}\nreturnValue: {4}\nanyAttribute_notJustXml: {5}\n", 
+//    someClass_in.GetType().ToString(), 
+//    path_in, 
+//    iteration_in, 
+//    pathTranslated_in, 
+//    returnValue_in, 
+//    anyAttribute_notJustXml
+//);
+//Console.ReadKey();
 
 			if (
 //#if DEBUG
@@ -185,19 +198,19 @@ _usePerformance1 && (
 
 //#if DEBUG
 //Console.WriteLine(
-//	"\n\t---\n\t{0}.{1}.ReflectThrough:{7}(\n\t\tsomeClass_in:\"{2}.{3}\",\n\t\tpath_in:\"{4}\",\n\t\titeration_in:\"{5}\",\n\t\tpathTranslated_in:\"{6}\"\n\t)\n\t---",
-//	typeof(utils).Namespace,
-//	typeof(utils).Name,
-//	someClass_in.GetType().Namespace,
-//	someClass_in.GetType().Name,
-//	path_in,
-//	iteration_in,
-//	pathTranslated_in,
-//	returnValue_in ? "READ" : "ITERATE"
+//    "\n\t---\n\t{0}.{1}.ReflectThrough:{7}(\n\t\tsomeClass_in:\"{2}.{3}\",\n\t\tpath_in:\"{4}\",\n\t\titeration_in:\"{5}\",\n\t\tpathTranslated_in:\"{6}\"\n\t)\n\t---",
+//    typeof(utils).Namespace,
+//    typeof(utils).Name,
+//    someClass_in.GetType().Namespace,
+//    someClass_in.GetType().Name,
+//    path_in,
+//    iteration_in,
+//    pathTranslated_in,
+//    returnValue_in ? "READ" : "ITERATE"
 //);
 //#endif
 //#if DEBUG
-//Console.Write("{{{0}}}", path_in.ToUpper());
+//    Console.Write("{{{0}}}", path_in.ToUpper());
 //#endif
 
 			PropertyInfo[] _properties;
@@ -205,7 +218,6 @@ _usePerformance1 && (
 			System.Xml.Serialization.XmlAttributeAttribute _attribute;
 			object _value;
 			Array _array;
-			string _output = null;
 			bool _isAttribute = false;
 			bool _isElement = false;
 			string _attributename = string.Empty;
@@ -439,7 +451,18 @@ _usePerformance5 &&
 						return _value.ToString();
 					}
 					#endregion
-				}
+				} 
+				//else {
+				//    throw new Exception(string.Format(
+				//        "class: {0}\npath: {1}\niteration: {2}\npathTranslated: {3}\nreturnValue: {4}\nanyAttribute_notJustXml: {5}\n", 
+				//        someClass_in.GetType().ToString(), 
+				//        path_in, 
+				//        iteration_in, 
+				//        pathTranslated_in, 
+				//        returnValue_in, 
+				//        anyAttribute_notJustXml
+				//    ));
+				//}
 			}
 
 			return _output;

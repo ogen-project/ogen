@@ -668,9 +668,11 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 							false
 						);
 
+						bool _valuehasbeenfound_out;
 						metadata_.IterateThrough_fromRoot(
 							templates_.TemplateCollection[template_].IterationType,
-							new utils.IterationFoundDelegate(notifyme)
+							new utils.IterationFoundDelegate(notifyme),
+							out _valuehasbeenfound_out
 						);
 						#endregion
 
@@ -678,7 +680,7 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 						_finishedTemplates.Add(templates_.TemplateCollection[template_].Name);
 						_finished = false;
 
-						notifyback_("DONE!", true);
+						notifyback_((_valuehasbeenfound_out ? "DONE!" : "nothing"), true);
 					}
 					#endregion
 				}

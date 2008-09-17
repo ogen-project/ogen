@@ -182,7 +182,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 					base.Connection.newDBDataParameter("Warning_", DbType.Boolean, ParameterDirection.Output, null, 0), 
 					base.Connection.newDBDataParameter("Error_", DbType.Boolean, ParameterDirection.Output, null, 0), 
 					base.Connection.newDBDataParameter("Code_", DbType.String, ParameterDirection.Output, null, 50), 
-					base.Connection.newDBDataParameter("Description_", DbType.String, ParameterDirection.Output, null, 50)
+					base.Connection.newDBDataParameter("Description_", DbType.String, ParameterDirection.Output, null, 255)
 				};
 				base.Connection.Execute_SQLFunction("sp0_Logcode_getObject", _dataparameters);
 
@@ -312,7 +312,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				base.Connection.newDBDataParameter("Warning_", DbType.Boolean, ParameterDirection.Input, Fields.Warning, 0), 
 				base.Connection.newDBDataParameter("Error_", DbType.Boolean, ParameterDirection.Input, Fields.Error, 0), 
 				base.Connection.newDBDataParameter("Code_", DbType.String, ParameterDirection.Input, Fields.Code, 50), 
-				base.Connection.newDBDataParameter("Description_", DbType.String, ParameterDirection.Input, Fields.Description_isNull ? null : (object)Fields.Description, 50), 
+				base.Connection.newDBDataParameter("Description_", DbType.String, ParameterDirection.Input, Fields.Description_isNull ? null : (object)Fields.Description, 255), 
 
 				base.Connection.newDBDataParameter("SelectIdentity_", DbType.Boolean, ParameterDirection.Input, selectIdentity_in, 1)
 			};
@@ -344,7 +344,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 					base.Connection.newDBDataParameter("Warning_", DbType.Boolean, ParameterDirection.Input, Fields.Warning, 0), 
 					base.Connection.newDBDataParameter("Error_", DbType.Boolean, ParameterDirection.Input, Fields.Error, 0), 
 					base.Connection.newDBDataParameter("Code_", DbType.String, ParameterDirection.Input, Fields.Code, 50), 
-					base.Connection.newDBDataParameter("Description_", DbType.String, ParameterDirection.Input, Fields.Description_isNull ? null : (object)Fields.Description, 50)
+					base.Connection.newDBDataParameter("Description_", DbType.String, ParameterDirection.Input, Fields.Description_isNull ? null : (object)Fields.Description, 255)
 				};
 				base.Connection.Execute_SQLFunction(
 					"sp0_Logcode_updObject", 

@@ -307,7 +307,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			true, 
 			false, 
 			false, 
-			50, 
+			255, 
 			""
 		)]
 		public 

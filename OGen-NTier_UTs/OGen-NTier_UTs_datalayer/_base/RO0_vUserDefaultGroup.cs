@@ -191,10 +191,13 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		/// <summary>
 		/// It selects vUserDefaultGroup values from Database based on the 'all' search and checks to see if vUserDefaultGroup Keys(passed as parameters) are met.
 		/// </summary>
+		/// <param name="IDUser_in">vUserDefaultGroup's IDUser Key used for checking</param>
 		/// <returns>True if vUserDefaultGroup Keys are met in the 'all' search, False if not</returns>
 		public bool hasObject_all(
+			long IDUser_in
 		) {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
+				parent_ref_.Connection.newDBDataParameter("IDUser_", DbType.Int64, ParameterDirection.Input, IDUser_in, 0)
 			};
 			return (bool)parent_ref_.Connection.Execute_SQLFunction(
 				"fnc0_vUserDefaultGroup_Record_hasObject_all", 

@@ -147,7 +147,8 @@ namespace OGen.lib.templates {
 		#region public void IterateThrough_fromRoot(...);
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
-			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in
+			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in,
+			out bool valueHasBeenFound_out
 		) {
 			OGen.lib.generator.utils.ReflectThrough(
 				this, 
@@ -156,7 +157,8 @@ namespace OGen.lib.templates {
 				iteration_in, 
 				Root_Templates, 
 				false, 
-				true
+				true, 
+				out valueHasBeenFound_out
 			);
 		}
 		#endregion

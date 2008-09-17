@@ -269,7 +269,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			true, 
 			false, 
 			false, 
-			50, 
+			255, 
 			""
 		)]
 		public 
