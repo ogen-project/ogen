@@ -137,14 +137,21 @@ namespace OGen.lib.generator {
 			valueHasBeenFound_out = false;
 
 #if DEBUG
-const bool _usePerformance1 = false;
+const bool _usePerformance1 = true;
 const bool _usePerformance2 = false;
+const bool _usePerformance3 = true;
+const bool _usePerformance5 = false;
+#else
+const bool _usePerformance1 = true;
+const bool _usePerformance2 = false;
+const bool _usePerformance3 = true;
+const bool _usePerformance5 = false;
 #endif
 
 			if (
-#if DEBUG
+//#if DEBUG
 _usePerformance1 && (
-#endif
+//#endif
 				(
 					returnValue_in
 					&&
@@ -164,9 +171,9 @@ _usePerformance1 && (
 						(pathTranslated_in != iteration_in.Substring(0, pathTranslated_in.Length))
 					)
 				)
-#if DEBUG
+//#if DEBUG
 )
-#endif
+//#endif
 			) {
 				// performance tweak, compares path to avoid looking in the wrong direction 
 				return null;
@@ -254,9 +261,9 @@ _usePerformance1 && (
 					);
 					_indexOfSquareBrackets_begin = _aux1.Length;
 					if (
-#if DEBUG
+//#if DEBUG
 _usePerformance2 && (
-#endif
+//#endif
 
 (_indexOfSquareBrackets_begin > iteration_in.Length)
 
@@ -278,18 +285,18 @@ _usePerformance2 && (
 							&&
 							(_aux2 != ".")
 						)
-#if DEBUG
+//#if DEBUG
 )
-#endif
+//#endif
 					) {
 						continue;
 					}
 
 					if (_value.GetType().IsArray) {
 						if (
-#if DEBUG
-_usePerformance1 && 
-#endif
+//#if DEBUG
+_usePerformance3 && 
+//#endif
 							returnValue_in
 						) {
 							_indexOfSquareBrackets_end
@@ -303,9 +310,9 @@ _usePerformance1 &&
 						for (
 							int i = 
 								(
-#if DEBUG
-_usePerformance1 &&
-#endif
+//#if DEBUG
+_usePerformance5 &&
+//#endif
 									returnValue_in
 								)
 								?
@@ -384,8 +391,8 @@ _usePerformance1 &&
 				) {
 					#region XmlAttribute...
 					if (
-						anyAttribute_notJustXml 
-						&& 
+						anyAttribute_notJustXml
+						&&
 						!_properties[_prop].CanRead
 					) continue;
 
@@ -393,14 +400,14 @@ _usePerformance1 &&
 						_value = _properties[_prop].GetValue(someClass_in, null);
 					} catch (Exception _ex) {
 						throw new Exception(string.Format(
-							"\n---\n{0}.{1}.ReflectThrough(\n\tsomeClass_in:\"{2}.{3}\",\n\tpath_in:\"{4}\",\n\titeration_in:\"{5}\",\n\tpathTranslated_in:\"{6}\"\n)\n---\n{7}", 
-							typeof(utils).Namespace, 
-							typeof(utils).Name, 
-							someClass_in.GetType().Namespace, 
-							someClass_in.GetType().Name, 
-							path_in, 
-							iteration_in, 
-							pathTranslated_in, 
+							"\n---\n{0}.{1}.ReflectThrough(\n\tsomeClass_in:\"{2}.{3}\",\n\tpath_in:\"{4}\",\n\titeration_in:\"{5}\",\n\tpathTranslated_in:\"{6}\"\n)\n---\n{7}",
+							typeof(utils).Namespace,
+							typeof(utils).Name,
+							someClass_in.GetType().Namespace,
+							someClass_in.GetType().Name,
+							path_in,
+							iteration_in,
+							pathTranslated_in,
 							_ex.Message
 						));
 					}
@@ -408,18 +415,18 @@ _usePerformance1 &&
 					if (_value == null) continue;
 
 					if (_isAttribute) {
-						_attribute 
+						_attribute
 							= (System.Xml.Serialization.XmlAttributeAttribute)Attribute.GetCustomAttributes(
-								_properties[_prop], 
-								typeof(System.Xml.Serialization.XmlAttributeAttribute), 
+								_properties[_prop],
+								typeof(System.Xml.Serialization.XmlAttributeAttribute),
 								true
 							)[0];
 						_attributename = _attribute.AttributeName;
 					} else if (_isElement) {
-						_elementAttribute 
+						_elementAttribute
 							= (System.Xml.Serialization.XmlElementAttribute)Attribute.GetCustomAttributes(
-								_properties[_prop], 
-								typeof(System.Xml.Serialization.XmlElementAttribute), 
+								_properties[_prop],
+								typeof(System.Xml.Serialization.XmlElementAttribute),
 								true
 							)[0];
 						_attributename = _elementAttribute.ElementName;

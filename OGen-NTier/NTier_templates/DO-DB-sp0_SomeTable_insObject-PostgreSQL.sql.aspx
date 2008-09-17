@@ -79,14 +79,16 @@ AS $BODY$
 				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 					if (_aux_db_field.isIdentity) {
-						continue;%>
+						continue;
+					}%>
 				"<%=_aux_db_field.Name%>"<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}%>
 			) VALUES (<%
 				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 					if (_aux_db_field.isIdentity) {
-						continue;%>
+						continue;
+					}%>
 				"<%=_aux_db_field.Name%>_"<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}%>
 			);

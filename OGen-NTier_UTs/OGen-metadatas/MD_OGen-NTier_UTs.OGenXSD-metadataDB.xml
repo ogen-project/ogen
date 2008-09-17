@@ -344,6 +344,7 @@
         <tableField name="DeleteThisTestField" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
           <tableFieldDBs>
             <tableFieldDB dbServerType="PostgreSQL" dbType="boolean" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="DeleteThisTestField" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bit" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="DeleteThisTestField" />
           </tableFieldDBs>
         </tableField>
       </tableFields>
