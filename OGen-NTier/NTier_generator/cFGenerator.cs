@@ -161,10 +161,27 @@ throw new Exception("// ToDos: not implemented!");
 			// that's not comming from the database is empty,
 			// and needs to be filled in order to be serialized to the xml file:
 			_metadatadb.ApplicationName = metadata_.MetadataExtendedCollection[0].ApplicationName;
-			for (int t = 0; t < metadata_.MetadataExtendedCollection[0].Tables.TableCollection.Count; t++) {
+			for (int ff, tt, t = 0; t < metadata_.MetadataExtendedCollection[0].Tables.TableCollection.Count; t++) {
 				for (int f = 0; f < metadata_.MetadataExtendedCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection.Count; f++) {
 					if (metadata_.MetadataExtendedCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].isViewPK) {
-						metadata_.MetadataExtendedCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].parallel_ref.isPK = true;
+						tt = _metadatadb.Tables.TableCollection.Search(
+							metadata_.MetadataExtendedCollection[0].Tables.TableCollection[t].Name,
+							!metadata_.MetadataExtendedCollection[0].DBs.Supports_MySQL
+						);
+						if (tt < 0) continue;
+
+						ff = _metadatadb.Tables.TableCollection[tt].TableFields.TableFieldCollection.Search(
+							metadata_.MetadataExtendedCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].Name,
+							!metadata_.MetadataExtendedCollection[0].DBs.Supports_MySQL
+						);
+						if (ff < 0) continue;
+
+						_metadatadb.Tables.TableCollection[
+							tt
+						].TableFields.TableFieldCollection[
+							ff
+						].isPK 
+							= true;
 					}
 				}
 			}

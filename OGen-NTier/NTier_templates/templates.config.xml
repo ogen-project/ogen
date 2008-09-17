@@ -70,7 +70,6 @@ XXX:NO_NEED -->
 <!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 -->
-			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
 		</conditions>
 		<outputs>
 <!-- XXX:TODOS
