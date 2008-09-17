@@ -65,7 +65,8 @@ WHERE
 	(_table.table_name NOT IN (
 		'sysconstraints', 
 		'syssegments', 
-		'dtproperties'
+		'dtproperties', 
+		'sysdiagrams'
 	))
 	-- </SQLServer>
 

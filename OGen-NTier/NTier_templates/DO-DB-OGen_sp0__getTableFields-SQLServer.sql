@@ -130,6 +130,13 @@ FROM information_schema.columns AS _field
 		(_fk.column_name = _field.column_name)
 
 WHERE
+	(_field.table_name NOT IN (
+		'sysconstraints', 
+		'syssegments', 
+		'dtproperties', 
+		'sysdiagrams'
+	))
+	AND
 	(_field.table_catalog = @dbName_)
 	AND
 	(
