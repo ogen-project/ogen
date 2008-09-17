@@ -660,7 +660,7 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 
 						notifyback_(
 							string.Format(
-								"#{0}/{1} - {2} ... ",
+								"#{0}/{1} - {2} ",
 								_finishedTemplates.Count + 1,
 								templates_.TemplateCollection.Count,
 								templates_.TemplateCollection[template_].Name
@@ -680,7 +680,7 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 						_finishedTemplates.Add(templates_.TemplateCollection[template_].Name);
 						_finished = false;
 
-						notifyback_((_valuehasbeenfound_out ? "DONE!" : "nothing"), true);
+						notifyback_((_valuehasbeenfound_out ? "... DONE!" : "nothing"), true);
 					}
 					#endregion
 				}
