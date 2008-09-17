@@ -42,9 +42,11 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 #endregion
 //-----------------------------------------------------------------------------------------
 %>CREATE OR REPLACE FUNCTION "sp0_<%=_aux_db_table.Name%>_insObject"(<%
-	for (int f = 0; f < _aux_db_table.TableFields_nopk.TableFieldCollection.Count; f++) {
-		_aux_db_field = _aux_db_table.TableFields_nopk.TableFieldCollection[f];
-		%>"<%=_aux_db_field.Name%>_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>, <%
+	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
+		if (_aux_db_field.isIdentity) {
+			continue;
+		}%>"<%=_aux_db_field.Name%>_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>, <%
 	}
 %> "SelectIdentity_" boolean)
 RETURNS <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>
@@ -60,25 +62,32 @@ AS $BODY$
 		IdentityKey <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%> = CAST(0 AS <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>);
 	BEGIN<%
 		if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
-		IF ("fnc0_<%=_aux_db_table.Name%>__ConstraintExist"(
-			CAST(0 AS <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>), <%
-			for (int f = 0; f < _aux_db_table.TableFields_nopk.TableFieldCollection.Count; f++) {
-				_aux_db_field = _aux_db_table.TableFields_nopk.TableFieldCollection[f];%>
-			"<%=_aux_db_field.Name%>_"<%=(f != _aux_db_table.TableFields_nopk.TableFieldCollection.Count - 1) ? ", " : ""%><%
+		IF ("fnc0_<%=_aux_db_table.Name%>__ConstraintExist"(<%
+			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
+				if (_aux_db_field.isIdentity) {%><%=""%>
+			CAST(0 AS <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>)<%
+				} else {%><%=""%>
+			"<%=_aux_db_field.Name%>_"<%
+				}%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 			}%>
 		)) THEN
 			IdentityKey := CAST(-1 AS <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>);
 		ELSE<%
 		}%>
 			INSERT INTO "<%=_aux_db_table.Name%>" (<%
-				for (int f = 0; f < _aux_db_table.TableFields_nopk.TableFieldCollection.Count; f++) {
-					_aux_db_field = _aux_db_table.TableFields_nopk.TableFieldCollection[f];%>
-				"<%=_aux_db_field.Name%>"<%=(f != _aux_db_table.TableFields_nopk.TableFieldCollection.Count - 1) ? ", " : ""%><%
+				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
+					if (_aux_db_field.isIdentity) {
+						continue;%>
+				"<%=_aux_db_field.Name%>"<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}%>
 			) VALUES (<%
-				for (int f = 0; f < _aux_db_table.TableFields_nopk.TableFieldCollection.Count; f++) {
-					_aux_db_field = _aux_db_table.TableFields_nopk.TableFieldCollection[f];%>
-				"<%=_aux_db_field.Name%>_"<%=(f != _aux_db_table.TableFields_nopk.TableFieldCollection.Count - 1) ? ", " : ""%><%
+				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
+					if (_aux_db_field.isIdentity) {
+						continue;%>
+				"<%=_aux_db_field.Name%>_"<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}%>
 			);
 			IF ("SelectIdentity_") THEN

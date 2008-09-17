@@ -52,8 +52,12 @@ AS<%
 	DECLARE @ConstraintExist Bit
 	SET @ConstraintExist = [dbo].[fnc0_<%=_aux_db_table.Name%>__ConstraintExist](<%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
-		<%=(_aux_db_field.isPK) ? _aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_generic.FWEmptyValue : "@" + _aux_db_field.Name + "_"%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
+			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
+			if (_aux_db_field.isIdentity) {%><%=""%>
+		CAST(0 AS <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>)<%
+			} else {%><%=""%>
+		@<%=_aux_db_field.Name%>_<%
+			}%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 		}%>
 	)
 	IF (@ConstraintExist = 0) BEGIN<%
@@ -74,13 +78,13 @@ AS<%
 			}%>
 		)
 		IF (@SelectIdentity_ = 1) BEGIN
-			SET @<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey]%>_ = @@IDENTITY
+			SET @<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].Name%>_ = @@IDENTITY
 		END ELSE BEGIN
-			SET @<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey]%>_ = CAST(0 AS <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>)
+			SET @<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].Name%>_ = CAST(0 AS <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>)
 		END<%
 	if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 	END ELSE BEGIN
-		SET @<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey]%>_ = CAST(-1 AS <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>)
+		SET @<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].Name%>_ = CAST(-1 AS <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>)
 	END<%
 	}%>
 --GO

@@ -69,13 +69,14 @@ if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 	SET `ConstraintExist_` = `fnc0_<%=_aux_db_table.Name%>__ConstraintExist`(<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
+		_aux_ex_field = _aux_db_field.parallel_ref;
 
 		if (_aux_db_field.isPK) {
 			aux_string = "`" + _aux_db_field.Name + "_`";
 		} else {
 			aux_string = "NULL";
 			for (int uf = 0; uf <_aux_ex_update.TableUpdateParameters.TableFieldRefCollection.Count; uf++) {
-				if (_aux_db_field.Name == _aux_ex_update.TableUpdateParameters.TableFieldRefCollection[uf].Field.Name) {
+				if (_aux_db_field.Name == _aux_ex_update.TableUpdateParameters.TableFieldRefCollection[uf].TableFieldName) {
 					aux_string = "`" + _aux_db_field.Name + "_update_`";
 				}
 			}

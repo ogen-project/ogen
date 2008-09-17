@@ -79,7 +79,7 @@ $BODY$
 			if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {
 				%>"fnc0_<%=_aux_db_table.Name%>__ConstraintExist"(<%
 				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
+					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
 				"<%=_aux_db_field.Name%>_"<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}%>
 			)<%
