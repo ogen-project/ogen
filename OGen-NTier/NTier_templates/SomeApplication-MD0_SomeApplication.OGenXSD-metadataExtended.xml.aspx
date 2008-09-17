@@ -114,6 +114,7 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 				_aux_ex_field = _aux_db_field.parallel_ref;%>
 				<tableField name="<%=_aux_db_field.Name
+					%>" isViewPK="<%=(_aux_ex_field != null) ? (_aux_ex_field.isViewPK.ToString().ToLower()) : "false"
 					%>" defaultValue="<%=(_aux_ex_field != null) ? _aux_ex_field.DefaultValue : ""
 					%>" friendlyName="<%=(_aux_ex_field != null) ? _aux_ex_field.FriendlyName : ""
 					%>" extendedDescription="<%=(_aux_ex_field != null) ? _aux_ex_field.ExtendedDescription : ""

@@ -42,13 +42,13 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 		</db>
 		<db dbServerType="SQLServer">
 			<dbConnections>
-				<dbConnection configMode="DEBUG" isDefault="false" generateSQL="false" isIndexed_andReadOnly="false" connectionstring="server=127.0.0.1;uid=sa;pwd=passpub;database=OGen-NTier_UTs;" />
+				<dbConnection configMode="DEBUG" isDefault="false" generateSQL="true" isIndexed_andReadOnly="false" connectionstring="server=127.0.0.1;uid=sa;pwd=passpub;database=OGen-NTier_UTs;" />
 				<dbConnection configMode="!DEBUG" isDefault="false" generateSQL="false" isIndexed_andReadOnly="false" connectionstring="server=127.0.0.1;uid=sa;pwd=passpub;database=OGen-NTier_UTs;" />
 			</dbConnections>
 		</db>
 		<db dbServerType="MySQL">
 			<dbConnections>
-				<dbConnection configMode="DEBUG" isDefault="false" generateSQL="true" isIndexed_andReadOnly="false" connectionstring="server=127.0.0.1;uid=root;pwd=passpub;database=OGen-NTier_UTs;" />
+				<dbConnection configMode="DEBUG" isDefault="false" generateSQL="false" isIndexed_andReadOnly="false" connectionstring="server=127.0.0.1;uid=root;pwd=passpub;database=OGen-NTier_UTs;" />
 				<dbConnection configMode="!DEBUG" isDefault="false" generateSQL="false" isIndexed_andReadOnly="false" connectionstring="server=127.0.0.1;uid=root;pwd=passpub;database=OGen-NTier_UTs;" />
 			</dbConnections>
 		</db>
