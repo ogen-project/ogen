@@ -70,6 +70,7 @@ XXX:NO_NEED -->
 <!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 -->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TODOS
@@ -749,7 +750,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -776,7 +777,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -804,7 +805,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -902,7 +903,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -929,7 +930,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -957,7 +958,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -984,7 +985,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1011,7 +1012,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1039,7 +1040,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1373,7 +1374,7 @@ XXX:TO_DOS -->
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].isVirtualTable" to="False" />
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1401,7 +1402,7 @@ XXX:TO_DOS -->
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].isVirtualTable" to="False" />
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1430,7 +1431,7 @@ XXX:TO_DOS -->
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].isVirtualTable" to="False" />
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1458,7 +1459,7 @@ XXX:TO_DOS -->
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].isVirtualTable" to="False" />
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1486,7 +1487,7 @@ XXX:TO_DOS -->
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].isVirtualTable" to="False" />
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1516,7 +1517,7 @@ XXX:TO_DOS -->
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].isVirtualTable" to="False" />
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1543,7 +1544,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1568,7 +1569,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1595,7 +1596,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1620,7 +1621,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1645,7 +1646,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1673,7 +1674,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1698,7 +1699,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1725,7 +1726,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1754,7 +1755,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1852,7 +1853,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1879,7 +1880,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1907,7 +1908,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1934,7 +1935,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1961,7 +1962,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -1989,7 +1990,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -2016,7 +2017,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -2043,7 +2044,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -2072,7 +2073,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -2099,7 +2100,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -2126,7 +2127,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -2154,7 +2155,7 @@ XXX:TO_DOS -->
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 -->
 			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -2181,7 +2182,7 @@ XXX:TO_DOS -->
 <!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 -->
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -2208,7 +2209,7 @@ XXX:TO_DOS -->
 <!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 -->
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
@@ -2236,7 +2237,7 @@ XXX:TO_DOS -->
 <!-- XXX:NO_NEED
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 -->
-<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
