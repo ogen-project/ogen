@@ -97,6 +97,22 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 						Console.WriteLine();
 						Console.WriteLine();
 
+						Console.WriteLine("--- Doc2_metadata");
+						DoIt(
+							System.IO.Path.Combine(
+								#if !NET_1_1
+								System.Configuration.ConfigurationManager.AppSettings
+								#else
+								System.Configuration.ConfigurationSettings.AppSettings
+								#endif
+									["ogenPath"],
+
+								@"..\..\OGen-Doc-2\Doc_metadata\OGenXSD-metadatas\MD_Doc_metadata.OGenXSD-metadata.xml"
+							)
+						);
+						Console.WriteLine();
+						Console.WriteLine();
+
 						Console.WriteLine("--- XSD_metadata");
 						DoIt(
 							System.IO.Path.Combine(
