@@ -1065,7 +1065,7 @@ namespace OGen.lib.datalayer {
 		/// Makes use of the DataBase INFORMATION_SCHEMA to get a list of Table names for the current DataBase Connection.
 		/// </summary>
 		/// <returns>String array, representing a list of Table names</returns>
-		public cDBTable[] getTables(
+		public DBTable[] getTables(
 		) {
 			return getTables(
 				string.Empty
@@ -1077,7 +1077,7 @@ namespace OGen.lib.datalayer {
 		/// </summary>
 		/// <param name="subAppName_in">Table Filter. If your Application is to be hosted at some ASP, which provides you with one DataBase only, and you're using that DataBase for more than one Application. I assume you're using some convention for Table naming like: AP1_Table1, AP1_Table2, AP2_Table1, ... . Or even if you have several modules sharing same data base. If so, you can use this parameter to filter Table names for some specific Application, like: AP1 or AP2</param>
 		/// <returns>String array, representing a list of Table names</returns>
-		public cDBTable[] getTables(
+		public DBTable[] getTables(
 			string subAppName_in
 		) {
 			return getTables(
@@ -1091,11 +1091,11 @@ namespace OGen.lib.datalayer {
 		/// </summary>
 		/// <param name="subAppName_in">Table Filter. If your Application is to be hosted at some ASP, which provides you with one DataBase only, and you're using that DataBase for more than one Application. I assume you're using some convention for Table naming like: AP1_Table1, AP1_Table2, AP2_Table1, ... . Or even if you have several modules sharing same data base. If so, you can use this parameter to filter Table names for some specific Application, like: AP1 or AP2</param>
 		/// <returns>String array, representing a list of Table names</returns>
-		public cDBTable[] getTables(
+		public DBTable[] getTables(
 			string subAppName_in, 
 			string sqlFuncion_in
 		) {
-			cDBTable[] getTables_out;
+			DBTable[] getTables_out;
 
 			#region DataTable _dtemp = base.Execute_SQLQuery_returnDataTable(gettables(subAppName_in));
 			DataTable _dtemp;
@@ -1120,9 +1120,9 @@ namespace OGen.lib.datalayer {
 				);
 			}
 			#endregion
-			getTables_out = new cDBTable[_dtemp.Rows.Count];
+			getTables_out = new DBTable[_dtemp.Rows.Count];
 			for (int r = 0; r < _dtemp.Rows.Count; r++) {
-				getTables_out[r] = new cDBTable(
+				getTables_out[r] = new DBTable(
 					(string)_dtemp.Rows[r][INFORMATION_SCHEMA_TABLES_TABLE_NAME],
 					(1 == (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_TABLES_IS_VIEW], typeof(int))),
 // ToDos: here!
@@ -1158,7 +1158,7 @@ string.Empty
 		/// </summary>
 		/// <param name="tableName_in">Table name for which Field names are to be retrieved</param>
 		/// <returns>String array, representing a list of Field names</returns>
-		public cDBTableField[] getTableFields(
+		public DBTableField[] getTableFields(
 			string tableName_in
 		) {
 			return getTableFields(
@@ -1172,11 +1172,11 @@ string.Empty
 		/// </summary>
 		/// <param name="tableName_in">Table name for which Field names are to be retrieved</param>
 		/// <returns>String array, representing a list of Field names</returns>
-		public cDBTableField[] getTableFields(
+		public DBTableField[] getTableFields(
 			string tableName_in,
 			string sqlFuncion_in
 		) {
-			cDBTableField[] getTableFields_out;
+			DBTableField[] getTableFields_out;
 
 			#region DataTable _dtemp = ...;
 			DataTable _dtemp;
@@ -1201,9 +1201,9 @@ string.Empty
 			}
 			#endregion
 			bool _includetablename = _dtemp.Columns.Contains(INFORMATION_SCHEMA_COLUMNS_TABLE_NAME);
-			getTableFields_out = new cDBTableField[_dtemp.Rows.Count];
+			getTableFields_out = new DBTableField[_dtemp.Rows.Count];
 			for (int r = 0; r < _dtemp.Rows.Count; r++) {
-				getTableFields_out[r] = new cDBTableField();
+				getTableFields_out[r] = new DBTableField();
 
 				getTableFields_out[r].TableName 
 					= _includetablename

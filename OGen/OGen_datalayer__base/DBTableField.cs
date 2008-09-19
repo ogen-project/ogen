@@ -18,7 +18,7 @@ namespace OGen.lib.datalayer {
 	/// <summary>
 	/// Provides a mean of storing the DataBase INFORMATION_SCHEMA for some Table Field.
 	/// </summary>
-	public class cDBTableField {
+	public class DBTableField {
 		/// <summary>
 		/// Table Name.
 		/// </summary>

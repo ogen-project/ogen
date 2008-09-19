@@ -67,8 +67,8 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			bool _getTables_exists;
 			bool _getTableFields_exists;
 			DBConnection _connection;
-			cDBTable[] _tables_aux;
-			cDBTableField[] _fields_aux;
+			DBTable[] _tables_aux;
+			DBTableField[] _fields_aux;
 			XS_tableType _table;
 			XS_tableDBType _tabledb;
 			XS_tableFieldType _field;

@@ -18,11 +18,11 @@ namespace OGen.lib.datalayer {
 	/// <summary>
 	/// Provides a mean of storing the DataBase INFORMATION_SCHEMA for some Table.
 	/// </summary>
-	public class cDBTable {
+	public class DBTable {
 		/// <param name="name_in">Table Name</param>
 		/// <param name="isVirtualTable_in">Indicates if it represents a View or Table. True if it represents a View, False if it represents a Table</param>
 		/// <param name="dbDescription_in">Description</param>
-		public cDBTable(
+		public DBTable(
 			string name_in, 
 			bool isVirtualTable_in, 
 			string dbDescription_in
