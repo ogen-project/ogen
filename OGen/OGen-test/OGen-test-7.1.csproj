@@ -28,7 +28,7 @@
                     BaseAddress = "285212672"
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
-                    DefineConstants = "DEBUG;TRACE;PostgreSQL;NET_1_1"
+                    DefineConstants = "DEBUG;TRACE;PostgreSQL;NET_1_1;MySQL"
                     DocumentationFile = ""
                     DebugSymbols = "true"
                     FileAlignment = "4096"
@@ -48,7 +48,7 @@
                     BaseAddress = "285212672"
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
-                    DefineConstants = "TRACE;NET_1_1"
+                    DefineConstants = "TRACE;NET_1_1;MySQL;PostgreSQL"
                     DocumentationFile = ""
                     DebugSymbols = "false"
                     FileAlignment = "4096"
@@ -92,6 +92,11 @@
                 <Reference
                     Name = "OGen_datalayer_SQLServer-7.1"
                     Project = "{1B07A59E-56C1-49C5-B3A5-C6B5EED72F5D}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "OGen_datalayer_MySQL-7.1"
+                    Project = "{CD40001B-B19B-44CA-9F8A-8FB4F75DB1F9}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>

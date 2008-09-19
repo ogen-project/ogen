@@ -88,11 +88,6 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <ProjectReference Include="..\OGen_datalayer\OGen_datalayer-8.csproj">
-      <Name>OGen_datalayer</Name>
-      <Project>{4AE20414-478E-4859-849E-929741A5936C}</Project>
-      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
