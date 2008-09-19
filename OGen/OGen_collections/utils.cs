@@ -16,55 +16,9 @@ using System;
 
 namespace OGen.lib.collections {
 	public class utils { private utils() {}
-
 		//public class convert { private convert() {}
 		//
 		//	// ...
 		//}
-
-//		public class ClaSSeGen { private ClaSSeGen() {}
-//
-//			public class Field { private Field() {}
-//
-//				public class FieldTypes { private FieldTypes() {}
-//
-//					public class convert { private convert() {}
-//
-//						#region public static cClaSSeGen_Field.eFieldTypes FromName(...);
-//						public static cClaSSeGen_Field.eFieldTypes FromName(string Name_) {
-//							for (int i = 0;; i++) {
-//								if (((cClaSSeGen_Field.eFieldTypes)i).ToString() == Name_) {
-//									return (cClaSSeGen_Field.eFieldTypes)i;
-//								} else if (((cClaSSeGen_Field.eFieldTypes)i).ToString() == cClaSSeGen_Field.eFieldTypes.invalid.ToString()) {
-//									return cClaSSeGen_Field.eFieldTypes.invalid;
-//								}
-//							}
-//						}
-//						#endregion
-//					}
-//				}
-//			}
-//		}
-
-		public class ClaSS { private ClaSS() {}
-
-			public class PropertyTypes { private PropertyTypes() {}
-
-				public class convert { private convert() {}
-
-					#region public static ClaSSPropertyAttribute.eType FromName(...);
-					public static ClaSSPropertyAttribute.eType FromName(string Name_) {
-						for (int i = 0;; i++) {
-							if (((ClaSSPropertyAttribute.eType)i).ToString() == Name_) {
-								return (ClaSSPropertyAttribute.eType)i;
-							} else if (((ClaSSPropertyAttribute.eType)i).ToString() == ClaSSPropertyAttribute.eType.invalid.ToString()) {
-								return ClaSSPropertyAttribute.eType.invalid;
-							}
-						}
-					}
-					#endregion
-				}
-			}
-		}
 	}
 }

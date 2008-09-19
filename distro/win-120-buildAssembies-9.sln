@@ -43,8 +43,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doc-console-9", "..\OGen-Do
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayersupport-9", "..\OGen\OGen_datalayersupport\OGen_datalayersupport-9.csproj", "{88D87481-CC3F-49C7-A013-758387F3452E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer-9", "..\OGen\OGen_datalayer\OGen_datalayer-9.csproj", "{4AE20414-478E-4859-849E-929741A5936C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XSD_metadata-9", "..\OGen-XSD\XSD_metadata\XSD_metadata-9.csproj", "{4DF3D49D-AE3E-47F9-A33F-EB335D7B418E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XSD_generator-9", "..\OGen-XSD\XSD_generator\XSD_generator-9.csproj", "{8FBFD76E-FD3D-415C-B046-EFC947BE4259}"
@@ -143,10 +141,6 @@ Global
 		{88D87481-CC3F-49C7-A013-758387F3452E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88D87481-CC3F-49C7-A013-758387F3452E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88D87481-CC3F-49C7-A013-758387F3452E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4AE20414-478E-4859-849E-929741A5936C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4AE20414-478E-4859-849E-929741A5936C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4AE20414-478E-4859-849E-929741A5936C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4AE20414-478E-4859-849E-929741A5936C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4DF3D49D-AE3E-47F9-A33F-EB335D7B418E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4DF3D49D-AE3E-47F9-A33F-EB335D7B418E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DF3D49D-AE3E-47F9-A33F-EB335D7B418E}.Release|Any CPU.ActiveCfg = Release|Any CPU

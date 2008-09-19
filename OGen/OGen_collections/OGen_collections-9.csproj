@@ -1,7 +1,7 @@
 ﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{A6E837F8-780F-4D05-B3ED-2FF1906B5766}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -90,39 +90,6 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ClaSS-common\cClaSS__base.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ClaSS-common\iClaSS.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ClaSSe\cClaSSe.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ClaSSe\iClaSSe.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ClaSS_noR\cClaSS_noR.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ClaSS_noR\cProperty_aggregate.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ClaSS_noR\cProperty_aggregate_collection.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ClaSS_noR\cProperty_standard.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ClaSS_noR\iClaSS_noR.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ClaSS_R\cClaSS_R.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ClaSS_R\ClaSSPropertyAttribute.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="SHashtable.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -132,8 +99,6 @@
     <Compile Include="OGenCollection.cs" />
     <Compile Include="OGenCollectionInterface.cs" />
     <None Include="COPYING.MIT" />
-    <Content Include="ClaSS_noR\ReadMe.txt" />
-    <Content Include="ClaSS_R\ReadMe.txt" />
     <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
   </ItemGroup>

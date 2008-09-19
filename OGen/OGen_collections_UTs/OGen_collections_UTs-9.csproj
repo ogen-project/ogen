@@ -1,7 +1,7 @@
 ﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{67566F92-0B16-47AF-912E-22FED2ECA819}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -99,93 +99,6 @@
     <None Include="app.config" />
     <None Include="COPYING.MIT" />
     <Compile Include="AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSSe_aggregate\cFields_e_aggregate.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSSe_aggregate\cField_e_aggregate.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSSe_aggregate\cTables_e_aggregate.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSSe_aggregate\cTable_e_aggregate.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSSe_inherit\cFields_e_inherit.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSSe_inherit\cField_e_inherit.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSSe_inherit\cTables_e_inherit.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSSe_inherit\cTable_e_inherit.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSS_noR_aggregate\cFields_noR_aggregate.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSS_noR_aggregate\cField_noR_aggregate.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSS_noR_aggregate\cTables_noR_aggregate.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSS_noR_aggregate\cTable_noR_aggregate.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSS_noR_inherit\cFields_noR_inherit.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSS_noR_inherit\cField_noR_inherit.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSS_noR_inherit\cTables_noR_inherit.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSS_noR_inherit\cTable_noR_inherit.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSS_R_aggregate\cFields_R_aggregate.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSS_R_aggregate\cField_R_aggregate.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSS_R_aggregate\cTables_R_aggregate.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSS_R_aggregate\cTable_R_aggregate.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSS_R_inherit\cFields_R_inherit.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSS_R_inherit\cField_R_inherit.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSS_R_inherit\cTables_R_inherit.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\ClaSS_R_inherit\cTable_R_inherit.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\_interfaces\iField.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\_interfaces\iFields.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\_interfaces\iTable.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\metadatas\_interfaces\iTables.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UT_ClaSS\UT_ClaSS.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="UT_SHashtable.cs">
