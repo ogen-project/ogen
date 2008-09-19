@@ -1,8 +1,4 @@
 Microsoft Visual Studio Solution File, Format Version 8.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer-7.1", "OGen_datalayer\OGen_datalayer-7.1.csproj", "{4AE20414-478E-4859-849E-929741A5936C}"
-	ProjectSection(ProjectDependencies) = postProject
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_collections-7.1", "OGen_collections\OGen_collections-7.1.csproj", "{A6E837F8-780F-4D05-B3ED-2FF1906B5766}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
@@ -73,10 +69,6 @@ Global
 		Release = Release
 	EndGlobalSection
 	GlobalSection(ProjectConfiguration) = postSolution
-		{4AE20414-478E-4859-849E-929741A5936C}.Debug.ActiveCfg = Debug|.NET
-		{4AE20414-478E-4859-849E-929741A5936C}.Debug.Build.0 = Debug|.NET
-		{4AE20414-478E-4859-849E-929741A5936C}.Release.ActiveCfg = Release|.NET
-		{4AE20414-478E-4859-849E-929741A5936C}.Release.Build.0 = Release|.NET
 		{A6E837F8-780F-4D05-B3ED-2FF1906B5766}.Debug.ActiveCfg = Debug|.NET
 		{A6E837F8-780F-4D05-B3ED-2FF1906B5766}.Debug.Build.0 = Debug|.NET
 		{A6E837F8-780F-4D05-B3ED-2FF1906B5766}.Release.ActiveCfg = Release|.NET
