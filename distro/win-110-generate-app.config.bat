@@ -66,6 +66,45 @@ IF EXIST "%configdir%" (
 	ECHO %configfile%
 )
 ::--- </OGen.Doc.presentationlayer.console>
+ECHO.
+
+::--- <OGen.Doc.presentationlayer.winforms>
+SET configtemplate=OGen.Doc.presentationlayer.winforms
+
+SET configdir=%parentdir%\OGen-Doc\Doc
+SET configfile=%configdir%\app.config
+SET templatefile=%parentdir%\OGen-Doc\Doc_templates\templates.config.xml
+IF EXIST "%configdir%" (
+	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
+	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
+	ECHO %configfile%
+)
+
+SET configdir=%thisdir%bin
+SET configfile=%configdir%\%configtemplate%-1.1.exe.config
+SET templatefile=%thisdir%bin\OGen-Doc-templates-1.1\templates.config.xml
+IF EXIST "%configdir%" (
+	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
+	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
+	ECHO %configfile%
+)
+
+SET configdir=%thisdir%bin
+SET configfile=%configdir%\%configtemplate%-2.0.exe.config
+SET templatefile=%thisdir%bin\OGen-Doc-templates-2.0\templates.config.xml
+IF EXIST "%configdir%" (
+	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
+	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
+	ECHO %configfile%
+)
+::--- </OGen.Doc.presentationlayer.winforms>
+ECHO.
 
 ::--- <OGen.NTier.presentationlayer.console>
 SET configtemplate=OGen.NTier.presentationlayer.console
@@ -114,6 +153,7 @@ IF EXIST "%configdir%" (
 	ECHO %configfile%
 )
 ::--- </OGen.NTier.presentationlayer.console>
+ECHO.
 
 ::--- <OGen.NTier.presentationlayer.winforms>
 SET configtemplate=OGen.NTier.presentationlayer.winforms
@@ -151,6 +191,7 @@ IF EXIST "%configdir%" (
 	ECHO %configfile%
 )
 ::--- </OGen.NTier.presentationlayer.winforms>
+ECHO.
 
 ::--- <OGen.XSD.presentationlayer.console>
 SET configtemplate=OGen.XSD.presentationlayer.console
@@ -199,6 +240,7 @@ IF EXIST "%configdir%" (
 	ECHO %configfile%
 )
 ::--- </OGen.XSD.presentationlayer.console>
+ECHO.
 
 
 GOTO eof
