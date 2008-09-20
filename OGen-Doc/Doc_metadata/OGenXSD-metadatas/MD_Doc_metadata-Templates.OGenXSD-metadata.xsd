@@ -30,12 +30,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<xs:enumeration value="code" />
 			<xs:enumeration value="image" />
 			<xs:enumeration value="table" />
-		</xs:restriction>
-	</xs:simpleType>
 
-	<xs:simpleType name="sourceContentStyleEnumeration">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="none" />
 			<xs:enumeration value="comment" />
 			<xs:enumeration value="tip" />
 			<xs:enumeration value="warning" />
@@ -48,7 +43,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<xs:attribute name="source" type="xs:string" />
 		<xs:attribute name="sourceType" type="sourceTypeEnumeration" />
 		<xs:attribute name="sourceContentType" type="sourceContentTypeEnumeration" />
-		<xs:attribute name="sourceContentStyle" type="sourceContentStyleEnumeration" />
 		<xs:attribute name="description" type="xs:string" />
 	</xs:complexType>
 

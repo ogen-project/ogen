@@ -19,6 +19,28 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	version=""
 	date="">
 
+<!--
+	<xs:simpleType name="sourceTypeEnumeration">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="file" />
+			<xs:enumeration value="uri" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="sourceContentTypeEnumeration">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="html" />
+			<xs:enumeration value="code" />
+			<xs:enumeration value="image" />
+			<xs:enumeration value="table" />
+
+			<xs:enumeration value="comment" />
+			<xs:enumeration value="tip" />
+			<xs:enumeration value="warning" />
+		</xs:restriction>
+	</xs:simpleType>
+-->
+
 	<chapters>
 		<chapter
 			title="OGen"
@@ -36,8 +58,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 					<attachments>
 						<attachment
-							title=""
-							showTitle="false"
+							title="xxx"
+							showTitle="true"
 							source="ch100-ogen/it100-introduction/pag100-what_is_ogen.html"
 							sourceType="file"
 							sourceContentType="html"
@@ -45,12 +67,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							description="" />
 
 						<attachment
-							title=""
-							showTitle="false"
+							title="yyy"
+							showTitle="true"
 							source="ch100-ogen/it100-introduction/pag200-audience.html"
 							sourceType="file"
 							sourceContentType="html"
-							sourceContentStyle="none"
+							sourceContentStyle="tip"
 							description="" />
 
 						<attachment

@@ -110,19 +110,6 @@ namespace OGen.Doc.lib.metadata.documentation {
 			}
 		}
 		#endregion
-		#region public XS_SourceContentStyleEnumeration SourceContentStyle { get; set; }
-		internal XS_SourceContentStyleEnumeration sourcecontentstyle_;
-
-		[XmlAttribute("sourceContentStyle")]
-		public XS_SourceContentStyleEnumeration SourceContentStyle {
-			get {
-				return sourcecontentstyle_;
-			}
-			set {
-				sourcecontentstyle_ = value;
-			}
-		}
-		#endregion
 		#region public string Description { get; set; }
 		internal string description_;
 
@@ -146,7 +133,6 @@ namespace OGen.Doc.lib.metadata.documentation {
 			source_ = attachmentType_in.source_;
 			sourcetype_ = attachmentType_in.sourcetype_;
 			sourcecontenttype_ = attachmentType_in.sourcecontenttype_;
-			sourcecontentstyle_ = attachmentType_in.sourcecontentstyle_;
 			description_ = attachmentType_in.description_;
 		}
 		#endregion

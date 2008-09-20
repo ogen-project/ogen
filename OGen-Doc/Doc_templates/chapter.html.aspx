@@ -28,26 +28,29 @@ XS__documentation _aux_doc
 		_arg_DocumentationName
 	];
 
-XS_chapterType _chapter = _aux_doc.Chapters.ChapterCollection[_arg_ChapterTitle];
+int _aux_chapter_index = _aux_doc.Chapters.ChapterCollection.Search(_arg_ChapterTitle);
+XS_chapterType _aux_chapter = _aux_doc.Chapters.ChapterCollection[_aux_chapter_index];
 #endregion
 //-----------------------------------------------------------------------------------------
 %><html>
 	<head>
 		<title>
-			<%=_aux_doc.DocumentationName%> - <%=_chapter.Title%><%=(_chapter.Subtitle != string.Empty) ? " - " + _chapter.Subtitle : ""%>
+			<%=_aux_doc.DocumentationName%> - <%=_aux_chapter.Title%><%=(_aux_chapter.Subtitle != string.Empty) ? " - " + _aux_chapter.Subtitle : ""%>
 		</title>
 		<link rel="stylesheet" href="_include/doc.css" type="text/css" /><%--
 		<script language="JavaScript" src="_include/lib_doc.js"></script>--%>
 	</head>
 	<body
+		style="background-color:White;bottom:0;top:0;left:0;right:0"
 		bottommargin="0"
 		topmargin="0"
 		leftmargin="0"
 		rightmargin="0">
 
 		<table cellpadding="0" cellspacing="0" width="100%" border="0">
+<!-- head -->
 			<tr>
-				<td colspan="3" bgcolor="#99CCFF">
+				<td colspan="4" bgcolor="#99CCFF">
 					<table cellpadding="5" cellspacing="5" width="100%" class="menu" border="0">
 						<tr>
 							<td align="left">
@@ -64,96 +67,111 @@ XS_chapterType _chapter = _aux_doc.Chapters.ChapterCollection[_arg_ChapterTitle]
 					</table>
 				</td>
 			</tr>
+<!-- /head -->
+<!-- separator -->
 			<tr valign="top">
-				<td colspan="3" bgcolor="#000000" height="1"></td>
+				<td colspan="4" bgcolor="#000000" height="1"></td>
 			</tr>
-
-
-<%--
-			<%
-			if (_subject.IDSubject != "0") {%>
+<!-- /separator -->
+<!-- chapter -->
 			<tr>
 				<td width="10"></td>
-				<td>
-					<br>
+				<td colspan="2">
+					<br />
 
-					<span class="title"><%=_subject.Name%></span>
-					<br>
-					<span class="text"><%=_subject.Description%></span>
+					<span class="title">
+						<%=_aux_chapter_index + 1%>.
+						<%=_aux_chapter.Title%>
+					</span><%
+					if (_aux_chapter.Subtitle != string.Empty) {%>
+						<br />
+						<span class="subtitle">
+							<%=_aux_chapter.Subtitle%>
+						</span><%
+					}%>
 
-					<br>
+					<br />
 				</td>
 				<td width="10"></td>
-			</tr><%
+			</tr>
+<!-- /chapter --><%
+			for (int i = 0; i < _aux_chapter.Items.ItemCollection.Count; i++) {%>
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<br />
+
+						<span class="title">
+							<%=_aux_chapter_index + 1%>.<%=i + 1%>. 
+							<%=_aux_chapter.Items.ItemCollection[i].Title%>
+						</span>
+						<br /><%
+						if (_aux_chapter.Items.ItemCollection[i].SubTitle != string.Empty) {%>
+							<span class="subtitle">
+								<%=_aux_chapter.Items.ItemCollection[i].SubTitle%>
+							</span>
+							<br /><%
+						}%>
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+						<br /><%
+						for (int a = 0; a < _aux_chapter.Items.ItemCollection[i].Attachments.AttachmentCollection.Count; a++) {%>
+							<span class="text"><%
+								if (_aux_chapter.Items.ItemCollection[i].Attachments.AttachmentCollection[a].ShowTitle) {%>
+								<span class="subsubtitle">
+									<%=_aux_chapter.Items.ItemCollection[i].Attachments.AttachmentCollection[a].Title%>
+								</span>
+								<br /><%
+								}
+								switch (_aux_chapter.Items.ItemCollection[i].Attachments.AttachmentCollection[a].SourceContentType) {
+									case XS_SourceContentTypeEnumeration.html:
+										break;
+									case XS_SourceContentTypeEnumeration.code:
+										break;
+									case XS_SourceContentTypeEnumeration.image:
+										break;
+									case XS_SourceContentTypeEnumeration.table:
+										break;
+
+									case XS_SourceContentTypeEnumeration.comment:
+										break;
+									case XS_SourceContentTypeEnumeration.tip:
+										break;
+									case XS_SourceContentTypeEnumeration.warning:
+										break;
+								}
+								%>
+
+								<%=_aux_chapter.Items.ItemCollection[i].Attachments.AttachmentCollection[a].Source%>
+							</span>
+							<br />
+							<br /><%
+						}%>
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items --><%
 			}%>
-			<tr>
-				<td width="10"></td>
-				<td>
-					<br><%
-
-					for (int d = 0; d < _subject.Documents.DocumentCollection.Count; d++) {%>
-					<span class="text">
-						<span class="subtitle"><%=_subject.Documents.DocumentCollection[d].Name%></span>
-						<br>
-						<%=utils.translate(_subject.Documents.DocumentCollection[d].Document, _aux_doc)%>
-					</span>
-					<br>
-					<br><%
-					}%>
-				</td>
-				<td width="10"></td>
+<!-- separator -->
+			<tr valign="top">
+				<td colspan="4" bgcolor="#000000" height="1"></td>
 			</tr>
+<!-- /separator -->
+<!-- bottom -->
 			<tr>
-				<td width="10"></td>
-				<td><%
-					if (
-						(_subject.IDSubject != "0")
-						&&
-						(_subject.hasDescendants())
-					) {%>
-					<!--tr valign="top">
-						<td></td>
-						<td colspan="1" bgcolor="#000000" height="1"></td>
-						<td></td>
-					</tr-->
-					<hr size="1"><%
-						_isFirst = true;
-					} else {
-						_isFirst = false;
-					}
-
-					for (int s = 0; s < _aux_doc.Subjects.SubjectCollection.Count; s++) {
-						if (_aux_doc.Subjects.SubjectCollection[s].IDSubject_parent == _subject.IDSubject) {
-							if (_isFirst) {
-								%><br><%
-								_isFirst = false;
-							}%>
-					<span class="text">
-						&gt; <a href="Help-<%=_aux_doc.Subjects.SubjectCollection[s].IDSubject%>.html"><%=_aux_doc.Subjects.SubjectCollection[s].Name%></a><br>
-						<%=_aux_doc.Subjects.SubjectCollection[s].Description%>.<br>
-					</span>
-					<br><%
-						}
-					}%>
-				</td>
-				<td width="10"></td>
-			</tr>
---%>
-
-
-
-
-
-			<tr>
-				<td colspan="3" bgcolor="#000000" height="1"></td>
-			</tr>
-			<tr>
-				<td colspan="3">
+				<td colspan="4">
 					<table cellpadding="5" cellspacing="5" width="100%" border="0">
 						<tr>
 							<td align="left" valign="top">
-								<a href="mailto:<%=_aux_doc.FeedbackEmailAddress%>?subject=[<%=_aux_doc.DocumentationName%>] <%=_chapter.Title%><%=(_chapter.Subtitle != string.Empty) ? " - " + _chapter.Subtitle : ""%>">Send comments on this topic.</a>
-								<br>
+								<a href="mailto:<%=_aux_doc.FeedbackEmailAddress%>?subject=[<%=_aux_doc.DocumentationName%>] <%=_aux_chapter_index + 1%>. <%=_aux_chapter.Title%><%=(_aux_chapter.Subtitle != string.Empty) ? " - " + _aux_chapter.Subtitle : ""%>">Send comments on this topic.</a>
+								<br />
 								<a href="LICENSE.FDL.txt"><%=_aux_doc.CopyrightText%></a>
 							</td>
 							<td align="right" valign="top"><%--
@@ -166,6 +184,7 @@ XS_chapterType _chapter = _aux_doc.Chapters.ChapterCollection[_arg_ChapterTitle]
 					</table>
 				</td>
 			</tr>
+<!-- /bottom -->
 		</table>
 	</body>
 </html>

@@ -6,7 +6,6 @@ OGen is licensed under various different licenses.
 
 	For your convenience copies of the MIT and GNU FDL are located in the file COPYING.MIT and COPYING.DOC
 
-	* OGen.lib.datalayer.deprecated: MIT
 	* OGen.lib.datalayer: MIT
 	* OGen.lib.datalayer.PostgreSQL: MIT
 	* OGen.lib.datalayer.SQLServer: MIT

@@ -74,10 +74,10 @@ A:visited {
 	white-space: normal;
 	text-decoration: none;
 }
-.subtitle_question {
+.subsubtitle {
 	color: #000000;
-	font-weight: bold;
-	font-size: 16px;
+	font-weight: normal;
+	font-size: 18px;
 	font-family: Arial;
 	white-space: normal;
 	text-decoration: none;

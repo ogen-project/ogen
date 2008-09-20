@@ -21,13 +21,5 @@ namespace OGen.Doc.lib.metadata.documentation {
 	#else
 	public partial class XS_attachmentType {
 	#endif
-		public XS_attachmentType (
-		) {
-		}
-		public XS_attachmentType (
-			string title_in
-		) {
-			title_ = title_in;
-		}
 	}
 }

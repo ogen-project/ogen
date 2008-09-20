@@ -93,45 +93,108 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="documentation\XS_attachmentsType.cs" />
-    <Compile Include="documentation\XS_attachmentsTypeCollection.cs" />
-    <Compile Include="documentation\XS_attachmentType.cs" />
-    <Compile Include="documentation\XS_attachmentTypeCollection.cs" />
-    <Compile Include="documentation\XS_chaptersType.cs" />
-    <Compile Include="documentation\XS_chaptersTypeCollection.cs" />
-    <Compile Include="documentation\XS_chapterType.cs" />
-    <Compile Include="documentation\XS_chapterTypeCollection.cs" />
-    <Compile Include="documentation\XS_documentationType.cs" />
-    <Compile Include="documentation\XS_documentationTypeCollection.cs" />
-    <Compile Include="documentation\XS_itemsType.cs" />
-    <Compile Include="documentation\XS_itemsTypeCollection.cs" />
-    <Compile Include="documentation\XS_itemType.cs" />
-    <Compile Include="documentation\XS_itemTypeCollection.cs" />
+    <Compile Include="documentation\XS_attachmentsType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\XS_attachmentsTypeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\XS_attachmentType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\XS_attachmentTypeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\XS_chaptersType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\XS_chaptersTypeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\XS_chapterType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\XS_chapterTypeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\XS_documentationType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\XS_documentationTypeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\XS_itemsType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\XS_itemsTypeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\XS_itemType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\XS_itemTypeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="documentation\XS__documentation.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="documentation\XS__documentationCollection.cs" />
-    <Compile Include="documentation\_base\XS0_attachmentsType.cs" />
-    <Compile Include="documentation\_base\XS0_attachmentsTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0_attachmentType.cs" />
-    <Compile Include="documentation\_base\XS0_attachmentTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0_chaptersType.cs" />
-    <Compile Include="documentation\_base\XS0_chaptersTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0_chapterType.cs" />
-    <Compile Include="documentation\_base\XS0_chapterTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0_documentationType.cs" />
-    <Compile Include="documentation\_base\XS0_documentationTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0_itemsType.cs" />
-    <Compile Include="documentation\_base\XS0_itemsTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0_itemType.cs" />
-    <Compile Include="documentation\_base\XS0_itemTypeCollection.cs" />
-    <Compile Include="documentation\_base\XS0_sourceContentStyleEnumeration.cs" />
-    <Compile Include="documentation\_base\XS0_sourceContentTypeEnumeration.cs" />
-    <Compile Include="documentation\_base\XS0_sourceTypeEnumeration.cs" />
+    <Compile Include="documentation\XS__documentationCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\_base\XS0_attachmentsType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\_base\XS0_attachmentsTypeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\_base\XS0_attachmentType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\_base\XS0_attachmentTypeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\_base\XS0_chaptersType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\_base\XS0_chaptersTypeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\_base\XS0_chapterType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\_base\XS0_chapterTypeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\_base\XS0_documentationType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\_base\XS0_documentationTypeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\_base\XS0_itemsType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\_base\XS0_itemsTypeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\_base\XS0_itemType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\_base\XS0_itemTypeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\_base\XS0_sourceContentTypeEnumeration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\_base\XS0_sourceTypeEnumeration.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="documentation\_base\XS0__documentation.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="documentation\_base\XS0__documentationCollection.cs" />
+    <Compile Include="documentation\_base\XS0__documentationCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="utils.cs">
       <SubType>Code</SubType>
     </Compile>

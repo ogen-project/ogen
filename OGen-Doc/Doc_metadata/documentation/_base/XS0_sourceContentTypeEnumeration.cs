@@ -21,5 +21,8 @@ namespace OGen.Doc.lib.metadata.documentation {
 		code = 1, 
 		image = 2, 
 		table = 3, 
+		comment = 4, 
+		tip = 5, 
+		warning = 6, 
 	}
 }
