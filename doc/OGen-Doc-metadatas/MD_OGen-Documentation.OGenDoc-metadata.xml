@@ -38,7 +38,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title=""
 							showTitle="false"
-							source="ch100-ogen/it100-introduction/... .html"
+							source="ch100-ogen/it100-introduction/pag100-what_is_ogen.html"
 							sourceType="file"
 							sourceContentType="html"
 							sourceContentStyle="none"
@@ -47,7 +47,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title=""
 							showTitle="false"
-							source="ch100-ogen/it100-introduction/... .html"
+							source="ch100-ogen/it100-introduction/pag200-audience.html"
+							sourceType="file"
+							sourceContentType="html"
+							sourceContentStyle="none"
+							description="" />
+
+						<attachment
+							title=""
+							showTitle="false"
+							source="ch100-ogen/it100-introduction/pag300-license.html"
 							sourceType="file"
 							sourceContentType="html"
 							sourceContentStyle="none"
@@ -55,7 +64,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 					</attachments>
 				</item>
 
-
+<!--
 				<item
 					title="what is"
 					subTitle=""
@@ -91,6 +100,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							description="bla bla bla" />
 					</attachments>
 				</item>
+-->
 			</items>
 		</chapter>
 	</chapters>
