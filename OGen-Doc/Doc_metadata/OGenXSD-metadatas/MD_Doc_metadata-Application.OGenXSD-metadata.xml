@@ -11,7 +11,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 -->
 <metadata
-	applicationName="Doc_templates" 
+	applicationName="Doc_metadata" 
 	namespace="OGen.Doc.lib" 
 	caseType="PascalCase"
 	allowSettersOnObjects="false"
