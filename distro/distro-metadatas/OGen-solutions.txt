@@ -2,7 +2,6 @@ OGen
 OGen-NTier
 OGen-NTier_UTs
 OGen-Doc
-OGen-Doc-2
 OGen-XSD
 doc
 OGen\OGen_templates\OGenXSD-metadatas
@@ -12,5 +11,3 @@ OGen-NTier_UTs\OGen-metadatas
 OGen-Doc\Doc_metadata\OGenXSD-metadatas
 OGen-Doc\OGen-Doc-Doc\OGenDoc-metadatas
 OGen-XSD\XSD_metadata\OGenXSD-metadatas
-OGen-Doc-2\Doc_metadata\OGenXSD-metadatas
-OGen-Doc-2\OGen-Doc-Doc\OGenDoc-metadatas
