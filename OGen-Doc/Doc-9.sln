@@ -19,8 +19,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_parser-9", "..\OGen\OG
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doc_templates-9", "Doc_templates\Doc_templates-9.csproj", "{82FA3D98-C5E7-42EC-A117-21C14D117EFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doc_metadata_UTs-9", "Doc_metadata_UTs\Doc_metadata_UTs-9.csproj", "{0464029F-0B64-4520-AFF3-D048C14F3CFF}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer__base-9", "..\OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj", "{D66D0E69-852C-4695-9D63-C9AB1A959E0B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer_PostgreSQL-9", "..\OGen\OGen_datalayer_PostgreSQL\OGen_datalayer_PostgreSQL-9.csproj", "{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}"
@@ -75,10 +73,6 @@ Global
 		{82FA3D98-C5E7-42EC-A117-21C14D117EFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82FA3D98-C5E7-42EC-A117-21C14D117EFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82FA3D98-C5E7-42EC-A117-21C14D117EFD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0464029F-0B64-4520-AFF3-D048C14F3CFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0464029F-0B64-4520-AFF3-D048C14F3CFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0464029F-0B64-4520-AFF3-D048C14F3CFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0464029F-0B64-4520-AFF3-D048C14F3CFF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D66D0E69-852C-4695-9D63-C9AB1A959E0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D66D0E69-852C-4695-9D63-C9AB1A959E0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D66D0E69-852C-4695-9D63-C9AB1A959E0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
