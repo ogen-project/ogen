@@ -91,5 +91,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:element name="documentation" type="chaptersType" />
+	<xs:complexType name="documentationType">
+		<xs:attribute name="documentationName" type="xs:string" />
+		<xs:attribute name="projectURL" type="xs:string" />
+		<xs:attribute name="copyrightText" type="xs:string" />
+		<xs:attribute name="feedbackEmailAddress" type="xs:string" />
+		<xs:attribute name="version" type="xs:string" />
+		<xs:attribute name="date" type="xs:string" />
+		<xs:sequence>
+			<xs:element name="chapters" type="chaptersType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="documentation" type="documentationType" />
 </xs:schema>

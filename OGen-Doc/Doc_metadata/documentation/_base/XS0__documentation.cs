@@ -18,11 +18,11 @@ using System.Xml.Serialization;
 
 using OGen.lib.generator;
 
-namespace OGen.Doc.lib.documentation {
+namespace OGen.Doc.lib.metadata.documentation {
 	#if NET_1_1
-	public class XS0__documentation : XS_chaptersType, MetadataInterface {
+	public class XS0__documentation : XS_documentationType, MetadataInterface {
 	#else
-	public partial class XS__documentation : XS_chaptersType, MetadataInterface {
+	public partial class XS__documentation : XS_documentationType, MetadataInterface {
 	#endif
 
 		public const string DOCUMENTATION = "documentation";
@@ -39,6 +39,15 @@ namespace OGen.Doc.lib.documentation {
 
 		#region public static XS__documentation[] Load_fromFile(...);
 		public static XS__documentation[] Load_fromFile(
+			params string[] filePath_in
+		) {
+			return Load_fromFile(
+				null, 
+				filePath_in
+			);
+		}
+		public static XS__documentation[] Load_fromFile(
+			XS__RootMetadata root_ref_in, 
 			params string[] filePath_in
 		) {
 			FileStream _stream;
@@ -70,12 +79,24 @@ namespace OGen.Doc.lib.documentation {
 					));
 				}
 				_output[i].root_documentation_ = ROOT + "." + DOCUMENTATION + "[" + i + "]";
+
+				_output[i].parent_ref = root_ref_in; // ToDos: now!
+				if (root_ref_in != null) _output[i].root_ref = root_ref_in;
 			}
 			return _output;
 		}
 		#endregion
 		#region public static XS__documentation[] Load_fromURI(...);
 		public static XS__documentation[] Load_fromURI(
+			params Uri[] filePath_in
+		) {
+			return Load_fromURI(
+				null, 
+				filePath_in
+			);
+		}
+		public static XS__documentation[] Load_fromURI(
+			XS__RootMetadata root_ref_in, 
 			params Uri[] filePath_in
 		) {
 			XS__documentation[] _output 
@@ -88,6 +109,8 @@ namespace OGen.Doc.lib.documentation {
 					)[0];
 					// no need! everything's been taken care at: XS__documentation.Load_fromFile(...)
 					//_output[i].root_documentation_ = ROOT + "." + DOCUMENTATION + "[" + i + "]";
+					//_output[i].parent_ref = root_ref_in; // ToDos: now!
+					//if (root_ref_in != null) _output[i].root_ref = root_ref_in;
 				} else {
 					try {
 						_output[i] = (XS__documentation)new XmlSerializer(typeof(XS__documentation)).Deserialize(
@@ -108,6 +131,8 @@ namespace OGen.Doc.lib.documentation {
 						));
 					}
 					_output[i].root_documentation_ = ROOT + "." + DOCUMENTATION + "[" + i + "]";
+					_output[i].parent_ref = root_ref_in; // ToDos: now!
+					if (root_ref_in != null) _output[i].root_ref = root_ref_in;
 				}
 			}
 

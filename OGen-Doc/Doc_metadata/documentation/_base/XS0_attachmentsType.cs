@@ -16,12 +16,37 @@ using System;
 using System.Xml.Serialization;
 using System.Collections;
 
-namespace OGen.Doc.lib.documentation {
+namespace OGen.Doc.lib.metadata.documentation {
 	#if NET_1_1
 	public class XS0_attachmentsType {
 	#else
 	public partial class XS_attachmentsType {
 	#endif
+
+		#region public object parent_ref { get; }
+		internal object parent_ref_;
+
+		[XmlIgnore()]
+		public object parent_ref {
+			set {
+				parent_ref_ = value;
+				attachmentcollection_.parent_ref = this;
+			}
+			get { return parent_ref_; }
+		}
+		#endregion
+		#region public XS__RootMetadata root_ref { get; }
+		internal XS__RootMetadata root_ref_;
+
+		[XmlIgnore()]
+		public XS__RootMetadata root_ref {
+			set {
+				root_ref_ = value;
+				attachmentcollection_.root_ref = value;
+			}
+			get { return root_ref_; }
+		}
+		#endregion
 		#region public XS_attachmentTypeCollection AttachmentCollection { get; }
 		internal XS_attachmentTypeCollection attachmentcollection_ 
 			= new XS_attachmentTypeCollection();

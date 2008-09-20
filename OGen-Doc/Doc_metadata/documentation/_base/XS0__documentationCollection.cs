@@ -13,17 +13,53 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
+using System.IO;
 using System.Xml.Serialization;
-using System.Collections;
-#if !NET_1_1
-using System.Collections.Generic;
-#endif
 
 namespace OGen.Doc.lib.metadata.documentation {
 	#if NET_1_1
-	public class XS_chaptersTypeCollection : XS0_chaptersTypeCollection {
+	public class XS0__documentationCollection {
 	#else
-	public partial class XS_chaptersTypeCollection {
+	public partial class XS__documentationCollection {
 	#endif
+		#if NET_1_1
+		public XS0__documentationCollection(
+		#else
+		public XS__documentationCollection(
+		#endif
+			XS__documentation[] documentationcollection_in
+		) {
+			documentationcollection_ = documentationcollection_in;
+		}
+
+		#region public XS__documentation this[...] { get; }
+		private XS__documentation[] documentationcollection_;
+
+		public XS__documentation this[int index_in] {
+			get {
+				return documentationcollection_[index_in];
+			}
+		}
+		public XS__documentation this[string name_in] {
+			get {
+				// ToDos: later! performance
+
+				for (int i = 0; i < documentationcollection_.Length; i++) {
+					if (documentationcollection_[i].DocumentationName == name_in) {
+						return documentationcollection_[i];
+					}
+				}
+				throw new Exception(string.Format(
+					"{0}.{1}[string name_in]: can't find: {2}",
+					typeof(XS__documentationCollection).Namespace, 
+					typeof(XS__documentationCollection).Name, 
+					name_in
+				));
+			}
+		}
+		#endregion
+		public int Count { get {
+			return documentationcollection_.Length;
+		} }
 	}
 }

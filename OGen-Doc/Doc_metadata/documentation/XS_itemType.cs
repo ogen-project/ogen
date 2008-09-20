@@ -15,7 +15,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Xml.Serialization;
 
-namespace OGen.Doc.lib.documentation {
+namespace OGen.Doc.lib.metadata.documentation {
 	#if NET_1_1
 	public class XS_itemType : XS0_itemType {
 	#else

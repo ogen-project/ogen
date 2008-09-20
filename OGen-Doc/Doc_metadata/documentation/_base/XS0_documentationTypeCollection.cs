@@ -21,20 +21,20 @@ using System.Collections.Generic;
 
 namespace OGen.Doc.lib.metadata.documentation {
 	#if NET_1_1
-	public class XS0_chaptersTypeCollection {
+	public class XS0_documentationTypeCollection {
 	#else
-	public partial class XS_chaptersTypeCollection {
+	public partial class XS_documentationTypeCollection {
 	#endif
 		#if NET_1_1
-		public XS0_chaptersTypeCollection() {
+		public XS0_documentationTypeCollection() {
 		#else
-		public XS_chaptersTypeCollection() {
+		public XS_documentationTypeCollection() {
 		#endif
 			cols_ = new
 				#if NET_1_1
 				ArrayList()
 				#else
-				List<XS_chaptersType>()
+				List<XS_documentationType>()
 				#endif
 			;
 		}
@@ -50,7 +50,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 				parent_ref_ = value;
 				for (int i = 0; i < cols_.Count; i++) {
 					#if NET_1_1
-					((XS_chaptersType)cols_[i])
+					((XS_documentationType)cols_[i])
 					#else
 					cols_[i]
 					#endif
@@ -70,7 +70,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 				root_ref_ = value;
 				for (int i = 0; i < cols_.Count; i++) {
 					#if NET_1_1
-					((XS_chaptersType)cols_[i])
+					((XS_documentationType)cols_[i])
 					#else
 					cols_[i]
 					#endif
@@ -79,8 +79,8 @@ namespace OGen.Doc.lib.metadata.documentation {
 			}
 		}
 		#endregion
-		#region private void refresh_refs(params XS_chaptersType[] col_in);
-		private void refresh_refs(params XS_chaptersType[] col_in) {
+		#region private void refresh_refs(params XS_documentationType[] col_in);
+		private void refresh_refs(params XS_documentationType[] col_in) {
 			for (int i = 0; i < col_in.Length; i++) {
 				col_in[i].parent_ref = this;
 				col_in[i].root_ref = root_ref;
@@ -88,18 +88,18 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 
-		#region internal XS_chaptersType[] cols__ { get; set; }
+		#region internal XS_documentationType[] cols__ { get; set; }
 		private 
 			#if NET_1_1
 			ArrayList
 			#else
-			List<XS_chaptersType>
+			List<XS_documentationType>
 			#endif
 		cols_;
 
-		internal XS_chaptersType[] cols__ {
+		internal XS_documentationType[] cols__ {
 			get {
-				XS_chaptersType[] _output = new XS_chaptersType[cols_.Count];
+				XS_documentationType[] _output = new XS_documentationType[cols_.Count];
 				cols_.CopyTo(_output);
 				return _output;
 			}
@@ -122,12 +122,12 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 
-		#region public XS_chaptersType this[int index_in] { get; }
-		public XS_chaptersType this[int index_in] {
+		#region public XS_documentationType this[int index_in] { get; }
+		public XS_documentationType this[int index_in] {
 			get {
 				return 
 					#if NET_1_1
-					(XS_chaptersType)
+					(XS_documentationType)
 					#endif
 					cols_[index_in]
 				;
@@ -145,11 +145,11 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		#region public void Add(...);
-		public void Add(params XS_chaptersType[] col_in) {
+		public void Add(params XS_documentationType[] col_in) {
 			int _index = -1;
 			Add(out _index, col_in);
 		}
-		public void Add(out int returnIndex_out, params XS_chaptersType[] col_in) {
+		public void Add(out int returnIndex_out, params XS_documentationType[] col_in) {
 			refresh_refs(col_in);
 
 			returnIndex_out = -1;

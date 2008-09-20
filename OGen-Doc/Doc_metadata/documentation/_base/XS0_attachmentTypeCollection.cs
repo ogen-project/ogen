@@ -19,7 +19,7 @@ using System.Collections;
 using System.Collections.Generic;
 #endif
 
-namespace OGen.Doc.lib.documentation {
+namespace OGen.Doc.lib.metadata.documentation {
 	#if NET_1_1
 	public class XS0_attachmentTypeCollection {
 	#else
@@ -39,6 +39,54 @@ namespace OGen.Doc.lib.documentation {
 			;
 		}
 
+		#region public object parent_ref { get; }
+		private object parent_ref_;
+
+		public object parent_ref {
+			get {
+				return parent_ref_;
+			}
+			set {
+				parent_ref_ = value;
+				for (int i = 0; i < cols_.Count; i++) {
+					#if NET_1_1
+					((XS_attachmentType)cols_[i])
+					#else
+					cols_[i]
+					#endif
+						.parent_ref = this;
+				}
+			}
+		}
+		#endregion
+		#region public XS__RootMetadata root_ref { get; }
+		private XS__RootMetadata root_ref_;
+
+		public XS__RootMetadata root_ref {
+			get {
+				return root_ref_;
+			}
+			set {
+				root_ref_ = value;
+				for (int i = 0; i < cols_.Count; i++) {
+					#if NET_1_1
+					((XS_attachmentType)cols_[i])
+					#else
+					cols_[i]
+					#endif
+						.root_ref = value;
+				}
+			}
+		}
+		#endregion
+		#region private void refresh_refs(params XS_attachmentType[] col_in);
+		private void refresh_refs(params XS_attachmentType[] col_in) {
+			for (int i = 0; i < col_in.Length; i++) {
+				col_in[i].parent_ref = this;
+				col_in[i].root_ref = root_ref;
+			}
+		}
+		#endregion
 
 		#region internal XS_attachmentType[] cols__ { get; set; }
 		private 
@@ -294,6 +342,8 @@ namespace OGen.Doc.lib.documentation {
 			Add(out _index, col_in);
 		}
 		public void Add(out int returnIndex_out, params XS_attachmentType[] col_in) {
+			refresh_refs(col_in);
+
 			returnIndex_out = -1;
 			for (int i = 0; i < col_in.Length - 1; i++) {
 				cols_.Add(col_in[i]);

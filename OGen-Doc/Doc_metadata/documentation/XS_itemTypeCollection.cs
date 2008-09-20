@@ -19,7 +19,7 @@ using System.Collections;
 using System.Collections.Generic;
 #endif
 
-namespace OGen.Doc.lib.documentation {
+namespace OGen.Doc.lib.metadata.documentation {
 	#if NET_1_1
 	public class XS_itemTypeCollection : XS0_itemTypeCollection {
 	#else

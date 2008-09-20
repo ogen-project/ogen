@@ -21,9 +21,9 @@ using System.Collections.Generic;
 
 namespace OGen.Doc.lib.metadata.documentation {
 	#if NET_1_1
-	public class XS_chaptersTypeCollection : XS0_chaptersTypeCollection {
+	public class XS_documentationTypeCollection : XS0_documentationTypeCollection {
 	#else
-	public partial class XS_chaptersTypeCollection {
+	public partial class XS_documentationTypeCollection {
 	#endif
 	}
 }

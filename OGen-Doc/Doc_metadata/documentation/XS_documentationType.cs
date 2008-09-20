@@ -14,16 +14,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using System.Xml.Serialization;
-using System.Collections;
-#if !NET_1_1
-using System.Collections.Generic;
-#endif
 
 namespace OGen.Doc.lib.metadata.documentation {
 	#if NET_1_1
-	public class XS_chaptersTypeCollection : XS0_chaptersTypeCollection {
+	public class XS_documentationType : XS0_documentationType {
 	#else
-	public partial class XS_chaptersTypeCollection {
+	public partial class XS_documentationType {
 	#endif
 	}
 }

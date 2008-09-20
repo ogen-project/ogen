@@ -16,12 +16,37 @@ using System;
 using System.Xml.Serialization;
 using System.Collections;
 
-namespace OGen.Doc.lib.documentation {
+namespace OGen.Doc.lib.metadata.documentation {
 	#if NET_1_1
 	public class XS0_chapterType {
 	#else
 	public partial class XS_chapterType {
 	#endif
+
+		#region public object parent_ref { get; }
+		internal object parent_ref_;
+
+		[XmlIgnore()]
+		public object parent_ref {
+			set {
+				parent_ref_ = value;
+				if (items__ != null) items__.parent_ref = this;
+			}
+			get { return parent_ref_; }
+		}
+		#endregion
+		#region public XS__RootMetadata root_ref { get; }
+		internal XS__RootMetadata root_ref_;
+
+		[XmlIgnore()]
+		public XS__RootMetadata root_ref {
+			set {
+				root_ref_ = value;
+				if (items__ != null) items__.root_ref = value;
+			}
+			get { return root_ref_; }
+		}
+		#endregion
 		#region public string Title { get; set; }
 		internal string title_;
 

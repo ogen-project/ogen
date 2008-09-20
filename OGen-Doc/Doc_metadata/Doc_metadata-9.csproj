@@ -101,6 +101,8 @@
     <Compile Include="documentation\XS_chaptersTypeCollection.cs" />
     <Compile Include="documentation\XS_chapterType.cs" />
     <Compile Include="documentation\XS_chapterTypeCollection.cs" />
+    <Compile Include="documentation\XS_documentationType.cs" />
+    <Compile Include="documentation\XS_documentationTypeCollection.cs" />
     <Compile Include="documentation\XS_itemsType.cs" />
     <Compile Include="documentation\XS_itemsTypeCollection.cs" />
     <Compile Include="documentation\XS_itemType.cs" />
@@ -108,6 +110,7 @@
     <Compile Include="documentation\XS__documentation.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="documentation\XS__documentationCollection.cs" />
     <Compile Include="documentation\_base\XS0_attachmentsType.cs" />
     <Compile Include="documentation\_base\XS0_attachmentsTypeCollection.cs" />
     <Compile Include="documentation\_base\XS0_attachmentType.cs" />
@@ -116,6 +119,8 @@
     <Compile Include="documentation\_base\XS0_chaptersTypeCollection.cs" />
     <Compile Include="documentation\_base\XS0_chapterType.cs" />
     <Compile Include="documentation\_base\XS0_chapterTypeCollection.cs" />
+    <Compile Include="documentation\_base\XS0_documentationType.cs" />
+    <Compile Include="documentation\_base\XS0_documentationTypeCollection.cs" />
     <Compile Include="documentation\_base\XS0_itemsType.cs" />
     <Compile Include="documentation\_base\XS0_itemsTypeCollection.cs" />
     <Compile Include="documentation\_base\XS0_itemType.cs" />
@@ -126,9 +131,12 @@
     <Compile Include="documentation\_base\XS0__documentation.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="documentation\_base\XS0__documentationCollection.cs" />
     <Compile Include="utils.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="XS__RootMetadata.cs" />
+    <Compile Include="_base\XS0__RootMetadata.cs" />
     <None Include="COPYING.MIT" />
     <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
