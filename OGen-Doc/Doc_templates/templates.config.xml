@@ -33,6 +33,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				type="File" mode="Replace" />
 		</outputs>
 	</template>
+<!--
 	<template name="index.html.aspx" 
 			parserType="aspx"
 			iterationType="ROOT.documentation[n]">
@@ -47,22 +48,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</outputs>
 		<dependencies />
 	</template>
-<!--
-	<template name="FAQs.html.aspx" 
-			parserType="aspx"
-			iterationType="ROOT.documentation[n]">
-		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGenDoc-metadatas/MD_${ROOT.documentation[n].documentationName}.OGenDoc-metadata.xml" />
-			<argument name="DocumentationName" value="${ROOT.documentation[n].documentationName}" />
-		</arguments>
-		<conditions />
-		<outputs>
-			<output to="${CONFIG.outputPath}/FAQs.html"
-				type="File" mode="Replace" />
-		</outputs>
-		<dependencies />
-	</template>
--->
 	<template name="FAQ-id.html.aspx" 
 			parserType="aspx"
 			iterationType="ROOT.documentation[n].faqSubjects.faqSubject[n]">
@@ -72,7 +57,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<argument name="IDFAQSubject" value="${ROOT.documentation[n].faqSubjects.faqSubject[n].idFAQSubject}" />
 		</arguments>
 		<conditions>
-			<!--condition eval="ROOT.documentation[n].faqSubjects.faqSubject[n].idFAQSubject_parent" to="" /-->
+			<condition eval="ROOT.documentation[n].faqSubjects.faqSubject[n].idFAQSubject_parent" to="" />
 		</conditions>
 		<outputs>
 			<output to="${CONFIG.outputPath}/FAQ-${ROOT.documentation[n].faqSubjects.faqSubject[n].idFAQSubject}.html"
@@ -80,22 +65,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</outputs>
 		<dependencies />
 	</template>
-<!--
-	<template name="Help.html.aspx" 
-			parserType="aspx"
-			iterationType="ROOT.documentation[n]">
-		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGenDoc-metadatas/MD_${ROOT.documentation[n].documentationName}.OGenDoc-metadata.xml" />
-			<argument name="DocumentationName" value="${ROOT.documentation[n].documentationName}" />
-		</arguments>
-		<conditions />
-		<outputs>
-			<output to="${CONFIG.outputPath}/Help.html"
-				type="File" mode="Replace" />
-		</outputs>
-		<dependencies />
-	</template>
--->
 	<template name="Help-id.html.aspx" 
 			parserType="aspx"
 			iterationType="ROOT.documentation[n].subjects.subject[n]">
@@ -111,4 +80,5 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</outputs>
 		<dependencies />
 	</template>
+-->
 </templates>

@@ -60,11 +60,11 @@ namespace OGen.Doc.lib.metadata.documentation {
 			}
 		}
 		#endregion
-		#region public bool Subtitle { get; set; }
-		internal bool subtitle_;
+		#region public string Subtitle { get; set; }
+		internal string subtitle_;
 
 		[XmlAttribute("subtitle")]
-		public bool Subtitle {
+		public string Subtitle {
 			get {
 				return subtitle_;
 			}
