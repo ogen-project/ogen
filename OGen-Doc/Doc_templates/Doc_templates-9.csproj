@@ -116,6 +116,9 @@
       <SubType>Code</SubType>
     </Compile>
     <None Include="COPYING.MIT" />
+    <Content Include="chapter.html.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="doc.css" />
     <Content Include="lib_doc.js" />
     <Content Include="LICENSE.MIT.txt" />
