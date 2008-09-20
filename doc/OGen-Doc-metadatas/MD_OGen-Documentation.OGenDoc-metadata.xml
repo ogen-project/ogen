@@ -21,13 +21,41 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 	<chapters>
 		<chapter
-			title="base generator"
-			subtitle="..."
+			title="OGen"
+			subtitle="open generation"
 
 			isIntroduction="false"
 			isAppendix="false">
 
 			<items>
+				<item
+					title="introduction"
+					subTitle=""
+					isIntroduction="true"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title=""
+							showTitle="false"
+							source="ch100-ogen/it100-introduction/... .html"
+							sourceType="file"
+							sourceContentType="html"
+							sourceContentStyle="none"
+							description="" />
+
+						<attachment
+							title=""
+							showTitle="false"
+							source="ch100-ogen/it100-introduction/... .html"
+							sourceType="file"
+							sourceContentType="html"
+							sourceContentStyle="none"
+							description="" />
+					</attachments>
+				</item>
+
+
 				<item
 					title="what is"
 					subTitle=""
