@@ -151,7 +151,7 @@ bool _aux_showtitle = false;
 						<%=_aux_chapter_index + 1%>.
 						<%=_aux_chapter.Title%>
 					</span><%
-					if (_aux_chapter.Subtitle != string.Empty) {%>
+					if (_aux_chapter.Subtitle.Trim() != string.Empty) {%>
 						<br />
 						<span class="subtitle">
 							<%=_aux_chapter.Subtitle%>
@@ -254,9 +254,7 @@ bool _aux_showtitle = false;
 			<tr>
 				<td colspan="4" bgcolor="#99CCFF" valign="top">
 					<table cellpadding="5" cellspacing="5" width="100%" class="menu" border="0">
-<%--				<td colspan="4" valign="top">
-					<table cellpadding="5" cellspacing="5" width="100%" border="0">
---%>						<tr>
+						<tr>
 							<td align="left" valign="top">
 								<a href="<%=_aux_chapter_link_previous%>">
 									previous</a>

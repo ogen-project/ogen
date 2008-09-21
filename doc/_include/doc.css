@@ -15,30 +15,24 @@ A:hover {
 	FONT-SIZE: 14px;
 	FONT-FAMILY: Arial;
 	TEXT-ALIGN: justify;
-	/*
-	COLOR: #F00000;
+	COLOR: #0000FF;
 	TEXT-DECORATION: none;
-	*/
 }
 A:link {
 	FONT-WEIGHT: normal;
 	FONT-SIZE: 14px;
 	FONT-FAMILY: Arial;
 	TEXT-ALIGN: justify;
-	/*
-	COLOR: #F00000;
+	COLOR: #0000FF;
 	TEXT-DECORATION: none;
-	*/
 }
 A:visited {
 	FONT-WEIGHT: normal;
 	FONT-SIZE: 14px;
 	FONT-FAMILY: Arial;
 	TEXT-ALIGN: justify;
-	/*
-	COLOR: #F00000;
+	COLOR: #6000B0;
 	TEXT-DECORATION: none;
-	*/
 }
 
 
@@ -50,16 +44,8 @@ A:visited {
 	TEXT-ALIGN: justify;
 	TEXT-DECORATION: none
 }
-.text {
-	color: #000000;
-	font-weight: normal;
-	font-size: 14px;
-	font-family: Arial;
-	white-space: normal;
-	text-decoration: none;
-}
 .title {
-	color: #000000;
+	color: #5588BB;
 	font-weight: bold;
 	font-size: 24px;
 	font-family: Arial;
@@ -67,17 +53,25 @@ A:visited {
 	text-decoration: none;
 }
 .subtitle {
-	color: #000000;
+	color: #383838;
 	font-weight: bold;
-	font-size: 18px;
+	font-size: 14px;
 	font-family: Arial;
 	white-space: normal;
 	text-decoration: none;
 }
 .subsubtitle {
-	color: #000000;
+	color: #383838;
+	font-weight: bold;
+	font-size: 14px;
+	font-family: Arial;
+	white-space: normal;
+	text-decoration: none;
+}
+.text {
+	color: #404040;
 	font-weight: normal;
-	font-size: 18px;
+	font-size: 14px;
 	font-family: Arial;
 	white-space: normal;
 	text-decoration: none;

@@ -44,7 +44,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	<chapters>
 		<chapter
 			title="OGen"
-			subtitle="open generation"
+			subtitle=""
 
 			isIntroduction="false"
 			isAppendix="false">
