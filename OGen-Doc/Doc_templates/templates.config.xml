@@ -33,6 +33,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				type="File" mode="Replace" />
 		</outputs>
 	</template>
+	<template name="index.html.aspx"
+			parserType="aspx"
+			iterationType="ROOT.documentation[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-Doc-metadatas/MD_${ROOT.documentation[n].documentationName}.OGenDoc-metadata.xml" />
+			<argument name="DocumentationName" value="${ROOT.documentation[n].documentationName}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.documentation[n].documentationName}-index.html"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
 	<template name="chapter.html.aspx"
 			parserType="aspx"
 			iterationType="ROOT.documentation[n].chapters.chapter[n]">
@@ -43,7 +57,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/chapter-${ROOT.documentation[n].chapters.chapter[n].number}-${ROOT.documentation[n].chapters.chapter[n].title}.html"
+			<output to="${CONFIG.outputPath}/${ROOT.documentation[n].documentationName}-chapter-${ROOT.documentation[n].chapters.chapter[n].number}-${ROOT.documentation[n].chapters.chapter[n].fileName}.html"
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />

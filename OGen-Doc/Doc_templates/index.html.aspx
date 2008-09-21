@@ -1,4 +1,4 @@
-<%/*
+﻿<%/*
 
 OGen
 Copyright (C) 2002 Francisco Monteiro
@@ -16,7 +16,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 string _arg_DocumentationName = System.Web.HttpUtility.UrlDecode(Request.QueryString["DocumentationName"]);
-string _arg_ChapterTitle = System.Web.HttpUtility.UrlDecode(Request.QueryString["ChapterTitle"]);
 #endregion
 
 #region varaux...
@@ -34,7 +33,7 @@ string _aux_documentation_index = string.Format(
 	_aux_doc.DocumentationName
 );
 
-int _aux_chapter_index = _aux_doc.Chapters.ChapterCollection.Search(_arg_ChapterTitle);
+int _aux_chapter_index = 0;
 XS_chapterType _aux_chapter = _aux_doc.Chapters.ChapterCollection[_aux_chapter_index];
 
 int _aux_chapter_index_previous = _aux_chapter_index - 1;
@@ -76,6 +75,8 @@ bool _aux_showtitle = false;
 XS_itemType _aux_item;
 XS_attachmentType _aux_attachment;
 
+XS_chapterType _aux_chapter_aux;
+string _aux_chapter_link_aux;
 #endregion
 //-----------------------------------------------------------------------------------------
 %><html>
@@ -175,17 +176,50 @@ XS_attachmentType _aux_attachment;
 				<td colspan="4" bgcolor="#000000" height="1"></td>
 			</tr>
 <!-- /separator -->
-<!-- chapter -->
+<!-- index -->
 			<tr>
 				<td width="10"></td>
 				<td colspan="2">
 					<br />
-
-					<span class="title">
-						<%=_aux_chapter.Number%>.
-						<%=_aux_chapter.Title%><%
-					if (_aux_chapter.Subtitle.Trim() != string.Empty) {%>
-						- <%=_aux_chapter.Subtitle%><%
+					<span class="subsubtitle">
+						Table of Contents
+					</span>
+					<br />
+					<span class="text"><%
+					for (int c = 0; c < _aux_doc.Chapters.ChapterCollection.Count; c++) {
+						_aux_chapter_aux = _aux_doc.Chapters.ChapterCollection[c];
+						_aux_chapter_link_aux 
+							= string.Format(
+								"{0}-chapter-{1}-{2}.html", 
+								_aux_doc.DocumentationName,
+								_aux_chapter_aux.Number,
+								_aux_chapter_aux.FileName
+							);%>
+						<a href="<%=_aux_chapter_link_aux%>">
+							<%=_aux_chapter_aux.Number%>.
+							<%=_aux_chapter_aux.Title%><%
+							if (_aux_chapter.Subtitle.Trim() != string.Empty) {%>
+								- <%=_aux_chapter_aux.Subtitle%><%
+							}%>
+						</a>
+						<br /><%
+						for (int i = 0; i < _aux_chapter_aux.Items.ItemCollection.Count; i++) {
+							_aux_item = _aux_chapter_aux.Items.ItemCollection[i];%>
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<%=_aux_chapter_aux.Number%>. 
+							<%=i + 1%>. 
+							<%=_aux_item.Title%>
+							<br /><%
+							for (int a = 0; a < _aux_item.Attachments.AttachmentCollection.Count; a++) {
+								_aux_attachment = _aux_item.Attachments.AttachmentCollection[a];
+								if (!_aux_attachment.ShowTitle || (_aux_attachment.Title.Trim() == string.Empty))
+									continue;%>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<%=_aux_attachment.Title%>
+								<br /><%
+							}
+						}%>
+						<br /><%
 					}%>
 					</span>
 					<br />
@@ -193,89 +227,7 @@ XS_attachmentType _aux_attachment;
 				</td>
 				<td width="10"></td>
 			</tr>
-<!-- /chapter --><%
-			for (int i = 0; i < _aux_chapter.Items.ItemCollection.Count; i++) {
-				_aux_item = _aux_chapter.Items.ItemCollection[i];%>
-<!-- chapter:items -->
-				<tr>
-					<td width="10"></td>
-					<td colspan="2">
-						<span class="title">
-							<%=_aux_chapter.Number%>.<%=i + 1%>. 
-							<%=_aux_item.Title%>
-						</span>
-						<br /><%
-						if (_aux_item.SubTitle != string.Empty) {%>
-							<span class="subtitle">
-								<%=_aux_item.SubTitle%>
-							</span>
-							<br /><%
-						}%>
-
-						<br />
-					</td>
-					<td width="10"></td>
-				</tr>
-
-				<tr>
-					<td width="10"></td>
-					<td width="20"></td>
-					<td><%
-						for (int a = 0; a < _aux_item.Attachments.AttachmentCollection.Count; a++) {
-							_aux_attachment = _aux_item.Attachments.AttachmentCollection[a];
-							if (
-								_aux_showtitle
-									= (
-										_aux_attachment.ShowTitle
-										&&
-										(_aux_attachment.Title.Trim() != string.Empty)
-									)
-							) {%>
-							<span class="subsubtitle">
-								<%=_aux_attachment.Title%>
-							</span>
-							<br /><%
-							}
-							switch (_aux_attachment.SourceContentType) {
-								case XS_SourceContentTypeEnumeration.html:
-									if (_aux_showtitle) {%>
-										<br /><%
-									}%>
-									<span class="text">
-										<%=utils.ReadFile(
-											_aux_path,
-											_aux_attachment.Source
-										)%>
-									</span>
-									<br />
-									<br /><%
-									break;
-								case XS_SourceContentTypeEnumeration.code:%>
-									<div class="code">
-										<pre><%=utils.ReadFile(
-											_aux_path,
-											_aux_attachment.Source
-										)%></pre>
-									</div><%
-									break;
-								case XS_SourceContentTypeEnumeration.image:
-									break;
-								case XS_SourceContentTypeEnumeration.table:
-									break;
-
-								case XS_SourceContentTypeEnumeration.comment:
-									break;
-								case XS_SourceContentTypeEnumeration.tip:
-									break;
-								case XS_SourceContentTypeEnumeration.warning:
-									break;
-							}
-						}%>
-					</td>
-					<td width="10"></td>
-				</tr>
-<!-- /chapter:items --><%
-			}%>
+<!-- /index -->
 <!-- separator -->
 			<tr valign="top">
 				<td colspan="4" bgcolor="#000000" height="1"></td>

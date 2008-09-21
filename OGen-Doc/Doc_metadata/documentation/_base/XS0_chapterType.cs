@@ -60,6 +60,19 @@ namespace OGen.Doc.lib.metadata.documentation {
 			}
 		}
 		#endregion
+		#region public string FileName { get; set; }
+		internal string filename_;
+
+		[XmlAttribute("fileName")]
+		public string FileName {
+			get {
+				return filename_;
+			}
+			set {
+				filename_ = value;
+			}
+		}
+		#endregion
 		#region public string Subtitle { get; set; }
 		internal string subtitle_;
 
@@ -127,6 +140,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 			int _index = -1;
 
 			title_ = chapterType_in.title_;
+			filename_ = chapterType_in.filename_;
 			subtitle_ = chapterType_in.subtitle_;
 			isintroduction_ = chapterType_in.isintroduction_;
 			isappendix_ = chapterType_in.isappendix_;

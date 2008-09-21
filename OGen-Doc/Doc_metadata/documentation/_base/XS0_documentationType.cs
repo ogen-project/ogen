@@ -60,6 +60,19 @@ namespace OGen.Doc.lib.metadata.documentation {
 			}
 		}
 		#endregion
+		#region public string DocumentationTitle { get; set; }
+		internal string documentationtitle_;
+
+		[XmlAttribute("documentationTitle")]
+		public string DocumentationTitle {
+			get {
+				return documentationtitle_;
+			}
+			set {
+				documentationtitle_ = value;
+			}
+		}
+		#endregion
 		#region public string ProjectURL { get; set; }
 		internal string projecturl_;
 
@@ -153,6 +166,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 			int _index = -1;
 
 			documentationname_ = documentationType_in.documentationname_;
+			documentationtitle_ = documentationType_in.documentationtitle_;
 			projecturl_ = documentationType_in.projecturl_;
 			copyrighttext_ = documentationType_in.copyrighttext_;
 			feedbackemailaddress_ = documentationType_in.feedbackemailaddress_;

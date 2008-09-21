@@ -71,6 +71,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 	<xs:complexType name="chapterType">
 		<xs:attribute name="title" type="xs:string" />
+		<xs:attribute name="fileName" type="xs:string" />
 		<xs:attribute name="subtitle" type="xs:string" />
 		<xs:attribute name="isIntroduction" type="xs:boolean" />
 		<xs:attribute name="isAppendix" type="xs:boolean" />
@@ -88,6 +89,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 	<xs:complexType name="documentationType">
 		<xs:attribute name="documentationName" type="xs:string" />
+		<xs:attribute name="documentationTitle" type="xs:string" />
 		<xs:attribute name="projectURL" type="xs:string" />
 		<xs:attribute name="copyrightText" type="xs:string" />
 		<xs:attribute name="feedbackEmailAddress" type="xs:string" />

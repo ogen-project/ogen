@@ -13,20 +13,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 -->
 <documentation
 	documentationName="OGen"
+	documentationTitle="OGen User's Guide"
 	projectURL="http://ogen.berlios.de"
 	copyrightText="Copyright (C) 2002 Francisco Monteiro"
 	feedbackEmailAddress="fmonteiro@users.berlios.de"
-	version=""
-	date="">
+	version="OGen 2.0"
+	date="2008">
 
 <!--
-	<xs:simpleType name="sourceTypeEnumeration">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="file" />
-			<xs:enumeration value="uri" />
-		</xs:restriction>
-	</xs:simpleType>
-
 	<xs:simpleType name="sourceContentTypeEnumeration">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="html" />
@@ -44,7 +38,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	<chapters>
 		<chapter
 			title="OGen"
-			subtitle=""
+			fileName="ogen"
+			subtitle="open generation"
 
 			isIntroduction="false"
 			isAppendix="false">
@@ -82,11 +77,78 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							description="" />
 					</attachments>
 				</item>
+
+
+				<item
+					title="introduction222"
+					subTitle=""
+					isIntroduction="true"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="What is OGen222"
+							showTitle="true"
+							source="ch100-ogen/it100-introduction/pag100-what_is_ogen.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="Audience222"
+							showTitle="true"
+							source="ch100-ogen/it100-introduction/pag200-audience.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="License222"
+							showTitle="true"
+							source="ch100-ogen/it100-introduction/pag300-license.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+					</attachments>
+				</item>
+				<item
+					title="introduction333"
+					subTitle=""
+					isIntroduction="true"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="What is OGen333"
+							showTitle="true"
+							source="ch100-ogen/it100-introduction/pag100-what_is_ogen.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="Audience333"
+							showTitle="true"
+							source="ch100-ogen/it100-introduction/pag200-audience.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="License333"
+							showTitle="true"
+							source="ch100-ogen/it100-introduction/pag300-license.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+					</attachments>
+				</item>
 			</items>
 		</chapter>
 
 		<chapter
-			title="two"
+			title="two two two"
+			fileName="second"
 			subtitle="second"
 
 			isIntroduction="false"
@@ -95,8 +157,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<items />
 		</chapter>
 		<chapter
-			title="third"
-			subtitle="lat"
+			title="third third third"
+			fileName="third"
+			subtitle="what ever"
 
 			isIntroduction="false"
 			isAppendix="false">
