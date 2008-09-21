@@ -58,71 +58,30 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 					<attachments>
 						<attachment
-							title="xxx"
+							title="What is OGen"
 							showTitle="true"
 							source="ch100-ogen/it100-introduction/pag100-what_is_ogen.html"
 							sourceType="file"
 							sourceContentType="html"
-							sourceContentStyle="none"
 							description="" />
 
 						<attachment
-							title="yyy"
+							title="Audience"
 							showTitle="true"
 							source="ch100-ogen/it100-introduction/pag200-audience.html"
 							sourceType="file"
 							sourceContentType="html"
-							sourceContentStyle="tip"
 							description="" />
 
 						<attachment
-							title=""
-							showTitle="false"
+							title="License"
+							showTitle="true"
 							source="ch100-ogen/it100-introduction/pag300-license.html"
 							sourceType="file"
 							sourceContentType="html"
-							sourceContentStyle="none"
 							description="" />
 					</attachments>
 				</item>
-
-<!--
-				<item
-					title="what is"
-					subTitle=""
-					isIntroduction="false"
-					isSummary="false">
-
-					<attachments>
-						<attachment
-							title="someFile"
-							showTitle="true"
-							source="base_generator/what_is/who_is_it_intended_to-audience.html"
-							sourceType="file"
-							sourceContentType="html"
-							sourceContentStyle="none"
-							description="" />
-
-						<attachment
-							title="someOtherfile"
-							showTitle="false"
-							source="http://.../.../someOtherfile.cs"
-							sourceType="uri"
-							sourceContentType="code"
-							sourceContentStyle="none"
-							description="" />
-
-						<attachment
-							title="someImagefile"
-							showTitle="false"
-							source="/.../someImagefile.png"
-							sourceType="file"
-							sourceContentType="image"
-							sourceContentStyle="none"
-							description="bla bla bla" />
-					</attachments>
-				</item>
--->
 			</items>
 		</chapter>
 	</chapters>

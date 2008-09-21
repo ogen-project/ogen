@@ -13,13 +13,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
+using System.IO;
 //using System.Text.RegularExpressions;
 using OGen.Doc.lib.metadata.documentation;
 
 namespace OGen.Doc.lib.metadata {
 	public class utils { private utils() {}
 
-		// ...
-
+		public static string ReadFile(
+			string path1_in, 
+			string path2_in
+		) {
+			return File.ReadAllText(
+				Path.Combine(
+					path1_in, 
+					path2_in.Replace(
+						'/', 
+						Path.DirectorySeparatorChar
+					)
+				)
+			);
+		}
 	}
 }

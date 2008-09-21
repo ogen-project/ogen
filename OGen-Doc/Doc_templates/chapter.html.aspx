@@ -10,6 +10,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 */%><%@ Page language="c#" contenttype="text/html" %>
+<%@ import namespace="System.IO" %>
 <%@ import namespace="OGen.Doc.lib.metadata" %>
 <%@ import namespace="OGen.Doc.lib.metadata.documentation" %><%
 #region arguments...
@@ -30,6 +31,11 @@ XS__documentation _aux_doc
 
 int _aux_chapter_index = _aux_doc.Chapters.ChapterCollection.Search(_arg_ChapterTitle);
 XS_chapterType _aux_chapter = _aux_doc.Chapters.ChapterCollection[_aux_chapter_index];
+
+string _aux_path = Path.GetDirectoryName(_arg_MetadataFilepath);
+
+bool _aux_showtitle = false;
+
 #endregion
 //-----------------------------------------------------------------------------------------
 %><html>
@@ -113,6 +119,8 @@ XS_chapterType _aux_chapter = _aux_doc.Chapters.ChapterCollection[_aux_chapter_i
 							</span>
 							<br /><%
 						}%>
+
+						<br />
 					</td>
 					<td width="10"></td>
 				</tr>
@@ -120,39 +128,55 @@ XS_chapterType _aux_chapter = _aux_doc.Chapters.ChapterCollection[_aux_chapter_i
 				<tr>
 					<td width="10"></td>
 					<td width="20"></td>
-					<td>
-						<br /><%
-						for (int a = 0; a < _aux_chapter.Items.ItemCollection[i].Attachments.AttachmentCollection.Count; a++) {%>
-							<span class="text"><%
-								if (_aux_chapter.Items.ItemCollection[i].Attachments.AttachmentCollection[a].ShowTitle) {%>
-								<span class="subsubtitle">
-									<%=_aux_chapter.Items.ItemCollection[i].Attachments.AttachmentCollection[a].Title%>
-								</span>
-								<br /><%
-								}
-								switch (_aux_chapter.Items.ItemCollection[i].Attachments.AttachmentCollection[a].SourceContentType) {
-									case XS_SourceContentTypeEnumeration.html:
-										break;
-									case XS_SourceContentTypeEnumeration.code:
-										break;
-									case XS_SourceContentTypeEnumeration.image:
-										break;
-									case XS_SourceContentTypeEnumeration.table:
-										break;
-
-									case XS_SourceContentTypeEnumeration.comment:
-										break;
-									case XS_SourceContentTypeEnumeration.tip:
-										break;
-									case XS_SourceContentTypeEnumeration.warning:
-										break;
-								}
-								%>
-
-								<%=_aux_chapter.Items.ItemCollection[i].Attachments.AttachmentCollection[a].Source%>
+					<td><%
+						for (int a = 0; a < _aux_chapter.Items.ItemCollection[i].Attachments.AttachmentCollection.Count; a++) {
+							if (
+								_aux_showtitle
+									= (
+										_aux_chapter.Items.ItemCollection[i].Attachments.AttachmentCollection[a].ShowTitle
+										&&
+										(_aux_chapter.Items.ItemCollection[i].Attachments.AttachmentCollection[a].Title.Trim() != string.Empty)
+									)
+							) {%>
+							<span class="subsubtitle">
+								<%=_aux_chapter.Items.ItemCollection[i].Attachments.AttachmentCollection[a].Title%>
 							</span>
-							<br />
 							<br /><%
+							}
+							switch (_aux_chapter.Items.ItemCollection[i].Attachments.AttachmentCollection[a].SourceContentType) {
+								case XS_SourceContentTypeEnumeration.html:
+									if (_aux_showtitle) {%>
+										<br /><%
+									}%>
+									<span class="text">
+										<%=utils.ReadFile(
+											_aux_path,
+											_aux_chapter.Items.ItemCollection[i].Attachments.AttachmentCollection[a].Source
+										)%>
+									</span>
+									<br />
+									<br /><%
+									break;
+								case XS_SourceContentTypeEnumeration.code:%>
+									<div class="code">
+										<pre><%=utils.ReadFile(
+											_aux_path,
+											_aux_chapter.Items.ItemCollection[i].Attachments.AttachmentCollection[a].Source
+										)%></pre>
+									</div><%
+									break;
+								case XS_SourceContentTypeEnumeration.image:
+									break;
+								case XS_SourceContentTypeEnumeration.table:
+									break;
+
+								case XS_SourceContentTypeEnumeration.comment:
+									break;
+								case XS_SourceContentTypeEnumeration.tip:
+									break;
+								case XS_SourceContentTypeEnumeration.warning:
+									break;
+							}
 						}%>
 					</td>
 					<td width="10"></td>
@@ -166,7 +190,7 @@ XS_chapterType _aux_chapter = _aux_doc.Chapters.ChapterCollection[_aux_chapter_i
 <!-- /separator -->
 <!-- bottom -->
 			<tr>
-				<td colspan="4">
+				<td colspan="4" valign="top">
 					<table cellpadding="5" cellspacing="5" width="100%" border="0">
 						<tr>
 							<td align="left" valign="top">
@@ -174,7 +198,8 @@ XS_chapterType _aux_chapter = _aux_doc.Chapters.ChapterCollection[_aux_chapter_i
 								<br />
 								<a href="LICENSE.FDL.txt"><%=_aux_doc.CopyrightText%></a>
 							</td>
-							<td align="right" valign="top"><%--
+							<td align="right" valign="top">
+								...<%--
 								if (_subject_next != null) {%>
 									&gt; <a href="Help-<%=_subject_next.IDSubject%>.html">
 										<%=_subject_next.Name%></a><%
