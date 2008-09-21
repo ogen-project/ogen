@@ -365,7 +365,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			</items>
 		</chapter>
 		<chapter
-			title="NTier application"
+			title="NTier application generator"
 			fileName="ogen-ntier"
 			subtitle="what ever"
 
@@ -474,7 +474,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			</items>
 		</chapter>
 		<chapter
-			title="Documentation"
+			title="Documentation generator"
 			fileName="ogen-doc"
 			subtitle="what ever"
 
