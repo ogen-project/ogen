@@ -29,5 +29,17 @@ namespace OGen.Doc.lib.metadata.documentation {
 		) {
 			title_ = title_in;
 		}
+
+		#region public int Index { get; }
+		[XmlIgnore()]
+		[XmlAttribute("number")]
+		public int Number {
+			get {
+				return 1 + ((XS_chapterTypeCollection)parent_ref).Search(
+					Title
+				);
+			}
+		}
+		#endregion
 	}
 }

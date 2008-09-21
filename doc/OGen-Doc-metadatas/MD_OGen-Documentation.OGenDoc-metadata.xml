@@ -84,5 +84,24 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				</item>
 			</items>
 		</chapter>
+
+		<chapter
+			title="two"
+			subtitle="second"
+
+			isIntroduction="false"
+			isAppendix="false">
+
+			<items />
+		</chapter>
+		<chapter
+			title="third"
+			subtitle="lat"
+
+			isIntroduction="false"
+			isAppendix="false">
+
+			<items />
+		</chapter>
 	</chapters>
 </documentation>

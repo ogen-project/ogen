@@ -32,6 +32,36 @@ XS__documentation _aux_doc
 int _aux_chapter_index = _aux_doc.Chapters.ChapterCollection.Search(_arg_ChapterTitle);
 XS_chapterType _aux_chapter = _aux_doc.Chapters.ChapterCollection[_aux_chapter_index];
 
+int _aux_chapter_index_previous = _aux_chapter_index - 1;
+int _aux_chapter_index_next
+	= (_aux_chapter_index == (_aux_doc.Chapters.ChapterCollection.Count - 1)) 
+		? -1 
+		: (_aux_chapter_index + 1);
+XS_chapterType _aux_chapter_previous
+	= (_aux_chapter_index_previous != -1)
+		? _aux_doc.Chapters.ChapterCollection[_aux_chapter_index_previous]
+		: null;
+XS_chapterType _aux_chapter_next
+	= (_aux_chapter_index_next != -1)
+		? _aux_doc.Chapters.ChapterCollection[_aux_chapter_index_next]
+		: null;
+string _aux_chapter_link_previous = 
+	(_aux_chapter_previous != null)
+		? string.Format(
+			"chapter-{0}-{1}.html", 
+			_aux_chapter_previous.Number, 
+			_aux_chapter_previous.Title
+		)
+		: "index.html";
+string _aux_chapter_link_next = 
+	(_aux_chapter_next != null)
+		? string.Format(
+			"chapter-{0}-{1}.html", 
+			_aux_chapter_next.Number, 
+			_aux_chapter_next.Title
+		)
+		: "";
+	
 string _aux_path = Path.GetDirectoryName(_arg_MetadataFilepath);
 
 bool _aux_showtitle = false;
@@ -59,7 +89,7 @@ bool _aux_showtitle = false;
 				<td colspan="4" bgcolor="#99CCFF">
 					<table cellpadding="5" cellspacing="5" width="100%" class="menu" border="0">
 						<tr>
-							<td align="left">
+							<td align="left" colspan="2">
 								<a href="<%=_aux_doc.ProjectURL%>">
 									<%=_aux_doc.DocumentationName%></a>
 								&gt;
@@ -68,7 +98,39 @@ bool _aux_showtitle = false;
 ...
 							</td>
 							<td align="right">
+...
 								<%=_aux_doc.Version%></td>
+						</tr>
+
+						<tr>
+							<td align="left" valign="top">
+								<a href="<%=_aux_chapter_link_previous%>">
+									previous</a>
+								<br />
+								<span class="text"><%
+									if (_aux_chapter_previous != null) {%>
+										<%=_aux_chapter_previous.Title%><%
+									} else {%>
+										index<%
+									}%>
+								</span>
+							</td>
+							<td valign="top">
+								<span class="text">
+									<a href="index.html">
+										index</a>
+								</span>
+							</td>
+							<td align="right" valign="top"><%
+								if (_aux_chapter_link_next != string.Empty) {%>
+									<a href="<%=_aux_chapter_link_next%>">
+										next</a>
+									<br />
+									<span class="text">
+										<%=_aux_chapter_next.Title%>
+									</span><%
+								}%>
+							</td>
 						</tr>
 					</table>
 				</td>
@@ -190,20 +252,45 @@ bool _aux_showtitle = false;
 <!-- /separator -->
 <!-- bottom -->
 			<tr>
-				<td colspan="4" valign="top">
+				<td colspan="4" bgcolor="#99CCFF" valign="top">
+					<table cellpadding="5" cellspacing="5" width="100%" class="menu" border="0">
+<%--				<td colspan="4" valign="top">
 					<table cellpadding="5" cellspacing="5" width="100%" border="0">
-						<tr>
+--%>						<tr>
 							<td align="left" valign="top">
+								<a href="<%=_aux_chapter_link_previous%>">
+									previous</a>
+								<br />
+								<span class="text"><%
+									if (_aux_chapter_previous != null) {%>
+										<%=_aux_chapter_previous.Title%><%
+									} else {%>
+										index<%
+									}%>
+								</span>
+							</td>
+							<td valign="top">
+								<span class="text">
+									<a href="index.html">
+										index</a>
+								</span>
+							</td>
+							<td align="right" valign="top"><%
+								if (_aux_chapter_link_next != string.Empty) {%>
+									<a href="<%=_aux_chapter_link_next%>">
+										next</a>
+									<br />
+									<span class="text">
+										<%=_aux_chapter_next.Title%>
+									</span><%
+								}%>
+							</td>
+						</tr>
+						<tr>
+							<td align="left" valign="top" colspan="3">
 								<a href="mailto:<%=_aux_doc.FeedbackEmailAddress%>?subject=[<%=_aux_doc.DocumentationName%>] <%=_aux_chapter_index + 1%>. <%=_aux_chapter.Title%><%=(_aux_chapter.Subtitle != string.Empty) ? " - " + _aux_chapter.Subtitle : ""%>">Send comments on this topic.</a>
 								<br />
 								<a href="LICENSE.FDL.txt"><%=_aux_doc.CopyrightText%></a>
-							</td>
-							<td align="right" valign="top">
-								...<%--
-								if (_subject_next != null) {%>
-									&gt; <a href="Help-<%=_subject_next.IDSubject%>.html">
-										<%=_subject_next.Name%></a><%
-								}--%>
 							</td>
 						</tr>
 					</table>

@@ -20,6 +20,7 @@ using OGen.Doc.lib.metadata.documentation;
 namespace OGen.Doc.lib.metadata {
 	public class utils { private utils() {}
 
+		#region public static string ReadFile(...);
 		public static string ReadFile(
 			string path1_in, 
 			string path2_in
@@ -33,6 +34,7 @@ namespace OGen.Doc.lib.metadata {
 					)
 				)
 			);
-		}
+	}
+		#endregion
 	}
 }

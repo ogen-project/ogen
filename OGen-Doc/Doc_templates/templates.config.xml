@@ -43,7 +43,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/chapter-${ROOT.documentation[n].chapters.chapter[n].title}.html"
+			<output to="${CONFIG.outputPath}/chapter-${ROOT.documentation[n].chapters.chapter[n].number}-${ROOT.documentation[n].chapters.chapter[n].title}.html"
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
