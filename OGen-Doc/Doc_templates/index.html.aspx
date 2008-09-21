@@ -34,7 +34,7 @@ string _aux_documentation_index = string.Format(
 );
 
 int _aux_chapter_index = 0;
-XS_chapterType _aux_chapter = _aux_doc.Chapters.ChapterCollection[_aux_chapter_index];
+//XS_chapterType _aux_chapter = _aux_doc.Chapters.ChapterCollection[_aux_chapter_index];
 
 int _aux_chapter_index_previous = _aux_chapter_index - 1;
 int _aux_chapter_index_next
@@ -42,13 +42,15 @@ int _aux_chapter_index_next
 		? -1 
 		: (_aux_chapter_index + 1);
 XS_chapterType _aux_chapter_previous
-	= (_aux_chapter_index_previous != -1)
-		? _aux_doc.Chapters.ChapterCollection[_aux_chapter_index_previous]
-		: null;
+	//= (_aux_chapter_index_previous != -1)
+	//    ? _aux_doc.Chapters.ChapterCollection[_aux_chapter_index_previous]
+	//    : null;
+	= null;
 XS_chapterType _aux_chapter_next
-	= (_aux_chapter_index_next != -1)
-		? _aux_doc.Chapters.ChapterCollection[_aux_chapter_index_next]
-		: null;
+	//= (_aux_chapter_index_next != -1)
+	//    ? _aux_doc.Chapters.ChapterCollection[_aux_chapter_index_next]
+	//    : null;
+	= _aux_doc.Chapters.ChapterCollection[0];
 string _aux_chapter_link_previous = 
 	(_aux_chapter_previous != null)
 		? string.Format(
@@ -82,7 +84,7 @@ string _aux_chapter_link_aux;
 %><html>
 	<head>
 		<title>
-			<%=_aux_doc.DocumentationName%> - <%=_aux_doc.DocumentationTitle%> - <%=_aux_chapter.Title%><%=(_aux_chapter.Subtitle != string.Empty) ? " - " + _aux_chapter.Subtitle : ""%>
+			<%=_aux_doc.DocumentationName%> - <%=_aux_doc.DocumentationTitle%>
 		</title>
 		<link rel="stylesheet" href="_include/doc.css" type="text/css" /><%--
 		<script language="JavaScript" src="_include/lib_doc.js"></script>--%>
@@ -135,17 +137,15 @@ string _aux_chapter_link_aux;
 
 <!-- head:paging -->
 						<tr>
-							<td align="left" valign="top" style="width:33%;">
-								<a href="<%=_aux_chapter_link_previous%>">
-									previous</a>
-								<br />
-								<span class="text"><%
-									if (_aux_chapter_previous != null) {%>
-										<%=_aux_chapter_previous.Title%><%
-									} else {%>
-										index<%
-									}%>
-								</span>
+							<td align="left" valign="top" style="width:33%;"><%
+								if (_aux_chapter_previous != null) {%>
+									<a href="<%=_aux_chapter_link_previous%>">
+										previous</a>
+									<br />
+									<span class="text">
+										<%=_aux_chapter_previous.Title%>
+									</span><%
+								}%>
 							</td>
 							<td align="center" valign="top" style="width:34%;">
 								<span class="text">
@@ -199,7 +199,7 @@ string _aux_chapter_link_aux;
 						<a href="<%=_aux_chapter_link_aux%>">
 							<%=_aux_chapter_aux.Number%>.
 							<%=_aux_chapter_aux.Title%><%
-							if (_aux_chapter.Subtitle.Trim() != string.Empty) {%>
+							if (_aux_chapter_aux.Subtitle.Trim() != string.Empty) {%>
 								- <%=_aux_chapter_aux.Subtitle%><%
 							}%>
 						</a>
@@ -243,17 +243,15 @@ string _aux_chapter_link_aux;
 
 <!-- bottom:paging -->
 						<tr>
-							<td align="left" valign="top" style="width:33%;">
-								<a href="<%=_aux_chapter_link_previous%>">
-									previous</a>
-								<br />
-								<span class="text"><%
-									if (_aux_chapter_previous != null) {%>
-										<%=_aux_chapter_previous.Title%><%
-									} else {%>
-										index<%
-									}%>
-								</span>
+							<td align="left" valign="top" style="width:33%;"><%
+								if (_aux_chapter_previous != null) {%>
+									<a href="<%=_aux_chapter_link_previous%>">
+										previous</a>
+									<br />
+									<span class="text">
+										<%=_aux_chapter_previous.Title%>
+									</span><%
+								}%>
 							</td>
 							<td align="center" valign="top" style="width:34%;">
 								<span class="text">
@@ -277,7 +275,7 @@ string _aux_chapter_link_aux;
 
 						<tr>
 							<td align="left" valign="top" colspan="3">
-								<a href="mailto:<%=_aux_doc.FeedbackEmailAddress%>?subject=[<%=_aux_doc.DocumentationName%>] <%=_aux_chapter.Number%>. <%=_aux_chapter.Title%><%=(_aux_chapter.Subtitle != string.Empty) ? " - " + _aux_chapter.Subtitle : ""%>">Send comments on this topic.</a>
+								<a href="mailto:<%=_aux_doc.FeedbackEmailAddress%>?subject=[<%=_aux_doc.DocumentationName%>] index">Send comments on this topic.</a>
 								<br />
 								<a href="LICENSE.FDL.txt"><%=_aux_doc.CopyrightText%></a>
 							</td>

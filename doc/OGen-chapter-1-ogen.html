@@ -1,0 +1,430 @@
+<html>
+	<head>
+		<title>
+			OGen - OGen User's Guide - OGen - open generation
+		</title>
+		<link rel="stylesheet" href="_include/doc.css" type="text/css" />
+	</head>
+	<body
+		style="background-color:White;bottom:0;top:0;left:0;right:0"
+		bottommargin="0"
+		topmargin="0"
+		leftmargin="0"
+		rightmargin="0">
+
+		<table cellpadding="0" cellspacing="0" width="100%" border="0">
+<!-- menu -->
+			<tr>
+				<td colspan="4" bgcolor="#C0C0C0">
+					<table cellpadding="5" cellspacing="5" width="100%" class="menu" border="0">
+						<tr>
+							<td align="left">
+								<a href="http://ogen.berlios.de">
+									home</a>
+								&nbsp;&nbsp;|&nbsp;&nbsp;
+								<a href="OGen-index.html">
+									Documentation</a>
+								&nbsp;&nbsp;|&nbsp;&nbsp;
+								<a href="http://developer.berlios.de/projects/ogen/">
+									BerliOS project page</a>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+<!-- /menu -->
+<!-- separator -->
+			<tr valign="top">
+				<td colspan="4" bgcolor="#000000" height="1"></td>
+			</tr>
+<!-- /separator -->
+<!-- head -->
+			<tr>
+				<td colspan="4" bgcolor="#99CCFF">
+					<table cellpadding="5" cellspacing="5" width="100%" class="menu" border="0">
+						<tr>
+							<td align="left" colspan="2">
+								OGen User's Guide
+							</td>
+							<td align="right">
+								OGen 2.0</td>
+						</tr>
+
+
+<!-- head:paging -->
+						<tr>
+							<td align="left" valign="top" style="width:33%;">
+							</td>
+							<td align="center" valign="top" style="width:34%;">
+								<span class="text">
+									<a href="OGen-index.html">
+										index</a>
+								</span>
+							</td>
+							<td align="right" valign="top" style="width:33%;">
+									<a href="OGen-chapter-2-ogen-code-generation-framework.html">
+										next</a>
+									<br />
+									<span class="text">
+										OGen - code generation framework
+									</span>
+							</td>
+						</tr>
+<!-- /head:paging -->
+
+
+					</table>
+				</td>
+			</tr>
+<!-- /head -->
+<!-- separator -->
+			<tr valign="top">
+				<td colspan="4" bgcolor="#000000" height="1"></td>
+			</tr>
+<!-- /separator -->
+<!-- chapter -->
+			<tr>
+				<td width="10"></td>
+				<td colspan="2">
+					<br />
+
+					<span class="title">
+						1.
+						OGen
+						- open generation
+					</span>
+					<br />
+					<br />
+				</td>
+				<td width="10"></td>
+			</tr>
+<!-- /chapter -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="0"></a>
+						<span class="title">
+							1.1. 
+							introduction
+						</span>
+						<br />
+
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+							<a name="0.0"></a>
+							<span class="subsubtitle">
+								What is OGen
+							</span>
+							<br />
+										<br />
+									<span class="text">
+										OGen is a code generator framework.<br />
+<br />
+
+TODOS<br />
+<br />
+
+It generates code on text files and databases<sup>(1)</sup> based on sets of XML metadatas<sup>(2)</sup> and aspx/XSLT templates provided by users.<br />
+<br />
+
+<sup>(1)</sup> PostgreSQL, SQL Server and MySQL are currently supported<br />
+<sup>(2)</sup> gathered from SQL information schema, user specific XML data and .net assemblies
+
+									</span>
+									<br />
+									<br />
+							<a name="0.1"></a>
+							<span class="subsubtitle">
+								Audience
+							</span>
+							<br />
+										<br />
+									<span class="text">
+										Then main audience for the OGen code generator framework are developers<br />
+<br />
+
+TODOS<br />
+TODOS<br />
+TODOS
+
+									</span>
+									<br />
+									<br />
+							<a name="0.2"></a>
+							<span class="subsubtitle">
+								License
+							</span>
+							<br />
+										<br />
+									<span class="text">
+										OGen is distributed under the permissive 
+
+<a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>
+
+which is similar to the BSD License and is 
+
+<a href="http://www.fsf.org/licensing/licenses/index_html#Expat">compatible</a> 
+
+with the GNU General Public License ("GNU GPL")
+<br />
+<br />
+
+Should you decide to use MySQL under OGen you should be aware of the 
+
+<a href="http://www.fsf.org/licensing/licenses/gpl-faq.html">implications</a>.
+
+MySQL is 
+
+<a href="http://www.mysql.com/about/legal/licensing/">licesed</a>
+
+under the GNU GPL license.
+									</span>
+									<br />
+									<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="1"></a>
+						<span class="title">
+							1.2. 
+							introduction222
+						</span>
+						<br />
+
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+							<a name="1.0"></a>
+							<span class="subsubtitle">
+								What is OGen222
+							</span>
+							<br />
+										<br />
+									<span class="text">
+										OGen is a code generator framework.<br />
+<br />
+
+TODOS<br />
+<br />
+
+It generates code on text files and databases<sup>(1)</sup> based on sets of XML metadatas<sup>(2)</sup> and aspx/XSLT templates provided by users.<br />
+<br />
+
+<sup>(1)</sup> PostgreSQL, SQL Server and MySQL are currently supported<br />
+<sup>(2)</sup> gathered from SQL information schema, user specific XML data and .net assemblies
+
+									</span>
+									<br />
+									<br />
+							<a name="1.1"></a>
+							<span class="subsubtitle">
+								Audience222
+							</span>
+							<br />
+										<br />
+									<span class="text">
+										Then main audience for the OGen code generator framework are developers<br />
+<br />
+
+TODOS<br />
+TODOS<br />
+TODOS
+
+									</span>
+									<br />
+									<br />
+							<a name="1.2"></a>
+							<span class="subsubtitle">
+								License222
+							</span>
+							<br />
+										<br />
+									<span class="text">
+										OGen is distributed under the permissive 
+
+<a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>
+
+which is similar to the BSD License and is 
+
+<a href="http://www.fsf.org/licensing/licenses/index_html#Expat">compatible</a> 
+
+with the GNU General Public License ("GNU GPL")
+<br />
+<br />
+
+Should you decide to use MySQL under OGen you should be aware of the 
+
+<a href="http://www.fsf.org/licensing/licenses/gpl-faq.html">implications</a>.
+
+MySQL is 
+
+<a href="http://www.mysql.com/about/legal/licensing/">licesed</a>
+
+under the GNU GPL license.
+									</span>
+									<br />
+									<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="2"></a>
+						<span class="title">
+							1.3. 
+							introduction333
+						</span>
+						<br />
+
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+							<a name="2.0"></a>
+							<span class="subsubtitle">
+								What is OGen333
+							</span>
+							<br />
+										<br />
+									<span class="text">
+										OGen is a code generator framework.<br />
+<br />
+
+TODOS<br />
+<br />
+
+It generates code on text files and databases<sup>(1)</sup> based on sets of XML metadatas<sup>(2)</sup> and aspx/XSLT templates provided by users.<br />
+<br />
+
+<sup>(1)</sup> PostgreSQL, SQL Server and MySQL are currently supported<br />
+<sup>(2)</sup> gathered from SQL information schema, user specific XML data and .net assemblies
+
+									</span>
+									<br />
+									<br />
+							<a name="2.1"></a>
+							<span class="subsubtitle">
+								Audience333
+							</span>
+							<br />
+										<br />
+									<span class="text">
+										Then main audience for the OGen code generator framework are developers<br />
+<br />
+
+TODOS<br />
+TODOS<br />
+TODOS
+
+									</span>
+									<br />
+									<br />
+							<a name="2.2"></a>
+							<span class="subsubtitle">
+								License333
+							</span>
+							<br />
+										<br />
+									<span class="text">
+										OGen is distributed under the permissive 
+
+<a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>
+
+which is similar to the BSD License and is 
+
+<a href="http://www.fsf.org/licensing/licenses/index_html#Expat">compatible</a> 
+
+with the GNU General Public License ("GNU GPL")
+<br />
+<br />
+
+Should you decide to use MySQL under OGen you should be aware of the 
+
+<a href="http://www.fsf.org/licensing/licenses/gpl-faq.html">implications</a>.
+
+MySQL is 
+
+<a href="http://www.mysql.com/about/legal/licensing/">licesed</a>
+
+under the GNU GPL license.
+									</span>
+									<br />
+									<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- separator -->
+			<tr valign="top">
+				<td colspan="4" bgcolor="#000000" height="1"></td>
+			</tr>
+<!-- /separator -->
+<!-- bottom -->
+			<tr>
+				<td colspan="4" bgcolor="#99CCFF" valign="top">
+					<table cellpadding="5" cellspacing="5" width="100%" class="menu" border="0">
+
+
+<!-- bottom:paging -->
+						<tr>
+							<td align="left" valign="top" style="width:33%;">
+							</td>
+							<td align="center" valign="top" style="width:34%;">
+								<span class="text">
+									<a href="OGen-index.html">
+										index</a>
+								</span>
+							</td>
+							<td align="right" valign="top" style="width:33%;">
+									<a href="OGen-chapter-2-ogen-code-generation-framework.html">
+										next</a>
+									<br />
+									<span class="text">
+										OGen - code generation framework
+									</span>
+							</td>
+						</tr>
+<!-- /bottom:paging -->
+
+
+						<tr>
+							<td align="left" valign="top" colspan="3">
+								<a href="mailto:fmonteiro@users.berlios.de?subject=[OGen] 1. OGen - open generation">Send comments on this topic.</a>
+								<br />
+								<a href="LICENSE.FDL.txt">Copyright (C) 2002 Francisco Monteiro</a>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+<!-- /bottom -->
+		</table>
+	</body>
+</html>

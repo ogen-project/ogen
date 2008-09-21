@@ -55,7 +55,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="What is OGen"
 							showTitle="true"
-							source="ch100-ogen/it100-introduction/pag100-what_is_ogen.html"
+							source="ch00100-ogen/it00100-introduction/pag00100-what_is_ogen.html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
@@ -63,7 +63,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="Audience"
 							showTitle="true"
-							source="ch100-ogen/it100-introduction/pag200-audience.html"
+							source="ch00100-ogen/it00100-introduction/pag00200-audience.html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
@@ -71,7 +71,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="License"
 							showTitle="true"
-							source="ch100-ogen/it100-introduction/pag300-license.html"
+							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
@@ -89,7 +89,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="What is OGen222"
 							showTitle="true"
-							source="ch100-ogen/it100-introduction/pag100-what_is_ogen.html"
+							source="ch00100-ogen/it00100-introduction/pag00100-what_is_ogen.html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
@@ -97,7 +97,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="Audience222"
 							showTitle="true"
-							source="ch100-ogen/it100-introduction/pag200-audience.html"
+							source="ch00100-ogen/it00100-introduction/pag00200-audience.html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
@@ -105,7 +105,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="License222"
 							showTitle="true"
-							source="ch100-ogen/it100-introduction/pag300-license.html"
+							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
@@ -121,7 +121,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="What is OGen333"
 							showTitle="true"
-							source="ch100-ogen/it100-introduction/pag100-what_is_ogen.html"
+							source="ch00100-ogen/it00100-introduction/pag00100-what_is_ogen.html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
@@ -129,7 +129,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="Audience333"
 							showTitle="true"
-							source="ch100-ogen/it100-introduction/pag200-audience.html"
+							source="ch00100-ogen/it00100-introduction/pag00200-audience.html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
@@ -137,7 +137,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="License333"
 							showTitle="true"
-							source="ch100-ogen/it100-introduction/pag300-license.html"
+							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
@@ -147,24 +147,440 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</chapter>
 
 		<chapter
-			title="two two two"
-			fileName="second"
-			subtitle="second"
+			title="OGen - code generation framework"
+			fileName="ogen-code-generation-framework"
+			subtitle=""
 
 			isIntroduction="false"
 			isAppendix="false">
 
-			<items />
+			<items>
+				<item
+					title="introduction"
+					subTitle=""
+					isIntroduction="true"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="What is OGen"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00100-what_is_ogen.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="Audience"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00200-audience.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="License"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+					</attachments>
+				</item>
+
+
+				<item
+					title="introduction222"
+					subTitle=""
+					isIntroduction="true"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="What is OGen222"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00100-what_is_ogen.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="Audience222"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00200-audience.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="License222"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+					</attachments>
+				</item>
+				<item
+					title="introduction333"
+					subTitle=""
+					isIntroduction="true"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="What is OGen333"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00100-what_is_ogen.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="Audience333"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00200-audience.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="License333"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+					</attachments>
+				</item>
+			</items>
 		</chapter>
 		<chapter
-			title="third third third"
-			fileName="third"
+			title="XML to C# classes generator"
+			fileName="ogen-xsd"
 			subtitle="what ever"
 
 			isIntroduction="false"
 			isAppendix="false">
 
-			<items />
+			<items>
+				<item
+					title="introduction"
+					subTitle=""
+					isIntroduction="true"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="What is OGen"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00100-what_is_ogen.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="Audience"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00200-audience.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="License"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+					</attachments>
+				</item>
+
+
+				<item
+					title="introduction222"
+					subTitle=""
+					isIntroduction="true"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="What is OGen222"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00100-what_is_ogen.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="Audience222"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00200-audience.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="License222"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+					</attachments>
+				</item>
+				<item
+					title="introduction333"
+					subTitle=""
+					isIntroduction="true"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="What is OGen333"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00100-what_is_ogen.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="Audience333"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00200-audience.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="License333"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+					</attachments>
+				</item>
+			</items>
+		</chapter>
+		<chapter
+			title="NTier application"
+			fileName="ogen-ntier"
+			subtitle="what ever"
+
+			isIntroduction="false"
+			isAppendix="false">
+
+			<items>
+				<item
+					title="introduction"
+					subTitle=""
+					isIntroduction="true"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="What is OGen"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00100-what_is_ogen.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="Audience"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00200-audience.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="License"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+					</attachments>
+				</item>
+
+
+				<item
+					title="introduction222"
+					subTitle=""
+					isIntroduction="true"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="What is OGen222"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00100-what_is_ogen.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="Audience222"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00200-audience.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="License222"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+					</attachments>
+				</item>
+				<item
+					title="introduction333"
+					subTitle=""
+					isIntroduction="true"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="What is OGen333"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00100-what_is_ogen.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="Audience333"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00200-audience.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="License333"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+					</attachments>
+				</item>
+			</items>
+		</chapter>
+		<chapter
+			title="Documentation"
+			fileName="ogen-doc"
+			subtitle="what ever"
+
+			isIntroduction="false"
+			isAppendix="false">
+
+			<items>
+				<item
+					title="introduction"
+					subTitle=""
+					isIntroduction="true"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="What is OGen"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00100-what_is_ogen.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="Audience"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00200-audience.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="License"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+					</attachments>
+				</item>
+
+
+				<item
+					title="introduction222"
+					subTitle=""
+					isIntroduction="true"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="What is OGen222"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00100-what_is_ogen.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="Audience222"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00200-audience.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="License222"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+					</attachments>
+				</item>
+				<item
+					title="introduction333"
+					subTitle=""
+					isIntroduction="true"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="What is OGen333"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00100-what_is_ogen.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="Audience333"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00200-audience.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="License333"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+					</attachments>
+				</item>
+			</items>
 		</chapter>
 	</chapters>
 </documentation>

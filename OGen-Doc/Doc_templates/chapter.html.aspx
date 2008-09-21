@@ -134,17 +134,15 @@ XS_attachmentType _aux_attachment;
 
 <!-- head:paging -->
 						<tr>
-							<td align="left" valign="top" style="width:33%;">
-								<a href="<%=_aux_chapter_link_previous%>">
-									previous</a>
-								<br />
-								<span class="text"><%
-									if (_aux_chapter_previous != null) {%>
-										<%=_aux_chapter_previous.Title%><%
-									} else {%>
-										index<%
-									}%>
-								</span>
+							<td align="left" valign="top" style="width:33%;"><%
+								if (_aux_chapter_previous != null) {%>
+									<a href="<%=_aux_chapter_link_previous%>">
+										previous</a>
+									<br />
+									<span class="text">
+										<%=_aux_chapter_previous.Title%>
+									</span><%
+								}%>
 							</td>
 							<td align="center" valign="top" style="width:34%;">
 								<span class="text">
@@ -200,7 +198,7 @@ XS_attachmentType _aux_attachment;
 				<tr>
 					<td width="10"></td>
 					<td colspan="2">
-						<a name="<%=i%>" />
+						<a name="<%=i%>"></a>
 						<span class="title">
 							<%=_aux_chapter.Number%>.<%=i + 1%>. 
 							<%=_aux_item.Title%>
@@ -232,7 +230,7 @@ XS_attachmentType _aux_attachment;
 										(_aux_attachment.Title.Trim() != string.Empty)
 									)
 							) {%>
-							<a name="<%=i%>.<%=a%>" />
+							<a name="<%=i%>.<%=a%>"></a>
 							<span class="subsubtitle">
 								<%=_aux_attachment.Title%>
 							</span>
@@ -291,17 +289,15 @@ XS_attachmentType _aux_attachment;
 
 <!-- bottom:paging -->
 						<tr>
-							<td align="left" valign="top" style="width:33%;">
-								<a href="<%=_aux_chapter_link_previous%>">
-									previous</a>
-								<br />
-								<span class="text"><%
-									if (_aux_chapter_previous != null) {%>
-										<%=_aux_chapter_previous.Title%><%
-									} else {%>
-										index<%
-									}%>
-								</span>
+							<td align="left" valign="top" style="width:33%;"><%
+								if (_aux_chapter_previous != null) {%>
+									<a href="<%=_aux_chapter_link_previous%>">
+										previous</a>
+									<br />
+									<span class="text">
+										<%=_aux_chapter_previous.Title%>
+									</span><%
+								}%>
 							</td>
 							<td align="center" valign="top" style="width:34%;">
 								<span class="text">
