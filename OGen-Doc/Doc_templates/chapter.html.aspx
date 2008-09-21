@@ -200,6 +200,7 @@ XS_attachmentType _aux_attachment;
 				<tr>
 					<td width="10"></td>
 					<td colspan="2">
+						<a name="<%=i%>" />
 						<span class="title">
 							<%=_aux_chapter.Number%>.<%=i + 1%>. 
 							<%=_aux_item.Title%>
@@ -231,6 +232,7 @@ XS_attachmentType _aux_attachment;
 										(_aux_attachment.Title.Trim() != string.Empty)
 									)
 							) {%>
+							<a name="<%=i%>.<%=a%>" />
 							<span class="subsubtitle">
 								<%=_aux_attachment.Title%>
 							</span>

@@ -185,6 +185,7 @@ string _aux_chapter_link_aux;
 						Table of Contents
 					</span>
 					<br />
+					<br />
 					<span class="text"><%
 					for (int c = 0; c < _aux_doc.Chapters.ChapterCollection.Count; c++) {
 						_aux_chapter_aux = _aux_doc.Chapters.ChapterCollection[c];
@@ -205,17 +206,18 @@ string _aux_chapter_link_aux;
 						<br /><%
 						for (int i = 0; i < _aux_chapter_aux.Items.ItemCollection.Count; i++) {
 							_aux_item = _aux_chapter_aux.Items.ItemCollection[i];%>
-							&nbsp;&nbsp;&nbsp;&nbsp;
-							<%=_aux_chapter_aux.Number%>. 
-							<%=i + 1%>. 
-							<%=_aux_item.Title%>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="<%=_aux_chapter_link_aux%>#<%=i%>">
+								<%=_aux_chapter_aux.Number%>.<%=i + 1%>. 
+								<%=_aux_item.Title%></a>
 							<br /><%
 							for (int a = 0; a < _aux_item.Attachments.AttachmentCollection.Count; a++) {
 								_aux_attachment = _aux_item.Attachments.AttachmentCollection[a];
 								if (!_aux_attachment.ShowTitle || (_aux_attachment.Title.Trim() == string.Empty))
 									continue;%>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<%=_aux_attachment.Title%>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="<%=_aux_chapter_link_aux%>#<%=i%>.<%=a%>">
+									<%=_aux_attachment.Title%></a>
 								<br /><%
 							}
 						}%>
