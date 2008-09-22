@@ -361,21 +361,28 @@ string _aux_attachment_source;
 									}%>
 									<table cellpadding="0" cellspacing="0" border="0" width="100%">
 										<tr>
-											<td valign="top" align="left" style="width:10%;">
+											<td valign="top" align="right" style="width:10%;">
 												<span class="text"><%
 													switch (_aux_attachment.SourceContentType) {
 														case XS_SourceContentTypeEnumeration.comment:%>
-															Comment<%
+															<span style="color:Green; font-weight:bold;">
+																Comment
+															</span><%
 															break;
 														case XS_SourceContentTypeEnumeration.tip:%>
-															Tip<%
+															<span style="color:Yellow; font-weight:bold;">
+																Tip
+															</span><%
 															break;
 														case XS_SourceContentTypeEnumeration.warning:%>
-															Warning<%
+															<span style="color:Red; font-weight:bold;">
+																Warning
+															</span><%
 															break;
 													}%>
 												</span>
 											</td>
+											<td>&nbsp;&nbsp;</td>
 											<td valign="top" align="left" style="width:90%;">
 												<span class="text">
 													<%=_aux_attachment_source%>
