@@ -71,6 +71,7 @@ string _aux_chapter_link_next =
 		: "";
 	
 string _aux_path = Path.GetDirectoryName(_arg_MetadataFilepath);
+string _aux_path_directoryname = Path.GetFileName(_aux_path);
 
 bool _aux_showtitle = false;
 

@@ -96,7 +96,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 						<attachment
 							title="What is OGen222.2"
-							showTitle="true"
+							showTitle="false"
 							source="ch00100-ogen/it00100-introduction/test-code.cs"
 							sourceType="file"
 							sourceContentType="code"
@@ -105,7 +105,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="Audience222"
 							showTitle="true"
-							source="ch00100-ogen/it00100-introduction/pag00200-audience.html"
+							source="ch00100-ogen/it00100-introduction/img00200-audience.png"
 							sourceType="file"
 							sourceContentType="image"
 							description="bla bla bla" />

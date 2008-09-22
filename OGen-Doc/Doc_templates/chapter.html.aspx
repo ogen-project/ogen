@@ -70,6 +70,7 @@ string _aux_chapter_link_next =
 		: "";
 	
 string _aux_path = Path.GetDirectoryName(_arg_MetadataFilepath);
+string _aux_path_directoryname = Path.GetFileName(_aux_path);
 
 bool _aux_showtitle = false;
 
@@ -259,6 +260,7 @@ string _aux_attachment_source;
 									break;
 							}
 							switch (_aux_attachment.SourceContentType) {
+// <html> //////////////////////////////////////////////////////////////////////////////
 								case XS_SourceContentTypeEnumeration.html:
 									if (_aux_showtitle) {%>
 										<br /><%
@@ -269,6 +271,8 @@ string _aux_attachment_source;
 									<br />
 									<br /><%
 									break;
+// </html> /////////////////////////////////////////////////////////////////////////////
+// <code> //////////////////////////////////////////////////////////////////////////////
 								case XS_SourceContentTypeEnumeration.code:
 									if (_aux_showtitle) {%>
 										<br /><%
@@ -291,10 +295,10 @@ string _aux_attachment_source;
 										</tr>
 									</table><%
 									break;
-
-
-
+// </code> /////////////////////////////////////////////////////////////////////////////
+// <image> /////////////////////////////////////////////////////////////////////////////
 								case XS_SourceContentTypeEnumeration.image:
+// ToDos: here!
 									if (_aux_showtitle) {%>
 										<br /><%
 									}%>
@@ -302,7 +306,7 @@ string _aux_attachment_source;
 										<tr>
 											<td align="center">
 												<img 
-													src="<%=_aux_attachment.Source%>" /></td>
+													src="<%=_aux_path_directoryname%>/<%=_aux_attachment.Source%>" /></td>
 										</tr>
 										<tr>
 											<td align="center">
@@ -315,6 +319,8 @@ string _aux_attachment_source;
 									</table>
 									<br /><%
 									break;
+// </image> ////////////////////////////////////////////////////////////////////////////
+// <table> /////////////////////////////////////////////////////////////////////////////
 								case XS_SourceContentTypeEnumeration.table:
 									if (_aux_showtitle) {%>
 										<br /><%
@@ -352,7 +358,8 @@ string _aux_attachment_source;
 									</table>
 									<br /><%
 									break;
-
+// </table> ////////////////////////////////////////////////////////////////////////////
+// <comments> //////////////////////////////////////////////////////////////////////////
 								case XS_SourceContentTypeEnumeration.comment:
 								case XS_SourceContentTypeEnumeration.tip:
 								case XS_SourceContentTypeEnumeration.warning:
@@ -392,6 +399,7 @@ string _aux_attachment_source;
 									</table>
 									<br /><%
 									break;
+// </comments> /////////////////////////////////////////////////////////////////////////
 							}
 						}%>
 					</td>
