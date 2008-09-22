@@ -76,6 +76,8 @@ bool _aux_showtitle = false;
 XS_itemType _aux_item;
 XS_attachmentType _aux_attachment;
 
+string _aux_attachment_source;
+
 #endregion
 //-----------------------------------------------------------------------------------------
 %><html>
@@ -230,11 +232,29 @@ XS_attachmentType _aux_attachment;
 										(_aux_attachment.Title.Trim() != string.Empty)
 									)
 							) {%>
-							<a name="<%=i%>.<%=a%>"></a>
-							<span class="subsubtitle">
-								<%=_aux_attachment.Title%>
-							</span>
-							<br /><%
+								<a name="<%=i%>.<%=a%>"></a>
+								<span class="subsubtitle">
+									<%=_aux_attachment.Title%>
+								</span>
+								<br /><%
+							}
+
+							switch (_aux_attachment.SourceContentType) {
+								case XS_SourceContentTypeEnumeration.html:
+								case XS_SourceContentTypeEnumeration.code:
+								case XS_SourceContentTypeEnumeration.table:
+								case XS_SourceContentTypeEnumeration.comment:
+								case XS_SourceContentTypeEnumeration.tip:
+								case XS_SourceContentTypeEnumeration.warning:
+									_aux_attachment_source
+										= utils.ReadFile(
+											_aux_path,
+											_aux_attachment.Source
+										);
+									break;
+								default:
+									_aux_attachment_source = string.Empty;
+									break;
 							}
 							switch (_aux_attachment.SourceContentType) {
 								case XS_SourceContentTypeEnumeration.html:
@@ -242,32 +262,103 @@ XS_attachmentType _aux_attachment;
 										<br /><%
 									}%>
 									<span class="text">
-										<%=utils.ReadFile(
-											_aux_path,
-											_aux_attachment.Source
-										)%>
+										<%=_aux_attachment_source%>
 									</span>
 									<br />
 									<br /><%
 									break;
 								case XS_SourceContentTypeEnumeration.code:%>
-									<div class="code">
-										<pre><%=utils.ReadFile(
-											_aux_path,
-											_aux_attachment.Source
-										)%></pre>
-									</div><%
+									<div class="code"><pre><%=_aux_attachment_source%></pre></div><%
 									break;
+
+
+
 								case XS_SourceContentTypeEnumeration.image:
+									if (_aux_showtitle) {%>
+										<br /><%
+									}%>
+									<table cellpadding="0" cellspacing="0" border="1" width="100%">
+										<tr>
+											<td align="center">
+												<img 
+													src="<%=_aux_attachment.Source%>" /></td>
+										</tr>
+										<tr>
+											<td align="center">
+												<span class="text">
+													figure ???:
+													<%=_aux_attachment.Description%>
+												</span>
+											</td>
+										</tr>
+									</table>
+									<br /><%
 									break;
 								case XS_SourceContentTypeEnumeration.table:
+									if (_aux_showtitle) {%>
+										<br /><%
+									}%>
+									<table cellpadding="0" cellspacing="0" border="1" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="1" width="80%">
+													<%=_aux_attachment_source%>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td align="center">
+												<span class="text">
+													table ???:
+													<%=_aux_attachment.Description%>
+												</span>
+											</td>
+										</tr>
+									</table>
+									<br /><%
 									break;
 
 								case XS_SourceContentTypeEnumeration.comment:
+									if (_aux_showtitle) {%>
+										<br /><%
+									}%>
+									<table cellpadding="0" cellspacing="0" border="1" width="100%">
+										<tr>
+											<td valign="top">Comment</td>
+											<td valign="top" style="width:100%;">
+												<%=_aux_attachment_source%>
+											</td>
+										</tr>
+									</table>
+									<br /><%
 									break;
 								case XS_SourceContentTypeEnumeration.tip:
+									if (_aux_showtitle) {%>
+										<br /><%
+									}%>
+									<table cellpadding="0" cellspacing="0" border="1" width="100%">
+										<tr>
+											<td valign="top">Tip</td>
+											<td valign="top" style="width:100%;">
+												<%=_aux_attachment_source%>
+											</td>
+										</tr>
+									</table>
+									<br /><%
 									break;
 								case XS_SourceContentTypeEnumeration.warning:
+									if (_aux_showtitle) {%>
+										<br /><%
+									}%>
+									<table cellpadding="0" cellspacing="0" border="1" width="100%">
+										<tr>
+											<td valign="top">Warning</td>
+											<td valign="top" style="width:100%;">
+												<%=_aux_attachment_source%>
+											</td>
+										</tr>
+									</table>
+									<br /><%
 									break;
 							}
 						}%>

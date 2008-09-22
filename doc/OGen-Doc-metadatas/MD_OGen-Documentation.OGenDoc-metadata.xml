@@ -95,19 +95,48 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							description="" />
 
 						<attachment
+							title="What is OGen222.2"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00100-what_is_ogen.html"
+							sourceType="file"
+							sourceContentType="code"
+							description="" />
+
+						<attachment
 							title="Audience222"
 							showTitle="true"
 							source="ch00100-ogen/it00100-introduction/pag00200-audience.html"
 							sourceType="file"
-							sourceContentType="html"
-							description="" />
+							sourceContentType="image"
+							description="bla bla bla" />
 
 						<attachment
 							title="License222"
 							showTitle="true"
 							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
 							sourceType="file"
-							sourceContentType="html"
+							sourceContentType="table"
+							description="" />
+						<attachment
+							title="License222.2"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+							sourceType="file"
+							sourceContentType="comment"
+							description="" />
+						<attachment
+							title="License222.3"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+							sourceType="file"
+							sourceContentType="tip"
+							description="" />
+						<attachment
+							title="License222.3"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+							sourceType="file"
+							sourceContentType="warning"
 							description="" />
 					</attachments>
 				</item>
