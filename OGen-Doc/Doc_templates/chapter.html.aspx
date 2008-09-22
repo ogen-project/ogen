@@ -273,68 +273,13 @@ string _aux_attachment_source;
 // <code> //////////////////////////////////////////////////////////////////////////////
 								case XS_SourceContentTypeEnumeration.code:%>
 									<table cellpadding="0" cellspacing="0" border="0" width="100%">
-										<tr 
-<%--
-											style="
-												border-color:Black;
-												border-style:solid;
-												border:1px;
-
-												border-bottom-color:Black;
-												border-left-color:Black;
-												border-right-color:Black;
-												border-top-color:Black;
-
-												background-color: #d5d5d5;
-											"
---%>
-										>
+										<tr>
 											<td 
-												align="left" 
-												style="
-<%--
-													border-color:Black;
-													border-style:solid;
-													border:1px;
-
-													border-bottom-color:Black;
-													border-left-color:Black;
-													border-right-color:Black;
-													border-top-color:Black;
-
-													background-color: #d5d5d5;
---%>
-												"><pre style=""><%=_aux_attachment_source%></pre></td>
+												align="left"><pre><%=_aux_attachment_source%></pre></td>
 										</tr>
-										<tr
-<%--
-											style="
-												border:0px;
-												border-color:White;
-												border-style:hidden;
-
-												border-bottom-color:White;
-												border-left-color:White;
-												border-right-color:White;
-												border-top-color:White;
-											"
---%>
-										>
+										<tr>
 											<td 
-												align="center"
-<%--
-												style="
-													border:0px;
-													border-color:White;
-													border-style:hidden;
-
-													border-bottom-color:White;
-													border-left-color:White;
-													border-right-color:White;
-													border-top-color:White;
-												"
---%>
-											>
+												align="center">
 												<span class="text">
 													code <%=_aux_chapter.Number%>.<%=i + 1%>.<%=_aux_attachment.CodeNumber%>:
 													<%=_aux_attachment.Description%>
