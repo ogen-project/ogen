@@ -20,20 +20,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	version="OGen 2.0"
 	date="2008">
 
-<!--
-	<xs:simpleType name="sourceContentTypeEnumeration">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="html" />
-			<xs:enumeration value="code" />
-			<xs:enumeration value="image" />
-			<xs:enumeration value="table" />
-
-			<xs:enumeration value="comment" />
-			<xs:enumeration value="tip" />
-			<xs:enumeration value="warning" />
-		</xs:restriction>
-	</xs:simpleType>
--->
+<!-- sourceContentTypeEnumeration: html, code, image, table, comment, tip, warning -->
 
 	<chapters>
 		<chapter
