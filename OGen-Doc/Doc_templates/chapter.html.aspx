@@ -274,60 +274,66 @@ string _aux_attachment_source;
 								case XS_SourceContentTypeEnumeration.code:%>
 									<table cellpadding="0" cellspacing="0" border="0" width="100%">
 										<tr>
-											<td 
-												align="left"><pre
-													id="<%=_aux_chapter.Number%>.<%=i + 1%>.<%=_aux_attachment.CodeNumber%>"
-													style="
-														/*
-														border-color:Black;
-														border-width:thin;
-														border:1px;
-														border-bottom-width:thin;
-														border-left-width:thin;
-														border-right-width:thin;
-														border-top-width:thin;
-														border-bottom:1px;
-														*/
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="<%=_aux_chapter.Number%>.<%=i + 1%>.<%=_aux_attachment.CodeNumber%>"
+																style="
+																	/*
+																	border-color:Black;
+																	border-width:thin;
+																	border:1px;
+																	border-bottom-width:thin;
+																	border-left-width:thin;
+																	border-right-width:thin;
+																	border-top-width:thin;
+																	border-bottom:1px;
+																	*/
 
-														border:1px;
-														border-color:#808080;
-														border-style:solid;
-														border-width:1px;
-														page-break-inside:avoid;
-														page-break-after:avoid;
-														page-break-before:avoid;
-														margin:0px;
-														padding:8px;
+																	border:1px;
+																	border-color:#808080;
+																	border-style:solid;
+																	border-width:1px;
+																	page-break-inside:avoid;
+																	page-break-after:avoid;
+																	page-break-before:avoid;
+																	margin:0px;
+																	padding:8px;
 
-														color: #000000;
-														background-color: #d5d5d5;
-														font-weight: normal;
-														font-size: 14px;
-														font-family: 'Courier New';
-														/*
-														white-space: normal;
-														*/
-														word-wrap: break-word;		/* Internet Explorer 5.5+ */
-														white-space: pre-wrap;		/* css-3 */
-														/*
-														white-space: -moz-pre-wrap;  // Mozilla, since 1999
-														white-space: -pre-wrap;      // Opera 4-6
-														white-space: -o-pre-wrap;    // Opera 7
-														*/
-														text-decoration: none;
-														/*
-														text-indent: 10px;
-														*/
-													"
-											><%=_aux_attachment_source%></pre></td>
-										</tr>
-										<tr>
-											<td 
-												align="center">
-												<span class="text">
-													code <%=_aux_chapter.Number%>.<%=i + 1%>.<%=_aux_attachment.CodeNumber%>:
-													<%=_aux_attachment.Description%>
-												</span>
+																	color: #000000;
+																	background-color: #d5d5d5;
+																	font-weight: normal;
+																	font-size: 14px;
+																	font-family: 'Courier New';
+																	/*
+																	white-space: normal;
+																	*/
+																	word-wrap: break-word;		/* Internet Explorer 5.5+ */
+																	white-space: pre-wrap;		/* css-3 */
+																	/*
+																	white-space: -moz-pre-wrap;  // Mozilla, since 1999
+																	white-space: -pre-wrap;      // Opera 4-6
+																	white-space: -o-pre-wrap;    // Opera 7
+																	*/
+																	text-decoration: none;
+																	/*
+																	text-indent: 10px;
+																	*/
+																"
+														><%=_aux_attachment_source%></pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code <%=_aux_chapter.Number%>.<%=i + 1%>.<%=_aux_attachment.CodeNumber%>:
+																<%=_aux_attachment.Description%>
+															</span>
+														</td>
+													</tr>
+												</table>
 											</td>
 										</tr>
 									</table>
@@ -359,23 +365,29 @@ string _aux_attachment_source;
 									<table cellpadding="0" cellspacing="0" border="0" width="100%">
 										<tr>
 											<td align="center">
-												<table 
-													style="
-														border-bottom-width:thin; 
-														border-width:thin; 
-														border-left-width:thin; 
-														border-right-width:thin; 
-														border-top-width:thin; 
-														border-width:thin;
+												<div style="
+													border:1px;
+													border-color:#808080;
+													border-style:solid;
+													border-width:1px;
+													page-break-inside:avoid;
+													page-break-after:avoid;
+													page-break-before:avoid;
+													margin:0px;
+													padding:1px;
 
-														outline-width:thin;
-													"
-													cellpadding="2" 
-													cellspacing="2" 
-													border="1" 
-													width="100%">
-													<%=_aux_attachment_source%>
-												</table>
+													color: #000000;
+													background-color: #d5d5d5;
+													text-align: center;
+												">
+													<table 
+														cellpadding="4" 
+														cellspacing="0" 
+														border="0" 
+														width="100%">
+														<%=_aux_attachment_source%>
+													</table>
+												</div>
 											</td>
 										</tr>
 										<tr>
@@ -394,37 +406,54 @@ string _aux_attachment_source;
 								case XS_SourceContentTypeEnumeration.comment:
 								case XS_SourceContentTypeEnumeration.tip:
 								case XS_SourceContentTypeEnumeration.warning:%>
-									<table cellpadding="0" cellspacing="0" border="0" width="100%">
-										<tr>
-											<td valign="top" align="right" style="width:10%;">
-												<span class="text"><%
-													switch (_aux_attachment.SourceContentType) {
-														case XS_SourceContentTypeEnumeration.comment:%>
-															<span style="color:Green; font-weight:bold;">
-																Comment
-															</span><%
-															break;
-														case XS_SourceContentTypeEnumeration.tip:%>
-															<span style="color:Yellow; font-weight:bold;">
-																Tip
-															</span><%
-															break;
-														case XS_SourceContentTypeEnumeration.warning:%>
-															<span style="color:Red; font-weight:bold;">
-																Warning
-															</span><%
-															break;
-													}%>
-												</span>
-											</td>
-											<td>&nbsp;&nbsp;</td>
-											<td valign="top" align="left" style="width:90%;">
-												<span class="text">
-													<%=_aux_attachment_source%>
-												</span>
-											</td>
-										</tr>
-									</table>
+									<div style="
+										border:1px;
+										border-color:#808080;
+										border-style:solid;
+										border-width:1px;
+										page-break-inside:avoid;
+										page-break-after:avoid;
+										page-break-before:avoid;
+										margin:0px;
+										padding:1px;
+
+										color: #000000;
+										background-color: #d5d5d5;
+										text-align: center;
+									">
+										<table cellpadding="4" cellspacing="0" border="0" width="100%">
+											<tr>
+												<td valign="top" align="right" style="width:10%;">
+													<span 
+														class="text"><%
+														switch (_aux_attachment.SourceContentType) {
+															case XS_SourceContentTypeEnumeration.comment:%>
+																<span style="color:Green; font-weight:bold;">
+																	Comment
+																</span><%
+																break;
+															case XS_SourceContentTypeEnumeration.tip:%>
+																<span style="color:Yellow; font-weight:bold;">
+																	Tip
+																</span><%
+																break;
+															case XS_SourceContentTypeEnumeration.warning:%>
+																<span style="color:Red; font-weight:bold;">
+																	Warning
+																</span><%
+																break;
+														}%>
+													</span>
+												</td>
+												<td>&nbsp;&nbsp;</td>
+												<td valign="top" align="left" style="width:90%;">
+													<span class="text">
+														<%=_aux_attachment_source%>
+													</span>
+												</td>
+											</tr>
+										</table>
+									</div>
 									<br /><%
 									break;
 // </comments> /////////////////////////////////////////////////////////////////////////
