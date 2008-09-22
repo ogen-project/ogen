@@ -237,6 +237,7 @@ string _aux_attachment_source;
 								<span class="subsubtitle">
 									<%=_aux_attachment.Title%>
 								</span>
+								<br />
 								<br /><%
 							}
 
@@ -261,10 +262,7 @@ string _aux_attachment_source;
 							}
 							switch (_aux_attachment.SourceContentType) {
 // <html> //////////////////////////////////////////////////////////////////////////////
-								case XS_SourceContentTypeEnumeration.html:
-									if (_aux_showtitle) {%>
-										<br /><%
-									}%>
+								case XS_SourceContentTypeEnumeration.html:%>
 									<span class="text">
 										<%=_aux_attachment_source%>
 									</span>
@@ -273,35 +271,81 @@ string _aux_attachment_source;
 									break;
 // </html> /////////////////////////////////////////////////////////////////////////////
 // <code> //////////////////////////////////////////////////////////////////////////////
-								case XS_SourceContentTypeEnumeration.code:
-									if (_aux_showtitle) {%>
-										<br /><%
-									}%>
+								case XS_SourceContentTypeEnumeration.code:%>
 									<table cellpadding="0" cellspacing="0" border="0" width="100%">
-										<tr>
+										<tr 
+<%--
+											style="
+												border-color:Black;
+												border-style:solid;
+												border:1px;
+
+												border-bottom-color:Black;
+												border-left-color:Black;
+												border-right-color:Black;
+												border-top-color:Black;
+
+												background-color: #d5d5d5;
+											"
+--%>
+										>
 											<td 
 												align="left" 
 												style="
+<%--
+													border-color:Black;
+													border-style:solid;
+													border:1px;
+
+													border-bottom-color:Black;
+													border-left-color:Black;
+													border-right-color:Black;
+													border-top-color:Black;
+--%>
 													background-color: #d5d5d5;
 												"><pre><%=_aux_attachment_source%></pre></td>
 										</tr>
-										<tr>
-											<td align="center">
+										<tr
+<%--
+											style="
+												border:0px;
+												border-color:White;
+												border-style:hidden;
+
+												border-bottom-color:White;
+												border-left-color:White;
+												border-right-color:White;
+												border-top-color:White;
+											"
+--%>
+										>
+											<td 
+												align="center"
+<%--
+												style="
+													border:0px;
+													border-color:White;
+													border-style:hidden;
+
+													border-bottom-color:White;
+													border-left-color:White;
+													border-right-color:White;
+													border-top-color:White;
+												"
+--%>
+											>
 												<span class="text">
 													code <%=_aux_chapter.Number%>.<%=i + 1%>.<%=_aux_attachment.CodeNumber%>:
 													<%=_aux_attachment.Description%>
 												</span>
 											</td>
 										</tr>
-									</table><%
+									</table>
+									<br /><%
 									break;
 // </code> /////////////////////////////////////////////////////////////////////////////
 // <image> /////////////////////////////////////////////////////////////////////////////
-								case XS_SourceContentTypeEnumeration.image:
-// ToDos: here!
-									if (_aux_showtitle) {%>
-										<br /><%
-									}%>
+								case XS_SourceContentTypeEnumeration.image:%>
 									<table cellpadding="0" cellspacing="0" border="0" width="100%">
 										<tr>
 											<td align="center">
@@ -321,10 +365,7 @@ string _aux_attachment_source;
 									break;
 // </image> ////////////////////////////////////////////////////////////////////////////
 // <table> /////////////////////////////////////////////////////////////////////////////
-								case XS_SourceContentTypeEnumeration.table:
-									if (_aux_showtitle) {%>
-										<br /><%
-									}%>
+								case XS_SourceContentTypeEnumeration.table:%>
 									<table cellpadding="0" cellspacing="0" border="0" width="100%">
 										<tr>
 											<td align="center">
@@ -362,10 +403,7 @@ string _aux_attachment_source;
 // <comments> //////////////////////////////////////////////////////////////////////////
 								case XS_SourceContentTypeEnumeration.comment:
 								case XS_SourceContentTypeEnumeration.tip:
-								case XS_SourceContentTypeEnumeration.warning:
-									if (_aux_showtitle) {%>
-										<br /><%
-									}%>
+								case XS_SourceContentTypeEnumeration.warning:%>
 									<table cellpadding="0" cellspacing="0" border="0" width="100%">
 										<tr>
 											<td valign="top" align="right" style="width:10%;">

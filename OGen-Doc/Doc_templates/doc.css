@@ -35,6 +35,17 @@ A:visited {
 	TEXT-DECORATION: none;
 }
 pre {
+	/*
+	border-color:Black;
+	border-width:thin;
+	border:1px;
+	border-bottom-width:thin;
+	border-left-width:thin;
+	border-right-width:thin;
+	border-top-width:thin;
+	border-bottom:1px;
+	*/
+
 	color: #000000;
 	background-color: #d5d5d5;
 	font-weight: normal;

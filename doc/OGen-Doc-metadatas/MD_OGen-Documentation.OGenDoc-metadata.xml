@@ -104,7 +104,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 						<attachment
 							title="Audience222"
-							showTitle="true"
+							showTitle="false"
 							source="ch00100-ogen/it00100-introduction/img00200-audience.png"
 							sourceType="file"
 							sourceContentType="image"
@@ -112,7 +112,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 						<attachment
 							title="License222"
-							showTitle="true"
+							showTitle="false"
 							source="ch00100-ogen/it00100-introduction/test-table.html"
 							sourceType="file"
 							sourceContentType="table"
@@ -126,7 +126,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							description="" />
 						<attachment
 							title="License222.3"
-							showTitle="true"
+							showTitle="false"
 							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
 							sourceType="file"
 							sourceContentType="tip"
