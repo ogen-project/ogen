@@ -301,9 +301,10 @@ string _aux_attachment_source;
 													border-left-color:Black;
 													border-right-color:Black;
 													border-top-color:Black;
---%>
+
 													background-color: #d5d5d5;
-												"><pre><%=_aux_attachment_source%></pre></td>
+--%>
+												"><pre style=""><%=_aux_attachment_source%></pre></td>
 										</tr>
 										<tr
 <%--

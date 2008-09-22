@@ -46,6 +46,14 @@ pre {
 	border-bottom:1px;
 	*/
 
+	border:1px;
+	border-color:Black;
+	border-style:solid;
+	border-width:1px;
+	page-break-inside:avoid;
+	page-break-after:avoid;
+	page-break-before:avoid;
+
 	color: #000000;
 	background-color: #d5d5d5;
 	font-weight: normal;
