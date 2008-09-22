@@ -34,48 +34,6 @@ A:visited {
 	COLOR: #6000B0;
 	TEXT-DECORATION: none;
 }
-pre {
-	/*
-	border-color:Black;
-	border-width:thin;
-	border:1px;
-	border-bottom-width:thin;
-	border-left-width:thin;
-	border-right-width:thin;
-	border-top-width:thin;
-	border-bottom:1px;
-	*/
-
-	border:1px;
-	border-color:#808080;
-	border-style:solid;
-	border-width:1px;
-	page-break-inside:avoid;
-	page-break-after:avoid;
-	page-break-before:avoid;
-	margin:0px;
-	padding:8px;
-
-	color: #000000;
-	background-color: #d5d5d5;
-	font-weight: normal;
-	font-size: 14px;
-	font-family: 'Courier New';
-	/*
-	white-space: normal;
-	*/
-	white-space: pre-wrap;       /* css-3 */
-	/*
-	white-space: -moz-pre-wrap;  // Mozilla, since 1999
-	white-space: -pre-wrap;      // Opera 4-6
-	white-space: -o-pre-wrap;    // Opera 7
-	word-wrap: break-word;       // Internet Explorer 5.5+
-	*/
-	text-decoration: none;
-	/*
-	text-indent: 10px;
-	*/
-}
 
 
 .menu {
