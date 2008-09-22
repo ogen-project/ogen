@@ -252,6 +252,8 @@ string _aux_attachment_source;
 											_aux_attachment.Source
 										);
 									break;
+								case XS_SourceContentTypeEnumeration.image:
+// ToDos: here!
 								default:
 									_aux_attachment_source = string.Empty;
 									break;
@@ -267,8 +269,27 @@ string _aux_attachment_source;
 									<br />
 									<br /><%
 									break;
-								case XS_SourceContentTypeEnumeration.code:%>
-									<div class="code"><pre><%=_aux_attachment_source%></pre></div><%
+								case XS_SourceContentTypeEnumeration.code:
+									if (_aux_showtitle) {%>
+										<br /><%
+									}%>
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td 
+												align="left" 
+												style="
+													background-color: #d5d5d5;
+												"><pre><%=_aux_attachment_source%></pre></td>
+										</tr>
+										<tr>
+											<td align="center">
+												<span class="text">
+													code <%=_aux_chapter.Number%>.<%=i + 1%>.<%=_aux_attachment.CodeNumber%>:
+													<%=_aux_attachment.Description%>
+												</span>
+											</td>
+										</tr>
+									</table><%
 									break;
 
 
@@ -277,7 +298,7 @@ string _aux_attachment_source;
 									if (_aux_showtitle) {%>
 										<br /><%
 									}%>
-									<table cellpadding="0" cellspacing="0" border="1" width="100%">
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
 										<tr>
 											<td align="center">
 												<img 
@@ -286,7 +307,7 @@ string _aux_attachment_source;
 										<tr>
 											<td align="center">
 												<span class="text">
-													figure ???:
+													figure <%=_aux_chapter.Number%>.<%=i + 1%>.<%=_aux_attachment.ImageNumber%>:
 													<%=_aux_attachment.Description%>
 												</span>
 											</td>
@@ -298,10 +319,24 @@ string _aux_attachment_source;
 									if (_aux_showtitle) {%>
 										<br /><%
 									}%>
-									<table cellpadding="0" cellspacing="0" border="1" width="100%">
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
 										<tr>
 											<td align="center">
-												<table cellpadding="0" cellspacing="0" border="1" width="80%">
+												<table 
+													style="
+														border-bottom-width:thin; 
+														border-width:thin; 
+														border-left-width:thin; 
+														border-right-width:thin; 
+														border-top-width:thin; 
+														border-width:thin;
+
+														outline-width:thin;
+													"
+													cellpadding="2" 
+													cellspacing="2" 
+													border="1" 
+													width="100%">
 													<%=_aux_attachment_source%>
 												</table>
 											</td>
@@ -309,7 +344,7 @@ string _aux_attachment_source;
 										<tr>
 											<td align="center">
 												<span class="text">
-													table ???:
+													table <%=_aux_chapter.Number%>.<%=i + 1%>.<%=_aux_attachment.TableNumber%>:
 													<%=_aux_attachment.Description%>
 												</span>
 											</td>

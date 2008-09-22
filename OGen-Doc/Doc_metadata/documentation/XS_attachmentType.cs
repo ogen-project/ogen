@@ -21,5 +21,59 @@ namespace OGen.Doc.lib.metadata.documentation {
 	#else
 	public partial class XS_attachmentType {
 	#endif
+
+		#region private int NumberOf(XS_SourceContentTypeEnumeration sourceContentType_in);
+		private int NumberOf(XS_SourceContentTypeEnumeration sourceContentType_in) {
+			int _counter = 0;
+			XS_attachmentTypeCollection _parent = (XS_attachmentTypeCollection)parent_ref;
+			for (int a = 0; a < _parent.Count; a++) {
+				if (_parent[a].SourceContentType == sourceContentType_in)
+					_counter++;
+
+				if (_parent[a].Title == Title) {
+					return _counter;
+				}
+			}
+
+			return -1;
+		}
+		#endregion
+
+		#region public int ImageNumber { get; }
+		private int imagenumber__ = -2;
+
+		public int ImageNumber {
+			get {
+				if (imagenumber__ == -2) {
+					imagenumber__ = NumberOf(XS_SourceContentTypeEnumeration.image);
+				}
+				return imagenumber__;
+			}
+		}
+		#endregion
+		#region public int TableNumber { get; }
+		private int tablenumber__ = -2;
+
+		public int TableNumber {
+			get {
+				if (tablenumber__ == -2) {
+					tablenumber__ = NumberOf(XS_SourceContentTypeEnumeration.table);
+				}
+				return tablenumber__;
+			}
+		}
+		#endregion
+		#region public int CodeNumber { get; }
+		private int codenumber__ = -2;
+
+		public int CodeNumber {
+			get {
+				if (codenumber__ == -2) {
+					codenumber__ = NumberOf(XS_SourceContentTypeEnumeration.code);
+				}
+				return codenumber__;
+			}
+		}
+		#endregion
 	}
 }
