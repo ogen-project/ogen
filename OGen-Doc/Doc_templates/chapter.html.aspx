@@ -319,42 +319,32 @@ string _aux_attachment_source;
 									break;
 
 								case XS_SourceContentTypeEnumeration.comment:
-									if (_aux_showtitle) {%>
-										<br /><%
-									}%>
-									<table cellpadding="0" cellspacing="0" border="1" width="100%">
-										<tr>
-											<td valign="top">Comment</td>
-											<td valign="top" style="width:100%;">
-												<%=_aux_attachment_source%>
-											</td>
-										</tr>
-									</table>
-									<br /><%
-									break;
 								case XS_SourceContentTypeEnumeration.tip:
-									if (_aux_showtitle) {%>
-										<br /><%
-									}%>
-									<table cellpadding="0" cellspacing="0" border="1" width="100%">
-										<tr>
-											<td valign="top">Tip</td>
-											<td valign="top" style="width:100%;">
-												<%=_aux_attachment_source%>
-											</td>
-										</tr>
-									</table>
-									<br /><%
-									break;
 								case XS_SourceContentTypeEnumeration.warning:
 									if (_aux_showtitle) {%>
 										<br /><%
 									}%>
-									<table cellpadding="0" cellspacing="0" border="1" width="100%">
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
 										<tr>
-											<td valign="top">Warning</td>
-											<td valign="top" style="width:100%;">
-												<%=_aux_attachment_source%>
+											<td valign="top" align="left" style="width:10%;">
+												<span class="text"><%
+													switch (_aux_attachment.SourceContentType) {
+														case XS_SourceContentTypeEnumeration.comment:%>
+															Comment<%
+															break;
+														case XS_SourceContentTypeEnumeration.tip:%>
+															Tip<%
+															break;
+														case XS_SourceContentTypeEnumeration.warning:%>
+															Warning<%
+															break;
+													}%>
+												</span>
+											</td>
+											<td valign="top" align="left" style="width:90%;">
+												<span class="text">
+													<%=_aux_attachment_source%>
+												</span>
 											</td>
 										</tr>
 									</table>
