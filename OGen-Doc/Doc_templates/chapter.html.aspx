@@ -280,48 +280,7 @@ string _aux_attachment_source;
 														<td 
 															align="left"><pre
 																id="<%=_aux_chapter.Number%>.<%=i + 1%>.<%=_aux_attachment.CodeNumber%>"
-																style="
-																	/*
-																	border-color:Black;
-																	border-width:thin;
-																	border:1px;
-																	border-bottom-width:thin;
-																	border-left-width:thin;
-																	border-right-width:thin;
-																	border-top-width:thin;
-																	border-bottom:1px;
-																	*/
-
-																	border:1px;
-																	border-color:#808080;
-																	border-style:solid;
-																	border-width:1px;
-																	page-break-inside:avoid;
-																	page-break-after:avoid;
-																	page-break-before:avoid;
-																	margin:0px;
-																	padding:8px;
-
-																	color: #000000;
-																	background-color: #d5d5d5;
-																	font-weight: normal;
-																	font-size: 14px;
-																	font-family: 'Courier New';
-																	/*
-																	white-space: normal;
-																	*/
-																	word-wrap: break-word;		/* Internet Explorer 5.5+ */
-																	white-space: pre-wrap;		/* css-3 */
-																	/*
-																	white-space: -moz-pre-wrap;  // Mozilla, since 1999
-																	white-space: -pre-wrap;      // Opera 4-6
-																	white-space: -o-pre-wrap;    // Opera 7
-																	*/
-																	text-decoration: none;
-																	/*
-																	text-indent: 10px;
-																	*/
-																"
+																class="code"
 														><%=_aux_attachment_source%></pre></td>
 													</tr>
 													<tr>
@@ -365,21 +324,7 @@ string _aux_attachment_source;
 									<table cellpadding="0" cellspacing="0" border="0" width="100%">
 										<tr>
 											<td align="center">
-												<div style="
-													border:1px;
-													border-color:#808080;
-													border-style:solid;
-													border-width:1px;
-													page-break-inside:avoid;
-													page-break-after:avoid;
-													page-break-before:avoid;
-													margin:0px;
-													padding:1px;
-
-													color: #000000;
-													background-color: #d5d5d5;
-													text-align: center;
-												">
+												<div class="anex">
 													<table 
 														cellpadding="4" 
 														cellspacing="0" 
@@ -406,21 +351,7 @@ string _aux_attachment_source;
 								case XS_SourceContentTypeEnumeration.comment:
 								case XS_SourceContentTypeEnumeration.tip:
 								case XS_SourceContentTypeEnumeration.warning:%>
-									<div style="
-										border:1px;
-										border-color:#808080;
-										border-style:solid;
-										border-width:1px;
-										page-break-inside:avoid;
-										page-break-after:avoid;
-										page-break-before:avoid;
-										margin:0px;
-										padding:1px;
-
-										color: #000000;
-										background-color: #d5d5d5;
-										text-align: center;
-									">
+									<div class="anex">
 										<table cellpadding="4" cellspacing="0" border="0" width="100%">
 											<tr>
 												<td valign="top" align="right" style="width:10%;">
