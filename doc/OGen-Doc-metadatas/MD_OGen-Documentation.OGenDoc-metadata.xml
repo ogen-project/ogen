@@ -302,13 +302,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				</item>
 			</items>
 		</chapter>
-
-
-
-
-
-
-
 		<chapter
 			title="Appendix"
 			fileName="ogen-appendix"
@@ -383,6 +376,29 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							sourceType="file"
 							sourceContentType="code"
 							description="how to install pgAdminIII on Linux" />
+					</attachments>
+				</item>
+				<item
+					title="data base - specific information"
+					subTitle=""
+					isIntroduction="false"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="PostgreSQL"
+							showTitle="true"
+							source="Appendix/OGen__Docs__Contrib_Appendix_PostgreSQL-DbType.txt"
+							sourceType="file"
+							sourceContentType="code"
+							description="PostgreSQL" />
+						<attachment
+							title="MySQL"
+							showTitle="true"
+							source="Appendix/OGen__Docs__Contrib_Appendix_MySql-DbType.txt"
+							sourceType="file"
+							sourceContentType="code"
+							description="MySQL" />
 					</attachments>
 				</item>
 			</items>

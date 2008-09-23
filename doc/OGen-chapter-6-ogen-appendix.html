@@ -1088,6 +1088,207 @@ make install
 					<td width="10"></td>
 				</tr>
 <!-- /chapter:items -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="2"></a>
+						<span class="title">
+							6.3. 
+							data base - specific information
+						</span>
+						<br />
+
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+								<a name="2.0"></a>
+								<span class="subsubtitle">
+									PostgreSQL
+								</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="6.3.1"
+																class="code"
+														>======================================================================================================|
+                          based on Npgsql User's Manual 2006/10/08 21:50:43                           |
+===========|=======================================|=============|==================|=================|
+Postgresql |INFORMATION_SCHEMA                     |NpgsqlDbType |System.DbType     |.Net System Type |
+===========|=======================================|=============|==================|=================|
+bool       |boolean, bool                          |Boolean      |Boolean           |Boolean          |
+===========|=======================================|=============|==================|=================|
+int2       |smallint, int2                         |Smallint     |Int16             |Int16            |
+int4       |integer, int4                          |Integer      |Int32             |Int32            |
+int8       |bigint, int8                           |Bigint       |Int64             |Int64            |
+===========|=======================================|=============|==================|=================|
+Box        |?                                      |Box          |Object            |Object           |
+Circle     |?                                      |Circle       |Object            |Object           |
+Line       |?                                      |Line         |Object            |Object           |
+LSeg       |?                                      |LSeg         |Object            |Object           |
+Path       |?                                      |Path         |Object            |Object           |
+Point      |?                                      |Point        |Object            |Object           |
+Polygon    |?                                      |Polygon      |Object            |Object           |
+===========|=======================================|=============|==================|=================|
+bytea      |bytea                                  |Bytea        |Binary            |Byte[]           |
+===========|=======================================|=============|==================|=================|
+float8     |double precision, float8               |Double       |Double            |Double           |
+money      |money                                  |Money        |Decimal           |Decimal          |
+numeric    |numeric                                |Numeric      |Decimal           |Decimal          |
+float4     |real, float4                           |Real         |Single            |Single           |
+===========|=======================================|=============|==================|=================|
+date       |date                                   |Date         |Date              |DateTime         |
+time       |time, time without time zone           |Time         |Time              |DateTime         |
+timetz     |timetz, time with time zone            |Time         |Time              |DateTime         |
+timestamp  |timestamp, timestamp without time zone |Timestamp    |DateTime          |DateTime         |
+timestamptz|timestamptz, timestamp with time zone  |TimestampTZ  |DateTime          |DateTime         |<- DIFF!!!
+===========|=======================================|=============|==================|=================|
+varchar    |character varying, varchar             |Varchar      |String            |String           |
+text       |text                                   |Text         |String            |String           |
+===========|=======================================|=============|==================|=================|
+inet       |?                                      |Inet         |Object            |NpgsqlInet,      |<- DIFF!!!
+           |                                       |             |                  |IPAddress        |
+===========|=======================================|=============|==================|=================|
+bit        |?                                      |Bit          |Boolean           |Boolean, Int32   |<- DIFF!!!
+===========|=======================================|=============|==================|=================|
+
+
+
+======================================================================================================|
+                          based on Npgsql User's Manual 2006/04/09 02:20:53                           |
+===========|=======================================|=============|==================|=================|
+Postgresql |INFORMATION_SCHEMA                     |NpgsqlDbType |System.DbType     |.Net System Type |
+===========|=======================================|=============|==================|=================|
+bool       |boolean, bool                          |Boolean      |Boolean           |Boolean          |
+===========|=======================================|=============|==================|=================|
+int2       |smallint, int2                         |Smallint     |Int16             |Int16            |
+int4       |integer, int4                          |Integer      |Int32             |Int32            |
+int8       |bigint, int8                           |Bigint       |Int64             |Int64            |
+===========|=======================================|=============|==================|=================|
+Box        |?                                      |Box          |Object            |Object           |
+Circle     |?                                      |Circle       |Object            |Object           |
+Line       |?                                      |Line         |Object            |Object           |
+LSeg       |?                                      |LSeg         |Object            |Object           |
+Path       |?                                      |Path         |Object            |Object           |
+Point      |?                                      |Point        |Object            |Object           |
+Polygon    |?                                      |Polygon      |Object            |Object           |
+===========|=======================================|=============|==================|=================|
+bytea      |bytea                                  |Bytea        |Binary            |Byte[]           |
+===========|=======================================|=============|==================|=================|
+float8     |double precision, float8               |Double       |Double            |Double           |
+money      |money                                  |Money        |Decimal           |Decimal          |
+numeric    |numeric                                |Numeric      |Decimal           |Decimal          |
+float4     |real, float4                           |Real         |Single            |Single           |
+===========|=======================================|=============|==================|=================|
+date       |date                                   |Date         |Date              |DateTime         |
+time       |time, time without time zone           |Time         |Time              |DateTime         |
+timetz     |timetz, time with time zone            |Time         |Time              |DateTime         |
+timestamp  |timestamp, timestamp without time zone |Timestamp    |DateTime          |DateTime         |
+timestamptz|timestamptz, timestamp with time zone  |Timestamp    |DateTime          |DateTime         |
+===========|=======================================|=============|==================|=================|
+varchar    |character varying, varchar             |Varchar      |String            |String           |
+text       |text                                   |Text         |String            |String           |
+===========|=======================================|=============|==================|=================|</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 6.3.1:
+																PostgreSQL
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="2.1"></a>
+								<span class="subsubtitle">
+									MySQL
+								</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="6.3.2"
+																class="code"
+														>===========|=======================================|=============|==================|=================|
+MySQL      |INFORMATION_SCHEMA                     |MySqlDbType  |System.DbType     |.Net System Type |
+===========|=======================================|=============|==================|=================|
+BOOLEAN    |tinyint                                |Byte         |Byte              |                 |
+>BOOLEAN   >tinyint                                >Bit          >Boolean           |                 |
+TINYINT    |tinyint                                |Byte         |Byte              |                 |
+SMALLINT   |smallint                               |Int16        |Int16             |                 |
+INTEGER    |int                                    |Int32        |Int32             |                 |
+MEDIUMINT  |mediumint                              |Int24        |?                 |                 |
+BIGINT     |bigint                                 |Int64        |Int64             |                 |
+FLOAT      |float                                  |Float        |Double?           |                 |
+DOUBLE     |double                                 |Double       |Double?           |                 |
+DECIMAL    |decimal                                |Decimal      |Decimal?          |                 |
+DATE       |date                                   |Date         |Date?             |                 |
+DATETIME   |datetime                               |Datetime     |DateTime?         |                 |
+TIMESTAMP  |timestamp                              |Timestamp    |DateTime??        |                 |
+TIME       |time                                   |Time         |Time?             |                 |
+YEAR       |year                                   |Year         |?                 |                 |
+VARCHAR    |varchar                                |VarChar      |?                 |                 |
+TINYBLOB   |tinyblob                               |TinyBlob     |?                 |                 |
+BLOB       |blob                                   |Blob         |?                 |                 |
+MEDIUMBLOB |mediumblob                             |MediumBlob   |?                 |                 |
+LONGBLOB   |longblob                               |LongBlob     |?                 |                 |
+GEOMETRY   |geometry                               |Geometry     |?                 |                 |
+BIT        |bit                                    |Bit          |?                 |                 |
+>BIT       >bit                                    >Bit          >Boolean           |                 |
+===========|=======================================|=============|==================|=================|
+CHAR       |char                                   |?            |?                 |                 |
+===========|=======================================|=============|==================|=================|
+TINYTEXT   |tinytext                               |?            |?                 |                 |
+TEXT       |text                                   |?            |?                 |                 |
+MEDIUMTEXT |mediumtext                             |?            |?                 |                 |
+LONGTEXT   |longtext                               |?            |?                 |                 |
+===========|=======================================|=============|==================|=================|
+BINARY     |binary                                 |?            |?                 |                 |
+VARBINARY  |varbinary                              |?            |?                 |                 |
+===========|=======================================|=============|==================|=================|
+
+> needs revisig</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 6.3.2:
+																MySQL
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
 <!-- separator -->
 			<tr valign="top">
 				<td colspan="4" bgcolor="#000000" height="1"></td>
