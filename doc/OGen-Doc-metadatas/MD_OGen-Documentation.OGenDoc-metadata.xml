@@ -302,5 +302,90 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				</item>
 			</items>
 		</chapter>
+
+
+
+
+
+
+
+		<chapter
+			title="Appendix"
+			fileName="ogen-appendix"
+			subtitle=""
+
+			isIntroduction="false"
+			isAppendix="true">
+
+			<items>
+				<item
+					title="sql data base - information schema"
+					subTitle=""
+					isIntroduction="false"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="getting table names (generic)"
+							showTitle="true"
+							source="Appendix/OGen__Docs__Contrib_Appendix_INFORMATION_SCHEMA_tables.txt"
+							sourceType="file"
+							sourceContentType="code"
+							description="getting table names (generic)" />
+						<attachment
+							title="getting table names (MySQL)"
+							showTitle="true"
+							source="Appendix/OGen__Docs__Contrib_Appendix_INFORMATION_SCHEMA_tables-MySQL.txt"
+							sourceType="file"
+							sourceContentType="code"
+							description="getting table names (MySQL)" />
+						<attachment
+							title="getting table field properties (PostgreSQL)"
+							showTitle="true"
+							source="Appendix/OGen__Docs__Contrib_Appendix_INFORMATION_SCHEMA_tableFields-PostgreSQL.txt"
+							sourceType="file"
+							sourceContentType="code"
+							description="getting table field properties (PostgreSQL)" />
+						<attachment
+							title="getting table field properties (SQL Sever)"
+							showTitle="true"
+							source="Appendix/OGen__Docs__Contrib_Appendix_INFORMATION_SCHEMA_tableFields-SQLServer.txt"
+							sourceType="file"
+							sourceContentType="code"
+							description="getting table field properties (SQL Sever)" />
+						<attachment
+							title="getting table field properties (MySQL)"
+							showTitle="true"
+							source="Appendix/OGen__Docs__Contrib_Appendix_INFORMATION_SCHEMA_tableFields-MySQL.txt"
+							sourceType="file"
+							sourceContentType="code"
+							description="getting table field properties (MySQL)" />
+					</attachments>
+				</item>
+				<item
+					title="Installing PostgreSQL"
+					subTitle=""
+					isIntroduction="false"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="how to install PostgreSQL on Linux"
+							showTitle="true"
+							source="Appendix/OGen__Docs__Develop_HowTo-Install-PostgreSQL_on_Linux.txt"
+							sourceType="file"
+							sourceContentType="code"
+							description="how to install PostgreSQL on Linux" />
+						<attachment
+							title="how to install pgAdminIII on Linux"
+							showTitle="true"
+							source="Appendix/OGen__Docs__Develop_HowTo-Install-PostgreSQL_pgAdminIII_on_Linux.txt"
+							sourceType="file"
+							sourceContentType="code"
+							description="how to install pgAdminIII on Linux" />
+					</attachments>
+				</item>
+			</items>
+		</chapter>
 	</chapters>
 </documentation>

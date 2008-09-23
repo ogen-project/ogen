@@ -1,0 +1,1137 @@
+<html>
+	<head>
+		<title>
+			OGen - OGen User's Guide - Appendix
+		</title>
+		<link rel="stylesheet" href="_include/doc.css" type="text/css" />
+	</head>
+	<body
+		style="background-color:White;bottom:0;top:0;left:0;right:0"
+		bottommargin="0"
+		topmargin="0"
+		leftmargin="0"
+		rightmargin="0">
+
+		<table cellpadding="0" cellspacing="0" width="100%" border="0">
+<!-- menu -->
+			<tr>
+				<td colspan="4" bgcolor="#C0C0C0">
+					<table cellpadding="5" cellspacing="5" width="100%" class="menu" border="0">
+						<tr>
+							<td align="left">
+								<a href="http://ogen.berlios.de">
+									home</a>
+								&nbsp;&nbsp;|&nbsp;&nbsp;
+								<a href="OGen-index.html">
+									Documentation</a>
+								&nbsp;&nbsp;|&nbsp;&nbsp;
+								<a href="http://developer.berlios.de/projects/ogen/">
+									BerliOS project page</a>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+<!-- /menu -->
+<!-- separator -->
+			<tr valign="top">
+				<td colspan="4" bgcolor="#000000" height="1"></td>
+			</tr>
+<!-- /separator -->
+<!-- head -->
+			<tr>
+				<td colspan="4" bgcolor="#99CCFF">
+					<table cellpadding="5" cellspacing="5" width="100%" class="menu" border="0">
+						<tr>
+							<td align="left" colspan="2">
+								OGen User's Guide
+							</td>
+							<td align="right">
+								OGen 2.0</td>
+						</tr>
+
+
+<!-- head:paging -->
+						<tr>
+							<td align="left" valign="top" style="width:33%;">
+									<a href="OGen-chapter-5-ogen-doc.html">
+										previous</a>
+									<br />
+									<span class="text">
+										Documentation generator
+									</span>
+							</td>
+							<td align="center" valign="top" style="width:34%;">
+								<span class="text">
+									<a href="OGen-index.html">
+										index</a>
+								</span>
+							</td>
+							<td align="right" valign="top" style="width:33%;">
+							</td>
+						</tr>
+<!-- /head:paging -->
+
+
+					</table>
+				</td>
+			</tr>
+<!-- /head -->
+<!-- separator -->
+			<tr valign="top">
+				<td colspan="4" bgcolor="#000000" height="1"></td>
+			</tr>
+<!-- /separator -->
+<!-- chapter -->
+			<tr>
+				<td width="10"></td>
+				<td colspan="2">
+					<br />
+
+					<span class="title">
+						6.
+						Appendix
+					</span>
+					<br />
+					<br />
+				</td>
+				<td width="10"></td>
+			</tr>
+<!-- /chapter -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="0"></a>
+						<span class="title">
+							6.1. 
+							sql data base - information schema
+						</span>
+						<br />
+
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+								<a name="0.0"></a>
+								<span class="subsubtitle">
+									getting table names (generic)
+								</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="6.1.1"
+																class="code"
+														>/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+
+SELECT
+	DISTINCT
+	_table.table_name,
+	CASE
+		WHEN (_table.table_type = 'VIEW') THEN
+			CAST(1 AS INT)
+		ELSE
+			CAST(0 AS INT)
+	END
+	AS is_view
+FROM information_schema.tables _table
+/*
+-- <PostgreSQL>
+INNER JOIN "OGen_fnc0__Split"(
+	string_to_array("subApp_", '|')
+) ON (
+	(_table.table_name LIKE "OGen_fnc0__Split")
+)
+-- </PostgreSQL>
+
+-- <SQLServer>
+INNER JOIN [dbo].[OGen_fnc0__Split](
+	@subApp_, 
+	'|'
+) t2 ON (
+	(_table.table_name LIKE t2.[OutputValue])
+)
+-- </SQLServer>
+*/
+WHERE
+	(
+		(_table.table_type = 'BASE TABLE')
+		OR
+		(_table.table_type = 'VIEW')
+	)
+
+	-- <PostgreSQL>
+	AND
+	(
+		(_table.table_type != 'VIEW')
+		OR
+		(
+			(_table.table_type = 'VIEW')
+			AND
+			(_table.table_name NOT LIKE 'v0_%')
+		)
+	)
+	-- </PostgreSQL>
+
+	-- <PostgreSQL>
+	AND
+	(_table.table_schema NOT IN (
+		'information_schema', 
+		'pg_catalog'
+	))
+	-- </PostgreSQL>
+
+	-- <SQLServer>
+	AND
+	(_table.table_name NOT IN (
+		'sysconstraints', 
+		'syssegments', 
+		'dtproperties', 
+		'sysdiagrams'
+	))
+	-- </SQLServer>
+
+	AND
+	(_table.table_catalog = @dbName_)
+ORDER BY _table.table_name
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 6.1.1:
+																getting table names (generic)
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="0.1"></a>
+								<span class="subsubtitle">
+									getting table names (MySQL)
+								</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="6.1.2"
+																class="code"
+														>/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+
+SELECT
+	TABLE_NAME AS "Name",
+	CASE
+		WHEN (TABLE_TYPE = 'VIEW') THEN
+			CAST(1 AS unsigned)
+		ELSE
+			CAST(0 AS unsigned)
+		END AS "isVT"
+FROM INFORMATION_SCHEMA.TABLES
+WHERE
+	(
+		(TABLE_TYPE = 'BASE TABLE')
+		OR
+		(TABLE_TYPE = 'VIEW')
+	)
+	AND
+	(TABLE_SCHEMA != 'mysql')
+ORDER BY "Name"
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 6.1.2:
+																getting table names (MySQL)
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="0.2"></a>
+								<span class="subsubtitle">
+									getting table field properties (PostgreSQL)
+								</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="6.1.3"
+																class="code"
+														>/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+
+SELECT
+
+--	_columns.table_catalog,
+--	_columns.udt_name
+--	AS udt_name,
+	_columns.table_name,
+
+	_columns.column_name,
+
+	CASE
+		WHEN ((_tables.table_type = 'VIEW') OR (_columns.is_nullable = 'No')) THEN
+			CAST(0 AS INT)
+		ELSE
+			CAST(1 AS INT)
+	END
+	AS is_nullable,
+
+	_columns.data_type,
+
+	_columns.character_maximum_length,
+
+	CASE
+		WHEN (_tables.table_type = 'VIEW') THEN
+			CAST(0 AS INT)
+		WHEN (_columns.column_name = _key_column_usage_PKs.column_name) THEN
+			CAST(1 AS INT)
+		ELSE
+			CAST(0 AS INT)
+	END
+	AS is_pk,
+
+	CASE
+		WHEN (_tables.table_type = 'VIEW') THEN
+			CAST(0 AS INT)
+		ELSE
+			CASE
+				WHEN (_columns.column_default LIKE 'nextval(''%') THEN
+					CAST(1 AS INT)
+				ELSE
+					CAST(0 AS INT)
+			END
+	END
+	AS is_identity,
+
+	_fk.fk_table_name,
+
+	_fk.fk_column_name,
+
+	_columns.column_default,
+
+	_columns.collation_name,
+
+	_columns.numeric_precision,
+
+	_columns.numeric_scale
+
+FROM information_schema.columns AS _columns
+
+	LEFT JOIN information_schema.tables AS _tables ON (
+		(_tables.table_catalog = _columns.table_catalog)
+		AND
+		(_tables.table_schema = _columns.table_schema)
+		AND
+		(_tables.table_name = _columns.table_name)
+	)
+
+	LEFT JOIN (
+		SELECT
+			_key_column_usage.table_name,
+			_key_column_usage.column_name,
+			_key_column_usage.table_catalog,
+			_key_column_usage.table_schema
+		FROM information_schema.table_constraints AS _table_constraints
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage ON
+			(_key_column_usage.constraint_catalog = _table_constraints.constraint_catalog)
+			AND
+			(_key_column_usage.constraint_schema = _table_constraints.constraint_schema)
+			AND
+			(_key_column_usage.constraint_name = _table_constraints.constraint_name)
+			AND
+			(_table_constraints.constraint_type = 'PRIMARY KEY')
+	) AS _key_column_usage_PKs ON
+		(_key_column_usage_PKs.table_catalog = _columns.table_catalog)
+		AND
+		(_key_column_usage_PKs.table_schema = _columns.table_schema)
+		AND
+		(_key_column_usage_PKs.table_name = _columns.table_name)
+		AND
+		(_key_column_usage_PKs.column_name = _columns.column_name)
+
+	LEFT JOIN (
+/*
+		SELECT
+			_ccu2.table_name AS fk_table_name,
+			_ccu2.column_name AS fk_column_name,
+
+			_tc2.table_name,
+			_kcu2.column_name,
+			_tc2.table_catalog,
+			_tc2.table_schema
+		FROM information_schema.table_constraints _tc2
+		INNER JOIN information_schema.constraint_column_usage _ccu2 ON
+			(_ccu2.constraint_catalog = _tc2.constraint_catalog)
+			AND
+			(_ccu2.constraint_schema = _tc2.constraint_schema)
+			AND
+			(_ccu2.constraint_name = _tc2.constraint_name)
+		INNER JOIN  information_schema.key_column_usage _kcu2 ON
+			(_kcu2.constraint_catalog = _ccu2.constraint_catalog)
+			AND
+			(_kcu2.constraint_schema = _ccu2.constraint_schema)
+			AND
+			(_kcu2.constraint_name = _ccu2.constraint_name)
+		WHERE
+			_tc2.constraint_type = 'FOREIGN KEY'
+*/
+
+		SELECT
+			_key_column_usage_PKs.table_name AS fk_table_name,
+			_key_column_usage_PKs.column_name AS fk_column_name,
+
+			_key_column_usage_FKs.table_name,
+			_key_column_usage_FKs.column_name,
+			_key_column_usage_FKs.table_catalog,
+			_key_column_usage_FKs.table_schema
+		FROM information_schema.referential_constraints AS _referential_constraints
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage_FKs ON
+			(_key_column_usage_FKs.constraint_catalog = _referential_constraints.constraint_catalog)
+			AND
+			(_key_column_usage_FKs.constraint_schema = _referential_constraints.constraint_schema)
+			AND
+			(_key_column_usage_FKs.constraint_name = _referential_constraints.constraint_name)
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage_PKs ON
+			(_key_column_usage_PKs.constraint_catalog = _referential_constraints.constraint_catalog)
+			AND
+			(_key_column_usage_PKs.constraint_schema = _referential_constraints.constraint_schema)
+			AND
+			(_key_column_usage_PKs.constraint_name = _referential_constraints.unique_constraint_name)
+	) AS _fk ON
+		(_fk.table_catalog = _columns.table_catalog)
+		AND
+		(_fk.table_schema = _columns.table_schema)
+		AND
+		(_fk.table_name = _columns.table_name)
+		AND
+		(_fk.column_name = _columns.column_name)
+
+WHERE
+--	(_columns.table_schema = 'public')
+--	AND
+--	(_columns.table_name NOT LIKE 'v0%')
+--	AND
+--	(_columns.table_catalog = '{0}')
+--	AND
+--	(
+--		('' = '{1}')
+--		OR
+--		(_columns.table_name = '{1}')
+--	)
+--	AND
+	(_columns.table_name = 'UserGroup') OR (_columns.table_name = 'User') OR (_columns.table_name = 'Group')
+
+ORDER BY
+	_columns.table_name,
+--	_columns.column_name,
+	_columns.ordinal_position
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 6.1.3:
+																getting table field properties (PostgreSQL)
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="0.3"></a>
+								<span class="subsubtitle">
+									getting table field properties (SQL Sever)
+								</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="6.1.4"
+																class="code"
+														>/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+
+SELECT
+--	_columns.table_catalog,
+
+
+	_columns.table_name,
+
+	_columns.column_name,
+
+	CASE
+		WHEN ((_tables.table_type = 'VIEW') OR (_columns.is_nullable = 'No')) THEN
+			CAST(0 AS INT)
+		ELSE
+			CAST(1 AS INT)
+	END
+	AS is_nullable,
+
+	_columns.data_type,
+
+
+
+
+	_columns.character_maximum_length,
+
+	CASE
+		WHEN (_tables.table_type = 'VIEW') THEN
+			CAST(0 AS INT)
+		WHEN (_columns.column_name = _key_column_usage_PKs.column_name) THEN
+			CAST(1 AS INT)
+		ELSE
+			CAST(0 AS INT)
+	END
+	AS is_pk,
+
+	CASE
+		WHEN (_tables.table_type = 'VIEW') THEN
+			CAST(0 AS INT)
+		ELSE
+			CAST(COLUMNPROPERTY(OBJECT_ID(_columns.table_name), _columns.column_name, 'IsIdentity') AS INT)
+
+
+
+
+
+	END
+	AS is_identity,
+
+	_fk.fk_table_name,
+
+	_fk.fk_column_name,
+
+	_columns.column_default,
+
+	_columns.collation_name,
+
+	_columns.numeric_precision,
+
+	_columns.numeric_scale
+
+FROM information_schema.columns AS _columns
+
+	LEFT JOIN information_schema.tables AS _tables ON (
+		(_tables.table_catalog = _columns.table_catalog)
+		AND
+		(_tables.table_schema = _columns.table_schema)
+		AND
+		(_tables.table_name = _columns.table_name)
+	)
+
+	LEFT JOIN (
+		SELECT
+			_key_column_usage.table_name,
+			_key_column_usage.column_name,
+			_key_column_usage.table_catalog,
+			_key_column_usage.table_schema
+		FROM information_schema.table_constraints AS _table_constraints
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage ON
+			(_key_column_usage.constraint_catalog = _table_constraints.constraint_catalog)
+			AND
+			(_key_column_usage.constraint_schema = _table_constraints.constraint_schema)
+			AND
+			(_key_column_usage.constraint_name = _table_constraints.constraint_name)
+			AND
+			(_table_constraints.constraint_type = 'PRIMARY KEY')
+	) AS _key_column_usage_PKs ON
+		(_key_column_usage_PKs.table_catalog = _columns.table_catalog)
+		AND
+		(_key_column_usage_PKs.table_schema = _columns.table_schema)
+		AND
+		(_key_column_usage_PKs.table_name = _columns.table_name)
+		AND
+		(_key_column_usage_PKs.column_name = _columns.column_name)
+
+	LEFT JOIN (
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		SELECT
+			_key_column_usage_PKs.table_name AS fk_table_name,
+			_key_column_usage_PKs.column_name AS fk_column_name,
+
+			_key_column_usage_FKs.table_name,
+			_key_column_usage_FKs.column_name,
+			_key_column_usage_FKs.table_catalog,
+			_key_column_usage_FKs.table_schema
+		FROM information_schema.referential_constraints AS _referential_constraints
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage_FKs ON
+			(_key_column_usage_FKs.constraint_catalog = _referential_constraints.constraint_catalog)
+			AND
+			(_key_column_usage_FKs.constraint_schema = _referential_constraints.constraint_schema)
+			AND
+			(_key_column_usage_FKs.constraint_name = _referential_constraints.constraint_name)
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage_PKs ON
+			(_key_column_usage_PKs.constraint_catalog = _referential_constraints.constraint_catalog)
+			AND
+			(_key_column_usage_PKs.constraint_schema = _referential_constraints.constraint_schema)
+			AND
+			(_key_column_usage_PKs.constraint_name = _referential_constraints.unique_constraint_name)
+	) AS _fk ON
+		(_fk.table_catalog = _columns.table_catalog)
+		AND
+		(_fk.table_schema = _columns.table_schema)
+		AND
+		(_fk.table_name = _columns.table_name)
+		AND
+		(_fk.column_name = _columns.column_name)
+
+WHERE
+	(_columns.table_name NOT IN (
+		'sysconstraints', 
+		'syssegments', 
+		'dtproperties', 
+		'sysdiagrams'
+	))
+	AND
+--	(_columns.table_catalog = '{0}')
+--	AND
+--	(
+--		('' = '{1}')
+--		OR
+--		(_columns.table_name = '{1}')
+--	)
+--	AND
+	(_columns.table_name = 'UserGroup') OR (_columns.table_name = 'User') OR (_columns.table_name = 'Group')
+
+ORDER BY
+	_columns.table_name,
+--	_columns.column_name,
+	_columns.ordinal_position
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 6.1.4:
+																getting table field properties (SQL Sever)
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="0.4"></a>
+								<span class="subsubtitle">
+									getting table field properties (MySQL)
+								</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="6.1.5"
+																class="code"
+														>/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+
+SELECT
+	_columns.table_name,
+
+	_columns.column_name,
+
+	CASE
+		WHEN ((_tables.table_type = 'VIEW') OR (_columns.is_nullable = 'No')) THEN
+			CAST(0 AS unsigned)
+		ELSE
+			CAST(1 AS unsigned)
+	END 
+	AS is_nullable,
+
+	_columns.data_type,
+
+	_columns.character_maximum_length,
+
+	CASE
+		WHEN ((_tables.table_type != 'VIEW') AND (_columns.column_key = 'PRI')) THEN
+			CAST(1 AS unsigned)
+		ELSE
+			CAST(0 AS unsigned)
+	END 
+	AS is_pk,
+
+	CASE
+		WHEN ((_tables.table_type != 'VIEW') AND (_columns.extra = 'auto_increment')) THEN
+			CAST(1 AS unsigned)
+		ELSE
+			CAST(0 AS unsigned)
+	END 
+	AS is_identity,
+
+	_key_column_usage.referenced_table_name
+	AS fk_table_name,
+
+	_key_column_usage.referenced_column_name
+	AS fk_column_name,
+
+	_columns.column_default,
+
+	_columns.collation_name,
+
+	_columns.numeric_precision,
+
+	_columns.numeric_scale
+
+FROM information_schema.columns AS _columns
+
+	LEFT JOIN information_schema.tables AS _tables ON (
+
+
+		(_tables.table_schema = _columns.table_schema)
+		AND
+		(_tables.table_name = _columns.table_name)
+	)
+	LEFT JOIN information_schema.key_column_usage AS _key_column_usage ON (
+		(_key_column_usage.table_name = _columns.table_name)
+		AND
+		(_key_column_usage.column_name = _columns.column_name)
+		AND
+		(_key_column_usage.referenced_table_schema = 'OGen-NTier_UTs')
+		AND 
+		(_key_column_usage.referenced_table_name is not null)
+	)
+/*
+	LEFT JOIN (
+		SELECT
+			_key_column_usage.table_name,
+			_key_column_usage.column_name,
+
+			_key_column_usage.table_schema
+		FROM information_schema.table_constraints AS _table_constraints
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage ON
+
+
+			(_key_column_usage.constraint_schema = _table_constraints.constraint_schema)
+			AND
+			(_key_column_usage.constraint_name = _table_constraints.constraint_name)
+			AND
+			(_table_constraints.constraint_type = 'PRIMARY KEY')
+	) AS _key_column_usage_PKs ON
+
+
+		(_key_column_usage_PKs.table_schema = _columns.table_schema)
+		AND
+		(_key_column_usage_PKs.table_name = _columns.table_name)
+		AND
+		(_key_column_usage_PKs.column_name = _columns.column_name)
+
+	LEFT JOIN (
+*//*
+		SELECT
+			_ccu2.table_name AS fk_table_name,
+			_ccu2.column_name AS fk_column_name,
+
+			_tc2.table_name,
+			_kcu2.column_name,
+
+			_tc2.table_schema
+		FROM information_schema.table_constraints _tc2
+		INNER JOIN information_schema.constraint_column_usage _ccu2 ON
+
+
+			(_ccu2.constraint_schema = _tc2.constraint_schema)
+			AND
+			(_ccu2.constraint_name = _tc2.constraint_name)
+		INNER JOIN  information_schema.key_column_usage _kcu2 ON
+
+
+			(_kcu2.constraint_schema = _ccu2.constraint_schema)
+			AND
+			(_kcu2.constraint_name = _ccu2.constraint_name)
+		WHERE
+			_tc2.constraint_type = 'FOREIGN KEY'
+*//*
+
+		SELECT
+			_key_column_usage_PKs.table_name AS fk_table_name,
+			_key_column_usage_PKs.column_name AS fk_column_name,
+
+			_key_column_usage_FKs.table_name,
+			_key_column_usage_FKs.column_name,
+
+			_key_column_usage_FKs.table_schema
+		FROM information_schema.referential_constraints AS _referential_constraints
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage_FKs ON
+
+
+			(_key_column_usage_FKs.constraint_schema = _referential_constraints.constraint_schema)
+			AND
+			(_key_column_usage_FKs.constraint_name = _referential_constraints.constraint_name)
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage_PKs ON
+
+
+			(_key_column_usage_PKs.constraint_schema = _referential_constraints.constraint_schema)
+			AND
+			(_key_column_usage_PKs.constraint_name = _referential_constraints.unique_constraint_name)
+	) AS _fk ON
+
+
+		(_fk.table_schema = _columns.table_schema)
+		AND
+		(_fk.table_name = _columns.table_name)
+		AND
+		(_fk.column_name = _columns.column_name)
+*/
+WHERE
+	(_columns.table_schema = 'OGen-NTier_UTs')
+	AND
+	(
+		(_columns.table_name = 'User')
+		OR
+		(_columns.table_name = 'UserGroup')
+	)
+ORDER BY
+	_columns.table_name,
+	_columns.ordinal_position
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 6.1.5:
+																getting table field properties (MySQL)
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="1"></a>
+						<span class="title">
+							6.2. 
+							Installing PostgreSQL
+						</span>
+						<br />
+
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+								<a name="1.0"></a>
+								<span class="subsubtitle">
+									how to install PostgreSQL on Linux
+								</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="6.2.1"
+																class="code"
+														>### NOTES
+# tar xvfz ... .tar.gz
+# tar xvfj ... .tar.bz2
+
+#--- preparation
+go adduser postgres # give privileges: root, sys, adm, bin, daemon, disk 
+mkdir /home/postgres/dump
+cd /home/postgres/dump
+#tar xvfz postgresql-8.?.?.tar.gz
+tar xvfj postgresql-8.?.?.tar.bz2
+chown -R postgres:root /home/postgres/dump/postgresql-8.?.?
+cd postgresql-8.?.?
+
+su - postgres
+cd /home/postgres/dump/postgresql-8.?.?
+
+#--- instalation
+./configure --with-openssl
+gmake
+su
+gmake install
+
+
+### NOTE:
+# - eu tendo a copiar o script de config do pgsql sempre que reinstalo o linux,
+# ele pode ja la estar, mas tem de ser apagado antes de proceguir!
+#
+# rm /usr/local/pgsql/data/pg_hba.conf
+# rmdir /usr/local/pgsql/data
+
+mkdir /usr/local/pgsql/data
+#chown postgres /usr/local/pgsql/data
+chown -R postgres /usr/local/pgsql
+exit # su - postgres
+
+/usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data
+exit
+
+#--- configuration
+cp /root/MyDocuments/MyCFGs/usr/local/pgsql/data/pg_hba.conf /usr/local/pgsql/data/pg_hba.conf
+cp /root/MyDocuments/MyCFGs/etc/rc.d/rc.psql /etc/rc.d/rc.psql
+go psql ed cfg # vai precisar de copiar o script quase de certeza, verifica os atributos e os users
+chmod u+x /etc/rc.d/rc.psql
+go psql restart
+su - postgres -c "/usr/local/pgsql/bin/createdb testdb"
+go psql testdb
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 6.2.1:
+																how to install PostgreSQL on Linux
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="1.1"></a>
+								<span class="subsubtitle">
+									how to install pgAdminIII on Linux
+								</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="6.2.2"
+																class="code"
+														>### NOTES
+# tar xvfz ... .tar.gz
+# tar xvfj ... .tar.bz2
+
+
+cd /root/MyDocuments/myDump
+
+
+### wxWidgets:
+# Download wxWidgets 2.5.3 from http://www.wxwidgets.org/
+tar xvfj wxGTK-2.5.3.tar.bz2
+cd wxGTK-2.5.3
+./configure --with-gtk --enable-gtk2 --enable-unicode --disable-shared --enable-debug --prefix=/usr/local
+make
+make install
+ldconfig
+# install wxWidgets Styled Text Control
+cd contrib/src/stc
+make
+make install
+ldconfig
+
+
+### pgadmin3:
+tar xvfz pgadmin3-1.2.0.tar.gz
+cd pgadmin3-1.2.0
+
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+./configure --enable-static --enable-debug --prefix=/usr/local
+make all
+make install
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 6.2.2:
+																how to install pgAdminIII on Linux
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- separator -->
+			<tr valign="top">
+				<td colspan="4" bgcolor="#000000" height="1"></td>
+			</tr>
+<!-- /separator -->
+<!-- bottom -->
+			<tr>
+				<td colspan="4" bgcolor="#99CCFF" valign="top">
+					<table cellpadding="5" cellspacing="5" width="100%" class="menu" border="0">
+
+
+<!-- bottom:paging -->
+						<tr>
+							<td align="left" valign="top" style="width:33%;">
+									<a href="OGen-chapter-5-ogen-doc.html">
+										previous</a>
+									<br />
+									<span class="text">
+										Documentation generator
+									</span>
+							</td>
+							<td align="center" valign="top" style="width:34%;">
+								<span class="text">
+									<a href="OGen-index.html">
+										index</a>
+								</span>
+							</td>
+							<td align="right" valign="top" style="width:33%;">
+							</td>
+						</tr>
+<!-- /bottom:paging -->
+
+
+						<tr>
+							<td align="left" valign="top" colspan="3">
+								<a href="mailto:fmonteiro@users.berlios.de?subject=[OGen] 6. Appendix">Send comments on this topic.</a>
+								<br />
+								<a href="LICENSE.FDL.txt">Copyright (C) 2002 Francisco Monteiro</a>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+<!-- /bottom -->
+		</table>
+	</body>
+</html>
