@@ -34,6 +34,10 @@ string _aux_documentation_index = string.Format(
 	_aux_doc.DocumentationName
 );
 
+// ToDos: here!
+if (_arg_ChapterTitle == string.Empty) 
+	Response.End();
+
 int _aux_chapter_index = _aux_doc.Chapters.ChapterCollection.Search(_arg_ChapterTitle);
 XS_chapterType _aux_chapter = _aux_doc.Chapters.ChapterCollection[_aux_chapter_index];
 
@@ -359,17 +363,17 @@ string _aux_attachment_source;
 														class="text"><%
 														switch (_aux_attachment.SourceContentType) {
 															case XS_SourceContentTypeEnumeration.comment:%>
-																<span style="color:Green; font-weight:bold;">
+																<span class="comment">
 																	Comment
 																</span><%
 																break;
 															case XS_SourceContentTypeEnumeration.tip:%>
-																<span style="color:Yellow; font-weight:bold;">
+																<span class="tip">
 																	Tip
 																</span><%
 																break;
 															case XS_SourceContentTypeEnumeration.warning:%>
-																<span style="color:Red; font-weight:bold;">
+																<span class="warning">
 																	Warning
 																</span><%
 																break;

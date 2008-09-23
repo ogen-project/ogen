@@ -133,6 +133,18 @@ A:visited {
 	background-color: #d5d5d5;
 	text-align: center;
 }
+.comment {
+	color: #009900;
+	font-weight: bold;
+}
+.tip {
+	color: #FFCC00;
+	font-weight: bold;
+}
+.warning {
+	color:Red; 
+	font-weight:bold;
+}
 /*
 .error {
 	color: #FF0000;
