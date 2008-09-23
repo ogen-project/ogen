@@ -30,7 +30,7 @@ namespace OGen.UTs.howtos {
 
 			// you now have a cDBTable array populated with all
 			// table names and other properties for your database
-			cDBTable[] _tables = _con.getTables();
+			DBTable[] _tables = _con.getTables();
 
 			for (int t = 0; t < _tables.Length; t++) {
 				Console.WriteLine(

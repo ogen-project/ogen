@@ -36,40 +36,45 @@ namespace OGen.NTier.UTs.howtos {
 			// before beginning a transaction we need to open the connection
 			_con.Open();
 
-			// beginning transaction
-			_con.Transaction.Begin();
+			try {
+				// beginning transaction
+				_con.Transaction.Begin();
 
-			// sharing connection with User Data Object
-			DO_User _user = new DO_User(_con);
-			// performing some operations on User Data Object
-			_user.Fields.Login = _testid;
-			_user.Fields.Password = _testid;
-			_iduser = _user.insObject(true, out _constraint);
-			// handling constraint code should be added here
-			_user.Dispose(); _user = null;
+				// sharing connection with User Data Object
+				DO_User _user = new DO_User(_con);
+				// performing some operations on User Data Object
+				_user.Fields.Login = _testid;
+				_user.Fields.Password = _testid;
+				_iduser = _user.insObject(true, out _constraint);
+				// handling constraint code should be added here
+				_user.Dispose(); _user = null;
 
-			// sharing connection with Group Data Object
-			DO_Group _group = new DO_Group(_con);
-			// performing some operations on User Data Object
-			_group.Fields.Name = _testid;
-			_idgroup = _group.insObject(true);
-			_group.Dispose(); _group = null;
+				// sharing connection with Group Data Object
+				DO_Group _group = new DO_Group(_con);
+				// performing some operations on User Data Object
+				_group.Fields.Name = _testid;
+				_idgroup = _group.insObject(true);
+				_group.Dispose(); _group = null;
 
-			// sharing connection with Group Data Object
-			DO_UserGroup _usergroup = new DO_UserGroup(_con);
-			// performing some operations on User Data Object
-			_usergroup.Fields.IDGroup = _idgroup;
-			_usergroup.Fields.IDUser = _iduser;
-			_usergroup.Fields.Relationdate = DateTime.Now;
-			_usergroup.Fields.Defaultrelation = false;
-			_usergroup.setObject(false);
-			_usergroup.Dispose(); _usergroup = null;
+				// sharing connection with Group Data Object
+				DO_UserGroup _usergroup = new DO_UserGroup(_con);
+				// performing some operations on User Data Object
+				_usergroup.Fields.IDGroup = _idgroup;
+				_usergroup.Fields.IDUser = _iduser;
+				_usergroup.Fields.Relationdate = DateTime.Now;
+				_usergroup.Fields.Defaultrelation = false;
+				_usergroup.setObject(false);
+				_usergroup.Dispose(); _usergroup = null;
 
-			// rollback transaction, we don't need such data in db, this is just an how to sample
-			_con.Transaction.Rollback();
-
-			// terminate transaction
-			_con.Transaction.Terminate();
+				// commit transaction
+				_con.Transaction.Commit();
+			} catch (Exception _ex) {
+				// rollback transaction
+				_con.Transaction.Rollback();
+			} finally {
+				// terminate transaction
+				_con.Transaction.Terminate();
+			}
 
 			// closing connection
 			_con.Close();

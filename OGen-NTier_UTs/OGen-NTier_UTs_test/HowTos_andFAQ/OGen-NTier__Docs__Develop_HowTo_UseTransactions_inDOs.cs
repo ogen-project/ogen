@@ -32,20 +32,25 @@ namespace OGen.NTier.UTs.howtos {
 			// before beginning a transaction we need to open the connection
 			_user.Connection.Open();
 
-			// beginning transaction
-			_user.Connection.Transaction.Begin();
+			try {
+				// beginning transaction
+				_user.Connection.Transaction.Begin();
 
-			// performing some operations on User Data Object
-			_user.Fields.Login = _testid;
-			_user.Fields.Password = _testid;
-			_iduser = _user.insObject(true, out _constraint);
-			// handling constraint code should be added here
+				// performing some operations on User Data Object
+				_user.Fields.Login = _testid;
+				_user.Fields.Password = _testid;
+				_iduser = _user.insObject(true, out _constraint);
+				// handling constraint code should be added here
 
-			// rollback transaction, we don't need such data in db, this is just an how to sample
-			_user.Connection.Transaction.Rollback();
-
-			// terminate transaction
-			_user.Connection.Transaction.Terminate();
+				// commit transaction
+				_user.Connection.Transaction.Commit();
+			} catch (Exception _ex) {
+				// rollback transaction
+				_user.Connection.Transaction.Rollback();
+			} finally {
+				// terminate transaction
+				_user.Connection.Transaction.Terminate();
+			}
 
 			// closing connection
 			_user.Connection.Close();

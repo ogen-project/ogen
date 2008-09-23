@@ -32,23 +32,27 @@ namespace OGen.UTs.howtos {
 			// before beginning a transaction we need to open the connection
 			_con.Open();
 
-			// beginning transaction
-			_con.Transaction.Begin();
+			try {
+				// beginning transaction
+				_con.Transaction.Begin();
 
-			// performing some operations on db
-			_con.Execute_SQLQuery(
-				string.Format(
-					"delete from \"User\" where \"IDUser\" = {0}", 
-					_iduser.ToString()
-				)
-			);
+				// performing some operations on db
+				_con.Execute_SQLQuery(
+					string.Format(
+						"delete from \"User\" where \"IDUser\" = {0}",
+						_iduser.ToString()
+					)
+				);
 
-			// rollback transaction, we don't need such data in db,
-			// this is just an how to sample
-			_con.Transaction.Rollback();
-
-			// terminate transaction
-			_con.Transaction.Terminate();
+				// commit transaction
+				_con.Transaction.Commit();
+			} catch (Exception _ex) {
+				// rollback transaction
+				_con.Transaction.Rollback();
+			} finally {
+				// terminate transaction
+				_con.Transaction.Terminate();
+			}
 
 			// closing connection
 			_con.Close();

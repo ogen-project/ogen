@@ -30,7 +30,7 @@ namespace OGen.UTs.howtos {
 
 			// you now have a cDBTableField array populated with all
 			// field names and other properties for specified table
-			cDBTableField[] _fields = _con.getTableFields("User");
+			DBTableField[] _fields = _con.getTableFields("User");
 
 			for (int f = 0; f < _fields.Length; f++) {
 				Console.WriteLine(
