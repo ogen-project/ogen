@@ -125,7 +125,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="introduction"
 							showTitle="true"
-							source="ch00200-ogen/it00100-introduction/pag00100-introduction.html"
+							source="ch00200-build_your_own_generator/it00100-introduction/pag00100-introduction.html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
@@ -141,7 +141,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="dependencies and pre-requisites"
 							showTitle="true"
-							source="ch00200-ogen/it00200-installing_ogen/pag00100-dependencies_and_pre-requisites.html"
+							source="ch00200-build_your_own_generator/it00200-installing_ogen/pag00100-dependencies_and_pre-requisites.html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
@@ -149,7 +149,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="installing OGen"
 							showTitle="true"
-							source="ch00200-ogen/it00200-installing_ogen/pag00200-installing_OGen.html"
+							source="ch00200-build_your_own_generator/it00200-installing_ogen/pag00200-installing_OGen.html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
@@ -165,7 +165,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="..."
 							showTitle="true"
-							source="ch00200-ogen/it00300-creating_your_own_generator/pag00100- ... .html"
+							source="ch00200-build_your_own_generator/it00300-creating_your_own_generator/pag00100- ... .html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />

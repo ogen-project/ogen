@@ -33,12 +33,16 @@ namespace OGen.Doc.lib.metadata {
 						Path.DirectorySeparatorChar
 					)
 				);
-			return File.Exists(_filePath) 
-				? File.ReadAllText(
-					_filePath
-				)
-				: "ERROR: FILE DOESN'T EXIST (ToDos: here!)";
+			string _output 
+				= File.Exists(_filePath) 
+					? File.ReadAllText(
+						_filePath
+					).Trim()
+					: "ERROR - TODOS: FILE DOESN'T EXIST";
 
+			return (_output == string.Empty)
+				? "ERROR - TODOS: FILE IS EMPTY"
+				: _output;
 		}
 		#endregion
 	}

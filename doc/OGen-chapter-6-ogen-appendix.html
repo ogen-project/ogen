@@ -215,8 +215,7 @@ WHERE
 
 	AND
 	(_table.table_catalog = @dbName_)
-ORDER BY _table.table_name
-</pre></td>
+ORDER BY _table.table_name</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -277,8 +276,7 @@ WHERE
 	)
 	AND
 	(TABLE_SCHEMA != 'mysql')
-ORDER BY "Name"
-</pre></td>
+ORDER BY "Name"</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -487,8 +485,7 @@ WHERE
 ORDER BY
 	_columns.table_name,
 --	_columns.column_name,
-	_columns.ordinal_position
-</pre></td>
+	_columns.ordinal_position</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -702,8 +699,7 @@ WHERE
 ORDER BY
 	_columns.table_name,
 --	_columns.column_name,
-	_columns.ordinal_position
-</pre></td>
+	_columns.ordinal_position</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -904,8 +900,7 @@ WHERE
 	)
 ORDER BY
 	_columns.table_name,
-	_columns.ordinal_position
-</pre></td>
+	_columns.ordinal_position</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -1005,8 +1000,7 @@ go psql ed cfg # vai precisar de copiar o script quase de certeza, verifica os a
 chmod u+x /etc/rc.d/rc.psql
 go psql restart
 su - postgres -c "/usr/local/pgsql/bin/createdb testdb"
-go psql testdb
-</pre></td>
+go psql testdb</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -1067,8 +1061,7 @@ cd pgadmin3-1.2.0
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 ./configure --enable-static --enable-debug --prefix=/usr/local
 make all
-make install
-</pre></td>
+make install</pre></td>
 													</tr>
 													<tr>
 														<td 
