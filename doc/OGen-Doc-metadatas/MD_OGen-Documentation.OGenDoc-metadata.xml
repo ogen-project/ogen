@@ -220,6 +220,95 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
+
+
+<attachment
+	title="code - no desc"
+	showTitle="true"
+	source="ch00100-ogen/it00100-introduction/test-code.cs"
+	sourceType="file"
+	sourceContentType="code"
+	description="" />
+<attachment
+	title="code - with desc"
+	showTitle="true"
+	source="ch00100-ogen/it00100-introduction/test-code.cs"
+	sourceType="file"
+	sourceContentType="code"
+	description="some code" />
+<attachment
+	title="code - no title"
+	showTitle="false"
+	source="ch00100-ogen/it00100-introduction/test-code.cs"
+	sourceType="file"
+	sourceContentType="code"
+	description="some code" />
+
+<attachment
+	title="table - no desc"
+	showTitle="true"
+	source="ch00100-ogen/it00100-introduction/test-table.html"
+	sourceType="file"
+	sourceContentType="table"
+	description="" />
+<attachment
+	title="table - with desc"
+	showTitle="true"
+	source="ch00100-ogen/it00100-introduction/test-table.html"
+	sourceType="file"
+	sourceContentType="table"
+	description="some table" />
+<attachment
+	title="table - no title"
+	showTitle="false"
+	source="ch00100-ogen/it00100-introduction/test-table.html"
+	sourceType="file"
+	sourceContentType="table"
+	description="some table" />
+
+<attachment
+	title="image - no desc"
+	showTitle="true"
+	source="ch00100-ogen/it00100-introduction/img00200-audience.png"
+	sourceType="file"
+	sourceContentType="image"
+	description="" />
+<attachment
+	title="image - with desc"
+	showTitle="true"
+	source="ch00100-ogen/it00100-introduction/img00200-audience.png"
+	sourceType="file"
+	sourceContentType="image"
+	description="some image" />
+<attachment
+	title="image - no title"
+	showTitle="false"
+	source="ch00100-ogen/it00100-introduction/img00200-audience.png"
+	sourceType="file"
+	sourceContentType="image"
+	description="some image" />
+
+<attachment
+	title="License"
+	showTitle="true"
+	source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+	sourceType="file"
+	sourceContentType="comment"
+	description="" />
+<attachment
+	title="License"
+	showTitle="false"
+	source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+	sourceType="file"
+	sourceContentType="warning"
+	description="" />
+<attachment
+	title="License"
+	showTitle="true"
+	source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+	sourceType="file"
+	sourceContentType="tip"
+	description="" />
 					</attachments>
 				</item>
 			</items>
@@ -227,7 +316,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<chapter
 			title="NTier application generator"
 			fileName="ogen-ntier"
-			subtitle="what ever"
+			subtitle="TODOS"
 
 			isIntroduction="false"
 			isAppendix="false">

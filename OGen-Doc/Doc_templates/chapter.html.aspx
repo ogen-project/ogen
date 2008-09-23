@@ -269,8 +269,7 @@ string _aux_attachment_source;
 								case XS_SourceContentTypeEnumeration.html:%>
 									<span class="text">
 										<%=_aux_attachment_source%>
-									</span>
-									<br /><%
+									</span><%
 									break;
 // </html> /////////////////////////////////////////////////////////////////////////////
 // <code> //////////////////////////////////////////////////////////////////////////////
@@ -290,8 +289,14 @@ string _aux_attachment_source;
 														<td 
 															align="center">
 															<span class="text">
-																code <%=_aux_chapter.Number%>.<%=i + 1%>.<%=_aux_attachment.CodeNumber%>:
-																<%=_aux_attachment.Description%>
+																code <%=_aux_chapter.Number%>.<%=i + 1%>.<%=_aux_attachment.CodeNumber%><%
+																if (
+																	(_aux_attachment.Description = _aux_attachment.Description.Trim())
+																	!=
+																	string.Empty
+																) {
+																	%>: <%=_aux_attachment.Description%><%
+																}%>
 															</span>
 														</td>
 													</tr>
@@ -313,8 +318,14 @@ string _aux_attachment_source;
 										<tr>
 											<td align="center">
 												<span class="text">
-													figure <%=_aux_chapter.Number%>.<%=i + 1%>.<%=_aux_attachment.ImageNumber%>:
-													<%=_aux_attachment.Description%>
+													figure <%=_aux_chapter.Number%>.<%=i + 1%>.<%=_aux_attachment.ImageNumber%><%
+													if (
+														(_aux_attachment.Description = _aux_attachment.Description.Trim())
+														!=
+														string.Empty
+													) {
+														%>: <%=_aux_attachment.Description%><%
+													}%>
 												</span>
 											</td>
 										</tr>
@@ -341,8 +352,14 @@ string _aux_attachment_source;
 										<tr>
 											<td align="center">
 												<span class="text">
-													table <%=_aux_chapter.Number%>.<%=i + 1%>.<%=_aux_attachment.TableNumber%>:
-													<%=_aux_attachment.Description%>
+													table <%=_aux_chapter.Number%>.<%=i + 1%>.<%=_aux_attachment.TableNumber%><%
+													if (
+														(_aux_attachment.Description = _aux_attachment.Description.Trim())
+														!=
+														string.Empty
+													) {
+														%>: <%=_aux_attachment.Description%><%
+													}%>
 												</span>
 											</td>
 										</tr>

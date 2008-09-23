@@ -142,11 +142,10 @@ It generates code on text files and databases<sup>(1)</sup> based on sets of XML
 <br />
 
 <sup>(1)</sup> PostgreSQL, SQL Server and MySQL are currently supported<br />
-<sup>(2)</sup> gathered from SQL information schema, user specific XML data and .net assemblies
+<sup>(2)</sup> gathered from SQL information schema, user specific XML data and .net assemblies<br />
 
 <br />
 									</span>
-									<br />
 								<a name="0.1"></a>
 								<span class="subsubtitle">
 									Audience
@@ -160,8 +159,8 @@ It generates code on text files and databases<sup>(1)</sup> based on sets of XML
 TODOS<br />
 TODOS<br />
 TODOS<br />
+<br />
 									</span>
-									<br />
 								<a name="0.2"></a>
 								<span class="subsubtitle">
 									License
@@ -189,9 +188,695 @@ MySQL is
 
 <a href="http://www.mysql.com/about/legal/licensing/">licensed</a>
 
-under the GNU GPL license.
+under the GNU GPL license.<br />
 <br />
 									</span>
+								<a name="0.3"></a>
+								<span class="subsubtitle">
+									code - no desc
+								</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="3.1.1"
+																class="code"
+														>#region Copyright (C) 2002 Francisco Monteiro
+/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+#endregion
+using System;
+using System.IO;
+using OGen.lib.generator;
+using OGen.Doc.lib.metadata;
+using OGen.Doc.lib.generator;
+
+namespace OGen.Doc.presentationlayer.console {
+	class MainClass {
+		[STAThread]
+		static void Main(string[] args_in) {
+			#region Console.WriteLine("Copyright (C) 2002 Francisco Monteiro");
+			Console.WriteLine(
+				@"
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the ""Software""), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+"
+			);
+			#endregion
+			if (args_in.Length == 1) {
+				if (File.Exists(args_in[0])) {
+					DoIt(args_in[0]);
+				} else {
+					Console.WriteLine("file doesn't exist");
+				}
+			} else {
+#if DEBUG
+				long _begin_ticks = DateTime.Now.Ticks;
+
+				DoIt(
+					//@"\\127.0.0.1\OGen_source$\OGen-NTier\OGen-NTier-Doc\OGenDoc-metadatas\MD_OGen-NTier.OGenDoc-metadata.xml"
+
+					System.IO.Path.Combine(
+						#if !NET_1_1
+						System.Configuration.ConfigurationManager.AppSettings
+						#else
+						System.Configuration.ConfigurationSettings.AppSettings
+						#endif
+							["ogenPath"],
+
+						@"..\..\doc\OGen-Doc-metadatas\MD_OGen.OGenDoc-metadata.xml"
+					)
+				);
+
+				Console.WriteLine("time: {0}", new DateTime(DateTime.Now.Ticks - _begin_ticks).ToString("HH'H' mm'm' ss's' fff"));
+#else
+				Console.WriteLine("must provide xml file");
+#endif
+			}
+		}
+
+		static void DoIt(string filePath_in) {
+			cFGenerator _generator = new cFGenerator();
+			_generator.Open(
+				filePath_in, 
+				true, 
+				new cFGenerator.dNotifyBack(
+					Notify
+				)
+			);
+			_generator.Build(new cGenerator.dBuild(Notify));
+
+		}
+		#region private static void Notify(string message_in, bool onANewLine_in);
+		private static void Notify(string message_in, bool onANewLine_in) {
+			if (onANewLine_in) {
+				Console.WriteLine(message_in);
+			} else {
+				Console.Write(message_in);
+			}
+		}
+		#endregion
+	}
+}</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 3.1.1
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="0.4"></a>
+								<span class="subsubtitle">
+									code - with desc
+								</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="3.1.2"
+																class="code"
+														>#region Copyright (C) 2002 Francisco Monteiro
+/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+#endregion
+using System;
+using System.IO;
+using OGen.lib.generator;
+using OGen.Doc.lib.metadata;
+using OGen.Doc.lib.generator;
+
+namespace OGen.Doc.presentationlayer.console {
+	class MainClass {
+		[STAThread]
+		static void Main(string[] args_in) {
+			#region Console.WriteLine("Copyright (C) 2002 Francisco Monteiro");
+			Console.WriteLine(
+				@"
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the ""Software""), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+"
+			);
+			#endregion
+			if (args_in.Length == 1) {
+				if (File.Exists(args_in[0])) {
+					DoIt(args_in[0]);
+				} else {
+					Console.WriteLine("file doesn't exist");
+				}
+			} else {
+#if DEBUG
+				long _begin_ticks = DateTime.Now.Ticks;
+
+				DoIt(
+					//@"\\127.0.0.1\OGen_source$\OGen-NTier\OGen-NTier-Doc\OGenDoc-metadatas\MD_OGen-NTier.OGenDoc-metadata.xml"
+
+					System.IO.Path.Combine(
+						#if !NET_1_1
+						System.Configuration.ConfigurationManager.AppSettings
+						#else
+						System.Configuration.ConfigurationSettings.AppSettings
+						#endif
+							["ogenPath"],
+
+						@"..\..\doc\OGen-Doc-metadatas\MD_OGen.OGenDoc-metadata.xml"
+					)
+				);
+
+				Console.WriteLine("time: {0}", new DateTime(DateTime.Now.Ticks - _begin_ticks).ToString("HH'H' mm'm' ss's' fff"));
+#else
+				Console.WriteLine("must provide xml file");
+#endif
+			}
+		}
+
+		static void DoIt(string filePath_in) {
+			cFGenerator _generator = new cFGenerator();
+			_generator.Open(
+				filePath_in, 
+				true, 
+				new cFGenerator.dNotifyBack(
+					Notify
+				)
+			);
+			_generator.Build(new cGenerator.dBuild(Notify));
+
+		}
+		#region private static void Notify(string message_in, bool onANewLine_in);
+		private static void Notify(string message_in, bool onANewLine_in) {
+			if (onANewLine_in) {
+				Console.WriteLine(message_in);
+			} else {
+				Console.Write(message_in);
+			}
+		}
+		#endregion
+	}
+}</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 3.1.2: some code
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="3.1.3"
+																class="code"
+														>#region Copyright (C) 2002 Francisco Monteiro
+/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+#endregion
+using System;
+using System.IO;
+using OGen.lib.generator;
+using OGen.Doc.lib.metadata;
+using OGen.Doc.lib.generator;
+
+namespace OGen.Doc.presentationlayer.console {
+	class MainClass {
+		[STAThread]
+		static void Main(string[] args_in) {
+			#region Console.WriteLine("Copyright (C) 2002 Francisco Monteiro");
+			Console.WriteLine(
+				@"
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the ""Software""), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+"
+			);
+			#endregion
+			if (args_in.Length == 1) {
+				if (File.Exists(args_in[0])) {
+					DoIt(args_in[0]);
+				} else {
+					Console.WriteLine("file doesn't exist");
+				}
+			} else {
+#if DEBUG
+				long _begin_ticks = DateTime.Now.Ticks;
+
+				DoIt(
+					//@"\\127.0.0.1\OGen_source$\OGen-NTier\OGen-NTier-Doc\OGenDoc-metadatas\MD_OGen-NTier.OGenDoc-metadata.xml"
+
+					System.IO.Path.Combine(
+						#if !NET_1_1
+						System.Configuration.ConfigurationManager.AppSettings
+						#else
+						System.Configuration.ConfigurationSettings.AppSettings
+						#endif
+							["ogenPath"],
+
+						@"..\..\doc\OGen-Doc-metadatas\MD_OGen.OGenDoc-metadata.xml"
+					)
+				);
+
+				Console.WriteLine("time: {0}", new DateTime(DateTime.Now.Ticks - _begin_ticks).ToString("HH'H' mm'm' ss's' fff"));
+#else
+				Console.WriteLine("must provide xml file");
+#endif
+			}
+		}
+
+		static void DoIt(string filePath_in) {
+			cFGenerator _generator = new cFGenerator();
+			_generator.Open(
+				filePath_in, 
+				true, 
+				new cFGenerator.dNotifyBack(
+					Notify
+				)
+			);
+			_generator.Build(new cGenerator.dBuild(Notify));
+
+		}
+		#region private static void Notify(string message_in, bool onANewLine_in);
+		private static void Notify(string message_in, bool onANewLine_in) {
+			if (onANewLine_in) {
+				Console.WriteLine(message_in);
+			} else {
+				Console.Write(message_in);
+			}
+		}
+		#endregion
+	}
+}</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 3.1.3: some code
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="0.6"></a>
+								<span class="subsubtitle">
+									table - no desc
+								</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<div class="anex">
+													<table 
+														cellpadding="4" 
+														cellspacing="0" 
+														border="0" 
+														width="100%">
+														<tr>
+	<td>number</td>
+	<td>description</td>
+</tr>
+<tr>
+	<td>1</td>
+	<td>um</td>
+</tr>
+<tr>
+	<td>2</td>
+	<td>dois</td>
+</tr>
+<tr>
+	<td>3</td>
+	<td>tres</td>
+</tr>
+													</table>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td align="center">
+												<span class="text">
+													table 3.1.1
+												</span>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="0.7"></a>
+								<span class="subsubtitle">
+									table - with desc
+								</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<div class="anex">
+													<table 
+														cellpadding="4" 
+														cellspacing="0" 
+														border="0" 
+														width="100%">
+														<tr>
+	<td>number</td>
+	<td>description</td>
+</tr>
+<tr>
+	<td>1</td>
+	<td>um</td>
+</tr>
+<tr>
+	<td>2</td>
+	<td>dois</td>
+</tr>
+<tr>
+	<td>3</td>
+	<td>tres</td>
+</tr>
+													</table>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td align="center">
+												<span class="text">
+													table 3.1.2: some table
+												</span>
+											</td>
+										</tr>
+									</table>
+									<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<div class="anex">
+													<table 
+														cellpadding="4" 
+														cellspacing="0" 
+														border="0" 
+														width="100%">
+														<tr>
+	<td>number</td>
+	<td>description</td>
+</tr>
+<tr>
+	<td>1</td>
+	<td>um</td>
+</tr>
+<tr>
+	<td>2</td>
+	<td>dois</td>
+</tr>
+<tr>
+	<td>3</td>
+	<td>tres</td>
+</tr>
+													</table>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td align="center">
+												<span class="text">
+													table 3.1.3: some table
+												</span>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="0.9"></a>
+								<span class="subsubtitle">
+									image - no desc
+								</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<img 
+													src="OGen-Doc-metadatas/ch00100-ogen/it00100-introduction/img00200-audience.png" /></td>
+										</tr>
+										<tr>
+											<td align="center">
+												<span class="text">
+													figure 3.1.1
+												</span>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="0.10"></a>
+								<span class="subsubtitle">
+									image - with desc
+								</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<img 
+													src="OGen-Doc-metadatas/ch00100-ogen/it00100-introduction/img00200-audience.png" /></td>
+										</tr>
+										<tr>
+											<td align="center">
+												<span class="text">
+													figure 3.1.2: some image
+												</span>
+											</td>
+										</tr>
+									</table>
+									<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<img 
+													src="OGen-Doc-metadatas/ch00100-ogen/it00100-introduction/img00200-audience.png" /></td>
+										</tr>
+										<tr>
+											<td align="center">
+												<span class="text">
+													figure 3.1.3: some image
+												</span>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="0.12"></a>
+								<span class="subsubtitle">
+									License
+								</span>
+								<br />
+								<br />
+									<div class="anex">
+										<table cellpadding="4" cellspacing="0" border="0" width="100%">
+											<tr>
+												<td valign="top" align="right" style="width:10%;">
+													<span 
+														class="text">
+																<span class="comment">
+																	Comment
+																</span>
+													</span>
+												</td>
+												<td>&nbsp;&nbsp;</td>
+												<td valign="top" align="left" style="width:90%;">
+													<span class="text">
+														OGen is distributed under the permissive 
+
+<a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>
+
+which is similar to the BSD License and is 
+
+<a href="http://www.fsf.org/licensing/licenses/index_html#Expat">compatible</a> 
+
+with the GNU General Public License ("GNU GPL")
+<br />
+<br />
+
+Should you decide to use MySQL under OGen you should be aware of the 
+
+<a href="http://www.fsf.org/licensing/licenses/gpl-faq.html">implications</a>.
+
+MySQL is 
+
+<a href="http://www.mysql.com/about/legal/licensing/">licensed</a>
+
+under the GNU GPL license.<br />
+<br />
+													</span>
+												</td>
+											</tr>
+										</table>
+									</div>
+									<br />
+									<div class="anex">
+										<table cellpadding="4" cellspacing="0" border="0" width="100%">
+											<tr>
+												<td valign="top" align="right" style="width:10%;">
+													<span 
+														class="text">
+																<span class="warning">
+																	Warning
+																</span>
+													</span>
+												</td>
+												<td>&nbsp;&nbsp;</td>
+												<td valign="top" align="left" style="width:90%;">
+													<span class="text">
+														OGen is distributed under the permissive 
+
+<a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>
+
+which is similar to the BSD License and is 
+
+<a href="http://www.fsf.org/licensing/licenses/index_html#Expat">compatible</a> 
+
+with the GNU General Public License ("GNU GPL")
+<br />
+<br />
+
+Should you decide to use MySQL under OGen you should be aware of the 
+
+<a href="http://www.fsf.org/licensing/licenses/gpl-faq.html">implications</a>.
+
+MySQL is 
+
+<a href="http://www.mysql.com/about/legal/licensing/">licensed</a>
+
+under the GNU GPL license.<br />
+<br />
+													</span>
+												</td>
+											</tr>
+										</table>
+									</div>
+									<br />
+								<a name="0.14"></a>
+								<span class="subsubtitle">
+									License
+								</span>
+								<br />
+								<br />
+									<div class="anex">
+										<table cellpadding="4" cellspacing="0" border="0" width="100%">
+											<tr>
+												<td valign="top" align="right" style="width:10%;">
+													<span 
+														class="text">
+																<span class="tip">
+																	Tip
+																</span>
+													</span>
+												</td>
+												<td>&nbsp;&nbsp;</td>
+												<td valign="top" align="left" style="width:90%;">
+													<span class="text">
+														OGen is distributed under the permissive 
+
+<a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>
+
+which is similar to the BSD License and is 
+
+<a href="http://www.fsf.org/licensing/licenses/index_html#Expat">compatible</a> 
+
+with the GNU General Public License ("GNU GPL")
+<br />
+<br />
+
+Should you decide to use MySQL under OGen you should be aware of the 
+
+<a href="http://www.fsf.org/licensing/licenses/gpl-faq.html">implications</a>.
+
+MySQL is 
+
+<a href="http://www.mysql.com/about/legal/licensing/">licensed</a>
+
+under the GNU GPL license.<br />
+<br />
+													</span>
+												</td>
+											</tr>
+										</table>
+									</div>
 									<br />
 					</td>
 					<td width="10"></td>
