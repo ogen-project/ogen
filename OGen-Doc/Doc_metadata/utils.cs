@@ -38,10 +38,10 @@ namespace OGen.Doc.lib.metadata {
 					? File.ReadAllText(
 						_filePath
 					).Trim()
-					: "ERROR - TODOS: FILE DOESN'T EXIST";
+					: "ERROR - TODOS: FILE DOESN'T EXIST<br />";
 
 			return (_output == string.Empty)
-				? "ERROR - TODOS: FILE IS EMPTY"
+				? "ERROR - TODOS: FILE IS EMPTY<br />"
 				: _output;
 		}
 		#endregion

@@ -34,6 +34,22 @@ A:visited {
 	COLOR: #6000B0;
 	TEXT-DECORATION: none;
 }
+UL {
+	page-break-inside: avoid;
+	page-break-after: avoid;
+	page-break-before: avoid;
+}
+OL {
+	page-break-inside:avoid;
+	page-break-after:avoid;
+	page-break-before:avoid;
+}
+LI {
+	page-break-inside: avoid;
+	page-break-after: avoid;
+	page-break-before: avoid;
+}
+
 
 
 .menu {

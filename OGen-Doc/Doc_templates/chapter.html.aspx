@@ -270,7 +270,6 @@ string _aux_attachment_source;
 									<span class="text">
 										<%=_aux_attachment_source%>
 									</span>
-									<br />
 									<br /><%
 									break;
 // </html> /////////////////////////////////////////////////////////////////////////////
