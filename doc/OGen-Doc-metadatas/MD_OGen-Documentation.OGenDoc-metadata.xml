@@ -147,9 +147,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							description="" />
 
 						<attachment
-							title="installing OGen"
+							title="installing OGen under windows"
 							showTitle="true"
 							source="ch00200-build_your_own_generator/it00200-installing_ogen/pag00200-installing_OGen.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="installing OGen under linux with the Mono .net framework"
+							showTitle="true"
+							source="ch00200-build_your_own_generator/it00200-installing_ogen/pag00300-installing_OGen-mono.html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
