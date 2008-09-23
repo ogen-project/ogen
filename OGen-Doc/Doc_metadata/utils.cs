@@ -25,16 +25,21 @@ namespace OGen.Doc.lib.metadata {
 			string path1_in, 
 			string path2_in
 		) {
-			return File.ReadAllText(
+			string _filePath = 
 				Path.Combine(
 					path1_in, 
 					path2_in.Replace(
 						'/', 
 						Path.DirectorySeparatorChar
 					)
+				);
+			return File.Exists(_filePath) 
+				? File.ReadAllText(
+					_filePath
 				)
-			);
-	}
+				: "ERROR: FILE DOESN'T EXIST (ToDos: here!)";
+
+		}
 		#endregion
 	}
 }
