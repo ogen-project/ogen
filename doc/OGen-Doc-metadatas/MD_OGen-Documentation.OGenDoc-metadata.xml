@@ -823,6 +823,105 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <!-- /Reflecting Data Objects -->
 					</attachments>
 				</item>
+				<item
+					title="using Business Objects"
+					subTitle=""
+					isIntroduction="false"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="..."
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00300-businessobjects"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00100- ... .html -->
+					</attachments>
+				</item>
+				<item
+					title="using distributed Objects"
+					subTitle=""
+					isIntroduction="false"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="..."
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00400-distributedobjects"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00100- ... .html -->
+						<attachment
+							title="remoting objects"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00400-distributedobjects"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00200- ... .html -->
+						<attachment
+							title="web services"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00400-distributedobjects"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00300- ... .html -->
+						<attachment
+							title="..."
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00400-distributedobjects"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00400- ... .html -->
+					</attachments>
+				</item>
+				<item
+					title="using presentation Objects"
+					subTitle=""
+					isIntroduction="false"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="..."
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00500-presentationobjects"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00100- ... .html -->
+						<attachment
+							title="configuring business objects source (GAC, Remoting, WebServices)"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00500-presentationobjects"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00200- ... .html -->
+						<attachment
+							title="consuming business objects"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00500-presentationobjects"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00300- ... .html -->
+						<attachment
+							title="..."
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00500-presentationobjects"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00400- ... .html -->
+					</attachments>
+				</item>
 			</items>
 		</chapter>
 		<chapter
