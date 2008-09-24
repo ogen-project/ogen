@@ -1053,46 +1053,46 @@ make install</pre></td>
 															align="left"><pre
 																id="6.3.1"
 																class="code"
-														>======================================================================================================|
-                          based on Npgsql User's Manual 2006/10/08 21:50:43                           |
-===========|=======================================|=============|==================|=================|
-Postgresql |INFORMATION_SCHEMA                     |NpgsqlDbType |System.DbType     |.Net System Type |
-===========|=======================================|=============|==================|=================|
-bool       |boolean, bool                          |Boolean      |Boolean           |Boolean          |
-===========|=======================================|=============|==================|=================|
-int2       |smallint, int2                         |Smallint     |Int16             |Int16            |
-int4       |integer, int4                          |Integer      |Int32             |Int32            |
-int8       |bigint, int8                           |Bigint       |Int64             |Int64            |
-===========|=======================================|=============|==================|=================|
-Box        |?                                      |Box          |Object            |Object           |
-Circle     |?                                      |Circle       |Object            |Object           |
-Line       |?                                      |Line         |Object            |Object           |
-LSeg       |?                                      |LSeg         |Object            |Object           |
-Path       |?                                      |Path         |Object            |Object           |
-Point      |?                                      |Point        |Object            |Object           |
-Polygon    |?                                      |Polygon      |Object            |Object           |
-===========|=======================================|=============|==================|=================|
-bytea      |bytea                                  |Bytea        |Binary            |Byte[]           |
-===========|=======================================|=============|==================|=================|
-float8     |double precision, float8               |Double       |Double            |Double           |
-money      |money                                  |Money        |Decimal           |Decimal          |
-numeric    |numeric                                |Numeric      |Decimal           |Decimal          |
-float4     |real, float4                           |Real         |Single            |Single           |
-===========|=======================================|=============|==================|=================|
-date       |date                                   |Date         |Date              |DateTime         |
-time       |time, time without time zone           |Time         |Time              |DateTime         |
-timetz     |timetz, time with time zone            |Time         |Time              |DateTime         |
-timestamp  |timestamp, timestamp without time zone |Timestamp    |DateTime          |DateTime         |
-timestamptz|timestamptz, timestamp with time zone  |TimestampTZ  |DateTime          |DateTime         |<- DIFF!!!
-===========|=======================================|=============|==================|=================|
-varchar    |character varying, varchar             |Varchar      |String            |String           |
-text       |text                                   |Text         |String            |String           |
-===========|=======================================|=============|==================|=================|
-inet       |?                                      |Inet         |Object            |NpgsqlInet,      |<- DIFF!!!
-           |                                       |             |                  |IPAddress        |
-===========|=======================================|=============|==================|=================|
-bit        |?                                      |Bit          |Boolean           |Boolean, Int32   |<- DIFF!!!
-===========|=======================================|=============|==================|=================|</pre></td>
+														>.------------------------------------------------------------------------------------------------------.
+|                          based on Npgsql User's Manual 2006/10/08 21:50:43                           |
+|                                                                                                      |
+|Postgresql |INFORMATION_SCHEMA                     |NpgsqlDbType |System.DbType     |.Net System Type |
+|===========|=======================================|=============|==================|=================|
+|bool       |boolean, bool                          |Boolean      |Boolean           |Boolean          |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|int2       |smallint, int2                         |Smallint     |Int16             |Int16            |
+|int4       |integer, int4                          |Integer      |Int32             |Int32            |
+|int8       |bigint, int8                           |Bigint       |Int64             |Int64            |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|Box        |?                                      |Box          |Object            |Object           |
+|Circle     |?                                      |Circle       |Object            |Object           |
+|Line       |?                                      |Line         |Object            |Object           |
+|LSeg       |?                                      |LSeg         |Object            |Object           |
+|Path       |?                                      |Path         |Object            |Object           |
+|Point      |?                                      |Point        |Object            |Object           |
+|Polygon    |?                                      |Polygon      |Object            |Object           |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|bytea      |bytea                                  |Bytea        |Binary            |Byte[]           |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|float8     |double precision, float8               |Double       |Double            |Double           |
+|money      |money                                  |Money        |Decimal           |Decimal          |
+|numeric    |numeric                                |Numeric      |Decimal           |Decimal          |
+|float4     |real, float4                           |Real         |Single            |Single           |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|date       |date                                   |Date         |Date              |DateTime         |
+|time       |time, time without time zone           |Time         |Time              |DateTime         |
+|timetz     |timetz, time with time zone            |Time         |Time              |DateTime         |
+|timestamp  |timestamp, timestamp without time zone |Timestamp    |DateTime          |DateTime         |
+|timestamptz|timestamptz, timestamp with time zone  |TimestampTZ  |DateTime          |DateTime         |<- DIFF!!!
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|varchar    |character varying, varchar             |Varchar      |String            |String           |
+|text       |text                                   |Text         |String            |String           |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|inet       |?                                      |Inet         |Object            |NpgsqlInet,      |<- DIFF!!!
+|           |                                       |             |                  |IPAddress        |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|bit        |?                                      |Bit          |Boolean           |Boolean, Int32   |<- DIFF!!!
+'------------------------------------------------------------------------------------------------------'</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -1122,45 +1122,45 @@ bit        |?                                      |Bit          |Boolean       
 															align="left"><pre
 																id="6.3.2"
 																class="code"
-														>===========|=======================================|=============|==================|=================|
-MySQL      |INFORMATION_SCHEMA                     |MySqlDbType  |System.DbType     |.Net System Type |
-===========|=======================================|=============|==================|=================|
-BOOLEAN    |tinyint                                |Byte         |Byte              |                 |
->BOOLEAN   >tinyint                                >Bit          >Boolean           |                 |
-TINYINT    |tinyint                                |Byte         |Byte              |                 |
-SMALLINT   |smallint                               |Int16        |Int16             |                 |
-INTEGER    |int                                    |Int32        |Int32             |                 |
-MEDIUMINT  |mediumint                              |Int24        |?                 |                 |
-BIGINT     |bigint                                 |Int64        |Int64             |                 |
-FLOAT      |float                                  |Float        |Double?           |                 |
-DOUBLE     |double                                 |Double       |Double?           |                 |
-DECIMAL    |decimal                                |Decimal      |Decimal?          |                 |
-DATE       |date                                   |Date         |Date?             |                 |
-DATETIME   |datetime                               |Datetime     |DateTime?         |                 |
-TIMESTAMP  |timestamp                              |Timestamp    |DateTime??        |                 |
-TIME       |time                                   |Time         |Time?             |                 |
-YEAR       |year                                   |Year         |?                 |                 |
-VARCHAR    |varchar                                |VarChar      |?                 |                 |
-TINYBLOB   |tinyblob                               |TinyBlob     |?                 |                 |
-BLOB       |blob                                   |Blob         |?                 |                 |
-MEDIUMBLOB |mediumblob                             |MediumBlob   |?                 |                 |
-LONGBLOB   |longblob                               |LongBlob     |?                 |                 |
-GEOMETRY   |geometry                               |Geometry     |?                 |                 |
-BIT        |bit                                    |Bit          |?                 |                 |
->BIT       >bit                                    >Bit          >Boolean           |                 |
-===========|=======================================|=============|==================|=================|
-CHAR       |char                                   |?            |?                 |                 |
-===========|=======================================|=============|==================|=================|
-TINYTEXT   |tinytext                               |?            |?                 |                 |
-TEXT       |text                                   |?            |?                 |                 |
-MEDIUMTEXT |mediumtext                             |?            |?                 |                 |
-LONGTEXT   |longtext                               |?            |?                 |                 |
-===========|=======================================|=============|==================|=================|
-BINARY     |binary                                 |?            |?                 |                 |
-VARBINARY  |varbinary                              |?            |?                 |                 |
-===========|=======================================|=============|==================|=================|
+														>.------------------------------------------------------------------------------------------------------.
+|MySQL      |INFORMATION_SCHEMA                     |MySqlDbType  |System.DbType     |.Net System Type |
+|===========|=======================================|=============|==================|=================|
+|BOOLEAN    |tinyint                                |Byte         |Byte              |                 |
+|* BOOLEAN  |* tinyint                              |* Bit        |* Boolean         |                 |
+|TINYINT    |tinyint                                |Byte         |Byte              |                 |
+|SMALLINT   |smallint                               |Int16        |Int16             |                 |
+|INTEGER    |int                                    |Int32        |Int32             |                 |
+|MEDIUMINT  |mediumint                              |Int24        |?                 |                 |
+|BIGINT     |bigint                                 |Int64        |Int64             |                 |
+|FLOAT      |float                                  |Float        |Double?           |                 |
+|DOUBLE     |double                                 |Double       |Double?           |                 |
+|DECIMAL    |decimal                                |Decimal      |Decimal?          |                 |
+|DATE       |date                                   |Date         |Date?             |                 |
+|DATETIME   |datetime                               |Datetime     |DateTime?         |                 |
+|TIMESTAMP  |timestamp                              |Timestamp    |DateTime??        |                 |
+|TIME       |time                                   |Time         |Time?             |                 |
+|YEAR       |year                                   |Year         |?                 |                 |
+|VARCHAR    |varchar                                |VarChar      |?                 |                 |
+|TINYBLOB   |tinyblob                               |TinyBlob     |?                 |                 |
+|BLOB       |blob                                   |Blob         |?                 |                 |
+|MEDIUMBLOB |mediumblob                             |MediumBlob   |?                 |                 |
+|LONGBLOB   |longblob                               |LongBlob     |?                 |                 |
+|GEOMETRY   |geometry                               |Geometry     |?                 |                 |
+|BIT        |bit                                    |Bit          |?                 |                 |
+|* BIT      |* bit                                  |* Bit        |* Boolean         |                 |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|CHAR       |char                                   |?            |?                 |                 |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|TINYTEXT   |tinytext                               |?            |?                 |                 |
+|TEXT       |text                                   |?            |?                 |                 |
+|MEDIUMTEXT |mediumtext                             |?            |?                 |                 |
+|LONGTEXT   |longtext                               |?            |?                 |                 |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|BINARY     |binary                                 |?            |?                 |                 |
+|VARBINARY  |varbinary                              |?            |?                 |                 |
+'------------------------------------------------------------------------------------------------------'
 
-> needs revisig</pre></td>
+* needs revisig</pre></td>
 													</tr>
 													<tr>
 														<td 
