@@ -897,7 +897,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							sourceContentType="html"
 							description="" /><!-- /pag00100- ... .html -->
 						<attachment
-							title="configuring business objects source (GAC, Remoting, WebServices)"
+							title="configuring business objects source (Assembly direct call / GAC, Remoting, WebServices)"
 							showTitle="true"
 							incrementLevel="true"
 							source="ch00400-ogen-ntier/it00500-presentationobjects"
