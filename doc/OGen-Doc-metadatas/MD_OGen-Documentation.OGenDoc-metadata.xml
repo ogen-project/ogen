@@ -896,14 +896,40 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							sourceType="file"
 							sourceContentType="html"
 							description="" /><!-- /pag00100- ... .html -->
+
 						<attachment
-							title="configuring business objects source (reference directly assembly / GAC, Remoting, WebServices)"
+							title="configuring business objects source"
 							showTitle="true"
 							incrementLevel="true"
-							source="ch00400-ogen-ntier/it00500-presentationobjects"
+							source="ch00400-ogen-ntier/it00500-presentationobjects/pag00200-configuring_business_objects_source.html"
 							sourceType="file"
 							sourceContentType="html"
-							description="" /><!-- /pag00200- ... .html -->
+							description="" />
+						<attachment
+							title="reference directly assembly / GAC"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00500-presentationobjects/pag00300-configuring_business_objects_source_assembly.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="Remoting"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00500-presentationobjects/pag00400-configuring_business_objects_source_remoting.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="WebServices"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00500-presentationobjects/pag00500-configuring_business_objects_source_webservices.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
 						<attachment
 							title="consuming business objects"
 							showTitle="true"
@@ -911,7 +937,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							source="ch00400-ogen-ntier/it00500-presentationobjects"
 							sourceType="file"
 							sourceContentType="html"
-							description="" /><!-- /pag00300- ... .html -->
+							description="" /><!-- /pag00600- ... .html -->
 						<attachment
 							title="..."
 							showTitle="true"
@@ -919,7 +945,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							source="ch00400-ogen-ntier/it00500-presentationobjects"
 							sourceType="file"
 							sourceContentType="html"
-							description="" /><!-- /pag00400- ... .html -->
+							description="" /><!-- /pag00700- ... .html -->
 					</attachments>
 				</item>
 			</items>
