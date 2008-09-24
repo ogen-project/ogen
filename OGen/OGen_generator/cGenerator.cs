@@ -152,11 +152,11 @@ namespace OGen.lib.generator {
 					translate_out = outputdir_;
 					break;
 				#endregion
-				#region case "CONFIG.outputPath": translate_out = ...; break;
-				case "CONFIG.metadatasPath":
-					translate_out = Path.GetDirectoryName(Metafiles[0].Path);
-					break;
-				#endregion
+//#region case "CONFIG.outputPath": translate_out = ...; break;
+case "CONFIG.metadatasPath":
+	translate_out = Path.GetDirectoryName(Metafiles[0].Path);
+	break;
+//#endregion
 //				#region default: translate_out = ...; break;
 				default:
 //					#region translate_out = metadata_.Read_fromRoot(...);
@@ -422,12 +422,12 @@ if (templates_.TemplateCollection[template_].Outputs.OutputCollection[o].Type ==
 
 						switch (templates_.TemplateCollection[template_].Outputs.OutputCollection[o].Type) {
 							case XS_OutputEnumeration.File: {
-								if (
-									(_ouputTo == string.Empty)
-									||
-									(Directory.Exists(_ouputTo))
-								)
-									break;
+if (
+	(_ouputTo == string.Empty)
+	||
+	(Directory.Exists(_ouputTo))
+)
+	break;
 
 								#region Directory.CreateDirectory(_ouputTo);
 								string _directory = System.IO.Path.GetDirectoryName(_ouputTo);
