@@ -89,12 +89,11 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		#endregion
 
 		#region internal XS_tableUpdateParametersType[] cols__ { get; set; }
-		private 
-			#if NET_1_1
-			ArrayList
-			#else
-			List<XS_tableUpdateParametersType>
-			#endif
+		#if NET_1_1
+		protected ArrayList
+		#else
+		private List<XS_tableUpdateParametersType>
+		#endif
 		cols_;
 
 		internal XS_tableUpdateParametersType[] cols__ {

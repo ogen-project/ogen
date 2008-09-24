@@ -133,12 +133,11 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 }%>
 
 		#region internal <%=XS_%><%=_aux_complextype.Name%>[] cols__ { get; set; }
-		private 
-			#if NET_1_1
-			ArrayList
-			#else
-			List<<%=XS_%><%=_aux_complextype.Name%>>
-			#endif
+		#if NET_1_1
+		protected ArrayList
+		#else
+		private List<<%=XS_%><%=_aux_complextype.Name%>>
+		#endif
 		cols_;
 
 		internal <%=XS_%><%=_aux_complextype.Name%>[] cols__ {

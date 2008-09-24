@@ -41,12 +41,11 @@ namespace OGen.lib.templates {
 
 
 		#region internal XS_templatesType[] cols__ { get; set; }
-		private 
-			#if NET_1_1
-			ArrayList
-			#else
-			List<XS_templatesType>
-			#endif
+		#if NET_1_1
+		protected ArrayList
+		#else
+		private List<XS_templatesType>
+		#endif
 		cols_;
 
 		internal XS_templatesType[] cols__ {

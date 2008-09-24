@@ -85,12 +85,6 @@
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "Npgsql"
-                    AssemblyName = "Npgsql"
-                    HintPath = "..\..\..\..\..\..\Program Files\Npgsql1.0\Npgsql\bin\ms1.1\Npgsql.dll"
-                    AssemblyFolderKey = "hklm\dn\npgsql1.1"
-                />
-                <Reference
                     Name = "OGen_datalayer__base-7.1"
                     Project = "{0BE6274C-5536-4690-9597-8FCD8459C2A3}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"

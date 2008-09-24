@@ -41,12 +41,11 @@ namespace OGen.lib.templates {
 
 
 		#region internal XS_outputsType[] cols__ { get; set; }
-		private 
-			#if NET_1_1
-			ArrayList
-			#else
-			List<XS_outputsType>
-			#endif
+		#if NET_1_1
+		protected ArrayList
+		#else
+		private List<XS_outputsType>
+		#endif
 		cols_;
 
 		internal XS_outputsType[] cols__ {

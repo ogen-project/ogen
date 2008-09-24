@@ -76,19 +76,19 @@
                 />
                 <Reference
                     Name = "System.XML"
-                    AssemblyName = "System.XML"
+                    AssemblyName = "System.Xml"
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
-                />
-                <Reference
-                    Name = "MySql.Data"
-                    AssemblyName = "MySql.Data"
-                    HintPath = "C:\Program Files\MySQL\MySQL Connector Net 1.0.10.1\Binaries\.NET 1.1\MySql.Data.dll"
-                    AssemblyFolderKey = "hklm\dn\mysql connector/net 1.0.10.1"
                 />
                 <Reference
                     Name = "OGen_datalayer__base"
                     Project = "{0BE6274C-5536-4690-9597-8FCD8459C2A3}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "MySql.Data"
+                    AssemblyName = "MySql.Data"
+                    HintPath = "C:\Program Files\MySQL\MySQL Connector Net 5.0.8.1\Binaries\.NET 1.1\MySql.Data.dll"
+                    AssemblyFolderKey = "hklm\dn\mysql-1.1"
                 />
             </References>
         </Build>

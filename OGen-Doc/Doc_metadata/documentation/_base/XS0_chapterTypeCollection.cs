@@ -89,12 +89,11 @@ namespace OGen.Doc.lib.metadata.documentation {
 		#endregion
 
 		#region internal XS_chapterType[] cols__ { get; set; }
-		private 
-			#if NET_1_1
-			ArrayList
-			#else
-			List<XS_chapterType>
-			#endif
+		#if NET_1_1
+		protected ArrayList
+		#else
+		private List<XS_chapterType>
+		#endif
 		cols_;
 
 		internal XS_chapterType[] cols__ {

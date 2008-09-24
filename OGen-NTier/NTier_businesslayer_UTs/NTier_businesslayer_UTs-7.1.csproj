@@ -80,15 +80,15 @@
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "NTier_businesslayer"
+                    Name = "NTier_businesslayer-7.1"
                     Project = "{8AEBEA64-6FC4-430C-922C-B88D105AE91C}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
                     Name = "nunit.framework"
                     AssemblyName = "nunit.framework"
-                    HintPath = "..\..\..\..\..\..\Program Files\NUnit-Net-1.1 2.2.8\bin\nunit.framework.dll"
-                    AssemblyFolderKey = "hklm\dn\nunit.framework1.1"
+                    HintPath = "C:\Program Files\NUnit 2.4.7\bin-1.1\nunit.framework.dll"
+                    AssemblyFolderKey = "hklm\dn\nunit"
                 />
             </References>
         </Build>

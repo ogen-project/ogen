@@ -89,12 +89,11 @@ namespace OGen.XSD.lib.metadata.schema {
 		#endregion
 
 		#region internal XS_attributeType[] cols__ { get; set; }
-		private 
-			#if NET_1_1
-			ArrayList
-			#else
-			List<XS_attributeType>
-			#endif
+		#if NET_1_1
+		protected ArrayList
+		#else
+		private List<XS_attributeType>
+		#endif
 		cols_;
 
 		internal XS_attributeType[] cols__ {

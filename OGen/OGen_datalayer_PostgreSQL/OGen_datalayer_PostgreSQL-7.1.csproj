@@ -80,15 +80,15 @@
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "Npgsql"
-                    AssemblyName = "Npgsql"
-                    HintPath = "..\..\bin\Npgsql1.0\bin\ms1.1\Npgsql.dll"
-                    AssemblyFolderKey = "hklm\dn\npgsql1.0-ms1.1"
-                />
-                <Reference
                     Name = "OGen_datalayer__base"
                     Project = "{0BE6274C-5536-4690-9597-8FCD8459C2A3}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "Npgsql"
+                    AssemblyName = "Npgsql"
+                    HintPath = "C:\Program Files\Npgsql\bin-1.1\Npgsql.dll"
+                    AssemblyFolderKey = "hklm\dn\npgsql-1.1"
                 />
             </References>
         </Build>

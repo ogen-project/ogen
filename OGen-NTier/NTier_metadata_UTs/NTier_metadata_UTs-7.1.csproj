@@ -90,18 +90,6 @@
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "nunit.framework"
-                    AssemblyName = "nunit.framework"
-                    HintPath = "..\..\..\..\..\..\Program Files\NUnit-Net-1.1 2.2.8\bin\nunit.framework.dll"
-                    AssemblyFolderKey = "hklm\dn\nunit.framework1.1"
-                />
-                <Reference
-                    Name = "Npgsql"
-                    AssemblyName = "Npgsql"
-                    HintPath = "..\..\..\..\..\..\Program Files\Npgsql1.0\Npgsql\bin\ms1.1\Npgsql.dll"
-                    AssemblyFolderKey = "hklm\dn\npgsql1.1"
-                />
-                <Reference
                     Name = "OGen_datalayer__base-7.1"
                     Project = "{0BE6274C-5536-4690-9597-8FCD8459C2A3}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
@@ -115,6 +103,12 @@
                     Name = "OGen_datalayer_SQLServer-7.1"
                     Project = "{1B07A59E-56C1-49C5-B3A5-C6B5EED72F5D}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "nunit.framework"
+                    AssemblyName = "nunit.framework"
+                    HintPath = "C:\Program Files\NUnit 2.4.7\bin-1.1\nunit.framework.dll"
+                    AssemblyFolderKey = "hklm\dn\nunit"
                 />
             </References>
         </Build>

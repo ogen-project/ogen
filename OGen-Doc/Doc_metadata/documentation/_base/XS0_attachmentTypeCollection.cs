@@ -89,12 +89,11 @@ namespace OGen.Doc.lib.metadata.documentation {
 		#endregion
 
 		#region internal XS_attachmentType[] cols__ { get; set; }
-		private 
-			#if NET_1_1
-			ArrayList
-			#else
-			List<XS_attachmentType>
-			#endif
+		#if NET_1_1
+		protected ArrayList
+		#else
+		private List<XS_attachmentType>
+		#endif
 		cols_;
 
 		internal XS_attachmentType[] cols__ {

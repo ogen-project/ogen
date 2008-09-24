@@ -89,12 +89,11 @@ namespace OGen.XSD.lib.metadata.schema {
 		#endregion
 
 		#region internal XS_sequenceType[] cols__ { get; set; }
-		private 
-			#if NET_1_1
-			ArrayList
-			#else
-			List<XS_sequenceType>
-			#endif
+		#if NET_1_1
+		protected ArrayList
+		#else
+		private List<XS_sequenceType>
+		#endif
 		cols_;
 
 		internal XS_sequenceType[] cols__ {

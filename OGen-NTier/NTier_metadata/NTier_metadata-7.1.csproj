@@ -28,7 +28,7 @@
                     BaseAddress = "285212672"
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
-                    DefineConstants = "DEBUG;TRACE;PostgreSQL;NET_1_1"
+                    DefineConstants = "DEBUG;TRACE;PostgreSQL;NET_1_1;MySQL"
                     DocumentationFile = ""
                     DebugSymbols = "true"
                     FileAlignment = "4096"
@@ -48,7 +48,7 @@
                     BaseAddress = "285212672"
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
-                    DefineConstants = "TRAC;PostgreSQL;NET_1_1"
+                    DefineConstants = "TRAC;PostgreSQL;NET_1_1;MySQL"
                     DocumentationFile = ""
                     DebugSymbols = "false"
                     FileAlignment = "4096"
@@ -83,12 +83,6 @@
                     Name = "OGen_collections"
                     Project = "{A6E837F8-780F-4D05-B3ED-2FF1906B5766}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "Npgsql"
-                    AssemblyName = "Npgsql"
-                    HintPath = "..\..\..\..\..\..\Program Files\Npgsql1.0\Npgsql\bin\ms1.1\Npgsql.dll"
-                    AssemblyFolderKey = "hklm\dn\npgsql1.1"
                 />
                 <Reference
                     Name = "OGen_datalayer__base"
@@ -158,6 +152,11 @@
                 />
                 <File
                     RelPath = "metadataDB\XS__metadataDB.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "metadataDB\XS__metadataDBCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -353,6 +352,11 @@
                 />
                 <File
                     RelPath = "metadataExtended\XS__metadataExtended.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "metadataExtended\XS__metadataExtendedCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

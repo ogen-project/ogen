@@ -67,7 +67,9 @@ namespace OGen.XSD.lib.metadata.schema {
 						_stream
 					);
 					_stream.Close();
+#if !NET_1_1
 					_stream.Dispose();
+#endif
 				} catch (Exception _ex) {
 					throw new Exception(string.Format(
 						"\n---\n{0}.{1}.Load_fromFile():\nERROR READING XML:\n{2}\n---\n{3}\n---\n{4}\n---\n",
@@ -153,7 +155,9 @@ namespace OGen.XSD.lib.metadata.schema {
 			);
 			_file.Flush();
 			_file.Close();
+#if !NET_1_1
 			_file.Dispose();
+#endif
 		}
 		#endregion
 		#region public string Read_fromRoot(string what_in);

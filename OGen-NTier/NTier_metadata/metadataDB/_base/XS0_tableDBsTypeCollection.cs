@@ -89,12 +89,11 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		#endregion
 
 		#region internal XS_tableDBsType[] cols__ { get; set; }
-		private 
-			#if NET_1_1
-			ArrayList
-			#else
-			List<XS_tableDBsType>
-			#endif
+		#if NET_1_1
+		protected ArrayList
+		#else
+		private List<XS_tableDBsType>
+		#endif
 		cols_;
 
 		internal XS_tableDBsType[] cols__ {

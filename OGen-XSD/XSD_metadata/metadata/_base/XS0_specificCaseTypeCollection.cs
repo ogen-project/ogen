@@ -89,12 +89,11 @@ namespace OGen.XSD.lib.metadata.metadata {
 		#endregion
 
 		#region internal XS_specificCaseType[] cols__ { get; set; }
-		private 
-			#if NET_1_1
-			ArrayList
-			#else
-			List<XS_specificCaseType>
-			#endif
+		#if NET_1_1
+		protected ArrayList
+		#else
+		private List<XS_specificCaseType>
+		#endif
 		cols_;
 
 		internal XS_specificCaseType[] cols__ {

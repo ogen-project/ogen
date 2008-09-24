@@ -89,12 +89,11 @@ namespace OGen.XSD.lib.metadata.metadata {
 		#endregion
 
 		#region internal XS_complexTypeType[] cols__ { get; set; }
-		private 
-			#if NET_1_1
-			ArrayList
-			#else
-			List<XS_complexTypeType>
-			#endif
+		#if NET_1_1
+		protected ArrayList
+		#else
+		private List<XS_complexTypeType>
+		#endif
 		cols_;
 
 		internal XS_complexTypeType[] cols__ {

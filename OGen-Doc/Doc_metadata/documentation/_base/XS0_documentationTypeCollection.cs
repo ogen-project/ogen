@@ -89,12 +89,11 @@ namespace OGen.Doc.lib.metadata.documentation {
 		#endregion
 
 		#region internal XS_documentationType[] cols__ { get; set; }
-		private 
-			#if NET_1_1
-			ArrayList
-			#else
-			List<XS_documentationType>
-			#endif
+		#if NET_1_1
+		protected ArrayList
+		#else
+		private List<XS_documentationType>
+		#endif
 		cols_;
 
 		internal XS_documentationType[] cols__ {
