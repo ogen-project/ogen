@@ -22,16 +22,16 @@ namespace OGen.lib.templates {
 	#else
 	public partial class XS_dependencyType {
 	#endif
-		#region public string Name { get; set; }
-		internal string name_;
+		#region public string TemplateID { get; set; }
+		internal string templateid_;
 
-		[XmlAttribute("name")]
-		public string Name {
+		[XmlAttribute("templateID")]
+		public string TemplateID {
 			get {
-				return name_;
+				return templateid_;
 			}
 			set {
-				name_ = value;
+				templateid_ = value;
 			}
 		}
 		#endregion
@@ -40,7 +40,7 @@ namespace OGen.lib.templates {
 		public void CopyFrom(XS_dependencyType dependencyType_in) {
 			int _index = -1;
 
-			name_ = dependencyType_in.name_;
+			templateid_ = dependencyType_in.templateid_;
 		}
 		#endregion
 	}

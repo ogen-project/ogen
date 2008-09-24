@@ -47,9 +47,10 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 		<specificCase word="generateSQL" translation="generateSQL" />
 		<specificCase word="isConfig" translation="isConfig" />
 -->
+		<specificCase word="id" translation="ID" />
 
 		<complexType name="templateType">
-			<complexTypeKey name="name" caseSensitive="true" />
+			<complexTypeKey name="id" caseSensitive="true" />
 		</complexType>
 		<complexType name="argumentType">
 			<complexTypeKey name="name" caseSensitive="true" />
@@ -58,7 +59,7 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 			<complexTypeKey name="eval" caseSensitive="true" />
 		</complexType>
 		<complexType name="dependencyType">
-			<complexTypeKey name="name" caseSensitive="true" />
+			<complexTypeKey name="templateID" caseSensitive="true" />
 		</complexType>
 <!--
 		<complexType name="outputType">

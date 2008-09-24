@@ -11,7 +11,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 -->
 <templates>
-	<!--template name="__XSLT-TEST.txt.xslt" 
+	<!--template id="__XSLT-TEST.txt.xslt"
+			name="__XSLT-TEST.txt.xslt" 
 			parserType="xslt"
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -25,7 +26,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</outputs>
 		<dependencies />
 	</template-->
-	<template name="SomeApplication-MD0_SomeApplication.OGenXSD-metadataExtended.xml.aspx"
+	<template id="SomeApplication-MD0_SomeApplication.OGenXSD-metadataExtended.xml.aspx"
+			name="SomeApplication-MD0_SomeApplication.OGenXSD-metadataExtended.xml.aspx"
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -38,7 +40,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="emptyfile.txt" 
+	<template id="emptyfile.txt"
+			name="emptyfile.txt" 
 			parserType="none"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -59,7 +62,8 @@ XXX:NO_NEED -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx"
+			name="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" 
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -81,10 +85,11 @@ XXX:TODOS -->
 				type="PostgreSQL_View" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="emptyfile.txt" />
+			<dependency templateID="emptyfile.txt" />
 		</dependencies>
 	</template>
-	<template name="app0.config.aspx" 
+	<template id="app0.config.aspx"
+			name="app0.config.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -99,7 +104,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="SomeApplication_AssemblyInfo.cs.txt" 
+	<template id="SomeApplication_AssemblyInfo.cs.txt"
+			name="SomeApplication_AssemblyInfo.cs.txt" 
 			parserType="none" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -118,7 +124,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="SomeApplication.OGen-NTier-1.1.bat.aspx" 
+	<template id="SomeApplication.OGen-NTier-1.1.bat.aspx"
+			name="SomeApplication.OGen-NTier-1.1.bat.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -132,7 +139,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="SomeApplication.OGen-NTier-2.0.bat.aspx" 
+	<template id="SomeApplication.OGen-NTier-2.0.bat.aspx"
+			name="SomeApplication.OGen-NTier-2.0.bat.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -146,7 +154,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="SomeApplication_test_MainClass.cs.aspx" 
+	<template id="SomeApplication_test_MainClass.cs.aspx"
+			name="SomeApplication_test_MainClass.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -159,7 +168,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="SomeApplication-1.1.ndoc.aspx" 
+	<template id="SomeApplication-1.1.ndoc.aspx"
+			name="SomeApplication-1.1.ndoc.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -173,7 +183,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="SomeApplication-2.0.ndoc.aspx" 
+	<template id="SomeApplication-2.0.ndoc.aspx"
+			name="SomeApplication-2.0.ndoc.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -187,7 +198,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="SomeApplication-7.1.sln.aspx" 
+	<template id="SomeApplication-7.1.sln.aspx"
+			name="SomeApplication-7.1.sln.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -200,7 +212,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="SomeApplication-8.sln.aspx" 
+	<template id="SomeApplication-8.sln.aspx"
+			name="SomeApplication-8.sln.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -213,7 +226,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="SomeApplication-9.sln.aspx" 
+	<template id="SomeApplication-9.sln.aspx"
+			name="SomeApplication-9.sln.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -226,7 +240,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-SomeApplication_datalayer-7.1.csproj.aspx" 
+	<template id="DO-SomeApplication_datalayer-7.1.csproj.aspx"
+			name="DO-SomeApplication_datalayer-7.1.csproj.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -239,7 +254,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-SomeApplication_datalayer-8.csproj.aspx" 
+	<template id="DO-SomeApplication_datalayer-8.csproj.aspx"
+			name="DO-SomeApplication_datalayer-8.csproj.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -254,7 +270,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-UT-SomeApplication_datalayer_UTs-7.1.csproj.aspx" 
+	<template id="DO-UT-SomeApplication_datalayer_UTs-7.1.csproj.aspx"
+			name="DO-UT-SomeApplication_datalayer_UTs-7.1.csproj.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -267,7 +284,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-UT-SomeApplication_datalayer_UTs-8.csproj.aspx" 
+	<template id="DO-UT-SomeApplication_datalayer_UTs-8.csproj.aspx"
+			name="DO-UT-SomeApplication_datalayer_UTs-8.csproj.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -282,7 +300,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="BO-SomeApplication_businesslayer-7.1.csproj.aspx" 
+	<template id="BO-SomeApplication_businesslayer-7.1.csproj.aspx"
+			name="BO-SomeApplication_businesslayer-7.1.csproj.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -295,7 +314,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="BO-SomeApplication_businesslayer-8.csproj.aspx" 
+	<template id="BO-SomeApplication_businesslayer-8.csproj.aspx"
+			name="BO-SomeApplication_businesslayer-8.csproj.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -310,7 +330,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="SomeApplication_test-7.1.csproj.aspx" 
+	<template id="SomeApplication_test-7.1.csproj.aspx"
+			name="SomeApplication_test-7.1.csproj.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -323,7 +344,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="SomeApplication_test-8.csproj.aspx" 
+	<template id="SomeApplication_test-8.csproj.aspx"
+			name="SomeApplication_test-8.csproj.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -338,7 +360,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-UT-UT0__utils.cs.aspx" 
+	<template id="DO-UT-UT0__utils.cs.aspx"
+			name="DO-UT-UT0__utils.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -351,7 +374,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-UT-UT0_SomeTable.cs.aspx" 
+	<template id="DO-UT-UT0_SomeTable.cs.aspx"
+			name="DO-UT-UT0_SomeTable.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -365,7 +389,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-UT-UT_SomeTable.cs.aspx" 
+	<template id="DO-UT-UT_SomeTable.cs.aspx"
+			name="DO-UT-UT_SomeTable.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -379,7 +404,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-UT-UT_app.config.aspx" 
+	<template id="DO-UT-UT_app.config.aspx"
+			name="DO-UT-UT_app.config.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -396,7 +422,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-UT-SomeNamespace.lib.datalayer.UTs-1.1.nunit.aspx" 
+	<template id="DO-UT-SomeNamespace.lib.datalayer.UTs-1.1.nunit.aspx"
+			name="DO-UT-SomeNamespace.lib.datalayer.UTs-1.1.nunit.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -413,7 +440,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-UT-SomeNamespace.lib.datalayer.UTs-2.0.nunit.aspx" 
+	<template id="DO-UT-SomeNamespace.lib.datalayer.UTs-2.0.nunit.aspx"
+			name="DO-UT-SomeNamespace.lib.datalayer.UTs-2.0.nunit.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -430,7 +458,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="BO-UT-SomeApplication_businesslayer_UTs-7.1.csproj.aspx" 
+	<template id="BO-UT-SomeApplication_businesslayer_UTs-7.1.csproj.aspx"
+			name="BO-UT-SomeApplication_businesslayer_UTs-7.1.csproj.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -443,7 +472,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="BO-UT-SomeApplication_businesslayer_UTs-8.csproj.aspx" 
+	<template id="BO-UT-SomeApplication_businesslayer_UTs-8.csproj.aspx"
+			name="BO-UT-SomeApplication_businesslayer_UTs-8.csproj.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -458,7 +488,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="BO-UT-UT0_SomeTable.cs.aspx" 
+	<template id="BO-UT-UT0_SomeTable.cs.aspx"
+			name="BO-UT-UT0_SomeTable.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -472,7 +503,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="BO-UT-UT_SomeTable.cs.aspx" 
+	<template id="BO-UT-UT_SomeTable.cs.aspx"
+			name="BO-UT-UT_SomeTable.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -486,7 +518,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="BO-UT-UT_app.config.aspx" 
+	<template id="BO-UT-UT_app.config.aspx"
+			name="BO-UT-UT_app.config.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -503,7 +536,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="BO-UT-SomeNamespace.lib.businesslayer.UTs-1.1.nunit.aspx" 
+	<template id="BO-UT-SomeNamespace.lib.businesslayer.UTs-1.1.nunit.aspx"
+			name="BO-UT-SomeNamespace.lib.businesslayer.UTs-1.1.nunit.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -520,7 +554,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="BO-UT-SomeNamespace.lib.businesslayer.UTs-2.0.nunit.aspx" 
+	<template id="BO-UT-SomeNamespace.lib.businesslayer.UTs-2.0.nunit.aspx"
+			name="BO-UT-SomeNamespace.lib.businesslayer.UTs-2.0.nunit.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -537,7 +572,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DO0__utils.cs.aspx" 
+	<template id="DO-DO0__utils.cs.aspx"
+			name="DO-DO0__utils.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -550,7 +586,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DO__utils.cs.aspx" 
+	<template id="DO-DO__utils.cs.aspx"
+			name="DO-DO__utils.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -563,7 +600,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-RO0_SomeTable.cs.aspx" 
+	<template id="DO-RO0_SomeTable.cs.aspx"
+			name="DO-RO0_SomeTable.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -577,7 +615,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DO0_SomeTable.cs.aspx" 
+	<template id="DO-DO0_SomeTable.cs.aspx"
+			name="DO-DO0_SomeTable.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -591,7 +630,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-SO0_SomeTable.cs.aspx" 
+	<template id="DO-SO0_SomeTable.cs.aspx"
+			name="DO-SO0_SomeTable.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -605,7 +645,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-SC0_SomeTable.cs.aspx" 
+	<template id="DO-SC0_SomeTable.cs.aspx"
+			name="DO-SC0_SomeTable.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -619,7 +660,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DO_SomeTable.cs.aspx" 
+	<template id="DO-DO_SomeTable.cs.aspx"
+			name="DO-DO_SomeTable.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -633,7 +675,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="BO-BO0_SomeTable.cs.aspx" 
+	<template id="BO-BO0_SomeTable.cs.aspx"
+			name="BO-BO0_SomeTable.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -647,7 +690,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="BO-BO_SomeTable.cs.aspx" 
+	<template id="BO-BO_SomeTable.cs.aspx"
+			name="BO-BO_SomeTable.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -661,7 +705,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx" 
+	<template id="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx"
+			name="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -683,10 +728,11 @@ XXX:TO_DOS -->
 				type="MySQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx"
+			name="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -708,11 +754,12 @@ XXX:TO_DOS -->
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" />
-			<dependency name="emptyfile.txt" />
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx" 
+	<template id="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx"
+			name="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -734,10 +781,11 @@ XXX:TO_DOS -->
 				type="SQLServer_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" 
+	<template id="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -761,10 +809,11 @@ XXX:TO_DOS -->
 				type="MySQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -788,11 +837,12 @@ XXX:TO_DOS -->
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" />
-			<dependency name="emptyfile.txt" />
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" 
+	<template id="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -816,10 +866,11 @@ XXX:TO_DOS -->
 				type="SQLServer_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-fnc0_SomeTable_isObject-MySQL.sql.aspx" 
+	<template id="DO-DB-fnc0_SomeTable_isObject-MySQL.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_isObject-MySQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -842,7 +893,8 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DB-fnc0_SomeTable_isObject-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-fnc0_SomeTable_isObject-PostgreSQL.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_isObject-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -864,10 +916,11 @@ XXX:TO_DOS -->
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="emptyfile.txt" />
+			<dependency templateID="emptyfile.txt" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-fnc0_SomeTable_isObject-SQLServer.sql.aspx" 
+	<template id="DO-DB-fnc0_SomeTable_isObject-SQLServer.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_isObject-SQLServer.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -890,7 +943,8 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-MySQL.sql.aspx" 
+	<template id="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-MySQL.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-MySQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -914,10 +968,11 @@ XXX:TO_DOS -->
 				type="MySQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-PostgreSQL.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -941,11 +996,12 @@ XXX:TO_DOS -->
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
-			<dependency name="emptyfile.txt" />
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-SQLServer.sql.aspx" 
+	<template id="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-SQLServer.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-SQLServer.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -969,10 +1025,11 @@ XXX:TO_DOS -->
 				type="SQLServer_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-MySQL.sql.aspx" 
+	<template id="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-MySQL.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-MySQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -996,10 +1053,11 @@ XXX:TO_DOS -->
 				type="MySQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-PostgreSQL.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1023,11 +1081,12 @@ XXX:TO_DOS -->
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
-			<dependency name="emptyfile.txt" />
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-SQLServer.sql.aspx" 
+	<template id="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-SQLServer.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-SQLServer.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1051,10 +1110,11 @@ XXX:TO_DOS -->
 				type="SQLServer_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_insObject-MySQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_insObject-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_insObject-MySQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -1077,10 +1137,11 @@ XXX:TO_DOS -->
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx" />
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_insObject-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_insObject-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_insObject-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -1103,11 +1164,12 @@ XXX:TO_DOS -->
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx" />
-			<dependency name="emptyfile.txt" />
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_insObject-SQLServer.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_insObject-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_insObject-SQLServer.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -1130,10 +1192,11 @@ XXX:TO_DOS -->
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx" />
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_updObject-MySQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_updObject-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_updObject-MySQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -1156,10 +1219,11 @@ XXX:TO_DOS -->
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx" />
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_updObject-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_updObject-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_updObject-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -1182,11 +1246,12 @@ XXX:TO_DOS -->
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx" />
-			<dependency name="emptyfile.txt" />
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_updObject-SQLServer.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_updObject-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_updObject-SQLServer.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -1209,10 +1274,11 @@ XXX:TO_DOS -->
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx" />
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_setObject-MySQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_setObject-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_setObject-MySQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -1236,7 +1302,8 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DB-sp0_SomeTable_setObject-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_setObject-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_setObject-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -1259,10 +1326,11 @@ XXX:TO_DOS -->
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="emptyfile.txt" />
+			<dependency templateID="emptyfile.txt" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_setObject-SQLServer.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_setObject-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_setObject-SQLServer.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -1286,7 +1354,8 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DB-sp0_SomeTable_delObject-MySQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_delObject-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_delObject-MySQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -1310,7 +1379,8 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DB-sp0_SomeTable_delObject-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_delObject-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_delObject-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -1333,10 +1403,11 @@ XXX:TO_DOS -->
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="emptyfile.txt" />
+			<dependency templateID="emptyfile.txt" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_delObject-SQLServer.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_delObject-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_delObject-SQLServer.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -1360,7 +1431,8 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-MySQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-MySQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1385,10 +1457,11 @@ XXX:TO_DOS -->
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1413,11 +1486,12 @@ XXX:TO_DOS -->
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
-			<dependency name="emptyfile.txt" />
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-SQLServer.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-SQLServer.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1442,10 +1516,11 @@ XXX:TO_DOS -->
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-MySQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-MySQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1470,10 +1545,11 @@ XXX:TO_DOS -->
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1498,12 +1574,13 @@ XXX:TO_DOS -->
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" />
-			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
-			<dependency name="emptyfile.txt" />
+			<dependency templateID="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-SQLServer.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-SQLServer.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1528,10 +1605,11 @@ XXX:TO_DOS -->
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" 
+	<template id="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx"
+			name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1556,7 +1634,8 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx"
+			name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1580,10 +1659,11 @@ XXX:TO_DOS -->
 				type="PostgreSQL_Function" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies>
-			<dependency name="emptyfile.txt" />
+			<dependency templateID="emptyfile.txt" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" 
+	<template id="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx"
+			name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1608,7 +1688,8 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" 
+	<template id="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx"
+			name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1633,7 +1714,8 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx"
+			name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1657,11 +1739,12 @@ XXX:TO_DOS -->
 				type="PostgreSQL_Function" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" />
-			<dependency name="emptyfile.txt" />
+			<dependency templateID="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" 
+	<template id="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx"
+			name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1686,7 +1769,8 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" 
+	<template id="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx"
+			name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1710,10 +1794,11 @@ XXX:TO_DOS -->
 				type="MySQL_StoredProcedure" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx"
+			name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1737,12 +1822,13 @@ XXX:TO_DOS -->
 				type="PostgreSQL_Function" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" />
-			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
-			<dependency name="emptyfile.txt" />
+			<dependency templateID="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" 
+	<template id="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx"
+			name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1766,10 +1852,11 @@ XXX:TO_DOS -->
 				type="SQLServer_StoredProcedure" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_getObject-MySQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_getObject-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_getObject-MySQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -1792,7 +1879,8 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DB-sp0_SomeTable_getObject-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_getObject-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_getObject-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -1814,10 +1902,11 @@ XXX:TO_DOS -->
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="emptyfile.txt" />
+			<dependency templateID="emptyfile.txt" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_getObject-SQLServer.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_getObject-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_getObject-SQLServer.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -1840,7 +1929,8 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-MySQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-MySQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1864,10 +1954,11 @@ XXX:TO_DOS -->
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1891,11 +1982,12 @@ XXX:TO_DOS -->
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" />
-			<dependency name="emptyfile.txt" />
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-SQLServer.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-SQLServer.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1919,10 +2011,11 @@ XXX:TO_DOS -->
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-MySQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-MySQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1946,10 +2039,11 @@ XXX:TO_DOS -->
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
+			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1973,11 +2067,12 @@ XXX:TO_DOS -->
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
-			<dependency name="emptyfile.txt" />
+			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-SQLServer.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-SQLServer.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -2001,10 +2096,11 @@ XXX:TO_DOS -->
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
+			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-MySQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-MySQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -2028,10 +2124,11 @@ XXX:TO_DOS -->
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
+			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -2055,12 +2152,13 @@ XXX:TO_DOS -->
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" />
-			<dependency name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
-			<dependency name="emptyfile.txt" />
+			<dependency templateID="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" />
+			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-SQLServer.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-SQLServer.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -2084,10 +2182,11 @@ XXX:TO_DOS -->
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
+			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-MySQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-MySQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -2111,10 +2210,11 @@ XXX:TO_DOS -->
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
+			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -2138,11 +2238,12 @@ XXX:TO_DOS -->
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
-			<dependency name="emptyfile.txt" />
+			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-SQLServer.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-SQLServer.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -2166,10 +2267,11 @@ XXX:TO_DOS -->
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
+			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-MySQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-MySQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].updates.update[n]">
 		<arguments>
@@ -2193,10 +2295,11 @@ XXX:TO_DOS -->
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].updates.update[n]">
 		<arguments>
@@ -2220,11 +2323,12 @@ XXX:TO_DOS -->
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
-			<dependency name="emptyfile.txt" />
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-SQLServer.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-SQLServer.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].updates.update[n]">
 		<arguments>
@@ -2248,10 +2352,11 @@ XXX:TO_DOS -->
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_updObject_SomeUpdate-MySQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_updObject_SomeUpdate-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_updObject_SomeUpdate-MySQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableUpdates.tableUpdate[n]">
 		<arguments>
@@ -2273,10 +2378,11 @@ XXX:TO_DOS -->
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx" />
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_updObject_SomeUpdate-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_updObject_SomeUpdate-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_updObject_SomeUpdate-PostgreSQL.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableUpdates.tableUpdate[n]">
 		<arguments>
@@ -2298,11 +2404,12 @@ XXX:TO_DOS -->
 				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="emptyfile.txt" />
-			<dependency name="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt" />
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-sp0_SomeTable_updObject_SomeUpdate-SQLServer.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_updObject_SomeUpdate-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_updObject_SomeUpdate-SQLServer.sql.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableUpdates.tableUpdate[n]">
 		<arguments>
@@ -2324,10 +2431,11 @@ XXX:TO_DOS -->
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx" />
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-OGen_fnc0__Split-PostgreSQL.sql" 
+	<template id="DO-DB-OGen_fnc0__Split-PostgreSQL.sql"
+			name="DO-DB-OGen_fnc0__Split-PostgreSQL.sql" 
 			parserType="none" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -2346,7 +2454,8 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DB-OGen_fnc0__Split-SQLServer.sql" 
+	<template id="DO-DB-OGen_fnc0__Split-SQLServer.sql"
+			name="DO-DB-OGen_fnc0__Split-SQLServer.sql" 
 			parserType="none" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -2365,7 +2474,8 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DB-OGen_v0__getTables-PostgreSQL.sql" 
+	<template id="DO-DB-OGen_v0__getTables-PostgreSQL.sql"
+			name="DO-DB-OGen_v0__getTables-PostgreSQL.sql" 
 			parserType="none" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -2384,7 +2494,8 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DB-OGen_sp0__getTables-PostgreSQL.sql" 
+	<template id="DO-DB-OGen_sp0__getTables-PostgreSQL.sql"
+			name="DO-DB-OGen_sp0__getTables-PostgreSQL.sql" 
 			parserType="none" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -2402,11 +2513,12 @@ XXX:TO_DOS -->
 				type="PostgreSQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-OGen_fnc0__Split-PostgreSQL.sql" />
-			<dependency name="DO-DB-OGen_v0__getTables-PostgreSQL.sql" />
+			<dependency templateID="DO-DB-OGen_fnc0__Split-PostgreSQL.sql" />
+			<dependency templateID="DO-DB-OGen_v0__getTables-PostgreSQL.sql" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-OGen_sp0__getTables-SQLServer.sql" 
+	<template id="DO-DB-OGen_sp0__getTables-SQLServer.sql"
+			name="DO-DB-OGen_sp0__getTables-SQLServer.sql" 
 			parserType="none" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -2424,10 +2536,11 @@ XXX:TO_DOS -->
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-OGen_fnc0__Split-SQLServer.sql" />
+			<dependency templateID="DO-DB-OGen_fnc0__Split-SQLServer.sql" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-OGen_v0__getTableFields-PostgreSQL.sql" 
+	<template id="DO-DB-OGen_v0__getTableFields-PostgreSQL.sql"
+			name="DO-DB-OGen_v0__getTableFields-PostgreSQL.sql" 
 			parserType="none" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -2446,7 +2559,8 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DB-OGen_sp0__getTableFields-PostgreSQL.sql" 
+	<template id="DO-DB-OGen_sp0__getTableFields-PostgreSQL.sql"
+			name="DO-DB-OGen_sp0__getTableFields-PostgreSQL.sql" 
 			parserType="none" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -2464,10 +2578,11 @@ XXX:TO_DOS -->
 				type="PostgreSQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
-			<dependency name="DO-DB-OGen_v0__getTableFields-PostgreSQL.sql" />
+			<dependency templateID="DO-DB-OGen_v0__getTableFields-PostgreSQL.sql" />
 		</dependencies>
 	</template>
-	<template name="DO-DB-OGen_sp0__getTableFields-SQLServer.sql" 
+	<template id="DO-DB-OGen_sp0__getTableFields-SQLServer.sql"
+			name="DO-DB-OGen_sp0__getTableFields-SQLServer.sql" 
 			parserType="none" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -2486,7 +2601,8 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="DO-DB-OGen_sp0__getTableFields-MySQL.sql"
+	<template id="DO-DB-OGen_sp0__getTableFields-MySQL.sql"
+			name="DO-DB-OGen_sp0__getTableFields-MySQL.sql"
 			parserType="none"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />

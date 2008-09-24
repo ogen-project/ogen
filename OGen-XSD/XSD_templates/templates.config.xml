@@ -11,7 +11,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 -->
 <templates>
-	<template name="XS-XS0_SomeEnumeration.cs.aspx" 
+	<template id="XS-XS0_SomeEnumeration.cs.aspx"
+			name="XS-XS0_SomeEnumeration.cs.aspx"
 			parserType="aspx" 
 			iterationType="ROOT.schema[n].simpleType[n]">
 		<arguments>
@@ -26,7 +27,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="XS-XS0_SomeClassCollection.cs.aspx" 
+	<template id="XS-XS0_SomeClassCollection.cs.aspx" 
+			name="XS-XS0_SomeClassCollection.cs.aspx"
 			parserType="aspx" 
 			iterationType="ROOT.schema[n].complexType[n]">
 		<arguments>
@@ -41,7 +43,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="XS-XS_SomeClassCollection.cs.aspx" 
+	<template id="XS-XS_SomeClassCollection.cs.aspx"
+			name="XS-XS_SomeClassCollection.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.schema[n].complexType[n]">
 		<arguments>
@@ -60,7 +63,8 @@ type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="XS-XS0_SomeClass.cs.aspx" 
+	<template id="XS-XS0_SomeClass.cs.aspx"
+			name="XS-XS0_SomeClass.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.schema[n].complexType[n]">
 		<arguments>
@@ -75,7 +79,8 @@ type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="XS-XS_SomeClass.cs.aspx" 
+	<template id="XS-XS_SomeClass.cs.aspx"
+			name="XS-XS_SomeClass.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.schema[n].complexType[n]">
 		<arguments>
@@ -93,10 +98,11 @@ type="File" mode="Replace" />
 -->
 		</outputs>
 		<dependencies>
-			<dependency name="XS-XS0_SomeClass.cs.aspx" />
+			<dependency templateID="XS-XS0_SomeClass.cs.aspx" />
 		</dependencies>
 	</template>
-	<template name="XS-XS0__BaseClassCollection.cs.aspx" 
+	<template id="XS-XS0__BaseClassCollection.cs.aspx"
+			name="XS-XS0__BaseClassCollection.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.schema[n]">
 		<arguments>
@@ -112,7 +118,8 @@ type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="XS-XS__BaseClassCollection.cs.aspx" 
+	<template id="XS-XS__BaseClassCollection.cs.aspx"
+			name="XS-XS__BaseClassCollection.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.schema[n]">
 		<arguments>
@@ -132,7 +139,8 @@ type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="XS-XS0__BaseClass.cs.aspx" 
+	<template id="XS-XS0__BaseClass.cs.aspx"
+			name="XS-XS0__BaseClass.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.schema[n]">
 		<arguments>
@@ -146,7 +154,8 @@ type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="XS-XS__BaseClass.cs.aspx" 
+	<template id="XS-XS__BaseClass.cs.aspx"
+			name="XS-XS__BaseClass.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.schema[n]">
 		<arguments>
@@ -163,10 +172,11 @@ type="File" mode="Replace" />
 -->
 		</outputs>
 		<dependencies>
-			<dependency name="XS-XS0__BaseClass.cs.aspx" />
+			<dependency templateID="XS-XS0__BaseClass.cs.aspx" />
 		</dependencies>
 	</template>
-	<template name="XS-XS0__RootMetadata.cs.aspx" 
+	<template id="XS-XS0__RootMetadata.cs.aspx"
+			name="XS-XS0__RootMetadata.cs.aspx" 
 			parserType="aspx" 
 
 
@@ -193,7 +203,8 @@ iterationType="ROOT.schema">
 		</outputs>
 		<dependencies />
 	</template>
-	<template name="XS-XS__RootMetadata.cs.aspx" 
+	<template id="XS-XS__RootMetadata.cs.aspx"
+			name="XS-XS__RootMetadata.cs.aspx" 
 			parserType="aspx" 
 
 
@@ -221,8 +232,9 @@ iterationType="ROOT.schema">
 type="File" mode="Replace" />
 -->
 		</outputs>
+		<dependencies />
 		<dependencies>
-			<dependency name="XS-XS0__RootMetadata.cs.aspx" />
+			<dependency templateID="XS-XS0__RootMetadata.cs.aspx" />
 		</dependencies>
 	</template>
 </templates>

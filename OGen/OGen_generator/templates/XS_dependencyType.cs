@@ -25,9 +25,9 @@ namespace OGen.lib.templates {
 		) {
 		}
 		public XS_dependencyType (
-			string name_in
+			string templateID_in
 		) {
-			name_ = name_in;
+			templateid_ = templateID_in;
 		}
 	}
 }

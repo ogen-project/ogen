@@ -11,7 +11,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 -->
 <templates>
-	<template name="doc.css" 
+	<template id="doc.css"
+			name="doc.css" 
 			parserType="none"
 			iterationType="ROOT.documentation[n]">
 		<arguments />
@@ -22,7 +23,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				type="File" mode="Replace" />
 		</outputs>
 	</template>
-	<template name="lib_doc.js" 
+	<template id="lib_doc.js"
+			name="lib_doc.js" 
 			parserType="none"
 			iterationType="ROOT.documentation[n]">
 		<arguments />
@@ -33,7 +35,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				type="File" mode="Replace" />
 		</outputs>
 	</template>
-	<template name="index.html.aspx"
+	<template id="index.html.aspx:onePerChapter"
+			name="index.html.aspx"
 			parserType="aspx"
 			iterationType="ROOT.documentation[n]">
 		<arguments>
@@ -48,7 +51,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</outputs>
 		<dependencies />
 	</template>
-	<!--<template name="index.html.aspx"
+	<template id="index.html.aspx:allChapters"
+			name="index.html.aspx"
 			parserType="aspx"
 			iterationType="ROOT.documentation[n]">
 		<arguments>
@@ -62,8 +66,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
-	</template>-->
-	<template name="chapter.html.aspx"
+	</template>
+	<template id="chapter.html.aspx:onePerChapter"
+			name="chapter.html.aspx"
 			parserType="aspx"
 			iterationType="ROOT.documentation[n].chapters.chapter[n]">
 		<arguments>
@@ -78,7 +83,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</outputs>
 		<dependencies />
 	</template>
-	<!--<template name="chapter.html.aspx"
+	<template id="chapter.html.aspx:allChapters"
+			name="chapter.html.aspx"
 			parserType="aspx"
 			iterationType="ROOT.documentation[n]">
 		<arguments>
@@ -91,8 +97,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
-	</template>-->
-	<template name="emptyfile.txt"
+	</template>
+	<template id="emptyfile.txt"
+			name="emptyfile.txt"
 			parserType="none"
 			iterationType="ROOT.documentation[n].chapters.chapter[n].items.item[n].attachments.attachment[n]">
 		<arguments />

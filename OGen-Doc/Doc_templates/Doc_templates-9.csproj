@@ -120,6 +120,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="doc.css" />
+    <Content Include="emptyfile.txt" />
     <Content Include="index.html.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>

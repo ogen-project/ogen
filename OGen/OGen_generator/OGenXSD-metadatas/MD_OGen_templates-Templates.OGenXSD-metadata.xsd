@@ -147,7 +147,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				<dependency name="xxxxxx" />
 	-->
 	<xs:complexType name="dependencyType">
-		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="templateID" type="xs:string" />
 	</xs:complexType>
 	<!--
 			<dependencies>
@@ -172,6 +172,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</template>
 	-->
 	<xs:complexType name="templateType">
+		<xs:attribute name="id" type="xs:string" />
 		<xs:attribute name="name" type="xs:string" />
 		<xs:attribute name="parserType" type="parserEnumeration" />
 		<xs:attribute name="iterationType" type="xs:string" />

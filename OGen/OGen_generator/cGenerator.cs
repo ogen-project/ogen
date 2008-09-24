@@ -641,7 +641,7 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 					bool _finishedPreviously = false;
 					for (int f = 0; f < _finishedTemplates.Count; f++) {
 						if (
-							templates_.TemplateCollection[template_].Name
+							templates_.TemplateCollection[template_].ID
 							==
 							(string)_finishedTemplates[f]
 						) {
@@ -651,13 +651,13 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 					}
 					if (_finishedPreviously) continue;
 					#endregion
-					#region if ((_finishedDependencies = ...) == templates_[template_].Dependencies.Count) { _finishedTemplates.Add(templates_[template_].Name); _finished = false; }
+					#region if ((_finishedDependencies = ...) == templates_[template_].Dependencies.Count) { _finishedTemplates.Add(templates_[template_].ID); _finished = false; }
 					#region int _finishedDependencies = ...;
 					int _finishedDependencies = 0;
 					for (int d = 0; d < templates_.TemplateCollection[template_].Dependencies.DependencyCollection.Count; d++) {
 						for (int f = 0; f < _finishedTemplates.Count; f++) {
 							if (
-								templates_.TemplateCollection[template_].Dependencies.DependencyCollection[d].Name
+								templates_.TemplateCollection[template_].Dependencies.DependencyCollection[d].TemplateID
 								==
 								(string)_finishedTemplates[f]
 							) {
@@ -675,7 +675,7 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 								"#{0}/{1} - {2} ",
 								_finishedTemplates.Count + 1,
 								templates_.TemplateCollection.Count,
-								templates_.TemplateCollection[template_].Name
+								templates_.TemplateCollection[template_].ID
 							),
 							false
 						);
@@ -689,7 +689,7 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 						#endregion
 
 						// adding template to finished list of templates
-						_finishedTemplates.Add(templates_.TemplateCollection[template_].Name);
+						_finishedTemplates.Add(templates_.TemplateCollection[template_].ID);
 						_finished = false;
 
 						notifyback_((_valuehasbeenfound_out ? "... DONE!" : "nothing"), true);
@@ -703,7 +703,7 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 				for (int t = 0; t < templates_.TemplateCollection.Count; t++) {
 					_finished = false;
 					for (int f = 0; f < _finishedTemplates.Count; f++) {
-						if ((string)_finishedTemplates[f] == templates_.TemplateCollection[template_].Name) {
+						if ((string)_finishedTemplates[f] == templates_.TemplateCollection[template_].ID) {
 							_finished = true;
 							break;
 						}
@@ -711,7 +711,7 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 					if (!_finished) {
 						_error += string.Format(
 							"\t{0}\n", 
-							templates_.TemplateCollection[template_].Name
+							templates_.TemplateCollection[template_].ID
 						);
 					}
 				}

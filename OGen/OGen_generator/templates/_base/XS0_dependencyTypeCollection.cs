@@ -88,11 +88,11 @@ namespace OGen.lib.templates {
 		#endregion
 		#region public XS_dependencyType this[...] { get; }
 		public XS_dependencyType this[
-			string name_in
+			string templateID_in
 		] {
 			get {
 				int _index = Search(
-					name_in
+					templateID_in
 				);
 				return (_index == -1)
 					? null
@@ -108,34 +108,34 @@ namespace OGen.lib.templates {
 
 		#region public void Remove(...);
 		public void Remove(
-			string name_in
+			string templateID_in
 		) {
 			RemoveAt(
 				Search(
-					name_in
+					templateID_in
 				)
 			);
 		}
 		#endregion
 		#region public int Search(...);
 		public int Search(
-			string name_in
+			string templateID_in
 		) {
 			return Search(
-				name_in, 
+				templateID_in, 
 				true
 			);
 		}
 
 		public int Search(
-			string name_in, 
-			bool name_caseSensitive_in
+			string templateID_in, 
+			bool templateID_caseSensitive_in
 		) {
 			for (int i = 0; i < cols_.Count; i++) {
 				if (
 					(
 						(
-							name_caseSensitive_in
+							templateID_caseSensitive_in
 							&&
 							(
 								#if NET_1_1
@@ -143,14 +143,14 @@ namespace OGen.lib.templates {
 								#else
 								cols_[i]
 								#endif
-									.Name
+									.TemplateID
 								==
-								name_in 
+								templateID_in 
 							)
 						)
 						||
 						(
-							!name_caseSensitive_in
+							!templateID_caseSensitive_in
 							&&
 							(
 								#if NET_1_1
@@ -158,9 +158,9 @@ namespace OGen.lib.templates {
 								#else
 								cols_[i]
 								#endif
-									.Name.ToLower()
+									.TemplateID.ToLower()
 								==
-								name_in.ToLower()
+								templateID_in.ToLower()
 							)
 						)
 					)
@@ -180,9 +180,9 @@ namespace OGen.lib.templates {
 						#else
 						cols_[i]
 						#endif
-							.Name
+							.TemplateID
 						==
-						collectionItem_in.Name
+						collectionItem_in.TemplateID
 					)
 					
 				) {
@@ -196,7 +196,7 @@ namespace OGen.lib.templates {
 		#region public void Add(...);
 		public virtual void Add(
 			bool onlyIfNotExists_in,
-			string name_in
+			string templateID_in
 		) {
 			if (
 				// even if exists
@@ -204,18 +204,18 @@ namespace OGen.lib.templates {
 				||
 				// doesn't exist
 				(Search(
-					name_in
+					templateID_in
 				) == -1)
 			) {
 				Add(
-					name_in
+					templateID_in
 				);
 			}
 		}
 		public virtual void Add(
 			out int returnIndex_out, 
 			bool onlyIfNotExists_in, 
-			string name_in
+			string templateID_in
 		) {
 			if (
 				// even if exists
@@ -223,30 +223,30 @@ namespace OGen.lib.templates {
 				||
 				// doesn't exist
 				((returnIndex_out = Search(
-					name_in
+					templateID_in
 				)) == -1)
 			) {
 				Add(
 					out returnIndex_out,
-					name_in
+					templateID_in
 				);
 			}
 		}
 		public void Add(
-			string name_in
+			string templateID_in
 		) {
 			Add(new XS_dependencyType(
-				name_in
+				templateID_in
 			));
 		}
 		public void Add(
 			out int returnIndex_out,
-			string name_in
+			string templateID_in
 		) {
 			Add(
 				out returnIndex_out, 
 				new XS_dependencyType(
-					name_in
+					templateID_in
 				)
 			);
 		}

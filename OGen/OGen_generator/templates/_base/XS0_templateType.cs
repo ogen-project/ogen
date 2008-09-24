@@ -22,6 +22,19 @@ namespace OGen.lib.templates {
 	#else
 	public partial class XS_templateType {
 	#endif
+		#region public string ID { get; set; }
+		internal string id_;
+
+		[XmlAttribute("id")]
+		public string ID {
+			get {
+				return id_;
+			}
+			set {
+				id_ = value;
+			}
+		}
+		#endregion
 		#region public string Name { get; set; }
 		internal string name_;
 
@@ -154,6 +167,7 @@ namespace OGen.lib.templates {
 		public void CopyFrom(XS_templateType templateType_in) {
 			int _index = -1;
 
+			id_ = templateType_in.id_;
 			name_ = templateType_in.name_;
 			parsertype_ = templateType_in.parsertype_;
 			iterationtype_ = templateType_in.iterationtype_;
