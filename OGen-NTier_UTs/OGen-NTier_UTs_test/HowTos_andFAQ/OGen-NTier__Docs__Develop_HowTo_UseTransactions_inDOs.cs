@@ -1,6 +1,6 @@
 // Copyright (C) 2002 Francisco Monteiro
-using System;
 
+using System;
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
 using OGen.NTier.UTs.lib.datalayer;
@@ -17,7 +17,6 @@ namespace OGen.NTier.UTs.howtos {
 
 			// before beginning a transaction we need to open the connection
 			_user.Connection.Open();
-
 			try {
 				// beginning transaction
 				_user.Connection.Transaction.Begin();
@@ -37,10 +36,8 @@ namespace OGen.NTier.UTs.howtos {
 				// terminate transaction
 				_user.Connection.Transaction.Terminate();
 			}
-
 			// closing connection
 			_user.Connection.Close();
-
 			_user.Dispose(); _user = null;
 		}
 	}

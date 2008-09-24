@@ -1,4 +1,5 @@
 // Copyright (C) 2002 Francisco Monteiro
+
 using System;
 
 namespace OGen.UTs.howtos {

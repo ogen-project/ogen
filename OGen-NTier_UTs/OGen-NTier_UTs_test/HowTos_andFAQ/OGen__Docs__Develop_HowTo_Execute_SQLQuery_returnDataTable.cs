@@ -1,7 +1,7 @@
 // Copyright (C) 2002 Francisco Monteiro
+
 using System;
 using System.Data;
-
 using OGen.lib.datalayer;
 
 namespace OGen.UTs.howtos {

@@ -1,7 +1,7 @@
 // Copyright (C) 2002 Francisco Monteiro
+
 using System;
 using System.Reflection;
-
 using OGen.NTier.lib.datalayer;
 using OGen.NTier.UTs.lib.datalayer;
 
@@ -56,9 +56,9 @@ namespace OGen.NTier.UTs.howtos {
 						null
 					);
 					Console.WriteLine(
-						"new value: {0}", _properties[_prop].GetValue(_user, null)
+						"new value: {0}", 
+						_properties[_prop].GetValue(_user, null)
 					);
-					Console.WriteLine();
 				}
 			}
 		}

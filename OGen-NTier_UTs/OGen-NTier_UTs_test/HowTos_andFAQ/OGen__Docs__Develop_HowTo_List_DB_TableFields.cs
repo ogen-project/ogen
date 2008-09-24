@@ -1,6 +1,6 @@
 // Copyright (C) 2002 Francisco Monteiro
-using System;
 
+using System;
 using OGen.lib.datalayer;
 
 namespace OGen.UTs.howtos {
@@ -17,7 +17,7 @@ namespace OGen.UTs.howtos {
 			// field names and other properties for specified table
 			DBTableField[] _fields = _con.getTableFields("User");
 
-			for (int f = 0; f < _fields.Length; f++) {
+			for (int f = 0; f < _fields.Length; f++)
 				Console.WriteLine(
 					"field name: {0}\nis PK: {1}\nis Identity: {2}\nis nullable: {3}", 
 					_fields[f].Name, 
@@ -35,7 +35,6 @@ namespace OGen.UTs.howtos {
 					_fields[f].Numeric_Scale, 
 					_fields[f].Size
 				);
-			}
 
 			_con.Dispose(); _con = null;
 		}

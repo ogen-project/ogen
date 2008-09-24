@@ -449,8 +449,8 @@
 																id="4.2.4"
 																class="code"
 														>// Copyright (C) 2002 Francisco Monteiro
-using System;
 
+using System;
 using OGen.lib.datalayer;
 
 namespace OGen.UTs.howtos {
@@ -510,9 +510,9 @@ namespace OGen.UTs.howtos {
 																id="4.2.4"
 																class="code"
 														>// Copyright (C) 2002 Francisco Monteiro
+
 using System;
 using System.Data;
-
 using OGen.lib.datalayer;
 
 namespace OGen.UTs.howtos {
@@ -569,9 +569,9 @@ namespace OGen.UTs.howtos {
 																id="4.2.4"
 																class="code"
 														>// Copyright (C) 2002 Francisco Monteiro
+
 using System;
 using System.Data;
-
 using OGen.lib.datalayer;
 
 namespace OGen.UTs.howtos {
@@ -640,9 +640,9 @@ namespace OGen.UTs.howtos {
 																id="4.2.4"
 																class="code"
 														>// Copyright (C) 2002 Francisco Monteiro
+
 using System;
 using System.Data;
-
 using OGen.lib.datalayer;
 
 namespace OGen.UTs.howtos {
@@ -713,9 +713,9 @@ namespace OGen.UTs.howtos {
 																id="4.2.4"
 																class="code"
 														>// Copyright (C) 2002 Francisco Monteiro
+
 using System;
 using System.Data;
-
 using OGen.lib.datalayer;
 
 namespace OGen.UTs.howtos {
@@ -792,8 +792,8 @@ namespace OGen.UTs.howtos {
 																id="4.2.9"
 																class="code"
 														>// Copyright (C) 2002 Francisco Monteiro
-using System;
 
+using System;
 using OGen.lib.datalayer;
 
 namespace OGen.UTs.howtos {
@@ -844,8 +844,8 @@ namespace OGen.UTs.howtos {
 																id="4.2.10"
 																class="code"
 														>// Copyright (C) 2002 Francisco Monteiro
-using System;
 
+using System;
 using OGen.lib.datalayer;
 
 namespace OGen.UTs.howtos {
@@ -862,13 +862,12 @@ namespace OGen.UTs.howtos {
 			// table names and other properties for your database
 			DBTable[] _tables = _con.getTables();
 
-			for (int t = 0; t < _tables.Length; t++) {
+			for (int t = 0; t < _tables.Length; t++)
 				Console.WriteLine(
 					"table name: {0}\nis this a view and not a table: {1}", 
 					_tables[t].Name, 
 					_tables[t].isVirtualTable
 				);
-			}
 
 			_con.Dispose(); _con = null;
 		}
@@ -904,8 +903,8 @@ namespace OGen.UTs.howtos {
 																id="4.2.11"
 																class="code"
 														>// Copyright (C) 2002 Francisco Monteiro
-using System;
 
+using System;
 using OGen.lib.datalayer;
 
 namespace OGen.UTs.howtos {
@@ -922,7 +921,7 @@ namespace OGen.UTs.howtos {
 			// field names and other properties for specified table
 			DBTableField[] _fields = _con.getTableFields("User");
 
-			for (int f = 0; f < _fields.Length; f++) {
+			for (int f = 0; f < _fields.Length; f++)
 				Console.WriteLine(
 					"field name: {0}\nis PK: {1}\nis Identity: {2}\nis nullable: {3}", 
 					_fields[f].Name, 
@@ -940,7 +939,6 @@ namespace OGen.UTs.howtos {
 					_fields[f].Numeric_Scale, 
 					_fields[f].Size
 				);
-			}
 
 			_con.Dispose(); _con = null;
 		}
@@ -979,8 +977,8 @@ namespace OGen.UTs.howtos {
 																id="4.2.4"
 																class="code"
 														>// Copyright (C) 2002 Francisco Monteiro
-using System;
 
+using System;
 using OGen.lib.datalayer;
 
 namespace OGen.UTs.howtos {
@@ -997,7 +995,6 @@ namespace OGen.UTs.howtos {
 
 			// before beginning a transaction we need to open the connection
 			_con.Open();
-
 			try {
 				// beginning transaction
 				_con.Transaction.Begin();
@@ -1019,10 +1016,8 @@ namespace OGen.UTs.howtos {
 				// terminate transaction
 				_con.Transaction.Terminate();
 			}
-
 			// closing connection
 			_con.Close();
-
 			_con.Dispose(); _con = null;
 		}
 	}
@@ -1060,8 +1055,8 @@ namespace OGen.UTs.howtos {
 																id="4.2.4"
 																class="code"
 														>// Copyright (C) 2002 Francisco Monteiro
-using System;
 
+using System;
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
 using OGen.NTier.UTs.lib.datalayer;
@@ -1078,7 +1073,6 @@ namespace OGen.NTier.UTs.howtos {
 
 			// before beginning a transaction we need to open the connection
 			_user.Connection.Open();
-
 			try {
 				// beginning transaction
 				_user.Connection.Transaction.Begin();
@@ -1098,10 +1092,8 @@ namespace OGen.NTier.UTs.howtos {
 				// terminate transaction
 				_user.Connection.Transaction.Terminate();
 			}
-
 			// closing connection
 			_user.Connection.Close();
-
 			_user.Dispose(); _user = null;
 		}
 	}
@@ -1139,8 +1131,8 @@ namespace OGen.NTier.UTs.howtos {
 																id="4.2.4"
 																class="code"
 														>// Copyright (C) 2002 Francisco Monteiro
-using System;
 
+using System;
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
 using OGen.NTier.UTs.lib.datalayer;
@@ -1162,7 +1154,6 @@ namespace OGen.NTier.UTs.howtos {
 
 			// before beginning a transaction we need to open the connection
 			_con.Open();
-
 			try {
 				// beginning transaction
 				_con.Transaction.Begin();
@@ -1202,10 +1193,8 @@ namespace OGen.NTier.UTs.howtos {
 				// terminate transaction
 				_con.Transaction.Terminate();
 			}
-
 			// closing connection
 			_con.Close();
-
 			_con.Dispose(); _con = null;
 		}
 	}
@@ -1250,9 +1239,9 @@ namespace OGen.NTier.UTs.howtos {
 																id="4.2.15"
 																class="code"
 														>// Copyright (C) 2002 Francisco Monteiro
+
 using System;
 using System.Reflection;
-
 using OGen.NTier.lib.datalayer;
 using OGen.NTier.UTs.lib.datalayer;
 
@@ -1360,6 +1349,7 @@ namespace OGen.NTier.UTs.howtos {
 																id="4.2.16"
 																class="code"
 														>// Copyright (C) 2002 Francisco Monteiro
+
 using System;
 using OGen.NTier.lib.datalayer;
 using OGen.NTier.UTs.lib.datalayer;
@@ -1377,9 +1367,29 @@ namespace OGen.NTier.UTs.howtos {
 				_attribute.Name,
 				_attribute.isPK,
 				_attribute.isIdentity,
-				_attribute.DefaultValue
+				_attribute.DefaultValue,
+
+				// many other properties available, like:
+				_attribute.AditionalInfo, 
+				_attribute.DefaultValue, 
+				_attribute.ExtendedDescription, 
+				_attribute.FK_FieldName, 
+				_attribute.FK_TableName, 
+				_attribute.FriendlyName, 
+				_attribute.isBool, 
+				_attribute.isConfig_Config, 
+				_attribute.isConfig_Datatype, 
+				_attribute.isConfig_Name, 
+				_attribute.isDateTime, 
+				_attribute.isDecimal, 
+				_attribute.IsDefaultAttribute, 
+				_attribute.isInt, 
+				_attribute.isListItemText, 
+				_attribute.isListItemValue, 
+				_attribute.isNullable, 
+				_attribute.isText, 
+				_attribute.Size
 			);
-			Console.WriteLine();
 		}
 	}
 }</pre></td>
@@ -1413,9 +1423,9 @@ namespace OGen.NTier.UTs.howtos {
 																id="4.2.17"
 																class="code"
 														>// Copyright (C) 2002 Francisco Monteiro
+
 using System;
 using System.Reflection;
-
 using OGen.NTier.lib.datalayer;
 using OGen.NTier.UTs.lib.datalayer;
 
@@ -1470,9 +1480,9 @@ namespace OGen.NTier.UTs.howtos {
 						null
 					);
 					Console.WriteLine(
-						"new value: {0}", _properties[_prop].GetValue(_user, null)
+						"new value: {0}", 
+						_properties[_prop].GetValue(_user, null)
 					);
-					Console.WriteLine();
 				}
 			}
 		}

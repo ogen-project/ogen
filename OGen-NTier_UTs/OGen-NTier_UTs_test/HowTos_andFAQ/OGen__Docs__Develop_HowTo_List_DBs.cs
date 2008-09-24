@@ -1,6 +1,6 @@
 // Copyright (C) 2002 Francisco Monteiro
-using System;
 
+using System;
 using OGen.lib.datalayer;
 
 namespace OGen.UTs.howtos {

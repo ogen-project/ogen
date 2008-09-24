@@ -1,6 +1,6 @@
 // Copyright (C) 2002 Francisco Monteiro
-using System;
 
+using System;
 using OGen.lib.datalayer;
 
 namespace OGen.UTs.howtos {
@@ -17,13 +17,12 @@ namespace OGen.UTs.howtos {
 			// table names and other properties for your database
 			DBTable[] _tables = _con.getTables();
 
-			for (int t = 0; t < _tables.Length; t++) {
+			for (int t = 0; t < _tables.Length; t++)
 				Console.WriteLine(
 					"table name: {0}\nis this a view and not a table: {1}", 
 					_tables[t].Name, 
 					_tables[t].isVirtualTable
 				);
-			}
 
 			_con.Dispose(); _con = null;
 		}
