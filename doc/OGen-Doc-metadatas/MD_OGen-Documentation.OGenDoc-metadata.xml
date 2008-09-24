@@ -102,6 +102,106 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
+
+
+
+<attachment
+	title="&lt;hr /&gt;TESTINGS...&lt;hr /&gt;"
+	showTitle="true"
+	source="ch00100-ogen/it00100-introduction/test-code.cs"
+	sourceType="file"
+	sourceContentType="code"
+	description="" />
+<attachment
+	title="code - no desc"
+	showTitle="true"
+	source="ch00100-ogen/it00100-introduction/test-code.cs"
+	sourceType="file"
+	sourceContentType="code"
+	description="" />
+<attachment
+	title="code - with desc"
+	showTitle="true"
+	source="ch00100-ogen/it00100-introduction/test-code.cs"
+	sourceType="file"
+	sourceContentType="code"
+	description="some code" />
+<attachment
+	title="code - no title"
+	showTitle="false"
+	source="ch00100-ogen/it00100-introduction/test-code.cs"
+	sourceType="file"
+	sourceContentType="code"
+	description="some code" />
+
+<attachment
+	title="table - no desc"
+	showTitle="true"
+	source="ch00100-ogen/it00100-introduction/test-table.html"
+	sourceType="file"
+	sourceContentType="table"
+	description="" />
+<attachment
+	title="table - with desc"
+	showTitle="true"
+	source="ch00100-ogen/it00100-introduction/test-table.html"
+	sourceType="file"
+	sourceContentType="table"
+	description="some table" />
+<attachment
+	title="table - no title"
+	showTitle="false"
+	source="ch00100-ogen/it00100-introduction/test-table.html"
+	sourceType="file"
+	sourceContentType="table"
+	description="some table" />
+
+<attachment
+	title="image - no desc"
+	showTitle="true"
+	source="ch00100-ogen/it00100-introduction/img00200-audience.png"
+	sourceType="file"
+	sourceContentType="image"
+	description="" />
+<attachment
+	title="image - with desc"
+	showTitle="true"
+	source="ch00100-ogen/it00100-introduction/img00200-audience.png"
+	sourceType="file"
+	sourceContentType="image"
+	description="some image" />
+<attachment
+	title="image - no title"
+	showTitle="false"
+	source="ch00100-ogen/it00100-introduction/img00200-audience.png"
+	sourceType="file"
+	sourceContentType="image"
+	description="some image" />
+
+<attachment
+	title="License"
+	showTitle="true"
+	source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+	sourceType="file"
+	sourceContentType="comment"
+	description="" />
+<attachment
+	title="License"
+	showTitle="false"
+	source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+	sourceType="file"
+	sourceContentType="warning"
+	description="" />
+<attachment
+	title="License"
+	showTitle="true"
+	source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+	sourceType="file"
+	sourceContentType="tip"
+	description="" />
+
+
+
 					</attachments>
 				</item>
 			</items>
@@ -220,95 +320,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
-
-
-<attachment
-	title="code - no desc"
-	showTitle="true"
-	source="ch00100-ogen/it00100-introduction/test-code.cs"
-	sourceType="file"
-	sourceContentType="code"
-	description="" />
-<attachment
-	title="code - with desc"
-	showTitle="true"
-	source="ch00100-ogen/it00100-introduction/test-code.cs"
-	sourceType="file"
-	sourceContentType="code"
-	description="some code" />
-<attachment
-	title="code - no title"
-	showTitle="false"
-	source="ch00100-ogen/it00100-introduction/test-code.cs"
-	sourceType="file"
-	sourceContentType="code"
-	description="some code" />
-
-<attachment
-	title="table - no desc"
-	showTitle="true"
-	source="ch00100-ogen/it00100-introduction/test-table.html"
-	sourceType="file"
-	sourceContentType="table"
-	description="" />
-<attachment
-	title="table - with desc"
-	showTitle="true"
-	source="ch00100-ogen/it00100-introduction/test-table.html"
-	sourceType="file"
-	sourceContentType="table"
-	description="some table" />
-<attachment
-	title="table - no title"
-	showTitle="false"
-	source="ch00100-ogen/it00100-introduction/test-table.html"
-	sourceType="file"
-	sourceContentType="table"
-	description="some table" />
-
-<attachment
-	title="image - no desc"
-	showTitle="true"
-	source="ch00100-ogen/it00100-introduction/img00200-audience.png"
-	sourceType="file"
-	sourceContentType="image"
-	description="" />
-<attachment
-	title="image - with desc"
-	showTitle="true"
-	source="ch00100-ogen/it00100-introduction/img00200-audience.png"
-	sourceType="file"
-	sourceContentType="image"
-	description="some image" />
-<attachment
-	title="image - no title"
-	showTitle="false"
-	source="ch00100-ogen/it00100-introduction/img00200-audience.png"
-	sourceType="file"
-	sourceContentType="image"
-	description="some image" />
-
-<attachment
-	title="License"
-	showTitle="true"
-	source="ch00100-ogen/it00100-introduction/pag00300-license.html"
-	sourceType="file"
-	sourceContentType="comment"
-	description="" />
-<attachment
-	title="License"
-	showTitle="false"
-	source="ch00100-ogen/it00100-introduction/pag00300-license.html"
-	sourceType="file"
-	sourceContentType="warning"
-	description="" />
-<attachment
-	title="License"
-	showTitle="true"
-	source="ch00100-ogen/it00100-introduction/pag00300-license.html"
-	sourceType="file"
-	sourceContentType="tip"
-	description="" />
 					</attachments>
 				</item>
 			</items>
@@ -330,27 +341,83 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 					<attachments>
 						<attachment
-							title="What is OGen"
+							title="NTier Application"
 							showTitle="true"
-							source="ch00100-ogen/it00100-introduction/pag00100-what_is_ogen.html"
+							source="ch00400-ogen/it00100-introduction/pag00100-ntier_application.html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
-
 						<attachment
-							title="Audience"
+							title="Data Layer"
 							showTitle="true"
-							source="ch00100-ogen/it00100-introduction/pag00200-audience.html"
+							source="ch00100-ogen/it00100-introduction/pag00200-data_layer.html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
-
 						<attachment
-							title="License"
+							title="Business Layer"
 							showTitle="true"
-							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+							source="ch00100-ogen/it00100-introduction/pag00300-business_layer.html"
 							sourceType="file"
 							sourceContentType="html"
+							description="" />
+						<attachment
+							title="Distributed Layer"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00400-distributed_layer.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="Presentation Layer"
+							showTitle="true"
+							source="ch00100-ogen/it00100-introduction/pag00500-presentation_layer.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+					</attachments>
+				</item>
+				<item
+					title="creating a sample database for the project"
+					subTitle=""
+					isIntroduction="true"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="simple db structure"
+							showTitle="true"
+							source="ch00400-ogen/it00200-introduction/pag00100-db_structure.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="brief explanation"
+							showTitle="true"
+							source="ch00400-ogen/it00200-introduction/pag00200-brief_explanation.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="PostgreSQL"
+							showTitle="true"
+							source="ch00400-ogen/it00200-introduction/pag00300-postgresql.html"
+							sourceType="file"
+							sourceContentType="code"
+							description="" />
+						<attachment
+							title="SQL Server"
+							showTitle="true"
+							source="ch00400-ogen/it00200-introduction/pag00400-sqlserver.html"
+							sourceType="file"
+							sourceContentType="code"
+							description="" />
+						<attachment
+							title="MySQL"
+							showTitle="true"
+							source="ch00400-ogen/it00200-introduction/pag00500-mysql.html"
+							sourceType="file"
+							sourceContentType="code"
 							description="" />
 					</attachments>
 				</item>
