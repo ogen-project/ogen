@@ -42,6 +42,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="What is OGen"
 							showTitle="true"
+							incrementLevel="false"
 							source="ch00100-ogen/it00100-introduction/pag00100-what_is_ogen.html"
 							sourceType="file"
 							sourceContentType="html"
@@ -50,6 +51,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="Audience"
 							showTitle="true"
+							incrementLevel="false"
 							source="ch00100-ogen/it00100-introduction/pag00200-audience.html"
 							sourceType="file"
 							sourceContentType="html"
@@ -58,6 +60,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="License"
 							showTitle="true"
+							incrementLevel="false"
 							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
 							sourceType="file"
 							sourceContentType="html"
@@ -74,6 +77,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="easily create your own generator"
 							showTitle="true"
+							incrementLevel="false"
 							source="ch00100-ogen/it00200-key_features/pag00100-create_generator.html"
 							sourceType="file"
 							sourceContentType="html"
@@ -82,6 +86,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="easily add or change existing generator templates"
 							showTitle="true"
+							incrementLevel="false"
 							source="ch00100-ogen/it00200-key_features/pag00200-add_templates.html"
 							sourceType="file"
 							sourceContentType="html"
@@ -98,16 +103,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="why"
 							showTitle="true"
+							incrementLevel="false"
 							source="ch00100-ogen/it00300-summary/pag00100-why.html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
 
-
-
+<!-- TESTINGS -->
 <attachment
 	title="&lt;hr /&gt;TESTINGS...&lt;hr /&gt;"
 	showTitle="true"
+	incrementLevel="false"
 	source="ch00100-ogen/it00100-introduction/test-code.cs"
 	sourceType="file"
 	sourceContentType="code"
@@ -115,6 +121,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <attachment
 	title="code - no desc"
 	showTitle="true"
+	incrementLevel="false"
 	source="ch00100-ogen/it00100-introduction/test-code.cs"
 	sourceType="file"
 	sourceContentType="code"
@@ -122,6 +129,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <attachment
 	title="code - with desc"
 	showTitle="true"
+	incrementLevel="false"
 	source="ch00100-ogen/it00100-introduction/test-code.cs"
 	sourceType="file"
 	sourceContentType="code"
@@ -129,6 +137,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <attachment
 	title="code - no title"
 	showTitle="false"
+	incrementLevel="false"
 	source="ch00100-ogen/it00100-introduction/test-code.cs"
 	sourceType="file"
 	sourceContentType="code"
@@ -137,6 +146,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <attachment
 	title="table - no desc"
 	showTitle="true"
+	incrementLevel="false"
 	source="ch00100-ogen/it00100-introduction/test-table.html"
 	sourceType="file"
 	sourceContentType="table"
@@ -144,6 +154,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <attachment
 	title="table - with desc"
 	showTitle="true"
+	incrementLevel="false"
 	source="ch00100-ogen/it00100-introduction/test-table.html"
 	sourceType="file"
 	sourceContentType="table"
@@ -151,6 +162,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <attachment
 	title="table - no title"
 	showTitle="false"
+	incrementLevel="false"
 	source="ch00100-ogen/it00100-introduction/test-table.html"
 	sourceType="file"
 	sourceContentType="table"
@@ -159,6 +171,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <attachment
 	title="image - no desc"
 	showTitle="true"
+	incrementLevel="false"
 	source="ch00100-ogen/it00100-introduction/img00200-audience.png"
 	sourceType="file"
 	sourceContentType="image"
@@ -166,6 +179,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <attachment
 	title="image - with desc"
 	showTitle="true"
+	incrementLevel="false"
 	source="ch00100-ogen/it00100-introduction/img00200-audience.png"
 	sourceType="file"
 	sourceContentType="image"
@@ -173,6 +187,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <attachment
 	title="image - no title"
 	showTitle="false"
+	incrementLevel="false"
 	source="ch00100-ogen/it00100-introduction/img00200-audience.png"
 	sourceType="file"
 	sourceContentType="image"
@@ -181,6 +196,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <attachment
 	title="License"
 	showTitle="true"
+	incrementLevel="false"
 	source="ch00100-ogen/it00100-introduction/pag00300-license.html"
 	sourceType="file"
 	sourceContentType="comment"
@@ -188,6 +204,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <attachment
 	title="License"
 	showTitle="false"
+	incrementLevel="false"
 	source="ch00100-ogen/it00100-introduction/pag00300-license.html"
 	sourceType="file"
 	sourceContentType="warning"
@@ -195,12 +212,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <attachment
 	title="License"
 	showTitle="true"
+	incrementLevel="false"
 	source="ch00100-ogen/it00100-introduction/pag00300-license.html"
 	sourceType="file"
 	sourceContentType="tip"
 	description="" />
-
-
+<!-- /TESTINGS -->
 
 					</attachments>
 				</item>
@@ -225,6 +242,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="introduction"
 							showTitle="true"
+							incrementLevel="false"
 							source="ch00200-build_your_own_generator/it00100-introduction/pag00100-introduction.html"
 							sourceType="file"
 							sourceContentType="html"
@@ -241,6 +259,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="dependencies and pre-requisites"
 							showTitle="true"
+							incrementLevel="false"
 							source="ch00200-build_your_own_generator/it00200-installing_ogen/pag00100-dependencies_and_pre-requisites.html"
 							sourceType="file"
 							sourceContentType="html"
@@ -249,6 +268,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="installing OGen under windows"
 							showTitle="true"
+							incrementLevel="false"
 							source="ch00200-build_your_own_generator/it00200-installing_ogen/pag00200-installing_OGen.html"
 							sourceType="file"
 							sourceContentType="html"
@@ -257,6 +277,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="installing OGen under linux with the Mono .net framework"
 							showTitle="true"
+							incrementLevel="false"
 							source="ch00200-build_your_own_generator/it00200-installing_ogen/pag00300-installing_OGen-mono.html"
 							sourceType="file"
 							sourceContentType="html"
@@ -273,6 +294,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="..."
 							showTitle="true"
+							incrementLevel="false"
 							source="ch00200-build_your_own_generator/it00300-creating_your_own_generator/pag00100- ... .html"
 							sourceType="file"
 							sourceContentType="html"
@@ -300,6 +322,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="What is OGen"
 							showTitle="true"
+							incrementLevel="false"
 							source="ch00100-ogen/it00100-introduction/pag00100-what_is_ogen.html"
 							sourceType="file"
 							sourceContentType="html"
@@ -308,6 +331,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="Audience"
 							showTitle="true"
+							incrementLevel="false"
 							source="ch00100-ogen/it00100-introduction/pag00200-audience.html"
 							sourceType="file"
 							sourceContentType="html"
@@ -316,6 +340,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="License"
 							showTitle="true"
+							incrementLevel="false"
 							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
 							sourceType="file"
 							sourceContentType="html"
@@ -343,6 +368,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="NTier Application"
 							showTitle="true"
+							incrementLevel="false"
 							source="ch00400-ogen/it00100-introduction/pag00100-ntier_application.html"
 							sourceType="file"
 							sourceContentType="html"
@@ -350,75 +376,136 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="Data Layer"
 							showTitle="true"
-							source="ch00100-ogen/it00100-introduction/pag00200-data_layer.html"
+							incrementLevel="false"
+							source="ch00400-ogen/it00100-introduction/pag00200-data_layer.html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
 						<attachment
 							title="Business Layer"
 							showTitle="true"
-							source="ch00100-ogen/it00100-introduction/pag00300-business_layer.html"
+							incrementLevel="false"
+							source="ch00400-ogen/it00100-introduction/pag00300-business_layer.html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
 						<attachment
 							title="Distributed Layer"
 							showTitle="true"
-							source="ch00100-ogen/it00100-introduction/pag00400-distributed_layer.html"
+							incrementLevel="false"
+							source="ch00400-ogen/it00100-introduction/pag00400-distributed_layer.html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
 						<attachment
 							title="Presentation Layer"
 							showTitle="true"
-							source="ch00100-ogen/it00100-introduction/pag00500-presentation_layer.html"
+							incrementLevel="false"
+							source="ch00400-ogen/it00100-introduction/pag00500-presentation_layer.html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
 					</attachments>
 				</item>
 				<item
-					title="creating a sample database for the project"
+					title="using Data Objects"
 					subTitle=""
-					isIntroduction="true"
+					isIntroduction="false"
 					isSummary="false">
 
 					<attachments>
+<!-- creating a sample database for the project -->
 						<attachment
-							title="simple db structure"
+							title="creating a sample database for the project"
 							showTitle="true"
-							source="ch00400-ogen/it00200-introduction/pag00100-db_structure.html"
+							incrementLevel="true"
+							source="ch00400-ogen/it00200-dataobjects/pag00100-project_db.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="db structure"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag00200-db_structure.html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
 						<attachment
 							title="brief explanation"
 							showTitle="true"
-							source="ch00400-ogen/it00200-introduction/pag00200-brief_explanation.html"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag00300-brief_explanation.html"
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
 						<attachment
 							title="PostgreSQL"
 							showTitle="true"
-							source="ch00400-ogen/it00200-introduction/pag00300-postgresql.html"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag00400-postgresql.html"
 							sourceType="file"
 							sourceContentType="code"
 							description="" />
 						<attachment
 							title="SQL Server"
 							showTitle="true"
-							source="ch00400-ogen/it00200-introduction/pag00400-sqlserver.html"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag00500-sqlserver.html"
 							sourceType="file"
 							sourceContentType="code"
 							description="" />
 						<attachment
 							title="MySQL"
 							showTitle="true"
-							source="ch00400-ogen/it00200-introduction/pag00500-mysql.html"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag00600-mysql.html"
 							sourceType="file"
 							sourceContentType="code"
 							description="" />
+<!-- /creating a sample database for the project -->
+<!-- generating a new project -->
+						<attachment
+							title="generating a new project"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen/it00200-dataobjects/pag00700-new_project.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="..."
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag00800- ... .html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="consuming db metatadas"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag00900-consuming_db_metatadas.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="adding metadatas"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag01000-adding_metadatas.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="..."
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag01100- ... .html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+<!-- /generating a new project -->
 					</attachments>
 				</item>
 			</items>
@@ -442,6 +529,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="What is OGen"
 							showTitle="true"
+							incrementLevel="false"
 							source="ch00100-ogen/it00100-introduction/pag00100-what_is_ogen.html"
 							sourceType="file"
 							sourceContentType="html"
@@ -450,6 +538,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="Audience"
 							showTitle="true"
+							incrementLevel="false"
 							source="ch00100-ogen/it00100-introduction/pag00200-audience.html"
 							sourceType="file"
 							sourceContentType="html"
@@ -458,6 +547,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="License"
 							showTitle="true"
+							incrementLevel="false"
 							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
 							sourceType="file"
 							sourceContentType="html"
@@ -485,6 +575,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="getting table names (generic)"
 							showTitle="true"
+							incrementLevel="false"
 							source="Appendix/OGen__Docs__Contrib_Appendix_INFORMATION_SCHEMA_tables.txt"
 							sourceType="file"
 							sourceContentType="code"
@@ -492,6 +583,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="getting table names (MySQL)"
 							showTitle="true"
+							incrementLevel="false"
 							source="Appendix/OGen__Docs__Contrib_Appendix_INFORMATION_SCHEMA_tables-MySQL.txt"
 							sourceType="file"
 							sourceContentType="code"
@@ -499,6 +591,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="getting table field properties (PostgreSQL)"
 							showTitle="true"
+							incrementLevel="false"
 							source="Appendix/OGen__Docs__Contrib_Appendix_INFORMATION_SCHEMA_tableFields-PostgreSQL.txt"
 							sourceType="file"
 							sourceContentType="code"
@@ -506,6 +599,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="getting table field properties (SQL Sever)"
 							showTitle="true"
+							incrementLevel="false"
 							source="Appendix/OGen__Docs__Contrib_Appendix_INFORMATION_SCHEMA_tableFields-SQLServer.txt"
 							sourceType="file"
 							sourceContentType="code"
@@ -513,6 +607,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="getting table field properties (MySQL)"
 							showTitle="true"
+							incrementLevel="false"
 							source="Appendix/OGen__Docs__Contrib_Appendix_INFORMATION_SCHEMA_tableFields-MySQL.txt"
 							sourceType="file"
 							sourceContentType="code"
@@ -529,6 +624,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="how to install PostgreSQL on Linux"
 							showTitle="true"
+							incrementLevel="false"
 							source="Appendix/OGen__Docs__Develop_HowTo-Install-PostgreSQL_on_Linux.txt"
 							sourceType="file"
 							sourceContentType="code"
@@ -536,6 +632,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="how to install pgAdminIII on Linux"
 							showTitle="true"
+							incrementLevel="false"
 							source="Appendix/OGen__Docs__Develop_HowTo-Install-PostgreSQL_pgAdminIII_on_Linux.txt"
 							sourceType="file"
 							sourceContentType="code"
@@ -552,6 +649,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="PostgreSQL"
 							showTitle="true"
+							incrementLevel="false"
 							source="Appendix/OGen__Docs__Contrib_Appendix_PostgreSQL-DbType.txt"
 							sourceType="file"
 							sourceContentType="code"
@@ -559,6 +657,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<attachment
 							title="MySQL"
 							showTitle="true"
+							incrementLevel="false"
 							source="Appendix/OGen__Docs__Contrib_Appendix_MySql-DbType.txt"
 							sourceType="file"
 							sourceContentType="code"

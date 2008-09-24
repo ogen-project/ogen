@@ -71,6 +71,19 @@ namespace OGen.Doc.lib.metadata.documentation {
 			}
 		}
 		#endregion
+		#region public bool IncrementLevel { get; set; }
+		internal bool incrementlevel_;
+
+		[XmlAttribute("incrementLevel")]
+		public bool IncrementLevel {
+			get {
+				return incrementlevel_;
+			}
+			set {
+				incrementlevel_ = value;
+			}
+		}
+		#endregion
 		#region public string Source { get; set; }
 		internal string source_;
 
@@ -130,6 +143,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 
 			title_ = attachmentType_in.title_;
 			showtitle_ = attachmentType_in.showtitle_;
+			incrementlevel_ = attachmentType_in.incrementlevel_;
 			source_ = attachmentType_in.source_;
 			sourcetype_ = attachmentType_in.sourcetype_;
 			sourcecontenttype_ = attachmentType_in.sourcecontenttype_;

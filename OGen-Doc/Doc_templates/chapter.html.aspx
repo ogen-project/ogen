@@ -81,6 +81,8 @@ bool _aux_showtitle = false;
 XS_itemType _aux_item;
 XS_attachmentType _aux_attachment;
 
+int _attchementIncrement = 0;
+
 string _aux_attachment_source;
 
 #endregion
@@ -227,8 +229,12 @@ string _aux_attachment_source;
 					<td width="10"></td>
 					<td width="20"></td>
 					<td><%
+						_attchementIncrement = 0;
 						for (int a = 0; a < _aux_item.Attachments.AttachmentCollection.Count; a++) {
 							_aux_attachment = _aux_item.Attachments.AttachmentCollection[a];
+							if (_aux_attachment.IncrementLevel)
+								_attchementIncrement++;
+
 							if (
 								_aux_showtitle
 									= (
@@ -237,10 +243,17 @@ string _aux_attachment_source;
 										(_aux_attachment.Title.Trim() != string.Empty)
 									)
 							) {%>
-								<a name="<%=i%>.<%=a%>"></a>
-								<span class="subsubtitle">
-									<%=_aux_attachment.Title%>
-								</span>
+								<a name="<%=i%>.<%=a%>"></a><%
+								if (_aux_attachment.IncrementLevel) {%>
+									<span class="title">
+										<%=_aux_chapter.Number%>.<%=i + 1%>.<%=_attchementIncrement%>.
+										<%=_aux_attachment.Title%>
+									</span><%
+								} else {%>
+									<span class="subsubtitle">
+										<%=_aux_attachment.Title%>
+									</span><%
+								}%>
 								<br />
 								<br /><%
 							}

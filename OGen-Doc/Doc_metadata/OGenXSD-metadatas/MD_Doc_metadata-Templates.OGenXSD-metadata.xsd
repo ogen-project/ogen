@@ -40,6 +40,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	<xs:complexType name="attachmentType">
 		<xs:attribute name="title" type="xs:string" />
 		<xs:attribute name="showTitle" type="xs:boolean" />
+		<xs:attribute name="incrementLevel" type="xs:boolean" />
 		<xs:attribute name="source" type="xs:string" />
 		<xs:attribute name="sourceType" type="sourceTypeEnumeration" />
 		<xs:attribute name="sourceContentType" type="sourceContentTypeEnumeration" />

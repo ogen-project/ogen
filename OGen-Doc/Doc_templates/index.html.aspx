@@ -79,6 +79,9 @@ bool _aux_showtitle = false;
 XS_itemType _aux_item;
 XS_attachmentType _aux_attachment;
 
+int _attchementIncrement = 0;
+bool _attchementIncrement_indent;
+
 XS_chapterType _aux_chapter_aux;
 string _aux_chapter_link_aux;
 #endregion
@@ -213,14 +216,31 @@ string _aux_chapter_link_aux;
 								<%=_aux_chapter_aux.Number%>.<%=i + 1%>. 
 								<%=_aux_item.Title%></a>
 							<br /><%
+							_attchementIncrement = 0;
+							_attchementIncrement_indent = false;
 							for (int a = 0; a < _aux_item.Attachments.AttachmentCollection.Count; a++) {
 								_aux_attachment = _aux_item.Attachments.AttachmentCollection[a];
+								if (_aux_attachment.IncrementLevel) {
+									_attchementIncrement++;
+									_attchementIncrement_indent = false;
+								}
 								if (!_aux_attachment.ShowTitle || (_aux_attachment.Title.Trim() == string.Empty))
-									continue;%>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<a href="<%=_aux_chapter_link_aux%>#<%=i%>.<%=a%>">
+									continue;
+								if (_attchementIncrement_indent) {
+									%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%
+								}
+								%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="<%=_aux_chapter_link_aux%>#<%=i%>.<%=a%>"><%
+								if (_aux_attachment.IncrementLevel) {%>
+									<%=_aux_chapter_aux.Number%>.<%=i + 1%>.<%=_attchementIncrement%>.<%
+								}
+								%>
 									<%=_aux_attachment.Title%></a>
 								<br /><%
+								if (_aux_attachment.IncrementLevel) {
+									_attchementIncrement++;
+									_attchementIncrement_indent = true;
+								}
 							}
 						}%>
 						<br /><%
