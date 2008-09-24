@@ -237,7 +237,6 @@ string _aux_chapter_link_aux;
 								%>&nbsp;<%=_aux_attachment.Title%></a>
 								<br /><%
 								if (_aux_attachment.IncrementLevel) {
-									_attchementIncrement++;
 									_attchementIncrement_indent = true;
 								}
 							}

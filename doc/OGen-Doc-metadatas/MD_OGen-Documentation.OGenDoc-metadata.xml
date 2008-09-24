@@ -348,9 +348,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			</items>
 		</chapter>
 		<chapter
-			title="XML to C# classes generator"
+			title="C# classes generator to interact with XML"
 			fileName="ogen-xsd"
-			subtitle="what ever"
+			subtitle=""
 
 			isIntroduction="false"
 			isAppendix="false">
@@ -396,7 +396,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<chapter
 			title="NTier application generator"
 			fileName="ogen-ntier"
-			subtitle="TODOS"
+			subtitle=""
 
 			isIntroduction="false"
 			isAppendix="false">
