@@ -210,16 +210,12 @@ string _aux_attachment_source;
 						<a name="<%=i%>"></a>
 						<span class="title">
 							<%=_aux_chapter.Number%>.<%=i + 1%>. 
-							<%=_aux_item.Title%>
+							<%=_aux_item.Title%><%
+							if (_aux_item.SubTitle != string.Empty) {%>
+								- <%=_aux_item.SubTitle%><%
+							}%>
 						</span>
-						<br /><%
-						if (_aux_item.SubTitle != string.Empty) {%>
-							<span class="subtitle">
-								<%=_aux_item.SubTitle%>
-							</span>
-							<br /><%
-						}%>
-
+						<br />
 						<br />
 					</td>
 					<td width="10"></td>

@@ -108,119 +108,163 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
-
-<!-- TESTINGS -->
-<attachment
-	title="&lt;hr /&gt;TESTINGS...&lt;hr /&gt;"
-	showTitle="true"
-	incrementLevel="false"
-	source="ch00100-ogen/it00100-introduction/test-code.cs"
-	sourceType="file"
-	sourceContentType="code"
-	description="" />
-<attachment
-	title="code - no desc"
-	showTitle="true"
-	incrementLevel="false"
-	source="ch00100-ogen/it00100-introduction/test-code.cs"
-	sourceType="file"
-	sourceContentType="code"
-	description="" />
-<attachment
-	title="code - with desc"
-	showTitle="true"
-	incrementLevel="false"
-	source="ch00100-ogen/it00100-introduction/test-code.cs"
-	sourceType="file"
-	sourceContentType="code"
-	description="some code" />
-<attachment
-	title="code - no title"
-	showTitle="false"
-	incrementLevel="false"
-	source="ch00100-ogen/it00100-introduction/test-code.cs"
-	sourceType="file"
-	sourceContentType="code"
-	description="some code" />
-
-<attachment
-	title="table - no desc"
-	showTitle="true"
-	incrementLevel="false"
-	source="ch00100-ogen/it00100-introduction/test-table.html"
-	sourceType="file"
-	sourceContentType="table"
-	description="" />
-<attachment
-	title="table - with desc"
-	showTitle="true"
-	incrementLevel="false"
-	source="ch00100-ogen/it00100-introduction/test-table.html"
-	sourceType="file"
-	sourceContentType="table"
-	description="some table" />
-<attachment
-	title="table - no title"
-	showTitle="false"
-	incrementLevel="false"
-	source="ch00100-ogen/it00100-introduction/test-table.html"
-	sourceType="file"
-	sourceContentType="table"
-	description="some table" />
-
-<attachment
-	title="image - no desc"
-	showTitle="true"
-	incrementLevel="false"
-	source="ch00100-ogen/it00100-introduction/img00200-audience.png"
-	sourceType="file"
-	sourceContentType="image"
-	description="" />
-<attachment
-	title="image - with desc"
-	showTitle="true"
-	incrementLevel="false"
-	source="ch00100-ogen/it00100-introduction/img00200-audience.png"
-	sourceType="file"
-	sourceContentType="image"
-	description="some image" />
-<attachment
-	title="image - no title"
-	showTitle="false"
-	incrementLevel="false"
-	source="ch00100-ogen/it00100-introduction/img00200-audience.png"
-	sourceType="file"
-	sourceContentType="image"
-	description="some image" />
-
-<attachment
-	title="License"
-	showTitle="true"
-	incrementLevel="false"
-	source="ch00100-ogen/it00100-introduction/pag00300-license.html"
-	sourceType="file"
-	sourceContentType="comment"
-	description="" />
-<attachment
-	title="License"
-	showTitle="false"
-	incrementLevel="false"
-	source="ch00100-ogen/it00100-introduction/pag00300-license.html"
-	sourceType="file"
-	sourceContentType="warning"
-	description="" />
-<attachment
-	title="License"
-	showTitle="true"
-	incrementLevel="false"
-	source="ch00100-ogen/it00100-introduction/pag00300-license.html"
-	sourceType="file"
-	sourceContentType="tip"
-	description="" />
-<!-- /TESTINGS -->
-
 					</attachments>
 				</item>
+
+
+<!-- TESTINGS -->
+<item
+	title="TESTINGS"
+	subTitle=""
+	isIntroduction="false"
+	isSummary="false">
+
+	<attachments>
+		<!--attachment
+			title="TESTINGS"
+			showTitle="true"
+			incrementLevel="true"
+			source="..."
+			sourceType="file"
+			sourceContentType="html"
+			description="" /-->
+
+		<attachment
+			title="code"
+			showTitle="true"
+			incrementLevel="true"
+			source="..."
+			sourceType="file"
+			sourceContentType="html"
+			description="" />
+		<attachment
+			title="code - no desc"
+			showTitle="true"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/test-code.cs"
+			sourceType="file"
+			sourceContentType="code"
+			description="" />
+		<attachment
+			title="code - with desc"
+			showTitle="true"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/test-code.cs"
+			sourceType="file"
+			sourceContentType="code"
+			description="some code" />
+		<attachment
+			title="code - no title"
+			showTitle="false"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/test-code.cs"
+			sourceType="file"
+			sourceContentType="code"
+			description="some code" />
+
+		<attachment
+			title="table"
+			showTitle="true"
+			incrementLevel="true"
+			source="..."
+			sourceType="file"
+			sourceContentType="html"
+			description="" />
+		<attachment
+			title="table - no desc"
+			showTitle="true"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/test-table.html"
+			sourceType="file"
+			sourceContentType="table"
+			description="" />
+		<attachment
+			title="table - with desc"
+			showTitle="true"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/test-table.html"
+			sourceType="file"
+			sourceContentType="table"
+			description="some table" />
+		<attachment
+			title="table - no title"
+			showTitle="false"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/test-table.html"
+			sourceType="file"
+			sourceContentType="table"
+			description="some table" />
+
+		<attachment
+			title="image"
+			showTitle="true"
+			incrementLevel="true"
+			source="..."
+			sourceType="file"
+			sourceContentType="html"
+			description="" />
+		<attachment
+			title="image - no desc"
+			showTitle="true"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/img00200-audience.png"
+			sourceType="file"
+			sourceContentType="image"
+			description="" />
+		<attachment
+			title="image - with desc"
+			showTitle="true"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/img00200-audience.png"
+			sourceType="file"
+			sourceContentType="image"
+			description="some image" />
+		<attachment
+			title="image - no title"
+			showTitle="false"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/img00200-audience.png"
+			sourceType="file"
+			sourceContentType="image"
+			description="some image" />
+
+		<attachment
+			title="comments"
+			showTitle="true"
+			incrementLevel="true"
+			source="..."
+			sourceType="file"
+			sourceContentType="html"
+			description="" />
+		<attachment
+			title="some comment"
+			showTitle="true"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+			sourceType="file"
+			sourceContentType="comment"
+			description="" />
+		<attachment
+			title="some warning"
+			showTitle="false"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+			sourceType="file"
+			sourceContentType="warning"
+			description="" />
+		<attachment
+			title="some tip"
+			showTitle="true"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+			sourceType="file"
+			sourceContentType="tip"
+			description="" />
+	</attachments>
+</item>
+<!-- /TESTINGS -->
+
+
 			</items>
 		</chapter>
 		<chapter
