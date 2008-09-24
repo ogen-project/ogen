@@ -1,5 +1,5 @@
 ======================================================================================================|
-                          based on Npgsql User's Manual 2006/10/08 21:50:43                           |
+                          based on Npgsql User's Manual 2006/04/09 02:20:53                           |
 ===========|=======================================|=============|==================|=================|
 Postgresql |INFORMATION_SCHEMA                     |NpgsqlDbType |System.DbType     |.Net System Type |
 ===========|=======================================|=============|==================|=================|
@@ -28,13 +28,8 @@ date       |date                                   |Date         |Date          
 time       |time, time without time zone           |Time         |Time              |DateTime         |
 timetz     |timetz, time with time zone            |Time         |Time              |DateTime         |
 timestamp  |timestamp, timestamp without time zone |Timestamp    |DateTime          |DateTime         |
-timestamptz|timestamptz, timestamp with time zone  |TimestampTZ  |DateTime          |DateTime         |<- DIFF!!!
+timestamptz|timestamptz, timestamp with time zone  |Timestamp    |DateTime          |DateTime         |
 ===========|=======================================|=============|==================|=================|
 varchar    |character varying, varchar             |Varchar      |String            |String           |
 text       |text                                   |Text         |String            |String           |
-===========|=======================================|=============|==================|=================|
-inet       |?                                      |Inet         |Object            |NpgsqlInet,      |<- DIFF!!!
-           |                                       |             |                  |IPAddress        |
-===========|=======================================|=============|==================|=================|
-bit        |?                                      |Bit          |Boolean           |Boolean, Int32   |<- DIFF!!!
 ===========|=======================================|=============|==================|=================|
