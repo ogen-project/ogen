@@ -928,7 +928,17 @@ namespace OGen.UTs.howtos {
 					_fields[f].Name, 
 					_fields[f].isPK, 
 					_fields[f].isIdentity, 
-					_fields[f].isNullable
+					_fields[f].isNullable, 
+
+					// many other properties available, like:
+					_fields[f].DBCollationName, 
+					_fields[f].DBDefaultValue, 
+					_fields[f].DBDescription, 
+					_fields[f].FK_FieldName, 
+					_fields[f].FK_TableName, 
+					_fields[f].Numeric_Precision, 
+					_fields[f].Numeric_Scale, 
+					_fields[f].Size
 				);
 			}
 
