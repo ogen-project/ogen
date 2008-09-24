@@ -448,20 +448,7 @@
 															align="left"><pre
 																id="4.2.4"
 																class="code"
-														>#region Copyright (C) 2002 Francisco Monteiro
-/*
-
-OGen
-Copyright (C) 2002 Francisco Monteiro
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-*/
-#endregion
+														>// Copyright (C) 2002 Francisco Monteiro
 using System;
 
 using OGen.lib.datalayer;
@@ -470,7 +457,6 @@ namespace OGen.UTs.howtos {
 	class HowTo_Execute_SQLQuery {
 		public HowTo_Execute_SQLQuery() {
 			long _iduser = 0L;
-
 
 			DBConnection _con = DBConnectionsupport.CreateInstance(
 				// set your db server type here
@@ -488,8 +474,6 @@ namespace OGen.UTs.howtos {
 			);
 
 			_con.Dispose(); _con = null;
-
-
 		}
 	}
 }</pre></td>
@@ -525,20 +509,7 @@ namespace OGen.UTs.howtos {
 															align="left"><pre
 																id="4.2.4"
 																class="code"
-														>#region Copyright (C) 2002 Francisco Monteiro
-/*
-
-OGen
-Copyright (C) 2002 Francisco Monteiro
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-*/
-#endregion
+														>// Copyright (C) 2002 Francisco Monteiro
 using System;
 using System.Data;
 
@@ -547,8 +518,6 @@ using OGen.lib.datalayer;
 namespace OGen.UTs.howtos {
 	class HowTo_Execute_SQLQuery_returnDataTable {
 		public HowTo_Execute_SQLQuery_returnDataTable() {
-
-
 			DBConnection _con = DBConnectionsupport.CreateInstance(
 				// set your db server type here
 				DBServerTypes.PostgreSQL, 
@@ -564,8 +533,6 @@ namespace OGen.UTs.howtos {
 				);
 
 			_con.Dispose(); _con = null;
-
-
 		}
 	}
 }</pre></td>
@@ -601,20 +568,7 @@ namespace OGen.UTs.howtos {
 															align="left"><pre
 																id="4.2.4"
 																class="code"
-														>#region Copyright (C) 2002 Francisco Monteiro
-/*
-
-OGen
-Copyright (C) 2002 Francisco Monteiro
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-*/
-#endregion
+														>// Copyright (C) 2002 Francisco Monteiro
 using System;
 using System.Data;
 
@@ -624,7 +578,6 @@ namespace OGen.UTs.howtos {
 	class HowTo_Execute_SQLFunction {
 		public HowTo_Execute_SQLFunction() {
 			long _iduser = 0L;
-
 
 			DBConnection _con = DBConnectionsupport.CreateInstance(
 				// set your db server type here
@@ -651,8 +604,6 @@ namespace OGen.UTs.howtos {
 			);
 
 			_con.Dispose(); _con = null;
-
-
 		}
 	}
 }</pre></td>
@@ -688,20 +639,7 @@ namespace OGen.UTs.howtos {
 															align="left"><pre
 																id="4.2.4"
 																class="code"
-														>#region Copyright (C) 2002 Francisco Monteiro
-/*
-
-OGen
-Copyright (C) 2002 Francisco Monteiro
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-*/
-#endregion
+														>// Copyright (C) 2002 Francisco Monteiro
 using System;
 using System.Data;
 
@@ -711,7 +649,6 @@ namespace OGen.UTs.howtos {
 	class HowTo_Execute_SQLFunction_returnSomevalue {
 		public HowTo_Execute_SQLFunction_returnSomevalue() {
 			long _iduser = 0L;
-
 
 			DBConnection _con = DBConnectionsupport.CreateInstance(
 				// set your db server type here
@@ -739,10 +676,7 @@ namespace OGen.UTs.howtos {
 				0 // returning value size, if applicable
 			);
 
-
 			_con.Dispose(); _con = null;
-
-
 		}
 	}
 }</pre></td>
@@ -778,20 +712,7 @@ namespace OGen.UTs.howtos {
 															align="left"><pre
 																id="4.2.4"
 																class="code"
-														>#region Copyright (C) 2002 Francisco Monteiro
-/*
-
-OGen
-Copyright (C) 2002 Francisco Monteiro
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-*/
-#endregion
+														>// Copyright (C) 2002 Francisco Monteiro
 using System;
 using System.Data;
 
@@ -801,7 +722,6 @@ namespace OGen.UTs.howtos {
 	class HowTo_Execute_SQLFunction_returnDataTable {
 		public HowTo_Execute_SQLFunction_returnDataTable() {
 			long _idgroup_search = 1L;
-
 
 			DBConnection _con = DBConnectionsupport.CreateInstance(
 				// set your db server type here
@@ -830,8 +750,6 @@ namespace OGen.UTs.howtos {
 				);
 
 			_con.Dispose(); _con = null;
-
-
 		}
 	}
 }</pre></td>
@@ -873,20 +791,7 @@ namespace OGen.UTs.howtos {
 															align="left"><pre
 																id="4.2.9"
 																class="code"
-														>#region Copyright (C) 2002 Francisco Monteiro
-/*
-
-OGen
-Copyright (C) 2002 Francisco Monteiro
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-*/
-#endregion
+														>// Copyright (C) 2002 Francisco Monteiro
 using System;
 
 using OGen.lib.datalayer;
@@ -894,8 +799,6 @@ using OGen.lib.datalayer;
 namespace OGen.UTs.howtos {
 	class HowTo_List_DBs {
 		public HowTo_List_DBs() {
-
-
 			DBConnection _con = DBConnectionsupport.CreateInstance(
 				// set your db server type here
 				DBServerTypes.PostgreSQL, 
@@ -908,8 +811,6 @@ namespace OGen.UTs.howtos {
 			string[] _dbs = _con.getDBs();
 
 			_con.Dispose(); _con = null;
-
-
 		}
 	}
 }</pre></td>
@@ -942,20 +843,7 @@ namespace OGen.UTs.howtos {
 															align="left"><pre
 																id="4.2.10"
 																class="code"
-														>#region Copyright (C) 2002 Francisco Monteiro
-/*
-
-OGen
-Copyright (C) 2002 Francisco Monteiro
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-*/
-#endregion
+														>// Copyright (C) 2002 Francisco Monteiro
 using System;
 
 using OGen.lib.datalayer;
@@ -963,8 +851,6 @@ using OGen.lib.datalayer;
 namespace OGen.UTs.howtos {
 	class HowTo_List_DB_Tables {
 		public HowTo_List_DB_Tables() {
-
-
 			DBConnection _con = DBConnectionsupport.CreateInstance(
 				// set your db server type here
 				DBServerTypes.PostgreSQL, 
@@ -985,8 +871,6 @@ namespace OGen.UTs.howtos {
 			}
 
 			_con.Dispose(); _con = null;
-
-
 		}
 	}
 }</pre></td>
@@ -1019,20 +903,7 @@ namespace OGen.UTs.howtos {
 															align="left"><pre
 																id="4.2.11"
 																class="code"
-														>#region Copyright (C) 2002 Francisco Monteiro
-/*
-
-OGen
-Copyright (C) 2002 Francisco Monteiro
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-*/
-#endregion
+														>// Copyright (C) 2002 Francisco Monteiro
 using System;
 
 using OGen.lib.datalayer;
@@ -1040,8 +911,6 @@ using OGen.lib.datalayer;
 namespace OGen.UTs.howtos {
 	class HowTo_List_DB_TableFields {
 		public HowTo_List_DB_TableFields() {
-
-
 			DBConnection _con = DBConnectionsupport.CreateInstance(
 				// set your db server type here
 				DBServerTypes.PostgreSQL, 
@@ -1064,8 +933,6 @@ namespace OGen.UTs.howtos {
 			}
 
 			_con.Dispose(); _con = null;
-
-
 		}
 	}
 }</pre></td>
@@ -1101,20 +968,7 @@ namespace OGen.UTs.howtos {
 															align="left"><pre
 																id="4.2.4"
 																class="code"
-														>#region Copyright (C) 2002 Francisco Monteiro
-/*
-
-OGen
-Copyright (C) 2002 Francisco Monteiro
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-*/
-#endregion
+														>// Copyright (C) 2002 Francisco Monteiro
 using System;
 
 using OGen.lib.datalayer;
@@ -1123,7 +977,6 @@ namespace OGen.UTs.howtos {
 	public class HowTo_UseTransactions {
 		public HowTo_UseTransactions() {
 			long _iduser = 0L;
-
 
 			DBConnection _con = DBConnectionsupport.CreateInstance(
 				// set your db server type here
@@ -1196,20 +1049,7 @@ namespace OGen.UTs.howtos {
 															align="left"><pre
 																id="4.2.4"
 																class="code"
-														>#region Copyright (C) 2002 Francisco Monteiro
-/*
-
-OGen
-Copyright (C) 2002 Francisco Monteiro
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-*/
-#endregion
+														>// Copyright (C) 2002 Francisco Monteiro
 using System;
 
 using OGen.lib.datalayer;
@@ -1223,7 +1063,6 @@ namespace OGen.NTier.UTs.howtos {
 			bool _constraint;
 			long _iduser;
 			long _idgroup;
-
 
 			DO_User _user = new DO_User();
 
@@ -1289,20 +1128,7 @@ namespace OGen.NTier.UTs.howtos {
 															align="left"><pre
 																id="4.2.4"
 																class="code"
-														>#region Copyright (C) 2002 Francisco Monteiro
-/*
-
-OGen
-Copyright (C) 2002 Francisco Monteiro
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-*/
-#endregion
+														>// Copyright (C) 2002 Francisco Monteiro
 using System;
 
 using OGen.lib.datalayer;
@@ -1413,20 +1239,7 @@ namespace OGen.NTier.UTs.howtos {
 															align="left"><pre
 																id="4.2.15"
 																class="code"
-														>#region Copyright (C) 2002 Francisco Monteiro
-/*
-
-OGen
-Copyright (C) 2002 Francisco Monteiro
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-*/
-#endregion
+														>// Copyright (C) 2002 Francisco Monteiro
 using System;
 using System.Reflection;
 
@@ -1436,8 +1249,6 @@ using OGen.NTier.UTs.lib.datalayer;
 namespace OGen.NTier.UTs.howtos {
 	class HowTo_List_DataObjects {
 		public HowTo_List_DataObjects() {
-
-
 			Assembly _assembly = Assembly.Load("OGen.NTier.UTs.lib.datalayer");
 			if (_assembly != null) {
 				Type[] _types = _assembly.GetTypes();
@@ -1506,8 +1317,6 @@ namespace OGen.NTier.UTs.howtos {
 					}
 				}
 			}
-
-
 		}
 	}
 }</pre></td>
@@ -1540,20 +1349,7 @@ namespace OGen.NTier.UTs.howtos {
 															align="left"><pre
 																id="4.2.16"
 																class="code"
-														>#region Copyright (C) 2002 Francisco Monteiro
-/*
-
-OGen
-Copyright (C) 2002 Francisco Monteiro
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-*/
-#endregion
+														>// Copyright (C) 2002 Francisco Monteiro
 using System;
 using OGen.NTier.lib.datalayer;
 using OGen.NTier.UTs.lib.datalayer;
@@ -1561,8 +1357,6 @@ using OGen.NTier.UTs.lib.datalayer;
 namespace OGen.NTier.UTs.howtos {
 	class HowTo_Read_DataObject_Property_Attributes {
 		public HowTo_Read_DataObject_Property_Attributes() {
-
-
 			DOPropertyAttribute _attribute = (DOPropertyAttribute)Attribute.GetCustomAttribute(
 				typeof(DO_User).GetProperty("IDUser"),
 				typeof(DOPropertyAttribute),
@@ -1576,8 +1370,6 @@ namespace OGen.NTier.UTs.howtos {
 				_attribute.DefaultValue
 			);
 			Console.WriteLine();
-
-
 		}
 	}
 }</pre></td>
@@ -1610,20 +1402,7 @@ namespace OGen.NTier.UTs.howtos {
 															align="left"><pre
 																id="4.2.17"
 																class="code"
-														>#region Copyright (C) 2002 Francisco Monteiro
-/*
-
-OGen
-Copyright (C) 2002 Francisco Monteiro
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-*/
-#endregion
+														>// Copyright (C) 2002 Francisco Monteiro
 using System;
 using System.Reflection;
 
@@ -1633,8 +1412,6 @@ using OGen.NTier.UTs.lib.datalayer;
 namespace OGen.NTier.UTs.howtos {
 	class HowTo_Read_and_Write_to_DataObject_Properties {
 		public HowTo_Read_and_Write_to_DataObject_Properties() {
-
-
 			DO_User _user = new DO_User();
 			_user.Fields.IDUser = 123;
 			_user.Fields.Login = "123";
@@ -1688,8 +1465,6 @@ namespace OGen.NTier.UTs.howtos {
 					Console.WriteLine();
 				}
 			}
-
-
 		}
 	}
 }</pre></td>

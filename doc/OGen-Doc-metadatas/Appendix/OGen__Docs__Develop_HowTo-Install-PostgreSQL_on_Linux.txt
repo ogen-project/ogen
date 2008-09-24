@@ -1,3 +1,4 @@
+### Copyright (C) 2002 Francisco Monteiro
 ### NOTES
 # tar xvfz ... .tar.gz
 # tar xvfj ... .tar.bz2
