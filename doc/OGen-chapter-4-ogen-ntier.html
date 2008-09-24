@@ -356,6 +356,1357 @@
 									<span class="text">
 										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
 									</span>
+								<a name="1.11"></a>
+									<span class="title">
+										4.2.3.
+										the basics - the four basic operations over a db table and more
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="1.12"></a>
+									<span class="subsubtitle">
+										Insert / insObject
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="1.13"></a>
+									<span class="subsubtitle">
+										Select / getObject
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="1.14"></a>
+									<span class="subsubtitle">
+										Update / updObject
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="1.15"></a>
+									<span class="subsubtitle">
+										Delete / delObject
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="1.16"></a>
+									<span class="subsubtitle">
+										Insert (if not exists) or Update (if exists) / setObject
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="1.17"></a>
+									<span class="title">
+										4.2.4.
+										using DBConnection
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="1.18"></a>
+									<span class="subsubtitle">
+										why and other considerations
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="1.19"></a>
+									<span class="subsubtitle">
+										executing an sql query
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.4"
+																class="code"
+														>#region Copyright (C) 2002 Francisco Monteiro
+/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+#endregion
+using System;
+
+using OGen.lib.datalayer;
+
+namespace OGen.UTs.howtos {
+	class HowTo_Execute_SQLQuery {
+		public HowTo_Execute_SQLQuery() {
+			long _iduser = 0L;
+
+
+			DBConnection _con = DBConnectionsupport.CreateInstance(
+				// set your db server type here
+				DBServerTypes.PostgreSQL, 
+				// and connectionstring
+				"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+			);
+
+			// executing your sql query
+			_con.Execute_SQLQuery(
+				string.Format(
+					"delete from \"User\" where \"IDUser\" = {0}", 
+					_iduser.ToString()
+				)
+			);
+
+			_con.Dispose(); _con = null;
+
+
+		}
+	}
+}</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.4: executing an sql query
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="1.21"></a>
+									<span class="subsubtitle">
+										executing and retrieving data table from an sql query
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.4"
+																class="code"
+														>#region Copyright (C) 2002 Francisco Monteiro
+/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+#endregion
+using System;
+using System.Data;
+
+using OGen.lib.datalayer;
+
+namespace OGen.UTs.howtos {
+	class HowTo_Execute_SQLQuery_returnDataTable {
+		public HowTo_Execute_SQLQuery_returnDataTable() {
+
+
+			DBConnection _con = DBConnectionsupport.CreateInstance(
+				// set your db server type here
+				DBServerTypes.PostgreSQL, 
+				// and connectionstring
+				"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+			);
+
+			// you now have a DataTable populated
+			// with results from your sql query
+			DataTable _datatable 
+				= _con.Execute_SQLQuery_returnDataTable(
+					"select * from \"User\""
+				);
+
+			_con.Dispose(); _con = null;
+
+
+		}
+	}
+}</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.4: executing and retrieving data table from an sql query
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="1.23"></a>
+									<span class="subsubtitle">
+										executing an sql function or stored procedure
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.4"
+																class="code"
+														>#region Copyright (C) 2002 Francisco Monteiro
+/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+#endregion
+using System;
+using System.Data;
+
+using OGen.lib.datalayer;
+
+namespace OGen.UTs.howtos {
+	class HowTo_Execute_SQLFunction {
+		public HowTo_Execute_SQLFunction() {
+			long _iduser = 0L;
+
+
+			DBConnection _con = DBConnectionsupport.CreateInstance(
+				// set your db server type here
+				DBServerTypes.PostgreSQL, 
+				// and connectionstring
+				"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+			);
+
+			// set your function parameters
+			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
+				_con.newDBDataParameter(
+					"IDUser_", 
+					DbType.Int64, 
+					ParameterDirection.Input, 
+					_iduser, 
+					0
+				)
+			};
+
+			// call you function
+			_con.Execute_SQLFunction(
+				"sp0_User_delObject", 
+				_dataparameters
+			);
+
+			_con.Dispose(); _con = null;
+
+
+		}
+	}
+}</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.4: executing an sql function or stored procedure
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="1.25"></a>
+									<span class="subsubtitle">
+										executing and retrieving data values from an sql function
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.4"
+																class="code"
+														>#region Copyright (C) 2002 Francisco Monteiro
+/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+#endregion
+using System;
+using System.Data;
+
+using OGen.lib.datalayer;
+
+namespace OGen.UTs.howtos {
+	class HowTo_Execute_SQLFunction_returnSomevalue {
+		public HowTo_Execute_SQLFunction_returnSomevalue() {
+			long _iduser = 0L;
+
+
+			DBConnection _con = DBConnectionsupport.CreateInstance(
+				// set your db server type here
+				DBServerTypes.PostgreSQL, 
+				// and connectionstring
+				"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+			);
+
+			// set your function parameters
+			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
+				_con.newDBDataParameter(
+					"IDUser_", 
+					DbType.Int64, 
+					ParameterDirection.Input, 
+					_iduser, 
+					0
+				)
+			};
+
+			// call you function and get returning value
+			bool _result = (bool)_con.Execute_SQLFunction(
+				"fnc0_User_isObject", 
+				_dataparameters, 
+				DbType.Boolean, // returning value db type
+				0 // returning value size, if applicable
+			);
+
+
+			_con.Dispose(); _con = null;
+
+
+		}
+	}
+}</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.4: executing and retrieving data values from an sql function
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="1.27"></a>
+									<span class="subsubtitle">
+										executing and retrieving data tables from an sql function or stored procedure
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.4"
+																class="code"
+														>#region Copyright (C) 2002 Francisco Monteiro
+/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+#endregion
+using System;
+using System.Data;
+
+using OGen.lib.datalayer;
+
+namespace OGen.UTs.howtos {
+	class HowTo_Execute_SQLFunction_returnDataTable {
+		public HowTo_Execute_SQLFunction_returnDataTable() {
+			long _idgroup_search = 1L;
+
+
+			DBConnection _con = DBConnectionsupport.CreateInstance(
+				// set your db server type here
+				DBServerTypes.PostgreSQL, 
+				// and connectionstring
+				"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+			);
+
+			// set your function parameters
+			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
+				_con.newDBDataParameter(
+					"IDGroup_search_", 
+					DbType.Int64, 
+					ParameterDirection.Input, 
+					_idgroup_search, 
+					0
+				)
+			};
+
+			// you now have a DataTable populated
+			// with results from your sql function
+			DataTable _datatable 
+				= _con.Execute_SQLFunction_returnDataTable(
+					"sp0_User_Record_open_byGroup_fullmode", 
+					_dataparameters
+				);
+
+			_con.Dispose(); _con = null;
+
+
+		}
+	}
+}</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.4: executing and retrieving data tables from an sql function or stored procedure
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="1.29"></a>
+									<span class="subsubtitle">
+										information schema
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="1.30"></a>
+									<span class="subsubtitle">
+										list dbs
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.9"
+																class="code"
+														>#region Copyright (C) 2002 Francisco Monteiro
+/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+#endregion
+using System;
+
+using OGen.lib.datalayer;
+
+namespace OGen.UTs.howtos {
+	class HowTo_List_DBs {
+		public HowTo_List_DBs() {
+
+
+			DBConnection _con = DBConnectionsupport.CreateInstance(
+				// set your db server type here
+				DBServerTypes.PostgreSQL, 
+				// and connectionstring
+				"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+			);
+
+			// you now have a string array populated with all
+			// databases (except system ones) at you db server
+			string[] _dbs = _con.getDBs();
+
+			_con.Dispose(); _con = null;
+
+
+		}
+	}
+}</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.9: list dbs
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="1.31"></a>
+									<span class="subsubtitle">
+										list db tables
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.10"
+																class="code"
+														>#region Copyright (C) 2002 Francisco Monteiro
+/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+#endregion
+using System;
+
+using OGen.lib.datalayer;
+
+namespace OGen.UTs.howtos {
+	class HowTo_List_DB_Tables {
+		public HowTo_List_DB_Tables() {
+
+
+			DBConnection _con = DBConnectionsupport.CreateInstance(
+				// set your db server type here
+				DBServerTypes.PostgreSQL, 
+				// and connectionstring
+				"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+			);
+
+			// you now have a cDBTable array populated with all
+			// table names and other properties for your database
+			DBTable[] _tables = _con.getTables();
+
+			for (int t = 0; t < _tables.Length; t++) {
+				Console.WriteLine(
+					"table name: {0}\nis this a view and not a table: {1}", 
+					_tables[t].Name, 
+					_tables[t].isVirtualTable
+				);
+			}
+
+			_con.Dispose(); _con = null;
+
+
+		}
+	}
+}</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.10: list db tables
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="1.32"></a>
+									<span class="subsubtitle">
+										list db table fields
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.11"
+																class="code"
+														>#region Copyright (C) 2002 Francisco Monteiro
+/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+#endregion
+using System;
+
+using OGen.lib.datalayer;
+
+namespace OGen.UTs.howtos {
+	class HowTo_List_DB_TableFields {
+		public HowTo_List_DB_TableFields() {
+
+
+			DBConnection _con = DBConnectionsupport.CreateInstance(
+				// set your db server type here
+				DBServerTypes.PostgreSQL, 
+				// and connectionstring
+				"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+			);
+
+			// you now have a cDBTableField array populated with all
+			// field names and other properties for specified table
+			DBTableField[] _fields = _con.getTableFields("User");
+
+			for (int f = 0; f < _fields.Length; f++) {
+				Console.WriteLine(
+					"field name: {0}\nis PK: {1}\nis Identity: {2}\nis nullable: {3}", 
+					_fields[f].Name, 
+					_fields[f].isPK, 
+					_fields[f].isIdentity, 
+					_fields[f].isNullable
+				);
+			}
+
+			_con.Dispose(); _con = null;
+
+
+		}
+	}
+}</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.11: list db table fields
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="1.33"></a>
+									<span class="subsubtitle">
+										using transactions
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.4"
+																class="code"
+														>#region Copyright (C) 2002 Francisco Monteiro
+/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+#endregion
+using System;
+
+using OGen.lib.datalayer;
+
+namespace OGen.UTs.howtos {
+	public class HowTo_UseTransactions {
+		public HowTo_UseTransactions() {
+			long _iduser = 0L;
+
+
+			DBConnection _con = DBConnectionsupport.CreateInstance(
+				// set your db server type here
+				DBServerTypes.PostgreSQL, 
+				// and connectionstring
+				"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+			);
+
+			// before beginning a transaction we need to open the connection
+			_con.Open();
+
+			try {
+				// beginning transaction
+				_con.Transaction.Begin();
+
+				// performing some operations on db
+				_con.Execute_SQLQuery(
+					string.Format(
+						"delete from \"User\" where \"IDUser\" = {0}",
+						_iduser.ToString()
+					)
+				);
+
+				// commit transaction
+				_con.Transaction.Commit();
+			} catch (Exception _ex) {
+				// rollback transaction
+				_con.Transaction.Rollback();
+			} finally {
+				// terminate transaction
+				_con.Transaction.Terminate();
+			}
+
+			// closing connection
+			_con.Close();
+
+			_con.Dispose(); _con = null;
+		}
+	}
+}</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.4: using transactions
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="1.35"></a>
+									<span class="subsubtitle">
+										using transactions on dataobjects
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.4"
+																class="code"
+														>#region Copyright (C) 2002 Francisco Monteiro
+/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+#endregion
+using System;
+
+using OGen.lib.datalayer;
+using OGen.NTier.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer;
+
+namespace OGen.NTier.UTs.howtos {
+	public class HowTo_UseTransactions_inDOs {
+		public HowTo_UseTransactions_inDOs() {
+			string _testid = DateTime.Now.Ticks.ToString();
+			bool _constraint;
+			long _iduser;
+			long _idgroup;
+
+
+			DO_User _user = new DO_User();
+
+			// before beginning a transaction we need to open the connection
+			_user.Connection.Open();
+
+			try {
+				// beginning transaction
+				_user.Connection.Transaction.Begin();
+
+				// performing some operations on User Data Object
+				_user.Fields.Login = _testid;
+				_user.Fields.Password = _testid;
+				_iduser = _user.insObject(true, out _constraint);
+				// handling constraint code should be added here
+
+				// commit transaction
+				_user.Connection.Transaction.Commit();
+			} catch (Exception _ex) {
+				// rollback transaction
+				_user.Connection.Transaction.Rollback();
+			} finally {
+				// terminate transaction
+				_user.Connection.Transaction.Terminate();
+			}
+
+			// closing connection
+			_user.Connection.Close();
+
+			_user.Dispose(); _user = null;
+		}
+	}
+}</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.4: using transactions on dataobjects
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="1.37"></a>
+									<span class="subsubtitle">
+										using transactions between dataobjects
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.4"
+																class="code"
+														>#region Copyright (C) 2002 Francisco Monteiro
+/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+#endregion
+using System;
+
+using OGen.lib.datalayer;
+using OGen.NTier.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer;
+
+namespace OGen.NTier.UTs.howtos {
+	public class HowTo_UseTransactions_betweenDOs_operations {
+		public HowTo_UseTransactions_betweenDOs_operations() {
+			string _testid = DateTime.Now.Ticks.ToString();
+			bool _constraint;
+			long _iduser;
+			long _idgroup;
+
+			// we need a shared connection between Data Objects
+			DBConnection _con = DO__utils.DBConnection_createInstance(
+				DO__utils.DBServerType, 
+				DO__utils.DBConnectionstring, 
+				string.Empty
+			);
+
+			// before beginning a transaction we need to open the connection
+			_con.Open();
+
+			try {
+				// beginning transaction
+				_con.Transaction.Begin();
+
+				// sharing connection with User Data Object
+				DO_User _user = new DO_User(_con);
+				// performing some operations on User Data Object
+				_user.Fields.Login = _testid;
+				_user.Fields.Password = _testid;
+				_iduser = _user.insObject(true, out _constraint);
+				// handling constraint code should be added here
+				_user.Dispose(); _user = null;
+
+				// sharing connection with Group Data Object
+				DO_Group _group = new DO_Group(_con);
+				// performing some operations on User Data Object
+				_group.Fields.Name = _testid;
+				_idgroup = _group.insObject(true);
+				_group.Dispose(); _group = null;
+
+				// sharing connection with Group Data Object
+				DO_UserGroup _usergroup = new DO_UserGroup(_con);
+				// performing some operations on User Data Object
+				_usergroup.Fields.IDGroup = _idgroup;
+				_usergroup.Fields.IDUser = _iduser;
+				_usergroup.Fields.Relationdate = DateTime.Now;
+				_usergroup.Fields.Defaultrelation = false;
+				_usergroup.setObject(false);
+				_usergroup.Dispose(); _usergroup = null;
+
+				// commit transaction
+				_con.Transaction.Commit();
+			} catch (Exception _ex) {
+				// rollback transaction
+				_con.Transaction.Rollback();
+			} finally {
+				// terminate transaction
+				_con.Transaction.Terminate();
+			}
+
+			// closing connection
+			_con.Close();
+
+			_con.Dispose(); _con = null;
+		}
+	}
+}</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.4: using transactions between dataobjects
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="1.39"></a>
+									<span class="title">
+										4.2.5.
+										Reflecting Data Objects
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="1.40"></a>
+									<span class="subsubtitle">
+										using reflection to list dataobjects
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.15"
+																class="code"
+														>#region Copyright (C) 2002 Francisco Monteiro
+/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+#endregion
+using System;
+using System.Reflection;
+
+using OGen.NTier.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer;
+
+namespace OGen.NTier.UTs.howtos {
+	class HowTo_List_DataObjects {
+		public HowTo_List_DataObjects() {
+
+
+			Assembly _assembly = Assembly.Load("OGen.NTier.UTs.lib.datalayer");
+			if (_assembly != null) {
+				Type[] _types = _assembly.GetTypes();
+				for (int _tp = 0; _tp < _types.Length; _tp++) {
+					Type _type = (Type)_types[_tp];
+
+					object[] _doclassattributes = _type.GetCustomAttributes(
+						typeof(DOClassAttribute),
+						true//false
+					);
+					if (
+						(_doclassattributes.Length > 0)
+						&&
+						(_type.Name.IndexOf("DO0_") != 0)
+					) {
+						Console.Write("{0};  ", _type.Name);
+						for (int _catt = 0; _catt < _doclassattributes.Length; _catt++) {
+							DOClassAttribute _classattribute = (DOClassAttribute)_doclassattributes[_catt];
+							Console.WriteLine(
+								"name: {0};  isVirtualTable: {1};  isConfig: {2};  ",
+								_classattribute.Name,
+								_classattribute.isVirtualTable,
+								_classattribute.isConfig
+							);
+
+							PropertyInfo[] _properties = _type.GetProperties(
+								BindingFlags.Public |
+								BindingFlags.Instance
+							);
+							for (int _prop = 0; _prop < _properties.Length; _prop++) {
+								if (Attribute.IsDefined(
+									_properties[_prop],
+									typeof(DOPropertyAttribute)
+								)) {
+									Console.Write(
+										"\t{0}: ",
+										_properties[_prop].Name
+									);
+									Attribute[] _attributes = Attribute.GetCustomAttributes(
+										_properties[_prop]
+										//, typeof(DOPropertyAttribute)
+										//, true
+									);
+									//Console.WriteLine("Name \t isPK \t isIdentity \t DefaultValue \t \t \t \t isBool");
+									for (int _att = 0; _att < _attributes.Length; _att++) {
+										//if (_attributes[_att].GetType() == typeof(DOPropertyAttribute)) {
+											DOPropertyAttribute _propertyattribute = (DOPropertyAttribute)_attributes[_att];
+											Console.Write(
+												"name:{0};  isPK:{1};  isIdentity:{2};  isText:{3};",
+												_propertyattribute.Name,
+												_propertyattribute.isPK,
+												_propertyattribute.isIdentity,
+												//att3.DefaultValue,
+												//att3.isConfig_Name, 
+												//att3.isConfig_Config, 
+												//att3.isConfig_Datatype, 
+												_propertyattribute.isText
+											);
+										//}
+									}
+									Console.WriteLine();
+								}
+							}
+							Console.WriteLine();
+						}
+					}
+				}
+			}
+
+
+		}
+	}
+}</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.15: using reflection to list dataobjects
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="1.41"></a>
+									<span class="subsubtitle">
+										using reflection to read from dataobject property attributes
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.16"
+																class="code"
+														>#region Copyright (C) 2002 Francisco Monteiro
+/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+#endregion
+using System;
+using OGen.NTier.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer;
+
+namespace OGen.NTier.UTs.howtos {
+	class HowTo_Read_DataObject_Property_Attributes {
+		public HowTo_Read_DataObject_Property_Attributes() {
+
+
+			DOPropertyAttribute _attribute = (DOPropertyAttribute)Attribute.GetCustomAttribute(
+				typeof(DO_User).GetProperty("IDUser"),
+				typeof(DOPropertyAttribute),
+				true
+			);
+			Console.WriteLine(
+				"name:{0};  isPK:{1};  isIdentity:{2};  DefaultValue:{3};",
+				_attribute.Name,
+				_attribute.isPK,
+				_attribute.isIdentity,
+				_attribute.DefaultValue
+			);
+			Console.WriteLine();
+
+
+		}
+	}
+}</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.16: using reflection to read from dataobject property attributes
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="1.42"></a>
+									<span class="subsubtitle">
+										using reflection to read from and write to dataobject properties
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.17"
+																class="code"
+														>#region Copyright (C) 2002 Francisco Monteiro
+/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+#endregion
+using System;
+using System.Reflection;
+
+using OGen.NTier.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer;
+
+namespace OGen.NTier.UTs.howtos {
+	class HowTo_Read_and_Write_to_DataObject_Properties {
+		public HowTo_Read_and_Write_to_DataObject_Properties() {
+
+
+			DO_User _user = new DO_User();
+			_user.Fields.IDUser = 123;
+			_user.Fields.Login = "123";
+			_user.Fields.Password = "123";
+
+			PropertyInfo[] _properties = typeof(DO_User).GetProperties(
+				BindingFlags.Public | 
+				BindingFlags.Instance
+			);
+			for (int _prop = 0; _prop < _properties.Length; _prop++) {
+				if (Attribute.IsDefined(
+					_properties[_prop], 
+					typeof(DOPropertyAttribute)
+				)) {
+					Console.Write(
+						"{0}: ", 
+						_properties[_prop].Name
+					);
+					Attribute[] _attributes = Attribute.GetCustomAttributes(
+						_properties[_prop]
+						//, typeof(DOPropertyAttribute)
+						//, true
+					);
+					for (int _att = 0; _att < _attributes.Length; _att++) {
+						//if (_attributes[_att].GetType() == typeof(DOPropertyAttribute)) {
+							DOPropertyAttribute _attribute = (DOPropertyAttribute)_attributes[_att];
+							Console.Write(
+								"name:{0};  isPK:{1};  isIdentity:{2};  DefaultValue:{3};  ",
+								_attribute.Name,
+								_attribute.isPK,
+								_attribute.isIdentity,
+								_attribute.DefaultValue
+							);
+						//}
+					}
+					Console.Write(
+						"value: {0}; ", 
+						_properties[_prop].GetValue(_user, null)
+					);
+					_properties[_prop].SetValue(
+						_user, 
+						Convert.ChangeType(
+							456, 
+							_properties[_prop].PropertyType
+						), 
+						null
+					);
+					Console.WriteLine(
+						"new value: {0}", _properties[_prop].GetValue(_user, null)
+					);
+					Console.WriteLine();
+				}
+			}
+
+
+		}
+	}
+}</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.17: using reflection to read from and write to dataobject properties
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
 					</td>
 					<td width="10"></td>
 				</tr>

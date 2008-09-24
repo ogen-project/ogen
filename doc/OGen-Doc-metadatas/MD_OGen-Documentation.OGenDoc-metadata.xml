@@ -550,6 +550,277 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							sourceContentType="html"
 							description="" />
 <!-- /generating a new project -->
+<!-- the basics -->
+						<attachment
+							title="the basics - the four basic operations over a db table and more"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen/it00200-dataobjects/pag01200-the_basics.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="Insert / insObject"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag01300-insert_insObject.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="Select / getObject"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag01400-getobject.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="Update / updObject"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag01500-updobject.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="Delete / delObject"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag01600-delobject.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="Insert (if not exists) or Update (if exists) / setObject"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag01700-setobject.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+<!-- /the basics -->
+<!-- using DBConnection -->
+						<attachment
+							title="using DBConnection"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen/it00200-dataobjects/pag01800-using_dbconnection.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="why and other considerations"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag01900-why_considerations.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="executing an sql query"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag02000-executing_sql.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_Execute_SQLQuery.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="executing an sql query" />
+
+						<attachment
+							title="executing and retrieving data table from an sql query"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag02100-executing_retrieving_sql.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_Execute_SQLQuery_returnDataTable.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="executing and retrieving data table from an sql query" />
+
+						<attachment
+							title="executing an sql function or stored procedure"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag02200-executing_sql_function.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_Execute_SQLFunction.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="executing an sql function or stored procedure" />
+
+						<attachment
+							title="executing and retrieving data values from an sql function"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag02300-executing_retrieving_sql_function.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_Execute_SQLFunction_returnSomevalue.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="executing and retrieving data values from an sql function" />
+
+						<attachment
+							title="executing and retrieving data tables from an sql function or stored procedure"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag02400-executing_retrieving_datatables_sql_function.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_Execute_SQLFunction_returnDataTable.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="executing and retrieving data tables from an sql function or stored procedure" />
+
+						<attachment
+							title="information schema"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag02500-information_schema.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="list dbs"
+							showTitle="true"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_List_DBs.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="list dbs" />
+						<attachment
+							title="list db tables"
+							showTitle="true"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_List_DB_Tables.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="list db tables" />
+						<attachment
+							title="list db table fields"
+							showTitle="true"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_List_DB_TableFields.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="list db table fields" />
+
+						<attachment
+							title="using transactions"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag02600-using_transactions.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_UseTransactions.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="using transactions" />
+
+						<attachment
+							title="using transactions on dataobjects"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag02700-using_transactions_on_dataobjects.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_UseTransactions_inDOs.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="using transactions on dataobjects" />
+
+						<attachment
+							title="using transactions between dataobjects"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen/it00200-dataobjects/pag02800-using_transactions_between_dataobjects.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_UseTransactions_betweenDOs_operations.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="using transactions between dataobjects" />
+<!-- /using DBConnection -->
+<!-- Reflecting Data Objects -->
+						<attachment
+							title="Reflecting Data Objects"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen/it00200-dataobjects/pag02900-reflecting_data_objects.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="using reflection to list dataobjects"
+							showTitle="true"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_List_DataObjects.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="using reflection to list dataobjects" />
+						<attachment
+							title="using reflection to read from dataobject property attributes"
+							showTitle="true"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_Read_DataObject_Property_Attributes.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="using reflection to read from dataobject property attributes" />
+						<attachment
+							title="using reflection to read from and write to dataobject properties"
+							showTitle="true"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_Read_and_Write_to_DataObject_Properties.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="using reflection to read from and write to dataobject properties" />
+<!-- /Reflecting Data Objects -->
 					</attachments>
 				</item>
 			</items>
