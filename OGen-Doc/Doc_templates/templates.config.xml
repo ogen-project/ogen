@@ -92,4 +92,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</outputs>
 		<dependencies />
 	</template>-->
+	<template name="emptyfile.txt"
+			parserType="none"
+			iterationType="ROOT.documentation[n].chapters.chapter[n].items.item[n].attachments.attachment[n]">
+		<arguments />
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.metadatasPath}/${ROOT.documentation[n].chapters.chapter[n].items.item[n].attachments.attachment[n].source}"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
 </templates>
