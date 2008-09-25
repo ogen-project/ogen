@@ -367,28 +367,28 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title="What is OGen"
 							showTitle="true"
 							incrementLevel="false"
-							source="ch00300-ogen-xsd/it00100-introduction/pag00100-what_is_ogen.html"
+							source="ch00300-ogen-xsd/it00100-introduction"
 							sourceType="file"
 							sourceContentType="html"
-							description="" />
+							description="" /><!-- /pag00100-what_is_ogen.html -->
 
 						<attachment
 							title="Audience"
 							showTitle="true"
 							incrementLevel="false"
-							source="ch00300-ogen-xsd/it00100-introduction/pag00200-audience.html"
+							source="ch00300-ogen-xsd/it00100-introduction"
 							sourceType="file"
 							sourceContentType="html"
-							description="" />
+							description="" /><!-- /pag00200-audience.html -->
 
 						<attachment
 							title="License"
 							showTitle="true"
 							incrementLevel="false"
-							source="ch00300-ogen-xsd/it00100-introduction/pag00300-license.html"
+							source="ch00300-ogen-xsd/it00100-introduction"
 							sourceType="file"
 							sourceContentType="html"
-							description="" />
+							description="" /><!-- /pag00300-license.html -->
 					</attachments>
 				</item>
 			</items>
@@ -1120,28 +1120,28 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title="What is OGen"
 							showTitle="true"
 							incrementLevel="false"
-							source="ch00500-ogen-doc/it00100-introduction/pag00100-what_is_ogen.html"
+							source="ch00500-ogen-doc/it00100-introduction"
 							sourceType="file"
 							sourceContentType="html"
-							description="" />
+							description="" /><!-- /pag00100-what_is_ogen.html -->
 
 						<attachment
 							title="Audience"
 							showTitle="true"
 							incrementLevel="false"
-							source="ch00500-ogen-doc/it00100-introduction/pag00200-audience.html"
+							source="ch00500-ogen-doc/it00100-introduction"
 							sourceType="file"
 							sourceContentType="html"
-							description="" />
+							description="" /><!-- /pag00200-audience.html -->
 
 						<attachment
 							title="License"
 							showTitle="true"
 							incrementLevel="false"
-							source="ch00500-ogen-doc/it00100-introduction/pag00300-license.html"
+							source="ch00500-ogen-doc/it00100-introduction"
 							sourceType="file"
 							sourceContentType="html"
-							description="" />
+							description="" /><!-- /pag00300-license.html -->
 					</attachments>
 				</item>
 			</items>
