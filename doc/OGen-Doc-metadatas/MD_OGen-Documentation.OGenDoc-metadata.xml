@@ -938,6 +938,24 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							sourceType="file"
 							sourceContentType="html"
 							description="" /><!-- /pag00600- ... .html -->
+
+						<attachment
+							title="winforms"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00500-presentationobjects/pag00700-winforms.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="webforms"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00500-presentationobjects/pag00800-webforms.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
 						<attachment
 							title="..."
 							showTitle="true"
@@ -945,7 +963,87 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							source="ch00400-ogen-ntier/it00500-presentationobjects"
 							sourceType="file"
 							sourceContentType="html"
-							description="" /><!-- /pag00700- ... .html -->
+							description="" /><!-- /pag00900- ... .html -->
+					</attachments>
+				</item>
+				<item
+					title="modules"
+					subTitle="available with NTier generator"
+					isIntroduction="false"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="config"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00600-modules/pag00100-config.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="cache"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00600-modules/pag00200-cache.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="authentication (users and permitions)"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00600-modules/pag00300-authentication.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="listings and reference data (reflecting through data and business layers)"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00600-modules/pag00400-reference_data.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="Concurrent Updates Timestamp"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00600-modules/pag00500-concurrent_updates_timestamp.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="log"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00600-modules"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00600- ... .html -->
+
+						<attachment
+							title="dictionary"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00600-modules/pag00700-dictionary.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="..."
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00600-modules"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00800- ... .html -->
 					</attachments>
 				</item>
 			</items>
