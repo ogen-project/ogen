@@ -22,6 +22,14 @@ namespace OGen.XSD.lib.metadata.schema {
 	#else
 	public partial class XS__schemaCollection {
 	#endif
+		#if NET_1_1
+		public XS__schemaCollection(
+			XS__schema[] schemacollection_in
+		) : base (
+			schemacollection_in
+		) {
+		}
+		#endif
 
 		// ToDos: add your code here
 	}

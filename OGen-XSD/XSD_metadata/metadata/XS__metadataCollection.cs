@@ -22,6 +22,14 @@ namespace OGen.XSD.lib.metadata.metadata {
 	#else
 	public partial class XS__metadataCollection {
 	#endif
+		#if NET_1_1
+		public XS__metadataCollection(
+			XS__metadata[] metadatacollection_in
+		) : base (
+			metadatacollection_in
+		) {
+		}
+		#endif
 
 		// ToDos: add your code here
 	}

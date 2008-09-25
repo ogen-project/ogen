@@ -52,7 +52,8 @@ namespace OGen.XSD.presentationlayer.test {
 			string ntype = string.Empty;
 			string name = string.Empty;
 			bool must = false;
-			ComplexTypeItem[] _complex = null;
+
+			OGen.XSD.lib.metadata.schema.ComplexTypeItem[] _complex = null;
 			for (int c = 0; c < _root.SchemaCollection[0].ComplexTypeCollection.Count; c++) {
 				must = _root.SchemaCollection[0].ComplexTypeCollection[c].mustImplementCollection(
 					"metadataExtended",

@@ -374,6 +374,19 @@ namespace OGen.XSD.lib.metadata {
 			string iteration_in, 
 			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in
 		) {
+			bool _valuehasbeenfound = false;
+
+			IterateThrough_fromRoot(
+				iteration_in, 
+				iteration_found_in, 
+				ref _valuehasbeenfound
+			);
+		}
+		public void IterateThrough_fromRoot(
+			string iteration_in, 
+			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in, 
+			ref bool valueHasBeenFound_out
+		) {
 			OGen.lib.generator.utils.ReflectThrough(
 				this, 
 				ROOT_METADATA, 
@@ -381,7 +394,8 @@ namespace OGen.XSD.lib.metadata {
 				iteration_in, 
 				ROOT_METADATA, 
 				false, 
-				true
+				true, 
+				ref valueHasBeenFound_out
 			);
 		}
 

@@ -80,12 +80,6 @@
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "nunit.framework"
-                    AssemblyName = "nunit.framework"
-                    HintPath = "C:\Program Files\NUnit 2.2\bin\nunit.framework.dll"
-                    AssemblyFolderKey = "hklm\dn\nunit.framework1.1"
-                />
-                <Reference
                     Name = "OGen-NTier_UTs_datalayer-1.1"
                     Project = "{2C45EF1A-75BE-4B12-A232-62DEB5662239}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
@@ -104,6 +98,12 @@
                     Name = "NTier_datalayer-7.1"
                     Project = "{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "nunit.framework"
+                    AssemblyName = "nunit.framework"
+                    HintPath = "C:\Program Files\NUnit 2.4.7\bin-1.1\nunit.framework.dll"
+                    AssemblyFolderKey = "hklm\dn\nunit"
                 />
             </References>
         </Build>

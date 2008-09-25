@@ -196,7 +196,8 @@ namespace OGen.XSD.lib.metadata {
 		#region public void IterateThrough_fromRoot(...);
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
-			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in
+			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in, 
+			ref bool valueHasBeenFound_out
 		) {
 			bool _didit = false;
 			if (
@@ -205,7 +206,8 @@ namespace OGen.XSD.lib.metadata {
 			) {
 				extendedmetadata_.IterateThrough_fromRoot(
 					iteration_in,
-					iteration_found_in
+					iteration_found_in, 
+					ref valueHasBeenFound_out
 				);
 				_didit = true;
 			} else {

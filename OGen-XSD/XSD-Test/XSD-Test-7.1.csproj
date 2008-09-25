@@ -89,6 +89,16 @@
                     Project = "{56DDA30D-0205-4162-82C4-BEA6635DA9CD}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "XSD_generator-7.1"
+                    Project = "{0BBA95D0-6789-4938-8E1E-80E6F6572497}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "OGen_generator-7.1"
+                    Project = "{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>
