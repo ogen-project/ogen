@@ -1072,7 +1072,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							sourceContentType="html"
 							description="" />
 						<attachment
-							title="or you can create your own templates project, and point configuration file to it"
+							title="or you can use part of what's been done so far and create your own templates project, and point configuration file to it"
 							showTitle="true"
 							incrementLevel="false"
 							source="ch00400-ogen-ntier/it00700-summary/pag00300-create_your_own_templates_project.html"
@@ -1087,6 +1087,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							sourceType="file"
 							sourceContentType="html"
 							description="" />
+						<attachment
+							title="please share your ideas, help me make it better or participate in the project"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00700-summary/pag00500-share_ideas.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
 
 						<attachment
 							title="..."
@@ -1095,7 +1103,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							source="ch00400-ogen-ntier/it00700-summary"
 							sourceType="file"
 							sourceContentType="html"
-							description="" /><!-- /pag00500- ... .html -->
+							description="" /><!-- /pag00600- ... .html -->
 					</attachments>
 				</item>
 			</items>
