@@ -119,6 +119,31 @@
                     Project = "{D5FDB433-994F-404C-B535-FB90B005B6B8}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "OGen_datalayer__base-7.1"
+                    Project = "{0BE6274C-5536-4690-9597-8FCD8459C2A3}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "OGen_datalayer_MySQL-7.1"
+                    Project = "{CD40001B-B19B-44CA-9F8A-8FB4F75DB1F9}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "OGen_datalayer_PostgreSQL-7.1"
+                    Project = "{2BBB8F6D-B85C-4939-B781-5768DE287455}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "OGen_datalayer_SQLServer-7.1"
+                    Project = "{1B07A59E-56C1-49C5-B3A5-C6B5EED72F5D}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "OGen_datalayersupport-7.1"
+                    Project = "{C982B439-F21D-469A-8077-F01D29B6C003}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>
