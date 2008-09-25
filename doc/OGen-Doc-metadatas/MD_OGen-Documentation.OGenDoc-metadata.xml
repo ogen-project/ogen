@@ -1046,6 +1046,58 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							description="" /><!-- /pag00800- ... .html -->
 					</attachments>
 				</item>
+
+
+				<item
+					title="summary"
+					subTitle=""
+					isIntroduction="false"
+					isSummary="true">
+
+					<attachments>
+						<attachment
+							title="don't like it? doesn't suit you needs?"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00700-summary/pag00100-suiting_everyones_needs.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="you can either build your own code generator using OGen framework, as seen in &quot;creating your own generator&quot; chapter"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00700-summary/pag00200-build_your_own_code_generator.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="or you can create your own templates project, and point configuration file to it"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00700-summary/pag00300-create_your_own_templates_project.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="you can add more items to xml metadatas files (to suit your specific needs), and re-generate C# classes dealing with xml metadata files"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00700-summary/pag00400-add_more_items_to_xml_metadatas_files.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="..."
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00700-summary"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00500- ... .html -->
+					</attachments>
+				</item>
 			</items>
 		</chapter>
 		<chapter
