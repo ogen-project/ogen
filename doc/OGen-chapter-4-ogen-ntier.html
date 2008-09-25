@@ -523,7 +523,24 @@ _user.Dispose(); _user = null;</pre></td>
 															align="left"><pre
 																id="4.2.7"
 																class="code"
-														><span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br /></pre></td>
+														>long _iduser = 1L;
+
+DO_User _user = new DO_User();
+if (_user.getObject(_iduser))
+	Console.Write(
+	  "updating user login:\nLogin = {0}\nnew Login = {1} ... ", 
+	  _user.Login, 
+	  _user.Login = "whatever"
+	);
+
+	// makes no update unless changes have been made, 
+	// you can force update by sending true parameter
+	_user.updObject(false);
+	
+	Console.WriteLine("DONE!");
+else
+	Console.WriteLine("user not found");
+_user.Dispose(); _user = null;</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -553,7 +570,25 @@ _user.Dispose(); _user = null;</pre></td>
 															align="left"><pre
 																id="4.2.8"
 																class="code"
-														><span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br /></pre></td>
+														>long _iduser = 1L;
+
+DO_User _user = new DO_User();
+if (_user.getObject(_iduser))
+	Console.Write(
+	  "deleting user {0} ... ", 
+	  _user.Login
+	);
+
+	//--- if parameter not specified uses object property _user.IDUser
+	//_user.delObject(_iduser);
+
+	//-- so in the case no need to provide IDUser
+	_user.delObject();
+	
+	Console.WriteLine("DONE!");
+else
+	Console.WriteLine("user not found");
+_user.Dispose(); _user = null;</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -583,7 +618,19 @@ _user.Dispose(); _user = null;</pre></td>
 															align="left"><pre
 																id="4.2.9"
 																class="code"
-														><span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br /></pre></td>
+														>long _iduser = 1L;
+long _idgroup = 1L;
+
+DO_UserGroup _usergroup = new DO_UserGroup();
+_usergroup.IDUser = _iduser;
+_usergroup.IDGroup = _idgroup;
+_usergroup.Relationdate = DateTime.Now;
+_usergroup.Defaultrelation = false;
+
+// if relation exists, it updates, if not it inserts:
+_usergroup.setObject();
+
+_usergroup.Dispose(); _user = null;</pre></td>
 													</tr>
 													<tr>
 														<td 
