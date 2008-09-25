@@ -22,6 +22,14 @@ namespace OGen.Doc.lib.metadata.documentation {
 	#else
 	public partial class XS__documentationCollection {
 	#endif
+		#if NET_1_1
+		public XS__documentationCollection(
+			XS__documentation[] documentationcollection_in
+		) : base (
+			documentationcollection_in
+		) {
+		}
+		#endif
 
 		// ToDos: add your code here
 	}

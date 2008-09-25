@@ -55,6 +55,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_winforms-7.1", "..\OGe
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer_MySQL-7.1", "..\OGen\OGen_datalayer_MySQL\OGen_datalayer_MySQL-7.1.csproj", "{CD40001B-B19B-44CA-9F8A-8FB4F75DB1F9}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -117,6 +121,10 @@ Global
 		{B3835B3F-C899-416F-BA94-625A4B32A4AC}.Debug.Build.0 = Debug|.NET
 		{B3835B3F-C899-416F-BA94-625A4B32A4AC}.Release.ActiveCfg = Release|.NET
 		{B3835B3F-C899-416F-BA94-625A4B32A4AC}.Release.Build.0 = Release|.NET
+		{CD40001B-B19B-44CA-9F8A-8FB4F75DB1F9}.Debug.ActiveCfg = Debug|.NET
+		{CD40001B-B19B-44CA-9F8A-8FB4F75DB1F9}.Debug.Build.0 = Debug|.NET
+		{CD40001B-B19B-44CA-9F8A-8FB4F75DB1F9}.Release.ActiveCfg = Release|.NET
+		{CD40001B-B19B-44CA-9F8A-8FB4F75DB1F9}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

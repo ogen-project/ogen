@@ -85,16 +85,6 @@
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "OGen_config"
-                    Project = "{F59063BE-4135-4A4F-ACBD-5129AB83A4EC}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "OGen_datalayer"
-                    Project = "{4AE20414-478E-4859-849E-929741A5936C}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
                     Name = "OGen_generator"
                     Project = "{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
@@ -102,11 +92,6 @@
                 <Reference
                     Name = "OGen_parser"
                     Project = "{981BC7DE-D93C-446E-861E-60A20E4E3391}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "OGen_templates"
-                    Project = "{8377EF00-063B-451A-8408-FE2F8EAD5C32}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference

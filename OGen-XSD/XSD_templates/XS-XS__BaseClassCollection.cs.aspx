@@ -51,6 +51,14 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_schema.
 	#else
 	public partial class <%=XS__%><%=_aux_schema.Element.Name%>Collection {
 	#endif
+		#if NET_1_1
+		public <%=XS0__%><%=_aux_schema.Element.Name%>Collection(
+			<%=XS__%><%=_aux_schema.Element.Name%>[] <%=_aux_schema.Element.Name.ToLower()%>collection_in
+		) : base (
+			<%=_aux_schema.Element.Name.ToLower()%>collection_in
+		) {
+		}
+		#endif
 
 		// ToDos: add your code here
 	}

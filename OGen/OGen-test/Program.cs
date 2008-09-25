@@ -55,8 +55,8 @@ namespace OGen.test {
 					Console.WriteLine("#{0}/{1} - {2}", d + 1, _dbs.Length, _dbs[d]);
 				}
 				
-				cDBTableField[] _fields;
-				cDBTable[] _tables = _con.getTables();
+				DBTableField[] _fields;
+				DBTable[] _tables = _con.getTables();
 				for (int t = 0; t < _tables.Length; t++) {
 					Console.WriteLine(
 						"\t#{0}/{1} - {2}", 

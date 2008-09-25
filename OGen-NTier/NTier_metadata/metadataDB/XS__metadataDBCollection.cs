@@ -22,6 +22,14 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 	#else
 	public partial class XS__metadataDBCollection {
 	#endif
+		#if NET_1_1
+		public XS__metadataDBCollection(
+			XS__metadataDB[] metadatadbcollection_in
+		) : base (
+			metadatadbcollection_in
+		) {
+		}
+		#endif
 
 		// ToDos: add your code here
 	}

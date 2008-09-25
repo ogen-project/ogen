@@ -22,6 +22,14 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 	#else
 	public partial class XS__metadataExtendedCollection {
 	#endif
+		#if NET_1_1
+		public XS__metadataExtendedCollection(
+			XS__metadataExtended[] metadataextendedcollection_in
+		) : base (
+			metadataextendedcollection_in
+		) {
+		}
+		#endif
 
 		// ToDos: add your code here
 	}
