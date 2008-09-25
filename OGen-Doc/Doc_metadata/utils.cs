@@ -33,13 +33,21 @@ namespace OGen.Doc.lib.metadata {
 						Path.DirectorySeparatorChar
 					)
 				);
-			string _output 
-				= File.Exists(_filePath) 
-					? File.ReadAllText(
-						_filePath
-					).Trim()
-					: "<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />";
-
+			string _output;
+			if (File.Exists(_filePath)) {
+				#if NET_1_1
+					StreamReader _stream = new StreamReader(_filePath);
+					_output = _stream.ReadToEnd().Trim();
+					_stream.Close();
+				#else
+					_output 
+						= File.ReadAllText(
+							_filePath
+						).Trim();
+				#endif
+			} else {
+				_output = "<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />";
+			}
 			return (_output == string.Empty)
 				? "<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />"
 				: _output;
