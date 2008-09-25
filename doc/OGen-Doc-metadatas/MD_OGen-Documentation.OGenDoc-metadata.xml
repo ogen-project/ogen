@@ -563,41 +563,41 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title="Insert / insObject"
 							showTitle="true"
 							incrementLevel="false"
-							source="ch00400-ogen-ntier/it00200-dataobjects/pag01300-insObject.html"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag01300-insObject.cs"
 							sourceType="file"
-							sourceContentType="html"
+							sourceContentType="code"
 							description="" />
 						<attachment
 							title="Select / getObject"
 							showTitle="true"
 							incrementLevel="false"
-							source="ch00400-ogen-ntier/it00200-dataobjects/pag01400-getobject.html"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag01400-getobject.cs"
 							sourceType="file"
-							sourceContentType="html"
+							sourceContentType="code"
 							description="" />
 						<attachment
 							title="Update / updObject"
 							showTitle="true"
 							incrementLevel="false"
-							source="ch00400-ogen-ntier/it00200-dataobjects/pag01500-updobject.html"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag01500-updobject.cs"
 							sourceType="file"
-							sourceContentType="html"
+							sourceContentType="code"
 							description="" />
 						<attachment
 							title="Delete / delObject"
 							showTitle="true"
 							incrementLevel="false"
-							source="ch00400-ogen-ntier/it00200-dataobjects/pag01600-delobject.html"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag01600-delobject.cs"
 							sourceType="file"
-							sourceContentType="html"
+							sourceContentType="code"
 							description="" />
 						<attachment
 							title="Insert (if not exists) or Update (if exists) / setObject"
 							showTitle="true"
 							incrementLevel="false"
-							source="ch00400-ogen-ntier/it00200-dataobjects/pag01700-setobject.html"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag01700-setobject.cs"
 							sourceType="file"
-							sourceContentType="html"
+							sourceContentType="code"
 							description="" />
 <!-- /the basics -->
 <!-- using DBConnection -->
