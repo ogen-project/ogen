@@ -17,6 +17,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 string _arg_DocumentationName = System.Web.HttpUtility.UrlDecode(Request.QueryString["DocumentationName"]);
 string _arg_ChapterTitle = System.Web.HttpUtility.UrlDecode(Request.QueryString["ChapterTitle"]);
+bool _arg_all = (_arg_ChapterTitle == string.Empty);
 #endregion
 
 #region varaux...
@@ -30,28 +31,35 @@ XS__documentation _aux_doc
 	];
 
 string _aux_documentation_index = string.Format(
-	"{0}-index.html",
-	_aux_doc.DocumentationName
+	"{0}-index{1}.html",
+	_aux_doc.DocumentationName,
+	_arg_all ? "-all" : ""
 );
 
-// ToDos: here!
-if (_arg_ChapterTitle == string.Empty) 
-	Response.End();
-
-int _aux_chapter_index = _aux_doc.Chapters.ChapterCollection.Search(_arg_ChapterTitle);
-XS_chapterType _aux_chapter = _aux_doc.Chapters.ChapterCollection[_aux_chapter_index];
+int _aux_chapter_index
+	= (!_arg_all)
+		? _aux_doc.Chapters.ChapterCollection.Search(_arg_ChapterTitle)
+		: -1;
+XS_chapterType _aux_chapter 
+	= (_aux_chapter_index >= 0) 
+		? _aux_doc.Chapters.ChapterCollection[_aux_chapter_index]
+		: null;
 
 int _aux_chapter_index_previous = _aux_chapter_index - 1;
 int _aux_chapter_index_next
-	= (_aux_chapter_index == (_aux_doc.Chapters.ChapterCollection.Count - 1)) 
+	= (
+		(_aux_chapter_index < 0)
+		||
+		(_aux_chapter_index == (_aux_doc.Chapters.ChapterCollection.Count - 1)) 
+	)
 		? -1 
 		: (_aux_chapter_index + 1);
 XS_chapterType _aux_chapter_previous
-	= (_aux_chapter_index_previous != -1)
+	= (_aux_chapter_index_previous >= 0)
 		? _aux_doc.Chapters.ChapterCollection[_aux_chapter_index_previous]
 		: null;
 XS_chapterType _aux_chapter_next
-	= (_aux_chapter_index_next != -1)
+	= (_aux_chapter_index_next >= 0)
 		? _aux_doc.Chapters.ChapterCollection[_aux_chapter_index_next]
 		: null;
 string _aux_chapter_link_previous = 
@@ -90,7 +98,10 @@ string _aux_attachment_source;
 %><html>
 	<head>
 		<title>
-			<%=_aux_doc.DocumentationName%> - <%=_aux_doc.DocumentationTitle%> - <%=_aux_chapter.Title%><%=(_aux_chapter.Subtitle != string.Empty) ? " - " + _aux_chapter.Subtitle : ""%>
+			<%=_aux_doc.DocumentationName%> - <%=_aux_doc.DocumentationTitle%><%
+			if (!_arg_all) {%>
+				- <%=_aux_chapter.Title%><%=(_aux_chapter.Subtitle != string.Empty) ? " - " + _aux_chapter.Subtitle : ""%><%
+			}%>
 		</title>
 		<link rel="stylesheet" href="_include/doc.css" type="text/css" /><%--
 		<script language="JavaScript" src="_include/lib_doc.js"></script>--%>
@@ -181,7 +192,15 @@ string _aux_attachment_source;
 			<tr valign="top">
 				<td colspan="4" bgcolor="#000000" height="1"></td>
 			</tr>
-<!-- /separator -->
+<!-- /separator --><%
+
+
+// <!-- CHAPTERS -->
+for (int c = 0; c < _aux_doc.Chapters.ChapterCollection.Count; c++) {
+	if (_arg_all) {
+		_aux_chapter = _aux_doc.Chapters.ChapterCollection[c];
+	}
+%>
 <!-- chapter -->
 			<tr>
 				<td width="10"></td>
@@ -423,7 +442,15 @@ string _aux_attachment_source;
 					<td width="10"></td>
 				</tr>
 <!-- /chapter:items --><%
-			}%>
+			}
+	if (!_arg_all) {
+		break;
+	}
+}
+// <!-- /CHAPTERS -->
+
+
+%>
 <!-- separator -->
 			<tr valign="top">
 				<td colspan="4" bgcolor="#000000" height="1"></td>

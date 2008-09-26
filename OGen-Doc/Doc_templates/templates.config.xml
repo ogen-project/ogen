@@ -90,6 +90,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-Doc-metadatas/MD_${ROOT.documentation[n].documentationName}.OGenDoc-metadata.xml" />
 			<argument name="DocumentationName" value="${ROOT.documentation[n].documentationName}" />
+			<argument name="ChapterTitle" value="" />
 		</arguments>
 		<conditions />
 		<outputs>

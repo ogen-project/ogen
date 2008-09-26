@@ -1,0 +1,494 @@
+<html>
+	<head>
+		<title>
+			OGen - OGen User's Guide
+		</title>
+		<link rel="stylesheet" href="_include/doc.css" type="text/css" />
+	</head>
+	<body
+		style="background-color:White;bottom:0;top:0;left:0;right:0"
+		bottommargin="0"
+		topmargin="0"
+		leftmargin="0"
+		rightmargin="0">
+
+		<table cellpadding="0" cellspacing="0" width="100%" border="0">
+<!-- menu -->
+			<tr>
+				<td colspan="4" bgcolor="#C0C0C0">
+					<table cellpadding="5" cellspacing="5" width="100%" class="menu" border="0">
+						<tr>
+							<td align="left">
+								<a href="http://ogen.berlios.de">
+									home</a>
+								&nbsp;&nbsp;|&nbsp;&nbsp;
+								<a href="OGen-index.html">
+									Documentation</a>
+								&nbsp;&nbsp;|&nbsp;&nbsp;
+								<a href="http://developer.berlios.de/projects/ogen/">
+									BerliOS project page</a>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+<!-- /menu -->
+<!-- separator -->
+			<tr valign="top">
+				<td colspan="4" bgcolor="#000000" height="1"></td>
+			</tr>
+<!-- /separator -->
+<!-- head -->
+			<tr>
+				<td colspan="4" bgcolor="#99CCFF">
+					<table cellpadding="5" cellspacing="5" width="100%" class="menu" border="0">
+						<tr>
+							<td align="left" colspan="2">
+								OGen User's Guide
+							</td>
+							<td align="right">
+								OGen 2.0</td>
+						</tr>
+
+
+<!-- head:paging -->
+						<tr>
+							<td align="left" valign="top" style="width:33%;">
+							</td>
+							<td align="center" valign="top" style="width:34%;">
+								<span class="text">
+									<a href="OGen-index.html">
+										index</a>
+								</span>
+							</td>
+							<td align="right" valign="top" style="width:33%;">
+									<a href="OGen-chapter-1-ogen.html">
+										next</a>
+									<br />
+									<span class="text">
+										OGen
+									</span>
+							</td>
+						</tr>
+<!-- /head:paging -->
+
+
+					</table>
+				</td>
+			</tr>
+<!-- /head -->
+<!-- separator -->
+			<tr valign="top">
+				<td colspan="4" bgcolor="#000000" height="1"></td>
+			</tr>
+<!-- /separator -->
+<!-- index -->
+			<tr>
+				<td width="10"></td>
+				<td colspan="2">
+					<br />
+					<span class="subsubtitle">
+						Table of Contents
+					</span>
+					<br />
+					<br />
+					<span class="text">
+						<a href="OGen-chapter-1-ogen.html">
+							1.
+							OGen
+								- open generation
+						</a>
+						<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="OGen-chapter-1-ogen.html#0">
+								1.1. 
+								introduction</a>
+							<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-1-ogen.html#0.0">&nbsp;What is OGen</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-1-ogen.html#0.1">&nbsp;Audience</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-1-ogen.html#0.2">&nbsp;License</a>
+								<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="OGen-chapter-1-ogen.html#1">
+								1.2. 
+								key features</a>
+							<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-1-ogen.html#1.0">&nbsp;easily create your own generator</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-1-ogen.html#1.1">&nbsp;easily add or change existing generator templates</a>
+								<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="OGen-chapter-1-ogen.html#2">
+								1.3. 
+								summary</a>
+							<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-1-ogen.html#2.0">&nbsp;why</a>
+								<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="OGen-chapter-1-ogen.html#3">
+								1.4. 
+								TESTINGS</a>
+							<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-1-ogen.html#3.0">1.4.1.&nbsp;code</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-1-ogen.html#3.1">&nbsp;code - no desc</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-1-ogen.html#3.2">&nbsp;code - with desc</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-1-ogen.html#3.4">1.4.2.&nbsp;table</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-1-ogen.html#3.5">&nbsp;table - no desc</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-1-ogen.html#3.6">&nbsp;table - with desc</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-1-ogen.html#3.8">1.4.3.&nbsp;image</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-1-ogen.html#3.9">&nbsp;image - no desc</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-1-ogen.html#3.10">&nbsp;image - with desc</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-1-ogen.html#3.12">1.4.4.&nbsp;comments</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-1-ogen.html#3.13">&nbsp;some comment</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-1-ogen.html#3.15">&nbsp;some tip</a>
+								<br />
+						<br />
+						<a href="OGen-chapter-2-ogen-code-generation-framework.html">
+							2.
+							OGen - code generation framework
+						</a>
+						<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="OGen-chapter-2-ogen-code-generation-framework.html#0">
+								2.1. 
+								introduction</a>
+							<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-2-ogen-code-generation-framework.html#0.0">&nbsp;introduction</a>
+								<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="OGen-chapter-2-ogen-code-generation-framework.html#1">
+								2.2. 
+								installing ogen</a>
+							<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-2-ogen-code-generation-framework.html#1.0">&nbsp;dependencies and pre-requisites</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-2-ogen-code-generation-framework.html#1.1">&nbsp;installing OGen under windows</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-2-ogen-code-generation-framework.html#1.2">&nbsp;installing OGen under linux with the Mono .net framework</a>
+								<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="OGen-chapter-2-ogen-code-generation-framework.html#2">
+								2.3. 
+								creating your own generator</a>
+							<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-2-ogen-code-generation-framework.html#2.0">&nbsp;...</a>
+								<br />
+						<br />
+						<a href="OGen-chapter-3-ogen-xsd.html">
+							3.
+							C# classes generator to interact with XML
+						</a>
+						<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="OGen-chapter-3-ogen-xsd.html#0">
+								3.1. 
+								introduction</a>
+							<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-3-ogen-xsd.html#0.0">&nbsp;What is OGen</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-3-ogen-xsd.html#0.1">&nbsp;Audience</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-3-ogen-xsd.html#0.2">&nbsp;License</a>
+								<br />
+						<br />
+						<a href="OGen-chapter-4-ogen-ntier.html">
+							4.
+							NTier application generator
+						</a>
+						<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="OGen-chapter-4-ogen-ntier.html#0">
+								4.1. 
+								introduction</a>
+							<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#0.0">&nbsp;NTier Application</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#0.1">&nbsp;Data Layer</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#0.2">&nbsp;Business Layer</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#0.3">&nbsp;Distributed Layer</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#0.4">&nbsp;Presentation Layer</a>
+								<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="OGen-chapter-4-ogen-ntier.html#1">
+								4.2. 
+								using Data Objects</a>
+							<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.0">4.2.1.&nbsp;creating a sample database for the project</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.1">&nbsp;db structure</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.2">&nbsp;brief explanation</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.3">&nbsp;PostgreSQL</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.4">&nbsp;SQL Server</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.5">&nbsp;MySQL</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.6">4.2.2.&nbsp;generating a new project</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.7">&nbsp;...</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.8">&nbsp;consuming db metatadas</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.9">&nbsp;adding metadatas</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.10">&nbsp;...</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.11">4.2.3.&nbsp;the basics - the four basic operations over a db table and more</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.12">&nbsp;Insert / insObject</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.13">&nbsp;Select / getObject</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.14">&nbsp;Update / updObject</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.15">&nbsp;Delete / delObject</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.16">&nbsp;Insert (if not exists) or Update (if exists) / setObject</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.17">4.2.4.&nbsp;using DBConnection</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.18">&nbsp;why and other considerations</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.19">&nbsp;executing an sql query</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.21">&nbsp;executing and retrieving data table from an sql query</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.23">&nbsp;executing an sql function or stored procedure</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.25">&nbsp;executing and retrieving data values from an sql function</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.27">&nbsp;executing and retrieving data tables from an sql function or stored procedure</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.29">&nbsp;information schema</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.30">&nbsp;list dbs</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.31">&nbsp;list db tables</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.32">&nbsp;list db table fields</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.33">&nbsp;using transactions</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.35">&nbsp;using transactions on dataobjects</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.37">&nbsp;using transactions between dataobjects</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.39">4.2.5.&nbsp;Reflecting Data Objects</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.40">&nbsp;using reflection to list dataobjects</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.41">&nbsp;using reflection to read from dataobject property attributes</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#1.42">&nbsp;using reflection to read from and write to dataobject properties</a>
+								<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="OGen-chapter-4-ogen-ntier.html#2">
+								4.3. 
+								using Business Objects</a>
+							<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#2.0">4.3.1.&nbsp;...</a>
+								<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="OGen-chapter-4-ogen-ntier.html#3">
+								4.4. 
+								using Distributed Objects</a>
+							<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#3.0">4.4.1.&nbsp;...</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#3.1">4.4.2.&nbsp;remoting objects</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#3.2">4.4.3.&nbsp;web services</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#3.3">4.4.4.&nbsp;...</a>
+								<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="OGen-chapter-4-ogen-ntier.html#4">
+								4.5. 
+								using Presentation Objects</a>
+							<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#4.0">4.5.1.&nbsp;...</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#4.1">4.5.2.&nbsp;configuring business objects source</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#4.2">&nbsp;reference directly assembly / GAC</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#4.3">&nbsp;Remoting</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#4.4">&nbsp;WebServices</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#4.5">4.5.3.&nbsp;consuming business objects</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#4.6">4.5.4.&nbsp;winforms</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#4.7">4.5.5.&nbsp;webforms</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#4.8">4.5.6.&nbsp;...</a>
+								<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="OGen-chapter-4-ogen-ntier.html#5">
+								4.6. 
+								modules</a>
+							<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#5.0">4.6.1.&nbsp;config</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#5.1">4.6.2.&nbsp;cache</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#5.2">4.6.3.&nbsp;authentication (users and permitions)</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#5.3">4.6.4.&nbsp;listings and reference data (reflecting through data and business layers)</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#5.4">4.6.5.&nbsp;Concurrent Updates Timestamp</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#5.5">4.6.6.&nbsp;log</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#5.6">4.6.7.&nbsp;dictionary</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#5.7">4.6.8.&nbsp;...</a>
+								<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="OGen-chapter-4-ogen-ntier.html#6">
+								4.7. 
+								summary</a>
+							<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#6.0">4.7.1.&nbsp;don't like it? doesn't suit you needs?</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#6.1">&nbsp;you can either build your own code generator using OGen framework, as seen in "creating your own generator" chapter</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#6.2">&nbsp;or you can use part of what's been done so far and create your own templates project, and point configuration file to it</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#6.3">&nbsp;you can add more items to xml metadatas files (to suit your specific needs), and re-generate C# classes dealing with xml metadata files</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#6.4">&nbsp;please share your ideas, help me make it better or even get involved in the project</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-4-ogen-ntier.html#6.5">4.7.2.&nbsp;...</a>
+								<br />
+						<br />
+						<a href="OGen-chapter-5-ogen-doc.html">
+							5.
+							Documentation generator
+								- what ever
+						</a>
+						<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="OGen-chapter-5-ogen-doc.html#0">
+								5.1. 
+								introduction</a>
+							<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-5-ogen-doc.html#0.0">&nbsp;What is OGen</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-5-ogen-doc.html#0.1">&nbsp;Audience</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-5-ogen-doc.html#0.2">&nbsp;License</a>
+								<br />
+						<br />
+						<a href="OGen-chapter-6-ogen-appendix.html">
+							6.
+							Appendix
+						</a>
+						<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="OGen-chapter-6-ogen-appendix.html#0">
+								6.1. 
+								sql data base - information schema</a>
+							<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-6-ogen-appendix.html#0.0">&nbsp;getting table names (generic)</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-6-ogen-appendix.html#0.1">&nbsp;getting table names (MySQL)</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-6-ogen-appendix.html#0.2">&nbsp;getting table field properties (PostgreSQL)</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-6-ogen-appendix.html#0.3">&nbsp;getting table field properties (SQL Sever)</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-6-ogen-appendix.html#0.4">&nbsp;getting table field properties (MySQL)</a>
+								<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="OGen-chapter-6-ogen-appendix.html#1">
+								6.2. 
+								Installing PostgreSQL</a>
+							<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-6-ogen-appendix.html#1.0">&nbsp;how to install PostgreSQL on Linux</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-6-ogen-appendix.html#1.1">&nbsp;how to install pgAdminIII on Linux</a>
+								<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="OGen-chapter-6-ogen-appendix.html#2">
+								6.3. 
+								data base - specific information</a>
+							<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-6-ogen-appendix.html#2.0">&nbsp;PostgreSQL</a>
+								<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="OGen-chapter-6-ogen-appendix.html#2.1">&nbsp;MySQL</a>
+								<br />
+						<br />
+					</span>
+					<br />
+					<br />
+				</td>
+				<td width="10"></td>
+			</tr>
+<!-- /index -->
+<!-- separator -->
+			<tr valign="top">
+				<td colspan="4" bgcolor="#000000" height="1"></td>
+			</tr>
+<!-- /separator -->
+<!-- bottom -->
+			<tr>
+				<td colspan="4" bgcolor="#99CCFF" valign="top">
+					<table cellpadding="5" cellspacing="5" width="100%" class="menu" border="0">
+
+
+<!-- bottom:paging -->
+						<tr>
+							<td align="left" valign="top" style="width:33%;">
+							</td>
+							<td align="center" valign="top" style="width:34%;">
+								<span class="text">
+									<a href="OGen-index.html">
+										index</a>
+								</span>
+							</td>
+							<td align="right" valign="top" style="width:33%;">
+									<a href="OGen-chapter-1-ogen.html">
+										next</a>
+									<br />
+									<span class="text">
+										OGen
+									</span>
+							</td>
+						</tr>
+<!-- /bottom:paging -->
+
+
+						<tr>
+							<td align="left" valign="top" colspan="3">
+								<a href="mailto:fmonteiro@users.berlios.de?subject=[OGen] index">Send comments on this topic.</a>
+								<br />
+								<a href="LICENSE.FDL.txt">Copyright (C) 2002 Francisco Monteiro</a>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+<!-- /bottom -->
+		</table>
+	</body>
+</html>

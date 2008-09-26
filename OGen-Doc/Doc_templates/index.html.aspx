@@ -16,6 +16,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 string _arg_DocumentationName = System.Web.HttpUtility.UrlDecode(Request.QueryString["DocumentationName"]);
+
 bool _arg_all = bool.Parse(System.Web.HttpUtility.UrlDecode(Request.QueryString["all"]));
 #endregion
 
@@ -30,8 +31,9 @@ XS__documentation _aux_doc
 	];
 
 string _aux_documentation_index = string.Format(
-	"{0}-index.html",
-	_aux_doc.DocumentationName
+	"{0}-index{1}.html",
+	_aux_doc.DocumentationName,
+	_arg_all ? "-all" : ""
 );
 
 int _aux_chapter_index = 0;
