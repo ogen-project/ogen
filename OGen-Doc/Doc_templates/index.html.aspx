@@ -208,7 +208,7 @@ string _aux_chapter_link_aux;
 									_aux_chapter_aux.Number,
 									_aux_chapter_aux.FileName
 								);%>
-						<a href="<%=_aux_chapter_link_aux%>#ch<%=c+1%>">
+						<a href="<%=_aux_chapter_link_aux%>#ch<%=c + 1%>">
 							<%=_aux_chapter_aux.Number%>.
 							<%=_aux_chapter_aux.Title%><%
 							if (_aux_chapter_aux.Subtitle.Trim() != string.Empty) {%>
@@ -219,7 +219,7 @@ string _aux_chapter_link_aux;
 						for (int i = 0; i < _aux_chapter_aux.Items.ItemCollection.Count; i++) {
 							_aux_item = _aux_chapter_aux.Items.ItemCollection[i];%>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href='<%=_aux_chapter_link_aux%>#ch<%=c+1%>.it<%=i+1%>'>
+							<a href='<%=_aux_chapter_link_aux%>#ch<%=c + 1%>.it<%=i + 1%>'>
 								<%=_aux_chapter_aux.Number%>.<%=i + 1%>. 
 								<%=_aux_item.Title%></a>
 							<br /><%
@@ -237,7 +237,7 @@ string _aux_chapter_link_aux;
 									%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%
 								}
 								%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<a href="<%=_aux_chapter_link_aux%>#ch<%=c+1%>.it<%=i+1%>.at<%=a+1%>"><%
+								<a href="<%=_aux_chapter_link_aux%>#ch<%=c + 1%>.it<%=i + 1%>.at<%=a + 1%>"><%
 								if (_aux_attachment.IncrementLevel) {%>
 									<%=_aux_chapter_aux.Number%>.<%=i + 1%>.<%=_attchementIncrement%>.<%
 								}
