@@ -199,12 +199,15 @@ string _aux_attachment_source;
 for (int c = 0; c < _aux_doc.Chapters.ChapterCollection.Count; c++) {
 	if (_arg_all) {
 		_aux_chapter = _aux_doc.Chapters.ChapterCollection[c];
+	} else {
+		c = _aux_chapter.Number - 1;
 	}
 %>
 <!-- chapter -->
 			<tr>
 				<td width="10"></td>
 				<td colspan="2">
+					<a name="ch<%=c+1%>"></a>
 					<br />
 
 					<span class="title">
@@ -226,7 +229,7 @@ for (int c = 0; c < _aux_doc.Chapters.ChapterCollection.Count; c++) {
 				<tr>
 					<td width="10"></td>
 					<td colspan="2">
-						<a name="<%=i%>"></a>
+						<a name="ch<%=c+1%>.it<%=i+1%>"></a>
 						<span class="title">
 							<%=_aux_chapter.Number%>.<%=i + 1%>. 
 							<%=_aux_item.Title%><%
@@ -258,7 +261,7 @@ for (int c = 0; c < _aux_doc.Chapters.ChapterCollection.Count; c++) {
 										(_aux_attachment.Title.Trim() != string.Empty)
 									)
 							) {%>
-								<a name="<%=i%>.<%=a%>"></a><%
+								<a name="ch<%=c+1%>.it<%=i+1%>.at<%=a+1%>"></a><%
 								if (_aux_attachment.IncrementLevel) {%>
 									<span class="title">
 										<%=_aux_chapter.Number%>.<%=i + 1%>.<%=_attchementIncrement%>.

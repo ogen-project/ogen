@@ -197,13 +197,18 @@ string _aux_chapter_link_aux;
 					for (int c = 0; c < _aux_doc.Chapters.ChapterCollection.Count; c++) {
 						_aux_chapter_aux = _aux_doc.Chapters.ChapterCollection[c];
 						_aux_chapter_link_aux 
-							= string.Format(
-								"{0}-chapter-{1}-{2}.html", 
-								_aux_doc.DocumentationName,
-								_aux_chapter_aux.Number,
-								_aux_chapter_aux.FileName
-							);%>
-						<a href="<%=_aux_chapter_link_aux%>">
+							= (_arg_all)
+								? string.Format(
+									"{0}-allchapters.html",
+									_aux_doc.DocumentationName
+								)
+								: string.Format(
+									"{0}-chapter-{1}-{2}.html", 
+									_aux_doc.DocumentationName,
+									_aux_chapter_aux.Number,
+									_aux_chapter_aux.FileName
+								);%>
+						<a href="<%=_aux_chapter_link_aux%>#ch<%=c+1%>">
 							<%=_aux_chapter_aux.Number%>.
 							<%=_aux_chapter_aux.Title%><%
 							if (_aux_chapter_aux.Subtitle.Trim() != string.Empty) {%>
@@ -214,7 +219,7 @@ string _aux_chapter_link_aux;
 						for (int i = 0; i < _aux_chapter_aux.Items.ItemCollection.Count; i++) {
 							_aux_item = _aux_chapter_aux.Items.ItemCollection[i];%>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="<%=_aux_chapter_link_aux%>#<%=i%>">
+							<a href='<%=_aux_chapter_link_aux%>#ch<%=c+1%>.it<%=i+1%>'>
 								<%=_aux_chapter_aux.Number%>.<%=i + 1%>. 
 								<%=_aux_item.Title%></a>
 							<br /><%
@@ -232,7 +237,7 @@ string _aux_chapter_link_aux;
 									%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%
 								}
 								%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<a href="<%=_aux_chapter_link_aux%>#<%=i%>.<%=a%>"><%
+								<a href="<%=_aux_chapter_link_aux%>#ch<%=c+1%>.it<%=i+1%>.at<%=a+1%>"><%
 								if (_aux_attachment.IncrementLevel) {%>
 									<%=_aux_chapter_aux.Number%>.<%=i + 1%>.<%=_attchementIncrement%>.<%
 								}
