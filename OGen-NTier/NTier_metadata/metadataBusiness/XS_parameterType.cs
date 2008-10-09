@@ -21,5 +21,13 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 	#else
 	public partial class XS_parameterType {
 	#endif
+		public XS_parameterType (
+		) {
+		}
+		public XS_parameterType (
+			string name_in
+		) {
+			name_ = name_in;
+		}
 	}
 }

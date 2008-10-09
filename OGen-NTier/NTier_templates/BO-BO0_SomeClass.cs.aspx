@@ -11,8 +11,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 --%><%@ Page language="c#" contenttype="text/html" %>
 <%@ import namespace="OGen.NTier.lib.metadata" %>
+<%@ import namespace="OGen.NTier.lib.metadata.metadataDB" %>
 <%@ import namespace="OGen.NTier.lib.metadata.metadataExtended" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataDB" %><%
+<%@ import namespace="OGen.NTier.lib.metadata.metadataBusiness" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 string _arg_ClassName = System.Web.HttpUtility.UrlDecode(Request.QueryString["ClassName"]);
@@ -53,14 +54,13 @@ using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer;
 
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 	/// <summary>
-	/// <%=_aux_class.Name%> BusinessObject which provides access to <see cref="<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.DO_<%=_aux_class.Name%>">DO_<%=_aux_class.Name%></see> for the Business Layer.<%--
+	/// <%=_aux_class.Name%> BusinessObject.<%--
 #if NET_1_1
 	/// <note type="implementnotes">
 	/// Access must be made via <see cref="BO_<%=_aux_class.Name%>">BO_<%=_aux_class.Name%></see>.
 	/// </note>
 #endif--%>
 	/// </summary>
-	[DOClassAttribute("<%=_aux_class.Name%>", "<%=_aux_ex_table.FriendlyName%>", "<%=_aux_ex_table.DBDescription%>", "<%=_aux_ex_table.ExtendedDescription%>", <%=_aux_class.isVirtualTable.ToString().ToLower()%>, <%=_aux_ex_table.isConfig.ToString().ToLower()%>)]
 	public 
 #if !NET_1_1
 		partial 
@@ -73,26 +73,23 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 #else
 		BO0_<%=_aux_class.Name%> 
 #endif
-		: BO__base<%=(isListItem) ? ", iListItem" : ""%> {
+	{
 		#region public BO_<%=_aux_class.Name%>(...);
 #if NET_1_1
 		internal BO0_<%=_aux_class.Name%>() {}
 #endif
 
-		///
-#if !NET_1_1
-		~BO_<%=_aux_class.Name%>
-#else
-		~BO0_<%=_aux_class.Name%>
-#endif
-		() {
-			if (mainaggregate__ != null) {
-				mainaggregate__.Dispose(); mainaggregate__ = null;
-			}
-		}
 		#endregion
 
+		#region private Properties...
+		#endregion
+		#region public Properties...
+		#endregion
 
+		#region private Methods...
+		#endregion
+		#region public Methods...
+		#endregion
 	}
 }<%
 //-----------------------------------------------------------------------------------------

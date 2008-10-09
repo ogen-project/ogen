@@ -157,6 +157,7 @@ shared
 		<complexType name="tableUpdateType">
 			<complexTypeKey name="name" caseSensitive="true" />
 		</complexType>
+
 		<!-- caseSensitive="false" -->
 		<complexType name="tableFieldRefType">
 			<complexTypeKey name="paramName" caseSensitive="false" />
@@ -167,7 +168,18 @@ shared
 		<complexType name="tableType">
 			<complexTypeKey name="name" caseSensitive="false" />
 		</complexType>
-		<!--
+
+		<complexType name="classType">
+			<complexTypeKey name="name" caseSensitive="false" />
+		</complexType>
+		<complexType name="methodType">
+			<complexTypeKey name="name" caseSensitive="false" />
+		</complexType>
+		<complexType name="parameterType">
+			<complexTypeKey name="name" caseSensitive="false" />
+		</complexType>
+
+<!--
 		<complexType name="tableDBsType">
 			<complexTypeKey name="" caseSensitive="true" />
 		</complexType>
@@ -189,5 +201,5 @@ shared
 		<complexType name="tableUpdatesType">
 			<complexTypeKey name="" caseSensitive="true" />
 		</complexType>
-		-->
+-->
 </metadata>

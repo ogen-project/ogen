@@ -15,19 +15,43 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Xml.Serialization;
 
-namespace OGen.NTier.lib.metadata.metadataBusiness {
-	#if NET_1_1
-	public class XS_methodType : XS0_methodType {
-	#else
-	public partial class XS_methodType {
-	#endif
-		public XS_methodType (
-		) {
-		}
-		public XS_methodType (
-			string name_in
-		) {
-			name_ = name_in;
-		}
+using OGen.NTier.lib.datalayer;
+using OGen.NTier.lib.businesslayer;
+
+using OGen.NTier.UTs.lib.datalayer;
+
+namespace OGen.NTier.UTs.lib.businesslayer {
+	/// <summary>
+	/// Authentication BusinessObject.
+	/// </summary>
+	public 
+#if !NET_1_1
+		partial 
+#else
+		abstract 
+#endif
+		class 
+#if !NET_1_1
+		BO_Authentication 
+#else
+		BO0_Authentication 
+#endif
+	{
+		#region public BO_Authentication(...);
+#if NET_1_1
+		internal BO0_Authentication() {}
+#endif
+
+		#endregion
+
+		#region private Properties...
+		#endregion
+		#region public Properties...
+		#endregion
+
+		#region private Methods...
+		#endregion
+		#region public Methods...
+		#endregion
 	}
 }
