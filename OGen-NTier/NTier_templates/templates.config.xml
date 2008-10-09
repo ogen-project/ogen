@@ -2637,4 +2637,21 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+	<template id="BO-BO_SomeClass.cs.aspx"
+			name="BO-BO_SomeClass.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataBusiness[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_businesslayer/BO_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="BO-BO0_SomeClass.cs.aspx" />
+		</dependencies>
+	</template>
 </templates>

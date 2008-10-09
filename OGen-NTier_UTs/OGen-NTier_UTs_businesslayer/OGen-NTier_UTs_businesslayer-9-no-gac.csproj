@@ -100,9 +100,11 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BO_Authentication.cs" />
     <Compile Include="BO_Config.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="_base\BO0_Authentication.cs" />
     <Compile Include="_base\BO0_Config.cs">
       <SubType>Code</SubType>
     </Compile>
