@@ -685,7 +685,7 @@ XXX:TODOS -->
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer/_base/BO0_${ROOT.metadataDB[0].tables.table[n].name}.cs" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer/_base/BDO0_${ROOT.metadataDB[0].tables.table[n].name}.cs" 
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies>
@@ -702,7 +702,7 @@ XXX:TODOS -->
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer/BO_${ROOT.metadataDB[0].tables.table[n].name}.cs" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer/BDO_${ROOT.metadataDB[0].tables.table[n].name}.cs" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
