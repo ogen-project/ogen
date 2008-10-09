@@ -20,6 +20,7 @@ using OGen.lib.generator;
 using OGen.lib.metadata;
 using OGen.NTier.lib.metadata.metadataExtended;
 using OGen.NTier.lib.metadata.metadataDB;
+using OGen.NTier.lib.metadata.metadataBusiness;
 
 namespace OGen.NTier.lib.metadata {
 	#if NET_1_1
@@ -42,6 +43,7 @@ namespace OGen.NTier.lib.metadata {
 			#region int _total_xxx = ...;
 			int _total_metadataextended = 0;
 			int _total_metadatadb = 0;
+			int _total_metadatabusiness = 0;
 			for (int f = 0; f < metadatafiles_.MetadataFiles.Count; f++) {
 				switch (metadatafiles_.MetadataFiles[f].XMLFileType) {
 					case XS__metadataExtended.METADATAEXTENDED:
@@ -49,6 +51,9 @@ namespace OGen.NTier.lib.metadata {
 						break;
 					case XS__metadataDB.METADATADB:
 						_total_metadatadb++;
+						break;
+					case XS__metadataBusiness.METADATABUSINESS:
+						_total_metadatabusiness++;
 						break;
 				}
 			}
@@ -60,10 +65,14 @@ namespace OGen.NTier.lib.metadata {
 			string[] _metadatadbFilepath = new string[
 				_total_metadatadb
 			];
+			string[] _metadatabusinessFilepath = new string[
+				_total_metadatabusiness
+			];
 			#endregion
 
 			_total_metadataextended = 0;
 			_total_metadatadb = 0;
+			_total_metadatabusiness = 0;
 			for (int f = 0; f < metadatafiles_.MetadataFiles.Count; f++) {
 				switch (metadatafiles_.MetadataFiles[f].XMLFileType) {
 					case XS__metadataExtended.METADATAEXTENDED:
@@ -80,6 +89,13 @@ namespace OGen.NTier.lib.metadata {
 						);
 						_total_metadatadb++;
 						break;
+					case XS__metadataBusiness.METADATABUSINESS:
+						_metadatabusinessFilepath[_total_metadatabusiness] = System.IO.Path.Combine(
+							_metadataPath,
+							metadatafiles_.MetadataFiles[f].XMLFilename
+						);
+						_total_metadatabusiness++;
+						break;
 				}
 			}
 
@@ -93,6 +109,12 @@ namespace OGen.NTier.lib.metadata {
 				XS__metadataDB.Load_fromFile(
 					(XS__RootMetadata)this, 
 					_metadatadbFilepath
+				)
+			);
+			metadatabusinesscollection_ = new XS__metadataBusinessCollection(
+				XS__metadataBusiness.Load_fromFile(
+					(XS__RootMetadata)this, 
+					_metadatabusinessFilepath
 				)
 			);
 		}
@@ -161,8 +183,16 @@ namespace OGen.NTier.lib.metadata {
 			get { return metadatadbcollection_; }
 		}
 		#endregion
+		#region public XS__metadataBusinessCollection MetadataBusinessCollection { get; }
+		private XS__metadataBusinessCollection metadatabusinesscollection_;
+
+		public XS__metadataBusinessCollection MetadataBusinessCollection {
+			get { return metadatabusinesscollection_; }
+		}
+		#endregion
 		private const string ROOT_METADATAEXTENDED = XS__metadataExtended.ROOT + "." + XS__metadataExtended.METADATAEXTENDED + "[";
 		private const string ROOT_METADATADB = XS__metadataDB.ROOT + "." + XS__metadataDB.METADATADB + "[";
+		private const string ROOT_METADATABUSINESS = XS__metadataBusiness.ROOT + "." + XS__metadataBusiness.METADATABUSINESS + "[";
 
 		#region public string Read_fromRoot(...);
 		public string Read_fromRoot(string what_in) {
@@ -203,6 +233,26 @@ namespace OGen.NTier.lib.metadata {
 							== metadatadbcollection_[i].Root_MetadataDB
 					) {
 						return metadatadbcollection_[i].Read_fromRoot(string.Format(
+							"{0}{1}{2}",
+							_begin,
+							i,
+							_end
+						));
+					}
+				}
+			} else if (OGen.lib.generator.utils.rootExpression_TryParse(
+				what_in, 
+				ROOT_METADATABUSINESS, 
+				out _begin, 
+				out _indexstring, 
+				out _end
+			)) {
+				for (int i = 0; i < metadatabusinesscollection_.Count; i++) {
+					if (
+						what_in.Substring(0, metadatabusinesscollection_[i].Root_MetadataBusiness.Length)
+							== metadatabusinesscollection_[i].Root_MetadataBusiness
+					) {
+						return metadatabusinesscollection_[i].Read_fromRoot(string.Format(
 							"{0}{1}{2}",
 							_begin,
 							i,
@@ -293,6 +343,45 @@ namespace OGen.NTier.lib.metadata {
 				} else {
 					int _indexint = int.Parse(_indexstring);
 					metadatadbcollection_[
+						_indexint
+					].IterateThrough_fromRoot(
+						string.Format(
+							"{0}{1}{2}",
+							_begin,
+							_indexint,
+							_end
+						),
+						iteration_found_in, 
+						ref valueHasBeenFound_out
+					);
+
+					_didit = true;
+				}
+			}
+			if (OGen.lib.generator.utils.rootExpression_TryParse(
+				iteration_in,
+				ROOT_METADATABUSINESS,
+				out _begin, 
+				out _indexstring, 
+				out _end
+			)) {
+				if (_indexstring == "n") {
+					for (int i = 0; i < metadatabusinesscollection_.Count; i++) {
+						metadatabusinesscollection_[i].IterateThrough_fromRoot(
+							string.Format(
+								"{0}{1}{2}",
+								_begin, 
+								i,
+								_end
+							), 
+							iteration_found_in, 
+							ref valueHasBeenFound_out
+						);
+					}
+					_didit = true;
+				} else {
+					int _indexint = int.Parse(_indexstring);
+					metadatabusinesscollection_[
 						_indexint
 					].IterateThrough_fromRoot(
 						string.Format(

@@ -1,4 +1,5 @@
-<!--
+#region Copyright (C) 2002 Francisco Monteiro
+/*
 
 OGen
 Copyright (c) 2002 Francisco Monteiro
@@ -9,15 +10,20 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
--->
-<metadatas>
-	<metadata
-		xmlFilename="MD_OGen-NTier_UTs.OGenXSD-metadataDB.xml"
-		xmlFileType="metadataDB" />
-	<metadata
-		xmlFilename="MD_OGen-NTier_UTs.OGenXSD-metadataExtended.xml"
-		xmlFileType="metadataExtended" />
-	<metadata
-		xmlFilename="MD_OGen-NTier_UTs.OGenXSD-metadataBusiness.xml"
-		xmlFileType="metadataBusiness" />
-</metadatas>
+*/
+#endregion
+using System;
+using System.Xml.Serialization;
+using System.Collections;
+#if !NET_1_1
+using System.Collections.Generic;
+#endif
+
+namespace OGen.NTier.lib.metadata.metadataBusiness {
+	#if NET_1_1
+	public class XS_metadataBusinessTypeCollection : XS0_metadataBusinessTypeCollection {
+	#else
+	public partial class XS_metadataBusinessTypeCollection {
+	#endif
+	}
+}

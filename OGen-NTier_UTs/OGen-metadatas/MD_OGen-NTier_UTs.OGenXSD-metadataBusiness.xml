@@ -10,14 +10,21 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -->
-<metadatas>
-	<metadata
-		xmlFilename="MD_OGen-NTier_UTs.OGenXSD-metadataDB.xml"
-		xmlFileType="metadataDB" />
-	<metadata
-		xmlFilename="MD_OGen-NTier_UTs.OGenXSD-metadataExtended.xml"
-		xmlFileType="metadataExtended" />
-	<metadata
-		xmlFilename="MD_OGen-NTier_UTs.OGenXSD-metadataBusiness.xml"
-		xmlFileType="metadataBusiness" />
-</metadatas>
+<?xml version="1.0"?>
+<metadataBusiness xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" applicationName="OGen-NTier_UTs">
+	<classes>
+		<class name="Authentication">
+			<methods>
+				<method name="Login" outputType="string" distribute="True" isStatic="True">
+					<parameters>
+						<parameter name="login_in" type="string" isParams="False" isOut="False" isRef="False" />
+						<parameter name="password_in" type="string" isParams="False" isOut="False" isRef="False" />
+					</parameters>
+				</method>
+				<method name="Logout" outputType="void" distribute="True" isStatic="True">
+					<parameters />
+				</method>
+			</methods>
+		</class>
+	</classes>
+</metadataBusiness>
