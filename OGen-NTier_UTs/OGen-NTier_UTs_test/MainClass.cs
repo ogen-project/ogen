@@ -76,28 +76,37 @@ namespace OGen.NTier.UTs.test {
 									_methods[m],
 									typeof(BOMethodAttribute)
 								)) {
-									Console.Write(
-										"\t{0}: ",
-										_methods[m].Name
-									);
 									Attribute[] _attributes = Attribute.GetCustomAttributes(
-										_methods[m], 
-										typeof(BOMethodAttribute), 
+										_methods[m],
+										typeof(BOMethodAttribute),
 										true
 									);
 
-									//Console.WriteLine("Name \t isPK \t isIdentity \t DefaultValue \t \t \t \t isBool");
 									for (int a = 0; a < _attributes.Length; a++) {
 										//if (_attributes[a].GetType() == typeof(BOMethodAttribute)) {
-											BOMethodAttribute _propertyattribute 
-												= (BOMethodAttribute)_attributes[a];
-											Console.Write(
-												"name:{0}",
-												_propertyattribute.Name
-											);
+										BOMethodAttribute _propertyattribute
+											= (BOMethodAttribute)_attributes[a];
+										Console.WriteLine(
+											"\tname:{0}; distribute:{1};",
+											_propertyattribute.Name,
+											_propertyattribute.Distribute
+										);
 										//}
 									}
-									Console.WriteLine();
+									Console.WriteLine(
+										"\t.{0}(",
+										_methods[m].Name
+									);
+									ParameterInfo[] _parameterinfo = _methods[m].GetParameters();
+									for (int p = 0; p < _parameterinfo.Length; p++) {
+										Console.WriteLine(
+											"\t\tname: {0}; type: {1}; isOut: {2};", 
+											_parameterinfo[p].Name, 
+											_parameterinfo[p].ParameterType, 
+											_parameterinfo[p].IsOut
+										);
+									}
+									Console.WriteLine("\t)");
 								}
 							}
 							Console.WriteLine();

@@ -72,5 +72,19 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		}
 		#endregion
 		#endregion
+
+		[BOMethodAttribute("Test", true)]
+		public bool Test(
+			int i, 
+			out int j,
+			ref int k,
+			string l,
+			out string[] m,
+			params int[] n
+		) {
+			j = -1;
+			m = new string[] { };
+			return false;
+		}
 	}
 }
