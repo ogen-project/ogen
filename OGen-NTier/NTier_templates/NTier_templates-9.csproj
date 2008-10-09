@@ -125,13 +125,13 @@
     <Content Include="app0.config.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="BO-BDO0_SomeTable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="BO-BDO_SomeTable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="BO-BO0_SomeClass.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="BO-BO0_SomeTable.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="BO-BO_SomeTable.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-SomeApplication_businesslayer-7.1.csproj.aspx">

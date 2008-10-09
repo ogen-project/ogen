@@ -22,9 +22,9 @@ using OGen.NTier.UTs.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
-	/// Permition BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Permition">DO_Permition</see> for the Business Layer.
+	/// WordLanguage BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_WordLanguage">DO_WordLanguage</see> for the Business Layer.
 	/// </summary>
-	[DOClassAttribute("Permition", "", "", "", false, false)]
+	[DOClassAttribute("WordLanguage", "", "", "", false, false)]
 	public 
 #if !NET_1_1
 		partial 
@@ -33,21 +33,21 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #endif
 		class 
 #if !NET_1_1
-		BO_Permition 
+		BDO_WordLanguage 
 #else
-		BO0_Permition 
+		BDO0_WordLanguage 
 #endif
 		: BO__base {
-		#region public BO_Permition(...);
+		#region public BDO_WordLanguage(...);
 #if NET_1_1
-		internal BO0_Permition() {}
+		internal BDO0_WordLanguage() {}
 #endif
 
 		///
 #if !NET_1_1
-		~BO_Permition
+		~BDO_WordLanguage
 #else
-		~BO0_Permition
+		~BDO0_WordLanguage
 #endif
 		() {
 			if (mainaggregate__ != null) {
@@ -57,7 +57,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		#endregion
 
 		#region private Properties...
-		private DO_Permition mainaggregate__;
+		private DO_WordLanguage mainaggregate__;
 
 		///
 #if !NET_1_1
@@ -65,13 +65,13 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #else
 		protected 
 #endif
-		DO_Permition mainAggregate {
+		DO_WordLanguage mainAggregate {
 			get {
 				if (mainaggregate__ == null) {
 					// instantiating for the first time and
 					// only because it became needed, otherwise
 					// never instantiated...
-					mainaggregate__ = new DO_Permition();
+					mainaggregate__ = new DO_WordLanguage();
 				}
 				return mainaggregate__;
 			}
@@ -85,23 +85,23 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			get { return mainAggregate.Record; }
 		}
 
-		public SO0_Permition Fields {
+		public SO0_WordLanguage Fields {
 			get { return mainAggregate.Fields; }
 		}
-		#region public long IDPermition { get; set; }
+		#region public long IDWord { get; set; }
 		/// <summary>
-		/// Permition's IDPermition.
+		/// WordLanguage's IDWord.
 		/// </summary>
 		[DOPropertyAttribute(
-			"IDPermition", 
+			"IDWord", 
 			"", 
 			"", 
-			true, 
 			true, 
 			false, 
+			false, 
 			"", 
-			"", 
-			"", 
+			"Word", 
+			"IDWord", 
 			false, 
 			false, 
 			false, 
@@ -119,22 +119,71 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #if NET_1_1
 			virtual 
 #endif
-		long IDPermition {
-			get { return mainAggregate.Fields.IDPermition; }
-			set { mainAggregate.Fields.IDPermition = value; }
+		long IDWord {
+			get { return mainAggregate.Fields.IDWord; }
+			set { mainAggregate.Fields.IDWord = value; }
 		}
 		#endregion
-		#region public string Name { get; set; }
+		#region public long IDLanguage { get; set; }
 		/// <summary>
-		/// Permition's Name.
+		/// WordLanguage's IDLanguage.
 		/// </summary>
 		[DOPropertyAttribute(
-			"Name", 
+			"IDLanguage", 
+			"", 
+			"", 
+			true, 
+			false, 
+			false, 
+			"", 
+			"Language", 
+			"IDLanguage", 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			true, 
+			false, 
+			false, 
+			false, 
+			false, 
+			0, 
+			""
+		)]
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		long IDLanguage {
+			get { return mainAggregate.Fields.IDLanguage; }
+			set { mainAggregate.Fields.IDLanguage = value; }
+		}
+		#endregion
+		#region public bool Translation_isNull { get; set; }
+		/// <summary>
+		/// Allows assignement of null and check if null at WordLanguage's Translation.
+		/// </summary>
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		bool Translation_isNull {
+			get { return mainAggregate.Fields.Translation_isNull; }
+			set { mainAggregate.Fields.Translation_isNull = value; }
+		}
+		#endregion
+		#region public string Translation { get; set; }
+		/// <summary>
+		/// WordLanguage's Translation.
+		/// </summary>
+		[DOPropertyAttribute(
+			"Translation", 
 			"", 
 			"", 
 			false, 
 			false, 
-			false, 
+			true, 
 			"", 
 			"", 
 			"", 
@@ -148,33 +197,33 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			true, 
 			false, 
 			false, 
-			50, 
+			2048, 
 			""
 		)]
 		public 
 #if NET_1_1
 			virtual 
 #endif
-		string Name {
-			get { return mainAggregate.Fields.Name; }
-			set { mainAggregate.Fields.Name = value; }
+		string Translation {
+			get { return mainAggregate.Fields.Translation; }
+			set { mainAggregate.Fields.Translation = value; }
 		}
 		#endregion
 		#endregion
 
 		#region public Methods...
-		#region public SC0_Permition Serialize();
-		public SO0_Permition Serialize() {
+		#region public SC0_WordLanguage Serialize();
+		public SO0_WordLanguage Serialize() {
 			return mainAggregate.Serialize();
 		}
 		#endregion
-		#region public void Deserialize(SO0_Permition Permition_in);
-		public void Deserialize(SO0_Permition Permition_in) {
-			mainAggregate.Fields = Permition_in;
+		#region public void Deserialize(SO0_WordLanguage WordLanguage_in);
+		public void Deserialize(SO0_WordLanguage WordLanguage_in) {
+			mainAggregate.Fields = WordLanguage_in;
 		}
 		#endregion
-		#region public SC0_Permition Record_Serialize();
-		public SC0_Permition Record_Serialize() {
+		#region public SC0_WordLanguage Record_Serialize();
+		public SC0_WordLanguage Record_Serialize() {
 			return mainAggregate.Record.Serialize();
 		}
 		#endregion

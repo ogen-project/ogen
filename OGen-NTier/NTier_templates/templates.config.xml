@@ -675,8 +675,8 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template id="BO-BO0_SomeTable.cs.aspx"
-			name="BO-BO0_SomeTable.cs.aspx" 
+	<template id="BO-BDO0_SomeTable.cs.aspx"
+			name="BO-BDO0_SomeTable.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -688,10 +688,12 @@ XXX:TODOS -->
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer/_base/BO0_${ROOT.metadataDB[0].tables.table[n].name}.cs" 
 				type="File" mode="Replace" />
 		</outputs>
-		<dependencies />
+		<dependencies>
+			<dependency templateID="BO-BDO_SomeTable.cs.aspx" />
+		</dependencies>
 	</template>
-	<template id="BO-BO_SomeTable.cs.aspx"
-			name="BO-BO_SomeTable.cs.aspx" 
+	<template id="BO-BDO_SomeTable.cs.aspx"
+			name="BO-BDO_SomeTable.cs.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>

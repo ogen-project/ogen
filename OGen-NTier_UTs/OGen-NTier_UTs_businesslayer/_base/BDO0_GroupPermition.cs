@@ -22,9 +22,9 @@ using OGen.NTier.UTs.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
-	/// WordLanguage BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_WordLanguage">DO_WordLanguage</see> for the Business Layer.
+	/// GroupPermition BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_GroupPermition">DO_GroupPermition</see> for the Business Layer.
 	/// </summary>
-	[DOClassAttribute("WordLanguage", "", "", "", false, false)]
+	[DOClassAttribute("GroupPermition", "", "", "", false, false)]
 	public 
 #if !NET_1_1
 		partial 
@@ -33,21 +33,21 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #endif
 		class 
 #if !NET_1_1
-		BO_WordLanguage 
+		BDO_GroupPermition 
 #else
-		BO0_WordLanguage 
+		BDO0_GroupPermition 
 #endif
 		: BO__base {
-		#region public BO_WordLanguage(...);
+		#region public BDO_GroupPermition(...);
 #if NET_1_1
-		internal BO0_WordLanguage() {}
+		internal BDO0_GroupPermition() {}
 #endif
 
 		///
 #if !NET_1_1
-		~BO_WordLanguage
+		~BDO_GroupPermition
 #else
-		~BO0_WordLanguage
+		~BDO0_GroupPermition
 #endif
 		() {
 			if (mainaggregate__ != null) {
@@ -57,7 +57,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		#endregion
 
 		#region private Properties...
-		private DO_WordLanguage mainaggregate__;
+		private DO_GroupPermition mainaggregate__;
 
 		///
 #if !NET_1_1
@@ -65,13 +65,13 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #else
 		protected 
 #endif
-		DO_WordLanguage mainAggregate {
+		DO_GroupPermition mainAggregate {
 			get {
 				if (mainaggregate__ == null) {
 					// instantiating for the first time and
 					// only because it became needed, otherwise
 					// never instantiated...
-					mainaggregate__ = new DO_WordLanguage();
+					mainaggregate__ = new DO_GroupPermition();
 				}
 				return mainaggregate__;
 			}
@@ -85,23 +85,23 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			get { return mainAggregate.Record; }
 		}
 
-		public SO0_WordLanguage Fields {
+		public SO0_GroupPermition Fields {
 			get { return mainAggregate.Fields; }
 		}
-		#region public long IDWord { get; set; }
+		#region public long IDGroup { get; set; }
 		/// <summary>
-		/// WordLanguage's IDWord.
+		/// GroupPermition's IDGroup.
 		/// </summary>
 		[DOPropertyAttribute(
-			"IDWord", 
+			"IDGroup", 
 			"", 
 			"", 
 			true, 
 			false, 
 			false, 
 			"", 
-			"Word", 
-			"IDWord", 
+			"Group", 
+			"IDGroup", 
 			false, 
 			false, 
 			false, 
@@ -119,25 +119,25 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #if NET_1_1
 			virtual 
 #endif
-		long IDWord {
-			get { return mainAggregate.Fields.IDWord; }
-			set { mainAggregate.Fields.IDWord = value; }
+		long IDGroup {
+			get { return mainAggregate.Fields.IDGroup; }
+			set { mainAggregate.Fields.IDGroup = value; }
 		}
 		#endregion
-		#region public long IDLanguage { get; set; }
+		#region public long IDPermition { get; set; }
 		/// <summary>
-		/// WordLanguage's IDLanguage.
+		/// GroupPermition's IDPermition.
 		/// </summary>
 		[DOPropertyAttribute(
-			"IDLanguage", 
+			"IDPermition", 
 			"", 
 			"", 
 			true, 
 			false, 
 			false, 
 			"", 
-			"Language", 
-			"IDLanguage", 
+			"Permition", 
+			"IDPermition", 
 			false, 
 			false, 
 			false, 
@@ -155,75 +155,26 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #if NET_1_1
 			virtual 
 #endif
-		long IDLanguage {
-			get { return mainAggregate.Fields.IDLanguage; }
-			set { mainAggregate.Fields.IDLanguage = value; }
-		}
-		#endregion
-		#region public bool Translation_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at WordLanguage's Translation.
-		/// </summary>
-		public 
-#if NET_1_1
-			virtual 
-#endif
-		bool Translation_isNull {
-			get { return mainAggregate.Fields.Translation_isNull; }
-			set { mainAggregate.Fields.Translation_isNull = value; }
-		}
-		#endregion
-		#region public string Translation { get; set; }
-		/// <summary>
-		/// WordLanguage's Translation.
-		/// </summary>
-		[DOPropertyAttribute(
-			"Translation", 
-			"", 
-			"", 
-			false, 
-			false, 
-			true, 
-			"", 
-			"", 
-			"", 
-			false, 
-			false, 
-			false, 
-			false, 
-			false, 
-			false, 
-			false, 
-			true, 
-			false, 
-			false, 
-			2048, 
-			""
-		)]
-		public 
-#if NET_1_1
-			virtual 
-#endif
-		string Translation {
-			get { return mainAggregate.Fields.Translation; }
-			set { mainAggregate.Fields.Translation = value; }
+		long IDPermition {
+			get { return mainAggregate.Fields.IDPermition; }
+			set { mainAggregate.Fields.IDPermition = value; }
 		}
 		#endregion
 		#endregion
 
 		#region public Methods...
-		#region public SC0_WordLanguage Serialize();
-		public SO0_WordLanguage Serialize() {
+		#region public SC0_GroupPermition Serialize();
+		public SO0_GroupPermition Serialize() {
 			return mainAggregate.Serialize();
 		}
 		#endregion
-		#region public void Deserialize(SO0_WordLanguage WordLanguage_in);
-		public void Deserialize(SO0_WordLanguage WordLanguage_in) {
-			mainAggregate.Fields = WordLanguage_in;
+		#region public void Deserialize(SO0_GroupPermition GroupPermition_in);
+		public void Deserialize(SO0_GroupPermition GroupPermition_in) {
+			mainAggregate.Fields = GroupPermition_in;
 		}
 		#endregion
-		#region public SC0_WordLanguage Record_Serialize();
-		public SC0_WordLanguage Record_Serialize() {
+		#region public SC0_GroupPermition Record_Serialize();
+		public SC0_GroupPermition Record_Serialize() {
 			return mainAggregate.Record.Serialize();
 		}
 		#endregion

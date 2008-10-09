@@ -22,9 +22,9 @@ using OGen.NTier.UTs.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
-	/// UserGroup BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_UserGroup">DO_UserGroup</see> for the Business Layer.
+	/// Word BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Word">DO_Word</see> for the Business Layer.
 	/// </summary>
-	[DOClassAttribute("UserGroup", "", "", "", false, false)]
+	[DOClassAttribute("Word", "", "", "", false, false)]
 	public 
 #if !NET_1_1
 		partial 
@@ -33,21 +33,21 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #endif
 		class 
 #if !NET_1_1
-		BO_UserGroup 
+		BDO_Word 
 #else
-		BO0_UserGroup 
+		BDO0_Word 
 #endif
 		: BO__base {
-		#region public BO_UserGroup(...);
+		#region public BDO_Word(...);
 #if NET_1_1
-		internal BO0_UserGroup() {}
+		internal BDO0_Word() {}
 #endif
 
 		///
 #if !NET_1_1
-		~BO_UserGroup
+		~BDO_Word
 #else
-		~BO0_UserGroup
+		~BDO0_Word
 #endif
 		() {
 			if (mainaggregate__ != null) {
@@ -57,7 +57,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		#endregion
 
 		#region private Properties...
-		private DO_UserGroup mainaggregate__;
+		private DO_Word mainaggregate__;
 
 		///
 #if !NET_1_1
@@ -65,13 +65,13 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #else
 		protected 
 #endif
-		DO_UserGroup mainAggregate {
+		DO_Word mainAggregate {
 			get {
 				if (mainaggregate__ == null) {
 					// instantiating for the first time and
 					// only because it became needed, otherwise
 					// never instantiated...
-					mainaggregate__ = new DO_UserGroup();
+					mainaggregate__ = new DO_Word();
 				}
 				return mainaggregate__;
 			}
@@ -85,23 +85,23 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			get { return mainAggregate.Record; }
 		}
 
-		public SO0_UserGroup Fields {
+		public SO0_Word Fields {
 			get { return mainAggregate.Fields; }
 		}
-		#region public long IDUser { get; set; }
+		#region public long IDWord { get; set; }
 		/// <summary>
-		/// UserGroup's IDUser.
+		/// Word's IDWord.
 		/// </summary>
 		[DOPropertyAttribute(
-			"IDUser", 
+			"IDWord", 
 			"", 
 			"", 
 			true, 
-			false, 
+			true, 
 			false, 
 			"", 
-			"User", 
-			"IDUser", 
+			"", 
+			"", 
 			false, 
 			false, 
 			false, 
@@ -119,115 +119,30 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #if NET_1_1
 			virtual 
 #endif
-		long IDUser {
-			get { return mainAggregate.Fields.IDUser; }
-			set { mainAggregate.Fields.IDUser = value; }
+		long IDWord {
+			get { return mainAggregate.Fields.IDWord; }
+			set { mainAggregate.Fields.IDWord = value; }
 		}
 		#endregion
-		#region public long IDGroup { get; set; }
+		#region public bool DeleteThisTestField_isNull { get; set; }
 		/// <summary>
-		/// UserGroup's IDGroup.
+		/// Allows assignement of null and check if null at Word's DeleteThisTestField.
+		/// </summary>
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		bool DeleteThisTestField_isNull {
+			get { return mainAggregate.Fields.DeleteThisTestField_isNull; }
+			set { mainAggregate.Fields.DeleteThisTestField_isNull = value; }
+		}
+		#endregion
+		#region public bool DeleteThisTestField { get; set; }
+		/// <summary>
+		/// Word's DeleteThisTestField.
 		/// </summary>
 		[DOPropertyAttribute(
-			"IDGroup", 
-			"", 
-			"", 
-			true, 
-			false, 
-			false, 
-			"", 
-			"Group", 
-			"IDGroup", 
-			false, 
-			false, 
-			false, 
-			false, 
-			false, 
-			true, 
-			false, 
-			false, 
-			false, 
-			false, 
-			0, 
-			""
-		)]
-		public 
-#if NET_1_1
-			virtual 
-#endif
-		long IDGroup {
-			get { return mainAggregate.Fields.IDGroup; }
-			set { mainAggregate.Fields.IDGroup = value; }
-		}
-		#endregion
-		#region public bool Relationdate_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at UserGroup's Relationdate.
-		/// </summary>
-		public 
-#if NET_1_1
-			virtual 
-#endif
-		bool Relationdate_isNull {
-			get { return mainAggregate.Fields.Relationdate_isNull; }
-			set { mainAggregate.Fields.Relationdate_isNull = value; }
-		}
-		#endregion
-		#region public DateTime Relationdate { get; set; }
-		/// <summary>
-		/// UserGroup's Relationdate.
-		/// </summary>
-		[DOPropertyAttribute(
-			"Relationdate", 
-			"", 
-			"", 
-			false, 
-			false, 
-			true, 
-			"", 
-			"", 
-			"", 
-			false, 
-			false, 
-			false, 
-			false, 
-			true, 
-			false, 
-			false, 
-			false, 
-			false, 
-			false, 
-			0, 
-			""
-		)]
-		public 
-#if NET_1_1
-			virtual 
-#endif
-		DateTime Relationdate {
-			get { return mainAggregate.Fields.Relationdate; }
-			set { mainAggregate.Fields.Relationdate = value; }
-		}
-		#endregion
-		#region public bool Defaultrelation_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at UserGroup's Defaultrelation.
-		/// </summary>
-		public 
-#if NET_1_1
-			virtual 
-#endif
-		bool Defaultrelation_isNull {
-			get { return mainAggregate.Fields.Defaultrelation_isNull; }
-			set { mainAggregate.Fields.Defaultrelation_isNull = value; }
-		}
-		#endregion
-		#region public bool Defaultrelation { get; set; }
-		/// <summary>
-		/// UserGroup's Defaultrelation.
-		/// </summary>
-		[DOPropertyAttribute(
-			"Defaultrelation", 
+			"DeleteThisTestField", 
 			"", 
 			"", 
 			false, 
@@ -253,26 +168,26 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #if NET_1_1
 			virtual 
 #endif
-		bool Defaultrelation {
-			get { return mainAggregate.Fields.Defaultrelation; }
-			set { mainAggregate.Fields.Defaultrelation = value; }
+		bool DeleteThisTestField {
+			get { return mainAggregate.Fields.DeleteThisTestField; }
+			set { mainAggregate.Fields.DeleteThisTestField = value; }
 		}
 		#endregion
 		#endregion
 
 		#region public Methods...
-		#region public SC0_UserGroup Serialize();
-		public SO0_UserGroup Serialize() {
+		#region public SC0_Word Serialize();
+		public SO0_Word Serialize() {
 			return mainAggregate.Serialize();
 		}
 		#endregion
-		#region public void Deserialize(SO0_UserGroup UserGroup_in);
-		public void Deserialize(SO0_UserGroup UserGroup_in) {
-			mainAggregate.Fields = UserGroup_in;
+		#region public void Deserialize(SO0_Word Word_in);
+		public void Deserialize(SO0_Word Word_in) {
+			mainAggregate.Fields = Word_in;
 		}
 		#endregion
-		#region public SC0_UserGroup Record_Serialize();
-		public SC0_UserGroup Record_Serialize() {
+		#region public SC0_Word Record_Serialize();
+		public SC0_Word Record_Serialize() {
 			return mainAggregate.Record.Serialize();
 		}
 		#endregion

@@ -22,9 +22,9 @@ using OGen.NTier.UTs.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
-	/// Log BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Log">DO_Log</see> for the Business Layer.
+	/// vUserDefaultGroup BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_vUserDefaultGroup">DO_vUserDefaultGroup</see> for the Business Layer.
 	/// </summary>
-	[DOClassAttribute("Log", "", "", "", false, false)]
+	[DOClassAttribute("vUserDefaultGroup", "", "", "", true, false)]
 	public 
 #if !NET_1_1
 		partial 
@@ -33,21 +33,21 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #endif
 		class 
 #if !NET_1_1
-		BO_Log 
+		BDO_vUserDefaultGroup 
 #else
-		BO0_Log 
+		BDO0_vUserDefaultGroup 
 #endif
 		: BO__base {
-		#region public BO_Log(...);
+		#region public BDO_vUserDefaultGroup(...);
 #if NET_1_1
-		internal BO0_Log() {}
+		internal BDO0_vUserDefaultGroup() {}
 #endif
 
 		///
 #if !NET_1_1
-		~BO_Log
+		~BDO_vUserDefaultGroup
 #else
-		~BO0_Log
+		~BDO0_vUserDefaultGroup
 #endif
 		() {
 			if (mainaggregate__ != null) {
@@ -57,7 +57,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		#endregion
 
 		#region private Properties...
-		private DO_Log mainaggregate__;
+		private DO_vUserDefaultGroup mainaggregate__;
 
 		///
 #if !NET_1_1
@@ -65,13 +65,13 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #else
 		protected 
 #endif
-		DO_Log mainAggregate {
+		DO_vUserDefaultGroup mainAggregate {
 			get {
 				if (mainaggregate__ == null) {
 					// instantiating for the first time and
 					// only because it became needed, otherwise
 					// never instantiated...
-					mainaggregate__ = new DO_Log();
+					mainaggregate__ = new DO_vUserDefaultGroup();
 				}
 				return mainaggregate__;
 			}
@@ -85,95 +85,23 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			get { return mainAggregate.Record; }
 		}
 
-		public SO0_Log Fields {
+		public SO0_vUserDefaultGroup Fields {
 			get { return mainAggregate.Fields; }
 		}
-		#region public long IDLog { get; set; }
+		#region public long IDUser { get; set; }
 		/// <summary>
-		/// Log's IDLog.
+		/// vUserDefaultGroup's IDUser.
 		/// </summary>
 		[DOPropertyAttribute(
-			"IDLog", 
-			"", 
-			"", 
-			true, 
-			true, 
-			false, 
-			"", 
-			"", 
-			"", 
-			false, 
-			false, 
-			false, 
-			false, 
-			false, 
-			true, 
-			false, 
-			false, 
-			false, 
-			false, 
-			0, 
-			""
-		)]
-		public 
-#if NET_1_1
-			virtual 
-#endif
-		long IDLog {
-			get { return mainAggregate.Fields.IDLog; }
-			set { mainAggregate.Fields.IDLog = value; }
-		}
-		#endregion
-		#region public long IDLogcode { get; set; }
-		/// <summary>
-		/// Log's IDLogcode.
-		/// </summary>
-		[DOPropertyAttribute(
-			"IDLogcode", 
-			"", 
-			"", 
-			false, 
-			false, 
-			false, 
-			"", 
-			"Logcode", 
-			"IDLogcode", 
-			false, 
-			false, 
-			false, 
-			false, 
-			false, 
-			true, 
-			false, 
-			false, 
-			false, 
-			false, 
-			0, 
-			""
-		)]
-		public 
-#if NET_1_1
-			virtual 
-#endif
-		long IDLogcode {
-			get { return mainAggregate.Fields.IDLogcode; }
-			set { mainAggregate.Fields.IDLogcode = value; }
-		}
-		#endregion
-		#region public long IDUser_posted { get; set; }
-		/// <summary>
-		/// Log's IDUser_posted.
-		/// </summary>
-		[DOPropertyAttribute(
-			"IDUser_posted", 
-			"", 
-			"", 
-			false, 
-			false, 
-			false, 
-			"", 
-			"User", 
 			"IDUser", 
+			"", 
+			"", 
+			true, 
+			false, 
+			false, 
+			"", 
+			"", 
+			"", 
 			false, 
 			false, 
 			false, 
@@ -191,17 +119,125 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #if NET_1_1
 			virtual 
 #endif
-		long IDUser_posted {
-			get { return mainAggregate.Fields.IDUser_posted; }
-			set { mainAggregate.Fields.IDUser_posted = value; }
+		long IDUser {
+			get { return mainAggregate.Fields.IDUser; }
+			set { mainAggregate.Fields.IDUser = value; }
 		}
 		#endregion
-		#region public DateTime Date_posted { get; set; }
+		#region public string Login { get; set; }
 		/// <summary>
-		/// Log's Date_posted.
+		/// vUserDefaultGroup's Login.
 		/// </summary>
 		[DOPropertyAttribute(
-			"Date_posted", 
+			"Login", 
+			"", 
+			"", 
+			false, 
+			false, 
+			false, 
+			"", 
+			"", 
+			"", 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			true, 
+			false, 
+			false, 
+			50, 
+			""
+		)]
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		string Login {
+			get { return mainAggregate.Fields.Login; }
+			set { mainAggregate.Fields.Login = value; }
+		}
+		#endregion
+		#region public long IDGroup { get; set; }
+		/// <summary>
+		/// vUserDefaultGroup's IDGroup.
+		/// </summary>
+		[DOPropertyAttribute(
+			"IDGroup", 
+			"", 
+			"", 
+			false, 
+			false, 
+			false, 
+			"", 
+			"", 
+			"", 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			true, 
+			false, 
+			false, 
+			false, 
+			false, 
+			0, 
+			""
+		)]
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		long IDGroup {
+			get { return mainAggregate.Fields.IDGroup; }
+			set { mainAggregate.Fields.IDGroup = value; }
+		}
+		#endregion
+		#region public string Name { get; set; }
+		/// <summary>
+		/// vUserDefaultGroup's Name.
+		/// </summary>
+		[DOPropertyAttribute(
+			"Name", 
+			"", 
+			"", 
+			false, 
+			false, 
+			false, 
+			"", 
+			"", 
+			"", 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			true, 
+			false, 
+			false, 
+			50, 
+			""
+		)]
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		string Name {
+			get { return mainAggregate.Fields.Name; }
+			set { mainAggregate.Fields.Name = value; }
+		}
+		#endregion
+		#region public DateTime Relationdate { get; set; }
+		/// <summary>
+		/// vUserDefaultGroup's Relationdate.
+		/// </summary>
+		[DOPropertyAttribute(
+			"Relationdate", 
 			"", 
 			"", 
 			false, 
@@ -227,62 +263,26 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #if NET_1_1
 			virtual 
 #endif
-		DateTime Date_posted {
-			get { return mainAggregate.Fields.Date_posted; }
-			set { mainAggregate.Fields.Date_posted = value; }
-		}
-		#endregion
-		#region public string Logdata { get; set; }
-		/// <summary>
-		/// Log's Logdata.
-		/// </summary>
-		[DOPropertyAttribute(
-			"Logdata", 
-			"", 
-			"", 
-			false, 
-			false, 
-			false, 
-			"", 
-			"", 
-			"", 
-			false, 
-			false, 
-			false, 
-			false, 
-			false, 
-			false, 
-			false, 
-			true, 
-			false, 
-			false, 
-			1024, 
-			""
-		)]
-		public 
-#if NET_1_1
-			virtual 
-#endif
-		string Logdata {
-			get { return mainAggregate.Fields.Logdata; }
-			set { mainAggregate.Fields.Logdata = value; }
+		DateTime Relationdate {
+			get { return mainAggregate.Fields.Relationdate; }
+			set { mainAggregate.Fields.Relationdate = value; }
 		}
 		#endregion
 		#endregion
 
 		#region public Methods...
-		#region public SC0_Log Serialize();
-		public SO0_Log Serialize() {
+		#region public SC0_vUserDefaultGroup Serialize();
+		public SO0_vUserDefaultGroup Serialize() {
 			return mainAggregate.Serialize();
 		}
 		#endregion
-		#region public void Deserialize(SO0_Log Log_in);
-		public void Deserialize(SO0_Log Log_in) {
-			mainAggregate.Fields = Log_in;
+		#region public void Deserialize(SO0_vUserDefaultGroup vUserDefaultGroup_in);
+		public void Deserialize(SO0_vUserDefaultGroup vUserDefaultGroup_in) {
+			mainAggregate.Fields = vUserDefaultGroup_in;
 		}
 		#endregion
-		#region public SC0_Log Record_Serialize();
-		public SC0_Log Record_Serialize() {
+		#region public SC0_vUserDefaultGroup Record_Serialize();
+		public SC0_vUserDefaultGroup Record_Serialize() {
 			return mainAggregate.Record.Serialize();
 		}
 		#endregion

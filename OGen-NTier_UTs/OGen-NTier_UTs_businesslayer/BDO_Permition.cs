@@ -18,20 +18,20 @@ using OGen.NTier.UTs.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
-	/// Logcode BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Logcode">DO_Logcode</see> for the Business Layer.
+	/// Permition BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Permition">DO_Permition</see> for the Business Layer.
 	/// </summary>
 	public sealed 
 #if !NET_1_1
 		partial 
 #endif
-		class BO_Logcode 
+		class BDO_Permition 
 #if NET_1_1
-			: BO0_Logcode 
+			: BDO0_Permition 
 #endif
 	{
-		#region public BO_Logcode(...);
+		#region public BDO_Permition(...);
 		///
-		public BO_Logcode() {
+		public BDO_Permition() {
 		}
 		#endregion
 

@@ -18,20 +18,20 @@ using OGen.NTier.UTs.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
-	/// Permition BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Permition">DO_Permition</see> for the Business Layer.
+	/// vUserGroup BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_vUserGroup">DO_vUserGroup</see> for the Business Layer.
 	/// </summary>
 	public sealed 
 #if !NET_1_1
 		partial 
 #endif
-		class BO_Permition 
+		class BDO_vUserGroup 
 #if NET_1_1
-			: BO0_Permition 
+			: BDO0_vUserGroup 
 #endif
 	{
-		#region public BO_Permition(...);
+		#region public BDO_vUserGroup(...);
 		///
-		public BO_Permition() {
+		public BDO_vUserGroup() {
 		}
 		#endregion
 

@@ -62,7 +62,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 	/// <%=_aux_db_table.Name%> BusinessObject which provides access to <see cref="<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.DO_<%=_aux_db_table.Name%>">DO_<%=_aux_db_table.Name%></see> for the Business Layer.<%--
 #if NET_1_1
 	/// <note type="implementnotes">
-	/// Access must be made via <see cref="BO_<%=_aux_db_table.Name%>">BO_<%=_aux_db_table.Name%></see>.
+	/// Access must be made via <see cref="BDO_<%=_aux_db_table.Name%>">BDO_<%=_aux_db_table.Name%></see>.
 	/// </note>
 #endif--%>
 	/// </summary>
@@ -75,21 +75,21 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 #endif
 		class 
 #if !NET_1_1
-		BO_<%=_aux_db_table.Name%> 
+		BDO_<%=_aux_db_table.Name%> 
 #else
-		BO0_<%=_aux_db_table.Name%> 
+		BDO0_<%=_aux_db_table.Name%> 
 #endif
 		: BO__base<%=(isListItem) ? ", iListItem" : ""%> {
-		#region public BO_<%=_aux_db_table.Name%>(...);
+		#region public BDO_<%=_aux_db_table.Name%>(...);
 #if NET_1_1
-		internal BO0_<%=_aux_db_table.Name%>() {}
+		internal BDO0_<%=_aux_db_table.Name%>() {}
 #endif
 
 		///
 #if !NET_1_1
-		~BO_<%=_aux_db_table.Name%>
+		~BDO_<%=_aux_db_table.Name%>
 #else
-		~BO0_<%=_aux_db_table.Name%>
+		~BDO0_<%=_aux_db_table.Name%>
 #endif
 		() {
 			if (mainaggregate__ != null) {

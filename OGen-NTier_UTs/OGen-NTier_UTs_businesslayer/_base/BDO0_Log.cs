@@ -22,9 +22,9 @@ using OGen.NTier.UTs.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
-	/// Word BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Word">DO_Word</see> for the Business Layer.
+	/// Log BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Log">DO_Log</see> for the Business Layer.
 	/// </summary>
-	[DOClassAttribute("Word", "", "", "", false, false)]
+	[DOClassAttribute("Log", "", "", "", false, false)]
 	public 
 #if !NET_1_1
 		partial 
@@ -33,21 +33,21 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #endif
 		class 
 #if !NET_1_1
-		BO_Word 
+		BDO_Log 
 #else
-		BO0_Word 
+		BDO0_Log 
 #endif
 		: BO__base {
-		#region public BO_Word(...);
+		#region public BDO_Log(...);
 #if NET_1_1
-		internal BO0_Word() {}
+		internal BDO0_Log() {}
 #endif
 
 		///
 #if !NET_1_1
-		~BO_Word
+		~BDO_Log
 #else
-		~BO0_Word
+		~BDO0_Log
 #endif
 		() {
 			if (mainaggregate__ != null) {
@@ -57,7 +57,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		#endregion
 
 		#region private Properties...
-		private DO_Word mainaggregate__;
+		private DO_Log mainaggregate__;
 
 		///
 #if !NET_1_1
@@ -65,13 +65,13 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #else
 		protected 
 #endif
-		DO_Word mainAggregate {
+		DO_Log mainAggregate {
 			get {
 				if (mainaggregate__ == null) {
 					// instantiating for the first time and
 					// only because it became needed, otherwise
 					// never instantiated...
-					mainaggregate__ = new DO_Word();
+					mainaggregate__ = new DO_Log();
 				}
 				return mainaggregate__;
 			}
@@ -85,15 +85,15 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			get { return mainAggregate.Record; }
 		}
 
-		public SO0_Word Fields {
+		public SO0_Log Fields {
 			get { return mainAggregate.Fields; }
 		}
-		#region public long IDWord { get; set; }
+		#region public long IDLog { get; set; }
 		/// <summary>
-		/// Word's IDWord.
+		/// Log's IDLog.
 		/// </summary>
 		[DOPropertyAttribute(
-			"IDWord", 
+			"IDLog", 
 			"", 
 			"", 
 			true, 
@@ -119,43 +119,102 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #if NET_1_1
 			virtual 
 #endif
-		long IDWord {
-			get { return mainAggregate.Fields.IDWord; }
-			set { mainAggregate.Fields.IDWord = value; }
+		long IDLog {
+			get { return mainAggregate.Fields.IDLog; }
+			set { mainAggregate.Fields.IDLog = value; }
 		}
 		#endregion
-		#region public bool DeleteThisTestField_isNull { get; set; }
+		#region public long IDLogcode { get; set; }
 		/// <summary>
-		/// Allows assignement of null and check if null at Word's DeleteThisTestField.
+		/// Log's IDLogcode.
 		/// </summary>
+		[DOPropertyAttribute(
+			"IDLogcode", 
+			"", 
+			"", 
+			false, 
+			false, 
+			false, 
+			"", 
+			"Logcode", 
+			"IDLogcode", 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			true, 
+			false, 
+			false, 
+			false, 
+			false, 
+			0, 
+			""
+		)]
 		public 
 #if NET_1_1
 			virtual 
 #endif
-		bool DeleteThisTestField_isNull {
-			get { return mainAggregate.Fields.DeleteThisTestField_isNull; }
-			set { mainAggregate.Fields.DeleteThisTestField_isNull = value; }
+		long IDLogcode {
+			get { return mainAggregate.Fields.IDLogcode; }
+			set { mainAggregate.Fields.IDLogcode = value; }
 		}
 		#endregion
-		#region public bool DeleteThisTestField { get; set; }
+		#region public long IDUser_posted { get; set; }
 		/// <summary>
-		/// Word's DeleteThisTestField.
+		/// Log's IDUser_posted.
 		/// </summary>
 		[DOPropertyAttribute(
-			"DeleteThisTestField", 
+			"IDUser_posted", 
 			"", 
 			"", 
+			false, 
+			false, 
+			false, 
+			"", 
+			"User", 
+			"IDUser", 
+			false, 
+			false, 
+			false, 
 			false, 
 			false, 
 			true, 
+			false, 
+			false, 
+			false, 
+			false, 
+			0, 
+			""
+		)]
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		long IDUser_posted {
+			get { return mainAggregate.Fields.IDUser_posted; }
+			set { mainAggregate.Fields.IDUser_posted = value; }
+		}
+		#endregion
+		#region public DateTime Date_posted { get; set; }
+		/// <summary>
+		/// Log's Date_posted.
+		/// </summary>
+		[DOPropertyAttribute(
+			"Date_posted", 
+			"", 
+			"", 
+			false, 
+			false, 
+			false, 
 			"", 
 			"", 
 			"", 
+			false, 
 			false, 
 			false, 
 			false, 
 			true, 
-			false, 
 			false, 
 			false, 
 			false, 
@@ -168,26 +227,62 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #if NET_1_1
 			virtual 
 #endif
-		bool DeleteThisTestField {
-			get { return mainAggregate.Fields.DeleteThisTestField; }
-			set { mainAggregate.Fields.DeleteThisTestField = value; }
+		DateTime Date_posted {
+			get { return mainAggregate.Fields.Date_posted; }
+			set { mainAggregate.Fields.Date_posted = value; }
+		}
+		#endregion
+		#region public string Logdata { get; set; }
+		/// <summary>
+		/// Log's Logdata.
+		/// </summary>
+		[DOPropertyAttribute(
+			"Logdata", 
+			"", 
+			"", 
+			false, 
+			false, 
+			false, 
+			"", 
+			"", 
+			"", 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			true, 
+			false, 
+			false, 
+			1024, 
+			""
+		)]
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		string Logdata {
+			get { return mainAggregate.Fields.Logdata; }
+			set { mainAggregate.Fields.Logdata = value; }
 		}
 		#endregion
 		#endregion
 
 		#region public Methods...
-		#region public SC0_Word Serialize();
-		public SO0_Word Serialize() {
+		#region public SC0_Log Serialize();
+		public SO0_Log Serialize() {
 			return mainAggregate.Serialize();
 		}
 		#endregion
-		#region public void Deserialize(SO0_Word Word_in);
-		public void Deserialize(SO0_Word Word_in) {
-			mainAggregate.Fields = Word_in;
+		#region public void Deserialize(SO0_Log Log_in);
+		public void Deserialize(SO0_Log Log_in) {
+			mainAggregate.Fields = Log_in;
 		}
 		#endregion
-		#region public SC0_Word Record_Serialize();
-		public SC0_Word Record_Serialize() {
+		#region public SC0_Log Record_Serialize();
+		public SC0_Log Record_Serialize() {
 			return mainAggregate.Record.Serialize();
 		}
 		#endregion

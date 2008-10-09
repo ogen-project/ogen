@@ -120,67 +120,67 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "BO_Config.cs"
+                    RelPath = "BDO_Config.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "BO_Group.cs"
+                    RelPath = "BDO_Group.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "BO_GroupPermition.cs"
+                    RelPath = "BDO_GroupPermition.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "BO_Language.cs"
+                    RelPath = "BDO_Language.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "BO_Log.cs"
+                    RelPath = "BDO_Log.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "BO_Logcode.cs"
+                    RelPath = "BDO_Logcode.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "BO_Permition.cs"
+                    RelPath = "BDO_Permition.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "BO_User.cs"
+                    RelPath = "BDO_User.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "BO_UserGroup.cs"
+                    RelPath = "BDO_UserGroup.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "BO_vUserDefaultGroup.cs"
+                    RelPath = "BDO_vUserDefaultGroup.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "BO_vUserGroup.cs"
+                    RelPath = "BDO_vUserGroup.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "BO_Word.cs"
+                    RelPath = "BDO_Word.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "BO_WordLanguage.cs"
+                    RelPath = "BDO_WordLanguage.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -197,67 +197,67 @@
                     BuildAction = "Content"
                 />
                 <File
-                    RelPath = "_base\BO0_Config.cs"
+                    RelPath = "_base\BDO0_Config.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "_base\BO0_Group.cs"
+                    RelPath = "_base\BDO0_Group.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "_base\BO0_GroupPermition.cs"
+                    RelPath = "_base\BDO0_GroupPermition.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "_base\BO0_Language.cs"
+                    RelPath = "_base\BDO0_Language.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "_base\BO0_Log.cs"
+                    RelPath = "_base\BDO0_Log.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "_base\BO0_Logcode.cs"
+                    RelPath = "_base\BDO0_Logcode.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "_base\BO0_Permition.cs"
+                    RelPath = "_base\BDO0_Permition.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "_base\BO0_User.cs"
+                    RelPath = "_base\BDO0_User.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "_base\BO0_UserGroup.cs"
+                    RelPath = "_base\BDO0_UserGroup.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "_base\BO0_vUserDefaultGroup.cs"
+                    RelPath = "_base\BDO0_vUserDefaultGroup.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "_base\BO0_vUserGroup.cs"
+                    RelPath = "_base\BDO0_vUserGroup.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "_base\BO0_Word.cs"
+                    RelPath = "_base\BDO0_Word.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "_base\BO0_WordLanguage.cs"
+                    RelPath = "_base\BDO0_WordLanguage.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

@@ -155,12 +155,12 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                 for (int t = 0; t < _aux_db_metadata.Tables.TableCollection.Count; t++) {
 					_aux_db_table = _aux_db_metadata.Tables.TableCollection[t];%>
                 <File
-                    RelPath = "BO_<%=_aux_db_table.Name%>.cs"
+                    RelPath = "BDO_<%=_aux_db_table.Name%>.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "_base\BO0_<%=_aux_db_table.Name%>.cs"
+                    RelPath = "_base\BDO0_<%=_aux_db_table.Name%>.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 /><%

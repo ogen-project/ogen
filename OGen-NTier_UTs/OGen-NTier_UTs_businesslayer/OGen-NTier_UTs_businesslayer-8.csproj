@@ -103,82 +103,82 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BO_Config.cs">
+    <Compile Include="BDO_Config.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\BO0_Config.cs">
+    <Compile Include="_base\BDO0_Config.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BO_Group.cs">
+    <Compile Include="BDO_Group.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\BO0_Group.cs">
+    <Compile Include="_base\BDO0_Group.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BO_GroupPermition.cs">
+    <Compile Include="BDO_GroupPermition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\BO0_GroupPermition.cs">
+    <Compile Include="_base\BDO0_GroupPermition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BO_Language.cs">
+    <Compile Include="BDO_Language.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\BO0_Language.cs">
+    <Compile Include="_base\BDO0_Language.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BO_Log.cs">
+    <Compile Include="BDO_Log.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\BO0_Log.cs">
+    <Compile Include="_base\BDO0_Log.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BO_Logcode.cs">
+    <Compile Include="BDO_Logcode.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\BO0_Logcode.cs">
+    <Compile Include="_base\BDO0_Logcode.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BO_Permition.cs">
+    <Compile Include="BDO_Permition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\BO0_Permition.cs">
+    <Compile Include="_base\BDO0_Permition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BO_User.cs">
+    <Compile Include="BDO_User.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\BO0_User.cs">
+    <Compile Include="_base\BDO0_User.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BO_UserGroup.cs">
+    <Compile Include="BDO_UserGroup.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\BO0_UserGroup.cs">
+    <Compile Include="_base\BDO0_UserGroup.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BO_Word.cs">
+    <Compile Include="BDO_Word.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\BO0_Word.cs">
+    <Compile Include="_base\BDO0_Word.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BO_WordLanguage.cs">
+    <Compile Include="BDO_WordLanguage.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\BO0_WordLanguage.cs">
+    <Compile Include="_base\BDO0_WordLanguage.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BO_vUserDefaultGroup.cs">
+    <Compile Include="BDO_vUserDefaultGroup.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\BO0_vUserDefaultGroup.cs">
+    <Compile Include="_base\BDO0_vUserDefaultGroup.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BO_vUserGroup.cs">
+    <Compile Include="BDO_vUserGroup.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\BO0_vUserGroup.cs">
+    <Compile Include="_base\BDO0_vUserGroup.cs">
       <SubType>Code</SubType>
     </Compile>
     <None Include="COPYING.MIT" />

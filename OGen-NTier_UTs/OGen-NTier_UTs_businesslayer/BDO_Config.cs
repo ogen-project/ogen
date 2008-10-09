@@ -18,20 +18,20 @@ using OGen.NTier.UTs.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
-	/// Log BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Log">DO_Log</see> for the Business Layer.
+	/// Config BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Config">DO_Config</see> for the Business Layer.
 	/// </summary>
 	public sealed 
 #if !NET_1_1
 		partial 
 #endif
-		class BO_Log 
+		class BDO_Config 
 #if NET_1_1
-			: BO0_Log 
+			: BDO0_Config 
 #endif
 	{
-		#region public BO_Log(...);
+		#region public BDO_Config(...);
 		///
-		public BO_Log() {
+		public BDO_Config() {
 		}
 		#endregion
 

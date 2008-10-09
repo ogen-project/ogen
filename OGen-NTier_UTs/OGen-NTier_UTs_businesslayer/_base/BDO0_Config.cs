@@ -22,9 +22,9 @@ using OGen.NTier.UTs.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
-	/// Language BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Language">DO_Language</see> for the Business Layer.
+	/// Config BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Config">DO_Config</see> for the Business Layer.
 	/// </summary>
-	[DOClassAttribute("Language", "", "", "", false, false)]
+	[DOClassAttribute("Config", "", "", "", false, true)]
 	public 
 #if !NET_1_1
 		partial 
@@ -33,21 +33,21 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #endif
 		class 
 #if !NET_1_1
-		BO_Language 
+		BDO_Config 
 #else
-		BO0_Language 
+		BDO0_Config 
 #endif
 		: BO__base {
-		#region public BO_Language(...);
+		#region public BDO_Config(...);
 #if NET_1_1
-		internal BO0_Language() {}
+		internal BDO0_Config() {}
 #endif
 
 		///
 #if !NET_1_1
-		~BO_Language
+		~BDO_Config
 #else
-		~BO0_Language
+		~BDO0_Config
 #endif
 		() {
 			if (mainaggregate__ != null) {
@@ -57,7 +57,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		#endregion
 
 		#region private Properties...
-		private DO_Language mainaggregate__;
+		private DO_Config mainaggregate__;
 
 		///
 #if !NET_1_1
@@ -65,13 +65,13 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #else
 		protected 
 #endif
-		DO_Language mainAggregate {
+		DO_Config mainAggregate {
 			get {
 				if (mainaggregate__ == null) {
 					// instantiating for the first time and
 					// only because it became needed, otherwise
 					// never instantiated...
-					mainaggregate__ = new DO_Language();
+					mainaggregate__ = new DO_Config();
 				}
 				return mainaggregate__;
 			}
@@ -85,62 +85,98 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			get { return mainAggregate.Record; }
 		}
 
-		public SO0_Language Fields {
+		public SO0_Config Fields {
 			get { return mainAggregate.Fields; }
 		}
-		#region public long IDLanguage { get; set; }
+		#region public string Name { get; set; }
 		/// <summary>
-		/// Language's IDLanguage.
+		/// Config's Name.
 		/// </summary>
 		[DOPropertyAttribute(
-			"IDLanguage", 
+			"Name", 
 			"", 
 			"", 
 			true, 
-			true, 
+			false, 
 			false, 
 			"", 
 			"", 
 			"", 
-			false, 
-			false, 
-			false, 
-			false, 
-			false, 
 			true, 
 			false, 
 			false, 
 			false, 
 			false, 
-			0, 
+			false, 
+			false, 
+			true, 
+			false, 
+			false, 
+			50, 
 			""
 		)]
 		public 
 #if NET_1_1
 			virtual 
 #endif
-		long IDLanguage {
-			get { return mainAggregate.Fields.IDLanguage; }
-			set { mainAggregate.Fields.IDLanguage = value; }
+		string Name {
+			get { return mainAggregate.Fields.Name; }
+			set { mainAggregate.Fields.Name = value; }
 		}
 		#endregion
-		#region public long IDWord_name { get; set; }
+		#region public string Config { get; set; }
 		/// <summary>
-		/// Language's IDWord_name.
+		/// Config's Config.
 		/// </summary>
 		[DOPropertyAttribute(
-			"IDWord_name", 
+			"Config", 
 			"", 
 			"", 
 			false, 
 			false, 
 			false, 
 			"", 
-			"Word", 
-			"IDWord", 
+			"", 
+			"", 
+			false, 
+			true, 
 			false, 
 			false, 
 			false, 
+			false, 
+			false, 
+			true, 
+			false, 
+			false, 
+			50, 
+			""
+		)]
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		string Config {
+			get { return mainAggregate.Fields.Config; }
+			set { mainAggregate.Fields.Config = value; }
+		}
+		#endregion
+		#region public int Type { get; set; }
+		/// <summary>
+		/// Config's Type.
+		/// </summary>
+		[DOPropertyAttribute(
+			"Type", 
+			"", 
+			"", 
+			false, 
+			false, 
+			false, 
+			"", 
+			"", 
+			"", 
+			false, 
+			false, 
+			true, 
 			false, 
 			false, 
 			true, 
@@ -155,26 +191,62 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #if NET_1_1
 			virtual 
 #endif
-		long IDWord_name {
-			get { return mainAggregate.Fields.IDWord_name; }
-			set { mainAggregate.Fields.IDWord_name = value; }
+		int Type {
+			get { return mainAggregate.Fields.Type; }
+			set { mainAggregate.Fields.Type = value; }
+		}
+		#endregion
+		#region public string Description { get; set; }
+		/// <summary>
+		/// Config's Description.
+		/// </summary>
+		[DOPropertyAttribute(
+			"Description", 
+			"", 
+			"", 
+			false, 
+			false, 
+			false, 
+			"", 
+			"", 
+			"", 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			true, 
+			false, 
+			false, 
+			50, 
+			""
+		)]
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		string Description {
+			get { return mainAggregate.Fields.Description; }
+			set { mainAggregate.Fields.Description = value; }
 		}
 		#endregion
 		#endregion
 
 		#region public Methods...
-		#region public SC0_Language Serialize();
-		public SO0_Language Serialize() {
+		#region public SC0_Config Serialize();
+		public SO0_Config Serialize() {
 			return mainAggregate.Serialize();
 		}
 		#endregion
-		#region public void Deserialize(SO0_Language Language_in);
-		public void Deserialize(SO0_Language Language_in) {
-			mainAggregate.Fields = Language_in;
+		#region public void Deserialize(SO0_Config Config_in);
+		public void Deserialize(SO0_Config Config_in) {
+			mainAggregate.Fields = Config_in;
 		}
 		#endregion
-		#region public SC0_Language Record_Serialize();
-		public SC0_Language Record_Serialize() {
+		#region public SC0_Config Record_Serialize();
+		public SC0_Config Record_Serialize() {
 			return mainAggregate.Record.Serialize();
 		}
 		#endregion

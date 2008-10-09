@@ -18,20 +18,20 @@ using OGen.NTier.UTs.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
-	/// Group BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Group">DO_Group</see> for the Business Layer.
+	/// Word BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Word">DO_Word</see> for the Business Layer.
 	/// </summary>
 	public sealed 
 #if !NET_1_1
 		partial 
 #endif
-		class BO_Group 
+		class BDO_Word 
 #if NET_1_1
-			: BO0_Group 
+			: BDO0_Word 
 #endif
 	{
-		#region public BO_Group(...);
+		#region public BDO_Word(...);
 		///
-		public BO_Group() {
+		public BDO_Word() {
 		}
 		#endregion
 

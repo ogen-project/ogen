@@ -22,9 +22,9 @@ using OGen.NTier.UTs.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
-	/// GroupPermition BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_GroupPermition">DO_GroupPermition</see> for the Business Layer.
+	/// User BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_User">DO_User</see> for the Business Layer.
 	/// </summary>
-	[DOClassAttribute("GroupPermition", "", "", "", false, false)]
+	[DOClassAttribute("User", "", "", "", false, false)]
 	public 
 #if !NET_1_1
 		partial 
@@ -33,21 +33,21 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #endif
 		class 
 #if !NET_1_1
-		BO_GroupPermition 
+		BDO_User 
 #else
-		BO0_GroupPermition 
+		BDO0_User 
 #endif
 		: BO__base {
-		#region public BO_GroupPermition(...);
+		#region public BDO_User(...);
 #if NET_1_1
-		internal BO0_GroupPermition() {}
+		internal BDO0_User() {}
 #endif
 
 		///
 #if !NET_1_1
-		~BO_GroupPermition
+		~BDO_User
 #else
-		~BO0_GroupPermition
+		~BDO0_User
 #endif
 		() {
 			if (mainaggregate__ != null) {
@@ -57,7 +57,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		#endregion
 
 		#region private Properties...
-		private DO_GroupPermition mainaggregate__;
+		private DO_User mainaggregate__;
 
 		///
 #if !NET_1_1
@@ -65,13 +65,13 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #else
 		protected 
 #endif
-		DO_GroupPermition mainAggregate {
+		DO_User mainAggregate {
 			get {
 				if (mainaggregate__ == null) {
 					// instantiating for the first time and
 					// only because it became needed, otherwise
 					// never instantiated...
-					mainaggregate__ = new DO_GroupPermition();
+					mainaggregate__ = new DO_User();
 				}
 				return mainaggregate__;
 			}
@@ -85,23 +85,23 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			get { return mainAggregate.Record; }
 		}
 
-		public SO0_GroupPermition Fields {
+		public SO0_User Fields {
 			get { return mainAggregate.Fields; }
 		}
-		#region public long IDGroup { get; set; }
+		#region public long IDUser { get; set; }
 		/// <summary>
-		/// GroupPermition's IDGroup.
+		/// User's IDUser.
 		/// </summary>
 		[DOPropertyAttribute(
-			"IDGroup", 
+			"IDUser", 
 			"", 
 			"", 
 			true, 
-			false, 
+			true, 
 			false, 
 			"", 
-			"Group", 
-			"IDGroup", 
+			"", 
+			"", 
 			false, 
 			false, 
 			false, 
@@ -119,25 +119,110 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #if NET_1_1
 			virtual 
 #endif
-		long IDGroup {
-			get { return mainAggregate.Fields.IDGroup; }
-			set { mainAggregate.Fields.IDGroup = value; }
+		long IDUser {
+			get { return mainAggregate.Fields.IDUser; }
+			set { mainAggregate.Fields.IDUser = value; }
 		}
 		#endregion
-		#region public long IDPermition { get; set; }
+		#region public string Login { get; set; }
 		/// <summary>
-		/// GroupPermition's IDPermition.
+		/// User's Login.
 		/// </summary>
 		[DOPropertyAttribute(
-			"IDPermition", 
+			"Login", 
 			"", 
 			"", 
+			false, 
+			false, 
+			false, 
+			"", 
+			"", 
+			"", 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
 			true, 
 			false, 
 			false, 
+			50, 
+			""
+		)]
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		string Login {
+			get { return mainAggregate.Fields.Login; }
+			set { mainAggregate.Fields.Login = value; }
+		}
+		#endregion
+		#region public string Password { get; set; }
+		/// <summary>
+		/// User's Password.
+		/// </summary>
+		[DOPropertyAttribute(
+			"Password", 
 			"", 
-			"Permition", 
-			"IDPermition", 
+			"", 
+			false, 
+			false, 
+			false, 
+			"", 
+			"", 
+			"", 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			true, 
+			false, 
+			false, 
+			50, 
+			""
+		)]
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		string Password {
+			get { return mainAggregate.Fields.Password; }
+			set { mainAggregate.Fields.Password = value; }
+		}
+		#endregion
+		#region public bool SomeNullValue_isNull { get; set; }
+		/// <summary>
+		/// Allows assignement of null and check if null at User's SomeNullValue.
+		/// </summary>
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		bool SomeNullValue_isNull {
+			get { return mainAggregate.Fields.SomeNullValue_isNull; }
+			set { mainAggregate.Fields.SomeNullValue_isNull = value; }
+		}
+		#endregion
+		#region public int SomeNullValue { get; set; }
+		/// <summary>
+		/// User's SomeNullValue.
+		/// </summary>
+		[DOPropertyAttribute(
+			"SomeNullValue", 
+			"", 
+			"", 
+			false, 
+			false, 
+			true, 
+			"", 
+			"", 
+			"", 
 			false, 
 			false, 
 			false, 
@@ -155,26 +240,26 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #if NET_1_1
 			virtual 
 #endif
-		long IDPermition {
-			get { return mainAggregate.Fields.IDPermition; }
-			set { mainAggregate.Fields.IDPermition = value; }
+		int SomeNullValue {
+			get { return mainAggregate.Fields.SomeNullValue; }
+			set { mainAggregate.Fields.SomeNullValue = value; }
 		}
 		#endregion
 		#endregion
 
 		#region public Methods...
-		#region public SC0_GroupPermition Serialize();
-		public SO0_GroupPermition Serialize() {
+		#region public SC0_User Serialize();
+		public SO0_User Serialize() {
 			return mainAggregate.Serialize();
 		}
 		#endregion
-		#region public void Deserialize(SO0_GroupPermition GroupPermition_in);
-		public void Deserialize(SO0_GroupPermition GroupPermition_in) {
-			mainAggregate.Fields = GroupPermition_in;
+		#region public void Deserialize(SO0_User User_in);
+		public void Deserialize(SO0_User User_in) {
+			mainAggregate.Fields = User_in;
 		}
 		#endregion
-		#region public SC0_GroupPermition Record_Serialize();
-		public SC0_GroupPermition Record_Serialize() {
+		#region public SC0_User Record_Serialize();
+		public SC0_User Record_Serialize() {
 			return mainAggregate.Record.Serialize();
 		}
 		#endregion

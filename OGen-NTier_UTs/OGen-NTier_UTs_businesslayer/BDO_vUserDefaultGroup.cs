@@ -18,20 +18,20 @@ using OGen.NTier.UTs.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
-	/// GroupPermition BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_GroupPermition">DO_GroupPermition</see> for the Business Layer.
+	/// vUserDefaultGroup BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_vUserDefaultGroup">DO_vUserDefaultGroup</see> for the Business Layer.
 	/// </summary>
 	public sealed 
 #if !NET_1_1
 		partial 
 #endif
-		class BO_GroupPermition 
+		class BDO_vUserDefaultGroup 
 #if NET_1_1
-			: BO0_GroupPermition 
+			: BDO0_vUserDefaultGroup 
 #endif
 	{
-		#region public BO_GroupPermition(...);
+		#region public BDO_vUserDefaultGroup(...);
 		///
-		public BO_GroupPermition() {
+		public BDO_vUserDefaultGroup() {
 		}
 		#endregion
 

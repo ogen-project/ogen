@@ -22,9 +22,9 @@ using OGen.NTier.UTs.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
-	/// Config BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Config">DO_Config</see> for the Business Layer.
+	/// Permition BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Permition">DO_Permition</see> for the Business Layer.
 	/// </summary>
-	[DOClassAttribute("Config", "", "", "", false, true)]
+	[DOClassAttribute("Permition", "", "", "", false, false)]
 	public 
 #if !NET_1_1
 		partial 
@@ -33,21 +33,21 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #endif
 		class 
 #if !NET_1_1
-		BO_Config 
+		BDO_Permition 
 #else
-		BO0_Config 
+		BDO0_Permition 
 #endif
 		: BO__base {
-		#region public BO_Config(...);
+		#region public BDO_Permition(...);
 #if NET_1_1
-		internal BO0_Config() {}
+		internal BDO0_Permition() {}
 #endif
 
 		///
 #if !NET_1_1
-		~BO_Config
+		~BDO_Permition
 #else
-		~BO0_Config
+		~BDO0_Permition
 #endif
 		() {
 			if (mainaggregate__ != null) {
@@ -57,7 +57,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		#endregion
 
 		#region private Properties...
-		private DO_Config mainaggregate__;
+		private DO_Permition mainaggregate__;
 
 		///
 #if !NET_1_1
@@ -65,13 +65,13 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #else
 		protected 
 #endif
-		DO_Config mainAggregate {
+		DO_Permition mainAggregate {
 			get {
 				if (mainaggregate__ == null) {
 					// instantiating for the first time and
 					// only because it became needed, otherwise
 					// never instantiated...
-					mainaggregate__ = new DO_Config();
+					mainaggregate__ = new DO_Permition();
 				}
 				return mainaggregate__;
 			}
@@ -85,24 +85,60 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			get { return mainAggregate.Record; }
 		}
 
-		public SO0_Config Fields {
+		public SO0_Permition Fields {
 			get { return mainAggregate.Fields; }
 		}
+		#region public long IDPermition { get; set; }
+		/// <summary>
+		/// Permition's IDPermition.
+		/// </summary>
+		[DOPropertyAttribute(
+			"IDPermition", 
+			"", 
+			"", 
+			true, 
+			true, 
+			false, 
+			"", 
+			"", 
+			"", 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			true, 
+			false, 
+			false, 
+			false, 
+			false, 
+			0, 
+			""
+		)]
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		long IDPermition {
+			get { return mainAggregate.Fields.IDPermition; }
+			set { mainAggregate.Fields.IDPermition = value; }
+		}
+		#endregion
 		#region public string Name { get; set; }
 		/// <summary>
-		/// Config's Name.
+		/// Permition's Name.
 		/// </summary>
 		[DOPropertyAttribute(
 			"Name", 
 			"", 
 			"", 
-			true, 
 			false, 
 			false, 
+			false, 
 			"", 
 			"", 
 			"", 
-			true, 
+			false, 
 			false, 
 			false, 
 			false, 
@@ -124,129 +160,21 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			set { mainAggregate.Fields.Name = value; }
 		}
 		#endregion
-		#region public string Config { get; set; }
-		/// <summary>
-		/// Config's Config.
-		/// </summary>
-		[DOPropertyAttribute(
-			"Config", 
-			"", 
-			"", 
-			false, 
-			false, 
-			false, 
-			"", 
-			"", 
-			"", 
-			false, 
-			true, 
-			false, 
-			false, 
-			false, 
-			false, 
-			false, 
-			true, 
-			false, 
-			false, 
-			50, 
-			""
-		)]
-		public 
-#if NET_1_1
-			virtual 
-#endif
-		string Config {
-			get { return mainAggregate.Fields.Config; }
-			set { mainAggregate.Fields.Config = value; }
-		}
-		#endregion
-		#region public int Type { get; set; }
-		/// <summary>
-		/// Config's Type.
-		/// </summary>
-		[DOPropertyAttribute(
-			"Type", 
-			"", 
-			"", 
-			false, 
-			false, 
-			false, 
-			"", 
-			"", 
-			"", 
-			false, 
-			false, 
-			true, 
-			false, 
-			false, 
-			true, 
-			false, 
-			false, 
-			false, 
-			false, 
-			0, 
-			""
-		)]
-		public 
-#if NET_1_1
-			virtual 
-#endif
-		int Type {
-			get { return mainAggregate.Fields.Type; }
-			set { mainAggregate.Fields.Type = value; }
-		}
-		#endregion
-		#region public string Description { get; set; }
-		/// <summary>
-		/// Config's Description.
-		/// </summary>
-		[DOPropertyAttribute(
-			"Description", 
-			"", 
-			"", 
-			false, 
-			false, 
-			false, 
-			"", 
-			"", 
-			"", 
-			false, 
-			false, 
-			false, 
-			false, 
-			false, 
-			false, 
-			false, 
-			true, 
-			false, 
-			false, 
-			50, 
-			""
-		)]
-		public 
-#if NET_1_1
-			virtual 
-#endif
-		string Description {
-			get { return mainAggregate.Fields.Description; }
-			set { mainAggregate.Fields.Description = value; }
-		}
-		#endregion
 		#endregion
 
 		#region public Methods...
-		#region public SC0_Config Serialize();
-		public SO0_Config Serialize() {
+		#region public SC0_Permition Serialize();
+		public SO0_Permition Serialize() {
 			return mainAggregate.Serialize();
 		}
 		#endregion
-		#region public void Deserialize(SO0_Config Config_in);
-		public void Deserialize(SO0_Config Config_in) {
-			mainAggregate.Fields = Config_in;
+		#region public void Deserialize(SO0_Permition Permition_in);
+		public void Deserialize(SO0_Permition Permition_in) {
+			mainAggregate.Fields = Permition_in;
 		}
 		#endregion
-		#region public SC0_Config Record_Serialize();
-		public SC0_Config Record_Serialize() {
+		#region public SC0_Permition Record_Serialize();
+		public SC0_Permition Record_Serialize() {
 			return mainAggregate.Record.Serialize();
 		}
 		#endregion

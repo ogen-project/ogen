@@ -22,9 +22,9 @@ using OGen.NTier.UTs.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
-	/// User BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_User">DO_User</see> for the Business Layer.
+	/// Logcode BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Logcode">DO_Logcode</see> for the Business Layer.
 	/// </summary>
-	[DOClassAttribute("User", "", "", "", false, false)]
+	[DOClassAttribute("Logcode", "", "", "", false, false)]
 	public 
 #if !NET_1_1
 		partial 
@@ -33,21 +33,21 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #endif
 		class 
 #if !NET_1_1
-		BO_User 
+		BDO_Logcode 
 #else
-		BO0_User 
+		BDO0_Logcode 
 #endif
 		: BO__base {
-		#region public BO_User(...);
+		#region public BDO_Logcode(...);
 #if NET_1_1
-		internal BO0_User() {}
+		internal BDO0_Logcode() {}
 #endif
 
 		///
 #if !NET_1_1
-		~BO_User
+		~BDO_Logcode
 #else
-		~BO0_User
+		~BDO0_Logcode
 #endif
 		() {
 			if (mainaggregate__ != null) {
@@ -57,7 +57,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		#endregion
 
 		#region private Properties...
-		private DO_User mainaggregate__;
+		private DO_Logcode mainaggregate__;
 
 		///
 #if !NET_1_1
@@ -65,13 +65,13 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #else
 		protected 
 #endif
-		DO_User mainAggregate {
+		DO_Logcode mainAggregate {
 			get {
 				if (mainaggregate__ == null) {
 					// instantiating for the first time and
 					// only because it became needed, otherwise
 					// never instantiated...
-					mainaggregate__ = new DO_User();
+					mainaggregate__ = new DO_Logcode();
 				}
 				return mainaggregate__;
 			}
@@ -85,15 +85,15 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			get { return mainAggregate.Record; }
 		}
 
-		public SO0_User Fields {
+		public SO0_Logcode Fields {
 			get { return mainAggregate.Fields; }
 		}
-		#region public long IDUser { get; set; }
+		#region public long IDLogcode { get; set; }
 		/// <summary>
-		/// User's IDUser.
+		/// Logcode's IDLogcode.
 		/// </summary>
 		[DOPropertyAttribute(
-			"IDUser", 
+			"IDLogcode", 
 			"", 
 			"", 
 			true, 
@@ -119,17 +119,17 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #if NET_1_1
 			virtual 
 #endif
-		long IDUser {
-			get { return mainAggregate.Fields.IDUser; }
-			set { mainAggregate.Fields.IDUser = value; }
+		long IDLogcode {
+			get { return mainAggregate.Fields.IDLogcode; }
+			set { mainAggregate.Fields.IDLogcode = value; }
 		}
 		#endregion
-		#region public string Login { get; set; }
+		#region public bool Warning { get; set; }
 		/// <summary>
-		/// User's Login.
+		/// Logcode's Warning.
 		/// </summary>
 		[DOPropertyAttribute(
-			"Login", 
+			"Warning", 
 			"", 
 			"", 
 			false, 
@@ -138,97 +138,12 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			"", 
 			"", 
 			"", 
-			false, 
-			false, 
-			false, 
-			false, 
 			false, 
 			false, 
 			false, 
 			true, 
 			false, 
 			false, 
-			50, 
-			""
-		)]
-		public 
-#if NET_1_1
-			virtual 
-#endif
-		string Login {
-			get { return mainAggregate.Fields.Login; }
-			set { mainAggregate.Fields.Login = value; }
-		}
-		#endregion
-		#region public string Password { get; set; }
-		/// <summary>
-		/// User's Password.
-		/// </summary>
-		[DOPropertyAttribute(
-			"Password", 
-			"", 
-			"", 
-			false, 
-			false, 
-			false, 
-			"", 
-			"", 
-			"", 
-			false, 
-			false, 
-			false, 
-			false, 
-			false, 
-			false, 
-			false, 
-			true, 
-			false, 
-			false, 
-			50, 
-			""
-		)]
-		public 
-#if NET_1_1
-			virtual 
-#endif
-		string Password {
-			get { return mainAggregate.Fields.Password; }
-			set { mainAggregate.Fields.Password = value; }
-		}
-		#endregion
-		#region public bool SomeNullValue_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at User's SomeNullValue.
-		/// </summary>
-		public 
-#if NET_1_1
-			virtual 
-#endif
-		bool SomeNullValue_isNull {
-			get { return mainAggregate.Fields.SomeNullValue_isNull; }
-			set { mainAggregate.Fields.SomeNullValue_isNull = value; }
-		}
-		#endregion
-		#region public int SomeNullValue { get; set; }
-		/// <summary>
-		/// User's SomeNullValue.
-		/// </summary>
-		[DOPropertyAttribute(
-			"SomeNullValue", 
-			"", 
-			"", 
-			false, 
-			false, 
-			true, 
-			"", 
-			"", 
-			"", 
-			false, 
-			false, 
-			false, 
-			false, 
-			false, 
-			true, 
 			false, 
 			false, 
 			false, 
@@ -240,26 +155,147 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #if NET_1_1
 			virtual 
 #endif
-		int SomeNullValue {
-			get { return mainAggregate.Fields.SomeNullValue; }
-			set { mainAggregate.Fields.SomeNullValue = value; }
+		bool Warning {
+			get { return mainAggregate.Fields.Warning; }
+			set { mainAggregate.Fields.Warning = value; }
+		}
+		#endregion
+		#region public bool Error { get; set; }
+		/// <summary>
+		/// Logcode's Error.
+		/// </summary>
+		[DOPropertyAttribute(
+			"Error", 
+			"", 
+			"", 
+			false, 
+			false, 
+			false, 
+			"", 
+			"", 
+			"", 
+			false, 
+			false, 
+			false, 
+			true, 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			0, 
+			""
+		)]
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		bool Error {
+			get { return mainAggregate.Fields.Error; }
+			set { mainAggregate.Fields.Error = value; }
+		}
+		#endregion
+		#region public string Code { get; set; }
+		/// <summary>
+		/// Logcode's Code.
+		/// </summary>
+		[DOPropertyAttribute(
+			"Code", 
+			"", 
+			"", 
+			false, 
+			false, 
+			false, 
+			"", 
+			"", 
+			"", 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			true, 
+			false, 
+			false, 
+			50, 
+			""
+		)]
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		string Code {
+			get { return mainAggregate.Fields.Code; }
+			set { mainAggregate.Fields.Code = value; }
+		}
+		#endregion
+		#region public bool Description_isNull { get; set; }
+		/// <summary>
+		/// Allows assignement of null and check if null at Logcode's Description.
+		/// </summary>
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		bool Description_isNull {
+			get { return mainAggregate.Fields.Description_isNull; }
+			set { mainAggregate.Fields.Description_isNull = value; }
+		}
+		#endregion
+		#region public string Description { get; set; }
+		/// <summary>
+		/// Logcode's Description.
+		/// </summary>
+		[DOPropertyAttribute(
+			"Description", 
+			"", 
+			"", 
+			false, 
+			false, 
+			true, 
+			"", 
+			"", 
+			"", 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			false, 
+			true, 
+			false, 
+			false, 
+			255, 
+			""
+		)]
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		string Description {
+			get { return mainAggregate.Fields.Description; }
+			set { mainAggregate.Fields.Description = value; }
 		}
 		#endregion
 		#endregion
 
 		#region public Methods...
-		#region public SC0_User Serialize();
-		public SO0_User Serialize() {
+		#region public SC0_Logcode Serialize();
+		public SO0_Logcode Serialize() {
 			return mainAggregate.Serialize();
 		}
 		#endregion
-		#region public void Deserialize(SO0_User User_in);
-		public void Deserialize(SO0_User User_in) {
-			mainAggregate.Fields = User_in;
+		#region public void Deserialize(SO0_Logcode Logcode_in);
+		public void Deserialize(SO0_Logcode Logcode_in) {
+			mainAggregate.Fields = Logcode_in;
 		}
 		#endregion
-		#region public SC0_User Record_Serialize();
-		public SC0_User Record_Serialize() {
+		#region public SC0_Logcode Record_Serialize();
+		public SC0_Logcode Record_Serialize() {
 			return mainAggregate.Record.Serialize();
 		}
 		#endregion
