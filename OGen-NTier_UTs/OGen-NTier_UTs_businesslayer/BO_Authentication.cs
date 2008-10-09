@@ -24,6 +24,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
 	/// Authentication BusinessObject.
 	/// </summary>
+	[BOClassAttribute("Authentication")]
 	public abstract class BO_Authentication : BO0_Authentication {
 		#region public BO0_Authentication(...);
 		public BO_Authentication(
@@ -42,6 +43,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		#endregion
 		#region public Methods...
 		#region public override string Login(...);
+		[BOMethodAttribute("Login")]
 		public override string Login(
 			string login_in, 
 			string password_in
@@ -63,6 +65,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		}
 		#endregion
 		#region public override void Logout(...);
+		[BOMethodAttribute("Logout")]
 		public override void Logout(
 		) {
 			// ...

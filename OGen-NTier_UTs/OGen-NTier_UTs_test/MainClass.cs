@@ -22,6 +22,8 @@ using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 
 using OGen.lib.datalayer;
+using OGen.NTier.lib.datalayer;
+using OGen.NTier.lib.businesslayer;
 
 using OGen.NTier.UTs.lib.datalayer;
 using OGen.NTier.UTs.lib.datalayer.UTs;
@@ -31,6 +33,80 @@ namespace OGen.NTier.UTs.test {
 	class MainClass {
 		[STAThread]
 		static void Main(string[] args) {
+			//OGen.NTier.UTs.lib.businesslayer-2.0
+			Assembly _assembly = Assembly.Load(
+			#if NET_1_1
+				"OGen.NTier.UTs.lib.businesslayer-1.1"
+			#elif NET_2_0
+				"OGen.NTier.UTs.lib.businesslayer-2.0"
+			#endif
+			);
+			if (_assembly != null) {
+				Type[] _types = _assembly.GetTypes();
+				for (int t = 0; t < _types.Length; t++) {
+					Type _type = (Type)_types[t];
+
+					object[] _attibutes = _type.GetCustomAttributes(
+						typeof(BOClassAttribute),
+						true//false
+					);
+					if (
+						(_attibutes.Length > 0)
+						&&
+						(_type.Name.IndexOf("BO0_") != 0)
+						&&
+						(_type.Name.IndexOf("BBO0_") != 0)
+					) {
+						Console.Write("{0};  ", _type.Name);
+
+						for (int c = 0; c < _attibutes.Length; c++) {
+							BOClassAttribute _attribute 
+								= (BOClassAttribute)_attibutes[c];
+							Console.WriteLine(
+								"name: {0};",
+								_attribute.Name
+							);
+
+							MethodInfo[] _methods = _type.GetMethods(
+								BindingFlags.Public |
+								BindingFlags.Instance
+							);
+							for (int m = 0; m < _methods.Length; m++) {
+								if (Attribute.IsDefined(
+									_methods[m],
+									typeof(BOMethodAttribute)
+								)) {
+									Console.Write(
+										"\t{0}: ",
+										_methods[m].Name
+									);
+									Attribute[] _attributes = Attribute.GetCustomAttributes(
+										_methods[m], 
+										typeof(BOMethodAttribute), 
+										true
+									);
+
+									//Console.WriteLine("Name \t isPK \t isIdentity \t DefaultValue \t \t \t \t isBool");
+									for (int a = 0; a < _attributes.Length; a++) {
+										//if (_attributes[a].GetType() == typeof(BOMethodAttribute)) {
+											BOMethodAttribute _propertyattribute 
+												= (BOMethodAttribute)_attributes[a];
+											Console.Write(
+												"name:{0}",
+												_propertyattribute.Name
+											);
+										//}
+									}
+									Console.WriteLine();
+								}
+							}
+							Console.WriteLine();
+						}
+					}
+				}
+			}
+			return;
+
 			//DO_UserGroup _usergroup_test = new DO_UserGroup(
 			//    //new DBConnection(
 			//    //    DBServerTypes.SQLServer,
