@@ -43,7 +43,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		#endregion
 		#region public Methods...
 		#region public override string Login(...);
-		[BOMethodAttribute("Login")]
+		[BOMethodAttribute("Login", true)]
 		public override string Login(
 			string login_in, 
 			string password_in
@@ -65,7 +65,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		}
 		#endregion
 		#region public override void Logout(...);
-		[BOMethodAttribute("Logout")]
+		[BOMethodAttribute("Logout", true)]
 		public override void Logout(
 		) {
 			// ...

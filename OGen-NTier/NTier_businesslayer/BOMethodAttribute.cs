@@ -22,10 +22,13 @@ namespace OGen.NTier.lib.businesslayer {
 	public class BOMethodAttribute : System.Attribute {
 		#region public BOMethodAttribute(...);
 		/// <param name="name_in">Name</param>
+		/// <param name="distribute_in">Distribute</param>
 		public BOMethodAttribute(
-			string name_in
+			string name_in,
+			bool distribute_in
 		) {
 			name_ = name_in;
+			distribute_ = distribute_in;
 		}
 		#endregion
 
@@ -37,6 +40,16 @@ namespace OGen.NTier.lib.businesslayer {
 		/// </summary>
 		public string Name {
 			get { return name_; }
+		}
+		#endregion
+		#region public bool Distribute { get; }
+		private bool distribute_;
+
+		/// <summary>
+		/// Distribute
+		/// </summary>
+		public bool Distribute {
+			get { return distribute_; }
 		}
 		#endregion
 	}

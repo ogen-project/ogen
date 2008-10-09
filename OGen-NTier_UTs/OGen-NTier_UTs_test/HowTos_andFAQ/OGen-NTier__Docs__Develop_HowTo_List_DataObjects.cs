@@ -8,7 +8,13 @@ using OGen.NTier.UTs.lib.datalayer;
 namespace OGen.NTier.UTs.howtos {
 	class HowTo_List_DataObjects {
 		public HowTo_List_DataObjects() {
-			Assembly _assembly = Assembly.Load("OGen.NTier.UTs.lib.datalayer");
+			Assembly _assembly = Assembly.Load(
+				#if NET_1_1
+				"OGen.NTier.UTs.lib.datalayer-1.1"
+				#elif NET_2_0
+				"OGen.NTier.UTs.lib.datalayer-2.0"
+				#endif
+			);
 			if (_assembly != null) {
 				Type[] _types = _assembly.GetTypes();
 				for (int _tp = 0; _tp < _types.Length; _tp++) {
