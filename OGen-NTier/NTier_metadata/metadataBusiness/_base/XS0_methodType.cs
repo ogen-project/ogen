@@ -86,19 +86,6 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			}
 		}
 		#endregion
-		#region public bool IsStatic { get; set; }
-		internal bool isstatic_;
-
-		[XmlAttribute("isStatic")]
-		public bool IsStatic {
-			get {
-				return isstatic_;
-			}
-			set {
-				isstatic_ = value;
-			}
-		}
-		#endregion
 		#region public XS_parametersType Parameters { get; set; }
 		internal XS_parametersType parameters__;
 
@@ -129,7 +116,6 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			name_ = methodType_in.name_;
 			outputtype_ = methodType_in.outputtype_;
 			distribute_ = methodType_in.distribute_;
-			isstatic_ = methodType_in.isstatic_;
 			if (methodType_in.parameters__ != null) parameters__.CopyFrom(methodType_in.parameters__);
 		}
 		#endregion

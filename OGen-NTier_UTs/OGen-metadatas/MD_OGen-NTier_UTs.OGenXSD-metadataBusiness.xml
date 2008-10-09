@@ -15,13 +15,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	<classes>
 		<class name="Authentication">
 			<methods>
-				<method name="Login" outputType="string" distribute="True" isStatic="True">
+				<method name="Login" outputType="string" distribute="true">
 					<parameters>
-						<parameter name="login_in" type="string" isParams="False" isOut="False" isRef="False" />
-						<parameter name="password_in" type="string" isParams="False" isOut="False" isRef="False" />
+						<parameter name="login_in" type="string" isParams="false" isOut="false" isRef="false" />
+						<parameter name="password_in" type="string" isParams="false" isOut="false" isRef="false" />
 					</parameters>
 				</method>
-				<method name="Logout" outputType="void" distribute="True" isStatic="True">
+				<method name="Logout" outputType="void" distribute="true">
 					<parameters />
 				</method>
 			</methods>

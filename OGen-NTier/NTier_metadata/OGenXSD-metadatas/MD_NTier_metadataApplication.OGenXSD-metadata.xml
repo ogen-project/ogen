@@ -135,6 +135,10 @@ shared
 		<specificCase word="isRange" translation="isRange" />
 		<specificCase word="isVirtualTable" translation="isVirtualTable" />
 
+		<specificCase word="isParams" translation="isParams" />
+		<specificCase word="isOut" translation="isOut" />
+		<specificCase word="isRef" translation="isRef" />
+
 		<!-- caseSensitive="true" -->
 		<complexType name="dbConnectionType">
 			<complexTypeKey name="configMode" caseSensitive="true" />

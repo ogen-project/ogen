@@ -30,7 +30,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		public object parent_ref {
 			set {
 				parent_ref_ = value;
-				if (parameters__ != null) parameters__.parent_ref = this;
+				if (methods__ != null) methods__.parent_ref = this;
 			}
 			get { return parent_ref_; }
 		}
@@ -42,7 +42,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		public XS__RootMetadata root_ref {
 			set {
 				root_ref_ = value;
-				if (parameters__ != null) parameters__.root_ref = value;
+				if (methods__ != null) methods__.root_ref = value;
 			}
 			get { return root_ref_; }
 		}
@@ -60,26 +60,26 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			}
 		}
 		#endregion
-		#region public XS_parametersType Parameters { get; set; }
-		internal XS_parametersType parameters__;
+		#region public XS_methodsType Methods { get; set; }
+		internal XS_methodsType methods__;
 
 		[XmlIgnore()]
-		public XS_parametersType Parameters {
+		public XS_methodsType Methods {
 			get {
-				if (parameters__ == null) {
-					parameters__ = new XS_parametersType();
+				if (methods__ == null) {
+					methods__ = new XS_methodsType();
 				}
-				return parameters__;
+				return methods__;
 			}
 			set {
-				parameters__ = value;
+				methods__ = value;
 			}
 		}
 
-		[XmlElement("parameters")]
-		public XS_parametersType parameters__xml {
-			get { return parameters__; }
-			set { parameters__ = value; }
+		[XmlElement("methods")]
+		public XS_methodsType methods__xml {
+			get { return methods__; }
+			set { methods__ = value; }
 		}
 		#endregion
 
@@ -88,7 +88,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			int _index = -1;
 
 			name_ = classType_in.name_;
-			if (classType_in.parameters__ != null) parameters__.CopyFrom(classType_in.parameters__);
+			if (classType_in.methods__ != null) methods__.CopyFrom(classType_in.methods__);
 		}
 		#endregion
 	}

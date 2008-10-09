@@ -33,6 +33,8 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class
 		_arg_ClassName
 	];
 
+XS_methodType _aux_method;
+XS_parameterType _aux_parameter;
 #endregion
 //-----------------------------------------------------------------------------------------
 if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.CopyrightTextLong != string.Empty)) {
@@ -61,24 +63,9 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 	/// </note>
 #endif--%>
 	/// </summary>
-	public 
-#if !NET_1_1
-		partial 
-#else
-		abstract 
-#endif
-		class 
-#if !NET_1_1
-		BO_<%=_aux_class.Name%> 
-#else
-		BO0_<%=_aux_class.Name%> 
-#endif
-	{
-		#region public BO_<%=_aux_class.Name%>(...);
-#if NET_1_1
+	public abstract class BO0_<%=_aux_class.Name%> {
+		#region public BO0_<%=_aux_class.Name%>(...);
 		internal BO0_<%=_aux_class.Name%>() {}
-#endif
-
 		#endregion
 
 		#region private Properties...
@@ -88,7 +75,16 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 
 		#region private Methods...
 		#endregion
-		#region public Methods...
+		#region public Methods...<%
+		for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
+			_aux_method = _aux_class.Methods.MethodCollection[m];%>
+		public abstract <%=_aux_method.OutputType%> <%=_aux_method.Name%>(<%
+			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
+				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
+			<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
+			}%>
+		);<%
+		}%>
 		#endregion
 	}
 }<%

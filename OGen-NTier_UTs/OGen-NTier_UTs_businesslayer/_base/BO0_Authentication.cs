@@ -24,24 +24,9 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
 	/// Authentication BusinessObject.
 	/// </summary>
-	public 
-#if !NET_1_1
-		partial 
-#else
-		abstract 
-#endif
-		class 
-#if !NET_1_1
-		BO_Authentication 
-#else
-		BO0_Authentication 
-#endif
-	{
-		#region public BO_Authentication(...);
-#if NET_1_1
+	public abstract class BO0_Authentication {
+		#region public BO0_Authentication(...);
 		internal BO0_Authentication() {}
-#endif
-
 		#endregion
 
 		#region private Properties...
@@ -52,6 +37,12 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		#region private Methods...
 		#endregion
 		#region public Methods...
+		public abstract string Login(
+			string login_in, 
+			string password_in
+		);
+		public abstract void Logout(
+		);
 		#endregion
 	}
 }
