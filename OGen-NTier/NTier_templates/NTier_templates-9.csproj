@@ -125,6 +125,8 @@
     <Content Include="app0.config.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="BO-BO0_SomeClass.cs.aspx">
+    </Content>
     <Content Include="BO-BO0_SomeTable.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
@@ -421,9 +423,7 @@
     <Content Include="SomeApplication-9.sln.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="SomeApplication-MD0_SomeApplication.OGenXSD-metadataExtended.xml.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
+    <Content Include="SomeApplication-MD_SomeApplication.OGenXSD-metadataExtended-CompareAndUpdate.xml.aspx" />
     <Content Include="SomeApplication.OGen-NTier-1.1.bat.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>

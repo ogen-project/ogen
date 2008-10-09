@@ -75,6 +75,9 @@ shared
 		<metadataIndex 
 			metadata="metadataDB" 
 			index="ApplicationName" />
+		<metadataIndex 
+			metadata="metadataBusiness" 
+			index="ApplicationName" />
 <!--
 		<metadataIndex 
 			metadata="metadata" 

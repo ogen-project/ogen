@@ -1,106 +1,65 @@
-<html>
-    <head>
-        <title>Object reference not set to an instance of an object.</title>
-        <style>
-         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
-         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
-         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
-         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
-         H2 { font-family:"Verdana";font-weight:normal;font-size:14pt;color:maroon }
-         pre {font-family:"Lucida Console";font-size: .9em}
-         .marker {font-weight: bold; color: black;text-decoration: none;}
-         .version {color: gray;}
-         .error {margin-bottom: 10px;}
-         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }
-        </style>
-    </head>
+#region Copyright (C) 2002 Francisco Monteiro
+/*
 
-    <body bgcolor="white">
+OGen
+Copyright (c) 2002 Francisco Monteiro
 
-            <span><H1>Server Error in '/' Application.<hr width=100% size=1 color=silver></H1>
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-            <h2> <i>Object reference not set to an instance of an object.</i> </h2></span>
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-            <font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-            <b> Description: </b>An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code.
+*/
+#endregion
+using System;
+using System.IO;
+using System.Xml.Serialization;
 
-            <br><br>
+namespace OGen.NTier.lib.metadata.metadataBusiness {
+	#if NET_1_1
+	public class XS0__metadataBusinessCollection {
+	#else
+	public partial class XS__metadataBusinessCollection {
+	#endif
+		#if NET_1_1
+		public XS0__metadataBusinessCollection(
+		#else
+		public XS__metadataBusinessCollection(
+		#endif
+			XS__metadataBusiness[] metadatabusinesscollection_in
+		) {
+			metadatabusinesscollection_ = metadatabusinesscollection_in;
+		}
 
-            <b> Exception Details: </b>System.NullReferenceException: Object reference not set to an instance of an object.<br><br>
+		#region public XS__metadataBusiness this[...] { get; }
+		private XS__metadataBusiness[] metadatabusinesscollection_;
 
-            <b>Source Error:</b> <br><br>
+		public XS__metadataBusiness this[int index_in] {
+			get {
+				return metadatabusinesscollection_[index_in];
+			}
+		}
+		public XS__metadataBusiness this[string name_in] {
+			get {
+				// ToDos: later! performance
 
-            <table width=100% bgcolor="#ffffcc">
-               <tr>
-                  <td>
-                      <code><pre>
-
-Line 75: 
-Line 76: 				for (int i = 0; i &lt; &lt;%=_aux_schema.Element.Name.ToLower()%&gt;collection_.Length; i++) {
-<font color=red>Line 77: 					if (&lt;%=_aux_schema.Element.Name.ToLower()%&gt;collection_[i].&lt;%=_aux_rootmetadata.MetadataCollection[0].MetadataIndexCollection[_aux_schema.Element.Name].Index%&gt; == name_in) {
-</font>Line 78: 						return &lt;%=_aux_schema.Element.Name.ToLower()%&gt;collection_[i];
-Line 79: 					}</pre></code>
-
-                  </td>
-               </tr>
-            </table>
-
-            <br>
-
-            <b> Source File: </b> x:\OGen.berlios.de\trunk\OGen-XSD\XSD_templates\XS-XS0__BaseClassCollection.cs.aspx<b> &nbsp;&nbsp; Line: </b> 77
-            <br><br>
-
-            <b>Stack Trace:</b> <br><br>
-
-            <table width=100% bgcolor="#ffffcc">
-               <tr>
-                  <td>
-                      <code><pre>
-
-[NullReferenceException: Object reference not set to an instance of an object.]
-   ASP.xs_xs0__baseclasscollection_cs_aspx.__Render__control1(HtmlTextWriter __w, Control parameterContainer) in x:\OGen.berlios.de\trunk\OGen-XSD\XSD_templates\XS-XS0__BaseClassCollection.cs.aspx:77
-   System.Web.UI.Control.RenderChildrenInternal(HtmlTextWriter writer, ICollection children) +98
-   System.Web.UI.Control.RenderChildren(HtmlTextWriter writer) +21
-   System.Web.UI.Page.Render(HtmlTextWriter writer) +27
-   System.Web.UI.Control.RenderControlInternal(HtmlTextWriter writer, ControlAdapter adapter) +53
-   System.Web.UI.Control.RenderControl(HtmlTextWriter writer, ControlAdapter adapter) +310
-   System.Web.UI.Control.RenderControl(HtmlTextWriter writer) +24
-   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +7375
-</pre></code>
-
-                  </td>
-               </tr>
-            </table>
-
-            <br>
-
-            <hr width=100% size=1 color=silver>
-
-            <b>Version Information:</b>&nbsp;Microsoft .NET Framework Version:2.0.50727.1433; ASP.NET Version:2.0.50727.1433
-
-            </font>
-
-    </body>
-</html>
-<!-- 
-[NullReferenceException]: Object reference not set to an instance of an object.
-   at ASP.xs_xs0__baseclasscollection_cs_aspx.__Render__control1(HtmlTextWriter __w, Control parameterContainer) in x:\OGen.berlios.de\trunk\OGen-XSD\XSD_templates\XS-XS0__BaseClassCollection.cs.aspx:line 77
-   at System.Web.UI.Control.RenderChildrenInternal(HtmlTextWriter writer, ICollection children)
-   at System.Web.UI.Control.RenderChildren(HtmlTextWriter writer)
-   at System.Web.UI.Page.Render(HtmlTextWriter writer)
-   at System.Web.UI.Control.RenderControlInternal(HtmlTextWriter writer, ControlAdapter adapter)
-   at System.Web.UI.Control.RenderControl(HtmlTextWriter writer, ControlAdapter adapter)
-   at System.Web.UI.Control.RenderControl(HtmlTextWriter writer)
-   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
-[HttpUnhandledException]: Exception of type 'System.Web.HttpUnhandledException' was thrown.
-   at System.Web.UI.Page.HandleError(Exception e)
-   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
-   at System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
-   at System.Web.UI.Page.ProcessRequest()
-   at System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
-   at System.Web.UI.Page.ProcessRequest(HttpContext context)
-   at ASP.xs_xs0__baseclasscollection_cs_aspx.ProcessRequest(HttpContext context) in c:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\Temporary ASP.NET Files\root\f9485a64\49ec1bda\App_Web_hqud0ztx.9.cs:line 0
-   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
-   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
--->
+				for (int i = 0; i < metadatabusinesscollection_.Length; i++) {
+					if (metadatabusinesscollection_[i].ApplicationName == name_in) {
+						return metadatabusinesscollection_[i];
+					}
+				}
+				throw new Exception(string.Format(
+					"{0}.{1}[string name_in]: can't find: {2}",
+					typeof(XS__metadataBusinessCollection).Namespace, 
+					typeof(XS__metadataBusinessCollection).Name, 
+					name_in
+				));
+			}
+		}
+		#endregion
+		public int Count { get {
+			return metadatabusinesscollection_.Length;
+		} }
+	}
+}
