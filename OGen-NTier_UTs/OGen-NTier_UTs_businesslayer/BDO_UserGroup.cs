@@ -31,11 +31,15 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	{
 		#region public BDO_UserGroup(...);
 		///
-		public BDO_UserGroup() {
+		public BDO_UserGroup(
+			string authenticationLogin_in
+		) {
+			AuthenticationLogin = authenticationLogin_in;
 		}
 		#endregion
 
 		#region private Properties...
+		private string AuthenticationLogin;
 		#endregion
 		#region public Properties...
 		#endregion
