@@ -41,20 +41,33 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		#region private Methods...
 		#endregion
 		#region public Methods...
+		#region public override string Login(...);
 		public override string Login(
 			string login_in, 
 			string password_in
 		) {
-			// ...
+			bool _validLogin;
+			long _iduser = -1;
 
-			return null;
+			DO_User _user = new DO_User();
+			if (
+				_user.getObject_byLogin(login_in)
+				&&
+				(_user.Fields.Password == password_in)
+			) {
+				_iduser = _user.Fields.IDUser;
+			}
+			_user.Dispose();
+
+			return _iduser.ToString();
 		}
+		#endregion
+		#region public override void Logout(...);
 		public override void Logout(
 		) {
 			// ...
-
-			
 		}
+		#endregion
 		#endregion
 	}
 }
