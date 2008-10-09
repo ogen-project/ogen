@@ -26,8 +26,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</outputs>
 		<dependencies />
 	</template-->
-	<template id="SomeApplication-MD0_SomeApplication.OGenXSD-metadataExtended.xml.aspx"
-			name="SomeApplication-MD0_SomeApplication.OGenXSD-metadataExtended.xml.aspx"
+	<template id="SomeApplication-MD_SomeApplication.OGenXSD-metadataExtended-CompareAndUpdate.xml.aspx"
+			name="SomeApplication-MD_SomeApplication.OGenXSD-metadataExtended-CompareAndUpdate.xml.aspx"
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -35,7 +35,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/OGen-metadatas/MD0_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadataExtended.xml"
+			<output to="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadataExtended-CompareAndUpdate.xml"
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
