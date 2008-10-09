@@ -63,7 +63,7 @@ namespace OGen.NTier.UTs.test {
 							BOClassAttribute _attribute 
 								= (BOClassAttribute)_attibutes[c];
 							Console.WriteLine(
-								"name: {0};",
+								"name:{0};",
 								_attribute.Name
 							);
 
@@ -100,10 +100,14 @@ namespace OGen.NTier.UTs.test {
 									ParameterInfo[] _parameterinfo = _methods[m].GetParameters();
 									for (int p = 0; p < _parameterinfo.Length; p++) {
 										Console.WriteLine(
-											"\t\tname: {0}; type: {1}; isOut: {2};", 
+											"\t\tname:{0}; type:{1}; isOut:{2}; isByRef:{3}; isEnum:{4}; isClass:{5}; isValueType:{6}", 
 											_parameterinfo[p].Name, 
 											_parameterinfo[p].ParameterType, 
-											_parameterinfo[p].IsOut
+											_parameterinfo[p].IsOut,
+											_parameterinfo[p].ParameterType.IsByRef,
+											_parameterinfo[p].ParameterType.IsEnum, 
+											_parameterinfo[p].ParameterType.IsClass, 
+											_parameterinfo[p].ParameterType.IsValueType
 										);
 									}
 									Console.WriteLine("\t)");
