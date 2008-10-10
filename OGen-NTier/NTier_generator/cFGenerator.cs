@@ -24,7 +24,7 @@ namespace OGen.NTier.lib.generator {
 	public class cFGenerator {
 		#region	public cFGenerator();
 		public cFGenerator() {
-			filename_ = string.Empty;
+			Filename = string.Empty;
 		}
 		#endregion
 
@@ -34,9 +34,22 @@ namespace OGen.NTier.lib.generator {
 
 		//#region public Properties...
 		#region public string Filename { get; }
-		private string filename_;
+		private string filename__;
 		public string Filename {
-			get { return filename_; }
+			get { return filename__; }
+			set {
+				filename__ = value;
+				directoryname__ 
+					= (value == string.Empty) 
+						? string.Empty 
+						: Path.GetDirectoryName(value);
+			}
+		}
+		#endregion
+		#region public string Directoryname { get; }
+		private string directoryname__;
+		public string Directoryname {
+			get { return directoryname__; }
 		}
 		#endregion
 		#region public bool hasChanges { get; }
@@ -48,7 +61,7 @@ namespace OGen.NTier.lib.generator {
 		#endregion
 		#region public bool isOpened { get; }
 		public bool isOpened {
-			get { return (filename_ != string.Empty); }
+			get { return (Filename != string.Empty); }
 		}
 		#endregion
 		#region public XS__RootMetadata Metadata { get ; }
@@ -66,16 +79,16 @@ namespace OGen.NTier.lib.generator {
 			bool isRelease_notDebug_in
 		) {
 			return string.Format(
-				"..{0}{1}_businesslayer{0}bin{0}{4}{0}{2}.lib.businesslayer-{3}.dll", 
-				Path.DirectorySeparatorChar,
-				applicationName_in, 
-				applicationNamespace_in, 
+				"..{0}{1}_businesslayer{0}bin{0}{4}{0}{2}.lib.businesslayer-{3}.dll",
+				Path.DirectorySeparatorChar, // __________________ 0
+				applicationName_in, // ___________________________ 1
+				applicationNamespace_in, // ______________________ 2
 				#if NET_1_1
-				"1.1", 
+				"1.1",  // _______________________________________ 3
 				#elif NET_2_0
-				"2.0", 
+				"2.0",  // _______________________________________ 3
 				#endif
-				isRelease_notDebug_in ? "Release" : "Debug"
+				isRelease_notDebug_in ? "Release" : "Debug" // ___ 4
 			);
 		}
 		#endregion
@@ -158,18 +171,18 @@ throw new Exception("// ToDos: not implemented!");
 				}
 			}
 			#endregion
-			filename_ = filename_in;
+			Filename = filename_in;
 
 			if (notifyBack_in != null) notifyBack_in("opening...", true);
 			if (notifyBack_in != null) notifyBack_in("- reading configuration from xml file", true);
 			metadata_ = XS__RootMetadata.Load_fromFile(
-				filename_,
+				Filename,
 				false
 			);
 
 			#region - reading metadata from business assembly
 			string _debug_assembly = Path.Combine(
-				Path.GetDirectoryName(filename_),
+				Directoryname,
 				businessAssembly(
 					metadata_.MetadataExtendedCollection[0].ApplicationName, 
 					metadata_.MetadataExtendedCollection[0].ApplicationNamespace, 
@@ -177,7 +190,7 @@ throw new Exception("// ToDos: not implemented!");
 				)
 			);
 			string _release_assembly = Path.Combine(
-				Path.GetDirectoryName(filename_),
+				Directoryname,
 				businessAssembly(
 					metadata_.MetadataExtendedCollection[0].ApplicationName,
 					metadata_.MetadataExtendedCollection[0].ApplicationNamespace,
@@ -204,7 +217,7 @@ throw new Exception("// ToDos: not implemented!");
 
 				_metadatabusiness.SaveState_toFile(
 					Path.Combine(
-						Path.GetDirectoryName(filename_),
+						Directoryname,
 						string.Format(
 							"MD_{0}.OGenXSD-metadataBusiness.xml", 
 							metadata_.MetadataExtendedCollection[0].ApplicationName
@@ -268,7 +281,7 @@ throw new Exception("// ToDos: not implemented!");
 					//--- BUG: using old db information
 					//metadata_.MetadataDBCollection[0].SaveState_toFile(
 					//    Path.Combine(
-					//        Path.GetDirectoryName(filename_),
+					//        Directoryname,
 					//        metadata_.MetadataFiles.MetadataFiles[i].XMLFilename
 					//    )
 					//);
@@ -276,7 +289,7 @@ throw new Exception("// ToDos: not implemented!");
 					//--- DEBUG: using new db information
 					_metadatadb.SaveState_toFile(
 						Path.Combine(
-							Path.GetDirectoryName(filename_),
+							Directoryname,
 							metadata_.MetadataFiles.MetadataFiles[i].XMLFilename
 						)
 					);
@@ -287,7 +300,7 @@ throw new Exception("// ToDos: not implemented!");
 
 			if (notifyBack_in != null) notifyBack_in("- re-reading configuration from xml file", true);
 			metadata_ = XS__RootMetadata.Load_fromFile(
-				filename_,
+				Filename,
 				false
 			);
 
@@ -307,7 +320,7 @@ throw new Exception("// ToDos: not implemented!");
 				));
 			}
 
-			filename_ = string.Empty;
+			Filename = string.Empty;
 		}
 		#endregion
 		//#region public void Save(...);
@@ -317,7 +330,7 @@ throw new Exception("// ToDos: not implemented!");
 			//if (this.hasChanges) {
 
 			//    metadata_.SaveState_toFile(
-			//        filename_
+			//        Filename
 			//    );
 
 			//    haschanges_ = false;
@@ -328,7 +341,7 @@ throw new Exception("// ToDos: not implemented!");
 		public void Build(cGenerator.dBuild notifyBase_in) {
 			#region string _outputDir = ...;
 			string _outputDir = System.IO.Directory.GetParent(
-				Path.GetDirectoryName(filename_)
+				Directoryname
 			).FullName;
 			#endregion
 			if (notifyBase_in != null) notifyBase_in("generating...", true);
@@ -339,7 +352,7 @@ throw new Exception("// ToDos: not implemented!");
 			for (int i = 0; i < metadata_.MetadataFiles.MetadataFiles.Count; i++) {
 				_metafiles[i] = new MetaFile(
 					Path.Combine(
-						Path.GetDirectoryName(filename_), 
+						Directoryname, 
 						metadata_.MetadataFiles.MetadataFiles[i].XMLFilename
 					),
 					metadata_.MetadataFiles.MetadataFiles[i].XMLFileType
