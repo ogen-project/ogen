@@ -69,7 +69,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 					&&
 					(_type.Name.IndexOf("BDO0_") != 0)
 				) {
-					Console.Write("{0};  ", _type.Name);
+//Console.Write("{0};  ", _type.Name);
 
 					for (int c = 0; c < _attibutes.Length; c++) {
 						BOClassAttribute _attribute 
@@ -78,7 +78,13 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 //    "name:{0};",
 //    _attribute.Name
 //);
-_output.Classes.ClassCollection.Add(out _class_index, _attribute.Name);
+_output.Classes.ClassCollection.Add(
+	out _class_index, 
+	//_attribute.Name
+	(_type.Name.IndexOf("BO_") == 0)
+		? _type.Name.Substring(3)
+		: _type.Name
+);
 
 						MethodInfo[] _methods = _type.GetMethods(
 							BindingFlags.Public |
@@ -114,10 +120,11 @@ _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[
 ].Distribute = _methodattribute.Distribute;
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[
 	_method_index
-].OutputType 
-	= (_methods[m].ReflectedType.ToString() == "System.Void") 
-	? "void" 
-	: string.Format(
+].OutputType
+	= //(_methods[m].ReturnType.ToString() == "System.Void") 
+	//? "void" 
+	//: 
+	string.Format(
 		"{0}.{1}", 
 		_methods[m].ReturnType.Namespace, 
 		_methods[m].ReturnType.Name
@@ -150,7 +157,14 @@ _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_i
 ].isOut = _parameterinfo[p].IsOut;
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection[
 	_property_index
-].Type = _parameterinfo[p].ParameterType.ToString();
+].Type = string.Format(
+	"{0}.{1}",
+	_parameterinfo[p].ParameterType.Namespace,
+	(_parameterinfo[p].ParameterType.Name.IndexOf('&') >= 0)
+		? _parameterinfo[p].ParameterType.Name.Substring(0, _parameterinfo[p].ParameterType.Name.Length - 1)
+		: _parameterinfo[p].ParameterType.Name
+
+);
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection[
 	_property_index
 ].isRef = (_parameterinfo[p].ParameterType.IsByRef && !_parameterinfo[p].IsOut);
