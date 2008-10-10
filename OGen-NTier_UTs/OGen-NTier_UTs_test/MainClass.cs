@@ -94,8 +94,10 @@ Console.WriteLine(
 										//}
 									}
 									Console.WriteLine(
-										"\t.{0}(",
-										_methods[m].Name
+										"\t.{0}:{1}.{2}(",
+										_methods[m].Name, 
+										_methods[m].ReturnType.Namespace,
+										_methods[m].ReturnType.Name
 									);
 									ParameterInfo[] _parameterinfo = _methods[m].GetParameters();
 									for (int p = 0; p < _parameterinfo.Length; p++) {

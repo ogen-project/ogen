@@ -15,6 +15,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Xml.Serialization;
 using System.Reflection;
+using OGen.NTier.lib.businesslayer;
 
 namespace OGen.NTier.lib.metadata.metadataBusiness {
 	[System.Xml.Serialization.XmlRootAttribute("metadataBusiness")]
@@ -42,9 +43,9 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			Assembly _assembly = Assembly.Load(assemblyName_in);
 			if (_assembly == null) {
 				throw new Exception(String.Format(
-					"can't load assembly 'assemblyName_in'\n at: {0}.{1}.Load_fromAssembly();", 
-					this.GetType().Namespace, 
-					this.GetType().Name,
+					"can't load assembly 'assemblyName_in'\n at: {0}.{1}.Load_fromAssembly();",
+					typeof(XS__metadataBusiness).Namespace,
+					typeof(XS__metadataBusiness).Name,
 					assemblyName_in
 				));
 			}
@@ -73,10 +74,10 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 					for (int c = 0; c < _attibutes.Length; c++) {
 						BOClassAttribute _attribute 
 							= (BOClassAttribute)_attibutes[c];
-Console.WriteLine(
-	"name:{0};",
-	_attribute.Name
-);
+//Console.WriteLine(
+//    "name:{0};",
+//    _attribute.Name
+//);
 _output.Classes.ClassCollection.Add(out _class_index, _attribute.Name);
 
 						MethodInfo[] _methods = _type.GetMethods(
@@ -94,65 +95,76 @@ _output.Classes.ClassCollection.Add(out _class_index, _attribute.Name);
 									true
 								);
 
+								_method_index = -1;
 								for (int a = 0; a < _attributes.Length; a++) {
-									//if (_attributes[a].GetType() == typeof(BOMethodAttribute)) {
-									BOMethodAttribute _methodattribute
-										= (BOMethodAttribute)_attributes[a];
-Console.WriteLine(
-	"\tname:{0}; distribute:{1};",
-	_methodattribute.Name,
-	_methodattribute.Distribute
+									if (_attributes[a].GetType() == typeof(BOMethodAttribute)) {
+										BOMethodAttribute _methodattribute
+											= (BOMethodAttribute)_attributes[a];
+//Console.WriteLine(
+//    "\tname:{0}; distribute:{1};",
+//    _methodattribute.Name,
+//    _methodattribute.Distribute
+//);
+_output.Classes.ClassCollection[_class_index].Methods.MethodCollection.Add(
+	out _method_index, 
+	_methods[m].Name
 );
-_output.Classes.ClassCollection[_class_index].Methods.MethodCollection.Add(out _method_index, _methodattribute.Name);
-_output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Distribute = _methodattribute.Distribute;
-_output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].OutputType = "...";
+_output.Classes.ClassCollection[_class_index].Methods.MethodCollection[
+	_method_index
+].Distribute = _methodattribute.Distribute;
+_output.Classes.ClassCollection[_class_index].Methods.MethodCollection[
+	_method_index
+].OutputType 
+	= (_methods[m].ReflectedType.ToString() == "System.Void") 
+	? "void" 
+	: string.Format(
+		"{0}.{1}", 
+		_methods[m].ReturnType.Namespace, 
+		_methods[m].ReturnType.Name
+	);
 
-									//}
+									}
 								}
-								Console.WriteLine(
-									"\t.{0}(",
-									_methods[m].Name
-								);
+//Console.WriteLine(
+//    "\t.{0}(",
+//    _methods[m].Name
+//);
 								ParameterInfo[] _parameterinfo = _methods[m].GetParameters();
 								for (int p = 0; p < _parameterinfo.Length; p++) {
-Console.WriteLine(
-	"\t\tname:{0}; type:{1}; isOut:{2}; isByRef:{3}; isEnum:{4}; isClass:{5}; isValueType:{6}", 
-	_parameterinfo[p].Name, 
-	_parameterinfo[p].ParameterType, 
-	_parameterinfo[p].IsOut,
-	_parameterinfo[p].ParameterType.IsByRef,
-	_parameterinfo[p].ParameterType.IsEnum, 
-	_parameterinfo[p].ParameterType.IsClass, 
-	_parameterinfo[p].ParameterType.IsValueType
+//Console.WriteLine(
+//    "\t\tname:{0}; type:{1}; isOut:{2}; isByRef:{3}; isEnum:{4}; isClass:{5}; isValueType:{6}", 
+//    _parameterinfo[p].Name, 
+//    _parameterinfo[p].ParameterType, 
+//    _parameterinfo[p].IsOut,
+//    _parameterinfo[p].ParameterType.IsByRef,
+//    _parameterinfo[p].ParameterType.IsEnum, 
+//    _parameterinfo[p].ParameterType.IsClass, 
+//    _parameterinfo[p].ParameterType.IsValueType
+//);
+_output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection.Add(
+	out _property_index, 
+	_parameterinfo[p].Name
 );
-_output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection.Add(out _property_index, _parameterinfo[p].Name);
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection[
 	_property_index
 ].isOut = _parameterinfo[p].IsOut;
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection[
 	_property_index
-].isOut = _parameterinfo[p].IsOut;
+].Type = _parameterinfo[p].ParameterType.ToString();
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection[
 	_property_index
-].isOut = _parameterinfo[p].IsOut;
+].isRef = (_parameterinfo[p].ParameterType.IsByRef && !_parameterinfo[p].IsOut);
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection[
 	_property_index
-].isOut = _parameterinfo[p].IsOut;
-_output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection[
-	_property_index
-].isOut = _parameterinfo[p].IsOut;
-_output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection[
-	_property_index
-].isOut = _parameterinfo[p].IsOut;
-_output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection[
-	_property_index
-].isOut = _parameterinfo[p].IsOut;
+].isParams = false;
 								}
 							}
 						}
 					}
 				}
 			}
+
+			return _output;
 		}
 	}
 }

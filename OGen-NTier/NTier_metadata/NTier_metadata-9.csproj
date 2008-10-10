@@ -301,6 +301,10 @@
       <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
       <Name>OGen_webforms-8</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NTier_businesslayer\NTier_businesslayer-9.csproj">
+      <Project>{8AEBEA64-6FC4-430C-922C-B88D105AE91C}</Project>
+      <Name>NTier_businesslayer-9</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
