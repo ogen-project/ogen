@@ -167,54 +167,56 @@ throw new Exception("// ToDos: not implemented!");
 				false
 			);
 
+			#region - reading metadata from business assembly
+			string _debug_assembly = Path.Combine(
+				Path.GetDirectoryName(filename_),
+				businessAssembly(
+					metadata_.MetadataExtendedCollection[0].ApplicationName, 
+					metadata_.MetadataExtendedCollection[0].ApplicationNamespace, 
+					false
+				)
+			);
+			string _release_assembly = Path.Combine(
+				Path.GetDirectoryName(filename_),
+				businessAssembly(
+					metadata_.MetadataExtendedCollection[0].ApplicationName,
+					metadata_.MetadataExtendedCollection[0].ApplicationNamespace,
+					true
+				)
+			);
+			bool _debug_exits = File.Exists(_debug_assembly);
+			bool _release_exits = File.Exists(_release_assembly);
+			if (_debug_exits || _release_exits) {
+				DateTime _debug_datetime = (_debug_exits) ? File.GetLastWriteTime(_debug_assembly) : DateTime.MinValue;
+				DateTime _release_datetime = (_release_exits) ? File.GetLastWriteTime(_release_assembly) : DateTime.MinValue;
 
-string _debug_assembly = Path.Combine(
-	Path.GetDirectoryName(filename_),
-	businessAssembly(
-		metadata_.MetadataExtendedCollection[0].ApplicationName, 
-		metadata_.MetadataExtendedCollection[0].ApplicationNamespace, 
-		false
-	)
-);
-string _release_assembly = Path.Combine(
-	Path.GetDirectoryName(filename_),
-	businessAssembly(
-		metadata_.MetadataExtendedCollection[0].ApplicationName,
-		metadata_.MetadataExtendedCollection[0].ApplicationNamespace,
-		true
-	)
-);
-bool _debug_exits = File.Exists(_debug_assembly);
-bool _release_exits = File.Exists(_release_assembly);
-DateTime _debug_datetime = (_debug_exits) ? File.GetLastWriteTime(_debug_assembly) : DateTime.MinValue;
-DateTime _release_datetime = (_release_exits) ? File.GetLastWriteTime(_release_assembly) : DateTime.MinValue;
-if (_debug_exits || _release_exits) {
-	if (notifyBack_in != null) notifyBack_in("- reading metadata from business assembly", true);
+				if (notifyBack_in != null) notifyBack_in("- reading metadata from business assembly", true);
 
-	OGen.NTier.lib.metadata.metadataBusiness.XS__metadataBusiness _metadatabusiness
-		= OGen.NTier.lib.metadata.metadataBusiness.XS__metadataBusiness.Load_fromAssembly(
-			(_debug_datetime > _release_datetime) 
-				? _debug_assembly 
-				: _release_assembly, 
-			null, 
-			0
-		);
-	_metadatabusiness.ApplicationName = metadata_.MetadataExtendedCollection[0].ApplicationName;
+				OGen.NTier.lib.metadata.metadataBusiness.XS__metadataBusiness _metadatabusiness
+					= OGen.NTier.lib.metadata.metadataBusiness.XS__metadataBusiness.Load_fromAssembly(
+						(_debug_datetime > _release_datetime) 
+							? _debug_assembly 
+							: _release_assembly, 
+						null, 
+						0
+					);
+				_metadatabusiness.ApplicationName = metadata_.MetadataExtendedCollection[0].ApplicationName;
 
-	_metadatabusiness.SaveState_toFile(
-		Path.Combine(
-			Path.GetDirectoryName(filename_),
-			string.Format(
-				"MD_{0}.OGenXSD-metadataBusiness.xml", 
-				metadata_.MetadataExtendedCollection[0].ApplicationName
-			)
-		)
-	);
+				_metadatabusiness.SaveState_toFile(
+					Path.Combine(
+						Path.GetDirectoryName(filename_),
+						string.Format(
+							"MD_{0}.OGenXSD-metadataBusiness.xml", 
+							metadata_.MetadataExtendedCollection[0].ApplicationName
+						)
+					)
+				);
 
-	if (notifyBack_in != null) notifyBack_in("- saving business metadata to xml file", true);
-}
+				if (notifyBack_in != null) notifyBack_in("- saving business metadata to xml file", true);
+			}
+			#endregion
 
-
+			#region - reading metadata from db
 			if (notifyBack_in != null) notifyBack_in("- reading metadata from db", true);
 			OGen.NTier.lib.metadata.metadataDB.XS__metadataDB _metadatadb 
 				= OGen.NTier.lib.metadata.metadataDB.XS__metadataDB.Load_fromDB(
@@ -281,6 +283,7 @@ if (_debug_exits || _release_exits) {
 					break;
 				}
 			}
+			#endregion
 
 			if (notifyBack_in != null) notifyBack_in("- re-reading configuration from xml file", true);
 			metadata_ = XS__RootMetadata.Load_fromFile(
