@@ -43,6 +43,10 @@ namespace OGen.NTier.lib.generator {
 					= (value == string.Empty) 
 						? string.Empty 
 						: Path.GetDirectoryName(value);
+				parentdirectoryname__
+					= (value == string.Empty)
+						? string.Empty
+						: Directory.GetParent(directoryname__).FullName;
 			}
 		}
 		#endregion
@@ -50,6 +54,12 @@ namespace OGen.NTier.lib.generator {
 		private string directoryname__;
 		public string Directoryname {
 			get { return directoryname__; }
+		}
+		#endregion
+		#region public string ParentDirectoryname { get; }
+		private string parentdirectoryname__;
+		public string ParentDirectoryname {
+			get { return parentdirectoryname__; }
 		}
 		#endregion
 		#region public bool hasChanges { get; }
@@ -79,7 +89,7 @@ namespace OGen.NTier.lib.generator {
 			bool isRelease_notDebug_in
 		) {
 			return string.Format(
-				"..{0}{1}_businesslayer{0}bin{0}{4}{0}{2}.lib.businesslayer-{3}.dll",
+				"{0}{1}_businesslayer{0}bin{0}{4}{0}{2}.lib.businesslayer-{3}.dll",
 				Path.DirectorySeparatorChar, // __________________ 0
 				applicationName_in, // ___________________________ 1
 				applicationNamespace_in, // ______________________ 2
@@ -182,7 +192,7 @@ throw new Exception("// ToDos: not implemented!");
 
 			#region - reading metadata from business assembly
 			string _debug_assembly = Path.Combine(
-				Directoryname,
+				ParentDirectoryname,
 				businessAssembly(
 					metadata_.MetadataExtendedCollection[0].ApplicationName, 
 					metadata_.MetadataExtendedCollection[0].ApplicationNamespace, 
@@ -190,7 +200,7 @@ throw new Exception("// ToDos: not implemented!");
 				)
 			);
 			string _release_assembly = Path.Combine(
-				Directoryname,
+				ParentDirectoryname,
 				businessAssembly(
 					metadata_.MetadataExtendedCollection[0].ApplicationName,
 					metadata_.MetadataExtendedCollection[0].ApplicationNamespace,
@@ -340,9 +350,7 @@ throw new Exception("// ToDos: not implemented!");
 //		#region public void Build(cGenerator.dBuild notifyBase_in);
 		public void Build(cGenerator.dBuild notifyBase_in) {
 			#region string _outputDir = ...;
-			string _outputDir = System.IO.Directory.GetParent(
-				Directoryname
-			).FullName;
+			string _outputDir = ParentDirectoryname;
 			#endregion
 			if (notifyBase_in != null) notifyBase_in("generating...", true);
 
