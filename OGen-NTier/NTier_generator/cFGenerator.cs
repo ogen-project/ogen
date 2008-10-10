@@ -147,6 +147,42 @@ throw new Exception("// ToDos: not implemented!");
 				false
 			);
 
+
+string _businessAssembly = Path.Combine(
+	Path.GetDirectoryName(filename_), 
+	string.Format(
+		"..{0}{1}_businesslayer{0}bin{0}Debug{0}{2}.lib.businesslayer-{3}.dll", 
+		Path.DirectorySeparatorChar, 
+		metadata_.MetadataExtendedCollection[0].ApplicationName, 
+		metadata_.MetadataExtendedCollection[0].ApplicationNamespace, 
+		#if NET_1_1
+		"1.1"
+		#elif NET_2_0
+		"2.0"
+		#endif
+	)
+);
+if (File.Exists(_businessAssembly)) {
+	OGen.NTier.lib.metadata.metadataBusiness.XS__metadataBusiness _metadatabusiness
+		= OGen.NTier.lib.metadata.metadataBusiness.XS__metadataBusiness.Load_fromAssembly(
+			_businessAssembly, 
+			null, 
+			0
+		);
+	_metadatabusiness.ApplicationName = metadata_.MetadataExtendedCollection[0].ApplicationName;
+
+	_metadatabusiness.SaveState_toFile(
+		Path.Combine(
+			Path.GetDirectoryName(filename_),
+			string.Format(
+				"MD_{0}.OGenXSD-metadataBusiness.xml", 
+				metadata_.MetadataExtendedCollection[0].ApplicationName
+			)
+		)
+	);
+}
+
+
 			if (notifyBack_in != null) notifyBack_in("- reading metadata from db", true);
 			OGen.NTier.lib.metadata.metadataDB.XS__metadataDB _metadatadb 
 				= OGen.NTier.lib.metadata.metadataDB.XS__metadataDB.Load_fromDB(

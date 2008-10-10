@@ -26,7 +26,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 	#endif
 
 		public static XS__metadataBusiness Load_fromAssembly(
-			string assemblyName_in, 
+			string assemblyFilePath_in, 
 
 			XS__RootMetadata root_ref_in, 
 			int index_in
@@ -39,14 +39,14 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			if (root_ref_in != null) _output.root_ref = root_ref_in;
 			#endregion
 
-			#region Assembly _assembly = Assembly.Load(assemblyName_in);
-			Assembly _assembly = Assembly.Load(assemblyName_in);
+			#region Assembly _assembly = Assembly.Load(assemblyFilePath_in);
+			Assembly _assembly = Assembly.LoadFile(assemblyFilePath_in);
 			if (_assembly == null) {
 				throw new Exception(String.Format(
 					"can't load assembly 'assemblyName_in'\n at: {0}.{1}.Load_fromAssembly();",
 					typeof(XS__metadataBusiness).Namespace,
 					typeof(XS__metadataBusiness).Name,
-					assemblyName_in
+					assemblyFilePath_in
 				));
 			}
 			#endregion
