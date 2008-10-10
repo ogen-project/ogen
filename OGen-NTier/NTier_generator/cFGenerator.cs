@@ -59,6 +59,26 @@ namespace OGen.NTier.lib.generator {
 		#endregion
 		//#endregion
 
+		#region private Methods...
+		private string businessAssembly(
+			string applicationName_in, 
+			string applicationNamespace_in, 
+			bool isRelease_notDebug_in
+		) {
+			return string.Format(
+				"..{0}{1}_businesslayer{0}bin{0}{4}{0}{2}.lib.businesslayer-{3}.dll", 
+				Path.DirectorySeparatorChar,
+				applicationName_in, 
+				applicationNamespace_in, 
+				#if NET_1_1
+				"1.1", 
+				#elif NET_2_0
+				"2.0", 
+				#endif
+				isRelease_notDebug_in ? "Release" : "Debug"
+			);
+		}
+		#endregion
 		//#region public Methods...
 		//#region public void New(...);
 		public void New(
@@ -148,24 +168,34 @@ throw new Exception("// ToDos: not implemented!");
 			);
 
 
-string _businessAssembly = Path.Combine(
-	Path.GetDirectoryName(filename_), 
-	string.Format(
-		"..{0}{1}_businesslayer{0}bin{0}Debug{0}{2}.lib.businesslayer-{3}.dll", 
-		Path.DirectorySeparatorChar, 
+string _debug_assembly = Path.Combine(
+	Path.GetDirectoryName(filename_),
+	businessAssembly(
 		metadata_.MetadataExtendedCollection[0].ApplicationName, 
 		metadata_.MetadataExtendedCollection[0].ApplicationNamespace, 
-		#if NET_1_1
-		"1.1"
-		#elif NET_2_0
-		"2.0"
-		#endif
+		false
 	)
 );
-if (File.Exists(_businessAssembly)) {
+string _release_assembly = Path.Combine(
+	Path.GetDirectoryName(filename_),
+	businessAssembly(
+		metadata_.MetadataExtendedCollection[0].ApplicationName,
+		metadata_.MetadataExtendedCollection[0].ApplicationNamespace,
+		true
+	)
+);
+bool _debug_exits = File.Exists(_debug_assembly);
+bool _release_exits = File.Exists(_release_assembly);
+DateTime _debug_datetime = (_debug_exits) ? File.GetLastWriteTime(_debug_assembly) : DateTime.MinValue;
+DateTime _release_datetime = (_release_exits) ? File.GetLastWriteTime(_release_assembly) : DateTime.MinValue;
+if (_debug_exits || _release_exits) {
+	if (notifyBack_in != null) notifyBack_in("- reading metadata from business assembly", true);
+
 	OGen.NTier.lib.metadata.metadataBusiness.XS__metadataBusiness _metadatabusiness
 		= OGen.NTier.lib.metadata.metadataBusiness.XS__metadataBusiness.Load_fromAssembly(
-			_businessAssembly, 
+			(_debug_datetime > _release_datetime) 
+				? _debug_assembly 
+				: _release_assembly, 
 			null, 
 			0
 		);
@@ -180,6 +210,8 @@ if (File.Exists(_businessAssembly)) {
 			)
 		)
 	);
+
+	if (notifyBack_in != null) notifyBack_in("- saving business metadata to xml file", true);
 }
 
 

@@ -83,7 +83,11 @@ _output.Classes.ClassCollection.Add(
 	//_attribute.Name
 	(_type.Name.IndexOf("BO_") == 0)
 		? _type.Name.Substring(3)
-		: _type.Name
+		: (
+			(_type.Name.IndexOf("BDO_") == 0)
+				? _type.Name.Substring(4)
+				: _type.Name
+		)
 );
 
 						MethodInfo[] _methods = _type.GetMethods(
