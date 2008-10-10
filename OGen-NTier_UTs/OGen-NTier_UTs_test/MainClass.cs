@@ -62,10 +62,10 @@ namespace OGen.NTier.UTs.test {
 						for (int c = 0; c < _attibutes.Length; c++) {
 							BOClassAttribute _attribute 
 								= (BOClassAttribute)_attibutes[c];
-							Console.WriteLine(
-								"name:{0};",
-								_attribute.Name
-							);
+Console.WriteLine(
+	"name:{0};",
+	_attribute.Name
+);
 
 							MethodInfo[] _methods = _type.GetMethods(
 								BindingFlags.Public |
@@ -86,11 +86,11 @@ namespace OGen.NTier.UTs.test {
 										//if (_attributes[a].GetType() == typeof(BOMethodAttribute)) {
 										BOMethodAttribute _propertyattribute
 											= (BOMethodAttribute)_attributes[a];
-										Console.WriteLine(
-											"\tname:{0}; distribute:{1};",
-											_propertyattribute.Name,
-											_propertyattribute.Distribute
-										);
+Console.WriteLine(
+	"\tname:{0}; distribute:{1};",
+	_propertyattribute.Name,
+	_propertyattribute.Distribute
+);
 										//}
 									}
 									Console.WriteLine(
@@ -99,16 +99,16 @@ namespace OGen.NTier.UTs.test {
 									);
 									ParameterInfo[] _parameterinfo = _methods[m].GetParameters();
 									for (int p = 0; p < _parameterinfo.Length; p++) {
-										Console.WriteLine(
-											"\t\tname:{0}; type:{1}; isOut:{2}; isByRef:{3}; isEnum:{4}; isClass:{5}; isValueType:{6}", 
-											_parameterinfo[p].Name, 
-											_parameterinfo[p].ParameterType, 
-											_parameterinfo[p].IsOut,
-											_parameterinfo[p].ParameterType.IsByRef,
-											_parameterinfo[p].ParameterType.IsEnum, 
-											_parameterinfo[p].ParameterType.IsClass, 
-											_parameterinfo[p].ParameterType.IsValueType
-										);
+Console.WriteLine(
+	"\t\tname:{0}; type:{1}; isOut:{2}; isByRef:{3}; isEnum:{4}; isClass:{5}; isValueType:{6}", 
+	_parameterinfo[p].Name, 
+	_parameterinfo[p].ParameterType, 
+	_parameterinfo[p].IsOut,
+	_parameterinfo[p].ParameterType.IsByRef,
+	_parameterinfo[p].ParameterType.IsEnum, 
+	_parameterinfo[p].ParameterType.IsClass, 
+	_parameterinfo[p].ParameterType.IsValueType
+);
 									}
 									Console.WriteLine("\t)");
 								}

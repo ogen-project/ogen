@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 -->
 <metadataBusiness xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" applicationName="OGen-NTier_UTs">
 	<classes>
-		<class name="Authentication">
+		<class name="BO_Authentication">
 			<methods>
 				<method name="Login" outputType="string" distribute="true">
 					<parameters>
