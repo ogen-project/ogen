@@ -58,20 +58,20 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			for (int t = 0; t < _types.Length; t++) {
 				Type _type = (Type)_types[t];
 
-				object[] _attibutes = _type.GetCustomAttributes(
+				object[] _classattributes = _type.GetCustomAttributes(
 					typeof(BOClassAttribute),
 					true//false
 				);
 				if (
-					(_attibutes.Length > 0)
+					(_classattributes.Length > 0)
 					&&
 					(_type.Name.IndexOf("BO0_") != 0)
 					&&
 					(_type.Name.IndexOf("BDO0_") != 0)
 				) {
-					for (int c = 0; c < _attibutes.Length; c++) {
+					for (int ca = 0; ca < _classattributes.Length; ca++) {
 						BOClassAttribute _attribute 
-							= (BOClassAttribute)_attibutes[c];
+							= (BOClassAttribute)_classattributes[ca];
 
 _output.Classes.ClassCollection.Add(
 	out _class_index, 
@@ -94,17 +94,17 @@ _output.Classes.ClassCollection.Add(
 								_methods[m],
 								typeof(BOMethodAttribute)
 							)) {
-								Attribute[] _attributes = Attribute.GetCustomAttributes(
+								Attribute[] _methodattributes = Attribute.GetCustomAttributes(
 									_methods[m],
 									typeof(BOMethodAttribute),
 									true
 								);
 
 								_method_index = -1;
-								for (int a = 0; a < _attributes.Length; a++) {
-									if (_attributes[a].GetType() == typeof(BOMethodAttribute)) {
+								for (int ma = 0; ma < _methodattributes.Length; ma++) {
+									if (_methodattributes[ma].GetType() == typeof(BOMethodAttribute)) {
 										BOMethodAttribute _methodattribute
-											= (BOMethodAttribute)_attributes[a];
+											= (BOMethodAttribute)_methodattributes[ma];
 
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection.Add(
 	out _method_index, 
