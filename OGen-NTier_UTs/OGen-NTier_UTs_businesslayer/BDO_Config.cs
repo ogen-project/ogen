@@ -20,6 +20,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
 	/// Config BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Config">DO_Config</see> for the Business Layer.
 	/// </summary>
+	[BOClassAttribute("BDO_Config")]
 	public sealed 
 #if !NET_1_1
 		partial 

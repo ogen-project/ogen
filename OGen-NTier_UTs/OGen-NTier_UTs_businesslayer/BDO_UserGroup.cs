@@ -20,6 +20,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
 	/// UserGroup BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_UserGroup">DO_UserGroup</see> for the Business Layer.
 	/// </summary>
+	[BOClassAttribute("BDO_UserGroup")]
 	public sealed 
 #if !NET_1_1
 		partial 

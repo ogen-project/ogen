@@ -20,6 +20,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
 	/// Logcode BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Logcode">DO_Logcode</see> for the Business Layer.
 	/// </summary>
+	[BOClassAttribute("BDO_Logcode")]
 	public sealed 
 #if !NET_1_1
 		partial 

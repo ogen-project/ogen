@@ -64,10 +64,16 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 				);
 				if (
 					(_classattributes.Length > 0)
+					//&&
+					//(_type.Name.IndexOf("BO0_") != 0)
+					//&&
+					//(_type.Name.IndexOf("BDO0_") != 0)
 					&&
-					(_type.Name.IndexOf("BO0_") != 0)
-					&&
-					(_type.Name.IndexOf("BDO0_") != 0)
+					(
+						(_type.Name.IndexOf("BO_") == 0)
+						||
+						(_type.Name.IndexOf("BDO_") == 0)
+					)
 				) {
 					for (int ca = 0; ca < _classattributes.Length; ca++) {
 						BOClassAttribute _attribute 
