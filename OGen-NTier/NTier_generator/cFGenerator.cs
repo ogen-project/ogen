@@ -89,7 +89,7 @@ namespace OGen.NTier.lib.generator {
 			bool isRelease_notDebug_in
 		) {
 			return string.Format(
-				"{0}{1}_businesslayer{0}bin{0}{4}{0}{2}.lib.businesslayer-{3}.dll",
+				"{1}_businesslayer{0}bin{0}{4}{0}{2}.lib.businesslayer-{3}.dll",
 				Path.DirectorySeparatorChar, // __________________ 0
 				applicationName_in, // ___________________________ 1
 				applicationNamespace_in, // ______________________ 2
@@ -217,10 +217,10 @@ throw new Exception("// ToDos: not implemented!");
 
 				OGen.NTier.lib.metadata.metadataBusiness.XS__metadataBusiness _metadatabusiness
 					= OGen.NTier.lib.metadata.metadataBusiness.XS__metadataBusiness.Load_fromAssembly(
-						(_debug_datetime > _release_datetime) 
-							? _debug_assembly 
-							: _release_assembly, 
-						null, 
+						(_debug_datetime > _release_datetime)
+							? _debug_assembly
+							: _release_assembly,
+						null,
 						0
 					);
 				_metadatabusiness.ApplicationName = metadata_.MetadataExtendedCollection[0].ApplicationName;
@@ -229,13 +229,15 @@ throw new Exception("// ToDos: not implemented!");
 					Path.Combine(
 						Directoryname,
 						string.Format(
-							"MD_{0}.OGenXSD-metadataBusiness.xml", 
+							"MD_{0}.OGenXSD-metadataBusiness.xml",
 							metadata_.MetadataExtendedCollection[0].ApplicationName
 						)
 					)
 				);
 
 				if (notifyBack_in != null) notifyBack_in("- saving business metadata to xml file", true);
+			} else {
+				if (notifyBack_in != null) notifyBack_in("- WARNING: no metadata from business assembly to read from", true);
 			}
 			#endregion
 

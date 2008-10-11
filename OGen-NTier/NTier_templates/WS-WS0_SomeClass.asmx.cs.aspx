@@ -47,32 +47,19 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 #endregion
 <%
 }%>using System;
-using System.Xml.Serialization;
+using System.Data;
+using System.Configuration;
+using System.Web;
+using System.Web.Services;
+using System.Web.Services.Protocols;
 
-using OGen.NTier.lib.datalayer;
-using OGen.NTier.lib.businesslayer;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;
 
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer;
-
-namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributed.webservices {
 	/// <summary>
-	/// <%=_aux_class.Name%> BusinessObject.<%--
-#if NET_1_1
-	/// <note type="implementnotes">
-	/// Access must be made via <see cref="BO_<%=_aux_class.Name%>">BO_<%=_aux_class.Name%></see>.
-	/// </note>
-#endif--%>
+	/// <%=_aux_class.Name%> web service.
 	/// </summary>
-	[BOClassAttribute("BO_<%=_aux_class.Name%>")]
-	public class BO_<%=_aux_class.Name%> : BO0_<%=_aux_class.Name%> {
-		#region public BO0_<%=_aux_class.Name%>(...);
-		public BO_<%=_aux_class.Name%>(
-		) : base (
-		) {
-			// ...
-		}
-		#endregion
-
+	public class WS0_<%=_aux_class.Name%> : System.Web.Services.WebService {
 		#region private Properties...
 		#endregion
 		#region public Properties...
@@ -84,16 +71,20 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 		for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
 			_aux_method = _aux_class.Methods.MethodCollection[m];%>
 		#region public override <%=_aux_method.OutputType%> <%=_aux_method.Name%>(...);
-		[BOMethodAttribute("<%=_aux_method.Name%>", <%=_aux_method.Distribute%>)]
+		[WebMethod]
 		public override <%=_aux_method.OutputType%> <%=_aux_method.Name%>(<%
 			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
 			<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
 			}%>
 		) {
-			// ...
-
-			<%=(_aux_method.OutputType == "System.Void") ? "" : "return null;"%>
+			BO_<%=_aux_class.Name%> _businessobject = new BO_<%=_aux_class.Name%>();
+			<%=(_aux_method.OutputType == "System.Void") ? "" : "return "%>_businessobject.Login(<%
+				for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
+					_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
+				<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
+				}%>
+			);
 		}
 		#endregion<%
 		}%>

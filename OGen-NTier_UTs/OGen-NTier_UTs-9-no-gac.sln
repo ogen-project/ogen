@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayersupport-9", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer_MySQL-9", "..\OGen\OGen_datalayer_MySQL\OGen_datalayer_MySQL-9.csproj", "{8F5F21DB-FED4-46A9-9E7E-B50B678D12B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_webservices", "OGen-NTier_UTs_webservices\OGen-NTier_UTs_webservices.csproj", "{89EE33CB-FAAD-4251-809C-13B5FC57F101}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_webservices-9", "OGen-NTier_UTs_webservices\OGen-NTier_UTs_webservices-9-no-gac.csproj", "{89EE33CB-FAAD-4251-809C-13B5FC57F101}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

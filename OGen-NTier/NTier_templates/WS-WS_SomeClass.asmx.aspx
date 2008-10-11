@@ -37,68 +37,11 @@ XS_methodType _aux_method;
 XS_parameterType _aux_parameter;
 #endregion
 //-----------------------------------------------------------------------------------------
-if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.CopyrightTextLong != string.Empty)) {
-%>#region <%=_aux_ex_metadata.CopyrightText%>
-/*
+if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {
+%><!--
 
 <%=_aux_ex_metadata.CopyrightTextLong%>
 
-*/
-#endregion
-<%
-}%>using System;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
-using OGen.NTier.lib.businesslayer;
-
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer;
-
-namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
-	/// <summary>
-	/// <%=_aux_class.Name%> BusinessObject.<%--
-#if NET_1_1
-	/// <note type="implementnotes">
-	/// Access must be made via <see cref="BO_<%=_aux_class.Name%>">BO_<%=_aux_class.Name%></see>.
-	/// </note>
-#endif--%>
-	/// </summary>
-	[BOClassAttribute("BO_<%=_aux_class.Name%>")]
-	public class BO_<%=_aux_class.Name%> : BO0_<%=_aux_class.Name%> {
-		#region public BO0_<%=_aux_class.Name%>(...);
-		public BO_<%=_aux_class.Name%>(
-		) : base (
-		) {
-			// ...
-		}
-		#endregion
-
-		#region private Properties...
-		#endregion
-		#region public Properties...
-		#endregion
-
-		#region private Methods...
-		#endregion
-		#region public Methods...<%
-		for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
-			_aux_method = _aux_class.Methods.MethodCollection[m];%>
-		#region public override <%=_aux_method.OutputType%> <%=_aux_method.Name%>(...);
-		[BOMethodAttribute("<%=_aux_method.Name%>", <%=_aux_method.Distribute%>)]
-		public override <%=_aux_method.OutputType%> <%=_aux_method.Name%>(<%
-			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
-				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
-			<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
-			}%>
-		) {
-			// ...
-
-			<%=(_aux_method.OutputType == "System.Void") ? "" : "return null;"%>
-		}
-		#endregion<%
-		}%>
-		#endregion
-	}
-}<%
-//-----------------------------------------------------------------------------------------
-%>
+--><%
+}%>
+<%="<%" + "@"%>WebService Language="C#" CodeBehind="WS_<%=_aux_class.Name%>.asmx.cs" Class="<%=_aux_ex_metadata.ApplicationNamespace%>.distributed.webservices.WS_<%=_aux_class.Name%>"<%="%" + ">"%>

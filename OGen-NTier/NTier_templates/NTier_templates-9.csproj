@@ -129,7 +129,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-BDO_SomeTable.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-BO0_SomeClass.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
@@ -162,6 +161,15 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-BO_SomeClass.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="WS-WS_SomeClass.asmx.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="WS-WS0_SomeClass.asmx.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="WS-WS_SomeClass.asmx.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-OGen_sp0__getTableFields-MySQL.sql" />
