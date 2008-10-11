@@ -29,7 +29,16 @@ string[] _aux_configmodes = _aux_ex_metadata.DBs.ConfigModes();
 
 #endregion
 //-----------------------------------------------------------------------------------------
-%><configuration>
+%><?xml version="1.0"?><%
+if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {
+%><!--
+
+<%=_aux_ex_metadata.CopyrightTextLong%>
+
+--><%
+}
+%>
+<configuration>
 	<appSettings>
 		<add key="applications" value="<%=_aux_ex_metadata.ApplicationName%>" />
 

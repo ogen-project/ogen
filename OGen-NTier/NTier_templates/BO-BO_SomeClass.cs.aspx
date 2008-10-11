@@ -64,7 +64,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 #endif--%>
 	/// </summary>
 	[BOClassAttribute("BO_<%=_aux_class.Name%>")]
-	public abstract class BO_<%=_aux_class.Name%> : BO0_<%=_aux_class.Name%> {
+	public class BO_<%=_aux_class.Name%> : BO0_<%=_aux_class.Name%> {
 		#region public BO0_<%=_aux_class.Name%>(...);
 		public BO_<%=_aux_class.Name%>(
 		) : base (

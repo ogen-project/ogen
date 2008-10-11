@@ -1,4 +1,4 @@
-#region Copyright (C) 2002 Francisco Monteiro
+﻿#region Copyright (C) 2002 Francisco Monteiro
 /*
 
 OGen
@@ -13,44 +13,24 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Web;
+using System.Web.Services;
+using System.Web.Services.Protocols;
 
-using OGen.NTier.lib.datalayer;
-using OGen.NTier.lib.businesslayer;
+using OGen.NTier.UTs.lib.businesslayer;
 
-using OGen.NTier.UTs.lib.datalayer;
-
-namespace OGen.NTier.UTs.lib.businesslayer {
+namespace OGen.NTier.UTs.distributed.webservices {
 	/// <summary>
-	/// Log BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Log">DO_Log</see> for the Business Layer.
+	/// Summary description for WS_Authentication
 	/// </summary>
-	[BOClassAttribute("BDO_Log")]
-	public sealed 
-#if !NET_1_1
-		partial 
-#endif
-		class BDO_Log 
-#if NET_1_1
-			: BDO0_Log 
-#endif
-	{
-		#region public BDO_Log(...);
-		///
-		public BDO_Log(
-			string authenticationLogin_in
-		) {
-			AuthenticationLogin = authenticationLogin_in;
-		}
-		#endregion
-
-		#region private Properties...
-		private string AuthenticationLogin;
-		#endregion
-		#region public Properties...
-		#endregion
-
-		#region private Methods...
-		#endregion
-		#region public Methods...
-		#endregion
+	[WebService(Namespace = "http://tempuri.org/")]
+	[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+	[ToolboxItem(false)]
+	// To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
+	// [System.Web.Script.Services.ScriptService]
+	public class WS_Authentication : WS0_Authentication {
 	}
 }

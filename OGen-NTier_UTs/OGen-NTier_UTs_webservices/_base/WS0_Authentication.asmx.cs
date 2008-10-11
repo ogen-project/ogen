@@ -1,4 +1,4 @@
-#region Copyright (C) 2002 Francisco Monteiro
+﻿#region Copyright (C) 2002 Francisco Monteiro
 /*
 
 OGen
@@ -13,44 +13,38 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
+using System.Data;
+using System.Configuration;
+using System.Web;
+using System.Web.Services;
+using System.Web.Services.Protocols;
+//using System.Web.Security;
+//using System.Web.UI;
+//using System.Web.UI.HtmlControls;
+//using System.Web.UI.WebControls;
+//using System.Web.UI.WebControls.WebParts;
 
-using OGen.NTier.lib.datalayer;
-using OGen.NTier.lib.businesslayer;
+using OGen.NTier.UTs.lib.businesslayer;
 
-using OGen.NTier.UTs.lib.datalayer;
-
-namespace OGen.NTier.UTs.lib.businesslayer {
-	/// <summary>
-	/// Log BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Log">DO_Log</see> for the Business Layer.
-	/// </summary>
-	[BOClassAttribute("BDO_Log")]
-	public sealed 
-#if !NET_1_1
-		partial 
-#endif
-		class BDO_Log 
-#if NET_1_1
-			: BDO0_Log 
-#endif
-	{
-		#region public BDO_Log(...);
-		///
-		public BDO_Log(
-			string authenticationLogin_in
+namespace OGen.NTier.UTs.distributed.webservices {
+	public class WS0_Authentication : System.Web.Services.WebService {
+		[WebMethod]
+		public string Login(
+			string login_in, 
+			string password_in
 		) {
-			AuthenticationLogin = authenticationLogin_in;
+			BO_Authentication _authentication = new BO_Authentication();
+			return _authentication.Login(
+				login_in, 
+				password_in
+			);
 		}
-		#endregion
 
-		#region private Properties...
-		private string AuthenticationLogin;
-		#endregion
-		#region public Properties...
-		#endregion
-
-		#region private Methods...
-		#endregion
-		#region public Methods...
-		#endregion
+		[WebMethod]
+		public void Logout() {
+			BO_Authentication _authentication = new BO_Authentication();
+			_authentication.Logout(
+			);
+		}
 	}
 }
