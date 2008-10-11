@@ -13,37 +13,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
+using System.Data;
+using System.Configuration;
+using System.Web;
+using System.Web.Services;
+using System.Web.Services.Protocols;
 
-using OGen.NTier.lib.datalayer;
-using OGen.NTier.lib.businesslayer;
+using OGen.NTier.UTs.lib.businesslayer;
 
-using OGen.NTier.UTs.lib.datalayer;
-
-namespace OGen.NTier.UTs.lib.businesslayer {
+namespace OGen.NTier.UTs.distributed.webservices {
 	/// <summary>
-	/// UserGroup BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_UserGroup">DO_UserGroup</see> for the Business Layer.
+	/// User web service.
 	/// </summary>
-	[BOClassAttribute("BDO_UserGroup", "BDO")]
-	public sealed 
-#if !NET_1_1
-		partial 
-#endif
-		class BDO_UserGroup 
-#if NET_1_1
-			: BDO0_UserGroup 
-#endif
-	{
-		#region public BDO_UserGroup(...);
-		///
-		public BDO_UserGroup(
-			string authenticationLogin_in
-		) {
-			AuthenticationLogin = authenticationLogin_in;
-		}
-		#endregion
-
+	public class WS0_User : System.Web.Services.WebService {
 		#region private Properties...
-		private string AuthenticationLogin;
 		#endregion
 		#region public Properties...
 		#endregion
@@ -51,6 +34,21 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		#region private Methods...
 		#endregion
 		#region public Methods...
+		#region public override long insObject(...);
+		[WebMethod]
+		public long insObject(
+			bool selectIdentity_in, 
+			out bool constraintExist_out
+		) {
+			BDO_User _businessobject = new BDO_User(
+				""
+			);
+			return _businessobject.insObject(
+				selectIdentity_in, 
+				out constraintExist_out
+			);
+		}
+		#endregion
 		#endregion
 	}
 }

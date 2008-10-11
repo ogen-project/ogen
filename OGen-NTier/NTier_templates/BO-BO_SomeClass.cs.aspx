@@ -63,7 +63,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 	/// </note>
 #endif--%>
 	/// </summary>
-	[BOClassAttribute("BO_<%=_aux_class.Name%>")]
+	[BOClassAttribute("BO_<%=_aux_class.Name%>", "<%OGen.NTier.lib.metadata.metadataBusiness.XS_BoEnumeration.BO.ToString()%>")]
 	public class BO_<%=_aux_class.Name%> : BO0_<%=_aux_class.Name%> {
 		#region public BO0_<%=_aux_class.Name%>(...);
 		public BO_<%=_aux_class.Name%>(

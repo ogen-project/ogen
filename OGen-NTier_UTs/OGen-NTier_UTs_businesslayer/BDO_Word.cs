@@ -23,7 +23,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
 	/// Word BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Word">DO_Word</see> for the Business Layer.
 	/// </summary>
-	[BOClassAttribute("BDO_Word")]
+	[BOClassAttribute("BDO_Word", "BDO")]
 	public sealed 
 #if !NET_1_1
 		partial 

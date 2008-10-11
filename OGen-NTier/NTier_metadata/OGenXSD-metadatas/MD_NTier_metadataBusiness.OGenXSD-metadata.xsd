@@ -17,6 +17,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	xmlns="http://ogen.berlios.de"
 	elementFormDefault="qualified">
 
+	<xs:simpleType name="boEnumeration">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BDO" />
+			<xs:enumeration value="BO" />
+			<xs:enumeration value="invalid" />
+		</xs:restriction>
+	</xs:simpleType>
+
 	<xs:complexType name="parameterType">
 		<xs:attribute name="name" type="xs:string" />
 		<xs:attribute name="type" type="xs:string" />
@@ -47,6 +55,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 	<xs:complexType name="classType">
 		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="type" type="boEnumeration" />
 
 		<xs:sequence>
 			<xs:element name="methods" type="methodsType" />

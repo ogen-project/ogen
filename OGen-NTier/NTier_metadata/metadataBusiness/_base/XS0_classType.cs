@@ -60,6 +60,19 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			}
 		}
 		#endregion
+		#region public XS_BoEnumeration Type { get; set; }
+		internal XS_BoEnumeration type_;
+
+		[XmlAttribute("type")]
+		public XS_BoEnumeration Type {
+			get {
+				return type_;
+			}
+			set {
+				type_ = value;
+			}
+		}
+		#endregion
 		#region public XS_methodsType Methods { get; set; }
 		internal XS_methodsType methods__;
 
@@ -88,6 +101,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			int _index = -1;
 
 			name_ = classType_in.name_;
+			type_ = classType_in.type_;
 			if (classType_in.methods__ != null) methods__.CopyFrom(classType_in.methods__);
 		}
 		#endregion

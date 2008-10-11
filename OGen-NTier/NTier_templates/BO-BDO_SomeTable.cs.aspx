@@ -55,7 +55,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 	/// <summary>
 	/// <%=_aux_db_table.Name%> BusinessObject which provides access to <see cref="<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.DO_<%=_aux_db_table.Name%>">DO_<%=_aux_db_table.Name%></see> for the Business Layer.
 	/// </summary>
-	[BOClassAttribute("BDO_<%=_aux_db_table.Name%>")]
+	[BOClassAttribute("BDO_<%=_aux_db_table.Name%>", , "<%OGen.NTier.lib.metadata.metadataBusiness.XS_BoEnumeration.BDO.ToString()%>")]
 	public sealed 
 #if !NET_1_1
 		partial 

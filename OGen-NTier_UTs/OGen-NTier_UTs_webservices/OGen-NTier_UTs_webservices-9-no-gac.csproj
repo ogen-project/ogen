@@ -43,6 +43,7 @@
   <ItemGroup>
     <Content Include="Web.config" />
     <Content Include="WS_Authentication.asmx" />
+    <Content Include="WS_User.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -50,11 +51,22 @@
       <DependentUpon>WS_Authentication.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="WS_User.asmx.cs">
+      <DependentUpon>WS_User.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="_base\WS0_Authentication.asmx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_base\WS0_User.asmx.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\OGen-NTier\NTier_businesslayer\NTier_businesslayer-9.csproj">
+      <Project>{8AEBEA64-6FC4-430C-922C-B88D105AE91C}</Project>
+      <Name>NTier_businesslayer-9</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OGen-NTier_UTs_businesslayer\OGen-NTier_UTs_businesslayer-9-no-gac.csproj">
       <Project>{B3555514-3A7D-4159-B05D-E8D0C265B649}</Project>
       <Name>OGen-NTier_UTs_businesslayer-9-no-gac</Name>

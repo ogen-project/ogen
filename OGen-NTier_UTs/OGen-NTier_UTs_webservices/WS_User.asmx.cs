@@ -13,37 +13,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Web;
+using System.Web.Services;
+using System.Web.Services.Protocols;
 
-using OGen.NTier.lib.datalayer;
-using OGen.NTier.lib.businesslayer;
+using OGen.NTier.UTs.lib.businesslayer;
 
-using OGen.NTier.UTs.lib.datalayer;
-
-namespace OGen.NTier.UTs.lib.businesslayer {
+namespace OGen.NTier.UTs.distributed.webservices {
 	/// <summary>
-	/// UserGroup BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_UserGroup">DO_UserGroup</see> for the Business Layer.
+	/// User web service.
 	/// </summary>
-	[BOClassAttribute("BDO_UserGroup", "BDO")]
-	public sealed 
-#if !NET_1_1
-		partial 
-#endif
-		class BDO_UserGroup 
-#if NET_1_1
-			: BDO0_UserGroup 
-#endif
-	{
-		#region public BDO_UserGroup(...);
-		///
-		public BDO_UserGroup(
-			string authenticationLogin_in
-		) {
-			AuthenticationLogin = authenticationLogin_in;
-		}
-		#endregion
-
+	[WebService(Namespace = "http://OGen.NTier.UTs.distributed.webservices")]
+	[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+	[ToolboxItem(false)]
+	// To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
+	// [System.Web.Script.Services.ScriptService]
+	public class WS_User : WS0_User {
 		#region private Properties...
-		private string AuthenticationLogin;
 		#endregion
 		#region public Properties...
 		#endregion

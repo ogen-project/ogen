@@ -23,7 +23,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
 	/// User BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_User">DO_User</see> for the Business Layer.
 	/// </summary>
-	[BOClassAttribute("BDO_User")]
+	[BOClassAttribute("BDO_User", "BDO")]
 	public sealed 
 #if !NET_1_1
 		partial 
@@ -51,6 +51,15 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		#region private Methods...
 		#endregion
 		#region public Methods...
+		[BOMethodAttribute("insObject", true)]
+		public long insObject(
+			bool selectIdentity_in, 
+			out bool constraintExist_out
+		) {
+			//mainAggregate.insObject
+			constraintExist_out = false;
+			return -1L;
+		}
 		#endregion
 	}
 }

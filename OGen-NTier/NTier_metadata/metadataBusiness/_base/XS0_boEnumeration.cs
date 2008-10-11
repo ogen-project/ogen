@@ -13,44 +13,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
+using System.Xml.Serialization;
 
-using OGen.NTier.lib.datalayer;
-using OGen.NTier.lib.businesslayer;
-
-using OGen.NTier.UTs.lib.datalayer;
-
-namespace OGen.NTier.UTs.lib.businesslayer {
-	/// <summary>
-	/// UserGroup BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_UserGroup">DO_UserGroup</see> for the Business Layer.
-	/// </summary>
-	[BOClassAttribute("BDO_UserGroup", "BDO")]
-	public sealed 
-#if !NET_1_1
-		partial 
-#endif
-		class BDO_UserGroup 
-#if NET_1_1
-			: BDO0_UserGroup 
-#endif
-	{
-		#region public BDO_UserGroup(...);
-		///
-		public BDO_UserGroup(
-			string authenticationLogin_in
-		) {
-			AuthenticationLogin = authenticationLogin_in;
-		}
-		#endregion
-
-		#region private Properties...
-		private string AuthenticationLogin;
-		#endregion
-		#region public Properties...
-		#endregion
-
-		#region private Methods...
-		#endregion
-		#region public Methods...
-		#endregion
+namespace OGen.NTier.lib.metadata.metadataBusiness {
+	public enum XS_BoEnumeration {
+		BDO = 0, 
+		BO = 1, 
+		invalid = 2, 
 	}
 }

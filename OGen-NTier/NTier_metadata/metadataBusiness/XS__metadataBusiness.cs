@@ -66,6 +66,8 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			}
 			#endregion
 
+			bool _isBO = false;
+			bool _isBDO = false;
 			int _class_index;
 			int _method_index;
 			int _property_index;
@@ -94,17 +96,27 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 						BOClassAttribute _attribute 
 							= (BOClassAttribute)_classattributes[ca];
 
+_isBO = false;
+_isBDO = false;
 _output.Classes.ClassCollection.Add(
 	out _class_index, 
 	//_attribute.Name
-	(_type.Name.IndexOf("BO_") == 0)
+	(_isBO = (_type.Name.IndexOf("BO_") == 0))
 		? _type.Name.Substring(3)
 		: (
-			(_type.Name.IndexOf("BDO_") == 0)
+			(_isBDO = (_type.Name.IndexOf("BDO_") == 0))
 				? _type.Name.Substring(4)
 				: _type.Name
 		)
 );
+_output.Classes.ClassCollection[_class_index].Type
+	= ((_isBO)
+		? XS_BoEnumeration.BO
+		: ((_isBDO)
+			? XS_BoEnumeration.BDO
+			: XS_BoEnumeration.invalid
+		)
+	);
 
 						MethodInfo[] _methods = _type.GetMethods(
 							BindingFlags.Public |

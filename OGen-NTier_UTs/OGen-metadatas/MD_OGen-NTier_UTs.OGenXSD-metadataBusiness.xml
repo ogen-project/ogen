@@ -1,6 +1,16 @@
 <?xml version="1.0"?>
 <metadataBusiness xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" applicationName="OGen-NTier_UTs">
   <classes>
+    <class name="User">
+      <methods>
+        <method name="insObject" outputType="long" distribute="true">
+          <parameters>
+            <parameter name="selectIdentity_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="constraintExist_out" type="bool" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
     <class name="Authentication">
       <methods>
         <method name="Login" outputType="string" distribute="true">

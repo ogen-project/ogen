@@ -23,9 +23,11 @@ namespace OGen.NTier.lib.businesslayer {
 		#region public BOClassAttribute(...);
 		/// <param name="name_in">Name</param>
 		public BOClassAttribute(
-			string name_in
+			string name_in, 
+			string type_in
 		) {
 			name_ = name_in;
+			type_ = type_in;
 		}
 		#endregion
 
@@ -37,6 +39,17 @@ namespace OGen.NTier.lib.businesslayer {
 		/// </summary>
 		public string Name {
 			get { return name_; }
+		}
+		#endregion
+
+		#region public string Type { get; }
+		private string type_;
+
+		/// <summary>
+		/// Type
+		/// </summary>
+		public string Type {
+			get { return type_; }
 		}
 		#endregion
 	}

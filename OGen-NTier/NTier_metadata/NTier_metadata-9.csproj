@@ -112,6 +112,7 @@
     <Compile Include="metadataBusiness\XS_parameterTypeCollection.cs" />
     <Compile Include="metadataBusiness\XS__metadataBusiness.cs" />
     <Compile Include="metadataBusiness\XS__metadataBusinessCollection.cs" />
+    <Compile Include="metadataBusiness\_base\XS0_boEnumeration.cs" />
     <Compile Include="metadataBusiness\_base\XS0_classesType.cs" />
     <Compile Include="metadataBusiness\_base\XS0_classesTypeCollection.cs" />
     <Compile Include="metadataBusiness\_base\XS0_classType.cs" />

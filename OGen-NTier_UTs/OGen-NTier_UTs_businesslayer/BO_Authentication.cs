@@ -24,7 +24,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
 	/// Authentication BusinessObject.
 	/// </summary>
-	[BOClassAttribute("BO_Authentication")]
+	[BOClassAttribute("BO_Authentication", "BO")]
 	public class BO_Authentication : BO0_Authentication {
 		#region public BO0_Authentication(...);
 		public BO_Authentication(
