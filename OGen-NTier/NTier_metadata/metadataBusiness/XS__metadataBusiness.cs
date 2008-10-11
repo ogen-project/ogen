@@ -25,6 +25,21 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 	public partial class XS__metadataBusiness {
 	#endif
 
+		private static string translate(string what_in) {
+			if (what_in == typeof(System.String).ToString())
+				return "string";
+			else if (what_in == typeof(System.Int32).ToString())
+				return "int";
+			else if (what_in == typeof(System.Int64).ToString())
+				return "long";
+			else if (what_in == "System.Void")
+				return "void";
+			else if (what_in == typeof(System.Boolean).ToString())
+				return "bool";
+
+			return what_in;
+		}
+
 		public static XS__metadataBusiness Load_fromAssembly(
 			string assemblyFilePath_in, 
 
@@ -122,14 +137,11 @@ _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[
 	_method_index
 ].OutputType
-	= //(_methods[m].ReturnType.ToString() == "System.Void") 
-	//? "void" 
-	//: 
-	string.Format(
+	= translate(string.Format(
 		"{0}.{1}", 
 		_methods[m].ReturnType.Namespace, 
 		_methods[m].ReturnType.Name
-	);
+	));
 
 									}
 								}
@@ -146,14 +158,14 @@ _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_i
 ].isOut = _parameterinfo[p].IsOut;
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection[
 	_property_index
-].Type = string.Format(
+].Type = translate(string.Format(
 	"{0}.{1}",
 	_parameterinfo[p].ParameterType.Namespace,
 	(_parameterinfo[p].ParameterType.Name.IndexOf('&') >= 0)
 		? _parameterinfo[p].ParameterType.Name.Substring(0, _parameterinfo[p].ParameterType.Name.Length - 1)
 		: _parameterinfo[p].ParameterType.Name
 
-);
+));
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection[
 	_property_index
 ].isRef = (_parameterinfo[p].ParameterType.IsByRef && !_parameterinfo[p].IsOut);

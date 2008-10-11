@@ -1,4 +1,4 @@
-﻿#region Copyright (C) 2002 Francisco Monteiro
+#region Copyright (C) 2002 Francisco Monteiro
 /*
 
 OGen
@@ -24,13 +24,22 @@ using OGen.NTier.UTs.lib.businesslayer;
 
 namespace OGen.NTier.UTs.distributed.webservices {
 	/// <summary>
-	/// Summary description for WS_Authentication
+	/// Authentication web service.
 	/// </summary>
-	[WebService(Namespace = "http://tempuri.org/")]
+	[WebService(Namespace = "http://OGen.NTier.UTs.distributed.webservices")]
 	[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 	[ToolboxItem(false)]
 	// To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
 	// [System.Web.Script.Services.ScriptService]
 	public class WS_Authentication : WS0_Authentication {
+		#region private Properties...
+		#endregion
+		#region public Properties...
+		#endregion
+
+		#region private Methods...
+		#endregion
+		#region public Methods...
+		#endregion
 	}
 }

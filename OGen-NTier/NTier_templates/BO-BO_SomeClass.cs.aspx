@@ -84,7 +84,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 		for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
 			_aux_method = _aux_class.Methods.MethodCollection[m];%>
 		#region public override <%=_aux_method.OutputType%> <%=_aux_method.Name%>(...);
-		[BOMethodAttribute("<%=_aux_method.Name%>", <%=_aux_method.Distribute%>)]
+		[BOMethodAttribute("<%=_aux_method.Name%>", <%=_aux_method.Distribute.ToString().ToLower()%>)]
 		public override <%=_aux_method.OutputType%> <%=_aux_method.Name%>(<%
 			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
@@ -93,7 +93,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 		) {
 			// ...
 
-			<%=(_aux_method.OutputType == "System.Void") ? "" : "return null;"%>
+			<%=(_aux_method.OutputType == "void") ? "" : "return null;"%>
 		}
 		#endregion<%
 		}%>

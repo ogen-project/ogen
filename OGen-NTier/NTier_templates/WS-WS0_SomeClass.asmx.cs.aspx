@@ -72,17 +72,17 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributed.webservices {
 			_aux_method = _aux_class.Methods.MethodCollection[m];%>
 		#region public override <%=_aux_method.OutputType%> <%=_aux_method.Name%>(...);
 		[WebMethod]
-		public override <%=_aux_method.OutputType%> <%=_aux_method.Name%>(<%
+		public <%=_aux_method.OutputType%> <%=_aux_method.Name%>(<%
 			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
 			<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
 			}%>
 		) {
 			BO_<%=_aux_class.Name%> _businessobject = new BO_<%=_aux_class.Name%>();
-			<%=(_aux_method.OutputType == "System.Void") ? "" : "return "%>_businessobject.Login(<%
+			<%=(_aux_method.OutputType == "void") ? "" : "return "%>_businessobject.<%=_aux_method.Name%>(<%
 				for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 					_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
-				<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
+				<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
 				}%>
 			);
 		}

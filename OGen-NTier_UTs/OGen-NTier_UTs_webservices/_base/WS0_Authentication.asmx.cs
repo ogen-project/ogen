@@ -1,4 +1,4 @@
-﻿#region Copyright (C) 2002 Francisco Monteiro
+#region Copyright (C) 2002 Francisco Monteiro
 /*
 
 OGen
@@ -18,33 +18,44 @@ using System.Configuration;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
-//using System.Web.Security;
-//using System.Web.UI;
-//using System.Web.UI.HtmlControls;
-//using System.Web.UI.WebControls;
-//using System.Web.UI.WebControls.WebParts;
 
 using OGen.NTier.UTs.lib.businesslayer;
 
 namespace OGen.NTier.UTs.distributed.webservices {
+	/// <summary>
+	/// Authentication web service.
+	/// </summary>
 	public class WS0_Authentication : System.Web.Services.WebService {
+		#region private Properties...
+		#endregion
+		#region public Properties...
+		#endregion
+
+		#region private Methods...
+		#endregion
+		#region public Methods...
+		#region public override string Login(...);
 		[WebMethod]
 		public string Login(
 			string login_in, 
 			string password_in
 		) {
-			BO_Authentication _authentication = new BO_Authentication();
-			return _authentication.Login(
+			BO_Authentication _businessobject = new BO_Authentication();
+			return _businessobject.Login(
 				login_in, 
 				password_in
 			);
 		}
-
+		#endregion
+		#region public override void Logout(...);
 		[WebMethod]
-		public void Logout() {
-			BO_Authentication _authentication = new BO_Authentication();
-			_authentication.Logout(
+		public void Logout(
+		) {
+			BO_Authentication _businessobject = new BO_Authentication();
+			_businessobject.Logout(
 			);
 		}
+		#endregion
+		#endregion
 	}
 }

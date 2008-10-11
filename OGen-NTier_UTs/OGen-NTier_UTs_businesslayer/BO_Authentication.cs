@@ -24,7 +24,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
 	/// Authentication BusinessObject.
 	/// </summary>
-	[BOClassAttribute("Authentication")]
+	[BOClassAttribute("BO_Authentication")]
 	public class BO_Authentication : BO0_Authentication {
 		#region public BO0_Authentication(...);
 		public BO_Authentication(
@@ -72,19 +72,5 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		}
 		#endregion
 		#endregion
-
-		//[BOMethodAttribute("Test", true)]
-		//public bool Test(
-		//    int i, 
-		//    out int j,
-		//    ref int k,
-		//    string l,
-		//    out string[] m,
-		//    params int[] n
-		//) {
-		//    j = -1;
-		//    m = new string[] { };
-		//    return false;
-		//}
 	}
 }
