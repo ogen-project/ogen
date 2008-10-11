@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <metadataBusiness xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" applicationName="OGen-NTier_UTs">
   <classes>
-    <class name="User">
+    <class name="User" type="BDO">
       <methods>
         <method name="insObject" outputType="long" distribute="true">
           <parameters>
@@ -11,7 +11,7 @@
         </method>
       </methods>
     </class>
-    <class name="Authentication">
+    <class name="Authentication" type="BO">
       <methods>
         <method name="Login" outputType="string" distribute="true">
           <parameters>
