@@ -23,7 +23,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
 	/// Permition BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Permition">DO_Permition</see> for the Business Layer.
 	/// </summary>
-	[BOClassAttribute("BDO_Permition", "BDO")]
+	//[BOClassAttribute("BDO_Permition", "BDO")]
 	public sealed 
 #if !NET_1_1
 		partial 

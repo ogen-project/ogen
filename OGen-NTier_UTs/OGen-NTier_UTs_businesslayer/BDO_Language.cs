@@ -23,7 +23,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
 	/// Language BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_Language">DO_Language</see> for the Business Layer.
 	/// </summary>
-	[BOClassAttribute("BDO_Language", "BDO")]
+	//[BOClassAttribute("BDO_Language", "BDO")]
 	public sealed 
 #if !NET_1_1
 		partial 

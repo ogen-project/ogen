@@ -23,7 +23,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
 	/// vUserDefaultGroup BusinessObject which provides access to <see cref="OGen.NTier.UTs.lib.datalayer.DO_vUserDefaultGroup">DO_vUserDefaultGroup</see> for the Business Layer.
 	/// </summary>
-	[BOClassAttribute("BDO_vUserDefaultGroup", "BDO")]
+	//[BOClassAttribute("BDO_vUserDefaultGroup", "BDO")]
 	public sealed 
 #if !NET_1_1
 		partial 
