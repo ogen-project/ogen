@@ -1752,35 +1752,27 @@ _usergroup.Dispose(); _user = null;</pre></td>
 															align="left"><pre
 																id="4.2.10"
 																class="code"
-														>// Copyright (C) 2002 Francisco Monteiro
+														>
+long _iduser = 0L;
 
-using System;
-using OGen.lib.datalayer;
+OGen.lib.datalayer.DBConnection _con 
+	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+		// set your db server type here
+		OGen.lib.datalayer.DBServerTypes.PostgreSQL, 
+		// and connectionstring
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+	);
 
-namespace OGen.UTs.howtos {
-	class HowTo_Execute_SQLQuery {
-		public HowTo_Execute_SQLQuery() {
-			long _iduser = 0L;
+// executing your sql query
+_con.Execute_SQLQuery(
+	string.Format(
+		"delete from \"User\" where \"IDUser\" = {0}", 
+		_iduser.ToString()
+	)
+);
 
-			DBConnection _con = DBConnectionsupport.CreateInstance(
-				// set your db server type here
-				DBServerTypes.PostgreSQL, 
-				// and connectionstring
-				"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
-			);
-
-			// executing your sql query
-			_con.Execute_SQLQuery(
-				string.Format(
-					"delete from \"User\" where \"IDUser\" = {0}", 
-					_iduser.ToString()
-				)
-			);
-
-			_con.Dispose(); _con = null;
-		}
-	}
-}</pre></td>
+_con.Dispose(); _con = null;
+</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -1813,33 +1805,24 @@ namespace OGen.UTs.howtos {
 															align="left"><pre
 																id="4.2.10"
 																class="code"
-														>// Copyright (C) 2002 Francisco Monteiro
+														>
+OGen.lib.datalayer.DBConnection _con 
+	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+		// set your db server type here
+		OGen.lib.datalayer.DBServerTypes.PostgreSQL, 
+		// and connectionstring
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+	);
 
-using System;
-using System.Data;
-using OGen.lib.datalayer;
+// you now have a DataTable populated
+// with results from your sql query
+System.Data.DataTable _datatable 
+	= _con.Execute_SQLQuery_returnDataTable(
+		"select * from \"User\""
+	);
 
-namespace OGen.UTs.howtos {
-	class HowTo_Execute_SQLQuery_returnDataTable {
-		public HowTo_Execute_SQLQuery_returnDataTable() {
-			DBConnection _con = DBConnectionsupport.CreateInstance(
-				// set your db server type here
-				DBServerTypes.PostgreSQL, 
-				// and connectionstring
-				"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
-			);
-
-			// you now have a DataTable populated
-			// with results from your sql query
-			DataTable _datatable 
-				= _con.Execute_SQLQuery_returnDataTable(
-					"select * from \"User\""
-				);
-
-			_con.Dispose(); _con = null;
-		}
-	}
-}</pre></td>
+_con.Dispose(); _con = null;
+</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -1872,45 +1855,37 @@ namespace OGen.UTs.howtos {
 															align="left"><pre
 																id="4.2.10"
 																class="code"
-														>// Copyright (C) 2002 Francisco Monteiro
+														>
+long _iduser = 0L;
 
-using System;
-using System.Data;
-using OGen.lib.datalayer;
+OGen.lib.datalayer.DBConnection _con 
+	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+		// set your db server type here
+		OGen.lib.datalayer.DBServerTypes.PostgreSQL, 
+		// and connectionstring
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+	);
 
-namespace OGen.UTs.howtos {
-	class HowTo_Execute_SQLFunction {
-		public HowTo_Execute_SQLFunction() {
-			long _iduser = 0L;
+// set your function parameters
+System.Data.IDbDataParameter[] _dataparameters 
+	= new System.Data.IDbDataParameter[] {
+		_con.newDBDataParameter(
+			"IDUser_", 
+			System.Data.DbType.Int64, 
+			System.Data.ParameterDirection.Input, 
+			_iduser, 
+			0
+		)
+	};
 
-			DBConnection _con = DBConnectionsupport.CreateInstance(
-				// set your db server type here
-				DBServerTypes.PostgreSQL, 
-				// and connectionstring
-				"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
-			);
+// call you function
+_con.Execute_SQLFunction(
+	"sp0_User_delObject", 
+	_dataparameters
+);
 
-			// set your function parameters
-			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
-				_con.newDBDataParameter(
-					"IDUser_", 
-					DbType.Int64, 
-					ParameterDirection.Input, 
-					_iduser, 
-					0
-				)
-			};
-
-			// call you function
-			_con.Execute_SQLFunction(
-				"sp0_User_delObject", 
-				_dataparameters
-			);
-
-			_con.Dispose(); _con = null;
-		}
-	}
-}</pre></td>
+_con.Dispose(); _con = null;
+</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -1943,47 +1918,39 @@ namespace OGen.UTs.howtos {
 															align="left"><pre
 																id="4.2.10"
 																class="code"
-														>// Copyright (C) 2002 Francisco Monteiro
+														>
+long _iduser = 0L;
 
-using System;
-using System.Data;
-using OGen.lib.datalayer;
+OGen.lib.datalayer.DBConnection _con 
+	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+		// set your db server type here
+		OGen.lib.datalayer.DBServerTypes.PostgreSQL, 
+		// and connectionstring
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+	);
 
-namespace OGen.UTs.howtos {
-	class HowTo_Execute_SQLFunction_returnSomevalue {
-		public HowTo_Execute_SQLFunction_returnSomevalue() {
-			long _iduser = 0L;
+// set your function parameters
+System.Data.IDbDataParameter[] _dataparameters 
+	= new System.Data.IDbDataParameter[] {
+		_con.newDBDataParameter(
+			"IDUser_", 
+			System.Data.DbType.Int64, 
+			System.Data.ParameterDirection.Input, 
+			_iduser, 
+			0
+		)
+	};
 
-			DBConnection _con = DBConnectionsupport.CreateInstance(
-				// set your db server type here
-				DBServerTypes.PostgreSQL, 
-				// and connectionstring
-				"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
-			);
+// call you function and get returning value
+bool _result = (bool)_con.Execute_SQLFunction(
+	"fnc0_User_isObject", 
+	_dataparameters,
+	System.Data.DbType.Boolean, // returning value db type
+	0 // returning value size, if applicable
+);
 
-			// set your function parameters
-			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
-				_con.newDBDataParameter(
-					"IDUser_", 
-					DbType.Int64, 
-					ParameterDirection.Input, 
-					_iduser, 
-					0
-				)
-			};
-
-			// call you function and get returning value
-			bool _result = (bool)_con.Execute_SQLFunction(
-				"fnc0_User_isObject", 
-				_dataparameters, 
-				DbType.Boolean, // returning value db type
-				0 // returning value size, if applicable
-			);
-
-			_con.Dispose(); _con = null;
-		}
-	}
-}</pre></td>
+_con.Dispose(); _con = null;
+</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -2016,47 +1983,39 @@ namespace OGen.UTs.howtos {
 															align="left"><pre
 																id="4.2.10"
 																class="code"
-														>// Copyright (C) 2002 Francisco Monteiro
+														>
+long _idgroup_search = 1L;
 
-using System;
-using System.Data;
-using OGen.lib.datalayer;
+OGen.lib.datalayer.DBConnection _con 
+	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+		// set your db server type here
+		OGen.lib.datalayer.DBServerTypes.PostgreSQL, 
+		// and connectionstring
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+	);
 
-namespace OGen.UTs.howtos {
-	class HowTo_Execute_SQLFunction_returnDataTable {
-		public HowTo_Execute_SQLFunction_returnDataTable() {
-			long _idgroup_search = 1L;
+// set your function parameters
+System.Data.IDbDataParameter[] _dataparameters 
+	= new System.Data.IDbDataParameter[] {
+		_con.newDBDataParameter(
+			"IDGroup_search_", 
+			System.Data.DbType.Int64, 
+			System.Data.ParameterDirection.Input, 
+			_idgroup_search, 
+			0
+		)
+	};
 
-			DBConnection _con = DBConnectionsupport.CreateInstance(
-				// set your db server type here
-				DBServerTypes.PostgreSQL, 
-				// and connectionstring
-				"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
-			);
+// you now have a DataTable populated
+// with results from your sql function
+System.Data.DataTable _datatable 
+	= _con.Execute_SQLFunction_returnDataTable(
+		"sp0_User_Record_open_byGroup_fullmode", 
+		_dataparameters
+	);
 
-			// set your function parameters
-			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
-				_con.newDBDataParameter(
-					"IDGroup_search_", 
-					DbType.Int64, 
-					ParameterDirection.Input, 
-					_idgroup_search, 
-					0
-				)
-			};
-
-			// you now have a DataTable populated
-			// with results from your sql function
-			DataTable _datatable 
-				= _con.Execute_SQLFunction_returnDataTable(
-					"sp0_User_Record_open_byGroup_fullmode", 
-					_dataparameters
-				);
-
-			_con.Dispose(); _con = null;
-		}
-	}
-}</pre></td>
+_con.Dispose(); _con = null;
+</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -2095,29 +2054,21 @@ namespace OGen.UTs.howtos {
 															align="left"><pre
 																id="4.2.15"
 																class="code"
-														>// Copyright (C) 2002 Francisco Monteiro
+														>
+OGen.lib.datalayer.DBConnection _con
+	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+	// set your db server type here
+		OGen.lib.datalayer.DBServerTypes.PostgreSQL,
+	// and connectionstring
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+	);
 
-using System;
-using OGen.lib.datalayer;
+// you now have a string array populated with all
+// databases (except system ones) at you db server
+string[] _dbs = _con.getDBs();
 
-namespace OGen.UTs.howtos {
-	class HowTo_List_DBs {
-		public HowTo_List_DBs() {
-			DBConnection _con = DBConnectionsupport.CreateInstance(
-				// set your db server type here
-				DBServerTypes.PostgreSQL, 
-				// and connectionstring
-				"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
-			);
-
-			// you now have a string array populated with all
-			// databases (except system ones) at you db server
-			string[] _dbs = _con.getDBs();
-
-			_con.Dispose(); _con = null;
-		}
-	}
-}</pre></td>
+_con.Dispose(); _con = null;
+</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -2147,36 +2098,28 @@ namespace OGen.UTs.howtos {
 															align="left"><pre
 																id="4.2.16"
 																class="code"
-														>// Copyright (C) 2002 Francisco Monteiro
+														>
+OGen.lib.datalayer.DBConnection _con 
+	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+		// set your db server type here
+		OGen.lib.datalayer.DBServerTypes.PostgreSQL, 
+		// and connectionstring
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+	);
 
-using System;
-using OGen.lib.datalayer;
+// you now have a cDBTable array populated with all
+// table names and other properties for your database
+OGen.lib.datalayer.DBTable[] _tables = _con.getTables();
 
-namespace OGen.UTs.howtos {
-	class HowTo_List_DB_Tables {
-		public HowTo_List_DB_Tables() {
-			DBConnection _con = DBConnectionsupport.CreateInstance(
-				// set your db server type here
-				DBServerTypes.PostgreSQL, 
-				// and connectionstring
-				"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
-			);
+for (int t = 0; t < _tables.Length; t++)
+	Console.WriteLine(
+		"table name: {0}\nis this a view and not a table: {1}", 
+		_tables[t].Name, 
+		_tables[t].isVirtualTable
+	);
 
-			// you now have a cDBTable array populated with all
-			// table names and other properties for your database
-			DBTable[] _tables = _con.getTables();
-
-			for (int t = 0; t < _tables.Length; t++)
-				Console.WriteLine(
-					"table name: {0}\nis this a view and not a table: {1}", 
-					_tables[t].Name, 
-					_tables[t].isVirtualTable
-				);
-
-			_con.Dispose(); _con = null;
-		}
-	}
-}</pre></td>
+_con.Dispose(); _con = null;
+</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -2206,48 +2149,40 @@ namespace OGen.UTs.howtos {
 															align="left"><pre
 																id="4.2.17"
 																class="code"
-														>// Copyright (C) 2002 Francisco Monteiro
+														>
+OGen.lib.datalayer.DBConnection _con 
+	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+		// set your db server type here
+		OGen.lib.datalayer.DBServerTypes.PostgreSQL, 
+		// and connectionstring
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+	);
 
-using System;
-using OGen.lib.datalayer;
+// you now have a cDBTableField array populated with all
+// field names and other properties for specified table
+OGen.lib.datalayer.DBTableField[] _fields = _con.getTableFields("User");
 
-namespace OGen.UTs.howtos {
-	class HowTo_List_DB_TableFields {
-		public HowTo_List_DB_TableFields() {
-			DBConnection _con = DBConnectionsupport.CreateInstance(
-				// set your db server type here
-				DBServerTypes.PostgreSQL, 
-				// and connectionstring
-				"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
-			);
+for (int f = 0; f < _fields.Length; f++)
+	Console.WriteLine(
+		"field name: {0}\nis PK: {1}\nis Identity: {2}\nis nullable: {3}", 
+		_fields[f].Name, 
+		_fields[f].isPK, 
+		_fields[f].isIdentity, 
+		_fields[f].isNullable, 
 
-			// you now have a cDBTableField array populated with all
-			// field names and other properties for specified table
-			DBTableField[] _fields = _con.getTableFields("User");
+		// many other properties available, like:
+		_fields[f].DBCollationName, 
+		_fields[f].DBDefaultValue, 
+		_fields[f].DBDescription, 
+		_fields[f].FK_FieldName, 
+		_fields[f].FK_TableName, 
+		_fields[f].Numeric_Precision, 
+		_fields[f].Numeric_Scale, 
+		_fields[f].Size
+	);
 
-			for (int f = 0; f < _fields.Length; f++)
-				Console.WriteLine(
-					"field name: {0}\nis PK: {1}\nis Identity: {2}\nis nullable: {3}", 
-					_fields[f].Name, 
-					_fields[f].isPK, 
-					_fields[f].isIdentity, 
-					_fields[f].isNullable, 
-
-					// many other properties available, like:
-					_fields[f].DBCollationName, 
-					_fields[f].DBDefaultValue, 
-					_fields[f].DBDescription, 
-					_fields[f].FK_FieldName, 
-					_fields[f].FK_TableName, 
-					_fields[f].Numeric_Precision, 
-					_fields[f].Numeric_Scale, 
-					_fields[f].Size
-				);
-
-			_con.Dispose(); _con = null;
-		}
-	}
-}</pre></td>
+_con.Dispose(); _con = null;
+</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -2280,52 +2215,44 @@ namespace OGen.UTs.howtos {
 															align="left"><pre
 																id="4.2.10"
 																class="code"
-														>// Copyright (C) 2002 Francisco Monteiro
+														>
+long _iduser = 0L;
 
-using System;
-using OGen.lib.datalayer;
+OGen.lib.datalayer.DBConnection _con
+	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+	// set your db server type here
+		OGen.lib.datalayer.DBServerTypes.PostgreSQL,
+	// and connectionstring
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+	);
 
-namespace OGen.UTs.howtos {
-	public class HowTo_UseTransactions {
-		public HowTo_UseTransactions() {
-			long _iduser = 0L;
+// before beginning a transaction we need to open the connection
+_con.Open();
+try {
+	// beginning transaction
+	_con.Transaction.Begin();
 
-			DBConnection _con = DBConnectionsupport.CreateInstance(
-				// set your db server type here
-				DBServerTypes.PostgreSQL, 
-				// and connectionstring
-				"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
-			);
+	// performing some operations on db
+	_con.Execute_SQLQuery(
+		string.Format(
+			"delete from \"User\" where \"IDUser\" = {0}",
+			_iduser.ToString()
+		)
+	);
 
-			// before beginning a transaction we need to open the connection
-			_con.Open();
-			try {
-				// beginning transaction
-				_con.Transaction.Begin();
-
-				// performing some operations on db
-				_con.Execute_SQLQuery(
-					string.Format(
-						"delete from \"User\" where \"IDUser\" = {0}",
-						_iduser.ToString()
-					)
-				);
-
-				// commit transaction
-				_con.Transaction.Commit();
-			} catch (Exception _ex) {
-				// rollback transaction
-				_con.Transaction.Rollback();
-			} finally {
-				// terminate transaction
-				_con.Transaction.Terminate();
-			}
-			// closing connection
-			_con.Close();
-			_con.Dispose(); _con = null;
-		}
-	}
-}</pre></td>
+	// commit transaction
+	_con.Transaction.Commit();
+} catch (Exception _ex) {
+	// rollback transaction
+	_con.Transaction.Rollback();
+} finally {
+	// terminate transaction
+	_con.Transaction.Terminate();
+}
+// closing connection
+_con.Close();
+_con.Dispose(); _con = null;
+</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -2358,50 +2285,40 @@ namespace OGen.UTs.howtos {
 															align="left"><pre
 																id="4.2.10"
 																class="code"
-														>// Copyright (C) 2002 Francisco Monteiro
+														>
+string _testid = DateTime.Now.Ticks.ToString();
+bool _constraint;
+long _iduser;
+long _idgroup;
 
-using System;
-using OGen.lib.datalayer;
-using OGen.NTier.lib.datalayer;
-using OGen.NTier.UTs.lib.datalayer;
+OGen.NTier.UTs.lib.datalayer.DO_User _user 
+	= new OGen.NTier.UTs.lib.datalayer.DO_User();
 
-namespace OGen.NTier.UTs.howtos {
-	public class HowTo_UseTransactions_inDOs {
-		public HowTo_UseTransactions_inDOs() {
-			string _testid = DateTime.Now.Ticks.ToString();
-			bool _constraint;
-			long _iduser;
-			long _idgroup;
+// before beginning a transaction we need to open the connection
+_user.Connection.Open();
+try {
+	// beginning transaction
+	_user.Connection.Transaction.Begin();
 
-			DO_User _user = new DO_User();
+	// performing some operations on User Data Object
+	_user.Fields.Login = _testid;
+	_user.Fields.Password = _testid;
+	_iduser = _user.insObject(true, out _constraint);
+	// handling constraint code should be added here
 
-			// before beginning a transaction we need to open the connection
-			_user.Connection.Open();
-			try {
-				// beginning transaction
-				_user.Connection.Transaction.Begin();
-
-				// performing some operations on User Data Object
-				_user.Fields.Login = _testid;
-				_user.Fields.Password = _testid;
-				_iduser = _user.insObject(true, out _constraint);
-				// handling constraint code should be added here
-
-				// commit transaction
-				_user.Connection.Transaction.Commit();
-			} catch (Exception _ex) {
-				// rollback transaction
-				_user.Connection.Transaction.Rollback();
-			} finally {
-				// terminate transaction
-				_user.Connection.Transaction.Terminate();
-			}
-			// closing connection
-			_user.Connection.Close();
-			_user.Dispose(); _user = null;
-		}
-	}
-}</pre></td>
+	// commit transaction
+	_user.Connection.Transaction.Commit();
+} catch (Exception _ex) {
+	// rollback transaction
+	_user.Connection.Transaction.Rollback();
+} finally {
+	// terminate transaction
+	_user.Connection.Transaction.Terminate();
+}
+// closing connection
+_user.Connection.Close();
+_user.Dispose(); _user = null;
+</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -2434,75 +2351,67 @@ namespace OGen.NTier.UTs.howtos {
 															align="left"><pre
 																id="4.2.10"
 																class="code"
-														>// Copyright (C) 2002 Francisco Monteiro
+														>
+string _testid = DateTime.Now.Ticks.ToString();
+bool _constraint;
+long _iduser;
+long _idgroup;
 
-using System;
-using OGen.lib.datalayer;
-using OGen.NTier.lib.datalayer;
-using OGen.NTier.UTs.lib.datalayer;
+// we need a shared connection between Data Objects
+OGen.lib.datalayer.DBConnection _con = OGen.NTier.UTs.lib.datalayer.DO__utils.DBConnection_createInstance(
+	OGen.NTier.UTs.lib.datalayer.DO__utils.DBServerType,
+	OGen.NTier.UTs.lib.datalayer.DO__utils.DBConnectionstring, 
+	string.Empty
+);
 
-namespace OGen.NTier.UTs.howtos {
-	public class HowTo_UseTransactions_betweenDOs_operations {
-		public HowTo_UseTransactions_betweenDOs_operations() {
-			string _testid = DateTime.Now.Ticks.ToString();
-			bool _constraint;
-			long _iduser;
-			long _idgroup;
+// before beginning a transaction we need to open the connection
+_con.Open();
+try {
+	// beginning transaction
+	_con.Transaction.Begin();
 
-			// we need a shared connection between Data Objects
-			DBConnection _con = DO__utils.DBConnection_createInstance(
-				DO__utils.DBServerType, 
-				DO__utils.DBConnectionstring, 
-				string.Empty
-			);
+	// sharing connection with User Data Object
+	OGen.NTier.UTs.lib.datalayer.DO_User _user 
+		= new OGen.NTier.UTs.lib.datalayer.DO_User(_con);
+	// performing some operations on User Data Object
+	_user.Fields.Login = _testid;
+	_user.Fields.Password = _testid;
+	_iduser = _user.insObject(true, out _constraint);
+	// handling constraint code should be added here
+	_user.Dispose(); _user = null;
 
-			// before beginning a transaction we need to open the connection
-			_con.Open();
-			try {
-				// beginning transaction
-				_con.Transaction.Begin();
+	// sharing connection with Group Data Object
+	OGen.NTier.UTs.lib.datalayer.DO_Group _group 
+		= new OGen.NTier.UTs.lib.datalayer.DO_Group(_con);
+	// performing some operations on User Data Object
+	_group.Fields.Name = _testid;
+	_idgroup = _group.insObject(true);
+	_group.Dispose(); _group = null;
 
-				// sharing connection with User Data Object
-				DO_User _user = new DO_User(_con);
-				// performing some operations on User Data Object
-				_user.Fields.Login = _testid;
-				_user.Fields.Password = _testid;
-				_iduser = _user.insObject(true, out _constraint);
-				// handling constraint code should be added here
-				_user.Dispose(); _user = null;
+	// sharing connection with Group Data Object
+	OGen.NTier.UTs.lib.datalayer.DO_UserGroup _usergroup
+		= new OGen.NTier.UTs.lib.datalayer.DO_UserGroup(_con);
+	// performing some operations on User Data Object
+	_usergroup.Fields.IDGroup = _idgroup;
+	_usergroup.Fields.IDUser = _iduser;
+	_usergroup.Fields.Relationdate = DateTime.Now;
+	_usergroup.Fields.Defaultrelation = false;
+	_usergroup.setObject(false);
+	_usergroup.Dispose(); _usergroup = null;
 
-				// sharing connection with Group Data Object
-				DO_Group _group = new DO_Group(_con);
-				// performing some operations on User Data Object
-				_group.Fields.Name = _testid;
-				_idgroup = _group.insObject(true);
-				_group.Dispose(); _group = null;
-
-				// sharing connection with Group Data Object
-				DO_UserGroup _usergroup = new DO_UserGroup(_con);
-				// performing some operations on User Data Object
-				_usergroup.Fields.IDGroup = _idgroup;
-				_usergroup.Fields.IDUser = _iduser;
-				_usergroup.Fields.Relationdate = DateTime.Now;
-				_usergroup.Fields.Defaultrelation = false;
-				_usergroup.setObject(false);
-				_usergroup.Dispose(); _usergroup = null;
-
-				// commit transaction
-				_con.Transaction.Commit();
-			} catch (Exception _ex) {
-				// rollback transaction
-				_con.Transaction.Rollback();
-			} finally {
-				// terminate transaction
-				_con.Transaction.Terminate();
-			}
-			// closing connection
-			_con.Close();
-			_con.Dispose(); _con = null;
-		}
-	}
-}</pre></td>
+	// commit transaction
+	_con.Transaction.Commit();
+} catch (Exception _ex) {
+	// rollback transaction
+	_con.Transaction.Rollback();
+} finally {
+	// terminate transaction
+	_con.Transaction.Terminate();
+}
+// closing connection
+_con.Close();
+_con.Dispose(); _con = null;
+</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -2542,93 +2451,84 @@ namespace OGen.NTier.UTs.howtos {
 															align="left"><pre
 																id="4.2.21"
 																class="code"
-														>// Copyright (C) 2002 Francisco Monteiro
+														>
+System.Reflection.Assembly _assembly = System.Reflection.Assembly.Load(
+	#if NET_1_1
+	"OGen.NTier.UTs.lib.datalayer-1.1"
+	#elif NET_2_0
+	"OGen.NTier.UTs.lib.datalayer-2.0"
+	#endif
+);
+if (_assembly != null) {
+	Type[] _types = _assembly.GetTypes();
+	for (int _tp = 0; _tp < _types.Length; _tp++) {
+		Type _type = (Type)_types[_tp];
 
-using System;
-using System.Reflection;
-using OGen.NTier.lib.datalayer;
-using OGen.NTier.UTs.lib.datalayer;
+		object[] _doclassattributes = _type.GetCustomAttributes(
+			typeof(OGen.NTier.lib.datalayer.DOClassAttribute),
+			true//false
+		);
+		if (
+			(_doclassattributes.Length > 0)
+			&&
+			(_type.Name.IndexOf("DO0_") != 0)
+		) {
+			Console.Write("{0};  ", _type.Name);
+			for (int _catt = 0; _catt < _doclassattributes.Length; _catt++) {
+				OGen.NTier.lib.datalayer.DOClassAttribute _classattribute 
+					= (OGen.NTier.lib.datalayer.DOClassAttribute)_doclassattributes[_catt];
+				Console.WriteLine(
+					"name: {0};  isVirtualTable: {1};  isConfig: {2};  ",
+					_classattribute.Name,
+					_classattribute.isVirtualTable,
+					_classattribute.isConfig
+				);
 
-namespace OGen.NTier.UTs.howtos {
-	class HowTo_List_DataObjects {
-		public HowTo_List_DataObjects() {
-			Assembly _assembly = Assembly.Load(
-				#if NET_1_1
-				"OGen.NTier.UTs.lib.datalayer-1.1"
-				#elif NET_2_0
-				"OGen.NTier.UTs.lib.datalayer-2.0"
-				#endif
-			);
-			if (_assembly != null) {
-				Type[] _types = _assembly.GetTypes();
-				for (int _tp = 0; _tp < _types.Length; _tp++) {
-					Type _type = (Type)_types[_tp];
-
-					object[] _doclassattributes = _type.GetCustomAttributes(
-						typeof(DOClassAttribute),
-						true//false
-					);
-					if (
-						(_doclassattributes.Length > 0)
-						&&
-						(_type.Name.IndexOf("DO0_") != 0)
-					) {
-						Console.Write("{0};  ", _type.Name);
-						for (int _catt = 0; _catt < _doclassattributes.Length; _catt++) {
-							DOClassAttribute _classattribute = (DOClassAttribute)_doclassattributes[_catt];
-							Console.WriteLine(
-								"name: {0};  isVirtualTable: {1};  isConfig: {2};  ",
-								_classattribute.Name,
-								_classattribute.isVirtualTable,
-								_classattribute.isConfig
-							);
-
-							PropertyInfo[] _properties = _type.GetProperties(
-								BindingFlags.Public |
-								BindingFlags.Instance
-							);
-							for (int _prop = 0; _prop < _properties.Length; _prop++) {
-								if (Attribute.IsDefined(
-									_properties[_prop],
-									typeof(DOPropertyAttribute)
-								)) {
-									Console.Write(
-										"\t{0}: ",
-										_properties[_prop].Name
-									);
-									Attribute[] _attributes = Attribute.GetCustomAttributes(
-										_properties[_prop]
-										//, typeof(DOPropertyAttribute)
-										//, true
-									);
-									//Console.WriteLine("Name \t isPK \t isIdentity \t DefaultValue \t \t \t \t isBool");
-									for (int _att = 0; _att < _attributes.Length; _att++) {
-										//if (_attributes[_att].GetType() == typeof(DOPropertyAttribute)) {
-											DOPropertyAttribute _propertyattribute = (DOPropertyAttribute)_attributes[_att];
-											Console.Write(
-												"name:{0};  isPK:{1};  isIdentity:{2};  isText:{3};",
-												_propertyattribute.Name,
-												_propertyattribute.isPK,
-												_propertyattribute.isIdentity,
-												//att3.DefaultValue,
-												//att3.isConfig_Name, 
-												//att3.isConfig_Config, 
-												//att3.isConfig_Datatype, 
-												_propertyattribute.isText
-											);
-										//}
-									}
-									Console.WriteLine();
-								}
-							}
-							Console.WriteLine();
+				System.Reflection.PropertyInfo[] _properties = _type.GetProperties(
+					System.Reflection.BindingFlags.Public |
+					System.Reflection.BindingFlags.Instance
+				);
+				for (int _prop = 0; _prop < _properties.Length; _prop++) {
+					if (Attribute.IsDefined(
+						_properties[_prop],
+						typeof(OGen.NTier.lib.datalayer.DOPropertyAttribute)
+					)) {
+						Console.Write(
+							"\t{0}: ",
+							_properties[_prop].Name
+						);
+						Attribute[] _attributes = Attribute.GetCustomAttributes(
+							_properties[_prop]
+							//, typeof(DOPropertyAttribute)
+							//, true
+						);
+						//Console.WriteLine("Name \t isPK \t isIdentity \t DefaultValue \t \t \t \t isBool");
+						for (int _att = 0; _att < _attributes.Length; _att++) {
+							//if (_attributes[_att].GetType() == typeof(DOPropertyAttribute)) {
+								OGen.NTier.lib.datalayer.DOPropertyAttribute _propertyattribute
+									= (OGen.NTier.lib.datalayer.DOPropertyAttribute)_attributes[_att];
+								Console.Write(
+									"name:{0};  isPK:{1};  isIdentity:{2};  isText:{3};",
+									_propertyattribute.Name,
+									_propertyattribute.isPK,
+									_propertyattribute.isIdentity,
+									//att3.DefaultValue,
+									//att3.isConfig_Name, 
+									//att3.isConfig_Config, 
+									//att3.isConfig_Datatype, 
+									_propertyattribute.isText
+								);
+							//}
 						}
+						Console.WriteLine();
 					}
 				}
+				Console.WriteLine();
 			}
 		}
 	}
-}</pre></td>
+}
+</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -2658,50 +2558,41 @@ namespace OGen.NTier.UTs.howtos {
 															align="left"><pre
 																id="4.2.22"
 																class="code"
-														>// Copyright (C) 2002 Francisco Monteiro
+														>
+OGen.NTier.lib.datalayer.DOPropertyAttribute _attribute
+	= (OGen.NTier.lib.datalayer.DOPropertyAttribute)Attribute.GetCustomAttribute(
+		typeof(OGen.NTier.UTs.lib.datalayer.DO_User).GetProperty("IDUser"),
+		typeof(OGen.NTier.lib.datalayer.DOPropertyAttribute),
+		true
+	);
+Console.WriteLine(
+	"name:{0};  isPK:{1};  isIdentity:{2};  DefaultValue:{3};",
+	_attribute.Name,
+	_attribute.isPK,
+	_attribute.isIdentity,
+	_attribute.DefaultValue,
 
-using System;
-using OGen.NTier.lib.datalayer;
-using OGen.NTier.UTs.lib.datalayer;
-
-namespace OGen.NTier.UTs.howtos {
-	class HowTo_Read_DataObject_Property_Attributes {
-		public HowTo_Read_DataObject_Property_Attributes() {
-			DOPropertyAttribute _attribute = (DOPropertyAttribute)Attribute.GetCustomAttribute(
-				typeof(DO_User).GetProperty("IDUser"),
-				typeof(DOPropertyAttribute),
-				true
-			);
-			Console.WriteLine(
-				"name:{0};  isPK:{1};  isIdentity:{2};  DefaultValue:{3};",
-				_attribute.Name,
-				_attribute.isPK,
-				_attribute.isIdentity,
-				_attribute.DefaultValue,
-
-				// many other properties available, like:
-				_attribute.AditionalInfo, 
-				_attribute.DefaultValue, 
-				_attribute.ExtendedDescription, 
-				_attribute.FK_FieldName, 
-				_attribute.FK_TableName, 
-				_attribute.FriendlyName, 
-				_attribute.isBool, 
-				_attribute.isConfig_Config, 
-				_attribute.isConfig_Datatype, 
-				_attribute.isConfig_Name, 
-				_attribute.isDateTime, 
-				_attribute.isDecimal, 
-				_attribute.isInt, 
-				_attribute.isListItemText, 
-				_attribute.isListItemValue, 
-				_attribute.isNullable, 
-				_attribute.isText, 
-				_attribute.Size
-			);
-		}
-	}
-}</pre></td>
+	// many other properties available, like:
+	_attribute.AditionalInfo, 
+	_attribute.DefaultValue, 
+	_attribute.ExtendedDescription, 
+	_attribute.FK_FieldName, 
+	_attribute.FK_TableName, 
+	_attribute.FriendlyName, 
+	_attribute.isBool, 
+	_attribute.isConfig_Config, 
+	_attribute.isConfig_Datatype, 
+	_attribute.isConfig_Name, 
+	_attribute.isDateTime, 
+	_attribute.isDecimal, 
+	_attribute.isInt, 
+	_attribute.isListItemText, 
+	_attribute.isListItemValue, 
+	_attribute.isNullable, 
+	_attribute.isText, 
+	_attribute.Size
+);
+</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -2731,72 +2622,63 @@ namespace OGen.NTier.UTs.howtos {
 															align="left"><pre
 																id="4.2.23"
 																class="code"
-														>// Copyright (C) 2002 Francisco Monteiro
+														>
+OGen.NTier.UTs.lib.datalayer.DO_User _user = new OGen.NTier.UTs.lib.datalayer.DO_User();
+_user.Fields.IDUser = 123;
+_user.Fields.Login = "123";
+_user.Fields.Password = "123";
 
-using System;
-using System.Reflection;
-using OGen.NTier.lib.datalayer;
-using OGen.NTier.UTs.lib.datalayer;
-
-namespace OGen.NTier.UTs.howtos {
-	class HowTo_Read_and_Write_to_DataObject_Properties {
-		public HowTo_Read_and_Write_to_DataObject_Properties() {
-			DO_User _user = new DO_User();
-			_user.Fields.IDUser = 123;
-			_user.Fields.Login = "123";
-			_user.Fields.Password = "123";
-
-			PropertyInfo[] _properties = typeof(DO_User).GetProperties(
-				BindingFlags.Public | 
-				BindingFlags.Instance
-			);
-			for (int _prop = 0; _prop < _properties.Length; _prop++) {
-				if (Attribute.IsDefined(
-					_properties[_prop], 
-					typeof(DOPropertyAttribute)
-				)) {
-					Console.Write(
-						"{0}: ", 
-						_properties[_prop].Name
-					);
-					Attribute[] _attributes = Attribute.GetCustomAttributes(
-						_properties[_prop]
-						//, typeof(DOPropertyAttribute)
-						//, true
-					);
-					for (int _att = 0; _att < _attributes.Length; _att++) {
-						//if (_attributes[_att].GetType() == typeof(DOPropertyAttribute)) {
-							DOPropertyAttribute _attribute = (DOPropertyAttribute)_attributes[_att];
-							Console.Write(
-								"name:{0};  isPK:{1};  isIdentity:{2};  DefaultValue:{3};  ",
-								_attribute.Name,
-								_attribute.isPK,
-								_attribute.isIdentity,
-								_attribute.DefaultValue
-							);
-						//}
-					}
-					Console.Write(
-						"value: {0}; ", 
-						_properties[_prop].GetValue(_user, null)
-					);
-					_properties[_prop].SetValue(
-						_user, 
-						Convert.ChangeType(
-							456, 
-							_properties[_prop].PropertyType
-						), 
-						null
-					);
-					Console.WriteLine(
-						"new value: {0}", 
-						_properties[_prop].GetValue(_user, null)
-					);
-				}
-			}
+System.Reflection.PropertyInfo[] _properties
+	= typeof(OGen.NTier.UTs.lib.datalayer.DO_User).GetProperties(
+		System.Reflection.BindingFlags.Public |
+		System.Reflection.BindingFlags.Instance
+	);
+for (int _prop = 0; _prop < _properties.Length; _prop++) {
+	if (Attribute.IsDefined(
+		_properties[_prop],
+		typeof(OGen.NTier.lib.datalayer.DOPropertyAttribute)
+	)) {
+		Console.Write(
+			"{0}: ", 
+			_properties[_prop].Name
+		);
+		Attribute[] _attributes = Attribute.GetCustomAttributes(
+			_properties[_prop]
+			//, typeof(DOPropertyAttribute)
+			//, true
+		);
+		for (int _att = 0; _att < _attributes.Length; _att++) {
+			//if (_attributes[_att].GetType() == typeof(DOPropertyAttribute)) {
+			OGen.NTier.lib.datalayer.DOPropertyAttribute _attribute
+					= (OGen.NTier.lib.datalayer.DOPropertyAttribute)_attributes[_att];
+				Console.Write(
+					"name:{0};  isPK:{1};  isIdentity:{2};  DefaultValue:{3};  ",
+					_attribute.Name,
+					_attribute.isPK,
+					_attribute.isIdentity,
+					_attribute.DefaultValue
+				);
+			//}
 		}
+		Console.Write(
+			"value: {0}; ", 
+			_properties[_prop].GetValue(_user, null)
+		);
+		_properties[_prop].SetValue(
+			_user, 
+			Convert.ChangeType(
+				456, 
+				_properties[_prop].PropertyType
+			), 
+			null
+		);
+		Console.WriteLine(
+			"new value: {0}", 
+			_properties[_prop].GetValue(_user, null)
+		);
 	}
-}</pre></td>
+}
+</pre></td>
 													</tr>
 													<tr>
 														<td 
