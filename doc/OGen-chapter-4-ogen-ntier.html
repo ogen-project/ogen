@@ -451,11 +451,12 @@ legend:
 															align="left"><pre
 																id="4.2.5"
 																class="code"
-														>long _iduser = 0L;
+														>
+long _iduser = 0L;
 
-DO_User _user = new DO_User();
-_user.Login = "fmonteiro";
-_user.Password = "passpub";
+OGen.NTier.UTs.lib.datalayer.DO_User _user = new OGen.NTier.UTs.lib.datalayer.DO_User();
+_user.Fields.Login = "fmonteiro";
+_user.Fields.Password = "passpub";
 // assigning selectIdentity parameter to true retrieves Sequence/Identity for IDUser
 _iduser = _user.insObject(true);
 _user.Dispose(); _user = null;
@@ -463,7 +464,8 @@ _user.Dispose(); _user = null;
 Console.WriteLine(
   "user inserted, at:\nIDUser = {0}", 
   _iduser
-);</pre></td>
+);
+</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -493,18 +495,20 @@ Console.WriteLine(
 															align="left"><pre
 																id="4.2.6"
 																class="code"
-														>long _iduser = 1L;
+														>
+long _iduser = 1L;
 
-DO_User _user = new DO_User();
+OGen.NTier.UTs.lib.datalayer.DO_User _user = new OGen.NTier.UTs.lib.datalayer.DO_User();
 if (_user.getObject(_iduser))
 	Console.WriteLine(
 	  "user found:\nIDUser = {0}\nLogin = {1}", 
 	  _iduser, 
-	  _user.Login
+	  _user.Fields.Login
 	);
 else
 	Console.WriteLine("user not found");
-_user.Dispose(); _user = null;</pre></td>
+_user.Dispose(); _user = null;
+</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -534,24 +538,27 @@ _user.Dispose(); _user = null;</pre></td>
 															align="left"><pre
 																id="4.2.7"
 																class="code"
-														>long _iduser = 1L;
+														>
+long _iduser = 1L;
 
-DO_User _user = new DO_User();
-if (_user.getObject(_iduser))
+OGen.NTier.UTs.lib.datalayer.DO_User _user = new OGen.NTier.UTs.lib.datalayer.DO_User();
+if (_user.getObject(_iduser)) {
 	Console.Write(
-	  "updating user login:\nLogin = {0}\nnew Login = {1} ... ", 
-	  _user.Login, 
-	  _user.Login = "whatever"
+	  "updating user login:\nLogin = {0}\nnew Login = {1} ... ",
+	  _user.Fields.Login,
+	  _user.Fields.Login = "whatever"
 	);
 
 	// makes no update unless changes have been made, 
 	// you can force update by sending true parameter
 	_user.updObject(false);
-	
+
 	Console.WriteLine("DONE!");
-else
+} else {
 	Console.WriteLine("user not found");
-_user.Dispose(); _user = null;</pre></td>
+}
+_user.Dispose(); _user = null;
+</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -581,13 +588,14 @@ _user.Dispose(); _user = null;</pre></td>
 															align="left"><pre
 																id="4.2.8"
 																class="code"
-														>long _iduser = 1L;
+														>
+long _iduser = 1L;
 
-DO_User _user = new DO_User();
-if (_user.getObject(_iduser))
+OGen.NTier.UTs.lib.datalayer.DO_User _user = new OGen.NTier.UTs.lib.datalayer.DO_User();
+if (_user.getObject(_iduser)) {
 	Console.Write(
-	  "deleting user {0} ... ", 
-	  _user.Login
+	  "deleting user {0} ... ",
+	  _user.Fields.Login
 	);
 
 	//--- if parameter not specified uses object property _user.IDUser
@@ -595,11 +603,13 @@ if (_user.getObject(_iduser))
 
 	//-- so in the case no need to provide IDUser
 	_user.delObject();
-	
+
 	Console.WriteLine("DONE!");
-else
+} else {
 	Console.WriteLine("user not found");
-_user.Dispose(); _user = null;</pre></td>
+}
+_user.Dispose(); _user = null;
+</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -629,19 +639,21 @@ _user.Dispose(); _user = null;</pre></td>
 															align="left"><pre
 																id="4.2.9"
 																class="code"
-														>long _iduser = 1L;
+														>
+long _iduser = 1L;
 long _idgroup = 1L;
 
-DO_UserGroup _usergroup = new DO_UserGroup();
-_usergroup.IDUser = _iduser;
-_usergroup.IDGroup = _idgroup;
-_usergroup.Relationdate = DateTime.Now;
-_usergroup.Defaultrelation = false;
+OGen.NTier.UTs.lib.datalayer.DO_UserGroup _usergroup = new OGen.NTier.UTs.lib.datalayer.DO_UserGroup();
+_usergroup.Fields.IDUser = _iduser;
+_usergroup.Fields.IDGroup = _idgroup;
+_usergroup.Fields.Relationdate = DateTime.Now;
+_usergroup.Fields.Defaultrelation = false;
 
 // if relation exists, it updates, if not it inserts:
-_usergroup.setObject();
+_usergroup.setObject(true);
 
-_usergroup.Dispose(); _user = null;</pre></td>
+_usergroup.Dispose(); _usergroup = null;
+</pre></td>
 													</tr>
 													<tr>
 														<td 

@@ -564,7 +564,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title="Insert / insObject"
 							showTitle="true"
 							incrementLevel="false"
-							source="ch00400-ogen-ntier/it00200-dataobjects/pag01300-insObject.cs"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_insObject.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="" />
@@ -572,7 +572,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title="Select / getObject"
 							showTitle="true"
 							incrementLevel="false"
-							source="ch00400-ogen-ntier/it00200-dataobjects/pag01400-getobject.cs"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_getobject.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="" />
@@ -580,7 +580,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title="Update / updObject"
 							showTitle="true"
 							incrementLevel="false"
-							source="ch00400-ogen-ntier/it00200-dataobjects/pag01500-updobject.cs"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_updobject.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="" />
@@ -588,7 +588,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title="Delete / delObject"
 							showTitle="true"
 							incrementLevel="false"
-							source="ch00400-ogen-ntier/it00200-dataobjects/pag01600-delobject.cs"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_delobject.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="" />
@@ -596,7 +596,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title="Insert (if not exists) or Update (if exists) / setObject"
 							showTitle="true"
 							incrementLevel="false"
-							source="ch00400-ogen-ntier/it00200-dataobjects/pag01700-setobject.cs"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_setobject.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="" />

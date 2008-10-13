@@ -115,9 +115,14 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_delobject.cs" />
+    <Compile Include="HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_getobject.cs" />
+    <Compile Include="HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_insObject.cs" />
     <Compile Include="HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_List_DataObjects.cs" />
     <Compile Include="HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_Read_and_Write_to_DataObject_Properties.cs" />
     <Compile Include="HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_Read_DataObject_Property_Attributes.cs" />
+    <Compile Include="HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_setobject.cs" />
+    <Compile Include="HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_updobject.cs" />
     <Compile Include="HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_UseTransactions_betweenDOs_operations.cs" />
     <Compile Include="HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_UseTransactions_inDOs.cs" />
     <Compile Include="HowTos_andFAQ\OGen__Docs__Contrib_Considerations-CSharpCodingStyle.cs" />
