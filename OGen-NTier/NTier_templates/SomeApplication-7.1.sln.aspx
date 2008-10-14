@@ -40,6 +40,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.Applica
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy", "<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy\<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-7.1.csproj", "{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_datalayer_UTs", "<%=_aux_ex_metadata.ApplicationName%>_datalayer_UTs\<%=_aux_ex_metadata.ApplicationName%>_datalayer_UTs-7.1.csproj", "{<%=_aux_ex_metadata.GUIDDatalayer_UTs%>}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
@@ -66,6 +70,10 @@ Global
 		{<%=_aux_ex_metadata.GUIDDatalayer%>}.Debug.Build.0 = Debug|.NET
 		{<%=_aux_ex_metadata.GUIDDatalayer%>}.Release.ActiveCfg = Release|.NET
 		{<%=_aux_ex_metadata.GUIDDatalayer%>}.Release.Build.0 = Release|.NET
+		{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}.Debug.ActiveCfg = Debug|.NET
+		{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}.Debug.Build.0 = Debug|.NET
+		{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}.Release.ActiveCfg = Release|.NET
+		{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}.Release.Build.0 = Release|.NET
 		{<%=_aux_ex_metadata.GUIDDatalayer_UTs%>}.Debug.ActiveCfg = Debug|.NET
 		{<%=_aux_ex_metadata.GUIDDatalayer_UTs%>}.Debug.Build.0 = Debug|.NET
 		{<%=_aux_ex_metadata.GUIDDatalayer_UTs%>}.Release.ActiveCfg = Release|.NET

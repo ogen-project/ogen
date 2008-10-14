@@ -39,6 +39,8 @@ XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedColle
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_datalayer-9", "<%=_aux_ex_metadata.ApplicationName%>_datalayer\<%=_aux_ex_metadata.ApplicationName%>_datalayer-9.csproj", "{<%=_aux_ex_metadata.GUIDDatalayer%>}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-9", "<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy\<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-9.csproj", "{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_datalayer_UTs-9", "<%=_aux_ex_metadata.ApplicationName%>_datalayer_UTs\<%=_aux_ex_metadata.ApplicationName%>_datalayer_UTs-9.csproj", "{<%=_aux_ex_metadata.GUIDDatalayer_UTs%>}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer-9", "<%=_aux_ex_metadata.ApplicationName%>_businesslayer\<%=_aux_ex_metadata.ApplicationName%>_businesslayer-9.csproj", "{<%=_aux_ex_metadata.GUIDBusinesslayer%>}"
@@ -57,6 +59,10 @@ Global
 		{<%=_aux_ex_metadata.GUIDDatalayer%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{<%=_aux_ex_metadata.GUIDDatalayer%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{<%=_aux_ex_metadata.GUIDDatalayer%>}.Release|Any CPU.Build.0 = Release|Any CPU
+		{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}.Release|Any CPU.Build.0 = Release|Any CPU
 		{<%=_aux_ex_metadata.GUIDDatalayer_UTs%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{<%=_aux_ex_metadata.GUIDDatalayer_UTs%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{<%=_aux_ex_metadata.GUIDDatalayer_UTs%>}.Release|Any CPU.ActiveCfg = Release|Any CPU

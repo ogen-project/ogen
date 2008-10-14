@@ -40,13 +40,13 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
         ProjectType = "Local"
         ProductVersion = "7.10.3077"
         SchemaVersion = "2.0"
-        ProjectGuid = "{<%=_aux_ex_metadata.GUIDDatalayer_UTs%>}"
+        ProjectGuid = "{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}"
     >
         <Build>
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.UTs-1.1"
+                AssemblyName = "<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy-1.1"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -55,7 +55,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.UTs"
+                RootNamespace = "<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >
@@ -65,8 +65,12 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                     BaseAddress = "285212672"
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
-                    DefineConstants = "DEBUG;TRACE;NET_1_1"
-                    DocumentationFile = ""
+                    DefineConstants = "DEBUG;TRACE;NET_1_1<%
+					for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
+						string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();
+						%>;<%=_dbservertype%><%
+					}%>"
+                    DocumentationFile = "bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy-1.1.xml"
                     DebugSymbols = "true"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"
@@ -86,7 +90,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "TRACE;NET_1_1"
-                    DocumentationFile = ""
+                    DocumentationFile = "bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy-1.1.xml"
                     DebugSymbols = "false"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"
@@ -117,65 +121,58 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "nunit.framework"
-                    AssemblyName = "nunit.framework"
-                    HintPath = "C:\Program Files\NUnit 2.2\bin\nunit.framework.dll"
-                    AssemblyFolderKey = "hklm\dn\nunit.framework"
-                />
-                <Reference
                     Name = "OGen.lib.datalayer-1.1"
                     AssemblyName = "OGen.lib.datalayer-1.1"
                     AssemblyFolderKey = "hklm\dn\ogen"
-                /><%
-                for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {%>
-                <Reference
-                    Name = "OGen.lib.datalayer.<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%>-1.1"
-                    AssemblyName = "OGen.lib.datalayer.<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%>-1.1"
-                    AssemblyFolderKey = "hklm\dn\ogen"
-                /><%
-                }%>
+                />
                 <Reference
                     Name = "OGen.NTier.lib.datalayer-1.1"
                     AssemblyName = "OGen.NTier.lib.datalayer-1.1"
                     AssemblyFolderKey = "hklm\dn\ogen"
-                />
-                <Reference
-                    Name = "<%=_aux_ex_metadata.ApplicationName%>_datalayer-1.1"
-                    Project = "{<%=_aux_ex_metadata.GUIDDatalayer%>}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-1.1"
-                    Project = "{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>
         </Build>
         <Files>
             <Include>
                 <File
-                    RelPath = "app.config"
-                    BuildAction = "None"
-                />
-                <File
                     RelPath = "AssemblyInfo.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "_base\UT0__utils.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                /><%
-				for (int t = 0; t < _aux_db_metadata.Tables.TableCollection.Count; t++) {
-					_aux_db_table = _aux_db_metadata.Tables.TableCollection[t];%>
-                <File
-                    RelPath = "UT_<%=_aux_db_table.Name%>.cs"
+                    RelPath = "DO__utils.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "_base\UT0_<%=_aux_db_table.Name%>.cs"
+                    RelPath = "_base\DO0__utils.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                /><%
+                for (int t = 0; t < _aux_db_metadata.Tables.TableCollection.Count; t++) {
+					_aux_db_table = _aux_db_metadata.Tables.TableCollection[t];%>
+                <File
+                    RelPath = "DO_<%=_aux_db_table.Name%>.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "_base\DO0_<%=_aux_db_table.Name%>.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "_base\RO0_<%=_aux_db_table.Name%>.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "_base\SO0_<%=_aux_db_table.Name%>.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "_base\SC0_<%=_aux_db_table.Name%>.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 /><%

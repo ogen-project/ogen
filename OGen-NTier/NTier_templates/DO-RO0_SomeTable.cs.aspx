@@ -56,6 +56,7 @@ using System.Data;
 
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy;
 
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 	/// <summary>

@@ -137,6 +137,11 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                 /><%
                 }%>
                 <Reference
+                    Name = "<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-1.1"
+                    Project = "{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
                     Name = "OGen.NTier.lib.datalayer-1.1"
                     AssemblyName = "OGen.NTier.lib.datalayer-1.1"
                     AssemblyFolderKey = "hklm\dn\ogen"
@@ -174,16 +179,6 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                 />
                 <File
                     RelPath = "_base\RO0_<%=_aux_db_table.Name%>.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "_base\SO0_<%=_aux_db_table.Name%>.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "_base\SC0_<%=_aux_db_table.Name%>.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 /><%

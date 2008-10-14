@@ -310,6 +310,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<xs:attribute name="pseudoReflectionable" type="xs:string" />
 		<xs:attribute name="sqlScriptOption" type="sqlScriptOptionEnumeration" />
 		<xs:attribute name="guidDatalayer" type="xs:string" />
+		<xs:attribute name="guidDatalayer_proxy" type="xs:string" />
 		<xs:attribute name="guidDatalayer_UTs" type="xs:string" />
 		<xs:attribute name="guidBusinesslayer" type="xs:string" />
 		<xs:attribute name="guidBusinesslayer_UTs" type="xs:string" />

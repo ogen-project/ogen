@@ -110,6 +110,7 @@ shared
 		<specificCase word="subAppName" translation="SubAppName" />
 		<specificCase word="pseudoReflectionable" translation="PseudoReflectionable" />
 		<specificCase word="guidDatalayer" translation="GUIDDatalayer" />
+		<specificCase word="guidDatalayer_proxy" translation="GUIDDatalayer_proxy" />
 		<specificCase word="guidDatalayer_UTs" translation="GUIDDatalayer_UTs" />
 		<specificCase word="guidBusinesslayer" translation="GUIDBusinesslayer" />
 		<specificCase word="guidBusinesslayer_UTs" translation="GUIDBusinesslayer_UTs" />

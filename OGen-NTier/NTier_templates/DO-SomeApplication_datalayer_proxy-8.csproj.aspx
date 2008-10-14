@@ -40,14 +40,14 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
     <ProjectType>Local</ProjectType>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{<%=_aux_ex_metadata.GUIDDatalayer%>}</ProjectGuid>
+    <ProjectGuid>{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ApplicationIcon>
     </ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer-2.0</AssemblyName>
+    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy-2.0</AssemblyName>
     <AssemblyOriginatorKeyFile>
     </AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
@@ -55,7 +55,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
     <OutputType>Library</OutputType>
-    <RootNamespace><%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer</RootNamespace>
+    <RootNamespace><%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <StartupObject>
     </StartupObject>
@@ -71,12 +71,8 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
-    <DefineConstants>TRACE;DEBUG;NET_2_0<%
-	for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
-		string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();
-		%>;<%=_dbservertype%><%
-	}%></DefineConstants>
-    <DocumentationFile>bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer-2.0.xml</DocumentationFile>
+    <DefineConstants>TRACE;DEBUG;NET_2_0</DefineConstants>
+    <DocumentationFile>bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy-2.0.xml</DocumentationFile>
     <DebugSymbols>true</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
@@ -97,13 +93,8 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
-    <DefineConstants>TRACE;NET_2_0<%
-	for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
-		string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();
-		%>;<%=_dbservertype%><%
-	}%></DefineConstants>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DefineConstants>TRACE;NET_2_0</DefineConstants>
+    <DocumentationFile>bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy-2.0.xml</DocumentationFile>
     <DebugSymbols>false</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
@@ -121,13 +112,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
     <Reference Include="OGen.lib.datalayer-2.0">
       <Name>OGen.lib.datalayer-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
-    </Reference><%
-    for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {%>
-    <Reference Include="OGen.lib.datalayer.<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%>-2.0">
-      <Name>OGen.lib.datalayer.<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%>-2.0</Name>
-      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
-    </Reference><%
-    }%>
+    </Reference>
     <Reference Include="OGen.NTier.lib.datalayer-2.0">
       <Name>OGen.NTier.lib.datalayer-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
@@ -144,31 +129,17 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy\<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-8.csproj">
-      <Name><%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-2.0</Name>
-      <Project>{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}</Project>
-      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="_base\DO0__utils.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DO__utils.cs">
-      <SubType>Code</SubType>
     </Compile><%
 		for (int t = 0; t < _aux_db_metadata.Tables.TableCollection.Count; t++) {
 			_aux_db_table = _aux_db_metadata.Tables.TableCollection[t];%>
-    <Compile Include="DO_<%=_aux_db_table.Name%>.cs">
+    <Compile Include="_base\SO0_<%=_aux_db_table.Name%>.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\DO0_<%=_aux_db_table.Name%>.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="_base\RO0_<%=_aux_db_table.Name%>.cs">
+    <Compile Include="_base\SC0_<%=_aux_db_table.Name%>.cs">
       <SubType>Code</SubType>
     </Compile><%
 		}%>

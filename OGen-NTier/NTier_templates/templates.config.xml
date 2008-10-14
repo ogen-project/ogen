@@ -111,7 +111,9 @@ XXX:TODOS -->
 		<arguments />
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer/AssemblyInfo.cs" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_proxy/AssemblyInfo.cs"
 				type="File" mode="Create_doNotReplace" />
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_UTs/AssemblyInfo.cs" 
 				type="File" mode="Create_doNotReplace" />
@@ -266,6 +268,36 @@ XXX:TODOS -->
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer/${ROOT.metadataDB[0].applicationName}_datalayer-8.csproj" 
 				type="File" mode="Create_doNotReplace" />
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer/${ROOT.metadataDB[0].applicationName}_datalayer-9.csproj" 
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="DO-SomeApplication_datalayer_proxy-7.1.csproj.aspx"
+			name="DO-SomeApplication_datalayer_proxy-7.1.csproj.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_proxy/${ROOT.metadataDB[0].applicationName}_datalayer_proxy-7.1.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="DO-SomeApplication_datalayer_proxy-8.csproj.aspx"
+			name="DO-SomeApplication_datalayer_proxy-8.csproj.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_proxy/${ROOT.metadataDB[0].applicationName}_datalayer_proxy-8.csproj"
+				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_proxy/${ROOT.metadataDB[0].applicationName}_datalayer_proxy-9.csproj"
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -640,7 +672,7 @@ XXX:TODOS -->
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer/_base/SO0_${ROOT.metadataDB[0].tables.table[n].name}.cs" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_proxy/_base/SO0_${ROOT.metadataDB[0].tables.table[n].name}.cs"
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
@@ -655,7 +687,7 @@ XXX:TODOS -->
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer/_base/SC0_${ROOT.metadataDB[0].tables.table[n].name}.cs" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_proxy/_base/SC0_${ROOT.metadataDB[0].tables.table[n].name}.cs"
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
