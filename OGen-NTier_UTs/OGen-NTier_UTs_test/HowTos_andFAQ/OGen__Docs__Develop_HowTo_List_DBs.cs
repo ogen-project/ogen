@@ -21,9 +21,9 @@ namespace OGen.UTs.howtos {
 //<document>
 OGen.lib.datalayer.DBConnection _con
 	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
-	// set your db server type here
+		// set your db server type here
 		OGen.lib.datalayer.DBServerTypes.PostgreSQL,
-	// and connectionstring
+		// and connectionstring
 		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
 	);
 

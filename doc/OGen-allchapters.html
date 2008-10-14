@@ -1322,7 +1322,6 @@ ToDos: here!<br>
 
 
 legend:
-
 	+ identity key
 	> primary key
 	< foreign key</pre></td>
@@ -2068,9 +2067,9 @@ _con.Dispose(); _con = null;
 														>
 OGen.lib.datalayer.DBConnection _con
 	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
-	// set your db server type here
+		// set your db server type here
 		OGen.lib.datalayer.DBServerTypes.PostgreSQL,
-	// and connectionstring
+		// and connectionstring
 		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
 	);
 
@@ -2231,9 +2230,9 @@ long _iduser = 0L;
 
 OGen.lib.datalayer.DBConnection _con
 	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
-	// set your db server type here
+		// set your db server type here
 		OGen.lib.datalayer.DBServerTypes.PostgreSQL,
-	// and connectionstring
+		// and connectionstring
 		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
 	);
 
@@ -3405,8 +3404,7 @@ not supported by Range Search Updates<br />
 															align="left"><pre
 																id="6.1.1"
 																class="code"
-														>// Copyright (C) 2002 Francisco Monteiro
-
+														>
 SELECT
 	DISTINCT
 	_table.table_name,
@@ -3476,7 +3474,8 @@ WHERE
 
 	AND
 	(_table.table_catalog = @dbName_)
-ORDER BY _table.table_name</pre></td>
+ORDER BY _table.table_name
+</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -3506,8 +3505,7 @@ ORDER BY _table.table_name</pre></td>
 															align="left"><pre
 																id="6.1.2"
 																class="code"
-														>// Copyright (C) 2002 Francisco Monteiro
-
+														>
 SELECT
 	TABLE_NAME AS "Name",
 	CASE
@@ -3525,7 +3523,8 @@ WHERE
 	)
 	AND
 	(TABLE_SCHEMA != 'mysql')
-ORDER BY "Name"</pre></td>
+ORDER BY "Name"
+</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -3555,8 +3554,7 @@ ORDER BY "Name"</pre></td>
 															align="left"><pre
 																id="6.1.3"
 																class="code"
-														>// Copyright (C) 2002 Francisco Monteiro
-
+														>
 SELECT
 
 --	_columns.table_catalog,
@@ -3722,7 +3720,8 @@ WHERE
 ORDER BY
 	_columns.table_name,
 --	_columns.column_name,
-	_columns.ordinal_position</pre></td>
+	_columns.ordinal_position
+</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -3752,8 +3751,7 @@ ORDER BY
 															align="left"><pre
 																id="6.1.4"
 																class="code"
-														>// Copyright (C) 2002 Francisco Monteiro
-
+														>
 SELECT
 --	_columns.table_catalog,
 
@@ -3924,7 +3922,8 @@ WHERE
 ORDER BY
 	_columns.table_name,
 --	_columns.column_name,
-	_columns.ordinal_position</pre></td>
+	_columns.ordinal_position
+</pre></td>
 													</tr>
 													<tr>
 														<td 
@@ -3954,8 +3953,7 @@ ORDER BY
 															align="left"><pre
 																id="6.1.5"
 																class="code"
-														>// Copyright (C) 2002 Francisco Monteiro
-
+														>
 SELECT
 	_columns.table_name,
 
@@ -4113,7 +4111,8 @@ WHERE
 	)
 ORDER BY
 	_columns.table_name,
-	_columns.ordinal_position</pre></td>
+	_columns.ordinal_position
+</pre></td>
 													</tr>
 													<tr>
 														<td 

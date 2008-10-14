@@ -310,9 +310,17 @@ for (int c = 0; c < _aux_doc.Chapters.ChapterCollection.Count; c++) {
 // <code> //////////////////////////////////////////////////////////////////////////////
 								case XS_SourceContentTypeEnumeration.code:
 if (
-	((_aux_attachment_source_begin = _aux_attachment_source.IndexOf("//<document>")) >= 0)
+	(
+		((_aux_attachment_source_begin = _aux_attachment_source.IndexOf("//<document>")) >= 0)
+		||
+		((_aux_attachment_source_begin = _aux_attachment_source.IndexOf("--<document>")) >= 0)
+	)
 	&&
-	((_aux_attachment_source_end = _aux_attachment_source.IndexOf("//</document>")) >= 0)
+	(
+		((_aux_attachment_source_end = _aux_attachment_source.IndexOf("//</document>")) >= 0)
+		||
+		((_aux_attachment_source_end = _aux_attachment_source.IndexOf("--</document>")) >= 0)
+	)
 ) {
 	_aux_attachment_source = _aux_attachment_source.Substring(
 		_aux_attachment_source_begin + 12,
