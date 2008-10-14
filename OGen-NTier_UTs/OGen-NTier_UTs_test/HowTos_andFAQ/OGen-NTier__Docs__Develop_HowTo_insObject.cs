@@ -18,23 +18,20 @@ using System;
 namespace OGen.NTier.UTs.howtos {
 	class HowTo_insObject {
 		public HowTo_insObject () {
-/*
 //<document>
-long _iduser = 0L;
+long _idgroup = 0L;
 
-OGen.NTier.UTs.lib.datalayer.DO_User _user = new OGen.NTier.UTs.lib.datalayer.DO_User();
-_user.Fields.Login = "fmonteiro";
-_user.Fields.Password = "passpub";
+OGen.NTier.UTs.lib.datalayer.DO_Group _group = new OGen.NTier.UTs.lib.datalayer.DO_Group();
+_group.Fields.Name = "someGroup";
 // assigning selectIdentity parameter to true retrieves Sequence/Identity for IDUser
-_iduser = _user.insObject(true);
-_user.Dispose(); _user = null;
+_idgroup = _group.insObject(true);
+_group.Dispose(); _group = null;
 
 Console.WriteLine(
-  "user inserted, at:\nIDUser = {0}", 
-  _iduser
+  "group inserted, at:\nIDGroup = {0}", 
+  _idgroup
 );
 //</document>
-*/
 		}
 	}
 }

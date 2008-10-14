@@ -18,29 +18,27 @@ using System;
 namespace OGen.NTier.UTs.howtos {
 	class HowTo_updObject {
 		public HowTo_updObject() {
-/*
 //<document>
-long _iduser = 1L;
+long _idgroup = 1L;
 
-OGen.NTier.UTs.lib.datalayer.DO_User _user = new OGen.NTier.UTs.lib.datalayer.DO_User();
-if (_user.getObject(_iduser)) {
+OGen.NTier.UTs.lib.datalayer.DO_Group _group = new OGen.NTier.UTs.lib.datalayer.DO_Group();
+if (_group.getObject(_idgroup)) {
 	Console.Write(
-	  "updating user login:\nLogin = {0}\nnew Login = {1} ... ",
-	  _user.Fields.Login,
-	  _user.Fields.Login = "whatever"
+	  "updating group name:\nName = {0}\nnew Name = {1} ... ",
+	  _group.Fields.Name,
+	  _group.Fields.Name = "whatever"
 	);
 
 	// makes no update unless changes have been made, 
 	// you can force update by sending true parameter
-	_user.updObject(false);
+	_group.updObject(false);
 
 	Console.WriteLine("DONE!");
 } else {
-	Console.WriteLine("user not found");
+	Console.WriteLine("group not found");
 }
-_user.Dispose(); _user = null;
+_group.Dispose(); _group = null;
 //</document>
-*/
 		}
 	}
 }
