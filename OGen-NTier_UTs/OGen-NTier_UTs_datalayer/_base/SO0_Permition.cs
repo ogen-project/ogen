@@ -21,15 +21,15 @@ namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
 	/// Permition SerializableObject which provides fields access at Permition table at Database.
 	/// </summary>
-	public class SO0_Permition {
-		#region public SO0_Permition();
-		public SO0_Permition(
+	public class SO_Permition {
+		#region public SO_Permition();
+		public SO_Permition(
 		) : this (
 			0L, 
 			string.Empty
 		) {
 		}
-		public SO0_Permition(
+		public SO_Permition(
 			long IDPermition_in, 
 			string Name_in
 		) {

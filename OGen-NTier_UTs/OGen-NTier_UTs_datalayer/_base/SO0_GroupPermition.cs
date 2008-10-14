@@ -21,15 +21,15 @@ namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
 	/// GroupPermition SerializableObject which provides fields access at GroupPermition table at Database.
 	/// </summary>
-	public class SO0_GroupPermition {
-		#region public SO0_GroupPermition();
-		public SO0_GroupPermition(
+	public class SO_GroupPermition {
+		#region public SO_GroupPermition();
+		public SO_GroupPermition(
 		) : this (
 			0L, 
 			0L
 		) {
 		}
-		public SO0_GroupPermition(
+		public SO_GroupPermition(
 			long IDGroup_in, 
 			long IDPermition_in
 		) {

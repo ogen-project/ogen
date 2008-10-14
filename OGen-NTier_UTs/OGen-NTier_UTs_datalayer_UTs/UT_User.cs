@@ -81,7 +81,7 @@ namespace OGen.NTier.UTs.lib.datalayer.UTs {
 			_user.Fields.IDUser = _initialvalue;
 			//---
 			PropertyInfo _iduser 
-				= typeof(SO0_User).GetProperty("IDUser");
+				= typeof(SO_User).GetProperty("IDUser");
 			//---
 			Assert.AreEqual(_initialvalue, (long)_iduser.GetValue(_user.Fields, null));
 			_iduser.SetValue(
@@ -124,10 +124,10 @@ namespace OGen.NTier.UTs.lib.datalayer.UTs {
 		#region public void UT_Reflection_GetCustomAttribute();
 		[Test]
 		public void UT_Reflection_GetCustomAttribute() {
-			Assert.IsTrue(Attribute.IsDefined(typeof(SO0_User).GetProperty("IDUser"), typeof(DOPropertyAttribute)));
+			Assert.IsTrue(Attribute.IsDefined(typeof(SO_User).GetProperty("IDUser"), typeof(DOPropertyAttribute)));
 
 			DOPropertyAttribute _att = (DOPropertyAttribute)Attribute.GetCustomAttribute(
-			  typeof(SO0_User).GetProperty("IDUser"),
+			  typeof(SO_User).GetProperty("IDUser"),
 			  typeof(DOPropertyAttribute),
 			  true
 			);

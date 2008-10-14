@@ -88,9 +88,9 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 		#region Properties...
 		#region public FO0_Log Fields { get; set; }
-		internal SO0_Log fields_;
+		internal SO_Log fields_;
 
-		public SO0_Log Fields {
+		public SO_Log Fields {
 			get { return fields_; }
 			set { fields_ = value; }
 		}
@@ -133,8 +133,8 @@ namespace OGen.NTier.UTs.lib.datalayer {
 						logfile_in
 					);
 		}
-		#region public SC0_Log Serialize();
-		public SO0_Log Serialize() {
+		#region public SC_Log Serialize();
+		public SO_Log Serialize() {
 			return Fields;
 		}
 		#endregion
@@ -147,7 +147,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			virtual 
 #endif
 		void clrObject() {
-			Fields = new SO0_Log();
+			Fields = new SO_Log();
 		}
 		#endregion
 		#region public bool getObject(...);

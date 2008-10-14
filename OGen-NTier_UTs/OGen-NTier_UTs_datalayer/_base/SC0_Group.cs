@@ -17,17 +17,17 @@ using System.Xml.Serialization;
 
 namespace OGen.NTier.UTs.lib.datalayer {
 	[XmlRoot("collectionOf_Group")]
-	public class SC0_Group {
-		#region public SC0_Group(...);
-		public SC0_Group() {
+	public class SC_Group {
+		#region public SC_Group(...);
+		public SC_Group() {
 		}
 		#endregion
 
-		#region public SO0_Group[] SO0_Group { get; set; }
-		private SO0_Group[] group_;
+		#region public SO_Group[] SO_Group { get; set; }
+		private SO_Group[] group_;
 
 		[XmlElement("oneItemOf_Group")]
-		public SO0_Group[] SO0_Group {
+		public SO_Group[] SO_Group {
 			get { return group_; }
 			set { group_ = value; }
 		}

@@ -49,24 +49,24 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 
 		#region public Methods...
-		#region //public SC0_GroupPermition Serialize();
-		//public SC0_GroupPermition Serialize() {
-		//	return new SC0_GroupPermition(Record);
+		#region //public SC_GroupPermition Serialize();
+		//public SC_GroupPermition Serialize() {
+		//	return new SC_GroupPermition(Record);
 		//}
 		#endregion
-		#region public SC0_GroupPermition Serialize();
-		public SC0_GroupPermition Serialize() {
-			SO0_GroupPermition[] _serialisableobject;
+		#region public SC_GroupPermition Serialize();
+		public SC_GroupPermition Serialize() {
+			SO_GroupPermition[] _serialisableobject;
 
 			lock (record__) {
 				int _current = Current;
 
-				_serialisableobject = new SO0_GroupPermition[Count];
+				_serialisableobject = new SO_GroupPermition[Count];
 
 				Reset();
 				while (Read()) {
 					_serialisableobject[Current] 
-						= new SO0_GroupPermition(
+						= new SO_GroupPermition(
 							parent_ref_.Fields.IDGroup,
 							parent_ref_.Fields.IDPermition
 						);
@@ -75,18 +75,18 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				Current = _current;
 			}
 
-			SC0_GroupPermition _serialize_out = new SC0_GroupPermition();
-			_serialize_out.SO0_GroupPermition = _serialisableobject;
+			SC_GroupPermition _serialize_out = new SC_GroupPermition();
+			_serialize_out.SO_GroupPermition = _serialisableobject;
 			return _serialize_out;
 		}
 		#endregion
-		#region public void Open(SC0_GroupPermition serialisablecollection_in);
-		public void Open(SC0_GroupPermition serialisablecollection_in) {
-			Open(serialisablecollection_in.SO0_GroupPermition);
+		#region public void Open(SC_GroupPermition serialisablecollection_in);
+		public void Open(SC_GroupPermition serialisablecollection_in) {
+			Open(serialisablecollection_in.SO_GroupPermition);
 		}
 		#endregion
-		#region public void Open(SO0_GroupPermition[] serialisableobject_in);
-		public void Open(SO0_GroupPermition[] serialisableobject_in) {
+		#region public void Open(SO_GroupPermition[] serialisableobject_in);
+		public void Open(SO_GroupPermition[] serialisableobject_in) {
 			DataTable _datatable = new DataTable();
 			_datatable.Columns.Add(new DataColumn("codProfissao", typeof(int)));
 			_datatable.Columns.Add(new DataColumn("descProfissao", typeof(string)));

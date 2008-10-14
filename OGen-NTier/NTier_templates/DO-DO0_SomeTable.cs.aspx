@@ -142,9 +142,9 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 
 		#region Properties...
 		#region public FO0_<%=_aux_db_table.Name%> Fields { get; set; }
-		internal SO0_<%=_aux_db_table.Name%> fields_;
+		internal SO_<%=_aux_db_table.Name%> fields_;
 
-		public SO0_<%=_aux_db_table.Name%> Fields {
+		public SO_<%=_aux_db_table.Name%> Fields {
 			get { return fields_; }
 			set { fields_ = value; }
 		}
@@ -187,8 +187,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 						logfile_in
 					);
 		}
-		#region public SC0_<%=_aux_db_table.Name%> Serialize();
-		public SO0_<%=_aux_db_table.Name%> Serialize() {
+		#region public SC_<%=_aux_db_table.Name%> Serialize();
+		public SO_<%=_aux_db_table.Name%> Serialize() {
 			return Fields;
 		}
 		#endregion
@@ -210,7 +210,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			<%=_aux_db_field.Name%> = <%=(_aux_ex_field.DefaultValue == "") ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_ex_field.DefaultValue%>;<%
 				}
 			}--%>
-			Fields = new SO0_<%=_aux_db_table.Name%>();
+			Fields = new SO_<%=_aux_db_table.Name%>();
 		}
 		#endregion<%
 if (!_aux_db_table.isVirtualTable) {%>

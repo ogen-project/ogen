@@ -85,7 +85,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			get { return mainAggregate.Record; }
 		}
 
-		public SO0_Permition Fields {
+		public SO_Permition Fields {
 			get { return mainAggregate.Fields; }
 		}
 		#region public long IDPermition { get; set; }
@@ -163,18 +163,18 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		#endregion
 
 		#region public Methods...
-		#region public SC0_Permition Serialize();
-		public SO0_Permition Serialize() {
+		#region public SC_Permition Serialize();
+		public SO_Permition Serialize() {
 			return mainAggregate.Serialize();
 		}
 		#endregion
-		#region public void Deserialize(SO0_Permition Permition_in);
-		public void Deserialize(SO0_Permition Permition_in) {
+		#region public void Deserialize(SO_Permition Permition_in);
+		public void Deserialize(SO_Permition Permition_in) {
 			mainAggregate.Fields = Permition_in;
 		}
 		#endregion
-		#region public SC0_Permition Record_Serialize();
-		public SC0_Permition Record_Serialize() {
+		#region public SC_Permition Record_Serialize();
+		public SC_Permition Record_Serialize() {
 			return mainAggregate.Record.Serialize();
 		}
 		#endregion

@@ -21,15 +21,15 @@ namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
 	/// Group SerializableObject which provides fields access at Group table at Database.
 	/// </summary>
-	public class SO0_Group {
-		#region public SO0_Group();
-		public SO0_Group(
+	public class SO_Group {
+		#region public SO_Group();
+		public SO_Group(
 		) : this (
 			0L, 
 			string.Empty
 		) {
 		}
-		public SO0_Group(
+		public SO_Group(
 			long IDGroup_in, 
 			string Name_in
 		) {

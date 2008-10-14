@@ -85,7 +85,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			get { return mainAggregate.Record; }
 		}
 
-		public SO0_vUserDefaultGroup Fields {
+		public SO_vUserDefaultGroup Fields {
 			get { return mainAggregate.Fields; }
 		}
 		#region public long IDUser { get; set; }
@@ -271,18 +271,18 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		#endregion
 
 		#region public Methods...
-		#region public SC0_vUserDefaultGroup Serialize();
-		public SO0_vUserDefaultGroup Serialize() {
+		#region public SC_vUserDefaultGroup Serialize();
+		public SO_vUserDefaultGroup Serialize() {
 			return mainAggregate.Serialize();
 		}
 		#endregion
-		#region public void Deserialize(SO0_vUserDefaultGroup vUserDefaultGroup_in);
-		public void Deserialize(SO0_vUserDefaultGroup vUserDefaultGroup_in) {
+		#region public void Deserialize(SO_vUserDefaultGroup vUserDefaultGroup_in);
+		public void Deserialize(SO_vUserDefaultGroup vUserDefaultGroup_in) {
 			mainAggregate.Fields = vUserDefaultGroup_in;
 		}
 		#endregion
-		#region public SC0_vUserDefaultGroup Record_Serialize();
-		public SC0_vUserDefaultGroup Record_Serialize() {
+		#region public SC_vUserDefaultGroup Record_Serialize();
+		public SC_vUserDefaultGroup Record_Serialize() {
 			return mainAggregate.Record.Serialize();
 		}
 		#endregion

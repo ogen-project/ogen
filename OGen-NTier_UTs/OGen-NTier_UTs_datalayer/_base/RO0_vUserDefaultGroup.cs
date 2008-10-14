@@ -49,24 +49,24 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 
 		#region public Methods...
-		#region //public SC0_vUserDefaultGroup Serialize();
-		//public SC0_vUserDefaultGroup Serialize() {
-		//	return new SC0_vUserDefaultGroup(Record);
+		#region //public SC_vUserDefaultGroup Serialize();
+		//public SC_vUserDefaultGroup Serialize() {
+		//	return new SC_vUserDefaultGroup(Record);
 		//}
 		#endregion
-		#region public SC0_vUserDefaultGroup Serialize();
-		public SC0_vUserDefaultGroup Serialize() {
-			SO0_vUserDefaultGroup[] _serialisableobject;
+		#region public SC_vUserDefaultGroup Serialize();
+		public SC_vUserDefaultGroup Serialize() {
+			SO_vUserDefaultGroup[] _serialisableobject;
 
 			lock (record__) {
 				int _current = Current;
 
-				_serialisableobject = new SO0_vUserDefaultGroup[Count];
+				_serialisableobject = new SO_vUserDefaultGroup[Count];
 
 				Reset();
 				while (Read()) {
 					_serialisableobject[Current] 
-						= new SO0_vUserDefaultGroup(
+						= new SO_vUserDefaultGroup(
 							parent_ref_.Fields.IDUser,
 							parent_ref_.Fields.Login,
 							parent_ref_.Fields.IDGroup,
@@ -78,18 +78,18 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				Current = _current;
 			}
 
-			SC0_vUserDefaultGroup _serialize_out = new SC0_vUserDefaultGroup();
-			_serialize_out.SO0_vUserDefaultGroup = _serialisableobject;
+			SC_vUserDefaultGroup _serialize_out = new SC_vUserDefaultGroup();
+			_serialize_out.SO_vUserDefaultGroup = _serialisableobject;
 			return _serialize_out;
 		}
 		#endregion
-		#region public void Open(SC0_vUserDefaultGroup serialisablecollection_in);
-		public void Open(SC0_vUserDefaultGroup serialisablecollection_in) {
-			Open(serialisablecollection_in.SO0_vUserDefaultGroup);
+		#region public void Open(SC_vUserDefaultGroup serialisablecollection_in);
+		public void Open(SC_vUserDefaultGroup serialisablecollection_in) {
+			Open(serialisablecollection_in.SO_vUserDefaultGroup);
 		}
 		#endregion
-		#region public void Open(SO0_vUserDefaultGroup[] serialisableobject_in);
-		public void Open(SO0_vUserDefaultGroup[] serialisableobject_in) {
+		#region public void Open(SO_vUserDefaultGroup[] serialisableobject_in);
+		public void Open(SO_vUserDefaultGroup[] serialisableobject_in) {
 			DataTable _datatable = new DataTable();
 			_datatable.Columns.Add(new DataColumn("codProfissao", typeof(int)));
 			_datatable.Columns.Add(new DataColumn("descProfissao", typeof(string)));

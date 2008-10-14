@@ -127,7 +127,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 			get { return mainAggregate.Record; }
 		}
 
-		public SO0_<%=_aux_db_table.Name%> Fields {
+		public SO_<%=_aux_db_table.Name%> Fields {
 			get { return mainAggregate.Fields; }
 		}<%
 		if (isListItem) { %>
@@ -218,18 +218,18 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 		#endregion
 
 		#region public Methods...
-		#region public SC0_<%=_aux_db_table.Name%> Serialize();
-		public SO0_<%=_aux_db_table.Name%> Serialize() {
+		#region public SC_<%=_aux_db_table.Name%> Serialize();
+		public SO_<%=_aux_db_table.Name%> Serialize() {
 			return mainAggregate.Serialize();
 		}
 		#endregion
-		#region public void Deserialize(SO0_<%=_aux_db_table.Name%> <%=_aux_db_table.Name%>_in);
-		public void Deserialize(SO0_<%=_aux_db_table.Name%> <%=_aux_db_table.Name%>_in) {
+		#region public void Deserialize(SO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name%>_in);
+		public void Deserialize(SO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name%>_in) {
 			mainAggregate.Fields = <%=_aux_db_table.Name%>_in;
 		}
 		#endregion
-		#region public SC0_<%=_aux_db_table.Name%> Record_Serialize();
-		public SC0_<%=_aux_db_table.Name%> Record_Serialize() {
+		#region public SC_<%=_aux_db_table.Name%> Record_Serialize();
+		public SC_<%=_aux_db_table.Name%> Record_Serialize() {
 			return mainAggregate.Record.Serialize();
 		}
 		#endregion

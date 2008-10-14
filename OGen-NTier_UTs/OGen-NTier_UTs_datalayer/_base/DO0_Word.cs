@@ -88,9 +88,9 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 		#region Properties...
 		#region public FO0_Word Fields { get; set; }
-		internal SO0_Word fields_;
+		internal SO_Word fields_;
 
-		public SO0_Word Fields {
+		public SO_Word Fields {
 			get { return fields_; }
 			set { fields_ = value; }
 		}
@@ -133,8 +133,8 @@ namespace OGen.NTier.UTs.lib.datalayer {
 						logfile_in
 					);
 		}
-		#region public SC0_Word Serialize();
-		public SO0_Word Serialize() {
+		#region public SC_Word Serialize();
+		public SO_Word Serialize() {
 			return Fields;
 		}
 		#endregion
@@ -147,7 +147,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			virtual 
 #endif
 		void clrObject() {
-			Fields = new SO0_Word();
+			Fields = new SO_Word();
 		}
 		#endregion
 		#region public bool getObject(...);

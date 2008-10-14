@@ -21,9 +21,9 @@ namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
 	/// Config SerializableObject which provides fields access at Config table at Database.
 	/// </summary>
-	public class SO0_Config {
-		#region public SO0_Config();
-		public SO0_Config(
+	public class SO_Config {
+		#region public SO_Config();
+		public SO_Config(
 		) : this (
 			string.Empty, 
 			string.Empty, 
@@ -31,7 +31,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			string.Empty
 		) {
 		}
-		public SO0_Config(
+		public SO_Config(
 			string Name_in, 
 			string Config_in, 
 			int Type_in, 

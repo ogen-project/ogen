@@ -49,24 +49,24 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 
 		#region public Methods...
-		#region //public SC0_Log Serialize();
-		//public SC0_Log Serialize() {
-		//	return new SC0_Log(Record);
+		#region //public SC_Log Serialize();
+		//public SC_Log Serialize() {
+		//	return new SC_Log(Record);
 		//}
 		#endregion
-		#region public SC0_Log Serialize();
-		public SC0_Log Serialize() {
-			SO0_Log[] _serialisableobject;
+		#region public SC_Log Serialize();
+		public SC_Log Serialize() {
+			SO_Log[] _serialisableobject;
 
 			lock (record__) {
 				int _current = Current;
 
-				_serialisableobject = new SO0_Log[Count];
+				_serialisableobject = new SO_Log[Count];
 
 				Reset();
 				while (Read()) {
 					_serialisableobject[Current] 
-						= new SO0_Log(
+						= new SO_Log(
 							parent_ref_.Fields.IDLog,
 							parent_ref_.Fields.IDLogcode,
 							parent_ref_.Fields.IDUser_posted,
@@ -78,18 +78,18 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				Current = _current;
 			}
 
-			SC0_Log _serialize_out = new SC0_Log();
-			_serialize_out.SO0_Log = _serialisableobject;
+			SC_Log _serialize_out = new SC_Log();
+			_serialize_out.SO_Log = _serialisableobject;
 			return _serialize_out;
 		}
 		#endregion
-		#region public void Open(SC0_Log serialisablecollection_in);
-		public void Open(SC0_Log serialisablecollection_in) {
-			Open(serialisablecollection_in.SO0_Log);
+		#region public void Open(SC_Log serialisablecollection_in);
+		public void Open(SC_Log serialisablecollection_in) {
+			Open(serialisablecollection_in.SO_Log);
 		}
 		#endregion
-		#region public void Open(SO0_Log[] serialisableobject_in);
-		public void Open(SO0_Log[] serialisableobject_in) {
+		#region public void Open(SO_Log[] serialisableobject_in);
+		public void Open(SO_Log[] serialisableobject_in) {
 			DataTable _datatable = new DataTable();
 			_datatable.Columns.Add(new DataColumn("codProfissao", typeof(int)));
 			_datatable.Columns.Add(new DataColumn("descProfissao", typeof(string)));

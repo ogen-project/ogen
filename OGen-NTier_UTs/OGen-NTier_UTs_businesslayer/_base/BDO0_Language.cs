@@ -85,7 +85,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			get { return mainAggregate.Record; }
 		}
 
-		public SO0_Language Fields {
+		public SO_Language Fields {
 			get { return mainAggregate.Fields; }
 		}
 		#region public long IDLanguage { get; set; }
@@ -163,18 +163,18 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		#endregion
 
 		#region public Methods...
-		#region public SC0_Language Serialize();
-		public SO0_Language Serialize() {
+		#region public SC_Language Serialize();
+		public SO_Language Serialize() {
 			return mainAggregate.Serialize();
 		}
 		#endregion
-		#region public void Deserialize(SO0_Language Language_in);
-		public void Deserialize(SO0_Language Language_in) {
+		#region public void Deserialize(SO_Language Language_in);
+		public void Deserialize(SO_Language Language_in) {
 			mainAggregate.Fields = Language_in;
 		}
 		#endregion
-		#region public SC0_Language Record_Serialize();
-		public SC0_Language Record_Serialize() {
+		#region public SC_Language Record_Serialize();
+		public SC_Language Record_Serialize() {
 			return mainAggregate.Record.Serialize();
 		}
 		#endregion

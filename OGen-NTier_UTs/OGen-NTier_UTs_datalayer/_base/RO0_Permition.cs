@@ -49,24 +49,24 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 
 		#region public Methods...
-		#region //public SC0_Permition Serialize();
-		//public SC0_Permition Serialize() {
-		//	return new SC0_Permition(Record);
+		#region //public SC_Permition Serialize();
+		//public SC_Permition Serialize() {
+		//	return new SC_Permition(Record);
 		//}
 		#endregion
-		#region public SC0_Permition Serialize();
-		public SC0_Permition Serialize() {
-			SO0_Permition[] _serialisableobject;
+		#region public SC_Permition Serialize();
+		public SC_Permition Serialize() {
+			SO_Permition[] _serialisableobject;
 
 			lock (record__) {
 				int _current = Current;
 
-				_serialisableobject = new SO0_Permition[Count];
+				_serialisableobject = new SO_Permition[Count];
 
 				Reset();
 				while (Read()) {
 					_serialisableobject[Current] 
-						= new SO0_Permition(
+						= new SO_Permition(
 							parent_ref_.Fields.IDPermition,
 							parent_ref_.Fields.Name
 						);
@@ -75,18 +75,18 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				Current = _current;
 			}
 
-			SC0_Permition _serialize_out = new SC0_Permition();
-			_serialize_out.SO0_Permition = _serialisableobject;
+			SC_Permition _serialize_out = new SC_Permition();
+			_serialize_out.SO_Permition = _serialisableobject;
 			return _serialize_out;
 		}
 		#endregion
-		#region public void Open(SC0_Permition serialisablecollection_in);
-		public void Open(SC0_Permition serialisablecollection_in) {
-			Open(serialisablecollection_in.SO0_Permition);
+		#region public void Open(SC_Permition serialisablecollection_in);
+		public void Open(SC_Permition serialisablecollection_in) {
+			Open(serialisablecollection_in.SO_Permition);
 		}
 		#endregion
-		#region public void Open(SO0_Permition[] serialisableobject_in);
-		public void Open(SO0_Permition[] serialisableobject_in) {
+		#region public void Open(SO_Permition[] serialisableobject_in);
+		public void Open(SO_Permition[] serialisableobject_in) {
 			DataTable _datatable = new DataTable();
 			_datatable.Columns.Add(new DataColumn("codProfissao", typeof(int)));
 			_datatable.Columns.Add(new DataColumn("descProfissao", typeof(string)));

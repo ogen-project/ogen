@@ -17,17 +17,17 @@ using System.Xml.Serialization;
 
 namespace OGen.NTier.UTs.lib.datalayer {
 	[XmlRoot("collectionOf_Logcode")]
-	public class SC0_Logcode {
-		#region public SC0_Logcode(...);
-		public SC0_Logcode() {
+	public class SC_Logcode {
+		#region public SC_Logcode(...);
+		public SC_Logcode() {
 		}
 		#endregion
 
-		#region public SO0_Logcode[] SO0_Logcode { get; set; }
-		private SO0_Logcode[] logcode_;
+		#region public SO_Logcode[] SO_Logcode { get; set; }
+		private SO_Logcode[] logcode_;
 
 		[XmlElement("oneItemOf_Logcode")]
-		public SO0_Logcode[] SO0_Logcode {
+		public SO_Logcode[] SO_Logcode {
 			get { return logcode_; }
 			set { logcode_ = value; }
 		}

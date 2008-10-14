@@ -17,17 +17,17 @@ using System.Xml.Serialization;
 
 namespace OGen.NTier.UTs.lib.datalayer {
 	[XmlRoot("collectionOf_Permition")]
-	public class SC0_Permition {
-		#region public SC0_Permition(...);
-		public SC0_Permition() {
+	public class SC_Permition {
+		#region public SC_Permition(...);
+		public SC_Permition() {
 		}
 		#endregion
 
-		#region public SO0_Permition[] SO0_Permition { get; set; }
-		private SO0_Permition[] permition_;
+		#region public SO_Permition[] SO_Permition { get; set; }
+		private SO_Permition[] permition_;
 
 		[XmlElement("oneItemOf_Permition")]
-		public SO0_Permition[] SO0_Permition {
+		public SO_Permition[] SO_Permition {
 			get { return permition_; }
 			set { permition_ = value; }
 		}

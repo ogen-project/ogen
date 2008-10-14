@@ -17,17 +17,17 @@ using System.Xml.Serialization;
 
 namespace OGen.NTier.UTs.lib.datalayer {
 	[XmlRoot("collectionOf_WordLanguage")]
-	public class SC0_WordLanguage {
-		#region public SC0_WordLanguage(...);
-		public SC0_WordLanguage() {
+	public class SC_WordLanguage {
+		#region public SC_WordLanguage(...);
+		public SC_WordLanguage() {
 		}
 		#endregion
 
-		#region public SO0_WordLanguage[] SO0_WordLanguage { get; set; }
-		private SO0_WordLanguage[] wordlanguage_;
+		#region public SO_WordLanguage[] SO_WordLanguage { get; set; }
+		private SO_WordLanguage[] wordlanguage_;
 
 		[XmlElement("oneItemOf_WordLanguage")]
-		public SO0_WordLanguage[] SO0_WordLanguage {
+		public SO_WordLanguage[] SO_WordLanguage {
 			get { return wordlanguage_; }
 			set { wordlanguage_ = value; }
 		}

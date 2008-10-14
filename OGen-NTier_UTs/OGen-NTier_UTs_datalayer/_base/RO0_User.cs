@@ -49,24 +49,24 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 
 		#region public Methods...
-		#region //public SC0_User Serialize();
-		//public SC0_User Serialize() {
-		//	return new SC0_User(Record);
+		#region //public SC_User Serialize();
+		//public SC_User Serialize() {
+		//	return new SC_User(Record);
 		//}
 		#endregion
-		#region public SC0_User Serialize();
-		public SC0_User Serialize() {
-			SO0_User[] _serialisableobject;
+		#region public SC_User Serialize();
+		public SC_User Serialize() {
+			SO_User[] _serialisableobject;
 
 			lock (record__) {
 				int _current = Current;
 
-				_serialisableobject = new SO0_User[Count];
+				_serialisableobject = new SO_User[Count];
 
 				Reset();
 				while (Read()) {
 					_serialisableobject[Current] 
-						= new SO0_User(
+						= new SO_User(
 							parent_ref_.Fields.IDUser,
 							parent_ref_.Fields.Login,
 							parent_ref_.Fields.Password,
@@ -77,18 +77,18 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				Current = _current;
 			}
 
-			SC0_User _serialize_out = new SC0_User();
-			_serialize_out.SO0_User = _serialisableobject;
+			SC_User _serialize_out = new SC_User();
+			_serialize_out.SO_User = _serialisableobject;
 			return _serialize_out;
 		}
 		#endregion
-		#region public void Open(SC0_User serialisablecollection_in);
-		public void Open(SC0_User serialisablecollection_in) {
-			Open(serialisablecollection_in.SO0_User);
+		#region public void Open(SC_User serialisablecollection_in);
+		public void Open(SC_User serialisablecollection_in) {
+			Open(serialisablecollection_in.SO_User);
 		}
 		#endregion
-		#region public void Open(SO0_User[] serialisableobject_in);
-		public void Open(SO0_User[] serialisableobject_in) {
+		#region public void Open(SO_User[] serialisableobject_in);
+		public void Open(SO_User[] serialisableobject_in) {
 			DataTable _datatable = new DataTable();
 			_datatable.Columns.Add(new DataColumn("codProfissao", typeof(int)));
 			_datatable.Columns.Add(new DataColumn("descProfissao", typeof(string)));

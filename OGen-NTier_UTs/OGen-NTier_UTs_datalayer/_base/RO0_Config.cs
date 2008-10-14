@@ -49,24 +49,24 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 
 		#region public Methods...
-		#region //public SC0_Config Serialize();
-		//public SC0_Config Serialize() {
-		//	return new SC0_Config(Record);
+		#region //public SC_Config Serialize();
+		//public SC_Config Serialize() {
+		//	return new SC_Config(Record);
 		//}
 		#endregion
-		#region public SC0_Config Serialize();
-		public SC0_Config Serialize() {
-			SO0_Config[] _serialisableobject;
+		#region public SC_Config Serialize();
+		public SC_Config Serialize() {
+			SO_Config[] _serialisableobject;
 
 			lock (record__) {
 				int _current = Current;
 
-				_serialisableobject = new SO0_Config[Count];
+				_serialisableobject = new SO_Config[Count];
 
 				Reset();
 				while (Read()) {
 					_serialisableobject[Current] 
-						= new SO0_Config(
+						= new SO_Config(
 							parent_ref_.Fields.Name,
 							parent_ref_.Fields.Config,
 							parent_ref_.Fields.Type,
@@ -77,18 +77,18 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				Current = _current;
 			}
 
-			SC0_Config _serialize_out = new SC0_Config();
-			_serialize_out.SO0_Config = _serialisableobject;
+			SC_Config _serialize_out = new SC_Config();
+			_serialize_out.SO_Config = _serialisableobject;
 			return _serialize_out;
 		}
 		#endregion
-		#region public void Open(SC0_Config serialisablecollection_in);
-		public void Open(SC0_Config serialisablecollection_in) {
-			Open(serialisablecollection_in.SO0_Config);
+		#region public void Open(SC_Config serialisablecollection_in);
+		public void Open(SC_Config serialisablecollection_in) {
+			Open(serialisablecollection_in.SO_Config);
 		}
 		#endregion
-		#region public void Open(SO0_Config[] serialisableobject_in);
-		public void Open(SO0_Config[] serialisableobject_in) {
+		#region public void Open(SO_Config[] serialisableobject_in);
+		public void Open(SO_Config[] serialisableobject_in) {
 			DataTable _datatable = new DataTable();
 			_datatable.Columns.Add(new DataColumn("codProfissao", typeof(int)));
 			_datatable.Columns.Add(new DataColumn("descProfissao", typeof(string)));

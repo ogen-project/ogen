@@ -21,15 +21,15 @@ namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
 	/// Word SerializableObject which provides fields access at Word table at Database.
 	/// </summary>
-	public class SO0_Word {
-		#region public SO0_Word();
-		public SO0_Word(
+	public class SO_Word {
+		#region public SO_Word();
+		public SO_Word(
 		) : this (
 			0L, 
 			false
 		) {
 		}
-		public SO0_Word(
+		public SO_Word(
 			long IDWord_in, 
 			bool DeleteThisTestField_in
 		) {

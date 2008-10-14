@@ -88,9 +88,9 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 		#region Properties...
 		#region public FO0_Permition Fields { get; set; }
-		internal SO0_Permition fields_;
+		internal SO_Permition fields_;
 
-		public SO0_Permition Fields {
+		public SO_Permition Fields {
 			get { return fields_; }
 			set { fields_ = value; }
 		}
@@ -133,8 +133,8 @@ namespace OGen.NTier.UTs.lib.datalayer {
 						logfile_in
 					);
 		}
-		#region public SC0_Permition Serialize();
-		public SO0_Permition Serialize() {
+		#region public SC_Permition Serialize();
+		public SO_Permition Serialize() {
 			return Fields;
 		}
 		#endregion
@@ -147,7 +147,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			virtual 
 #endif
 		void clrObject() {
-			Fields = new SO0_Permition();
+			Fields = new SO_Permition();
 		}
 		#endregion
 		#region public bool getObject(...);

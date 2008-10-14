@@ -21,15 +21,15 @@ namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
 	/// Language SerializableObject which provides fields access at Language table at Database.
 	/// </summary>
-	public class SO0_Language {
-		#region public SO0_Language();
-		public SO0_Language(
+	public class SO_Language {
+		#region public SO_Language();
+		public SO_Language(
 		) : this (
 			0L, 
 			0L
 		) {
 		}
-		public SO0_Language(
+		public SO_Language(
 			long IDLanguage_in, 
 			long IDWord_name_in
 		) {

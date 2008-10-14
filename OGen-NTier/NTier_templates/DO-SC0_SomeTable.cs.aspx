@@ -57,17 +57,17 @@ using System.Xml.Serialization;
 
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 	[XmlRoot("collectionOf_<%=_aux_db_table.Name%>")]
-	public class SC0_<%=_aux_db_table.Name%> {
-		#region public SC0_<%=_aux_db_table.Name%>(...);
-		public SC0_<%=_aux_db_table.Name%>() {
+	public class SC_<%=_aux_db_table.Name%> {
+		#region public SC_<%=_aux_db_table.Name%>(...);
+		public SC_<%=_aux_db_table.Name%>() {
 		}
 		#endregion
 
-		#region public SO0_<%=_aux_db_table.Name%>[] SO0_<%=_aux_db_table.Name%> { get; set; }
-		private SO0_<%=_aux_db_table.Name%>[] <%=_aux_db_table.Name.ToLower()%>_;
+		#region public SO_<%=_aux_db_table.Name%>[] SO_<%=_aux_db_table.Name%> { get; set; }
+		private SO_<%=_aux_db_table.Name%>[] <%=_aux_db_table.Name.ToLower()%>_;
 
 		[XmlElement("oneItemOf_<%=_aux_db_table.Name%>")]
-		public SO0_<%=_aux_db_table.Name%>[] SO0_<%=_aux_db_table.Name%> {
+		public SO_<%=_aux_db_table.Name%>[] SO_<%=_aux_db_table.Name%> {
 			get { return <%=_aux_db_table.Name.ToLower()%>_; }
 			set { <%=_aux_db_table.Name.ToLower()%>_ = value; }
 		}

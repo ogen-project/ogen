@@ -21,9 +21,9 @@ namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
 	/// Log SerializableObject which provides fields access at Log table at Database.
 	/// </summary>
-	public class SO0_Log {
-		#region public SO0_Log();
-		public SO0_Log(
+	public class SO_Log {
+		#region public SO_Log();
+		public SO_Log(
 		) : this (
 			0L, 
 			0L, 
@@ -32,7 +32,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			string.Empty
 		) {
 		}
-		public SO0_Log(
+		public SO_Log(
 			long IDLog_in, 
 			long IDLogcode_in, 
 			long IDUser_posted_in, 

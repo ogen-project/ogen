@@ -21,9 +21,9 @@ namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
 	/// Logcode SerializableObject which provides fields access at Logcode table at Database.
 	/// </summary>
-	public class SO0_Logcode {
-		#region public SO0_Logcode();
-		public SO0_Logcode(
+	public class SO_Logcode {
+		#region public SO_Logcode();
+		public SO_Logcode(
 		) : this (
 			0L, 
 			false, 
@@ -32,7 +32,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			string.Empty
 		) {
 		}
-		public SO0_Logcode(
+		public SO_Logcode(
 			long IDLogcode_in, 
 			bool Warning_in, 
 			bool Error_in, 

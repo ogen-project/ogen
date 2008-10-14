@@ -49,24 +49,24 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 
 		#region public Methods...
-		#region //public SC0_Group Serialize();
-		//public SC0_Group Serialize() {
-		//	return new SC0_Group(Record);
+		#region //public SC_Group Serialize();
+		//public SC_Group Serialize() {
+		//	return new SC_Group(Record);
 		//}
 		#endregion
-		#region public SC0_Group Serialize();
-		public SC0_Group Serialize() {
-			SO0_Group[] _serialisableobject;
+		#region public SC_Group Serialize();
+		public SC_Group Serialize() {
+			SO_Group[] _serialisableobject;
 
 			lock (record__) {
 				int _current = Current;
 
-				_serialisableobject = new SO0_Group[Count];
+				_serialisableobject = new SO_Group[Count];
 
 				Reset();
 				while (Read()) {
 					_serialisableobject[Current] 
-						= new SO0_Group(
+						= new SO_Group(
 							parent_ref_.Fields.IDGroup,
 							parent_ref_.Fields.Name
 						);
@@ -75,18 +75,18 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				Current = _current;
 			}
 
-			SC0_Group _serialize_out = new SC0_Group();
-			_serialize_out.SO0_Group = _serialisableobject;
+			SC_Group _serialize_out = new SC_Group();
+			_serialize_out.SO_Group = _serialisableobject;
 			return _serialize_out;
 		}
 		#endregion
-		#region public void Open(SC0_Group serialisablecollection_in);
-		public void Open(SC0_Group serialisablecollection_in) {
-			Open(serialisablecollection_in.SO0_Group);
+		#region public void Open(SC_Group serialisablecollection_in);
+		public void Open(SC_Group serialisablecollection_in) {
+			Open(serialisablecollection_in.SO_Group);
 		}
 		#endregion
-		#region public void Open(SO0_Group[] serialisableobject_in);
-		public void Open(SO0_Group[] serialisableobject_in) {
+		#region public void Open(SO_Group[] serialisableobject_in);
+		public void Open(SO_Group[] serialisableobject_in) {
 			DataTable _datatable = new DataTable();
 			_datatable.Columns.Add(new DataColumn("codProfissao", typeof(int)));
 			_datatable.Columns.Add(new DataColumn("descProfissao", typeof(string)));

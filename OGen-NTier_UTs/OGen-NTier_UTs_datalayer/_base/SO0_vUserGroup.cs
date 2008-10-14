@@ -21,9 +21,9 @@ namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
 	/// vUserGroup SerializableObject which provides fields access at vUserGroup view at Database.
 	/// </summary>
-	public class SO0_vUserGroup {
-		#region public SO0_vUserGroup();
-		public SO0_vUserGroup(
+	public class SO_vUserGroup {
+		#region public SO_vUserGroup();
+		public SO_vUserGroup(
 		) : this (
 			0L, 
 			string.Empty, 
@@ -32,7 +32,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			new DateTime(1900, 1, 1)
 		) {
 		}
-		public SO0_vUserGroup(
+		public SO_vUserGroup(
 			long IDUser_in, 
 			string Login_in, 
 			long IDGroup_in, 

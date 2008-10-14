@@ -88,24 +88,24 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		#endregion
 
 		#region public Methods...
-		#region //public SC0_<%=_aux_db_table.Name%> Serialize();
-		//public SC0_<%=_aux_db_table.Name%> Serialize() {
-		//	return new SC0_<%=_aux_db_table.Name%>(Record);
+		#region //public SC_<%=_aux_db_table.Name%> Serialize();
+		//public SC_<%=_aux_db_table.Name%> Serialize() {
+		//	return new SC_<%=_aux_db_table.Name%>(Record);
 		//}
 		#endregion
-		#region public SC0_<%=_aux_db_table.Name%> Serialize();
-		public SC0_<%=_aux_db_table.Name%> Serialize() {
-			SO0_<%=_aux_db_table.Name%>[] _serialisableobject;
+		#region public SC_<%=_aux_db_table.Name%> Serialize();
+		public SC_<%=_aux_db_table.Name%> Serialize() {
+			SO_<%=_aux_db_table.Name%>[] _serialisableobject;
 
 			lock (record__) {
 				int _current = Current;
 
-				_serialisableobject = new SO0_<%=_aux_db_table.Name%>[Count];
+				_serialisableobject = new SO_<%=_aux_db_table.Name%>[Count];
 
 				Reset();
 				while (Read()) {
 					_serialisableobject[Current] 
-						= new SO0_<%=_aux_db_table.Name%>(<%
+						= new SO_<%=_aux_db_table.Name%>(<%
 							for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 								_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
 							parent_ref_.Fields.<%=_aux_db_field.Name%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? "," : ""%><%
@@ -116,18 +116,18 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 				Current = _current;
 			}
 
-			SC0_<%=_aux_db_table.Name%> _serialize_out = new SC0_<%=_aux_db_table.Name%>();
-			_serialize_out.SO0_<%=_aux_db_table.Name%> = _serialisableobject;
+			SC_<%=_aux_db_table.Name%> _serialize_out = new SC_<%=_aux_db_table.Name%>();
+			_serialize_out.SO_<%=_aux_db_table.Name%> = _serialisableobject;
 			return _serialize_out;
 		}
 		#endregion
-		#region public void Open(SC0_<%=_aux_db_table.Name%> serialisablecollection_in);
-		public void Open(SC0_<%=_aux_db_table.Name%> serialisablecollection_in) {
-			Open(serialisablecollection_in.SO0_<%=_aux_db_table.Name%>);
+		#region public void Open(SC_<%=_aux_db_table.Name%> serialisablecollection_in);
+		public void Open(SC_<%=_aux_db_table.Name%> serialisablecollection_in) {
+			Open(serialisablecollection_in.SO_<%=_aux_db_table.Name%>);
 		}
 		#endregion
-		#region public void Open(SO0_<%=_aux_db_table.Name%>[] serialisableobject_in);
-		public void Open(SO0_<%=_aux_db_table.Name%>[] serialisableobject_in) {
+		#region public void Open(SO_<%=_aux_db_table.Name%>[] serialisableobject_in);
+		public void Open(SO_<%=_aux_db_table.Name%>[] serialisableobject_in) {
 			DataTable _datatable = new DataTable();
 			_datatable.Columns.Add(new DataColumn("codProfissao", typeof(int)));
 			_datatable.Columns.Add(new DataColumn("descProfissao", typeof(string)));

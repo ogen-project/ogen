@@ -21,16 +21,16 @@ namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
 	/// WordLanguage SerializableObject which provides fields access at WordLanguage table at Database.
 	/// </summary>
-	public class SO0_WordLanguage {
-		#region public SO0_WordLanguage();
-		public SO0_WordLanguage(
+	public class SO_WordLanguage {
+		#region public SO_WordLanguage();
+		public SO_WordLanguage(
 		) : this (
 			0L, 
 			0L, 
 			string.Empty
 		) {
 		}
-		public SO0_WordLanguage(
+		public SO_WordLanguage(
 			long IDWord_in, 
 			long IDLanguage_in, 
 			string Translation_in

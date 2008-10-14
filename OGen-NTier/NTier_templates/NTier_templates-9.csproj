@@ -190,7 +190,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-UT-UT0__utils.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc0_SomeTable_isObject-MySQL.sql.aspx">
       <SubType>ASPXCodeBehind</SubType>
@@ -411,7 +410,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-UT-UT0_SomeTable.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-UT-UT_app.config.aspx">
       <SubType>ASPXCodeBehind</SubType>

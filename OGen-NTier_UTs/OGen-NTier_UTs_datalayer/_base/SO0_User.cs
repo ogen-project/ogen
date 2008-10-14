@@ -21,9 +21,9 @@ namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
 	/// User SerializableObject which provides fields access at User table at Database.
 	/// </summary>
-	public class SO0_User {
-		#region public SO0_User();
-		public SO0_User(
+	public class SO_User {
+		#region public SO_User();
+		public SO_User(
 		) : this (
 			0L, 
 			string.Empty, 
@@ -31,7 +31,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			0
 		) {
 		}
-		public SO0_User(
+		public SO_User(
 			long IDUser_in, 
 			string Login_in, 
 			string Password_in, 

@@ -21,9 +21,9 @@ namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
 	/// UserGroup SerializableObject which provides fields access at UserGroup table at Database.
 	/// </summary>
-	public class SO0_UserGroup {
-		#region public SO0_UserGroup();
-		public SO0_UserGroup(
+	public class SO_UserGroup {
+		#region public SO_UserGroup();
+		public SO_UserGroup(
 		) : this (
 			0L, 
 			0L, 
@@ -31,7 +31,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			false
 		) {
 		}
-		public SO0_UserGroup(
+		public SO_UserGroup(
 			long IDUser_in, 
 			long IDGroup_in, 
 			DateTime Relationdate_in, 

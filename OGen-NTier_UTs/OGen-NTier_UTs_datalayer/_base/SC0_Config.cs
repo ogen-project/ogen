@@ -17,17 +17,17 @@ using System.Xml.Serialization;
 
 namespace OGen.NTier.UTs.lib.datalayer {
 	[XmlRoot("collectionOf_Config")]
-	public class SC0_Config {
-		#region public SC0_Config(...);
-		public SC0_Config() {
+	public class SC_Config {
+		#region public SC_Config(...);
+		public SC_Config() {
 		}
 		#endregion
 
-		#region public SO0_Config[] SO0_Config { get; set; }
-		private SO0_Config[] config_;
+		#region public SO_Config[] SO_Config { get; set; }
+		private SO_Config[] config_;
 
 		[XmlElement("oneItemOf_Config")]
-		public SO0_Config[] SO0_Config {
+		public SO_Config[] SO_Config {
 			get { return config_; }
 			set { config_ = value; }
 		}

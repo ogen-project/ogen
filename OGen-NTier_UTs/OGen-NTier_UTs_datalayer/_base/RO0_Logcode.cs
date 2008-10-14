@@ -49,24 +49,24 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 
 		#region public Methods...
-		#region //public SC0_Logcode Serialize();
-		//public SC0_Logcode Serialize() {
-		//	return new SC0_Logcode(Record);
+		#region //public SC_Logcode Serialize();
+		//public SC_Logcode Serialize() {
+		//	return new SC_Logcode(Record);
 		//}
 		#endregion
-		#region public SC0_Logcode Serialize();
-		public SC0_Logcode Serialize() {
-			SO0_Logcode[] _serialisableobject;
+		#region public SC_Logcode Serialize();
+		public SC_Logcode Serialize() {
+			SO_Logcode[] _serialisableobject;
 
 			lock (record__) {
 				int _current = Current;
 
-				_serialisableobject = new SO0_Logcode[Count];
+				_serialisableobject = new SO_Logcode[Count];
 
 				Reset();
 				while (Read()) {
 					_serialisableobject[Current] 
-						= new SO0_Logcode(
+						= new SO_Logcode(
 							parent_ref_.Fields.IDLogcode,
 							parent_ref_.Fields.Warning,
 							parent_ref_.Fields.Error,
@@ -78,18 +78,18 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				Current = _current;
 			}
 
-			SC0_Logcode _serialize_out = new SC0_Logcode();
-			_serialize_out.SO0_Logcode = _serialisableobject;
+			SC_Logcode _serialize_out = new SC_Logcode();
+			_serialize_out.SO_Logcode = _serialisableobject;
 			return _serialize_out;
 		}
 		#endregion
-		#region public void Open(SC0_Logcode serialisablecollection_in);
-		public void Open(SC0_Logcode serialisablecollection_in) {
-			Open(serialisablecollection_in.SO0_Logcode);
+		#region public void Open(SC_Logcode serialisablecollection_in);
+		public void Open(SC_Logcode serialisablecollection_in) {
+			Open(serialisablecollection_in.SO_Logcode);
 		}
 		#endregion
-		#region public void Open(SO0_Logcode[] serialisableobject_in);
-		public void Open(SO0_Logcode[] serialisableobject_in) {
+		#region public void Open(SO_Logcode[] serialisableobject_in);
+		public void Open(SO_Logcode[] serialisableobject_in) {
 			DataTable _datatable = new DataTable();
 			_datatable.Columns.Add(new DataColumn("codProfissao", typeof(int)));
 			_datatable.Columns.Add(new DataColumn("descProfissao", typeof(string)));

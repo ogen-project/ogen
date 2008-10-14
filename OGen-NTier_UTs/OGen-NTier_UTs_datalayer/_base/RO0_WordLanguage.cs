@@ -49,24 +49,24 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 
 		#region public Methods...
-		#region //public SC0_WordLanguage Serialize();
-		//public SC0_WordLanguage Serialize() {
-		//	return new SC0_WordLanguage(Record);
+		#region //public SC_WordLanguage Serialize();
+		//public SC_WordLanguage Serialize() {
+		//	return new SC_WordLanguage(Record);
 		//}
 		#endregion
-		#region public SC0_WordLanguage Serialize();
-		public SC0_WordLanguage Serialize() {
-			SO0_WordLanguage[] _serialisableobject;
+		#region public SC_WordLanguage Serialize();
+		public SC_WordLanguage Serialize() {
+			SO_WordLanguage[] _serialisableobject;
 
 			lock (record__) {
 				int _current = Current;
 
-				_serialisableobject = new SO0_WordLanguage[Count];
+				_serialisableobject = new SO_WordLanguage[Count];
 
 				Reset();
 				while (Read()) {
 					_serialisableobject[Current] 
-						= new SO0_WordLanguage(
+						= new SO_WordLanguage(
 							parent_ref_.Fields.IDWord,
 							parent_ref_.Fields.IDLanguage,
 							parent_ref_.Fields.Translation
@@ -76,18 +76,18 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				Current = _current;
 			}
 
-			SC0_WordLanguage _serialize_out = new SC0_WordLanguage();
-			_serialize_out.SO0_WordLanguage = _serialisableobject;
+			SC_WordLanguage _serialize_out = new SC_WordLanguage();
+			_serialize_out.SO_WordLanguage = _serialisableobject;
 			return _serialize_out;
 		}
 		#endregion
-		#region public void Open(SC0_WordLanguage serialisablecollection_in);
-		public void Open(SC0_WordLanguage serialisablecollection_in) {
-			Open(serialisablecollection_in.SO0_WordLanguage);
+		#region public void Open(SC_WordLanguage serialisablecollection_in);
+		public void Open(SC_WordLanguage serialisablecollection_in) {
+			Open(serialisablecollection_in.SO_WordLanguage);
 		}
 		#endregion
-		#region public void Open(SO0_WordLanguage[] serialisableobject_in);
-		public void Open(SO0_WordLanguage[] serialisableobject_in) {
+		#region public void Open(SO_WordLanguage[] serialisableobject_in);
+		public void Open(SO_WordLanguage[] serialisableobject_in) {
 			DataTable _datatable = new DataTable();
 			_datatable.Columns.Add(new DataColumn("codProfissao", typeof(int)));
 			_datatable.Columns.Add(new DataColumn("descProfissao", typeof(string)));

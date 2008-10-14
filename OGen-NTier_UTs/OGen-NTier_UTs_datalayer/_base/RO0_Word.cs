@@ -49,24 +49,24 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 
 		#region public Methods...
-		#region //public SC0_Word Serialize();
-		//public SC0_Word Serialize() {
-		//	return new SC0_Word(Record);
+		#region //public SC_Word Serialize();
+		//public SC_Word Serialize() {
+		//	return new SC_Word(Record);
 		//}
 		#endregion
-		#region public SC0_Word Serialize();
-		public SC0_Word Serialize() {
-			SO0_Word[] _serialisableobject;
+		#region public SC_Word Serialize();
+		public SC_Word Serialize() {
+			SO_Word[] _serialisableobject;
 
 			lock (record__) {
 				int _current = Current;
 
-				_serialisableobject = new SO0_Word[Count];
+				_serialisableobject = new SO_Word[Count];
 
 				Reset();
 				while (Read()) {
 					_serialisableobject[Current] 
-						= new SO0_Word(
+						= new SO_Word(
 							parent_ref_.Fields.IDWord,
 							parent_ref_.Fields.DeleteThisTestField
 						);
@@ -75,18 +75,18 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				Current = _current;
 			}
 
-			SC0_Word _serialize_out = new SC0_Word();
-			_serialize_out.SO0_Word = _serialisableobject;
+			SC_Word _serialize_out = new SC_Word();
+			_serialize_out.SO_Word = _serialisableobject;
 			return _serialize_out;
 		}
 		#endregion
-		#region public void Open(SC0_Word serialisablecollection_in);
-		public void Open(SC0_Word serialisablecollection_in) {
-			Open(serialisablecollection_in.SO0_Word);
+		#region public void Open(SC_Word serialisablecollection_in);
+		public void Open(SC_Word serialisablecollection_in) {
+			Open(serialisablecollection_in.SO_Word);
 		}
 		#endregion
-		#region public void Open(SO0_Word[] serialisableobject_in);
-		public void Open(SO0_Word[] serialisableobject_in) {
+		#region public void Open(SO_Word[] serialisableobject_in);
+		public void Open(SO_Word[] serialisableobject_in) {
 			DataTable _datatable = new DataTable();
 			_datatable.Columns.Add(new DataColumn("codProfissao", typeof(int)));
 			_datatable.Columns.Add(new DataColumn("descProfissao", typeof(string)));

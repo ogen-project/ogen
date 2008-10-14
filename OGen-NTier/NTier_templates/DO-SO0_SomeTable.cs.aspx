@@ -61,9 +61,9 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 	/// <summary>
 	/// <%=_aux_db_table.Name%> SerializableObject which provides fields access at <%=_aux_db_table.Name%> <%=(_aux_db_table.isVirtualTable) ? "view" : "table"%> at Database.
 	/// </summary>
-	public class SO0_<%=_aux_db_table.Name%> {
-		#region public SO0_<%=_aux_db_table.Name%>();
-		public SO0_<%=_aux_db_table.Name%>(
+	public class SO_<%=_aux_db_table.Name%> {
+		#region public SO_<%=_aux_db_table.Name%>();
+		public SO_<%=_aux_db_table.Name%>(
 		) : this (<%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
@@ -72,7 +72,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		}%>
 		) {
 		}
-		public SO0_<%=_aux_db_table.Name%>(<%
+		public SO_<%=_aux_db_table.Name%>(<%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
 			<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%>_in<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
