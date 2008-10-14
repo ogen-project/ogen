@@ -59,9 +59,35 @@ using OGen.NTier.lib.datalayer;
 
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 	/// <summary>
+	/// Interface for <%=_aux_db_table.Name%> SerializableObject.
+	/// </summary>
+	public interface ISO_<%=_aux_db_table.Name%> {
+		/// <summary>
+		/// Indicates if changes have been made to FO0_<%=_aux_db_table.Name%> properties since last time getObject method was run.
+		/// </summary>
+		bool hasChanges { get; }
+<%
+		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
+			_aux_ex_field = _aux_db_field.parallel_ref;
+
+			if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%>
+		/// <summary>
+		/// Allows assignement of null and check if null at <%=_aux_db_table.Name%>'s <%=_aux_db_field.Name%>.
+		/// </summary>
+		bool <%=_aux_db_field.Name%>_isNull { get; set; }<%
+			}%>
+		/// <summary>
+		/// <%=_aux_db_table.Name%>'s <%=_aux_db_field.Name%>.
+		/// </summary>
+		<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%> { get; set; }<%
+		}%>
+	}
+
+	/// <summary>
 	/// <%=_aux_db_table.Name%> SerializableObject which provides fields access at <%=_aux_db_table.Name%> <%=(_aux_db_table.isVirtualTable) ? "view" : "table"%> at Database.
 	/// </summary>
-	public class SO_<%=_aux_db_table.Name%> {
+	public class SO_<%=_aux_db_table.Name%> : ISO_<%=_aux_db_table.Name%> {
 		#region public SO_<%=_aux_db_table.Name%>();
 		public SO_<%=_aux_db_table.Name%>(
 		) : this (<%
@@ -89,7 +115,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 
 		#region Properties...
 		#region public bool hasChanges { get; }
-		internal bool haschanges_;
+		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_<%=_aux_db_table.Name%> properties since last time getObject method was run.
@@ -134,7 +160,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 		#endregion<%
 			}%>
 		#region public <%=_aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%> { get; set; }
-		internal <%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name.ToLower()%>_;// = <%=((_aux_ex_field == null) || (_aux_ex_field.DefaultValue == "")) ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_ex_field.DefaultValue%>;
+		public <%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name.ToLower()%>_;// = <%=((_aux_ex_field == null) || (_aux_ex_field.DefaultValue == "")) ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_ex_field.DefaultValue%>;
 		
 		/// <summary>
 		/// <%=_aux_db_table.Name%>'s <%=_aux_db_field.Name%>.

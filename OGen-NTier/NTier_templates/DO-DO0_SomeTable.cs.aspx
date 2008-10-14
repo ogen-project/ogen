@@ -120,7 +120,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			.DBLogfile
 		) {
 			clrObject();
-			Fields.haschanges_ = false;
+			fields_.haschanges_ = false;
 		}
 #if !NET_1_1
 			/// <summary>
@@ -137,17 +137,17 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			connection_in
 		) {
 			clrObject();
-			Fields.haschanges_ = false;
+			fields_.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public FO0_<%=_aux_db_table.Name%> Fields { get; set; }
+		#region public SO_<%=_aux_db_table.Name%> Fields { get; set; }
 		internal SO_<%=_aux_db_table.Name%> fields_;
 
-		public SO_<%=_aux_db_table.Name%> Fields {
+		public ISO_<%=_aux_db_table.Name%> Fields {
 			get { return fields_; }
-			set { fields_ = value; }
+			set { fields_ = (SO_<%=_aux_db_table.Name%>)value; }
 		}
 		#endregion
 		#region public RO0_<%=_aux_db_table.Name%> Record { get; }
@@ -190,7 +190,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		}
 		#region public SC_<%=_aux_db_table.Name%> Serialize();
 		public SO_<%=_aux_db_table.Name%> Serialize() {
-			return Fields;
+			return fields_;
 		}
 		#endregion
 		#region public void clrObject();
@@ -211,7 +211,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			<%=_aux_db_field.Name%> = <%=(_aux_ex_field.DefaultValue == "") ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_ex_field.DefaultValue%>;<%
 				}
 			}--%>
-			Fields = new SO_<%=_aux_db_table.Name%>();
+			fields_ = new SO_<%=_aux_db_table.Name%>();
 		}
 		#endregion<%
 if (!_aux_db_table.isVirtualTable) {%>
@@ -228,7 +228,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 			return getObject(<%
 				for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 					_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%><%=""%>
-				Fields.<%=_aux_db_field.Name%><%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+				fields_.<%=_aux_db_field.Name%><%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}%>
 			);
 		}
@@ -270,16 +270,16 @@ if (!_aux_db_table.isVirtualTable) {%>
 						_aux_ex_field = _aux_db_field.parallel_ref;%>
 					if (_dataparameters[<%=f%>].Value == System.DBNull.Value) {<%
 						if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%>
-						Fields.<%=_aux_db_field.Name%>_isNull = true;<%
+						fields_.<%=_aux_db_field.Name%>_isNull = true;<%
 						} else {%><%=""%>
-						Fields.<%=_aux_db_field.Name%> = <%=_aux_db_field.DBType_generic.FWEmptyValue%>;<%
+						fields_.<%=_aux_db_field.Name%> = <%=_aux_db_field.DBType_generic.FWEmptyValue%>;<%
 						}%>
 					} else {
-						Fields.<%=_aux_db_field.Name%> = (<%=_aux_db_field.DBType_generic.FWType%>)_dataparameters[<%=f%>].Value;
+						fields_.<%=_aux_db_field.Name%> = (<%=_aux_db_field.DBType_generic.FWType%>)_dataparameters[<%=f%>].Value;
 					}<%
 					}%>
 
-					Fields.haschanges_ = false;
+					fields_.haschanges_ = false;
 					return true;
 				}<%
 			if (_aux_db_table.hasIdentityKey) {%>
@@ -304,7 +304,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 			delObject(<%
 				for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 					_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%><%=""%>
-				Fields.<%=_aux_db_field.Name%><%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+				fields_.<%=_aux_db_field.Name%><%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}%>
 			);
 		}
@@ -351,7 +351,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 			return isObject(<%
 				for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 					_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%><%=""%>
-				Fields.<%=_aux_db_field.Name%><%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+				fields_.<%=_aux_db_field.Name%><%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 				}%>
 			);
 		}
@@ -405,7 +405,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 			<%if (!_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {
 				%>bool ConstraintExist_out;
 			<%}
-			%>if (forceUpdate_in || Fields.haschanges_) {
+			%>if (forceUpdate_in || fields_.haschanges_) {
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
 					for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 						_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
@@ -414,8 +414,8 @@ if (!_aux_db_table.isVirtualTable) {%>
 (_aux_db_field.isIdentity) 
 	?  "null" 
 	: ((_aux_db_field.isNullable) 
-		? "Fields." + _aux_db_field.Name + "_isNull ? null : (object)Fields." + _aux_db_field.Name 
-		: "Fields." + _aux_db_field.Name
+		? "fields_." + _aux_db_field.Name + "_isNull ? null : (object)fields_." + _aux_db_field.Name 
+		: "fields_." + _aux_db_field.Name
 	)%>, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>), <%
 					}%>
 
@@ -432,7 +432,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 
 				ConstraintExist_out = (((int)_dataparameters[<%=_aux_db_table.TableFields.TableFieldCollection.Count%>].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					Fields.haschanges_ = false;<%
+					fields_.haschanges_ = false;<%
 
 
 
@@ -487,7 +487,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 #endif
 									)
 								);%>
-					switch (Fields.<%=NameField%>) {<%
+					switch (fields_.<%=NameField%>) {<%
 								for (int r = 0; r < ConfigTable.Rows.Count; r++) {%>
 						case "<%=ConfigTable.Rows[r][NameField]%>": {
 #if !NET_1_1
@@ -545,8 +545,8 @@ if (!_aux_db_table.isVirtualTable) {%>
 (_aux_db_field.isIdentity) 
 	? "null" 
 	: ((_aux_db_field.isNullable) 
-		? "Fields." + _aux_db_field.Name + "_isNull ? null : (object)Fields." + _aux_db_field.Name 
-		: "Fields." + _aux_db_field.Name
+		? "fields_." + _aux_db_field.Name + "_isNull ? null : (object)fields_." + _aux_db_field.Name 
+		: "fields_." + _aux_db_field.Name
 	)%>, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>), <%
 				}%>
 
@@ -560,17 +560,17 @@ if (!_aux_db_table.isVirtualTable) {%>
 			<%
 			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey];
 			_aux_ex_field = _aux_db_field.parallel_ref;
-			%>Fields.<%=_aux_db_field.Name%> = (<%=_aux_db_field.DBType_generic.FWType%>)_dataparameters[<%=_aux_db_table.IdentityKey%>].Value;<%
+			%>fields_.<%=_aux_db_field.Name%> = (<%=_aux_db_field.DBType_generic.FWType%>)_dataparameters[<%=_aux_db_table.IdentityKey%>].Value;<%
 			if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
-			constraintExist_out = (Fields.<%=_aux_db_field.Name%> == -1L);
+			constraintExist_out = (fields_.<%=_aux_db_field.Name%> == -1L);
 			if (!constraintExist_out) {
-				Fields.haschanges_ = false;
+				fields_.haschanges_ = false;
 			}<%
 			} else {%>
-			Fields.haschanges_ = false;
+			fields_.haschanges_ = false;
 			<%}%>
 
-			return Fields.<%=_aux_db_field.Name%>;
+			return fields_.<%=_aux_db_field.Name%>;
 		}
 		#endregion
 		#region public void updObject(...);
@@ -586,15 +586,15 @@ if (!_aux_db_table.isVirtualTable) {%>
 			virtual 
 #endif
 		void updObject(bool forceUpdate_in<%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? ", out bool constraintExist_out" : ""%>) {
-			if (forceUpdate_in || Fields.haschanges_) {
+			if (forceUpdate_in || fields_.haschanges_) {
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
 					for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 						_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 						_aux_ex_field = _aux_db_field.parallel_ref;%>
 					base.Connection.newDBDataParameter("<%=_aux_db_field.Name%>_", DbType.<%=_aux_db_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=
 ((_aux_db_field.isNullable) 
-	? "Fields." + _aux_db_field.Name + "_isNull ? null : (object)Fields." + _aux_db_field.Name 
-	: "Fields." + _aux_db_field.Name
+	? "fields_." + _aux_db_field.Name + "_isNull ? null : (object)fields_." + _aux_db_field.Name 
+	: "fields_." + _aux_db_field.Name
 )%>, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=((f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) || (_aux_ex_table.TableSearches.hasExplicitUniqueIndex)) ? ", " : ""%><%
 					}%><%
 					if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
@@ -609,10 +609,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 				<%if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 				constraintExist_out = <%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? "(bool)_dataparameters[" + (_aux_db_table.TableFields.TableFieldCollection.Count) + "].Value" : "false"%>;
 				if (!constraintExist_out) {
-					Fields.haschanges_ = false;
+					fields_.haschanges_ = false;
 				}<%
 				} else {
-				%>Fields.haschanges_ = false;<%
+				%>fields_.haschanges_ = false;<%
 				}%>
 			<%if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 			} else {
@@ -679,21 +679,21 @@ if (!_aux_db_table.isVirtualTable) {%>
 					_aux_ex_field = _aux_db_field.parallel_ref;%>
 				if (_dataparameters[<%=_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count + f%>].Value == System.DBNull.Value) {<%
 					if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%>
-					Fields.<%=_aux_db_field.Name%>_isNull = true;<%
+					fields_.<%=_aux_db_field.Name%>_isNull = true;<%
 					} else {%><%=""%>
-					Fields.<%=_aux_db_field.Name%> = <%=_aux_db_field.DBType_generic.FWEmptyValue%>;<%
+					fields_.<%=_aux_db_field.Name%> = <%=_aux_db_field.DBType_generic.FWEmptyValue%>;<%
 					}%>
 				} else {
-					Fields.<%=_aux_db_field.Name%> = (<%=_aux_db_field.DBType_generic.FWType%>)_dataparameters[<%=_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count + f%>].Value;
+					fields_.<%=_aux_db_field.Name%> = (<%=_aux_db_field.DBType_generic.FWType%>)_dataparameters[<%=_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count + f%>].Value;
 				}<%
 				}%>
 
-				Fields.haschanges_ = false;
+				fields_.haschanges_ = false;
 				return true;
 			}
 
 			//clrObject();
-			//Fields.haschanges_ = false;
+			//fields_.haschanges_ = false;
 
 			return false;
 		}
@@ -797,17 +797,17 @@ if (!_aux_db_table.isVirtualTable) {%>
 			virtual 
 #endif
 		void updObject_<%=_aux_ex_update.Name%>(bool forceUpdate_in<%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? ", out bool constraintExist_out" : ""%>) {
-			if (forceUpdate_in || Fields.haschanges_) {
+			if (forceUpdate_in || fields_.haschanges_) {
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
 					for (int f = 0; f < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; f++) {
 						_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[f];
 						_aux_ex_field = _aux_db_field.parallel_ref;%>
-					base.Connection.newDBDataParameter("<%=_aux_db_field.Name%>", DbType.<%=_aux_db_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%="Fields." + _aux_db_field.Name%>, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>), <%
+					base.Connection.newDBDataParameter("<%=_aux_db_field.Name%>", DbType.<%=_aux_db_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%="fields_." + _aux_db_field.Name%>, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>), <%
 					}
 					for (int f = 0; f < _aux_ex_update.TableUpdateParameters.TableFieldRefCollection.Count; f++) {
 						_aux_ex_field = _aux_ex_update.TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;
 						_aux_db_field = _aux_ex_field.parallel_ref;%>
-					base.Connection.newDBDataParameter("<%=_aux_ex_field.Name%>_update", DbType.<%=_aux_db_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%="Fields." + _aux_ex_field.Name%>, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=((f != _aux_ex_update.TableUpdateParameters.TableFieldRefCollection.Count - 1) || (_aux_ex_table.TableSearches.hasExplicitUniqueIndex)) ? ", " : ""%><%
+					base.Connection.newDBDataParameter("<%=_aux_ex_field.Name%>_update", DbType.<%=_aux_db_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%="fields_." + _aux_ex_field.Name%>, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=((f != _aux_ex_update.TableUpdateParameters.TableFieldRefCollection.Count - 1) || (_aux_ex_table.TableSearches.hasExplicitUniqueIndex)) ? ", " : ""%><%
 					}
 					if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 
@@ -821,10 +821,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 				<%if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 				constraintExist_out = <%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? "(bool)_dataparameters[" + (_aux_db_table.TableFields.TableFieldCollection.Count) + "].Value" : "false"%>;
 				if (!constraintExist_out) {
-					Fields.haschanges_ = false;
+					fields_.haschanges_ = false;
 				}<%
 				} else {
-				%>Fields.haschanges_ = false;<%
+				%>fields_.haschanges_ = false;<%
 				}%>
 			<%if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 			} else {

@@ -128,7 +128,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 			get { return mainAggregate.Record; }
 		}
 
-		public SO_<%=_aux_db_table.Name%> Fields {
+		public ISO_<%=_aux_db_table.Name%> Fields {
 			get { return mainAggregate.Fields; }
 		}<%
 		if (isListItem) { %>

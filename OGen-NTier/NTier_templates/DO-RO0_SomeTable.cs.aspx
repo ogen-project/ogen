@@ -109,7 +109,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 						= new SO_<%=_aux_db_table.Name%>(<%
 							for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 								_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
-							parent_ref_.Fields.<%=_aux_db_field.Name%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? "," : ""%><%
+							parent_ref_.fields_.<%=_aux_db_field.Name%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? "," : ""%><%
 							}%>
 						);
 				}
@@ -160,18 +160,18 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 				if (base.Record.Rows[Current]["<%=_aux_db_field.Name%>"] == System.DBNull.Value) {<%
 					if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%><%
 					// parent_ref_.< %=_aux_db_field.Name.ToLower()% >_ = null;%>
-					parent_ref_.Fields.<%=_aux_db_field.Name%>_isNull = true;<%
+					parent_ref_.fields_.<%=_aux_db_field.Name%>_isNull = true;<%
 					} else {%><%=""%>
-					parent_ref_.Fields.<%=_aux_db_field.Name.ToLower()%>_ = <%=_aux_db_field.DBType_generic.FWEmptyValue%>;<%
+					parent_ref_.fields_.<%=_aux_db_field.Name.ToLower()%>_ = <%=_aux_db_field.DBType_generic.FWEmptyValue%>;<%
 					}%>
 				} else {
-					parent_ref_.Fields.<%=_aux_db_field.Name.ToLower()%>_ = (<%=_aux_db_field.DBType_generic.FWType%>)base.Record.Rows[Current]["<%=_aux_db_field.Name%>"];
+					parent_ref_.fields_.<%=_aux_db_field.Name.ToLower()%>_ = (<%=_aux_db_field.DBType_generic.FWType%>)base.Record.Rows[Current]["<%=_aux_db_field.Name%>"];
 				}<%
-				//parent_ref_.Fields.< %=_aux_db_field.Name% > = (< %=_aux_db_field.DBType_generic.FWType% >)base.Record.Rows[Current]["< %=_aux_db_field.Name% >"];
-				//parent_ref_.Fields.< %=_aux_db_field.Name% > = (base.Record.Rows[Current]["< %=_aux_db_field.Name% >"] == System.DBNull.Value) ? < %=_aux_db_field.DBType_generic.FWEmptyValue% > : (< %=_aux_db_field.DBType_generic.FWType% >)base.Record.Rows[Current]["< %=_aux_db_field.Name% >"];
+				//parent_ref_.fields_.< %=_aux_db_field.Name% > = (< %=_aux_db_field.DBType_generic.FWType% >)base.Record.Rows[Current]["< %=_aux_db_field.Name% >"];
+				//parent_ref_.fields_.< %=_aux_db_field.Name% > = (base.Record.Rows[Current]["< %=_aux_db_field.Name% >"] == System.DBNull.Value) ? < %=_aux_db_field.DBType_generic.FWEmptyValue% > : (< %=_aux_db_field.DBType_generic.FWType% >)base.Record.Rows[Current]["< %=_aux_db_field.Name% >"];
 				}%>
 
-				parent_ref_.Fields.haschanges_ = false;
+				parent_ref_.fields_.haschanges_ = false;
 
 				return true;
 			} else {
