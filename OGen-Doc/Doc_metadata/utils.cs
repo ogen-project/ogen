@@ -53,5 +53,33 @@ namespace OGen.Doc.lib.metadata {
 				: _output;
 		}
 		#endregion
+		#region public static string ReadDocument_part(...);
+		public static string ReadDocument_part(
+			string allDocument_in
+		) {
+			int _begin;
+			int _end;
+			if (
+				(
+					((_begin = allDocument_in.IndexOf("//<document>")) >= 0)
+					||
+					((_begin = allDocument_in.IndexOf("--<document>")) >= 0)
+				)
+				&&
+				(
+					((_end = allDocument_in.IndexOf("//</document>")) >= 0)
+					||
+					((_end = allDocument_in.IndexOf("--</document>")) >= 0)
+				)
+			) {
+				return allDocument_in.Substring(
+					_begin + 12,
+					_end - (_begin + 12)
+				);
+			} else {
+				return allDocument_in;
+			}
+		}
+		#endregion
 	}
 }

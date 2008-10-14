@@ -93,9 +93,6 @@ int _attchementIncrement = 0;
 
 string _aux_attachment_source;
 
-int _aux_attachment_source_begin;
-int _aux_attachment_source_end;
-
 #endregion
 //-----------------------------------------------------------------------------------------
 %><html>
@@ -309,25 +306,9 @@ for (int c = 0; c < _aux_doc.Chapters.ChapterCollection.Count; c++) {
 // </html> /////////////////////////////////////////////////////////////////////////////
 // <code> //////////////////////////////////////////////////////////////////////////////
 								case XS_SourceContentTypeEnumeration.code:
-if (
-	(
-		((_aux_attachment_source_begin = _aux_attachment_source.IndexOf("//<document>")) >= 0)
-		||
-		((_aux_attachment_source_begin = _aux_attachment_source.IndexOf("--<document>")) >= 0)
-	)
-	&&
-	(
-		((_aux_attachment_source_end = _aux_attachment_source.IndexOf("//</document>")) >= 0)
-		||
-		((_aux_attachment_source_end = _aux_attachment_source.IndexOf("--</document>")) >= 0)
-	)
-) {
-	_aux_attachment_source = _aux_attachment_source.Substring(
-		_aux_attachment_source_begin + 12,
-		_aux_attachment_source_end - (_aux_attachment_source_begin + 12)
-	);
-}
-%>
+									_aux_attachment_source = utils.ReadDocument_part(
+										_aux_attachment_source
+									);%>
 									<table cellpadding="0" cellspacing="0" border="0" width="100%">
 										<tr>
 											<td align="center">
