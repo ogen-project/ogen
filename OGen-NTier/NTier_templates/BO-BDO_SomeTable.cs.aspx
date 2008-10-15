@@ -49,6 +49,7 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 <%
 }%>using System;
 
+using OGen.NTier.lib.businesslayer;
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer;
 
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
