@@ -36,7 +36,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 
 #endregion
 //-----------------------------------------------------------------------------------------
-%><Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+%><Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"<%=(_arg_projectVersion == "9") ? " ToolsVersion=\"3.5\"" : ""%>>
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
     <ProductVersion>8.0.50727</ProductVersion>
@@ -63,7 +63,8 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
+    </UpgradeBackupLocation><%=(_arg_projectVersion == "9") ? @"
+	<OldToolsVersion>2.0</OldToolsVersion>" : ""%>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
