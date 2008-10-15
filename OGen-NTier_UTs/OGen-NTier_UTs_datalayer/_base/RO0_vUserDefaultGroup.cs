@@ -17,6 +17,7 @@ using System.Data;
 
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer.proxy;
 
 namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
@@ -67,11 +68,11 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				while (Read()) {
 					_serialisableobject[Current] 
 						= new SO_vUserDefaultGroup(
-							parent_ref_.Fields.IDUser,
-							parent_ref_.Fields.Login,
-							parent_ref_.Fields.IDGroup,
-							parent_ref_.Fields.Name,
-							parent_ref_.Fields.Relationdate
+							parent_ref_.fields_.IDUser,
+							parent_ref_.fields_.Login,
+							parent_ref_.fields_.IDGroup,
+							parent_ref_.fields_.Name,
+							parent_ref_.fields_.Relationdate
 						);
 				}
 
@@ -117,32 +118,32 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		public override bool Read() {
 			if (base.read()) {
 				if (base.Record.Rows[Current]["IDUser"] == System.DBNull.Value) {
-					parent_ref_.Fields.iduser_ = 0L;
+					parent_ref_.fields_.iduser_ = 0L;
 				} else {
-					parent_ref_.Fields.iduser_ = (long)base.Record.Rows[Current]["IDUser"];
+					parent_ref_.fields_.iduser_ = (long)base.Record.Rows[Current]["IDUser"];
 				}
 				if (base.Record.Rows[Current]["Login"] == System.DBNull.Value) {
-					parent_ref_.Fields.login_ = string.Empty;
+					parent_ref_.fields_.login_ = string.Empty;
 				} else {
-					parent_ref_.Fields.login_ = (string)base.Record.Rows[Current]["Login"];
+					parent_ref_.fields_.login_ = (string)base.Record.Rows[Current]["Login"];
 				}
 				if (base.Record.Rows[Current]["IDGroup"] == System.DBNull.Value) {
-					parent_ref_.Fields.idgroup_ = 0L;
+					parent_ref_.fields_.idgroup_ = 0L;
 				} else {
-					parent_ref_.Fields.idgroup_ = (long)base.Record.Rows[Current]["IDGroup"];
+					parent_ref_.fields_.idgroup_ = (long)base.Record.Rows[Current]["IDGroup"];
 				}
 				if (base.Record.Rows[Current]["Name"] == System.DBNull.Value) {
-					parent_ref_.Fields.name_ = string.Empty;
+					parent_ref_.fields_.name_ = string.Empty;
 				} else {
-					parent_ref_.Fields.name_ = (string)base.Record.Rows[Current]["Name"];
+					parent_ref_.fields_.name_ = (string)base.Record.Rows[Current]["Name"];
 				}
 				if (base.Record.Rows[Current]["Relationdate"] == System.DBNull.Value) {
-					parent_ref_.Fields.relationdate_ = new DateTime(1900, 1, 1);
+					parent_ref_.fields_.relationdate_ = new DateTime(1900, 1, 1);
 				} else {
-					parent_ref_.Fields.relationdate_ = (DateTime)base.Record.Rows[Current]["Relationdate"];
+					parent_ref_.fields_.relationdate_ = (DateTime)base.Record.Rows[Current]["Relationdate"];
 				}
 
-				parent_ref_.Fields.haschanges_ = false;
+				parent_ref_.fields_.haschanges_ = false;
 
 				return true;
 			} else {

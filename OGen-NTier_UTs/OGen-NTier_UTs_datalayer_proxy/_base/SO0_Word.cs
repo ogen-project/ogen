@@ -17,11 +17,34 @@ using System.Xml.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
-namespace OGen.NTier.UTs.lib.datalayer {
+namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	/// <summary>
+	/// Interface for Word SerializableObject.
+	/// </summary>
+	public interface ISO_Word {
+		/// <summary>
+		/// Indicates if changes have been made to FO0_Word properties since last time getObject method was run.
+		/// </summary>
+		bool hasChanges { get; }
+
+		/// <summary>
+		/// Word's IDWord.
+		/// </summary>
+		long IDWord { get; set; }
+		/// <summary>
+		/// Allows assignement of null and check if null at Word's DeleteThisTestField.
+		/// </summary>
+		bool DeleteThisTestField_isNull { get; set; }
+		/// <summary>
+		/// Word's DeleteThisTestField.
+		/// </summary>
+		bool DeleteThisTestField { get; set; }
+	}
+
 	/// <summary>
 	/// Word SerializableObject which provides fields access at Word table at Database.
 	/// </summary>
-	public class SO_Word {
+	public class SO_Word : ISO_Word {
 		#region public SO_Word();
 		public SO_Word(
 		) : this (
@@ -42,7 +65,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 		#region Properties...
 		#region public bool hasChanges { get; }
-		internal bool haschanges_;
+		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_Word properties since last time getObject method was run.
@@ -57,7 +80,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 		//---
 		#region public long IDWord { get; set; }
-		internal long idword_;// = 0L;
+		public long idword_;// = 0L;
 		
 		/// <summary>
 		/// Word's IDWord.
@@ -126,7 +149,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public bool DeleteThisTestField { get; set; }
-		internal object deletethistestfield_;// = false;
+		public object deletethistestfield_;// = false;
 		
 		/// <summary>
 		/// Word's DeleteThisTestField.

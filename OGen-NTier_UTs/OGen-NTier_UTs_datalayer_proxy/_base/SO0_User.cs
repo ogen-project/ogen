@@ -17,11 +17,42 @@ using System.Xml.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
-namespace OGen.NTier.UTs.lib.datalayer {
+namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	/// <summary>
+	/// Interface for User SerializableObject.
+	/// </summary>
+	public interface ISO_User {
+		/// <summary>
+		/// Indicates if changes have been made to FO0_User properties since last time getObject method was run.
+		/// </summary>
+		bool hasChanges { get; }
+
+		/// <summary>
+		/// User's IDUser.
+		/// </summary>
+		long IDUser { get; set; }
+		/// <summary>
+		/// User's Login.
+		/// </summary>
+		string Login { get; set; }
+		/// <summary>
+		/// User's Password.
+		/// </summary>
+		string Password { get; set; }
+		/// <summary>
+		/// Allows assignement of null and check if null at User's SomeNullValue.
+		/// </summary>
+		bool SomeNullValue_isNull { get; set; }
+		/// <summary>
+		/// User's SomeNullValue.
+		/// </summary>
+		int SomeNullValue { get; set; }
+	}
+
 	/// <summary>
 	/// User SerializableObject which provides fields access at User table at Database.
 	/// </summary>
-	public class SO_User {
+	public class SO_User : ISO_User {
 		#region public SO_User();
 		public SO_User(
 		) : this (
@@ -48,7 +79,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 		#region Properties...
 		#region public bool hasChanges { get; }
-		internal bool haschanges_;
+		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_User properties since last time getObject method was run.
@@ -63,7 +94,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 		//---
 		#region public long IDUser { get; set; }
-		internal long iduser_;// = 0L;
+		public long iduser_;// = 0L;
 		
 		/// <summary>
 		/// User's IDUser.
@@ -111,7 +142,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public string Login { get; set; }
-		internal string login_;// = string.Empty;
+		public string login_;// = string.Empty;
 		
 		/// <summary>
 		/// User's Login.
@@ -161,7 +192,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public string Password { get; set; }
-		internal string password_;// = string.Empty;
+		public string password_;// = string.Empty;
 		
 		/// <summary>
 		/// User's Password.
@@ -232,7 +263,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public int SomeNullValue { get; set; }
-		internal object somenullvalue_;// = 0;
+		public object somenullvalue_;// = 0;
 		
 		/// <summary>
 		/// User's SomeNullValue.

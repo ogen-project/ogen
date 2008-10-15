@@ -15,7 +15,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Xml.Serialization;
 
-namespace OGen.NTier.UTs.lib.datalayer {
+namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	[XmlRoot("collectionOf_Logcode")]
 	public class SC_Logcode {
 		#region public SC_Logcode(...);

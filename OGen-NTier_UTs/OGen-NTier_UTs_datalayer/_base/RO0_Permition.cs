@@ -17,6 +17,7 @@ using System.Data;
 
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer.proxy;
 
 namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
@@ -67,8 +68,8 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				while (Read()) {
 					_serialisableobject[Current] 
 						= new SO_Permition(
-							parent_ref_.Fields.IDPermition,
-							parent_ref_.Fields.Name
+							parent_ref_.fields_.IDPermition,
+							parent_ref_.fields_.Name
 						);
 				}
 
@@ -111,17 +112,17 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		public override bool Read() {
 			if (base.read()) {
 				if (base.Record.Rows[Current]["IDPermition"] == System.DBNull.Value) {
-					parent_ref_.Fields.idpermition_ = 0L;
+					parent_ref_.fields_.idpermition_ = 0L;
 				} else {
-					parent_ref_.Fields.idpermition_ = (long)base.Record.Rows[Current]["IDPermition"];
+					parent_ref_.fields_.idpermition_ = (long)base.Record.Rows[Current]["IDPermition"];
 				}
 				if (base.Record.Rows[Current]["Name"] == System.DBNull.Value) {
-					parent_ref_.Fields.name_ = string.Empty;
+					parent_ref_.fields_.name_ = string.Empty;
 				} else {
-					parent_ref_.Fields.name_ = (string)base.Record.Rows[Current]["Name"];
+					parent_ref_.fields_.name_ = (string)base.Record.Rows[Current]["Name"];
 				}
 
-				parent_ref_.Fields.haschanges_ = false;
+				parent_ref_.fields_.haschanges_ = false;
 
 				return true;
 			} else {

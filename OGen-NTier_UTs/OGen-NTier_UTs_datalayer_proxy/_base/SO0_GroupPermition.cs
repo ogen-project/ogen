@@ -17,11 +17,30 @@ using System.Xml.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
-namespace OGen.NTier.UTs.lib.datalayer {
+namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	/// <summary>
+	/// Interface for GroupPermition SerializableObject.
+	/// </summary>
+	public interface ISO_GroupPermition {
+		/// <summary>
+		/// Indicates if changes have been made to FO0_GroupPermition properties since last time getObject method was run.
+		/// </summary>
+		bool hasChanges { get; }
+
+		/// <summary>
+		/// GroupPermition's IDGroup.
+		/// </summary>
+		long IDGroup { get; set; }
+		/// <summary>
+		/// GroupPermition's IDPermition.
+		/// </summary>
+		long IDPermition { get; set; }
+	}
+
 	/// <summary>
 	/// GroupPermition SerializableObject which provides fields access at GroupPermition table at Database.
 	/// </summary>
-	public class SO_GroupPermition {
+	public class SO_GroupPermition : ISO_GroupPermition {
 		#region public SO_GroupPermition();
 		public SO_GroupPermition(
 		) : this (
@@ -42,7 +61,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 		#region Properties...
 		#region public bool hasChanges { get; }
-		internal bool haschanges_;
+		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_GroupPermition properties since last time getObject method was run.
@@ -57,7 +76,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 		//---
 		#region public long IDGroup { get; set; }
-		internal long idgroup_;// = 0L;
+		public long idgroup_;// = 0L;
 		
 		/// <summary>
 		/// GroupPermition's IDGroup.
@@ -105,7 +124,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public long IDPermition { get; set; }
-		internal long idpermition_;// = 0L;
+		public long idpermition_;// = 0L;
 		
 		/// <summary>
 		/// GroupPermition's IDPermition.

@@ -17,11 +17,30 @@ using System.Xml.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
-namespace OGen.NTier.UTs.lib.datalayer {
+namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	/// <summary>
+	/// Interface for Permition SerializableObject.
+	/// </summary>
+	public interface ISO_Permition {
+		/// <summary>
+		/// Indicates if changes have been made to FO0_Permition properties since last time getObject method was run.
+		/// </summary>
+		bool hasChanges { get; }
+
+		/// <summary>
+		/// Permition's IDPermition.
+		/// </summary>
+		long IDPermition { get; set; }
+		/// <summary>
+		/// Permition's Name.
+		/// </summary>
+		string Name { get; set; }
+	}
+
 	/// <summary>
 	/// Permition SerializableObject which provides fields access at Permition table at Database.
 	/// </summary>
-	public class SO_Permition {
+	public class SO_Permition : ISO_Permition {
 		#region public SO_Permition();
 		public SO_Permition(
 		) : this (
@@ -42,7 +61,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 		#region Properties...
 		#region public bool hasChanges { get; }
-		internal bool haschanges_;
+		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_Permition properties since last time getObject method was run.
@@ -57,7 +76,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 		//---
 		#region public long IDPermition { get; set; }
-		internal long idpermition_;// = 0L;
+		public long idpermition_;// = 0L;
 		
 		/// <summary>
 		/// Permition's IDPermition.
@@ -105,7 +124,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public string Name { get; set; }
-		internal string name_;// = string.Empty;
+		public string name_;// = string.Empty;
 		
 		/// <summary>
 		/// Permition's Name.

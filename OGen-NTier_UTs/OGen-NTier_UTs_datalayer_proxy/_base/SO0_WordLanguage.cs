@@ -17,11 +17,38 @@ using System.Xml.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
-namespace OGen.NTier.UTs.lib.datalayer {
+namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	/// <summary>
+	/// Interface for WordLanguage SerializableObject.
+	/// </summary>
+	public interface ISO_WordLanguage {
+		/// <summary>
+		/// Indicates if changes have been made to FO0_WordLanguage properties since last time getObject method was run.
+		/// </summary>
+		bool hasChanges { get; }
+
+		/// <summary>
+		/// WordLanguage's IDWord.
+		/// </summary>
+		long IDWord { get; set; }
+		/// <summary>
+		/// WordLanguage's IDLanguage.
+		/// </summary>
+		long IDLanguage { get; set; }
+		/// <summary>
+		/// Allows assignement of null and check if null at WordLanguage's Translation.
+		/// </summary>
+		bool Translation_isNull { get; set; }
+		/// <summary>
+		/// WordLanguage's Translation.
+		/// </summary>
+		string Translation { get; set; }
+	}
+
 	/// <summary>
 	/// WordLanguage SerializableObject which provides fields access at WordLanguage table at Database.
 	/// </summary>
-	public class SO_WordLanguage {
+	public class SO_WordLanguage : ISO_WordLanguage {
 		#region public SO_WordLanguage();
 		public SO_WordLanguage(
 		) : this (
@@ -45,7 +72,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 		#region Properties...
 		#region public bool hasChanges { get; }
-		internal bool haschanges_;
+		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_WordLanguage properties since last time getObject method was run.
@@ -60,7 +87,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 		//---
 		#region public long IDWord { get; set; }
-		internal long idword_;// = 0L;
+		public long idword_;// = 0L;
 		
 		/// <summary>
 		/// WordLanguage's IDWord.
@@ -108,7 +135,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public long IDLanguage { get; set; }
-		internal long idlanguage_;// = 0L;
+		public long idlanguage_;// = 0L;
 		
 		/// <summary>
 		/// WordLanguage's IDLanguage.
@@ -177,7 +204,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public string Translation { get; set; }
-		internal object translation_;// = string.Empty;
+		public object translation_;// = string.Empty;
 		
 		/// <summary>
 		/// WordLanguage's Translation.

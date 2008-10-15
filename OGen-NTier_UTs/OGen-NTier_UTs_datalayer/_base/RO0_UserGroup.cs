@@ -17,6 +17,7 @@ using System.Data;
 
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer.proxy;
 
 namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
@@ -67,10 +68,10 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				while (Read()) {
 					_serialisableobject[Current] 
 						= new SO_UserGroup(
-							parent_ref_.Fields.IDUser,
-							parent_ref_.Fields.IDGroup,
-							parent_ref_.Fields.Relationdate,
-							parent_ref_.Fields.Defaultrelation
+							parent_ref_.fields_.IDUser,
+							parent_ref_.fields_.IDGroup,
+							parent_ref_.fields_.Relationdate,
+							parent_ref_.fields_.Defaultrelation
 						);
 				}
 
@@ -115,27 +116,27 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		public override bool Read() {
 			if (base.read()) {
 				if (base.Record.Rows[Current]["IDUser"] == System.DBNull.Value) {
-					parent_ref_.Fields.iduser_ = 0L;
+					parent_ref_.fields_.iduser_ = 0L;
 				} else {
-					parent_ref_.Fields.iduser_ = (long)base.Record.Rows[Current]["IDUser"];
+					parent_ref_.fields_.iduser_ = (long)base.Record.Rows[Current]["IDUser"];
 				}
 				if (base.Record.Rows[Current]["IDGroup"] == System.DBNull.Value) {
-					parent_ref_.Fields.idgroup_ = 0L;
+					parent_ref_.fields_.idgroup_ = 0L;
 				} else {
-					parent_ref_.Fields.idgroup_ = (long)base.Record.Rows[Current]["IDGroup"];
+					parent_ref_.fields_.idgroup_ = (long)base.Record.Rows[Current]["IDGroup"];
 				}
 				if (base.Record.Rows[Current]["Relationdate"] == System.DBNull.Value) {
-					parent_ref_.Fields.Relationdate_isNull = true;
+					parent_ref_.fields_.Relationdate_isNull = true;
 				} else {
-					parent_ref_.Fields.relationdate_ = (DateTime)base.Record.Rows[Current]["Relationdate"];
+					parent_ref_.fields_.relationdate_ = (DateTime)base.Record.Rows[Current]["Relationdate"];
 				}
 				if (base.Record.Rows[Current]["Defaultrelation"] == System.DBNull.Value) {
-					parent_ref_.Fields.Defaultrelation_isNull = true;
+					parent_ref_.fields_.Defaultrelation_isNull = true;
 				} else {
-					parent_ref_.Fields.defaultrelation_ = (bool)base.Record.Rows[Current]["Defaultrelation"];
+					parent_ref_.fields_.defaultrelation_ = (bool)base.Record.Rows[Current]["Defaultrelation"];
 				}
 
-				parent_ref_.Fields.haschanges_ = false;
+				parent_ref_.fields_.haschanges_ = false;
 
 				return true;
 			} else {

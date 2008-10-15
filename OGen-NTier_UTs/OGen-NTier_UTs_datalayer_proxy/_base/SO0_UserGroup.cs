@@ -17,11 +17,46 @@ using System.Xml.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
-namespace OGen.NTier.UTs.lib.datalayer {
+namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	/// <summary>
+	/// Interface for UserGroup SerializableObject.
+	/// </summary>
+	public interface ISO_UserGroup {
+		/// <summary>
+		/// Indicates if changes have been made to FO0_UserGroup properties since last time getObject method was run.
+		/// </summary>
+		bool hasChanges { get; }
+
+		/// <summary>
+		/// UserGroup's IDUser.
+		/// </summary>
+		long IDUser { get; set; }
+		/// <summary>
+		/// UserGroup's IDGroup.
+		/// </summary>
+		long IDGroup { get; set; }
+		/// <summary>
+		/// Allows assignement of null and check if null at UserGroup's Relationdate.
+		/// </summary>
+		bool Relationdate_isNull { get; set; }
+		/// <summary>
+		/// UserGroup's Relationdate.
+		/// </summary>
+		DateTime Relationdate { get; set; }
+		/// <summary>
+		/// Allows assignement of null and check if null at UserGroup's Defaultrelation.
+		/// </summary>
+		bool Defaultrelation_isNull { get; set; }
+		/// <summary>
+		/// UserGroup's Defaultrelation.
+		/// </summary>
+		bool Defaultrelation { get; set; }
+	}
+
 	/// <summary>
 	/// UserGroup SerializableObject which provides fields access at UserGroup table at Database.
 	/// </summary>
-	public class SO_UserGroup {
+	public class SO_UserGroup : ISO_UserGroup {
 		#region public SO_UserGroup();
 		public SO_UserGroup(
 		) : this (
@@ -48,7 +83,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 		#region Properties...
 		#region public bool hasChanges { get; }
-		internal bool haschanges_;
+		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_UserGroup properties since last time getObject method was run.
@@ -63,7 +98,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 		//---
 		#region public long IDUser { get; set; }
-		internal long iduser_;// = 0L;
+		public long iduser_;// = 0L;
 		
 		/// <summary>
 		/// UserGroup's IDUser.
@@ -111,7 +146,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public long IDGroup { get; set; }
-		internal long idgroup_;// = 0L;
+		public long idgroup_;// = 0L;
 		
 		/// <summary>
 		/// UserGroup's IDGroup.
@@ -180,7 +215,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public DateTime Relationdate { get; set; }
-		internal object relationdate_;// = new DateTime(1900, 1, 1);
+		public object relationdate_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>
 		/// UserGroup's Relationdate.
@@ -249,7 +284,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public bool Defaultrelation { get; set; }
-		internal object defaultrelation_;// = false;
+		public object defaultrelation_;// = false;
 		
 		/// <summary>
 		/// UserGroup's Defaultrelation.

@@ -17,6 +17,7 @@ using System.Data;
 
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer.proxy;
 
 namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
@@ -67,11 +68,11 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				while (Read()) {
 					_serialisableobject[Current] 
 						= new SO_Log(
-							parent_ref_.Fields.IDLog,
-							parent_ref_.Fields.IDLogcode,
-							parent_ref_.Fields.IDUser_posted,
-							parent_ref_.Fields.Date_posted,
-							parent_ref_.Fields.Logdata
+							parent_ref_.fields_.IDLog,
+							parent_ref_.fields_.IDLogcode,
+							parent_ref_.fields_.IDUser_posted,
+							parent_ref_.fields_.Date_posted,
+							parent_ref_.fields_.Logdata
 						);
 				}
 
@@ -117,32 +118,32 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		public override bool Read() {
 			if (base.read()) {
 				if (base.Record.Rows[Current]["IDLog"] == System.DBNull.Value) {
-					parent_ref_.Fields.idlog_ = 0L;
+					parent_ref_.fields_.idlog_ = 0L;
 				} else {
-					parent_ref_.Fields.idlog_ = (long)base.Record.Rows[Current]["IDLog"];
+					parent_ref_.fields_.idlog_ = (long)base.Record.Rows[Current]["IDLog"];
 				}
 				if (base.Record.Rows[Current]["IDLogcode"] == System.DBNull.Value) {
-					parent_ref_.Fields.idlogcode_ = 0L;
+					parent_ref_.fields_.idlogcode_ = 0L;
 				} else {
-					parent_ref_.Fields.idlogcode_ = (long)base.Record.Rows[Current]["IDLogcode"];
+					parent_ref_.fields_.idlogcode_ = (long)base.Record.Rows[Current]["IDLogcode"];
 				}
 				if (base.Record.Rows[Current]["IDUser_posted"] == System.DBNull.Value) {
-					parent_ref_.Fields.iduser_posted_ = 0L;
+					parent_ref_.fields_.iduser_posted_ = 0L;
 				} else {
-					parent_ref_.Fields.iduser_posted_ = (long)base.Record.Rows[Current]["IDUser_posted"];
+					parent_ref_.fields_.iduser_posted_ = (long)base.Record.Rows[Current]["IDUser_posted"];
 				}
 				if (base.Record.Rows[Current]["Date_posted"] == System.DBNull.Value) {
-					parent_ref_.Fields.date_posted_ = new DateTime(1900, 1, 1);
+					parent_ref_.fields_.date_posted_ = new DateTime(1900, 1, 1);
 				} else {
-					parent_ref_.Fields.date_posted_ = (DateTime)base.Record.Rows[Current]["Date_posted"];
+					parent_ref_.fields_.date_posted_ = (DateTime)base.Record.Rows[Current]["Date_posted"];
 				}
 				if (base.Record.Rows[Current]["Logdata"] == System.DBNull.Value) {
-					parent_ref_.Fields.logdata_ = string.Empty;
+					parent_ref_.fields_.logdata_ = string.Empty;
 				} else {
-					parent_ref_.Fields.logdata_ = (string)base.Record.Rows[Current]["Logdata"];
+					parent_ref_.fields_.logdata_ = (string)base.Record.Rows[Current]["Logdata"];
 				}
 
-				parent_ref_.Fields.haschanges_ = false;
+				parent_ref_.fields_.haschanges_ = false;
 
 				return true;
 			} else {

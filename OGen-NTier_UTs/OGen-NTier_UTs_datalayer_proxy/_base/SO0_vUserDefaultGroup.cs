@@ -17,11 +17,42 @@ using System.Xml.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
-namespace OGen.NTier.UTs.lib.datalayer {
+namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	/// <summary>
+	/// Interface for vUserDefaultGroup SerializableObject.
+	/// </summary>
+	public interface ISO_vUserDefaultGroup {
+		/// <summary>
+		/// Indicates if changes have been made to FO0_vUserDefaultGroup properties since last time getObject method was run.
+		/// </summary>
+		bool hasChanges { get; }
+
+		/// <summary>
+		/// vUserDefaultGroup's IDUser.
+		/// </summary>
+		long IDUser { get; set; }
+		/// <summary>
+		/// vUserDefaultGroup's Login.
+		/// </summary>
+		string Login { get; set; }
+		/// <summary>
+		/// vUserDefaultGroup's IDGroup.
+		/// </summary>
+		long IDGroup { get; set; }
+		/// <summary>
+		/// vUserDefaultGroup's Name.
+		/// </summary>
+		string Name { get; set; }
+		/// <summary>
+		/// vUserDefaultGroup's Relationdate.
+		/// </summary>
+		DateTime Relationdate { get; set; }
+	}
+
 	/// <summary>
 	/// vUserDefaultGroup SerializableObject which provides fields access at vUserDefaultGroup view at Database.
 	/// </summary>
-	public class SO_vUserDefaultGroup {
+	public class SO_vUserDefaultGroup : ISO_vUserDefaultGroup {
 		#region public SO_vUserDefaultGroup();
 		public SO_vUserDefaultGroup(
 		) : this (
@@ -51,7 +82,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 		#region Properties...
 		#region public bool hasChanges { get; }
-		internal bool haschanges_;
+		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_vUserDefaultGroup properties since last time getObject method was run.
@@ -66,7 +97,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 		//---
 		#region public long IDUser { get; set; }
-		internal long iduser_;// = 0L;
+		public long iduser_;// = 0L;
 		
 		/// <summary>
 		/// vUserDefaultGroup's IDUser.
@@ -114,7 +145,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public string Login { get; set; }
-		internal string login_;// = string.Empty;
+		public string login_;// = string.Empty;
 		
 		/// <summary>
 		/// vUserDefaultGroup's Login.
@@ -164,7 +195,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public long IDGroup { get; set; }
-		internal long idgroup_;// = 0L;
+		public long idgroup_;// = 0L;
 		
 		/// <summary>
 		/// vUserDefaultGroup's IDGroup.
@@ -212,7 +243,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public string Name { get; set; }
-		internal string name_;// = string.Empty;
+		public string name_;// = string.Empty;
 		
 		/// <summary>
 		/// vUserDefaultGroup's Name.
@@ -262,7 +293,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public DateTime Relationdate { get; set; }
-		internal DateTime relationdate_;// = new DateTime(1900, 1, 1);
+		public DateTime relationdate_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>
 		/// vUserDefaultGroup's Relationdate.

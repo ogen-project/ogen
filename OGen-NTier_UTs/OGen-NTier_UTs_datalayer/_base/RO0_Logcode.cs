@@ -17,6 +17,7 @@ using System.Data;
 
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer.proxy;
 
 namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
@@ -67,11 +68,11 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				while (Read()) {
 					_serialisableobject[Current] 
 						= new SO_Logcode(
-							parent_ref_.Fields.IDLogcode,
-							parent_ref_.Fields.Warning,
-							parent_ref_.Fields.Error,
-							parent_ref_.Fields.Code,
-							parent_ref_.Fields.Description
+							parent_ref_.fields_.IDLogcode,
+							parent_ref_.fields_.Warning,
+							parent_ref_.fields_.Error,
+							parent_ref_.fields_.Code,
+							parent_ref_.fields_.Description
 						);
 				}
 
@@ -117,32 +118,32 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		public override bool Read() {
 			if (base.read()) {
 				if (base.Record.Rows[Current]["IDLogcode"] == System.DBNull.Value) {
-					parent_ref_.Fields.idlogcode_ = 0L;
+					parent_ref_.fields_.idlogcode_ = 0L;
 				} else {
-					parent_ref_.Fields.idlogcode_ = (long)base.Record.Rows[Current]["IDLogcode"];
+					parent_ref_.fields_.idlogcode_ = (long)base.Record.Rows[Current]["IDLogcode"];
 				}
 				if (base.Record.Rows[Current]["Warning"] == System.DBNull.Value) {
-					parent_ref_.Fields.warning_ = false;
+					parent_ref_.fields_.warning_ = false;
 				} else {
-					parent_ref_.Fields.warning_ = (bool)base.Record.Rows[Current]["Warning"];
+					parent_ref_.fields_.warning_ = (bool)base.Record.Rows[Current]["Warning"];
 				}
 				if (base.Record.Rows[Current]["Error"] == System.DBNull.Value) {
-					parent_ref_.Fields.error_ = false;
+					parent_ref_.fields_.error_ = false;
 				} else {
-					parent_ref_.Fields.error_ = (bool)base.Record.Rows[Current]["Error"];
+					parent_ref_.fields_.error_ = (bool)base.Record.Rows[Current]["Error"];
 				}
 				if (base.Record.Rows[Current]["Code"] == System.DBNull.Value) {
-					parent_ref_.Fields.code_ = string.Empty;
+					parent_ref_.fields_.code_ = string.Empty;
 				} else {
-					parent_ref_.Fields.code_ = (string)base.Record.Rows[Current]["Code"];
+					parent_ref_.fields_.code_ = (string)base.Record.Rows[Current]["Code"];
 				}
 				if (base.Record.Rows[Current]["Description"] == System.DBNull.Value) {
-					parent_ref_.Fields.Description_isNull = true;
+					parent_ref_.fields_.Description_isNull = true;
 				} else {
-					parent_ref_.Fields.description_ = (string)base.Record.Rows[Current]["Description"];
+					parent_ref_.fields_.description_ = (string)base.Record.Rows[Current]["Description"];
 				}
 
-				parent_ref_.Fields.haschanges_ = false;
+				parent_ref_.fields_.haschanges_ = false;
 
 				return true;
 			} else {

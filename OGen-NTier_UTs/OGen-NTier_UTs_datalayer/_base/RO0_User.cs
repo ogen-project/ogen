@@ -17,6 +17,7 @@ using System.Data;
 
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer.proxy;
 
 namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
@@ -67,10 +68,10 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				while (Read()) {
 					_serialisableobject[Current] 
 						= new SO_User(
-							parent_ref_.Fields.IDUser,
-							parent_ref_.Fields.Login,
-							parent_ref_.Fields.Password,
-							parent_ref_.Fields.SomeNullValue
+							parent_ref_.fields_.IDUser,
+							parent_ref_.fields_.Login,
+							parent_ref_.fields_.Password,
+							parent_ref_.fields_.SomeNullValue
 						);
 				}
 
@@ -115,27 +116,27 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		public override bool Read() {
 			if (base.read()) {
 				if (base.Record.Rows[Current]["IDUser"] == System.DBNull.Value) {
-					parent_ref_.Fields.iduser_ = 0L;
+					parent_ref_.fields_.iduser_ = 0L;
 				} else {
-					parent_ref_.Fields.iduser_ = (long)base.Record.Rows[Current]["IDUser"];
+					parent_ref_.fields_.iduser_ = (long)base.Record.Rows[Current]["IDUser"];
 				}
 				if (base.Record.Rows[Current]["Login"] == System.DBNull.Value) {
-					parent_ref_.Fields.login_ = string.Empty;
+					parent_ref_.fields_.login_ = string.Empty;
 				} else {
-					parent_ref_.Fields.login_ = (string)base.Record.Rows[Current]["Login"];
+					parent_ref_.fields_.login_ = (string)base.Record.Rows[Current]["Login"];
 				}
 				if (base.Record.Rows[Current]["Password"] == System.DBNull.Value) {
-					parent_ref_.Fields.password_ = string.Empty;
+					parent_ref_.fields_.password_ = string.Empty;
 				} else {
-					parent_ref_.Fields.password_ = (string)base.Record.Rows[Current]["Password"];
+					parent_ref_.fields_.password_ = (string)base.Record.Rows[Current]["Password"];
 				}
 				if (base.Record.Rows[Current]["SomeNullValue"] == System.DBNull.Value) {
-					parent_ref_.Fields.SomeNullValue_isNull = true;
+					parent_ref_.fields_.SomeNullValue_isNull = true;
 				} else {
-					parent_ref_.Fields.somenullvalue_ = (int)base.Record.Rows[Current]["SomeNullValue"];
+					parent_ref_.fields_.somenullvalue_ = (int)base.Record.Rows[Current]["SomeNullValue"];
 				}
 
-				parent_ref_.Fields.haschanges_ = false;
+				parent_ref_.fields_.haschanges_ = false;
 
 				return true;
 			} else {

@@ -18,6 +18,7 @@ using System.Xml.Serialization;
 
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer.proxy;
 
 namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
@@ -65,7 +66,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			.DBLogfile
 		) {
 			clrObject();
-			Fields.haschanges_ = false;
+			fields_.haschanges_ = false;
 		}
 #if !NET_1_1
 			/// <summary>
@@ -82,17 +83,17 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			connection_in
 		) {
 			clrObject();
-			Fields.haschanges_ = false;
+			fields_.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public FO0_User Fields { get; set; }
+		#region public SO_User Fields { get; set; }
 		internal SO_User fields_;
 
-		public SO_User Fields {
+		public ISO_User Fields {
 			get { return fields_; }
-			set { fields_ = value; }
+			set { fields_ = (SO_User)value; }
 		}
 		#endregion
 		#region public RO0_User Record { get; }
@@ -135,7 +136,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#region public SC_User Serialize();
 		public SO_User Serialize() {
-			return Fields;
+			return fields_;
 		}
 		#endregion
 		#region public void clrObject();
@@ -147,7 +148,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			virtual 
 #endif
 		void clrObject() {
-			Fields = new SO_User();
+			fields_ = new SO_User();
 		}
 		#endregion
 		#region public bool getObject(...);
@@ -161,7 +162,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 		bool getObject() {
 			return getObject(
-				Fields.IDUser
+				fields_.IDUser
 			);
 		}
 		/// <summary>
@@ -187,27 +188,27 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 				if (_dataparameters[0].Value != DBNull.Value) {
 					if (_dataparameters[0].Value == System.DBNull.Value) {
-						Fields.IDUser = 0L;
+						fields_.IDUser = 0L;
 					} else {
-						Fields.IDUser = (long)_dataparameters[0].Value;
+						fields_.IDUser = (long)_dataparameters[0].Value;
 					}
 					if (_dataparameters[1].Value == System.DBNull.Value) {
-						Fields.Login = string.Empty;
+						fields_.Login = string.Empty;
 					} else {
-						Fields.Login = (string)_dataparameters[1].Value;
+						fields_.Login = (string)_dataparameters[1].Value;
 					}
 					if (_dataparameters[2].Value == System.DBNull.Value) {
-						Fields.Password = string.Empty;
+						fields_.Password = string.Empty;
 					} else {
-						Fields.Password = (string)_dataparameters[2].Value;
+						fields_.Password = (string)_dataparameters[2].Value;
 					}
 					if (_dataparameters[3].Value == System.DBNull.Value) {
-						Fields.SomeNullValue_isNull = true;
+						fields_.SomeNullValue_isNull = true;
 					} else {
-						Fields.SomeNullValue = (int)_dataparameters[3].Value;
+						fields_.SomeNullValue = (int)_dataparameters[3].Value;
 					}
 
-					Fields.haschanges_ = false;
+					fields_.haschanges_ = false;
 					return true;
 				}
 			}
@@ -228,7 +229,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 		void delObject() {
 			delObject(
-				Fields.IDUser
+				fields_.IDUser
 			);
 		}
 		/// <summary>
@@ -261,7 +262,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 		bool isObject() {
 			return isObject(
-				Fields.IDUser
+				fields_.IDUser
 			);
 		}
 		/// <summary>
@@ -305,9 +306,9 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		) {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
 				base.Connection.newDBDataParameter("IDUser_", DbType.Int64, ParameterDirection.Output, null, 0), 
-				base.Connection.newDBDataParameter("Login_", DbType.String, ParameterDirection.Input, Fields.Login, 50), 
-				base.Connection.newDBDataParameter("Password_", DbType.String, ParameterDirection.Input, Fields.Password, 50), 
-				base.Connection.newDBDataParameter("SomeNullValue_", DbType.Int32, ParameterDirection.Input, Fields.SomeNullValue_isNull ? null : (object)Fields.SomeNullValue, 0), 
+				base.Connection.newDBDataParameter("Login_", DbType.String, ParameterDirection.Input, fields_.Login, 50), 
+				base.Connection.newDBDataParameter("Password_", DbType.String, ParameterDirection.Input, fields_.Password, 50), 
+				base.Connection.newDBDataParameter("SomeNullValue_", DbType.Int32, ParameterDirection.Input, fields_.SomeNullValue_isNull ? null : (object)fields_.SomeNullValue, 0), 
 
 				base.Connection.newDBDataParameter("SelectIdentity_", DbType.Boolean, ParameterDirection.Input, selectIdentity_in, 1)
 			};
@@ -316,13 +317,13 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				_dataparameters
 			);
 
-			Fields.IDUser = (long)_dataparameters[0].Value;
-			constraintExist_out = (Fields.IDUser == -1L);
+			fields_.IDUser = (long)_dataparameters[0].Value;
+			constraintExist_out = (fields_.IDUser == -1L);
 			if (!constraintExist_out) {
-				Fields.haschanges_ = false;
+				fields_.haschanges_ = false;
 			}
 
-			return Fields.IDUser;
+			return fields_.IDUser;
 		}
 		#endregion
 		#region public void updObject(...);
@@ -336,12 +337,12 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			virtual 
 #endif
 		void updObject(bool forceUpdate_in, out bool constraintExist_out) {
-			if (forceUpdate_in || Fields.haschanges_) {
+			if (forceUpdate_in || fields_.haschanges_) {
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
-					base.Connection.newDBDataParameter("IDUser_", DbType.Int64, ParameterDirection.Input, Fields.IDUser, 0), 
-					base.Connection.newDBDataParameter("Login_", DbType.String, ParameterDirection.Input, Fields.Login, 50), 
-					base.Connection.newDBDataParameter("Password_", DbType.String, ParameterDirection.Input, Fields.Password, 50), 
-					base.Connection.newDBDataParameter("SomeNullValue_", DbType.Int32, ParameterDirection.Input, Fields.SomeNullValue_isNull ? null : (object)Fields.SomeNullValue, 0), 
+					base.Connection.newDBDataParameter("IDUser_", DbType.Int64, ParameterDirection.Input, fields_.IDUser, 0), 
+					base.Connection.newDBDataParameter("Login_", DbType.String, ParameterDirection.Input, fields_.Login, 50), 
+					base.Connection.newDBDataParameter("Password_", DbType.String, ParameterDirection.Input, fields_.Password, 50), 
+					base.Connection.newDBDataParameter("SomeNullValue_", DbType.Int32, ParameterDirection.Input, fields_.SomeNullValue_isNull ? null : (object)fields_.SomeNullValue, 0), 
 
 					base.Connection.newDBDataParameter("ConstraintExist_", DbType.Boolean, ParameterDirection.Output, null, 1)
 				};
@@ -352,7 +353,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				
 				constraintExist_out = (bool)_dataparameters[4].Value;
 				if (!constraintExist_out) {
-					Fields.haschanges_ = false;
+					fields_.haschanges_ = false;
 				}
 			} else {
 				constraintExist_out = false;
@@ -385,32 +386,32 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 			if (_dataparameters[1].Value != DBNull.Value) {
 				if (_dataparameters[1].Value == System.DBNull.Value) {
-					Fields.IDUser = 0L;
+					fields_.IDUser = 0L;
 				} else {
-					Fields.IDUser = (long)_dataparameters[1].Value;
+					fields_.IDUser = (long)_dataparameters[1].Value;
 				}
 				if (_dataparameters[2].Value == System.DBNull.Value) {
-					Fields.Login = string.Empty;
+					fields_.Login = string.Empty;
 				} else {
-					Fields.Login = (string)_dataparameters[2].Value;
+					fields_.Login = (string)_dataparameters[2].Value;
 				}
 				if (_dataparameters[3].Value == System.DBNull.Value) {
-					Fields.Password = string.Empty;
+					fields_.Password = string.Empty;
 				} else {
-					Fields.Password = (string)_dataparameters[3].Value;
+					fields_.Password = (string)_dataparameters[3].Value;
 				}
 				if (_dataparameters[4].Value == System.DBNull.Value) {
-					Fields.SomeNullValue_isNull = true;
+					fields_.SomeNullValue_isNull = true;
 				} else {
-					Fields.SomeNullValue = (int)_dataparameters[4].Value;
+					fields_.SomeNullValue = (int)_dataparameters[4].Value;
 				}
 
-				Fields.haschanges_ = false;
+				fields_.haschanges_ = false;
 				return true;
 			}
 
 			//clrObject();
-			//Fields.haschanges_ = false;
+			//fields_.haschanges_ = false;
 
 			return false;
 		}
@@ -468,10 +469,10 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			virtual 
 #endif
 		void updObject_SomeUpdateTest(bool forceUpdate_in, out bool constraintExist_out) {
-			if (forceUpdate_in || Fields.haschanges_) {
+			if (forceUpdate_in || fields_.haschanges_) {
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
-					base.Connection.newDBDataParameter("IDUser", DbType.Int64, ParameterDirection.Input, Fields.IDUser, 0), 
-					base.Connection.newDBDataParameter("Password_update", DbType.String, ParameterDirection.Input, Fields.Password, 50), 
+					base.Connection.newDBDataParameter("IDUser", DbType.Int64, ParameterDirection.Input, fields_.IDUser, 0), 
+					base.Connection.newDBDataParameter("Password_update", DbType.String, ParameterDirection.Input, fields_.Password, 50), 
 
 					base.Connection.newDBDataParameter("ConstraintExist", DbType.Boolean, ParameterDirection.Output, null, 1)
 				};
@@ -482,7 +483,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				
 				constraintExist_out = (bool)_dataparameters[4].Value;
 				if (!constraintExist_out) {
-					Fields.haschanges_ = false;
+					fields_.haschanges_ = false;
 				}
 			} else {
 				constraintExist_out = false;

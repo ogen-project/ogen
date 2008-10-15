@@ -17,11 +17,38 @@ using System.Xml.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
-namespace OGen.NTier.UTs.lib.datalayer {
+namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	/// <summary>
+	/// Interface for Config SerializableObject.
+	/// </summary>
+	public interface ISO_Config {
+		/// <summary>
+		/// Indicates if changes have been made to FO0_Config properties since last time getObject method was run.
+		/// </summary>
+		bool hasChanges { get; }
+
+		/// <summary>
+		/// Config's Name.
+		/// </summary>
+		string Name { get; set; }
+		/// <summary>
+		/// Config's Config.
+		/// </summary>
+		string Config { get; set; }
+		/// <summary>
+		/// Config's Type.
+		/// </summary>
+		int Type { get; set; }
+		/// <summary>
+		/// Config's Description.
+		/// </summary>
+		string Description { get; set; }
+	}
+
 	/// <summary>
 	/// Config SerializableObject which provides fields access at Config table at Database.
 	/// </summary>
-	public class SO_Config {
+	public class SO_Config : ISO_Config {
 		#region public SO_Config();
 		public SO_Config(
 		) : this (
@@ -48,7 +75,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 		#region Properties...
 		#region public bool hasChanges { get; }
-		internal bool haschanges_;
+		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_Config properties since last time getObject method was run.
@@ -63,7 +90,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 		//---
 		#region public string Name { get; set; }
-		internal string name_;// = string.Empty;
+		public string name_;// = string.Empty;
 		
 		/// <summary>
 		/// Config's Name.
@@ -113,7 +140,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public string Config { get; set; }
-		internal string config_;// = string.Empty;
+		public string config_;// = string.Empty;
 		
 		/// <summary>
 		/// Config's Config.
@@ -163,7 +190,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public int Type { get; set; }
-		internal int type_;// = 0;
+		public int type_;// = 0;
 		
 		/// <summary>
 		/// Config's Type.
@@ -211,7 +238,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public string Description { get; set; }
-		internal string description_;// = string.Empty;
+		public string description_;// = string.Empty;
 		
 		/// <summary>
 		/// Config's Description.

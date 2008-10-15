@@ -19,6 +19,7 @@ using OGen.NTier.lib.datalayer;
 using OGen.NTier.lib.businesslayer;
 
 using OGen.NTier.UTs.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer.proxy;
 
 namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
@@ -85,7 +86,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			get { return mainAggregate.Record; }
 		}
 
-		public SO_Config Fields {
+		public ISO_Config Fields {
 			get { return mainAggregate.Fields; }
 		}
 		#region public string Name { get; set; }

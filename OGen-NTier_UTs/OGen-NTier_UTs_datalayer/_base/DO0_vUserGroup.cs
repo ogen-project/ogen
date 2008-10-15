@@ -18,6 +18,7 @@ using System.Xml.Serialization;
 
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer.proxy;
 
 namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
@@ -65,7 +66,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			.DBLogfile
 		) {
 			clrObject();
-			Fields.haschanges_ = false;
+			fields_.haschanges_ = false;
 		}
 #if !NET_1_1
 			/// <summary>
@@ -82,17 +83,17 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			connection_in
 		) {
 			clrObject();
-			Fields.haschanges_ = false;
+			fields_.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public FO0_vUserGroup Fields { get; set; }
+		#region public SO_vUserGroup Fields { get; set; }
 		internal SO_vUserGroup fields_;
 
-		public SO_vUserGroup Fields {
+		public ISO_vUserGroup Fields {
 			get { return fields_; }
-			set { fields_ = value; }
+			set { fields_ = (SO_vUserGroup)value; }
 		}
 		#endregion
 		#region public RO0_vUserGroup Record { get; }
@@ -135,7 +136,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#region public SC_vUserGroup Serialize();
 		public SO_vUserGroup Serialize() {
-			return Fields;
+			return fields_;
 		}
 		#endregion
 		#region public void clrObject();
@@ -147,7 +148,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			virtual 
 #endif
 		void clrObject() {
-			Fields = new SO_vUserGroup();
+			fields_ = new SO_vUserGroup();
 		}
 		#endregion
 		#endregion

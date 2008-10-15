@@ -18,6 +18,7 @@ using System.Xml.Serialization;
 
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer.proxy;
 
 namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
@@ -65,7 +66,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			.DBLogfile
 		) {
 			clrObject();
-			Fields.haschanges_ = false;
+			fields_.haschanges_ = false;
 		}
 #if !NET_1_1
 			/// <summary>
@@ -82,17 +83,17 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			connection_in
 		) {
 			clrObject();
-			Fields.haschanges_ = false;
+			fields_.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public FO0_WordLanguage Fields { get; set; }
+		#region public SO_WordLanguage Fields { get; set; }
 		internal SO_WordLanguage fields_;
 
-		public SO_WordLanguage Fields {
+		public ISO_WordLanguage Fields {
 			get { return fields_; }
-			set { fields_ = value; }
+			set { fields_ = (SO_WordLanguage)value; }
 		}
 		#endregion
 		#region public RO0_WordLanguage Record { get; }
@@ -135,7 +136,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#region public SC_WordLanguage Serialize();
 		public SO_WordLanguage Serialize() {
-			return Fields;
+			return fields_;
 		}
 		#endregion
 		#region public void clrObject();
@@ -147,7 +148,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			virtual 
 #endif
 		void clrObject() {
-			Fields = new SO_WordLanguage();
+			fields_ = new SO_WordLanguage();
 		}
 		#endregion
 		#region public bool getObject(...);
@@ -161,8 +162,8 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 		bool getObject() {
 			return getObject(
-				Fields.IDWord, 
-				Fields.IDLanguage
+				fields_.IDWord, 
+				fields_.IDLanguage
 			);
 		}
 		/// <summary>
@@ -188,22 +189,22 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 				if (_dataparameters[0].Value != DBNull.Value) {
 					if (_dataparameters[0].Value == System.DBNull.Value) {
-						Fields.IDWord = 0L;
+						fields_.IDWord = 0L;
 					} else {
-						Fields.IDWord = (long)_dataparameters[0].Value;
+						fields_.IDWord = (long)_dataparameters[0].Value;
 					}
 					if (_dataparameters[1].Value == System.DBNull.Value) {
-						Fields.IDLanguage = 0L;
+						fields_.IDLanguage = 0L;
 					} else {
-						Fields.IDLanguage = (long)_dataparameters[1].Value;
+						fields_.IDLanguage = (long)_dataparameters[1].Value;
 					}
 					if (_dataparameters[2].Value == System.DBNull.Value) {
-						Fields.Translation_isNull = true;
+						fields_.Translation_isNull = true;
 					} else {
-						Fields.Translation = (string)_dataparameters[2].Value;
+						fields_.Translation = (string)_dataparameters[2].Value;
 					}
 
-					Fields.haschanges_ = false;
+					fields_.haschanges_ = false;
 					return true;
 				}
 
@@ -223,8 +224,8 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 		void delObject() {
 			delObject(
-				Fields.IDWord, 
-				Fields.IDLanguage
+				fields_.IDWord, 
+				fields_.IDLanguage
 			);
 		}
 		/// <summary>
@@ -260,8 +261,8 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 		bool isObject() {
 			return isObject(
-				Fields.IDWord, 
-				Fields.IDLanguage
+				fields_.IDWord, 
+				fields_.IDLanguage
 			);
 		}
 		/// <summary>
@@ -303,11 +304,11 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 			bool setObject(bool forceUpdate_in) {
 			bool ConstraintExist_out;
-			if (forceUpdate_in || Fields.haschanges_) {
+			if (forceUpdate_in || fields_.haschanges_) {
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
-					base.Connection.newDBDataParameter("IDWord_", DbType.Int64, ParameterDirection.Input, Fields.IDWord, 0), 
-					base.Connection.newDBDataParameter("IDLanguage_", DbType.Int64, ParameterDirection.Input, Fields.IDLanguage, 0), 
-					base.Connection.newDBDataParameter("Translation_", DbType.String, ParameterDirection.Input, Fields.Translation_isNull ? null : (object)Fields.Translation, 2048), 
+					base.Connection.newDBDataParameter("IDWord_", DbType.Int64, ParameterDirection.Input, fields_.IDWord, 0), 
+					base.Connection.newDBDataParameter("IDLanguage_", DbType.Int64, ParameterDirection.Input, fields_.IDLanguage, 0), 
+					base.Connection.newDBDataParameter("Translation_", DbType.String, ParameterDirection.Input, fields_.Translation_isNull ? null : (object)fields_.Translation, 2048), 
 
 					//base.Connection.newDBDataParameter("Exists", DbType.Boolean, ParameterDirection.Output, 0, 1)
 					base.Connection.newDBDataParameter("Output_", DbType.Int32, ParameterDirection.Output, null, 0)
@@ -319,7 +320,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 				ConstraintExist_out = (((int)_dataparameters[3].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					Fields.haschanges_ = false;
+					fields_.haschanges_ = false;
 				}
 
 				return (((int)_dataparameters[3].Value & 1) != 1);

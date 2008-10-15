@@ -17,6 +17,7 @@ using System.Data;
 
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer.proxy;
 
 namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
@@ -67,9 +68,9 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				while (Read()) {
 					_serialisableobject[Current] 
 						= new SO_WordLanguage(
-							parent_ref_.Fields.IDWord,
-							parent_ref_.Fields.IDLanguage,
-							parent_ref_.Fields.Translation
+							parent_ref_.fields_.IDWord,
+							parent_ref_.fields_.IDLanguage,
+							parent_ref_.fields_.Translation
 						);
 				}
 
@@ -113,22 +114,22 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		public override bool Read() {
 			if (base.read()) {
 				if (base.Record.Rows[Current]["IDWord"] == System.DBNull.Value) {
-					parent_ref_.Fields.idword_ = 0L;
+					parent_ref_.fields_.idword_ = 0L;
 				} else {
-					parent_ref_.Fields.idword_ = (long)base.Record.Rows[Current]["IDWord"];
+					parent_ref_.fields_.idword_ = (long)base.Record.Rows[Current]["IDWord"];
 				}
 				if (base.Record.Rows[Current]["IDLanguage"] == System.DBNull.Value) {
-					parent_ref_.Fields.idlanguage_ = 0L;
+					parent_ref_.fields_.idlanguage_ = 0L;
 				} else {
-					parent_ref_.Fields.idlanguage_ = (long)base.Record.Rows[Current]["IDLanguage"];
+					parent_ref_.fields_.idlanguage_ = (long)base.Record.Rows[Current]["IDLanguage"];
 				}
 				if (base.Record.Rows[Current]["Translation"] == System.DBNull.Value) {
-					parent_ref_.Fields.Translation_isNull = true;
+					parent_ref_.fields_.Translation_isNull = true;
 				} else {
-					parent_ref_.Fields.translation_ = (string)base.Record.Rows[Current]["Translation"];
+					parent_ref_.fields_.translation_ = (string)base.Record.Rows[Current]["Translation"];
 				}
 
-				parent_ref_.Fields.haschanges_ = false;
+				parent_ref_.fields_.haschanges_ = false;
 
 				return true;
 			} else {

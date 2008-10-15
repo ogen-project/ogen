@@ -256,17 +256,31 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template id="DO-SomeApplication_datalayer-8.csproj.aspx"
+	<template id="DO-SomeApplication_datalayer-8.csproj.aspx?projectVersion=8"
 			name="DO-SomeApplication_datalayer-8.csproj.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="projectVersion" value="8" />
 		</arguments>
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer/${ROOT.metadataDB[0].applicationName}_datalayer-8.csproj" 
 				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="DO-SomeApplication_datalayer-8.csproj.aspx?projectVersion=9"
+			name="DO-SomeApplication_datalayer-8.csproj.aspx" 
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="projectVersion" value="9" />
+		</arguments>
+		<conditions />
+		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer/${ROOT.metadataDB[0].applicationName}_datalayer-9.csproj" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
@@ -286,18 +300,32 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template id="DO-SomeApplication_datalayer_proxy-8.csproj.aspx"
-			name="DO-SomeApplication_datalayer_proxy-8.csproj.aspx"
-			parserType="aspx"
+	<template id="DO-SomeApplication_datalayer_proxy-8.csproj.aspx?projectVersion=8"
+			name="DO-SomeApplication_datalayer_proxy-8.csproj.aspx" 
+			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="projectVersion" value="8" />
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_proxy/${ROOT.metadataDB[0].applicationName}_datalayer_proxy-8.csproj"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_proxy/${ROOT.metadataDB[0].applicationName}_datalayer_proxy-8.csproj" 
 				type="File" mode="Create_doNotReplace" />
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_proxy/${ROOT.metadataDB[0].applicationName}_datalayer_proxy-9.csproj"
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="DO-SomeApplication_datalayer_proxy-8.csproj.aspx?projectVersion=9"
+			name="DO-SomeApplication_datalayer_proxy-8.csproj.aspx" 
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="projectVersion" value="9" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_proxy/${ROOT.metadataDB[0].applicationName}_datalayer_proxy-9.csproj" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -316,17 +344,31 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template id="DO-UT-SomeApplication_datalayer_UTs-8.csproj.aspx"
+	<template id="DO-UT-SomeApplication_datalayer_UTs-8.csproj.aspx?projectVersion=8"
 			name="DO-UT-SomeApplication_datalayer_UTs-8.csproj.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="projectVersion" value="8" />
 		</arguments>
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_UTs/${ROOT.metadataDB[0].applicationName}_datalayer_UTs-8.csproj" 
 				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="DO-UT-SomeApplication_datalayer_UTs-8.csproj.aspx?projectVersion=9"
+			name="DO-UT-SomeApplication_datalayer_UTs-8.csproj.aspx" 
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="projectVersion" value="9" />
+		</arguments>
+		<conditions />
+		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_UTs/${ROOT.metadataDB[0].applicationName}_datalayer_UTs-9.csproj" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
@@ -346,17 +388,31 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template id="BO-SomeApplication_businesslayer-8.csproj.aspx"
+	<template id="BO-SomeApplication_businesslayer-8.csproj.aspx?projectVersion=8"
 			name="BO-SomeApplication_businesslayer-8.csproj.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="projectVersion" value="8" />
 		</arguments>
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer/${ROOT.metadataDB[0].applicationName}_businesslayer-8.csproj" 
 				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="BO-SomeApplication_businesslayer-8.csproj.aspx?projectVersion=9"
+			name="BO-SomeApplication_businesslayer-8.csproj.aspx" 
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="projectVersion" value="9" />
+		</arguments>
+		<conditions />
+		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer/${ROOT.metadataDB[0].applicationName}_businesslayer-9.csproj" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
@@ -376,17 +432,31 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template id="SomeApplication_test-8.csproj.aspx"
+	<template id="SomeApplication_test-8.csproj.aspx?projectVersion=8"
 			name="SomeApplication_test-8.csproj.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="projectVersion" value="8" />
 		</arguments>
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_test/${ROOT.metadataDB[0].applicationName}_test-8.csproj" 
 				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="SomeApplication_test-8.csproj.aspx?projectVersion=9"
+			name="SomeApplication_test-8.csproj.aspx" 
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="projectVersion" value="9" />
+		</arguments>
+		<conditions />
+		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_test/${ROOT.metadataDB[0].applicationName}_test-9.csproj" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
@@ -504,17 +574,31 @@ XXX:TODOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template id="BO-UT-SomeApplication_businesslayer_UTs-8.csproj.aspx"
+	<template id="BO-UT-SomeApplication_businesslayer_UTs-8.csproj.aspx?projectVersion=8"
 			name="BO-UT-SomeApplication_businesslayer_UTs-8.csproj.aspx" 
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="projectVersion" value="8" />
 		</arguments>
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer_UTs/${ROOT.metadataDB[0].applicationName}_businesslayer_UTs-8.csproj" 
 				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="BO-UT-SomeApplication_businesslayer_UTs-8.csproj.aspx?projectVersion=9"
+			name="BO-UT-SomeApplication_businesslayer_UTs-8.csproj.aspx" 
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="projectVersion" value="9" />
+		</arguments>
+		<conditions />
+		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer_UTs/${ROOT.metadataDB[0].applicationName}_businesslayer_UTs-9.csproj" 
 				type="File" mode="Create_doNotReplace" />
 		</outputs>

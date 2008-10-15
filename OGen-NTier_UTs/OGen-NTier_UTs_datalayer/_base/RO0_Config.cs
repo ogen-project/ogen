@@ -17,6 +17,7 @@ using System.Data;
 
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer.proxy;
 
 namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
@@ -67,10 +68,10 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				while (Read()) {
 					_serialisableobject[Current] 
 						= new SO_Config(
-							parent_ref_.Fields.Name,
-							parent_ref_.Fields.Config,
-							parent_ref_.Fields.Type,
-							parent_ref_.Fields.Description
+							parent_ref_.fields_.Name,
+							parent_ref_.fields_.Config,
+							parent_ref_.fields_.Type,
+							parent_ref_.fields_.Description
 						);
 				}
 
@@ -115,27 +116,27 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		public override bool Read() {
 			if (base.read()) {
 				if (base.Record.Rows[Current]["Name"] == System.DBNull.Value) {
-					parent_ref_.Fields.name_ = string.Empty;
+					parent_ref_.fields_.name_ = string.Empty;
 				} else {
-					parent_ref_.Fields.name_ = (string)base.Record.Rows[Current]["Name"];
+					parent_ref_.fields_.name_ = (string)base.Record.Rows[Current]["Name"];
 				}
 				if (base.Record.Rows[Current]["Config"] == System.DBNull.Value) {
-					parent_ref_.Fields.config_ = string.Empty;
+					parent_ref_.fields_.config_ = string.Empty;
 				} else {
-					parent_ref_.Fields.config_ = (string)base.Record.Rows[Current]["Config"];
+					parent_ref_.fields_.config_ = (string)base.Record.Rows[Current]["Config"];
 				}
 				if (base.Record.Rows[Current]["Type"] == System.DBNull.Value) {
-					parent_ref_.Fields.type_ = 0;
+					parent_ref_.fields_.type_ = 0;
 				} else {
-					parent_ref_.Fields.type_ = (int)base.Record.Rows[Current]["Type"];
+					parent_ref_.fields_.type_ = (int)base.Record.Rows[Current]["Type"];
 				}
 				if (base.Record.Rows[Current]["Description"] == System.DBNull.Value) {
-					parent_ref_.Fields.description_ = string.Empty;
+					parent_ref_.fields_.description_ = string.Empty;
 				} else {
-					parent_ref_.Fields.description_ = (string)base.Record.Rows[Current]["Description"];
+					parent_ref_.fields_.description_ = (string)base.Record.Rows[Current]["Description"];
 				}
 
-				parent_ref_.Fields.haschanges_ = false;
+				parent_ref_.fields_.haschanges_ = false;
 
 				return true;
 			} else {

@@ -18,6 +18,7 @@ using System.Xml.Serialization;
 
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer.proxy;
 
 namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
@@ -65,7 +66,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			.DBLogfile
 		) {
 			clrObject();
-			Fields.haschanges_ = false;
+			fields_.haschanges_ = false;
 		}
 #if !NET_1_1
 			/// <summary>
@@ -82,17 +83,17 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			connection_in
 		) {
 			clrObject();
-			Fields.haschanges_ = false;
+			fields_.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public FO0_UserGroup Fields { get; set; }
+		#region public SO_UserGroup Fields { get; set; }
 		internal SO_UserGroup fields_;
 
-		public SO_UserGroup Fields {
+		public ISO_UserGroup Fields {
 			get { return fields_; }
-			set { fields_ = value; }
+			set { fields_ = (SO_UserGroup)value; }
 		}
 		#endregion
 		#region public RO0_UserGroup Record { get; }
@@ -135,7 +136,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#region public SC_UserGroup Serialize();
 		public SO_UserGroup Serialize() {
-			return Fields;
+			return fields_;
 		}
 		#endregion
 		#region public void clrObject();
@@ -147,7 +148,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			virtual 
 #endif
 		void clrObject() {
-			Fields = new SO_UserGroup();
+			fields_ = new SO_UserGroup();
 		}
 		#endregion
 		#region public bool getObject(...);
@@ -161,8 +162,8 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 		bool getObject() {
 			return getObject(
-				Fields.IDUser, 
-				Fields.IDGroup
+				fields_.IDUser, 
+				fields_.IDGroup
 			);
 		}
 		/// <summary>
@@ -189,27 +190,27 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 				if (_dataparameters[0].Value != DBNull.Value) {
 					if (_dataparameters[0].Value == System.DBNull.Value) {
-						Fields.IDUser = 0L;
+						fields_.IDUser = 0L;
 					} else {
-						Fields.IDUser = (long)_dataparameters[0].Value;
+						fields_.IDUser = (long)_dataparameters[0].Value;
 					}
 					if (_dataparameters[1].Value == System.DBNull.Value) {
-						Fields.IDGroup = 0L;
+						fields_.IDGroup = 0L;
 					} else {
-						Fields.IDGroup = (long)_dataparameters[1].Value;
+						fields_.IDGroup = (long)_dataparameters[1].Value;
 					}
 					if (_dataparameters[2].Value == System.DBNull.Value) {
-						Fields.Relationdate_isNull = true;
+						fields_.Relationdate_isNull = true;
 					} else {
-						Fields.Relationdate = (DateTime)_dataparameters[2].Value;
+						fields_.Relationdate = (DateTime)_dataparameters[2].Value;
 					}
 					if (_dataparameters[3].Value == System.DBNull.Value) {
-						Fields.Defaultrelation_isNull = true;
+						fields_.Defaultrelation_isNull = true;
 					} else {
-						Fields.Defaultrelation = (bool)_dataparameters[3].Value;
+						fields_.Defaultrelation = (bool)_dataparameters[3].Value;
 					}
 
-					Fields.haschanges_ = false;
+					fields_.haschanges_ = false;
 					return true;
 				}
 
@@ -229,8 +230,8 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 		void delObject() {
 			delObject(
-				Fields.IDUser, 
-				Fields.IDGroup
+				fields_.IDUser, 
+				fields_.IDGroup
 			);
 		}
 		/// <summary>
@@ -266,8 +267,8 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 		bool isObject() {
 			return isObject(
-				Fields.IDUser, 
-				Fields.IDGroup
+				fields_.IDUser, 
+				fields_.IDGroup
 			);
 		}
 		/// <summary>
@@ -309,12 +310,12 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 			bool setObject(bool forceUpdate_in) {
 			bool ConstraintExist_out;
-			if (forceUpdate_in || Fields.haschanges_) {
+			if (forceUpdate_in || fields_.haschanges_) {
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
-					base.Connection.newDBDataParameter("IDUser_", DbType.Int64, ParameterDirection.Input, Fields.IDUser, 0), 
-					base.Connection.newDBDataParameter("IDGroup_", DbType.Int64, ParameterDirection.Input, Fields.IDGroup, 0), 
-					base.Connection.newDBDataParameter("Relationdate_", DbType.DateTime, ParameterDirection.Input, Fields.Relationdate_isNull ? null : (object)Fields.Relationdate, 0), 
-					base.Connection.newDBDataParameter("Defaultrelation_", DbType.Boolean, ParameterDirection.Input, Fields.Defaultrelation_isNull ? null : (object)Fields.Defaultrelation, 0), 
+					base.Connection.newDBDataParameter("IDUser_", DbType.Int64, ParameterDirection.Input, fields_.IDUser, 0), 
+					base.Connection.newDBDataParameter("IDGroup_", DbType.Int64, ParameterDirection.Input, fields_.IDGroup, 0), 
+					base.Connection.newDBDataParameter("Relationdate_", DbType.DateTime, ParameterDirection.Input, fields_.Relationdate_isNull ? null : (object)fields_.Relationdate, 0), 
+					base.Connection.newDBDataParameter("Defaultrelation_", DbType.Boolean, ParameterDirection.Input, fields_.Defaultrelation_isNull ? null : (object)fields_.Defaultrelation, 0), 
 
 					//base.Connection.newDBDataParameter("Exists", DbType.Boolean, ParameterDirection.Output, 0, 1)
 					base.Connection.newDBDataParameter("Output_", DbType.Int32, ParameterDirection.Output, null, 0)
@@ -326,7 +327,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 				ConstraintExist_out = (((int)_dataparameters[4].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					Fields.haschanges_ = false;
+					fields_.haschanges_ = false;
 				}
 
 				return (((int)_dataparameters[4].Value & 1) != 1);

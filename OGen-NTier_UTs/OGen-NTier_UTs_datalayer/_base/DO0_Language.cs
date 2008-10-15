@@ -18,6 +18,7 @@ using System.Xml.Serialization;
 
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer.proxy;
 
 namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
@@ -65,7 +66,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			.DBLogfile
 		) {
 			clrObject();
-			Fields.haschanges_ = false;
+			fields_.haschanges_ = false;
 		}
 #if !NET_1_1
 			/// <summary>
@@ -82,17 +83,17 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			connection_in
 		) {
 			clrObject();
-			Fields.haschanges_ = false;
+			fields_.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public FO0_Language Fields { get; set; }
+		#region public SO_Language Fields { get; set; }
 		internal SO_Language fields_;
 
-		public SO_Language Fields {
+		public ISO_Language Fields {
 			get { return fields_; }
-			set { fields_ = value; }
+			set { fields_ = (SO_Language)value; }
 		}
 		#endregion
 		#region public RO0_Language Record { get; }
@@ -135,7 +136,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#region public SC_Language Serialize();
 		public SO_Language Serialize() {
-			return Fields;
+			return fields_;
 		}
 		#endregion
 		#region public void clrObject();
@@ -147,7 +148,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			virtual 
 #endif
 		void clrObject() {
-			Fields = new SO_Language();
+			fields_ = new SO_Language();
 		}
 		#endregion
 		#region public bool getObject(...);
@@ -161,7 +162,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 		bool getObject() {
 			return getObject(
-				Fields.IDLanguage
+				fields_.IDLanguage
 			);
 		}
 		/// <summary>
@@ -185,17 +186,17 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 				if (_dataparameters[0].Value != DBNull.Value) {
 					if (_dataparameters[0].Value == System.DBNull.Value) {
-						Fields.IDLanguage = 0L;
+						fields_.IDLanguage = 0L;
 					} else {
-						Fields.IDLanguage = (long)_dataparameters[0].Value;
+						fields_.IDLanguage = (long)_dataparameters[0].Value;
 					}
 					if (_dataparameters[1].Value == System.DBNull.Value) {
-						Fields.IDWord_name = 0L;
+						fields_.IDWord_name = 0L;
 					} else {
-						Fields.IDWord_name = (long)_dataparameters[1].Value;
+						fields_.IDWord_name = (long)_dataparameters[1].Value;
 					}
 
-					Fields.haschanges_ = false;
+					fields_.haschanges_ = false;
 					return true;
 				}
 			}
@@ -216,7 +217,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 		void delObject() {
 			delObject(
-				Fields.IDLanguage
+				fields_.IDLanguage
 			);
 		}
 		/// <summary>
@@ -249,7 +250,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 		bool isObject() {
 			return isObject(
-				Fields.IDLanguage
+				fields_.IDLanguage
 			);
 		}
 		/// <summary>
@@ -291,7 +292,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		) {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
 				base.Connection.newDBDataParameter("IDLanguage_", DbType.Int64, ParameterDirection.Output, null, 0), 
-				base.Connection.newDBDataParameter("IDWord_name_", DbType.Int64, ParameterDirection.Input, Fields.IDWord_name, 0), 
+				base.Connection.newDBDataParameter("IDWord_name_", DbType.Int64, ParameterDirection.Input, fields_.IDWord_name, 0), 
 
 				base.Connection.newDBDataParameter("SelectIdentity_", DbType.Boolean, ParameterDirection.Input, selectIdentity_in, 1)
 			};
@@ -300,11 +301,11 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				_dataparameters
 			);
 
-			Fields.IDLanguage = (long)_dataparameters[0].Value;
-			Fields.haschanges_ = false;
+			fields_.IDLanguage = (long)_dataparameters[0].Value;
+			fields_.haschanges_ = false;
 			
 
-			return Fields.IDLanguage;
+			return fields_.IDLanguage;
 		}
 		#endregion
 		#region public void updObject(...);
@@ -317,16 +318,16 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			virtual 
 #endif
 		void updObject(bool forceUpdate_in) {
-			if (forceUpdate_in || Fields.haschanges_) {
+			if (forceUpdate_in || fields_.haschanges_) {
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
-					base.Connection.newDBDataParameter("IDLanguage_", DbType.Int64, ParameterDirection.Input, Fields.IDLanguage, 0), 
-					base.Connection.newDBDataParameter("IDWord_name_", DbType.Int64, ParameterDirection.Input, Fields.IDWord_name, 0)
+					base.Connection.newDBDataParameter("IDLanguage_", DbType.Int64, ParameterDirection.Input, fields_.IDLanguage, 0), 
+					base.Connection.newDBDataParameter("IDWord_name_", DbType.Int64, ParameterDirection.Input, fields_.IDWord_name, 0)
 				};
 				base.Connection.Execute_SQLFunction(
 					"sp0_Language_updObject", 
 					_dataparameters
 				);
-				Fields.haschanges_ = false;
+				fields_.haschanges_ = false;
 			}
 		}
 		#endregion

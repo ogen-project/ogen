@@ -18,6 +18,7 @@ using System.Xml.Serialization;
 
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer.proxy;
 
 namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
@@ -65,7 +66,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			.DBLogfile
 		) {
 			clrObject();
-			Fields.haschanges_ = false;
+			fields_.haschanges_ = false;
 		}
 #if !NET_1_1
 			/// <summary>
@@ -82,17 +83,17 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			connection_in
 		) {
 			clrObject();
-			Fields.haschanges_ = false;
+			fields_.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public FO0_Config Fields { get; set; }
+		#region public SO_Config Fields { get; set; }
 		internal SO_Config fields_;
 
-		public SO_Config Fields {
+		public ISO_Config Fields {
 			get { return fields_; }
-			set { fields_ = value; }
+			set { fields_ = (SO_Config)value; }
 		}
 		#endregion
 		#region public RO0_Config Record { get; }
@@ -135,7 +136,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#region public SC_Config Serialize();
 		public SO_Config Serialize() {
-			return Fields;
+			return fields_;
 		}
 		#endregion
 		#region public void clrObject();
@@ -147,7 +148,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			virtual 
 #endif
 		void clrObject() {
-			Fields = new SO_Config();
+			fields_ = new SO_Config();
 		}
 		#endregion
 		#region public bool getObject(...);
@@ -161,7 +162,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 		bool getObject() {
 			return getObject(
-				Fields.Name
+				fields_.Name
 			);
 		}
 		/// <summary>
@@ -186,27 +187,27 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 				if (_dataparameters[0].Value != DBNull.Value) {
 					if (_dataparameters[0].Value == System.DBNull.Value) {
-						Fields.Name = string.Empty;
+						fields_.Name = string.Empty;
 					} else {
-						Fields.Name = (string)_dataparameters[0].Value;
+						fields_.Name = (string)_dataparameters[0].Value;
 					}
 					if (_dataparameters[1].Value == System.DBNull.Value) {
-						Fields.Config = string.Empty;
+						fields_.Config = string.Empty;
 					} else {
-						Fields.Config = (string)_dataparameters[1].Value;
+						fields_.Config = (string)_dataparameters[1].Value;
 					}
 					if (_dataparameters[2].Value == System.DBNull.Value) {
-						Fields.Type = 0;
+						fields_.Type = 0;
 					} else {
-						Fields.Type = (int)_dataparameters[2].Value;
+						fields_.Type = (int)_dataparameters[2].Value;
 					}
 					if (_dataparameters[3].Value == System.DBNull.Value) {
-						Fields.Description = string.Empty;
+						fields_.Description = string.Empty;
 					} else {
-						Fields.Description = (string)_dataparameters[3].Value;
+						fields_.Description = (string)_dataparameters[3].Value;
 					}
 
-					Fields.haschanges_ = false;
+					fields_.haschanges_ = false;
 					return true;
 				}
 
@@ -226,7 +227,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 		void delObject() {
 			delObject(
-				Fields.Name
+				fields_.Name
 			);
 		}
 		/// <summary>
@@ -259,7 +260,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 		bool isObject() {
 			return isObject(
-				Fields.Name
+				fields_.Name
 			);
 		}
 		/// <summary>
@@ -298,12 +299,12 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 			bool setObject(bool forceUpdate_in) {
 			bool ConstraintExist_out;
-			if (forceUpdate_in || Fields.haschanges_) {
+			if (forceUpdate_in || fields_.haschanges_) {
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
-					base.Connection.newDBDataParameter("Name_", DbType.String, ParameterDirection.Input, Fields.Name, 50), 
-					base.Connection.newDBDataParameter("Config_", DbType.String, ParameterDirection.Input, Fields.Config, 50), 
-					base.Connection.newDBDataParameter("Type_", DbType.Int32, ParameterDirection.Input, Fields.Type, 0), 
-					base.Connection.newDBDataParameter("Description_", DbType.String, ParameterDirection.Input, Fields.Description, 50), 
+					base.Connection.newDBDataParameter("Name_", DbType.String, ParameterDirection.Input, fields_.Name, 50), 
+					base.Connection.newDBDataParameter("Config_", DbType.String, ParameterDirection.Input, fields_.Config, 50), 
+					base.Connection.newDBDataParameter("Type_", DbType.Int32, ParameterDirection.Input, fields_.Type, 0), 
+					base.Connection.newDBDataParameter("Description_", DbType.String, ParameterDirection.Input, fields_.Description, 50), 
 
 					//base.Connection.newDBDataParameter("Exists", DbType.Boolean, ParameterDirection.Output, 0, 1)
 					base.Connection.newDBDataParameter("Output_", DbType.Int32, ParameterDirection.Output, null, 0)
@@ -315,10 +316,10 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 				ConstraintExist_out = (((int)_dataparameters[4].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					Fields.haschanges_ = false;
+					fields_.haschanges_ = false;
 
 					#region DO__utils...._reset();
-					switch (Fields.Name) {
+					switch (fields_.Name) {
 						case "SomeBoolConfig": {
 #if !NET_1_1
 							DO__utils

@@ -17,11 +17,30 @@ using System.Xml.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
-namespace OGen.NTier.UTs.lib.datalayer {
+namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	/// <summary>
+	/// Interface for Language SerializableObject.
+	/// </summary>
+	public interface ISO_Language {
+		/// <summary>
+		/// Indicates if changes have been made to FO0_Language properties since last time getObject method was run.
+		/// </summary>
+		bool hasChanges { get; }
+
+		/// <summary>
+		/// Language's IDLanguage.
+		/// </summary>
+		long IDLanguage { get; set; }
+		/// <summary>
+		/// Language's IDWord_name.
+		/// </summary>
+		long IDWord_name { get; set; }
+	}
+
 	/// <summary>
 	/// Language SerializableObject which provides fields access at Language table at Database.
 	/// </summary>
-	public class SO_Language {
+	public class SO_Language : ISO_Language {
 		#region public SO_Language();
 		public SO_Language(
 		) : this (
@@ -42,7 +61,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 		#region Properties...
 		#region public bool hasChanges { get; }
-		internal bool haschanges_;
+		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_Language properties since last time getObject method was run.
@@ -57,7 +76,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 		//---
 		#region public long IDLanguage { get; set; }
-		internal long idlanguage_;// = 0L;
+		public long idlanguage_;// = 0L;
 		
 		/// <summary>
 		/// Language's IDLanguage.
@@ -105,7 +124,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public long IDWord_name { get; set; }
-		internal long idword_name_;// = 0L;
+		public long idword_name_;// = 0L;
 		
 		/// <summary>
 		/// Language's IDWord_name.

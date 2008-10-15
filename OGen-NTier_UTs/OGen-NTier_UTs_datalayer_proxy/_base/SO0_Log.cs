@@ -17,11 +17,42 @@ using System.Xml.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
-namespace OGen.NTier.UTs.lib.datalayer {
+namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	/// <summary>
+	/// Interface for Log SerializableObject.
+	/// </summary>
+	public interface ISO_Log {
+		/// <summary>
+		/// Indicates if changes have been made to FO0_Log properties since last time getObject method was run.
+		/// </summary>
+		bool hasChanges { get; }
+
+		/// <summary>
+		/// Log's IDLog.
+		/// </summary>
+		long IDLog { get; set; }
+		/// <summary>
+		/// Log's IDLogcode.
+		/// </summary>
+		long IDLogcode { get; set; }
+		/// <summary>
+		/// Log's IDUser_posted.
+		/// </summary>
+		long IDUser_posted { get; set; }
+		/// <summary>
+		/// Log's Date_posted.
+		/// </summary>
+		DateTime Date_posted { get; set; }
+		/// <summary>
+		/// Log's Logdata.
+		/// </summary>
+		string Logdata { get; set; }
+	}
+
 	/// <summary>
 	/// Log SerializableObject which provides fields access at Log table at Database.
 	/// </summary>
-	public class SO_Log {
+	public class SO_Log : ISO_Log {
 		#region public SO_Log();
 		public SO_Log(
 		) : this (
@@ -51,7 +82,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 		#region Properties...
 		#region public bool hasChanges { get; }
-		internal bool haschanges_;
+		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_Log properties since last time getObject method was run.
@@ -66,7 +97,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 		//---
 		#region public long IDLog { get; set; }
-		internal long idlog_;// = 0L;
+		public long idlog_;// = 0L;
 		
 		/// <summary>
 		/// Log's IDLog.
@@ -114,7 +145,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public long IDLogcode { get; set; }
-		internal long idlogcode_;// = 0L;
+		public long idlogcode_;// = 0L;
 		
 		/// <summary>
 		/// Log's IDLogcode.
@@ -162,7 +193,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public long IDUser_posted { get; set; }
-		internal long iduser_posted_;// = 0L;
+		public long iduser_posted_;// = 0L;
 		
 		/// <summary>
 		/// Log's IDUser_posted.
@@ -210,7 +241,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public DateTime Date_posted { get; set; }
-		internal DateTime date_posted_;// = new DateTime(1900, 1, 1);
+		public DateTime date_posted_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>
 		/// Log's Date_posted.
@@ -258,7 +289,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public string Logdata { get; set; }
-		internal string logdata_;// = string.Empty;
+		public string logdata_;// = string.Empty;
 		
 		/// <summary>
 		/// Log's Logdata.

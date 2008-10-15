@@ -18,6 +18,7 @@ using System.Xml.Serialization;
 
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer.proxy;
 
 namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
@@ -65,7 +66,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			.DBLogfile
 		) {
 			clrObject();
-			Fields.haschanges_ = false;
+			fields_.haschanges_ = false;
 		}
 #if !NET_1_1
 			/// <summary>
@@ -82,17 +83,17 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			connection_in
 		) {
 			clrObject();
-			Fields.haschanges_ = false;
+			fields_.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public FO0_GroupPermition Fields { get; set; }
+		#region public SO_GroupPermition Fields { get; set; }
 		internal SO_GroupPermition fields_;
 
-		public SO_GroupPermition Fields {
+		public ISO_GroupPermition Fields {
 			get { return fields_; }
-			set { fields_ = value; }
+			set { fields_ = (SO_GroupPermition)value; }
 		}
 		#endregion
 		#region public RO0_GroupPermition Record { get; }
@@ -135,7 +136,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#region public SC_GroupPermition Serialize();
 		public SO_GroupPermition Serialize() {
-			return Fields;
+			return fields_;
 		}
 		#endregion
 		#region public void clrObject();
@@ -147,7 +148,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			virtual 
 #endif
 		void clrObject() {
-			Fields = new SO_GroupPermition();
+			fields_ = new SO_GroupPermition();
 		}
 		#endregion
 		#region public bool getObject(...);
@@ -161,8 +162,8 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 		bool getObject() {
 			return getObject(
-				Fields.IDGroup, 
-				Fields.IDPermition
+				fields_.IDGroup, 
+				fields_.IDPermition
 			);
 		}
 		/// <summary>
@@ -187,17 +188,17 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 				if (_dataparameters[0].Value != DBNull.Value) {
 					if (_dataparameters[0].Value == System.DBNull.Value) {
-						Fields.IDGroup = 0L;
+						fields_.IDGroup = 0L;
 					} else {
-						Fields.IDGroup = (long)_dataparameters[0].Value;
+						fields_.IDGroup = (long)_dataparameters[0].Value;
 					}
 					if (_dataparameters[1].Value == System.DBNull.Value) {
-						Fields.IDPermition = 0L;
+						fields_.IDPermition = 0L;
 					} else {
-						Fields.IDPermition = (long)_dataparameters[1].Value;
+						fields_.IDPermition = (long)_dataparameters[1].Value;
 					}
 
-					Fields.haschanges_ = false;
+					fields_.haschanges_ = false;
 					return true;
 				}
 
@@ -217,8 +218,8 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 		void delObject() {
 			delObject(
-				Fields.IDGroup, 
-				Fields.IDPermition
+				fields_.IDGroup, 
+				fields_.IDPermition
 			);
 		}
 		/// <summary>
@@ -254,8 +255,8 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 		bool isObject() {
 			return isObject(
-				Fields.IDGroup, 
-				Fields.IDPermition
+				fields_.IDGroup, 
+				fields_.IDPermition
 			);
 		}
 		/// <summary>
@@ -297,10 +298,10 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 			bool setObject(bool forceUpdate_in) {
 			bool ConstraintExist_out;
-			if (forceUpdate_in || Fields.haschanges_) {
+			if (forceUpdate_in || fields_.haschanges_) {
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
-					base.Connection.newDBDataParameter("IDGroup_", DbType.Int64, ParameterDirection.Input, Fields.IDGroup, 0), 
-					base.Connection.newDBDataParameter("IDPermition_", DbType.Int64, ParameterDirection.Input, Fields.IDPermition, 0), 
+					base.Connection.newDBDataParameter("IDGroup_", DbType.Int64, ParameterDirection.Input, fields_.IDGroup, 0), 
+					base.Connection.newDBDataParameter("IDPermition_", DbType.Int64, ParameterDirection.Input, fields_.IDPermition, 0), 
 
 					//base.Connection.newDBDataParameter("Exists", DbType.Boolean, ParameterDirection.Output, 0, 1)
 					base.Connection.newDBDataParameter("Output_", DbType.Int32, ParameterDirection.Output, null, 0)
@@ -312,7 +313,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 				ConstraintExist_out = (((int)_dataparameters[2].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					Fields.haschanges_ = false;
+					fields_.haschanges_ = false;
 				}
 
 				return (((int)_dataparameters[2].Value & 1) != 1);

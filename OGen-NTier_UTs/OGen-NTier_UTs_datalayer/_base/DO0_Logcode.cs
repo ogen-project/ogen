@@ -18,6 +18,7 @@ using System.Xml.Serialization;
 
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer.proxy;
 
 namespace OGen.NTier.UTs.lib.datalayer {
 	/// <summary>
@@ -65,7 +66,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			.DBLogfile
 		) {
 			clrObject();
-			Fields.haschanges_ = false;
+			fields_.haschanges_ = false;
 		}
 #if !NET_1_1
 			/// <summary>
@@ -82,17 +83,17 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			connection_in
 		) {
 			clrObject();
-			Fields.haschanges_ = false;
+			fields_.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public FO0_Logcode Fields { get; set; }
+		#region public SO_Logcode Fields { get; set; }
 		internal SO_Logcode fields_;
 
-		public SO_Logcode Fields {
+		public ISO_Logcode Fields {
 			get { return fields_; }
-			set { fields_ = value; }
+			set { fields_ = (SO_Logcode)value; }
 		}
 		#endregion
 		#region public RO0_Logcode Record { get; }
@@ -135,7 +136,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#region public SC_Logcode Serialize();
 		public SO_Logcode Serialize() {
-			return Fields;
+			return fields_;
 		}
 		#endregion
 		#region public void clrObject();
@@ -147,7 +148,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			virtual 
 #endif
 		void clrObject() {
-			Fields = new SO_Logcode();
+			fields_ = new SO_Logcode();
 		}
 		#endregion
 		#region public bool getObject(...);
@@ -161,7 +162,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 		bool getObject() {
 			return getObject(
-				Fields.IDLogcode
+				fields_.IDLogcode
 			);
 		}
 		/// <summary>
@@ -188,32 +189,32 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 				if (_dataparameters[0].Value != DBNull.Value) {
 					if (_dataparameters[0].Value == System.DBNull.Value) {
-						Fields.IDLogcode = 0L;
+						fields_.IDLogcode = 0L;
 					} else {
-						Fields.IDLogcode = (long)_dataparameters[0].Value;
+						fields_.IDLogcode = (long)_dataparameters[0].Value;
 					}
 					if (_dataparameters[1].Value == System.DBNull.Value) {
-						Fields.Warning = false;
+						fields_.Warning = false;
 					} else {
-						Fields.Warning = (bool)_dataparameters[1].Value;
+						fields_.Warning = (bool)_dataparameters[1].Value;
 					}
 					if (_dataparameters[2].Value == System.DBNull.Value) {
-						Fields.Error = false;
+						fields_.Error = false;
 					} else {
-						Fields.Error = (bool)_dataparameters[2].Value;
+						fields_.Error = (bool)_dataparameters[2].Value;
 					}
 					if (_dataparameters[3].Value == System.DBNull.Value) {
-						Fields.Code = string.Empty;
+						fields_.Code = string.Empty;
 					} else {
-						Fields.Code = (string)_dataparameters[3].Value;
+						fields_.Code = (string)_dataparameters[3].Value;
 					}
 					if (_dataparameters[4].Value == System.DBNull.Value) {
-						Fields.Description_isNull = true;
+						fields_.Description_isNull = true;
 					} else {
-						Fields.Description = (string)_dataparameters[4].Value;
+						fields_.Description = (string)_dataparameters[4].Value;
 					}
 
-					Fields.haschanges_ = false;
+					fields_.haschanges_ = false;
 					return true;
 				}
 			}
@@ -234,7 +235,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 		void delObject() {
 			delObject(
-				Fields.IDLogcode
+				fields_.IDLogcode
 			);
 		}
 		/// <summary>
@@ -267,7 +268,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 #endif
 		bool isObject() {
 			return isObject(
-				Fields.IDLogcode
+				fields_.IDLogcode
 			);
 		}
 		/// <summary>
@@ -309,10 +310,10 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		) {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
 				base.Connection.newDBDataParameter("IDLogcode_", DbType.Int64, ParameterDirection.Output, null, 0), 
-				base.Connection.newDBDataParameter("Warning_", DbType.Boolean, ParameterDirection.Input, Fields.Warning, 0), 
-				base.Connection.newDBDataParameter("Error_", DbType.Boolean, ParameterDirection.Input, Fields.Error, 0), 
-				base.Connection.newDBDataParameter("Code_", DbType.String, ParameterDirection.Input, Fields.Code, 50), 
-				base.Connection.newDBDataParameter("Description_", DbType.String, ParameterDirection.Input, Fields.Description_isNull ? null : (object)Fields.Description, 255), 
+				base.Connection.newDBDataParameter("Warning_", DbType.Boolean, ParameterDirection.Input, fields_.Warning, 0), 
+				base.Connection.newDBDataParameter("Error_", DbType.Boolean, ParameterDirection.Input, fields_.Error, 0), 
+				base.Connection.newDBDataParameter("Code_", DbType.String, ParameterDirection.Input, fields_.Code, 50), 
+				base.Connection.newDBDataParameter("Description_", DbType.String, ParameterDirection.Input, fields_.Description_isNull ? null : (object)fields_.Description, 255), 
 
 				base.Connection.newDBDataParameter("SelectIdentity_", DbType.Boolean, ParameterDirection.Input, selectIdentity_in, 1)
 			};
@@ -321,11 +322,11 @@ namespace OGen.NTier.UTs.lib.datalayer {
 				_dataparameters
 			);
 
-			Fields.IDLogcode = (long)_dataparameters[0].Value;
-			Fields.haschanges_ = false;
+			fields_.IDLogcode = (long)_dataparameters[0].Value;
+			fields_.haschanges_ = false;
 			
 
-			return Fields.IDLogcode;
+			return fields_.IDLogcode;
 		}
 		#endregion
 		#region public void updObject(...);
@@ -338,19 +339,19 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			virtual 
 #endif
 		void updObject(bool forceUpdate_in) {
-			if (forceUpdate_in || Fields.haschanges_) {
+			if (forceUpdate_in || fields_.haschanges_) {
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
-					base.Connection.newDBDataParameter("IDLogcode_", DbType.Int64, ParameterDirection.Input, Fields.IDLogcode, 0), 
-					base.Connection.newDBDataParameter("Warning_", DbType.Boolean, ParameterDirection.Input, Fields.Warning, 0), 
-					base.Connection.newDBDataParameter("Error_", DbType.Boolean, ParameterDirection.Input, Fields.Error, 0), 
-					base.Connection.newDBDataParameter("Code_", DbType.String, ParameterDirection.Input, Fields.Code, 50), 
-					base.Connection.newDBDataParameter("Description_", DbType.String, ParameterDirection.Input, Fields.Description_isNull ? null : (object)Fields.Description, 255)
+					base.Connection.newDBDataParameter("IDLogcode_", DbType.Int64, ParameterDirection.Input, fields_.IDLogcode, 0), 
+					base.Connection.newDBDataParameter("Warning_", DbType.Boolean, ParameterDirection.Input, fields_.Warning, 0), 
+					base.Connection.newDBDataParameter("Error_", DbType.Boolean, ParameterDirection.Input, fields_.Error, 0), 
+					base.Connection.newDBDataParameter("Code_", DbType.String, ParameterDirection.Input, fields_.Code, 50), 
+					base.Connection.newDBDataParameter("Description_", DbType.String, ParameterDirection.Input, fields_.Description_isNull ? null : (object)fields_.Description, 255)
 				};
 				base.Connection.Execute_SQLFunction(
 					"sp0_Logcode_updObject", 
 					_dataparameters
 				);
-				Fields.haschanges_ = false;
+				fields_.haschanges_ = false;
 			}
 		}
 		#endregion

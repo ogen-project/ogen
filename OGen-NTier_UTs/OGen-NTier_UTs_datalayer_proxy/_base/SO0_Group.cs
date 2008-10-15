@@ -17,11 +17,30 @@ using System.Xml.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
-namespace OGen.NTier.UTs.lib.datalayer {
+namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	/// <summary>
+	/// Interface for Group SerializableObject.
+	/// </summary>
+	public interface ISO_Group {
+		/// <summary>
+		/// Indicates if changes have been made to FO0_Group properties since last time getObject method was run.
+		/// </summary>
+		bool hasChanges { get; }
+
+		/// <summary>
+		/// Group's IDGroup.
+		/// </summary>
+		long IDGroup { get; set; }
+		/// <summary>
+		/// Group's Name.
+		/// </summary>
+		string Name { get; set; }
+	}
+
 	/// <summary>
 	/// Group SerializableObject which provides fields access at Group table at Database.
 	/// </summary>
-	public class SO_Group {
+	public class SO_Group : ISO_Group {
 		#region public SO_Group();
 		public SO_Group(
 		) : this (
@@ -42,7 +61,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 		#region Properties...
 		#region public bool hasChanges { get; }
-		internal bool haschanges_;
+		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_Group properties since last time getObject method was run.
@@ -57,7 +76,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 		//---
 		#region public long IDGroup { get; set; }
-		internal long idgroup_;// = 0L;
+		public long idgroup_;// = 0L;
 		
 		/// <summary>
 		/// Group's IDGroup.
@@ -105,7 +124,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public string Name { get; set; }
-		internal string name_;// = string.Empty;
+		public string name_;// = string.Empty;
 		
 		/// <summary>
 		/// Group's Name.

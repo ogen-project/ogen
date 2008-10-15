@@ -17,11 +17,46 @@ using System.Xml.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
-namespace OGen.NTier.UTs.lib.datalayer {
+namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	/// <summary>
+	/// Interface for Logcode SerializableObject.
+	/// </summary>
+	public interface ISO_Logcode {
+		/// <summary>
+		/// Indicates if changes have been made to FO0_Logcode properties since last time getObject method was run.
+		/// </summary>
+		bool hasChanges { get; }
+
+		/// <summary>
+		/// Logcode's IDLogcode.
+		/// </summary>
+		long IDLogcode { get; set; }
+		/// <summary>
+		/// Logcode's Warning.
+		/// </summary>
+		bool Warning { get; set; }
+		/// <summary>
+		/// Logcode's Error.
+		/// </summary>
+		bool Error { get; set; }
+		/// <summary>
+		/// Logcode's Code.
+		/// </summary>
+		string Code { get; set; }
+		/// <summary>
+		/// Allows assignement of null and check if null at Logcode's Description.
+		/// </summary>
+		bool Description_isNull { get; set; }
+		/// <summary>
+		/// Logcode's Description.
+		/// </summary>
+		string Description { get; set; }
+	}
+
 	/// <summary>
 	/// Logcode SerializableObject which provides fields access at Logcode table at Database.
 	/// </summary>
-	public class SO_Logcode {
+	public class SO_Logcode : ISO_Logcode {
 		#region public SO_Logcode();
 		public SO_Logcode(
 		) : this (
@@ -51,7 +86,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 		#region Properties...
 		#region public bool hasChanges { get; }
-		internal bool haschanges_;
+		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_Logcode properties since last time getObject method was run.
@@ -66,7 +101,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 		//---
 		#region public long IDLogcode { get; set; }
-		internal long idlogcode_;// = 0L;
+		public long idlogcode_;// = 0L;
 		
 		/// <summary>
 		/// Logcode's IDLogcode.
@@ -114,7 +149,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public bool Warning { get; set; }
-		internal bool warning_;// = false;
+		public bool warning_;// = false;
 		
 		/// <summary>
 		/// Logcode's Warning.
@@ -162,7 +197,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public bool Error { get; set; }
-		internal bool error_;// = false;
+		public bool error_;// = false;
 		
 		/// <summary>
 		/// Logcode's Error.
@@ -210,7 +245,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public string Code { get; set; }
-		internal string code_;// = string.Empty;
+		public string code_;// = string.Empty;
 		
 		/// <summary>
 		/// Logcode's Code.
@@ -281,7 +316,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		}
 		#endregion
 		#region public string Description { get; set; }
-		internal object description_;// = string.Empty;
+		public object description_;// = string.Empty;
 		
 		/// <summary>
 		/// Logcode's Description.
