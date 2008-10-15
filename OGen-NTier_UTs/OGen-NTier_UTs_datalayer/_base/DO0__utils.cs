@@ -16,8 +16,12 @@ using System;
 using System.Data;
 
 using OGen.lib.datalayer;
+#if PostgreSQL
 using OGen.lib.datalayer.PostgreSQL;
+#endif
+#if SQLServer
 using OGen.lib.datalayer.SQLServer;
+#endif
 #if MySQL
 using OGen.lib.datalayer.MySQL;
 #endif
