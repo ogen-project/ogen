@@ -115,11 +115,13 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 
 		#region Properties...
 		#region public bool hasChanges { get; }
+		[XmlIgnore()]
 		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_<%=_aux_db_table.Name%> properties since last time getObject method was run.
 		/// </summary>
+		[XmlIgnore()]
 		public 
 #if NET_1_1
 			virtual 
@@ -138,7 +140,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 		/// <summary>
 		/// Allows assignement of null and check if null at <%=_aux_db_table.Name%>'s <%=_aux_db_field.Name%>.
 		/// </summary>
-		[XmlIgnore]
+		[XmlElement("<%=_aux_db_field.Name%>_isNull")]
 		public 
 #if NET_1_1
 			virtual 
@@ -160,6 +162,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 		#endregion<%
 			}%>
 		#region public <%=_aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%> { get; set; }
+		[XmlIgnore()]
 		public <%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name.ToLower()%>_;// = <%=((_aux_ex_field == null) || (_aux_ex_field.DefaultValue == "")) ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_ex_field.DefaultValue%>;
 		
 		/// <summary>

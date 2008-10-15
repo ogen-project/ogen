@@ -65,11 +65,13 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 
 		#region Properties...
 		#region public bool hasChanges { get; }
+		[XmlIgnore()]
 		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_Word properties since last time getObject method was run.
 		/// </summary>
+		[XmlIgnore()]
 		public 
 #if NET_1_1
 			virtual 
@@ -80,6 +82,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		//---
 		#region public long IDWord { get; set; }
+		[XmlIgnore()]
 		public long idword_;// = 0L;
 		
 		/// <summary>
@@ -131,7 +134,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		/// <summary>
 		/// Allows assignement of null and check if null at Word's DeleteThisTestField.
 		/// </summary>
-		[XmlIgnore]
+		[XmlElement("DeleteThisTestField_isNull")]
 		public 
 #if NET_1_1
 			virtual 
@@ -149,6 +152,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		}
 		#endregion
 		#region public bool DeleteThisTestField { get; set; }
+		[XmlIgnore()]
 		public object deletethistestfield_;// = false;
 		
 		/// <summary>

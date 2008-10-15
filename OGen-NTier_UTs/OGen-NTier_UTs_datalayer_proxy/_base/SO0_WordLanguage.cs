@@ -72,11 +72,13 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 
 		#region Properties...
 		#region public bool hasChanges { get; }
+		[XmlIgnore()]
 		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_WordLanguage properties since last time getObject method was run.
 		/// </summary>
+		[XmlIgnore()]
 		public 
 #if NET_1_1
 			virtual 
@@ -87,6 +89,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		//---
 		#region public long IDWord { get; set; }
+		[XmlIgnore()]
 		public long idword_;// = 0L;
 		
 		/// <summary>
@@ -135,6 +138,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		}
 		#endregion
 		#region public long IDLanguage { get; set; }
+		[XmlIgnore()]
 		public long idlanguage_;// = 0L;
 		
 		/// <summary>
@@ -186,7 +190,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		/// <summary>
 		/// Allows assignement of null and check if null at WordLanguage's Translation.
 		/// </summary>
-		[XmlIgnore]
+		[XmlElement("Translation_isNull")]
 		public 
 #if NET_1_1
 			virtual 
@@ -204,6 +208,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		}
 		#endregion
 		#region public string Translation { get; set; }
+		[XmlIgnore()]
 		public object translation_;// = string.Empty;
 		
 		/// <summary>

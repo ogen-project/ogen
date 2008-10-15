@@ -213,17 +213,31 @@ throw new Exception("// ToDos: not implemented!");
 			if (_debug_exits || _release_exits) {
 				DateTime _debug_datetime = (_debug_exits) ? File.GetLastWriteTime(_debug_assembly) : DateTime.MinValue;
 				DateTime _release_datetime = (_release_exits) ? File.GetLastWriteTime(_release_assembly) : DateTime.MinValue;
+				string _assembly 
+					= (_debug_datetime > _release_datetime)
+						? _debug_assembly
+						: _release_assembly;
 
 				if (notifyBack_in != null) notifyBack_in("- reading metadata from business assembly", true);
 
-				OGen.NTier.lib.metadata.metadataBusiness.XS__metadataBusiness _metadatabusiness
-					= OGen.NTier.lib.metadata.metadataBusiness.XS__metadataBusiness.Load_fromAssembly(
-						(_debug_datetime > _release_datetime)
-							? _debug_assembly
-							: _release_assembly,
-						null,
-						0
-					);
+				OGen.NTier.lib.metadata.metadataBusiness.XS__metadataBusiness _metadatabusiness;
+				try {
+					_metadatabusiness
+						= OGen.NTier.lib.metadata.metadataBusiness.XS__metadataBusiness.Load_fromAssembly(
+							_assembly,
+							null,
+							0
+						);
+				} catch (Exception _ex) {
+					throw new Exception(string.Format(
+						"\n---\nfailed to load assembly: {0}\n---\n{1}\n---\n{2}\n---\n{3}\n---", 
+						_assembly, 
+						_ex.Message, 
+						_ex.InnerException,
+						_ex.HelpLink
+					));
+					//_assembly
+				}
 				_metadatabusiness.ApplicationName = metadata_.MetadataExtendedCollection[0].ApplicationName;
 
 				_metadatabusiness.SaveState_toFile(

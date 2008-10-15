@@ -75,11 +75,13 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 
 		#region Properties...
 		#region public bool hasChanges { get; }
+		[XmlIgnore()]
 		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_Config properties since last time getObject method was run.
 		/// </summary>
+		[XmlIgnore()]
 		public 
 #if NET_1_1
 			virtual 
@@ -90,6 +92,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		//---
 		#region public string Name { get; set; }
+		[XmlIgnore()]
 		public string name_;// = string.Empty;
 		
 		/// <summary>
@@ -140,6 +143,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		}
 		#endregion
 		#region public string Config { get; set; }
+		[XmlIgnore()]
 		public string config_;// = string.Empty;
 		
 		/// <summary>
@@ -190,6 +194,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		}
 		#endregion
 		#region public int Type { get; set; }
+		[XmlIgnore()]
 		public int type_;// = 0;
 		
 		/// <summary>
@@ -238,6 +243,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		}
 		#endregion
 		#region public string Description { get; set; }
+		[XmlIgnore()]
 		public string description_;// = string.Empty;
 		
 		/// <summary>

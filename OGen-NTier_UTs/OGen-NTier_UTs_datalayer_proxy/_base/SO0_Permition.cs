@@ -61,11 +61,13 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 
 		#region Properties...
 		#region public bool hasChanges { get; }
+		[XmlIgnore()]
 		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_Permition properties since last time getObject method was run.
 		/// </summary>
+		[XmlIgnore()]
 		public 
 #if NET_1_1
 			virtual 
@@ -76,6 +78,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		//---
 		#region public long IDPermition { get; set; }
+		[XmlIgnore()]
 		public long idpermition_;// = 0L;
 		
 		/// <summary>
@@ -124,6 +127,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		}
 		#endregion
 		#region public string Name { get; set; }
+		[XmlIgnore()]
 		public string name_;// = string.Empty;
 		
 		/// <summary>

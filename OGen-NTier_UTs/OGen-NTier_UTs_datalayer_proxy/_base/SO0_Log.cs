@@ -82,11 +82,13 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 
 		#region Properties...
 		#region public bool hasChanges { get; }
+		[XmlIgnore()]
 		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_Log properties since last time getObject method was run.
 		/// </summary>
+		[XmlIgnore()]
 		public 
 #if NET_1_1
 			virtual 
@@ -97,6 +99,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		//---
 		#region public long IDLog { get; set; }
+		[XmlIgnore()]
 		public long idlog_;// = 0L;
 		
 		/// <summary>
@@ -145,6 +148,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		}
 		#endregion
 		#region public long IDLogcode { get; set; }
+		[XmlIgnore()]
 		public long idlogcode_;// = 0L;
 		
 		/// <summary>
@@ -193,6 +197,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		}
 		#endregion
 		#region public long IDUser_posted { get; set; }
+		[XmlIgnore()]
 		public long iduser_posted_;// = 0L;
 		
 		/// <summary>
@@ -241,6 +246,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		}
 		#endregion
 		#region public DateTime Date_posted { get; set; }
+		[XmlIgnore()]
 		public DateTime date_posted_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>
@@ -289,6 +295,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		}
 		#endregion
 		#region public string Logdata { get; set; }
+		[XmlIgnore()]
 		public string logdata_;// = string.Empty;
 		
 		/// <summary>

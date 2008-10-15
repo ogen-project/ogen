@@ -82,11 +82,13 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 
 		#region Properties...
 		#region public bool hasChanges { get; }
+		[XmlIgnore()]
 		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_vUserGroup properties since last time getObject method was run.
 		/// </summary>
+		[XmlIgnore()]
 		public 
 #if NET_1_1
 			virtual 
@@ -97,6 +99,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		//---
 		#region public long IDUser { get; set; }
+		[XmlIgnore()]
 		public long iduser_;// = 0L;
 		
 		/// <summary>
@@ -145,6 +148,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		}
 		#endregion
 		#region public string Login { get; set; }
+		[XmlIgnore()]
 		public string login_;// = string.Empty;
 		
 		/// <summary>
@@ -195,6 +199,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		}
 		#endregion
 		#region public long IDGroup { get; set; }
+		[XmlIgnore()]
 		public long idgroup_;// = 0L;
 		
 		/// <summary>
@@ -243,6 +248,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		}
 		#endregion
 		#region public string Name { get; set; }
+		[XmlIgnore()]
 		public string name_;// = string.Empty;
 		
 		/// <summary>
@@ -293,6 +299,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		}
 		#endregion
 		#region public DateTime Relationdate { get; set; }
+		[XmlIgnore()]
 		public DateTime relationdate_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>

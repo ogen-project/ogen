@@ -86,11 +86,13 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 
 		#region Properties...
 		#region public bool hasChanges { get; }
+		[XmlIgnore()]
 		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_Logcode properties since last time getObject method was run.
 		/// </summary>
+		[XmlIgnore()]
 		public 
 #if NET_1_1
 			virtual 
@@ -101,6 +103,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		//---
 		#region public long IDLogcode { get; set; }
+		[XmlIgnore()]
 		public long idlogcode_;// = 0L;
 		
 		/// <summary>
@@ -149,6 +152,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		}
 		#endregion
 		#region public bool Warning { get; set; }
+		[XmlIgnore()]
 		public bool warning_;// = false;
 		
 		/// <summary>
@@ -197,6 +201,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		}
 		#endregion
 		#region public bool Error { get; set; }
+		[XmlIgnore()]
 		public bool error_;// = false;
 		
 		/// <summary>
@@ -245,6 +250,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		}
 		#endregion
 		#region public string Code { get; set; }
+		[XmlIgnore()]
 		public string code_;// = string.Empty;
 		
 		/// <summary>
@@ -298,7 +304,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		/// <summary>
 		/// Allows assignement of null and check if null at Logcode's Description.
 		/// </summary>
-		[XmlIgnore]
+		[XmlElement("Description_isNull")]
 		public 
 #if NET_1_1
 			virtual 
@@ -316,6 +322,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		}
 		#endregion
 		#region public string Description { get; set; }
+		[XmlIgnore()]
 		public object description_;// = string.Empty;
 		
 		/// <summary>
