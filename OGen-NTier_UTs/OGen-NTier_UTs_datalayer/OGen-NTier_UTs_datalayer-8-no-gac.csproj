@@ -102,12 +102,6 @@
     <Compile Include="_base\RO0_Config.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\SO0_Config.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="_base\SC0_Config.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="DO_Group.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -115,12 +109,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="_base\RO0_Group.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="_base\SO0_Group.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="_base\SC0_Group.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DO_GroupPermition.cs">
@@ -132,12 +120,6 @@
     <Compile Include="_base\RO0_GroupPermition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\SO0_GroupPermition.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="_base\SC0_GroupPermition.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="DO_Language.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -145,12 +127,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="_base\RO0_Language.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="_base\SO0_Language.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="_base\SC0_Language.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DO_Log.cs">
@@ -162,12 +138,6 @@
     <Compile Include="_base\RO0_Log.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\SO0_Log.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="_base\SC0_Log.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="DO_Logcode.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -175,12 +145,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="_base\RO0_Logcode.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="_base\SO0_Logcode.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="_base\SC0_Logcode.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DO_Permition.cs">
@@ -192,12 +156,6 @@
     <Compile Include="_base\RO0_Permition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\SO0_Permition.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="_base\SC0_Permition.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="DO_User.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -205,12 +163,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="_base\RO0_User.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="_base\SO0_User.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="_base\SC0_User.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DO_UserGroup.cs">
@@ -222,12 +174,6 @@
     <Compile Include="_base\RO0_UserGroup.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\SO0_UserGroup.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="_base\SC0_UserGroup.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="DO_Word.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -235,12 +181,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="_base\RO0_Word.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="_base\SO0_Word.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="_base\SC0_Word.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DO_WordLanguage.cs">
@@ -252,12 +192,6 @@
     <Compile Include="_base\RO0_WordLanguage.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\SO0_WordLanguage.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="_base\SC0_WordLanguage.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="DO_vUserDefaultGroup.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -267,12 +201,6 @@
     <Compile Include="_base\RO0_vUserDefaultGroup.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\SO0_vUserDefaultGroup.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="_base\SC0_vUserDefaultGroup.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="DO_vUserGroup.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -280,12 +208,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="_base\RO0_vUserGroup.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="_base\SO0_vUserGroup.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="_base\SC0_vUserGroup.cs">
       <SubType>Code</SubType>
     </Compile>
     <None Include="COPYING.MIT" />
@@ -308,6 +230,10 @@
     <ProjectReference Include="..\..\OGen\OGen_datalayer__base\OGen_datalayer__base-8.csproj">
       <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
       <Name>OGen_datalayer__base-8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-8-no-gac.csproj">
+      <Project>{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}</Project>
+      <Name>OGen-NTier_UTs_datalayer_proxy-8-no-gac</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

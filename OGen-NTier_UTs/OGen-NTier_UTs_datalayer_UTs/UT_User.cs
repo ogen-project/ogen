@@ -21,6 +21,7 @@ using NUnit.Framework;
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
 using OGen.NTier.UTs.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer.proxy;
 
 namespace OGen.NTier.UTs.lib.datalayer.UTs {
 	[TestFixture]

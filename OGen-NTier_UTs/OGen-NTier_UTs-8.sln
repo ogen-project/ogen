@@ -2,6 +2,8 @@ Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_datalayer-8", "OGen-NTier_UTs_datalayer\OGen-NTier_UTs_datalayer-8.csproj", "{2C45EF1A-75BE-4B12-A232-62DEB5662239}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_datalayer_proxy-8-no-gac", "OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-8-no-gac.csproj", "{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_datalayer_UTs-8", "OGen-NTier_UTs_datalayer_UTs\OGen-NTier_UTs_datalayer_UTs-8.csproj", "{4F18877D-A981-426B-8A09-5EDF95E9AE2B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_businesslayer-8", "OGen-NTier_UTs_businesslayer\OGen-NTier_UTs_businesslayer-8.csproj", "{B3555514-3A7D-4159-B05D-E8D0C265B649}"
@@ -20,6 +22,10 @@ Global
 		{2C45EF1A-75BE-4B12-A232-62DEB5662239}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C45EF1A-75BE-4B12-A232-62DEB5662239}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C45EF1A-75BE-4B12-A232-62DEB5662239}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4F18877D-A981-426B-8A09-5EDF95E9AE2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4F18877D-A981-426B-8A09-5EDF95E9AE2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F18877D-A981-426B-8A09-5EDF95E9AE2B}.Release|Any CPU.ActiveCfg = Release|Any CPU

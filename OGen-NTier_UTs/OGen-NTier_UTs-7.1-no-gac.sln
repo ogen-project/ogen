@@ -3,6 +3,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_datalayer-7.
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_datalayer_proxy-7.1-no-gac", "OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-7.1-no-gac.csproj", "{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_datalayer_UTs-7.1-no-gac", "OGen-NTier_UTs_datalayer_UTs\OGen-NTier_UTs_datalayer_UTs-7.1-no-gac.csproj", "{4F18877D-A981-426B-8A09-5EDF95E9AE2B}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
@@ -57,6 +61,9 @@ Global
 		{2C45EF1A-75BE-4B12-A232-62DEB5662239}.Debug.Build.0 = Debug|.NET
 		{2C45EF1A-75BE-4B12-A232-62DEB5662239}.Release.ActiveCfg = Release|.NET
 		{2C45EF1A-75BE-4B12-A232-62DEB5662239}.Release.Build.0 = Release|.NET
+		{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}.Debug.ActiveCfg = Debug|.NET
+		{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}.Debug.Build.0 = Debug|.NET
+		{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}.Release.ActiveCfg = Release|.NET
 		{4F18877D-A981-426B-8A09-5EDF95E9AE2B}.Debug.ActiveCfg = Debug|.NET
 		{4F18877D-A981-426B-8A09-5EDF95E9AE2B}.Debug.Build.0 = Debug|.NET
 		{4F18877D-A981-426B-8A09-5EDF95E9AE2B}.Release.ActiveCfg = Release|.NET

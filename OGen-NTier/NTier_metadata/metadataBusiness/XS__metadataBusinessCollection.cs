@@ -23,7 +23,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 	public partial class XS__metadataBusinessCollection {
 	#endif
 		#if NET_1_1
-		public XS0__metadataBusinessCollection(
+		public XS__metadataBusinessCollection(
 			XS__metadataBusiness[] metadatabusinesscollection_in
 		) : base (
 			metadatabusinesscollection_in

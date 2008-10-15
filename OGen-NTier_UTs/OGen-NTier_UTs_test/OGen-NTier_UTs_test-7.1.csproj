@@ -127,6 +127,11 @@
                     HintPath = "..\..\bin\OGen.lib.datalayer.SQLServer-1.1.dll"
                     AssemblyFolderKey = "hklm\dn\ogen"
                 />
+                <Reference
+                    Name = "OGen-NTier_UTs_datalayer_proxy-7.1-no-gac"
+                    Project = "{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>
@@ -208,6 +213,21 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_delobject.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_getobject.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_insObject.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_List_DataObjects.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -219,6 +239,16 @@
                 />
                 <File
                     RelPath = "HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_Read_DataObject_Property_Attributes.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_setobject.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_updobject.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
