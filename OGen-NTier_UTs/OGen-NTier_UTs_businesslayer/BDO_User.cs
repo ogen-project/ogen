@@ -18,6 +18,7 @@ using OGen.NTier.lib.datalayer;
 using OGen.NTier.lib.businesslayer;
 
 using OGen.NTier.UTs.lib.datalayer;
+using OGen.NTier.UTs.lib.datalayer.proxy;
 
 namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
@@ -53,12 +54,18 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		#region public Methods...
 		[BOMethodAttribute("insObject", true)]
 		public long insObject(
+			SO_User user_in, 
 			bool selectIdentity_in, 
 			out bool constraintExist_out
 		) {
-			//mainAggregate.insObject
-			constraintExist_out = false;
-			return -1L;
+			long _iduser;
+			DO_User _user = new DO_User();
+			_user.Fields = (SO_User)user_in;
+			_iduser = _user.insObject(
+				selectIdentity_in,
+				out constraintExist_out
+			);
+			return _iduser;
 		}
 		#endregion
 	}

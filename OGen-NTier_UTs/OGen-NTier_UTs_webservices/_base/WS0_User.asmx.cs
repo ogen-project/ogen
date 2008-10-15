@@ -19,6 +19,7 @@ using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 
+using OGen.NTier.UTs.lib.datalayer.proxy;
 using OGen.NTier.UTs.lib.businesslayer;
 
 namespace OGen.NTier.UTs.distributed.webservices {
@@ -37,6 +38,7 @@ namespace OGen.NTier.UTs.distributed.webservices {
 		#region public override long insObject(...);
 		[WebMethod]
 		public long insObject(
+			SO_User user_in, 
 			bool selectIdentity_in, 
 			out bool constraintExist_out
 		) {
@@ -44,6 +46,7 @@ namespace OGen.NTier.UTs.distributed.webservices {
 				""
 			);
 			return _businessobject.insObject(
+				user_in, 
 				selectIdentity_in, 
 				out constraintExist_out
 			);
