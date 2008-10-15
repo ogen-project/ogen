@@ -53,7 +53,9 @@ using System.Data;
 
 using OGen.lib.datalayer;<%
 for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {%>
-using OGen.lib.datalayer.<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%>;<%
+#if <%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%>
+using OGen.lib.datalayer.<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%>;
+#endif<%
 }%>
 using OGen.NTier.lib.datalayer;
 

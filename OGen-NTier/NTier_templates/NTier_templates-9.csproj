@@ -392,6 +392,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DO0__utils.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DO_SomeTable.cs.aspx">
     </Content>

@@ -18,7 +18,9 @@ using System.Data;
 using OGen.lib.datalayer;
 using OGen.lib.datalayer.PostgreSQL;
 using OGen.lib.datalayer.SQLServer;
+#if MySQL
 using OGen.lib.datalayer.MySQL;
+#endif
 using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.datalayer {
