@@ -114,8 +114,12 @@
                 <Reference
                     Name = "OGen.lib.datalayer.SQLServer-1.1"
                     AssemblyName = "OGen.lib.datalayer.SQLServer-1.1"
-                    HintPath = "..\..\bin\OGen.lib.datalayer.SQLServer-1.1.dll"
                     AssemblyFolderKey = "hklm\dn\ogen"
+                />
+                <Reference
+                    Name = "OGen-NTier_UTs_datalayer_proxy-1.1"
+                    Project = "{78096c45-7b20-4669-bf3d-eff5ecd74fc9}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>
         </Build>
@@ -148,72 +152,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "UT_Config.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "UT_Group.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "UT_GroupPermition.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "UT_Language.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "UT_Log.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "UT_Logcode.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "UT_Permition.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "UT_User.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "UT_UserGroup.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "UT_vUserDefaultGroup.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "UT_vUserGroup.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "UT_Word.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "UT_WordLanguage.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "_base\UT0__utils.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "UT_Config.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -223,7 +167,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "UT_Group.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "_base\UT0_Group.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "UT_GroupPermition.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -233,7 +187,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "UT_Language.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "_base\UT0_Language.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "UT_Log.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -243,7 +207,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "UT_Logcode.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "_base\UT0_Logcode.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "UT_Permition.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -253,7 +227,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "UT_User.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "_base\UT0_User.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "UT_UserGroup.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -263,7 +247,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "UT_vUserDefaultGroup.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "_base\UT0_vUserDefaultGroup.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "UT_vUserGroup.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -273,7 +267,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "UT_Word.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "_base\UT0_Word.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "UT_WordLanguage.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -286,4 +290,3 @@
         </Files>
     </CSHARP>
 </VisualStudioProject>
-
