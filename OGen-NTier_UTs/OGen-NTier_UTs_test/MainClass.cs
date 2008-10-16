@@ -20,8 +20,6 @@ using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
-using System.Web.Services;
-using System.Web.Services.Protocols;
 
 using OGen.lib.datalayer;
 using OGen.NTier.lib.datalayer;
@@ -31,19 +29,25 @@ using OGen.NTier.UTs.lib.datalayer;
 using OGen.NTier.UTs.lib.datalayer.proxy;
 using OGen.NTier.UTs.lib.datalayer.UTs;
 using OGen.NTier.UTs.lib.businesslayer;
-using OGen.NTier.UTs.lib.distributed.webservices.consumer;
+using WS_Authentication = OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_Authentication;
+using WS_User = OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_User;
 
 namespace OGen.NTier.UTs.test {
 	class MainClass {
 		[STAThread]
 		static void Main(string[] args) {
-			WS_Authentication _ws_authentication = new WS_Authentication();
-			_ws_authentication.Url = "http://localhost:2937/WS_Authentication.asmx";
+			WS_Authentication.WS_Authentication _ws_authentication 
+				= new WS_Authentication.WS_Authentication(
+					"http://localhost:2937/WS_Authentication.asmx"
+				);
+
 			Console.WriteLine(_ws_authentication.Login("fmonteiro", "passpub"));
 			_ws_authentication.Logout();
 
-			WS_User _ws_user = new WS_User();
-			_ws_user.Url = "http://localhost:2937/WS_User.asmx";
+			WS_User.WS_User _ws_user
+				= new WS_User.WS_User(
+					"http://localhost:2937/WS_Authentication.asmx"
+				);
 
 			OGen.NTier.UTs.lib.datalayer.proxy.ISO_User _so_user 
 				= new OGen.NTier.UTs.lib.datalayer.proxy.SO_User(

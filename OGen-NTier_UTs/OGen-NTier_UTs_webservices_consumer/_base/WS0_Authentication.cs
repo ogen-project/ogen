@@ -16,10 +16,14 @@ using System;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 
-namespace OGen.NTier.UTs.lib.distributed.webservices.consumer {
+namespace OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_Authentication {
 	/// <remarks/>
-	public delegate void LoginCompletedEventHandler(object sender, LoginCompletedEventArgs e);
+	public delegate void LoginCompletedEventHandler(
+		object sender, 
+		LoginCompletedEventArgs e
+	);
 
+	/// <remarks/>
 	[System.Diagnostics.DebuggerStepThroughAttribute()]
 	[System.ComponentModel.DesignerCategoryAttribute("code")]
 	public class LoginCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -28,8 +32,11 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer {
 			System.Exception exception,
 			bool cancelled,
 			object userState
-		) :
-			base(exception, cancelled, userState) {
+		) : base(
+			exception, 
+			cancelled, 
+			userState
+		) {
 			this.results = results;
 		}
 
@@ -39,37 +46,31 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer {
 		public string Result {
 			get {
 				this.RaiseExceptionIfNecessary();
-				return ((string)(this.results[0]));
+				return (string)this.results[0];
 			}
 		}
 	}
 
 	/// <remarks/>
-	public delegate void LogoutCompletedEventHandler(object sender, LogoutCompletedEventArgs e);
-
-	[System.Diagnostics.DebuggerStepThroughAttribute()]
-	[System.ComponentModel.DesignerCategoryAttribute("code")]
-	public class LogoutCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-		internal LogoutCompletedEventArgs(
-			object[] results,
-			System.Exception exception,
-			bool cancelled,
-			object userState
-		) :
-			base(exception, cancelled, userState) {
-			this.results = results;
-		}
-
-		private object[] results;
-	}
+	public delegate void LogoutCompletedEventHandler(
+		object sender, 
+		System.ComponentModel.AsyncCompletedEventArgs e
+	);
 
 	/// <remarks/>
 	[System.Diagnostics.DebuggerStepThroughAttribute()]
 	[System.ComponentModel.DesignerCategoryAttribute("code")]
-	[System.Web.Services.WebServiceBindingAttribute(Name = "WS_AuthenticationSoap", Namespace = "http://OGen.NTier.UTs.distributed.webservices")]
+	[System.Web.Services.WebServiceBindingAttribute(
+		Name = "WS_AuthenticationSoap", 
+		Namespace = "http://OGen.NTier.UTs.distributed.webservices"
+	)]
 	public class WS_Authentication : SoapHttpClientProtocol {
-		public WS_Authentication() {
-			if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
+		public WS_Authentication(
+			string url_in
+		) {
+			this.Url = url_in;
+
+			if (this.IsLocalFileSystemWebService(this.Url)) {
 				this.UseDefaultCredentials = true;
 				this.useDefaultCredentialsSetExplicitly = false;
 			} else {
@@ -114,27 +115,70 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer {
 
 
 		private System.Threading.SendOrPostCallback LoginOperationCompleted;
+		/// <remarks/>
 		public event LoginCompletedEventHandler LoginCompleted;
 
 		/// <remarks/>
-		[System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://OGen.NTier.UTs.distributed.webservices/Login", RequestNamespace = "http://OGen.NTier.UTs.distributed.webservices", ResponseNamespace = "http://OGen.NTier.UTs.distributed.webservices", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
+			"http://OGen.NTier.UTs.distributed.webservices/Login", 
+			RequestNamespace = "http://OGen.NTier.UTs.distributed.webservices", 
+			ResponseNamespace = "http://OGen.NTier.UTs.distributed.webservices", 
+			Use = System.Web.Services.Description.SoapBindingUse.Literal, 
+			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
+		)]
 		public string Login(
 			string login_in,
 			string password_in
 		) {
 			object[] results = this.Invoke(
-				"Login", new object[] {
+				"Login", 
+				new object[] {
 					login_in, 
 					password_in
 				}
 			);
-			return ((string)(results[0]));
+			return (string)results[0];
+		}
+
+		/// <remarks/>
+		public void LoginAsync(
+			string login_in, 
+			string password_in
+		) {
+			this.LoginAsync(
+				login_in, 
+				password_in, 
+				null
+			);
+		}
+
+		/// <remarks/>
+		public void LoginAsync(
+			string login_in, 
+			string password_in, 
+			object userState
+		) {
+			if (this.LoginOperationCompleted == null) {
+				this.LoginOperationCompleted 
+					= new System.Threading.SendOrPostCallback(
+						this.OnLoginOperationCompleted
+					);
+			}
+			this.InvokeAsync(
+				"Login", 
+				new object[] {
+					login_in,
+                    password_in
+				}, 
+				this.LoginOperationCompleted, 
+				userState
+			);
 		}
 
 		private void OnLoginOperationCompleted(object arg) {
 			if (this.LoginCompleted != null) {
 				System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs
-					= ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+					= (System.Web.Services.Protocols.InvokeCompletedEventArgs)arg;
 				this.LoginCompleted(
 					this,
 					new LoginCompletedEventArgs(
@@ -154,21 +198,52 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer {
 		public event LogoutCompletedEventHandler LogoutCompleted;
 
 		/// <remarks/>
-		[System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://OGen.NTier.UTs.distributed.webservices/Logout", RequestNamespace = "http://OGen.NTier.UTs.distributed.webservices", ResponseNamespace = "http://OGen.NTier.UTs.distributed.webservices", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
+			"http://OGen.NTier.UTs.distributed.webservices/Logout", 
+			RequestNamespace = "http://OGen.NTier.UTs.distributed.webservices", 
+			ResponseNamespace = "http://OGen.NTier.UTs.distributed.webservices", 
+			Use = System.Web.Services.Description.SoapBindingUse.Literal, 
+			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
+		)]
 		public void Logout() {
-			object[] results = this.Invoke(
-				"Logout", new object[] {}
+			this.Invoke(
+				"Logout", 
+				new object[] {}
+			);
+		}
+
+		/// <remarks/>
+		public void LogoutAsync() {
+			this.LogoutAsync(
+				null
+			);
+		}
+
+		/// <remarks/>
+		public void LogoutAsync(
+			object userState
+		) {
+			if (this.LogoutOperationCompleted == null) {
+				this.LogoutOperationCompleted 
+					= new System.Threading.SendOrPostCallback(
+						this.OnLogoutOperationCompleted
+					);
+			}
+			this.InvokeAsync(
+				"Logout", 
+				new object[0], 
+				this.LogoutOperationCompleted, 
+				userState
 			);
 		}
 
 		private void OnLogoutOperationCompleted(object arg) {
 			if (this.LogoutCompleted != null) {
 				System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs
-					= ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+					= (System.Web.Services.Protocols.InvokeCompletedEventArgs)arg;
 				this.LogoutCompleted(
 					this,
-					new LogoutCompletedEventArgs(
-						invokeArgs.Results,
+					new System.ComponentModel.AsyncCompletedEventArgs(
 						invokeArgs.Error,
 						invokeArgs.Cancelled,
 						invokeArgs.UserState

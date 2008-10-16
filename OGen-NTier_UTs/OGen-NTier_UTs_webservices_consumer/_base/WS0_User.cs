@@ -16,10 +16,14 @@ using System;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 
-namespace OGen.NTier.UTs.lib.distributed.webservices.consumer {
+namespace OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_User {
 	/// <remarks/>
-	public delegate void insObjectCompletedEventHandler(object sender, insObjectCompletedEventArgs e);
+	public delegate void insObjectCompletedEventHandler(
+		object sender, 
+		insObjectCompletedEventArgs e
+	);
 
+	/// <remarks/>
 	[System.Diagnostics.DebuggerStepThroughAttribute()]
 	[System.ComponentModel.DesignerCategoryAttribute("code")]
 	public class insObjectCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -28,8 +32,11 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer {
 			System.Exception exception,
 			bool cancelled,
 			object userState
-		) :
-			base(exception, cancelled, userState) {
+		) : base(
+			exception, 
+			cancelled, 
+			userState
+		) {
 			this.results = results;
 		}
 
@@ -39,7 +46,7 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer {
 		public long Result {
 			get {
 				this.RaiseExceptionIfNecessary();
-				return ((long)(this.results[0]));
+				return (long)this.results[0];
 			}
 		}
 
@@ -47,7 +54,7 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer {
 		public bool constraintExist_out {
 			get {
 				this.RaiseExceptionIfNecessary();
-				return ((bool)(this.results[1]));
+				return (bool)this.results[1];
 			}
 		}
 	}
@@ -55,10 +62,17 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer {
 	/// <remarks/>
 	[System.Diagnostics.DebuggerStepThroughAttribute()]
 	[System.ComponentModel.DesignerCategoryAttribute("code")]
-	[System.Web.Services.WebServiceBindingAttribute(Name = "WS_UserSoap", Namespace = "http://OGen.NTier.UTs.distributed.webservices")]
+	[System.Web.Services.WebServiceBindingAttribute(
+		Name = "WS_UserSoap", 
+		Namespace = "http://OGen.NTier.UTs.distributed.webservices"
+	)]
 	public class WS_User : SoapHttpClientProtocol {
-		public WS_User() {
-			if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
+		public WS_User(
+			string url_in
+		) {
+			this.Url = url_in;
+
+			if (this.IsLocalFileSystemWebService(this.Url)) {
 				this.UseDefaultCredentials = true;
 				this.useDefaultCredentialsSetExplicitly = false;
 			} else {
@@ -102,20 +116,27 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer {
 		#endregion
 
 		/// <remarks/>
-		[System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://OGen.NTier.UTs.distributed.webservices/insObject", RequestNamespace = "http://OGen.NTier.UTs.distributed.webservices", ResponseNamespace = "http://OGen.NTier.UTs.distributed.webservices", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
+			"http://OGen.NTier.UTs.distributed.webservices/insObject", 
+			RequestNamespace = "http://OGen.NTier.UTs.distributed.webservices", 
+			ResponseNamespace = "http://OGen.NTier.UTs.distributed.webservices", 
+			Use = System.Web.Services.Description.SoapBindingUse.Literal, 
+			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
+		)]
 		public long insObject(
 			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
 			bool selectIdentity_in,
 			out bool constraintExist_out
 		) {
 			object[] results = this.Invoke(
-				"insObject", new object[] {
+				"insObject", 
+				new object[] {
 					user_in, 
 					selectIdentity_in
 				}
 			);
-			constraintExist_out = ((bool)(results[1]));
-			return ((long)(results[0]));
+			constraintExist_out = (bool)results[1];
+			return (long)results[0];
 		}
 
 		/// <remarks/>
@@ -156,7 +177,7 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer {
 		private void OninsObjectOperationCompleted(object arg) {
 			if (this.insObjectCompleted != null) {
 				System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs
-					= ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+					= (System.Web.Services.Protocols.InvokeCompletedEventArgs)arg;
 				this.insObjectCompleted(
 					this,
 					new insObjectCompletedEventArgs(
