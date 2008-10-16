@@ -104,7 +104,7 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer {
 		/// <remarks/>
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://OGen.NTier.UTs.distributed.webservices/insObject", RequestNamespace = "http://OGen.NTier.UTs.distributed.webservices", ResponseNamespace = "http://OGen.NTier.UTs.distributed.webservices", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
 		public long insObject(
-			OGen.NTier.UTs.lib.datalayer.proxy.ISO_User user_in,
+			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
 			bool selectIdentity_in,
 			out bool constraintExist_out
 		) {
@@ -120,7 +120,7 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer {
 
 		/// <remarks/>
 		public void insObjectAsync(
-			OGen.NTier.UTs.lib.datalayer.proxy.ISO_User user_in,
+			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
 			bool selectIdentity_in
 		) {
 			this.insObjectAsync(
@@ -132,7 +132,7 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer {
 
 		/// <remarks/>
 		public void insObjectAsync(
-			OGen.NTier.UTs.lib.datalayer.proxy.ISO_User user_in,
+			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
 			bool selectIdentity_in,
 			object userState
 		) {

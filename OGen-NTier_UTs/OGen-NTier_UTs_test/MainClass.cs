@@ -40,22 +40,23 @@ namespace OGen.NTier.UTs.test {
 			WS_User _ws_user = new WS_User();
 			_ws_user.Url = "http://localhost:2937/WS_User.asmx";
 
-			OGen.NTier.UTs.lib.datalayer.proxy.ISO_User _so_user = new OGen.NTier.UTs.lib.datalayer.proxy.SO_User(
-				0L,
-				string.Format(
-					"login-{0}", 
-					Guid.NewGuid().ToString()
-				),
-				"password",
-				-1
-			);
+			OGen.NTier.UTs.lib.datalayer.proxy.ISO_User _so_user 
+				= new OGen.NTier.UTs.lib.datalayer.proxy.SO_User(
+					0L,
+					string.Format(
+						"login-{0}", 
+						Guid.NewGuid().ToString()
+					),
+					"password",
+					-1
+				);
 			_so_user.SomeNullValue_isNull = true;
 
 			bool _constraintExists;
 			Console.WriteLine(
 				"id:{0}; constraintExists:{1};",
 				_ws_user.insObject(
-					_so_user,
+					(SO_User)_so_user,
 					true,
 					out _constraintExists
 				),
