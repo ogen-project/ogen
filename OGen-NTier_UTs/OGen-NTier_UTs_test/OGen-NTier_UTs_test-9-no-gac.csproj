@@ -81,6 +81,7 @@
     <Reference Include="System.Data">
       <Name>System.Data</Name>
     </Reference>
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.XML">
       <Name>System.XML</Name>
     </Reference>
@@ -157,6 +158,10 @@
     <ProjectReference Include="..\..\OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj">
       <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
       <Name>OGen_datalayer__base-9</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-9-no-gac.csproj">
+      <Project>{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}</Project>
+      <Name>OGen-NTier_UTs_datalayer_proxy-9-no-gac</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
