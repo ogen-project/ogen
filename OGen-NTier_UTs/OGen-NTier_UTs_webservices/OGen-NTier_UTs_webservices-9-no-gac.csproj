@@ -41,6 +41,8 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="LICENSE.MIT.txt" />
+    <Content Include="LICENSE.txt" />
     <Content Include="Web.config" />
     <Content Include="WS_Authentication.asmx" />
     <Content Include="WS_User.asmx" />
@@ -75,6 +77,9 @@
       <Project>{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}</Project>
       <Name>OGen-NTier_UTs_datalayer_proxy-9-no-gac</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="COPYING.MIT" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
