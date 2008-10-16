@@ -37,6 +37,11 @@ namespace OGen.NTier.UTs.test {
 	class MainClass {
 		[STAThread]
 		static void Main(string[] args) {
+			WS_Authentication _ws_authentication = new WS_Authentication();
+			_ws_authentication.Url = "http://localhost:2937/WS_Authentication.asmx";
+			Console.WriteLine(_ws_authentication.Login("fmonteiro", "passpub"));
+			_ws_authentication.Logout();
+
 			WS_User _ws_user = new WS_User();
 			_ws_user.Url = "http://localhost:2937/WS_User.asmx";
 
@@ -51,16 +56,24 @@ namespace OGen.NTier.UTs.test {
 					-1
 				);
 			_so_user.SomeNullValue_isNull = true;
+			Console.WriteLine(_so_user.SomeNullValue_isNull);
 
+			long _iduser;
 			bool _constraintExists;
 			Console.WriteLine(
 				"id:{0}; constraintExists:{1};",
-				_ws_user.insObject(
+				_iduser = _ws_user.insObject(
 					(SO_User)_so_user,
 					true,
 					out _constraintExists
 				),
 				_constraintExists
+			);
+
+			DO_User _do_user = new DO_User();
+			_do_user.getObject(_iduser);
+			Console.WriteLine(
+				_do_user.Fields.SomeNullValue_isNull
 			);
 			return;
 
