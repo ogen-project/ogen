@@ -38,7 +38,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #else
 		BDO0_vUserDefaultGroup 
 #endif
-		: BO__base {
+		: BDO__base {
 		#region public BDO_vUserDefaultGroup(...);
 #if NET_1_1
 		internal BDO0_vUserDefaultGroup() {}

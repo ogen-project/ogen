@@ -80,7 +80,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 #else
 		BDO0_<%=_aux_db_table.Name%> 
 #endif
-		: BO__base<%=(isListItem) ? ", iListItem" : ""%> {
+		: BDO__base<%=(isListItem) ? ", iListItem" : ""%> {
 		#region public BDO_<%=_aux_db_table.Name%>(...);
 #if NET_1_1
 		internal BDO0_<%=_aux_db_table.Name%>() {}

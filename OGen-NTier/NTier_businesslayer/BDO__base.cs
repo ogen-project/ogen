@@ -21,7 +21,7 @@ namespace OGen.NTier.lib.businesslayer {
 	/// <summary>
 	/// base implementation class for BusinessObject classes.
 	/// </summary>
-	public abstract class BO__base {
+	public abstract class BDO__base {
 		#region public Properties...
 		/// <summary>
 		/// Exposes RecordObject.

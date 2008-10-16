@@ -99,7 +99,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "BO__base.cs"
+                    RelPath = "BDO__base.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

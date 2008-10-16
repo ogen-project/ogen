@@ -96,7 +96,7 @@
     </Compile>
     <Compile Include="BOClassAttribute.cs" />
     <Compile Include="BOMethodAttribute.cs" />
-    <Compile Include="BO__base.cs">
+    <Compile Include="BDO__base.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="iListItem.cs">
