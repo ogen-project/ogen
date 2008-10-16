@@ -36,18 +36,10 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer {
 		private object[] results;
 
 		/// <remarks/>
-		public long Result {
+		public string Result {
 			get {
 				this.RaiseExceptionIfNecessary();
-				return ((long)(this.results[0]));
-			}
-		}
-
-		/// <remarks/>
-		public bool constraintExist_out {
-			get {
-				this.RaiseExceptionIfNecessary();
-				return ((bool)(this.results[1]));
+				return ((string)(this.results[0]));
 			}
 		}
 	}
@@ -69,22 +61,6 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer {
 		}
 
 		private object[] results;
-
-		/// <remarks/>
-		public long Result {
-			get {
-				this.RaiseExceptionIfNecessary();
-				return ((long)(this.results[0]));
-			}
-		}
-
-		/// <remarks/>
-		public bool constraintExist_out {
-			get {
-				this.RaiseExceptionIfNecessary();
-				return ((bool)(this.results[1]));
-			}
-		}
 	}
 
 	/// <remarks/>
@@ -100,12 +76,6 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer {
 				this.useDefaultCredentialsSetExplicitly = true;
 			}
 		}
-
-		private System.Threading.SendOrPostCallback LoginOperationCompleted;
-		public event LoginCompletedEventHandler LoginCompleted;
-
-		private System.Threading.SendOrPostCallback LogoutOperationCompleted;
-		public event LogoutCompletedEventHandler LogoutCompleted;
 
 		private bool useDefaultCredentialsSetExplicitly;
 
@@ -140,6 +110,12 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer {
 		}
 		#endregion
 
+
+
+
+		private System.Threading.SendOrPostCallback LoginOperationCompleted;
+		public event LoginCompletedEventHandler LoginCompleted;
+
 		/// <remarks/>
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://OGen.NTier.UTs.distributed.webservices/Login", RequestNamespace = "http://OGen.NTier.UTs.distributed.webservices", ResponseNamespace = "http://OGen.NTier.UTs.distributed.webservices", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
 		public string Login(
@@ -170,6 +146,12 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer {
 				);
 			}
 		}
+
+
+
+
+		private System.Threading.SendOrPostCallback LogoutOperationCompleted;
+		public event LogoutCompletedEventHandler LogoutCompleted;
 
 		/// <remarks/>
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://OGen.NTier.UTs.distributed.webservices/Logout", RequestNamespace = "http://OGen.NTier.UTs.distributed.webservices", ResponseNamespace = "http://OGen.NTier.UTs.distributed.webservices", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
