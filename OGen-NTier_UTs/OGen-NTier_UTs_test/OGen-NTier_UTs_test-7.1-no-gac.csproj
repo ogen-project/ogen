@@ -124,6 +124,16 @@
                     Project = "{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "OGen-NTier_UTs_datalayer_proxy-7.1-no-gac"
+                    Project = "{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "System.Web.Services"
+                    AssemblyName = "System.Web.Services"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Web.Services.dll"
+                />
             </References>
         </Build>
         <Files>

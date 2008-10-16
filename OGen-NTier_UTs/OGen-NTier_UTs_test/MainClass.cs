@@ -39,12 +39,17 @@ namespace OGen.NTier.UTs.test {
 	[System.Diagnostics.DebuggerStepThroughAttribute()]
 	[System.ComponentModel.DesignerCategoryAttribute("code")]
 	public class insObjectCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-		private object[] results;
-
-		internal insObjectCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) :
+		internal insObjectCompletedEventArgs(
+			object[] results, 
+			System.Exception exception, 
+			bool cancelled, 
+			object userState
+		) :
 			base(exception, cancelled, userState) {
 			this.results = results;
 		}
+
+		private object[] results;
 
 		/// <remarks/>
 		public long Result {
@@ -116,7 +121,7 @@ namespace OGen.NTier.UTs.test {
 		/// <remarks/>
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://OGen.NTier.UTs.distributed.webservices/insObject", RequestNamespace = "http://OGen.NTier.UTs.distributed.webservices", ResponseNamespace = "http://OGen.NTier.UTs.distributed.webservices", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
 		public long insObject(
-			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in, 
+			OGen.NTier.UTs.lib.datalayer.proxy.ISO_User user_in, 
 			bool selectIdentity_in, 
 			out bool constraintExist_out
 		) {
@@ -132,7 +137,7 @@ namespace OGen.NTier.UTs.test {
 
 		/// <remarks/>
 		public void insObjectAsync(
-			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
+			OGen.NTier.UTs.lib.datalayer.proxy.ISO_User user_in,
 			bool selectIdentity_in
 		) {
 			this.insObjectAsync(
@@ -144,7 +149,7 @@ namespace OGen.NTier.UTs.test {
 
 		/// <remarks/>
 		public void insObjectAsync(
-			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
+			OGen.NTier.UTs.lib.datalayer.proxy.ISO_User user_in,
 			bool selectIdentity_in,
 			object userState
 		) {
@@ -218,9 +223,12 @@ namespace OGen.NTier.UTs.test {
 			ws_User _ws_user = new ws_User();
 			_ws_user.Url = "http://localhost:2937/WS_User.asmx";
 
-			SO_User _so_user = new OGen.NTier.UTs.lib.datalayer.proxy.SO_User(
+			OGen.NTier.UTs.lib.datalayer.proxy.ISO_User _so_user = new OGen.NTier.UTs.lib.datalayer.proxy.SO_User(
 				0L,
-				"login-" + Guid.NewGuid().ToString(),
+				string.Format(
+					"login-{0}", 
+					Guid.NewGuid().ToString()
+				),
 				"password",
 				-1
 			);

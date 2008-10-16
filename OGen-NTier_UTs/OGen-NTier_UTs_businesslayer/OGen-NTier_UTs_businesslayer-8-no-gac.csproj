@@ -102,6 +102,7 @@
     <Compile Include="BDO_Config.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BO_Authentication.cs" />
     <Compile Include="_base\BDO0_Config.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -177,6 +178,7 @@
     <Compile Include="_base\BDO0_vUserGroup.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="_base\BO0_Authentication.cs" />
     <None Include="COPYING.MIT" />
     <None Include="LICENSE.MIT.txt" />
     <None Include="LICENSE.txt" />
