@@ -692,7 +692,9 @@ _usergroup.Dispose(); _usergroup = null;
 								<br />
 								<br />
 									<span class="text">
-										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+										You should note that by using db functions and stored procedures the code you write, making use of DBConnection class, becomes generic for the supported db servers. This means you can re-use same code to handle all supported db servers, which is very usefull when creating data objects to handle db tables. There is no need for you to write code to handle each supported db server.
+
+You can reuse the following examples to handle any of the supported db servers.
 									</span>
 									<table cellpadding="0" cellspacing="0" border="0" width="100%">
 										<tr>
@@ -988,7 +990,15 @@ _con.Dispose(); _con = null;
 								<br />
 								<br />
 									<span class="text">
-										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+										Using DBConnection to extract information schema from db server, like:
+
+	- available db servers databases
+
+	- table details for a specific database
+
+	- field details for a specific table
+
+This is very usefull to generate data object classes for the data layer to handle each table at database.
 									</span>
 								<a name="ch4.it2.at31"></a>
 									<span class="subsubtitle">
@@ -1155,7 +1165,7 @@ _con.Dispose(); _con = null;
 								<br />
 								<br />
 									<span class="text">
-										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+										Using db server transactions with DBConnection:
 									</span>
 									<table cellpadding="0" cellspacing="0" border="0" width="100%">
 										<tr>
@@ -1225,7 +1235,7 @@ _con.Dispose(); _con = null;
 								<br />
 								<br />
 									<span class="text">
-										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+										Same on a generated data object class:
 									</span>
 									<table cellpadding="0" cellspacing="0" border="0" width="100%">
 										<tr>
@@ -1291,7 +1301,7 @@ _user.Dispose(); _user = null;
 								<br />
 								<br />
 									<span class="text">
-										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+										Sharing one connection between generated data objects classes, to make use of a shared transaction between them:
 									</span>
 									<table cellpadding="0" cellspacing="0" border="0" width="100%">
 										<tr>
