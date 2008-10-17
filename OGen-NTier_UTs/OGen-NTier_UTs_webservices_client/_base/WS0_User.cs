@@ -51,13 +51,15 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_User {
 		public long insObject(
 			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
 			bool selectIdentity_in,
+			string login_in, 
 			out bool constraintExist_out
 		) {
 			object[] results = this.Invoke(
 				"insObject", 
 				new object[] {
 					user_in, 
-					selectIdentity_in
+					selectIdentity_in,
+					login_in
 				}
 			);
 			constraintExist_out = (bool)results[1];
@@ -67,11 +69,13 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_User {
 		/// <remarks/>
 		public void insObjectAsync(
 			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
-			bool selectIdentity_in
+			bool selectIdentity_in, 
+			string login_in
 		) {
 			this.insObjectAsync(
 				user_in,
 				selectIdentity_in,
+				login_in, 
 				null
 			);
 		}
@@ -79,7 +83,8 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_User {
 		/// <remarks/>
 		public void insObjectAsync(
 			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
-			bool selectIdentity_in,
+			bool selectIdentity_in, 
+			string login_in,
 			object userState
 		) {
 			if (this.insObjectOperationCompleted == null) {
@@ -91,9 +96,10 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_User {
 			this.InvokeAsync(
 				"insObject",
 				new object[] {
-		            user_in,
-		            selectIdentity_in
-		        },
+					user_in,
+					selectIdentity_in, 
+					login_in
+				},
 				this.insObjectOperationCompleted,
 				userState
 			);
@@ -130,12 +136,14 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_User {
 		)]
 		public OGen.NTier.UTs.lib.datalayer.proxy.SO_User getObject(
 			long idUser_in, 
+			string login_in, 
 			out bool exists_out
 		) {
 			object[] results = this.Invoke(
 				"getObject", 
 				new object[] {
-					idUser_in
+					idUser_in, 
+					login_in
 				}
 			);
 			exists_out = (bool)results[1];
@@ -144,10 +152,12 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_User {
 
 		/// <remarks/>
 		public void getObjectAsync(
-			long idUser_in
+			long idUser_in, 
+			string login_in
 		) {
 			this.getObjectAsync(
 				idUser_in, 
+				login_in, 
 				null
 			);
 		}
@@ -155,6 +165,7 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_User {
 		/// <remarks/>
 		public void getObjectAsync(
 			long idUser_in, 
+			string login_in, 
 			object userState
 		) {
 			if (this.getObjectOperationCompleted == null) {
@@ -166,7 +177,8 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_User {
 			this.InvokeAsync(
 				"getObject", 
 				new object[] { 
-					idUser_in
+					idUser_in, 
+					login_in
 				}, 
 				this.getObjectOperationCompleted, 
 				userState

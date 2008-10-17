@@ -48,7 +48,13 @@ namespace OGen.NTier.UTs.test {
 					"http://localhost:2937/WS_User.asmx"
 				);
 
-			Console.WriteLine(_ws_authentication.Login("fmonteiro", "passpub"));
+			string _login;
+			Console.WriteLine(
+				_login = _ws_authentication.Login(
+					"fmonteiro", 
+					"passpub"
+				)
+			);
 			_ws_authentication.Logout();
 
 			OGen.NTier.UTs.lib.datalayer.proxy.ISO_User _so_user 
@@ -70,7 +76,8 @@ namespace OGen.NTier.UTs.test {
 				"id:{0}; constraintExists:{1};",
 				_iduser = _ws_user.insObject(
 					(SO_User)_so_user,
-					true,
+					true, 
+					_login, 
 					out _constraintExists
 				),
 				_constraintExists
@@ -84,6 +91,7 @@ namespace OGen.NTier.UTs.test {
 			bool _exists;
 			_so_user = _ws_user.getObject(
 				_iduser, 
+				_login, 
 				out _exists
 			);
 			Console.WriteLine(
