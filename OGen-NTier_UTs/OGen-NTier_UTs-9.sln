@@ -14,7 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_test-9", "OG
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_webservices-9", "OGen-NTier_UTs_webservices\OGen-NTier_UTs_webservices-9.csproj", "{89EE33CB-FAAD-4251-809C-13B5FC57F101}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_webservices_consumer-9", "OGen-NTier_UTs_webservices_consumer\OGen-NTier_UTs_webservices_consumer-9.csproj", "{3E90C87B-1643-4323-8A50-96000EBFD406}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_webservices_client-9", "OGen-NTier_UTs_webservices_client\OGen-NTier_UTs_webservices_client-9.csproj", "{3E90C87B-1643-4323-8A50-96000EBFD406}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
