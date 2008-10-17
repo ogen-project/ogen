@@ -45,7 +45,7 @@ namespace OGen.NTier.UTs.test {
 
 			WS_User.WS_User _ws_user
 				= new WS_User.WS_User(
-					"http://localhost:2937/WS_Authentication.asmx"
+					"http://localhost:2937/WS_User.asmx"
 				);
 
 			Console.WriteLine(_ws_authentication.Login("fmonteiro", "passpub"));
