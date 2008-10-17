@@ -29,8 +29,8 @@ using OGen.NTier.UTs.lib.datalayer;
 using OGen.NTier.UTs.lib.datalayer.proxy;
 using OGen.NTier.UTs.lib.datalayer.UTs;
 using OGen.NTier.UTs.lib.businesslayer;
-using WS_Authentication = OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_Authentication;
-using WS_User = OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_User;
+using WS_Authentication = OGen.NTier.UTs.lib.distributed.webservices.client.WS_Authentication;
+using WS_User = OGen.NTier.UTs.lib.distributed.webservices.client.WS_User;
 
 namespace OGen.NTier.UTs.test {
 	class MainClass {

@@ -15,9 +15,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Web.Services;
 using System.Web.Services.Protocols;
-using OGen.NTier.UTs.lib.distributed.webservices.consumer;
+using OGen.NTier.UTs.lib.distributed.webservices.client;
 
-namespace OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_User {
+namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_User {
 	/// <remarks/>
 	[System.Diagnostics.DebuggerStepThroughAttribute()]
 	[System.ComponentModel.DesignerCategoryAttribute("code")]

@@ -163,9 +163,9 @@
       <Project>{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}</Project>
       <Name>OGen-NTier_UTs_datalayer_proxy-9-no-gac</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OGen-NTier_UTs_webservices_consumer\OGen-NTier_UTs_webservices_consumer-9-no-gac.csproj">
+    <ProjectReference Include="..\OGen-NTier_UTs_webservices_client\OGen-NTier_UTs_webservices_client-9-no-gac.csproj">
       <Project>{3E90C87B-1643-4323-8A50-96000EBFD406}</Project>
-      <Name>OGen-NTier_UTs_webservices_consumer-9-no-gac</Name>
+      <Name>OGen-NTier_UTs_webservices_client-9-no-gac</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

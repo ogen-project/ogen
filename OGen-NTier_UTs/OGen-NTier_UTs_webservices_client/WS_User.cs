@@ -16,7 +16,7 @@ using System;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 
-namespace OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_User {
+namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_User {
 	public class WS_User : WS0_User {
 		public WS_User(
 			string url_in
