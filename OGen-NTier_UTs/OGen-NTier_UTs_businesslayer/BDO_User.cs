@@ -65,7 +65,21 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 				selectIdentity_in,
 				out constraintExist_out
 			);
+			_user.Dispose();
+
 			return _iduser;
+		}
+		[BOMethodAttribute("getObject", true)]
+		public SO_User getObject(
+			long idUser_in, 
+			out bool exists_out
+		) {
+			DO_User _do_user = new DO_User();
+			exists_out = _do_user.getObject(idUser_in);
+			SO_User _so_user_out = (SO_User)_do_user.Fields;
+			_do_user.Dispose();
+
+			return _so_user_out;
 		}
 		#endregion
 	}
