@@ -19,69 +19,22 @@ using OGen.NTier.UTs.lib.distributed.webservices.consumer;
 
 namespace OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_User {
 	/// <remarks/>
-	public delegate void insObjectCompletedEventHandler(
-		object sender, 
-		insObjectCompletedEventArgs e
-	);
-
-	/// <remarks/>
-	[System.Diagnostics.DebuggerStepThroughAttribute()]
-	[System.ComponentModel.DesignerCategoryAttribute("code")]
-	public class insObjectCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-		internal insObjectCompletedEventArgs(
-			object[] results,
-			System.Exception exception,
-			bool cancelled,
-			object userState
-		) : base(
-			exception, 
-			cancelled, 
-			userState
-		) {
-			this.results = results;
-		}
-
-		private object[] results;
-
-		/// <remarks/>
-		public long Result {
-			get {
-				this.RaiseExceptionIfNecessary();
-				return (long)this.results[0];
-			}
-		}
-
-		/// <remarks/>
-		public bool constraintExist_out {
-			get {
-				this.RaiseExceptionIfNecessary();
-				return (bool)this.results[1];
-			}
-		}
-	}
-
-	/// <remarks/>
 	[System.Diagnostics.DebuggerStepThroughAttribute()]
 	[System.ComponentModel.DesignerCategoryAttribute("code")]
 	[System.Web.Services.WebServiceBindingAttribute(
 		Name = "WS_UserSoap", 
 		Namespace = "http://OGen.NTier.UTs.distributed.webservices"
 	)]
-	public class WS0_User : WS__base {
+	public abstract class WS0_User : WS__base {
 		public WS0_User(
 			string url_in
+		) : base(
+			url_in
 		) {
-			this.Url = url_in;
-
-			if (this.IsLocalFileSystemWebService(this.Url)) {
-				this.UseDefaultCredentials = true;
-				this.useDefaultCredentialsSetExplicitly = false;
-			} else {
-				this.useDefaultCredentialsSetExplicitly = true;
-			}
 		}
 
 		private System.Threading.SendOrPostCallback insObjectOperationCompleted;
+		/// <remarks/>
 		public event insObjectCompletedEventHandler insObjectCompleted;
 
 		/// <remarks/>
@@ -156,6 +109,49 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_User {
 						invokeArgs.UserState
 					)
 				);
+			}
+		}
+	}
+
+	/// <remarks/>
+	public delegate void insObjectCompletedEventHandler(
+		object sender,
+		insObjectCompletedEventArgs e
+	);
+
+	/// <remarks/>
+	[System.Diagnostics.DebuggerStepThroughAttribute()]
+	[System.ComponentModel.DesignerCategoryAttribute("code")]
+	public class insObjectCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+		internal insObjectCompletedEventArgs(
+			object[] results,
+			System.Exception exception,
+			bool cancelled,
+			object userState
+		)
+			: base(
+			  exception,
+			  cancelled,
+			  userState
+				) {
+			this.results = results;
+		}
+
+		private object[] results;
+
+		/// <remarks/>
+		public long Result {
+			get {
+				this.RaiseExceptionIfNecessary();
+				return (long)this.results[0];
+			}
+		}
+
+		/// <remarks/>
+		public bool constraintExist_out {
+			get {
+				this.RaiseExceptionIfNecessary();
+				return (bool)this.results[1];
 			}
 		}
 	}

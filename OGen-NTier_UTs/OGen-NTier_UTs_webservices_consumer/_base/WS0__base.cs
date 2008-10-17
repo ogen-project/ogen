@@ -17,7 +17,22 @@ using System.Web.Services;
 using System.Web.Services.Protocols;
 
 namespace OGen.NTier.UTs.lib.distributed.webservices.consumer {
-	public class WS__base : SoapHttpClientProtocol {
+	public abstract class WS__base : SoapHttpClientProtocol {
+		#region public WS__base(...);
+		public WS__base(
+			string url_in
+		) {
+			this.Url = url_in;
+
+			if (this.IsLocalFileSystemWebService(this.Url)) {
+				this.UseDefaultCredentials = true;
+				this.useDefaultCredentialsSetExplicitly = false;
+			} else {
+				this.useDefaultCredentialsSetExplicitly = true;
+			}
+		}
+		#endregion
+
 		protected bool useDefaultCredentialsSetExplicitly;
 
 		#region public new string Url { get; set; }

@@ -19,46 +19,6 @@ using OGen.NTier.UTs.lib.distributed.webservices.consumer;
 
 namespace OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_Authentication {
 	/// <remarks/>
-	public delegate void LoginCompletedEventHandler(
-		object sender, 
-		LoginCompletedEventArgs e
-	);
-
-	/// <remarks/>
-	[System.Diagnostics.DebuggerStepThroughAttribute()]
-	[System.ComponentModel.DesignerCategoryAttribute("code")]
-	public class LoginCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-		internal LoginCompletedEventArgs(
-			object[] results,
-			System.Exception exception,
-			bool cancelled,
-			object userState
-		) : base(
-			exception, 
-			cancelled, 
-			userState
-		) {
-			this.results = results;
-		}
-
-		private object[] results;
-
-		/// <remarks/>
-		public string Result {
-			get {
-				this.RaiseExceptionIfNecessary();
-				return (string)this.results[0];
-			}
-		}
-	}
-
-	/// <remarks/>
-	public delegate void LogoutCompletedEventHandler(
-		object sender, 
-		System.ComponentModel.AsyncCompletedEventArgs e
-	);
-
-	/// <remarks/>
 	[System.Diagnostics.DebuggerStepThroughAttribute()]
 	[System.ComponentModel.DesignerCategoryAttribute("code")]
 	[System.Web.Services.WebServiceBindingAttribute(
@@ -68,21 +28,10 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_Authentication 
 	public abstract class WS0_Authentication : WS__base {
 		public WS0_Authentication(
 			string url_in
+		) : base(
+			url_in
 		) {
-			this.Url = url_in;
-
-			if (this.IsLocalFileSystemWebService(this.Url)) {
-				this.UseDefaultCredentials = true;
-				this.useDefaultCredentialsSetExplicitly = false;
-			} else {
-				this.useDefaultCredentialsSetExplicitly = true;
-			}
 		}
-
-
-
-
-
 
 		private System.Threading.SendOrPostCallback LoginOperationCompleted;
 		/// <remarks/>
@@ -165,6 +114,7 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_Authentication 
 
 
 		private System.Threading.SendOrPostCallback LogoutOperationCompleted;
+		/// <remarks/>
 		public event LogoutCompletedEventHandler LogoutCompleted;
 
 		/// <remarks/>
@@ -222,4 +172,45 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_Authentication 
 			}
 		}
 	}
+
+	/// <remarks/>
+	public delegate void LoginCompletedEventHandler(
+		object sender,
+		LoginCompletedEventArgs e
+	);
+
+	/// <remarks/>
+	[System.Diagnostics.DebuggerStepThroughAttribute()]
+	[System.ComponentModel.DesignerCategoryAttribute("code")]
+	public class LoginCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+		internal LoginCompletedEventArgs(
+			object[] results,
+			System.Exception exception,
+			bool cancelled,
+			object userState
+		)
+			: base(
+			  exception,
+			  cancelled,
+			  userState
+				) {
+			this.results = results;
+		}
+
+		private object[] results;
+
+		/// <remarks/>
+		public string Result {
+			get {
+				this.RaiseExceptionIfNecessary();
+				return (string)this.results[0];
+			}
+		}
+	}
+
+	/// <remarks/>
+	public delegate void LogoutCompletedEventHandler(
+		object sender,
+		System.ComponentModel.AsyncCompletedEventArgs e
+	);
 }
