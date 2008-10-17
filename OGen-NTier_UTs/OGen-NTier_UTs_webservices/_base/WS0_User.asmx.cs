@@ -39,10 +39,11 @@ namespace OGen.NTier.UTs.distributed.webservices {
 		public long insObject(
 			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in, 
 			bool selectIdentity_in, 
-			out bool constraintExist_out
+			out bool constraintExist_out, 
+			string login_in
 		) {
 			BDO_User _businessobject = new BDO_User(
-				""
+				login_in
 			);
 			return _businessobject.insObject(
 				user_in, 
@@ -55,10 +56,11 @@ namespace OGen.NTier.UTs.distributed.webservices {
 		[WebMethod]
 		public OGen.NTier.UTs.lib.datalayer.proxy.SO_User getObject(
 			long idUser_in, 
-			out bool exists_out
+			out bool exists_out, 
+			string login_in
 		) {
 			BDO_User _businessobject = new BDO_User(
-				""
+				login_in
 			);
 			return _businessobject.getObject(
 				idUser_in, 
