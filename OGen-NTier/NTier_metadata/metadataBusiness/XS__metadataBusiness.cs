@@ -58,8 +58,8 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			Assembly _assembly
 				//= Assembly.LoadFile(assemblyFilePath_in);
 				= Assembly.LoadFrom(assemblyFilePath_in);
-			_assembly.GetFiles(true);
-			_assembly.GetReferencedAssemblies();
+			//_assembly.GetFiles(true);
+			//_assembly.GetReferencedAssemblies();
 
 			if (_assembly == null) {
 				throw new Exception(String.Format(
