@@ -188,12 +188,11 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_Authentication 
 			System.Exception exception,
 			bool cancelled,
 			object userState
-		)
-			: base(
-			  exception,
-			  cancelled,
-			  userState
-				) {
+		) : base(
+			exception,
+			cancelled,
+			userState
+		) {
 			this.results = results;
 		}
 

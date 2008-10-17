@@ -111,6 +111,89 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_User {
 				);
 			}
 		}
+
+
+
+
+
+
+
+
+
+
+
+		private System.Threading.SendOrPostCallback getObjectOperationCompleted;
+		/// <remarks/>
+		public event getObjectCompletedEventHandler getObjectCompleted;
+
+		/// <remarks/>
+		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
+			"http://OGen.NTier.UTs.distributed.webservices/getObject", 
+			RequestNamespace = "http://OGen.NTier.UTs.distributed.webservices", 
+			ResponseNamespace = "http://OGen.NTier.UTs.distributed.webservices", 
+			Use = System.Web.Services.Description.SoapBindingUse.Literal, 
+			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
+		)]
+		public OGen.NTier.UTs.lib.datalayer.proxy.SO_User getObject(
+			long idUser_in, 
+			out bool exists_out
+		) {
+			object[] results = this.Invoke(
+				"getObject", 
+				new object[] {
+					idUser_in
+				}
+			);
+			exists_out = (bool)results[1];
+			return (OGen.NTier.UTs.lib.datalayer.proxy.SO_User)results[0];
+		}
+
+		/// <remarks/>
+		public void getObjectAsync(
+			long idUser_in
+		) {
+			this.getObjectAsync(
+				idUser_in, 
+				null
+			);
+		}
+
+		/// <remarks/>
+		public void getObjectAsync(
+			long idUser_in, 
+			object userState
+		) {
+			if (this.getObjectOperationCompleted == null) {
+				this.getObjectOperationCompleted 
+					= new System.Threading.SendOrPostCallback(
+						this.OngetObjectOperationCompleted
+					);
+			}
+			this.InvokeAsync(
+				"getObject", 
+				new object[] { 
+					idUser_in
+				}, 
+				this.getObjectOperationCompleted, 
+				userState
+			);
+		}
+
+		private void OngetObjectOperationCompleted(object arg) {
+			if (this.getObjectCompleted != null) {
+				System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs 
+					= (System.Web.Services.Protocols.InvokeCompletedEventArgs)arg;
+				this.getObjectCompleted(
+					this, 
+					new getObjectCompletedEventArgs(
+						invokeArgs.Results, 
+						invokeArgs.Error, 
+						invokeArgs.Cancelled, 
+						invokeArgs.UserState
+					)
+				);
+			}
+		}
 	}
 
 	/// <remarks/>
@@ -128,12 +211,11 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_User {
 			System.Exception exception,
 			bool cancelled,
 			object userState
-		)
-			: base(
-			  exception,
-			  cancelled,
-			  userState
-				) {
+		) : base(
+			exception,
+			cancelled,
+			userState
+		) {
 			this.results = results;
 		}
 
@@ -149,6 +231,61 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_User {
 
 		/// <remarks/>
 		public bool constraintExist_out {
+			get {
+				this.RaiseExceptionIfNecessary();
+				return (bool)this.results[1];
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/// <remarks/>
+	public delegate void getObjectCompletedEventHandler(
+		object sender, 
+		getObjectCompletedEventArgs e
+	);
+
+	/// <remarks/>
+	[System.Diagnostics.DebuggerStepThroughAttribute()]
+	[System.ComponentModel.DesignerCategoryAttribute("code")]
+	public partial class getObjectCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+		private object[] results;
+
+		internal getObjectCompletedEventArgs(
+			object[] results, 
+			System.Exception exception, 
+			bool cancelled, 
+			object userState
+		) : base(
+			exception, 
+			cancelled, 
+			userState
+		) {
+			this.results = results;
+		}
+
+		/// <remarks/>
+		public OGen.NTier.UTs.lib.datalayer.proxy.SO_User Result {
+			get {
+				this.RaiseExceptionIfNecessary();
+				return (OGen.NTier.UTs.lib.datalayer.proxy.SO_User)this.results[0];
+			}
+		}
+
+		/// <remarks/>
+		public bool exists_out {
 			get {
 				this.RaiseExceptionIfNecessary();
 				return (bool)this.results[1];
