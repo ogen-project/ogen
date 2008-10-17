@@ -81,11 +81,31 @@ namespace OGen.NTier.UTs.test {
 			//    out _constraintExists
 			//);
 
-			_do_user.getObject(_iduser);
+			bool _exists;
+			_so_user = _ws_user.getObject(
+				_iduser, 
+				out _exists
+			);
 			Console.WriteLine(
-				_do_user.Fields.SomeNullValue_isNull
+				_so_user.SomeNullValue_isNull
 			);
 			return;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 			//OGen.NTier.UTs.lib.businesslayer-2.0
 			Assembly _assembly = Assembly.Load(
