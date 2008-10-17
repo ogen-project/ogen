@@ -36,18 +36,20 @@ namespace OGen.NTier.UTs.test {
 	class MainClass {
 		[STAThread]
 		static void Main(string[] args) {
+			DO_User _do_user = new DO_User();
+
 			WS_Authentication.WS_Authentication _ws_authentication 
 				= new WS_Authentication.WS_Authentication(
 					"http://localhost:2937/WS_Authentication.asmx"
 				);
 
-			Console.WriteLine(_ws_authentication.Login("fmonteiro", "passpub"));
-			_ws_authentication.Logout();
-
 			WS_User.WS_User _ws_user
 				= new WS_User.WS_User(
 					"http://localhost:2937/WS_Authentication.asmx"
 				);
+
+			Console.WriteLine(_ws_authentication.Login("fmonteiro", "passpub"));
+			_ws_authentication.Logout();
 
 			OGen.NTier.UTs.lib.datalayer.proxy.ISO_User _so_user 
 				= new OGen.NTier.UTs.lib.datalayer.proxy.SO_User(
@@ -73,8 +75,12 @@ namespace OGen.NTier.UTs.test {
 				),
 				_constraintExists
 			);
+			//_do_user.Fields = (SO_User)_so_user;
+			//_iduser = _do_user.insObject(
+			//    true,
+			//    out _constraintExists
+			//);
 
-			DO_User _do_user = new DO_User();
 			_do_user.getObject(_iduser);
 			Console.WriteLine(
 				_do_user.Fields.SomeNullValue_isNull

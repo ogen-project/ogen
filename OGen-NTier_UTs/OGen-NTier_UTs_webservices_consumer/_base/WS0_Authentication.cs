@@ -15,6 +15,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Web.Services;
 using System.Web.Services.Protocols;
+using OGen.NTier.UTs.lib.distributed.webservices.consumer;
 
 namespace OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_Authentication {
 	/// <remarks/>
@@ -64,7 +65,7 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_Authentication 
 		Name = "WS_AuthenticationSoap", 
 		Namespace = "http://OGen.NTier.UTs.distributed.webservices"
 	)]
-	public class WS_Authentication : SoapHttpClientProtocol {
+	public class WS_Authentication : WS__base {
 		public WS_Authentication(
 			string url_in
 		) {
@@ -78,38 +79,7 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_Authentication 
 			}
 		}
 
-		private bool useDefaultCredentialsSetExplicitly;
 
-		#region public new string Url { get; set; }
-		public new string Url {
-			get {
-				return base.Url;
-			}
-			set {
-				if (
-					(this.IsLocalFileSystemWebService(base.Url) == true)
-					&&
-					(this.useDefaultCredentialsSetExplicitly == false)
-					&&
-					(this.IsLocalFileSystemWebService(value) == false)
-				) {
-					base.UseDefaultCredentials = false;
-				}
-				base.Url = value;
-			}
-		}
-		#endregion
-		#region public new bool UseDefaultCredentials { get; set; }
-		public new bool UseDefaultCredentials {
-			get {
-				return base.UseDefaultCredentials;
-			}
-			set {
-				base.UseDefaultCredentials = value;
-				this.useDefaultCredentialsSetExplicitly = true;
-			}
-		}
-		#endregion
 
 
 
@@ -250,36 +220,6 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_Authentication 
 					)
 				);
 			}
-		}
-
-		/// <remarks/>
-		public new void CancelAsync(object userState) {
-			base.CancelAsync(userState);
-		}
-
-		private bool IsLocalFileSystemWebService(string url) {
-			if (
-				(url == null)
-				||
-				(url == string.Empty)
-			) {
-				return false;
-			}
-			System.Uri wsUri = new System.Uri(url);
-			if (
-				(wsUri.Port >= 1024)
-				&&
-				(
-					string.Compare(
-						wsUri.Host,
-						"localHost",
-						System.StringComparison.OrdinalIgnoreCase
-					) == 0
-				)
-			) {
-				return true;
-			}
-			return false;
 		}
 	}
 }
