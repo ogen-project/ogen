@@ -5,8 +5,15 @@
       <methods>
         <method name="insObject" outputType="long" distribute="true">
           <parameters>
+            <parameter name="user_in" type="OGen.NTier.UTs.lib.datalayer.proxy.SO_User" isParams="false" isOut="false" isRef="false" />
             <parameter name="selectIdentity_in" type="bool" isParams="false" isOut="false" isRef="false" />
             <parameter name="constraintExist_out" type="bool" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getObject" outputType="OGen.NTier.UTs.lib.datalayer.proxy.SO_User" distribute="true">
+          <parameters>
+            <parameter name="idUser_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="exists_out" type="bool" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
       </methods>

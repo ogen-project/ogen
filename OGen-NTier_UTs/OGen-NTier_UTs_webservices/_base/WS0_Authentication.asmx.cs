@@ -34,7 +34,7 @@ namespace OGen.NTier.UTs.distributed.webservices {
 		#region private Methods...
 		#endregion
 		#region public Methods...
-		#region public override string Login(...);
+		#region public string Login(...);
 		[WebMethod]
 		public string Login(
 			string login_in, 
@@ -47,7 +47,7 @@ namespace OGen.NTier.UTs.distributed.webservices {
 			);
 		}
 		#endregion
-		#region public override void Logout(...);
+		#region public void Logout(...);
 		[WebMethod]
 		public void Logout(
 		) {

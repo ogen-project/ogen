@@ -55,7 +55,12 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			#endregion
 
 			#region Assembly _assembly = Assembly.Load(assemblyFilePath_in);
-			Assembly _assembly = Assembly.LoadFile(assemblyFilePath_in);
+			Assembly _assembly
+				//= Assembly.LoadFile(assemblyFilePath_in);
+				= Assembly.LoadFrom(assemblyFilePath_in);
+			_assembly.GetFiles(true);
+			_assembly.GetReferencedAssemblies();
+
 			if (_assembly == null) {
 				throw new Exception(String.Format(
 					"can't load assembly 'assemblyName_in'\n at: {0}.{1}.Load_fromAssembly();",

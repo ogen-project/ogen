@@ -106,14 +106,13 @@ namespace OGen.NTier.UTs.test {
 
 
 
-
 			//OGen.NTier.UTs.lib.businesslayer-2.0
 			Assembly _assembly = Assembly.Load(
-			#if NET_1_1
+				#if NET_1_1
 				"OGen.NTier.UTs.lib.businesslayer-1.1"
-			#elif NET_2_0
+				#elif NET_2_0
 				"OGen.NTier.UTs.lib.businesslayer-2.0"
-			#endif
+				#endif
 			);
 			if (_assembly != null) {
 				Type[] _types = _assembly.GetTypes();

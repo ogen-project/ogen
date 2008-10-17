@@ -19,7 +19,6 @@ using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 
-using OGen.NTier.UTs.lib.datalayer.proxy;
 using OGen.NTier.UTs.lib.businesslayer;
 
 namespace OGen.NTier.UTs.distributed.webservices {
@@ -38,7 +37,7 @@ namespace OGen.NTier.UTs.distributed.webservices {
 		#region public long insObject(...);
 		[WebMethod]
 		public long insObject(
-			SO_User user_in, 
+			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in, 
 			bool selectIdentity_in, 
 			out bool constraintExist_out
 		) {
@@ -52,17 +51,17 @@ namespace OGen.NTier.UTs.distributed.webservices {
 			);
 		}
 		#endregion
-		#region public SO_User getObject(...);
+		#region public OGen.NTier.UTs.lib.datalayer.proxy.SO_User getObject(...);
 		[WebMethod]
-		public SO_User getObject(
-			long idUser_in,
+		public OGen.NTier.UTs.lib.datalayer.proxy.SO_User getObject(
+			long idUser_in, 
 			out bool exists_out
 		) {
 			BDO_User _businessobject = new BDO_User(
 				""
 			);
 			return _businessobject.getObject(
-				idUser_in,
+				idUser_in, 
 				out exists_out
 			);
 		}
