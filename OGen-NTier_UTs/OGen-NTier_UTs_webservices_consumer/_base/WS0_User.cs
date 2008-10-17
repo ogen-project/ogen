@@ -67,8 +67,8 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_User {
 		Name = "WS_UserSoap", 
 		Namespace = "http://OGen.NTier.UTs.distributed.webservices"
 	)]
-	public class WS_User : WS__base {
-		public WS_User(
+	public class WS0_User : WS__base {
+		public WS0_User(
 			string url_in
 		) {
 			this.Url = url_in;

@@ -65,8 +65,8 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.consumer.WS_Authentication 
 		Name = "WS_AuthenticationSoap", 
 		Namespace = "http://OGen.NTier.UTs.distributed.webservices"
 	)]
-	public class WS_Authentication : WS__base {
-		public WS_Authentication(
+	public abstract class WS0_Authentication : WS__base {
+		public WS0_Authentication(
 			string url_in
 		) {
 			this.Url = url_in;
