@@ -26,13 +26,16 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_Authentication {
 		Namespace = "http://OGen.NTier.UTs.distributed.webservices"
 	)]
 	public abstract class WS0_Authentication : WS__base {
+		#region public WS0_Authentication(...);
 		public WS0_Authentication(
 			string url_in
 		) : base(
 			url_in
 		) {
 		}
+		#endregion
 
+		#region public string Login(...);
 		private System.Threading.SendOrPostCallback LoginOperationCompleted;
 		/// <remarks/>
 		public event LoginCompletedEventHandler LoginCompleted;
@@ -109,10 +112,8 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_Authentication {
 				);
 			}
 		}
-
-
-
-
+		#endregion
+		#region public void Logout(...);
 		private System.Threading.SendOrPostCallback LogoutOperationCompleted;
 		/// <remarks/>
 		public event LogoutCompletedEventHandler LogoutCompleted;
@@ -171,8 +172,10 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_Authentication {
 				);
 			}
 		}
+		#endregion
 	}
 
+	#region ...Login...
 	/// <remarks/>
 	public delegate void LoginCompletedEventHandler(
 		object sender,
@@ -206,10 +209,12 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_Authentication {
 			}
 		}
 	}
-
+	#endregion
+	#region ...Logout...
 	/// <remarks/>
 	public delegate void LogoutCompletedEventHandler(
 		object sender,
 		System.ComponentModel.AsyncCompletedEventArgs e
 	);
+	#endregion
 }

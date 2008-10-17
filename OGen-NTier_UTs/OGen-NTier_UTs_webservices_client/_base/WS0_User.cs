@@ -26,13 +26,16 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_User {
 		Namespace = "http://OGen.NTier.UTs.distributed.webservices"
 	)]
 	public abstract class WS0_User : WS__base {
+		#region public WS0_User(...);
 		public WS0_User(
 			string url_in
 		) : base(
 			url_in
 		) {
 		}
+		#endregion
 
+		#region public long insObject(...);
 		private System.Threading.SendOrPostCallback insObjectOperationCompleted;
 		/// <remarks/>
 		public event insObjectCompletedEventHandler insObjectCompleted;
@@ -111,17 +114,8 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_User {
 				);
 			}
 		}
-
-
-
-
-
-
-
-
-
-
-
+		#endregion
+		#region public OGen.NTier.UTs.lib.datalayer.proxy.SO_User getObject(...);
 		private System.Threading.SendOrPostCallback getObjectOperationCompleted;
 		/// <remarks/>
 		public event getObjectCompletedEventHandler getObjectCompleted;
@@ -194,8 +188,10 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_User {
 				);
 			}
 		}
+		#endregion
 	}
 
+	#region ...insObject...
 	/// <remarks/>
 	public delegate void insObjectCompletedEventHandler(
 		object sender,
@@ -237,20 +233,8 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_User {
 			}
 		}
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	#endregion
+	#region ...getObject...
 	/// <remarks/>
 	public delegate void getObjectCompletedEventHandler(
 		object sender, 
@@ -292,4 +276,5 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_User {
 			}
 		}
 	}
+	#endregion
 }
