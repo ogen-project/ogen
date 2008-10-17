@@ -52,6 +52,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		#region private Methods...
 		#endregion
 		#region public Methods...
+		#region public long insObject(...);
 		[BOMethodAttribute("insObject", true)]
 		public long insObject(
 			SO_User user_in, 
@@ -69,6 +70,8 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 
 			return _iduser;
 		}
+		#endregion
+		#region public SO_User getObject(...);
 		[BOMethodAttribute("getObject", true)]
 		public SO_User getObject(
 			long idUser_in, 
@@ -81,6 +84,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 
 			return _so_user_out;
 		}
+		#endregion
 		#endregion
 	}
 }

@@ -70,7 +70,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributed.webservices {
 		#region public Methods...<%
 		for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
 			_aux_method = _aux_class.Methods.MethodCollection[m];%>
-		#region public override <%=_aux_method.OutputType%> <%=_aux_method.Name%>(...);
+		#region public <%=_aux_method.OutputType%> <%=_aux_method.Name%>(...);
 		[WebMethod]
 		public <%=_aux_method.OutputType%> <%=_aux_method.Name%>(<%
 			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {

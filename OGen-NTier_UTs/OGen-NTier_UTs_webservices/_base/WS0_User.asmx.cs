@@ -35,7 +35,7 @@ namespace OGen.NTier.UTs.distributed.webservices {
 		#region private Methods...
 		#endregion
 		#region public Methods...
-		#region public override long insObject(...);
+		#region public long insObject(...);
 		[WebMethod]
 		public long insObject(
 			SO_User user_in, 
@@ -49,6 +49,21 @@ namespace OGen.NTier.UTs.distributed.webservices {
 				user_in, 
 				selectIdentity_in, 
 				out constraintExist_out
+			);
+		}
+		#endregion
+		#region public SO_User getObject(...);
+		[WebMethod]
+		public SO_User getObject(
+			long idUser_in,
+			out bool exists_out
+		) {
+			BDO_User _businessobject = new BDO_User(
+				""
+			);
+			return _businessobject.getObject(
+				idUser_in,
+				out exists_out
 			);
 		}
 		#endregion
