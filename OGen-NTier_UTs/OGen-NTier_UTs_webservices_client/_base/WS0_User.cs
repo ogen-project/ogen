@@ -23,7 +23,7 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_User {
 	[System.ComponentModel.DesignerCategoryAttribute("code")]
 	[System.Web.Services.WebServiceBindingAttribute(
 		Name = "WS_UserSoap", 
-		Namespace = "http://OGen.NTier.UTs.distributed.webservices"
+		Namespace = "http://OGen.NTier.UTs.distributed.webservices.server"
 	)]
 	public abstract class WS0_User : WS__base {
 		#region public WS0_User(...);
@@ -42,9 +42,9 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_User {
 
 		/// <remarks/>
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.UTs.distributed.webservices/insObject", 
-			RequestNamespace = "http://OGen.NTier.UTs.distributed.webservices", 
-			ResponseNamespace = "http://OGen.NTier.UTs.distributed.webservices", 
+			"http://OGen.NTier.UTs.distributed.webservices.server/insObject", 
+			RequestNamespace = "http://OGen.NTier.UTs.distributed.webservices.server", 
+			ResponseNamespace = "http://OGen.NTier.UTs.distributed.webservices.server", 
 			Use = System.Web.Services.Description.SoapBindingUse.Literal, 
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
@@ -128,9 +128,9 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_User {
 
 		/// <remarks/>
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.UTs.distributed.webservices/getObject", 
-			RequestNamespace = "http://OGen.NTier.UTs.distributed.webservices", 
-			ResponseNamespace = "http://OGen.NTier.UTs.distributed.webservices", 
+			"http://OGen.NTier.UTs.distributed.webservices.server/getObject", 
+			RequestNamespace = "http://OGen.NTier.UTs.distributed.webservices.server", 
+			ResponseNamespace = "http://OGen.NTier.UTs.distributed.webservices.server", 
 			Use = System.Web.Services.Description.SoapBindingUse.Literal, 
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
