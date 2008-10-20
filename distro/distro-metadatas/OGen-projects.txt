@@ -39,7 +39,7 @@ OGen-NTier_UTs, OGen-metadatas, OGen-metadatas, f, f, f, MIT, f, f
 OGen-NTier_UTs, OGen-NTier_UTs-Doc, OGen-NTier_UTs-Doc, f, f, f, GNU_FDL, t, f
 OGen-NTier_UTs, OGen-NTier_UTs_webservices_server, OGen.NTier.UTs.distributed.webservices.server, f, t, f, MIT, f. f
 OGen-NTier_UTs, OGen-NTier_UTs_webservices_client, OGen.NTier.UTs.lib.distributed.webservices.client, f, f, f, MIT, f, f
-OGen-NTier_UTs, OGen-NTier_UTs_remoting_server, OGen.NTier.UTs.lib.distributed.remoting.server, f, f, f, MIT, f. f
+OGen-NTier_UTs, OGen-NTier_UTs_remoting_server, OGen.NTier.UTs.lib.distributed.remoting.server, f, f, t, MIT, f. f
 OGen-NTier_UTs, OGen-NTier_UTs_remoting_client, OGen.NTier.UTs.lib.distributed.remoting.client, f, f, f, MIT, f, f
 OGen-Doc, Doc_generator, OGen.Doc.lib.generator, t, f, f, MIT, f, t
 OGen-Doc, Doc_metadata, OGen.Doc.lib.metadata, t, f, f, MIT, f, t
