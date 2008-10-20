@@ -85,7 +85,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			login_ = (string)info_in.GetValue("Login", typeof(string));
 			password_ = (string)info_in.GetValue("Password", typeof(string));
 			somenullvalue_ = (int)info_in.GetValue("SomeNullValue", typeof(int));
-			SomeNullValue_isNull = (int)info_in.GetValue("SomeNullValue_isNull", typeof(int));
+			SomeNullValue_isNull = (bool)info_in.GetValue("SomeNullValue_isNull", typeof(bool));
 		}
 		#endregion
 

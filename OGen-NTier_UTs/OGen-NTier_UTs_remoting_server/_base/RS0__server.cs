@@ -24,7 +24,7 @@ namespace OGen.NTier.UTs.lib.distributed.remoting.server {
 			#if NET_1_1
 			ChannelServices.RegisterChannel(new TcpChannel(8085));
 			#else
-			ChannelServices.RegisterChannel(new TcpChannel(8085), true);
+			ChannelServices.RegisterChannel(new TcpChannel(8085), false);
 			#endif
 
 			RemotingConfiguration.RegisterWellKnownServiceType(

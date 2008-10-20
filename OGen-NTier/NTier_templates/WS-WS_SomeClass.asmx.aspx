@@ -44,4 +44,4 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {
 
 --><%
 }%>
-<%="<%" + "@"%>WebService Language="C#" CodeBehind="WS_<%=_aux_class.Name%>.asmx.cs" Class="<%=_aux_ex_metadata.ApplicationNamespace%>.distributed.webservices.WS_<%=_aux_class.Name%>"<%="%" + ">"%>
+<%="<%" + "@"%>WebService Language="C#" CodeBehind="WS_<%=_aux_class.Name%>.asmx.cs" Class="<%=_aux_ex_metadata.ApplicationNamespace%>.distributed.webservices.server.WS_<%=_aux_class.Name%>"<%="%" + ">"%>

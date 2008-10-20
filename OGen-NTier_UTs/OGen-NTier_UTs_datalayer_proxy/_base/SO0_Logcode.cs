@@ -93,7 +93,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			error_ = (bool)info_in.GetValue("Error", typeof(bool));
 			code_ = (string)info_in.GetValue("Code", typeof(string));
 			description_ = (string)info_in.GetValue("Description", typeof(string));
-			Description_isNull = (string)info_in.GetValue("Description_isNull", typeof(string));
+			Description_isNull = (bool)info_in.GetValue("Description_isNull", typeof(bool));
 		}
 		#endregion
 

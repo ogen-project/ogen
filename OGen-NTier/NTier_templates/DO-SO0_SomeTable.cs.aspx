@@ -121,7 +121,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
 			<%=_aux_db_field.Name.ToLower()%>_ = (<%=_aux_db_field.DBType_generic.FWType%>)info_in.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>));<%
 			if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%>
-			<%=_aux_db_field.Name%>_isNull = (<%=_aux_db_field.DBType_generic.FWType%>)info_in.GetValue("<%=_aux_db_field.Name%>_isNull", typeof(<%=_aux_db_field.DBType_generic.FWType%>));<%
+			<%=_aux_db_field.Name%>_isNull = (bool)info_in.GetValue("<%=_aux_db_field.Name%>_isNull", typeof(bool));<%
 			}
 			}%>
 		}

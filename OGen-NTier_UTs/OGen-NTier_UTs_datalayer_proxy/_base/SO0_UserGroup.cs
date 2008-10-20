@@ -88,7 +88,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			iduser_ = (long)info_in.GetValue("IDUser", typeof(long));
 			idgroup_ = (long)info_in.GetValue("IDGroup", typeof(long));
 			relationdate_ = (DateTime)info_in.GetValue("Relationdate", typeof(DateTime));
-			Relationdate_isNull = (DateTime)info_in.GetValue("Relationdate_isNull", typeof(DateTime));
+			Relationdate_isNull = (bool)info_in.GetValue("Relationdate_isNull", typeof(bool));
 			defaultrelation_ = (bool)info_in.GetValue("Defaultrelation", typeof(bool));
 			Defaultrelation_isNull = (bool)info_in.GetValue("Defaultrelation_isNull", typeof(bool));
 		}
