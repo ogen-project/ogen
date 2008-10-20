@@ -113,6 +113,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		//---
 		#region public long IDUser { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public long iduser_;// = 0L;
 		
 		/// <summary>
