@@ -19,6 +19,7 @@ using OGen.NTier.lib.businesslayer;
 
 using OGen.NTier.UTs.lib.datalayer;
 using OGen.NTier.UTs.lib.datalayer.proxy;
+using OGen.NTier.UTs.lib.businesslayer.proxy;
 
 namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
@@ -29,10 +30,11 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 #if !NET_1_1
 		partial 
 #endif
-		class BDO_User 
+		class BDO_User : 
 #if NET_1_1
-			: BDO0_User 
+			BDO0_User, 
 #endif
+			IBO_User
 	{
 		#region public BDO_User(...);
 		///
@@ -57,6 +59,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		public long insObject(
 			SO_User user_in, 
 			bool selectIdentity_in, 
+			string login_in, 
 			out bool constraintExist_out
 		) {
 			long _iduser;
@@ -75,6 +78,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		[BOMethodAttribute("getObject", true)]
 		public SO_User getObject(
 			long idUser_in, 
+			string login_in, 
 			out bool exists_out
 		) {
 			DO_User _do_user = new DO_User();

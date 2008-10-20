@@ -19,13 +19,14 @@ using OGen.NTier.lib.datalayer;
 using OGen.NTier.lib.businesslayer;
 
 using OGen.NTier.UTs.lib.datalayer;
+using OGen.NTier.UTs.lib.businesslayer.proxy;
 
 namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
 	/// Authentication BusinessObject.
 	/// </summary>
 	[BOClassAttribute("BO_Authentication", "BO")]
-	public class BO_Authentication : BO0_Authentication {
+	public class BO_Authentication : BO0_Authentication, IBO_Authentication {
 		#region public BO0_Authentication(...);
 		public BO_Authentication(
 		) : base (

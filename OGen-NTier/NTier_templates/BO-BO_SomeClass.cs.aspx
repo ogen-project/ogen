@@ -53,6 +53,7 @@ using OGen.NTier.lib.datalayer;
 using OGen.NTier.lib.businesslayer;
 
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.proxy;
 
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 	/// <summary>
@@ -64,7 +65,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 #endif--%>
 	/// </summary>
 	[BOClassAttribute("BO_<%=_aux_class.Name%>", "<%=OGen.NTier.lib.metadata.metadataBusiness.XS_BoEnumeration.BO.ToString()%>")]
-	public class BO_<%=_aux_class.Name%> : BO0_<%=_aux_class.Name%> {
+	public class BO_<%=_aux_class.Name%> : BO0_<%=_aux_class.Name%>, IBO_<%=_aux_class.Name%> {
 		#region public BO0_<%=_aux_class.Name%>(...);
 		public BO_<%=_aux_class.Name%>(
 		) : base (

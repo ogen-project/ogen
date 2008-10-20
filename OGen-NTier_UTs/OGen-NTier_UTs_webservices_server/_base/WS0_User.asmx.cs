@@ -48,6 +48,7 @@ namespace OGen.NTier.UTs.distributed.webservices.server {
 			return _businessobject.insObject(
 				user_in, 
 				selectIdentity_in, 
+				login_in, 
 				out constraintExist_out
 			);
 		}
@@ -64,6 +65,7 @@ namespace OGen.NTier.UTs.distributed.webservices.server {
 			);
 			return _businessobject.getObject(
 				idUser_in, 
+				login_in, 
 				out exists_out
 			);
 		}

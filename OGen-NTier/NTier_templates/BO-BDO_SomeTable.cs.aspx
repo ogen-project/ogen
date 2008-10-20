@@ -51,6 +51,7 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 
 using OGen.NTier.lib.businesslayer;
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.proxy;
 
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 	/// <summary>
@@ -61,10 +62,11 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 #if !NET_1_1
 		partial 
 #endif
-		class BDO_<%=_aux_db_table.Name%> 
+		class BDO_<%=_aux_db_table.Name%> :
 #if NET_1_1
-			: BDO0_<%=_aux_db_table.Name%> 
+			BDO0_<%=_aux_db_table.Name%>, 
 #endif
+			IBO_<%=_aux_db_table.Name%>
 	{
 		#region public BDO_<%=_aux_db_table.Name%>(...);
 		///
