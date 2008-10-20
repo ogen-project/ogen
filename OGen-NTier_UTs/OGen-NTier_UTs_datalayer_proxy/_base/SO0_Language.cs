@@ -14,6 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
@@ -40,7 +41,8 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	/// <summary>
 	/// Language SerializableObject which provides fields access at Language table at Database.
 	/// </summary>
-	public class SO_Language : ISO_Language {
+	[Serializable()]
+	public class SO_Language : ISO_Language, ISerializable {
 		#region public SO_Language();
 		public SO_Language(
 		) : this (
@@ -56,6 +58,13 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			//---
 			idlanguage_ = IDLanguage_in;
 			idword_name_ = IDWord_name_in;
+		}
+		public SO_Language(
+			SerializationInfo info_in,
+			StreamingContext context_in
+		) {
+			idlanguage_ = (long)info_in.GetValue("IDLanguage", typeof(long));
+			idword_name_ = (long)info_in.GetValue("IDWord_name", typeof(long));
 		}
 		#endregion
 
@@ -173,6 +182,15 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 					haschanges_ = true;
 				}
 			}
+		}
+		#endregion
+		#endregion
+
+		#region Methods...
+		#region public void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
+		public void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
+			info_in.AddValue("IDLanguage", idlanguage_);
+			info_in.AddValue("IDWord_name", idword_name_);
 		}
 		#endregion
 		#endregion

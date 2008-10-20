@@ -2782,7 +2782,7 @@ XXX:TO_DOS -->
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_webservices/WS_${ROOT.metadataBusiness[0].classes.class[n].name}.asmx"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_webservices_server/WS_${ROOT.metadataBusiness[0].classes.class[n].name}.asmx"
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -2797,7 +2797,7 @@ XXX:TO_DOS -->
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_webservices/WS_${ROOT.metadataBusiness[0].classes.class[n].name}.asmx.cs"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_webservices_server/WS_${ROOT.metadataBusiness[0].classes.class[n].name}.asmx.cs"
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -2812,7 +2812,7 @@ XXX:TO_DOS -->
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_webservices/_base/WS0_${ROOT.metadataBusiness[0].classes.class[n].name}.asmx.cs"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_webservices_server/_base/WS0_${ROOT.metadataBusiness[0].classes.class[n].name}.asmx.cs"
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />

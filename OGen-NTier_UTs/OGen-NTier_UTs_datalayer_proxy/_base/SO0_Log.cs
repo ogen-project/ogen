@@ -14,6 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
@@ -52,7 +53,8 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	/// <summary>
 	/// Log SerializableObject which provides fields access at Log table at Database.
 	/// </summary>
-	public class SO_Log : ISO_Log {
+	[Serializable()]
+	public class SO_Log : ISO_Log, ISerializable {
 		#region public SO_Log();
 		public SO_Log(
 		) : this (
@@ -77,6 +79,16 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			iduser_posted_ = IDUser_posted_in;
 			date_posted_ = Date_posted_in;
 			logdata_ = Logdata_in;
+		}
+		public SO_Log(
+			SerializationInfo info_in,
+			StreamingContext context_in
+		) {
+			idlog_ = (long)info_in.GetValue("IDLog", typeof(long));
+			idlogcode_ = (long)info_in.GetValue("IDLogcode", typeof(long));
+			iduser_posted_ = (long)info_in.GetValue("IDUser_posted", typeof(long));
+			date_posted_ = (DateTime)info_in.GetValue("Date_posted", typeof(DateTime));
+			logdata_ = (string)info_in.GetValue("Logdata", typeof(string));
 		}
 		#endregion
 
@@ -343,6 +355,18 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 					haschanges_ = true;
 				}
 			}
+		}
+		#endregion
+		#endregion
+
+		#region Methods...
+		#region public void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
+		public void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
+			info_in.AddValue("IDLog", idlog_);
+			info_in.AddValue("IDLogcode", idlogcode_);
+			info_in.AddValue("IDUser_posted", iduser_posted_);
+			info_in.AddValue("Date_posted", date_posted_);
+			info_in.AddValue("Logdata", logdata_);
 		}
 		#endregion
 		#endregion

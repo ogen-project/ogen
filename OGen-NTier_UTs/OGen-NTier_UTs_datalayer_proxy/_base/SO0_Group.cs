@@ -14,6 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
@@ -40,7 +41,8 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	/// <summary>
 	/// Group SerializableObject which provides fields access at Group table at Database.
 	/// </summary>
-	public class SO_Group : ISO_Group {
+	[Serializable()]
+	public class SO_Group : ISO_Group, ISerializable {
 		#region public SO_Group();
 		public SO_Group(
 		) : this (
@@ -56,6 +58,13 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			//---
 			idgroup_ = IDGroup_in;
 			name_ = Name_in;
+		}
+		public SO_Group(
+			SerializationInfo info_in,
+			StreamingContext context_in
+		) {
+			idgroup_ = (long)info_in.GetValue("IDGroup", typeof(long));
+			name_ = (string)info_in.GetValue("Name", typeof(string));
 		}
 		#endregion
 
@@ -175,6 +184,15 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 					haschanges_ = true;
 				}
 			}
+		}
+		#endregion
+		#endregion
+
+		#region Methods...
+		#region public void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
+		public void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
+			info_in.AddValue("IDGroup", idgroup_);
+			info_in.AddValue("Name", name_);
 		}
 		#endregion
 		#endregion

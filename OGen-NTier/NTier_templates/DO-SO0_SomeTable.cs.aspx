@@ -120,7 +120,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
 			<%=_aux_db_field.Name.ToLower()%>_ = (<%=_aux_db_field.DBType_generic.FWType%>)info_in.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>));<%
-			if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%>
+			if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%>
 			<%=_aux_db_field.Name%>_isNull = (<%=_aux_db_field.DBType_generic.FWType%>)info_in.GetValue("<%=_aux_db_field.Name%>_isNull", typeof(<%=_aux_db_field.DBType_generic.FWType%>));<%
 			}
 			}%>
@@ -242,9 +242,9 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 		public void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {<%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
-			info_in.AddValue("<%=_aux_db_field.Name%>", <%=_aux_db_field.Name.ToLower()%>_;<%
-			if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%>
-			info_in.AddValue("<%=_aux_db_field.Name%>_isNull", <%=_aux_db_field.Name%>_isNull;<%
+			info_in.AddValue("<%=_aux_db_field.Name%>", <%=_aux_db_field.Name.ToLower()%>_);<%
+			if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%>
+			info_in.AddValue("<%=_aux_db_field.Name%>_isNull", <%=_aux_db_field.Name%>_isNull);<%
 			}
 		}%>
 		}

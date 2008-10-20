@@ -14,6 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
@@ -48,7 +49,8 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	/// <summary>
 	/// WordLanguage SerializableObject which provides fields access at WordLanguage table at Database.
 	/// </summary>
-	public class SO_WordLanguage : ISO_WordLanguage {
+	[Serializable()]
+	public class SO_WordLanguage : ISO_WordLanguage, ISerializable {
 		#region public SO_WordLanguage();
 		public SO_WordLanguage(
 		) : this (
@@ -67,6 +69,15 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			idword_ = IDWord_in;
 			idlanguage_ = IDLanguage_in;
 			translation_ = Translation_in;
+		}
+		public SO_WordLanguage(
+			SerializationInfo info_in,
+			StreamingContext context_in
+		) {
+			idword_ = (long)info_in.GetValue("IDWord", typeof(long));
+			idlanguage_ = (long)info_in.GetValue("IDLanguage", typeof(long));
+			translation_ = (string)info_in.GetValue("Translation", typeof(string));
+			Translation_isNull = (string)info_in.GetValue("Translation_isNull", typeof(string));
 		}
 		#endregion
 
@@ -256,6 +267,17 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 					haschanges_ = true;
 				}
 			}
+		}
+		#endregion
+		#endregion
+
+		#region Methods...
+		#region public void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
+		public void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
+			info_in.AddValue("IDWord", idword_);
+			info_in.AddValue("IDLanguage", idlanguage_);
+			info_in.AddValue("Translation", translation_);
+			info_in.AddValue("Translation_isNull", Translation_isNull);
 		}
 		#endregion
 		#endregion

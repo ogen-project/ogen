@@ -14,6 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
@@ -48,7 +49,8 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	/// <summary>
 	/// Config SerializableObject which provides fields access at Config table at Database.
 	/// </summary>
-	public class SO_Config : ISO_Config {
+	[Serializable()]
+	public class SO_Config : ISO_Config, ISerializable {
 		#region public SO_Config();
 		public SO_Config(
 		) : this (
@@ -70,6 +72,15 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			config_ = Config_in;
 			type_ = Type_in;
 			description_ = Description_in;
+		}
+		public SO_Config(
+			SerializationInfo info_in,
+			StreamingContext context_in
+		) {
+			name_ = (string)info_in.GetValue("Name", typeof(string));
+			config_ = (string)info_in.GetValue("Config", typeof(string));
+			type_ = (int)info_in.GetValue("Type", typeof(int));
+			description_ = (string)info_in.GetValue("Description", typeof(string));
 		}
 		#endregion
 
@@ -291,6 +302,17 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 					haschanges_ = true;
 				}
 			}
+		}
+		#endregion
+		#endregion
+
+		#region Methods...
+		#region public void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
+		public void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
+			info_in.AddValue("Name", name_);
+			info_in.AddValue("Config", config_);
+			info_in.AddValue("Type", type_);
+			info_in.AddValue("Description", description_);
 		}
 		#endregion
 		#endregion

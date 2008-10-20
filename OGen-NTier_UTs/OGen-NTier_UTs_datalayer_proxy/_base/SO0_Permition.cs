@@ -14,6 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
@@ -40,7 +41,8 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	/// <summary>
 	/// Permition SerializableObject which provides fields access at Permition table at Database.
 	/// </summary>
-	public class SO_Permition : ISO_Permition {
+	[Serializable()]
+	public class SO_Permition : ISO_Permition, ISerializable {
 		#region public SO_Permition();
 		public SO_Permition(
 		) : this (
@@ -56,6 +58,13 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			//---
 			idpermition_ = IDPermition_in;
 			name_ = Name_in;
+		}
+		public SO_Permition(
+			SerializationInfo info_in,
+			StreamingContext context_in
+		) {
+			idpermition_ = (long)info_in.GetValue("IDPermition", typeof(long));
+			name_ = (string)info_in.GetValue("Name", typeof(string));
 		}
 		#endregion
 
@@ -175,6 +184,15 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 					haschanges_ = true;
 				}
 			}
+		}
+		#endregion
+		#endregion
+
+		#region Methods...
+		#region public void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
+		public void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
+			info_in.AddValue("IDPermition", idpermition_);
+			info_in.AddValue("Name", name_);
 		}
 		#endregion
 		#endregion

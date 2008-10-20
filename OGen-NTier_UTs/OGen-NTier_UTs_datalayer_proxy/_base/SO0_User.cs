@@ -81,11 +81,11 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			IDUser = (long)info_in.GetValue("IDUser", typeof(long));
-			Login = (string)info_in.GetValue("Login", typeof(string));
-			Password = (string)info_in.GetValue("Password", typeof(string));
-			SomeNullValue = (int)info_in.GetValue("SomeNullValue", typeof(int));
-			SomeNullValue_isNull = (bool)info_in.GetValue("SomeNullValue_isNull", typeof(bool));
+			iduser_ = (long)info_in.GetValue("IDUser", typeof(long));
+			login_ = (string)info_in.GetValue("Login", typeof(string));
+			password_ = (string)info_in.GetValue("Password", typeof(string));
+			somenullvalue_ = (int)info_in.GetValue("SomeNullValue", typeof(int));
+			SomeNullValue_isNull = (int)info_in.GetValue("SomeNullValue_isNull", typeof(int));
 		}
 		#endregion
 
@@ -330,12 +330,16 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#endregion
 
+		#region Methods...
+		#region public void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDUser", IDUser);
-			info_in.AddValue("Login", Login);
-			info_in.AddValue("Password", Password);
-			info_in.AddValue("SomeNullValue", SomeNullValue);
+			info_in.AddValue("IDUser", iduser_);
+			info_in.AddValue("Login", login_);
+			info_in.AddValue("Password", password_);
+			info_in.AddValue("SomeNullValue", somenullvalue_);
 			info_in.AddValue("SomeNullValue_isNull", SomeNullValue_isNull);
 		}
+		#endregion
+		#endregion
 	}
 }

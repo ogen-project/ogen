@@ -14,6 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
@@ -40,7 +41,8 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	/// <summary>
 	/// GroupPermition SerializableObject which provides fields access at GroupPermition table at Database.
 	/// </summary>
-	public class SO_GroupPermition : ISO_GroupPermition {
+	[Serializable()]
+	public class SO_GroupPermition : ISO_GroupPermition, ISerializable {
 		#region public SO_GroupPermition();
 		public SO_GroupPermition(
 		) : this (
@@ -56,6 +58,13 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			//---
 			idgroup_ = IDGroup_in;
 			idpermition_ = IDPermition_in;
+		}
+		public SO_GroupPermition(
+			SerializationInfo info_in,
+			StreamingContext context_in
+		) {
+			idgroup_ = (long)info_in.GetValue("IDGroup", typeof(long));
+			idpermition_ = (long)info_in.GetValue("IDPermition", typeof(long));
 		}
 		#endregion
 
@@ -173,6 +182,15 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 					haschanges_ = true;
 				}
 			}
+		}
+		#endregion
+		#endregion
+
+		#region Methods...
+		#region public void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
+		public void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
+			info_in.AddValue("IDGroup", idgroup_);
+			info_in.AddValue("IDPermition", idpermition_);
 		}
 		#endregion
 		#endregion

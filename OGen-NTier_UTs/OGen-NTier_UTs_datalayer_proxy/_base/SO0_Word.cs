@@ -14,6 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
@@ -44,7 +45,8 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	/// <summary>
 	/// Word SerializableObject which provides fields access at Word table at Database.
 	/// </summary>
-	public class SO_Word : ISO_Word {
+	[Serializable()]
+	public class SO_Word : ISO_Word, ISerializable {
 		#region public SO_Word();
 		public SO_Word(
 		) : this (
@@ -60,6 +62,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			//---
 			idword_ = IDWord_in;
 			deletethistestfield_ = DeleteThisTestField_in;
+		}
+		public SO_Word(
+			SerializationInfo info_in,
+			StreamingContext context_in
+		) {
+			idword_ = (long)info_in.GetValue("IDWord", typeof(long));
+			deletethistestfield_ = (bool)info_in.GetValue("DeleteThisTestField", typeof(bool));
+			DeleteThisTestField_isNull = (bool)info_in.GetValue("DeleteThisTestField_isNull", typeof(bool));
 		}
 		#endregion
 
@@ -198,6 +208,16 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 					haschanges_ = true;
 				}
 			}
+		}
+		#endregion
+		#endregion
+
+		#region Methods...
+		#region public void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
+		public void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
+			info_in.AddValue("IDWord", idword_);
+			info_in.AddValue("DeleteThisTestField", deletethistestfield_);
+			info_in.AddValue("DeleteThisTestField_isNull", DeleteThisTestField_isNull);
 		}
 		#endregion
 		#endregion

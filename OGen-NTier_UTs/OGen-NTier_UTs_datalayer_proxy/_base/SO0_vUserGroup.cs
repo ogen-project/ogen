@@ -14,6 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
@@ -52,7 +53,8 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	/// <summary>
 	/// vUserGroup SerializableObject which provides fields access at vUserGroup view at Database.
 	/// </summary>
-	public class SO_vUserGroup : ISO_vUserGroup {
+	[Serializable()]
+	public class SO_vUserGroup : ISO_vUserGroup, ISerializable {
 		#region public SO_vUserGroup();
 		public SO_vUserGroup(
 		) : this (
@@ -77,6 +79,16 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			idgroup_ = IDGroup_in;
 			name_ = Name_in;
 			relationdate_ = Relationdate_in;
+		}
+		public SO_vUserGroup(
+			SerializationInfo info_in,
+			StreamingContext context_in
+		) {
+			iduser_ = (long)info_in.GetValue("IDUser", typeof(long));
+			login_ = (string)info_in.GetValue("Login", typeof(string));
+			idgroup_ = (long)info_in.GetValue("IDGroup", typeof(long));
+			name_ = (string)info_in.GetValue("Name", typeof(string));
+			relationdate_ = (DateTime)info_in.GetValue("Relationdate", typeof(DateTime));
 		}
 		#endregion
 
@@ -345,6 +357,18 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 					haschanges_ = true;
 				}
 			}
+		}
+		#endregion
+		#endregion
+
+		#region Methods...
+		#region public void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
+		public void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
+			info_in.AddValue("IDUser", iduser_);
+			info_in.AddValue("Login", login_);
+			info_in.AddValue("IDGroup", idgroup_);
+			info_in.AddValue("Name", name_);
+			info_in.AddValue("Relationdate", relationdate_);
 		}
 		#endregion
 		#endregion

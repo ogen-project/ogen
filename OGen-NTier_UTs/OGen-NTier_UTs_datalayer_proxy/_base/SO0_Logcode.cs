@@ -14,6 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
@@ -56,7 +57,8 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	/// <summary>
 	/// Logcode SerializableObject which provides fields access at Logcode table at Database.
 	/// </summary>
-	public class SO_Logcode : ISO_Logcode {
+	[Serializable()]
+	public class SO_Logcode : ISO_Logcode, ISerializable {
 		#region public SO_Logcode();
 		public SO_Logcode(
 		) : this (
@@ -81,6 +83,17 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			error_ = Error_in;
 			code_ = Code_in;
 			description_ = Description_in;
+		}
+		public SO_Logcode(
+			SerializationInfo info_in,
+			StreamingContext context_in
+		) {
+			idlogcode_ = (long)info_in.GetValue("IDLogcode", typeof(long));
+			warning_ = (bool)info_in.GetValue("Warning", typeof(bool));
+			error_ = (bool)info_in.GetValue("Error", typeof(bool));
+			code_ = (string)info_in.GetValue("Code", typeof(string));
+			description_ = (string)info_in.GetValue("Description", typeof(string));
+			Description_isNull = (string)info_in.GetValue("Description_isNull", typeof(string));
 		}
 		#endregion
 
@@ -370,6 +383,19 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 					haschanges_ = true;
 				}
 			}
+		}
+		#endregion
+		#endregion
+
+		#region Methods...
+		#region public void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
+		public void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
+			info_in.AddValue("IDLogcode", idlogcode_);
+			info_in.AddValue("Warning", warning_);
+			info_in.AddValue("Error", error_);
+			info_in.AddValue("Code", code_);
+			info_in.AddValue("Description", description_);
+			info_in.AddValue("Description_isNull", Description_isNull);
 		}
 		#endregion
 		#endregion
