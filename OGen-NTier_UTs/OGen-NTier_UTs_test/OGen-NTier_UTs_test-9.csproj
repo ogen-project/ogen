@@ -115,6 +115,14 @@
       <Project>{4F18877D-A981-426B-8A09-5EDF95E9AE2B}</Project>
       <Name>OGen-NTier_UTs_datalayer_UTs-8</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OGen-NTier_UTs_remoting_client\OGen-NTier_UTs_remoting_client-9.csproj">
+      <Project>{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}</Project>
+      <Name>OGen-NTier_UTs_remoting_client-9</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OGen-NTier_UTs_webservices_client\OGen-NTier_UTs_webservices_client-9.csproj">
+      <Project>{3E90C87B-1643-4323-8A50-96000EBFD406}</Project>
+      <Name>OGen-NTier_UTs_webservices_client-9</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

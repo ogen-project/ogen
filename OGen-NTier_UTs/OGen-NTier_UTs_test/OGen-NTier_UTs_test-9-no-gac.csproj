@@ -163,6 +163,10 @@
       <Project>{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}</Project>
       <Name>OGen-NTier_UTs_datalayer_proxy-9-no-gac</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OGen-NTier_UTs_remoting_client\OGen-NTier_UTs_remoting_client-9-no-gac.csproj">
+      <Project>{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}</Project>
+      <Name>OGen-NTier_UTs_remoting_client-9-no-gac</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OGen-NTier_UTs_webservices_client\OGen-NTier_UTs_webservices_client-9-no-gac.csproj">
       <Project>{3E90C87B-1643-4323-8A50-96000EBFD406}</Project>
       <Name>OGen-NTier_UTs_webservices_client-9-no-gac</Name>

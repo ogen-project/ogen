@@ -13,57 +13,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
-using System.Runtime.Remoting;
 
-using OGen.NTier.UTs.lib.businesslayer.proxy;
-
-namespace OGen.NTier.UTs.lib.distributed.remoting.client {
-	public abstract class RC0_User {
-		public RC0_User() {
-			bo_user_ = (IBO_User)RemotingServices.Connect(
-				typeof(IBO_User),
-				"tcp://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_User.remoting"
-				//"http://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_User.soap"
-			);
-		}
-
-		#region private Properties...
-		private IBO_User bo_user_;
-		#endregion
-		#region public Properties...
-		#endregion
-
-		#region private Methods...
-		#endregion
-		#region public Methods...
-		#region public long insObject(...);
-		public long insObject(
+namespace OGen.NTier.UTs.lib.businesslayer.proxy {
+	public interface IBO0_User {
+		long insObject(
 			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
 			bool selectIdentity_in,
-			out bool constraintExist_out,
-			string login_in
-		) {
-			return bo_user_.insObject(
-				user_in,
-				selectIdentity_in,
-				login_in, 
-				out constraintExist_out
-			);
-		}
-		#endregion
-		#region public OGen.NTier.UTs.lib.datalayer.proxy.SO_User getObject(...);
-		public OGen.NTier.UTs.lib.datalayer.proxy.SO_User getObject(
+			string login_in, 
+			out bool constraintExist_out
+		);
+		OGen.NTier.UTs.lib.datalayer.proxy.SO_User getObject(
 			long idUser_in,
-			out bool exists_out,
-			string login_in
-		) {
-			return bo_user_.getObject(
-				idUser_in,
-				login_in, 
-				out exists_out
-			);
-		}
-		#endregion
-		#endregion
+			string login_in, 
+			out bool exists_out
+		);
 	}
 }

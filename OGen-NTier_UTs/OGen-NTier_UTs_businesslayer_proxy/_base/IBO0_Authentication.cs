@@ -14,7 +14,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 
-namespace OGen.NTier.UTs.lib.distributed.remoting.client {
-	public class RC_User : RC0_User {
+namespace OGen.NTier.UTs.lib.businesslayer.proxy {
+	public interface IBO0_Authentication {
+		string Login(
+			string login_in,
+			string password_in
+		);
+		void Logout(
+		);
 	}
 }

@@ -32,10 +32,16 @@ using OGen.NTier.UTs.lib.businesslayer;
 using WS_Authentication = OGen.NTier.UTs.lib.distributed.webservices.client.WS_Authentication;
 using WS_User = OGen.NTier.UTs.lib.distributed.webservices.client.WS_User;
 
+using OGen.NTier.UTs.lib.distributed.remoting.client;
+
 namespace OGen.NTier.UTs.test {
 	class MainClass {
 		[STAThread]
 		static void Main(string[] args) {
+			RC_User _rc_user = new RC_User();
+			RC_Authentication _rc_authentication = new RC_Authentication();
+			//_ro_user.insObject
+
 			DO_User _do_user = new DO_User();
 
 			WS_Authentication.WS_Authentication _ws_authentication 
@@ -50,12 +56,17 @@ namespace OGen.NTier.UTs.test {
 
 			string _login;
 			Console.WriteLine(
-				_login = _ws_authentication.Login(
-					"fmonteiro", 
-					"passpub"
-				)
+				_login = 
+					_rc_authentication
+					//_ws_authentication
+						.Login(
+							"fmonteiro", 
+							"passpub"
+						)
 			);
-			_ws_authentication.Logout();
+			_rc_authentication
+			//_ws_authentication
+				.Logout();
 
 			OGen.NTier.UTs.lib.datalayer.proxy.ISO_User _so_user 
 				= new OGen.NTier.UTs.lib.datalayer.proxy.SO_User(
@@ -74,12 +85,15 @@ namespace OGen.NTier.UTs.test {
 			bool _constraintExists;
 			Console.WriteLine(
 				"id:{0}; constraintExists:{1};",
-				_iduser = _ws_user.insObject(
-					(SO_User)_so_user,
-					true, 
-					_login, 
-					out _constraintExists
-				),
+				_iduser =
+					_rc_user
+					//_ws_user
+					.insObject(
+						(SO_User)_so_user,
+						true, 
+						out _constraintExists,
+						_login
+					),
 				_constraintExists
 			);
 			//_do_user.Fields = (SO_User)_so_user;
@@ -89,11 +103,14 @@ namespace OGen.NTier.UTs.test {
 			//);
 
 			bool _exists;
-			_so_user = _ws_user.getObject(
-				_iduser, 
-				_login, 
-				out _exists
-			);
+			_so_user =
+				_rc_user
+				//_ws_user
+				.getObject(
+					_iduser, 
+					out _exists,
+					_login
+				);
 			Console.WriteLine(
 				_so_user.SomeNullValue_isNull
 			);

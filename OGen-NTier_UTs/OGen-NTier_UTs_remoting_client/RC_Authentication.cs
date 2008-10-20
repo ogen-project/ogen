@@ -14,7 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 
-namespace OGen.NTier.UTs.distributed.remoting.client {
+namespace OGen.NTier.UTs.lib.distributed.remoting.client {
 	public class RC_Authentication : RC0_Authentication {
 	}
 }

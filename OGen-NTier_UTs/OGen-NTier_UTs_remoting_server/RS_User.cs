@@ -15,6 +15,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 
 namespace OGen.NTier.UTs.lib.distributed.remoting.server {
-	public class RS_User : RS0_User {
+	public class RS_User : RS0_User, OGen.NTier.UTs.lib.businesslayer.proxy.IBO_User {
 	}
 }
