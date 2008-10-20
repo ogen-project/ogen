@@ -196,6 +196,10 @@
       <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
       <Name>OGen_datalayer__base-9</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OGen-NTier_UTs_businesslayer_proxy\OGen-NTier_UTs_businesslayer_proxy-9-no-gac.csproj">
+      <Project>{ADA0411C-8645-4AA0-BFF3-5359E111D98A}</Project>
+      <Name>OGen-NTier_UTs_businesslayer_proxy-9-no-gac</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OGen-NTier_UTs_datalayer\OGen-NTier_UTs_datalayer-9-no-gac.csproj">
       <Project>{2C45EF1A-75BE-4B12-A232-62DEB5662239}</Project>
       <Name>OGen-NTier_UTs_datalayer-9-no-gac</Name>
