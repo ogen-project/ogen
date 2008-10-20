@@ -16,6 +16,7 @@ using System;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using OGen.NTier.UTs.lib.distributed.webservices.client;
+using OGen.NTier.UTs.lib.businesslayer.proxy;
 
 namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_User {
 	/// <remarks/>
@@ -25,7 +26,7 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_User {
 		Name = "WS_UserSoap", 
 		Namespace = "http://OGen.NTier.UTs.distributed.webservices.server"
 	)]
-	public abstract class WS0_User : WS__base {
+	public abstract class WS0_User : WS__base, IBO_User {
 		#region public WS0_User(...);
 		public WS0_User(
 			string url_in
@@ -58,7 +59,7 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_User {
 				"insObject", 
 				new object[] {
 					user_in, 
-					selectIdentity_in,
+					selectIdentity_in, 
 					login_in
 				}
 			);

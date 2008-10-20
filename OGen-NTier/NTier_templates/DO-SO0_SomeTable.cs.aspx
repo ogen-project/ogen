@@ -59,6 +59,7 @@ using System.Runtime.Serialization;
 using OGen.NTier.lib.datalayer;
 
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
+	#region public interface ISO_<%=_aux_db_table.Name%>;
 	/// <summary>
 	/// Interface for <%=_aux_db_table.Name%> SerializableObject.
 	/// </summary>
@@ -70,20 +71,21 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 <%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
-			_aux_ex_field = _aux_db_field.parallel_ref;
+			_aux_ex_field = _aux_db_field.parallel_ref;%>
 
+		/// <summary>
+		/// <%=_aux_db_table.Name%>'s <%=_aux_db_field.Name%>.
+		/// </summary>
+		<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%> { get; set; }<%
 			if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%>
 		/// <summary>
 		/// Allows assignement of null and check if null at <%=_aux_db_table.Name%>'s <%=_aux_db_field.Name%>.
 		/// </summary>
 		bool <%=_aux_db_field.Name%>_isNull { get; set; }<%
-			}%>
-		/// <summary>
-		/// <%=_aux_db_table.Name%>'s <%=_aux_db_field.Name%>.
-		/// </summary>
-		<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%> { get; set; }<%
+			}
 		}%>
 	}
+	#endregion
 
 	/// <summary>
 	/// <%=_aux_db_table.Name%> SerializableObject which provides fields access at <%=_aux_db_table.Name%> <%=(_aux_db_table.isVirtualTable) ? "view" : "table"%> at Database.
@@ -107,7 +109,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 		}%>
 		) {
 			haschanges_ = false;
-			//---<%
+<%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
 			<%=_aux_db_field.Name.ToLower()%>_ = <%=_aux_db_field.Name%>_in;<%
@@ -116,7 +118,9 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 		public SO_<%=_aux_db_table.Name%>(
 			SerializationInfo info_in,
 			StreamingContext context_in
-		) {<%
+		) {
+			haschanges_ = false;
+<%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
 			<%=_aux_db_field.Name.ToLower()%>_ = (<%=_aux_db_field.DBType_generic.FWType%>)info_in.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>));<%
@@ -130,12 +134,14 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 		#region Properties...
 		#region public bool hasChanges { get; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_<%=_aux_db_table.Name%> properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public 
 #if NET_1_1
 			virtual 
@@ -147,42 +153,17 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 		//---<%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
-			_aux_ex_field = _aux_db_field.parallel_ref;
-
-			if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%>
-		#region public bool <%=_aux_db_field.Name%>_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at <%=_aux_db_table.Name%>'s <%=_aux_db_field.Name%>.
-		/// </summary>
-		[XmlElement("<%=_aux_db_field.Name%>_isNull")]
-		public 
-#if NET_1_1
-			virtual 
-#endif
-		bool <%=_aux_db_field.Name%>_isNull {
-			get { return (<%=_aux_db_field.Name.ToLower()%>_ == null); }<%
-			// ToDos: here! fmonteiro
-			if (true || !_aux_db_table.isVirtualTable) {%>
-			set {
-				//if (value) <%=_aux_db_field.Name.ToLower()%>_ = null;
-
-				if ((value) && (<%=_aux_db_field.Name.ToLower()%>_ != null)) {
-					<%=_aux_db_field.Name.ToLower()%>_ = null;
-					haschanges_ = true;
-				}
-			}<%
-			}%>
-		}
-		#endregion<%
-			}%>
+			_aux_ex_field = _aux_db_field.parallel_ref;%>
 		#region public <%=_aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%> { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public <%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name.ToLower()%>_;// = <%=((_aux_ex_field == null) || (_aux_ex_field.DefaultValue == "")) ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_ex_field.DefaultValue%>;
 		
 		/// <summary>
 		/// <%=_aux_db_table.Name%>'s <%=_aux_db_field.Name%>.
 		/// </summary>
 		[XmlElement("<%=_aux_db_field.Name%>")]
+		[SoapElement("<%=_aux_db_field.Name%>")]
 		[DOPropertyAttribute(
 			"<%=_aux_db_field.Name%>", 
 			"<%=(_aux_ex_field == null) ? "" : _aux_ex_field.FriendlyName%>", 
@@ -234,6 +215,33 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 			}
 		}
 		#endregion<%
+			if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%>
+		#region public bool <%=_aux_db_field.Name%>_isNull { get; set; }
+		/// <summary>
+		/// Allows assignement of null and check if null at <%=_aux_db_table.Name%>'s <%=_aux_db_field.Name%>.
+		/// </summary>
+		[XmlElement("<%=_aux_db_field.Name%>_isNull")]
+		[SoapElement("<%=_aux_db_field.Name%>_isNull")]
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		bool <%=_aux_db_field.Name%>_isNull {
+			get { return (<%=_aux_db_field.Name.ToLower()%>_ == null); }<%
+			// ToDos: here! fmonteiro
+			if (true || !_aux_db_table.isVirtualTable) {%>
+			set {
+				//if (value) <%=_aux_db_field.Name.ToLower()%>_ = null;
+
+				if ((value) && (<%=_aux_db_field.Name.ToLower()%>_ != null)) {
+					<%=_aux_db_field.Name.ToLower()%>_ = null;
+					haschanges_ = true;
+				}
+			}<%
+			}%>
+		}
+		#endregion<%
+			}
 		}%>
 		#endregion
 

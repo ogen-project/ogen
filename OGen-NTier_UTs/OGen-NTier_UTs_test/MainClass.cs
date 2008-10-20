@@ -42,7 +42,8 @@ namespace OGen.NTier.UTs.test {
 			IBO_Authentication _authentication;
 			IBO_User _user;
 
-			if (true) {
+			if (false) {
+				Console.WriteLine("remoting...");
 				_authentication
 					= new RC_Authentication(
 						"tcp://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_Authentication.remoting"
@@ -54,6 +55,7 @@ namespace OGen.NTier.UTs.test {
 						//"http://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_User.soap"
 					);
 			} else {
+				Console.WriteLine("webservices...");
 				_authentication
 					= new WS_Authentication.WS_Authentication(
 						"http://localhost:2937/WS_Authentication.asmx"

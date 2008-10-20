@@ -20,12 +20,13 @@ using System.Web.Services;
 using System.Web.Services.Protocols;
 
 using OGen.NTier.UTs.lib.businesslayer;
+using OGen.NTier.UTs.lib.businesslayer.proxy;
 
 namespace OGen.NTier.UTs.distributed.webservices.server {
 	/// <summary>
 	/// Authentication web service.
 	/// </summary>
-	public class WS0_Authentication : System.Web.Services.WebService {
+	public class WS0_Authentication : System.Web.Services.WebService, IBO_Authentication {
 		#region private Properties...
 		#endregion
 		#region public Properties...

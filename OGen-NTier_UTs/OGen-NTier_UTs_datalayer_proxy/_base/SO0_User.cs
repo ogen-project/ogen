@@ -19,6 +19,7 @@ using System.Runtime.Serialization;
 using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	#region public interface ISO_User;
 	/// <summary>
 	/// Interface for User SerializableObject.
 	/// </summary>
@@ -41,14 +42,15 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		/// </summary>
 		string Password { get; set; }
 		/// <summary>
-		/// Allows assignement of null and check if null at User's SomeNullValue.
-		/// </summary>
-		bool SomeNullValue_isNull { get; set; }
-		/// <summary>
 		/// User's SomeNullValue.
 		/// </summary>
 		int SomeNullValue { get; set; }
+		/// <summary>
+		/// Allows assignement of null and check if null at User's SomeNullValue.
+		/// </summary>
+		bool SomeNullValue_isNull { get; set; }
 	}
+	#endregion
 
 	/// <summary>
 	/// User SerializableObject which provides fields access at User table at Database.
@@ -71,7 +73,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			int SomeNullValue_in
 		) {
 			haschanges_ = false;
-			//---
+
 			iduser_ = IDUser_in;
 			login_ = Login_in;
 			password_ = Password_in;
@@ -81,6 +83,8 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
+			haschanges_ = false;
+
 			iduser_ = (long)info_in.GetValue("IDUser", typeof(long));
 			login_ = (string)info_in.GetValue("Login", typeof(string));
 			password_ = (string)info_in.GetValue("Password", typeof(string));
@@ -115,6 +119,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		/// User's IDUser.
 		/// </summary>
 		[XmlElement("IDUser")]
+		[SoapElement("IDUser")]
 		[DOPropertyAttribute(
 			"IDUser", 
 			"", 
@@ -164,6 +169,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		/// User's Login.
 		/// </summary>
 		[XmlElement("Login")]
+		[SoapElement("Login")]
 		[DOPropertyAttribute(
 			"Login", 
 			"", 
@@ -215,6 +221,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		/// User's Password.
 		/// </summary>
 		[XmlElement("Password")]
+		[SoapElement("Password")]
 		[DOPropertyAttribute(
 			"Password", 
 			"", 
@@ -258,27 +265,6 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			}
 		}
 		#endregion
-		#region public bool SomeNullValue_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at User's SomeNullValue.
-		/// </summary>
-		[XmlElement("SomeNullValue_isNull")]
-		public 
-#if NET_1_1
-			virtual 
-#endif
-		bool SomeNullValue_isNull {
-			get { return (somenullvalue_ == null); }
-			set {
-				//if (value) somenullvalue_ = null;
-
-				if ((value) && (somenullvalue_ != null)) {
-					somenullvalue_ = null;
-					haschanges_ = true;
-				}
-			}
-		}
-		#endregion
 		#region public int SomeNullValue { get; set; }
 		[XmlIgnore()]
 		public object somenullvalue_;// = 0;
@@ -287,6 +273,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		/// User's SomeNullValue.
 		/// </summary>
 		[XmlElement("SomeNullValue")]
+		[SoapElement("SomeNullValue")]
 		[DOPropertyAttribute(
 			"SomeNullValue", 
 			"", 
@@ -323,6 +310,28 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 					(!value.Equals(somenullvalue_))
 				) {
 					somenullvalue_ = value;
+					haschanges_ = true;
+				}
+			}
+		}
+		#endregion
+		#region public bool SomeNullValue_isNull { get; set; }
+		/// <summary>
+		/// Allows assignement of null and check if null at User's SomeNullValue.
+		/// </summary>
+		[XmlElement("SomeNullValue_isNull")]
+		[SoapElement("SomeNullValue_isNull")]
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		bool SomeNullValue_isNull {
+			get { return (somenullvalue_ == null); }
+			set {
+				//if (value) somenullvalue_ = null;
+
+				if ((value) && (somenullvalue_ != null)) {
+					somenullvalue_ = null;
 					haschanges_ = true;
 				}
 			}
