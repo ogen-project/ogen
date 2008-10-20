@@ -19,6 +19,7 @@ using System.Runtime.Serialization;
 using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	#region public interface ISO_Word;
 	/// <summary>
 	/// Interface for Word SerializableObject.
 	/// </summary>
@@ -32,15 +33,17 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		/// Word's IDWord.
 		/// </summary>
 		long IDWord { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at Word's DeleteThisTestField.
-		/// </summary>
-		bool DeleteThisTestField_isNull { get; set; }
+
 		/// <summary>
 		/// Word's DeleteThisTestField.
 		/// </summary>
 		bool DeleteThisTestField { get; set; }
+		/// <summary>
+		/// Allows assignement of null and check if null at Word's DeleteThisTestField.
+		/// </summary>
+		bool DeleteThisTestField_isNull { get; set; }
 	}
+	#endregion
 
 	/// <summary>
 	/// Word SerializableObject which provides fields access at Word table at Database.
@@ -59,7 +62,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			bool DeleteThisTestField_in
 		) {
 			haschanges_ = false;
-			//---
+
 			idword_ = IDWord_in;
 			deletethistestfield_ = DeleteThisTestField_in;
 		}
@@ -67,6 +70,8 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
+			haschanges_ = false;
+
 			idword_ = (long)info_in.GetValue("IDWord", typeof(long));
 			deletethistestfield_ = (bool)info_in.GetValue("DeleteThisTestField", typeof(bool));
 			DeleteThisTestField_isNull = (bool)info_in.GetValue("DeleteThisTestField_isNull", typeof(bool));
@@ -76,12 +81,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#region Properties...
 		#region public bool hasChanges { get; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_Word properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public 
 #if NET_1_1
 			virtual 
@@ -93,12 +100,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		//---
 		#region public long IDWord { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public long idword_;// = 0L;
 		
 		/// <summary>
 		/// Word's IDWord.
 		/// </summary>
 		[XmlElement("IDWord")]
+		[SoapElement("IDWord")]
 		[DOPropertyAttribute(
 			"IDWord", 
 			"", 
@@ -140,35 +149,16 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			}
 		}
 		#endregion
-		#region public bool DeleteThisTestField_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at Word's DeleteThisTestField.
-		/// </summary>
-		[XmlElement("DeleteThisTestField_isNull")]
-		public 
-#if NET_1_1
-			virtual 
-#endif
-		bool DeleteThisTestField_isNull {
-			get { return (deletethistestfield_ == null); }
-			set {
-				//if (value) deletethistestfield_ = null;
-
-				if ((value) && (deletethistestfield_ != null)) {
-					deletethistestfield_ = null;
-					haschanges_ = true;
-				}
-			}
-		}
-		#endregion
 		#region public bool DeleteThisTestField { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public object deletethistestfield_;// = false;
 		
 		/// <summary>
 		/// Word's DeleteThisTestField.
 		/// </summary>
 		[XmlElement("DeleteThisTestField")]
+		[SoapElement("DeleteThisTestField")]
 		[DOPropertyAttribute(
 			"DeleteThisTestField", 
 			"", 
@@ -205,6 +195,28 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 					(!value.Equals(deletethistestfield_))
 				) {
 					deletethistestfield_ = value;
+					haschanges_ = true;
+				}
+			}
+		}
+		#endregion
+		#region public bool DeleteThisTestField_isNull { get; set; }
+		/// <summary>
+		/// Allows assignement of null and check if null at Word's DeleteThisTestField.
+		/// </summary>
+		[XmlElement("DeleteThisTestField_isNull")]
+		[SoapElement("DeleteThisTestField_isNull")]
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		bool DeleteThisTestField_isNull {
+			get { return (deletethistestfield_ == null); }
+			set {
+				//if (value) deletethistestfield_ = null;
+
+				if ((value) && (deletethistestfield_ != null)) {
+					deletethistestfield_ = null;
 					haschanges_ = true;
 				}
 			}

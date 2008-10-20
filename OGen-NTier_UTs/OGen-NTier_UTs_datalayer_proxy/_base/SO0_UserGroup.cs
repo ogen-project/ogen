@@ -19,6 +19,7 @@ using System.Runtime.Serialization;
 using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	#region public interface ISO_UserGroup;
 	/// <summary>
 	/// Interface for UserGroup SerializableObject.
 	/// </summary>
@@ -32,27 +33,31 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		/// UserGroup's IDUser.
 		/// </summary>
 		long IDUser { get; set; }
+
 		/// <summary>
 		/// UserGroup's IDGroup.
 		/// </summary>
 		long IDGroup { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at UserGroup's Relationdate.
-		/// </summary>
-		bool Relationdate_isNull { get; set; }
+
 		/// <summary>
 		/// UserGroup's Relationdate.
 		/// </summary>
 		DateTime Relationdate { get; set; }
 		/// <summary>
-		/// Allows assignement of null and check if null at UserGroup's Defaultrelation.
+		/// Allows assignement of null and check if null at UserGroup's Relationdate.
 		/// </summary>
-		bool Defaultrelation_isNull { get; set; }
+		bool Relationdate_isNull { get; set; }
+
 		/// <summary>
 		/// UserGroup's Defaultrelation.
 		/// </summary>
 		bool Defaultrelation { get; set; }
+		/// <summary>
+		/// Allows assignement of null and check if null at UserGroup's Defaultrelation.
+		/// </summary>
+		bool Defaultrelation_isNull { get; set; }
 	}
+	#endregion
 
 	/// <summary>
 	/// UserGroup SerializableObject which provides fields access at UserGroup table at Database.
@@ -75,7 +80,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			bool Defaultrelation_in
 		) {
 			haschanges_ = false;
-			//---
+
 			iduser_ = IDUser_in;
 			idgroup_ = IDGroup_in;
 			relationdate_ = Relationdate_in;
@@ -85,6 +90,8 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
+			haschanges_ = false;
+
 			iduser_ = (long)info_in.GetValue("IDUser", typeof(long));
 			idgroup_ = (long)info_in.GetValue("IDGroup", typeof(long));
 			relationdate_ = (DateTime)info_in.GetValue("Relationdate", typeof(DateTime));
@@ -97,12 +104,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#region Properties...
 		#region public bool hasChanges { get; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_UserGroup properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public 
 #if NET_1_1
 			virtual 
@@ -114,12 +123,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		//---
 		#region public long IDUser { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public long iduser_;// = 0L;
 		
 		/// <summary>
 		/// UserGroup's IDUser.
 		/// </summary>
 		[XmlElement("IDUser")]
+		[SoapElement("IDUser")]
 		[DOPropertyAttribute(
 			"IDUser", 
 			"", 
@@ -163,12 +174,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public long IDGroup { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public long idgroup_;// = 0L;
 		
 		/// <summary>
 		/// UserGroup's IDGroup.
 		/// </summary>
 		[XmlElement("IDGroup")]
+		[SoapElement("IDGroup")]
 		[DOPropertyAttribute(
 			"IDGroup", 
 			"", 
@@ -210,35 +223,16 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			}
 		}
 		#endregion
-		#region public bool Relationdate_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at UserGroup's Relationdate.
-		/// </summary>
-		[XmlElement("Relationdate_isNull")]
-		public 
-#if NET_1_1
-			virtual 
-#endif
-		bool Relationdate_isNull {
-			get { return (relationdate_ == null); }
-			set {
-				//if (value) relationdate_ = null;
-
-				if ((value) && (relationdate_ != null)) {
-					relationdate_ = null;
-					haschanges_ = true;
-				}
-			}
-		}
-		#endregion
 		#region public DateTime Relationdate { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public object relationdate_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>
 		/// UserGroup's Relationdate.
 		/// </summary>
 		[XmlElement("Relationdate")]
+		[SoapElement("Relationdate")]
 		[DOPropertyAttribute(
 			"Relationdate", 
 			"", 
@@ -280,22 +274,23 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			}
 		}
 		#endregion
-		#region public bool Defaultrelation_isNull { get; set; }
+		#region public bool Relationdate_isNull { get; set; }
 		/// <summary>
-		/// Allows assignement of null and check if null at UserGroup's Defaultrelation.
+		/// Allows assignement of null and check if null at UserGroup's Relationdate.
 		/// </summary>
-		[XmlElement("Defaultrelation_isNull")]
+		[XmlElement("Relationdate_isNull")]
+		[SoapElement("Relationdate_isNull")]
 		public 
 #if NET_1_1
 			virtual 
 #endif
-		bool Defaultrelation_isNull {
-			get { return (defaultrelation_ == null); }
+		bool Relationdate_isNull {
+			get { return (relationdate_ == null); }
 			set {
-				//if (value) defaultrelation_ = null;
+				//if (value) relationdate_ = null;
 
-				if ((value) && (defaultrelation_ != null)) {
-					defaultrelation_ = null;
+				if ((value) && (relationdate_ != null)) {
+					relationdate_ = null;
 					haschanges_ = true;
 				}
 			}
@@ -303,12 +298,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public bool Defaultrelation { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public object defaultrelation_;// = false;
 		
 		/// <summary>
 		/// UserGroup's Defaultrelation.
 		/// </summary>
 		[XmlElement("Defaultrelation")]
+		[SoapElement("Defaultrelation")]
 		[DOPropertyAttribute(
 			"Defaultrelation", 
 			"", 
@@ -345,6 +342,28 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 					(!value.Equals(defaultrelation_))
 				) {
 					defaultrelation_ = value;
+					haschanges_ = true;
+				}
+			}
+		}
+		#endregion
+		#region public bool Defaultrelation_isNull { get; set; }
+		/// <summary>
+		/// Allows assignement of null and check if null at UserGroup's Defaultrelation.
+		/// </summary>
+		[XmlElement("Defaultrelation_isNull")]
+		[SoapElement("Defaultrelation_isNull")]
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		bool Defaultrelation_isNull {
+			get { return (defaultrelation_ == null); }
+			set {
+				//if (value) defaultrelation_ = null;
+
+				if ((value) && (defaultrelation_ != null)) {
+					defaultrelation_ = null;
 					haschanges_ = true;
 				}
 			}

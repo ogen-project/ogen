@@ -19,6 +19,7 @@ using System.Runtime.Serialization;
 using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	#region public interface ISO_Language;
 	/// <summary>
 	/// Interface for Language SerializableObject.
 	/// </summary>
@@ -32,11 +33,13 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		/// Language's IDLanguage.
 		/// </summary>
 		long IDLanguage { get; set; }
+
 		/// <summary>
 		/// Language's IDWord_name.
 		/// </summary>
 		long IDWord_name { get; set; }
 	}
+	#endregion
 
 	/// <summary>
 	/// Language SerializableObject which provides fields access at Language table at Database.
@@ -55,7 +58,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			long IDWord_name_in
 		) {
 			haschanges_ = false;
-			//---
+
 			idlanguage_ = IDLanguage_in;
 			idword_name_ = IDWord_name_in;
 		}
@@ -63,6 +66,8 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
+			haschanges_ = false;
+
 			idlanguage_ = (long)info_in.GetValue("IDLanguage", typeof(long));
 			idword_name_ = (long)info_in.GetValue("IDWord_name", typeof(long));
 		}
@@ -71,12 +76,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#region Properties...
 		#region public bool hasChanges { get; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_Language properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public 
 #if NET_1_1
 			virtual 
@@ -88,12 +95,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		//---
 		#region public long IDLanguage { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public long idlanguage_;// = 0L;
 		
 		/// <summary>
 		/// Language's IDLanguage.
 		/// </summary>
 		[XmlElement("IDLanguage")]
+		[SoapElement("IDLanguage")]
 		[DOPropertyAttribute(
 			"IDLanguage", 
 			"", 
@@ -137,12 +146,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public long IDWord_name { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public long idword_name_;// = 0L;
 		
 		/// <summary>
 		/// Language's IDWord_name.
 		/// </summary>
 		[XmlElement("IDWord_name")]
+		[SoapElement("IDWord_name")]
 		[DOPropertyAttribute(
 			"IDWord_name", 
 			"", 

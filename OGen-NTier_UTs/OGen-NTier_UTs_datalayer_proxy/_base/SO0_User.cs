@@ -33,14 +33,17 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		/// User's IDUser.
 		/// </summary>
 		long IDUser { get; set; }
+
 		/// <summary>
 		/// User's Login.
 		/// </summary>
 		string Login { get; set; }
+
 		/// <summary>
 		/// User's Password.
 		/// </summary>
 		string Password { get; set; }
+
 		/// <summary>
 		/// User's SomeNullValue.
 		/// </summary>
@@ -96,12 +99,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#region Properties...
 		#region public bool hasChanges { get; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_User properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public 
 #if NET_1_1
 			virtual 
@@ -164,6 +169,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public string Login { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public string login_;// = string.Empty;
 		
 		/// <summary>
@@ -216,6 +222,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public string Password { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public string password_;// = string.Empty;
 		
 		/// <summary>
@@ -268,6 +275,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public int SomeNullValue { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public object somenullvalue_;// = 0;
 		
 		/// <summary>

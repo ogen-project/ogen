@@ -19,6 +19,7 @@ using System.Runtime.Serialization;
 using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	#region public interface ISO_Permition;
 	/// <summary>
 	/// Interface for Permition SerializableObject.
 	/// </summary>
@@ -32,11 +33,13 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		/// Permition's IDPermition.
 		/// </summary>
 		long IDPermition { get; set; }
+
 		/// <summary>
 		/// Permition's Name.
 		/// </summary>
 		string Name { get; set; }
 	}
+	#endregion
 
 	/// <summary>
 	/// Permition SerializableObject which provides fields access at Permition table at Database.
@@ -55,7 +58,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			string Name_in
 		) {
 			haschanges_ = false;
-			//---
+
 			idpermition_ = IDPermition_in;
 			name_ = Name_in;
 		}
@@ -63,6 +66,8 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
+			haschanges_ = false;
+
 			idpermition_ = (long)info_in.GetValue("IDPermition", typeof(long));
 			name_ = (string)info_in.GetValue("Name", typeof(string));
 		}
@@ -71,12 +76,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#region Properties...
 		#region public bool hasChanges { get; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_Permition properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public 
 #if NET_1_1
 			virtual 
@@ -88,12 +95,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		//---
 		#region public long IDPermition { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public long idpermition_;// = 0L;
 		
 		/// <summary>
 		/// Permition's IDPermition.
 		/// </summary>
 		[XmlElement("IDPermition")]
+		[SoapElement("IDPermition")]
 		[DOPropertyAttribute(
 			"IDPermition", 
 			"", 
@@ -137,12 +146,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public string Name { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public string name_;// = string.Empty;
 		
 		/// <summary>
 		/// Permition's Name.
 		/// </summary>
 		[XmlElement("Name")]
+		[SoapElement("Name")]
 		[DOPropertyAttribute(
 			"Name", 
 			"", 

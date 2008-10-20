@@ -26,7 +26,7 @@ namespace OGen.NTier.UTs.distributed.webservices.server {
 	/// <summary>
 	/// User web service.
 	/// </summary>
-	public class WS0_User : System.Web.Services.WebService, IBO_User {
+	public class WS0_User : WebService, IBO_User {
 		#region private Properties...
 		#endregion
 		#region public Properties...
@@ -43,9 +43,7 @@ namespace OGen.NTier.UTs.distributed.webservices.server {
 			string login_in, 
 			out bool constraintExist_out
 		) {
-			BDO_User _businessobject = new BDO_User(
-				login_in
-			);
+			BO_User _businessobject = new BO_User();
 			return _businessobject.insObject(
 				user_in, 
 				selectIdentity_in, 
@@ -61,9 +59,7 @@ namespace OGen.NTier.UTs.distributed.webservices.server {
 			string login_in, 
 			out bool exists_out
 		) {
-			BDO_User _businessobject = new BDO_User(
-				login_in
-			);
+			BO_User _businessobject = new BO_User();
 			return _businessobject.getObject(
 				idUser_in, 
 				login_in, 

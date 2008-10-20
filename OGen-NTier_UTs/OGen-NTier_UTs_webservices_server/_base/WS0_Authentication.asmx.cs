@@ -26,7 +26,7 @@ namespace OGen.NTier.UTs.distributed.webservices.server {
 	/// <summary>
 	/// Authentication web service.
 	/// </summary>
-	public class WS0_Authentication : System.Web.Services.WebService, IBO_Authentication {
+	public class WS0_Authentication : WebService, IBO_Authentication {
 		#region private Properties...
 		#endregion
 		#region public Properties...

@@ -19,6 +19,7 @@ using System.Runtime.Serialization;
 using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	#region public interface ISO_Config;
 	/// <summary>
 	/// Interface for Config SerializableObject.
 	/// </summary>
@@ -32,19 +33,23 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		/// Config's Name.
 		/// </summary>
 		string Name { get; set; }
+
 		/// <summary>
 		/// Config's Config.
 		/// </summary>
 		string Config { get; set; }
+
 		/// <summary>
 		/// Config's Type.
 		/// </summary>
 		int Type { get; set; }
+
 		/// <summary>
 		/// Config's Description.
 		/// </summary>
 		string Description { get; set; }
 	}
+	#endregion
 
 	/// <summary>
 	/// Config SerializableObject which provides fields access at Config table at Database.
@@ -67,7 +72,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			string Description_in
 		) {
 			haschanges_ = false;
-			//---
+
 			name_ = Name_in;
 			config_ = Config_in;
 			type_ = Type_in;
@@ -77,6 +82,8 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
+			haschanges_ = false;
+
 			name_ = (string)info_in.GetValue("Name", typeof(string));
 			config_ = (string)info_in.GetValue("Config", typeof(string));
 			type_ = (int)info_in.GetValue("Type", typeof(int));
@@ -87,12 +94,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#region Properties...
 		#region public bool hasChanges { get; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_Config properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public 
 #if NET_1_1
 			virtual 
@@ -104,12 +113,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		//---
 		#region public string Name { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public string name_;// = string.Empty;
 		
 		/// <summary>
 		/// Config's Name.
 		/// </summary>
 		[XmlElement("Name")]
+		[SoapElement("Name")]
 		[DOPropertyAttribute(
 			"Name", 
 			"", 
@@ -155,12 +166,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public string Config { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public string config_;// = string.Empty;
 		
 		/// <summary>
 		/// Config's Config.
 		/// </summary>
 		[XmlElement("Config")]
+		[SoapElement("Config")]
 		[DOPropertyAttribute(
 			"Config", 
 			"", 
@@ -206,12 +219,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public int Type { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public int type_;// = 0;
 		
 		/// <summary>
 		/// Config's Type.
 		/// </summary>
 		[XmlElement("Type")]
+		[SoapElement("Type")]
 		[DOPropertyAttribute(
 			"Type", 
 			"", 
@@ -255,12 +270,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public string Description { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public string description_;// = string.Empty;
 		
 		/// <summary>
 		/// Config's Description.
 		/// </summary>
 		[XmlElement("Description")]
+		[SoapElement("Description")]
 		[DOPropertyAttribute(
 			"Description", 
 			"", 

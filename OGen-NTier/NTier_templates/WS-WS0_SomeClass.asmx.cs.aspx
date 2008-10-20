@@ -54,12 +54,13 @@ using System.Web.Services;
 using System.Web.Services.Protocols;
 
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.proxy;
 
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributed.webservices.server {
 	/// <summary>
 	/// <%=_aux_class.Name%> web service.
 	/// </summary>
-	public class WS0_<%=_aux_class.Name%> : System.Web.Services.WebService {
+	public class WS0_<%=_aux_class.Name%> : WebService, IBO_<%=_aux_class.Name%> {
 		#region private Properties...
 		#endregion
 		#region public Properties...

@@ -19,6 +19,7 @@ using System.Runtime.Serialization;
 using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	#region public interface ISO_Logcode;
 	/// <summary>
 	/// Interface for Logcode SerializableObject.
 	/// </summary>
@@ -32,27 +33,32 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		/// Logcode's IDLogcode.
 		/// </summary>
 		long IDLogcode { get; set; }
+
 		/// <summary>
 		/// Logcode's Warning.
 		/// </summary>
 		bool Warning { get; set; }
+
 		/// <summary>
 		/// Logcode's Error.
 		/// </summary>
 		bool Error { get; set; }
+
 		/// <summary>
 		/// Logcode's Code.
 		/// </summary>
 		string Code { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at Logcode's Description.
-		/// </summary>
-		bool Description_isNull { get; set; }
+
 		/// <summary>
 		/// Logcode's Description.
 		/// </summary>
 		string Description { get; set; }
+		/// <summary>
+		/// Allows assignement of null and check if null at Logcode's Description.
+		/// </summary>
+		bool Description_isNull { get; set; }
 	}
+	#endregion
 
 	/// <summary>
 	/// Logcode SerializableObject which provides fields access at Logcode table at Database.
@@ -77,7 +83,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			string Description_in
 		) {
 			haschanges_ = false;
-			//---
+
 			idlogcode_ = IDLogcode_in;
 			warning_ = Warning_in;
 			error_ = Error_in;
@@ -88,6 +94,8 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
+			haschanges_ = false;
+
 			idlogcode_ = (long)info_in.GetValue("IDLogcode", typeof(long));
 			warning_ = (bool)info_in.GetValue("Warning", typeof(bool));
 			error_ = (bool)info_in.GetValue("Error", typeof(bool));
@@ -100,12 +108,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#region Properties...
 		#region public bool hasChanges { get; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_Logcode properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public 
 #if NET_1_1
 			virtual 
@@ -117,12 +127,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		//---
 		#region public long IDLogcode { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public long idlogcode_;// = 0L;
 		
 		/// <summary>
 		/// Logcode's IDLogcode.
 		/// </summary>
 		[XmlElement("IDLogcode")]
+		[SoapElement("IDLogcode")]
 		[DOPropertyAttribute(
 			"IDLogcode", 
 			"", 
@@ -166,12 +178,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public bool Warning { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public bool warning_;// = false;
 		
 		/// <summary>
 		/// Logcode's Warning.
 		/// </summary>
 		[XmlElement("Warning")]
+		[SoapElement("Warning")]
 		[DOPropertyAttribute(
 			"Warning", 
 			"", 
@@ -215,12 +229,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public bool Error { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public bool error_;// = false;
 		
 		/// <summary>
 		/// Logcode's Error.
 		/// </summary>
 		[XmlElement("Error")]
+		[SoapElement("Error")]
 		[DOPropertyAttribute(
 			"Error", 
 			"", 
@@ -264,12 +280,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public string Code { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public string code_;// = string.Empty;
 		
 		/// <summary>
 		/// Logcode's Code.
 		/// </summary>
 		[XmlElement("Code")]
+		[SoapElement("Code")]
 		[DOPropertyAttribute(
 			"Code", 
 			"", 
@@ -313,35 +331,16 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			}
 		}
 		#endregion
-		#region public bool Description_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at Logcode's Description.
-		/// </summary>
-		[XmlElement("Description_isNull")]
-		public 
-#if NET_1_1
-			virtual 
-#endif
-		bool Description_isNull {
-			get { return (description_ == null); }
-			set {
-				//if (value) description_ = null;
-
-				if ((value) && (description_ != null)) {
-					description_ = null;
-					haschanges_ = true;
-				}
-			}
-		}
-		#endregion
 		#region public string Description { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public object description_;// = string.Empty;
 		
 		/// <summary>
 		/// Logcode's Description.
 		/// </summary>
 		[XmlElement("Description")]
+		[SoapElement("Description")]
 		[DOPropertyAttribute(
 			"Description", 
 			"", 
@@ -380,6 +379,28 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 					(!value.Equals(description_))
 				) {
 					description_ = value;
+					haschanges_ = true;
+				}
+			}
+		}
+		#endregion
+		#region public bool Description_isNull { get; set; }
+		/// <summary>
+		/// Allows assignement of null and check if null at Logcode's Description.
+		/// </summary>
+		[XmlElement("Description_isNull")]
+		[SoapElement("Description_isNull")]
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		bool Description_isNull {
+			get { return (description_ == null); }
+			set {
+				//if (value) description_ = null;
+
+				if ((value) && (description_ != null)) {
+					description_ = null;
 					haschanges_ = true;
 				}
 			}

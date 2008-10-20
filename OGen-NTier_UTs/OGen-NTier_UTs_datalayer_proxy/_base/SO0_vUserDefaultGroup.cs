@@ -19,6 +19,7 @@ using System.Runtime.Serialization;
 using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	#region public interface ISO_vUserDefaultGroup;
 	/// <summary>
 	/// Interface for vUserDefaultGroup SerializableObject.
 	/// </summary>
@@ -32,23 +33,28 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		/// vUserDefaultGroup's IDUser.
 		/// </summary>
 		long IDUser { get; set; }
+
 		/// <summary>
 		/// vUserDefaultGroup's Login.
 		/// </summary>
 		string Login { get; set; }
+
 		/// <summary>
 		/// vUserDefaultGroup's IDGroup.
 		/// </summary>
 		long IDGroup { get; set; }
+
 		/// <summary>
 		/// vUserDefaultGroup's Name.
 		/// </summary>
 		string Name { get; set; }
+
 		/// <summary>
 		/// vUserDefaultGroup's Relationdate.
 		/// </summary>
 		DateTime Relationdate { get; set; }
 	}
+	#endregion
 
 	/// <summary>
 	/// vUserDefaultGroup SerializableObject which provides fields access at vUserDefaultGroup view at Database.
@@ -73,7 +79,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			DateTime Relationdate_in
 		) {
 			haschanges_ = false;
-			//---
+
 			iduser_ = IDUser_in;
 			login_ = Login_in;
 			idgroup_ = IDGroup_in;
@@ -84,6 +90,8 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
+			haschanges_ = false;
+
 			iduser_ = (long)info_in.GetValue("IDUser", typeof(long));
 			login_ = (string)info_in.GetValue("Login", typeof(string));
 			idgroup_ = (long)info_in.GetValue("IDGroup", typeof(long));
@@ -95,12 +103,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#region Properties...
 		#region public bool hasChanges { get; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_vUserDefaultGroup properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public 
 #if NET_1_1
 			virtual 
@@ -112,12 +122,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		//---
 		#region public long IDUser { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public long iduser_;// = 0L;
 		
 		/// <summary>
 		/// vUserDefaultGroup's IDUser.
 		/// </summary>
 		[XmlElement("IDUser")]
+		[SoapElement("IDUser")]
 		[DOPropertyAttribute(
 			"IDUser", 
 			"", 
@@ -161,12 +173,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public string Login { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public string login_;// = string.Empty;
 		
 		/// <summary>
 		/// vUserDefaultGroup's Login.
 		/// </summary>
 		[XmlElement("Login")]
+		[SoapElement("Login")]
 		[DOPropertyAttribute(
 			"Login", 
 			"", 
@@ -212,12 +226,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public long IDGroup { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public long idgroup_;// = 0L;
 		
 		/// <summary>
 		/// vUserDefaultGroup's IDGroup.
 		/// </summary>
 		[XmlElement("IDGroup")]
+		[SoapElement("IDGroup")]
 		[DOPropertyAttribute(
 			"IDGroup", 
 			"", 
@@ -261,12 +277,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public string Name { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public string name_;// = string.Empty;
 		
 		/// <summary>
 		/// vUserDefaultGroup's Name.
 		/// </summary>
 		[XmlElement("Name")]
+		[SoapElement("Name")]
 		[DOPropertyAttribute(
 			"Name", 
 			"", 
@@ -312,12 +330,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public DateTime Relationdate { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public DateTime relationdate_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>
 		/// vUserDefaultGroup's Relationdate.
 		/// </summary>
 		[XmlElement("Relationdate")]
+		[SoapElement("Relationdate")]
 		[DOPropertyAttribute(
 			"Relationdate", 
 			"", 

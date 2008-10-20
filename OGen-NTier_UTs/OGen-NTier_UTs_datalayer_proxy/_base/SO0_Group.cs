@@ -19,6 +19,7 @@ using System.Runtime.Serialization;
 using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	#region public interface ISO_Group;
 	/// <summary>
 	/// Interface for Group SerializableObject.
 	/// </summary>
@@ -32,11 +33,13 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		/// Group's IDGroup.
 		/// </summary>
 		long IDGroup { get; set; }
+
 		/// <summary>
 		/// Group's Name.
 		/// </summary>
 		string Name { get; set; }
 	}
+	#endregion
 
 	/// <summary>
 	/// Group SerializableObject which provides fields access at Group table at Database.
@@ -55,7 +58,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			string Name_in
 		) {
 			haschanges_ = false;
-			//---
+
 			idgroup_ = IDGroup_in;
 			name_ = Name_in;
 		}
@@ -63,6 +66,8 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
+			haschanges_ = false;
+
 			idgroup_ = (long)info_in.GetValue("IDGroup", typeof(long));
 			name_ = (string)info_in.GetValue("Name", typeof(string));
 		}
@@ -71,12 +76,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#region Properties...
 		#region public bool hasChanges { get; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_Group properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public 
 #if NET_1_1
 			virtual 
@@ -88,12 +95,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		//---
 		#region public long IDGroup { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public long idgroup_;// = 0L;
 		
 		/// <summary>
 		/// Group's IDGroup.
 		/// </summary>
 		[XmlElement("IDGroup")]
+		[SoapElement("IDGroup")]
 		[DOPropertyAttribute(
 			"IDGroup", 
 			"", 
@@ -137,12 +146,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public string Name { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public string name_;// = string.Empty;
 		
 		/// <summary>
 		/// Group's Name.
 		/// </summary>
 		[XmlElement("Name")]
+		[SoapElement("Name")]
 		[DOPropertyAttribute(
 			"Name", 
 			"", 

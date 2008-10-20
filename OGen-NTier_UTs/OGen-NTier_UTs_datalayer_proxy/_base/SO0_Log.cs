@@ -19,6 +19,7 @@ using System.Runtime.Serialization;
 using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	#region public interface ISO_Log;
 	/// <summary>
 	/// Interface for Log SerializableObject.
 	/// </summary>
@@ -32,23 +33,28 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		/// Log's IDLog.
 		/// </summary>
 		long IDLog { get; set; }
+
 		/// <summary>
 		/// Log's IDLogcode.
 		/// </summary>
 		long IDLogcode { get; set; }
+
 		/// <summary>
 		/// Log's IDUser_posted.
 		/// </summary>
 		long IDUser_posted { get; set; }
+
 		/// <summary>
 		/// Log's Date_posted.
 		/// </summary>
 		DateTime Date_posted { get; set; }
+
 		/// <summary>
 		/// Log's Logdata.
 		/// </summary>
 		string Logdata { get; set; }
 	}
+	#endregion
 
 	/// <summary>
 	/// Log SerializableObject which provides fields access at Log table at Database.
@@ -73,7 +79,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			string Logdata_in
 		) {
 			haschanges_ = false;
-			//---
+
 			idlog_ = IDLog_in;
 			idlogcode_ = IDLogcode_in;
 			iduser_posted_ = IDUser_posted_in;
@@ -84,6 +90,8 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
+			haschanges_ = false;
+
 			idlog_ = (long)info_in.GetValue("IDLog", typeof(long));
 			idlogcode_ = (long)info_in.GetValue("IDLogcode", typeof(long));
 			iduser_posted_ = (long)info_in.GetValue("IDUser_posted", typeof(long));
@@ -95,12 +103,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#region Properties...
 		#region public bool hasChanges { get; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_Log properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public 
 #if NET_1_1
 			virtual 
@@ -112,12 +122,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		//---
 		#region public long IDLog { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public long idlog_;// = 0L;
 		
 		/// <summary>
 		/// Log's IDLog.
 		/// </summary>
 		[XmlElement("IDLog")]
+		[SoapElement("IDLog")]
 		[DOPropertyAttribute(
 			"IDLog", 
 			"", 
@@ -161,12 +173,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public long IDLogcode { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public long idlogcode_;// = 0L;
 		
 		/// <summary>
 		/// Log's IDLogcode.
 		/// </summary>
 		[XmlElement("IDLogcode")]
+		[SoapElement("IDLogcode")]
 		[DOPropertyAttribute(
 			"IDLogcode", 
 			"", 
@@ -210,12 +224,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public long IDUser_posted { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public long iduser_posted_;// = 0L;
 		
 		/// <summary>
 		/// Log's IDUser_posted.
 		/// </summary>
 		[XmlElement("IDUser_posted")]
+		[SoapElement("IDUser_posted")]
 		[DOPropertyAttribute(
 			"IDUser_posted", 
 			"", 
@@ -259,12 +275,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public DateTime Date_posted { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public DateTime date_posted_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>
 		/// Log's Date_posted.
 		/// </summary>
 		[XmlElement("Date_posted")]
+		[SoapElement("Date_posted")]
 		[DOPropertyAttribute(
 			"Date_posted", 
 			"", 
@@ -308,12 +326,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public string Logdata { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public string logdata_;// = string.Empty;
 		
 		/// <summary>
 		/// Log's Logdata.
 		/// </summary>
 		[XmlElement("Logdata")]
+		[SoapElement("Logdata")]
 		[DOPropertyAttribute(
 			"Logdata", 
 			"", 

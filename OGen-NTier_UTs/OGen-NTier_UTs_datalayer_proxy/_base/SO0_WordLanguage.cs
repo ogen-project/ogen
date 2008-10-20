@@ -19,6 +19,7 @@ using System.Runtime.Serialization;
 using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.UTs.lib.datalayer.proxy {
+	#region public interface ISO_WordLanguage;
 	/// <summary>
 	/// Interface for WordLanguage SerializableObject.
 	/// </summary>
@@ -32,19 +33,22 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		/// WordLanguage's IDWord.
 		/// </summary>
 		long IDWord { get; set; }
+
 		/// <summary>
 		/// WordLanguage's IDLanguage.
 		/// </summary>
 		long IDLanguage { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at WordLanguage's Translation.
-		/// </summary>
-		bool Translation_isNull { get; set; }
+
 		/// <summary>
 		/// WordLanguage's Translation.
 		/// </summary>
 		string Translation { get; set; }
+		/// <summary>
+		/// Allows assignement of null and check if null at WordLanguage's Translation.
+		/// </summary>
+		bool Translation_isNull { get; set; }
 	}
+	#endregion
 
 	/// <summary>
 	/// WordLanguage SerializableObject which provides fields access at WordLanguage table at Database.
@@ -65,7 +69,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			string Translation_in
 		) {
 			haschanges_ = false;
-			//---
+
 			idword_ = IDWord_in;
 			idlanguage_ = IDLanguage_in;
 			translation_ = Translation_in;
@@ -74,6 +78,8 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
+			haschanges_ = false;
+
 			idword_ = (long)info_in.GetValue("IDWord", typeof(long));
 			idlanguage_ = (long)info_in.GetValue("IDLanguage", typeof(long));
 			translation_ = (string)info_in.GetValue("Translation", typeof(string));
@@ -84,12 +90,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#region Properties...
 		#region public bool hasChanges { get; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_WordLanguage properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public 
 #if NET_1_1
 			virtual 
@@ -101,12 +109,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		//---
 		#region public long IDWord { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public long idword_;// = 0L;
 		
 		/// <summary>
 		/// WordLanguage's IDWord.
 		/// </summary>
 		[XmlElement("IDWord")]
+		[SoapElement("IDWord")]
 		[DOPropertyAttribute(
 			"IDWord", 
 			"", 
@@ -150,12 +160,14 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		#endregion
 		#region public long IDLanguage { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public long idlanguage_;// = 0L;
 		
 		/// <summary>
 		/// WordLanguage's IDLanguage.
 		/// </summary>
 		[XmlElement("IDLanguage")]
+		[SoapElement("IDLanguage")]
 		[DOPropertyAttribute(
 			"IDLanguage", 
 			"", 
@@ -197,35 +209,16 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			}
 		}
 		#endregion
-		#region public bool Translation_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at WordLanguage's Translation.
-		/// </summary>
-		[XmlElement("Translation_isNull")]
-		public 
-#if NET_1_1
-			virtual 
-#endif
-		bool Translation_isNull {
-			get { return (translation_ == null); }
-			set {
-				//if (value) translation_ = null;
-
-				if ((value) && (translation_ != null)) {
-					translation_ = null;
-					haschanges_ = true;
-				}
-			}
-		}
-		#endregion
 		#region public string Translation { get; set; }
 		[XmlIgnore()]
+		[SoapIgnore()]
 		public object translation_;// = string.Empty;
 		
 		/// <summary>
 		/// WordLanguage's Translation.
 		/// </summary>
 		[XmlElement("Translation")]
+		[SoapElement("Translation")]
 		[DOPropertyAttribute(
 			"Translation", 
 			"", 
@@ -264,6 +257,28 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 					(!value.Equals(translation_))
 				) {
 					translation_ = value;
+					haschanges_ = true;
+				}
+			}
+		}
+		#endregion
+		#region public bool Translation_isNull { get; set; }
+		/// <summary>
+		/// Allows assignement of null and check if null at WordLanguage's Translation.
+		/// </summary>
+		[XmlElement("Translation_isNull")]
+		[SoapElement("Translation_isNull")]
+		public 
+#if NET_1_1
+			virtual 
+#endif
+		bool Translation_isNull {
+			get { return (translation_ == null); }
+			set {
+				//if (value) translation_ = null;
+
+				if ((value) && (translation_ != null)) {
+					translation_ = null;
 					haschanges_ = true;
 				}
 			}
