@@ -1,0 +1,63 @@
+
+OGen is licensed under various different licenses.
+
+	MIT: details available in the file LICENSE.MIT.txt
+	GNU FDL: details available in the file LICENSE.FDL.txt
+
+	For your convenience copies of the MIT and GNU FDL are located in the file COPYING.MIT and COPYING.DOC
+
+	* OGen.lib.datalayer: MIT
+	* OGen.lib.datalayer.PostgreSQL: MIT
+	* OGen.lib.datalayer.SQLServer: MIT
+	* OGen.lib.datalayer.MySQL: MIT
+	* OGen.lib.datalayer.UTs: MIT
+	* OGen.lib.datalayer.support: MIT
+	* OGen.lib.collections: MIT
+	* OGen.lib.collections.UTs: MIT
+	* OGen.lib.presentationlayer.webforms: MIT
+	* OGen.lib.presentationlayer.webforms.UTs: MIT
+	* OGen.lib.presentationlayer.winforms: MIT
+	* OGen.lib.presentationlayer.winforms.UTs: MIT
+	* OGen.lib.parser: MIT
+	* OGen.lib.parser.UTs: MIT
+	* OGen.lib.generator: MIT
+	* OGen.test: MIT
+	* OGen.NTier.lib.metadata: MIT
+	* OGen.NTier.lib.metadata.UTs: MIT
+	* OGen.NTier.lib.generator: MIT
+	* OGen.NTier.lib.datalayer: MIT
+	* OGen.NTier.lib.datalayer.UTs: MIT
+	* OGen.NTier.lib.businesslayer: MIT
+	* OGen.NTier.lib.businesslayer.UTs: MIT
+	* OGen.NTier.lib.templates: MIT
+	* OGen.NTier.presentationlayer.winforms: MIT
+	* OGen.NTier.presentationlayer.console: MIT
+	* OGen.NTier.presentationlayer.test: MIT
+	* OGen.NTier.UTs.lib.businesslayer: MIT
+	* OGen.NTier.UTs.lib.businesslayer.UTs: MIT
+	* OGen.NTier.UTs.lib.datalayer: MIT
+	* OGen.NTier.UTs.lib.datalayer.proxy: MIT
+	* OGen.NTier.UTs.lib.datalayer.UTs: MIT
+	* OGen.NTier.UTs.test: MIT
+	* OGen-NTier_UTs-PostgreSQL: MIT
+	* OGen-NTier_UTs-SQLServer: MIT
+	* OGen-metadatas: MIT
+	* OGen.NTier.UTs.distributed.webservices: MIT
+	* OGen.NTier.UTs.lib.distributed.webservices.consumer: MIT
+	* OGen.Doc.lib.generator: MIT
+	* OGen.Doc.lib.metadata: MIT
+	* OGen.Doc.lib.metadata.UTs: MIT
+	* OGen.Doc.lib.templates: MIT
+	* OGen.Doc.presentationlayer.winforms: MIT
+	* OGen.Doc.presentationlayer.console: MIT
+	* OGen.Doc.test: MIT
+	* OGen.XSD.lib.generator: MIT
+	* OGen.XSD.lib.metadata: MIT
+	* OGen.XSD.lib.templates: MIT
+	* OGen.XSD.presentationlayer.console: MIT
+	* OGen.XSD.presentationlayer.test: MIT
+	* OGen-Doc: GNU FDL
+	* OGen-NTier-Doc: GNU FDL
+	* OGen-NTier_UTs-Doc: GNU FDL
+	* OGen-Doc-Doc: GNU FDL
+
