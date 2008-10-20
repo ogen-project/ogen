@@ -16,8 +16,10 @@ using System;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 
+using OGen.NTier.UTs.lib.businesslayer.proxy;
+
 namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_User {
-	public class WS_User : WS0_User {
+	public class WS_User : WS0_User, IBO_User {
 		public WS_User(
 			string url_in
 		) : base (

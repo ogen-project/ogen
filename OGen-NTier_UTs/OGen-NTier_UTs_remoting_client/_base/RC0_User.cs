@@ -41,8 +41,8 @@ namespace OGen.NTier.UTs.lib.distributed.remoting.client {
 		public long insObject(
 			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
 			bool selectIdentity_in,
-			out bool constraintExist_out,
-			string login_in
+			string login_in, 
+			out bool constraintExist_out
 		) {
 			return bo_user_.insObject(
 				user_in,
@@ -55,8 +55,8 @@ namespace OGen.NTier.UTs.lib.distributed.remoting.client {
 		#region public OGen.NTier.UTs.lib.datalayer.proxy.SO_User getObject(...);
 		public OGen.NTier.UTs.lib.datalayer.proxy.SO_User getObject(
 			long idUser_in,
-			out bool exists_out,
-			string login_in
+			string login_in, 
+			out bool exists_out
 		) {
 			return bo_user_.getObject(
 				idUser_in,

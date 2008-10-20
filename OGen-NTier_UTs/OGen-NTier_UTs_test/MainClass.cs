@@ -32,46 +32,47 @@ using OGen.NTier.UTs.lib.businesslayer;
 using WS_Authentication = OGen.NTier.UTs.lib.distributed.webservices.client.WS_Authentication;
 using WS_User = OGen.NTier.UTs.lib.distributed.webservices.client.WS_User;
 
+using OGen.NTier.UTs.lib.businesslayer.proxy;
 using OGen.NTier.UTs.lib.distributed.remoting.client;
 
 namespace OGen.NTier.UTs.test {
 	class MainClass {
 		[STAThread]
 		static void Main(string[] args) {
-			RC_User _rc_user 
-				= new RC_User(
-					"tcp://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_User.remoting"
-					//"http://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_User.soap"
-				);
-			RC_Authentication _rc_authentication 
-				= new RC_Authentication(
-					"tcp://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_Authentication.remoting"
-					//"http://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_Authentication.soap"
-				);
+			IBO_Authentication _authentication;
+			IBO_User _user;
 
-			WS_Authentication.WS_Authentication _ws_authentication 
-				= new WS_Authentication.WS_Authentication(
-					"http://localhost:2937/WS_Authentication.asmx"
-				);
+			if (true) {
+				_authentication
+					= new RC_Authentication(
+						"tcp://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_Authentication.remoting"
+						//"http://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_Authentication.soap"
+					);
+				_user
+					= new RC_User(
+						"tcp://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_User.remoting"
+						//"http://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_User.soap"
+					);
+			} else {
+				_authentication
+					= new WS_Authentication.WS_Authentication(
+						"http://localhost:2937/WS_Authentication.asmx"
+					);
 
-			WS_User.WS_User _ws_user
-				= new WS_User.WS_User(
-					"http://localhost:2937/WS_User.asmx"
-				);
+				_user
+					= new WS_User.WS_User(
+						"http://localhost:2937/WS_User.asmx"
+					);
+			}
 
 			string _login;
 			Console.WriteLine(
-				_login = 
-					_rc_authentication
-					//_ws_authentication
-						.Login(
-							"fmonteiro", 
-							"passpub"
-						)
+				_login = _authentication.Login(
+					"fmonteiro", 
+					"passpub"
+				)
 			);
-			_rc_authentication
-			//_ws_authentication
-				.Logout();
+			_authentication.Logout();
 
 			OGen.NTier.UTs.lib.datalayer.proxy.ISO_User _so_user 
 				= new OGen.NTier.UTs.lib.datalayer.proxy.SO_User(
@@ -90,27 +91,21 @@ namespace OGen.NTier.UTs.test {
 			bool _constraintExists;
 			Console.WriteLine(
 				"id:{0}; constraintExists:{1};",
-				_iduser =
-					_rc_user
-					//_ws_user
-					.insObject(
-						(SO_User)_so_user,
-						true, 
-						out _constraintExists,
-						_login
-					),
+				_iduser =_user.insObject(
+					(SO_User)_so_user,
+					true, 
+					_login, 
+					out _constraintExists
+				),
 				_constraintExists
 			);
 
 			bool _exists;
-			_so_user =
-				_rc_user
-				//_ws_user
-				.getObject(
-					_iduser, 
-					out _exists,
-					_login
-				);
+			_so_user = _user.getObject(
+				_iduser, 
+				_login, 
+				out _exists
+			);
 			Console.WriteLine(
 				_so_user.SomeNullValue_isNull
 			);
@@ -394,25 +389,25 @@ Console.WriteLine(
 						#endregion
 						_config.Dispose(); _config = null;
 						//---
-						DO_User _user = new DO_User(_cons[_con]);
+						DO_User _do_user = new DO_User(_cons[_con]);
 
-						#region _user.insObject();
+						#region _do_user.insObject();
 						_conter = DateTime.Now.Ticks;
 
 						for (int c = 0; c < _cycles; c++) {
 							bool _constraint;
-							_user.Fields.Login = c.ToString();
-							_user.Fields.Password = "DELETE THIS, IT IS A TEST";
-							_user.insObject(true, out _constraint);
+							_do_user.Fields.Login = c.ToString();
+							_do_user.Fields.Password = "DELETE THIS, IT IS A TEST";
+							_do_user.insObject(true, out _constraint);
 						}
 
-						_user.Record.Open_all();
-						while (_user.Record.Read()) {
-							if (_user.Fields.Password == "DELETE THIS, IT IS A TEST") {
-								_user.delObject();
+						_do_user.Record.Open_all();
+						while (_do_user.Record.Read()) {
+							if (_do_user.Fields.Password == "DELETE THIS, IT IS A TEST") {
+								_do_user.delObject();
 							}
 						}
-						_user.Record.Close();
+						_do_user.Record.Close();
 
 						Console.WriteLine(
 							"insObject()      \t{0}\tcached:{1}\tcompiled:{2}\t{3}",
@@ -425,13 +420,13 @@ Console.WriteLine(
 
 						_conter = DateTime.Now.Ticks;
 						for (int c = 0; c < _cycles; c++) {
-							if (!_user.isObject_byLogin("fmonteiro")) {
+							if (!_do_user.isObject_byLogin("fmonteiro")) {
 								bool _constraint;
-								_user.Fields.Login = "fmonteiro";
-								_user.Fields.Password = "passpub";
-								_user.insObject(true, out _constraint);
+								_do_user.Fields.Login = "fmonteiro";
+								_do_user.Fields.Password = "passpub";
+								_do_user.insObject(true, out _constraint);
 							}
-							_user.getObject_byLogin("fmonteiro");
+							_do_user.getObject_byLogin("fmonteiro");
 						}
 						Console.WriteLine(
 							"getObject_by()   \t{0}\tcached:{1}\tcompiled:{2}\t{3}",
@@ -441,7 +436,7 @@ Console.WriteLine(
 							(DateTime.Now.Ticks - _conter).ToString()
 						);
 
-						_user.Dispose(); _user = null;
+						_do_user.Dispose(); _do_user = null;
 					}
 					_cons[_con].Transaction.Rollback();
 					_cons[_con].Transaction.Terminate();
