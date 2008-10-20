@@ -179,6 +179,58 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
+		#region public string GuidDistributedlayer_webservices_server { get; set; }
+		internal string guiddistributedlayer_webservices_server_;
+
+		[XmlAttribute("guidDistributedlayer_webservices_server")]
+		public string GuidDistributedlayer_webservices_server {
+			get {
+				return guiddistributedlayer_webservices_server_;
+			}
+			set {
+				guiddistributedlayer_webservices_server_ = value;
+			}
+		}
+		#endregion
+		#region public string GuidDistributedlayer_webservices_client { get; set; }
+		internal string guiddistributedlayer_webservices_client_;
+
+		[XmlAttribute("guidDistributedlayer_webservices_client")]
+		public string GuidDistributedlayer_webservices_client {
+			get {
+				return guiddistributedlayer_webservices_client_;
+			}
+			set {
+				guiddistributedlayer_webservices_client_ = value;
+			}
+		}
+		#endregion
+		#region public string GuidDistributedlayer_remoting_server { get; set; }
+		internal string guiddistributedlayer_remoting_server_;
+
+		[XmlAttribute("guidDistributedlayer_remoting_server")]
+		public string GuidDistributedlayer_remoting_server {
+			get {
+				return guiddistributedlayer_remoting_server_;
+			}
+			set {
+				guiddistributedlayer_remoting_server_ = value;
+			}
+		}
+		#endregion
+		#region public string GuidDistributedlayer_remoting_client { get; set; }
+		internal string guiddistributedlayer_remoting_client_;
+
+		[XmlAttribute("guidDistributedlayer_remoting_client")]
+		public string GuidDistributedlayer_remoting_client {
+			get {
+				return guiddistributedlayer_remoting_client_;
+			}
+			set {
+				guiddistributedlayer_remoting_client_ = value;
+			}
+		}
+		#endregion
 		#region public string GUIDTest { get; set; }
 		internal string guidtest_;
 
@@ -291,6 +343,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			guiddatalayer_uts_ = metadataExtendedType_in.guiddatalayer_uts_;
 			guidbusinesslayer_ = metadataExtendedType_in.guidbusinesslayer_;
 			guidbusinesslayer_uts_ = metadataExtendedType_in.guidbusinesslayer_uts_;
+			guiddistributedlayer_webservices_server_ = metadataExtendedType_in.guiddistributedlayer_webservices_server_;
+			guiddistributedlayer_webservices_client_ = metadataExtendedType_in.guiddistributedlayer_webservices_client_;
+			guiddistributedlayer_remoting_server_ = metadataExtendedType_in.guiddistributedlayer_remoting_server_;
+			guiddistributedlayer_remoting_client_ = metadataExtendedType_in.guiddistributedlayer_remoting_client_;
 			guidtest_ = metadataExtendedType_in.guidtest_;
 			feedbackemailaddress_ = metadataExtendedType_in.feedbackemailaddress_;
 			copyrighttext_ = metadataExtendedType_in.copyrighttext_;copyrighttextlong_ = metadataExtendedType_in.copyrighttextlong_;
