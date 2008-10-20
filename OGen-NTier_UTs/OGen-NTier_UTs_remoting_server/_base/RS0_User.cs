@@ -14,7 +14,50 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 
-namespace OGen.NTier.UTs.distributed.remoting.server {
+using OGen.NTier.UTs.lib.businesslayer;
+
+namespace OGen.NTier.UTs.lib.distributed.remoting.server {
 	public abstract class RS0_User {
+		#region private Properties...
+		#endregion
+		#region public Properties...
+		#endregion
+
+		#region private Methods...
+		#endregion
+		#region public Methods...
+		#region public long insObject(...);
+		public long insObject(
+			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
+			bool selectIdentity_in,
+			out bool constraintExist_out,
+			string login_in
+		) {
+			BDO_User _businessobject = new BDO_User(
+				login_in
+			);
+			return _businessobject.insObject(
+				user_in,
+				selectIdentity_in,
+				out constraintExist_out
+			);
+		}
+		#endregion
+		#region public OGen.NTier.UTs.lib.datalayer.proxy.SO_User getObject(...);
+		public OGen.NTier.UTs.lib.datalayer.proxy.SO_User getObject(
+			long idUser_in,
+			out bool exists_out,
+			string login_in
+		) {
+			BDO_User _businessobject = new BDO_User(
+				login_in
+			);
+			return _businessobject.getObject(
+				idUser_in,
+				out exists_out
+			);
+		}
+		#endregion
+		#endregion
 	}
 }

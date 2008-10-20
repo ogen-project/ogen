@@ -14,7 +14,38 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 
-namespace OGen.NTier.UTs.distributed.remoting.server {
+using OGen.NTier.UTs.lib.businesslayer;
+
+namespace OGen.NTier.UTs.lib.distributed.remoting.server {
 	public abstract class RS0_Authentication {
+		#region private Properties...
+		#endregion
+		#region public Properties...
+		#endregion
+
+		#region private Methods...
+		#endregion
+		#region public Methods...
+		#region public string Login(...);
+		public string Login(
+			string login_in,
+			string password_in
+		) {
+			BO_Authentication _businessobject = new BO_Authentication();
+			return _businessobject.Login(
+				login_in,
+				password_in
+			);
+		}
+		#endregion
+		#region public void Logout(...);
+		public void Logout(
+		) {
+			BO_Authentication _businessobject = new BO_Authentication();
+			_businessobject.Logout(
+			);
+		}
+		#endregion
+		#endregion
 	}
 }

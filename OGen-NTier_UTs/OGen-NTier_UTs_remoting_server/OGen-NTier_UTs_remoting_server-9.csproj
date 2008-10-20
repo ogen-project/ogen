@@ -12,6 +12,8 @@
     <AssemblyName>OGen.NTier.UTs.lib.distributed.remoting.server-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,14 +35,17 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RS_Authentication.cs" />
     <Compile Include="RS_User.cs" />
+    <Compile Include="RS__server.cs" />
     <Compile Include="_base\RS0_Authentication.cs" />
     <Compile Include="_base\RS0_User.cs" />
+    <Compile Include="_base\RS0__server.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="COPYING.MIT" />
@@ -48,6 +53,20 @@
   <ItemGroup>
     <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OGen-NTier\NTier_businesslayer\NTier_businesslayer-9.csproj">
+      <Project>{8AEBEA64-6FC4-430C-922C-B88D105AE91C}</Project>
+      <Name>NTier_businesslayer-9</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OGen-NTier_UTs_businesslayer\OGen-NTier_UTs_businesslayer-9-no-gac.csproj">
+      <Project>{B3555514-3A7D-4159-B05D-E8D0C265B649}</Project>
+      <Name>OGen-NTier_UTs_businesslayer-9-no-gac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-9-no-gac.csproj">
+      <Project>{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}</Project>
+      <Name>OGen-NTier_UTs_datalayer_proxy-9-no-gac</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

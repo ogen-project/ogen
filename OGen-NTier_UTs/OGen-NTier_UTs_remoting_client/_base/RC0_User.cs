@@ -13,8 +13,69 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
+using System.Runtime.Remoting;
 
 namespace OGen.NTier.UTs.distributed.remoting.client {
+	public interface IRS_User {
+		long insObject(
+			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
+			bool selectIdentity_in,
+			out bool constraintExist_out,
+			string login_in
+		);
+		OGen.NTier.UTs.lib.datalayer.proxy.SO_User getObject(
+			long idUser_in,
+			out bool exists_out,
+			string login_in
+		);
+	}
+
 	public abstract class RC0_User {
+		public RC0_User() {
+			rs_user_ = (IRS_User)RemotingServices.Connect(
+				typeof(IRS_User),
+				"tcp://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_User.remoting"
+				//"http://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_User.soap"
+			);
+		}
+
+		#region private Properties...
+		private IRS_User rs_user_;
+		#endregion
+		#region public Properties...
+		#endregion
+
+		#region private Methods...
+		#endregion
+		#region public Methods...
+		#region public long insObject(...);
+		public long insObject(
+			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
+			bool selectIdentity_in,
+			out bool constraintExist_out,
+			string login_in
+		) {
+			return rs_user_.insObject(
+				user_in,
+				selectIdentity_in,
+				out constraintExist_out,
+				login_in
+			);
+		}
+		#endregion
+		#region public OGen.NTier.UTs.lib.datalayer.proxy.SO_User getObject(...);
+		public OGen.NTier.UTs.lib.datalayer.proxy.SO_User getObject(
+			long idUser_in,
+			out bool exists_out,
+			string login_in
+		) {
+			return rs_user_.getObject(
+				idUser_in,
+				out exists_out,
+				login_in
+			);
+		}
+		#endregion
+		#endregion
 	}
 }

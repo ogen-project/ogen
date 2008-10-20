@@ -13,8 +13,37 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
+using System.Runtime.Remoting;
+using System.Runtime.Remoting.Channels;
+using System.Runtime.Remoting.Channels.Tcp;
+using System.Runtime.Remoting.Channels.Http;
 
 namespace OGen.NTier.UTs.lib.distributed.remoting.server {
-	public class RS_Authentication : RS0_Authentication {
+	public abstract class RS0__server {
+		public void Start() {
+			#if NET_1_1
+			ChannelServices.RegisterChannel(new TcpChannel(8085));
+			#else
+			ChannelServices.RegisterChannel(new TcpChannel(8085), true);
+			#endif
+
+			RemotingConfiguration.RegisterWellKnownServiceType(
+				typeof(RS_Authentication),
+				"OGen.NTier.UTs.lib.distributed.remoting.server.RS_Authentication.remoting",
+				//"OGen.NTier.UTs.lib.distributed.remoting.server.RS_Authentication.soap",
+
+				WellKnownObjectMode.Singleton
+				//WellKnownObjectMode.SingleCall
+			);
+
+			RemotingConfiguration.RegisterWellKnownServiceType(
+				typeof(RS_User),
+				"OGen.NTier.UTs.lib.distributed.remoting.server.RS_User.remoting",
+				//"OGen.NTier.UTs.lib.distributed.remoting.server.RS_User.soap",
+
+				WellKnownObjectMode.Singleton
+				//WellKnownObjectMode.SingleCall
+			);
+		}
 	}
 }
