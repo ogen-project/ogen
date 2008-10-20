@@ -8,8 +8,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OGen.NTier.UTs.distributed.webservices</RootNamespace>
-    <AssemblyName>OGen.NTier.UTs.distributed.webservices-2.0</AssemblyName>
+    <RootNamespace>OGen.NTier.UTs.distributed.webservices.server</RootNamespace>
+    <AssemblyName>OGen.NTier.UTs.distributed.webservices.server-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -69,13 +69,13 @@
       <Project>{8AEBEA64-6FC4-430C-922C-B88D105AE91C}</Project>
       <Name>NTier_businesslayer-9</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OGen-NTier_UTs_businesslayer\OGen-NTier_UTs_businesslayer-9-no-gac.csproj">
+    <ProjectReference Include="..\OGen-NTier_UTs_businesslayer\OGen-NTier_UTs_businesslayer-9.csproj">
       <Project>{B3555514-3A7D-4159-B05D-E8D0C265B649}</Project>
-      <Name>OGen-NTier_UTs_businesslayer-9-no-gac</Name>
+      <Name>OGen-NTier_UTs_businesslayer-9</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-9-no-gac.csproj">
+    <ProjectReference Include="..\OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-9.csproj">
       <Project>{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}</Project>
-      <Name>OGen-NTier_UTs_datalayer_proxy-9-no-gac</Name>
+      <Name>OGen-NTier_UTs_datalayer_proxy-9</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

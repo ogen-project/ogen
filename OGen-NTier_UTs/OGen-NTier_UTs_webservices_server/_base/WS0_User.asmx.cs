@@ -21,7 +21,7 @@ using System.Web.Services.Protocols;
 
 using OGen.NTier.UTs.lib.businesslayer;
 
-namespace OGen.NTier.UTs.distributed.webservices {
+namespace OGen.NTier.UTs.distributed.webservices.server {
 	/// <summary>
 	/// User web service.
 	/// </summary>
