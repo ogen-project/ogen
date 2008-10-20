@@ -54,6 +54,7 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 <%
 }%>using System;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
@@ -87,7 +88,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 	/// <summary>
 	/// <%=_aux_db_table.Name%> SerializableObject which provides fields access at <%=_aux_db_table.Name%> <%=(_aux_db_table.isVirtualTable) ? "view" : "table"%> at Database.
 	/// </summary>
-	public class SO_<%=_aux_db_table.Name%> : ISO_<%=_aux_db_table.Name%> {
+	[Serializable()]
+	public class SO_<%=_aux_db_table.Name%> : ISO_<%=_aux_db_table.Name%>, ISerializable {
 		#region public SO_<%=_aux_db_table.Name%>();
 		public SO_<%=_aux_db_table.Name%>(
 		) : this (<%
@@ -109,6 +111,18 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
 			<%=_aux_db_field.Name.ToLower()%>_ = <%=_aux_db_field.Name%>_in;<%
+			}%>
+		}
+		public SO_<%=_aux_db_table.Name%>(
+			SerializationInfo info_in,
+			StreamingContext context_in
+		) {<%
+			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
+			<%=_aux_db_field.Name.ToLower()%>_ = (<%=_aux_db_field.DBType_generic.FWType%>)info_in.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>));<%
+			if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%>
+			<%=_aux_db_field.Name%>_isNull = (<%=_aux_db_field.DBType_generic.FWType%>)info_in.GetValue("<%=_aux_db_field.Name%>_isNull", typeof(<%=_aux_db_field.DBType_generic.FWType%>));<%
+			}
 			}%>
 		}
 		#endregion
@@ -221,6 +235,20 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 		}
 		#endregion<%
 		}%>
+		#endregion
+
+		#region Methods...
+		#region public void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
+		public void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {<%
+		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
+			info_in.AddValue("<%=_aux_db_field.Name%>", <%=_aux_db_field.Name.ToLower()%>_;<%
+			if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%>
+			info_in.AddValue("<%=_aux_db_field.Name%>_isNull", <%=_aux_db_field.Name%>_isNull;<%
+			}
+		}%>
+		}
+		#endregion
 		#endregion
 	}
 }<%

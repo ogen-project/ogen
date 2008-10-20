@@ -14,6 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 using OGen.NTier.lib.datalayer;
 
@@ -52,7 +53,8 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	/// <summary>
 	/// User SerializableObject which provides fields access at User table at Database.
 	/// </summary>
-	public class SO_User : ISO_User {
+	[Serializable()]
+	public class SO_User : ISO_User, ISerializable {
 		#region public SO_User();
 		public SO_User(
 		) : this (
@@ -74,6 +76,16 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			login_ = Login_in;
 			password_ = Password_in;
 			somenullvalue_ = SomeNullValue_in;
+		}
+		public SO_User(
+			SerializationInfo info_in,
+			StreamingContext context_in
+		) {
+			IDUser = (long)info_in.GetValue("IDUser", typeof(long));
+			Login = (string)info_in.GetValue("Login", typeof(string));
+			Password = (string)info_in.GetValue("Password", typeof(string));
+			SomeNullValue = (int)info_in.GetValue("SomeNullValue", typeof(int));
+			SomeNullValue_isNull = (bool)info_in.GetValue("SomeNullValue_isNull", typeof(bool));
 		}
 		#endregion
 
@@ -317,5 +329,13 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		}
 		#endregion
 		#endregion
+
+		public void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
+			info_in.AddValue("IDUser", IDUser);
+			info_in.AddValue("Login", Login);
+			info_in.AddValue("Password", Password);
+			info_in.AddValue("SomeNullValue", SomeNullValue);
+			info_in.AddValue("SomeNullValue_isNull", SomeNullValue_isNull);
+		}
 	}
 }

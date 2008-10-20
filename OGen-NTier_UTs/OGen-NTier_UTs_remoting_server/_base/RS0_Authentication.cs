@@ -17,7 +17,7 @@ using System;
 using OGen.NTier.UTs.lib.businesslayer;
 
 namespace OGen.NTier.UTs.lib.distributed.remoting.server {
-	public abstract class RS0_Authentication {
+	public abstract class RS0_Authentication : MarshalByRefObject {
 		#region private Properties...
 		#endregion
 		#region public Properties...
