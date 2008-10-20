@@ -19,11 +19,12 @@ using OGen.NTier.UTs.lib.businesslayer.proxy;
 
 namespace OGen.NTier.UTs.lib.distributed.remoting.client {
 	public abstract class RC0_Authentication {
-		public RC0_Authentication() {
+		public RC0_Authentication(
+			string url_in
+		) {
 			bo_authentication_ = (IBO_Authentication)RemotingServices.Connect(
 				typeof(IBO_Authentication),
-				"tcp://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_Authentication.remoting"
-				//"http://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_Authentication.soap"
+				url_in
 			);
 		}
 

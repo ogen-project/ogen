@@ -38,11 +38,16 @@ namespace OGen.NTier.UTs.test {
 	class MainClass {
 		[STAThread]
 		static void Main(string[] args) {
-			RC_User _rc_user = new RC_User();
-			RC_Authentication _rc_authentication = new RC_Authentication();
-			//_ro_user.insObject
-
-			DO_User _do_user = new DO_User();
+			RC_User _rc_user 
+				= new RC_User(
+					"tcp://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_User.remoting"
+					//"http://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_User.soap"
+				);
+			RC_Authentication _rc_authentication 
+				= new RC_Authentication(
+					"tcp://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_Authentication.remoting"
+					//"http://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_Authentication.soap"
+				);
 
 			WS_Authentication.WS_Authentication _ws_authentication 
 				= new WS_Authentication.WS_Authentication(
@@ -96,11 +101,6 @@ namespace OGen.NTier.UTs.test {
 					),
 				_constraintExists
 			);
-			//_do_user.Fields = (SO_User)_so_user;
-			//_iduser = _do_user.insObject(
-			//    true,
-			//    out _constraintExists
-			//);
 
 			bool _exists;
 			_so_user =

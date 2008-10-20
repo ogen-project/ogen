@@ -16,5 +16,11 @@ using System;
 
 namespace OGen.NTier.UTs.lib.distributed.remoting.client {
 	public class RC_Authentication : RC0_Authentication {
+		public RC_Authentication(
+			string url_in
+		) : base (
+			url_in
+		) {
+		}
 	}
 }
