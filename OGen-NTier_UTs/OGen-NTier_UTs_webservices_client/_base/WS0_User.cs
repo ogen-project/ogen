@@ -202,7 +202,7 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WS_User {
 			}
 		}
 		#endregion
-		#region public OGen.NTier.UTs.lib.datalayer.proxy.SC_User Record_Open_byGroup(...);
+		#region public OGen.NTier.UTs.lib.datalayer.proxy.SO_User[] Record_Open_byGroup(...);
 		private System.Threading.SendOrPostCallback Record_Open_byGroupOperationCompleted;
 		/// <remarks/>
 		public event Record_Open_byGroupCompletedEventHandler Record_Open_byGroupCompleted;
@@ -215,9 +215,7 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WS_User {
 			Use = System.Web.Services.Description.SoapBindingUse.Literal, 
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
-		[return: System.Xml.Serialization.XmlArrayAttribute("collectionOf_User", IsNullable = true)]
-		[return: System.Xml.Serialization.XmlArrayItemAttribute("oneItemOf_User", IsNullable = false)]
-		public OGen.NTier.UTs.lib.datalayer.proxy.SC_User Record_Open_byGroup(
+		public OGen.NTier.UTs.lib.datalayer.proxy.SO_User[] Record_Open_byGroup(
 			long IDGroup_search_in, 
 			int page_in, 
 			int page_numRecords_in, 
@@ -232,7 +230,7 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WS_User {
 					login_in
 				}
 			);
-			return (OGen.NTier.UTs.lib.datalayer.proxy.SC_User)results[0];
+			return (OGen.NTier.UTs.lib.datalayer.proxy.SO_User[])results[0];
 		}
 
 		/// <remarks/>
@@ -409,10 +407,10 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WS_User {
 		}
 
 		/// <remarks/>
-		public OGen.NTier.UTs.lib.datalayer.proxy.SC_User Result {
+		public OGen.NTier.UTs.lib.datalayer.proxy.SO_User[] Result {
 			get {
 				this.RaiseExceptionIfNecessary();
-				return (OGen.NTier.UTs.lib.datalayer.proxy.SC_User)this.results[0];
+				return (OGen.NTier.UTs.lib.datalayer.proxy.SO_User[])this.results[0];
 			}
 		}
 	}

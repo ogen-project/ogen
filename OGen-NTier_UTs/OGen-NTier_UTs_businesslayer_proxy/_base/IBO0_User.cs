@@ -27,7 +27,7 @@ namespace OGen.NTier.UTs.lib.businesslayer.proxy {
 			string login_in, 
 			out bool exists_out
 		);
-		OGen.NTier.UTs.lib.datalayer.proxy.SC_User Record_Open_byGroup(
+		OGen.NTier.UTs.lib.datalayer.proxy.SO_User[] Record_Open_byGroup(
 			long IDGroup_search_in,
 			int page_in,
 			int page_numRecords_in,

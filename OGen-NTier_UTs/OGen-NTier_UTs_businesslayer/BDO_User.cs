@@ -86,15 +86,15 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			return _so_user_out;
 		}
 		#endregion
-		#region public SC_User Record_Open_byGroup(...);
+		#region public SO_User[] Record_Open_byGroup(...);
 		[BOMethodAttribute("Record_Open_byGroup", true)]
-		public SC_User Record_Open_byGroup(
+		public SO_User[] Record_Open_byGroup(
 			long IDGroup_search_in, 
 			int page_in, 
 			int page_numRecords_in, 
 			string login_in
 		) {
-			SC_User _output;
+			SO_User[] _output;
 
 			DO_User _do_user = new DO_User();
 			if (
@@ -112,7 +112,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 					IDGroup_search_in
 				);
 			}
-			_output = _do_user.Record.Serialize();
+			_output = _do_user.Record.Serialize().SO_User;
 			_do_user.Dispose();
 
 			return _output;
