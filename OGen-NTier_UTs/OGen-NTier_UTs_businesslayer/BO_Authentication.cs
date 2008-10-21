@@ -26,7 +26,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	/// Authentication BusinessObject.
 	/// </summary>
 	[BOClassAttribute("BO_Authentication", "BO")]
-	public class BO_Authentication : BO0_Authentication, IBO_Authentication {
+	public class BO_Authentication : IBO_Authentication {
 		#region public BO0_Authentication(...);
 		public BO_Authentication(
 		) : base (
@@ -43,9 +43,9 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		#region private Methods...
 		#endregion
 		#region public Methods...
-		#region public override string Login(...);
+		#region public string Login(...);
 		[BOMethodAttribute("Login", true)]
-		public override string Login(
+		public string Login(
 			string login_in, 
 			string password_in
 		) {
@@ -65,9 +65,9 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			return _iduser.ToString();
 		}
 		#endregion
-		#region public override void Logout(...);
+		#region public void Logout(...);
 		[BOMethodAttribute("Logout", true)]
-		public override void Logout(
+		public void Logout(
 		) {
 			// ...
 		}

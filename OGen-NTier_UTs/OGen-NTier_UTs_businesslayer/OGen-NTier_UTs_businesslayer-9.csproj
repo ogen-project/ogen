@@ -115,6 +115,7 @@
     <Compile Include="BDO_Config.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BO_Authentication.cs" />
     <Compile Include="_base\BDO0_Config.cs">
       <SubType>Code</SubType>
     </Compile>

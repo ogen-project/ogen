@@ -65,10 +65,9 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 #endif--%>
 	/// </summary>
 	[BOClassAttribute("BO_<%=_aux_class.Name%>", "<%=OGen.NTier.lib.metadata.metadataBusiness.XS_BoEnumeration.BO.ToString()%>")]
-	public class BO_<%=_aux_class.Name%> : BO0_<%=_aux_class.Name%>, IBO_<%=_aux_class.Name%> {
+	public class BO_<%=_aux_class.Name%> : IBO_<%=_aux_class.Name%> {
 		#region public BO0_<%=_aux_class.Name%>(...);
 		public BO_<%=_aux_class.Name%>(
-		) : base (
 		) {
 			// ...
 		}
@@ -84,9 +83,9 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 		#region public Methods...<%
 		for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
 			_aux_method = _aux_class.Methods.MethodCollection[m];%>
-		#region public override <%=_aux_method.OutputType%> <%=_aux_method.Name%>(...);
+		#region public <%=_aux_method.OutputType%> <%=_aux_method.Name%>(...);
 		[BOMethodAttribute("<%=_aux_method.Name%>", <%=_aux_method.Distribute.ToString().ToLower()%>)]
-		public override <%=_aux_method.OutputType%> <%=_aux_method.Name%>(<%
+		public <%=_aux_method.OutputType%> <%=_aux_method.Name%>(<%
 			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
 			<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
