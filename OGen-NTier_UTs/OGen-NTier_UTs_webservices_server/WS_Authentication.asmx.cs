@@ -22,11 +22,11 @@ using System.Web.Services.Protocols;
 
 using OGen.NTier.UTs.lib.businesslayer;
 
-namespace OGen.NTier.UTs.distributed.webservices.server {
+namespace OGen.NTier.UTs.distributedlayer.webservices.server {
 	/// <summary>
 	/// Authentication web service.
 	/// </summary>
-	[WebService(Namespace = "http://OGen.NTier.UTs.distributed.webservices.server")]
+	[WebService(Namespace = "http://OGen.NTier.UTs.distributedlayer.webservices.server")]
 	[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 	[ToolboxItem(false)]
 	// To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
