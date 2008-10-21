@@ -119,7 +119,17 @@ XXX:TODOS -->
 				type="File" mode="Create_doNotReplace" />
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer/AssemblyInfo.cs" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer_proxy/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer_UTs/AssemblyInfo.cs" 
+				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_remoting_client/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_remoting_server/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_webservices_client/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_webservices_server/AssemblyInfo.cs"
 				type="File" mode="Create_doNotReplace" />
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_test/AssemblyInfo.cs" 
 				type="File" mode="Create_doNotReplace" />
@@ -2875,6 +2885,36 @@ XXX:TO_DOS -->
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_webservices_server/_base/WS0_${ROOT.metadataBusiness[0].classes.class[n].name}.asmx.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="WC-WC_SomeClass.cs.aspx"
+			name="WC-WC_SomeClass.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataBusiness[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_webservices_client/WC_${ROOT.metadataBusiness[0].classes.class[n].name}cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="WC-WC0_SomeClass.cs.aspx"
+			name="WC-WC0_SomeClass.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataBusiness[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_webservices_client/_base/WC0_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
