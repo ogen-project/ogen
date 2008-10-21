@@ -164,6 +164,12 @@
     <Content Include="BO-IBO_SomeClass.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="BO-SomeApplication_businesslayer_proxy-7.1.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="BO-SomeApplication_businesslayer_proxy-8.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="DO-SomeApplication_datalayer_proxy-7.1.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>

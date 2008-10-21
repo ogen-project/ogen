@@ -52,7 +52,27 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.Applica
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer", "<%=_aux_ex_metadata.ApplicationName%>_businesslayer\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy-7.1.csproj", "{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs", "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs-7.1.csproj", "{<%=_aux_ex_metadata.GUIDBusinesslayer_UTs%>}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_remoting_client", "<%=_aux_ex_metadata.ApplicationName%>_remoting_client\<%=_aux_ex_metadata.ApplicationName%>_remoting_client-7.1.csproj", "{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_client%>}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_remoting_server", "<%=_aux_ex_metadata.ApplicationName%>_remoting_server\<%=_aux_ex_metadata.ApplicationName%>_remoting_server-7.1.csproj", "{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_server%>}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_webservices_client", "<%=_aux_ex_metadata.ApplicationName%>_webservices_client\<%=_aux_ex_metadata.ApplicationName%>_webservices_client-7.1.csproj", "{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_client%>}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_webservices_server", "<%=_aux_ex_metadata.ApplicationName%>_webservices_server\<%=_aux_ex_metadata.ApplicationName%>_webservices_server-7.1.csproj", "{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_server%>}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
@@ -82,10 +102,30 @@ Global
 		{<%=_aux_ex_metadata.GUIDBusinesslayer%>}.Debug.Build.0 = Debug|.NET
 		{<%=_aux_ex_metadata.GUIDBusinesslayer%>}.Release.ActiveCfg = Release|.NET
 		{<%=_aux_ex_metadata.GUIDBusinesslayer%>}.Release.Build.0 = Release|.NET
+		{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}.Debug.ActiveCfg = Debug|.NET
+		{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}.Debug.Build.0 = Debug|.NET
+		{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}.Release.ActiveCfg = Release|.NET
+		{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}.Release.Build.0 = Release|.NET
 		{<%=_aux_ex_metadata.GUIDBusinesslayer_UTs%>}.Debug.ActiveCfg = Debug|.NET
 		{<%=_aux_ex_metadata.GUIDBusinesslayer_UTs%>}.Debug.Build.0 = Debug|.NET
 		{<%=_aux_ex_metadata.GUIDBusinesslayer_UTs%>}.Release.ActiveCfg = Release|.NET
 		{<%=_aux_ex_metadata.GUIDBusinesslayer_UTs%>}.Release.Build.0 = Release|.NET
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_client%>}.Debug.ActiveCfg = Debug|.NET
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_client%>}.Debug.Build.0 = Debug|.NET
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_client%>}.Release.ActiveCfg = Release|.NET
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_client%>}.Release.Build.0 = Release|.NET
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_server%>}.Debug.ActiveCfg = Debug|.NET
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_server%>}.Debug.Build.0 = Debug|.NET
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_server%>}.Release.ActiveCfg = Release|.NET
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_server%>}.Release.Build.0 = Release|.NET
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_client%>}.Debug.ActiveCfg = Debug|.NET
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_client%>}.Debug.Build.0 = Debug|.NET
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_client%>}.Release.ActiveCfg = Release|.NET
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_client%>}.Release.Build.0 = Release|.NET
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_server%>}.Debug.ActiveCfg = Debug|.NET
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_server%>}.Debug.Build.0 = Debug|.NET
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_server%>}.Release.ActiveCfg = Release|.NET
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_server%>}.Release.Build.0 = Release|.NET
 		{<%=_aux_ex_metadata.GUIDTest%>}.Debug.ActiveCfg = Debug|.NET
 		{<%=_aux_ex_metadata.GUIDTest%>}.Debug.Build.0 = Debug|.NET
 		{<%=_aux_ex_metadata.GUIDTest%>}.Release.ActiveCfg = Release|.NET

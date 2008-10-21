@@ -45,6 +45,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.Applica
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer-8", "<%=_aux_ex_metadata.ApplicationName%>_businesslayer\<%=_aux_ex_metadata.ApplicationName%>_businesslayer-8.csproj", "{<%=_aux_ex_metadata.GUIDBusinesslayer%>}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy-8", "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy-8.csproj", "{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_remoting_client-8", "<%=_aux_ex_metadata.ApplicationName%>_remoting_client\<%=_aux_ex_metadata.ApplicationName%>_remoting_client-8.csproj", "{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_client%>}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_remoting_server-8", "<%=_aux_ex_metadata.ApplicationName%>_remoting_server\<%=_aux_ex_metadata.ApplicationName%>_remoting_server-8.csproj", "{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_server%>}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_webservices_client-8", "<%=_aux_ex_metadata.ApplicationName%>_webservices_client\<%=_aux_ex_metadata.ApplicationName%>_webservices_client-8.csproj", "{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_client%>}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_webservices_server-8", "<%=_aux_ex_metadata.ApplicationName%>_webservices_server\<%=_aux_ex_metadata.ApplicationName%>_webservices_server-8.csproj", "{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_server%>}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs-8", "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs-8.csproj", "{<%=_aux_ex_metadata.GUIDBusinesslayer_UTs%>}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_test-8", "<%=_aux_ex_metadata.ApplicationName%>_test\<%=_aux_ex_metadata.ApplicationName%>_test-8.csproj", "{<%=_aux_ex_metadata.GUIDTest%>}"
@@ -71,10 +81,30 @@ Global
 		{<%=_aux_ex_metadata.GUIDBusinesslayer%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{<%=_aux_ex_metadata.GUIDBusinesslayer%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{<%=_aux_ex_metadata.GUIDBusinesslayer%>}.Release|Any CPU.Build.0 = Release|Any CPU
+		{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}.Release|Any CPU.Build.0 = Release|Any CPU
 		{<%=_aux_ex_metadata.GUIDBusinesslayer_UTs%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{<%=_aux_ex_metadata.GUIDBusinesslayer_UTs%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{<%=_aux_ex_metadata.GUIDBusinesslayer_UTs%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{<%=_aux_ex_metadata.GUIDBusinesslayer_UTs%>}.Release|Any CPU.Build.0 = Release|Any CPU
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_client%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_client%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_client%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_client%>}.Release|Any CPU.Build.0 = Release|Any CPU
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_server%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_server%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_server%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_server%>}.Release|Any CPU.Build.0 = Release|Any CPU
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_client%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_client%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_client%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_client%>}.Release|Any CPU.Build.0 = Release|Any CPU
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_server%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_server%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_server%>}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_server%>}.Release|Any CPU.Build.0 = Release|Any CPU
 		{<%=_aux_ex_metadata.GUIDTest%>}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{<%=_aux_ex_metadata.GUIDTest%>}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{<%=_aux_ex_metadata.GUIDTest%>}.Release|Any CPU.ActiveCfg = Release|Any CPU

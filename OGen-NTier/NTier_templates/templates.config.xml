@@ -2757,6 +2757,50 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+	<template id="BO-SomeApplication_businesslayer_proxy-7.1.csproj.aspx"
+			name="BO-SomeApplication_businesslayer_proxy-7.1.csproj.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer_proxy/${ROOT.metadataDB[0].applicationName}_businesslayer_proxy-7.1.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="BO-SomeApplication_businesslayer_proxy-8.csproj.aspx?projectVersion=8"
+			name="BO-SomeApplication_businesslayer_proxy-8.csproj.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="projectVersion" value="8" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer_proxy/${ROOT.metadataDB[0].applicationName}_businesslayer_proxy-8.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="BO-SomeApplication_businesslayer_proxy-8.csproj.aspx?projectVersion=9"
+			name="BO-SomeApplication_businesslayer_proxy-8.csproj.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="projectVersion" value="9" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer_proxy/${ROOT.metadataDB[0].applicationName}_businesslayer_proxy-9.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
 	<template id="BO-IBO_SomeClass.cs.aspx"
 			name="BO-IBO_SomeClass.cs.aspx"
 			parserType="aspx"
