@@ -130,6 +130,7 @@
     <Content Include="BO-BDO_SomeTable.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="BO-IBO0_SomeClass.cs.aspx" />
     <Content Include="BO-SomeApplication_businesslayer-7.1.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
@@ -158,6 +159,9 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-BO_SomeClass.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="BO-IBO_SomeClass.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-SomeApplication_datalayer_proxy-7.1.csproj.aspx">
