@@ -34,7 +34,6 @@ namespace OGen.NTier.UTs.lib.distributed.remoting.server {
 			out bool constraintExist_out
 		) {
 			BDO_User _businessobject = new BDO_User(
-				login_in
 			);
 			return _businessobject.insObject(
 				user_in,
@@ -51,7 +50,6 @@ namespace OGen.NTier.UTs.lib.distributed.remoting.server {
 			out bool exists_out
 		) {
 			BDO_User _businessobject = new BDO_User(
-				login_in
 			);
 			return _businessobject.getObject(
 				idUser_in, 

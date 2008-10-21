@@ -14,12 +14,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	[XmlRoot("collectionOf_Group")]
+	[Serializable()]
 	public class SC_Group {
 		#region public SC_Group(...);
 		public SC_Group() {
+		}
+		public SC_Group(
+			SerializationInfo info_in,
+			StreamingContext context_in
+		) {
+			group_ = (SO_Group[])info_in.GetValue("oneItemOf_Group", typeof(SO_Group[]));
 		}
 		#endregion
 
@@ -27,9 +35,16 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		private SO_Group[] group_;
 
 		[XmlElement("oneItemOf_Group")]
+		[SoapElement("oneItemOf_Group")]
 		public SO_Group[] SO_Group {
 			get { return group_; }
 			set { group_ = value; }
+		}
+		#endregion
+
+		#region public void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
+		public void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
+			info_in.AddValue("oneItemOf_Group", group_);
 		}
 		#endregion
 	}

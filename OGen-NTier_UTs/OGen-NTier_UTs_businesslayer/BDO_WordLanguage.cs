@@ -36,14 +36,11 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		#region public BDO_WordLanguage(...);
 		///
 		public BDO_WordLanguage(
-			string authenticationLogin_in
 		) {
-			AuthenticationLogin = authenticationLogin_in;
 		}
 		#endregion
 
 		#region private Properties...
-		private string AuthenticationLogin;
 		#endregion
 		#region public Properties...
 		#endregion

@@ -14,12 +14,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	[XmlRoot("collectionOf_Word")]
+	[Serializable()]
 	public class SC_Word {
 		#region public SC_Word(...);
 		public SC_Word() {
+		}
+		public SC_Word(
+			SerializationInfo info_in,
+			StreamingContext context_in
+		) {
+			word_ = (SO_Word[])info_in.GetValue("oneItemOf_Word", typeof(SO_Word[]));
 		}
 		#endregion
 
@@ -27,9 +35,16 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		private SO_Word[] word_;
 
 		[XmlElement("oneItemOf_Word")]
+		[SoapElement("oneItemOf_Word")]
 		public SO_Word[] SO_Word {
 			get { return word_; }
 			set { word_ = value; }
+		}
+		#endregion
+
+		#region public void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
+		public void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
+			info_in.AddValue("oneItemOf_Word", word_);
 		}
 		#endregion
 	}

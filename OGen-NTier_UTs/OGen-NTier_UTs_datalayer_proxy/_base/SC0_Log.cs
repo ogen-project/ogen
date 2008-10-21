@@ -14,12 +14,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	[XmlRoot("collectionOf_Log")]
+	[Serializable()]
 	public class SC_Log {
 		#region public SC_Log(...);
 		public SC_Log() {
+		}
+		public SC_Log(
+			SerializationInfo info_in,
+			StreamingContext context_in
+		) {
+			log_ = (SO_Log[])info_in.GetValue("oneItemOf_Log", typeof(SO_Log[]));
 		}
 		#endregion
 
@@ -27,9 +35,16 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		private SO_Log[] log_;
 
 		[XmlElement("oneItemOf_Log")]
+		[SoapElement("oneItemOf_Log")]
 		public SO_Log[] SO_Log {
 			get { return log_; }
 			set { log_ = value; }
+		}
+		#endregion
+
+		#region public void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
+		public void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
+			info_in.AddValue("oneItemOf_Log", log_);
 		}
 		#endregion
 	}

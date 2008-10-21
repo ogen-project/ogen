@@ -78,10 +78,6 @@ namespace OGen.NTier.UTs.test {
 
 						_user
 							= new BDO_User(
-								_login = _authentication.Login(
-									"fmonteiro",
-									"passpub"
-								)
 							);
 						break;
 				}

@@ -14,12 +14,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	[XmlRoot("collectionOf_GroupPermition")]
+	[Serializable()]
 	public class SC_GroupPermition {
 		#region public SC_GroupPermition(...);
 		public SC_GroupPermition() {
+		}
+		public SC_GroupPermition(
+			SerializationInfo info_in,
+			StreamingContext context_in
+		) {
+			grouppermition_ = (SO_GroupPermition[])info_in.GetValue("oneItemOf_GroupPermition", typeof(SO_GroupPermition[]));
 		}
 		#endregion
 
@@ -27,9 +35,16 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		private SO_GroupPermition[] grouppermition_;
 
 		[XmlElement("oneItemOf_GroupPermition")]
+		[SoapElement("oneItemOf_GroupPermition")]
 		public SO_GroupPermition[] SO_GroupPermition {
 			get { return grouppermition_; }
 			set { grouppermition_ = value; }
+		}
+		#endregion
+
+		#region public void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
+		public void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
+			info_in.AddValue("oneItemOf_GroupPermition", grouppermition_);
 		}
 		#endregion
 	}

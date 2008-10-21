@@ -19,7 +19,7 @@ using System.Runtime.Serialization;
 namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	[XmlRoot("collectionOf_User")]
 	[Serializable()]
-	public class SC_User : ISerializable {
+	public class SC_User {
 		#region public SC_User(...);
 		public SC_User() {
 		}
