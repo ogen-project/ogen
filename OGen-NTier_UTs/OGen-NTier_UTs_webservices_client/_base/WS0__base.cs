@@ -16,7 +16,7 @@ using System;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 
-namespace OGen.NTier.UTs.lib.distributed.webservices.client {
+namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client {
 	public abstract class WS__base : SoapHttpClientProtocol {
 		#region public WS__base(...);
 		public WS__base(

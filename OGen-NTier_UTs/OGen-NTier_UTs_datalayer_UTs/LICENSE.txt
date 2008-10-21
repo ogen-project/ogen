@@ -43,7 +43,7 @@ OGen is licensed under various different licenses.
 	* OGen-NTier_UTs-SQLServer: MIT
 	* OGen-metadatas: MIT
 	* OGen.NTier.UTs.distributed.webservices: MIT
-	* OGen.NTier.UTs.lib.distributed.webservices.consumer: MIT
+	* OGen.NTier.UTs.lib.distributedlayer.webservices.consumer: MIT
 	* OGen.Doc.lib.generator: MIT
 	* OGen.Doc.lib.metadata: MIT
 	* OGen.Doc.lib.metadata.UTs: MIT

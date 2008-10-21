@@ -56,7 +56,7 @@ using System.Web.Services.Protocols;
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.proxy;
 
-namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributed.webservices.server {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server {
 	/// <summary>
 	/// <%=_aux_class.Name%> web service.
 	/// </summary>

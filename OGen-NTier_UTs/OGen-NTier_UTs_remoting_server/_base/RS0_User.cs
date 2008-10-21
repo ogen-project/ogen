@@ -16,7 +16,7 @@ using System;
 
 using OGen.NTier.UTs.lib.businesslayer;
 
-namespace OGen.NTier.UTs.lib.distributed.remoting.server {
+namespace OGen.NTier.UTs.lib.distributedlayer.remoting.server {
 	public abstract class RS0_User : MarshalByRefObject {
 		#region private Properties...
 		#endregion

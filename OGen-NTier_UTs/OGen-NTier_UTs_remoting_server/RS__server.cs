@@ -14,7 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 
-namespace OGen.NTier.UTs.lib.distributed.remoting.server {
+namespace OGen.NTier.UTs.lib.distributedlayer.remoting.server {
 	public class RS__server : RS0__server {
 	}
 }

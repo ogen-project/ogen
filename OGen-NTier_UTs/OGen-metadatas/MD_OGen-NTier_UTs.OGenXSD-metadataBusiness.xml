@@ -18,6 +18,14 @@
             <parameter name="exists_out" type="bool" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
+        <method name="Record_Open_byGroup" outputType="OGen.NTier.UTs.lib.datalayer.proxy.SC_User" distribute="true">
+          <parameters>
+            <parameter name="IDGroup_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="login_in" type="string" isParams="false" isOut="false" isRef="false" />
+          </parameters>
+        </method>
       </methods>
     </class>
     <class name="Authentication" type="BO">

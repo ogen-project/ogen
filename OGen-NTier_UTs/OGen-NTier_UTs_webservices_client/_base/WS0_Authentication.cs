@@ -15,15 +15,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Web.Services;
 using System.Web.Services.Protocols;
-using OGen.NTier.UTs.lib.distributed.webservices.client;
+using OGen.NTier.UTs.lib.distributedlayer.webservices.client;
 
-namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_Authentication {
+namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WS_Authentication {
 	/// <remarks/>
 	[System.Diagnostics.DebuggerStepThroughAttribute()]
 	[System.ComponentModel.DesignerCategoryAttribute("code")]
 	[System.Web.Services.WebServiceBindingAttribute(
 		Name = "WS_AuthenticationSoap", 
-		Namespace = "http://OGen.NTier.UTs.distributed.webservices.server"
+		Namespace = "http://OGen.NTier.UTs.distributedlayer.webservices.server"
 	)]
 	public abstract class WS0_Authentication : WS__base {
 		#region public WS0_Authentication(...);
@@ -42,9 +42,9 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_Authentication {
 
 		/// <remarks/>
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.UTs.distributed.webservices.server/Login", 
-			RequestNamespace = "http://OGen.NTier.UTs.distributed.webservices.server", 
-			ResponseNamespace = "http://OGen.NTier.UTs.distributed.webservices.server", 
+			"http://OGen.NTier.UTs.distributedlayer.webservices.server/Login", 
+			RequestNamespace = "http://OGen.NTier.UTs.distributedlayer.webservices.server", 
+			ResponseNamespace = "http://OGen.NTier.UTs.distributedlayer.webservices.server", 
 			Use = System.Web.Services.Description.SoapBindingUse.Literal, 
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
@@ -120,9 +120,9 @@ namespace OGen.NTier.UTs.lib.distributed.webservices.client.WS_Authentication {
 
 		/// <remarks/>
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.UTs.distributed.webservices.server/Logout", 
-			RequestNamespace = "http://OGen.NTier.UTs.distributed.webservices.server", 
-			ResponseNamespace = "http://OGen.NTier.UTs.distributed.webservices.server", 
+			"http://OGen.NTier.UTs.distributedlayer.webservices.server/Logout", 
+			RequestNamespace = "http://OGen.NTier.UTs.distributedlayer.webservices.server", 
+			ResponseNamespace = "http://OGen.NTier.UTs.distributedlayer.webservices.server", 
 			Use = System.Web.Services.Description.SoapBindingUse.Literal, 
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]

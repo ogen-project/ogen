@@ -192,11 +192,11 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
-		#region public string GuidDistributedlayer_webservices_server { get; set; }
+		#region public string GUIDDistributedlayer_webservices_server { get; set; }
 		internal string guiddistributedlayer_webservices_server_;
 
 		[XmlAttribute("guidDistributedlayer_webservices_server")]
-		public string GuidDistributedlayer_webservices_server {
+		public string GUIDDistributedlayer_webservices_server {
 			get {
 				return guiddistributedlayer_webservices_server_;
 			}
@@ -205,11 +205,11 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
-		#region public string GuidDistributedlayer_webservices_client { get; set; }
+		#region public string GUIDDistributedlayer_webservices_client { get; set; }
 		internal string guiddistributedlayer_webservices_client_;
 
 		[XmlAttribute("guidDistributedlayer_webservices_client")]
-		public string GuidDistributedlayer_webservices_client {
+		public string GUIDDistributedlayer_webservices_client {
 			get {
 				return guiddistributedlayer_webservices_client_;
 			}
@@ -218,11 +218,11 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
-		#region public string GuidDistributedlayer_remoting_server { get; set; }
+		#region public string GUIDDistributedlayer_remoting_server { get; set; }
 		internal string guiddistributedlayer_remoting_server_;
 
 		[XmlAttribute("guidDistributedlayer_remoting_server")]
-		public string GuidDistributedlayer_remoting_server {
+		public string GUIDDistributedlayer_remoting_server {
 			get {
 				return guiddistributedlayer_remoting_server_;
 			}
@@ -231,11 +231,11 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
-		#region public string GuidDistributedlayer_remoting_client { get; set; }
+		#region public string GUIDDistributedlayer_remoting_client { get; set; }
 		internal string guiddistributedlayer_remoting_client_;
 
 		[XmlAttribute("guidDistributedlayer_remoting_client")]
-		public string GuidDistributedlayer_remoting_client {
+		public string GUIDDistributedlayer_remoting_client {
 			get {
 				return guiddistributedlayer_remoting_client_;
 			}

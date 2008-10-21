@@ -17,7 +17,7 @@ using System.Runtime.Remoting;
 
 using OGen.NTier.UTs.lib.businesslayer.proxy;
 
-namespace OGen.NTier.UTs.lib.distributed.remoting.client {
+namespace OGen.NTier.UTs.lib.distributedlayer.remoting.client {
 	public abstract class RC0_Authentication {
 		public RC0_Authentication(
 			string url_in

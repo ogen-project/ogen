@@ -56,11 +56,11 @@ using System.Web.Services.Protocols;
 
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;
 
-namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributed.webservices.server {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server {
 	/// <summary>
 	/// <%=_aux_class.Name%> web service.
 	/// </summary>
-	[WebService(Namespace = "http://<%=_aux_ex_metadata.ApplicationNamespace%>.distributed.webservices")]
+	[WebService(Namespace = "http://<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices")]
 	[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 	[ToolboxItem(false)]
 	// To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 

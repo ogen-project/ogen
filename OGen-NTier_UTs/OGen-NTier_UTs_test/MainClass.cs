@@ -29,11 +29,11 @@ using OGen.NTier.UTs.lib.datalayer;
 using OGen.NTier.UTs.lib.datalayer.proxy;
 using OGen.NTier.UTs.lib.datalayer.UTs;
 using OGen.NTier.UTs.lib.businesslayer;
-using WS_Authentication = OGen.NTier.UTs.lib.distributed.webservices.client.WS_Authentication;
-using WS_User = OGen.NTier.UTs.lib.distributed.webservices.client.WS_User;
+using WS_Authentication = OGen.NTier.UTs.lib.distributedlayer.webservices.client.WS_Authentication;
+using WS_User = OGen.NTier.UTs.lib.distributedlayer.webservices.client.WS_User;
 
 using OGen.NTier.UTs.lib.businesslayer.proxy;
-using OGen.NTier.UTs.lib.distributed.remoting.client;
+using OGen.NTier.UTs.lib.distributedlayer.remoting.client;
 
 namespace OGen.NTier.UTs.test {
 	class MainClass {
@@ -49,13 +49,13 @@ namespace OGen.NTier.UTs.test {
 						Console.WriteLine("--- remoting...");
 						_authentication
 							= new RC_Authentication(
-								"tcp://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_Authentication.remoting"
-								//"http://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_Authentication.soap"
+								"tcp://127.0.0.1:8085/OGen.NTier.UTs.lib.distributedlayer.remoting.server.RS_Authentication.remoting"
+								//"http://127.0.0.1:8085/OGen.NTier.UTs.lib.distributedlayer.remoting.server.RS_Authentication.soap"
 							);
 						_user
 							= new RC_User(
-								"tcp://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_User.remoting"
-								//"http://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_User.soap"
+								"tcp://127.0.0.1:8085/OGen.NTier.UTs.lib.distributedlayer.remoting.server.RS_User.remoting"
+								//"http://127.0.0.1:8085/OGen.NTier.UTs.lib.distributedlayer.remoting.server.RS_User.soap"
 							);
 						break;
 					case 1:

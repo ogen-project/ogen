@@ -8,8 +8,8 @@
     <ProjectGuid>{3E90C87B-1643-4323-8A50-96000EBFD406}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OGen.NTier.UTs.lib.distributed.webservices.client</RootNamespace>
-    <AssemblyName>OGen.NTier.UTs.lib.distributed.webservices.client-2.0</AssemblyName>
+    <RootNamespace>OGen.NTier.UTs.lib.distributedlayer.webservices.client</RootNamespace>
+    <AssemblyName>OGen.NTier.UTs.lib.distributedlayer.webservices.client-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

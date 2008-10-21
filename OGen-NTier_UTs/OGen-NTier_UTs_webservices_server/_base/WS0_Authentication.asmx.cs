@@ -22,7 +22,7 @@ using System.Web.Services.Protocols;
 using OGen.NTier.UTs.lib.businesslayer;
 using OGen.NTier.UTs.lib.businesslayer.proxy;
 
-namespace OGen.NTier.UTs.distributed.webservices.server {
+namespace OGen.NTier.UTs.distributedlayer.webservices.server {
 	/// <summary>
 	/// Authentication web service.
 	/// </summary>

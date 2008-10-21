@@ -16,7 +16,7 @@ using System;
 
 using OGen.NTier.UTs.lib.businesslayer.proxy;
 
-namespace OGen.NTier.UTs.lib.distributed.remoting.server {
+namespace OGen.NTier.UTs.lib.distributedlayer.remoting.server {
 	public class RS_User : RS0_User, IBO_User {
 	}
 }

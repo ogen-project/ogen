@@ -16,7 +16,7 @@ using System;
 
 using OGen.NTier.UTs.lib.businesslayer.proxy;
 
-namespace OGen.NTier.UTs.lib.distributed.remoting.client {
+namespace OGen.NTier.UTs.lib.distributedlayer.remoting.client {
 	public class RC_Authentication : RC0_Authentication, IBO_Authentication {
 		public RC_Authentication(
 			string url_in

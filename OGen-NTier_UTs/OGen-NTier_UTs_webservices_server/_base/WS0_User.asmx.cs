@@ -22,7 +22,7 @@ using System.Web.Services.Protocols;
 using OGen.NTier.UTs.lib.businesslayer;
 using OGen.NTier.UTs.lib.businesslayer.proxy;
 
-namespace OGen.NTier.UTs.distributed.webservices.server {
+namespace OGen.NTier.UTs.distributedlayer.webservices.server {
 	/// <summary>
 	/// User web service.
 	/// </summary>
@@ -64,6 +64,23 @@ namespace OGen.NTier.UTs.distributed.webservices.server {
 				idUser_in, 
 				login_in, 
 				out exists_out
+			);
+		}
+		#endregion
+		#region public OGen.NTier.UTs.lib.datalayer.proxy.SC_User Record_Open_byGroup(...);
+		[WebMethod]
+		public OGen.NTier.UTs.lib.datalayer.proxy.SC_User Record_Open_byGroup(
+			long IDGroup_search_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			string login_in
+		) {
+			BDO_User _businessobject = new BDO_User();
+			return _businessobject.Record_Open_byGroup(
+				IDGroup_search_in, 
+				page_in, 
+				page_numRecords_in, 
+				login_in
 			);
 		}
 		#endregion

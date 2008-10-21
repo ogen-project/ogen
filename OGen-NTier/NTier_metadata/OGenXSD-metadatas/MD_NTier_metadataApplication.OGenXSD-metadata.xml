@@ -115,10 +115,10 @@ shared
 		<specificCase word="guidBusinesslayer" translation="GUIDBusinesslayer" />
 		<specificCase word="guidBusinesslayer_proxy" translation="GUIDBusinesslayer_proxy" />
 		<specificCase word="guidBusinesslayer_UTs" translation="GUIDBusinesslayer_UTs" />
-		<specificCase word="guidDistributed_webservices_server" translation="GUIDDistributed_webservices_server" />
-		<specificCase word="guidDistributed_webservices_client" translation="GUIDDistributed_webservices_client" />
-		<specificCase word="guidDistributed_remoting_server" translation="GUIDDistributed_remoting_server" />
-		<specificCase word="guidDistributed_remoting_client" translation="GUIDDistributed_remoting_client" />
+		<specificCase word="guidDistributedlayer_webservices_server" translation="GUIDDistributedlayer_webservices_server" />
+		<specificCase word="guidDistributedlayer_webservices_client" translation="GUIDDistributedlayer_webservices_client" />
+		<specificCase word="guidDistributedlayer_remoting_server" translation="GUIDDistributedlayer_remoting_server" />
+		<specificCase word="guidDistributedlayer_remoting_client" translation="GUIDDistributedlayer_remoting_client" />
 		<specificCase word="guidTest" translation="GUIDTest" />
 		<specificCase word="feedbackEmailAddress" translation="FeedbackEmailAddress" />
 		<specificCase word="copyrightText" translation="CopyrightText" />
