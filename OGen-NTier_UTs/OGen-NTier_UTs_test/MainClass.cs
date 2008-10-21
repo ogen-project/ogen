@@ -83,6 +83,7 @@ namespace OGen.NTier.UTs.test {
 				}
 
 				Console.WriteLine(
+					"authentication string: {0}\n", 
 					_login = _authentication.Login(
 						"fmonteiro", 
 						"passpub"
@@ -100,12 +101,19 @@ namespace OGen.NTier.UTs.test {
 						0
 					);
 				_so_user.SomeNullValue_isNull = true;
-				Console.WriteLine(_so_user.SomeNullValue_isNull);
+				Console.WriteLine(
+					"IDUser: {0}\nLogin: {1}\nPassword: {2}\nSomeNullValue: {3} (is null: {4})\n",
+					_so_user.IDUser,
+					_so_user.Login,
+					_so_user.Password,
+					_so_user.SomeNullValue, 
+					_so_user.SomeNullValue_isNull
+				);
 
 				long _iduser;
 				bool _constraintExists;
 				Console.WriteLine(
-					"id:{0}; constraintExists:{1};",
+					"IDUser: {0}\nConstraint Exists: {1}\n",
 					_iduser =_user.insObject(
 						(SO_User)_so_user,
 						true, 
@@ -122,6 +130,11 @@ namespace OGen.NTier.UTs.test {
 					out _exists
 				);
 				Console.WriteLine(
+					"IDUser: {0}\nLogin: {1}\nPassword: {2}\nSomeNullValue: {3} (is null: {4})\n",
+					_so_user.IDUser,
+					_so_user.Login,
+					_so_user.Password,
+					_so_user.SomeNullValue,
 					_so_user.SomeNullValue_isNull
 				);
 

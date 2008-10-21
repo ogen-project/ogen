@@ -166,6 +166,19 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
+		#region public string GUIDBusinesslayer_proxy { get; set; }
+		internal string guidbusinesslayer_proxy_;
+
+		[XmlAttribute("guidBusinesslayer_proxy")]
+		public string GUIDBusinesslayer_proxy {
+			get {
+				return guidbusinesslayer_proxy_;
+			}
+			set {
+				guidbusinesslayer_proxy_ = value;
+			}
+		}
+		#endregion
 		#region public string GUIDBusinesslayer_UTs { get; set; }
 		internal string guidbusinesslayer_uts_;
 
@@ -342,6 +355,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			guiddatalayer_proxy_ = metadataExtendedType_in.guiddatalayer_proxy_;
 			guiddatalayer_uts_ = metadataExtendedType_in.guiddatalayer_uts_;
 			guidbusinesslayer_ = metadataExtendedType_in.guidbusinesslayer_;
+			guidbusinesslayer_proxy_ = metadataExtendedType_in.guidbusinesslayer_proxy_;
 			guidbusinesslayer_uts_ = metadataExtendedType_in.guidbusinesslayer_uts_;
 			guiddistributedlayer_webservices_server_ = metadataExtendedType_in.guiddistributedlayer_webservices_server_;
 			guiddistributedlayer_webservices_client_ = metadataExtendedType_in.guiddistributedlayer_webservices_client_;
