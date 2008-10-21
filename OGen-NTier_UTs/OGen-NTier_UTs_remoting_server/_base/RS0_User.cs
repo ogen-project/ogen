@@ -18,14 +18,6 @@ using OGen.NTier.UTs.lib.businesslayer;
 
 namespace OGen.NTier.UTs.lib.distributedlayer.remoting.server {
 	public abstract class RS0_User : MarshalByRefObject {
-		#region private Properties...
-		#endregion
-		#region public Properties...
-		#endregion
-
-		#region private Methods...
-		#endregion
-		#region public Methods...
 		#region public long insObject(...);
 		public long insObject(
 			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
@@ -74,7 +66,6 @@ namespace OGen.NTier.UTs.lib.distributedlayer.remoting.server {
 				login_in
 			);
 		}
-		#endregion
 		#endregion
 	}
 }

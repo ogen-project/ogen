@@ -2899,7 +2899,7 @@ XXX:TO_DOS -->
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_webservices_client/WC_${ROOT.metadataBusiness[0].classes.class[n].name}cs"
+			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_webservices_client/WC_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -2915,6 +2915,36 @@ XXX:TO_DOS -->
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_webservices_client/_base/WC0_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="RS-RS_SomeClass.cs.aspx"
+			name="RS-RS_SomeClass.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataBusiness[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_remoting_server/RS_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="RS-RS0_SomeClass.cs.aspx"
+			name="RS-RS0_SomeClass.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataBusiness[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_remoting_server/_base/RS0_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
