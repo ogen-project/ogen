@@ -14,12 +14,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	[XmlRoot("collectionOf_User")]
-	public class SC_User {
+	[Serializable()]
+	public class SC_User : ISerializable {
 		#region public SC_User(...);
 		public SC_User() {
+		}
+		public SC_User(
+			SerializationInfo info_in,
+			StreamingContext context_in
+		) {
+			user_ = (SO_User[])info_in.GetValue("oneItemOf_User", typeof(SO_User[]));
 		}
 		#endregion
 
@@ -27,9 +35,16 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		private SO_User[] user_;
 
 		[XmlElement("oneItemOf_User")]
+		[SoapElement("oneItemOf_User")]
 		public SO_User[] SO_User {
 			get { return user_; }
 			set { user_ = value; }
+		}
+		#endregion
+
+		#region public void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
+		public void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
+			info_in.AddValue("oneItemOf_User", user_);
 		}
 		#endregion
 	}

@@ -54,12 +54,20 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 <%
 }%>using System;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 	[XmlRoot("collectionOf_<%=_aux_db_table.Name%>")]
+	[Serializable()]
 	public class SC_<%=_aux_db_table.Name%> {
 		#region public SC_<%=_aux_db_table.Name%>(...);
 		public SC_<%=_aux_db_table.Name%>() {
+		}
+		public SC_<%=_aux_db_table.Name%>(
+			SerializationInfo info_in,
+			StreamingContext context_in
+		) {
+			<%=_aux_db_table.Name.ToLower()%>_ = (SO_<%=_aux_db_table.Name%>[])info_in.GetValue("oneItemOf_<%=_aux_db_table.Name%>", typeof(SO_<%=_aux_db_table.Name%>[]));
 		}
 		#endregion
 
@@ -67,9 +75,16 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 		private SO_<%=_aux_db_table.Name%>[] <%=_aux_db_table.Name.ToLower()%>_;
 
 		[XmlElement("oneItemOf_<%=_aux_db_table.Name%>")]
+		[SoapElement("oneItemOf_<%=_aux_db_table.Name%>")]
 		public SO_<%=_aux_db_table.Name%>[] SO_<%=_aux_db_table.Name%> {
 			get { return <%=_aux_db_table.Name.ToLower()%>_; }
 			set { <%=_aux_db_table.Name.ToLower()%>_ = value; }
+		}
+		#endregion
+
+		#region public void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
+		public void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
+			info_in.AddValue("oneItemOf_<%=_aux_db_table.Name%>", <%=_aux_db_table.Name.ToLower()%>_);
 		}
 		#endregion
 	}
