@@ -39,8 +39,8 @@ namespace OGen.NTier.UTs.test {
 	class MainClass {
 		[STAThread]
 		static void Main(string[] args) {
-			IBO_Authentication _authentication = null;
-			IBO_User _user = null;
+			IBO_Authentication _authentication;
+			IBO_User _user;
 			string _login;
 
 			for (int _provider = 0; _provider < 3; _provider++) {
@@ -62,16 +62,16 @@ namespace OGen.NTier.UTs.test {
 						Console.WriteLine("--- webservices...");
 						_authentication
 							= new WS_Authentication.WS_Authentication(
-								"http://localhost:2937/WS_Authentication.asmx"
+								"http://127.0.0.1:2937/WS_Authentication.asmx"
 							);
 
 						_user
 							= new WS_User.WS_User(
-								"http://localhost:2937/WS_User.asmx"
+								"http://127.0.0.1:2937/WS_User.asmx"
 							);
 						break;
-					case 2:
-						Console.WriteLine("--- assembly...");
+					default:
+						Console.WriteLine("--- direct assembly...");
 						_authentication
 							= new BO_Authentication(
 							);
@@ -130,12 +130,13 @@ namespace OGen.NTier.UTs.test {
 					out _exists
 				);
 				Console.WriteLine(
-					"IDUser: {0}\nLogin: {1}\nPassword: {2}\nSomeNullValue: {3} (is null: {4})\n",
+					"Exists: {5}\nIDUser: {0}\nLogin: {1}\nPassword: {2}\nSomeNullValue: {3} (is null: {4})\n",
 					_so_user.IDUser,
 					_so_user.Login,
 					_so_user.Password,
 					_so_user.SomeNullValue,
-					_so_user.SomeNullValue_isNull
+					_so_user.SomeNullValue_isNull,
+					_exists
 				);
 
 				_authentication.Logout();
