@@ -65,6 +65,21 @@ namespace OGen.NTier.UTs.lib.distributedlayer.remoting.client {
 			);
 		}
 		#endregion
+		#region public OGen.NTier.UTs.lib.datalayer.proxy.SC_User Record_Open_byGroup(...);
+		public OGen.NTier.UTs.lib.datalayer.proxy.SC_User Record_Open_byGroup(
+			long IDGroup_search_in,
+			int page_in,
+			int page_numRecords_in,
+			string login_in
+		) {
+			return bo_user_.Record_Open_byGroup(
+				IDGroup_search_in,
+				page_in,
+				page_numRecords_in,
+				login_in
+			);
+		}
+		#endregion
 		#endregion
 	}
 }
