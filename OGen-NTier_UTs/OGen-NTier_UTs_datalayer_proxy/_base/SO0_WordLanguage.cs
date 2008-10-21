@@ -82,7 +82,10 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 
 			idword_ = (long)info_in.GetValue("IDWord", typeof(long));
 			idlanguage_ = (long)info_in.GetValue("IDLanguage", typeof(long));
-			translation_ = (string)info_in.GetValue("Translation", typeof(string));
+			translation_ 
+				= (info_in.GetValue("Translation", typeof(string)) == null)
+					? string.Empty
+					: (string)info_in.GetValue("Translation", typeof(string));
 			Translation_isNull = (bool)info_in.GetValue("Translation_isNull", typeof(bool));
 		}
 		#endregion

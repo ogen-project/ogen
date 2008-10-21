@@ -73,7 +73,10 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			haschanges_ = false;
 
 			idword_ = (long)info_in.GetValue("IDWord", typeof(long));
-			deletethistestfield_ = (bool)info_in.GetValue("DeleteThisTestField", typeof(bool));
+			deletethistestfield_ 
+				= (info_in.GetValue("DeleteThisTestField", typeof(bool)) == null)
+					? false
+					: (bool)info_in.GetValue("DeleteThisTestField", typeof(bool));
 			DeleteThisTestField_isNull = (bool)info_in.GetValue("DeleteThisTestField_isNull", typeof(bool));
 		}
 		#endregion

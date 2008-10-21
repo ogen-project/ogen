@@ -91,7 +91,10 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			iduser_ = (long)info_in.GetValue("IDUser", typeof(long));
 			login_ = (string)info_in.GetValue("Login", typeof(string));
 			password_ = (string)info_in.GetValue("Password", typeof(string));
-			somenullvalue_ = (int)info_in.GetValue("SomeNullValue", typeof(int));
+			somenullvalue_ 
+				= (info_in.GetValue("SomeNullValue", typeof(int)) == null)
+					? 0
+					: (int)info_in.GetValue("SomeNullValue", typeof(int));
 			SomeNullValue_isNull = (bool)info_in.GetValue("SomeNullValue_isNull", typeof(bool));
 		}
 		#endregion

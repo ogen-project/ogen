@@ -100,7 +100,10 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			warning_ = (bool)info_in.GetValue("Warning", typeof(bool));
 			error_ = (bool)info_in.GetValue("Error", typeof(bool));
 			code_ = (string)info_in.GetValue("Code", typeof(string));
-			description_ = (string)info_in.GetValue("Description", typeof(string));
+			description_ 
+				= (info_in.GetValue("Description", typeof(string)) == null)
+					? string.Empty
+					: (string)info_in.GetValue("Description", typeof(string));
 			Description_isNull = (bool)info_in.GetValue("Description_isNull", typeof(bool));
 		}
 		#endregion

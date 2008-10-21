@@ -120,13 +120,18 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 		) {
 			haschanges_ = false;
 <%
-			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
-				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
-			<%=_aux_db_field.Name.ToLower()%>_ = (<%=_aux_db_field.DBType_generic.FWType%>)info_in.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>));<%
-			if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%>
+	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
+		if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%>
+			<%=_aux_db_field.Name.ToLower()%>_ 
+				= (info_in.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>)) == null)
+					? <%=_aux_db_field.DBType_generic.FWEmptyValue%>
+					: (<%=_aux_db_field.DBType_generic.FWType%>)info_in.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>));
 			<%=_aux_db_field.Name%>_isNull = (bool)info_in.GetValue("<%=_aux_db_field.Name%>_isNull", typeof(bool));<%
-			}
-			}%>
+		} else {%><%=""%>
+			<%=_aux_db_field.Name.ToLower()%>_ = (<%=_aux_db_field.DBType_generic.FWType%>)info_in.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>));<%
+		}
+	}%>
 		}
 		#endregion
 

@@ -39,78 +39,98 @@ namespace OGen.NTier.UTs.test {
 	class MainClass {
 		[STAThread]
 		static void Main(string[] args) {
-			IBO_Authentication _authentication;
-			IBO_User _user;
-
-			if (false) {
-				Console.WriteLine("remoting...");
-				_authentication
-					= new RC_Authentication(
-						"tcp://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_Authentication.remoting"
-						//"http://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_Authentication.soap"
-					);
-				_user
-					= new RC_User(
-						"tcp://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_User.remoting"
-						//"http://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_User.soap"
-					);
-			} else {
-				Console.WriteLine("webservices...");
-				_authentication
-					= new WS_Authentication.WS_Authentication(
-						"http://localhost:2937/WS_Authentication.asmx"
-					);
-
-				_user
-					= new WS_User.WS_User(
-						"http://localhost:2937/WS_User.asmx"
-					);
-			}
-
+			IBO_Authentication _authentication = null;
+			IBO_User _user = null;
 			string _login;
-			Console.WriteLine(
-				_login = _authentication.Login(
-					"fmonteiro", 
-					"passpub"
-				)
-			);
-			_authentication.Logout();
 
-			OGen.NTier.UTs.lib.datalayer.proxy.ISO_User _so_user 
-				= new OGen.NTier.UTs.lib.datalayer.proxy.SO_User(
-					0L,
-					string.Format(
-						"login-{0}", 
-						Guid.NewGuid().ToString()
-					),
-					"password",
-					-1
+			for (int _provider = 0; _provider < 3; _provider++) {
+				switch (_provider) {
+					case 0:
+						Console.WriteLine("--- remoting...");
+						_authentication
+							= new RC_Authentication(
+								"tcp://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_Authentication.remoting"
+								//"http://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_Authentication.soap"
+							);
+						_user
+							= new RC_User(
+								"tcp://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_User.remoting"
+								//"http://127.0.0.1:8085/OGen.NTier.UTs.lib.distributed.remoting.server.RS_User.soap"
+							);
+						break;
+					case 1:
+						Console.WriteLine("--- webservices...");
+						_authentication
+							= new WS_Authentication.WS_Authentication(
+								"http://localhost:2937/WS_Authentication.asmx"
+							);
+
+						_user
+							= new WS_User.WS_User(
+								"http://localhost:2937/WS_User.asmx"
+							);
+						break;
+					case 2:
+						Console.WriteLine("--- assembly...");
+						_authentication
+							= new BO_Authentication(
+							);
+
+						_user
+							= new BDO_User(
+								_login = _authentication.Login(
+									"fmonteiro",
+									"passpub"
+								)
+							);
+						break;
+				}
+
+				Console.WriteLine(
+					_login = _authentication.Login(
+						"fmonteiro", 
+						"passpub"
+					)
 				);
-			_so_user.SomeNullValue_isNull = true;
-			Console.WriteLine(_so_user.SomeNullValue_isNull);
 
-			long _iduser;
-			bool _constraintExists;
-			Console.WriteLine(
-				"id:{0}; constraintExists:{1};",
-				_iduser =_user.insObject(
-					(SO_User)_so_user,
-					true, 
+				OGen.NTier.UTs.lib.datalayer.proxy.ISO_User _so_user 
+					= new OGen.NTier.UTs.lib.datalayer.proxy.SO_User(
+						0L,
+						string.Format(
+							"login-{0}", 
+							Guid.NewGuid().ToString()
+						),
+						"password",
+						0
+					);
+				_so_user.SomeNullValue_isNull = true;
+				Console.WriteLine(_so_user.SomeNullValue_isNull);
+
+				long _iduser;
+				bool _constraintExists;
+				Console.WriteLine(
+					"id:{0}; constraintExists:{1};",
+					_iduser =_user.insObject(
+						(SO_User)_so_user,
+						true, 
+						_login, 
+						out _constraintExists
+					),
+					_constraintExists
+				);
+
+				bool _exists;
+				_so_user = _user.getObject(
+					_iduser, 
 					_login, 
-					out _constraintExists
-				),
-				_constraintExists
-			);
+					out _exists
+				);
+				Console.WriteLine(
+					_so_user.SomeNullValue_isNull
+				);
 
-			bool _exists;
-			_so_user = _user.getObject(
-				_iduser, 
-				_login, 
-				out _exists
-			);
-			Console.WriteLine(
-				_so_user.SomeNullValue_isNull
-			);
+				_authentication.Logout();
+			}
 			return;
 
 

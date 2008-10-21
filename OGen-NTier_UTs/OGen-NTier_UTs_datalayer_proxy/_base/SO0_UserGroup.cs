@@ -94,9 +94,15 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 
 			iduser_ = (long)info_in.GetValue("IDUser", typeof(long));
 			idgroup_ = (long)info_in.GetValue("IDGroup", typeof(long));
-			relationdate_ = (DateTime)info_in.GetValue("Relationdate", typeof(DateTime));
+			relationdate_ 
+				= (info_in.GetValue("Relationdate", typeof(DateTime)) == null)
+					? new DateTime(1900, 1, 1)
+					: (DateTime)info_in.GetValue("Relationdate", typeof(DateTime));
 			Relationdate_isNull = (bool)info_in.GetValue("Relationdate_isNull", typeof(bool));
-			defaultrelation_ = (bool)info_in.GetValue("Defaultrelation", typeof(bool));
+			defaultrelation_ 
+				= (info_in.GetValue("Defaultrelation", typeof(bool)) == null)
+					? false
+					: (bool)info_in.GetValue("Defaultrelation", typeof(bool));
 			Defaultrelation_isNull = (bool)info_in.GetValue("Defaultrelation_isNull", typeof(bool));
 		}
 		#endregion
