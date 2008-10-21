@@ -139,6 +139,20 @@ namespace OGen.NTier.UTs.test {
 					_exists
 				);
 
+				SC_User _users = _user.Record_Open_byGroup(
+					3L,
+					1,
+					4,
+					_login
+				);
+				for (int i = 0; i < _users.SO_User.Length; i++) {
+					Console.WriteLine(
+						"IDUser: {0}; Login: {1}",
+						_users.SO_User[i].IDUser,
+						_users.SO_User[i].Login
+					);
+				}
+
 				_authentication.Logout();
 			}
 			return;

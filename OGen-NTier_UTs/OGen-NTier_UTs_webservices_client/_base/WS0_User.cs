@@ -202,6 +202,98 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WS_User {
 			}
 		}
 		#endregion
+		#region public OGen.NTier.UTs.lib.datalayer.proxy.SC_User Record_Open_byGroup(...);
+		private System.Threading.SendOrPostCallback Record_Open_byGroupOperationCompleted;
+		/// <remarks/>
+		public event Record_Open_byGroupCompletedEventHandler Record_Open_byGroupCompleted;
+
+		/// <remarks/>
+		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
+			"http://OGen.NTier.UTs.distributedlayer.webservices.server/Record_Open_byGroup", 
+			RequestNamespace = "http://OGen.NTier.UTs.distributedlayer.webservices.server", 
+			ResponseNamespace = "http://OGen.NTier.UTs.distributedlayer.webservices.server", 
+			Use = System.Web.Services.Description.SoapBindingUse.Literal, 
+			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
+		)]
+		[return: System.Xml.Serialization.XmlArrayAttribute("collectionOf_User", IsNullable = true)]
+		[return: System.Xml.Serialization.XmlArrayItemAttribute("oneItemOf_User", IsNullable = false)]
+		public OGen.NTier.UTs.lib.datalayer.proxy.SC_User Record_Open_byGroup(
+			long IDGroup_search_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			string login_in
+		) {
+			object[] results = this.Invoke(
+				"Record_Open_byGroup", 
+				new object[] {
+					IDGroup_search_in,
+					page_in,
+					page_numRecords_in,
+					login_in
+				}
+			);
+			return (OGen.NTier.UTs.lib.datalayer.proxy.SC_User)results[0];
+		}
+
+		/// <remarks/>
+		public void Record_Open_byGroupAsync(
+			long IDGroup_search_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			string login_in
+		) {
+			this.Record_Open_byGroupAsync(
+				IDGroup_search_in, 
+				page_in, 
+				page_numRecords_in, 
+				login_in, 
+				null
+			);
+		}
+
+		/// <remarks/>
+		public void Record_Open_byGroupAsync(
+			long IDGroup_search_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			string login_in, 
+			object userState
+		) {
+			if (this.Record_Open_byGroupOperationCompleted == null) {
+				this.Record_Open_byGroupOperationCompleted 
+					= new System.Threading.SendOrPostCallback(
+						this.OnRecord_Open_byGroupOperationCompleted
+					);
+			}
+			this.InvokeAsync(
+				"Record_Open_byGroup", 
+				new object[] {
+					IDGroup_search_in,
+					page_in,
+					page_numRecords_in,
+					login_in
+				}, 
+				this.Record_Open_byGroupOperationCompleted, 
+				userState
+			);
+		}
+
+		private void OnRecord_Open_byGroupOperationCompleted(object arg) {
+			if (this.Record_Open_byGroupCompleted != null) {
+				System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs 
+					= (System.Web.Services.Protocols.InvokeCompletedEventArgs)arg;
+				this.Record_Open_byGroupCompleted(
+					this, 
+					new Record_Open_byGroupCompletedEventArgs(
+						invokeArgs.Results, 
+						invokeArgs.Error, 
+						invokeArgs.Cancelled, 
+						invokeArgs.UserState
+					)
+				);
+			}
+		}
+		#endregion
 	}
 
 	#region ...insObject...
@@ -286,6 +378,41 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WS_User {
 			get {
 				this.RaiseExceptionIfNecessary();
 				return (bool)this.results[1];
+			}
+		}
+	}
+	#endregion
+	#region ...Record_Open_byGroup...
+	/// <remarks/>
+	public delegate void Record_Open_byGroupCompletedEventHandler(
+		object sender, 
+		Record_Open_byGroupCompletedEventArgs e
+	);
+
+	/// <remarks/>
+	[System.Diagnostics.DebuggerStepThroughAttribute()]
+	[System.ComponentModel.DesignerCategoryAttribute("code")]
+	public partial class Record_Open_byGroupCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+		private object[] results;
+
+		internal Record_Open_byGroupCompletedEventArgs(
+			object[] results, 
+			System.Exception exception, 
+			bool cancelled, 
+			object userState
+		) : base(
+			exception, 
+			cancelled, 
+			userState
+		) {
+			this.results = results;
+		}
+
+		/// <remarks/>
+		public OGen.NTier.UTs.lib.datalayer.proxy.SC_User Result {
+			get {
+				this.RaiseExceptionIfNecessary();
+				return (OGen.NTier.UTs.lib.datalayer.proxy.SC_User)this.results[0];
 			}
 		}
 	}
