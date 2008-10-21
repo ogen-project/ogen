@@ -86,6 +86,38 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			return _so_user_out;
 		}
 		#endregion
+		#region public SC_User Record_Open_byGroup(...);
+		[BOMethodAttribute("Record_Open_byGroup", true)]
+		public SC_User Record_Open_byGroup(
+			long IDGroup_search_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			string login_in
+		) {
+			SC_User _output;
+
+			DO_User _do_user = new DO_User();
+			if (
+				(page_in > 0) 
+				&& 
+				(page_numRecords_in > 0)
+			) {
+				_do_user.Record.Open_byGroup(
+					IDGroup_search_in,
+					page_in,
+					page_numRecords_in
+				);
+			} else {
+				_do_user.Record.Open_byGroup(
+					IDGroup_search_in
+				);
+			}
+			_output = _do_user.Record.Serialize();
+			_do_user.Dispose();
+
+			return _output;
+		}
+		#endregion
 		#endregion
 	}
 }
