@@ -102,7 +102,7 @@ namespace OGen.NTier.UTs.test {
 					);
 				_so_user.SomeNullValue_isNull = true;
 				Console.WriteLine(
-					"IDUser: {0}\nLogin: {1}\nPassword: {2}\nSomeNullValue: {3} (is null: {4})\n",
+					"IDUser: {0}; Login: {1}; Password: {2}; SomeNullValue: {3} (is null: {4})",
 					_so_user.IDUser,
 					_so_user.Login,
 					_so_user.Password,
@@ -113,7 +113,7 @@ namespace OGen.NTier.UTs.test {
 				long _iduser;
 				bool _constraintExists;
 				Console.WriteLine(
-					"IDUser: {0}\nConstraint Exists: {1}\n",
+					"IDUser: {0}; Constraint Exists: {1}",
 					_iduser =_user.insObject(
 						(SO_User)_so_user,
 						true, 
@@ -130,7 +130,7 @@ namespace OGen.NTier.UTs.test {
 					out _exists
 				);
 				Console.WriteLine(
-					"Exists: {5}\nIDUser: {0}\nLogin: {1}\nPassword: {2}\nSomeNullValue: {3} (is null: {4})\n",
+					"Exists: {5}; IDUser: {0}; Login: {1}; Password: {2}; SomeNullValue: {3} (is null: {4})",
 					_so_user.IDUser,
 					_so_user.Login,
 					_so_user.Password,
@@ -147,9 +147,13 @@ namespace OGen.NTier.UTs.test {
 				);
 				for (int i = 0; i < _users.Length; i++) {
 					Console.WriteLine(
-						"IDUser: {0}; Login: {1}",
+						//"IDUser: {0}; Login: {1}",
+						"IDUser: {0}; Login: {1}; Password: {2}; SomeNullValue: {3} (is null: {4})",
 						_users[i].IDUser,
-						_users[i].Login
+						_users[i].Login, 
+						_users[i].Password, 
+						_users[i].SomeNullValue, 
+						_users[i].SomeNullValue_isNull
 					);
 				}
 
