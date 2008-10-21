@@ -28,6 +28,7 @@ OGen-NTier, NTier-console, OGen.NTier.presentationlayer.console, f, f, t, MIT, f
 OGen-NTier, NTier-test, OGen.NTier.presentationlayer.test, f, f, t, MIT, f, f
 OGen-NTier, OGen-NTier-Doc, OGen-NTier-Doc, f, f, f, GNU_FDL, t, f
 OGen-NTier_UTs, OGen-NTier_UTs_businesslayer, OGen.NTier.UTs.lib.businesslayer, f, f, f, MIT, f, f
+OGen-NTier_UTs, OGen-NTier_UTs_businesslayer_proxy, OGen.NTier.UTs.lib.businesslayer.proxy, f, f, f, MIT, f, f
 OGen-NTier_UTs, OGen-NTier_UTs_businesslayer_UTs, OGen.NTier.UTs.lib.businesslayer.UTs, f, f, f, MIT, f, f
 OGen-NTier_UTs, OGen-NTier_UTs_datalayer, OGen.NTier.UTs.lib.datalayer, f, f, f, MIT, f, f
 OGen-NTier_UTs, OGen-NTier_UTs_datalayer_proxy, OGen.NTier.UTs.lib.datalayer.proxy, f, f, f, MIT, f, f
