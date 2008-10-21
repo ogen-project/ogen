@@ -17,7 +17,7 @@ using System.Web.Services;
 using System.Web.Services.Protocols;
 using OGen.NTier.UTs.lib.distributedlayer.webservices.client;
 
-namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WS_Authentication {
+namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_Authentication {
 	/// <remarks/>
 	[System.Diagnostics.DebuggerStepThroughAttribute()]
 	[System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -25,9 +25,9 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WS_Authenticati
 		Name = "WS_AuthenticationSoap", 
 		Namespace = "http://OGen.NTier.UTs.distributedlayer.webservices.server"
 	)]
-	public abstract class WS0_Authentication : WS__base {
-		#region public WS0_Authentication(...);
-		public WS0_Authentication(
+	public abstract class WC0_Authentication : WC__base {
+		#region public WC0_Authentication(...);
+		public WC0_Authentication(
 			string url_in
 		) : base(
 			url_in

@@ -18,9 +18,9 @@ using System.Web.Services.Protocols;
 
 using OGen.NTier.UTs.lib.businesslayer.proxy;
 
-namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WS_Authentication {
-	public class WS_Authentication : WS0_Authentication, IBO_Authentication {
-		public WS_Authentication(
+namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
+	public class WC_User : WC0_User, IBO_User {
+		public WC_User(
 			string url_in
 		) : base (
 			url_in

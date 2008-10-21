@@ -29,8 +29,8 @@ using OGen.NTier.UTs.lib.datalayer;
 using OGen.NTier.UTs.lib.datalayer.proxy;
 using OGen.NTier.UTs.lib.datalayer.UTs;
 using OGen.NTier.UTs.lib.businesslayer;
-using WS_Authentication = OGen.NTier.UTs.lib.distributedlayer.webservices.client.WS_Authentication;
-using WS_User = OGen.NTier.UTs.lib.distributedlayer.webservices.client.WS_User;
+using WC_Authentication = OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_Authentication;
+using WC_User = OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User;
 
 using OGen.NTier.UTs.lib.businesslayer.proxy;
 using OGen.NTier.UTs.lib.distributedlayer.remoting.client;
@@ -61,12 +61,12 @@ namespace OGen.NTier.UTs.test {
 					case 1:
 						Console.WriteLine("--- webservices...");
 						_authentication
-							= new WS_Authentication.WS_Authentication(
+							= new WC_Authentication.WC_Authentication(
 								"http://127.0.0.1:2937/WS_Authentication.asmx"
 							);
 
 						_user
-							= new WS_User.WS_User(
+							= new WC_User.WC_User(
 								"http://127.0.0.1:2937/WS_User.asmx"
 							);
 						break;

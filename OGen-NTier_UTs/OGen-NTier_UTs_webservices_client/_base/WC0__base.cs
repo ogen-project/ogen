@@ -17,9 +17,9 @@ using System.Web.Services;
 using System.Web.Services.Protocols;
 
 namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client {
-	public abstract class WS__base : SoapHttpClientProtocol {
-		#region public WS__base(...);
-		public WS__base(
+	public abstract class WC__base : SoapHttpClientProtocol {
+		#region public WC__base(...);
+		public WC__base(
 			string url_in
 		) {
 			this.Url = url_in;

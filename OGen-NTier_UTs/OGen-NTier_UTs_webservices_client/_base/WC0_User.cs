@@ -18,7 +18,7 @@ using System.Web.Services.Protocols;
 using OGen.NTier.UTs.lib.distributedlayer.webservices.client;
 using OGen.NTier.UTs.lib.businesslayer.proxy;
 
-namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WS_User {
+namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 	/// <remarks/>
 	[System.Diagnostics.DebuggerStepThroughAttribute()]
 	[System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -26,9 +26,9 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WS_User {
 		Name = "WS_UserSoap", 
 		Namespace = "http://OGen.NTier.UTs.distributedlayer.webservices.server"
 	)]
-	public abstract class WS0_User : WS__base, IBO_User {
-		#region public WS0_User(...);
-		public WS0_User(
+	public abstract class WC0_User : WC__base, IBO_User {
+		#region public WC0_User(...);
+		public WC0_User(
 			string url_in
 		) : base(
 			url_in
