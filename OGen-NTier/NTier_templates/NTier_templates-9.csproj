@@ -170,6 +170,12 @@
     <Content Include="BO-SomeApplication_businesslayer_proxy-8.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="RS-RS0_SomeClass.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="RS-RS_SomeClass.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="WC-WC0_SomeClass.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
@@ -478,6 +484,8 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Content Include="RS-RS__server.cs.aspx" />
+    <Content Include="RS-RS0__server.cs.aspx" />
     <None Include="COPYING.MIT" />
     <None Include="DO-DB-OGen_fnc0__Split-PostgreSQL.sql" />
     <None Include="DO-DB-OGen_sp0__getTableFields-PostgreSQL.sql" />
