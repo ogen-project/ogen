@@ -2973,7 +2973,7 @@ XXX:TO_DOS -->
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_remoting_server/RS__server.cs"
-				type="File" mode="Replace" />
+				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
 	</template>
