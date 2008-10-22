@@ -120,9 +120,9 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
                 />
                 <Reference
-                    Name = "System.XML"
+                    Name = "System.Xml"
                     AssemblyName = "System.Xml"
-                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Xml.dll"
                 />
                 <Reference
                     Name = "OGen.lib.datalayer-1.1"

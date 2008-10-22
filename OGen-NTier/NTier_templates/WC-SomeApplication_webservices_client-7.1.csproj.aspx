@@ -116,9 +116,9 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
                 />
                 <Reference
-                    Name = "System.XML"
-                    AssemblyName = "System.XML"
-                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                    Name = "System.Xml"
+                    AssemblyName = "System.Xml"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Xml.dll"
                 />
                 <Reference
                     Name = "System.Web.Services"

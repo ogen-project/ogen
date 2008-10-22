@@ -121,8 +121,8 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
     <Reference Include="System.Data">
       <Name>System.Data</Name>
     </Reference>
-    <Reference Include="System.XML">
-      <Name>System.XML</Name>
+    <Reference Include="System.Xml">
+      <Name>System.Xml</Name>
     </Reference>
     <Reference Include="System.Web.Services" />
     <Reference Include="OGen.NTier.lib.distributedlayer.webservices.client-2.0">

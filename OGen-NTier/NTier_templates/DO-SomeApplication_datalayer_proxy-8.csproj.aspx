@@ -129,7 +129,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
       <Name>System.Configuration</Name>
     </Reference>
     <Reference Include="System.Xml">
-      <Name>System.XML</Name>
+      <Name>System.Xml</Name>
     </Reference>
   </ItemGroup>
   <ItemGroup>

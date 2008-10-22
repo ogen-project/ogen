@@ -135,8 +135,8 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
     <Reference Include="System.Data">
       <Name>System.Data</Name>
     </Reference>
-    <Reference Include="System.XML">
-      <Name>System.XML</Name>
+    <Reference Include="System.Xml">
+      <Name>System.Xml</Name>
     </Reference>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_datalayer\<%=_aux_ex_metadata.ApplicationName%>_datalayer-<%=_arg_projectVersion%>.csproj">
       <Name><%=_aux_ex_metadata.ApplicationName%>_datalayer-2.0</Name>

@@ -143,7 +143,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
       <Name>System.Configuration</Name>
     </Reference>
     <Reference Include="System.Xml">
-      <Name>System.XML</Name>
+      <Name>System.Xml</Name>
     </Reference>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy\<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-<%=_arg_projectVersion%>.csproj">
       <Name><%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-2.0</Name>

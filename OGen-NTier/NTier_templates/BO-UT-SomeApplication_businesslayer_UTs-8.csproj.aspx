@@ -139,7 +139,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
       <Name>System.Data</Name>
     </Reference>
     <Reference Include="System.Xml">
-      <Name>System.XML</Name>
+      <Name>System.Xml</Name>
     </Reference>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_businesslayer\<%=_aux_ex_metadata.ApplicationName%>_businesslayer-<%=_arg_projectVersion%>.csproj">
       <Name><%=_aux_ex_metadata.ApplicationName%>_businesslayer</Name>
