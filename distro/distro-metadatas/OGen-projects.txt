@@ -22,6 +22,7 @@ OGen-NTier, NTier_datalayer, OGen.NTier.lib.datalayer, t, f, f, MIT, f, t
 OGen-NTier, NTier_datalayer_UTs, OGen.NTier.lib.datalayer.UTs, f, f, f, MIT, f, f
 OGen-NTier, NTier_businesslayer, OGen.NTier.lib.businesslayer, t, f, f, MIT, f, t
 OGen-NTier, NTier_businesslayer_UTs, OGen.NTier.lib.businesslayer.UTs, f, f, f, MIT, f, f
+OGen-NTier, NTier_distributedlayer_webservices_client, OGen.NTier.lib.distributedlayer.webservices.client, t, f, f, MIT, f, t
 OGen-NTier, NTier_templates, OGen.NTier.lib.templates, f, t, f, MIT, f, t
 OGen-NTier, NTier, OGen.NTier.presentationlayer.winforms, f, f, t, MIT, f, t
 OGen-NTier, NTier-console, OGen.NTier.presentationlayer.console, f, f, t, MIT, f, t

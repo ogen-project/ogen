@@ -16,6 +16,7 @@ using System;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using OGen.NTier.UTs.lib.distributedlayer.webservices.client;
+using OGen.NTier.lib.distributedlayer.webservices.client;
 
 namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_Authentication {
 	/// <remarks/>

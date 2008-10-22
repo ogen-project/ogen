@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_remoting_ser
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_remoting_client-9-no-gac", "OGen-NTier_UTs_remoting_client\OGen-NTier_UTs_remoting_client-9-no-gac.csproj", "{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_webservices_client-9", "..\OGen-NTier\NTier_distributedlayer_webservices_client\NTier_distributedlayer_webservices_client-9.csproj", "{7A52E316-CA44-4710-AF93-CC495DE77F6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{B3555514-3A7D-4159-B05D-E8D0C265B649}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3555514-3A7D-4159-B05D-E8D0C265B649}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3555514-3A7D-4159-B05D-E8D0C265B649}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{980912F1-6877-4BD1-A2E0-61D366839C52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{980912F1-6877-4BD1-A2E0-61D366839C52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{980912F1-6877-4BD1-A2E0-61D366839C52}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -111,10 +117,10 @@ Global
 		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

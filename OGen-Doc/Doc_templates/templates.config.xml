@@ -35,7 +35,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				type="File" mode="Replace" />
 		</outputs>
 	</template>
-	<template id="index.html.aspx:onePerChapter"
+	<template id="index.html.aspx?allChapters=false"
 			name="index.html.aspx"
 			parserType="aspx"
 			iterationType="ROOT.documentation[n]">
@@ -51,7 +51,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</outputs>
 		<dependencies />
 	</template>
-	<template id="index.html.aspx:allChapters"
+	<template id="index.html.aspx?allChapters=true"
 			name="index.html.aspx"
 			parserType="aspx"
 			iterationType="ROOT.documentation[n]">
@@ -67,7 +67,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</outputs>
 		<dependencies />
 	</template>
-	<template id="chapter.html.aspx:onePerChapter"
+	<template id="chapter.html.aspx?allChapters=false"
 			name="chapter.html.aspx"
 			parserType="aspx"
 			iterationType="ROOT.documentation[n].chapters.chapter[n]">
@@ -83,7 +83,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</outputs>
 		<dependencies />
 	</template>
-	<template id="chapter.html.aspx:allChapters"
+	<template id="chapter.html.aspx?allChapters=true"
 			name="chapter.html.aspx"
 			parserType="aspx"
 			iterationType="ROOT.documentation[n]">

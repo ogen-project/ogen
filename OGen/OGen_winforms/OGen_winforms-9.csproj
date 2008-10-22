@@ -89,8 +89,8 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <ProjectReference Include="..\OGen_collections\OGen_collections-8.csproj">
-      <Name>OGen_collections</Name>
+    <ProjectReference Include="..\OGen_collections\OGen_collections-9.csproj">
+      <Name>OGen_collections-9</Name>
       <Project>{A6E837F8-780F-4D05-B3ED-2FF1906B5766}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>

@@ -42,9 +42,6 @@
     <Compile Include="WC_User.cs" />
     <Compile Include="_base\WC0_Authentication.cs" />
     <Compile Include="_base\WC0_User.cs" />
-    <Compile Include="_base\WC0__base.cs">
-      <SubType>Component</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OGen-NTier_UTs_businesslayer_proxy\OGen-NTier_UTs_businesslayer_proxy-9.csproj">

@@ -89,8 +89,8 @@
     <Reference Include="System.XML">
       <Name>System.XML</Name>
     </Reference>
-    <ProjectReference Include="..\NTier_businesslayer\NTier_businesslayer-8.csproj">
-      <Name>NTier_businesslayer</Name>
+    <ProjectReference Include="..\NTier_businesslayer\NTier_businesslayer-9.csproj">
+      <Name>NTier_businesslayer-9</Name>
       <Project>{8AEBEA64-6FC4-430C-922C-B88D105AE91C}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
