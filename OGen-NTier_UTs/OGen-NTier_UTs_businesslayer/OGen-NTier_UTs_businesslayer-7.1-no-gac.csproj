@@ -104,6 +104,11 @@
                     Project = "{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "OGen-NTier_UTs_businesslayer_proxy-7.1"
+                    Project = "{ADA0411C-8645-4AA0-BFF3-5359E111D98A}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>

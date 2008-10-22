@@ -37,6 +37,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Xml" />
+    <Reference Include="OGen.NTier.lib.businesslayer-2.0">
+      <Name>OGen.NTier.lib.businesslayer-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainClass.cs" />
@@ -57,21 +61,17 @@
     <Content Include="LICENSE.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\OGen-NTier\NTier_businesslayer\NTier_businesslayer-9.csproj">
-      <Project>{8AEBEA64-6FC4-430C-922C-B88D105AE91C}</Project>
-      <Name>NTier_businesslayer-9</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OGen-NTier_UTs_businesslayer\OGen-NTier_UTs_businesslayer-9-no-gac.csproj">
+    <ProjectReference Include="..\OGen-NTier_UTs_businesslayer\OGen-NTier_UTs_businesslayer-9.csproj">
       <Project>{B3555514-3A7D-4159-B05D-E8D0C265B649}</Project>
-      <Name>OGen-NTier_UTs_businesslayer-9-no-gac</Name>
+      <Name>OGen-NTier_UTs_businesslayer-9</Name>
     </ProjectReference>
     <ProjectReference Include="..\OGen-NTier_UTs_businesslayer_proxy\OGen-NTier_UTs_businesslayer_proxy-9.csproj">
       <Project>{ADA0411C-8645-4AA0-BFF3-5359E111D98A}</Project>
       <Name>OGen-NTier_UTs_businesslayer_proxy-9</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-9-no-gac.csproj">
+    <ProjectReference Include="..\OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-9.csproj">
       <Project>{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}</Project>
-      <Name>OGen-NTier_UTs_datalayer_proxy-9-no-gac</Name>
+      <Name>OGen-NTier_UTs_datalayer_proxy-9</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
