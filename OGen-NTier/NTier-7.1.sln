@@ -79,6 +79,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayersupport-7.1",
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_webservices_client-7.1", "NTier_distributedlayer_webservices_client\NTier_distributedlayer_webservices_client-7.1.csproj", "{F32002B5-2FCA-4216-B625-E52D1F4F5055}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -165,6 +169,10 @@ Global
 		{C982B439-F21D-469A-8077-F01D29B6C003}.Debug.Build.0 = Debug|.NET
 		{C982B439-F21D-469A-8077-F01D29B6C003}.Release.ActiveCfg = Release|.NET
 		{C982B439-F21D-469A-8077-F01D29B6C003}.Release.Build.0 = Release|.NET
+		{F32002B5-2FCA-4216-B625-E52D1F4F5055}.Debug.ActiveCfg = Debug|.NET
+		{F32002B5-2FCA-4216-B625-E52D1F4F5055}.Debug.Build.0 = Debug|.NET
+		{F32002B5-2FCA-4216-B625-E52D1F4F5055}.Release.ActiveCfg = Release|.NET
+		{F32002B5-2FCA-4216-B625-E52D1F4F5055}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

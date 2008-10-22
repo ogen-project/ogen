@@ -3,13 +3,13 @@
         ProjectType = "Local"
         ProductVersion = "7.10.3077"
         SchemaVersion = "2.0"
-        ProjectGuid = "{89EE33CB-FAAD-4251-809C-13B5FC57F101}"
+        ProjectGuid = "{F32002B5-2FCA-4216-B625-E52D1F4F5055}"
     >
         <Build>
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "OGen.NTier.UTs..distributedlayer.webservices.server-1.1"
+                AssemblyName = "OGen.NTier.lib.distributedlayer.webservices.client-1.1"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "OGen.NTier.UTs.distributedlayer.webservices.server"
+                RootNamespace = "OGen.NTier.lib.distributedlayer.webservices.client"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >
@@ -29,7 +29,7 @@
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "DEBUG;TRACE;NET_1_1"
-                    DocumentationFile = "bin\Debug\OGen.NTier.UTs..distributedlayer.webservices.server-1.1.xml"
+                    DocumentationFile = ""
                     DebugSymbols = "true"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"
@@ -49,7 +49,7 @@
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "TRACE;NET_1_1"
-                    DocumentationFile = "bin\Debug\OGen.NTier.UTs..distributedlayer.webservices.server-1.1.xml"
+                    DocumentationFile = ""
                     DebugSymbols = "false"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"
@@ -80,24 +80,9 @@
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "OGen.NTier.lib.businesslayer-1.1"
-                    AssemblyName = "OGen.NTier.lib.businesslayer-1.1"
-                    AssemblyFolderKey = "hklm\dn\ogen"
-                />
-                <Reference
-                    Name = "OGen-NTier_UTs_datalayer_proxy-1.1"
-                    Project = "{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "OGen-NTier_UTs_business-1.1"
-                    Project = "{B3555514-3A7D-4159-B05D-E8D0C265B649}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "OGen-NTier_UTs_business_proxy-1.1"
-                    Project = "{ADA0411C-8645-4AA0-BFF3-5359E111D98A}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                    Name = "System.Web.Services"
+                    AssemblyName = "System.Web.Services"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Web.Services.dll"
                 />
             </References>
         </Build>
@@ -109,34 +94,19 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "WS_Authentication.asmx"
-                    SubType = "Form"
+                    RelPath = "COPYING.MIT"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "LICENSE.MIT.txt"
                     BuildAction = "Content"
                 />
                 <File
-                    RelPath = "WS_Authentication.asmx.cs"
-                    DependentUpon = "WS_Authentication.asmx"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "WS_User.asmx"
-                    SubType = "Form"
+                    RelPath = "LICENSE.txt"
                     BuildAction = "Content"
                 />
                 <File
-                    RelPath = "WS_User.asmx.cs"
-                    DependentUpon = "WS_User.asmx"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "_base\WS0_Authentication.cs"
-                    SubType = "Component"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "_base\WS0_User.cs"
+                    RelPath = "WC__base.cs"
                     SubType = "Component"
                     BuildAction = "Compile"
                 />

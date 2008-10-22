@@ -25,7 +25,9 @@ namespace OGen.NTier.lib.distributedlayer.webservices.client {
 			this.Url = url_in;
 
 			if (this.IsLocalFileSystemWebService(this.Url)) {
+#if !NET_1_1
 				this.UseDefaultCredentials = true;
+#endif
 				this.useDefaultCredentialsSetExplicitly = false;
 			} else {
 				this.useDefaultCredentialsSetExplicitly = true;
@@ -41,6 +43,7 @@ namespace OGen.NTier.lib.distributedlayer.webservices.client {
 				return base.Url;
 			}
 			set {
+#if !NET_1_1
 				if (
 					(this.IsLocalFileSystemWebService(base.Url) == true)
 					&&
@@ -50,10 +53,12 @@ namespace OGen.NTier.lib.distributedlayer.webservices.client {
 				) {
 					base.UseDefaultCredentials = false;
 				}
+#endif
 				base.Url = value;
 			}
 		}
 		#endregion
+#if !NET_1_1
 		#region public new bool UseDefaultCredentials { get; set; }
 		public new bool UseDefaultCredentials {
 			get {
@@ -65,13 +70,16 @@ namespace OGen.NTier.lib.distributedlayer.webservices.client {
 			}
 		}
 		#endregion
+#endif
 
+#if !NET_1_1
 		#region public new void CancelAsync(object userState);
 		/// <remarks/>
 		public new void CancelAsync(object userState) {
 			base.CancelAsync(userState);
 		}
 		#endregion
+#endif
 		#region protected bool IsLocalFileSystemWebService(string url);
 		protected bool IsLocalFileSystemWebService(string url) {
 			if (
@@ -88,8 +96,12 @@ namespace OGen.NTier.lib.distributedlayer.webservices.client {
 				(
 					string.Compare(
 						wsUri.Host,
-						"localHost",
+						"localHost", 
+#if !NET_1_1
 						System.StringComparison.OrdinalIgnoreCase
+#else
+						true
+#endif
 					) == 0
 				)
 			) {

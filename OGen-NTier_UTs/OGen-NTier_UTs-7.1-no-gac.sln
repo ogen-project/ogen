@@ -55,6 +55,26 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_businesslaye
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_webservices_client-7.1", "..\OGen-NTier\NTier_distributedlayer_webservices_client\NTier_distributedlayer_webservices_client-7.1.csproj", "{F32002B5-2FCA-4216-B625-E52D1F4F5055}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_remoting_server-7.1", "OGen-NTier_UTs_remoting_server\OGen-NTier_UTs_remoting_server-7.1.csproj", "{89EE33CB-FAAD-4251-809C-13B5FC57F101}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_remoting_client-7.1", "OGen-NTier_UTs_remoting_client\OGen-NTier_UTs_remoting_client-7.1.csproj", "{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_webservices_client-7.1", "OGen-NTier_UTs_webservices_client\OGen-NTier_UTs_webservices_client-7.1.csproj", "{3E90C87B-1643-4323-8A50-96000EBFD406}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_webservices_server-7.1", "OGen-NTier_UTs_webservices_server\OGen-NTier_UTs_webservices_server-7.1.csproj", "{89EE33CB-FAAD-4251-809C-13B5FC57F101}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -116,6 +136,26 @@ Global
 		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Debug.Build.0 = Debug|.NET
 		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Release.ActiveCfg = Release|.NET
 		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Release.Build.0 = Release|.NET
+		{F32002B5-2FCA-4216-B625-E52D1F4F5055}.Debug.ActiveCfg = Debug|.NET
+		{F32002B5-2FCA-4216-B625-E52D1F4F5055}.Debug.Build.0 = Debug|.NET
+		{F32002B5-2FCA-4216-B625-E52D1F4F5055}.Release.ActiveCfg = Release|.NET
+		{F32002B5-2FCA-4216-B625-E52D1F4F5055}.Release.Build.0 = Release|.NET
+		{89EE33CB-FAAD-4251-809C-13B5FC57F101}.Debug.ActiveCfg = Debug|.NET
+		{89EE33CB-FAAD-4251-809C-13B5FC57F101}.Debug.Build.0 = Debug|.NET
+		{89EE33CB-FAAD-4251-809C-13B5FC57F101}.Release.ActiveCfg = Release|.NET
+		{89EE33CB-FAAD-4251-809C-13B5FC57F101}.Release.Build.0 = Release|.NET
+		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Debug.ActiveCfg = Debug|.NET
+		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Debug.Build.0 = Debug|.NET
+		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Release.ActiveCfg = Release|.NET
+		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Release.Build.0 = Release|.NET
+		{3E90C87B-1643-4323-8A50-96000EBFD406}.Debug.ActiveCfg = Debug|.NET
+		{3E90C87B-1643-4323-8A50-96000EBFD406}.Debug.Build.0 = Debug|.NET
+		{3E90C87B-1643-4323-8A50-96000EBFD406}.Release.ActiveCfg = Release|.NET
+		{3E90C87B-1643-4323-8A50-96000EBFD406}.Release.Build.0 = Release|.NET
+		{89EE33CB-FAAD-4251-809C-13B5FC57F101}.Debug.ActiveCfg = Debug|.NET
+		{89EE33CB-FAAD-4251-809C-13B5FC57F101}.Debug.Build.0 = Debug|.NET
+		{89EE33CB-FAAD-4251-809C-13B5FC57F101}.Release.ActiveCfg = Release|.NET
+		{89EE33CB-FAAD-4251-809C-13B5FC57F101}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection
