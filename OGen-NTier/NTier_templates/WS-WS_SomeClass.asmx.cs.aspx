@@ -61,8 +61,10 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservice
 	/// <%=_aux_class.Name%> web service.
 	/// </summary>
 	[WebService(Namespace = "http://<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices")]
+	#if !NET_1_1
 	[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 	[ToolboxItem(false)]
+	#endif
 	// To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
 	// [System.Web.Script.Services.ScriptService]
 	public class WS_<%=_aux_class.Name%> : WS0_<%=_aux_class.Name%> {
