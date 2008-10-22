@@ -124,6 +124,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
     <Reference Include="System.XML">
       <Name>System.XML</Name>
     </Reference>
+	<Reference Include="System.Web.Services" />
     <Reference Include="OGen.NTier.lib.businesslayer-2.0">
       <Name>OGen.NTier.lib.businesslayer-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>

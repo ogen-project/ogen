@@ -45,14 +45,14 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
     <ProjectType>Local</ProjectType>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_server%>}</ProjectGuid>
+    <ProjectGuid>{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_server%>}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ApplicationIcon>
     </ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server-2.0</AssemblyName>
+    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server-2.0</AssemblyName>
     <AssemblyOriginatorKeyFile>
     </AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
@@ -60,7 +60,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
     <OutputType>Library</OutputType>
-    <RootNamespace><%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server</RootNamespace>
+    <RootNamespace><%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <StartupObject>
     </StartupObject>
@@ -78,7 +78,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;DEBUG;NET_2_0</DefineConstants>
-    <DocumentationFile>bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server-2.0.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server-2.0.xml</DocumentationFile>
     <DebugSymbols>true</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
@@ -100,7 +100,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;NET_2_0</DefineConstants>
-    <DocumentationFile>bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server-2.0.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server-2.0.xml</DocumentationFile>
     <DebugSymbols>false</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>

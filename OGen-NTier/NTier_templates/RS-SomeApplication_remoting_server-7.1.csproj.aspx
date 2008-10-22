@@ -44,13 +44,13 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
         ProjectType = "Local"
         ProductVersion = "7.10.3077"
         SchemaVersion = "2.0"
-        ProjectGuid = "{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_server%>}"
+        ProjectGuid = "{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_server%>}"
     >
         <Build>
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server-1.1"
+                AssemblyName = "<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server-1.1"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -59,7 +59,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server"
+                RootNamespace = "<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >
@@ -70,7 +70,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "DEBUG;TRACE;NET_1_1"
-                    DocumentationFile = "bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server-1.1.xml"
+                    DocumentationFile = "bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server-1.1.xml"
                     DebugSymbols = "true"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"
@@ -90,7 +90,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "TRACE;NET_1_1"
-                    DocumentationFile = "bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server-1.1.xml"
+                    DocumentationFile = "bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server-1.1.xml"
                     DebugSymbols = "false"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"

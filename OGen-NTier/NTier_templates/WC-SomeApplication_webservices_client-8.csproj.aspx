@@ -125,6 +125,10 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
       <Name>System.XML</Name>
     </Reference>
     <Reference Include="System.Web.Services" />
+    <Reference Include="OGen.NTier.lib.distributedlayer.webservices.client-2.0">
+      <Name>OGen.NTier.lib.distributedlayer.webservices.client-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy\<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-<%=_arg_projectVersion%>.csproj">
       <Name><%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-2.0</Name>
       <Project>{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}</Project>

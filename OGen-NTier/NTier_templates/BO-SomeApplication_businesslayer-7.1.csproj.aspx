@@ -127,6 +127,11 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
+                    Name = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy-1.1"
+                    Project = "{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
                     Name = "OGen.lib.datalayer-1.1"
                     AssemblyName = "OGen.lib.datalayer-1.1"
                     AssemblyFolderKey = "hklm\dn\ogen"

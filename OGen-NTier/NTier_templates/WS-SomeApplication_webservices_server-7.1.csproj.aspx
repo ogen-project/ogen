@@ -121,6 +121,11 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
+                    Name = "System.Web.Services"
+                    AssemblyName = "System.Web.Services"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Web.Services.dll"
+                />
+                <Reference
                     Name = "OGen.NTier.lib.businesslayer-1.1"
                     AssemblyName = "OGen.NTier.lib.businesslayer-1.1"
                     AssemblyFolderKey = "hklm\dn\ogen"

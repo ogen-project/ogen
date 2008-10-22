@@ -125,6 +125,11 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
                     AssemblyName = "System.Web.Services"
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Web.Services.dll"
                 />
+				<Reference
+					Name = "OGen.NTier.lib.distributedlayer.webservices.client-1.1"
+					AssemblyName = "OGen.NTier.lib.distributedlayer.webservices.client-1.1"
+					AssemblyFolderKey = "hklm\dn\ogen"
+				/>
                 <Reference
                     Name = "<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-1.1"
                     Project = "{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}"
