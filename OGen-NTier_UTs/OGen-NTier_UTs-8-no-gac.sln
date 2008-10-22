@@ -25,6 +25,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer_SQLServer-8"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayersupport-8", "..\OGen\OGen_datalayersupport\OGen_datalayersupport-8.csproj", "{88D87481-CC3F-49C7-A013-758387F3452E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_businesslayer_proxy-8-no-gac", "OGen-NTier_UTs_businesslayer_proxy\OGen-NTier_UTs_businesslayer_proxy-8-no-gac.csproj", "{ADA0411C-8645-4AA0-BFF3-5359E111D98A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_webservices_client-8-no-gac", "OGen-NTier_UTs_webservices_client\OGen-NTier_UTs_webservices_client-8-no-gac.csproj", "{3E90C87B-1643-4323-8A50-96000EBFD406}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_remoting_client-8-no-gac", "OGen-NTier_UTs_remoting_client\OGen-NTier_UTs_remoting_client-8-no-gac.csproj", "{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_webservices_client-8", "..\OGen-NTier\NTier_distributedlayer_webservices_client\NTier_distributedlayer_webservices_client-8.csproj", "{7A52E316-CA44-4710-AF93-CC495DE77F6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_remoting_server-8-no-gac", "OGen-NTier_UTs_remoting_server\OGen-NTier_UTs_remoting_server-8-no-gac.csproj", "{620124DD-28FF-4D6C-93A2-170730EC2778}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +89,26 @@ Global
 		{88D87481-CC3F-49C7-A013-758387F3452E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88D87481-CC3F-49C7-A013-758387F3452E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88D87481-CC3F-49C7-A013-758387F3452E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E90C87B-1643-4323-8A50-96000EBFD406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E90C87B-1643-4323-8A50-96000EBFD406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E90C87B-1643-4323-8A50-96000EBFD406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E90C87B-1643-4323-8A50-96000EBFD406}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{620124DD-28FF-4D6C-93A2-170730EC2778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{620124DD-28FF-4D6C-93A2-170730EC2778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{620124DD-28FF-4D6C-93A2-170730EC2778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{620124DD-28FF-4D6C-93A2-170730EC2778}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

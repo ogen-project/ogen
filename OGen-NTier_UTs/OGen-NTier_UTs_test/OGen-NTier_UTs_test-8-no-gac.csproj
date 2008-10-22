@@ -133,6 +133,10 @@
     <Compile Include="MainClass.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\OGen-NTier\NTier_distributedlayer_webservices_client\NTier_distributedlayer_webservices_client-8.csproj">
+      <Project>{7A52E316-CA44-4710-AF93-CC495DE77F6C}</Project>
+      <Name>NTier_distributedlayer_webservices_client-8</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\OGen\OGen_datalayersupport\OGen_datalayersupport-8.csproj">
       <Project>{88D87481-CC3F-49C7-A013-758387F3452E}</Project>
       <Name>OGen_datalayersupport-8</Name>
@@ -149,9 +153,21 @@
       <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
       <Name>OGen_datalayer__base-8</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OGen-NTier_UTs_businesslayer_proxy\OGen-NTier_UTs_businesslayer_proxy-8-no-gac.csproj">
+      <Project>{ADA0411C-8645-4AA0-BFF3-5359E111D98A}</Project>
+      <Name>OGen-NTier_UTs_businesslayer_proxy-8-no-gac</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-8-no-gac.csproj">
       <Project>{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}</Project>
       <Name>OGen-NTier_UTs_datalayer_proxy-8-no-gac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OGen-NTier_UTs_remoting_client\OGen-NTier_UTs_remoting_client-8-no-gac.csproj">
+      <Project>{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}</Project>
+      <Name>OGen-NTier_UTs_remoting_client-8-no-gac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OGen-NTier_UTs_webservices_client\OGen-NTier_UTs_webservices_client-8-no-gac.csproj">
+      <Project>{3E90C87B-1643-4323-8A50-96000EBFD406}</Project>
+      <Name>OGen-NTier_UTs_webservices_client-8-no-gac</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

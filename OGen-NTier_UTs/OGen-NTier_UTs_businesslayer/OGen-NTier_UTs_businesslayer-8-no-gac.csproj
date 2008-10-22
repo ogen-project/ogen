@@ -57,7 +57,7 @@
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;NET_2_0</DefineConstants>
-    <DocumentationFile>bin\Release\OGen.NTier.UTs.lib.businesslayer-2.0.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\OGen.NTier.UTs.lib.businesslayer-2.0.xml</DocumentationFile>
     <DebugSymbols>false</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
@@ -178,7 +178,6 @@
     <Compile Include="_base\BDO0_vUserGroup.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\BO0_Authentication.cs" />
     <None Include="COPYING.MIT" />
     <None Include="LICENSE.MIT.txt" />
     <None Include="LICENSE.txt" />
@@ -195,6 +194,10 @@
     <ProjectReference Include="..\..\OGen\OGen_datalayer__base\OGen_datalayer__base-8.csproj">
       <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
       <Name>OGen_datalayer__base-8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OGen-NTier_UTs_businesslayer_proxy\OGen-NTier_UTs_businesslayer_proxy-8-no-gac.csproj">
+      <Project>{ADA0411C-8645-4AA0-BFF3-5359E111D98A}</Project>
+      <Name>OGen-NTier_UTs_businesslayer_proxy-8-no-gac</Name>
     </ProjectReference>
     <ProjectReference Include="..\OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-8-no-gac.csproj">
       <Project>{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}</Project>

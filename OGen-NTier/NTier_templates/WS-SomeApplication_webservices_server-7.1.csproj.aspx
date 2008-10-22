@@ -131,17 +131,17 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
                     AssemblyFolderKey = "hklm\dn\ogen"
                 />
                 <Reference
-                    Name = "<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-1.1"
+                    Name = "<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-7.1"
                     Project = "{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "<%=_aux_ex_metadata.ApplicationName%>_business-1.1"
+                    Name = "<%=_aux_ex_metadata.ApplicationName%>_business-7.1"
                     Project = "{<%=_aux_ex_metadata.GUIDBusinesslayer%>}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "<%=_aux_ex_metadata.ApplicationName%>_business_proxy-1.1"
+                    Name = "<%=_aux_ex_metadata.ApplicationName%>_business_proxy-7.1"
                     Project = "{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />

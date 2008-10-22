@@ -216,6 +216,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-SomeApplication_datalayer_proxy-8.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="emptyfile.txt" />
     <Content Include="WS-WS_SomeClass.asmx.aspx">
@@ -450,6 +451,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-SomeApplication_datalayer-8.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-SomeApplication_datalayer-7.1.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>

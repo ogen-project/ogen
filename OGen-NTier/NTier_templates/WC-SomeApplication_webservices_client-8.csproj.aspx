@@ -52,7 +52,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
     </ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webservices.client-2.0</AssemblyName>
+    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webservices.client-<%=_arg_projectVersion%></AssemblyName>
     <AssemblyOriginatorKeyFile>
     </AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
@@ -130,12 +130,12 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
     </Reference>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy\<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-<%=_arg_projectVersion%>.csproj">
-      <Name><%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-2.0</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-<%=_arg_projectVersion%></Name>
       <Project>{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy-<%=_arg_projectVersion%>.csproj">
-      <Name><%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy-2.0</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy-<%=_arg_projectVersion%></Name>
       <Project>{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>

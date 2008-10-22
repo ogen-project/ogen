@@ -140,12 +140,12 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                     AssemblyFolderKey = "hklm\dn\ogen"
                 />
                 <Reference
-                    Name = "<%=_aux_ex_metadata.ApplicationName%>_datalayer-1.1"
+                    Name = "<%=_aux_ex_metadata.ApplicationName%>_datalayer-7.1"
                     Project = "{<%=_aux_ex_metadata.GUIDDatalayer%>}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-1.1"
+                    Name = "<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-7.1"
                     Project = "{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />

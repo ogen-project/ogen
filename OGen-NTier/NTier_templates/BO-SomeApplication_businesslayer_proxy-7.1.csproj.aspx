@@ -121,7 +121,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Xml.dll"
                 />
                 <Reference
-                    Name = "<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-1.1"
+                    Name = "<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-7.1"
                     Project = "{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />

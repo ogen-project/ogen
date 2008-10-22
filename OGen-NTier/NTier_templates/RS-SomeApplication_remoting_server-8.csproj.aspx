@@ -128,17 +128,17 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
       <Name>OGen.NTier.lib.businesslayer-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
     </Reference>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_businesslayer\<%=_aux_ex_metadata.ApplicationName%>_businesslayer-9.csproj">
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_businesslayer\<%=_aux_ex_metadata.ApplicationName%>_businesslayer-<%=_arg_projectVersion%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUIDBusinesslayer%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>_businesslayer-9</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>_businesslayer-<%=_arg_projectVersion%></Name>
     </ProjectReference>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy-9.csproj">
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy-<%=_arg_projectVersion%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy-9</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy-<%=_arg_projectVersion%></Name>
     </ProjectReference>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy\<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-9.csproj">
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy\<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-<%=_arg_projectVersion%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-9</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-<%=_arg_projectVersion%></Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
