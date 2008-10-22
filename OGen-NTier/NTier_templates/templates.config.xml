@@ -99,7 +99,7 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_test/app.config"
 				type="File" mode="Create_doNotReplace" />
-			<output to="${CONFIG.outputPath}/app0.config"
+			<output to="${CONFIG.outputPath}/app.config.no-svn"
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
@@ -221,6 +221,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-7.1.sln" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-7.1.sln.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -235,6 +237,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-8.sln" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-8.sln.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -249,6 +253,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-9.sln" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-9.sln.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -263,6 +269,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer/${ROOT.metadataDB[0].applicationName}_datalayer-7.1.csproj" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer/${ROOT.metadataDB[0].applicationName}_datalayer-7.1.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -278,6 +286,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer/${ROOT.metadataDB[0].applicationName}_datalayer-8.csproj" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer/${ROOT.metadataDB[0].applicationName}_datalayer-8.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -293,6 +303,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer/${ROOT.metadataDB[0].applicationName}_datalayer-9.csproj" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer/${ROOT.metadataDB[0].applicationName}_datalayer-9.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -307,6 +319,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_proxy/${ROOT.metadataDB[0].applicationName}_datalayer_proxy-7.1.csproj"
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_proxy/${ROOT.metadataDB[0].applicationName}_datalayer_proxy-7.1.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -320,8 +334,10 @@ XXX:TODOS -->
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_proxy/${ROOT.metadataDB[0].applicationName}_datalayer_proxy-8.csproj" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_proxy/${ROOT.metadataDB[0].applicationName}_datalayer_proxy-8.csproj"
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_proxy/${ROOT.metadataDB[0].applicationName}_datalayer_proxy-8.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -337,6 +353,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_proxy/${ROOT.metadataDB[0].applicationName}_datalayer_proxy-9.csproj" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_proxy/${ROOT.metadataDB[0].applicationName}_datalayer_proxy-9.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -351,6 +369,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_UTs/${ROOT.metadataDB[0].applicationName}_datalayer_UTs-7.1.csproj" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_UTs/${ROOT.metadataDB[0].applicationName}_datalayer_UTs-7.1.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -366,6 +386,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_UTs/${ROOT.metadataDB[0].applicationName}_datalayer_UTs-8.csproj" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_UTs/${ROOT.metadataDB[0].applicationName}_datalayer_UTs-8.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -381,6 +403,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_UTs/${ROOT.metadataDB[0].applicationName}_datalayer_UTs-9.csproj" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_UTs/${ROOT.metadataDB[0].applicationName}_datalayer_UTs-9.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -395,6 +419,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer/${ROOT.metadataDB[0].applicationName}_businesslayer-7.1.csproj" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer/${ROOT.metadataDB[0].applicationName}_businesslayer-7.1.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -410,6 +436,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer/${ROOT.metadataDB[0].applicationName}_businesslayer-8.csproj" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer/${ROOT.metadataDB[0].applicationName}_businesslayer-8.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -425,6 +453,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer/${ROOT.metadataDB[0].applicationName}_businesslayer-9.csproj" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer/${ROOT.metadataDB[0].applicationName}_businesslayer-9.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -439,6 +469,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_test/${ROOT.metadataDB[0].applicationName}_test-7.1.csproj" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_test/${ROOT.metadataDB[0].applicationName}_test-7.1.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -454,6 +486,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_test/${ROOT.metadataDB[0].applicationName}_test-8.csproj" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_test/${ROOT.metadataDB[0].applicationName}_test-8.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -469,6 +503,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_test/${ROOT.metadataDB[0].applicationName}_test-9.csproj" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_test/${ROOT.metadataDB[0].applicationName}_test-9.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -513,6 +549,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_UTs/UT_${ROOT.metadataDB[0].tables.table[n].name}.cs" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer_UTs/UT_${ROOT.metadataDB[0].tables.table[n].name}.cs.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -579,8 +617,10 @@ XXX:TODOS -->
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer_UTs/${ROOT.metadataDB[0].applicationName}_businesslayer_UTs-7.1.csproj" 
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer_UTs/${ROOT.metadataDB[0].applicationName}_businesslayer_UTs-7.1.csproj"
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer_UTs/${ROOT.metadataDB[0].applicationName}_businesslayer_UTs-7.1.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -596,6 +636,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer_UTs/${ROOT.metadataDB[0].applicationName}_businesslayer_UTs-8.csproj" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer_UTs/${ROOT.metadataDB[0].applicationName}_businesslayer_UTs-8.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -611,6 +653,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer_UTs/${ROOT.metadataDB[0].applicationName}_businesslayer_UTs-9.csproj" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer_UTs/${ROOT.metadataDB[0].applicationName}_businesslayer_UTs-9.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -641,6 +685,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer_UTs/UT_${ROOT.metadataDB[0].tables.table[n].name}.cs" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer_UTs/UT_${ROOT.metadataDB[0].tables.table[n].name}.cs.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -723,6 +769,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer/DO__utils.cs" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer/DO__utils.cs.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -798,6 +846,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer/DO_${ROOT.metadataDB[0].tables.table[n].name}.cs" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_datalayer/DO_${ROOT.metadataDB[0].tables.table[n].name}.cs.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -830,6 +880,8 @@ XXX:TODOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer/BDO_${ROOT.metadataDB[0].tables.table[n].name}.cs" 
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer/BDO_${ROOT.metadataDB[0].tables.table[n].name}.cs.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -2764,6 +2816,8 @@ XXX:TO_DOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_businesslayer/BO_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_businesslayer/BO_${ROOT.metadataBusiness[0].classes.class[n].name}.cs.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -2778,6 +2832,8 @@ XXX:TO_DOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer_proxy/${ROOT.metadataDB[0].applicationName}_businesslayer_proxy-7.1.csproj"
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer_proxy/${ROOT.metadataDB[0].applicationName}_businesslayer_proxy-7.1.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -2793,6 +2849,8 @@ XXX:TO_DOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer_proxy/${ROOT.metadataDB[0].applicationName}_businesslayer_proxy-8.csproj"
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer_proxy/${ROOT.metadataDB[0].applicationName}_businesslayer_proxy-8.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -2808,6 +2866,8 @@ XXX:TO_DOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer_proxy/${ROOT.metadataDB[0].applicationName}_businesslayer_proxy-9.csproj"
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_businesslayer_proxy/${ROOT.metadataDB[0].applicationName}_businesslayer_proxy-9.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -2823,6 +2883,8 @@ XXX:TO_DOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_businesslayer_proxy/IBO_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_businesslayer_proxy/IBO_${ROOT.metadataBusiness[0].classes.class[n].name}.cs.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -2856,6 +2918,8 @@ XXX:TO_DOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_webservices_server/WS_${ROOT.metadataBusiness[0].classes.class[n].name}.asmx"
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_webservices_server/WS_${ROOT.metadataBusiness[0].classes.class[n].name}.asmx.no-svn.exclude"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -2871,6 +2935,8 @@ XXX:TO_DOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_webservices_server/WS_${ROOT.metadataBusiness[0].classes.class[n].name}.asmx.cs"
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_webservices_server/WS_${ROOT.metadataBusiness[0].classes.class[n].name}.asmx.cs.no-svn.exclude"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -2901,6 +2967,8 @@ XXX:TO_DOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_webservices_client/WC_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_webservices_client/WC_${ROOT.metadataBusiness[0].classes.class[n].name}.cs.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -2931,6 +2999,8 @@ XXX:TO_DOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_remoting_server/RS_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_remoting_server/RS_${ROOT.metadataBusiness[0].classes.class[n].name}.cs.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -2974,6 +3044,8 @@ XXX:TO_DOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_remoting_server/RS__server.cs"
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_remoting_server/RS__server.cs.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -2990,6 +3062,8 @@ XXX:TO_DOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_remoting_client/${ROOT.metadataDB[0].applicationName}_remoting_client-7.1.csproj"
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_remoting_client/${ROOT.metadataDB[0].applicationName}_remoting_client-7.1.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -3005,6 +3079,8 @@ XXX:TO_DOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_remoting_client/${ROOT.metadataDB[0].applicationName}_remoting_client-8.csproj"
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_remoting_client/${ROOT.metadataDB[0].applicationName}_remoting_client-8.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -3020,6 +3096,8 @@ XXX:TO_DOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_remoting_client/${ROOT.metadataDB[0].applicationName}_remoting_client-9.csproj"
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_remoting_client/${ROOT.metadataDB[0].applicationName}_remoting_client-9.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -3035,6 +3113,8 @@ XXX:TO_DOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_remoting_server/${ROOT.metadataDB[0].applicationName}_remoting_server-7.1.csproj"
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_remoting_server/${ROOT.metadataDB[0].applicationName}_remoting_server-7.1.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -3050,6 +3130,8 @@ XXX:TO_DOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_remoting_server/${ROOT.metadataDB[0].applicationName}_remoting_server-8.csproj"
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_remoting_server/${ROOT.metadataDB[0].applicationName}_remoting_server-8.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -3065,6 +3147,8 @@ XXX:TO_DOS -->
 		<outputs>
 			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_remoting_server/${ROOT.metadataDB[0].applicationName}_remoting_server-9.csproj"
 				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_remoting_server/${ROOT.metadataDB[0].applicationName}_remoting_server-9.csproj.no-svn"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>

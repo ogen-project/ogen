@@ -179,7 +179,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="RC-SomeApplication_remoting_client-8.csproj.aspx">
-      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="RS-SomeApplication_remoting_server-7.1.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
