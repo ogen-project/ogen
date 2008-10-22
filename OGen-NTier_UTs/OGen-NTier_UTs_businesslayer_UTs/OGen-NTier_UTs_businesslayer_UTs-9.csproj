@@ -1,7 +1,7 @@
 ﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{980912F1-6877-4BD1-A2E0-61D366839C52}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -108,14 +108,14 @@
       <Name>System.Data</Name>
     </Reference>
     <Reference Include="System.Xml">
-      <Name>System.XML</Name>
+      <Name>System.Xml</Name>
     </Reference>
-    <ProjectReference Include="..\OGen-NTier_UTs_businesslayer\OGen-NTier_UTs_businesslayer-8.csproj">
+    <ProjectReference Include="..\OGen-NTier_UTs_businesslayer\OGen-NTier_UTs_businesslayer-9.csproj">
       <Name>OGen-NTier_UTs_businesslayer</Name>
       <Project>{B3555514-3A7D-4159-B05D-E8D0C265B649}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-    <ProjectReference Include="..\OGen-NTier_UTs_datalayer\OGen-NTier_UTs_datalayer-8.csproj">
+    <ProjectReference Include="..\OGen-NTier_UTs_datalayer\OGen-NTier_UTs_datalayer-9.csproj">
       <Name>OGen-NTier_UTs_datalayer</Name>
       <Project>{2C45EF1A-75BE-4B12-A232-62DEB5662239}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>

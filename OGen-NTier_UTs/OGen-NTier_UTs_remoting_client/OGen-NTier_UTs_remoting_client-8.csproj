@@ -78,16 +78,16 @@
     <Reference Include="System.Data">
       <Name>System.Data</Name>
     </Reference>
-    <Reference Include="System.XML">
-      <Name>System.XML</Name>
+    <Reference Include="System.Xml">
+      <Name>System.Xml</Name>
     </Reference>
     <ProjectReference Include="..\OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-8.csproj">
-      <Name>OGen-NTier_UTs_datalayer_proxy-2.0</Name>
+      <Name>OGen-NTier_UTs_datalayer_proxy-8</Name>
       <Project>{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
     <ProjectReference Include="..\OGen-NTier_UTs_businesslayer_proxy\OGen-NTier_UTs_businesslayer_proxy-8.csproj">
-      <Name>OGen-NTier_UTs_businesslayer_proxy-2.0</Name>
+      <Name>OGen-NTier_UTs_businesslayer_proxy-8</Name>
       <Project>{ADA0411C-8645-4AA0-BFF3-5359E111D98A}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>

@@ -75,9 +75,9 @@
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
                 />
                 <Reference
-                    Name = "System.XML"
+                    Name = "System.Xml"
                     AssemblyName = "System.Xml"
-                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Xml.dll"
                 />
                 <Reference
                     Name = "OGen_datalayer__base-7.1"
@@ -121,8 +121,8 @@
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "OGen-NTier_UTs_datalayer_proxy-1.1"
-                    Project = "{78096c45-7b20-4669-bf3d-eff5ecd74fc9}"
+                    Name = "OGen-NTier_UTs_datalayer_proxy-7.1"
+                    Project = "{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>

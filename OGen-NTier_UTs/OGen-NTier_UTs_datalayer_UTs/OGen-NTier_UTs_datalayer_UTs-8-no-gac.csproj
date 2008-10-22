@@ -86,20 +86,20 @@
       <Name>System.Data</Name>
     </Reference>
     <Reference Include="System.Xml">
-      <Name>System.XML</Name>
+      <Name>System.Xml</Name>
     </Reference>
     <ProjectReference Include="..\..\OGen-NTier\NTier_datalayer\NTier_datalayer-8.csproj">
       <Project>{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}</Project>
       <Name>NTier_datalayer-8</Name>
     </ProjectReference>
     <ProjectReference Include="..\OGen-NTier_UTs_datalayer\OGen-NTier_UTs_datalayer-8.csproj">
-      <Name>OGen-NTier_UTs_datalayer-2.0</Name>
+      <Name>OGen-NTier_UTs_datalayer-8</Name>
       <Project>{2C45EF1A-75BE-4B12-A232-62DEB5662239}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
     <ProjectReference Include="..\OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-8.csproj">
-      <Name>OGen-NTier_UTs_datalayer_proxy-2.0</Name>
-      <Project>{78096c45-7b20-4669-bf3d-eff5ecd74fc9}</Project>
+      <Name>OGen-NTier_UTs_datalayer_proxy-8</Name>
+      <Project>{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
   </ItemGroup>

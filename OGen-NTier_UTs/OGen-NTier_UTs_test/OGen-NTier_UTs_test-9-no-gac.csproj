@@ -82,8 +82,8 @@
       <Name>System.Data</Name>
     </Reference>
     <Reference Include="System.Web.Services" />
-    <Reference Include="System.XML">
-      <Name>System.XML</Name>
+    <Reference Include="System.Xml">
+      <Name>System.Xml</Name>
     </Reference>
     <ProjectReference Include="..\..\OGen-NTier\NTier_businesslayer\NTier_businesslayer-9.csproj">
       <Project>{8AEBEA64-6FC4-430C-922C-B88D105AE91C}</Project>
@@ -94,12 +94,12 @@
       <Name>NTier_datalayer-9</Name>
     </ProjectReference>
     <ProjectReference Include="..\OGen-NTier_UTs_businesslayer\OGen-NTier_UTs_businesslayer-9.csproj">
-      <Name>OGen-NTier_UTs_businesslayer</Name>
+      <Name>OGen-NTier_UTs_businesslayer-9</Name>
       <Project>{B3555514-3A7D-4159-B05D-E8D0C265B649}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
     <ProjectReference Include="..\OGen-NTier_UTs_datalayer\OGen-NTier_UTs_datalayer-9.csproj">
-      <Name>OGen-NTier_UTs_datalayer</Name>
+      <Name>OGen-NTier_UTs_datalayer-9</Name>
       <Project>{2C45EF1A-75BE-4B12-A232-62DEB5662239}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>

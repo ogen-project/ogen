@@ -110,8 +110,8 @@
       <Name>System.Data</Name>
     </Reference>
     <Reference Include="System.Web.Services" />
-    <Reference Include="System.XML">
-      <Name>System.XML</Name>
+    <Reference Include="System.Xml">
+      <Name>System.Xml</Name>
     </Reference>
     <ProjectReference Include="..\OGen-NTier_UTs_datalayer\OGen-NTier_UTs_datalayer-8.csproj">
       <Name>OGen-NTier_UTs_datalayer-8</Name>

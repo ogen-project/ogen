@@ -87,7 +87,7 @@
       <Name>System.Data</Name>
     </Reference>
     <Reference Include="System.Xml">
-      <Name>System.XML</Name>
+      <Name>System.Xml</Name>
     </Reference>
     <ProjectReference Include="..\..\OGen-NTier\NTier_businesslayer\NTier_businesslayer-9.csproj">
       <Project>{8AEBEA64-6FC4-430C-922C-B88D105AE91C}</Project>

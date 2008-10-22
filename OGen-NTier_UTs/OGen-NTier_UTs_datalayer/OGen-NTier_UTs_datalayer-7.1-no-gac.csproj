@@ -28,7 +28,7 @@
                     BaseAddress = "285212672"
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
-                    DefineConstants = "DEBUG;TRACE;PostgreSQL;NET_1_1;SQLServer"
+                    DefineConstants = "DEBUG;TRACE;NET_1_1;PostgreSQL;SQLServer;MySQL"
                     DocumentationFile = "bin\Debug\OGen.NTier.UTs.lib.datalayer-1.1.xml"
                     DebugSymbols = "true"
                     FileAlignment = "4096"
@@ -48,8 +48,8 @@
                     BaseAddress = "285212672"
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
-                    DefineConstants = "TRACE;PostgreSQL;NET_1_1;SQLServer"
-                    DocumentationFile = "bin\Release\OGen.NTier.UTs.lib.datalayer-1.1.xml"
+                    DefineConstants = "TRACE;NET_1_1;PostgreSQL;SQLServer;MySQL"
+                    DocumentationFile = "bin\Debug\OGen.NTier.UTs.lib.datalayer-1.1.xml"
                     DebugSymbols = "false"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"
@@ -75,12 +75,12 @@
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
                 />
                 <Reference
-                    Name = "System.XML"
+                    Name = "System.Xml"
                     AssemblyName = "System.Xml"
-                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Xml.dll"
                 />
                 <Reference
-                    Name = "OGen-NTier_UTs_datalayer_proxy-1.1"
+                    Name = "OGen-NTier_UTs_datalayer_proxy-7.1"
                     Project = "{78096c45-7b20-4669-bf3d-eff5ecd74fc9}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />

@@ -75,9 +75,9 @@
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
                 />
                 <Reference
-                    Name = "System.XML"
+                    Name = "System.Xml"
                     AssemblyName = "System.Xml"
-                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Xml.dll"
                 />
                 <Reference
                     Name = "OGen.lib.datalayer-1.1"
@@ -110,27 +110,27 @@
                     AssemblyFolderKey = "hklm\dn\ogen"
                 />
                 <Reference
-                    Name = "OGen-NTier_UTs_datalayer-1.1"
+                    Name = "OGen-NTier_UTs_datalayer-7.1"
                     Project = "{2C45EF1A-75BE-4B12-A232-62DEB5662239}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "OGen-NTier_UTs_datalayer_proxy-1.1"
+                    Name = "OGen-NTier_UTs_datalayer_proxy-7.1"
                     Project = "{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "OGen-NTier_UTs_businesslayer-1.1"
+                    Name = "OGen-NTier_UTs_businesslayer-7.1"
                     Project = "{B3555514-3A7D-4159-B05D-E8D0C265B649}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "OGen-NTier_UTs_businesslayer_proxy-1.1"
+                    Name = "OGen-NTier_UTs_businesslayer_proxy-7.1"
                     Project = "{ADA0411C-8645-4AA0-BFF3-5359E111D98A}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "OGen-NTier_UTs_datalayer_UTs-1.1"
+                    Name = "OGen-NTier_UTs_datalayer_UTs-7.1"
                     Project = "{4F18877D-A981-426B-8A09-5EDF95E9AE2B}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />

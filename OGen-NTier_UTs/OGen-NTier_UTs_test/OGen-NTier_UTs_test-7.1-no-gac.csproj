@@ -75,17 +75,17 @@
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
                 />
                 <Reference
-                    Name = "System.XML"
+                    Name = "System.Xml"
                     AssemblyName = "System.Xml"
-                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Xml.dll"
                 />
                 <Reference
-                    Name = "OGen-NTier_UTs_businesslayer-1.1"
+                    Name = "OGen-NTier_UTs_businesslayer-7.1"
                     Project = "{B3555514-3A7D-4159-B05D-E8D0C265B649}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "OGen-NTier_UTs_datalayer-1.1"
+                    Name = "OGen-NTier_UTs_datalayer-7.1"
                     Project = "{2C45EF1A-75BE-4B12-A232-62DEB5662239}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
@@ -215,6 +215,21 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_delobject.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_getobject.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_insObject.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_List_DataObjects.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -226,6 +241,16 @@
                 />
                 <File
                     RelPath = "HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_Read_DataObject_Property_Attributes.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_setobject.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HowTos_andFAQ\OGen-NTier__Docs__Develop_HowTo_updobject.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

@@ -52,7 +52,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
     </ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webservices.client-<%=_arg_projectVersion%></AssemblyName>
+    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webservices.client-2.0</AssemblyName>
     <AssemblyOriginatorKeyFile>
     </AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>

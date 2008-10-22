@@ -58,7 +58,7 @@
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;NET_2_0</DefineConstants>
-    <DocumentationFile>bin\Release\OGen.NTier.UTs.lib.businesslayer-2.0.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\OGen.NTier.UTs.lib.businesslayer-2.0.xml</DocumentationFile>
     <DebugSymbols>false</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
@@ -82,9 +82,9 @@
     <Reference Include="System.XML">
       <Name>System.XML</Name>
     </Reference>
-    <ProjectReference Include="..\..\OGen-NTier\NTier_businesslayer\NTier_businesslayer-9.csproj">
-      <Project>{8AEBEA64-6FC4-430C-922C-B88D105AE91C}</Project>
-      <Name>NTier_businesslayer-9</Name>
+    <ProjectReference Include="..\OGen-NTier_UTs_datalayer\OGen-NTier_UTs_datalayer-9.csproj">
+      <Name>OGen-NTier_UTs_datalayer-9</Name>
+      <Project>{2C45EF1A-75BE-4B12-A232-62DEB5662239}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\OGen-NTier\NTier_datalayer\NTier_datalayer-9.csproj">
       <Project>{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}</Project>

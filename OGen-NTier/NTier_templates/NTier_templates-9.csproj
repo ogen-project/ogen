@@ -138,7 +138,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-UT-SomeApplication_businesslayer_UTs-7.1.csproj.aspx">
-      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-UT-SomeApplication_businesslayer_UTs-8.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
