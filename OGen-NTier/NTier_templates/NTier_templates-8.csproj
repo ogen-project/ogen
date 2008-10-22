@@ -123,12 +123,15 @@
   <ItemGroup>
     <Content Include="app0.config.aspx">
     </Content>
-    <Content Include="BO-BO0_SomeTable.cs.aspx">
-    </Content>
-    <Content Include="BO-BO_SomeTable.cs.aspx">
-    </Content>
+    <Content Include="BO-BDO0_SomeTable.cs.aspx" />
+    <Content Include="BO-BDO_SomeTable.cs.aspx" />
+    <Content Include="BO-BO_SomeClass.cs.aspx" />
+    <Content Include="BO-IBO0_SomeClass.cs.aspx" />
+    <Content Include="BO-IBO_SomeClass.cs.aspx" />
     <Content Include="BO-SomeApplication_businesslayer-7.1.csproj.aspx" />
     <Content Include="BO-SomeApplication_businesslayer-8.csproj.aspx" />
+    <Content Include="BO-SomeApplication_businesslayer_proxy-7.1.csproj.aspx" />
+    <Content Include="BO-SomeApplication_businesslayer_proxy-8.csproj.aspx" />
     <Content Include="BO-UT-SomeApplication_businesslayer_UTs-7.1.csproj.aspx" />
     <Content Include="BO-UT-SomeApplication_businesslayer_UTs-8.csproj.aspx">
     </Content>
@@ -140,6 +143,7 @@
     <Content Include="BO-UT-UT_app.config.aspx">
     </Content>
     <Content Include="BO-UT-UT_SomeTable.cs.aspx" />
+    <Content Include="DO-DB-OGen_sp0__getTableFields-MySQL.sql" />
     <Content Include="DO-DB-OGen_sp0__getTableFields-SQLServer.sql" />
     <Content Include="DO-DB-OGen_sp0__getTables-SQLServer.sql" />
     <Content Include="DO-DB-OGen_fnc0__Split-SQLServer.sql" />
@@ -149,6 +153,8 @@
     <Content Include="DO-SO0_SomeTable.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="DO-SomeApplication_datalayer_proxy-7.1.csproj.aspx" />
+    <Content Include="DO-SomeApplication_datalayer_proxy-8.csproj.aspx" />
     <Content Include="DO-UT-SomeNamespace.lib.datalayer.UTs-1.1.nunit.aspx" />
     <Content Include="DO-UT-SomeNamespace.lib.datalayer.UTs-2.0.nunit.aspx" />
     <Content Include="DO-UT-UT0__utils.cs.aspx">
@@ -300,12 +306,21 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-UT-UT_SomeTable.cs.aspx" />
+    <Content Include="emptyfile.txt" />
     <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
+    <Content Include="RC-SomeApplication_remoting_client-7.1.csproj.aspx" />
+    <Content Include="RC-SomeApplication_remoting_client-8.csproj.aspx" />
+    <Content Include="RS-RS0_SomeClass.cs.aspx" />
+    <Content Include="RS-RS0__server.cs.aspx" />
+    <Content Include="RS-RS_SomeClass.cs.aspx" />
+    <Content Include="RS-RS__server.cs.aspx" />
     <Content Include="SomeApplication-1.1.ndoc.aspx" />
     <Content Include="SomeApplication-2.0.ndoc.aspx" />
     <Content Include="SomeApplication-8.sln.aspx" />
     <Content Include="SomeApplication-7.1.sln.aspx" />
+    <Content Include="SomeApplication-9.sln.aspx" />
+    <Content Include="SomeApplication-MD_SomeApplication.OGenXSD-metadataExtended-CompareAndUpdate.xml.aspx" />
     <Content Include="SomeApplication.OGen-NTier-1.1.bat.aspx" />
     <Content Include="SomeApplication.OGen-NTier-2.0.bat.aspx" />
     <Content Include="SomeApplication_AssemblyInfo.cs.txt" />
@@ -313,7 +328,12 @@
     <Content Include="SomeApplication_test-7.1.csproj.aspx" />
     <Content Include="SomeApplication_test_MainClass.cs.aspx" />
     <Content Include="templates.config.xml" />
+    <Content Include="WC-WC0_SomeClass.cs.aspx" />
+    <Content Include="WC-WC_SomeClass.cs.aspx" />
     <Content Include="Web.config" />
+    <Content Include="WS-WS0_SomeClass.asmx.cs.aspx" />
+    <Content Include="WS-WS_SomeClass.asmx.aspx" />
+    <Content Include="WS-WS_SomeClass.asmx.cs.aspx" />
     <Content Include="_templates.config.aspx" />
     <Content Include="__XSLT-TEST.txt.xslt" />
     <Compile Include="AssemblyInfo.cs">

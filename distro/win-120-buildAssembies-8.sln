@@ -43,8 +43,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doc-console-8", "..\OGen-Do
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayersupport-8", "..\OGen\OGen_datalayersupport\OGen_datalayersupport-8.csproj", "{88D87481-CC3F-49C7-A013-758387F3452E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer-8", "..\OGen\OGen_datalayer\OGen_datalayer-8.csproj", "{4AE20414-478E-4859-849E-929741A5936C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XSD_metadata-8", "..\OGen-XSD\XSD_metadata\XSD_metadata-8.csproj", "{4DF3D49D-AE3E-47F9-A33F-EB335D7B418E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XSD_generator-8", "..\OGen-XSD\XSD_generator\XSD_generator-8.csproj", "{8FBFD76E-FD3D-415C-B046-EFC947BE4259}"
@@ -52,6 +50,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XSD_templates-8", "..\OGen-XSD\XSD_templates\XSD_templates-8.csproj", "{327AF732-DFFD-488F-85C7-92B23D03BD34}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XSD-console-8", "..\OGen-XSD\XSD-console\XSD-console-8.csproj", "{B716D6F2-D45A-49A0-BEFA-D5A206303304}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_webservices_client-8", "..\OGen-NTier\NTier_distributedlayer_webservices_client\NTier_distributedlayer_webservices_client-8.csproj", "{7A52E316-CA44-4710-AF93-CC495DE77F6C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -143,10 +143,6 @@ Global
 		{88D87481-CC3F-49C7-A013-758387F3452E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88D87481-CC3F-49C7-A013-758387F3452E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88D87481-CC3F-49C7-A013-758387F3452E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4AE20414-478E-4859-849E-929741A5936C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4AE20414-478E-4859-849E-929741A5936C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4AE20414-478E-4859-849E-929741A5936C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4AE20414-478E-4859-849E-929741A5936C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4DF3D49D-AE3E-47F9-A33F-EB335D7B418E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4DF3D49D-AE3E-47F9-A33F-EB335D7B418E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DF3D49D-AE3E-47F9-A33F-EB335D7B418E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -163,6 +159,10 @@ Global
 		{B716D6F2-D45A-49A0-BEFA-D5A206303304}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B716D6F2-D45A-49A0-BEFA-D5A206303304}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B716D6F2-D45A-49A0-BEFA-D5A206303304}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

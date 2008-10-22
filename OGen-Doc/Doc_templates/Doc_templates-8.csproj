@@ -115,13 +115,9 @@
       <SubType>Code</SubType>
     </Compile>
     <None Include="COPYING.MIT" />
+    <Content Include="chapter.html.aspx" />
     <Content Include="doc.css" />
-    <Content Include="FAQ-id.html.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="Help-id.html.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
+    <Content Include="emptyfile.txt" />
     <Content Include="index.html.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
