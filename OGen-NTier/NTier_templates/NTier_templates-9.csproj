@@ -168,7 +168,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-SomeApplication_businesslayer_proxy-8.csproj.aspx">
-      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="RC-RC0_SomeClass-TODOS.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
@@ -176,26 +175,23 @@
     <Content Include="RC-RC_SomeClass-TODOS.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="RC-SomeApplication_remoting_client-7.1-TODOS.csproj.aspx">
+    <Content Include="RC-SomeApplication_remoting_client-7.1.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="RC-SomeApplication_remoting_client-8-TODOS.csproj.aspx">
+    <Content Include="RC-SomeApplication_remoting_client-8.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="RS-SomeApplication_remoting_server-7.1-TODOS.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="RS-SomeApplication_remoting_server-8-TODOS.csproj.aspx">
-      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="WC-SomeApplication_webservices_client-7.1-TODOS.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="WC-SomeApplication_webservices_client-8-TODOS.csproj.aspx">
-      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="WS-SomeApplication_webservices_server-7.1-TODOS.csproj.aspx">
-      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="WS-SomeApplication_webservices_server-8-TODOS.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>

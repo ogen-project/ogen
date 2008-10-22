@@ -1,56 +1,15 @@
-<%--
-
-OGen
-Copyright (C) 2002 Francisco Monteiro
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
---%><%@ Page language="c#" contenttype="text/html" %>
-<%@ import namespace="OGen.NTier.lib.metadata" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataExtended" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataDB" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataBusiness" %><%
-#region arguments...
-string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
-#endregion
-
-#region varaux...
-XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
-	_arg_MetadataFilepath, 
-	true
-);
-XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
-XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
-XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusinessCollection[0];
-
-OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table;
-OGen.NTier.lib.metadata.metadataExtended.XS_tableType _aux_ex_table;
-
-OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
-OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
-
-OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
-
-//string[] _aux_configmodes = _aux_ex_metadata.DBs.ConfigModes();
-
-#endregion
-//-----------------------------------------------------------------------------------------
-%><VisualStudioProject>
+<VisualStudioProject>
     <CSHARP
         ProjectType = "Local"
         ProductVersion = "7.10.3077"
         SchemaVersion = "2.0"
-        ProjectGuid = "{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_client%>}"
+        ProjectGuid = "{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}"
     >
         <Build>
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client-1.1"
+                AssemblyName = "OGen.NTier.UTs.lib.distributedlayer.remoting.client-1.1"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -59,7 +18,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client"
+                RootNamespace = "OGen.NTier.UTs.lib.distributedlayer.remoting.client"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >
@@ -70,7 +29,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "DEBUG;TRACE;NET_1_1"
-                    DocumentationFile = "bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client-1.1.xml"
+                    DocumentationFile = "bin\Debug\OGen.NTier.UTs.lib.distributedlayer.remoting.client-1.1.xml"
                     DebugSymbols = "true"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"
@@ -90,7 +49,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "TRACE;NET_1_1"
-                    DocumentationFile = "bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client-1.1.xml"
+                    DocumentationFile = "bin\Debug\OGen.NTier.UTs.lib.distributedlayer.remoting.client-1.1.xml"
                     DebugSymbols = "false"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"
@@ -121,13 +80,13 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-1.1"
-                    Project = "{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}"
+                    Name = "OGen-NTier_UTs_datalayer_proxy-1.1"
+                    Project = "{78096c45-7b20-4669-bf3d-eff5ecd74fc9}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy-1.1"
-                    Project = "{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}"
+                    Name = "OGen-NTier_UTs_businesslayer_proxy-1.1"
+                    Project = "{ADA0411C-8645-4AA0-BFF3-5359E111D98A}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>
@@ -138,20 +97,27 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
                     RelPath = "AssemblyInfo.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
-                /><%
-				for (int c = 0; c < _aux_business_metadata.Classes.ClassCollection.Count; c++) {
-					_aux_class = _aux_business_metadata.Classes.ClassCollection[c];%>
+                />
                 <File
-                    RelPath = "RC_<%=_aux_class.Name%>.cs"
+                    RelPath = "RC_User.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "_base\RC0_<%=_aux_class.Name%>.cs"
+                    RelPath = "_base\RC0_User.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
-                /><%
-                }%>
+                />
+                <File
+                    RelPath = "RC_Authentication.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "_base\RC0_Authentication.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
             </Include>
         </Files>
     </CSHARP>
