@@ -3203,4 +3203,55 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+
+	<template id="WS-SomeApplication_webservices_server-7.1.csproj.aspx"
+			name="WS-SomeApplication_webservices_server-7.1.csproj.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_webservices_server/${ROOT.metadataDB[0].applicationName}_webservices_server-7.1.csproj"
+				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_webservices_server/${ROOT.metadataDB[0].applicationName}_webservices_server-7.1.csproj.no-svn"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="WS-SomeApplication_webservices_server-8.csproj.aspx?projectVersion=8"
+			name="WS-SomeApplication_webservices_server-8.csproj.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="projectVersion" value="8" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_webservices_server/${ROOT.metadataDB[0].applicationName}_webservices_server-8.csproj"
+				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_webservices_server/${ROOT.metadataDB[0].applicationName}_webservices_server-8.csproj.no-svn"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="WS-SomeApplication_webservices_server-8.csproj.aspx?projectVersion=9"
+			name="WS-SomeApplication_webservices_server-8.csproj.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="projectVersion" value="9" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_webservices_server/${ROOT.metadataDB[0].applicationName}_webservices_server-9.csproj"
+				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_webservices_server/${ROOT.metadataDB[0].applicationName}_webservices_server-9.csproj.no-svn"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
 </templates>
