@@ -1,4 +1,4 @@
-﻿#region Copyright (C) 2002 Francisco Monteiro
+#region Copyright (C) 2002 Francisco Monteiro
 /*
 
 OGen
@@ -15,12 +15,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 
 namespace OGen.NTier.UTs.lib.businesslayer.proxy {
+	/// <summary>
+	/// Interface for Authentication BusinessObject.
+	/// </summary>
 	public interface IBO0_Authentication {
+		#region Properties...
+		#endregion
+
+		#region Methods...
 		string Login(
-			string login_in,
+			string login_in, 
 			string password_in
 		);
 		void Logout(
 		);
+		#endregion
 	}
 }

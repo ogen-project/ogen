@@ -1,4 +1,4 @@
-﻿#region Copyright (C) 2002 Francisco Monteiro
+#region Copyright (C) 2002 Francisco Monteiro
 /*
 
 OGen
@@ -17,23 +17,19 @@ using System;
 using OGen.NTier.UTs.lib.businesslayer;
 
 namespace OGen.NTier.UTs.lib.distributedlayer.remoting.server {
+	/// <summary>
+	/// Authentication remoting server.
+	/// </summary>
 	public abstract class RS0_Authentication : MarshalByRefObject {
-		#region private Properties...
-		#endregion
-		#region public Properties...
-		#endregion
-
-		#region private Methods...
-		#endregion
-		#region public Methods...
 		#region public string Login(...);
 		public string Login(
-			string login_in,
+			string login_in, 
 			string password_in
 		) {
-			BO_Authentication _businessobject = new BO_Authentication();
+			BO_Authentication _businessobject = new BO_Authentication(
+			);
 			return _businessobject.Login(
-				login_in,
+				login_in, 
 				password_in
 			);
 		}
@@ -41,11 +37,11 @@ namespace OGen.NTier.UTs.lib.distributedlayer.remoting.server {
 		#region public void Logout(...);
 		public void Logout(
 		) {
-			BO_Authentication _businessobject = new BO_Authentication();
+			BO_Authentication _businessobject = new BO_Authentication(
+			);
 			_businessobject.Logout(
 			);
 		}
-		#endregion
 		#endregion
 	}
 }

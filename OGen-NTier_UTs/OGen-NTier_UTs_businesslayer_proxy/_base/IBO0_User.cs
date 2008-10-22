@@ -1,4 +1,4 @@
-﻿#region Copyright (C) 2002 Francisco Monteiro
+#region Copyright (C) 2002 Francisco Monteiro
 /*
 
 OGen
@@ -15,23 +15,31 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 
 namespace OGen.NTier.UTs.lib.businesslayer.proxy {
+	/// <summary>
+	/// Interface for User BusinessObject.
+	/// </summary>
 	public interface IBO0_User {
+		#region Properties...
+		#endregion
+
+		#region Methods...
 		long insObject(
-			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
-			bool selectIdentity_in,
+			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in, 
+			bool selectIdentity_in, 
 			string login_in, 
 			out bool constraintExist_out
 		);
 		OGen.NTier.UTs.lib.datalayer.proxy.SO_User getObject(
-			long idUser_in,
+			long idUser_in, 
 			string login_in, 
 			out bool exists_out
 		);
 		OGen.NTier.UTs.lib.datalayer.proxy.SO_User[] Record_Open_byGroup(
-			long IDGroup_search_in,
-			int page_in,
-			int page_numRecords_in,
+			long IDGroup_search_in, 
+			int page_in, 
+			int page_numRecords_in, 
 			string login_in
 		);
+		#endregion
 	}
 }

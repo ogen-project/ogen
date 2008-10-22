@@ -1,4 +1,4 @@
-﻿#region Copyright (C) 2002 Francisco Monteiro
+#region Copyright (C) 2002 Francisco Monteiro
 /*
 
 OGen
@@ -26,20 +26,18 @@ namespace OGen.NTier.UTs.lib.distributedlayer.remoting.server {
 			#else
 			ChannelServices.RegisterChannel(new TcpChannel(8085), false);
 			#endif
-
-			RemotingConfiguration.RegisterWellKnownServiceType(
-				typeof(RS_Authentication),
-				"OGen.NTier.UTs.lib.distributedlayer.remoting.server.RS_Authentication.remoting",
-				//"OGen.NTier.UTs.lib.distributedlayer.remoting.server.RS_Authentication.soap",
-
-				WellKnownObjectMode.Singleton
-				//WellKnownObjectMode.SingleCall
-			);
-
 			RemotingConfiguration.RegisterWellKnownServiceType(
 				typeof(RS_User),
 				"OGen.NTier.UTs.lib.distributedlayer.remoting.server.RS_User.remoting",
 				//"OGen.NTier.UTs.lib.distributedlayer.remoting.server.RS_User.soap",
+
+				WellKnownObjectMode.Singleton
+				//WellKnownObjectMode.SingleCall
+			);
+			RemotingConfiguration.RegisterWellKnownServiceType(
+				typeof(RS_Authentication),
+				"OGen.NTier.UTs.lib.distributedlayer.remoting.server.RS_Authentication.remoting",
+				//"OGen.NTier.UTs.lib.distributedlayer.remoting.server.RS_Authentication.soap",
 
 				WellKnownObjectMode.Singleton
 				//WellKnownObjectMode.SingleCall

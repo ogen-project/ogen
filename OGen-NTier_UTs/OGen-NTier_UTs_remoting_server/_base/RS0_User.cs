@@ -1,4 +1,4 @@
-﻿#region Copyright (C) 2002 Francisco Monteiro
+#region Copyright (C) 2002 Francisco Monteiro
 /*
 
 OGen
@@ -17,19 +17,22 @@ using System;
 using OGen.NTier.UTs.lib.businesslayer;
 
 namespace OGen.NTier.UTs.lib.distributedlayer.remoting.server {
+	/// <summary>
+	/// User remoting server.
+	/// </summary>
 	public abstract class RS0_User : MarshalByRefObject {
 		#region public long insObject(...);
 		public long insObject(
-			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
-			bool selectIdentity_in,
+			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in, 
+			bool selectIdentity_in, 
 			string login_in, 
 			out bool constraintExist_out
 		) {
 			BDO_User _businessobject = new BDO_User(
 			);
 			return _businessobject.insObject(
-				user_in,
-				selectIdentity_in,
+				user_in, 
+				selectIdentity_in, 
 				login_in, 
 				out constraintExist_out
 			);
@@ -37,7 +40,7 @@ namespace OGen.NTier.UTs.lib.distributedlayer.remoting.server {
 		#endregion
 		#region public OGen.NTier.UTs.lib.datalayer.proxy.SO_User getObject(...);
 		public OGen.NTier.UTs.lib.datalayer.proxy.SO_User getObject(
-			long idUser_in,
+			long idUser_in, 
 			string login_in, 
 			out bool exists_out
 		) {
@@ -52,17 +55,17 @@ namespace OGen.NTier.UTs.lib.distributedlayer.remoting.server {
 		#endregion
 		#region public OGen.NTier.UTs.lib.datalayer.proxy.SO_User[] Record_Open_byGroup(...);
 		public OGen.NTier.UTs.lib.datalayer.proxy.SO_User[] Record_Open_byGroup(
-			long IDGroup_search_in,
-			int page_in,
-			int page_numRecords_in,
+			long IDGroup_search_in, 
+			int page_in, 
+			int page_numRecords_in, 
 			string login_in
 		) {
 			BDO_User _businessobject = new BDO_User(
 			);
 			return _businessobject.Record_Open_byGroup(
-				IDGroup_search_in,
-				page_in,
-				page_numRecords_in,
+				IDGroup_search_in, 
+				page_in, 
+				page_numRecords_in, 
 				login_in
 			);
 		}
