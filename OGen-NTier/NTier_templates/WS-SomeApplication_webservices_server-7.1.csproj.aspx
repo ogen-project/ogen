@@ -168,7 +168,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "_base\WS0_<%=_aux_class.Name%>.cs"
+                    RelPath = "_base\WS0_<%=_aux_class.Name%>.asmx.cs"
                     SubType = "Component"
                     BuildAction = "Compile"
                 /><%

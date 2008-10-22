@@ -76,7 +76,7 @@
                 />
                 <Reference
                     Name = "System.XML"
-                    AssemblyName = "System.XML"
+                    AssemblyName = "System.Xml"
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
@@ -144,6 +144,16 @@
                     Name = "System.Web.Services"
                     AssemblyName = "System.Web.Services"
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Web.Services.dll"
+                />
+                <Reference
+                    Name = "OGen-NTier_UTs_remoting_client-7.1"
+                    Project = "{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "OGen-NTier_UTs_webservices_client-7.1"
+                    Project = "{3E90C87B-1643-4323-8A50-96000EBFD406}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>
         </Build>

@@ -121,7 +121,7 @@
                 <File
                     RelPath = "WS_Authentication.asmx.cs"
                     DependentUpon = "WS_Authentication.asmx"
-                    SubType = "Code"
+                    SubType = "Component"
                     BuildAction = "Compile"
                 />
                 <File
@@ -132,16 +132,16 @@
                 <File
                     RelPath = "WS_User.asmx.cs"
                     DependentUpon = "WS_User.asmx"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "_base\WS0_Authentication.cs"
                     SubType = "Component"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "_base\WS0_User.cs"
+                    RelPath = "_base\WS0_Authentication.asmx.cs"
+                    SubType = "Component"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "_base\WS0_User.asmx.cs"
                     SubType = "Component"
                     BuildAction = "Compile"
                 />
