@@ -89,11 +89,6 @@
         <Files>
             <Include>
                 <File
-                    RelPath = "AssemblyInfo.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "COPYING.MIT"
                     BuildAction = "None"
                 />
@@ -108,6 +103,10 @@
                 <File
                     RelPath = "WC__base.cs"
                     SubType = "Component"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Properties\AssemblyInfo.cs"
                     BuildAction = "Compile"
                 />
             </Include>
