@@ -45,14 +45,14 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
     <ProjectType>Local</ProjectType>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}</ProjectGuid>
+    <ProjectGuid>{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_client%>}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ApplicationIcon>
     </ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.proxy-2.0</AssemblyName>
+    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client-2.0</AssemblyName>
     <AssemblyOriginatorKeyFile>
     </AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
@@ -60,7 +60,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
     <OutputType>Library</OutputType>
-    <RootNamespace><%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.proxy</RootNamespace>
+    <RootNamespace><%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <StartupObject>
     </StartupObject>
@@ -78,7 +78,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;DEBUG;NET_2_0</DefineConstants>
-    <DocumentationFile>bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.proxy-2.0.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client-2.0.xml</DocumentationFile>
     <DebugSymbols>true</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
@@ -100,7 +100,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;NET_2_0</DefineConstants>
-    <DocumentationFile>bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.proxy-2.0.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client-2.0.xml</DocumentationFile>
     <DebugSymbols>false</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
@@ -129,6 +129,11 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
       <Project>{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy-<%=_arg_projectVersion%>.csproj">
+      <Name><%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy-2.0</Name>
+      <Project>{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs">
@@ -136,10 +141,10 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
     </Compile><%
 	for (int c = 0; c < _aux_business_metadata.Classes.ClassCollection.Count; c++) {
 		_aux_class = _aux_business_metadata.Classes.ClassCollection[c];%>
-    <Compile Include="IBO_<%=_aux_class.Name%>.cs">
+    <Compile Include="RC_<%=_aux_class.Name%>.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\IBO0_<%=_aux_class.Name%>.cs">
+    <Compile Include="_base\RC0_<%=_aux_class.Name%>.cs">
       <SubType>Code</SubType>
     </Compile><%
 	}%>

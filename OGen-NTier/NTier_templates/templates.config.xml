@@ -2977,4 +2977,50 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+
+
+	<template id="RC-SomeApplication_remoting_client-7.1.csproj.aspx"
+			name="RC-SomeApplication_remoting_client-7.1.csproj.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_remoting_client/${ROOT.metadataDB[0].applicationName}_remoting_client-7.1.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="RC-SomeApplication_remoting_client-8.csproj.aspx?projectVersion=8"
+			name="RC-SomeApplication_remoting_client-8.csproj.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="projectVersion" value="8" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_remoting_client/${ROOT.metadataDB[0].applicationName}_remoting_client-8.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="RC-SomeApplication_remoting_client-8.csproj.aspx?projectVersion=9"
+			name="RC-SomeApplication_remoting_client-8.csproj.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="projectVersion" value="9" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}_remoting_client/${ROOT.metadataDB[0].applicationName}_remoting_client-9.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
 </templates>

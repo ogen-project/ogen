@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XSD_templates-9", "..\OGen-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XSD-console-9", "..\OGen-XSD\XSD-console\XSD-console-9.csproj", "{B716D6F2-D45A-49A0-BEFA-D5A206303304}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_webservices_client-9", "..\OGen-NTier\NTier_distributedlayer_webservices_client\NTier_distributedlayer_webservices_client-9.csproj", "{7A52E316-CA44-4710-AF93-CC495DE77F6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -157,6 +159,10 @@ Global
 		{B716D6F2-D45A-49A0-BEFA-D5A206303304}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B716D6F2-D45A-49A0-BEFA-D5A206303304}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B716D6F2-D45A-49A0-BEFA-D5A206303304}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

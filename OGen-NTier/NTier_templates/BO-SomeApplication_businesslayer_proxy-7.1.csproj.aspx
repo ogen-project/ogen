@@ -90,7 +90,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "TRACE;NET_1_1"
-                    DocumentationFile = "bin\Release\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.proxy-1.1.xml"
+                    DocumentationFile = "bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.proxy-1.1.xml"
                     DebugSymbols = "false"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"
