@@ -3,7 +3,7 @@
         ProjectType = "Local"
         ProductVersion = "7.10.3077"
         SchemaVersion = "2.0"
-        ProjectGuid = "{78096c45-7b20-4669-bf3d-eff5ecd74fc9}"
+        ProjectGuid = "{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}"
     >
         <Build>
             <Settings
@@ -28,7 +28,7 @@
                     BaseAddress = "285212672"
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
-                    DefineConstants = "DEBUG;TRACE;NET_1_1;PostgreSQL;SQLServer"
+                    DefineConstants = "DEBUG;TRACE;NET_1_1;PostgreSQL;SQLServer;MySQL"
                     DocumentationFile = "bin\Debug\OGen.NTier.UTs.lib.datalayer.proxy-1.1.xml"
                     DebugSymbols = "true"
                     FileAlignment = "4096"

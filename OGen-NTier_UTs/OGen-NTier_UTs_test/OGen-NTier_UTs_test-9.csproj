@@ -26,7 +26,7 @@
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <OldToolsVersion>2.0</OldToolsVersion>
+	<OldToolsVersion>2.0</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -75,10 +75,22 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OGen.lib.datalayer-2.0" />
-    <Reference Include="OGen.lib.datalayer.PostgreSQL-2.0" />
-    <Reference Include="OGen.lib.datalayer.SQLServer-2.0" />
-    <Reference Include="OGen.lib.datalayer.support-2.0" />
+    <Reference Include="OGen.lib.datalayer-2.0">
+      <Name>OGen.lib.datalayer-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="OGen.lib.datalayer.PostgreSQL-2.0">
+      <Name>OGen.lib.datalayer.PostgreSQL-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="OGen.lib.datalayer.SQLServer-2.0">
+      <Name>OGen.lib.datalayer.SQLServer-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="OGen.lib.datalayer.MySQL-2.0">
+      <Name>OGen.lib.datalayer.MySQL-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference>
     <Reference Include="OGen.NTier.lib.businesslayer-2.0">
       <Name>OGen.NTier.lib.businesslayer-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
@@ -87,16 +99,17 @@
       <Name>OGen.NTier.lib.datalayer-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
     </Reference>
+    <Reference Include="OGen.lib.datalayer.support-2.0" />
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
     <Reference Include="System.Data">
       <Name>System.Data</Name>
     </Reference>
-    <Reference Include="System.Web.Services" />
     <Reference Include="System.XML">
       <Name>System.XML</Name>
     </Reference>
+    <Reference Include="System.Web.Services" />
     <ProjectReference Include="..\OGen-NTier_UTs_businesslayer_proxy\OGen-NTier_UTs_businesslayer_proxy-9.csproj">
       <Project>{ADA0411C-8645-4AA0-BFF3-5359E111D98A}</Project>
       <Name>OGen-NTier_UTs_businesslayer_proxy-9-no-gac</Name>

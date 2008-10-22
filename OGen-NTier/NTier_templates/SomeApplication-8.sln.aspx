@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.Applica
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy-8", "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy-8.csproj", "{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs-8", "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs-8.csproj", "{<%=_aux_ex_metadata.GUIDBusinesslayer_UTs%>}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_remoting_client-8", "<%=_aux_ex_metadata.ApplicationName%>_remoting_client\<%=_aux_ex_metadata.ApplicationName%>_remoting_client-8.csproj", "{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_client%>}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_remoting_server-8", "<%=_aux_ex_metadata.ApplicationName%>_remoting_server\<%=_aux_ex_metadata.ApplicationName%>_remoting_server-8.csproj", "{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_server%>}"
@@ -54,8 +56,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_webservices_client-8", "<%=_aux_ex_metadata.ApplicationName%>_webservices_client\<%=_aux_ex_metadata.ApplicationName%>_webservices_client-8.csproj", "{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_client%>}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_webservices_server-8", "<%=_aux_ex_metadata.ApplicationName%>_webservices_server\<%=_aux_ex_metadata.ApplicationName%>_webservices_server-8.csproj", "{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_server%>}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs-8", "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs-8.csproj", "{<%=_aux_ex_metadata.GUIDBusinesslayer_UTs%>}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_test-8", "<%=_aux_ex_metadata.ApplicationName%>_test\<%=_aux_ex_metadata.ApplicationName%>_test-8.csproj", "{<%=_aux_ex_metadata.GUIDTest%>}"
 EndProject

@@ -2,13 +2,23 @@ Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_datalayer-8", "OGen-NTier_UTs_datalayer\OGen-NTier_UTs_datalayer-8.csproj", "{2C45EF1A-75BE-4B12-A232-62DEB5662239}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_datalayer_proxy-8-no-gac", "OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-8-no-gac.csproj", "{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_datalayer_proxy-8", "OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-8.csproj", "{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_datalayer_UTs-8", "OGen-NTier_UTs_datalayer_UTs\OGen-NTier_UTs_datalayer_UTs-8.csproj", "{4F18877D-A981-426B-8A09-5EDF95E9AE2B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_businesslayer-8", "OGen-NTier_UTs_businesslayer\OGen-NTier_UTs_businesslayer-8.csproj", "{B3555514-3A7D-4159-B05D-E8D0C265B649}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_businesslayer_proxy-8", "OGen-NTier_UTs_businesslayer_proxy\OGen-NTier_UTs_businesslayer_proxy-8.csproj", "{ADA0411C-8645-4AA0-BFF3-5359E111D98A}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_businesslayer_UTs-8", "OGen-NTier_UTs_businesslayer_UTs\OGen-NTier_UTs_businesslayer_UTs-8.csproj", "{980912F1-6877-4BD1-A2E0-61D366839C52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_remoting_client-8", "OGen-NTier_UTs_remoting_client\OGen-NTier_UTs_remoting_client-8.csproj", "{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_remoting_server-8", "OGen-NTier_UTs_remoting_server\OGen-NTier_UTs_remoting_server-8.csproj", "{620124DD-28FF-4D6C-93A2-170730EC2778}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_webservices_client-8", "OGen-NTier_UTs_webservices_client\OGen-NTier_UTs_webservices_client-8.csproj", "{3E90C87B-1643-4323-8A50-96000EBFD406}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_webservices_server-8", "OGen-NTier_UTs_webservices_server\OGen-NTier_UTs_webservices_server-8.csproj", "{89EE33CB-FAAD-4251-809C-13B5FC57F101}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_test-8", "OGen-NTier_UTs_test\OGen-NTier_UTs_test-8.csproj", "{2E2A748F-E72A-4B23-9011-F7AE725AB330}"
 EndProject
@@ -34,10 +44,30 @@ Global
 		{B3555514-3A7D-4159-B05D-E8D0C265B649}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3555514-3A7D-4159-B05D-E8D0C265B649}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3555514-3A7D-4159-B05D-E8D0C265B649}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{980912F1-6877-4BD1-A2E0-61D366839C52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{980912F1-6877-4BD1-A2E0-61D366839C52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{980912F1-6877-4BD1-A2E0-61D366839C52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{980912F1-6877-4BD1-A2E0-61D366839C52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{620124DD-28FF-4D6C-93A2-170730EC2778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{620124DD-28FF-4D6C-93A2-170730EC2778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{620124DD-28FF-4D6C-93A2-170730EC2778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{620124DD-28FF-4D6C-93A2-170730EC2778}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E90C87B-1643-4323-8A50-96000EBFD406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E90C87B-1643-4323-8A50-96000EBFD406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E90C87B-1643-4323-8A50-96000EBFD406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E90C87B-1643-4323-8A50-96000EBFD406}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89EE33CB-FAAD-4251-809C-13B5FC57F101}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89EE33CB-FAAD-4251-809C-13B5FC57F101}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89EE33CB-FAAD-4251-809C-13B5FC57F101}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89EE33CB-FAAD-4251-809C-13B5FC57F101}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2E2A748F-E72A-4B23-9011-F7AE725AB330}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2E2A748F-E72A-4B23-9011-F7AE725AB330}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E2A748F-E72A-4B23-9011-F7AE725AB330}.Release|Any CPU.ActiveCfg = Release|Any CPU

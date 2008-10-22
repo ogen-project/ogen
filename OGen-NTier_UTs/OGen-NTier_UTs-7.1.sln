@@ -3,7 +3,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_datalayer-7.
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_datalayer_proxy-7.1-no-gac", "OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-7.1-no-gac.csproj", "{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_datalayer_proxy-7.1", "OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-7.1.csproj", "{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
@@ -15,7 +15,27 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_businesslaye
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_businesslayer_proxy-7.1", "OGen-NTier_UTs_businesslayer_proxy\OGen-NTier_UTs_businesslayer_proxy-7.1.csproj", "{ADA0411C-8645-4AA0-BFF3-5359E111D98A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_businesslayer_UTs-7.1", "OGen-NTier_UTs_businesslayer_UTs\OGen-NTier_UTs_businesslayer_UTs-7.1.csproj", "{980912F1-6877-4BD1-A2E0-61D366839C52}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_remoting_client-7.1", "OGen-NTier_UTs_remoting_client\OGen-NTier_UTs_remoting_client-7.1.csproj", "{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_remoting_server-7.1", "OGen-NTier_UTs_remoting_server\OGen-NTier_UTs_remoting_server-7.1.csproj", "{620124DD-28FF-4D6C-93A2-170730EC2778}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_webservices_client-7.1", "OGen-NTier_UTs_webservices_client\OGen-NTier_UTs_webservices_client-7.1.csproj", "{3E90C87B-1643-4323-8A50-96000EBFD406}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_webservices_server-7.1", "OGen-NTier_UTs_webservices_server\OGen-NTier_UTs_webservices_server-7.1.csproj", "{89EE33CB-FAAD-4251-809C-13B5FC57F101}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
@@ -36,6 +56,7 @@ Global
 		{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}.Debug.ActiveCfg = Debug|.NET
 		{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}.Debug.Build.0 = Debug|.NET
 		{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}.Release.ActiveCfg = Release|.NET
+		{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}.Release.Build.0 = Release|.NET
 		{4F18877D-A981-426B-8A09-5EDF95E9AE2B}.Debug.ActiveCfg = Debug|.NET
 		{4F18877D-A981-426B-8A09-5EDF95E9AE2B}.Debug.Build.0 = Debug|.NET
 		{4F18877D-A981-426B-8A09-5EDF95E9AE2B}.Release.ActiveCfg = Release|.NET
@@ -44,10 +65,30 @@ Global
 		{B3555514-3A7D-4159-B05D-E8D0C265B649}.Debug.Build.0 = Debug|.NET
 		{B3555514-3A7D-4159-B05D-E8D0C265B649}.Release.ActiveCfg = Release|.NET
 		{B3555514-3A7D-4159-B05D-E8D0C265B649}.Release.Build.0 = Release|.NET
+		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Debug.ActiveCfg = Debug|.NET
+		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Debug.Build.0 = Debug|.NET
+		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Release.ActiveCfg = Release|.NET
+		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Release.Build.0 = Release|.NET
 		{980912F1-6877-4BD1-A2E0-61D366839C52}.Debug.ActiveCfg = Debug|.NET
 		{980912F1-6877-4BD1-A2E0-61D366839C52}.Debug.Build.0 = Debug|.NET
 		{980912F1-6877-4BD1-A2E0-61D366839C52}.Release.ActiveCfg = Release|.NET
 		{980912F1-6877-4BD1-A2E0-61D366839C52}.Release.Build.0 = Release|.NET
+		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Debug.ActiveCfg = Debug|.NET
+		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Debug.Build.0 = Debug|.NET
+		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Release.ActiveCfg = Release|.NET
+		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Release.Build.0 = Release|.NET
+		{620124DD-28FF-4D6C-93A2-170730EC2778}.Debug.ActiveCfg = Debug|.NET
+		{620124DD-28FF-4D6C-93A2-170730EC2778}.Debug.Build.0 = Debug|.NET
+		{620124DD-28FF-4D6C-93A2-170730EC2778}.Release.ActiveCfg = Release|.NET
+		{620124DD-28FF-4D6C-93A2-170730EC2778}.Release.Build.0 = Release|.NET
+		{3E90C87B-1643-4323-8A50-96000EBFD406}.Debug.ActiveCfg = Debug|.NET
+		{3E90C87B-1643-4323-8A50-96000EBFD406}.Debug.Build.0 = Debug|.NET
+		{3E90C87B-1643-4323-8A50-96000EBFD406}.Release.ActiveCfg = Release|.NET
+		{3E90C87B-1643-4323-8A50-96000EBFD406}.Release.Build.0 = Release|.NET
+		{89EE33CB-FAAD-4251-809C-13B5FC57F101}.Debug.ActiveCfg = Debug|.NET
+		{89EE33CB-FAAD-4251-809C-13B5FC57F101}.Debug.Build.0 = Debug|.NET
+		{89EE33CB-FAAD-4251-809C-13B5FC57F101}.Release.ActiveCfg = Release|.NET
+		{89EE33CB-FAAD-4251-809C-13B5FC57F101}.Release.Build.0 = Release|.NET
 		{2E2A748F-E72A-4B23-9011-F7AE725AB330}.Debug.ActiveCfg = Debug|.NET
 		{2E2A748F-E72A-4B23-9011-F7AE725AB330}.Debug.Build.0 = Debug|.NET
 		{2E2A748F-E72A-4B23-9011-F7AE725AB330}.Release.ActiveCfg = Release|.NET

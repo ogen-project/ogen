@@ -94,7 +94,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 						string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();
 						%>;<%=_dbservertype%><%
 					}%>"
-                    DocumentationFile = ""
+                    DocumentationFile = "bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer-1.1.xml"
                     DebugSymbols = "false"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"

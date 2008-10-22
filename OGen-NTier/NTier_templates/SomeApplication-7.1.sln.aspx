@@ -36,47 +36,47 @@ XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedColle
 #endregion
 //-----------------------------------------------------------------------------------------
 %>Microsoft Visual Studio Solution File, Format Version 8.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_datalayer", "<%=_aux_ex_metadata.ApplicationName%>_datalayer\<%=_aux_ex_metadata.ApplicationName%>_datalayer-7.1.csproj", "{<%=_aux_ex_metadata.GUIDDatalayer%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_datalayer-7.1", "<%=_aux_ex_metadata.ApplicationName%>_datalayer\<%=_aux_ex_metadata.ApplicationName%>_datalayer-7.1.csproj", "{<%=_aux_ex_metadata.GUIDDatalayer%>}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy", "<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy\<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-7.1.csproj", "{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-7.1", "<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy\<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-7.1.csproj", "{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_datalayer_UTs", "<%=_aux_ex_metadata.ApplicationName%>_datalayer_UTs\<%=_aux_ex_metadata.ApplicationName%>_datalayer_UTs-7.1.csproj", "{<%=_aux_ex_metadata.GUIDDatalayer_UTs%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_datalayer_UTs-7.1", "<%=_aux_ex_metadata.ApplicationName%>_datalayer_UTs\<%=_aux_ex_metadata.ApplicationName%>_datalayer_UTs-7.1.csproj", "{<%=_aux_ex_metadata.GUIDDatalayer_UTs%>}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer", "<%=_aux_ex_metadata.ApplicationName%>_businesslayer\<%=_aux_ex_metadata.ApplicationName%>_businesslayer-7.1.csproj", "{<%=_aux_ex_metadata.GUIDBusinesslayer%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer-7.1", "<%=_aux_ex_metadata.ApplicationName%>_businesslayer\<%=_aux_ex_metadata.ApplicationName%>_businesslayer-7.1.csproj", "{<%=_aux_ex_metadata.GUIDBusinesslayer%>}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer", "<%=_aux_ex_metadata.ApplicationName%>_businesslayer\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy-7.1.csproj", "{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy-7.1", "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy-7.1.csproj", "{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs", "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs-7.1.csproj", "{<%=_aux_ex_metadata.GUIDBusinesslayer_UTs%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs-7.1", "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_UTs-7.1.csproj", "{<%=_aux_ex_metadata.GUIDBusinesslayer_UTs%>}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_remoting_client", "<%=_aux_ex_metadata.ApplicationName%>_remoting_client\<%=_aux_ex_metadata.ApplicationName%>_remoting_client-7.1.csproj", "{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_client%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_remoting_client-7.1", "<%=_aux_ex_metadata.ApplicationName%>_remoting_client\<%=_aux_ex_metadata.ApplicationName%>_remoting_client-7.1.csproj", "{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_client%>}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_remoting_server", "<%=_aux_ex_metadata.ApplicationName%>_remoting_server\<%=_aux_ex_metadata.ApplicationName%>_remoting_server-7.1.csproj", "{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_server%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_remoting_server-7.1", "<%=_aux_ex_metadata.ApplicationName%>_remoting_server\<%=_aux_ex_metadata.ApplicationName%>_remoting_server-7.1.csproj", "{<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_server%>}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_webservices_client", "<%=_aux_ex_metadata.ApplicationName%>_webservices_client\<%=_aux_ex_metadata.ApplicationName%>_webservices_client-7.1.csproj", "{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_client%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_webservices_client-7.1", "<%=_aux_ex_metadata.ApplicationName%>_webservices_client\<%=_aux_ex_metadata.ApplicationName%>_webservices_client-7.1.csproj", "{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_client%>}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_webservices_server", "<%=_aux_ex_metadata.ApplicationName%>_webservices_server\<%=_aux_ex_metadata.ApplicationName%>_webservices_server-7.1.csproj", "{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_server%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_webservices_server-7.1", "<%=_aux_ex_metadata.ApplicationName%>_webservices_server\<%=_aux_ex_metadata.ApplicationName%>_webservices_server-7.1.csproj", "{<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_server%>}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_test", "<%=_aux_ex_metadata.ApplicationName%>_test\<%=_aux_ex_metadata.ApplicationName%>_test-7.1.csproj", "{<%=_aux_ex_metadata.GUIDTest%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>_test-7.1", "<%=_aux_ex_metadata.ApplicationName%>_test\<%=_aux_ex_metadata.ApplicationName%>_test-7.1.csproj", "{<%=_aux_ex_metadata.GUIDTest%>}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject

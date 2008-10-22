@@ -141,17 +141,17 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
       <Name>System.XML</Name>
     </Reference>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_businesslayer\<%=_aux_ex_metadata.ApplicationName%>_businesslayer-<%=_arg_projectVersion%>.csproj">
-      <Name><%=_aux_ex_metadata.ApplicationName%>_businesslayer</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>_businesslayer-<%=_arg_projectVersion%></Name>
       <Project>{<%=_aux_ex_metadata.GUIDBusinesslayer%>}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_datalayer\<%=_aux_ex_metadata.ApplicationName%>_datalayer-<%=_arg_projectVersion%>.csproj">
-      <Name><%=_aux_ex_metadata.ApplicationName%>_datalayer</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>_datalayer-<%=_arg_projectVersion%></Name>
       <Project>{<%=_aux_ex_metadata.GUIDDatalayer%>}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy\<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-<%=_arg_projectVersion%>.csproj">
-      <Name><%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-<%=_arg_projectVersion%></Name>
       <Project>{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
