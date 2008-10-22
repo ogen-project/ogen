@@ -76,7 +76,7 @@
                 />
                 <Reference
                     Name = "System.XML"
-                    AssemblyName = "System.XML"
+                    AssemblyName = "System.Xml"
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
@@ -84,11 +84,11 @@
                     AssemblyName = "System.Web.Services"
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Web.Services.dll"
                 />
-				<Reference
-					Name = "OGen.NTier.lib.distributedlayer.webservices.client-1.1"
-					AssemblyName = "OGen.NTier.lib.distributedlayer.webservices.client-1.1"
-					AssemblyFolderKey = "hklm\dn\ogen"
-				/>
+                <Reference
+                    Name = "OGen.NTier.lib.distributedlayer.webservices.client-1.1"
+                    AssemblyName = "OGen.NTier.lib.distributedlayer.webservices.client-1.1"
+                    AssemblyFolderKey = "hklm\dn\ogen"
+                />
                 <Reference
                     Name = "OGen-NTier_UTs_datalayer_proxy-1.1"
                     Project = "{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}"
@@ -109,17 +109,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "WC_User.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "_base\WC0_User.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "WC_Authentication.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "WC_User.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -128,7 +123,13 @@
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
+                <File
+                    RelPath = "_base\WC0_User.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
             </Include>
         </Files>
     </CSHARP>
 </VisualStudioProject>
+

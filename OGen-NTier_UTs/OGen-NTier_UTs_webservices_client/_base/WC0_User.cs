@@ -39,9 +39,11 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 		#endregion
 
 		#region public long insObject(...);
+		#if !NET_1_1
 		private System.Threading.SendOrPostCallback insObjectOperationCompleted;
 		/// <remarks/>
 		public event insObjectCompletedEventHandler insObjectCompleted;
+		#endif
 
 		/// <remarks/>
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
@@ -69,6 +71,7 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 			return (long)results[0];
 		}
 
+		#if !NET_1_1
 		/// <remarks/>
 		public void insObjectAsync(
 			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
@@ -123,11 +126,44 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 				);
 			}
 		}
+		#else
+		/// <remarks/>
+		public System.IAsyncResult BegininsObject(
+			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in, 
+			bool selectIdentity_in, 
+			string login_in, 
+			System.AsyncCallback callback, 
+			object asyncState
+		) {
+			return this.BeginInvoke(
+				"insObject", 
+				new object[] {
+					user_in,
+					selectIdentity_in,
+					login_in
+				}, 
+				callback, 
+				asyncState
+			);
+		}
+
+		/// <remarks/>
+		public long EndinsObject(
+			System.IAsyncResult asyncResult, 
+			out bool constraintExist_out
+		) {
+			object[] results = this.EndInvoke(asyncResult);
+			constraintExist_out = (bool)results[1];
+			return (long)results[0];
+		}
+		#endif
 		#endregion
 		#region public OGen.NTier.UTs.lib.datalayer.proxy.SO_User getObject(...);
+		#if !NET_1_1
 		private System.Threading.SendOrPostCallback getObjectOperationCompleted;
 		/// <remarks/>
 		public event getObjectCompletedEventHandler getObjectCompleted;
+		#endif
 
 		/// <remarks/>
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
@@ -153,6 +189,7 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 			return (OGen.NTier.UTs.lib.datalayer.proxy.SO_User)results[0];
 		}
 
+		#if !NET_1_1
 		/// <remarks/>
 		public void getObjectAsync(
 			long idUser_in, 
@@ -203,11 +240,42 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 				);
 			}
 		}
+		#else
+		/// <remarks/>
+		public System.IAsyncResult BegingetObject(
+			long idUser_in, 
+			string login_in, 
+			System.AsyncCallback callback, 
+			object asyncState
+		) {
+			return this.BeginInvoke(
+				"getObject", 
+				new object[] {
+					idUser_in,
+					login_in
+				}, 
+				callback, 
+				asyncState
+			);
+		}
+
+		/// <remarks/>
+		public OGen.NTier.UTs.lib.datalayer.proxy.SO_User EndgetObject(
+			System.IAsyncResult asyncResult, 
+			out bool exists_out
+		) {
+			object[] results = this.EndInvoke(asyncResult);
+			exists_out = (bool)results[1];
+			return (OGen.NTier.UTs.lib.datalayer.proxy.SO_User)results[0];
+		}
+		#endif
 		#endregion
 		#region public OGen.NTier.UTs.lib.datalayer.proxy.SO_User[] Record_Open_byGroup(...);
+		#if !NET_1_1
 		private System.Threading.SendOrPostCallback Record_Open_byGroupOperationCompleted;
 		/// <remarks/>
 		public event Record_Open_byGroupCompletedEventHandler Record_Open_byGroupCompleted;
+		#endif
 
 		/// <remarks/>
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
@@ -235,6 +303,7 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 			return (OGen.NTier.UTs.lib.datalayer.proxy.SO_User[])results[0];
 		}
 
+		#if !NET_1_1
 		/// <remarks/>
 		public void Record_Open_byGroupAsync(
 			long IDGroup_search_in, 
@@ -293,9 +362,41 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 				);
 			}
 		}
+		#else
+		/// <remarks/>
+		public System.IAsyncResult BeginRecord_Open_byGroup(
+			long IDGroup_search_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			string login_in, 
+			System.AsyncCallback callback, 
+			object asyncState
+		) {
+			return this.BeginInvoke(
+				"Record_Open_byGroup", 
+				new object[] {
+					IDGroup_search_in,
+					page_in,
+					page_numRecords_in,
+					login_in
+				}, 
+				callback, 
+				asyncState
+			);
+		}
+
+		/// <remarks/>
+		public OGen.NTier.UTs.lib.datalayer.proxy.SO_User[] EndRecord_Open_byGroup(
+			System.IAsyncResult asyncResult
+		) {
+			object[] results = this.EndInvoke(asyncResult);
+			return (OGen.NTier.UTs.lib.datalayer.proxy.SO_User[])results[0];
+		}
+		#endif
 		#endregion
 	}
 
+	#if !NET_1_1
 	#region ...insObject...
 	/// <remarks/>
 	public delegate void insObjectCompletedEventHandler(
@@ -417,4 +518,5 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 		}
 	}
 	#endregion
+	#endif
 }

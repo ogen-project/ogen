@@ -27,8 +27,10 @@ namespace OGen.NTier.UTs.distributedlayer.webservices.server {
 	/// User web service.
 	/// </summary>
 	[WebService(Namespace = "http://OGen.NTier.UTs.distributedlayer.webservices.server")]
+	#if !NET_1_1
 	[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 	[ToolboxItem(false)]
+	#endif
 	// To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
 	// [System.Web.Script.Services.ScriptService]
 	public class WS_User : WS0_User {

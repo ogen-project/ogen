@@ -37,9 +37,11 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_Authenticati
 		#endregion
 
 		#region public string Login(...);
+		#if !NET_1_1
 		private System.Threading.SendOrPostCallback LoginOperationCompleted;
 		/// <remarks/>
 		public event LoginCompletedEventHandler LoginCompleted;
+		#endif
 
 		/// <remarks/>
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
@@ -63,6 +65,7 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_Authenticati
 			return (string)results[0];
 		}
 
+		#if !NET_1_1
 		/// <remarks/>
 		public void LoginAsync(
 			string login_in, 
@@ -113,11 +116,40 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_Authenticati
 				);
 			}
 		}
+		#else
+		/// <remarks/>
+		public System.IAsyncResult BeginLogin(
+			string login_in, 
+			string password_in, 
+			System.AsyncCallback callback, 
+			object asyncState
+		) {
+			return this.BeginInvoke(
+				"Login", 
+				new object[] {
+					login_in,
+					password_in
+				}, 
+				callback, 
+				asyncState
+			);
+		}
+
+		/// <remarks/>
+		public string EndLogin(
+			System.IAsyncResult asyncResult
+		) {
+			object[] results = this.EndInvoke(asyncResult);
+			return (string)results[0];
+		}
+		#endif
 		#endregion
 		#region public void Logout(...);
+		#if !NET_1_1
 		private System.Threading.SendOrPostCallback LogoutOperationCompleted;
 		/// <remarks/>
 		public event LogoutCompletedEventHandler LogoutCompleted;
+		#endif
 
 		/// <remarks/>
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
@@ -134,6 +166,7 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_Authenticati
 			);
 		}
 
+		#if !NET_1_1
 		/// <remarks/>
 		public void LogoutAsync() {
 			this.LogoutAsync(
@@ -173,9 +206,31 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_Authenticati
 				);
 			}
 		}
+		#else
+		/// <remarks/>
+		public System.IAsyncResult BeginLogout(
+			System.AsyncCallback callback, 
+			object asyncState
+		) {
+			return this.BeginInvoke(
+				"Logout", 
+				new object[0], 
+				callback, 
+				asyncState
+			);
+		}
+
+		/// <remarks/>
+		public void EndLogout(
+			System.IAsyncResult asyncResult
+		) {
+			this.EndInvoke(asyncResult);
+		}
+		#endif
 		#endregion
 	}
 
+	#if !NET_1_1
 	#region ...Login...
 	/// <remarks/>
 	public delegate void LoginCompletedEventHandler(
@@ -218,4 +273,5 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_Authenticati
 		System.ComponentModel.AsyncCompletedEventArgs e
 	);
 	#endregion
+	#endif
 }
