@@ -57,7 +57,7 @@
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;NET_2_0</DefineConstants>
-    <DocumentationFile>bin\Release\OGen.NTier.UTs.lib.businesslayer-2.0.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\OGen.NTier.UTs.lib.businesslayer-2.0.xml</DocumentationFile>
     <DebugSymbols>false</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
@@ -72,9 +72,22 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OGen.lib.datalayer-2.0" />
-    <Reference Include="OGen.lib.datalayer.PostgreSQL-2.0" />
-    <Reference Include="OGen.lib.datalayer.SQLServer-2.0" />
+    <Reference Include="OGen.lib.datalayer-2.0">
+      <Name>OGen.lib.datalayer-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="OGen.lib.datalayer.PostgreSQL-2.0">
+      <Name>OGen.lib.datalayer.PostgreSQL-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="OGen.lib.datalayer.SQLServer-2.0">
+      <Name>OGen.lib.datalayer.SQLServer-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="OGen.lib.datalayer.MySQL-2.0">
+      <Name>OGen.lib.datalayer.MySQL-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference>
     <Reference Include="OGen.lib.datalayer.support-2.0" />
     <Reference Include="OGen.NTier.lib.businesslayer-2.0">
       <Name>OGen.NTier.lib.businesslayer-2.0</Name>
@@ -98,9 +111,15 @@
       <Project>{2C45EF1A-75BE-4B12-A232-62DEB5662239}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-    <ProjectReference Include="..\OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-8-no-gac.csproj">
+    <ProjectReference Include="..\OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-8.csproj">
+      <Name>OGen-NTier_UTs_datalayer_proxy-2.0</Name>
       <Project>{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}</Project>
-      <Name>OGen-NTier_UTs_datalayer_proxy-8-no-gac</Name>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\OGen-NTier_UTs_businesslayer_proxy\OGen-NTier_UTs_businesslayer_proxy-8.csproj">
+      <Name>OGen-NTier_UTs_businesslayer_proxy-2.0</Name>
+      <Project>{ADA0411C-8645-4AA0-BFF3-5359E111D98A}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -110,6 +129,7 @@
     <Compile Include="BDO_Config.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BO_Authentication.cs" />
     <Compile Include="_base\BDO0_Config.cs">
       <SubType>Code</SubType>
     </Compile>

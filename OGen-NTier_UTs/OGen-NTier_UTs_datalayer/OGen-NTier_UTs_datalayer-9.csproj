@@ -58,7 +58,7 @@
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;NET_2_0;PostgreSQL;SQLServer;MySQL</DefineConstants>
-    <DocumentationFile>bin\Release\OGen.NTier.UTs.lib.datalayer-2.0.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\OGen.NTier.UTs.lib.datalayer-2.0.xml</DocumentationFile>
     <DebugSymbols>false</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>

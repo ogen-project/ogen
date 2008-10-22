@@ -82,6 +82,10 @@
       <Name>System.XML</Name>
     </Reference>
     <Reference Include="System.Web.Services" />
+    <Reference Include="OGen.NTier.lib.distributedlayer.webservices.client-2.0">
+      <Name>OGen.NTier.lib.distributedlayer.webservices.client-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference>
     <ProjectReference Include="..\OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-8.csproj">
       <Name>OGen-NTier_UTs_datalayer_proxy-2.0</Name>
       <Project>{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}</Project>

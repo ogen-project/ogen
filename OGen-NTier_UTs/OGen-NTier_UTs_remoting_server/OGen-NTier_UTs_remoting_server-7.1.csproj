@@ -3,13 +3,13 @@
         ProjectType = "Local"
         ProductVersion = "7.10.3077"
         SchemaVersion = "2.0"
-        ProjectGuid = "{89EE33CB-FAAD-4251-809C-13B5FC57F101}"
+        ProjectGuid = "{620124DD-28FF-4D6C-93A2-170730EC2778}"
     >
         <Build>
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "OGen.NTier.UTs.distributedlayer.webservices.server-1.1"
+                AssemblyName = "OGen.NTier.UTs.distributedlayer.remoting.server-1.1"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "OGen.NTier.UTs.distributedlayer.webservices.server"
+                RootNamespace = "OGen.NTier.UTs.distributedlayer.remoting.server"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >
@@ -29,7 +29,7 @@
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "DEBUG;TRACE;NET_1_1"
-                    DocumentationFile = "bin\Debug\OGen.NTier.UTs.distributedlayer.webservices.server-1.1.xml"
+                    DocumentationFile = "bin\Debug\OGen.NTier.UTs.distributedlayer.remoting.server-1.1.xml"
                     DebugSymbols = "true"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"
@@ -49,7 +49,7 @@
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "TRACE;NET_1_1"
-                    DocumentationFile = "bin\Debug\OGen.NTier.UTs.distributedlayer.webservices.server-1.1.xml"
+                    DocumentationFile = "bin\Debug\OGen.NTier.UTs.distributedlayer.remoting.server-1.1.xml"
                     DebugSymbols = "false"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"

@@ -84,6 +84,11 @@
                     AssemblyName = "System.Web.Services"
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Web.Services.dll"
                 />
+				<Reference
+					Name = "OGen.NTier.lib.distributedlayer.webservices.client-1.1"
+					AssemblyName = "OGen.NTier.lib.distributedlayer.webservices.client-1.1"
+					AssemblyFolderKey = "hklm\dn\ogen"
+				/>
                 <Reference
                     Name = "OGen-NTier_UTs_datalayer_proxy-1.1"
                     Project = "{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}"
