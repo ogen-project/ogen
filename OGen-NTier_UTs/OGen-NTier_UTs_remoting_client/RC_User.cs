@@ -17,6 +17,9 @@ using System;
 using OGen.NTier.UTs.lib.businesslayer.proxy;
 
 namespace OGen.NTier.UTs.lib.distributedlayer.remoting.client {
+	/// <summary>
+	/// User remoting client.
+	/// </summary>
 	public class RC_User : RC0_User, IBO_User {
 		public RC_User(
 			string url_in

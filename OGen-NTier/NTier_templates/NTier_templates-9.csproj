@@ -169,10 +169,10 @@
     </Content>
     <Content Include="BO-SomeApplication_businesslayer_proxy-8.csproj.aspx">
     </Content>
-    <Content Include="RC-RC0_SomeClass-TODOS.cs.aspx">
+    <Content Include="RC-RC0_SomeClass.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="RC-RC_SomeClass-TODOS.cs.aspx">
+    <Content Include="RC-RC_SomeClass.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="RC-SomeApplication_remoting_client-7.1.csproj.aspx">
