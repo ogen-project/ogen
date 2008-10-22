@@ -84,7 +84,7 @@
       <Name>System.XML</Name>
     </Reference>
     <ProjectReference Include="..\NTier_datalayer\NTier_datalayer-8.csproj">
-      <Name>NTier_datalayer</Name>
+      <Name>NTier_datalayer-8</Name>
       <Project>{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
@@ -108,7 +108,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\OGen\OGen_datalayer__base\OGen_datalayer__base-8.csproj">
       <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
-      <Name>OGen_datalayer__base</Name>
+      <Name>OGen_datalayer__base-8</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

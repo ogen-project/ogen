@@ -114,7 +114,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\OGen\OGen_datalayer__base\OGen_datalayer__base-8.csproj">
       <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
-      <Name>OGen_datalayer__base</Name>
+      <Name>OGen_datalayer__base-8</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -85,27 +85,27 @@
       <Name>System.XML</Name>
     </Reference>
     <ProjectReference Include="..\..\OGen\OGen_collections\OGen_collections-8.csproj">
-      <Name>OGen_collections</Name>
+      <Name>OGen_collections-8</Name>
       <Project>{A6E837F8-780F-4D05-B3ED-2FF1906B5766}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
     <ProjectReference Include="..\..\OGen\OGen_generator\OGen_generator-8.csproj">
-      <Name>OGen_generator</Name>
+      <Name>OGen_generator-8</Name>
       <Project>{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
     <ProjectReference Include="..\..\OGen\OGen_parser\OGen_parser-8.csproj">
-      <Name>OGen_parser</Name>
+      <Name>OGen_parser-8</Name>
       <Project>{981BC7DE-D93C-446E-861E-60A20E4E3391}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
     <ProjectReference Include="..\..\OGen\OGen_webforms\OGen_webforms-8.csproj">
-      <Name>OGen_webforms</Name>
+      <Name>OGen_webforms-8</Name>
       <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
     <ProjectReference Include="..\Doc_metadata\Doc_metadata-8.csproj">
-      <Name>Doc_metadata</Name>
+      <Name>Doc_metadata-8</Name>
       <Project>{9DF6791A-1771-4EB6-8FEB-7F54AC2D9078}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
@@ -124,19 +124,19 @@
   <ItemGroup>
     <ProjectReference Include="..\..\OGen\OGen_datalayersupport\OGen_datalayersupport-8.csproj">
       <Project>{88D87481-CC3F-49C7-A013-758387F3452E}</Project>
-      <Name>OGen_datalayersupport</Name>
+      <Name>OGen_datalayersupport-8</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\OGen\OGen_datalayer_PostgreSQL\OGen_datalayer_PostgreSQL-8.csproj">
       <Project>{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}</Project>
-      <Name>OGen_datalayer_PostgreSQL</Name>
+      <Name>OGen_datalayer_PostgreSQL-8</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\OGen\OGen_datalayer_SQLServer\OGen_datalayer_SQLServer-8.csproj">
       <Project>{F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7}</Project>
-      <Name>OGen_datalayer_SQLServer</Name>
+      <Name>OGen_datalayer_SQLServer-8</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\OGen\OGen_datalayer__base\OGen_datalayer__base-8.csproj">
       <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
-      <Name>OGen_datalayer__base</Name>
+      <Name>OGen_datalayer__base-8</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

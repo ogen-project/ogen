@@ -70,19 +70,19 @@
   <ItemGroup>
     <ProjectReference Include="..\..\OGen\OGen_collections\OGen_collections-8.csproj">
       <Project>{A6E837F8-780F-4D05-B3ED-2FF1906B5766}</Project>
-      <Name>OGen_collections</Name>
+      <Name>OGen_collections-8</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\OGen\OGen_parser\OGen_parser-8.csproj">
       <Project>{981BC7DE-D93C-446E-861E-60A20E4E3391}</Project>
-      <Name>OGen_parser</Name>
+      <Name>OGen_parser-8</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\OGen\OGen_webforms\OGen_webforms-8.csproj">
       <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
-      <Name>OGen_webforms</Name>
+      <Name>OGen_webforms-8</Name>
     </ProjectReference>
     <ProjectReference Include="..\XSD_metadata\XSD_metadata-8.csproj">
       <Project>{4DF3D49D-AE3E-47F9-A33F-EB335D7B418E}</Project>
-      <Name>XSD_metadata</Name>
+      <Name>XSD_metadata-8</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

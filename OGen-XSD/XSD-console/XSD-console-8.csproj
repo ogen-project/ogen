@@ -56,19 +56,19 @@
   <ItemGroup>
     <ProjectReference Include="..\..\OGen\OGen_collections\OGen_collections-8.csproj">
       <Project>{A6E837F8-780F-4D05-B3ED-2FF1906B5766}</Project>
-      <Name>OGen_collections</Name>
+      <Name>OGen_collections-8</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\OGen\OGen_generator\OGen_generator-8.csproj">
       <Project>{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}</Project>
-      <Name>OGen_generator</Name>
+      <Name>OGen_generator-8</Name>
     </ProjectReference>
     <ProjectReference Include="..\XSD_generator\XSD_generator-8.csproj">
       <Project>{8FBFD76E-FD3D-415C-B046-EFC947BE4259}</Project>
-      <Name>XSD_generator</Name>
+      <Name>XSD_generator-8</Name>
     </ProjectReference>
     <ProjectReference Include="..\XSD_metadata\XSD_metadata-8.csproj">
       <Project>{4DF3D49D-AE3E-47F9-A33F-EB335D7B418E}</Project>
-      <Name>XSD_metadata</Name>
+      <Name>XSD_metadata-8</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>
