@@ -104,6 +104,11 @@
                     Project = "{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "OGen_datalayer_MySQL-7.1"
+                    Project = "{CD40001B-B19B-44CA-9F8A-8FB4F75DB1F9}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>

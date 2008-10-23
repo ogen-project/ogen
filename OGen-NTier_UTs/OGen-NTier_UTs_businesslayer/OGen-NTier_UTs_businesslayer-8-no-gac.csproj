@@ -89,6 +89,10 @@
       <Project>{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}</Project>
       <Name>NTier_datalayer-8</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\OGen-NTier\NTier_businesslayer\NTier_businesslayer-8.csproj">
+      <Project>{8AEBEA64-6FC4-430C-922C-B88D105AE91C}</Project>
+      <Name>NTier_businesslayer-8</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OGen-NTier_UTs_datalayer\OGen-NTier_UTs_datalayer-8.csproj">
       <Name>OGen-NTier_UTs_datalayer-8</Name>
       <Project>{2C45EF1A-75BE-4B12-A232-62DEB5662239}</Project>

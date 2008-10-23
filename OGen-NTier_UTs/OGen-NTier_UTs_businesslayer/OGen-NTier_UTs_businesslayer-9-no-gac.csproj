@@ -90,6 +90,10 @@
       <Project>{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}</Project>
       <Name>NTier_datalayer-9</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\OGen-NTier\NTier_businesslayer\NTier_businesslayer-9.csproj">
+      <Project>{8AEBEA64-6FC4-430C-922C-B88D105AE91C}</Project>
+      <Name>NTier_businesslayer-9</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs">

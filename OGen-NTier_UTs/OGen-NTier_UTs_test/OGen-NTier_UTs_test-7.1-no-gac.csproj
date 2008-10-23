@@ -80,12 +80,12 @@
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Xml.dll"
                 />
                 <Reference
-                    Name = "OGen-NTier_UTs_businesslayer-7.1"
+                    Name = "OGen-NTier_UTs_businesslayer-7.1-no-gac"
                     Project = "{B3555514-3A7D-4159-B05D-E8D0C265B649}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "OGen-NTier_UTs_datalayer-7.1"
+                    Name = "OGen-NTier_UTs_datalayer-7.1-no-gac"
                     Project = "{2C45EF1A-75BE-4B12-A232-62DEB5662239}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
@@ -133,6 +133,26 @@
                     Name = "System.Web.Services"
                     AssemblyName = "System.Web.Services"
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Web.Services.dll"
+                />
+                <Reference
+                    Name = "OGen-NTier_UTs_businesslayer_proxy-7.1-no-gac"
+                    Project = "{ADA0411C-8645-4AA0-BFF3-5359E111D98A}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "OGen-NTier_UTs_remoting_client-7.1-no-gac"
+                    Project = "{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "OGen-NTier_UTs_webservices_client-7.1-no-gac"
+                    Project = "{3E90C87B-1643-4323-8A50-96000EBFD406}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "NTier_distributedlayer_webservices_client-7.1"
+                    Project = "{F32002B5-2FCA-4216-B625-E52D1F4F5055}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>
         </Build>
