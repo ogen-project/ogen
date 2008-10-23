@@ -58,6 +58,7 @@ namespace OGen.NTier.UTs.lib.business.client {
 						Assembly_GetDirectoryName
 					);
 				}
+
 				return businessassembly__;
 			}
 		}
