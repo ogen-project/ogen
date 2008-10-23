@@ -43,6 +43,7 @@ OGen-NTier_UTs, OGen-NTier_UTs_webservices_server, OGen.NTier.UTs.distributedlay
 OGen-NTier_UTs, OGen-NTier_UTs_webservices_client, OGen.NTier.UTs.lib.distributedlayer.webservices.client, f, f, f, MIT, f, f
 OGen-NTier_UTs, OGen-NTier_UTs_remoting_server, OGen.NTier.UTs.distributedlayer.remoting.server, f, f, t, MIT, f. f
 OGen-NTier_UTs, OGen-NTier_UTs_remoting_client, OGen.NTier.UTs.lib.distributedlayer.remoting.client, f, f, f, MIT, f, f
+OGen-NTier_UTs, OGen-NTier_UTs_business_client, OGen.NTier.UTs.lib.business.client, f, f, f, MIT, f, f
 OGen-Doc, Doc_generator, OGen.Doc.lib.generator, t, f, f, MIT, f, t
 OGen-Doc, Doc_metadata, OGen.Doc.lib.metadata, t, f, f, MIT, f, t
 OGen-Doc, Doc_metadata_UTs, OGen.Doc.lib.metadata.UTs, f, f, f, MIT, f, f

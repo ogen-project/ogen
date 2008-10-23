@@ -113,6 +113,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 				);
 			}
 			_output = _do_user.Record.Serialize().SO_User;
+			_do_user.Record.Close();
 			_do_user.Dispose();
 
 			return _output;

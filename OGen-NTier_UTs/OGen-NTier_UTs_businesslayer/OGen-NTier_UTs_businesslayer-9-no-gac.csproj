@@ -82,8 +82,8 @@
     <Reference Include="System.XML">
       <Name>System.XML</Name>
     </Reference>
-    <ProjectReference Include="..\OGen-NTier_UTs_datalayer\OGen-NTier_UTs_datalayer-9.csproj">
-      <Name>OGen-NTier_UTs_datalayer-9</Name>
+    <ProjectReference Include="..\OGen-NTier_UTs_datalayer\OGen-NTier_UTs_datalayer-9-no-gac.csproj">
+      <Name>OGen-NTier_UTs_datalayer-9-no-gac</Name>
       <Project>{2C45EF1A-75BE-4B12-A232-62DEB5662239}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\OGen-NTier\NTier_datalayer\NTier_datalayer-9.csproj">

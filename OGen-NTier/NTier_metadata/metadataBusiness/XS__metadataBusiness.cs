@@ -54,7 +54,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			if (root_ref_in != null) _output.root_ref = root_ref_in;
 			#endregion
 
-			#region Assembly _assembly = Assembly.Load(assemblyFilePath_in);
+			#region Assembly _assembly = Assembly.LoadFrom(assemblyFilePath_in);
 			Assembly _assembly
 				//= Assembly.LoadFile(assemblyFilePath_in);
 				= Assembly.LoadFrom(assemblyFilePath_in);

@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_remoting_cli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_webservices_client-9", "..\OGen-NTier\NTier_distributedlayer_webservices_client\NTier_distributedlayer_webservices_client-9.csproj", "{7A52E316-CA44-4710-AF93-CC495DE77F6C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_business_client-9-no-gac", "OGen-NTier_UTs_business_client\OGen-NTier_UTs_business_client-9-no-gac.csproj", "{76D35775-37DA-427C-95AA-050F152CAF92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -121,6 +123,10 @@ Global
 		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76D35775-37DA-427C-95AA-050F152CAF92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76D35775-37DA-427C-95AA-050F152CAF92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76D35775-37DA-427C-95AA-050F152CAF92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76D35775-37DA-427C-95AA-050F152CAF92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

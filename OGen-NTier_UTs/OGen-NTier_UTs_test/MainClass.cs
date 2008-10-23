@@ -29,6 +29,7 @@ using OGen.NTier.UTs.lib.datalayer;
 using OGen.NTier.UTs.lib.datalayer.proxy;
 using OGen.NTier.UTs.lib.datalayer.UTs;
 using OGen.NTier.UTs.lib.businesslayer;
+using OGen.NTier.UTs.lib.business.client;
 using WC_Authentication = OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_Authentication;
 using WC_User = OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User;
 
@@ -73,11 +74,11 @@ namespace OGen.NTier.UTs.test {
 					default:
 						Console.WriteLine("--- direct assembly...");
 						_authentication
-							= new BO_Authentication(
+							= new BC_Authentication(
 							);
 
 						_user
-							= new BDO_User(
+							= new BC_User(
 							);
 						break;
 				}
