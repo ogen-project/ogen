@@ -66,7 +66,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.s
 		) {
 			<%=_aux_class.Type.ToString()%>_<%=_aux_class.Name%> _businessobject = new <%=_aux_class.Type.ToString()%>_<%=_aux_class.Name%>(
 			);
-			return _businessobject.<%=_aux_method.Name%>(<%
+			<%=(_aux_method.OutputType == "void") ? "" : "return "%>_businessobject.<%=_aux_method.Name%>(<%
 				for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 					_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
 				<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
