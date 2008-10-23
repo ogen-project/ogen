@@ -119,6 +119,7 @@ shared
 		<specificCase word="guidDistributedlayer_webservices_client" translation="GUIDDistributedlayer_webservices_client" />
 		<specificCase word="guidDistributedlayer_remoting_server" translation="GUIDDistributedlayer_remoting_server" />
 		<specificCase word="guidDistributedlayer_remoting_client" translation="GUIDDistributedlayer_remoting_client" />
+		<specificCase word="guidBusiness_client" translation="GUIDBusiness_client" />
 		<specificCase word="guidTest" translation="GUIDTest" />
 		<specificCase word="feedbackEmailAddress" translation="FeedbackEmailAddress" />
 		<specificCase word="copyrightText" translation="CopyrightText" />

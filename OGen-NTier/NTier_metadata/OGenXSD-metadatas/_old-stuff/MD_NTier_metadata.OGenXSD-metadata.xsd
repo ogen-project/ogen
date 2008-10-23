@@ -297,6 +297,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<xs:attribute name="guidBusinesslayer" type="xs:string" />
 		<xs:attribute name="guidBusinesslayer_proxy" type="xs:string" />
 		<xs:attribute name="guidBusinesslayer_UTs" type="xs:string" />
+		<xs:attribute name="guidBusiness_client" type="xs:string" />
 		<xs:attribute name="guidDistributedlayer_webservices_server" type="xs:string" />
 		<xs:attribute name="guidDistributedlayer_webservices_client" type="xs:string" />
 		<xs:attribute name="guidDistributedlayer_remoting_server" type="xs:string" />

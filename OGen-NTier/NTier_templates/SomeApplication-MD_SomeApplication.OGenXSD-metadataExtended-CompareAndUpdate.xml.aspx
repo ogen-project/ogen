@@ -60,6 +60,7 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 	guidBusinesslayer="<%=_aux_ex_metadata.GUIDBusinesslayer%>" 
 	guidBusinesslayer_proxy="<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>"
 	guidBusinesslayer_UTs="<%=_aux_ex_metadata.GUIDBusinesslayer_UTs%>" 
+	guidBusiness_client="<%=_aux_ex_metadata.GUIDBusiness_client%>"
 	guidDistributedlayer_webservices_server="<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_server%>"
 	guidDistributedlayer_webservices_client="<%=_aux_ex_metadata.GUIDDistributedlayer_webservices_client%>"
 	guidDistributedlayer_remoting_server="<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_server%>"

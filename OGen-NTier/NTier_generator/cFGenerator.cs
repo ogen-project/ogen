@@ -142,6 +142,7 @@ throw new Exception("// ToDos: not implemented!");
 			//_metadata_temp.GUIDBusinesslayer = System.Guid.NewGuid().ToString("D").ToUpper();
 			//_metadata_temp.GUIDBusinesslayer_proxy = System.Guid.NewGuid().ToString("D").ToUpper();
 			//_metadata_temp.GUIDBusinesslayer_UTs = System.Guid.NewGuid().ToString("D").ToUpper();
+			//_metadata_temp.GUIDBusiness_client = System.Guid.NewGuid().ToString("D").ToUpper();
 			//_metadata_temp.GUIDDistributedlayer_webservices_server = System.Guid.NewGuid().ToString("D").ToUpper();
 			//_metadata_temp.GUIDDistributedlayer_webservices_client = System.Guid.NewGuid().ToString("D").ToUpper();
 			//_metadata_temp.GUIDDistributedlayer_remoting_server = System.Guid.NewGuid().ToString("D").ToUpper();
