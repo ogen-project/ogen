@@ -3287,4 +3287,20 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+	<template id="RS_MainClass.cs.aspx"
+			name="RS_MainClass.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataBusiness[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_remoting_server/MainClass.cs"
+				type="File" mode="Create_doNotReplace" />
+			<output to="${CONFIG.outputPath}/${ROOT.metadataBusiness[0].applicationName}_remoting_server/MainClass.cs.no-svn"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
 </templates>

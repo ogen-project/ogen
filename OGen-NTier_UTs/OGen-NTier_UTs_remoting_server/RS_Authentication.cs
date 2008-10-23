@@ -16,7 +16,10 @@ using System;
 
 using OGen.NTier.UTs.lib.businesslayer.proxy;
 
-namespace OGen.NTier.UTs.lib.distributedlayer.remoting.server {
+namespace OGen.NTier.UTs.distributedlayer.remoting.server {
+	/// <summary>
+	/// Authentication remoting server.
+	/// </summary>
 	public class RS_Authentication : RS0_Authentication, IBO_Authentication {
 	}
 }

@@ -189,6 +189,9 @@
     <Content Include="RS-SomeApplication_remoting_server-8.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="RS_MainClass.cs.aspx">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="WC-SomeApplication_webservices_client-7.1.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
@@ -549,6 +552,9 @@
       <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
       <Name>OGen_datalayer__base-9</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
