@@ -12,24 +12,28 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 --%><%@ Page language="c#" contenttype="text/html" %>
 <%@ import namespace="OGen.NTier.lib.metadata" %>
 <%@ import namespace="OGen.NTier.lib.metadata.metadataExtended" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataDB" %><%
+<%@ import namespace="OGen.NTier.lib.metadata.metadataDB" %>
+<%@ import namespace="OGen.NTier.lib.metadata.metadataBusiness" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 #endregion
 
 #region varaux...
 XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
-    _arg_MetadataFilepath, 
-    true
+	_arg_MetadataFilepath, 
+	true
 );
 XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
+XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusinessCollection[0];
 
 OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table;
 OGen.NTier.lib.metadata.metadataExtended.XS_tableType _aux_ex_table;
 
 OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
 OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
+
+OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
 
 //string[] _aux_configmodes = _aux_ex_metadata.DBs.ConfigModes();
 
@@ -40,13 +44,13 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
         ProjectType = "Local"
         ProductVersion = "7.10.3077"
         SchemaVersion = "2.0"
-        ProjectGuid = "{<%=_aux_ex_metadata.GUIDDatalayer_UTs%>}"
+        ProjectGuid = "{<%=_aux_ex_metadata.GUIDBusiness_client%>}"
     >
         <Build>
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.UTs-1.1"
+                AssemblyName = "<%=_aux_ex_metadata.ApplicationNamespace%>.lib.business.client-1.1"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -55,7 +59,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.UTs"
+                RootNamespace = "<%=_aux_ex_metadata.ApplicationNamespace%>.lib.business.client"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >
@@ -66,7 +70,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "DEBUG;TRACE;NET_1_1"
-                    DocumentationFile = ""
+                    DocumentationFile = "bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.business.client-1.1.xml"
                     DebugSymbols = "true"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"
@@ -86,7 +90,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "TRACE;NET_1_1"
-                    DocumentationFile = ""
+                    DocumentationFile = "bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.business.client-1.1.xml"
                     DebugSymbols = "false"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"
@@ -117,31 +121,13 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Xml.dll"
                 />
                 <Reference
-                    Name = "nunit.framework"
-                    AssemblyName = "nunit.framework"
-                    HintPath = "C:\Program Files\NUnit 2.2\bin\nunit.framework.dll"
-                    AssemblyFolderKey = "hklm\dn\nunit.framework"
+                    Name = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer-7.1"
+                    Project = "{<%=_aux_ex_metadata.GUIDBusinesslayer%>}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "OGen.lib.datalayer-1.1"
-                    AssemblyName = "OGen.lib.datalayer-1.1"
-                    AssemblyFolderKey = "hklm\dn\ogen"
-                /><%
-                for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {%>
-                <Reference
-                    Name = "OGen.lib.datalayer.<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%>-1.1"
-                    AssemblyName = "OGen.lib.datalayer.<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%>-1.1"
-                    AssemblyFolderKey = "hklm\dn\ogen"
-                /><%
-                }%>
-                <Reference
-                    Name = "OGen.NTier.lib.datalayer-1.1"
-                    AssemblyName = "OGen.NTier.lib.datalayer-1.1"
-                    AssemblyFolderKey = "hklm\dn\ogen"
-                />
-                <Reference
-                    Name = "<%=_aux_ex_metadata.ApplicationName%>_datalayer-7.1"
-                    Project = "{<%=_aux_ex_metadata.GUIDDatalayer%>}"
+                    Name = "<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy-7.1"
+                    Project = "{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
@@ -154,28 +140,24 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
         <Files>
             <Include>
                 <File
-                    RelPath = "app.config"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "AssemblyInfo.cs"
+                    RelPath = "Properties\AssemblyInfo.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "_base\UT0__utils.cs"
+                    RelPath = "utils.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 /><%
-                for (int t = 0; t < _aux_db_metadata.Tables.TableCollection.Count; t++) {
-                    _aux_db_table = _aux_db_metadata.Tables.TableCollection[t];%>
+				for (int c = 0; c < _aux_business_metadata.Classes.ClassCollection.Count; c++) {
+					_aux_class = _aux_business_metadata.Classes.ClassCollection[c];%>
                 <File
-                    RelPath = "UT_<%=_aux_db_table.Name%>.cs"
+                    RelPath = "BC_<%=_aux_class.Name%>.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "_base\UT0_<%=_aux_db_table.Name%>.cs"
+                    RelPath = "_base\BC0_<%=_aux_class.Name%>.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 /><%

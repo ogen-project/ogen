@@ -140,6 +140,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-UT-SomeApplication_businesslayer_UTs-7.1.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-UT-SomeApplication_businesslayer_UTs-8.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
@@ -171,6 +172,21 @@
     <Content Include="BO-SomeApplication_businesslayer_proxy-8.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="BC-BC0_SomeClass.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="BC-BC_SomeClass.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="BC-SomeApplication_business_client-7.1.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="BC-SomeApplication_business_client-8.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="BC-utils.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="RC-RC0_SomeClass.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
@@ -183,14 +199,12 @@
     <Content Include="RC-SomeApplication_remoting_client-8.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="RS-MainClass.cs.aspx" />
     <Content Include="RS-SomeApplication_remoting_server-7.1.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="RS-SomeApplication_remoting_server-8.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="RS_MainClass.cs.aspx">
-      <SubType>Code</SubType>
     </Content>
     <Content Include="WC-SomeApplication_webservices_client-7.1.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>

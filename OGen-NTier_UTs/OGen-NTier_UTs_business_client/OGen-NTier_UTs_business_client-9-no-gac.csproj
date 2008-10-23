@@ -21,7 +21,7 @@
     <DefineConstants>TRACE;DEBUG;NET_2_0</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\OGen.NTier.UTs.lib.business.client-2.0.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\OGen.NTier.UTs.lib.business.client-2.0.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,7 +30,7 @@
     <DefineConstants>TRACE;NET_2_0</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\OGen.NTier.UTs.lib.business.client-2.0.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\OGen.NTier.UTs.lib.business.client-2.0.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -57,13 +57,13 @@
       <Project>{B3555514-3A7D-4159-B05D-E8D0C265B649}</Project>
       <Name>OGen-NTier_UTs_businesslayer-9-no-gac</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OGen-NTier_UTs_businesslayer_proxy\OGen-NTier_UTs_businesslayer_proxy-9-no-gac.csproj">
-      <Project>{ADA0411C-8645-4AA0-BFF3-5359E111D98A}</Project>
-      <Name>OGen-NTier_UTs_businesslayer_proxy-9-no-gac</Name>
-    </ProjectReference>
     <ProjectReference Include="..\OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-9-no-gac.csproj">
       <Project>{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}</Project>
       <Name>OGen-NTier_UTs_datalayer_proxy-9-no-gac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OGen-NTier_UTs_businesslayer_proxy\OGen-NTier_UTs_businesslayer_proxy-9-no-gac.csproj">
+      <Project>{ADA0411C-8645-4AA0-BFF3-5359E111D98A}</Project>
+      <Name>OGen-NTier_UTs_businesslayer_proxy-9-no-gac</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

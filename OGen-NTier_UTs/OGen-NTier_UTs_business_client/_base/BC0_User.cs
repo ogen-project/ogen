@@ -1,4 +1,4 @@
-﻿#region Copyright (C) 2002 Francisco Monteiro
+#region Copyright (C) 2002 Francisco Monteiro
 /*
 
 OGen
@@ -19,6 +19,9 @@ using System.IO;
 using OGen.NTier.UTs.lib.businesslayer.proxy;
 
 namespace OGen.NTier.UTs.lib.business.client {
+	/// <summary>
+	/// User business client.
+	/// </summary>
 	public abstract class BC0_User : IBO_User {
 		static BC0_User(
 		) {
@@ -51,8 +54,8 @@ namespace OGen.NTier.UTs.lib.business.client {
 			out bool exists_out
 		) {
 			return businessobject_.getObject(
-				idUser_in,
-				login_in,
+				idUser_in, 
+				login_in, 
 				out exists_out
 			);
 		}

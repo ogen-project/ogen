@@ -21,8 +21,8 @@ string _arg_projectVersion = System.Web.HttpUtility.UrlDecode(Request.QueryStrin
 
 #region varaux...
 XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
-    _arg_MetadataFilepath, 
-    true
+	_arg_MetadataFilepath, 
+	true
 );
 XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
@@ -42,113 +42,77 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
 //-----------------------------------------------------------------------------------------
 %><Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"<%=(_arg_projectVersion == "9") ? " ToolsVersion=\"3.5\"" : ""%>>
   <PropertyGroup>
-    <ProjectType>Local</ProjectType>
-    <ProductVersion>8.0.50727</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ApplicationIcon>
-    </ApplicationIcon>
-    <AssemblyKeyContainerName>
-    </AssemblyKeyContainerName>
-    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.proxy-2.0</AssemblyName>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
-    <DefaultClientScript>JScript</DefaultClientScript>
-    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
-    <DefaultTargetSchema>IE50</DefaultTargetSchema>
-    <DelaySign>false</DelaySign>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{<%=_aux_ex_metadata.GUIDBusiness_client%>}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace><%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.proxy</RootNamespace>
-    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-    <StartupObject>
-    </StartupObject>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation><%=(_arg_projectVersion == "9") ? @"
-    <OldToolsVersion>2.0</OldToolsVersion>" : ""%>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace><%=_aux_ex_metadata.ApplicationNamespace%>.lib.business.client</RootNamespace>
+    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.lib.business.client-2.0</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>bin\Debug\</OutputPath>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-    <BaseAddress>285212672</BaseAddress>
-    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
-    <ConfigurationOverrideFile>
-    </ConfigurationOverrideFile>
-    <DefineConstants>TRACE;DEBUG;NET_2_0</DefineConstants>
-    <DocumentationFile>bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.proxy-2.0.xml</DocumentationFile>
     <DebugSymbols>true</DebugSymbols>
-    <FileAlignment>4096</FileAlignment>
-    <NoStdLib>false</NoStdLib>
-    <NoWarn>
-    </NoWarn>
-    <Optimize>false</Optimize>
-    <RegisterForComInterop>false</RegisterForComInterop>
-    <RemoveIntegerChecks>false</RemoveIntegerChecks>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <WarningLevel>4</WarningLevel>
     <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET_2_0</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.business.client-2.0.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>bin\Release\</OutputPath>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-    <BaseAddress>285212672</BaseAddress>
-    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
-    <ConfigurationOverrideFile>
-    </ConfigurationOverrideFile>
-    <DefineConstants>TRACE;NET_2_0</DefineConstants>
-    <DocumentationFile>bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.proxy-2.0.xml</DocumentationFile>
-    <DebugSymbols>false</DebugSymbols>
-    <FileAlignment>4096</FileAlignment>
-    <NoStdLib>false</NoStdLib>
-    <NoWarn>
-    </NoWarn>
+    <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <RegisterForComInterop>false</RegisterForComInterop>
-    <RemoveIntegerChecks>false</RemoveIntegerChecks>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <WarningLevel>4</WarningLevel>
-    <DebugType>none</DebugType>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NET_2_0</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.business.client-2.0.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System">
-      <Name>System</Name>
-    </Reference>
-    <Reference Include="System.Data">
-      <Name>System.Data</Name>
-    </Reference>
-    <Reference Include="System.Xml">
-      <Name>System.Xml</Name>
-    </Reference>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy\<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-<%=_arg_projectVersion%>.csproj">
-      <Name><%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-<%=_arg_projectVersion%></Name>
-      <Project>{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}</Project>
-      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
-    </ProjectReference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyInfo.cs">
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utils.cs">
       <SubType>Code</SubType>
     </Compile><%
     for (int c = 0; c < _aux_business_metadata.Classes.ClassCollection.Count; c++) {
         _aux_class = _aux_business_metadata.Classes.ClassCollection[c];%>
-    <Compile Include="IBO_<%=_aux_class.Name%>.cs">
+    <Compile Include="BC_<%=_aux_class.Name%>.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="_base\IBO0_<%=_aux_class.Name%>.cs">
+    <Compile Include="_base\BC0_<%=_aux_class.Name%>.cs">
       <SubType>Code</SubType>
     </Compile><%
     }%>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_businesslayer\<%=_aux_ex_metadata.ApplicationName%>_businesslayer-<%=_arg_projectVersion%>.csproj">
+      <Project>{<%=_aux_ex_metadata.GUIDBusinesslayer%>}</Project>
+      <Name><%=_aux_ex_metadata.ApplicationName%>_businesslayer-<%=_arg_projectVersion%></Name>
+    </ProjectReference>
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy\<%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-<%=_arg_projectVersion%>.csproj">
+      <Project>{<%=_aux_ex_metadata.GUIDDatalayer_proxy%>}</Project>
+      <Name><%=_aux_ex_metadata.ApplicationName%>_datalayer_proxy-<%=_arg_projectVersion%></Name>
+    </ProjectReference>
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy-<%=_arg_projectVersion%>.csproj">
+      <Project>{<%=_aux_ex_metadata.GUIDBusinesslayer_proxy%>}</Project>
+      <Name><%=_aux_ex_metadata.ApplicationName%>_businesslayer_proxy-<%=_arg_projectVersion%></Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PreBuildEvent>
-    </PreBuildEvent>
-    <PostBuildEvent>
-    </PostBuildEvent>
-  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
 </Project>

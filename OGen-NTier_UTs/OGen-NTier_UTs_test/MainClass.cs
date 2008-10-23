@@ -53,6 +53,7 @@ namespace OGen.NTier.UTs.test {
 								"tcp://127.0.0.1:8085/OGen.NTier.UTs.distributedlayer.remoting.server.RS_Authentication.remoting"
 								//"http://127.0.0.1:8085/OGen.NTier.UTs.distributedlayer.remoting.server.RS_Authentication.soap"
 							);
+
 						_user
 							= new RC_User(
 								"tcp://127.0.0.1:8085/OGen.NTier.UTs.distributedlayer.remoting.server.RS_User.remoting"

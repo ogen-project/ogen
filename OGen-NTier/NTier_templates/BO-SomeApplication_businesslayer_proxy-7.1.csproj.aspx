@@ -20,8 +20,8 @@ string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryStr
 
 #region varaux...
 XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
-	_arg_MetadataFilepath, 
-	true
+    _arg_MetadataFilepath, 
+    true
 );
 XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
@@ -134,8 +134,8 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
                     SubType = "Code"
                     BuildAction = "Compile"
                 /><%
-				for (int c = 0; c < _aux_business_metadata.Classes.ClassCollection.Count; c++) {
-					_aux_class = _aux_business_metadata.Classes.ClassCollection[c];%>
+                for (int c = 0; c < _aux_business_metadata.Classes.ClassCollection.Count; c++) {
+                    _aux_class = _aux_business_metadata.Classes.ClassCollection[c];%>
                 <File
                     RelPath = "IBO_<%=_aux_class.Name%>.cs"
                     SubType = "Code"

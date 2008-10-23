@@ -1,4 +1,4 @@
-﻿#region Copyright (C) 2002 Francisco Monteiro
+#region Copyright (C) 2002 Francisco Monteiro
 /*
 
 OGen
@@ -19,6 +19,9 @@ using System.IO;
 using OGen.NTier.UTs.lib.businesslayer.proxy;
 
 namespace OGen.NTier.UTs.lib.business.client {
+	/// <summary>
+	/// Authentication business client.
+	/// </summary>
 	public abstract class BC0_Authentication : IBO_Authentication {
 		static BC0_Authentication(
 		) {
@@ -31,11 +34,11 @@ namespace OGen.NTier.UTs.lib.business.client {
 
 		#region public string Login(...);
 		public string Login(
-			string login_in,
+			string login_in, 
 			string password_in
 		) {
 			return businessobject_.Login(
-				login_in,
+				login_in, 
 				password_in
 			);
 		}

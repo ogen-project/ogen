@@ -20,8 +20,8 @@ string _arg_projectVersion = System.Web.HttpUtility.UrlDecode(Request.QueryStrin
 
 #region varaux...
 XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
-	_arg_MetadataFilepath, 
-	true
+    _arg_MetadataFilepath, 
+    true
 );
 XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
@@ -64,7 +64,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation><%=(_arg_projectVersion == "9") ? @"
-	<OldToolsVersion>2.0</OldToolsVersion>" : ""%>
+    <OldToolsVersion>2.0</OldToolsVersion>" : ""%>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -74,10 +74,10 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;DEBUG;NET_2_0<%
-	for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
-		string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();
-		%>;<%=_dbservertype%><%
-	}%></DefineConstants>
+    for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
+        string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();
+        %>;<%=_dbservertype%><%
+    }%></DefineConstants>
     <DocumentationFile>bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer-2.0.xml</DocumentationFile>
     <DebugSymbols>true</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
@@ -100,10 +100,10 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;NET_2_0<%
-	for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
-		string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();
-		%>;<%=_dbservertype%><%
-	}%></DefineConstants>
+    for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
+        string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();
+        %>;<%=_dbservertype%><%
+    }%></DefineConstants>
     <DocumentationFile>bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer-2.0.xml</DocumentationFile>
     <DebugSymbols>false</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
@@ -161,8 +161,8 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
     <Compile Include="DO__utils.cs">
       <SubType>Code</SubType>
     </Compile><%
-		for (int t = 0; t < _aux_db_metadata.Tables.TableCollection.Count; t++) {
-			_aux_db_table = _aux_db_metadata.Tables.TableCollection[t];%>
+        for (int t = 0; t < _aux_db_metadata.Tables.TableCollection.Count; t++) {
+            _aux_db_table = _aux_db_metadata.Tables.TableCollection[t];%>
     <Compile Include="DO_<%=_aux_db_table.Name%>.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -172,7 +172,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
     <Compile Include="_base\RO0_<%=_aux_db_table.Name%>.cs">
       <SubType>Code</SubType>
     </Compile><%
-		}%>
+        }%>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

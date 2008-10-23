@@ -19,8 +19,8 @@ string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryStr
 
 #region varaux...
 XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
-	_arg_MetadataFilepath, 
-	true
+    _arg_MetadataFilepath, 
+    true
 );
 XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
@@ -66,10 +66,10 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "DEBUG;TRACE;NET_1_1<%
-					for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
-						string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();
-						%>;<%=_dbservertype%><%
-					}%>"
+                    for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
+                        string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();
+                        %>;<%=_dbservertype%><%
+                    }%>"
                     DocumentationFile = "bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer-1.1.xml"
                     DebugSymbols = "true"
                     FileAlignment = "4096"
@@ -90,10 +90,10 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "TRACE;NET_1_1<%
-					for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
-						string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();
-						%>;<%=_dbservertype%><%
-					}%>"
+                    for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
+                        string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();
+                        %>;<%=_dbservertype%><%
+                    }%>"
                     DocumentationFile = "bin\Debug\<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer-1.1.xml"
                     DebugSymbols = "false"
                     FileAlignment = "4096"
@@ -166,7 +166,7 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                     BuildAction = "Compile"
                 /><%
                 for (int t = 0; t < _aux_db_metadata.Tables.TableCollection.Count; t++) {
-					_aux_db_table = _aux_db_metadata.Tables.TableCollection[t];%>
+                    _aux_db_table = _aux_db_metadata.Tables.TableCollection[t];%>
                 <File
                     RelPath = "DO_<%=_aux_db_table.Name%>.cs"
                     SubType = "Code"
