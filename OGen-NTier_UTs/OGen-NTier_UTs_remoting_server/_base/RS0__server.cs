@@ -22,8 +22,10 @@ namespace OGen.NTier.UTs.distributedlayer.remoting.server {
 	public abstract class RS0__server {
 		public void Start() {
 			#if NET_1_1
+			//ChannelServices.RegisterChannel(new HttpChannel(8085));
 			ChannelServices.RegisterChannel(new TcpChannel(8085));
 			#else
+			//ChannelServices.RegisterChannel(new HttpChannel(8085), false);
 			ChannelServices.RegisterChannel(new TcpChannel(8085), false);
 			#endif
 			RemotingConfiguration.RegisterWellKnownServiceType(
