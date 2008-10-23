@@ -22,9 +22,7 @@ namespace OGen.NTier.UTs.lib.business.client {
 	public abstract class BC0_User : IBO_User {
 		static BC0_User(
 		) {
-			businessobject_ = (IBO_User)Assembly.LoadFrom(
-				utils.Assembly_GetDirectoryName()
-			).CreateInstance(
+			businessobject_ = (IBO_User)utils.BusinessAssembly.CreateInstance(
 				"OGen.NTier.UTs.lib.businesslayer.BDO_User"
 			);
 		}

@@ -20,30 +20,46 @@ namespace OGen.NTier.UTs.lib.business.client {
 	public class utils {
 		private utils() {}
 
-		#region public static string Assembly_GetDirectoryName();
+		#region public static string Assembly_GetDirectoryName { get; }
 		private static string assembly_getdirectoryname__;
 
-		public static string Assembly_GetDirectoryName() {
-			if (assembly_getdirectoryname__ == null) {
-				assembly_getdirectoryname__ = string.Format(
-					"{0}{1}{2}",
-					Path.GetDirectoryName(
-						Assembly.GetExecutingAssembly().GetFiles()[0].Name
-					), 
-					Path.DirectorySeparatorChar, 
-					#if NET_1_1
-					"OGen.NTier.UTs.lib.businesslayer-1.1.dll"
-					#elif NET_2_0
-					"OGen.NTier.UTs.lib.businesslayer-2.0.dll"
-					#elif NET_3_0
-					"OGen.NTier.UTs.lib.businesslayer-3.0.dll"
-					#elif NET_3_5
-					"OGen.NTier.UTs.lib.businesslayer-3.5.dll"
-					#endif
-				);
-			}
+		public static string Assembly_GetDirectoryName {
+			get {
+				if (assembly_getdirectoryname__ == null) {
+					assembly_getdirectoryname__ = string.Format(
+						"{0}{1}{2}",
+						Path.GetDirectoryName(
+							Assembly.GetExecutingAssembly().GetFiles()[0].Name
+						), 
+						Path.DirectorySeparatorChar, 
+						#if NET_1_1
+						"OGen.NTier.UTs.lib.businesslayer-1.1.dll"
+						#elif NET_2_0
+						"OGen.NTier.UTs.lib.businesslayer-2.0.dll"
+						#elif NET_3_0
+						"OGen.NTier.UTs.lib.businesslayer-3.0.dll"
+						#elif NET_3_5
+						"OGen.NTier.UTs.lib.businesslayer-3.5.dll"
+						#endif
+					);
+				}
 
-			return assembly_getdirectoryname__;
+				return assembly_getdirectoryname__;
+			}
+		}
+		#endregion
+		#region public static Assembly BusinessAssembly { get; }
+		private static Assembly businessassembly__;
+
+		public static Assembly BusinessAssembly {
+			get {
+				if (businessassembly__ == null) {
+					businessassembly__ = Assembly.LoadFrom(
+						Assembly_GetDirectoryName
+					);
+				}
+				return businessassembly__;
+			}
 		}
 		#endregion
 	}
