@@ -56,7 +56,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
                 DefaultHTMLPageLayout = "Grid"
                 DefaultTargetSchema = "IE50"
                 DelaySign = "false"
-                OutputType = "Library"
+                OutputType = "Exe"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
                 RootNamespace = "<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server"

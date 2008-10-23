@@ -59,7 +59,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace><%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <StartupObject>
