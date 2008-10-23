@@ -1,4 +1,4 @@
-﻿#region Copyright (C) 2002 Francisco Monteiro
+#region Copyright (C) 2002 Francisco Monteiro
 /*
 
 OGen
@@ -18,6 +18,9 @@ using System.Runtime.Remoting;
 using OGen.NTier.UTs.lib.businesslayer.proxy;
 
 namespace OGen.NTier.UTs.lib.distributedlayer.remoting.client {
+	/// <summary>
+	/// User remoting client.
+	/// </summary>
 	public abstract class RC0_User {
 		public RC0_User(
 			string url_in
@@ -31,22 +34,17 @@ namespace OGen.NTier.UTs.lib.distributedlayer.remoting.client {
 		#region private Properties...
 		private IBO_User bo_user_;
 		#endregion
-		#region public Properties...
-		#endregion
 
-		#region private Methods...
-		#endregion
-		#region public Methods...
 		#region public long insObject(...);
 		public long insObject(
-			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
-			bool selectIdentity_in,
+			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in, 
+			bool selectIdentity_in, 
 			string login_in, 
 			out bool constraintExist_out
 		) {
 			return bo_user_.insObject(
-				user_in,
-				selectIdentity_in,
+				user_in, 
+				selectIdentity_in, 
 				login_in, 
 				out constraintExist_out
 			);
@@ -54,12 +52,12 @@ namespace OGen.NTier.UTs.lib.distributedlayer.remoting.client {
 		#endregion
 		#region public OGen.NTier.UTs.lib.datalayer.proxy.SO_User getObject(...);
 		public OGen.NTier.UTs.lib.datalayer.proxy.SO_User getObject(
-			long idUser_in,
+			long idUser_in, 
 			string login_in, 
 			out bool exists_out
 		) {
 			return bo_user_.getObject(
-				idUser_in,
+				idUser_in, 
 				login_in, 
 				out exists_out
 			);
@@ -67,19 +65,18 @@ namespace OGen.NTier.UTs.lib.distributedlayer.remoting.client {
 		#endregion
 		#region public OGen.NTier.UTs.lib.datalayer.proxy.SO_User[] Record_Open_byGroup(...);
 		public OGen.NTier.UTs.lib.datalayer.proxy.SO_User[] Record_Open_byGroup(
-			long IDGroup_search_in,
-			int page_in,
-			int page_numRecords_in,
+			long IDGroup_search_in, 
+			int page_in, 
+			int page_numRecords_in, 
 			string login_in
 		) {
 			return bo_user_.Record_Open_byGroup(
-				IDGroup_search_in,
-				page_in,
-				page_numRecords_in,
+				IDGroup_search_in, 
+				page_in, 
+				page_numRecords_in, 
 				login_in
 			);
 		}
-		#endregion
 		#endregion
 	}
 }

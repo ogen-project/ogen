@@ -1,4 +1,4 @@
-﻿#region Copyright (C) 2002 Francisco Monteiro
+#region Copyright (C) 2002 Francisco Monteiro
 /*
 
 OGen
@@ -18,6 +18,9 @@ using System.Runtime.Remoting;
 using OGen.NTier.UTs.lib.businesslayer.proxy;
 
 namespace OGen.NTier.UTs.lib.distributedlayer.remoting.client {
+	/// <summary>
+	/// Authentication remoting client.
+	/// </summary>
 	public abstract class RC0_Authentication {
 		public RC0_Authentication(
 			string url_in
@@ -31,19 +34,14 @@ namespace OGen.NTier.UTs.lib.distributedlayer.remoting.client {
 		#region private Properties...
 		private IBO_Authentication bo_authentication_;
 		#endregion
-		#region public Properties...
-		#endregion
 
-		#region private Methods...
-		#endregion
-		#region public Methods...
 		#region public string Login(...);
 		public string Login(
-			string login_in,
+			string login_in, 
 			string password_in
 		) {
 			return bo_authentication_.Login(
-				login_in,
+				login_in, 
 				password_in
 			);
 		}
@@ -54,7 +52,6 @@ namespace OGen.NTier.UTs.lib.distributedlayer.remoting.client {
 			bo_authentication_.Logout(
 			);
 		}
-		#endregion
 		#endregion
 	}
 }

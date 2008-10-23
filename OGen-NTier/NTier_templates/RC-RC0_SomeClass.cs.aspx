@@ -47,14 +47,28 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 #endregion
 <%
 }%>using System;
+using System.Runtime.Remoting;
 
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.proxy;
 
-namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client {
 	/// <summary>
-	/// <%=_aux_class.Name%> remoting server.
+	/// <%=_aux_class.Name%> remoting client.
 	/// </summary>
-	public abstract class RS0_<%=_aux_class.Name%> : MarshalByRefObject {<%
+	public abstract class RC0_<%=_aux_class.Name%> {
+		public RC0_<%=_aux_class.Name%>(
+			string url_in
+		) {
+			bo_<%=_aux_class.Name.ToLower()%>_ = (IBO_<%=_aux_class.Name%>)RemotingServices.Connect(
+				typeof(IBO_<%=_aux_class.Name%>),
+				url_in
+			);
+		}
+
+		#region private Properties...
+		private IBO_<%=_aux_class.Name%> bo_<%=_aux_class.Name.ToLower()%>_;
+		#endregion
+<%
 		for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
 			_aux_method = _aux_class.Methods.MethodCollection[m];%>
 		#region public <%=_aux_method.OutputType%> <%=_aux_method.Name%>(...);
@@ -64,9 +78,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoti
 			<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
 			}%>
 		) {
-			<%=_aux_class.Type.ToString()%>_<%=_aux_class.Name%> _businessobject = new <%=_aux_class.Type.ToString()%>_<%=_aux_class.Name%>(
-			);
-			return _businessobject.<%=_aux_method.Name%>(<%
+			<%=(_aux_method.OutputType == "void") ? "" : "return "%>bo_<%=_aux_class.Name.ToLower()%>_.<%=_aux_method.Name%>(<%
 				for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 					_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
 				<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%

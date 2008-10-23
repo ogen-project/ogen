@@ -58,7 +58,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.proxy {
 
 		#region Methods...<%
 		for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
-			_aux_method = _aux_class.Methods.MethodCollection[m];%>
+			_aux_method = _aux_class.Methods.MethodCollection[m];%><%=""%>
 		<%=_aux_method.OutputType%> <%=_aux_method.Name%>(<%
 			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
