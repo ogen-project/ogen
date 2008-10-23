@@ -48,7 +48,7 @@ using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Runtime.Remoting.Channels.Http;
 
-namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server {
 	public abstract class RS0__server {
 		public void Start() {
 			#if NET_1_1
@@ -60,8 +60,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoti
 				_aux_class = _aux_business_metadata.Classes.ClassCollection[c];%>
 			RemotingConfiguration.RegisterWellKnownServiceType(
 				typeof(RS_<%=_aux_class.Name%>),
-				"<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server.RS_<%=_aux_class.Name%>.remoting",
-				//"<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server.RS_<%=_aux_class.Name%>.soap",
+				"<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server.RS_<%=_aux_class.Name%>.remoting",
+				//"<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server.RS_<%=_aux_class.Name%>.soap",
 
 				WellKnownObjectMode.Singleton
 				//WellKnownObjectMode.SingleCall

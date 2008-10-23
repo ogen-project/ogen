@@ -18,7 +18,7 @@ using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Runtime.Remoting.Channels.Http;
 
-namespace OGen.NTier.UTs.lib.distributedlayer.remoting.server {
+namespace OGen.NTier.UTs.distributedlayer.remoting.server {
 	public abstract class RS0__server {
 		public void Start() {
 			#if NET_1_1
@@ -28,16 +28,16 @@ namespace OGen.NTier.UTs.lib.distributedlayer.remoting.server {
 			#endif
 			RemotingConfiguration.RegisterWellKnownServiceType(
 				typeof(RS_User),
-				"OGen.NTier.UTs.lib.distributedlayer.remoting.server.RS_User.remoting",
-				//"OGen.NTier.UTs.lib.distributedlayer.remoting.server.RS_User.soap",
+				"OGen.NTier.UTs.distributedlayer.remoting.server.RS_User.remoting",
+				//"OGen.NTier.UTs.distributedlayer.remoting.server.RS_User.soap",
 
 				WellKnownObjectMode.Singleton
 				//WellKnownObjectMode.SingleCall
 			);
 			RemotingConfiguration.RegisterWellKnownServiceType(
 				typeof(RS_Authentication),
-				"OGen.NTier.UTs.lib.distributedlayer.remoting.server.RS_Authentication.remoting",
-				//"OGen.NTier.UTs.lib.distributedlayer.remoting.server.RS_Authentication.soap",
+				"OGen.NTier.UTs.distributedlayer.remoting.server.RS_Authentication.remoting",
+				//"OGen.NTier.UTs.distributedlayer.remoting.server.RS_Authentication.soap",
 
 				WellKnownObjectMode.Singleton
 				//WellKnownObjectMode.SingleCall

@@ -50,7 +50,7 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;
 
-namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server {
 	/// <summary>
 	/// <%=_aux_class.Name%> remoting server.
 	/// </summary>

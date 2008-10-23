@@ -44,7 +44,7 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 <%
 }%>using System;
 
-namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server {
 	public class RS__server : RS0__server {
 	}
 }<%

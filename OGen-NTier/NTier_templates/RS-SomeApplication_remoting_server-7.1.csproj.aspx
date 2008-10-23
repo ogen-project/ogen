@@ -155,7 +155,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = MainClass.cs"
+                    RelPath = "MainClass.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

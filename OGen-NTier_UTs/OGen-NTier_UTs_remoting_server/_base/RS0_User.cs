@@ -16,7 +16,7 @@ using System;
 
 using OGen.NTier.UTs.lib.businesslayer;
 
-namespace OGen.NTier.UTs.lib.distributedlayer.remoting.server {
+namespace OGen.NTier.UTs.distributedlayer.remoting.server {
 	/// <summary>
 	/// User remoting server.
 	/// </summary>

@@ -170,7 +170,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="RC-RC0_SomeClass.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="RC-RC_SomeClass.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
@@ -513,8 +512,12 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Content Include="RS-RS__server.cs.aspx" />
-    <Content Include="RS-RS0__server.cs.aspx" />
+    <Content Include="RS-RS__server.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="RS-RS0__server.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <None Include="COPYING.MIT" />
     <None Include="DO-DB-OGen_fnc0__Split-PostgreSQL.sql" />
     <None Include="DO-DB-OGen_sp0__getTableFields-PostgreSQL.sql" />
