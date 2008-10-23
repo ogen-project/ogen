@@ -157,6 +157,10 @@
       <Project>{ADA0411C-8645-4AA0-BFF3-5359E111D98A}</Project>
       <Name>OGen-NTier_UTs_businesslayer_proxy-8-no-gac</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OGen-NTier_UTs_business_client\OGen-NTier_UTs_business_client-8-no-gac.csproj">
+      <Project>{76D35775-37DA-427C-95AA-050F152CAF92}</Project>
+      <Name>OGen-NTier_UTs_business_client-8-no-gac</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-8-no-gac.csproj">
       <Project>{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}</Project>
       <Name>OGen-NTier_UTs_datalayer_proxy-8-no-gac</Name>

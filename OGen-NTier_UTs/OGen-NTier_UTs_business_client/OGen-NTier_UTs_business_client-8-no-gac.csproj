@@ -1,17 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{76D35775-37DA-427C-95AA-050F152CAF92}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OGen.NTier.UTs.lib.business.client</RootNamespace>
     <AssemblyName>OGen.NTier.UTs.lib.business.client-2.0</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,20 +50,20 @@
     <Content Include="LICENSE.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OGen-NTier_UTs_businesslayer\OGen-NTier_UTs_businesslayer-9-no-gac.csproj">
+    <ProjectReference Include="..\OGen-NTier_UTs_businesslayer\OGen-NTier_UTs_businesslayer-8-no-gac.csproj">
       <Project>{B3555514-3A7D-4159-B05D-E8D0C265B649}</Project>
-      <Name>OGen-NTier_UTs_businesslayer-9-no-gac</Name>
+      <Name>OGen-NTier_UTs_businesslayer-8-no-gac</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OGen-NTier_UTs_businesslayer_proxy\OGen-NTier_UTs_businesslayer_proxy-9-no-gac.csproj">
+    <ProjectReference Include="..\OGen-NTier_UTs_businesslayer_proxy\OGen-NTier_UTs_businesslayer_proxy-8-no-gac.csproj">
       <Project>{ADA0411C-8645-4AA0-BFF3-5359E111D98A}</Project>
-      <Name>OGen-NTier_UTs_businesslayer_proxy-9-no-gac</Name>
+      <Name>OGen-NTier_UTs_businesslayer_proxy-8-no-gac</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-9-no-gac.csproj">
+    <ProjectReference Include="..\OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-8-no-gac.csproj">
       <Project>{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}</Project>
-      <Name>OGen-NTier_UTs_datalayer_proxy-9-no-gac</Name>
+      <Name>OGen-NTier_UTs_datalayer_proxy-8-no-gac</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
