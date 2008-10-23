@@ -15,7 +15,7 @@
                 DefaultHTMLPageLayout = "Grid"
                 DefaultTargetSchema = "IE50"
                 DelaySign = "false"
-                OutputType = "Library"
+                OutputType = "Exe"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
                 RootNamespace = "OGen.NTier.UTs.distributedlayer.remoting.server"
@@ -84,37 +84,58 @@
                     Project = "{8AEBEA64-6FC4-430C-922C-B88D105AE91C}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
-				<Reference
-					Name = "OGen-NTier_UTs_businesslayer-7.1-no-gac"
-					Project = "{B3555514-3A7D-4159-B05D-E8D0C265B649}"
-					Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-				/>
-				<Reference
-					Name = "OGen-NTier_UTs_businesslayer_proxy-7.1-no-gac"
-					Project = "{ADA0411C-8645-4AA0-BFF3-5359E111D98A}"
-					Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-				/>
-				<Reference
-					Name = "OGen-NTier_UTs_datalayer_proxy-7.1-no-gac"
-					Project = "{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}"
-					Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-				/>
+                <Reference
+                    Name = "OGen-NTier_UTs_businesslayer-7.1-no-gac"
+                    Project = "{B3555514-3A7D-4159-B05D-E8D0C265B649}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "OGen-NTier_UTs_businesslayer_proxy-7.1-no-gac"
+                    Project = "{ADA0411C-8645-4AA0-BFF3-5359E111D98A}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "OGen-NTier_UTs_datalayer_proxy-7.1-no-gac"
+                    Project = "{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "System.Runtime.Remoting"
+                    AssemblyName = "System.Runtime.Remoting"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Runtime.Remoting.dll"
+                />
             </References>
         </Build>
         <Files>
             <Include>
+                <File
+                    RelPath = "app.config"
+                    BuildAction = "None"
+                />
                 <File
                     RelPath = "AssemblyInfo.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "RS_User.cs"
+                    RelPath = "COPYING.MIT"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "LICENSE.MIT.txt"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "LICENSE.txt"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "MainClass.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "_base\RS0_User.cs"
+                    RelPath = "RS__server.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -124,7 +145,22 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "RS_User.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "_base\RS0__server.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "_base\RS0_Authentication.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "_base\RS0_User.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -132,3 +168,4 @@
         </Files>
     </CSHARP>
 </VisualStudioProject>
+

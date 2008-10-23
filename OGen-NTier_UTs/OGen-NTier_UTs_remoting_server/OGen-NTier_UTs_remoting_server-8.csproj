@@ -102,6 +102,9 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MainClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="RS_User.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -112,6 +115,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="_base\RS0_Authentication.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RS__server.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\RS0__server.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

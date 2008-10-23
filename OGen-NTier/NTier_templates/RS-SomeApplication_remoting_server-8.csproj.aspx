@@ -124,6 +124,9 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
     <Reference Include="System.Xml">
       <Name>System.Xml</Name>
     </Reference>
+    <Reference Include="System.Runtime.Remoting">
+      <Name>System.Runtime.Remoting</Name>
+    </Reference>
     <Reference Include="OGen.NTier.lib.businesslayer-2.0">
       <Name>OGen.NTier.lib.businesslayer-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
@@ -143,6 +146,15 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RS__server.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\RS0__server.cs">
       <SubType>Code</SubType>
     </Compile><%
 	for (int c = 0; c < _aux_business_metadata.Classes.ClassCollection.Count; c++) {

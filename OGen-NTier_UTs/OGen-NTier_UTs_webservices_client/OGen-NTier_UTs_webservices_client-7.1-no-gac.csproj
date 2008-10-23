@@ -109,6 +109,18 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "COPYING.MIT"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "LICENSE.MIT.txt"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "LICENSE.txt"
+                    BuildAction = "Content"
+                />
+                <File
                     RelPath = "WC_Authentication.cs"
                     SubType = "Code"
                     BuildAction = "Compile"

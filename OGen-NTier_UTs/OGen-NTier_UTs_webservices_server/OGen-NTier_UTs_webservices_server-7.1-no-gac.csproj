@@ -114,6 +114,22 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "COPYING.MIT"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "LICENSE.MIT.txt"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "LICENSE.txt"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Web.config"
+                    BuildAction = "None"
+                />
+                <File
                     RelPath = "WS_Authentication.asmx"
                     SubType = "Form"
                     BuildAction = "Content"

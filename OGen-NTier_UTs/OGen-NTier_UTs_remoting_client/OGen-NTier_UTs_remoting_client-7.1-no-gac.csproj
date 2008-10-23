@@ -99,17 +99,24 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "RC_User.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
+                    RelPath = "COPYING.MIT"
+                    BuildAction = "None"
                 />
                 <File
-                    RelPath = "_base\RC0_User.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
+                    RelPath = "LICENSE.MIT.txt"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "LICENSE.txt"
+                    BuildAction = "Content"
                 />
                 <File
                     RelPath = "RC_Authentication.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "RC_User.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -118,7 +125,13 @@
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
+                <File
+                    RelPath = "_base\RC0_User.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
             </Include>
         </Files>
     </CSHARP>
 </VisualStudioProject>
+

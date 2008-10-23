@@ -121,6 +121,11 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Xml.dll"
                 />
                 <Reference
+                    Name = "System.Runtime.Remoting"
+                    AssemblyName = "System.Runtime.Remoting"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Runtime.Remoting.dll"
+                />
+                <Reference
                     Name = "OGen.NTier.lib.businesslayer-1.1"
                     AssemblyName = "OGen.NTier.lib.businesslayer-1.1"
                     AssemblyFolderKey = "hklm\dn\ogen"
@@ -146,6 +151,21 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
             <Include>
                 <File
                     RelPath = "AssemblyInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = MainClass.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "RS__server.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "_base\RS0__server.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 /><%

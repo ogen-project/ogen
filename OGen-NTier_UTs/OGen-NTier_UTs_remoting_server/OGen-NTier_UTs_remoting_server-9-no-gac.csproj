@@ -47,6 +47,8 @@
     <Compile Include="_base\RS0_Authentication.cs" />
     <Compile Include="_base\RS0_User.cs" />
     <Compile Include="_base\RS0__server.cs" />
+    <Compile Include="RS__server.cs" />
+    <Compile Include="_base\RS0__server.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
