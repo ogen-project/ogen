@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_webservices_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_test-9", "OGen-NTier_UTs_test\OGen-NTier_UTs_test-9.csproj", "{2E2A748F-E72A-4B23-9011-F7AE725AB330}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_business_client-9", "OGen-NTier_UTs_business_client\OGen-NTier_UTs_business_client-9.csproj", "{76D35775-37DA-427C-95AA-050F152CAF92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +74,10 @@ Global
 		{2E2A748F-E72A-4B23-9011-F7AE725AB330}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E2A748F-E72A-4B23-9011-F7AE725AB330}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E2A748F-E72A-4B23-9011-F7AE725AB330}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76D35775-37DA-427C-95AA-050F152CAF92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76D35775-37DA-427C-95AA-050F152CAF92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76D35775-37DA-427C-95AA-050F152CAF92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76D35775-37DA-427C-95AA-050F152CAF92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

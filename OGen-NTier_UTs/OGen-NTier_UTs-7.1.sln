@@ -43,6 +43,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_test-7.1", "
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_business_client-7.1", "OGen-NTier_UTs_business_client\OGen-NTier_UTs_business_client-7.1.csproj", "{76D35775-37DA-427C-95AA-050F152CAF92}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -93,6 +97,10 @@ Global
 		{2E2A748F-E72A-4B23-9011-F7AE725AB330}.Debug.Build.0 = Debug|.NET
 		{2E2A748F-E72A-4B23-9011-F7AE725AB330}.Release.ActiveCfg = Release|.NET
 		{2E2A748F-E72A-4B23-9011-F7AE725AB330}.Release.Build.0 = Release|.NET
+		{76D35775-37DA-427C-95AA-050F152CAF92}.Debug.ActiveCfg = Debug|.NET
+		{76D35775-37DA-427C-95AA-050F152CAF92}.Debug.Build.0 = Debug|.NET
+		{76D35775-37DA-427C-95AA-050F152CAF92}.Release.ActiveCfg = Release|.NET
+		{76D35775-37DA-427C-95AA-050F152CAF92}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

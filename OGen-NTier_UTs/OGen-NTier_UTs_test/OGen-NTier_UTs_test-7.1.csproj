@@ -155,6 +155,11 @@
                     Project = "{3E90C87B-1643-4323-8A50-96000EBFD406}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "OGen-NTier_UTs_business_client-7.1"
+                    Project = "{76D35775-37DA-427C-95AA-050F152CAF92}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>

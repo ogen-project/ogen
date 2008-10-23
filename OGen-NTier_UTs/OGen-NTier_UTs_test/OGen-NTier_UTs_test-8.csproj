@@ -113,6 +113,10 @@
     <Reference Include="System.Xml">
       <Name>System.Xml</Name>
     </Reference>
+    <ProjectReference Include="..\OGen-NTier_UTs_business_client\OGen-NTier_UTs_business_client-8.csproj">
+      <Project>{76D35775-37DA-427C-95AA-050F152CAF92}</Project>
+      <Name>OGen-NTier_UTs_business_client-8</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OGen-NTier_UTs_datalayer\OGen-NTier_UTs_datalayer-8.csproj">
       <Name>OGen-NTier_UTs_datalayer-8</Name>
       <Project>{2C45EF1A-75BE-4B12-A232-62DEB5662239}</Project>
