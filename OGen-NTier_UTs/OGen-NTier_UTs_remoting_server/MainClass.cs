@@ -15,7 +15,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 
 namespace OGen.NTier.UTs.lib.distributedlayer.remoting.server {
-	static class MainClass {
+	public class MainClass {
 		[STAThread]
 		static void Main(string[] args) {
 			new RS__server().Start();
