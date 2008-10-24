@@ -80,7 +80,6 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webser
 <%
 		for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
 			_aux_method = _aux_class.Methods.MethodCollection[m];%>
-
 		#region public <%=_aux_method.OutputType%> <%=_aux_method.Name%>(...);
 		#if !NET_1_1
 		private System.Threading.SendOrPostCallback <%=_aux_method.Name%>OperationCompleted;
@@ -125,14 +124,6 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webser
 			return (<%=_aux_method.OutputType%>)results[0];<%
 			}%>
 		}
-
-
-
-
-
-
-
-
 
 		#if !NET_1_1
 		/// <remarks/>
@@ -196,8 +187,11 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webser
 					= (System.Web.Services.Protocols.InvokeCompletedEventArgs)arg;
 				this.<%=_aux_method.Name%>Completed(
 					this,
-					new <%=_aux_method.Name%>CompletedEventArgs(
-						invokeArgs.Results,
+					new <%=(_aux_method.OutputType == "void") ? "System.ComponentModel.Async" : _aux_method.Name%>CompletedEventArgs(<%
+						= (_aux_method.OutputType == "void") 
+							? "" 
+							: @"
+						invokeArgs.Results,"%>
 						invokeArgs.Error,
 						invokeArgs.Cancelled,
 						invokeArgs.UserState
@@ -246,7 +240,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webser
 			out <%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%><%
 			}%>
 		) {
-			object[] results = this.EndInvoke(asyncResult);<%
+			<%=(_aux_method.OutputType == "void") ? "" : "object[] results = "%>this.EndInvoke(asyncResult);<%
 			_aux_outputparameter = 0;
 			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];
@@ -254,24 +248,16 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webser
 					continue;
 				_aux_outputparameter++;%><%=""%>
 			<%=_aux_parameter.Name%> = (<%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%>)results[<%=_aux_outputparameter.ToString()%>];<%
+			}%><%
+			if (_aux_method.OutputType != "void") {%><%=""%>
+			return (<%=_aux_method.OutputType%>)results[0];<%
 			}%>
-			return (<%=_aux_method.OutputType%>)results[0];
 		}
 		#endif
-
-
-
-
-
-
-
-
-
-
-
 		#endregion<%
 		}%>
 	}
+
 	#if !NET_1_1<%
 for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
 	_aux_method = _aux_class.Methods.MethodCollection[m];%><%=""%>
@@ -315,6 +301,7 @@ for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
 			if (!_aux_parameter.isOut)
 				continue;
 			_aux_outputparameter++;%><%=""%>
+
 		/// <remarks/>
 		public <%=_aux_parameter.Type%> <%=_aux_parameter.Name%> {
 			get {
@@ -323,9 +310,9 @@ for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
 			}
 		}<%
 		}%>
-	}
+	}<%
+	}%>
 	#endregion<%
-	}
 }%>
 	#endif
 }<%

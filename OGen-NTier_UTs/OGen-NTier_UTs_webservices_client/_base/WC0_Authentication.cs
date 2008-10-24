@@ -1,4 +1,4 @@
-﻿#region Copyright (C) 2002 Francisco Monteiro
+#region Copyright (C) 2002 Francisco Monteiro
 /*
 
 OGen
@@ -16,6 +16,7 @@ using System;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using OGen.NTier.lib.distributedlayer.webservices.client;
+using OGen.NTier.UTs.lib.businesslayer.proxy;
 
 using OGen.NTier.UTs.lib.distributedlayer.webservices.client;
 using OGen.NTier.UTs.lib.businesslayer.proxy;
@@ -57,13 +58,13 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_Authenticati
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
 		public string Login(
-			string login_in,
+			string login_in, 
 			string password_in
 		) {
 			object[] results = this.Invoke(
 				"Login", 
 				new object[] {
-					login_in, 
+					login_in,
 					password_in
 				}
 			);
@@ -90,18 +91,18 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_Authenticati
 			object userState
 		) {
 			if (this.LoginOperationCompleted == null) {
-				this.LoginOperationCompleted 
+				this.LoginOperationCompleted
 					= new System.Threading.SendOrPostCallback(
 						this.OnLoginOperationCompleted
 					);
 			}
 			this.InvokeAsync(
-				"Login", 
+				"Login",
 				new object[] {
-					login_in,
-                    password_in
-				}, 
-				this.LoginOperationCompleted, 
+					login_in, 
+					password_in
+				},
+				this.LoginOperationCompleted,
 				userState
 			);
 		}
@@ -132,7 +133,7 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_Authenticati
 			return this.BeginInvoke(
 				"Login", 
 				new object[] {
-					login_in,
+					login_in, 
 					password_in
 				}, 
 				callback, 
@@ -164,16 +165,19 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_Authenticati
 			Use = System.Web.Services.Description.SoapBindingUse.Literal, 
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
-		public void Logout() {
+		public void Logout(
+		) {
 			this.Invoke(
 				"Logout", 
-				new object[] {}
+				new object[] {
+				}
 			);
 		}
 
 		#if !NET_1_1
 		/// <remarks/>
-		public void LogoutAsync() {
+		public void LogoutAsync(
+		) {
 			this.LogoutAsync(
 				null
 			);
@@ -184,15 +188,16 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_Authenticati
 			object userState
 		) {
 			if (this.LogoutOperationCompleted == null) {
-				this.LogoutOperationCompleted 
+				this.LogoutOperationCompleted
 					= new System.Threading.SendOrPostCallback(
 						this.OnLogoutOperationCompleted
 					);
 			}
 			this.InvokeAsync(
-				"Logout", 
-				new object[0], 
-				this.LogoutOperationCompleted, 
+				"Logout",
+				new object[] {
+				},
+				this.LogoutOperationCompleted,
 				userState
 			);
 		}
@@ -219,7 +224,8 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_Authenticati
 		) {
 			return this.BeginInvoke(
 				"Logout", 
-				new object[0], 
+				new object[] {
+				}, 
 				callback, 
 				asyncState
 			);
@@ -239,24 +245,24 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_Authenticati
 	#region ...Login...
 	/// <remarks/>
 	public delegate void LoginCompletedEventHandler(
-		object sender,
+		object sender, 
 		LoginCompletedEventArgs e
 	);
 
 	/// <remarks/>
 	[System.Diagnostics.DebuggerStepThroughAttribute()]
 	[System.ComponentModel.DesignerCategoryAttribute("code")]
-	public class LoginCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+	public partial class LoginCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
 		private object[] results;
 
 		internal LoginCompletedEventArgs(
-			object[] results,
-			System.Exception exception,
-			bool cancelled,
+			object[] results, 
+			System.Exception exception, 
+			bool cancelled, 
 			object userState
 		) : base(
-			exception,
-			cancelled,
+			exception, 
+			cancelled, 
 			userState
 		) {
 			this.results = results;
@@ -274,7 +280,7 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_Authenticati
 	#region ...Logout...
 	/// <remarks/>
 	public delegate void LogoutCompletedEventHandler(
-		object sender,
+		object sender, 
 		System.ComponentModel.AsyncCompletedEventArgs e
 	);
 	#endregion

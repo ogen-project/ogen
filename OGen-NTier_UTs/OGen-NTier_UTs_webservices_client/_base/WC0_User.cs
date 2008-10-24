@@ -1,4 +1,4 @@
-﻿#region Copyright (C) 2002 Francisco Monteiro
+#region Copyright (C) 2002 Francisco Monteiro
 /*
 
 OGen
@@ -16,6 +16,7 @@ using System;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using OGen.NTier.lib.distributedlayer.webservices.client;
+using OGen.NTier.UTs.lib.businesslayer.proxy;
 
 using OGen.NTier.UTs.lib.distributedlayer.webservices.client;
 using OGen.NTier.UTs.lib.businesslayer.proxy;
@@ -57,16 +58,16 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
 		public long insObject(
-			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
-			bool selectIdentity_in,
+			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in, 
+			bool selectIdentity_in, 
 			string login_in, 
 			out bool constraintExist_out
 		) {
 			object[] results = this.Invoke(
 				"insObject", 
 				new object[] {
-					user_in, 
-					selectIdentity_in, 
+					user_in,
+					selectIdentity_in,
 					login_in
 				}
 			);
@@ -77,13 +78,13 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 		#if !NET_1_1
 		/// <remarks/>
 		public void insObjectAsync(
-			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
+			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in, 
 			bool selectIdentity_in, 
 			string login_in
 		) {
 			this.insObjectAsync(
-				user_in,
-				selectIdentity_in,
+				user_in, 
+				selectIdentity_in, 
 				login_in, 
 				null
 			);
@@ -91,9 +92,9 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 
 		/// <remarks/>
 		public void insObjectAsync(
-			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
+			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in, 
 			bool selectIdentity_in, 
-			string login_in,
+			string login_in, 
 			object userState
 		) {
 			if (this.insObjectOperationCompleted == null) {
@@ -105,7 +106,7 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 			this.InvokeAsync(
 				"insObject",
 				new object[] {
-					user_in,
+					user_in, 
 					selectIdentity_in, 
 					login_in
 				},
@@ -141,8 +142,8 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 			return this.BeginInvoke(
 				"insObject", 
 				new object[] {
-					user_in,
-					selectIdentity_in,
+					user_in, 
+					selectIdentity_in, 
 					login_in
 				}, 
 				callback, 
@@ -184,7 +185,7 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 			object[] results = this.Invoke(
 				"getObject", 
 				new object[] {
-					idUser_in, 
+					idUser_in,
 					login_in
 				}
 			);
@@ -212,32 +213,32 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 			object userState
 		) {
 			if (this.getObjectOperationCompleted == null) {
-				this.getObjectOperationCompleted 
+				this.getObjectOperationCompleted
 					= new System.Threading.SendOrPostCallback(
 						this.OngetObjectOperationCompleted
 					);
 			}
 			this.InvokeAsync(
-				"getObject", 
-				new object[] { 
+				"getObject",
+				new object[] {
 					idUser_in, 
 					login_in
-				}, 
-				this.getObjectOperationCompleted, 
+				},
+				this.getObjectOperationCompleted,
 				userState
 			);
 		}
 
 		private void OngetObjectOperationCompleted(object arg) {
 			if (this.getObjectCompleted != null) {
-				System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs 
+				System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs
 					= (System.Web.Services.Protocols.InvokeCompletedEventArgs)arg;
 				this.getObjectCompleted(
-					this, 
+					this,
 					new getObjectCompletedEventArgs(
-						invokeArgs.Results, 
-						invokeArgs.Error, 
-						invokeArgs.Cancelled, 
+						invokeArgs.Results,
+						invokeArgs.Error,
+						invokeArgs.Cancelled,
 						invokeArgs.UserState
 					)
 				);
@@ -254,7 +255,7 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 			return this.BeginInvoke(
 				"getObject", 
 				new object[] {
-					idUser_in,
+					idUser_in, 
 					login_in
 				}, 
 				callback, 
@@ -332,34 +333,34 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 			object userState
 		) {
 			if (this.Record_Open_byGroupOperationCompleted == null) {
-				this.Record_Open_byGroupOperationCompleted 
+				this.Record_Open_byGroupOperationCompleted
 					= new System.Threading.SendOrPostCallback(
 						this.OnRecord_Open_byGroupOperationCompleted
 					);
 			}
 			this.InvokeAsync(
-				"Record_Open_byGroup", 
+				"Record_Open_byGroup",
 				new object[] {
-					IDGroup_search_in,
-					page_in,
-					page_numRecords_in,
+					IDGroup_search_in, 
+					page_in, 
+					page_numRecords_in, 
 					login_in
-				}, 
-				this.Record_Open_byGroupOperationCompleted, 
+				},
+				this.Record_Open_byGroupOperationCompleted,
 				userState
 			);
 		}
 
 		private void OnRecord_Open_byGroupOperationCompleted(object arg) {
 			if (this.Record_Open_byGroupCompleted != null) {
-				System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs 
+				System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs
 					= (System.Web.Services.Protocols.InvokeCompletedEventArgs)arg;
 				this.Record_Open_byGroupCompleted(
-					this, 
+					this,
 					new Record_Open_byGroupCompletedEventArgs(
-						invokeArgs.Results, 
-						invokeArgs.Error, 
-						invokeArgs.Cancelled, 
+						invokeArgs.Results,
+						invokeArgs.Error,
+						invokeArgs.Cancelled,
 						invokeArgs.UserState
 					)
 				);
@@ -378,9 +379,9 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 			return this.BeginInvoke(
 				"Record_Open_byGroup", 
 				new object[] {
-					IDGroup_search_in,
-					page_in,
-					page_numRecords_in,
+					IDGroup_search_in, 
+					page_in, 
+					page_numRecords_in, 
 					login_in
 				}, 
 				callback, 
@@ -403,28 +404,28 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 	#region ...insObject...
 	/// <remarks/>
 	public delegate void insObjectCompletedEventHandler(
-		object sender,
+		object sender, 
 		insObjectCompletedEventArgs e
 	);
 
 	/// <remarks/>
 	[System.Diagnostics.DebuggerStepThroughAttribute()]
 	[System.ComponentModel.DesignerCategoryAttribute("code")]
-	public class insObjectCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+	public partial class insObjectCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+		private object[] results;
+
 		internal insObjectCompletedEventArgs(
-			object[] results,
-			System.Exception exception,
-			bool cancelled,
+			object[] results, 
+			System.Exception exception, 
+			bool cancelled, 
 			object userState
 		) : base(
-			exception,
-			cancelled,
+			exception, 
+			cancelled, 
 			userState
 		) {
 			this.results = results;
 		}
-
-		private object[] results;
 
 		/// <remarks/>
 		public long Result {
