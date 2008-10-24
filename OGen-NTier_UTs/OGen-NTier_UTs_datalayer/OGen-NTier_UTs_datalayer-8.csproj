@@ -88,6 +88,10 @@
       <Name>OGen.lib.datalayer.MySQL-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
     </Reference>
+    <Reference Include="OGen.NTier.lib.datalayer.proxy-2.0">
+      <Name>OGen.NTier.lib.datalayer.proxy-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference>
     <Reference Include="OGen.lib.datalayer.support-2.0">
       <Name>OGen.lib.datalayer.support-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
