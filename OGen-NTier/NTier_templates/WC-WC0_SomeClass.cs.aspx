@@ -35,6 +35,8 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class
 
 XS_methodType _aux_method;
 XS_parameterType _aux_parameter;
+
+int _aux_outputparameter;
 #endregion
 //-----------------------------------------------------------------------------------------
 if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.CopyrightTextLong != string.Empty)) {
@@ -111,7 +113,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webser
 					}%>
 				}
 			);<%
-			int _aux_outputparameter = 0;
+			_aux_outputparameter = 0;
 			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];
 				if (!_aux_parameter.isOut)
@@ -120,12 +122,128 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webser
 			<%=_aux_parameter.Name%> = (<%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%>)results[<%=_aux_outputparameter.ToString()%>];<%
 			}
 			if (_aux_method.OutputType != "void") {%>
-
 			return (<%=_aux_method.OutputType%>)results[0];<%
 			}%>
 		}
 
-// ...
+
+
+
+
+
+
+
+
+		#if !NET_1_1
+		/// <remarks/>
+		public void <%=_aux_method.Name%>Async(
+			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
+			bool selectIdentity_in, 
+			string login_in
+		) {
+			this.<%=_aux_method.Name%>Async(
+				user_in,
+				selectIdentity_in,
+				login_in, 
+				null
+			);
+		}
+
+		/// <remarks/>
+		public void <%=_aux_method.Name%>Async(
+			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
+			bool selectIdentity_in, 
+			string login_in,
+			object userState
+		) {
+			if (this.<%=_aux_method.Name%>OperationCompleted == null) {
+				this.<%=_aux_method.Name%>OperationCompleted
+					= new System.Threading.SendOrPostCallback(
+						this.On<%=_aux_method.Name%>OperationCompleted
+					);
+			}
+			this.InvokeAsync(
+				"<%=_aux_method.Name%>",
+				new object[] {
+					user_in,
+					selectIdentity_in, 
+					login_in
+				},
+				this.<%=_aux_method.Name%>OperationCompleted,
+				userState
+			);
+		}
+
+		private void On<%=_aux_method.Name%>OperationCompleted(object arg) {
+			if (this.<%=_aux_method.Name%>Completed != null) {
+				System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs
+					= (System.Web.Services.Protocols.InvokeCompletedEventArgs)arg;
+				this.<%=_aux_method.Name%>Completed(
+					this,
+					new <%=_aux_method.Name%>CompletedEventArgs(
+						invokeArgs.Results,
+						invokeArgs.Error,
+						invokeArgs.Cancelled,
+						invokeArgs.UserState
+					)
+				);
+			}
+		}
+		#else
+		/// <remarks/>
+		public System.IAsyncResult Begin<%=_aux_method.Name%>(
+			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in, 
+			bool selectIdentity_in, 
+			string login_in, 
+			System.AsyncCallback callback, 
+			object asyncState
+		) {
+			return this.BeginInvoke(
+				"<%=_aux_method.Name%>", 
+				new object[] {
+					user_in,
+					selectIdentity_in,
+					login_in
+				}, 
+				callback, 
+				asyncState
+			);
+		}
+
+		/// <remarks/>
+		public <%=_aux_method.OutputType%> End<%=_aux_method.Name%>(
+			System.IAsyncResult asyncResult<%
+			_aux_outputparameter = 0;
+			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
+				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];
+				if (!_aux_parameter.isOut)
+					continue;
+				_aux_outputparameter++;%>, 
+			out <%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%><%
+			}%>
+		) {
+			object[] results = this.EndInvoke(asyncResult);<%
+			_aux_outputparameter = 0;
+			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
+				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];
+				if (!_aux_parameter.isOut)
+					continue;
+				_aux_outputparameter++;%><%=""%>
+			<%=_aux_parameter.Name%> = (<%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%>)results[<%=_aux_outputparameter.ToString()%>];<%
+			}%>
+			return (<%=_aux_method.OutputType%>)results[0];
+		}
+		#endif
+
+
+
+
+
+
+
+
+
+
 
 		#endregion<%
 		}%>
@@ -166,7 +284,21 @@ for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
 				this.RaiseExceptionIfNecessary();
 				return (<%=_aux_method.OutputType%>)this.results[0];
 			}
-		}
+		}<%
+		_aux_outputparameter = 0;
+		for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
+			_aux_parameter = _aux_method.Parameters.ParameterCollection[p];
+			if (!_aux_parameter.isOut)
+				continue;
+			_aux_outputparameter++;%><%=""%>
+		/// <remarks/>
+		public <%=_aux_parameter.Type%> <%=_aux_parameter.Name%> {
+			get {
+				this.RaiseExceptionIfNecessary();
+				return (<%=_aux_parameter.Type%>)this.results[<%=_aux_outputparameter.ToString()%>];
+			}
+		}<%
+		}%>
 	}
 	#endregion<%
 	}
