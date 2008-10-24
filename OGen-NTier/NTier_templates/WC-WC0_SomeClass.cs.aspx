@@ -55,7 +55,7 @@ using OGen.NTier.UTs.lib.businesslayer.proxy;
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webservices.client;
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.proxy;
 
-namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.client.WC_<%=_aux_class.Name%> {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webservices.client.WC_<%=_aux_class.Name%> {
 	/// <summary>
 	/// <%=_aux_class.Name%> web service client.
 	/// </summary>
@@ -64,7 +64,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservice
 	[System.ComponentModel.DesignerCategoryAttribute("code")]
 	[System.Web.Services.WebServiceBindingAttribute(
 		Name = "WS_<%=_aux_class.Name%>Soap", 
-		Namespace = "http://<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webservices.server"
+		Namespace = "http://<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server"
 	)]
 	public abstract class WC0_<%=_aux_class.Name%> : WC__base {
 		#region public WC0_Authentication(...);
@@ -79,17 +79,18 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservice
 		for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
 			_aux_method = _aux_class.Methods.MethodCollection[m];%>
 
+		#region public <%=_aux_method.OutputType%> <%=_aux_method.Name%>(...);
 		#if !NET_1_1
 		private System.Threading.SendOrPostCallback <%=_aux_method.Name%>OperationCompleted;
 		/// <remarks/>
 		public event <%=_aux_method.Name%>CompletedEventHandler <%=_aux_method.Name%>Completed;
 		#endif
 
-		#region public <%=_aux_method.OutputType%> <%=_aux_method.Name%>(...);
+		/// <remarks/>
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webservices.server/<%=_aux_method.Name%>", 
-			RequestNamespace = "http://<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webservices.server", 
-			ResponseNamespace = "http://<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webservices.server", 
+			"http://<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server/<%=_aux_method.Name%>", 
+			RequestNamespace = "http://<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server", 
+			ResponseNamespace = "http://<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server", 
 			Use = System.Web.Services.Description.SoapBindingUse.Literal, 
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]

@@ -247,6 +247,8 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_Authenticati
 	[System.Diagnostics.DebuggerStepThroughAttribute()]
 	[System.ComponentModel.DesignerCategoryAttribute("code")]
 	public class LoginCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+		private object[] results;
+
 		internal LoginCompletedEventArgs(
 			object[] results,
 			System.Exception exception,
@@ -259,8 +261,6 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_Authenticati
 		) {
 			this.results = results;
 		}
-
-		private object[] results;
 
 		/// <remarks/>
 		public string Result {
