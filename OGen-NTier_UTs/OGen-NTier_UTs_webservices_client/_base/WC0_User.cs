@@ -293,7 +293,8 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 			long IDGroup_search_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			string login_in
+			string login_in, 
+			out long recordLength_out
 		) {
 			object[] results = this.Invoke(
 				"Record_Open_byGroup", 
@@ -304,6 +305,7 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 					login_in
 				}
 			);
+			recordLength_out = (long)results[1];
 			return (OGen.NTier.UTs.lib.datalayer.proxy.SO_User[])results[0];
 		}
 
@@ -391,9 +393,11 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 
 		/// <remarks/>
 		public OGen.NTier.UTs.lib.datalayer.proxy.SO_User[] EndRecord_Open_byGroup(
-			System.IAsyncResult asyncResult
+			System.IAsyncResult asyncResult, 
+			out long recordLength_out
 		) {
 			object[] results = this.EndInvoke(asyncResult);
+			recordLength_out = (long)results[1];
 			return (OGen.NTier.UTs.lib.datalayer.proxy.SO_User[])results[0];
 		}
 		#endif
@@ -518,6 +522,14 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
 			get {
 				this.RaiseExceptionIfNecessary();
 				return (OGen.NTier.UTs.lib.datalayer.proxy.SO_User[])this.results[0];
+			}
+		}
+
+		/// <remarks/>
+		public long recordLength_out {
+			get {
+				this.RaiseExceptionIfNecessary();
+				return (long)this.results[1];
 			}
 		}
 	}

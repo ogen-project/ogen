@@ -24,6 +24,7 @@
             <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="login_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="recordLength_out" type="long" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
       </methods>

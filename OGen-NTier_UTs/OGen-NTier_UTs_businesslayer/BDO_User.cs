@@ -92,7 +92,8 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			long IDGroup_search_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			string login_in
+			string login_in,
+			out long recordLength_out
 		) {
 			SO_User[] _output;
 
@@ -107,10 +108,14 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 					page_in,
 					page_numRecords_in
 				);
+				recordLength_out = _do_user.Record.Count_byGroup(
+					IDGroup_search_in
+				);
 			} else {
 				_do_user.Record.Open_byGroup(
 					IDGroup_search_in
 				);
+				recordLength_out = (long)_do_user.Record.Count;
 			}
 			_output = _do_user.Record.Serialize().SO_User;
 			_do_user.Record.Close();

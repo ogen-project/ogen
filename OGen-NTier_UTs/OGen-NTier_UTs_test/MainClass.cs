@@ -141,11 +141,17 @@ namespace OGen.NTier.UTs.test {
 					_exists
 				);
 
+				long _recordLength;
 				SO_User[] _users = _user.Record_Open_byGroup(
 					3L,
 					1,
 					4,
-					_login
+					_login, 
+					out _recordLength
+				);
+				Console.WriteLine(
+					"Record Length: {0}",
+					_recordLength
 				);
 				for (int i = 0; i < _users.Length; i++) {
 					Console.WriteLine(

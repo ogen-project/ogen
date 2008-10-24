@@ -73,14 +73,16 @@ namespace OGen.NTier.UTs.distributedlayer.webservices.server {
 			long IDGroup_search_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			string login_in
+			string login_in, 
+			out long recordLength_out
 		) {
 			BDO_User _businessobject = new BDO_User();
 			return _businessobject.Record_Open_byGroup(
 				IDGroup_search_in, 
 				page_in, 
 				page_numRecords_in, 
-				login_in
+				login_in, 
+				out recordLength_out
 			);
 		}
 		#endregion

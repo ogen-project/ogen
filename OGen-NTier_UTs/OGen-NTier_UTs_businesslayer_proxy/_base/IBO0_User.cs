@@ -38,7 +38,8 @@ namespace OGen.NTier.UTs.lib.businesslayer.proxy {
 			long IDGroup_search_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			string login_in
+			string login_in, 
+			out long recordLength_out
 		);
 		#endregion
 	}
