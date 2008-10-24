@@ -91,13 +91,6 @@
     </Compile>
     <Compile Include="Config_DBConnectionstring.cs" />
     <Compile Include="Config_DBConnectionstrings.cs" />
-    <Compile Include="DOClassAttribute.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DOPropertyAttribute.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DOProperty_andAttribute.cs" />
     <Compile Include="DO__base.cs">
       <SubType>Code</SubType>
     </Compile>

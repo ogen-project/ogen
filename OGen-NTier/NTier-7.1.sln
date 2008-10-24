@@ -83,6 +83,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_webs
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_datalayer_proxy-7.1", "NTier_datalayer_proxy\NTier_datalayer_proxy-7.1.csproj", "{F17F7FA0-920E-4AE1-908F-2798D0124996}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -173,6 +177,10 @@ Global
 		{F32002B5-2FCA-4216-B625-E52D1F4F5055}.Debug.Build.0 = Debug|.NET
 		{F32002B5-2FCA-4216-B625-E52D1F4F5055}.Release.ActiveCfg = Release|.NET
 		{F32002B5-2FCA-4216-B625-E52D1F4F5055}.Release.Build.0 = Release|.NET
+		{F17F7FA0-920E-4AE1-908F-2798D0124996}.Debug.ActiveCfg = Debug|.NET
+		{F17F7FA0-920E-4AE1-908F-2798D0124996}.Debug.Build.0 = Debug|.NET
+		{F17F7FA0-920E-4AE1-908F-2798D0124996}.Release.ActiveCfg = Release|.NET
+		{F17F7FA0-920E-4AE1-908F-2798D0124996}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

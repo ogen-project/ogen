@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier-test-9", "NTier-test\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_webservices_client-9", "NTier_distributedlayer_webservices_client\NTier_distributedlayer_webservices_client-9.csproj", "{7A52E316-CA44-4710-AF93-CC495DE77F6C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_datalayer_proxy-9", "NTier_datalayer_proxy\NTier_datalayer_proxy-9.csproj", "{F17F7FA0-920E-4AE1-908F-2798D0124996}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -139,6 +141,10 @@ Global
 		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F17F7FA0-920E-4AE1-908F-2798D0124996}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F17F7FA0-920E-4AE1-908F-2798D0124996}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F17F7FA0-920E-4AE1-908F-2798D0124996}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F17F7FA0-920E-4AE1-908F-2798D0124996}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
