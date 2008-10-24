@@ -136,24 +136,35 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webser
 
 		#if !NET_1_1
 		/// <remarks/>
-		public void <%=_aux_method.Name%>Async(
-			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
-			bool selectIdentity_in, 
-			string login_in
+		public void <%=_aux_method.Name%>Async(<%
+			_aux_outputparameter = 0;
+			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
+				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];
+				if (_aux_parameter.isOut)
+					continue;
+				_aux_outputparameter++;%><%=(_aux_outputparameter == 1) ? "" : ", "%>
+			<%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%><%
+			}%>
 		) {
-			this.<%=_aux_method.Name%>Async(
-				user_in,
-				selectIdentity_in,
-				login_in, 
+			this.<%=_aux_method.Name%>Async(<%
+				for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
+					_aux_parameter = _aux_method.Parameters.ParameterCollection[p];
+					if (_aux_parameter.isOut)
+						continue;%><%=""%>
+				<%=_aux_parameter.Name%>, <%
+				}%>
 				null
 			);
 		}
 
 		/// <remarks/>
-		public void <%=_aux_method.Name%>Async(
-			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in,
-			bool selectIdentity_in, 
-			string login_in,
+		public void <%=_aux_method.Name%>Async(<%
+			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
+				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];
+				if (_aux_parameter.isOut)
+					continue;%><%=""%>
+			<%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%>, <%
+			}%>
 			object userState
 		) {
 			if (this.<%=_aux_method.Name%>OperationCompleted == null) {
@@ -164,10 +175,15 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webser
 			}
 			this.InvokeAsync(
 				"<%=_aux_method.Name%>",
-				new object[] {
-					user_in,
-					selectIdentity_in, 
-					login_in
+				new object[] {<%
+					_aux_outputparameter = 0;
+					for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
+						_aux_parameter = _aux_method.Parameters.ParameterCollection[p];
+						if (_aux_parameter.isOut)
+							continue;
+						_aux_outputparameter++;%><%=(_aux_outputparameter == 1) ? "" : ", "%>
+					<%=_aux_parameter.Name%><%
+					}%>
 				},
 				this.<%=_aux_method.Name%>OperationCompleted,
 				userState
@@ -191,19 +207,27 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webser
 		}
 		#else
 		/// <remarks/>
-		public System.IAsyncResult Begin<%=_aux_method.Name%>(
-			OGen.NTier.UTs.lib.datalayer.proxy.SO_User user_in, 
-			bool selectIdentity_in, 
-			string login_in, 
+		public System.IAsyncResult Begin<%=_aux_method.Name%>(<%
+			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
+				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];
+				if (_aux_parameter.isOut)
+					continue;%><%=""%>
+			<%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%>, <%
+			}%>
 			System.AsyncCallback callback, 
 			object asyncState
 		) {
 			return this.BeginInvoke(
 				"<%=_aux_method.Name%>", 
-				new object[] {
-					user_in,
-					selectIdentity_in,
-					login_in
+				new object[] {<%
+					_aux_outputparameter = 0;
+					for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
+						_aux_parameter = _aux_method.Parameters.ParameterCollection[p];
+						if (_aux_parameter.isOut)
+							continue;
+						_aux_outputparameter++;%><%=(_aux_outputparameter == 1) ? "" : ", "%>
+					<%=_aux_parameter.Name%><%
+					}%>
 				}, 
 				callback, 
 				asyncState
