@@ -31,7 +31,7 @@ namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_Authenticati
 		Name = "WS_AuthenticationSoap", 
 		Namespace = "http://OGen.NTier.UTs.distributedlayer.webservices.server"
 	)]
-	public abstract class WC0_Authentication : WC__base {
+	public abstract class WC0_Authentication : WC__base, IBO_Authentication {
 		#region public WC0_Authentication(...);
 		public WC0_Authentication(
 			string url_in
