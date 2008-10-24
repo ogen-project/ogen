@@ -66,8 +66,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webser
 		Name = "WS_<%=_aux_class.Name%>Soap", 
 		Namespace = "http://<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server"
 	)]
-	public abstract class WC0_<%=_aux_class.Name%> : WC__base {
-		#region public WC0_Authentication(...);
+	public abstract class WC0_<%=_aux_class.Name%> : WC__base, IBO_<%=_aux_class.Name%> {
+		#region public WC0_<%=_aux_class.Name%>(...);
 		public WC0_<%=_aux_class.Name%>(
 			string url_in
 		) : base(
@@ -100,16 +100,33 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webser
 			<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
 			}%>
 		) {
-<%--
-			<%=_aux_class.Type.ToString()%>_<%=_aux_class.Name%> _businessobject = new <%=_aux_class.Type.ToString()%>_<%=_aux_class.Name%>();
-			<%=(_aux_method.OutputType == "void") ? "" : "return "%>_businessobject.<%=_aux_method.Name%>(<%
-				for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
-					_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
-				<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
-				}%>
-			);
---%>
+			<%=(_aux_method.OutputType == "void") ? "" : "object[] results = "%>this.Invoke(
+				"<%=_aux_method.Name%>", 
+				new object[] {<%
+					for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
+						_aux_parameter = _aux_method.Parameters.ParameterCollection[p];
+						if (_aux_parameter.isOut) 
+							continue;%><%=(p != 0) ? "," : ""%>
+					<%=_aux_parameter.Name%><%
+					}%>
+				}
+			);<%
+			int _aux_outputparameter = 0;
+			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
+				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];
+				if (!_aux_parameter.isOut)
+					continue;
+				_aux_outputparameter++;%><%=""%>
+			<%=_aux_parameter.Name%> = (<%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%>)results[<%=_aux_outputparameter.ToString()%>];<%
+			}
+			if (_aux_method.OutputType != "void") {%>
+
+			return (<%=_aux_method.OutputType%>)results[0];<%
+			}%>
 		}
+
+// ...
+
 		#endregion<%
 		}%>
 	}
