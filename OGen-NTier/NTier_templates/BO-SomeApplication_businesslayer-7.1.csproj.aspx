@@ -132,6 +132,11 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
+                    Name = "OGen.NTier.lib.datalayer.proxy-1.1"
+                    AssemblyName = "OGen.NTier.lib.datalayer.proxy-1.1"
+                    AssemblyFolderKey = "hklm\dn\ogen"
+                />
+                <Reference
                     Name = "OGen.lib.datalayer-1.1"
                     AssemblyName = "OGen.lib.datalayer-1.1"
                     AssemblyFolderKey = "hklm\dn\ogen"

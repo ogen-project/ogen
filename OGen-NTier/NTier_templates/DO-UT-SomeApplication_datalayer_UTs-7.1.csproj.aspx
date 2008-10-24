@@ -135,6 +135,11 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                 /><%
                 }%>
                 <Reference
+                    Name = "OGen.NTier.lib.datalayer.proxy-1.1"
+                    AssemblyName = "OGen.NTier.lib.datalayer.proxy-1.1"
+                    AssemblyFolderKey = "hklm\dn\ogen"
+                />
+                <Reference
                     Name = "OGen.NTier.lib.datalayer-1.1"
                     AssemblyName = "OGen.NTier.lib.datalayer-1.1"
                     AssemblyFolderKey = "hklm\dn\ogen"

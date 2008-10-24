@@ -80,6 +80,11 @@
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Xml.dll"
                 />
                 <Reference
+                    Name = "OGen-NTier_UTs_datalayer_proxy-7.1"
+                    Project = "{F17F7FA0-920E-4AE1-908F-2798D0124996}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
                     Name = "OGen-NTier_UTs_datalayer-7.1"
                     Project = "{2C45EF1A-75BE-4B12-A232-62DEB5662239}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"

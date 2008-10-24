@@ -121,13 +121,8 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Xml.dll"
                 />
                 <Reference
-                    Name = "OGen.lib.datalayer-1.1"
-                    AssemblyName = "OGen.lib.datalayer-1.1"
-                    AssemblyFolderKey = "hklm\dn\ogen"
-                />
-                <Reference
-                    Name = "OGen.NTier.lib.datalayer-1.1"
-                    AssemblyName = "OGen.NTier.lib.datalayer-1.1"
+                    Name = "OGen.NTier.lib.datalayer.proxy-1.1"
+                    AssemblyName = "OGen.NTier.lib.datalayer.proxy-1.1"
                     AssemblyFolderKey = "hklm\dn\ogen"
                 />
             </References>

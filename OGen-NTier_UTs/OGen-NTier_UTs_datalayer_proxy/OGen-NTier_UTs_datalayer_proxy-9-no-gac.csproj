@@ -173,9 +173,9 @@
     <None Include="LICENSE.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\OGen-NTier\NTier_datalayer\NTier_datalayer-9.csproj">
-      <Project>{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}</Project>
-      <Name>NTier_datalayer-9</Name>
+    <ProjectReference Include="..\..\OGen-NTier\NTier_datalayer_proxy\NTier_datalayer_proxy-9.csproj">
+      <Project>{F17F7FA0-920E-4AE1-908F-2798D0124996}</Project>
+      <Name>NTier_datalayer_proxy-9</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

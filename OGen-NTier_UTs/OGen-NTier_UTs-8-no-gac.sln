@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_businesslaye
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_test-8-no-gac", "OGen-NTier_UTs_test\OGen-NTier_UTs_test-8-no-gac.csproj", "{2E2A748F-E72A-4B23-9011-F7AE725AB330}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_datalayer_proxy-8", "..\OGen-NTier\NTier_datalayer_proxy\NTier_datalayer_proxy-8.csproj", "{F17F7FA0-920E-4AE1-908F-2798D0124996}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_datalayer-8", "..\OGen-NTier\NTier_datalayer\NTier_datalayer-8.csproj", "{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_businesslayer-8", "..\OGen-NTier\NTier_businesslayer\NTier_businesslayer-8.csproj", "{8AEBEA64-6FC4-430C-922C-B88D105AE91C}"
@@ -69,6 +71,10 @@ Global
 		{2E2A748F-E72A-4B23-9011-F7AE725AB330}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E2A748F-E72A-4B23-9011-F7AE725AB330}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E2A748F-E72A-4B23-9011-F7AE725AB330}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F17F7FA0-920E-4AE1-908F-2798D0124996}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F17F7FA0-920E-4AE1-908F-2798D0124996}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F17F7FA0-920E-4AE1-908F-2798D0124996}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F17F7FA0-920E-4AE1-908F-2798D0124996}.Release|Any CPU.Build.0 = Release|Any CPU
 		{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -88,6 +88,10 @@
     <Reference Include="System.Xml">
       <Name>System.Xml</Name>
     </Reference>
+    <ProjectReference Include="..\..\OGen-NTier\NTier_datalayer_proxy\NTier_datalayer_proxy-8.csproj">
+      <Project>{F17F7FA0-920E-4AE1-908F-2798D0124996}</Project>
+      <Name>NTier_datalayer_proxy-8</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\OGen-NTier\NTier_datalayer\NTier_datalayer-8.csproj">
       <Project>{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}</Project>
       <Name>NTier_datalayer-8</Name>

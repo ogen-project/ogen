@@ -100,6 +100,11 @@
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
+                    Name = "NTier_datalayer_proxy-7.1"
+                    Project = "{F17F7FA0-920E-4AE1-908F-2798D0124996}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
                     Name = "NTier_datalayer-7.1"
                     Project = "{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"

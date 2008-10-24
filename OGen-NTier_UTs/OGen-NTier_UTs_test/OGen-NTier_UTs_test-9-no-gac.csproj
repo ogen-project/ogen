@@ -139,6 +139,10 @@
     <Compile Include="MainClass.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\OGen-NTier\NTier_datalayer_proxy\NTier_datalayer_proxy-9.csproj">
+      <Project>{F17F7FA0-920E-4AE1-908F-2798D0124996}</Project>
+      <Name>NTier_datalayer_proxy-9</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\OGen-NTier\NTier_distributedlayer_webservices_client\NTier_distributedlayer_webservices_client-9.csproj">
       <Project>{7A52E316-CA44-4710-AF93-CC495DE77F6C}</Project>
       <Name>NTier_distributedlayer_webservices_client-9</Name>

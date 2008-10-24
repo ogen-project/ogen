@@ -111,12 +111,8 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OGen.lib.datalayer-2.0">
-      <Name>OGen.lib.datalayer-2.0</Name>
-      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
-    </Reference>
-    <Reference Include="OGen.NTier.lib.datalayer-2.0">
-      <Name>OGen.NTier.lib.datalayer-2.0</Name>
+    <Reference Include="OGen.NTier.lib.datalayer.proxy-2.0">
+      <Name>OGen.NTier.lib.datalayer.proxy-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
     </Reference>
     <Reference Include="System">
