@@ -15,10 +15,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Web.Services;
 using System.Web.Services.Protocols;
-using OGen.NTier.UTs.lib.distributedlayer.webservices.client;
 using OGen.NTier.lib.distributedlayer.webservices.client;
 
+using OGen.NTier.UTs.lib.distributedlayer.webservices.client;
+using OGen.NTier.UTs.lib.businesslayer.proxy;
+
 namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_Authentication {
+	/// <summary>
+	/// Authentication web service client.
+	/// </summary>
 	/// <remarks/>
 	[System.Diagnostics.DebuggerStepThroughAttribute()]
 	[System.ComponentModel.DesignerCategoryAttribute("code")]

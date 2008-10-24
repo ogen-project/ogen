@@ -49,9 +49,11 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 }%>using System;
 using System.Web.Services;
 using System.Web.Services.Protocols;
-using OGen.NTier.UTs.lib.distributedlayer.webservices.client;
+using OGen.NTier.lib.distributedlayer.webservices.client;
+using OGen.NTier.UTs.lib.businesslayer.proxy;
 
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webservices.client;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.proxy;
 
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.client.WC_<%=_aux_class.Name%> {
 	/// <summary>
@@ -76,6 +78,13 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservice
 <%
 		for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
 			_aux_method = _aux_class.Methods.MethodCollection[m];%>
+
+		#if !NET_1_1
+		private System.Threading.SendOrPostCallback <%=_aux_method.Name%>OperationCompleted;
+		/// <remarks/>
+		public event <%=_aux_method.Name%>CompletedEventHandler <%=_aux_method.Name%>Completed;
+		#endif
+
 		#region public <%=_aux_method.OutputType%> <%=_aux_method.Name%>(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
 			"http://<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webservices.server/<%=_aux_method.Name%>", 
@@ -103,6 +112,48 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservice
 		#endregion<%
 		}%>
 	}
+	#if !NET_1_1<%
+for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
+	_aux_method = _aux_class.Methods.MethodCollection[m];%><%=""%>
+	#region ...<%=_aux_method.Name%>...
+	/// <remarks/>
+	public delegate void <%=_aux_method.Name%>CompletedEventHandler(
+		object sender, 
+		<%=(_aux_method.OutputType == "void") ? "System.ComponentModel.Async" : _aux_method.Name%>CompletedEventArgs e
+	);<%
+	if (_aux_method.OutputType != "void") {%>
+
+	/// <remarks/>
+	[System.Diagnostics.DebuggerStepThroughAttribute()]
+	[System.ComponentModel.DesignerCategoryAttribute("code")]
+	public partial class <%=_aux_method.Name%>CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+		private object[] results;
+
+		internal <%=_aux_method.Name%>CompletedEventArgs(
+			object[] results, 
+			System.Exception exception, 
+			bool cancelled, 
+			object userState
+		) : base(
+			exception, 
+			cancelled, 
+			userState
+		) {
+			this.results = results;
+		}
+
+		/// <remarks/>
+		public <%=_aux_method.OutputType%> Result {
+			get {
+				this.RaiseExceptionIfNecessary();
+				return (<%=_aux_method.OutputType%>)this.results[0];
+			}
+		}
+	}
+	#endregion<%
+	}
+}%>
+	#endif
 }<%
 //-----------------------------------------------------------------------------------------
 %>
