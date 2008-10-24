@@ -27,6 +27,7 @@ OGen is licensed under various different licenses.
 	* OGen.NTier.lib.generator: MIT
 	* OGen.NTier.lib.datalayer: MIT
 	* OGen.NTier.lib.datalayer.UTs: MIT
+	* OGen.NTier.lib.datalayer.proxy: MIT
 	* OGen.NTier.lib.businesslayer: MIT
 	* OGen.NTier.lib.businesslayer.UTs: MIT
 	* OGen.NTier.lib.distributedlayer.webservices.client: MIT
