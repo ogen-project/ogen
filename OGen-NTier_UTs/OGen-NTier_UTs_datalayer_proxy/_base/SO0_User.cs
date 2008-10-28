@@ -111,7 +111,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool hasChanges {
@@ -153,7 +153,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		long IDUser {
@@ -204,7 +204,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		string Login {
@@ -257,7 +257,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		string Password {
@@ -310,7 +310,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		int SomeNullValue {
@@ -334,7 +334,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		[XmlElement("SomeNullValue_isNull")]
 		[SoapElement("SomeNullValue_isNull")]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool SomeNullValue_isNull {

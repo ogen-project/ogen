@@ -16,7 +16,6 @@ using System;
 
 using OGen.NTier.lib.datalayer;
 using OGen.NTier.lib.businesslayer;
-
 using OGen.NTier.UTs.lib.datalayer;
 using OGen.NTier.UTs.lib.datalayer.proxy;
 using OGen.NTier.UTs.lib.businesslayer.proxy;
@@ -27,19 +26,18 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	/// </summary>
 	[BOClassAttribute("BDO_User", "BDO")]
 	public sealed 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		partial 
 #endif
-		class BDO_User : 
-#if NET_1_1
+		class BDO_User :
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			BDO0_User, 
 #endif
 			IBO_User
 	{
 		#region public BDO_User(...);
 		///
-		public BDO_User(
-		) {
+		public BDO_User() {
 		}
 		#endregion
 

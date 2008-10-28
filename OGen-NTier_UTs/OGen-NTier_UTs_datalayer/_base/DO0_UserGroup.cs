@@ -26,39 +26,39 @@ namespace OGen.NTier.UTs.lib.datalayer {
 	/// </summary>
 	[DOClassAttribute("UserGroup", "", "", "", false, false)]
 	public 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		partial 
 #else
 		abstract 
 #endif
 		class 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		DO_UserGroup 
 #else
 		DO0_UserGroup 
 #endif
 		: DO__base {
 		#region public DO_UserGroup();
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		///
 		public DO_UserGroup
 #else
 		internal DO0_UserGroup
 #endif
 		() : base(
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 			DO__utils
 #else
 			DO0__utils
 #endif
 			.DBServerType, 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 			DO__utils
 #else
 			DO0__utils
 #endif
 			.DBConnectionstring,
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 			DO__utils
 #else
 			DO0__utils
@@ -68,7 +68,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			clrObject();
 			fields_.haschanges_ = false;
 		}
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 			/// <summary>
 			/// Making the use of Database Transactions possible on a sequence of operations across multiple DataObjects.
 			/// </summary>
@@ -123,7 +123,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			string logfile_in
 		) {
 			return 
-				#if !NET_1_1
+				#if USE_PARTIAL_CLASSES && !NET_1_1
 				DO__utils
 				#else
 				DO0__utils
@@ -144,7 +144,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		/// Clears all DO0_UserGroup properties, assigning them with their appropriate default property value.
 		/// </summary>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		void clrObject() {
@@ -157,7 +157,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		/// </summary>
 		/// <returns>True if UserGroup exists at Database, False if not</returns>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool getObject() {
@@ -173,7 +173,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		/// <param name="IDGroup_in">IDGroup</param>
 		/// <returns>True if UserGroup exists at Database, False if not</returns>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 			bool getObject(
@@ -225,7 +225,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		/// Deletes UserGroup from Database.
 		/// </summary>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		void delObject() {
@@ -240,7 +240,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		/// <param name="IDUser_in">IDUser</param>
 		/// <param name="IDGroup_in">IDGroup</param>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		void delObject(
@@ -262,7 +262,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		/// </summary>
 		/// <returns>True if UserGroup exists at Database, False if not</returns>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool isObject() {
@@ -278,7 +278,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		/// <param name="IDGroup_in">IDGroup</param>
 		/// <returns>True if UserGroup exists at Database, False if not</returns>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool isObject(
@@ -305,7 +305,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		/// <param name="forceUpdate_in">assign with True if you wish to force an Update (even if no changes have been made since last time getObject method was run) and False if not</param>
 		/// <returns>True if it didn't exist (INSERT), and False if it did exist (UPDATE)</returns>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 			bool setObject(bool forceUpdate_in) {

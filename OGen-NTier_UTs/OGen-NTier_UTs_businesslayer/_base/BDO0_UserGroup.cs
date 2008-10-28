@@ -27,25 +27,25 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	/// </summary>
 	[DOClassAttribute("UserGroup", "", "", "", false, false)]
 	public 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		partial 
 #else
 		abstract 
 #endif
 		class 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		BDO_UserGroup 
 #else
 		BDO0_UserGroup 
 #endif
 		: BDO__base {
 		#region public BDO_UserGroup(...);
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 		internal BDO0_UserGroup() {}
 #endif
 
 		///
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		~BDO_UserGroup
 #else
 		~BDO0_UserGroup
@@ -61,7 +61,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		private DO_UserGroup mainaggregate__;
 
 		///
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		private 
 #else
 		protected 
@@ -117,7 +117,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		long IDUser {
@@ -153,7 +153,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		long IDGroup {
@@ -166,7 +166,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		/// Allows assignement of null and check if null at UserGroup's Relationdate.
 		/// </summary>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool Relationdate_isNull {
@@ -202,7 +202,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		DateTime Relationdate {
@@ -215,7 +215,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		/// Allows assignement of null and check if null at UserGroup's Defaultrelation.
 		/// </summary>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool Defaultrelation_isNull {
@@ -251,7 +251,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool Defaultrelation {

@@ -26,7 +26,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 	public sealed class RO0_Logcode : RO__base {
 		#region internal RO0_Logcode();
 		internal RO0_Logcode(
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 			DO_Logcode 
 #else
 			DO0_Logcode 
@@ -41,7 +41,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 		#region private Properties...
 		private 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 			DO_Logcode 
 #else
 			DO0_Logcode 

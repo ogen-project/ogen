@@ -26,7 +26,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 	public sealed class RO0_User : RO__base {
 		#region internal RO0_User();
 		internal RO0_User(
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 			DO_User 
 #else
 			DO0_User 
@@ -41,7 +41,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 		#region private Properties...
 		private 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 			DO_User 
 #else
 			DO0_User 

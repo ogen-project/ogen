@@ -14,10 +14,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 
-using OGen.NTier.lib.datalayer;
 using OGen.NTier.lib.businesslayer;
-
 using OGen.NTier.UTs.lib.datalayer;
+using OGen.NTier.UTs.lib.businesslayer.proxy;
 
 namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
@@ -25,18 +24,18 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	/// </summary>
 	//[BOClassAttribute("BDO_Language", "BDO")]
 	public sealed 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		partial 
 #endif
-		class BDO_Language 
-#if NET_1_1
-			: BDO0_Language 
+		class BDO_Language :
+#if !USE_PARTIAL_CLASSES || NET_1_1
+			BDO0_Language//, 
 #endif
+			//IBO_Language
 	{
 		#region public BDO_Language(...);
 		///
-		public BDO_Language(
-		) {
+		public BDO_Language() {
 		}
 		#endregion
 

@@ -102,7 +102,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool hasChanges {
@@ -144,7 +144,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		long IDWord {
@@ -195,7 +195,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		long IDLanguage {
@@ -246,7 +246,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		string Translation {
@@ -272,7 +272,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		[XmlElement("Translation_isNull")]
 		[SoapElement("Translation_isNull")]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool Translation_isNull {

@@ -147,7 +147,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool hasChanges {
@@ -194,7 +194,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%> {
@@ -227,7 +227,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 		[XmlElement("<%=_aux_db_field.Name%>_isNull")]
 		[SoapElement("<%=_aux_db_field.Name%>_isNull")]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool <%=_aux_db_field.Name%>_isNull {

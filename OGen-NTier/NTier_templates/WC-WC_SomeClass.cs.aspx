@@ -52,7 +52,7 @@ using System.Web.Services.Protocols;
 
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.proxy;
 
-namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.client.WC_<%=_aux_class.Name%> {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webservices.client.WC_<%=_aux_class.Name%> {
 	/// <summary>
 	/// <%=_aux_class.Name%> web service client.
 	/// </summary>

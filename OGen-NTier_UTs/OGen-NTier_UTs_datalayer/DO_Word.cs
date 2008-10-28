@@ -23,15 +23,15 @@ namespace OGen.NTier.UTs.lib.datalayer {
 	/// Word DataObject which provides access to Word table at Database.
 	/// </summary>
 	public sealed 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		partial
 #endif
 		class DO_Word : 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 		DO0_Word, 
 #endif
 		IDisposable {
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 		#region public DO_Word();
 		///
 		public DO_Word() : base() {

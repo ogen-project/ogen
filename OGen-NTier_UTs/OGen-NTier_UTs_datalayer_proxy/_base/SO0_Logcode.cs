@@ -120,7 +120,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool hasChanges {
@@ -162,7 +162,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		long IDLogcode {
@@ -213,7 +213,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool Warning {
@@ -264,7 +264,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool Error {
@@ -315,7 +315,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		string Code {
@@ -368,7 +368,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		string Description {
@@ -394,7 +394,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		[XmlElement("Description_isNull")]
 		[SoapElement("Description_isNull")]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool Description_isNull {

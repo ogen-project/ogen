@@ -27,25 +27,25 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	/// </summary>
 	[DOClassAttribute("Language", "", "", "", false, false)]
 	public 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		partial 
 #else
 		abstract 
 #endif
 		class 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		BDO_Language 
 #else
 		BDO0_Language 
 #endif
 		: BDO__base {
 		#region public BDO_Language(...);
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 		internal BDO0_Language() {}
 #endif
 
 		///
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		~BDO_Language
 #else
 		~BDO0_Language
@@ -61,7 +61,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		private DO_Language mainaggregate__;
 
 		///
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		private 
 #else
 		protected 
@@ -117,7 +117,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		long IDLanguage {
@@ -153,7 +153,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		long IDWord_name {

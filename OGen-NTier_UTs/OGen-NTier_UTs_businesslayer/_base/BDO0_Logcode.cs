@@ -27,25 +27,25 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	/// </summary>
 	[DOClassAttribute("Logcode", "", "", "", false, false)]
 	public 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		partial 
 #else
 		abstract 
 #endif
 		class 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		BDO_Logcode 
 #else
 		BDO0_Logcode 
 #endif
 		: BDO__base {
 		#region public BDO_Logcode(...);
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 		internal BDO0_Logcode() {}
 #endif
 
 		///
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		~BDO_Logcode
 #else
 		~BDO0_Logcode
@@ -61,7 +61,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		private DO_Logcode mainaggregate__;
 
 		///
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		private 
 #else
 		protected 
@@ -117,7 +117,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		long IDLogcode {
@@ -153,7 +153,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool Warning {
@@ -189,7 +189,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool Error {
@@ -225,7 +225,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		string Code {
@@ -238,7 +238,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		/// Allows assignement of null and check if null at Logcode's Description.
 		/// </summary>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool Description_isNull {
@@ -274,7 +274,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		string Description {

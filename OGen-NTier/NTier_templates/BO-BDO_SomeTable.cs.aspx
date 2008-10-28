@@ -59,11 +59,11 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 	/// </summary>
 	[BOClassAttribute("BDO_<%=_aux_db_table.Name%>", "<%=OGen.NTier.lib.metadata.metadataBusiness.XS_BoEnumeration.BDO.ToString()%>")]
 	public sealed 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		partial 
 #endif
 		class BDO_<%=_aux_db_table.Name%> :
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			BDO0_<%=_aux_db_table.Name%>, 
 #endif
 			IBO_<%=_aux_db_table.Name%>

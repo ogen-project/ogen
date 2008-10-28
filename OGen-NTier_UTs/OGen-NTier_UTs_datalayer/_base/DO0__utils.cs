@@ -32,14 +32,14 @@ namespace OGen.NTier.UTs.lib.datalayer {
 	/// utils DataObject which works as a repository of useful Properties and Methods for DataObjects at OGen.NTier.UTs.lib.datalayer namespace.
 	/// </summary>
 	public 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		partial class DO__utils 
 #else
 		abstract class DO0__utils 
 #endif
 	{
 		#region public DO__utils(...);
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		///
 		public DO__utils
 #else
@@ -50,7 +50,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 		#region static DO__utils();
 		static 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 			DO__utils
 #else
 			DO0__utils

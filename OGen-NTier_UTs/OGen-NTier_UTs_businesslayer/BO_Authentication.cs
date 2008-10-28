@@ -29,7 +29,6 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	public class BO_Authentication : IBO_Authentication {
 		#region public BO0_Authentication(...);
 		public BO_Authentication(
-		) : base (
 		) {
 			// ...
 		}

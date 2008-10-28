@@ -112,7 +112,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool hasChanges {
@@ -154,7 +154,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		long IDLog {
@@ -205,7 +205,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		long IDLogcode {
@@ -256,7 +256,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		long IDUser_posted {
@@ -307,7 +307,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		DateTime Date_posted {
@@ -358,7 +358,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		string Logdata {

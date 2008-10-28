@@ -23,15 +23,15 @@ namespace OGen.NTier.UTs.lib.datalayer {
 	/// Logcode DataObject which provides access to Logcode table at Database.
 	/// </summary>
 	public sealed 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		partial
 #endif
 		class DO_Logcode : 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 		DO0_Logcode, 
 #endif
 		IDisposable {
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 		#region public DO_Logcode();
 		///
 		public DO_Logcode() : base() {

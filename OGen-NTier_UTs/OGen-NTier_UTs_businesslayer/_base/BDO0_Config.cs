@@ -27,25 +27,25 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	/// </summary>
 	[DOClassAttribute("Config", "", "", "", false, true)]
 	public 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		partial 
 #else
 		abstract 
 #endif
 		class 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		BDO_Config 
 #else
 		BDO0_Config 
 #endif
 		: BDO__base {
 		#region public BDO_Config(...);
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 		internal BDO0_Config() {}
 #endif
 
 		///
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		~BDO_Config
 #else
 		~BDO0_Config
@@ -61,7 +61,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		private DO_Config mainaggregate__;
 
 		///
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		private 
 #else
 		protected 
@@ -117,7 +117,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		string Name {
@@ -153,7 +153,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		string Config {
@@ -189,7 +189,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		int Type {
@@ -225,7 +225,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		string Description {

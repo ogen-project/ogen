@@ -58,15 +58,15 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 	/// <%=_aux_db_table.Name%> DataObject which provides access to <%=_aux_db_table.Name%> <%=(_aux_db_table.isVirtualTable) ? "view" : "table"%> at Database.
 	/// </summary>
 	public sealed 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		partial
 #endif
 		class DO_<%=_aux_db_table.Name%> : 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 		DO0_<%=_aux_db_table.Name%>, 
 #endif
 		IDisposable {
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 		#region public DO_<%=_aux_db_table.Name%>();
 		///
 		public DO_<%=_aux_db_table.Name%>() : base() {

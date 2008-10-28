@@ -27,25 +27,25 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	/// </summary>
 	[DOClassAttribute("WordLanguage", "", "", "", false, false)]
 	public 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		partial 
 #else
 		abstract 
 #endif
 		class 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		BDO_WordLanguage 
 #else
 		BDO0_WordLanguage 
 #endif
 		: BDO__base {
 		#region public BDO_WordLanguage(...);
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 		internal BDO0_WordLanguage() {}
 #endif
 
 		///
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		~BDO_WordLanguage
 #else
 		~BDO0_WordLanguage
@@ -61,7 +61,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		private DO_WordLanguage mainaggregate__;
 
 		///
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		private 
 #else
 		protected 
@@ -117,7 +117,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		long IDWord {
@@ -153,7 +153,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		long IDLanguage {
@@ -166,7 +166,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		/// Allows assignement of null and check if null at WordLanguage's Translation.
 		/// </summary>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool Translation_isNull {
@@ -202,7 +202,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		string Translation {

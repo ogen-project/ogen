@@ -19,6 +19,9 @@ using System.Web.Services.Protocols;
 using OGen.NTier.UTs.lib.businesslayer.proxy;
 
 namespace OGen.NTier.UTs.lib.distributedlayer.webservices.client.WC_User {
+	/// <summary>
+	/// User web service client.
+	/// </summary>
 	public class WC_User : WC0_User, IBO_User {
 		public WC_User(
 			string url_in

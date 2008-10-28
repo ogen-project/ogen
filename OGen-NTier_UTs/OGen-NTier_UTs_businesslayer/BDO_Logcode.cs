@@ -14,10 +14,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 
-using OGen.NTier.lib.datalayer;
 using OGen.NTier.lib.businesslayer;
-
 using OGen.NTier.UTs.lib.datalayer;
+using OGen.NTier.UTs.lib.businesslayer.proxy;
 
 namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
@@ -25,18 +24,18 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	/// </summary>
 	//[BOClassAttribute("BDO_Logcode", "BDO")]
 	public sealed 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		partial 
 #endif
-		class BDO_Logcode 
-#if NET_1_1
-			: BDO0_Logcode 
+		class BDO_Logcode :
+#if !USE_PARTIAL_CLASSES || NET_1_1
+			BDO0_Logcode//, 
 #endif
+			//IBO_Logcode
 	{
 		#region public BDO_Logcode(...);
 		///
-		public BDO_Logcode(
-		) {
+		public BDO_Logcode() {
 		}
 		#endregion
 

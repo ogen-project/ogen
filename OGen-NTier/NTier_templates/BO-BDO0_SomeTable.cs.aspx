@@ -61,7 +61,7 @@ using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy;
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 	/// <summary>
 	/// <%=_aux_db_table.Name%> BusinessObject which provides access to <see cref="<%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.DO_<%=_aux_db_table.Name%>">DO_<%=_aux_db_table.Name%></see> for the Business Layer.<%--
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 	/// <note type="implementnotes">
 	/// Access must be made via <see cref="BDO_<%=_aux_db_table.Name%>">BDO_<%=_aux_db_table.Name%></see>.
 	/// </note>
@@ -69,25 +69,25 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 	/// </summary>
 	[DOClassAttribute("<%=_aux_db_table.Name%>", "<%=_aux_ex_table.FriendlyName%>", "<%=_aux_ex_table.DBDescription%>", "<%=_aux_ex_table.ExtendedDescription%>", <%=_aux_db_table.isVirtualTable.ToString().ToLower()%>, <%=_aux_ex_table.isConfig.ToString().ToLower()%>)]
 	public 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		partial 
 #else
 		abstract 
 #endif
 		class 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		BDO_<%=_aux_db_table.Name%> 
 #else
 		BDO0_<%=_aux_db_table.Name%> 
 #endif
 		: BDO__base<%=(isListItem) ? ", iListItem" : ""%> {
 		#region public BDO_<%=_aux_db_table.Name%>(...);
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 		internal BDO0_<%=_aux_db_table.Name%>() {}
 #endif
 
 		///
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		~BDO_<%=_aux_db_table.Name%>
 #else
 		~BDO0_<%=_aux_db_table.Name%>
@@ -103,7 +103,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 		private DO_<%=_aux_db_table.Name%> mainaggregate__;
 
 		///
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		private 
 #else
 		protected 
@@ -137,7 +137,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 		/// List Item Value.
 		/// </summary>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 			string ListItemValue {
@@ -149,7 +149,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 		/// List Item Text.
 		/// </summary>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 			string ListItemText {
@@ -168,7 +168,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 		/// Allows assignement of null and check if null at <%=_aux_db_table.Name%>'s <%=_aux_db_field.Name%>.
 		/// </summary>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool <%=_aux_db_field.Name%>_isNull {
@@ -207,7 +207,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 			""
 		)]
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%> {

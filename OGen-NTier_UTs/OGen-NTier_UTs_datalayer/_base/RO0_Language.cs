@@ -26,7 +26,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 	public sealed class RO0_Language : RO__base {
 		#region internal RO0_Language();
 		internal RO0_Language(
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 			DO_Language 
 #else
 			DO0_Language 
@@ -41,7 +41,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 
 		#region private Properties...
 		private 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 			DO_Language 
 #else
 			DO0_Language 

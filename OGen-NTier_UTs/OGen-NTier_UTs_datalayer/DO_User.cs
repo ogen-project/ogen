@@ -23,15 +23,15 @@ namespace OGen.NTier.UTs.lib.datalayer {
 	/// User DataObject which provides access to User table at Database.
 	/// </summary>
 	public sealed 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		partial
 #endif
 		class DO_User : 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 		DO0_User, 
 #endif
 		IDisposable {
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 		#region public DO_User();
 		///
 		public DO_User() : base() {

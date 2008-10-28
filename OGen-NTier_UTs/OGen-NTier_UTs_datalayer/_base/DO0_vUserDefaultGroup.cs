@@ -26,39 +26,39 @@ namespace OGen.NTier.UTs.lib.datalayer {
 	/// </summary>
 	[DOClassAttribute("vUserDefaultGroup", "", "", "", true, false)]
 	public 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		partial 
 #else
 		abstract 
 #endif
 		class 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		DO_vUserDefaultGroup 
 #else
 		DO0_vUserDefaultGroup 
 #endif
 		: DO__base {
 		#region public DO_vUserDefaultGroup();
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		///
 		public DO_vUserDefaultGroup
 #else
 		internal DO0_vUserDefaultGroup
 #endif
 		() : base(
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 			DO__utils
 #else
 			DO0__utils
 #endif
 			.DBServerType, 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 			DO__utils
 #else
 			DO0__utils
 #endif
 			.DBConnectionstring,
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 			DO__utils
 #else
 			DO0__utils
@@ -68,7 +68,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			clrObject();
 			fields_.haschanges_ = false;
 		}
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 			/// <summary>
 			/// Making the use of Database Transactions possible on a sequence of operations across multiple DataObjects.
 			/// </summary>
@@ -123,7 +123,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 			string logfile_in
 		) {
 			return 
-				#if !NET_1_1
+				#if USE_PARTIAL_CLASSES && !NET_1_1
 				DO__utils
 				#else
 				DO0__utils
@@ -144,7 +144,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		/// Clears all DO0_vUserDefaultGroup properties, assigning them with their appropriate default property value.
 		/// </summary>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		void clrObject() {

@@ -58,7 +58,7 @@ using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.proxy;
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 	/// <summary>
 	/// <%=_aux_class.Name%> BusinessObject.<%--
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 	/// <note type="implementnotes">
 	/// Access must be made via <see cref="BO_<%=_aux_class.Name%>">BO_<%=_aux_class.Name%></see>.
 	/// </note>

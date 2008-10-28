@@ -72,7 +72,7 @@ using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy;
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 	/// <summary>
 	/// <%=_aux_db_table.Name%> DataObject which provides access to <%=_aux_db_table.Name%> <%=(_aux_db_table.isVirtualTable) ? "view" : "table"%> at Database.<%--
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 	/// <note type="implementnotes">
 	/// Access must be made via <see cref="DO_<%=_aux_db_table.Name%>">DO_<%=_aux_db_table.Name%></see>.
 	/// </note>
@@ -80,39 +80,39 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 	/// </summary>
 	[DOClassAttribute("<%=_aux_db_table.Name%>", "<%=_aux_ex_table.FriendlyName%>", "<%=_aux_ex_table.DBDescription%>", "<%=_aux_ex_table.ExtendedDescription%>", <%=_aux_db_table.isVirtualTable.ToString().ToLower()%>, <%=_aux_ex_table.isConfig.ToString().ToLower()%>)]
 	public 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		partial 
 #else
 		abstract 
 #endif
 		class 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		DO_<%=_aux_db_table.Name%> 
 #else
 		DO0_<%=_aux_db_table.Name%> 
 #endif
 		: DO__base {
 		#region public DO_<%=_aux_db_table.Name%>();
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		///
 		public DO_<%=_aux_db_table.Name%>
 #else
 		internal DO0_<%=_aux_db_table.Name%>
 #endif
 		() : base(
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 			DO__utils
 #else
 			DO0__utils
 #endif
 			.DBServerType, 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 			DO__utils
 #else
 			DO0__utils
 #endif
 			.DBConnectionstring,
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 			DO__utils
 #else
 			DO0__utils
@@ -122,7 +122,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			clrObject();
 			fields_.haschanges_ = false;
 		}
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 			/// <summary>
 			/// Making the use of Database Transactions possible on a sequence of operations across multiple DataObjects.
 			/// </summary>
@@ -177,7 +177,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			string logfile_in
 		) {
 			return 
-				#if !NET_1_1
+				#if USE_PARTIAL_CLASSES && !NET_1_1
 				DO__utils
 				#else
 				DO0__utils
@@ -198,7 +198,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		/// Clears all DO0_<%=_aux_db_table.Name%> properties, assigning them with their appropriate default property value.
 		/// </summary>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		void clrObject() {<%--
@@ -221,7 +221,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 		/// </summary>
 		/// <returns>True if <%=_aux_db_table.Name%> exists at Database, False if not</returns>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool getObject() {
@@ -241,7 +241,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 		}%>
 		/// <returns>True if <%=_aux_db_table.Name%> exists at Database, False if not</returns>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 			bool getObject(<%
@@ -297,7 +297,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 		/// Deletes <%=_aux_db_table.Name%> from Database.
 		/// </summary>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		void delObject() {
@@ -316,7 +316,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 		/// <param name="<%=_aux_db_field.Name%>_in"><%=_aux_db_field.Name%></param><%
 		}%>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		void delObject(<%
@@ -344,7 +344,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 		/// </summary>
 		/// <returns>True if <%=_aux_db_table.Name%> exists at Database, False if not</returns>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool isObject() {
@@ -364,7 +364,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 		}%>
 		/// <returns>True if <%=_aux_db_table.Name%> exists at Database, False if not</returns>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		bool isObject(<%
@@ -398,7 +398,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 		/// <param name="forceUpdate_in">assign with True if you wish to force an Update (even if no changes have been made since last time getObject method was run) and False if not</param>
 		/// <returns>True if it didn't exist (INSERT), and False if it did exist (UPDATE)</returns>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 			bool setObject(bool forceUpdate_in<%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? ", out bool ConstraintExist_out" : ""%>) {
@@ -490,7 +490,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 					switch (fields_.<%=NameField%>) {<%
 								for (int r = 0; r < ConfigTable.Rows.Count; r++) {%>
 						case "<%=ConfigTable.Rows[r][NameField]%>": {
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 							DO__utils
 #else
 							DO0__utils
@@ -528,7 +528,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 		}%>
 		/// <returns>insertion sequence/identity seed</returns>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].DBType_generic.FWType%> insObject(
@@ -582,7 +582,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 		/// <param name="constraintExist_out">returns True if constraint exists and Update failed, and False if no constraint and Update was successful</param><%
 		}%>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		void updObject(bool forceUpdate_in<%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? ", out bool constraintExist_out" : ""%>) {
@@ -793,7 +793,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 		/// <param name="constraintExist_out">returns True if constraint exists and Update failed, and False if no constraint and Update was successful</param><%
 		} %>
 		public 
-#if NET_1_1
+#if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
 		void updObject_<%=_aux_ex_update.Name%>(bool forceUpdate_in<%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? ", out bool constraintExist_out" : ""%>) {

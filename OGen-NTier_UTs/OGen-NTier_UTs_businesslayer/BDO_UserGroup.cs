@@ -14,10 +14,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 
-using OGen.NTier.lib.datalayer;
 using OGen.NTier.lib.businesslayer;
-
 using OGen.NTier.UTs.lib.datalayer;
+using OGen.NTier.UTs.lib.businesslayer.proxy;
 
 namespace OGen.NTier.UTs.lib.businesslayer {
 	/// <summary>
@@ -25,18 +24,18 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 	/// </summary>
 	//[BOClassAttribute("BDO_UserGroup", "BDO")]
 	public sealed 
-#if !NET_1_1
+#if USE_PARTIAL_CLASSES && !NET_1_1
 		partial 
 #endif
-		class BDO_UserGroup 
-#if NET_1_1
-			: BDO0_UserGroup 
+		class BDO_UserGroup :
+#if !USE_PARTIAL_CLASSES || NET_1_1
+			BDO0_UserGroup//, 
 #endif
+			//IBO_UserGroup
 	{
 		#region public BDO_UserGroup(...);
 		///
-		public BDO_UserGroup(
-		) {
+		public BDO_UserGroup() {
 		}
 		#endregion
 
