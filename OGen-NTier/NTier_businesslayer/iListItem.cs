@@ -20,7 +20,7 @@ namespace OGen.NTier.lib.businesslayer {
 	/// <summary>
 	/// ListItem Interface.
 	/// </summary>
-	public interface iListItem {
+	public interface IListItem {
 		/// <summary>
 		/// List Item Text.
 		/// </summary>
@@ -38,6 +38,6 @@ namespace OGen.NTier.lib.businesslayer {
 		/// <summary>
 		/// Exposes RecordObject.
 		/// </summary>
-		iRecordObject Record { get; }
+		IRecordObject Record { get; }
 	}
 }

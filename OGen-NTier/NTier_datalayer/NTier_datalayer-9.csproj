@@ -95,7 +95,7 @@
     <Compile Include="DO__base.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="iRecordObject.cs">
+    <Compile Include="IRecordObject.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="RO__base.cs">

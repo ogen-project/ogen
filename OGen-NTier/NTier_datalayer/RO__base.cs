@@ -19,7 +19,7 @@ namespace OGen.NTier.lib.datalayer {
 	/// <summary>
 	/// base implementation class for RecordObject classes.
 	/// </summary>
-	public abstract class RO__base : iRecordObject {
+	public abstract class RO__base : IRecordObject {
 		/// <param name="dataObject_in">a Reference to the DataObject (the one that's aggregating this RecordObject)</param>
 		public RO__base(
 			DO__base dataObject_in

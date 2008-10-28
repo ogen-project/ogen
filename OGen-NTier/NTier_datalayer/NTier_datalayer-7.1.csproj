@@ -113,7 +113,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "iRecordObject.cs"
+                    RelPath = "IRecordObject.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

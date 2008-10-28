@@ -124,7 +124,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 		/// <summary>
 		/// Exposes RecordObject.
 		/// </summary>
-		public override iRecordObject Record {
+		public override IRecordObject Record {
 			get { return mainAggregate.Record; }
 		}
 

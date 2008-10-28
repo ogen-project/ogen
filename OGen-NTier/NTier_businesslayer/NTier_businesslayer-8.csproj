@@ -98,7 +98,7 @@
     <Compile Include="BDO__base.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="iListItem.cs">
+    <Compile Include="IListItem.cs">
       <SubType>Code</SubType>
     </Compile>
     <None Include="COPYING.MIT" />

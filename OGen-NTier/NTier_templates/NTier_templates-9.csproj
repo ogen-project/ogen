@@ -126,6 +126,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-BDO0_SomeTable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="BO-BDO_SomeTable.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>

@@ -19,7 +19,7 @@ namespace OGen.NTier.lib.datalayer {
 	/// <summary>
 	/// DataObject interface.
 	/// </summary>
-	public interface iRecordObject {
+	public interface IRecordObject {
 		/// <summary>
 		/// Represents current iteration at the Record.
 		/// </summary>

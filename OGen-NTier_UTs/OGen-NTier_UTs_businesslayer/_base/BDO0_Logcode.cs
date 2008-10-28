@@ -82,7 +82,7 @@ namespace OGen.NTier.UTs.lib.businesslayer {
 		/// <summary>
 		/// Exposes RecordObject.
 		/// </summary>
-		public override iRecordObject Record {
+		public override IRecordObject Record {
 			get { return mainAggregate.Record; }
 		}
 

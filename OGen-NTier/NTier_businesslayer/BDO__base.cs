@@ -26,7 +26,7 @@ namespace OGen.NTier.lib.businesslayer {
 		/// <summary>
 		/// Exposes RecordObject.
 		/// </summary>
-		public abstract iRecordObject Record { get; }
+		public abstract IRecordObject Record { get; }
 		#endregion
 
 //		#region public Methods - Record...

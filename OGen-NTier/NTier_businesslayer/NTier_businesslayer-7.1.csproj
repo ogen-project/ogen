@@ -118,7 +118,7 @@
                     BuildAction = "None"
                 />
                 <File
-                    RelPath = "iListItem.cs"
+                    RelPath = "IListItem.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
