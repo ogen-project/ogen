@@ -117,6 +117,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 		#endregion
 
 		#region Methods...
+		#region public override DBConnection DBConnection_createInstance(...);
 		public override DBConnection DBConnection_createInstance(
 			string dbServerType_in, 
 			string connectionstring_in, 
@@ -134,6 +135,7 @@ namespace OGen.NTier.UTs.lib.datalayer {
 						logfile_in
 					);
 		}
+		#endregion
 		#region public SC_Permition Serialize();
 		public SO_Permition Serialize() {
 			return fields_;

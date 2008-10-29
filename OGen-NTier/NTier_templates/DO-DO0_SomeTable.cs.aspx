@@ -171,6 +171,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		#endregion
 
 		#region Methods...
+		#region public override DBConnection DBConnection_createInstance(...);
 		public override DBConnection DBConnection_createInstance(
 			string dbServerType_in, 
 			string connectionstring_in, 
@@ -188,6 +189,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 						logfile_in
 					);
 		}
+		#endregion
 		#region public SC_<%=_aux_db_table.Name%> Serialize();
 		public SO_<%=_aux_db_table.Name%> Serialize() {
 			return fields_;
