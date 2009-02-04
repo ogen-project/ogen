@@ -20,7 +20,7 @@ CREATE TABLE "Language"
 (
   "IDLanguage" bigint NOT NULL DEFAULT nextval('"Language_IDLanguage_seq"'::regclass),
   "IDWord_name" bigint NOT NULL,
-  CONSTRAINT "Language_pkey" PRIMARY KEY ("IDLanguage")
+  CONSTRAINT "Language_pkey" PRIMARY KEY ("IDLanguage"), 
   CONSTRAINT "Language_IDWord_name_fkey" FOREIGN KEY ("IDWord_name")
       REFERENCES "Word" ("IDWord") MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION

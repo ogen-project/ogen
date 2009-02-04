@@ -11,10 +11,10 @@
 @ECHO OFF
 IF "%~d0%~p0..\distro\bin" == "" GOTO error1
 IF NOT EXIST "%~d0%~p0..\distro\bin\OGen.NTier.presentationlayer.console-1.1.exe" GOTO error2
-IF NOT EXIST "%~d0%~p0OGen-metadatas\MD_OGen-NTier_UTs.OGen-metadata.xml" GOTO error3
+IF NOT EXIST "%~d0%~p0OGen-metadatas\MD_OGen-NTier_UTs.OGenXSD-metadata.xml" GOTO error3
 
 
-"%~d0%~p0..\distro\bin\OGen.NTier.presentationlayer.console-1.1.exe" "%~d0%~p0OGen-metadatas\MD_OGen-NTier_UTs.OGen-metadata.xml"
+"%~d0%~p0..\distro\bin\OGen.NTier.presentationlayer.console-1.1.exe" "%~d0%~p0OGen-metadatas\MD_OGen-NTier_UTs.OGenXSD-metadata.xml"
 PAUSE
 GOTO eof
 
@@ -29,7 +29,7 @@ GOTO eof
 	PAUSE
 GOTO eof
 :error3
-	ECHO Can't find: "%~d0%~p0OGen-metadatas\MD_OGen-NTier_UTs.OGen-metadata.xml"
+	ECHO Can't find: "%~d0%~p0OGen-metadatas\MD_OGen-NTier_UTs.OGenXSD-metadata.xml"
 	ECHO %~n0%~x0 needs some tweaking
 	PAUSE
 GOTO eof

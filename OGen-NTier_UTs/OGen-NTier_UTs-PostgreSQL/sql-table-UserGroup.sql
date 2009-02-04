@@ -9,7 +9,7 @@ CREATE TABLE "UserGroup"
   "IDGroup" bigint NOT NULL,
   "Relationdate" timestamp without time zone,
   "Defaultrelation" boolean,
-  CONSTRAINT "UserGroup_pkey" PRIMARY KEY ("IDUser", "IDGroup")
+  CONSTRAINT "UserGroup_pkey" PRIMARY KEY ("IDUser", "IDGroup"), 
   CONSTRAINT "UserGroup_IDGroup_fkey" FOREIGN KEY ("IDGroup")
       REFERENCES "Group" ("IDGroup") MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
