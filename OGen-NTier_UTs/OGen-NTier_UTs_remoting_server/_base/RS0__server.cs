@@ -29,17 +29,17 @@ namespace OGen.NTier.UTs.distributedlayer.remoting.server {
 			ChannelServices.RegisterChannel(new TcpChannel(8085), false);
 			#endif
 			RemotingConfiguration.RegisterWellKnownServiceType(
-				typeof(RS_User),
-				"OGen.NTier.UTs.distributedlayer.remoting.server.RS_User.remoting",
-				//"OGen.NTier.UTs.distributedlayer.remoting.server.RS_User.soap",
+				typeof(RS_Authentication),
+				"OGen.NTier.UTs.distributedlayer.remoting.server.RS_Authentication.remoting",
+				//"OGen.NTier.UTs.distributedlayer.remoting.server.RS_Authentication.soap",
 
 				WellKnownObjectMode.Singleton
 				//WellKnownObjectMode.SingleCall
 			);
 			RemotingConfiguration.RegisterWellKnownServiceType(
-				typeof(RS_Authentication),
-				"OGen.NTier.UTs.distributedlayer.remoting.server.RS_Authentication.remoting",
-				//"OGen.NTier.UTs.distributedlayer.remoting.server.RS_Authentication.soap",
+				typeof(RS_User),
+				"OGen.NTier.UTs.distributedlayer.remoting.server.RS_User.remoting",
+				//"OGen.NTier.UTs.distributedlayer.remoting.server.RS_User.soap",
 
 				WellKnownObjectMode.Singleton
 				//WellKnownObjectMode.SingleCall

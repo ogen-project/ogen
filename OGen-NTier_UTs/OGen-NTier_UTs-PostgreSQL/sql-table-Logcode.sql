@@ -22,7 +22,7 @@ CREATE TABLE "Logcode"
   "Warning" boolean NOT NULL,
   "Error" boolean NOT NULL,
   "Code" character varying(50) NOT NULL,
-  "Description" character varying(50),
+  "Description" character varying(255),
   CONSTRAINT "Logcode_pkey" PRIMARY KEY ("IDLogcode")
 ) 
 WITHOUT OIDS;

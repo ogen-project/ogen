@@ -58,7 +58,7 @@
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
-    <DefineConstants>TRACE;NET_2_0;PostgreSQL</DefineConstants>
+    <DefineConstants>TRACE;NET_2_0;PostgreSQL;MySQL</DefineConstants>
     <DocumentationFile>bin\Debug\OGen.lib.generator-2.0.XML</DocumentationFile>
     <DebugSymbols>false</DebugSymbols>
     <FileAlignment>4096</FileAlignment>

@@ -1,6 +1,17 @@
 <?xml version="1.0"?>
 <metadataBusiness xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" applicationName="OGen-NTier_UTs">
   <classes>
+    <class name="Authentication" type="BO">
+      <methods>
+        <method name="Login" outputType="string" distribute="true">
+          <parameters>
+            <parameter name="login_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="password_in" type="string" isParams="false" isOut="false" isRef="false" />
+          </parameters>
+        </method>
+        <method name="Logout" outputType="void" distribute="true" />
+      </methods>
+    </class>
     <class name="User" type="BDO">
       <methods>
         <method name="insObject" outputType="long" distribute="true">
@@ -27,17 +38,6 @@
             <parameter name="recordLength_out" type="long" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-      </methods>
-    </class>
-    <class name="Authentication" type="BO">
-      <methods>
-        <method name="Login" outputType="string" distribute="true">
-          <parameters>
-            <parameter name="login_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="password_in" type="string" isParams="false" isOut="false" isRef="false" />
-          </parameters>
-        </method>
-        <method name="Logout" outputType="void" distribute="true" />
       </methods>
     </class>
   </classes>
