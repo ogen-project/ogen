@@ -89,12 +89,12 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <ProjectReference Include="..\..\OGen\OGen_collections\OGen_collections-8.csproj">
+    <ProjectReference Include="..\..\OGen\OGen_collections\OGen_collections-9.csproj">
       <Name>OGen_collections</Name>
       <Project>{A6E837F8-780F-4D05-B3ED-2FF1906B5766}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-    <ProjectReference Include="..\Doc_metadata\Doc_metadata-8.csproj">
+    <ProjectReference Include="..\Doc_metadata\Doc_metadata-9.csproj">
       <Name>Doc_metadata</Name>
       <Project>{9DF6791A-1771-4EB6-8FEB-7F54AC2D9078}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>

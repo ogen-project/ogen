@@ -63,15 +63,15 @@
       <Project>{8F5F21DB-FED4-46A9-9E7E-B50B678D12B2}</Project>
       <Name>OGen_datalayer_MySQL-9</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OGen_datalayer_PostgreSQL\OGen_datalayer_PostgreSQL-8.csproj">
+    <ProjectReference Include="..\OGen_datalayer_PostgreSQL\OGen_datalayer_PostgreSQL-9.csproj">
       <Project>{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}</Project>
       <Name>OGen_datalayer_PostgreSQL-8</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OGen_datalayer_SQLServer\OGen_datalayer_SQLServer-8.csproj">
+    <ProjectReference Include="..\OGen_datalayer_SQLServer\OGen_datalayer_SQLServer-9.csproj">
       <Project>{F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7}</Project>
       <Name>OGen_datalayer_SQLServer-8</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OGen_datalayer__base\OGen_datalayer__base-8.csproj">
+    <ProjectReference Include="..\OGen_datalayer__base\OGen_datalayer__base-9.csproj">
       <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
       <Name>OGen_datalayer__base-8</Name>
     </ProjectReference>

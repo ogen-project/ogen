@@ -89,7 +89,7 @@
     <Reference Include="System.XML">
       <Name>System.XML</Name>
     </Reference>
-    <ProjectReference Include="..\OGen_winforms\OGen_winforms-8.csproj">
+    <ProjectReference Include="..\OGen_winforms\OGen_winforms-9.csproj">
       <Name>OGen_winforms</Name>
       <Project>{B3835B3F-C899-416F-BA94-625A4B32A4AC}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>

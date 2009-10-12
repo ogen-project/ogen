@@ -95,12 +95,12 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <ProjectReference Include="..\OGen_parser\OGen_parser-8.csproj">
+    <ProjectReference Include="..\OGen_parser\OGen_parser-9.csproj">
       <Name>OGen_parser</Name>
       <Project>{981BC7DE-D93C-446E-861E-60A20E4E3391}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-    <ProjectReference Include="..\OGen_webforms\OGen_webforms-8.csproj">
+    <ProjectReference Include="..\OGen_webforms\OGen_webforms-9.csproj">
       <Name>OGen_webforms</Name>
       <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>

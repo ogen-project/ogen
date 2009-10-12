@@ -83,7 +83,7 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <ProjectReference Include="..\..\OGen\OGen_collections\OGen_collections-8.csproj">
+    <ProjectReference Include="..\..\OGen\OGen_collections\OGen_collections-9.csproj">
       <Name>OGen_collections</Name>
       <Project>{A6E837F8-780F-4D05-B3ED-2FF1906B5766}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
@@ -171,11 +171,11 @@
     <Content Include="LICENSE.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\OGen\OGen_generator\OGen_generator-8.csproj">
+    <ProjectReference Include="..\..\OGen\OGen_generator\OGen_generator-9.csproj">
       <Project>{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}</Project>
       <Name>OGen_generator-8</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\OGen\OGen_webforms\OGen_webforms-8.csproj">
+    <ProjectReference Include="..\..\OGen\OGen_webforms\OGen_webforms-9.csproj">
       <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
       <Name>OGen_webforms-8</Name>
     </ProjectReference>
