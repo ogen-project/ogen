@@ -28,12 +28,7 @@ IF NOT EXIST "%thisdir%..\distro-metadatas\OGen-projects.txt" GOTO error5
 IF NOT EXIST "%thisdir%..\distro-keys\OGen-public.snk" GOTO error6
 
 
-SET SetEnvironmentPath=
-IF '%SetEnvironmentPath%' == '' IF EXIST "C:\Program Files\Microsoft Visual Studio 8\VC\vcvarsall.bat" SET SetEnvironmentPath="C:\Program Files\Microsoft Visual Studio 8\VC\vcvarsall.bat"
-IF '%SetEnvironmentPath%' == '' IF EXIST "C:\Program Files\Microsoft Visual Studio .NET 2003\Common7\Tools\vsvars32.bat" SET SetEnvironmentPath="c:\Program Files\Microsoft Visual Studio .NET 2003\Common7\Tools\vsvars32.bat"
-IF '%SetEnvironmentPath%' == '' GOTO error1
-::CALL %SetEnvironmentPath% x86
-  CALL %SetEnvironmentPath% %PROCESSOR_ARCHITECTURE%
+CALL "%thisdir%..\win-050-SET_SDK_PATH.bat"
 
 
 SET token=
@@ -133,6 +128,5 @@ GOTO eof
 
 :eof
 ::SET thisdir=
-::SET SetEnvironmentPath=
 ::SET token=
 ::SET fw=
