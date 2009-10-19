@@ -12,7 +12,7 @@
 SET thisdir=%~dp0
 
 
-CALL "%thisdir%win-050-SET_SDK_PATH.bat"
+CALL "%thisdir%distro-auxscripts\win-SET_SDK_PATH.bat"
 
 
 IF NOT EXIST "%thisdir%distro-keys" MKDIR "%thisdir%distro-keys"

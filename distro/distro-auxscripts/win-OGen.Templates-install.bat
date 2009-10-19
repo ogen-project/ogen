@@ -28,7 +28,7 @@ IF NOT EXIST "%thisdir%..\distro-metadatas\OGen-projects.txt" GOTO error5
 IF NOT EXIST "%thisdir%..\distro-keys\OGen-public.snk" GOTO error6
 
 
-CALL "%thisdir%..\win-050-SET_SDK_PATH.bat"
+CALL "%thisdir%win-SET_SDK_PATH.bat"
 
 
 SET token=

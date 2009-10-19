@@ -25,7 +25,7 @@ IF NOT '%2' == '' GOTO error5
 ::)
 
 
-CALL "%thisdir%..\win-050-SET_SDK_PATH.bat"
+CALL "%thisdir%win-SET_SDK_PATH.bat"
 
 
 IF NOT EXIST "%thisdir%..\distro-metadatas\OGen-solutions.txt" GOTO error2
