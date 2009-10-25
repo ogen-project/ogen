@@ -20,3 +20,7 @@ _shell.RegWrite(
 	"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\.NETFramework\\AssemblyFolders\\OGen\\", 
 	_fs.GetAbsolutepathname("bin")
 );
+_shell.RegWrite(
+	"HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\.NETFramework\\AssemblyFolders\\OGen\\", 
+	_fs.GetAbsolutepathname("bin")
+);
