@@ -25,7 +25,7 @@ _user.Fields.Login = "123";
 _user.Fields.Password = "123";
 
 System.Reflection.PropertyInfo[] _properties
-	= typeof(OGen.NTier.UTs.lib.datalayer.DO_User).GetProperties(
+	= typeof(OGen.NTier.UTs.lib.datalayer.proxy.SO_User).GetProperties(
 		System.Reflection.BindingFlags.Public |
 		System.Reflection.BindingFlags.Instance
 	);
@@ -39,9 +39,9 @@ for (int _prop = 0; _prop < _properties.Length; _prop++) {
 			_properties[_prop].Name
 		);
 		Attribute[] _attributes = Attribute.GetCustomAttributes(
-			_properties[_prop]
-			//, typeof(DOPropertyAttribute)
-			//, true
+			_properties[_prop],
+			typeof(OGen.NTier.lib.datalayer.DOPropertyAttribute), 
+			true
 		);
 		for (int _att = 0; _att < _attributes.Length; _att++) {
 			//if (_attributes[_att].GetType() == typeof(DOPropertyAttribute)) {
@@ -58,10 +58,10 @@ for (int _prop = 0; _prop < _properties.Length; _prop++) {
 		}
 		Console.Write(
 			"value: {0}; ", 
-			_properties[_prop].GetValue(_user, null)
+			_properties[_prop].GetValue(_user.Fields, null)
 		);
 		_properties[_prop].SetValue(
-			_user, 
+			_user.Fields, 
 			Convert.ChangeType(
 				456, 
 				_properties[_prop].PropertyType
@@ -70,7 +70,7 @@ for (int _prop = 0; _prop < _properties.Length; _prop++) {
 		);
 		Console.WriteLine(
 			"new value: {0}", 
-			_properties[_prop].GetValue(_user, null)
+			_properties[_prop].GetValue(_user.Fields, null)
 		);
 	}
 }

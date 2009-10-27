@@ -21,7 +21,7 @@ namespace OGen.NTier.UTs.howtos {
 //<document>
 OGen.NTier.lib.datalayer.DOPropertyAttribute _attribute
 	= (OGen.NTier.lib.datalayer.DOPropertyAttribute)Attribute.GetCustomAttribute(
-		typeof(OGen.NTier.UTs.lib.datalayer.DO_User).GetProperty("IDUser"),
+		typeof(OGen.NTier.UTs.lib.datalayer.proxy.SO_User).GetProperty("IDUser"),
 		typeof(OGen.NTier.lib.datalayer.DOPropertyAttribute),
 		true
 	);
