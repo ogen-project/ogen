@@ -187,13 +187,13 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 <!--
 				<tableSearch name="byUser_Defaultrelation" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="UserGroup" fieldName="IDUser" paramName="IDUser" />
-						<tableFieldRef tableName="UserGroup" fieldName="Relationdate" paramName="Relationdate" />
+						<tableFieldRef tableName="UserGroup" tableFieldName="IDUser" paramName="IDUser" />
+						<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="UserGroup" fieldName="Relationdate" paramName="Relationdate" />
+								<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
