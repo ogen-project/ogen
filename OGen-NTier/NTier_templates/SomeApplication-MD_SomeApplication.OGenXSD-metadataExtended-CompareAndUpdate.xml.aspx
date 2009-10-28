@@ -185,15 +185,16 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 				}
 			}%>
 <!--
-				<tableSearch name="byUser_Defaultrelation" isRange="true" isExplicitUniqueIndex="false">
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="UserGroup" tableFieldName="IDUser" paramName="IDUser" />
-						<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+						<tableFieldRef tableName="<%=_aux_db_table.Name%>" tableFieldName="<%=_aux_db_table.TableFields.TableFieldCollection[0].Name%>" paramName="<%=_aux_db_table.TableFields.TableFieldCollection[0].Name%>" />
+						<tableFieldRef tableName="<%=_aux_db_table.Name%>" tableFieldName="<%=_aux_db_table.TableFields.TableFieldCollection[0].Name%>" paramName="<%=_aux_db_table.TableFields.TableFieldCollection[0].Name%>" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+								<tableFieldRef tableName="<%=_aux_db_table.Name%>" tableFieldName="<%=_aux_db_table.TableFields.TableFieldCollection[0].Name%>" paramName="<%=_aux_db_table.TableFields.TableFieldCollection[0].Name%>" />
+								<tableFieldRef tableName="<%=_aux_db_table.Name%>" tableFieldName="<%=_aux_db_table.TableFields.TableFieldCollection[0].Name%>" paramName="<%=_aux_db_table.TableFields.TableFieldCollection[0].Name%>" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
