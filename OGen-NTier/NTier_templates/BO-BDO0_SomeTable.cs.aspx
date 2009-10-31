@@ -144,7 +144,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 			get { return <%=_aux_ex_table.ListItemValue.Name%><%=(_aux_ex_table.ListItemValue.parallel_ref.DBType_generic.FWType != "string") ? ".ToString()" : ""%>; }
 		}
 		#endregion
-		#region public string ListItemText { get; }
+		#region public object ListItemText { get; }
 		/// <summary>
 		/// List Item Text.
 		/// </summary>
@@ -152,8 +152,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 #if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
-			string ListItemText {
-			get { return <%=_aux_ex_table.ListItemText.Name%><%=(_aux_ex_table.ListItemText.parallel_ref.DBType_generic.FWType != "string") ? ".ToString()" : ""%>; }
+			object ListItemText {
+			get { return <%=_aux_ex_table.ListItemText.Name%>; }
 		}
 		#endregion
 		//---<%
