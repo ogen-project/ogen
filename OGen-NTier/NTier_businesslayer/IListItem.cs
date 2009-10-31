@@ -24,7 +24,7 @@ namespace OGen.NTier.lib.businesslayer {
 		/// <summary>
 		/// List Item Text.
 		/// </summary>
-		string ListItemText { get; }
+		object ListItemText { get; }
 
 		/// <summary>
 		/// List Item Value.
