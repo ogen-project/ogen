@@ -132,7 +132,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 			get { return mainAggregate.Fields; }
 		}<%
 		if (isListItem) { %>
-		#region public string ListItemValue { get; set; }
+		#region public object ListItemValue { get; set; }
 		/// <summary>
 		/// List Item Value.
 		/// </summary>
@@ -140,8 +140,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
 #if !USE_PARTIAL_CLASSES || NET_1_1
 			virtual 
 #endif
-			string ListItemValue {
-			get { return <%=_aux_ex_table.ListItemValue.Name%><%=(_aux_ex_table.ListItemValue.parallel_ref.DBType_generic.FWType != "string") ? ".ToString()" : ""%>; }
+			object ListItemValue {
+			get { return <%=_aux_ex_table.ListItemValue.Name%>; }
 		}
 		#endregion
 		#region public object ListItemText { get; }

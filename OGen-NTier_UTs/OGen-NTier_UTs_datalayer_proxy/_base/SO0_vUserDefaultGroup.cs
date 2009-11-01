@@ -23,11 +23,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	/// <summary>
 	/// Interface for vUserDefaultGroup SerializableObject.
 	/// </summary>
-	public interface ISO_vUserDefaultGroup {
-		/// <summary>
-		/// Indicates if changes have been made to FO0_vUserDefaultGroup properties since last time getObject method was run.
-		/// </summary>
-		bool hasChanges { get; }
+	public interface ISO_vUserDefaultGroup : ISO__base {
 
 		/// <summary>
 		/// vUserDefaultGroup's IDUser.

@@ -23,11 +23,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	/// <summary>
 	/// Interface for WordLanguage SerializableObject.
 	/// </summary>
-	public interface ISO_WordLanguage {
-		/// <summary>
-		/// Indicates if changes have been made to FO0_WordLanguage properties since last time getObject method was run.
-		/// </summary>
-		bool hasChanges { get; }
+	public interface ISO_WordLanguage : ISO__base {
 
 		/// <summary>
 		/// WordLanguage's IDWord.

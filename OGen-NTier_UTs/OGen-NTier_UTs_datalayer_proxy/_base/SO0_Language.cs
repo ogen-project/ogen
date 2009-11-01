@@ -23,11 +23,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	/// <summary>
 	/// Interface for Language SerializableObject.
 	/// </summary>
-	public interface ISO_Language {
-		/// <summary>
-		/// Indicates if changes have been made to FO0_Language properties since last time getObject method was run.
-		/// </summary>
-		bool hasChanges { get; }
+	public interface ISO_Language : ISO__base {
 
 		/// <summary>
 		/// Language's IDLanguage.

@@ -23,11 +23,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	/// <summary>
 	/// Interface for Permition SerializableObject.
 	/// </summary>
-	public interface ISO_Permition {
-		/// <summary>
-		/// Indicates if changes have been made to FO0_Permition properties since last time getObject method was run.
-		/// </summary>
-		bool hasChanges { get; }
+	public interface ISO_Permition : ISO__base {
 
 		/// <summary>
 		/// Permition's IDPermition.

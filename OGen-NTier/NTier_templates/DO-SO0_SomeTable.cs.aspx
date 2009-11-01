@@ -63,11 +63,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.proxy {
 	/// <summary>
 	/// Interface for <%=_aux_db_table.Name%> SerializableObject.
 	/// </summary>
-	public interface ISO_<%=_aux_db_table.Name%> {
-		/// <summary>
-		/// Indicates if changes have been made to FO0_<%=_aux_db_table.Name%> properties since last time getObject method was run.
-		/// </summary>
-		bool hasChanges { get; }<%
+	public interface ISO_<%=_aux_db_table.Name%> : ISO__base {<%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 			_aux_ex_field = _aux_db_field.parallel_ref;%>

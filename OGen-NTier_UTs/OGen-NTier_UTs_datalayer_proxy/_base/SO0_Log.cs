@@ -23,11 +23,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	/// <summary>
 	/// Interface for Log SerializableObject.
 	/// </summary>
-	public interface ISO_Log {
-		/// <summary>
-		/// Indicates if changes have been made to FO0_Log properties since last time getObject method was run.
-		/// </summary>
-		bool hasChanges { get; }
+	public interface ISO_Log : ISO__base {
 
 		/// <summary>
 		/// Log's IDLog.

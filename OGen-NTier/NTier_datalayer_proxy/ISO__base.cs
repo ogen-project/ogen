@@ -1,4 +1,4 @@
-#region Copyright (C) 2002 Francisco Monteiro
+﻿#region Copyright (C) 2002 Francisco Monteiro
 /*
 
 OGen
@@ -14,30 +14,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 
-using OGen.NTier.lib.datalayer;
-
-namespace OGen.NTier.lib.businesslayer {
+namespace OGen.NTier.lib.datalayer {
 	/// <summary>
-	/// ListItem Interface.
+	/// Interface for SerializableObjects.
 	/// </summary>
-	public interface IListItem {
+	public interface ISO__base {
 		/// <summary>
-		/// List Item Text.
+		/// Indicates if changes have been made to SerializableObject properties since last time getObject method was run.
 		/// </summary>
-		object ListItemText { get; }
-
-		/// <summary>
-		/// List Item Value.
-		/// </summary>
-		object ListItemValue { get; }
-
-		//void Record_open(int Search, params object SearchParameters);
-		//void Record_close();
-		//bool Record_read();
-
-		/// <summary>
-		/// Exposes RecordObject.
-		/// </summary>
-		IRecordObject Record { get; }
+		bool hasChanges { get; }
 	}
 }

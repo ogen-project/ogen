@@ -23,11 +23,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	/// <summary>
 	/// Interface for Group SerializableObject.
 	/// </summary>
-	public interface ISO_Group {
-		/// <summary>
-		/// Indicates if changes have been made to FO0_Group properties since last time getObject method was run.
-		/// </summary>
-		bool hasChanges { get; }
+	public interface ISO_Group : ISO__base {
 
 		/// <summary>
 		/// Group's IDGroup.

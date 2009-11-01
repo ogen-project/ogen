@@ -23,11 +23,7 @@ namespace OGen.NTier.UTs.lib.datalayer.proxy {
 	/// <summary>
 	/// Interface for User SerializableObject.
 	/// </summary>
-	public interface ISO_User {
-		/// <summary>
-		/// Indicates if changes have been made to FO0_User properties since last time getObject method was run.
-		/// </summary>
-		bool hasChanges { get; }
+	public interface ISO_User : ISO__base {
 
 		/// <summary>
 		/// User's IDUser.
