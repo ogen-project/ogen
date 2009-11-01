@@ -164,31 +164,33 @@ namespace OGen.NTier.lib.datalayer {
 		/// Supported DB Server Types.
 		/// </summary>
 		public static string[] DBServerTypes(string application_in) {
-			if (dbservertypes__ == null) dbservertypes__ = new Hashtable();
-			if (!dbservertypes__.Contains(application_in)) {
-				string[] _supporteddbservertypes =
-					#if !NET_1_1
-					System.Configuration.ConfigurationManager.AppSettings
-					#else
-					System.Configuration.ConfigurationSettings.AppSettings
-					#endif
-						[
-							string.Format(
-								"{0}:DBServerTypes", 
-//								ApplicationName
-								application_in
-							)
-						].Split(':');
+			lock (dbservertypes__) {
+				if (dbservertypes__ == null) dbservertypes__ = new Hashtable();
+				if (!dbservertypes__.Contains(application_in)) {
+					string[] _supporteddbservertypes =
+						#if !NET_1_1
+						System.Configuration.ConfigurationManager.AppSettings
+						#else
+						System.Configuration.ConfigurationSettings.AppSettings
+						#endif
+							[
+								string.Format(
+									"{0}:DBServerTypes", 
+//									ApplicationName
+									application_in
+								)
+							].Split(':');
 
-				string[] _dbservertypes = new string[_supporteddbservertypes.Length];
-				for (int i = 0; i < _supporteddbservertypes.Length; i++) {
-					_dbservertypes[i] = _supporteddbservertypes[i];
+					string[] _dbservertypes = new string[_supporteddbservertypes.Length];
+					for (int i = 0; i < _supporteddbservertypes.Length; i++) {
+						_dbservertypes[i] = _supporteddbservertypes[i];
+					}
+
+					dbservertypes__.Add(
+						application_in, 
+						_dbservertypes
+					);
 				}
-
-				dbservertypes__.Add(
-					application_in, 
-					_dbservertypes
-				);
 			}
 
 			return (string[])dbservertypes__[application_in];
