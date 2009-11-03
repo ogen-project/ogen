@@ -163,9 +163,13 @@ namespace OGen.NTier.lib.datalayer {
 		/// <summary>
 		/// Supported DB Server Types.
 		/// </summary>
-		public static string[] DBServerTypes(string application_in) {
+		public static string[] DBServerTypes(
+			string application_in
+		) {
+			if (dbservertypes__ == null) 
+				dbservertypes__ = new Hashtable();
+
 			lock (dbservertypes__) {
-				if (dbservertypes__ == null) dbservertypes__ = new Hashtable();
 				if (!dbservertypes__.Contains(application_in)) {
 					string[] _supporteddbservertypes =
 						#if !NET_1_1
