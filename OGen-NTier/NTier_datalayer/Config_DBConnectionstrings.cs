@@ -202,13 +202,19 @@ namespace OGen.NTier.lib.datalayer {
 		#endregion
 		#region public static Config_DBConnectionstrings DBConnectionstrings(string application_in);
 		private static Hashtable dbconnectionstrings__;
-		public static Config_DBConnectionstrings DBConnectionstrings(string application_in) {
-			if (dbconnectionstrings__ == null) dbconnectionstrings__ = new Hashtable();
-			if (!dbconnectionstrings__.Contains(application_in)) {
-				dbconnectionstrings__.Add(
-					application_in, 
-					new Config_DBConnectionstrings(application_in)
-				);
+		public static Config_DBConnectionstrings DBConnectionstrings(
+			string application_in
+		) {
+			if (dbconnectionstrings__ == null) 
+				dbconnectionstrings__ = new Hashtable();
+
+			lock (dbconnectionstrings__) {
+				if (!dbconnectionstrings__.Contains(application_in)) {
+					dbconnectionstrings__.Add(
+						application_in, 
+						new Config_DBConnectionstrings(application_in)
+					);
+				}
 			}
 
 			return (Config_DBConnectionstrings)dbconnectionstrings__[application_in];
