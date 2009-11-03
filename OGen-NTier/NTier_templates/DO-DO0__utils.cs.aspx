@@ -217,10 +217,12 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 			dbservertype__ = string.Empty;
 			dbconnectionstring__ = null;
 
+			string[] _dbservertypes = Config_DBConnectionstrings.DBServerTypes(ApplicationName);
+			Config_DBConnectionstrings _dbconnectionstrings = Config_DBConnectionstrings.DBConnectionstrings(ApplicationName);
 			Config_DBConnectionstring _con;
-			for (int _db = 0; _db < Config_DBConnectionstrings.DBServerTypes(ApplicationName).Length; _db++) {
-				_con = Config_DBConnectionstrings.DBConnectionstrings(ApplicationName)[
-					Config_DBConnectionstrings.DBServerTypes(ApplicationName)[_db],<%
+			for (int _db = 0; _db < _dbservertypes.Length; _db++) {
+				_con = _dbconnectionstrings[
+					_dbservertypes[_db],<%
 					for (int cm = 0; cm < _aux_configmodes.Length; cm++) {%>
 #<%=(cm == 0) ? "" : "el"%>if <%=_aux_configmodes[cm]%>
 					"<%=_aux_configmodes[cm]%>"<%
@@ -228,7 +230,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 #endif
 				];
 				if (_con.isDefault) {
-					dbservertype__ = Config_DBConnectionstrings.DBServerTypes(ApplicationName)[_db];
+					dbservertype__ = _dbservertypes[_db];
 					dbconnectionstring__ = _con.Connectionstring;
 					return;
 				}
