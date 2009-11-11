@@ -20,13 +20,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	guidDatalayer_proxy="78096C45-7B20-4669-BF3D-EFF5ECD74FC9" 
 	guidDatalayer_UTs="4F18877D-A981-426B-8A09-5EDF95E9AE2B" 
 	guidBusinesslayer="B3555514-3A7D-4159-B05D-E8D0C265B649" 
-	guidBusinesslayer_proxy="ADA0411C-8645-4AA0-BFF3-5359E111D98A"
+	guidBusinesslayer_proxy="ADA0411C-8645-4AA0-BFF3-5359E111D98A" 
 	guidBusinesslayer_UTs="980912F1-6877-4BD1-A2E0-61D366839C52" 
-	guidBusiness_client="76D35775-37DA-427C-95AA-050F152CAF92"
-	guidDistributedlayer_webservices_server="89EE33CB-FAAD-4251-809C-13B5FC57F101"
-	guidDistributedlayer_webservices_client="3E90C87B-1643-4323-8A50-96000EBFD406"
-	guidDistributedlayer_remoting_server="620124DD-28FF-4D6C-93A2-170730EC2778"
-	guidDistributedlayer_remoting_client="F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF"
+	guidBusiness_client="76D35775-37DA-427C-95AA-050F152CAF92" 
+	guidDistributedlayer_webservices_server="89EE33CB-FAAD-4251-809C-13B5FC57F101" 
+	guidDistributedlayer_webservices_client="3E90C87B-1643-4323-8A50-96000EBFD406" 
+	guidDistributedlayer_remoting_server="620124DD-28FF-4D6C-93A2-170730EC2778" 
+	guidDistributedlayer_remoting_client="F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF" 
 	guidTest="2E2A748F-E72A-4B23-9011-F7AE725AB330" 
 	feedbackEmailAddress="fmonteiro@users.berlios.de" 
 	copyrightText="Copyright (C) 2002 Francisco Monteiro">
@@ -89,15 +89,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<tableSearches>
 				<tableSearch name="all" isRange="true" isExplicitUniqueIndex="false" />
 <!--
-				<tableSearch name="byUser_Defaultrelation" isRange="true" isExplicitUniqueIndex="false">
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="UserGroup" tableFieldName="IDUser" paramName="IDUser" />
-						<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+						<tableFieldRef tableName="Config" tableFieldName="Name" paramName="Name" />
+						<tableFieldRef tableName="Config" tableFieldName="Name" paramName="Name" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+								<tableFieldRef tableName="Config" tableFieldName="Name" paramName="Name" />
+								<tableFieldRef tableName="Config" tableFieldName="Name" paramName="Name" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
@@ -121,15 +122,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			</tableFields>
 			<tableSearches>
 <!--
-				<tableSearch name="byUser_Defaultrelation" isRange="true" isExplicitUniqueIndex="false">
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="UserGroup" tableFieldName="IDUser" paramName="IDUser" />
-						<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+						<tableFieldRef tableName="Group" tableFieldName="IDGroup" paramName="IDGroup" />
+						<tableFieldRef tableName="Group" tableFieldName="IDGroup" paramName="IDGroup" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+								<tableFieldRef tableName="Group" tableFieldName="IDGroup" paramName="IDGroup" />
+								<tableFieldRef tableName="Group" tableFieldName="IDGroup" paramName="IDGroup" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
@@ -153,15 +155,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			</tableFields>
 			<tableSearches>
 <!--
-				<tableSearch name="byUser_Defaultrelation" isRange="true" isExplicitUniqueIndex="false">
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="UserGroup" tableFieldName="IDUser" paramName="IDUser" />
-						<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+						<tableFieldRef tableName="GroupPermition" tableFieldName="IDGroup" paramName="IDGroup" />
+						<tableFieldRef tableName="GroupPermition" tableFieldName="IDGroup" paramName="IDGroup" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+								<tableFieldRef tableName="GroupPermition" tableFieldName="IDGroup" paramName="IDGroup" />
+								<tableFieldRef tableName="GroupPermition" tableFieldName="IDGroup" paramName="IDGroup" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
@@ -185,15 +188,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			</tableFields>
 			<tableSearches>
 <!--
-				<tableSearch name="byUser_Defaultrelation" isRange="true" isExplicitUniqueIndex="false">
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="UserGroup" tableFieldName="IDUser" paramName="IDUser" />
-						<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+						<tableFieldRef tableName="Language" tableFieldName="IDLanguage" paramName="IDLanguage" />
+						<tableFieldRef tableName="Language" tableFieldName="IDLanguage" paramName="IDLanguage" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+								<tableFieldRef tableName="Language" tableFieldName="IDLanguage" paramName="IDLanguage" />
+								<tableFieldRef tableName="Language" tableFieldName="IDLanguage" paramName="IDLanguage" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
@@ -220,15 +224,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			</tableFields>
 			<tableSearches>
 <!--
-				<tableSearch name="byUser_Defaultrelation" isRange="true" isExplicitUniqueIndex="false">
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="UserGroup" tableFieldName="IDUser" paramName="IDUser" />
-						<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+						<tableFieldRef tableName="Log" tableFieldName="IDLog" paramName="IDLog" />
+						<tableFieldRef tableName="Log" tableFieldName="IDLog" paramName="IDLog" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+								<tableFieldRef tableName="Log" tableFieldName="IDLog" paramName="IDLog" />
+								<tableFieldRef tableName="Log" tableFieldName="IDLog" paramName="IDLog" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
@@ -255,15 +260,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			</tableFields>
 			<tableSearches>
 <!--
-				<tableSearch name="byUser_Defaultrelation" isRange="true" isExplicitUniqueIndex="false">
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="UserGroup" tableFieldName="IDUser" paramName="IDUser" />
-						<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+						<tableFieldRef tableName="Logcode" tableFieldName="IDLogcode" paramName="IDLogcode" />
+						<tableFieldRef tableName="Logcode" tableFieldName="IDLogcode" paramName="IDLogcode" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+								<tableFieldRef tableName="Logcode" tableFieldName="IDLogcode" paramName="IDLogcode" />
+								<tableFieldRef tableName="Logcode" tableFieldName="IDLogcode" paramName="IDLogcode" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
@@ -287,15 +293,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			</tableFields>
 			<tableSearches>
 <!--
-				<tableSearch name="byUser_Defaultrelation" isRange="true" isExplicitUniqueIndex="false">
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="UserGroup" tableFieldName="IDUser" paramName="IDUser" />
-						<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+						<tableFieldRef tableName="Permition" tableFieldName="IDPermition" paramName="IDPermition" />
+						<tableFieldRef tableName="Permition" tableFieldName="IDPermition" paramName="IDPermition" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+								<tableFieldRef tableName="Permition" tableFieldName="IDPermition" paramName="IDPermition" />
+								<tableFieldRef tableName="Permition" tableFieldName="IDPermition" paramName="IDPermition" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
@@ -339,15 +346,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 					</tableSearchUpdates>
 				</tableSearch>
 <!--
-				<tableSearch name="byUser_Defaultrelation" isRange="true" isExplicitUniqueIndex="false">
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="UserGroup" tableFieldName="IDUser" paramName="IDUser" />
-						<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+						<tableFieldRef tableName="User" tableFieldName="IDUser" paramName="IDUser" />
+						<tableFieldRef tableName="User" tableFieldName="IDUser" paramName="IDUser" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+								<tableFieldRef tableName="User" tableFieldName="IDUser" paramName="IDUser" />
+								<tableFieldRef tableName="User" tableFieldName="IDUser" paramName="IDUser" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
@@ -391,15 +399,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 					</tableSearchUpdates>
 				</tableSearch>
 <!--
-				<tableSearch name="byUser_Defaultrelation" isRange="true" isExplicitUniqueIndex="false">
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
 						<tableFieldRef tableName="UserGroup" tableFieldName="IDUser" paramName="IDUser" />
-						<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+						<tableFieldRef tableName="UserGroup" tableFieldName="IDUser" paramName="IDUser" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+								<tableFieldRef tableName="UserGroup" tableFieldName="IDUser" paramName="IDUser" />
+								<tableFieldRef tableName="UserGroup" tableFieldName="IDUser" paramName="IDUser" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
@@ -427,15 +436,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<tableSearches>
 				<tableSearch name="all" isRange="true" isExplicitUniqueIndex="false" />
 <!--
-				<tableSearch name="byUser_Defaultrelation" isRange="true" isExplicitUniqueIndex="false">
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="UserGroup" tableFieldName="IDUser" paramName="IDUser" />
-						<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+						<tableFieldRef tableName="vUserDefaultGroup" tableFieldName="IDUser" paramName="IDUser" />
+						<tableFieldRef tableName="vUserDefaultGroup" tableFieldName="IDUser" paramName="IDUser" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+								<tableFieldRef tableName="vUserDefaultGroup" tableFieldName="IDUser" paramName="IDUser" />
+								<tableFieldRef tableName="vUserDefaultGroup" tableFieldName="IDUser" paramName="IDUser" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
@@ -462,15 +472,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			</tableFields>
 			<tableSearches>
 <!--
-				<tableSearch name="byUser_Defaultrelation" isRange="true" isExplicitUniqueIndex="false">
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="UserGroup" tableFieldName="IDUser" paramName="IDUser" />
-						<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+						<tableFieldRef tableName="vUserGroup" tableFieldName="IDUser" paramName="IDUser" />
+						<tableFieldRef tableName="vUserGroup" tableFieldName="IDUser" paramName="IDUser" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+								<tableFieldRef tableName="vUserGroup" tableFieldName="IDUser" paramName="IDUser" />
+								<tableFieldRef tableName="vUserGroup" tableFieldName="IDUser" paramName="IDUser" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
@@ -494,15 +505,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			</tableFields>
 			<tableSearches>
 <!--
-				<tableSearch name="byUser_Defaultrelation" isRange="true" isExplicitUniqueIndex="false">
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="UserGroup" tableFieldName="IDUser" paramName="IDUser" />
-						<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+						<tableFieldRef tableName="Word" tableFieldName="IDWord" paramName="IDWord" />
+						<tableFieldRef tableName="Word" tableFieldName="IDWord" paramName="IDWord" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+								<tableFieldRef tableName="Word" tableFieldName="IDWord" paramName="IDWord" />
+								<tableFieldRef tableName="Word" tableFieldName="IDWord" paramName="IDWord" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
@@ -527,15 +539,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			</tableFields>
 			<tableSearches>
 <!--
-				<tableSearch name="byUser_Defaultrelation" isRange="true" isExplicitUniqueIndex="false">
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="UserGroup" tableFieldName="IDUser" paramName="IDUser" />
-						<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+						<tableFieldRef tableName="WordLanguage" tableFieldName="IDWord" paramName="IDWord" />
+						<tableFieldRef tableName="WordLanguage" tableFieldName="IDWord" paramName="IDWord" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="UserGroup" tableFieldName="Relationdate" paramName="Relationdate" />
+								<tableFieldRef tableName="WordLanguage" tableFieldName="IDWord" paramName="IDWord" />
+								<tableFieldRef tableName="WordLanguage" tableFieldName="IDWord" paramName="IDWord" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
