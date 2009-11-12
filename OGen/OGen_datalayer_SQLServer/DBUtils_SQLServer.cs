@@ -100,8 +100,12 @@ namespace OGen.lib.datalayer.SQLServer {
 			switch (_value) {
 				case "numeric":
 					return (int)SqlDbType.Decimal;
-
+#if NET_1_1
+				case "date":
+					return (int)SqlDbType.Date;
+#endif
 				default:
+#if NET_1_1
 					for (int i = 0; ((SqlDbType)i).ToString() != i.ToString(); i++) {
 						if (
 							(
@@ -120,6 +124,26 @@ namespace OGen.lib.datalayer.SQLServer {
 							return i;
 						}
 					}
+#else
+					string[] _sqldbtypes = Enum.GetNames(typeof(SqlDbType));
+					for (int i = 0; i < _sqldbtypes.Length; i++) {
+						if (
+							(
+								caseSensitive_in
+								&&
+								(_sqldbtypes[i] == _value)
+							)
+							||
+							(
+								!caseSensitive_in
+								&&
+								(_sqldbtypes[i].ToLower() == _value)
+							)
+						) {
+							return (int)(SqlDbType)Enum.Parse(typeof(SqlDbType), _sqldbtypes[i]);
+						}
+					}
+#endif
 					break;
 			}
 
@@ -142,6 +166,9 @@ namespace OGen.lib.datalayer.SQLServer {
 				case SqlDbType.Text:
 				case SqlDbType.VarChar:
 					return DbType.String;
+
+				case SqlDbType.Date:
+					return DbType.Date;
 
 				case SqlDbType.DateTime:
 				case SqlDbType.SmallDateTime:

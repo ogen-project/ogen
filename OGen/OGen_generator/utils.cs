@@ -142,23 +142,22 @@ const bool _usePerformance1 = true;
 const bool _usePerformance2 = false;
 const bool _usePerformance3 = true;
 const bool _usePerformance5 = false;
+//Console.WriteLine(
+//    "class: {0}\npath: {1}\niteration: {2}\npathTranslated: {3}\nreturnValue: {4}\nanyAttribute_notJustXml: {5}\n",
+//    someClass_in.GetType().ToString(),
+//    path_in,
+//    iteration_in,
+//    pathTranslated_in,
+//    returnValue_in,
+//    anyAttribute_notJustXml
+//);
+//Console.ReadKey();
 #else
 const bool _usePerformance1 = true;
 const bool _usePerformance2 = false;
 const bool _usePerformance3 = true;
 const bool _usePerformance5 = false;
 #endif
-
-//Console.WriteLine(
-//    "class: {0}\npath: {1}\niteration: {2}\npathTranslated: {3}\nreturnValue: {4}\nanyAttribute_notJustXml: {5}\n", 
-//    someClass_in.GetType().ToString(), 
-//    path_in, 
-//    iteration_in, 
-//    pathTranslated_in, 
-//    returnValue_in, 
-//    anyAttribute_notJustXml
-//);
-//Console.ReadKey();
 
 			if (
 //#if DEBUG
@@ -208,9 +207,7 @@ _usePerformance1 && (
 //    pathTranslated_in,
 //    returnValue_in ? "READ" : "ITERATE"
 //);
-//#endif
-//#if DEBUG
-//    Console.Write("{{{0}}}", path_in.ToUpper());
+//Console.Write("{{{0}}}", path_in.ToUpper());
 //#endif
 
 			PropertyInfo[] _properties;
@@ -411,7 +408,7 @@ _usePerformance5 &&
 					try {
 						_value = _properties[_prop].GetValue(someClass_in, null);
 					} catch (Exception _ex) {
-						throw new Exception(string.Format(
+						string _ex_message = string.Format(
 							"\n---\n{0}.{1}.ReflectThrough(\n\tsomeClass_in:\"{2}.{3}\",\n\tpath_in:\"{4}\",\n\titeration_in:\"{5}\",\n\tpathTranslated_in:\"{6}\"\n)\n---\n{7}",
 							typeof(utils).Namespace,
 							typeof(utils).Name,
@@ -421,7 +418,13 @@ _usePerformance5 &&
 							iteration_in,
 							pathTranslated_in,
 							_ex.Message
-						));
+						);
+#if DEBUG
+_value = null;
+Console.WriteLine(_ex_message);
+#else
+						throw new Exception(_ex_message);
+#endif
 					}
 
 					if (_value == null) continue;
