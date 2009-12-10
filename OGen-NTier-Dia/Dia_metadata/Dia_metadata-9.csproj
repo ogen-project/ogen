@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8D5C03A2-FA8C-40C3-BF9A-B12ABBC3E158}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OGen.NTier.Dia.lib.metadata</RootNamespace>
+    <AssemblyName>OGen.NTier.Dia.lib.metadata-2.0</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="diagram\XS_attributeType.cs" />
+    <Compile Include="diagram\XS_attributeTypeCollection.cs" />
+    <Compile Include="diagram\XS_booleanType.cs" />
+    <Compile Include="diagram\XS_booleanTypeCollection.cs" />
+    <Compile Include="diagram\XS_compositeType.cs" />
+    <Compile Include="diagram\XS_compositeTypeCollection.cs" />
+    <Compile Include="diagram\XS_connectionsType.cs" />
+    <Compile Include="diagram\XS_connectionsTypeCollection.cs" />
+    <Compile Include="diagram\XS_connectionType.cs" />
+    <Compile Include="diagram\XS_connectionTypeCollection.cs" />
+    <Compile Include="diagram\XS_diagramType.cs" />
+    <Compile Include="diagram\XS_diagramTypeCollection.cs" />
+    <Compile Include="diagram\XS_enumType.cs" />
+    <Compile Include="diagram\XS_enumTypeCollection.cs" />
+    <Compile Include="diagram\XS_layerType.cs" />
+    <Compile Include="diagram\XS_layerTypeCollection.cs" />
+    <Compile Include="diagram\XS_objectType.cs" />
+    <Compile Include="diagram\XS_objectTypeCollection.cs" />
+    <Compile Include="diagram\XS__diagram.cs" />
+    <Compile Include="diagram\XS__diagramCollection.cs" />
+    <Compile Include="diagram\_base\XS0_attributeType.cs" />
+    <Compile Include="diagram\_base\XS0_attributeTypeCollection.cs" />
+    <Compile Include="diagram\_base\XS0_booleanType.cs" />
+    <Compile Include="diagram\_base\XS0_booleanTypeCollection.cs" />
+    <Compile Include="diagram\_base\XS0_compositeType.cs" />
+    <Compile Include="diagram\_base\XS0_compositeTypeCollection.cs" />
+    <Compile Include="diagram\_base\XS0_connectionsType.cs" />
+    <Compile Include="diagram\_base\XS0_connectionsTypeCollection.cs" />
+    <Compile Include="diagram\_base\XS0_connectionType.cs" />
+    <Compile Include="diagram\_base\XS0_connectionTypeCollection.cs" />
+    <Compile Include="diagram\_base\XS0_diagramType.cs" />
+    <Compile Include="diagram\_base\XS0_diagramTypeCollection.cs" />
+    <Compile Include="diagram\_base\XS0_enumType.cs" />
+    <Compile Include="diagram\_base\XS0_enumTypeCollection.cs" />
+    <Compile Include="diagram\_base\XS0_layerType.cs" />
+    <Compile Include="diagram\_base\XS0_layerTypeCollection.cs" />
+    <Compile Include="diagram\_base\XS0_objectType.cs" />
+    <Compile Include="diagram\_base\XS0_objectTypeCollection.cs" />
+    <Compile Include="diagram\_base\XS0__diagram.cs" />
+    <Compile Include="diagram\_base\XS0__diagramCollection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XS__RootMetadata.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\XS0__RootMetadata.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OGen\OGen_collections\OGen_collections-9.csproj">
+      <Project>{A6E837F8-780F-4D05-B3ED-2FF1906B5766}</Project>
+      <Name>OGen_collections-9</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_generator\OGen_generator-9.csproj">
+      <Project>{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}</Project>
+      <Name>OGen_generator-9</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_webforms\OGen_webforms-9.csproj">
+      <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
+      <Name>OGen_webforms-9</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
