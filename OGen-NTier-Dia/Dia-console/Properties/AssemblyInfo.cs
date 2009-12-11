@@ -19,11 +19,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Dia_metadata")]
+[assembly: AssemblyTitle("Dia-console")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Dia_metadata")]
+[assembly: AssemblyProduct("Dia-console")]
 [assembly: AssemblyCopyright("Copyright ©  2009")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -34,7 +34,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("32122ae0-e539-4694-ada4-5198d5ef3c26")]
+[assembly: Guid("10250bd7-e82e-416b-b689-f5daee12df42")]
 
 // Version information for an assembly consists of the following four values:
 //
