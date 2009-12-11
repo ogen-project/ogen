@@ -46,10 +46,10 @@ namespace OGen.NTier.Dia.lib.generator {
 			get { return (filename_ != string.Empty); }
 		}
 		#endregion
-		#region public XS__RootMetadata RootMetadata { get ; }
-		private XS__RootMetadata rootmetadata_;
-		public XS__RootMetadata RootMetadata {
-			get { return rootmetadata_; }
+		#region public XS__diagram Diagram { get ; }
+		private XS__diagram diagram_;
+		public XS__diagram Diagram {
+			get { return diagram_; }
 		}
 		#endregion
 		//#endregion
@@ -59,7 +59,7 @@ namespace OGen.NTier.Dia.lib.generator {
 		#endregion
 
 		#region public Methods...
-//		#region public void New(...);
+		#region //public void New(...);
 //		public void New(
 //			string applicationPath_in, 
 //			string documentationName_in, 
@@ -91,7 +91,7 @@ namespace OGen.NTier.Dia.lib.generator {
 //				notifyBack_in
 //			);
 //		}
-//		#endregion
+		#endregion
 		#region public void Open(...);
 		public void Open(
 			string filename_in, 
@@ -114,10 +114,9 @@ namespace OGen.NTier.Dia.lib.generator {
 			if (notifyBack_in != null) notifyBack_in("opening...", true);
 			if (notifyBack_in != null) notifyBack_in("- reading metadata from xml file", true);
 
-			rootmetadata_ = XS__RootMetadata.Load_fromFile(
-				filename_, 
-				false
-			);
+			diagram_ = XS__diagram.Load_fromFile(
+				filename_
+			)[0];
 
 			if (notifyBack_in != null) notifyBack_in("... finished", true);
 		}
@@ -138,7 +137,7 @@ namespace OGen.NTier.Dia.lib.generator {
 			filename_ = string.Empty;
 		}
 		#endregion
-//		#region public void Save(...);
+		#region //public void Save(...);
 //		public void Save() {
 //			if (this.hasChanges) {
 //
@@ -149,7 +148,7 @@ namespace OGen.NTier.Dia.lib.generator {
 //				haschanges_ = false;
 //			}
 //		}
-//		#endregion
+		#endregion
 		#region public void Build(cGenerator.dBuild notifyBase_in);
 		public void Build(cGenerator.dBuild notifyBase_in) {
 			#region string _outputDir = ...;
@@ -159,16 +158,11 @@ namespace OGen.NTier.Dia.lib.generator {
 			#endregion
 			if (notifyBase_in != null) notifyBase_in("generating...", true);
 
-			MetaFile[] _metafiles = new MetaFile[rootmetadata_.MetadataFiles.MetadataFiles.Count];
-			for (int i = 0; i < rootmetadata_.MetadataFiles.MetadataFiles.Count; i++) {
-				_metafiles[i] = new MetaFile(
-					Path.Combine(
-						Path.GetDirectoryName(filename_), 
-						rootmetadata_.MetadataFiles.MetadataFiles[i].XMLFilename
-					),
-					XS__documentation.DOCUMENTATION
-				);
-			}
+			MetaFile[] _metafiles = new MetaFile[1];
+			_metafiles[0] = new MetaFile(
+				filename_,
+				XS__diagram.DIAGRAM
+			);
 			new cGenerator(
 				#if !NET_1_1
 				System.Configuration.ConfigurationManager.AppSettings
@@ -180,7 +174,7 @@ namespace OGen.NTier.Dia.lib.generator {
 				_metafiles
 			).Build(
 				notifyBase_in, 
-				rootmetadata_
+				diagram_
 			);
 			if (notifyBase_in != null) notifyBase_in("...finished", true);
 		}

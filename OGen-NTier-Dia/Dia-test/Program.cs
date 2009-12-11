@@ -23,7 +23,7 @@ namespace OGen.NTier.Dia.presentationlayer.test {
 	class Program {
 		static void Main(string[] args) {
 			XS__diagram _dia = XS__diagram.Load_fromFile(
-				@"X:\modeloDados.dia"
+				@"X:\test\modeloDados.dia"
 			)[0];
 
 			for (int l = 0; l < _dia.LayerCollection.Count; l++) {
