@@ -89,6 +89,10 @@
       <Project>{A6E837F8-780F-4D05-B3ED-2FF1906B5766}</Project>
       <Name>OGen_collections-9</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj">
+      <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
+      <Name>OGen_datalayer__base-9</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\OGen\OGen_generator\OGen_generator-9.csproj">
       <Project>{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}</Project>
       <Name>OGen_generator-9</Name>

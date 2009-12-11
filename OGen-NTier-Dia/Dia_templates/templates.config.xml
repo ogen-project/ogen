@@ -26,8 +26,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	</template>
 	-->
 
-	<template id="Table.aspx"
-		name="Table.aspx"
+	<template id="Table-PostgreSQL.aspx"
+		name="Table-PostgreSQL.aspx"
 		parserType="aspx"
 		iterationType="ROOT.diagram[0].layer[n].object[n]">
 		<arguments>
@@ -51,8 +51,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<dependencies />
 	</template>
 <!--
-	<template id="Constraint.aspx"
-			name="Constraint.aspx"
+	<template id="Constraint-PostgreSQL.aspx"
+			name="Constraint-PostgreSQL.aspx"
 			parserType="aspx"
 			iterationType="ROOT.documentation[n].chapters.chapter[n]">
 		<arguments>

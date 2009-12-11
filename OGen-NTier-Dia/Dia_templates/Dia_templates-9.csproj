@@ -87,10 +87,10 @@
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Constraint.aspx" />
+    <Content Include="Constraint-PostgreSQL.aspx" />
     <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
-    <Content Include="Table.aspx">
+    <Content Include="Table-PostgreSQL.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="templates.config.xml" />

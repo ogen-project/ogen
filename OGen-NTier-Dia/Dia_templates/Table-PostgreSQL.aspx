@@ -32,4 +32,11 @@ string _aux_path = Path.GetDirectoryName(_arg_MetadataFilepath);
 string _aux_path_directoryname = Path.GetFileName(_aux_path);
 #endregion
 //-----------------------------------------------------------------------------------------
-%><%=_arg_MetadataFilepath + ":" + _aux_table.TableName%>
+%>CREATE TABLE "<%=_aux_table.TableName%>" (
+  "IDCoworker" serial NOT NULL,
+  "Login" character varying(20) NOT NULL,
+  "Password" character varying(255) NOT NULL,
+  "Name" character varying(100) NOT NULL,
+  "EMail" character varying(25) NOT NULL
+)
+WITH (OIDS=FALSE);
