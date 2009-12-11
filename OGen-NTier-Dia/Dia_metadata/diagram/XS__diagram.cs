@@ -16,7 +16,12 @@ using System;
 using System.Xml.Serialization;
 
 namespace OGen.NTier.Dia.lib.metadata.diagram {
-	[System.Xml.Serialization.XmlRootAttribute("diagram")]
+	[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.lysator.liu.se/~alla/dia/")]
+	[System.Xml.Serialization.XmlRootAttribute(
+		"diagram",
+		Namespace = "http://www.lysator.liu.se/~alla/dia/",
+		IsNullable = false
+	)]
 	#if NET_1_1
 	public class XS__diagram : XS0__diagram {
 	#else
