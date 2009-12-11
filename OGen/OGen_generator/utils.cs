@@ -307,6 +307,8 @@ _usePerformance2 && (
 _usePerformance3 && 
 //#endif
 							returnValue_in
+&&
+(_indexOfSquareBrackets_begin + 1 < iteration_in.Length)
 						) {
 							_indexOfSquareBrackets_end
 								= iteration_in.IndexOf(

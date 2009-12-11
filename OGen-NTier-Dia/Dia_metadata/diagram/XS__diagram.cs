@@ -27,5 +27,21 @@ namespace OGen.NTier.Dia.lib.metadata.diagram {
 	#else
 	public partial class XS__diagram {
 	#endif
+
+		#region public XS_objectType Table_search(...);
+		public XS_objectType Table_search(
+			string id_in
+		) {
+			for (int l = 0; l < LayerCollection.Count; l++) {
+				for (int o = 0; o < LayerCollection[l].ObjectCollection.Count; o++) {
+					if (LayerCollection[l].ObjectCollection[o].Id == id_in) {
+						return LayerCollection[l].ObjectCollection[o];
+					}
+				}
+			}
+
+			return null;
+		}
+		#endregion
 	}
 }

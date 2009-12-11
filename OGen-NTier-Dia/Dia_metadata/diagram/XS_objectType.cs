@@ -21,5 +21,21 @@ namespace OGen.NTier.Dia.lib.metadata.diagram {
 	#else
 	public partial class XS_objectType {
 	#endif
+
+		#region public string TableName { get; }
+		[XmlIgnore()]
+		[XmlAttribute("tableName")]
+		public string TableName {
+			get {
+				for (int a = 0; a < AttributeCollection.Count; a++) {
+					if (AttributeCollection[a].Name == "name") {
+						return AttributeCollection[a].String.Replace("#", "");
+					}
+				}
+
+				return string.Empty;
+			}
+		}
+		#endregion
 	}
 }

@@ -84,10 +84,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="COPYING.MIT" />
+    <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Constraint.aspx" />
     <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
+    <Content Include="Table.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="templates.config.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
