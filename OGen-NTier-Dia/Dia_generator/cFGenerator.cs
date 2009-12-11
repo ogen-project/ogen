@@ -151,11 +151,7 @@ namespace OGen.NTier.Dia.lib.generator {
 		#endregion
 		#region public void Build(cGenerator.dBuild notifyBase_in);
 		public void Build(cGenerator.dBuild notifyBase_in) {
-			#region string _outputDir = ...;
-			string _outputDir = System.IO.Directory.GetParent(
-				Path.GetDirectoryName(filename_)
-			).FullName;
-			#endregion
+			string _outputDir = Path.GetDirectoryName(filename_);
 			if (notifyBase_in != null) notifyBase_in("generating...", true);
 
 			MetaFile[] _metafiles = new MetaFile[1];
