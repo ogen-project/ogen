@@ -84,7 +84,7 @@ namespace OGen.NTier.Dia.lib.metadata.diagram {
 		#region public string TableComment { get; }
 		[XmlIgnore()]
 		[XmlAttribute("tableComment")]
-		public string TableName {
+		public string TableComment {
 			get {
 				return getAttribute("comment").Replace("#", "");
 			}
@@ -182,6 +182,11 @@ namespace OGen.NTier.Dia.lib.metadata.diagram {
 				}
 			}
 
+			string _tableName_a;
+			string _tableFieldName_a;
+			string _tableName_b;
+			string _tableFieldName_b;
+			string _direction;
 			XS__diagram _root_ref = ((XS__diagram)((XS_layerType)this.parent_ref).parent_ref);
 			for (int l = 0; l < _root_ref.LayerCollection.Count; l++) {
 				for (int o = 0; o < _root_ref.LayerCollection[l].ObjectCollection.Count; o++) {
@@ -190,24 +195,33 @@ namespace OGen.NTier.Dia.lib.metadata.diagram {
 							if (_root_ref.LayerCollection[l].ObjectCollection[o].Connections.ConnectionCollection.Count != 2)
 								break;
 
+							_tableName_a = "";
+							_tableFieldName_a = "";
+							_tableName_b = "";
+							_tableFieldName_b = "";
+							_direction = "";
 							for (int a = 0; a < _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection.Count; a++) {
 								switch (_root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].Name) {
+									case "direction":
+										_direction = _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].Enum.Val;
+										break;
 									case "role_a":
-										Console.WriteLine(
-											"ROLE_A: {0}.{1}",
-											_root_ref.LayerCollection[l].ObjectCollection[o].Connections.ConnectionCollection[0].To,
-											_root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].String
-										);
+										_tableName_a = _root_ref.Table_search(
+											_root_ref.LayerCollection[l].ObjectCollection[o].Connections.ConnectionCollection[0].To
+										).TableName;
+										_tableFieldName_a = _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].String;
 										break;
 									case "role_b":
-										Console.WriteLine(
-											"ROLE_B: {0}.{1}",
-											_root_ref.LayerCollection[l].ObjectCollection[o].Connections.ConnectionCollection[1].To,
-											_root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].String
-										);
+										_tableName_b = _root_ref.Table_search(
+											_root_ref.LayerCollection[l].ObjectCollection[o].Connections.ConnectionCollection[1].To
+										).TableName;
+										_tableFieldName_b = _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].String;
 										break;
 								}
 							}
+
+							// ...
+
 							break;
 					}
 				}
