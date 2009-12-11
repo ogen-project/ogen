@@ -98,6 +98,16 @@
       <Name>OGen_webforms-9</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="COPYING.MIT" />
+    <None Include="OGenXSD-metadatas\MD_Dia_metadata-Dia.OGenXSD-metadata.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LICENSE.MIT.txt" />
+    <Content Include="LICENSE.txt" />
+    <Content Include="OGenXSD-metadatas\MD_Dia_metadata-Application.OGenXSD-metadata.xml" />
+    <Content Include="OGenXSD-metadatas\MD_Dia_metadata.OGenXSD-metadata.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
