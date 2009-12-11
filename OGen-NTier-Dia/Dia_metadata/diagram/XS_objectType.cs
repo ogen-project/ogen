@@ -184,6 +184,33 @@ namespace OGen.NTier.Dia.lib.metadata.diagram {
 
 			XS__diagram _root_ref = ((XS__diagram)((XS_layerType)this.parent_ref).parent_ref);
 			for (int l = 0; l < _root_ref.LayerCollection.Count; l++) {
+				for (int o = 0; o < _root_ref.LayerCollection[l].ObjectCollection.Count; o++) {
+					switch (_root_ref.LayerCollection[l].ObjectCollection[o].Type) {
+						case "UML - Association":
+							if (_root_ref.LayerCollection[l].ObjectCollection[o].Connections.ConnectionCollection.Count != 2)
+								break;
+
+							for (int a = 0; a < _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection.Count; a++) {
+								switch (_root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].Name) {
+									case "role_a":
+										Console.WriteLine(
+											"ROLE_A: {0}.{1}",
+											_root_ref.LayerCollection[l].ObjectCollection[o].Connections.ConnectionCollection[0].To,
+											_root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].String
+										);
+										break;
+									case "role_b":
+										Console.WriteLine(
+											"ROLE_B: {0}.{1}",
+											_root_ref.LayerCollection[l].ObjectCollection[o].Connections.ConnectionCollection[1].To,
+											_root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].String
+										);
+										break;
+								}
+							}
+							break;
+					}
+				}
 			}
 
 			return _list.ToArray();
