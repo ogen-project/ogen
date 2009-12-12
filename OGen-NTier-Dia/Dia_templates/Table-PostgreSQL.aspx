@@ -12,7 +12,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */%><%@ Page language="c#" contenttype="text/html" %>
 <%@ import namespace="System.IO" %>
 <%@ import namespace="OGen.NTier.Dia.lib.metadata" %>
-<%@ import namespace="OGen.NTier.Dia.lib.metadata.diagram" %><%
+<%@ import namespace="OGen.NTier.Dia.lib.metadata.diagram" %>
+<%@ import namespace="OGen.lib.datalayer" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 string _arg_tableId = System.Web.HttpUtility.UrlDecode(Request.QueryString["tableId"]);
@@ -28,11 +29,18 @@ XS_objectType _aux_table = _aux_diagram.Table_search(_arg_tableId);
 //		_arg_DocumentationName
 //	];
 
+DBTableField[] _tablefields = _aux_table.TableFields();
+                                            	
 string _aux_path = Path.GetDirectoryName(_arg_MetadataFilepath);
 string _aux_path_directoryname = Path.GetFileName(_aux_path);
 #endregion
 //-----------------------------------------------------------------------------------------
-%>CREATE TABLE "<%=_aux_table.TableName%>" (
+%>CREATE TABLE "<%=_aux_table.TableName%>" (<%
+for (int f = 0; f < _tablefields.Length; f++) {%>
+	"<%=_tablefields[f].Name%>" <%=_tablefields[f].DBType_inDB_name%> <%=(_tablefields[f].isNullable) ? "" : "NOT " %>NULL<%=(_tablefields.Length -1 == f) ? "," : "" %>
+<%
+}%>
+
   "IDCoworker" serial NOT NULL,
   "Login" character varying(20) NOT NULL,
   "Password" character varying(255) NOT NULL,

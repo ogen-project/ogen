@@ -27,38 +27,37 @@ namespace OGen.NTier.Dia.lib.metadata.diagram {
 	#endif
 
 		private Regex Regex_Length = new Regex(
-			"^(?<before>.*)length=(?<length>.*);(?<after>.*)",
+			"^(?<before>.*)length:(?<length>.*);(?<after>.*)",
 			RegexOptions.Compiled |
 			RegexOptions.IgnoreCase
 		);
 		private Regex Regex_Numeric_Precision = new Regex(
-			"^(?<before>.*)numericPrecision=(?<numericPrecision>.*);(?<after>.*)",
+			"^(?<before>.*)numericPrecision:(?<numericPrecision>.*);(?<after>.*)",
 			RegexOptions.Compiled |
 			RegexOptions.IgnoreCase
 		);
 		private Regex Regex_Numeric_Scale = new Regex(
-			"^(?<before>.*)numericScale=(?<numericScale>.*);(?<after>.*)",
+			"^(?<before>.*)numericScale:(?<numericScale>.*);(?<after>.*)",
 			RegexOptions.Compiled |
 			RegexOptions.IgnoreCase
 		);
 		private Regex Regex_PostgreSQL = new Regex(
-			"^(?<before>.*)psql=(?<psql>.*);(?<after>.*)",
+			"^(?<before>.*)psql:(?<psql>.*);(?<after>.*)",
 			RegexOptions.Compiled |
 			RegexOptions.IgnoreCase
 		);
 		private Regex Regex_SQLServer = new Regex(
-			"^(?<before>.*)sqlserver=(?<sqlserver>.*);(?<after>.*)",
+			"^(?<before>.*)sqlserver:(?<sqlserver>.*);(?<after>.*)",
 			RegexOptions.Compiled |
 			RegexOptions.IgnoreCase
 		);
 		private Regex Regex_Identity = new Regex(
-			"^(?<before>.*)identity=(?<identity>.*);(?<after>.*)",
+			"^(?<before>.*)identity:(?<identity>.*);(?<after>.*)",
 			RegexOptions.Compiled |
 			RegexOptions.IgnoreCase
 		);
 
 		#region private string getAttribute(...);
-		[XmlIgnore()]
 		private string getAttribute(
 			string name_in
 		) {
@@ -91,7 +90,7 @@ namespace OGen.NTier.Dia.lib.metadata.diagram {
 		}
 		#endregion
 
-		public DBTableField[] Fields() {
+		public DBTableField[] TableFields() {
 			Match _match;
 			DBTableField _tableField;
 			System.Collections.Generic.List<DBTableField> _list
@@ -105,6 +104,8 @@ namespace OGen.NTier.Dia.lib.metadata.diagram {
 							switch (AttributeCollection[a].CompositeCollection[c].Type) {
 								case "table_attribute":
 									_list.Add(_tableField = new DBTableField());
+									_tableField.isIdentity = false;
+
 									for (int aa = 0; aa < AttributeCollection[a].CompositeCollection[c].AttributeCollection.Count; aa++) {
 										switch (AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Name) {
 											case "name":
@@ -140,25 +141,25 @@ namespace OGen.NTier.Dia.lib.metadata.diagram {
 													_tableField.DBType_inDB_name = _match.Groups["psql"].Value;
 
 
-												_match = Regex_Length.Match(
-													AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String
-												);
-												if (_match.Success)
-													_tableField.Size = int.Parse(_match.Groups["length"].Value);
+												//_match = Regex_Length.Match(
+												//    AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String
+												//);
+												//if (_match.Success)
+												//    _tableField.Size = int.Parse(_match.Groups["length"].Value);
 
 
 												_match = Regex_Numeric_Precision.Match(
 													AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String
 												);
 												if (_match.Success)
-													_tableField.Size = int.Parse(_match.Groups["numericPrecision"].Value);
+													_tableField.Numeric_Precision = int.Parse(_match.Groups["numericPrecision"].Value);
 
 
 												_match = Regex_Numeric_Scale.Match(
 													AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String
 												);
 												if (_match.Success)
-													_tableField.Size = int.Parse(_match.Groups["numericScale"].Value);
+													_tableField.Numeric_Scale = int.Parse(_match.Groups["numericScale"].Value);
 
 
 												break;
@@ -182,50 +183,55 @@ namespace OGen.NTier.Dia.lib.metadata.diagram {
 				}
 			}
 
-			string _tableName_a;
-			string _tableFieldName_a;
-			string _tableName_b;
-			string _tableFieldName_b;
-			string _direction;
-			XS__diagram _root_ref = ((XS__diagram)((XS_layerType)this.parent_ref).parent_ref);
-			for (int l = 0; l < _root_ref.LayerCollection.Count; l++) {
-				for (int o = 0; o < _root_ref.LayerCollection[l].ObjectCollection.Count; o++) {
-					switch (_root_ref.LayerCollection[l].ObjectCollection[o].Type) {
-						case "UML - Association":
-							if (_root_ref.LayerCollection[l].ObjectCollection[o].Connections.ConnectionCollection.Count != 2)
-								break;
+			//XS_objectType _table_a;
+			//string _tableName_a;
+			//string _tableFieldName_a;
 
-							_tableName_a = "";
-							_tableFieldName_a = "";
-							_tableName_b = "";
-							_tableFieldName_b = "";
-							_direction = "";
-							for (int a = 0; a < _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection.Count; a++) {
-								switch (_root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].Name) {
-									case "direction":
-										_direction = _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].Enum.Val;
-										break;
-									case "role_a":
-										_tableName_a = _root_ref.Table_search(
-											_root_ref.LayerCollection[l].ObjectCollection[o].Connections.ConnectionCollection[0].To
-										).TableName;
-										_tableFieldName_a = _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].String;
-										break;
-									case "role_b":
-										_tableName_b = _root_ref.Table_search(
-											_root_ref.LayerCollection[l].ObjectCollection[o].Connections.ConnectionCollection[1].To
-										).TableName;
-										_tableFieldName_b = _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].String;
-										break;
-								}
-							}
+			//XS_objectType _table_b;
+			//string _tableName_b;
+			//string _tableFieldName_b;
+			//string _direction;
+			//XS__diagram _root_ref = ((XS__diagram)((XS_layerType)this.parent_ref).parent_ref);
+			//for (int l = 0; l < _root_ref.LayerCollection.Count; l++) {
+			//    for (int o = 0; o < _root_ref.LayerCollection[l].ObjectCollection.Count; o++) {
+			//        switch (_root_ref.LayerCollection[l].ObjectCollection[o].Type) {
+			//            case "UML - Association":
+			//                if (_root_ref.LayerCollection[l].ObjectCollection[o].Connections.ConnectionCollection.Count != 2)
+			//                    break;
 
-							// ...
+			//                _tableName_a = "";
+			//                _tableFieldName_a = "";
+			//                _tableName_b = "";
+			//                _tableFieldName_b = "";
+			//                _direction = "";
+			//                for (int a = 0; a < _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection.Count; a++) {
+			//                    switch (_root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].Name) {
+			//                        case "direction":
+			//                            _direction = _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].Enum.Val;
+			//                            break;
+			//                        case "role_a":
+			//                            _table_a = _root_ref.Table_search(
+			//                                _root_ref.LayerCollection[l].ObjectCollection[o].Connections.ConnectionCollection[0].To
+			//                            );
+			//                            _tableName_a = _table_a.TableName;
+			//                            _tableFieldName_a = _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].String;
+			//                            break;
+			//                        case "role_b":
+			//                            _table_b = _root_ref.Table_search(
+			//                                _root_ref.LayerCollection[l].ObjectCollection[o].Connections.ConnectionCollection[1].To
+			//                            );
+			//                            _tableName_b = _table_b.TableName;
+			//                            _tableFieldName_b = _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].String;
+			//                            break;
+			//                    }
+			//                }
 
-							break;
-					}
-				}
-			}
+			//                // ...
+
+			//                break;
+			//        }
+			//    }
+			//}
 
 			return _list.ToArray();
 		}
