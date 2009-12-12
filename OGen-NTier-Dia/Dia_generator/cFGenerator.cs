@@ -117,6 +117,7 @@ namespace OGen.NTier.Dia.lib.generator {
 			diagram_ = XS__diagram.Load_fromFile(
 				filename_
 			)[0];
+			diagram_.FilePath = filename_;
 
 			if (notifyBack_in != null) notifyBack_in("... finished", true);
 		}

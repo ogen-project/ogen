@@ -33,9 +33,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<arguments>
 			<argument 
 				name="MetadataFilepath" 
-
-				valueXXX="${CONFIG.outputPath}/${ROOT.documentation[n].documentationName}.OGenDoc-metadata.xml" 
-				value="${CONFIG.outputPath}/modeloDados.dia" />
+				value="${ROOT.diagram[0].filePath}" />
 			<argument 
 				name="tableId" 
 				value="${ROOT.diagram[0].layer[n].object[n].id}" />
@@ -45,7 +43,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</conditions>
 		<outputs>
 			<output 
-				to="${CONFIG.outputPath}/table-${ROOT.diagram[0].layer[n].object[n].tableName}.sql"
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/table-${ROOT.diagram[0].layer[n].object[n].tableName}.postgresql.sql"
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
@@ -58,9 +56,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<arguments>
 			<argument
 				name="MetadataFilepath"
-
-				valueXXX="${CONFIG.outputPath}/${ROOT.documentation[n].documentationName}.OGenDoc-metadata.xml"
-				value="${CONFIG.outputPath}/modeloDados.dia" />
+				value="${ROOT.diagram[0].filePath}" />
 			<argument
 				name="tableId"
 				value="${ROOT.diagram[0].layer[n].object[n].id}" />
@@ -70,28 +66,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</conditions>
 		<outputs>
 			<output
-				to="${CONFIG.outputPath}/tableConstraint-${ROOT.diagram[0].layer[n].object[n].tableName}.sql"
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/tableConstraint-${ROOT.diagram[0].layer[n].object[n].tableName}.postgresql.sql"
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
-
-<!--
-	<template id="Constraint-PostgreSQL.aspx"
-			name="Constraint-PostgreSQL.aspx"
-			parserType="aspx"
-			iterationType="ROOT.documentation[n].chapters.chapter[n]">
-		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-Doc-metadatas/MD_${ROOT.documentation[n].documentationName}.OGenDoc-metadata.xml" />
-			<argument name="DocumentationName" value="${ROOT.documentation[n].documentationName}" />
-			<argument name="ChapterTitle" value="${ROOT.documentation[n].chapters.chapter[n].title}" />
-		</arguments>
-		<conditions />
-		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.documentation[n].documentationName}-chapter-${ROOT.documentation[n].chapters.chapter[n].number}-${ROOT.documentation[n].chapters.chapter[n].fileName}.html"
-				type="File" mode="Replace" />
-		</outputs>
-		<dependencies />
-	</template>
--->
 </templates>

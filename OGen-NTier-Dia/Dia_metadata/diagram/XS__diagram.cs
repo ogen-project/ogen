@@ -28,6 +28,30 @@ namespace OGen.NTier.Dia.lib.metadata.diagram {
 	public partial class XS__diagram {
 	#endif
 
+		#region public string FilePath { get; }
+		private string filepath_;
+
+		[XmlIgnore()]
+		[XmlAttribute("filePath")]
+		public string FilePath {
+			get {
+				return filepath_;
+			}
+			set {
+				filepath_ = value;
+			}
+		}
+		#endregion
+		#region public string FileName { get; }
+		[XmlIgnore()]
+		[XmlAttribute("fileName")]
+		public string FileName {
+			get {
+				return System.IO.Path.GetFileNameWithoutExtension(filepath_);
+			}
+		}
+		#endregion
+
 		#region public XS_objectType Table_search(...);
 		public XS_objectType Table_search(
 			string id_in
