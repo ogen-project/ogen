@@ -70,7 +70,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</conditions>
 		<outputs>
 			<output
-				to="${CONFIG.outputPath}/table-${ROOT.diagram[0].layer[n].object[n].tableName}-constraint.sql"
+				to="${CONFIG.outputPath}/tableConstraint-${ROOT.diagram[0].layer[n].object[n].tableName}.sql"
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />

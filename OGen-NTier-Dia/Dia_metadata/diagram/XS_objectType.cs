@@ -130,57 +130,115 @@ if (_comment[3] != "")
 			return _list.ToArray();
 		}
 		#endregion
+		#region public FK[] TableFKs();
+		#region public struct FK { ... }
+		public struct FK {
+			public FK(
+				string tableFieldName_in, 
 
-		public void xxx() {
-			//XS_objectType _table_a;
-			//string _tableName_a;
-			//string _tableFieldName_a;
+				string fk_TableName_in, 
+				string fk_TableFieldName_in
+			) {
+				TableFieldName = tableFieldName_in;
 
-			//XS_objectType _table_b;
-			//string _tableName_b;
-			//string _tableFieldName_b;
-			//string _direction;
-			//XS__diagram _root_ref = ((XS__diagram)((XS_layerType)this.parent_ref).parent_ref);
-			//for (int l = 0; l < _root_ref.LayerCollection.Count; l++) {
-			//    for (int o = 0; o < _root_ref.LayerCollection[l].ObjectCollection.Count; o++) {
-			//        switch (_root_ref.LayerCollection[l].ObjectCollection[o].Type) {
-			//            case "UML - Association":
-			//                if (_root_ref.LayerCollection[l].ObjectCollection[o].Connections.ConnectionCollection.Count != 2)
-			//                    break;
+				FK_TableName = fk_TableName_in;
+				FK_TableFieldName = fk_TableFieldName_in;
+			}
 
-			//                _tableName_a = "";
-			//                _tableFieldName_a = "";
-			//                _tableName_b = "";
-			//                _tableFieldName_b = "";
-			//                _direction = "";
-			//                for (int a = 0; a < _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection.Count; a++) {
-			//                    switch (_root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].Name) {
-			//                        case "direction":
-			//                            _direction = _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].Enum.Val;
-			//                            break;
-			//                        case "role_a":
-			//                            _table_a = _root_ref.Table_search(
-			//                                _root_ref.LayerCollection[l].ObjectCollection[o].Connections.ConnectionCollection[0].To
-			//                            );
-			//                            _tableName_a = _table_a.TableName;
-			//                            _tableFieldName_a = _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].String;
-			//                            break;
-			//                        case "role_b":
-			//                            _table_b = _root_ref.Table_search(
-			//                                _root_ref.LayerCollection[l].ObjectCollection[o].Connections.ConnectionCollection[1].To
-			//                            );
-			//                            _tableName_b = _table_b.TableName;
-			//                            _tableFieldName_b = _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].String;
-			//                            break;
-			//                    }
-			//                }
+			public string TableFieldName;
 
-			//                // ...
-
-			//                break;
-			//        }
-			//    }
-			//}
+			public string FK_TableName;
+			public string FK_TableFieldName;
 		}
+		#endregion
+
+		public FK[] TableFKs() {
+			System.Collections.Generic.List<FK> _output 
+				= new System.Collections.Generic.List<FK>();
+
+			XS_objectType _table_a;
+			string _tableName_a;
+			string _tableFieldName_a;
+
+			XS_objectType _table_b;
+			string _tableName_b;
+			string _tableFieldName_b;
+
+			string _direction;
+
+			XS_objectTypeCollection _objecttypecollection = (XS_objectTypeCollection)this.parent_ref;
+			XS_layerType _layertype = (XS_layerType)_objecttypecollection.parent_ref;
+			XS_layerTypeCollection _layertypecollection = (XS_layerTypeCollection)_layertype.parent_ref;
+			XS__diagram _root_ref = (XS__diagram)_layertypecollection.parent_ref;
+
+			for (int l = 0; l < _root_ref.LayerCollection.Count; l++) {
+				for (int o = 0; o < _root_ref.LayerCollection[l].ObjectCollection.Count; o++) {
+					switch (_root_ref.LayerCollection[l].ObjectCollection[o].Type) {
+						case "UML - Association":
+							if (_root_ref.LayerCollection[l].ObjectCollection[o].Connections.ConnectionCollection.Count != 2)
+								break;
+
+							_table_a = null;
+							_tableName_a = "";
+							_tableFieldName_a = "";
+
+							_table_b = null;
+							_tableName_b = "";
+							_tableFieldName_b = "";
+
+							_direction = "";
+
+							for (int a = 0; a < _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection.Count; a++) {
+								switch (_root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].Name) {
+									case "direction":
+										_direction = _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].Enum.Val;
+										break;
+									case "role_a":
+										_table_a = _root_ref.Table_search(
+											_root_ref.LayerCollection[l].ObjectCollection[o].Connections.ConnectionCollection[0].To
+										);
+										_tableName_a = _table_a.TableName;
+										_tableFieldName_a = _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].String.Replace("#", "");
+										break;
+									case "role_b":
+										_table_b = _root_ref.Table_search(
+											_root_ref.LayerCollection[l].ObjectCollection[o].Connections.ConnectionCollection[1].To
+										);
+										_tableName_b = _table_b.TableName;
+										_tableFieldName_b = _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].String.Replace("#", "");
+										break;
+								}
+							}
+
+							if (
+								(_table_a == this)
+								&&
+								(_direction == "2")
+							) {
+								_output.Add(new FK(
+									_tableFieldName_a,
+									_tableName_b,
+									_tableFieldName_b
+								));
+							}
+							if (
+								(_table_b == this)
+								&&
+								(_direction == "1")
+							) {
+								_output.Add(new FK(
+									_tableFieldName_b,
+									_tableName_a,
+									_tableFieldName_a
+								));
+							}
+							break;
+					}
+				}
+			}
+
+			return _output.ToArray();
+		}
+		#endregion
 	}
 }

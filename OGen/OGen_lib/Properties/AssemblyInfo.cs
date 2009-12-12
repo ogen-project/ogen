@@ -14,6 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 // Information about this assembly is defined by the following
 // attributes.
@@ -30,6 +31,8 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
+[assembly: ComVisible(false)]
+
 // The assembly version has following format :
 //
 // Major.Minor.Build.Revision
@@ -38,6 +41,7 @@ using System.Runtime.CompilerServices;
 // numbers with the '*' character (the default):
 //
 [assembly: AssemblyVersion("0.1.1000.20000")]
+[assembly: AssemblyFileVersion("0.1.1000.20000")]
 
 // The following attributes specify the key for the sign of your assembly. See the
 // .NET Framework documentation for more information about signing.

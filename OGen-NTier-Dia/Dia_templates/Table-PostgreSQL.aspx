@@ -24,15 +24,11 @@ XS__diagram _aux_diagram = XS__diagram.Load_fromFile(
 	_arg_MetadataFilepath
 )[0];
 XS_objectType _aux_table = _aux_diagram.Table_search(_arg_tableId);
-//XS__documentation _aux_doc
-//	= _aux_rootmetadata.DocumentationCollection[
-//		_arg_DocumentationName
-//	];
 
 DBTableField[] _tablefields = _aux_table.TableFields();
                                             	
-string _aux_path = Path.GetDirectoryName(_arg_MetadataFilepath);
-string _aux_path_directoryname = Path.GetFileName(_aux_path);
+//string _aux_path = Path.GetDirectoryName(_arg_MetadataFilepath);
+//string _aux_path_directoryname = Path.GetFileName(_aux_path);
 #endregion
 //-----------------------------------------------------------------------------------------
 %>CREATE TABLE "<%=_aux_table.TableName%>" (<%
