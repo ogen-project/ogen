@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dia_generator-9", "Dia_gene
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dia_templates-9", "Dia_templates\Dia_templates-9.csproj", "{C6ED2E91-EE27-4F91-A0DC-A36A0C2EE58E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_lib-9", "..\OGen\OGen_lib\OGen_lib-9.csproj", "{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,10 @@ Global
 		{C6ED2E91-EE27-4F91-A0DC-A36A0C2EE58E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6ED2E91-EE27-4F91-A0DC-A36A0C2EE58E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6ED2E91-EE27-4F91-A0DC-A36A0C2EE58E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -50,6 +50,32 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</outputs>
 		<dependencies />
 	</template>
+
+	<template id="Table-Constraint-PostgreSQL.aspx"
+		name="Table-Constraint-PostgreSQL.aspx"
+		parserType="aspx"
+		iterationType="ROOT.diagram[0].layer[n].object[n]">
+		<arguments>
+			<argument
+				name="MetadataFilepath"
+
+				valueXXX="${CONFIG.outputPath}/${ROOT.documentation[n].documentationName}.OGenDoc-metadata.xml"
+				value="${CONFIG.outputPath}/modeloDados.dia" />
+			<argument
+				name="tableId"
+				value="${ROOT.diagram[0].layer[n].object[n].id}" />
+		</arguments>
+		<conditions>
+			<condition eval="ROOT.diagram[0].layer[n].object[n].type" to="Database - Table" />
+		</conditions>
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/table-${ROOT.diagram[0].layer[n].object[n].tableName}-constraint.sql"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+
 <!--
 	<template id="Constraint-PostgreSQL.aspx"
 			name="Constraint-PostgreSQL.aspx"

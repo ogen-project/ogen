@@ -97,6 +97,10 @@
       <Project>{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}</Project>
       <Name>OGen_generator-9</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_lib\OGen_lib-9.csproj">
+      <Project>{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}</Project>
+      <Name>OGen_lib-9</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\OGen\OGen_webforms\OGen_webforms-9.csproj">
       <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
       <Name>OGen_webforms-9</Name>

@@ -15,8 +15,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Xml.Serialization;
 
-using System.Text.RegularExpressions;
-
 using OGen.lib.datalayer;
 
 namespace OGen.NTier.Dia.lib.metadata.diagram {
@@ -25,77 +23,6 @@ namespace OGen.NTier.Dia.lib.metadata.diagram {
 	#else
 	public partial class XS_objectType {
 	#endif
-
-		private string[] readXXX(
-			string queryString_in, 
-
-			string paramSplitter_in, 
-			char valueSplitter_in, 
-
-			params string[] param_in
-		) {
-			string[] _output = new string[param_in.Length];
-			for (int p = 0; p < param_in.Length; p++) {
-				_output[p] = "";
-			}
-
-			#region string[] _paramValue = queryString_in.Split(paramSplitter_in);
-			string[] _paramValue;
-			if (paramSplitter_in.Length == 1) {
-				_paramValue = queryString_in.Split(
-					paramSplitter_in[0]
-				);
-			} else {
-				_paramValue = queryString_in.Split(
-					new string[] { paramSplitter_in }, 
-					StringSplitOptions.None
-				);
-			}
-			#endregion
-
-			string[] _paramValue_xxx;
-			for (int i = 0; i < _paramValue.Length; i++) {
-				_paramValue_xxx = _paramValue[i].Split(valueSplitter_in);
-
-				for (int p = 0; p < param_in.Length; p++) {
-					if (param_in[p] == _paramValue_xxx[0]) {
-						_output[p] = _paramValue_xxx[1];
-					}
-				}
-			}
-
-			return _output;
-		}
-		//private Regex Regex_Length = new Regex(
-		//    "^(?<before>.*)length:(?<length>.*);(?<after>.*)",
-		//    RegexOptions.Compiled |
-		//    RegexOptions.IgnoreCase
-		//);
-		//private Regex Regex_Numeric_Precision = new Regex(
-		//    "^(?<before>.*)numericPrecision:(?<numericPrecision>.*);(?<after>.*)",
-		//    RegexOptions.Compiled |
-		//    RegexOptions.IgnoreCase
-		//);
-		//private Regex Regex_Numeric_Scale = new Regex(
-		//    "^(?<before>.*)numericScale:(?<numericScale>.*);(?<after>.*)",
-		//    RegexOptions.Compiled |
-		//    RegexOptions.IgnoreCase
-		//);
-		//private Regex Regex_PostgreSQL = new Regex(
-		//    "^(?<before>.*)psql:(?<psql>.*);(?<after>.*)",
-		//    RegexOptions.Compiled |
-		//    RegexOptions.IgnoreCase
-		//);
-		//private Regex Regex_SQLServer = new Regex(
-		//    "^(?<before>.*)sqlserver:(?<sqlserver>.*);(?<after>.*)",
-		//    RegexOptions.Compiled |
-		//    RegexOptions.IgnoreCase
-		//);
-		//private Regex Regex_Identity = new Regex(
-		//    "^(?<before>.*)identity:(?<identity>.*);(?<after>.*)",
-		//    RegexOptions.Compiled |
-		//    RegexOptions.IgnoreCase
-		//);
 
 		#region private string getAttribute(...);
 		private string getAttribute(
@@ -129,9 +56,8 @@ namespace OGen.NTier.Dia.lib.metadata.diagram {
 			}
 		}
 		#endregion
-
+		#region public DBTableField[] TableFields();
 		public DBTableField[] TableFields() {
-			Match _match;
 			DBTableField _tableField;
 			System.Collections.Generic.List<DBTableField> _list
 				= new System.Collections.Generic.List<DBTableField>();
@@ -160,17 +86,19 @@ namespace OGen.NTier.Dia.lib.metadata.diagram {
 													= AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Val;
 												break;
 											case "comment":
-												string[] _comment = readXXX(
+												string[] _comment = OGen.lib.utils.ParamvalueList_Split(
 													AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String.Replace("#", ""),
 													";",
-													':',
+													":",
 
 													"identity", // ___________ 0
 													"length", // _____________ 1
 													"sqlserver", // __________ 2
 													"psql", // _______________ 3
 													"numericPrecision", // ___ 4
-													"numericScale" // ________ 5
+													"numericScale", // _______ 5
+													"type", // _______________ 6
+													"unique" // ______________ 7
 												);
 												if (_comment[0] != "")
 													_tableField.isIdentity = bool.Parse(_comment[0]);
@@ -186,13 +114,6 @@ if (_comment[3] != "")
 													_tableField.Numeric_Scale = int.Parse(_comment[5]);
 
 												break;
-
-											//case "type":
-											//    Console.WriteLine("\tfield-type: {0}", AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String);
-											//    break;
-											//case "unique":
-											//    Console.WriteLine("\tfield-unique: {0}", AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Val);
-											//    break;
 											default:
 												break;
 										}
@@ -206,6 +127,11 @@ if (_comment[3] != "")
 				}
 			}
 
+			return _list.ToArray();
+		}
+		#endregion
+
+		public void xxx() {
 			//XS_objectType _table_a;
 			//string _tableName_a;
 			//string _tableFieldName_a;
@@ -255,8 +181,6 @@ if (_comment[3] != "")
 			//        }
 			//    }
 			//}
-
-			return _list.ToArray();
 		}
 	}
 }
