@@ -37,14 +37,7 @@ string _aux_path_directoryname = Path.GetFileName(_aux_path);
 //-----------------------------------------------------------------------------------------
 %>CREATE TABLE "<%=_aux_table.TableName%>" (<%
 for (int f = 0; f < _tablefields.Length; f++) {%>
-	"<%=_tablefields[f].Name%>" <%=_tablefields[f].DBType_inDB_name%> <%=(_tablefields[f].isNullable) ? "" : "NOT " %>NULL<%=(_tablefields.Length -1 == f) ? "," : "" %>
-<%
+	"<%=_tablefields[f].Name%>" <%=_tablefields[f].DBType_inDB_name%><%=(_tablefields[f].DBType_inDB_name == "character varying") ? "(" + _tablefields[f].Size.ToString() + ")" : ""%> <%=(_tablefields[f].isNullable) ? "" : "NOT " %>NULL<%=(_tablefields.Length -1 == f) ? "" : "," %><%
 }%>
-
-  "IDCoworker" serial NOT NULL,
-  "Login" character varying(20) NOT NULL,
-  "Password" character varying(255) NOT NULL,
-  "Name" character varying(100) NOT NULL,
-  "EMail" character varying(25) NOT NULL
 )
 WITH (OIDS=FALSE);

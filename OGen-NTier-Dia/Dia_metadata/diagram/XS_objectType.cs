@@ -26,36 +26,76 @@ namespace OGen.NTier.Dia.lib.metadata.diagram {
 	public partial class XS_objectType {
 	#endif
 
-		private Regex Regex_Length = new Regex(
-			"^(?<before>.*)length:(?<length>.*);(?<after>.*)",
-			RegexOptions.Compiled |
-			RegexOptions.IgnoreCase
-		);
-		private Regex Regex_Numeric_Precision = new Regex(
-			"^(?<before>.*)numericPrecision:(?<numericPrecision>.*);(?<after>.*)",
-			RegexOptions.Compiled |
-			RegexOptions.IgnoreCase
-		);
-		private Regex Regex_Numeric_Scale = new Regex(
-			"^(?<before>.*)numericScale:(?<numericScale>.*);(?<after>.*)",
-			RegexOptions.Compiled |
-			RegexOptions.IgnoreCase
-		);
-		private Regex Regex_PostgreSQL = new Regex(
-			"^(?<before>.*)psql:(?<psql>.*);(?<after>.*)",
-			RegexOptions.Compiled |
-			RegexOptions.IgnoreCase
-		);
-		private Regex Regex_SQLServer = new Regex(
-			"^(?<before>.*)sqlserver:(?<sqlserver>.*);(?<after>.*)",
-			RegexOptions.Compiled |
-			RegexOptions.IgnoreCase
-		);
-		private Regex Regex_Identity = new Regex(
-			"^(?<before>.*)identity:(?<identity>.*);(?<after>.*)",
-			RegexOptions.Compiled |
-			RegexOptions.IgnoreCase
-		);
+		private string[] readXXX(
+			string queryString_in, 
+
+			string paramSplitter_in, 
+			char valueSplitter_in, 
+
+			params string[] param_in
+		) {
+			string[] _output = new string[param_in.Length];
+			for (int p = 0; p < param_in.Length; p++) {
+				_output[p] = "";
+			}
+
+			#region string[] _paramValue = queryString_in.Split(paramSplitter_in);
+			string[] _paramValue;
+			if (paramSplitter_in.Length == 1) {
+				_paramValue = queryString_in.Split(
+					paramSplitter_in[0]
+				);
+			} else {
+				_paramValue = queryString_in.Split(
+					new string[] { paramSplitter_in }, 
+					StringSplitOptions.None
+				);
+			}
+			#endregion
+
+			string[] _paramValue_xxx;
+			for (int i = 0; i < _paramValue.Length; i++) {
+				_paramValue_xxx = _paramValue[i].Split(valueSplitter_in);
+
+				for (int p = 0; p < param_in.Length; p++) {
+					if (param_in[p] == _paramValue_xxx[0]) {
+						_output[p] = _paramValue_xxx[1];
+					}
+				}
+			}
+
+			return _output;
+		}
+		//private Regex Regex_Length = new Regex(
+		//    "^(?<before>.*)length:(?<length>.*);(?<after>.*)",
+		//    RegexOptions.Compiled |
+		//    RegexOptions.IgnoreCase
+		//);
+		//private Regex Regex_Numeric_Precision = new Regex(
+		//    "^(?<before>.*)numericPrecision:(?<numericPrecision>.*);(?<after>.*)",
+		//    RegexOptions.Compiled |
+		//    RegexOptions.IgnoreCase
+		//);
+		//private Regex Regex_Numeric_Scale = new Regex(
+		//    "^(?<before>.*)numericScale:(?<numericScale>.*);(?<after>.*)",
+		//    RegexOptions.Compiled |
+		//    RegexOptions.IgnoreCase
+		//);
+		//private Regex Regex_PostgreSQL = new Regex(
+		//    "^(?<before>.*)psql:(?<psql>.*);(?<after>.*)",
+		//    RegexOptions.Compiled |
+		//    RegexOptions.IgnoreCase
+		//);
+		//private Regex Regex_SQLServer = new Regex(
+		//    "^(?<before>.*)sqlserver:(?<sqlserver>.*);(?<after>.*)",
+		//    RegexOptions.Compiled |
+		//    RegexOptions.IgnoreCase
+		//);
+		//private Regex Regex_Identity = new Regex(
+		//    "^(?<before>.*)identity:(?<identity>.*);(?<after>.*)",
+		//    RegexOptions.Compiled |
+		//    RegexOptions.IgnoreCase
+		//);
 
 		#region private string getAttribute(...);
 		private string getAttribute(
@@ -120,56 +160,39 @@ namespace OGen.NTier.Dia.lib.metadata.diagram {
 													= AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Val;
 												break;
 											case "comment":
-												_match = Regex_Identity.Match(
-													AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String
+												string[] _comment = readXXX(
+													AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String.Replace("#", ""),
+													";",
+													':',
+
+													"identity", // ___________ 0
+													"length", // _____________ 1
+													"sqlserver", // __________ 2
+													"psql", // _______________ 3
+													"numericPrecision", // ___ 4
+													"numericScale" // ________ 5
 												);
-												if (_match.Success)
-													_tableField.isIdentity = bool.Parse(_match.Groups["identity"].Value);
-
-
-												_match = Regex_SQLServer.Match(
-													AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String
-												);
-												if (_match.Success)
-													_tableField.DBType_inDB_name = _match.Groups["sqlserver"].Value;
-
-
-												_match = Regex_PostgreSQL.Match(
-													AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String
-												);
-												if (_match.Success)
-													_tableField.DBType_inDB_name = _match.Groups["psql"].Value;
-
-
-												//_match = Regex_Length.Match(
-												//    AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String
-												//);
-												//if (_match.Success)
-												//    _tableField.Size = int.Parse(_match.Groups["length"].Value);
-
-
-												_match = Regex_Numeric_Precision.Match(
-													AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String
-												);
-												if (_match.Success)
-													_tableField.Numeric_Precision = int.Parse(_match.Groups["numericPrecision"].Value);
-
-
-												_match = Regex_Numeric_Scale.Match(
-													AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String
-												);
-												if (_match.Success)
-													_tableField.Numeric_Scale = int.Parse(_match.Groups["numericScale"].Value);
-
+												if (_comment[0] != "")
+													_tableField.isIdentity = bool.Parse(_comment[0]);
+												if (_comment[1] != "")
+													_tableField.Size = int.Parse(_comment[1]);
+if (_comment[2] != "")
+	_tableField.DBType_inDB_name = _comment[2];
+if (_comment[3] != "")
+	_tableField.DBType_inDB_name = _comment[3];
+												if (_comment[4] != "")
+													_tableField.Numeric_Precision = int.Parse(_comment[4]);
+												if (_comment[5] != "")
+													_tableField.Numeric_Scale = int.Parse(_comment[5]);
 
 												break;
 
 											//case "type":
 											//    Console.WriteLine("\tfield-type: {0}", AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String);
 											//    break;
-											case "unique":
-												//Console.WriteLine("\tfield-unique: {0}", AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Val);
-												break;
+											//case "unique":
+											//    Console.WriteLine("\tfield-unique: {0}", AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Val);
+											//    break;
 											default:
 												break;
 										}
