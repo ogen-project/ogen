@@ -8,8 +8,8 @@
     <ProjectGuid>{AE492C5A-D818-4038-8AC8-543874359670}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OGen.NTier.Dia.presentationlayer.console</RootNamespace>
-    <AssemblyName>OGen.NTier.Dia.presentationlayer.console-2.0</AssemblyName>
+    <RootNamespace>OGen.Dia.presentationlayer.console</RootNamespace>
+    <AssemblyName>OGen.Dia.presentationlayer.console-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SignAssembly>true</SignAssembly>

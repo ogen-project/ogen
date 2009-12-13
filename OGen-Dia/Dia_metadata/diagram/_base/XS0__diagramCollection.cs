@@ -16,7 +16,7 @@ using System;
 using System.IO;
 using System.Xml.Serialization;
 
-namespace OGen.NTier.Dia.lib.metadata.diagram {
+namespace OGen.Dia.lib.metadata.diagram {
 	#if NET_1_1
 	public class XS0__diagramCollection {
 	#else

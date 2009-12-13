@@ -16,9 +16,9 @@ using System;
 using System.Xml.Serialization;
 
 
-using OGen.NTier.Dia.lib.metadata.diagram;
+using OGen.Dia.lib.metadata.diagram;
 
-namespace OGen.NTier.Dia.lib.metadata {
+namespace OGen.Dia.lib.metadata {
 	#if NET_1_1
 	public class XS__RootMetadata : XS0__RootMetadata {
 	#else

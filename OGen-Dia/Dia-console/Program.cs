@@ -16,10 +16,10 @@ using System;
 using System.IO;
 
 using OGen.lib.generator;
-using OGen.NTier.Dia.lib.metadata;
-using OGen.NTier.Dia.lib.generator;
+using OGen.Dia.lib.metadata;
+using OGen.Dia.lib.generator;
 
-namespace OGen.NTier.Dia.presentationlayer.console {
+namespace OGen.Dia.presentationlayer.console {
 	class Program {
 		static void Main(string[] args_in) {
 			#region Console.WriteLine("Copyright (C) 2002 Francisco Monteiro");

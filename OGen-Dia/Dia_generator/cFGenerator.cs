@@ -16,10 +16,10 @@ using System;
 using System.IO;
 using OGen.lib.templates;
 using OGen.lib.generator;
-using OGen.NTier.Dia.lib.metadata;
-using OGen.NTier.Dia.lib.metadata.diagram;
+using OGen.Dia.lib.metadata;
+using OGen.Dia.lib.metadata.diagram;
 
-namespace OGen.NTier.Dia.lib.generator {
+namespace OGen.Dia.lib.generator {
 	public class cFGenerator {
 		#region	public cFGenerator();
 		public cFGenerator() {

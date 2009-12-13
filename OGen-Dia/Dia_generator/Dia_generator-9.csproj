@@ -8,8 +8,8 @@
     <ProjectGuid>{BE3E31C9-69AA-4F21-B945-225E78D62D03}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OGen.NTier.Dia.lib.generator</RootNamespace>
-    <AssemblyName>OGen.NTier.Dia.lib.generator-2.0</AssemblyName>
+    <RootNamespace>OGen.Dia.lib.generator</RootNamespace>
+    <AssemblyName>OGen.Dia.lib.generator-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SignAssembly>true</SignAssembly>
@@ -23,7 +23,7 @@
     <DefineConstants>TRACE;DEBUG;NET_2_0</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\OGen.NTier.Dia.lib.generator-2.0.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\OGen.Dia.lib.generator-2.0.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,7 +32,7 @@
     <DefineConstants>TRACE;NET_2_0</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\OGen.NTier.Dia.lib.generator-2.0.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\OGen.Dia.lib.generator-2.0.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

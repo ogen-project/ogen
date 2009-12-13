@@ -18,7 +18,7 @@ using System.Xml.Serialization;
 
 using OGen.lib.generator;
 
-namespace OGen.NTier.Dia.lib.metadata.diagram {
+namespace OGen.Dia.lib.metadata.diagram {
 	#if NET_1_1
 	public class XS0__diagram : XS_diagramType, MetadataInterface {
 	#else

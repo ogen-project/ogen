@@ -15,7 +15,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Xml.Serialization;
 
-namespace OGen.NTier.Dia.lib.metadata.diagram {
+namespace OGen.Dia.lib.metadata.diagram {
 	#if NET_1_1
 	public class XS_enumType : XS0_enumType {
 	#else

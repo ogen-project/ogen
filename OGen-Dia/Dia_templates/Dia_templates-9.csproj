@@ -8,8 +8,8 @@
     <ProjectGuid>{C6ED2E91-EE27-4F91-A0DC-A36A0C2EE58E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OGen.NTier.Dia.lib.templates</RootNamespace>
-    <AssemblyName>OGen.NTier.Dia.lib.templates-2.0</AssemblyName>
+    <RootNamespace>OGen.Dia.lib.templates</RootNamespace>
+    <AssemblyName>OGen.Dia.lib.templates-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SignAssembly>true</SignAssembly>

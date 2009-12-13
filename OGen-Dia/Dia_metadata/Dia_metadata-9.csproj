@@ -8,8 +8,8 @@
     <ProjectGuid>{8D5C03A2-FA8C-40C3-BF9A-B12ABBC3E158}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OGen.NTier.Dia.lib.metadata</RootNamespace>
-    <AssemblyName>OGen.NTier.Dia.lib.metadata-2.0</AssemblyName>
+    <RootNamespace>OGen.Dia.lib.metadata</RootNamespace>
+    <AssemblyName>OGen.Dia.lib.metadata-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SignAssembly>true</SignAssembly>
@@ -23,7 +23,7 @@
     <DefineConstants>TRACE;DEBUG;NET_2_0</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\OGen.NTier.Dia.lib.metadata-2.0.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\OGen.Dia.lib.metadata-2.0.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,7 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\OGen.NTier.Dia.lib.metadata-2.0.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\OGen.Dia.lib.metadata-2.0.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

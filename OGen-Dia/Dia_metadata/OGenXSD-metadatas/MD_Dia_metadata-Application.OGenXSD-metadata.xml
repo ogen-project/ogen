@@ -12,7 +12,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 -->
 <metadata
 	applicationName="Dia_metadata" 
-	namespace="OGen.NTier.Dia.lib.metadata" 
+	namespace="OGen.Dia.lib.metadata" 
 	caseType="PascalCase"
 	allowSettersOnObjects="false"
 	isSimple="false"

@@ -16,10 +16,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-using OGen.NTier.Dia.lib.metadata;
-using OGen.NTier.Dia.lib.metadata.diagram;
+using OGen.Dia.lib.metadata;
+using OGen.Dia.lib.metadata.diagram;
 
-namespace OGen.NTier.Dia.presentationlayer.test {
+namespace OGen.Dia.presentationlayer.test {
 	class Program {
 		static void Main(string[] args) {
 			XS__diagram _dia = XS__diagram.Load_fromFile(

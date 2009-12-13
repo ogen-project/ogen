@@ -8,11 +8,11 @@
     <ProjectGuid>{175AC1D5-6F73-407E-BC03-1AC3D0589409}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OGen.NTier.Dia.presentationlayer.test</RootNamespace>
-    <AssemblyName>OGen.NTier.Dia.presentationlayer.test-2.0</AssemblyName>
+    <RootNamespace>OGen.Dia.presentationlayer.test</RootNamespace>
+    <AssemblyName>OGen.Dia.presentationlayer.test-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <PublishUrl>http://localhost/OGen.NTier.Dia.presentationlayer.test-2.0/</PublishUrl>
+    <PublishUrl>http://localhost/OGen.Dia.presentationlayer.test-2.0/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>

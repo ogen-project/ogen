@@ -16,7 +16,7 @@ using System;
 
 using OGen.lib.datalayer;
 
-namespace OGen.NTier.Dia.lib.metadata.diagram {
+namespace OGen.Dia.lib.metadata.diagram {
 	public class DBTableField : OGen.lib.datalayer.DBTableField {
 		public bool isUnique;
 	}

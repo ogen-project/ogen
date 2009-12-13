@@ -18,9 +18,9 @@ using System.Collections;
 
 using OGen.lib.generator;
 using OGen.lib.metadata;
-using OGen.NTier.Dia.lib.metadata.diagram;
+using OGen.Dia.lib.metadata.diagram;
 
-namespace OGen.NTier.Dia.lib.metadata {
+namespace OGen.Dia.lib.metadata {
 	#if NET_1_1
 	public class XS0__RootMetadata : MetadataInterface {
 	#else

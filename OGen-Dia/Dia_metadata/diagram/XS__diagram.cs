@@ -15,7 +15,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Xml.Serialization;
 
-namespace OGen.NTier.Dia.lib.metadata.diagram {
+namespace OGen.Dia.lib.metadata.diagram {
 	[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.lysator.liu.se/~alla/dia/")]
 	[System.Xml.Serialization.XmlRootAttribute(
 		"diagram",

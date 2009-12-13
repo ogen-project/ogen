@@ -19,7 +19,7 @@ using System.Collections;
 using System.Collections.Generic;
 #endif
 
-namespace OGen.NTier.Dia.lib.metadata.diagram {
+namespace OGen.Dia.lib.metadata.diagram {
 	#if NET_1_1
 	public class XS_enumTypeCollection : XS0_enumTypeCollection {
 	#else

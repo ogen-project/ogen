@@ -11,8 +11,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */%><%@ Page language="c#" contenttype="text/html" %>
 <%@ import namespace="System.IO" %>
-<%@ import namespace="OGen.NTier.Dia.lib.metadata" %>
-<%@ import namespace="OGen.NTier.Dia.lib.metadata.diagram" %><%
+<%@ import namespace="OGen.Dia.lib.metadata" %>
+<%@ import namespace="OGen.Dia.lib.metadata.diagram" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 string _arg_tableId = System.Web.HttpUtility.UrlDecode(Request.QueryString["tableId"]);
