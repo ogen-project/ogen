@@ -15,8 +15,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Xml.Serialization;
 
-using OGen.lib.datalayer;
-
 namespace OGen.NTier.Dia.lib.metadata.diagram {
 	#if NET_1_1
 	public class XS_objectType : XS0_objectType {
@@ -79,6 +77,10 @@ namespace OGen.NTier.Dia.lib.metadata.diagram {
 												break;
 											case "primary_key":
 												_tableField.isPK
+													= AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Val;
+												break;
+											case "unique":
+												_tableField.isUnique
 													= AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Val;
 												break;
 											case "nullable":
