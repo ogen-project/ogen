@@ -12,3 +12,4 @@
 CALL "%~dp0distro-auxscripts\win-OGen.Templates-uninstall.bat" /1_1 NTier
 CALL "%~dp0distro-auxscripts\win-OGen.Templates-uninstall.bat" /1_1 Doc
 CALL "%~dp0distro-auxscripts\win-OGen.Templates-uninstall.bat" /1_1 XSD
+CALL "%~dp0distro-auxscripts\win-OGen.Templates-uninstall.bat" /1_1 Dia

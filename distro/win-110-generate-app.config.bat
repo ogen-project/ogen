@@ -20,12 +20,12 @@ IF "%parentdir%" == "" GOTO error1
 IF NOT EXIST "%thisdir%bin" MKDIR "%thisdir%bin"
 
 
-::--- <OGen.NTier.Dia.presentationlayer.console>
-SET configtemplate=OGen.NTier.Dia.presentationlayer.console
+::--- <OGen.Dia.presentationlayer.console>
+SET configtemplate=OGen.Dia.presentationlayer.console
 
-SET configdir=%parentdir%\OGen-NTier-Dia\Dia-console
+SET configdir=%parentdir%\OGen-Dia\Dia-console
 SET configfile=%configdir%\app.config
-SET templatefile=%parentdir%\OGen-NTier-Dia\Dia_templates\templates.config.xml
+SET templatefile=%parentdir%\OGen-Dia\Dia_templates\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
 	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
@@ -33,9 +33,9 @@ IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
-SET configdir=%parentdir%\OGen-NTier-Dia\Dia-test
+SET configdir=%parentdir%\OGen-Dia\Dia-test
 SET configfile=%configdir%\app.config
-SET templatefile=%parentdir%\OGen-NTier-Dia\Dia_templates\templates.config.xml
+SET templatefile=%parentdir%\OGen-Dia\Dia_templates\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
 	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
@@ -65,7 +65,7 @@ IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
-::--- </OGen.NTier.Dia.presentationlayer.console>
+::--- </OGen.Dia.presentationlayer.console>
 ECHO.
 
 ::--- <OGen.Doc.presentationlayer.console>

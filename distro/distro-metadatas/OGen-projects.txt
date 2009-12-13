@@ -46,11 +46,11 @@ OGen-NTier_UTs, OGen-NTier_UTs_webservices_client, OGen.NTier.UTs.lib.distribute
 OGen-NTier_UTs, OGen-NTier_UTs_remoting_server, OGen.NTier.UTs.distributedlayer.remoting.server, f, f, t, MIT, f. f
 OGen-NTier_UTs, OGen-NTier_UTs_remoting_client, OGen.NTier.UTs.lib.distributedlayer.remoting.client, f, f, f, MIT, f, f
 OGen-NTier_UTs, OGen-NTier_UTs_business_client, OGen.NTier.UTs.lib.business.client, f, f, f, MIT, f, f
-OGen-NTier-Dia, Dia_generator, OGen.NTier.Dia.lib.generator, t, f, f, MIT, f, t
-OGen-NTier-Dia, Dia_metadata, OGen.NTier.Dia.lib.metadata, t, f, f, MIT, f, t
-OGen-NTier-Dia, Dia_templates, OGen.NTier.Dia.lib.templates, f, t, f, MIT, f, t
-OGen-NTier-Dia, Dia-console, OGen.NTier.Dia.presentationlayer.console, f, f, t, MIT, f, t
-OGen-NTier-Dia, Dia-test, OGen.NTier.Dia.presentationlayer.test, f, f, t, MIT, f, f
+OGen-Dia, Dia_generator, OGen.Dia.lib.generator, t, f, f, MIT, f, t
+OGen-Dia, Dia_metadata, OGen.Dia.lib.metadata, t, f, f, MIT, f, t
+OGen-Dia, Dia_templates, OGen.Dia.lib.templates, f, t, f, MIT, f, t
+OGen-Dia, Dia-console, OGen.Dia.presentationlayer.console, f, f, t, MIT, f, t
+OGen-Dia, Dia-test, OGen.Dia.presentationlayer.test, f, f, t, MIT, f, f
 OGen-Doc, Doc_generator, OGen.Doc.lib.generator, t, f, f, MIT, f, t
 OGen-Doc, Doc_metadata, OGen.Doc.lib.metadata, t, f, f, MIT, f, t
 OGen-Doc, Doc_metadata_UTs, OGen.Doc.lib.metadata.UTs, f, f, f, MIT, f, f

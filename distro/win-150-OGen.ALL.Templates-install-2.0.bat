@@ -12,3 +12,4 @@
 CALL "%~dp0distro-auxscripts\win-OGen.Templates-install.bat" /2_0 NTier
 CALL "%~dp0distro-auxscripts\win-OGen.Templates-install.bat" /2_0 Doc
 CALL "%~dp0distro-auxscripts\win-OGen.Templates-install.bat" /2_0 XSD
+CALL "%~dp0distro-auxscripts\win-OGen.Templates-install.bat" /2_0 Dia
