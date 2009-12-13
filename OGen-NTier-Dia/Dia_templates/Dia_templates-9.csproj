@@ -87,6 +87,7 @@
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="emptyfile.txt" />
     <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
     <Content Include="Table-Constraint-PostgreSQL.aspx" />

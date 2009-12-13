@@ -36,3 +36,4 @@ for (int f = 0; f < _tablefields.Length; f++) {%>
 }%>
 )
 WITH (OIDS=FALSE);
+
