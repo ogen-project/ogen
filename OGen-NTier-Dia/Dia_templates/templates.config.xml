@@ -48,7 +48,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/table-${ROOT.diagram[0].layer[n].object[n].tableName}.postgresql.sql"
 				type="File" mode="Replace" />
 			<output
-				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/tables.postgresql.sql"
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/1-all-tables.postgresql.sql"
 				type="File" mode="Append" />
 		</outputs>
 		<dependencies>
@@ -76,7 +76,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/tableConstraint-${ROOT.diagram[0].layer[n].object[n].tableName}.postgresql.sql"
 				type="File" mode="Replace" />
 			<output
-				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/tableConstraints.postgresql.sql"
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/2-all-tableConstraints.postgresql.sql"
 				type="File" mode="Append" />
 		</outputs>
 		<dependencies>
