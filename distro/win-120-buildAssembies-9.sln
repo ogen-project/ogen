@@ -55,6 +55,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_webs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_datalayer_proxy-9", "..\OGen-NTier\NTier_datalayer_proxy\NTier_datalayer_proxy-9.csproj", "{F17F7FA0-920E-4AE1-908F-2798D0124996}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_lib-9", "..\OGen\OGen_lib\OGen_lib-9.csproj", "{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dia_metadata-9", "..\OGen-NTier-Dia\Dia_metadata\Dia_metadata-9.csproj", "{8D5C03A2-FA8C-40C3-BF9A-B12ABBC3E158}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dia_generator-9", "..\OGen-NTier-Dia\Dia_generator\Dia_generator-9.csproj", "{BE3E31C9-69AA-4F21-B945-225E78D62D03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dia_templates-9", "..\OGen-NTier-Dia\Dia_templates\Dia_templates-9.csproj", "{C6ED2E91-EE27-4F91-A0DC-A36A0C2EE58E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dia-console-9", "..\OGen-NTier-Dia\Dia-console\Dia-console-9.csproj", "{AE492C5A-D818-4038-8AC8-543874359670}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -169,6 +179,26 @@ Global
 		{F17F7FA0-920E-4AE1-908F-2798D0124996}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F17F7FA0-920E-4AE1-908F-2798D0124996}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F17F7FA0-920E-4AE1-908F-2798D0124996}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D5C03A2-FA8C-40C3-BF9A-B12ABBC3E158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D5C03A2-FA8C-40C3-BF9A-B12ABBC3E158}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D5C03A2-FA8C-40C3-BF9A-B12ABBC3E158}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D5C03A2-FA8C-40C3-BF9A-B12ABBC3E158}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE3E31C9-69AA-4F21-B945-225E78D62D03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE3E31C9-69AA-4F21-B945-225E78D62D03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE3E31C9-69AA-4F21-B945-225E78D62D03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE3E31C9-69AA-4F21-B945-225E78D62D03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6ED2E91-EE27-4F91-A0DC-A36A0C2EE58E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6ED2E91-EE27-4F91-A0DC-A36A0C2EE58E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6ED2E91-EE27-4F91-A0DC-A36A0C2EE58E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6ED2E91-EE27-4F91-A0DC-A36A0C2EE58E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE492C5A-D818-4038-8AC8-543874359670}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE492C5A-D818-4038-8AC8-543874359670}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE492C5A-D818-4038-8AC8-543874359670}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE492C5A-D818-4038-8AC8-543874359670}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
