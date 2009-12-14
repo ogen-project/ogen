@@ -84,10 +84,10 @@ AS $BODY$
 				) OR (
 					NOT ("<%=_aux_ex_field.Name%>_search_" IS NULL)
 					AND
-					("<%=_aux_ex_field.Name%>" <%=(_aux_db_field.isText) ? "LIKE '%' ||" : "="%> "<%=_aux_ex_field.Name%>_search_"<%=(_aux_db_field.isText) ? " || '%' /*COLLATE " + _aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBCollationName + "*/" : ""%>)
+					("<%=_aux_ex_field.Name%>" <%=(_aux_db_field.isText) ? "LIKE '%' ||" : "="%> "<%=_aux_ex_field.Name%>_search_"<%=(_aux_db_field.isText) ? " || '%' /*COLLATE " + _aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBCollationName + (((makeItAComment) || (_aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count == 0)) ? "" : "*/") : ""%>)
 				))<%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? " AND" : ""%><%
 			} else {%>
-				("<%=_aux_ex_field.Name%>" <%=(_aux_db_field.isText) ? "LIKE '%' ||" : "="%> "<%=_aux_xx_field_name%>_search_"<%=(_aux_db_field.isText) ? " || '%' /*COLLATE " + _aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBCollationName + "*/" : ""%>)<%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? " AND" : ""%><%
+				("<%=_aux_ex_field.Name%>" <%=(_aux_db_field.isText) ? "LIKE '%' ||" : "="%> "<%=_aux_xx_field_name%>_search_"<%=(_aux_db_field.isText) ? " || '%' /*COLLATE " + _aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBCollationName + (((makeItAComment) || (_aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count == 0)) ? "" : "*/") : ""%>)<%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? " AND" : ""%><%
 			}
 		}%><%=((makeItAComment) || (_aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count == 0)) ? "*/" : ""%>
 		LOOP
