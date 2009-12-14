@@ -25,7 +25,10 @@ $BODY$
 				--case when (
 					sum(
 						case 
-							when "word_" like '%' || "OGen_fnc0__Split" || '%' then 1 
+							----CASE SENSITIVE
+							--when "word_" like '%' || "OGen_fnc0__Split" || '%' then 1 
+							----CASE INSENSITIVE
+							when ("word_" ~* ('.*' || "OGen_fnc0__Split" || '.*')) then 1 
 							else 0 
 						end
 					) 
