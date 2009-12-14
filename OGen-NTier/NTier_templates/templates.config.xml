@@ -2656,6 +2656,50 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+	<template id="DO-DB-OGen_fnc0__Like-PostgreSQL.sql"
+			name="DO-DB-OGen_fnc0__Like-PostgreSQL.sql" 
+			parserType="none" 
+			iterationType="ROOT.metadataDB[0]">
+		<arguments />
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="OGen_fnc0__Like" 
+				type="PostgreSQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-OGen_fnc0__Split-PostgreSQL.sql" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-OGen_fnc0__Like-SQLServer.sql"
+			name="DO-DB-OGen_fnc0__Like-SQLServer.sql" 
+			parserType="none" 
+			iterationType="ROOT.metadataDB[0]">
+		<arguments />
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="OGen_fnc0__Like" 
+				type="SQLServer_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-OGen_fnc0__Split-PostgreSQL.sql" />
+		</dependencies>
+	</template>
 	<template id="DO-DB-OGen_v0__getTables-PostgreSQL.sql"
 			name="DO-DB-OGen_v0__getTables-PostgreSQL.sql" 
 			parserType="none" 
