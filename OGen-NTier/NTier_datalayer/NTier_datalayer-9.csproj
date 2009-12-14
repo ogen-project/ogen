@@ -1,7 +1,7 @@
 ﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -95,9 +95,6 @@
     <Compile Include="DO__base.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="IRecordObject.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="RO__base.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -109,6 +106,10 @@
     <ProjectReference Include="..\..\OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj">
       <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
       <Name>OGen_datalayer__base-9</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NTier_datalayer_proxy\NTier_datalayer_proxy-9.csproj">
+      <Project>{F17F7FA0-920E-4AE1-908F-2798D0124996}</Project>
+      <Name>NTier_datalayer_proxy-9</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

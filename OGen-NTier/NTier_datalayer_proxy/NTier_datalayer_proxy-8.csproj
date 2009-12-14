@@ -41,6 +41,8 @@
     <Compile Include="DOClassAttribute.cs" />
     <Compile Include="DOPropertyAttribute.cs" />
     <Compile Include="DOProperty_andAttribute.cs" />
+    <Compile Include="IRecordObject.cs" />
+    <Compile Include="ISO__base.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
