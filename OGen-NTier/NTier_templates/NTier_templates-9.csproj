@@ -544,6 +544,8 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <None Include="COPYING.MIT" />
+    <None Include="DO-DB-OGen_fnc0__Like-PostgreSQL.sql" />
+    <None Include="DO-DB-OGen_fnc0__Like-SQLServer.sql" />
     <None Include="DO-DB-OGen_fnc0__Split-PostgreSQL.sql" />
     <None Include="DO-DB-OGen_sp0__getTableFields-PostgreSQL.sql" />
     <None Include="DO-DB-OGen_sp0__getTables-PostgreSQL.sql" />

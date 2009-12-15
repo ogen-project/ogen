@@ -19,8 +19,8 @@ SELECT
 	_field.column_name,
 
 	CASE
-		WHEN (_table.table_type = 'VIEW') THEN
-			CAST(0 AS INT)
+--		WHEN (_table.table_type = 'VIEW') THEN
+--			CAST(0 AS INT)
 		WHEN _field.is_nullable = 'YES' THEN
 			CAST(1 AS INT)
 		ELSE
