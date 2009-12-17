@@ -19,6 +19,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<conditions />
 		<outputs>
 			<output
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/0-all.postgresql.sql"
+				type="File" mode="Replace" />
+			<output
 				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/1-all-tables.postgresql.sql"
 				type="File" mode="Replace" />
 			<output
@@ -53,6 +56,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<output
 				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/1-all-tables.postgresql.sql"
 				type="File" mode="Append" />
+			<output
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/0-all.postgresql.sql"
+				type="File" mode="Append" />
 		</outputs>
 		<dependencies>
 			<dependency templateID="emptyfile.txt" />
@@ -80,6 +86,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				type="File" mode="Replace" />
 			<output
 				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/2-all-tableConstraints.postgresql.sql"
+				type="File" mode="Append" />
+			<output
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/0-all.postgresql.sql"
 				type="File" mode="Append" />
 		</outputs>
 		<dependencies>
@@ -109,6 +118,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				type="File" mode="Replace" />
 			<output
 				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/3-all-tableConstraints-FKs.postgresql.sql"
+				type="File" mode="Append" />
+			<output
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/0-all.postgresql.sql"
 				type="File" mode="Append" />
 		</outputs>
 		<dependencies>
