@@ -24,61 +24,18 @@ XS__diagram _aux_diagram = XS__diagram.Load_fromFile(
 )[0];
 XS_objectType _aux_table = _aux_diagram.Table_search(_arg_tableId);
 DBTableField[] _tablefields = _aux_table.TableFields();
-
-bool _aux_first;
-bool _aux_hasUnique = false;
-bool _aux_hasPK = false;
-for (int f = 0; f < _tablefields.Length; f++) {
-	if (_tablefields[f].isUnique) {
-		_aux_hasUnique = true;
-	}
-
-	if (_tablefields[f].isPK) {
-		_aux_hasPK = true;
-	}
-
-	if (_aux_hasUnique && _aux_hasPK) {
-		break;
-	}
-}
+XS_objectType.FK[] _aux_fks = _aux_table.TableFKs();
 #endregion
 //-----------------------------------------------------------------------------------------
 
 
 
-if (_aux_hasPK) {
-%>ALTER TABLE "<%=_aux_table.TableName%>"
-  ADD CONSTRAINT "<%=_aux_table.TableName%>_pkey" PRIMARY KEY (<%
-	_aux_first = true;
-	for (int f = 0; f < _tablefields.Length; f++) {
-		if (!_tablefields[f].isPK) {
-			continue;
-		}%><%=(_aux_first) ? "" : ","%>
-    "<%=_tablefields[f].Name%>"<%
-		_aux_first = false;
-	}%>
-  )
-;
-
-<%
-}
-
-
-
-// in Dia 0.97, when you mark a field as PK, Unique is also set (and disabled),
-// which doesn't make much sence, since you may have a set of two or more PK fields,
-// meaning first is not necessarly unique, second is not necessarly unique, 
-// but combination of first and second (or more) should, 
-// HENCE the fallowing being commented (false)
-if (false && _aux_hasUnique) {
+if (_aux_fks.Length != 0) {
 %>ALTER TABLE "<%=_aux_table.TableName%>"<%
-	_aux_first = true;
-	for (int f = 0; f < _tablefields.Length; f++) {
-		if (!_tablefields[f].isUnique) {
-			continue;
-		}%><%=(_aux_first) ? "" : ","%>
-  ADD CONSTRAINT "<%=_aux_table.TableName%>_<%=_tablefields[f].Name%>_key" UNIQUE ("<%=_tablefields[f].Name%>")<%
-		_aux_first = false;
+	for (int f = 0; f < _aux_fks.Length; f++) {%>
+  ADD CONSTRAINT "<%=_aux_table.TableName%>_<%=_aux_fks[f].TableFieldName%>_fkey" FOREIGN KEY ("<%=_aux_fks[f].TableFieldName%>")
+    REFERENCES "<%=_aux_fks[f].FK_TableName%>" ("<%=_aux_fks[f].FK_TableFieldName%>") MATCH SIMPLE
+    ON UPDATE NO ACTION ON DELETE NO ACTION<%=(_aux_fks.Length -1 == f) ? "" : "," %><%
 	}%>
 ;
 
