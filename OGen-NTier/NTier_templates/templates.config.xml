@@ -3683,7 +3683,7 @@ XXX:TO_DOS -->
 	<template id="PRJ-BO-Someapp-businesslayer-9.csproj.aspx?GAC=true"
 			name="PRJ-BO-Someapp-businesslayer-9.csproj.aspx"
 			parserType="aspx"
-			iterationType="ROOT.metadataDB[0]">
+			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="GAC" value="true" />
@@ -3698,7 +3698,7 @@ XXX:TO_DOS -->
 	<template id="PRJ-BO-Someapp-businesslayer-9.csproj.aspx?GAC=false"
 			name="PRJ-BO-Someapp-businesslayer-9.csproj.aspx"
 			parserType="aspx"
-			iterationType="ROOT.metadataDB[0]">
+			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="GAC" value="false" />
@@ -3714,7 +3714,7 @@ XXX:TO_DOS -->
 	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=businesslayer"
 			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
 			parserType="aspx"
-			iterationType="ROOT.metadataDB[0]">
+			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="where" value="businesslayer" />
@@ -3768,7 +3768,7 @@ XXX:TO_DOS -->
 	<template id="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx?GAC=true"
 			name="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx"
 			parserType="aspx"
-			iterationType="ROOT.metadataDB[0]">
+			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="GAC" value="true" />
@@ -3783,7 +3783,7 @@ XXX:TO_DOS -->
 	<template id="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx?GAC=false"
 			name="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx"
 			parserType="aspx"
-			iterationType="ROOT.metadataDB[0]">
+			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="GAC" value="false" />
@@ -3799,7 +3799,7 @@ XXX:TO_DOS -->
 	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=businesslayer-structures"
 			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
 			parserType="aspx"
-			iterationType="ROOT.metadataDB[0]">
+			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="where" value="businesslayer-structures" />
@@ -3818,7 +3818,7 @@ XXX:TO_DOS -->
 	<template id="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx?GAC=true"
 			name="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx"
 			parserType="aspx"
-			iterationType="ROOT.metadataDB[0]">
+			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="GAC" value="true" />
@@ -3833,7 +3833,7 @@ XXX:TO_DOS -->
 	<template id="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx?GAC=false"
 			name="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx"
 			parserType="aspx"
-			iterationType="ROOT.metadataDB[0]">
+			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="GAC" value="false" />
@@ -3849,7 +3849,7 @@ XXX:TO_DOS -->
 	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=businesslayer-shared"
 			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
 			parserType="aspx"
-			iterationType="ROOT.metadataDB[0]">
+			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="where" value="businesslayer-shared" />
@@ -3901,7 +3901,7 @@ XXX:TO_DOS -->
 	<template id="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
 			name="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
 			parserType="aspx"
-			iterationType="ROOT.metadataDB[0]">
+			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 		</arguments>
@@ -3916,7 +3916,7 @@ XXX:TO_DOS -->
 	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=businesslayer-instances"
 			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
 			parserType="aspx"
-			iterationType="ROOT.metadataDB[0]">
+			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="where" value="businesslayer-instances" />
@@ -3952,7 +3952,7 @@ XXX:TO_DOS -->
 	<template id="PRJ-RS-Someapp-remoting-server-9.csproj.aspx"
 			name="PRJ-RS-Someapp-remoting-server-9.csproj.aspx"
 			parserType="aspx"
-			iterationType="ROOT.metadataDB[0]">
+			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 		</arguments>
@@ -3967,7 +3967,7 @@ XXX:TO_DOS -->
 	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=remoting-server"
 			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
 			parserType="aspx"
-			iterationType="ROOT.metadataDB[0]">
+			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="where" value="remoting-server" />
@@ -3980,12 +3980,45 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+	<!-- search:solution:remoting:server:RS0__server -->
+	<template id="PRJ-BO-Someapp-remoting-server-RS0__server.cs.aspx"
+			name="PRJ-BO-Someapp-remoting-server-RS0__server.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-server/_base/RS0__server.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:remoting:server:RS0_Somebo -->
+	<template id="PRJ-BO-Someapp-remoting-server-RS0_Somebo.cs.aspx"
+			name="PRJ-BO-Someapp-remoting-server-RS0_Somebo.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-server/_base/RS0_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
 
 	<!-- search:solution:remoting:server:simpleserver -->
 	<template id="PRJ-RS-Someapp-remoting-server-simpleserver-9.csproj.aspx"
 			name="PRJ-RS-Someapp-remoting-server-simpleserver-9.csproj.aspx"
 			parserType="aspx"
-			iterationType="ROOT.metadataDB[0]">
+			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 		</arguments>
@@ -4000,7 +4033,7 @@ XXX:TO_DOS -->
 	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=remoting-server-simpleserver"
 			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
 			parserType="aspx"
-			iterationType="ROOT.metadataDB[0]">
+			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="where" value="remoting-server-simpleserver" />
@@ -4018,7 +4051,7 @@ XXX:TO_DOS -->
 	<template id="PRJ-RC-Someapp-remoting-client-9.csproj.aspx"
 			name="PRJ-RC-Someapp-remoting-client-9.csproj.aspx"
 			parserType="aspx"
-			iterationType="ROOT.metadataDB[0]">
+			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 		</arguments>
@@ -4033,7 +4066,7 @@ XXX:TO_DOS -->
 	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=remoting-client"
 			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
 			parserType="aspx"
-			iterationType="ROOT.metadataDB[0]">
+			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="where" value="remoting-client" />
@@ -4052,7 +4085,7 @@ XXX:TO_DOS -->
 	<template id="PRJ-WS-Someapp-webservices-server-9.csproj.aspx"
 			name="PRJ-WS-Someapp-webservices-server-9.csproj.aspx"
 			parserType="aspx"
-			iterationType="ROOT.metadataDB[0]">
+			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 		</arguments>
@@ -4067,7 +4100,7 @@ XXX:TO_DOS -->
 	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=webservices-server"
 			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
 			parserType="aspx"
-			iterationType="ROOT.metadataDB[0]">
+			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="where" value="webservices-server" />
@@ -4085,7 +4118,7 @@ XXX:TO_DOS -->
 	<template id="PRJ-WC-Someapp-webservices-client-9.csproj.aspx"
 			name="PRJ-WC-Someapp-webservices-client-9.csproj.aspx"
 			parserType="aspx"
-			iterationType="ROOT.metadataDB[0]">
+			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 		</arguments>
@@ -4100,7 +4133,7 @@ XXX:TO_DOS -->
 	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=webservices-client"
 			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
 			parserType="aspx"
-			iterationType="ROOT.metadataDB[0]">
+			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="where" value="webservices-client" />
