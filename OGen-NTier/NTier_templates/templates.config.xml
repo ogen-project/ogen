@@ -3727,6 +3727,42 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+	<!-- search:solution:businesslayer:SBO_Somebo -->
+	<!--
+	<template id="PRJ-BO-Someapp-businesslayer-SBO_Somebo.cs.aspx"
+			name="PRJ-BO-Someapp-businesslayer-SBO_Somebo.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer/SBO_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	-->
+	<!-- search:solution:businesslayer:BO0_Somebo -->
+	<template id="PRJ-BO-Someapp-businesslayer-BO0_Somebo.cs.aspx"
+			name="PRJ-BO-Someapp-businesslayer-BO0_Somebo.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer/_base/BO0_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
 
 	<!-- search:solution:businesslayer:structures -->
 	<template id="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx?GAC=true"
@@ -3776,6 +3812,7 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+	<!-- ... -->
 
 	<!-- search:solution:businesslayer:shared -->
 	<template id="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx?GAC=true"
@@ -3825,6 +3862,40 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+	<!-- search:solution:businesslayer:shared:IBO_Somebo -->
+	<template id="PRJ-BO-Someapp-businesslayer-shared-IBO_Somebo.cs.aspx"
+			name="PRJ-BO-Someapp-businesslayer-shared-IBO_Somebo.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-shared/IBO_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:businesslayer:shared:IBO0_Somebo -->
+	<template id="PRJ-BO-Someapp-businesslayer-shared-IBO0_Somebo.cs.aspx"
+			name="PRJ-BO-Someapp-businesslayer-shared-IBO0_Somebo.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-shared/_base/IBO0_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
 
 	<!-- search:solution:businesslayer:instances -->
 	<template id="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
@@ -3855,6 +3926,23 @@ XXX:TO_DOS -->
 			<output
 				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-instances/Properties/AssemblyInfo.cs"
 				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:businesslayer:instances:Somebo0 -->
+	<template id="PRJ-BO-Someapp-businesslayer-instances-Somebo0.cs.aspx"
+			name="PRJ-BO-Someapp-businesslayer-instances-Somebo0.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-instances/_base/${ROOT.metadataBusiness[0].classes.class[n].name}0.cs"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
