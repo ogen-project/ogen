@@ -4014,9 +4014,9 @@ XXX:TO_DOS -->
 		<dependencies />
 	</template>
 
-	<!-- search:solution:remoting:server:simpleserver -->
-	<template id="PRJ-RS-Someapp-remoting-server-simpleserver-9.csproj.aspx"
-			name="PRJ-RS-Someapp-remoting-server-simpleserver-9.csproj.aspx"
+	<!-- search:solution:remoting:simpleserver -->
+	<template id="PRJ-RS-Someapp-remoting-simpleserver-9.csproj.aspx"
+			name="PRJ-RS-Someapp-remoting-simpleserver-9.csproj.aspx"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -4024,24 +4024,56 @@ XXX:TO_DOS -->
 		</arguments>
 		<conditions />
 		<outputs>
-			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-server-simpleserver/${ROOT.metadataDB[0].applicationName}-remoting-server-simpleserver-9.csproj"
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-simpleserver/${ROOT.metadataDB[0].applicationName}-remoting-simpleserver-9.csproj"
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
 	</template>
-	<!-- search:solution:remoting:server:simpleserver:AssemblyInfo -->
-	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=remoting-server-simpleserver"
+	<!-- search:solution:remoting:simpleserver:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=remoting-simpleserver"
 			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="where" value="remoting-server-simpleserver" />
+			<argument name="where" value="remoting-simpleserver" />
 		</arguments>
 		<conditions />
 		<outputs>
 			<output
-				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-remoting-server-simpleserver/Properties/AssemblyInfo.cs"
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-remoting-simpleserver/Properties/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:remoting:simpleserver:App.config -->
+	<template id="PRJ--COMMON-XXX.config.aspx?where=remoting-simpleserver"
+			name="PRJ--COMMON-XXX.config.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="remoting-simpleserver" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-remoting-simpleserver/App.config"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:remoting:simpleserver:Program.cs -->
+	<template id="PRJ-RS-Someapp-remoting-simpleserver-Program.cs.aspx"
+			name="PRJ-RS-Someapp-remoting-simpleserver-Program.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-simpleserver/Program.cs"
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -4076,6 +4108,23 @@ XXX:TO_DOS -->
 			<output
 				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-client/Properties/AssemblyInfo.cs"
 				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:remoting:client:RC0_Somebo -->
+	<template id="PRJ-BO-Someapp-remoting-client-RC0_Somebo.cs.aspx"
+			name="PRJ-BO-Someapp-remoting-client-RC0_Somebo.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-client/_base/RC0_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
