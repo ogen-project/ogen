@@ -66,7 +66,7 @@ if (
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{<%=_aux_ex_metadata.GUIDBusinesslayer%>}</ProjectGuid>
+    <ProjectGuid>{<%=_aux_ex_metadata.GUID_businesslayer%>}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace><%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer</RootNamespace>
