@@ -64,7 +64,7 @@ switch (_arg_where) {
 		//_aux_guid = _aux_ex_metadata.GUIDDistributedlayer_remoting_server;
 		break;
 	case "remoting-simpleserver":
-		_aux_assemblytitle = string.Format("{0}.distributedlayer.remoting.server", _aux_ex_metadata.ApplicationNamespace);
+		_aux_assemblytitle = string.Format("{0}.distributedlayer.remoting.simpleserver", _aux_ex_metadata.ApplicationNamespace);
 		////_aux_guid = _aux_ex_metadata.GUIDDistributedlayer_remoting_server;
 		break;
 	case "remoting-client":
@@ -81,7 +81,7 @@ switch (_arg_where) {
 		break;
 }
 _aux_assemblyproduct = _aux_assemblytitle;
-_aux_assemblycompany = "";
+_aux_assemblycompany = _aux_ex_metadata.ApplicationNamespace.Split('.')[0];
 #endregion
 //-----------------------------------------------------------------------------------------
 if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.CopyrightTextLong != string.Empty)) {
