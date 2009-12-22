@@ -3643,6 +3643,40 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+	<!-- search:solution:datalayer:structures:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=datalayer-structures"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="datalayer-structures" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-datalayer-structures/Properties/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:datalayer:structures:SO0_Sometable -->
+	<template id="PRJ-DO-Someapp-datalayer-structures-SO0_Sometable.cs.aspx"
+			name="PRJ-DO-Someapp-datalayer-structures-SO0_Sometable.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-datalayer-structures/_base/SO0_${ROOT.metadataDB[0].tables.table[n].name}.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
 
 
 	<!-- search:solution:businesslayer -->
@@ -3672,6 +3706,23 @@ XXX:TO_DOS -->
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer/${ROOT.metadataDB[0].applicationName}-businesslayer-9-no-gac.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:businesslayer:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=businesslayer"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="businesslayer" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer/Properties/AssemblyInfo.cs"
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -3708,6 +3759,23 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+	<!-- search:solution:businesslayer:structures:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=businesslayer-structures"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="businesslayer-structures" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-structures/Properties/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
 
 	<!-- search:solution:businesslayer:shared -->
 	<template id="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx?GAC=true"
@@ -3740,6 +3808,23 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+	<!-- search:solution:businesslayer:shared:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=businesslayer-shared"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="businesslayer-shared" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-shared/Properties/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
 
 	<!-- search:solution:businesslayer:instances -->
 	<template id="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
@@ -3752,6 +3837,23 @@ XXX:TO_DOS -->
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-instances/${ROOT.metadataDB[0].applicationName}-businesslayer-instances-9.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:businesslayer:instances:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=businesslayer-instances"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="businesslayer-instances" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-instances/Properties/AssemblyInfo.cs"
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -3773,6 +3875,23 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+	<!-- search:solution:remoting:server:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=remoting-server"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="remoting-server" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-server/Properties/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
 
 	<!-- search:solution:remoting:server:simpleserver -->
 	<template id="PRJ-RS-Someapp-remoting-server-simpleserver-9.csproj.aspx"
@@ -3789,6 +3908,23 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+	<!-- search:solution:remoting:server:simpleserver:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=remoting-server-simpleserver"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="remoting-server-simpleserver" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-remoting-server-simpleserver/Properties/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
 
 	<!-- search:solution:remoting:client -->
 	<template id="PRJ-RC-Someapp-remoting-client-9.csproj.aspx"
@@ -3801,6 +3937,23 @@ XXX:TO_DOS -->
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-client/${ROOT.metadataDB[0].applicationName}-remoting-client-9.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:remoting:client:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=remoting-client"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="remoting-client" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-client/Properties/AssemblyInfo.cs"
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -3822,6 +3975,23 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+	<!-- search:solution:webservices:server:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=webservices-server"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="webservices-server" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/Properties/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
 
 	<!-- search:solution:webservices:client -->
 	<template id="PRJ-WC-Someapp-webservices-client-9.csproj.aspx"
@@ -3834,6 +4004,23 @@ XXX:TO_DOS -->
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-client/${ROOT.metadataDB[0].applicationName}-webservices-client-9.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:webservices:client:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=webservices-client"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="webservices-client" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-client/Properties/AssemblyInfo.cs"
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
