@@ -18,6 +18,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 bool _arg_gac = bool.Parse(System.Web.HttpUtility.UrlDecode(Request.QueryString["GAC"]));
+string _arg_ogenpath = System.Web.HttpUtility.UrlDecode(Request.QueryString["OGenPath"]);
 #endregion
 
 #region varaux...
@@ -29,28 +30,16 @@ XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusinessCollection[0];
 
-OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class
-	= _aux_business_metadata.Classes.ClassCollection[
-		_arg_ClassName
-	];
+OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
 
-XS_methodType _aux_method;
-XS_parameterType _aux_parameter;
-
-OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table
-	= _aux_db_metadata.Tables.TableCollection[
-		_arg_TableName
-	];
-OGen.NTier.lib.metadata.metadataExtended.XS_tableType _aux_ex_table
-	= _aux_db_table.parallel_ref;
-
-OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
-OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
-
-string _aux_xx_field_name;
-
-OGen.NTier.lib.metadata.metadataExtended.XS_tableUpdateType _aux_ex_update;
-
+string _aux_path4_ntier_businesslayer = System.IO.Path.Combine(
+	_arg_ogenpath, 
+	"..|..|OGen-NTier|NTier_businesslayer|NTier_businesslayer-9.csproj".Replace('|', System.IO.Path.DirectorySeparatorChar)
+);
+string _aux_path4_ogen_datalayer__base = System.IO.Path.Combine(
+	_arg_ogenpath,
+	"..|..|OGen|OGen_datalayer__base|OGen_datalayer__base-9.csproj".Replace('|', System.IO.Path.DirectorySeparatorChar)
+);
 #endregion
 //-----------------------------------------------------------------------------------------
 %><?xml version="1.0" encoding="utf-8" ?><%
@@ -71,11 +60,11 @@ if (
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{3F901B01-FB37-49F8-A6C5-CB5AA00622A0}</ProjectGuid>
+    <ProjectGuid>{<%=_aux_ex_metadata.GUIDBusinesslayer%>}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>xxx.yyy.zzz.lib.businesslayer</RootNamespace>
-    <AssemblyName>xxx.yyy.zzz.lib.businesslayer-2.0</AssemblyName>
+    <RootNamespace><%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer</RootNamespace>
+    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -99,37 +88,50 @@ if (
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml" /><%
+if (_arg_gac) {%>
+    <Reference Include="OGen.lib.datalayer-2.0">
+      <Name>OGen.lib.datalayer-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="OGen.NTier.lib.businesslayer-2.0">
+      <Name>OGen.NTier.lib.businesslayer-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference><%
+}%>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SBO_SomeTest.cs" />
-    <Compile Include="SBO_User.cs" />
-    <Compile Include="_base\BO0_SomeTest.cs" />
-    <Compile Include="_base\BO0_User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" /><%
+for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
+	_aux_class = _aux_business_metadata.Classes.ClassCollection[i];%>
+    <Compile Include="_base\BO0_<%=_aux_class.Name%>.cs" />
+    <Compile Include="SBO_<%=_aux_class.Name%>.cs" /><%
+}%>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\OGen.berlios.de\trunk\OGen-NTier\NTier_businesslayer\NTier_businesslayer-9.csproj">
+  <ItemGroup><%
+if (!_arg_gac) {%>
+    <ProjectReference Include="<%=_aux_path4_ntier_businesslayer%>">
       <Project>{8AEBEA64-6FC4-430C-922C-B88D105AE91C}</Project>
       <Name>NTier_businesslayer-9</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\OGen.berlios.de\trunk\OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj">
+    <ProjectReference Include="<%=_aux_path4_ogen_datalayer__base%>">
       <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
       <Name>OGen_datalayer__base-9</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\xxx_Businesslayer_Shared\xxx_Businesslayer_Shared.csproj">
+    </ProjectReference><%
+}%>
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_shared\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_shared.csproj">
       <Project>{781D4F9E-2BC0-48C7-BBEF-B3E7B64DB3C8}</Project>
       <Name>xxx_Businesslayer_Shared</Name>
     </ProjectReference>
-    <ProjectReference Include="..\xxx_Businesslayer_Structures\xxx_Businesslayer_Structures.csproj">
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_structures\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_structures.csproj">
       <Project>{9ED503C9-D099-4689-986D-5A087531BE7D}</Project>
       <Name>xxx_Businesslayer_Structures</Name>
     </ProjectReference>
-    <ProjectReference Include="..\xxx_Datalayer\xxx_Datalayer.csproj">
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_datalayer\<%=_aux_ex_metadata.ApplicationName%>_datalayer.csproj">
       <Project>{06CBD94D-33FA-4A41-850D-DCB5B909A3A8}</Project>
       <Name>xxx_Datalayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\xxx_Datalayer_Structures\xxx_Datalayer_Structures.csproj">
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_datalayer_structures\<%=_aux_ex_metadata.ApplicationName%>_datalayer_structures.csproj">
       <Project>{C4B90733-B6E3-4F2B-A386-D687AF396C73}</Project>
       <Name>xxx_Datalayer_Structures</Name>
     </ProjectReference>

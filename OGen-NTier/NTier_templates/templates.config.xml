@@ -3687,6 +3687,7 @@ XXX:TO_DOS -->
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="GAC" value="true" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
 		</arguments>
 		<conditions />
 		<outputs>
