@@ -188,37 +188,99 @@
     <Content Include="BC-utils.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="PRJ--COMMON-AssemblyInfo.cs.aspx" />
-    <Content Include="PRJ--COMMON-XXX.config.aspx" />
-    <Content Include="PRJ-BO-Someapp-businesslayer-9.csproj.aspx" />
-    <Content Include="PRJ-BO-Someapp-businesslayer-BO0_Somebo.cs.aspx" />
-    <Content Include="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx" />
-    <Content Include="PRJ-BO-Someapp-businesslayer-instances-Somebo0.cs.aspx" />
-    <Content Include="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx" />
-    <Content Include="PRJ-BO-Someapp-businesslayer-shared-IBO0_Somebo.cs.aspx" />
-    <Content Include="PRJ-BO-Someapp-businesslayer-shared-IBO_Somebo.cs.aspx" />
-    <Content Include="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx" />
-    <Content Include="PRJ-DO-Someapp-datalayer-9.csproj.aspx" />
-    <Content Include="PRJ-DO-Someapp-datalayer-DO0_Sometable.cs.aspx" />
-    <Content Include="PRJ-DO-Someapp-datalayer-DO0__utils.cs.aspx" />
-    <Content Include="PRJ-DO-Someapp-datalayer-DO_Sometable.cs.aspx" />
-    <Content Include="PRJ-DO-Someapp-datalayer-DO__utils.cs.aspx" />
-    <Content Include="PRJ-DO-Someapp-datalayer-structures-9.csproj.aspx" />
-    <Content Include="PRJ-DO-Someapp-datalayer-structures-SO0_Sometable.cs.aspx" />
-    <Content Include="PRJ-RC-Someapp-remoting-client-9.csproj.aspx" />
-    <Content Include="PRJ-RC-Someapp-remoting-client-RC0_Somebo.cs.aspx" />
-    <Content Include="PRJ-RS-Someapp-remoting-server-9.csproj.aspx" />
-    <Content Include="PRJ-RS-Someapp-remoting-server-RS0_Somebo.cs.aspx" />
-    <Content Include="PRJ-RS-Someapp-remoting-server-RS0__server.cs.aspx" />
-    <Content Include="PRJ-RS-Someapp-remoting-simpleserver-9.csproj.aspx" />
-    <Content Include="PRJ-RS-Someapp-remoting-simpleserver-Program.cs.aspx" />
-    <Content Include="PRJ-Someapp-9.sln.aspx" />
-    <Content Include="PRJ-WC-Someapp-webservices-client-9.csproj.aspx" />
-    <Content Include="PRJ-WC-Someapp-webservices-client-WC0_Somebo.cs.aspx" />
-    <Content Include="PRJ-WS-Someapp-webservices-server-9.csproj.aspx" />
-    <Content Include="PRJ-WS-Someapp-webservices-server-WS0_Somebo.cs.aspx" />
-    <Content Include="PRJ-WS-Someapp-webservices-server-WS_Somebo.asmx.aspx" />
-    <Content Include="PRJ-WS-Someapp-webservices-server-WS_Somebo.asmx.cs.aspx" />
+    <Content Include="PRJ--COMMON-AssemblyInfo.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ--COMMON-XXX.config.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-BO-Someapp-businesslayer-9.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-BO-Someapp-businesslayer-BO0_Somebo.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-BO-Someapp-businesslayer-instances-Somebo0.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-BO-Someapp-businesslayer-shared-IBO0_Somebo.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-BO-Someapp-businesslayer-shared-IBO_Somebo.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-DO-Someapp-datalayer-9.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-DO-Someapp-datalayer-DO0_Sometable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-DO-Someapp-datalayer-DO0__utils.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-DO-Someapp-datalayer-DO_Sometable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-DO-Someapp-datalayer-DO__utils.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-DO-Someapp-datalayer-structures-9.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-DO-Someapp-datalayer-structures-SO0_Sometable.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-RC-Someapp-remoting-client-9.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-RC-Someapp-remoting-client-RC0_Somebo.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-RS-Someapp-remoting-server-9.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-RS-Someapp-remoting-server-RS0_Somebo.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-RS-Someapp-remoting-server-RS0__server.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-RS-Someapp-remoting-simpleserver-9.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-RS-Someapp-remoting-simpleserver-Program.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-Someapp-9.sln.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-WC-Someapp-webservices-client-9.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-WC-Someapp-webservices-client-WC0_Somebo.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-WS-Someapp-webservices-server-9.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-WS-Someapp-webservices-server-WS0_Somebo.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-WS-Someapp-webservices-server-WS_Somebo.asmx.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="PRJ-WS-Someapp-webservices-server-WS_Somebo.asmx.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="RC-RC0_SomeClass.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
