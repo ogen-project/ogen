@@ -32,7 +32,11 @@ string[] _aux_configmodes = _aux_ex_metadata.DBs.ConfigModes();
 #endregion
 //-----------------------------------------------------------------------------------------
 %><?xml version="1.0" encoding="utf-8" ?><%
-if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.CopyrightTextLong != string.Empty)) {%>
+if (
+	//(_aux_ex_metadata.CopyrightText != string.Empty) 
+	//&& 
+	(_aux_ex_metadata.CopyrightTextLong != string.Empty)
+) {%>
 <!--
 
 <%=_aux_ex_metadata.CopyrightTextLong%>
