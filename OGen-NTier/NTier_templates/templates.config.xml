@@ -3498,13 +3498,14 @@ XXX:TO_DOS -->
 
 
 	<!-- search:solution:datalayer -->
-	<template id="PRJ-DO-Someapp-datalayer-9.csproj.aspx?GAC=true"
+	<template id="PRJ-DO-Someapp-datalayer-9.csproj.aspx?GAC=True"
 			name="PRJ-DO-Someapp-datalayer-9.csproj.aspx"
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="GAC" value="true" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
 		</arguments>
 		<conditions />
 		<outputs>
@@ -3513,13 +3514,14 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template id="PRJ-DO-Someapp-datalayer-9.csproj.aspx?GAC=false"
+	<template id="PRJ-DO-Someapp-datalayer-9.csproj.aspx?GAC=False"
 			name="PRJ-DO-Someapp-datalayer-9.csproj.aspx"
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="GAC" value="false" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
 		</arguments>
 		<conditions />
 		<outputs>
@@ -3613,13 +3615,14 @@ XXX:TO_DOS -->
 	</template>
 
 	<!-- search:solution:datalayer:structures -->
-	<template id="PRJ-DO-Someapp-datalayer-structures-9.csproj.aspx?GAC=true"
+	<template id="PRJ-DO-Someapp-datalayer-structures-9.csproj.aspx?GAC=True"
 			name="PRJ-DO-Someapp-datalayer-structures-9.csproj.aspx"
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="GAC" value="true" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
 		</arguments>
 		<conditions />
 		<outputs>
@@ -3628,13 +3631,14 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template id="PRJ-DO-Someapp-datalayer-structures-9.csproj.aspx?GAC=false"
+	<template id="PRJ-DO-Someapp-datalayer-structures-9.csproj.aspx?GAC=False"
 			name="PRJ-DO-Someapp-datalayer-structures-9.csproj.aspx"
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="GAC" value="false" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
 		</arguments>
 		<conditions />
 		<outputs>
@@ -3680,13 +3684,13 @@ XXX:TO_DOS -->
 
 
 	<!-- search:solution:businesslayer -->
-	<template id="PRJ-BO-Someapp-businesslayer-9.csproj.aspx?GAC=true"
+	<template id="PRJ-BO-Someapp-businesslayer-9.csproj.aspx?GAC=True"
 			name="PRJ-BO-Someapp-businesslayer-9.csproj.aspx"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="GAC" value="true" />
+			<argument name="GAC" value="True" />
 			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
 		</arguments>
 		<conditions />
@@ -3696,13 +3700,14 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template id="PRJ-BO-Someapp-businesslayer-9.csproj.aspx?GAC=false"
+	<template id="PRJ-BO-Someapp-businesslayer-9.csproj.aspx?GAC=False"
 			name="PRJ-BO-Someapp-businesslayer-9.csproj.aspx"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="GAC" value="false" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
 		</arguments>
 		<conditions />
 		<outputs>
@@ -3766,13 +3771,14 @@ XXX:TO_DOS -->
 	</template>
 
 	<!-- search:solution:businesslayer:structures -->
-	<template id="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx?GAC=true"
+	<template id="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx?GAC=True"
 			name="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="GAC" value="true" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
 		</arguments>
 		<conditions />
 		<outputs>
@@ -3781,13 +3787,14 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template id="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx?GAC=false"
+	<template id="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx?GAC=False"
 			name="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="GAC" value="false" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
 		</arguments>
 		<conditions />
 		<outputs>
@@ -3816,13 +3823,14 @@ XXX:TO_DOS -->
 	<!-- ... -->
 
 	<!-- search:solution:businesslayer:shared -->
-	<template id="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx?GAC=true"
+	<template id="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx?GAC=True"
 			name="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="GAC" value="true" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
 		</arguments>
 		<conditions />
 		<outputs>
@@ -3831,13 +3839,14 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template id="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx?GAC=false"
+	<template id="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx?GAC=False"
 			name="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="GAC" value="false" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
 		</arguments>
 		<conditions />
 		<outputs>

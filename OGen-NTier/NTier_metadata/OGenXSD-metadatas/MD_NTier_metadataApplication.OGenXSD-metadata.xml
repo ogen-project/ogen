@@ -121,6 +121,28 @@ shared
 		<specificCase word="guidDistributedlayer_remoting_client" translation="GUIDDistributedlayer_remoting_client" />
 		<specificCase word="guidBusiness_client" translation="GUIDBusiness_client" />
 		<specificCase word="guidTest" translation="GUIDTest" />
+
+
+		<specificCase word="guid_datalayer" translation="GUID_datalayer" />
+		<specificCase word="guid_datalayer_structures" translation="GUID_datalayer_structures" />
+		<specificCase word="guid_datalayer_uts" translation="GUID_datalayer_uts" />
+
+		<specificCase word="guid_businesslayer" translation="GUID_businesslayer" />
+		<specificCase word="guid_businesslayer_structures" translation="GUID_businesslayer_structures" />
+		<specificCase word="guid_businesslayer_shared" translation="GUID_businesslayer_shared" />
+		<specificCase word="guid_businesslayer_instances" translation="GUID_businesslayer_instances" />
+		<specificCase word="guid_businesslayer_uts" translation="GUID_businesslayer_uts" />
+
+		<specificCase word="guid_remoting_server" translation="GUID_remoting_server" />
+		<specificCase word="guid_remoting_simpleserver" translation="GUID_remoting_simpleserver" />
+		<specificCase word="guid_remoting_client" translation="GUID_remoting_client" />
+
+		<specificCase word="guid_webservices_server" translation="GUID_webservices_server" />
+		<specificCase word="guid_webservices_client" translation="GUID_webservices_client" />
+		
+		<specificCase word="guid_test" translation="GUID_test" />
+
+
 		<specificCase word="feedbackEmailAddress" translation="FeedbackEmailAddress" />
 		<specificCase word="copyrightText" translation="CopyrightText" />
 		<specificCase word="copyrightTextLong" translation="CopyrightTextLong" />

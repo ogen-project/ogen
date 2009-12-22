@@ -123,7 +123,7 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 								#endif
 									["ogenPath"],
 
-								@"..\..\OGen-NTier-Dia\Dia_metadata\OGenXSD-metadatas\MD_Dia_metadata.OGenXSD-metadata.xml"
+								@"..\..\OGen-Dia\Dia_metadata\OGenXSD-metadatas\MD_Dia_metadata.OGenXSD-metadata.xml"
 							)
 						);
 						Console.WriteLine();

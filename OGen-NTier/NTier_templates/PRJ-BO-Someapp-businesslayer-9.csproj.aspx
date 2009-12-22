@@ -34,11 +34,17 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
 
 string _aux_path4_ntier_businesslayer = System.IO.Path.Combine(
 	_arg_ogenpath, 
-	"..|..|OGen-NTier|NTier_businesslayer|NTier_businesslayer-9.csproj".Replace('|', System.IO.Path.DirectorySeparatorChar)
+	"..|..|OGen-NTier|NTier_businesslayer|NTier_businesslayer-9.csproj".Replace(
+		'|', 
+		System.IO.Path.DirectorySeparatorChar
+	)
 );
 string _aux_path4_ogen_datalayer__base = System.IO.Path.Combine(
 	_arg_ogenpath,
-	"..|..|OGen|OGen_datalayer__base|OGen_datalayer__base-9.csproj".Replace('|', System.IO.Path.DirectorySeparatorChar)
+	"..|..|OGen|OGen_datalayer__base|OGen_datalayer__base-9.csproj".Replace(
+		'|', 
+		System.IO.Path.DirectorySeparatorChar
+	)
 );
 #endregion
 //-----------------------------------------------------------------------------------------

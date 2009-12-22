@@ -28,8 +28,8 @@ SET configfile=%configdir%\app.config
 SET templatefile=%parentdir%\OGen-Dia\Dia_templates\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
-	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
-	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	ECHO 		^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO 		^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
@@ -38,8 +38,8 @@ SET configfile=%configdir%\app.config
 SET templatefile=%parentdir%\OGen-Dia\Dia_templates\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
-	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
-	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	ECHO 		^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO 		^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
@@ -49,8 +49,8 @@ SET configfile=%configdir%\%configtemplate%-1.1.exe.config
 SET templatefile=%thisdir%bin\OGen-Dia-templates-1.1\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
-	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
-	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	ECHO 		^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO 		^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
@@ -60,8 +60,8 @@ SET configfile=%configdir%\%configtemplate%-2.0.exe.config
 SET templatefile=%thisdir%bin\OGen-Dia-templates-2.0\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
-	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
-	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	ECHO 		^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO 		^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
@@ -76,8 +76,8 @@ SET configfile=%configdir%\app.config
 SET templatefile=%parentdir%\OGen-Doc\Doc_templates\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
-	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
-	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	ECHO 		^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO 		^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
@@ -86,8 +86,8 @@ SET configfile=%configdir%\app.config
 SET templatefile=%parentdir%\OGen-Doc\Doc_templates\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
-	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
-	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	ECHO 		^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO 		^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
@@ -97,8 +97,8 @@ SET configfile=%configdir%\%configtemplate%-1.1.exe.config
 SET templatefile=%thisdir%bin\OGen-Doc-templates-1.1\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
-	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
-	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	ECHO 		^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO 		^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
@@ -108,8 +108,8 @@ SET configfile=%configdir%\%configtemplate%-2.0.exe.config
 SET templatefile=%thisdir%bin\OGen-Doc-templates-2.0\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
-	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
-	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	ECHO 		^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO 		^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
@@ -124,8 +124,8 @@ SET configfile=%configdir%\app.config
 SET templatefile=%parentdir%\OGen-Doc\Doc_templates\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
-	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
-	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	ECHO 		^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO 		^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
@@ -135,8 +135,8 @@ SET configfile=%configdir%\%configtemplate%-1.1.exe.config
 SET templatefile=%thisdir%bin\OGen-Doc-templates-1.1\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
-	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
-	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	ECHO 		^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO 		^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
@@ -146,8 +146,8 @@ SET configfile=%configdir%\%configtemplate%-2.0.exe.config
 SET templatefile=%thisdir%bin\OGen-Doc-templates-2.0\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
-	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
-	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	ECHO 		^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO 		^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
@@ -162,8 +162,8 @@ SET configfile=%configdir%\app.config
 SET templatefile=%parentdir%\OGen-NTier\NTier_templates\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
-	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
-	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	ECHO 		^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO 		^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
@@ -173,8 +173,8 @@ SET configfile=%configdir%\app.config
 SET templatefile=%parentdir%\OGen-NTier\NTier_templates\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
-	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
-	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	ECHO 		^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO 		^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
@@ -184,8 +184,8 @@ SET configfile=%configdir%\%configtemplate%-1.1.exe.config
 SET templatefile=%thisdir%bin\OGen-NTier-templates-1.1\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
-	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
-	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	ECHO 		^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO 		^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
@@ -195,8 +195,8 @@ SET configfile=%configdir%\%configtemplate%-2.0.exe.config
 SET templatefile=%thisdir%bin\OGen-NTier-templates-2.0\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
-	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
-	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	ECHO 		^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO 		^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
@@ -211,8 +211,8 @@ SET configfile=%configdir%\app.config
 SET templatefile=%parentdir%\OGen-NTier\NTier_templates\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
-	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
-	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	ECHO 		^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO 		^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
@@ -222,8 +222,8 @@ SET configfile=%configdir%\%configtemplate%-1.1.exe.config
 SET templatefile=%thisdir%bin\OGen-NTier-templates-1.1\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
-	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
-	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	ECHO 		^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO 		^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
@@ -233,8 +233,8 @@ SET configfile=%configdir%\%configtemplate%-2.0.exe.config
 SET templatefile=%thisdir%bin\OGen-NTier-templates-2.0\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
-	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
-	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	ECHO 		^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO 		^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
@@ -249,8 +249,8 @@ SET configfile=%configdir%\app.config
 SET templatefile=%parentdir%\OGen-XSD\XSD_templates\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
-	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
-	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	ECHO 		^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO 		^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
@@ -260,8 +260,8 @@ SET configfile=%configdir%\app.config
 SET templatefile=%parentdir%\OGen-XSD\XSD_templates\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
-	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
-	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	ECHO 		^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO 		^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
@@ -271,8 +271,8 @@ SET configfile=%configdir%\%configtemplate%-1.1.exe.config
 SET templatefile=%thisdir%bin\OGen-XSD-templates-1.1\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
-	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
-	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	ECHO 		^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO 		^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )
@@ -282,8 +282,8 @@ SET configfile=%configdir%\%configtemplate%-2.0.exe.config
 SET templatefile=%thisdir%bin\OGen-XSD-templates-2.0\templates.config.xml
 IF EXIST "%configdir%" (
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-1.config">"%configfile%"
-	ECHO     ^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
-	ECHO     ^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
+	ECHO 		^<add key="Templates" value="%templatefile%" /^>>>"%configfile%"
+	ECHO 		^<add key="ogenPath" value="%thisdir%bin" /^>>>"%configfile%"
 	TYPE "%thisdir%distro-templates\%configtemplate%.exe-2.config">>"%configfile%"
 	ECHO %configfile%
 )

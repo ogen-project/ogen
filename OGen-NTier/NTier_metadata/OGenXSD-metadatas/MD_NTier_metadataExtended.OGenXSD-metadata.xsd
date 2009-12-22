@@ -321,6 +321,27 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<xs:attribute name="guidDistributedlayer_remoting_server" type="xs:string" />
 		<xs:attribute name="guidDistributedlayer_remoting_client" type="xs:string" />
 		<xs:attribute name="guidTest" type="xs:string" />
+
+		<xs:attribute name="guid_datalayer" type="xs:string" />
+		<xs:attribute name="guid_datalayer_structures" type="xs:string" />
+		<xs:attribute name="guid_datalayer_uts" type="xs:string" />
+
+		<xs:attribute name="guid_businesslayer" type="xs:string" />
+		<xs:attribute name="guid_businesslayer_structures" type="xs:string" />
+		<xs:attribute name="guid_businesslayer_shared" type="xs:string" />
+		<xs:attribute name="guid_businesslayer_instances" type="xs:string" />
+		<xs:attribute name="guid_businesslayer_uts" type="xs:string" />
+
+		<xs:attribute name="guid_remoting_server" type="xs:string" />
+		<xs:attribute name="guid_remoting_simpleserver" type="xs:string" />
+		<xs:attribute name="guid_remoting_client" type="xs:string" />
+
+		<xs:attribute name="guid_webservices_server" type="xs:string" />
+		<xs:attribute name="guid_webservices_client" type="xs:string" />
+		
+		<xs:attribute name="guid_test" type="xs:string" />
+
+
 		<xs:attribute name="feedbackEmailAddress" type="xs:string" />
 		<xs:attribute name="copyrightText" type="xs:string" />
 

@@ -270,6 +270,188 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
+		#region public string GUID_datalayer { get; set; }
+		internal string guid_datalayer_;
+
+		[XmlAttribute("guid_datalayer")]
+		public string GUID_datalayer {
+			get {
+				return guid_datalayer_;
+			}
+			set {
+				guid_datalayer_ = value;
+			}
+		}
+		#endregion
+		#region public string GUID_datalayer_structures { get; set; }
+		internal string guid_datalayer_structures_;
+
+		[XmlAttribute("guid_datalayer_structures")]
+		public string GUID_datalayer_structures {
+			get {
+				return guid_datalayer_structures_;
+			}
+			set {
+				guid_datalayer_structures_ = value;
+			}
+		}
+		#endregion
+		#region public string GUID_datalayer_uts { get; set; }
+		internal string guid_datalayer_uts_;
+
+		[XmlAttribute("guid_datalayer_uts")]
+		public string GUID_datalayer_uts {
+			get {
+				return guid_datalayer_uts_;
+			}
+			set {
+				guid_datalayer_uts_ = value;
+			}
+		}
+		#endregion
+		#region public string GUID_businesslayer { get; set; }
+		internal string guid_businesslayer_;
+
+		[XmlAttribute("guid_businesslayer")]
+		public string GUID_businesslayer {
+			get {
+				return guid_businesslayer_;
+			}
+			set {
+				guid_businesslayer_ = value;
+			}
+		}
+		#endregion
+		#region public string GUID_businesslayer_structures { get; set; }
+		internal string guid_businesslayer_structures_;
+
+		[XmlAttribute("guid_businesslayer_structures")]
+		public string GUID_businesslayer_structures {
+			get {
+				return guid_businesslayer_structures_;
+			}
+			set {
+				guid_businesslayer_structures_ = value;
+			}
+		}
+		#endregion
+		#region public string GUID_businesslayer_shared { get; set; }
+		internal string guid_businesslayer_shared_;
+
+		[XmlAttribute("guid_businesslayer_shared")]
+		public string GUID_businesslayer_shared {
+			get {
+				return guid_businesslayer_shared_;
+			}
+			set {
+				guid_businesslayer_shared_ = value;
+			}
+		}
+		#endregion
+		#region public string GUID_businesslayer_instances { get; set; }
+		internal string guid_businesslayer_instances_;
+
+		[XmlAttribute("guid_businesslayer_instances")]
+		public string GUID_businesslayer_instances {
+			get {
+				return guid_businesslayer_instances_;
+			}
+			set {
+				guid_businesslayer_instances_ = value;
+			}
+		}
+		#endregion
+		#region public string GUID_businesslayer_uts { get; set; }
+		internal string guid_businesslayer_uts_;
+
+		[XmlAttribute("guid_businesslayer_uts")]
+		public string GUID_businesslayer_uts {
+			get {
+				return guid_businesslayer_uts_;
+			}
+			set {
+				guid_businesslayer_uts_ = value;
+			}
+		}
+		#endregion
+		#region public string GUID_remoting_server { get; set; }
+		internal string guid_remoting_server_;
+
+		[XmlAttribute("guid_remoting_server")]
+		public string GUID_remoting_server {
+			get {
+				return guid_remoting_server_;
+			}
+			set {
+				guid_remoting_server_ = value;
+			}
+		}
+		#endregion
+		#region public string GUID_remoting_simpleserver { get; set; }
+		internal string guid_remoting_simpleserver_;
+
+		[XmlAttribute("guid_remoting_simpleserver")]
+		public string GUID_remoting_simpleserver {
+			get {
+				return guid_remoting_simpleserver_;
+			}
+			set {
+				guid_remoting_simpleserver_ = value;
+			}
+		}
+		#endregion
+		#region public string GUID_remoting_client { get; set; }
+		internal string guid_remoting_client_;
+
+		[XmlAttribute("guid_remoting_client")]
+		public string GUID_remoting_client {
+			get {
+				return guid_remoting_client_;
+			}
+			set {
+				guid_remoting_client_ = value;
+			}
+		}
+		#endregion
+		#region public string GUID_webservices_server { get; set; }
+		internal string guid_webservices_server_;
+
+		[XmlAttribute("guid_webservices_server")]
+		public string GUID_webservices_server {
+			get {
+				return guid_webservices_server_;
+			}
+			set {
+				guid_webservices_server_ = value;
+			}
+		}
+		#endregion
+		#region public string GUID_webservices_client { get; set; }
+		internal string guid_webservices_client_;
+
+		[XmlAttribute("guid_webservices_client")]
+		public string GUID_webservices_client {
+			get {
+				return guid_webservices_client_;
+			}
+			set {
+				guid_webservices_client_ = value;
+			}
+		}
+		#endregion
+		#region public string GUID_test { get; set; }
+		internal string guid_test_;
+
+		[XmlAttribute("guid_test")]
+		public string GUID_test {
+			get {
+				return guid_test_;
+			}
+			set {
+				guid_test_ = value;
+			}
+		}
+		#endregion
 		#region public string FeedbackEmailAddress { get; set; }
 		internal string feedbackemailaddress_;
 
@@ -376,6 +558,20 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			guiddistributedlayer_remoting_server_ = metadataExtendedType_in.guiddistributedlayer_remoting_server_;
 			guiddistributedlayer_remoting_client_ = metadataExtendedType_in.guiddistributedlayer_remoting_client_;
 			guidtest_ = metadataExtendedType_in.guidtest_;
+			guid_datalayer_ = metadataExtendedType_in.guid_datalayer_;
+			guid_datalayer_structures_ = metadataExtendedType_in.guid_datalayer_structures_;
+			guid_datalayer_uts_ = metadataExtendedType_in.guid_datalayer_uts_;
+			guid_businesslayer_ = metadataExtendedType_in.guid_businesslayer_;
+			guid_businesslayer_structures_ = metadataExtendedType_in.guid_businesslayer_structures_;
+			guid_businesslayer_shared_ = metadataExtendedType_in.guid_businesslayer_shared_;
+			guid_businesslayer_instances_ = metadataExtendedType_in.guid_businesslayer_instances_;
+			guid_businesslayer_uts_ = metadataExtendedType_in.guid_businesslayer_uts_;
+			guid_remoting_server_ = metadataExtendedType_in.guid_remoting_server_;
+			guid_remoting_simpleserver_ = metadataExtendedType_in.guid_remoting_simpleserver_;
+			guid_remoting_client_ = metadataExtendedType_in.guid_remoting_client_;
+			guid_webservices_server_ = metadataExtendedType_in.guid_webservices_server_;
+			guid_webservices_client_ = metadataExtendedType_in.guid_webservices_client_;
+			guid_test_ = metadataExtendedType_in.guid_test_;
 			feedbackemailaddress_ = metadataExtendedType_in.feedbackemailaddress_;
 			copyrighttext_ = metadataExtendedType_in.copyrighttext_;copyrighttextlong_ = metadataExtendedType_in.copyrighttextlong_;
 			if (metadataExtendedType_in.dbs__ != null) dbs__.CopyFrom(metadataExtendedType_in.dbs__);
