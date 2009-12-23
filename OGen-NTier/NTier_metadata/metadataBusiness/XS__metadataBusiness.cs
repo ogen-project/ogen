@@ -86,46 +86,27 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 				);
 				if (
 					(_classattributes.Length > 0)
-					//&&
-					//(_type.Name.IndexOf("BO0_") != 0)
-					//&&
-					//(_type.Name.IndexOf("BDO0_") != 0)
 					&&
-					(
-						(_type.Name.IndexOf("BO_") == 0)
-						||
-						(_type.Name.IndexOf("BDO_") == 0)
-					)
+					(_type.Name.IndexOf("SBO_") == 0)
 				) {
 					for (int ca = 0; ca < _classattributes.Length; ca++) {
 						BOClassAttribute _attribute 
 							= (BOClassAttribute)_classattributes[ca];
 
-_isBO = false;
-_isBDO = false;
 _output.Classes.ClassCollection.Add(
 	out _class_index, 
 	//_attribute.Name
-	(_isBO = (_type.Name.IndexOf("BO_") == 0))
-		? _type.Name.Substring(3)
-		: (
-			(_isBDO = (_type.Name.IndexOf("BDO_") == 0))
-				? _type.Name.Substring(4)
-				: _type.Name
-		)
+	(_type.Name.IndexOf("SBO_") == 0)
+		? _type.Name.Substring(4)
+		: _type.Name
 );
 _output.Classes.ClassCollection[_class_index].Type
-	= ((_isBO)
-		? XS_BoEnumeration.BO
-		: ((_isBDO)
-			? XS_BoEnumeration.BDO
-			: XS_BoEnumeration.invalid
-		)
-	);
+	= XS_BoEnumeration.invalid;
 
 						MethodInfo[] _methods = _type.GetMethods(
 							BindingFlags.Public |
-							BindingFlags.Instance
+							//BindingFlags.Instance 
+							BindingFlags.Static
 						);
 						for (int m = 0; m < _methods.Length; m++) {
 							if (Attribute.IsDefined(

@@ -17,7 +17,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <%@ import namespace="OGen.NTier.lib.metadata.metadataBusiness" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
-string _arg_TableName = System.Web.HttpUtility.UrlDecode(Request.QueryString["TableName"]);
 string _arg_ClassName = System.Web.HttpUtility.UrlDecode(Request.QueryString["ClassName"]);
 #endregion
 
@@ -37,21 +36,6 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class
 
 XS_methodType _aux_method;
 XS_parameterType _aux_parameter;
-
-OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table
-	= _aux_db_metadata.Tables.TableCollection[
-		_arg_TableName
-	];
-OGen.NTier.lib.metadata.metadataExtended.XS_tableType _aux_ex_table
-	= _aux_db_table.parallel_ref;
-
-OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
-OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
-
-string _aux_xx_field_name;
-
-OGen.NTier.lib.metadata.metadataExtended.XS_tableUpdateType _aux_ex_update;
-
 #endregion
 //-----------------------------------------------------------------------------------------
 if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.CopyrightTextLong != string.Empty)) {
@@ -64,3 +48,48 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 #endregion
 <%
 }%>using System;
+
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.structures;
+
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server {
+	/// <summary>
+	/// <%=_aux_class.Name%> remoting client.
+	/// </summary>
+	public class RC_<%=_aux_class.Name%> : 
+		IBO_<%=_aux_class.Name%> 
+	{
+		static RC_<%=_aux_class.Name%>() {
+			bo_ = (IBO_<%=_aux_class.Name%>)RemotingServices.Connect(
+				typeof(IBO_<%=_aux_class.Name%>),
+				"tcp://127.0.0.1:8085/<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server.RS_<%=_aux_class.Name%>.remoting"
+			);
+		}
+
+		#region private Fields...
+		private static IBO_<%=_aux_class.Name%> bo_;
+		#endregion<%
+		for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
+			_aux_method = _aux_class.Methods.MethodCollection[m];%>
+		#region public <%=_aux_method.OutputType%> <%=_aux_method.Name%>(...);
+		public <%=_aux_method.OutputType%> <%=_aux_method.Name%>(<%
+			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
+				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
+			<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
+			}%>
+		) {
+			<%=(_aux_method.OutputType == "void") ? "" : "return "%>bo_.<%=_aux_method.Name%>(<%
+				for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
+					_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
+				<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
+				}%>
+			);
+		}
+		#endregion<%
+		}%>
+	}
+}<%
+//-----------------------------------------------------------------------------------------
+%>

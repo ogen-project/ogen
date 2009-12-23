@@ -89,7 +89,8 @@ namespace OGen.NTier.lib.generator {
 			bool isRelease_notDebug_in
 		) {
 			return string.Format(
-				"{1}_businesslayer{0}bin{0}{4}{0}{2}.lib.businesslayer-{3}.dll",
+				//"{1}_businesslayer{0}bin{0}{4}{0}{2}.lib.businesslayer-{3}.dll",
+				"src{0}{1}-businesslayer{0}bin{0}{4}{0}{2}.lib.businesslayer-{3}.dll",
 				Path.DirectorySeparatorChar, // __________________ 0
 				applicationName_in, // ___________________________ 1
 				applicationNamespace_in, // ______________________ 2
