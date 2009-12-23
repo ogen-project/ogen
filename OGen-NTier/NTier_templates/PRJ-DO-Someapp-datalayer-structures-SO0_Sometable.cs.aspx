@@ -68,14 +68,13 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 
 		}
 
-		public SO_<%=_aux_db_table.Name%>(
-			Nullable<int> idUser_in,
-			string name_in
-		) {
-
-			// ...
-
-		}
+//		public SO_<%=_aux_db_table.Name%>(
+//			// ...
+//		) {
+//
+//			// ...
+//
+//		}
 
 		public SO_<%=_aux_db_table.Name%>(
 			SerializationInfo info_in,
