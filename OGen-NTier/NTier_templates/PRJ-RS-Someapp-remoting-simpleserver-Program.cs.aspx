@@ -17,8 +17,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <%@ import namespace="OGen.NTier.lib.metadata.metadataBusiness" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
-string _arg_TableName = System.Web.HttpUtility.UrlDecode(Request.QueryString["TableName"]);
-string _arg_ClassName = System.Web.HttpUtility.UrlDecode(Request.QueryString["ClassName"]);
 #endregion
 
 #region varaux...
@@ -29,29 +27,6 @@ XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
 XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusinessCollection[0];
-
-OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class
-	= _aux_business_metadata.Classes.ClassCollection[
-		_arg_ClassName
-	];
-
-XS_methodType _aux_method;
-XS_parameterType _aux_parameter;
-
-OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table
-	= _aux_db_metadata.Tables.TableCollection[
-		_arg_TableName
-	];
-OGen.NTier.lib.metadata.metadataExtended.XS_tableType _aux_ex_table
-	= _aux_db_table.parallel_ref;
-
-OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
-OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
-
-string _aux_xx_field_name;
-
-OGen.NTier.lib.metadata.metadataExtended.XS_tableUpdateType _aux_ex_update;
-
 #endregion
 //-----------------------------------------------------------------------------------------
 if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.CopyrightTextLong != string.Empty)) {
@@ -64,3 +39,12 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 #endregion
 <%
 }%>using System;
+
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.simpleserver {
+	class Program {
+		static void Main(string[] args) {
+			<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server.RS__server.Start();
+			Console.ReadLine();
+		}
+	}
+}
