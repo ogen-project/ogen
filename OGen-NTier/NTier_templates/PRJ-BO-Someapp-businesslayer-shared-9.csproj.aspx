@@ -33,16 +33,16 @@ XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusines
 OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
 
 //string _aux_path4_ntier_businesslayer = System.IO.Path.Combine(
-//    _arg_ogenpath, 
-//    "..|..|OGen-NTier|NTier_businesslayer|NTier_businesslayer-9.csproj".Replace(
-//        '|', 
+//    _arg_ogenpath,
+//    string.Format(
+//        "..{0}..{0}OGen-NTier{0}NTier_businesslayer{0}NTier_businesslayer-9.csproj",
 //        System.IO.Path.DirectorySeparatorChar
 //    )
 //);
 //string _aux_path4_ogen_datalayer__base = System.IO.Path.Combine(
 //    _arg_ogenpath,
-//    "..|..|OGen|OGen_datalayer__base|OGen_datalayer__base-9.csproj".Replace(
-//        '|', 
+//    string.Format(
+//        "..{0}..{0}OGen{0}OGen_datalayer__base{0}OGen_datalayer__base-9.csproj",
 //        System.IO.Path.DirectorySeparatorChar
 //    )
 //);
@@ -106,12 +106,12 @@ for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_structures\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_structures.csproj">
-      <Project>{9ED503C9-D099-4689-986D-5A087531BE7D}</Project>
-      <Name>xxx_Businesslayer_Structures</Name>
+      <Project>{<%=_aux_ex_metadata.GUID_businesslayer_structures%>}</Project>
+      <Name><%=_aux_ex_metadata.ApplicationName%>_businesslayer_structures</Name>
     </ProjectReference>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_datalayer_structures\<%=_aux_ex_metadata.ApplicationName%>_datalayer_structures.csproj">
-      <Project>{C4B90733-B6E3-4F2B-A386-D687AF396C73}</Project>
-      <Name>xxx_Datalayer_Structures</Name>
+      <Project>{<%=_aux_ex_metadata.GUID_datalayer_structures%>}</Project>
+      <Name><%=_aux_ex_metadata.ApplicationName%>_datalayer_structures</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
