@@ -48,31 +48,23 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 #endregion
 <%
 }%>using System;
+using System.Collections.Generic;
+using System.Text;
 
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared;
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.structures;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webservices.client;
 
-namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
-	public class BO_<%=_aux_class.Name%> :
-		IBO_<%=_aux_class.Name%>
-	{<%
-		for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
-			_aux_method = _aux_class.Methods.MethodCollection[m];%>
-		#region public <%=_aux_method.OutputType%> <%=_aux_method.Name%>(...);
-		public <%=_aux_method.OutputType%> <%=_aux_method.Name%>(<%
-			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
-				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
-			<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
-			}%>
-		) {
-			<%=(_aux_method.OutputType == "void") ? "" : "return "%>SBO_.<%=_aux_method.Name%>(<%
-				for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
-					_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
-				<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
-				}%>
-			);
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.instances {
+	public class <%=_aux_class.Name%> {
+		private <%=_aux_class.Name%>() { }
+
+		static <%=_aux_class.Name%>() {
 		}
-		#endregion<%
-		}%>
+
+		public static readonly IBO_<%=_aux_class.Name%> BusinessObject = new BO_<%=_aux_class.Name%>();
+		public static readonly IBO_<%=_aux_class.Name%> ReflectionClient = new RC_<%=_aux_class.Name%>();
+		public static readonly IBO_<%=_aux_class.Name%> WebserviceClient = new WC_<%=_aux_class.Name%>();
 	}
 }
