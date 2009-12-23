@@ -17,7 +17,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <%@ import namespace="OGen.NTier.lib.metadata.metadataBusiness" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
-string _arg_TableName = System.Web.HttpUtility.UrlDecode(Request.QueryString["TableName"]);
 string _arg_ClassName = System.Web.HttpUtility.UrlDecode(Request.QueryString["ClassName"]);
 #endregion
 
@@ -38,20 +37,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class
 XS_methodType _aux_method;
 XS_parameterType _aux_parameter;
 
-OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table
-	= _aux_db_metadata.Tables.TableCollection[
-		_arg_TableName
-	];
-OGen.NTier.lib.metadata.metadataExtended.XS_tableType _aux_ex_table
-	= _aux_db_table.parallel_ref;
-
-OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
-OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
-
-string _aux_xx_field_name;
-
-OGen.NTier.lib.metadata.metadataExtended.XS_tableUpdateType _aux_ex_update;
-
+int _aux_outputparameter;
 #endregion
 //-----------------------------------------------------------------------------------------
 if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.CopyrightTextLong != string.Empty)) {
@@ -64,3 +50,72 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 #endregion
 <%
 }%>using System;
+using System.Web.Services;
+using System.Web.Services.Protocols;
+
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.structures;
+
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webservices.client {
+	/// <summary>
+	/// <%=_aux_class.Name%> web service client.
+	/// </summary>
+	/// <remarks/>
+	//[System.Diagnostics.DebuggerStepThroughAttribute()]
+	//[System.ComponentModel.DesignerCategoryAttribute("code")]
+	[System.Web.Services.WebServiceBindingAttribute(
+		Name = "WS_<%=_aux_class.Name%>Soap",
+		Namespace = "http://<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server"
+	)]
+	public class WC_<%=_aux_class.Name%> : 
+		SoapHttpClientProtocol, 
+		IBO_<%=_aux_class.Name%>
+	{
+		public WC_<%=_aux_class.Name%>() {
+			this.Url = "http://localhost:4602/WS_<%=_aux_class.Name%>.asmx";
+		}
+<%
+		for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
+			_aux_method = _aux_class.Methods.MethodCollection[m];%>
+		#region public <%=_aux_method.OutputType%> <%=_aux_method.Name%>(...);
+		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
+			"http://<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server/<%=_aux_method.Name%>",
+			RequestNamespace = "http://<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server",
+			ResponseNamespace = "http://<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server",
+			Use = System.Web.Services.Description.SoapBindingUse.Literal,
+			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
+		)]
+		public <%=_aux_method.OutputType%> <%=_aux_method.Name%>(<%
+			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
+				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
+			<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
+			}%>
+		) {
+			object[] results = this.Invoke(
+				"<%=_aux_method.Name%>", 
+				new object[] {<%
+					for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
+						_aux_parameter = _aux_method.Parameters.ParameterCollection[p];
+						if (_aux_parameter.isOut) 
+							continue;%><%=(p != 0) ? "," : ""%>
+					<%=_aux_parameter.Name%><%
+					}%>
+				}
+			);<%
+			_aux_outputparameter = 0;
+			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
+				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];
+				if (!_aux_parameter.isOut)
+					continue;
+				_aux_outputparameter++;%><%=""%>
+			<%=_aux_parameter.Name%> = (<%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%>)results[<%=_aux_outputparameter.ToString()%>];<%
+			}
+			if (_aux_method.OutputType != "void") {%>
+			return (<%=_aux_method.OutputType%>)results[0];<%
+			}%>
+		}
+		#endregion<%
+		}%>
+	}
+}
