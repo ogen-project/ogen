@@ -55,3 +55,44 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 #endregion
 <%
 }%>using System;
+using System.Runtime.Serialization;
+using System.Xml.Serialization;
+
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures {
+	[Serializable()]
+	public class SO_<%=_aux_db_table.Name%> : ISerializable {
+		#region public SO_<%=_aux_db_table.Name%>(...);
+		public SO_<%=_aux_db_table.Name%>() {
+
+			// ...
+
+		}
+
+		public SO_<%=_aux_db_table.Name%>(
+			Nullable<int> idUser_in,
+			string name_in
+		) {
+
+			// ...
+
+		}
+
+		public SO_<%=_aux_db_table.Name%>(
+			SerializationInfo info_in,
+			StreamingContext context_in
+		) {
+
+			// ...
+
+		}
+		#endregion
+
+		#region public void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
+		public void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
+
+			// ...
+
+		} 
+		#endregion
+	}
+}

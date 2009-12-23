@@ -55,3 +55,30 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 #endregion
 <%
 }%>using System;
+
+using OGen.lib.datalayer;
+using OGen.NTier.lib.datalayer;
+
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures;
+
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
+	/// <summary>
+	/// <%=_aux_db_table.Name%> DataObject which provides access to <%=_aux_db_table.Name%>'s Database table.
+	/// </summary>
+	[DOClassAttribute("<%=_aux_db_table.Name%>", "", "", "", false, false)]
+	public 
+#if !NET_1_1
+		partial 
+#endif
+		class 
+#if NET_1_1
+			DO0_<%=_aux_db_table.Name%> 
+#else
+			DO_<%=_aux_db_table.Name%> 
+#endif
+	{
+
+		// ...
+
+	}
+}

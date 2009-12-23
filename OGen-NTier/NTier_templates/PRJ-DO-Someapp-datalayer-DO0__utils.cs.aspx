@@ -54,3 +54,42 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 #endregion
 <%
 }%>using System;
+
+using OGen.lib.datalayer;<%
+for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
+    string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();%>
+#if <%=_dbservertype%>
+using OGen.lib.datalayer.<%=_dbservertype%>;
+#endif
+<%
+}%>
+using OGen.NTier.lib.datalayer;
+
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
+	/// <summary>
+	/// utils DataObject which works as a repository of useful Properties and Methods for DataObjects at <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer namespace.
+	/// </summary>
+	public 
+#if USE_PARTIAL_CLASSES && !NET_1_1
+		partial class DO__utils 
+#else
+		abstract class DO0__utils 
+#endif
+	{
+		static 
+#if USE_PARTIAL_CLASSES && !NET_1_1
+			DO__utils
+#else
+			DO0__utils
+#endif
+		(
+		) {
+
+			// ...
+
+		}
+
+		// ...
+
+	}
+}
