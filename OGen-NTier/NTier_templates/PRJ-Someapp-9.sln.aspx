@@ -36,7 +36,7 @@ string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
 //-----------------------------------------------------------------------------------------
 %>Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008<%
-if (_arg_gac) {%>
+if (!_arg_gac) {%>
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer__base-9", "<%=_aux_path%>\OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj", "{D66D0E69-852C-4695-9D63-C9AB1A959E0B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_datalayer-9", "<%=_aux_path%>\OGen-NTier\NTier_datalayer\NTier_datalayer-9.csproj", "{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}"
@@ -79,7 +79,7 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution<%
-if (_arg_gac) {%>
+if (!_arg_gac) {%>
 		{D66D0E69-852C-4695-9D63-C9AB1A959E0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D66D0E69-852C-4695-9D63-C9AB1A959E0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D66D0E69-852C-4695-9D63-C9AB1A959E0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
