@@ -3481,16 +3481,34 @@ XXX:TO_DOS -->
 
 
 	<!-- search:solution -->
-	<template id="PRJ-Someapp-9.sln.aspx"
+	<template id="PRJ-Someapp-9.sln.aspx?GAC=True"
 			name="PRJ-Someapp-9.sln.aspx"
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
 		</arguments>
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-9.sln"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-Someapp-9.sln.aspx?GAC=False"
+			name="PRJ-Someapp-9.sln.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-9-no-gac.sln"
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
