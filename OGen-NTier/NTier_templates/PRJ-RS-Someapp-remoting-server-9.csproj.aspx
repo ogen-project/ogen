@@ -89,21 +89,21 @@ for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
 }%>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_businesslayer\<%=_aux_ex_metadata.ApplicationName%>_businesslayer.csproj">
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer\<%=_aux_ex_metadata.ApplicationName%>-businesslayer.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>_businesslayer</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_shared\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_shared.csproj">
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer_shared%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>_businesslayer_shared</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared</Name>
     </ProjectReference>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_structures\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_structures.csproj">
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer_structures%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>_businesslayer_structures</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures</Name>
     </ProjectReference>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_datalayer_structures\<%=_aux_ex_metadata.ApplicationName%>_datalayer_structures.csproj">
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-datalayer-structures\<%=_aux_ex_metadata.ApplicationName%>-datalayer-structures.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_datalayer_structures%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>_datalayer_structures</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-datalayer-structures</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -88,21 +88,21 @@ for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
 }%>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_businesslayer\<%=_aux_ex_metadata.ApplicationName%>_businesslayer.csproj">
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer\<%=_aux_ex_metadata.ApplicationName%>-businesslayer.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>_businesslayer</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_shared\<%=_aux_ex_metadata.ApplicationName%>_businesslayer_shared.csproj">
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer_shared%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>_businesslayer_shared</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared</Name>
     </ProjectReference>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_remoting_client\<%=_aux_ex_metadata.ApplicationName%>_remoting_client.csproj">
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-remoting-client\<%=_aux_ex_metadata.ApplicationName%>-remoting-client.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_remoting_client%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>_reflection_client</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-reflection_client</Name>
     </ProjectReference>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_webservices_client\<%=_aux_ex_metadata.ApplicationName%>_webservices_client.csproj">
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-webservices-client\<%=_aux_ex_metadata.ApplicationName%>-webservices-client.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_webservices_client%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>_webservices_client</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-webservices-client</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

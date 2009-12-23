@@ -32,27 +32,9 @@ XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusines
 
 OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table;
 
-string _aux_path4_ogen_datalayer__base = System.IO.Path.Combine(
-	_arg_ogenpath,
-	string.Format(
-		"..{0}..{0}OGen{0}OGen_datalayer__base{0}OGen_datalayer__base-9.csproj", 
-		System.IO.Path.DirectorySeparatorChar
-	)
-);
-string _aux_path4_ntier_datalayer = System.IO.Path.Combine(
-	_arg_ogenpath,
-	string.Format(
-		"..{0}..{0}OGen-NTier{0}NTier_datalayer{0}NTier_datalayer-9.csproj",
-		System.IO.Path.DirectorySeparatorChar
-	)
-);
-string _aux_path4_ntier_datalayer_proxy = System.IO.Path.Combine(
-	_arg_ogenpath,
-	string.Format(
-		"..{0}..{0}OGen-NTier{0}NTier_datalayer_proxy{0}NTier_datalayer_proxy-9.csproj",
-		System.IO.Path.DirectorySeparatorChar
-	)
-);
+string _aux_path4_ogen_datalayer__base = _arg_ogenpath + @"\..\..\OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj"; 
+string _aux_path4_ntier_datalayer = _arg_ogenpath + @"\..\..\OGen-NTier\NTier_datalayer\NTier_datalayer-9.csproj";
+string _aux_path4_ntier_datalayer_proxy = _arg_ogenpath + @"\..\..\OGen-NTier\NTier_datalayer_proxy\NTier_datalayer_proxy-9.csproj";
 #endregion
 //-----------------------------------------------------------------------------------------
 %><?xml version="1.0" encoding="utf-8" ?><%
@@ -149,13 +131,10 @@ for (int i = 0; i < _aux_db_metadata.Tables.TableCollection.Count; i++) {
     </ProjectReference><%
 	string _aux_path;
     for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
-		_aux_path = System.IO.Path.Combine(
-			_arg_ogenpath,
-			string.Format(
-				"..{0}..{0}OGen{0}OGen_datalayer_{1}{0}OGen_datalayer_{1}-9.csproj",
-				System.IO.Path.DirectorySeparatorChar,
-				_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()
-			)
+		_aux_path = string.Format(
+			@"{0}\..\..\OGen\OGen_datalayer_{1}\OGen_datalayer_{1}-9.csproj",
+			_arg_ogenpath, 
+			_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()
 		);%>
     <ProjectReference Include="<%=_aux_path%>"><%--
       <Project>{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}</Project>--%>
@@ -170,9 +149,9 @@ for (int i = 0; i < _aux_db_metadata.Tables.TableCollection.Count; i++) {
       <Project>{F17F7FA0-920E-4AE1-908F-2798D0124996}</Project>
       <Name>NTier_datalayer_proxy-9</Name>
     </ProjectReference>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_datalayer_structures\<%=_aux_ex_metadata.ApplicationName%>_datalayer_structures.csproj">
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-datalayer-structures\<%=_aux_ex_metadata.ApplicationName%>-datalayer-structures.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_datalayer_structures%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>_datalayer_structures</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-datalayer-structures</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

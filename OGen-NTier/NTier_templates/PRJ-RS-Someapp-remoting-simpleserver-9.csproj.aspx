@@ -82,9 +82,9 @@ if (
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_remoting_server\<%=_aux_ex_metadata.ApplicationName%>_remoting_server.csproj">
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-remoting-server\<%=_aux_ex_metadata.ApplicationName%>-remoting-server.csproj">
       <Project><%=_aux_ex_metadata.GUID_remoting_server%></Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>_remoting_server</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-remoting-server</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
