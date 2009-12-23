@@ -18,7 +18,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 string _arg_TableName = System.Web.HttpUtility.UrlDecode(Request.QueryString["TableName"]);
-string _arg_ClassName = System.Web.HttpUtility.UrlDecode(Request.QueryString["ClassName"]);
 #endregion
 
 #region varaux...
@@ -30,28 +29,12 @@ XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusinessCollection[0];
 
-OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class
-	= _aux_business_metadata.Classes.ClassCollection[
-		_arg_ClassName
-	];
-
-XS_methodType _aux_method;
-XS_parameterType _aux_parameter;
-
 OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table
 	= _aux_db_metadata.Tables.TableCollection[
 		_arg_TableName
 	];
 OGen.NTier.lib.metadata.metadataExtended.XS_tableType _aux_ex_table
 	= _aux_db_table.parallel_ref;
-
-OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
-OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
-
-string _aux_xx_field_name;
-
-OGen.NTier.lib.metadata.metadataExtended.XS_tableUpdateType _aux_ex_update;
-
 #endregion
 //-----------------------------------------------------------------------------------------
 if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.CopyrightTextLong != string.Empty)) {
@@ -64,3 +47,29 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 #endregion
 <%
 }%>using System;
+
+using OGen.lib.datalayer;
+
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures;
+
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
+	/// <summary>
+	/// <%=_aux_db_table.Name%> DataObject which provides access to <%=_aux_db_table.Name%>'s Database table.
+	/// </summary>
+	public 
+#if !NET_1_1
+		partial 
+#endif
+		class DO_<%=_aux_db_table.Name%> 
+#if NET_1_1
+			: DO0_<%=_aux_db_table.Name%>
+#endif
+	{
+		#region private static Fields...
+		#endregion
+		#region static Properties...
+		#endregion
+		#region static Methods...
+		#endregion
+	}
+}

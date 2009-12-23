@@ -98,8 +98,8 @@ if (_arg_gac) {%>
     <Compile Include="Properties\AssemblyInfo.cs" /><%
 for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
 	_aux_class = _aux_business_metadata.Classes.ClassCollection[i];%>
-    <Compile Include="_base\BO0_<%=_aux_class.Name%>.cs" />
-    <Compile Include="SBO_<%=_aux_class.Name%>.cs" /><%
+    <Compile Include="_base\BO0_<%=_aux_class.Name%>.cs" /><%--
+    <Compile Include="SBO_<%=_aux_class.Name%>.cs" />--%><%
 }%>
   </ItemGroup>
   <ItemGroup><%
