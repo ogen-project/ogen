@@ -48,7 +48,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_businesslayer-9", "<%=_aux_path%>\OGen-NTier\NTier_businesslayer\NTier_businesslayer-9.csproj", "{8AEBEA64-6FC4-430C-922C-B88D105AE91C}"
 EndProject<%
 }%>
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>--test", "<%=_aux_ex_metadata.ApplicationName%>-test\<%=_aux_ex_metadata.ApplicationName%>-test-9<%=_aux_no_gac%>.csproj", "{<%=_aux_ex_metadata.GUID_test%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>--test", "<%=_aux_ex_metadata.ApplicationName%>--test\<%=_aux_ex_metadata.ApplicationName%>--test-9<%=_aux_no_gac%>.csproj", "{<%=_aux_ex_metadata.GUID_test%>}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>-datalayer", "<%=_aux_ex_metadata.ApplicationName%>-datalayer\<%=_aux_ex_metadata.ApplicationName%>-datalayer-9<%=_aux_no_gac%>.csproj", "{<%=_aux_ex_metadata.GUID_datalayer%>}"
 EndProject
