@@ -34,9 +34,6 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
 
 string _aux_path = _arg_ogenpath + @"\..\..";
 string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
-
-//string _aux_guid1 = System.Guid.NewGuid().ToString("D");
-//string _aux_guid2 = System.Guid.NewGuid().ToString("D");
 #endregion
 //-----------------------------------------------------------------------------------------
 %><?xml version="1.0" encoding="utf-8" ?><%
@@ -57,73 +54,50 @@ if (
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{<%=_aux_ex_metadata.GUID_webservices_server%>}</ProjectGuid><%--
-    <ProjectTypeGuids>{<%=_aux_guid1%>};{<%=_aux_guid2%>}</ProjectTypeGuids>--%>
-    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{<%=_aux_ex_metadata.GUID_test%>}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace><%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server</RootNamespace>
-    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server-2.0</AssemblyName>
+    <RootNamespace><%=_aux_ex_metadata.ApplicationNamespace%>.presentationlayer.console</RootNamespace>
+    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.presentationlayer.console-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;NET_2_0</DefineConstants>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE;NET_2_0</DefineConstants>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Web.Services" />
-    <Reference Include="System.EnterpriseServices" />
-    <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" /><%
-for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
-	_aux_class = _aux_business_metadata.Classes.ClassCollection[i];%>
-    <Content Include="WS_<%=_aux_class.Name%>.asmx" /><%
-}%>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" /><%
-for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
-	_aux_class = _aux_business_metadata.Classes.ClassCollection[i];%>
-    <Compile Include="_base\WS0_<%=_aux_class.Name%>.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WS_<%=_aux_class.Name%>.asmx.cs">
-      <DependentUpon>WS_<%=_aux_class.Name%>.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile><%
-}%>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-9<%=_aux_no_gac%>.csproj">
-      <Project>{<%=_aux_ex_metadata.GUID_businesslayer%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer</Name>
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-instances\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-instances-9<%=_aux_no_gac%>.csproj">
+      <Project>{<%=_aux_ex_metadata.GUID_businesslayer_instances%>}</Project>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-instances</Name>
     </ProjectReference>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer_shared%>}</Project>
       <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared</Name>
     </ProjectReference>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_Businesslayer_Structures\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures-9<%=_aux_no_gac%>.csproj">
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer_structures%>}</Project>
       <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures</Name>
     </ProjectReference>
@@ -132,11 +106,7 @@ for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
       <Name><%=_aux_ex_metadata.ApplicationName%>-datalayer-structures</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -144,24 +114,4 @@ for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ProjectExtensions>
-    <VisualStudio><%--
-      <FlavorProperties GUID="{<%=_aux_guid1%>}">--%>
-      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
-        <WebProjectProperties>
-          <UseIIS>False</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>4602</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>
-          </IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
-        </WebProjectProperties>
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
 </Project>

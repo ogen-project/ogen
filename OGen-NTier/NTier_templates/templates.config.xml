@@ -4343,7 +4343,7 @@ XXX:TO_DOS -->
 		<conditions />
 		<outputs>
 			<output
-				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/_base/RS0_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/_base/WS0_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
@@ -4413,6 +4413,91 @@ XXX:TO_DOS -->
 			<output
 				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-client/_base/WC0_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
 				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+
+
+	<!-- search:solution::test -->
+	<template id="PRJ-Someapp--test-9.csproj.aspx?GAC=True"
+			name="PRJ-Someapp--test-9.csproj.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}--test/${ROOT.metadataDB[0].applicationName}--test-9.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-Someapp--test-9.csproj.aspx?GAC=False"
+			name="PRJ-Someapp--test-9.csproj.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}--test/${ROOT.metadataDB[0].applicationName}--test-9-no-gac.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution::test:App.config -->
+	<template id="PRJ--COMMON-XXX.config.aspx?where=test"
+			name="PRJ--COMMON-XXX.config.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="test" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}--test/App.config"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution::test:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=test"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="test" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}--test/Properties/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution::test:program -->
+	<template id="PRJ-Someapp--test-program.cs.aspx"
+			name="PRJ-Someapp--test-program.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}--test/Program.cs"
+				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
 	</template>

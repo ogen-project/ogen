@@ -79,6 +79,10 @@ switch (_arg_where) {
 		_aux_assemblytitle = string.Format("{0}.lib.distributedlayer.webservices.client", _aux_ex_metadata.ApplicationNamespace);
 		_aux_guid = _aux_ex_metadata.GUID_webservices_client;
 		break;
+	case "test":
+		_aux_assemblytitle = string.Format("{0}.presentationlayer.console", _aux_ex_metadata.ApplicationNamespace);
+		_aux_guid = _aux_ex_metadata.GUID_test;
+		break;
 }
 _aux_assemblyproduct = _aux_assemblytitle;
 _aux_assemblycompany = _aux_ex_metadata.ApplicationNamespace.Split('.')[0];
