@@ -17,7 +17,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <%@ import namespace="OGen.NTier.lib.metadata.metadataBusiness" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
-string _arg_TableName = System.Web.HttpUtility.UrlDecode(Request.QueryString["TableName"]);
 string _arg_ClassName = System.Web.HttpUtility.UrlDecode(Request.QueryString["ClassName"]);
 #endregion
 
@@ -37,21 +36,6 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class
 
 XS_methodType _aux_method;
 XS_parameterType _aux_parameter;
-
-OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table
-	= _aux_db_metadata.Tables.TableCollection[
-		_arg_TableName
-	];
-OGen.NTier.lib.metadata.metadataExtended.XS_tableType _aux_ex_table
-	= _aux_db_table.parallel_ref;
-
-OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
-OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
-
-string _aux_xx_field_name;
-
-OGen.NTier.lib.metadata.metadataExtended.XS_tableUpdateType _aux_ex_update;
-
 #endregion
 //-----------------------------------------------------------------------------------------
 if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.CopyrightTextLong != string.Empty)) {
@@ -64,3 +48,19 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 #endregion
 <%
 }%>using System;
+using System.Web;
+using System.Web.Services;
+
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server {
+	/// <summary>
+	/// <%=_aux_class.Name%> web service.
+	/// </summary>
+	[WebService(Namespace = "http://<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server")]
+	#if !NET_1_1
+	[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+	[System.ComponentModel.ToolboxItem(false)]
+	#endif
+	public class WS_<%=_aux_class.Name%> : WS0_<%=_aux_class.Name%> {
+
+	}
+}

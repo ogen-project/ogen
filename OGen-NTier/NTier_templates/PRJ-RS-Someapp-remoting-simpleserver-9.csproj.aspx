@@ -53,10 +53,10 @@ if (
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{<%=_aux_ex_metadata.GUID_remoting_simpleserver%>}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace><%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.simpleserver</RootNamespace>
-    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.simpleserver-2.0</AssemblyName>
+    <RootNamespace><%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.simpleserver</RootNamespace>
+    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.simpleserver-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
