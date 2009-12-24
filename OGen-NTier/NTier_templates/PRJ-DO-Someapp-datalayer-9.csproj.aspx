@@ -35,6 +35,11 @@ OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table;
 string _aux_path4_ogen_datalayer__base = _arg_ogenpath + @"\..\..\OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj"; 
 string _aux_path4_ntier_datalayer = _arg_ogenpath + @"\..\..\OGen-NTier\NTier_datalayer\NTier_datalayer-9.csproj";
 string _aux_path4_ntier_datalayer_proxy = _arg_ogenpath + @"\..\..\OGen-NTier\NTier_datalayer_proxy\NTier_datalayer_proxy-9.csproj";
+
+//string _aux_path = _arg_ogenpath + @"\..\..";
+string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
+                                                                  	
+string _aux_path2;
 #endregion
 //-----------------------------------------------------------------------------------------
 %><?xml version="1.0" encoding="utf-8" ?><%
@@ -130,14 +135,13 @@ if (!_arg_gac) {%>
       <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
       <Name>OGen_datalayer__base-9</Name>
     </ProjectReference><%
-	string _aux_path;
     for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
-		_aux_path = string.Format(
+		_aux_path2 = string.Format(
 			@"{0}\..\..\OGen\OGen_datalayer_{1}\OGen_datalayer_{1}-9.csproj",
 			_arg_ogenpath, 
 			_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()
 		);%>
-    <ProjectReference Include="<%=_aux_path%>"><%--
+    <ProjectReference Include="<%=_aux_path2%>"><%--
       <Project>{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}</Project>--%>
       <Name>OGen_datalayer_<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%>-9</Name>
     </ProjectReference><%
