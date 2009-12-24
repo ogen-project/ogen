@@ -3926,16 +3926,34 @@ XXX:TO_DOS -->
 	</template>
 
 	<!-- search:solution:businesslayer:instances -->
-	<template id="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
+	<template id="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx?GAC=True"
 			name="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
 		</arguments>
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-instances/${ROOT.metadataDB[0].applicationName}-businesslayer-instances-9.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx?GAC=False"
+			name="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-instances/${ROOT.metadataDB[0].applicationName}-businesslayer-instances-9-no-gac.csproj"
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -3977,16 +3995,34 @@ XXX:TO_DOS -->
 
 
 	<!-- search:solution:remoting:server -->
-	<template id="PRJ-RS-Someapp-remoting-server-9.csproj.aspx"
+	<template id="PRJ-RS-Someapp-remoting-server-9.csproj.aspx?GAC=True"
 			name="PRJ-RS-Someapp-remoting-server-9.csproj.aspx"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
 		</arguments>
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-server/${ROOT.metadataDB[0].applicationName}-remoting-server-9.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-RS-Someapp-remoting-server-9.csproj.aspx?GAC=False"
+			name="PRJ-RS-Someapp-remoting-server-9.csproj.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-server/${ROOT.metadataDB[0].applicationName}-remoting-server-9-no-gac.csproj"
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -4043,16 +4079,34 @@ XXX:TO_DOS -->
 	</template>
 
 	<!-- search:solution:remoting:simpleserver -->
-	<template id="PRJ-RS-Someapp-remoting-simpleserver-9.csproj.aspx"
+	<template id="PRJ-RS-Someapp-remoting-simpleserver-9.csproj.aspx?GAC=True"
 			name="PRJ-RS-Someapp-remoting-simpleserver-9.csproj.aspx"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
 		</arguments>
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-simpleserver/${ROOT.metadataDB[0].applicationName}-remoting-simpleserver-9.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-RS-Someapp-remoting-simpleserver-9.csproj.aspx?GAC=False"
+			name="PRJ-RS-Someapp-remoting-simpleserver-9.csproj.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+-			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-simpleserver/${ROOT.metadataDB[0].applicationName}-remoting-simpleserver-9-no-gac.csproj"
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -4108,16 +4162,34 @@ XXX:TO_DOS -->
 	</template>
 
 	<!-- search:solution:remoting:client -->
-	<template id="PRJ-RC-Someapp-remoting-client-9.csproj.aspx"
+	<template id="PRJ-RC-Someapp-remoting-client-9.csproj.aspx?GAC=True"
 			name="PRJ-RC-Someapp-remoting-client-9.csproj.aspx"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
 		</arguments>
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-client/${ROOT.metadataDB[0].applicationName}-remoting-client-9.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-RC-Someapp-remoting-client-9.csproj.aspx?GAC=False"
+			name="PRJ-RC-Someapp-remoting-client-9.csproj.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-client/${ROOT.metadataDB[0].applicationName}-remoting-client-9-no-gac.csproj"
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -4159,16 +4231,34 @@ XXX:TO_DOS -->
 
 
 	<!-- search:solution:webservices:server -->
-	<template id="PRJ-WS-Someapp-webservices-server-9.csproj.aspx"
+	<template id="PRJ-WS-Someapp-webservices-server-9.csproj.aspx?GAC=True"
 			name="PRJ-WS-Someapp-webservices-server-9.csproj.aspx"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
 		</arguments>
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/${ROOT.metadataDB[0].applicationName}-webservices-server-9.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-WS-Someapp-webservices-server-9.csproj.aspx?GAC=False"
+			name="PRJ-WS-Someapp-webservices-server-9.csproj.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/${ROOT.metadataDB[0].applicationName}-webservices-server-9-no-gac.csproj"
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />
@@ -4260,16 +4350,34 @@ XXX:TO_DOS -->
 	</template>
 
 	<!-- search:solution:webservices:client -->
-	<template id="PRJ-WC-Someapp-webservices-client-9.csproj.aspx"
+	<template id="PRJ-WC-Someapp-webservices-client-9.csproj.aspx?GAC=True"
 			name="PRJ-WC-Someapp-webservices-client-9.csproj.aspx"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
 		</arguments>
 		<conditions />
 		<outputs>
 			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-client/${ROOT.metadataDB[0].applicationName}-webservices-client-9.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-WC-Someapp-webservices-client-9.csproj.aspx?GAC=False"
+			name="PRJ-WC-Someapp-webservices-client-9.csproj.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-client/${ROOT.metadataDB[0].applicationName}-webservices-client-9-no-gac.csproj"
 				type="File" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies />

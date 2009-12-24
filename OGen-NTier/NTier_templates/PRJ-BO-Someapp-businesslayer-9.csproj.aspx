@@ -34,6 +34,9 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
 
 string _aux_path4_ntier_businesslayer = _arg_ogenpath + @"\..\..\OGen-NTier\NTier_businesslayer\NTier_businesslayer-9.csproj";
 string _aux_path4_ogen_datalayer__base = _arg_ogenpath + @"\..\..\OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj";
+
+string _aux_path = _arg_ogenpath + @"\..\..";
+string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
 #endregion
 //-----------------------------------------------------------------------------------------
 %><?xml version="1.0" encoding="utf-8" ?><%
@@ -113,19 +116,19 @@ if (!_arg_gac) {%>
       <Name>OGen_datalayer__base-9</Name>
     </ProjectReference><%
 }%>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared.csproj">
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer_shared%>}</Project>
       <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared</Name>
     </ProjectReference>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures.csproj">
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer_structures%>}</Project>
       <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures</Name>
     </ProjectReference>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-datalayer\<%=_aux_ex_metadata.ApplicationName%>-datalayer.csproj">
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-datalayer\<%=_aux_ex_metadata.ApplicationName%>-datalayer-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_datalayer%>}</Project>
       <Name><%=_aux_ex_metadata.ApplicationName%>-datalayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-datalayer-structures\<%=_aux_ex_metadata.ApplicationName%>-datalayer-structures.csproj">
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-datalayer-structures\<%=_aux_ex_metadata.ApplicationName%>-datalayer-structures-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_datalayer_structures%>}</Project>
       <Name><%=_aux_ex_metadata.ApplicationName%>-datalayer-structures</Name>
     </ProjectReference>

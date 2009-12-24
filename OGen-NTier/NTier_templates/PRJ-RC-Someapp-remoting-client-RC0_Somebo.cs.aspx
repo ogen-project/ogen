@@ -55,7 +55,7 @@ using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared;
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.structures;
 
-namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client {
 	/// <summary>
 	/// <%=_aux_class.Name%> remoting client.
 	/// </summary>

@@ -124,7 +124,8 @@ for (int i = 0; i < _aux_db_metadata.Tables.TableCollection.Count; i++) {
     <Compile Include="DO_<%=_aux_db_table.Name%>.cs" /><%
 }%>
   </ItemGroup>
-  <ItemGroup>
+  <ItemGroup><%
+if (!_arg_gac) {%>
     <ProjectReference Include="<%=_aux_path4_ogen_datalayer__base%>">
       <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
       <Name>OGen_datalayer__base-9</Name>
@@ -148,8 +149,9 @@ for (int i = 0; i < _aux_db_metadata.Tables.TableCollection.Count; i++) {
     <ProjectReference Include="<%=_aux_path4_ntier_datalayer_proxy%>">
       <Project>{F17F7FA0-920E-4AE1-908F-2798D0124996}</Project>
       <Name>NTier_datalayer_proxy-9</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-datalayer-structures\<%=_aux_ex_metadata.ApplicationName%>-datalayer-structures.csproj">
+    </ProjectReference><%
+}%>
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-datalayer-structures\<%=_aux_ex_metadata.ApplicationName%>-datalayer-structures-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_datalayer_structures%>}</Project>
       <Name><%=_aux_ex_metadata.ApplicationName%>-datalayer-structures</Name>
     </ProjectReference>

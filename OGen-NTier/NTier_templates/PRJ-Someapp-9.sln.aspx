@@ -48,7 +48,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_businesslayer-9", "<%=_aux_path%>\OGen-NTier\NTier_businesslayer\NTier_businesslayer-9.csproj", "{8AEBEA64-6FC4-430C-922C-B88D105AE91C}"
 EndProject<%
 }%><%--
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>--test", "<%=_aux_ex_metadata.ApplicationName%>-test\<%=_aux_ex_metadata.ApplicationName%>-test-9.csproj", "{A547D030-955C-46F2-8573-7B1C8EBAD3A9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>--test", "<%=_aux_ex_metadata.ApplicationName%>-test\<%=_aux_ex_metadata.ApplicationName%>-test-9<%=_aux_no_gac%>.csproj", "{A547D030-955C-46F2-8573-7B1C8EBAD3A9}"
 EndProject
 --%>
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>-datalayer", "<%=_aux_ex_metadata.ApplicationName%>-datalayer\<%=_aux_ex_metadata.ApplicationName%>-datalayer-9<%=_aux_no_gac%>.csproj", "{<%=_aux_ex_metadata.GUID_datalayer%>}"
@@ -61,17 +61,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.Applica
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>-datalayer-structures", "<%=_aux_ex_metadata.ApplicationName%>-datalayer-structures\<%=_aux_ex_metadata.ApplicationName%>-datalayer-structures-9<%=_aux_no_gac%>.csproj", "{<%=_aux_ex_metadata.GUID_datalayer_structures%>}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>-remoting-client", "<%=_aux_ex_metadata.ApplicationName%>-remoting-client\<%=_aux_ex_metadata.ApplicationName%>-remoting-client-9.csproj", "{<%=_aux_ex_metadata.GUID_remoting_client%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>-remoting-client", "<%=_aux_ex_metadata.ApplicationName%>-remoting-client\<%=_aux_ex_metadata.ApplicationName%>-remoting-client-9<%=_aux_no_gac%>.csproj", "{<%=_aux_ex_metadata.GUID_remoting_client%>}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>-businesslayer-instances", "<%=_aux_ex_metadata.ApplicationName%>-businesslayer-instances\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-instances-9.csproj", "{<%=_aux_ex_metadata.GUID_businesslayer_instances%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>-businesslayer-instances", "<%=_aux_ex_metadata.ApplicationName%>-businesslayer-instances\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-instances-9<%=_aux_no_gac%>.csproj", "{<%=_aux_ex_metadata.GUID_businesslayer_instances%>}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>-webservices-server", "<%=_aux_ex_metadata.ApplicationName%>-webservices-server\<%=_aux_ex_metadata.ApplicationName%>-webservices-server-9.csproj", "{<%=_aux_ex_metadata.GUID_webservices_server%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>-webservices-server", "<%=_aux_ex_metadata.ApplicationName%>-webservices-server\<%=_aux_ex_metadata.ApplicationName%>-webservices-server-9<%=_aux_no_gac%>.csproj", "{<%=_aux_ex_metadata.GUID_webservices_server%>}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>-webservices-client", "<%=_aux_ex_metadata.ApplicationName%>-webservices-client\<%=_aux_ex_metadata.ApplicationName%>-webservices-client-9.csproj", "{<%=_aux_ex_metadata.GUID_webservices_client%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>-webservices-client", "<%=_aux_ex_metadata.ApplicationName%>-webservices-client\<%=_aux_ex_metadata.ApplicationName%>-webservices-client-9<%=_aux_no_gac%>.csproj", "{<%=_aux_ex_metadata.GUID_webservices_client%>}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>-remoting-server", "<%=_aux_ex_metadata.ApplicationName%>-remoting-server\<%=_aux_ex_metadata.ApplicationName%>-remoting-server-9.csproj", "{<%=_aux_ex_metadata.GUID_remoting_server%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>-remoting-server", "<%=_aux_ex_metadata.ApplicationName%>-remoting-server\<%=_aux_ex_metadata.ApplicationName%>-remoting-server-9<%=_aux_no_gac%>.csproj", "{<%=_aux_ex_metadata.GUID_remoting_server%>}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>-remoting-simpleserver", "<%=_aux_ex_metadata.ApplicationName%>-remoting-simpleserver\<%=_aux_ex_metadata.ApplicationName%>-remoting-simpleserver-9.csproj", "{<%=_aux_ex_metadata.GUID_remoting_simpleserver%>}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%=_aux_ex_metadata.ApplicationName%>-remoting-simpleserver", "<%=_aux_ex_metadata.ApplicationName%>-remoting-simpleserver\<%=_aux_ex_metadata.ApplicationName%>-remoting-simpleserver-9<%=_aux_no_gac%>.csproj", "{<%=_aux_ex_metadata.GUID_remoting_simpleserver%>}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

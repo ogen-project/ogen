@@ -64,7 +64,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.in
 		}
 
 		public static readonly IBO_<%=_aux_class.Name%> BusinessObject = new BO_<%=_aux_class.Name%>();
-		public static readonly IBO_<%=_aux_class.Name%> ReflectionClient = new RC_<%=_aux_class.Name%>();
+		public static readonly IBO_<%=_aux_class.Name%> RemotingClient = new RC_<%=_aux_class.Name%>();
 		public static readonly IBO_<%=_aux_class.Name%> WebserviceClient = new WC_<%=_aux_class.Name%>();
 	}
 }

@@ -32,6 +32,10 @@ XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusines
 
 OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table;
 
+string _aux_path4_ntier_datalayer = _arg_ogenpath + @"\..\..\OGen-NTier\NTier_datalayer\NTier_datalayer-9.csproj";
+
+string _aux_path = _arg_ogenpath + @"\..\..";
+string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
 #endregion
 //-----------------------------------------------------------------------------------------
 %><?xml version="1.0" encoding="utf-8" ?><%
@@ -80,7 +84,13 @@ if (
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml" /><%
+if (_arg_gac) {%>
+    <Reference Include="OGen.NTier.lib.datalayer.proxy-2.0">
+      <Name>OGen.NTier.lib.datalayer.proxy-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference><%
+}%>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" /><%
@@ -88,7 +98,15 @@ for (int i = 0; i < _aux_db_metadata.Tables.TableCollection.Count; i++) {
 	_aux_db_table = _aux_db_metadata.Tables.TableCollection[i];%>
 	<Compile Include="_base\SO0_<%=_aux_db_table.Name%>.cs" /><%
 }%>
-  </ItemGroup>
+  </ItemGroup><%
+if (!_arg_gac) {%>
+  <ItemGroup>
+    <ProjectReference Include="<%=_aux_path4_ntier_datalayer%>">
+      <Project>{F17F7FA0-920E-4AE1-908F-2798D0124996}</Project>
+      <Name>NTier_datalayer_proxy-9</Name>
+    </ProjectReference>
+  </ItemGroup><%
+}%>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

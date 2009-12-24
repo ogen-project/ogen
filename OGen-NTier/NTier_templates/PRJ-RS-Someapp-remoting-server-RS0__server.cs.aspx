@@ -49,9 +49,11 @@ using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Runtime.Remoting.Channels.Http;
 
-namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server {
-	public abstract class RS0__server {
-		public void Start() {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server {
+	public class RS__server {
+		private RS__server() { }
+
+		public static void Start() {
 			#if NET_1_1
 			//ChannelServices.RegisterChannel(new HttpChannel(8085));
 			ChannelServices.RegisterChannel(new TcpChannel(8085));
