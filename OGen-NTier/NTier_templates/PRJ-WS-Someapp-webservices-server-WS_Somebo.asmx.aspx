@@ -38,15 +38,18 @@ XS_methodType _aux_method;
 XS_parameterType _aux_parameter;
 #endregion
 //-----------------------------------------------------------------------------------------
-if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.CopyrightTextLong != string.Empty)) {
-%>#region <%=_aux_ex_metadata.CopyrightText%>
-/*
+if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
+<!--
 
 <%=_aux_ex_metadata.CopyrightTextLong%>
 
-*/
-#endregion
-<%
+--><%
+} else if (_aux_ex_metadata.CopyrightText != string.Empty) {%>
+<!--
+
+<%=_aux_ex_metadata.CopyrightText%>
+
+--><%
 }%><%="<%" + "@"%>WebService 
 	Language="C#" 
 	CodeBehind="WS_<%=_aux_class.Name%>.asmx.cs" 

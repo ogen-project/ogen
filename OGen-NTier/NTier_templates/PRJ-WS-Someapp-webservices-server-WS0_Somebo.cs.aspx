@@ -38,7 +38,12 @@ XS_methodType _aux_method;
 XS_parameterType _aux_parameter;
 #endregion
 //-----------------------------------------------------------------------------------------
-if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.CopyrightTextLong != string.Empty)) {
+if (_aux_ex_metadata.CopyrightText != string.Empty) {
+	if (_aux_ex_metadata.CopyrightTextLong == string.Empty) {
+%>#region <%=_aux_ex_metadata.CopyrightText%>
+#endregion
+<%
+	} else {
 %>#region <%=_aux_ex_metadata.CopyrightText%>
 /*
 
@@ -47,6 +52,7 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 */
 #endregion
 <%
+	}
 }%>using System;
 using System.Web;
 using System.Web.Services;

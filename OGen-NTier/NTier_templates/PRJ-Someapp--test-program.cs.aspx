@@ -36,7 +36,22 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
 //string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
 #endregion
 //-----------------------------------------------------------------------------------------
-%>using System;
+if (_aux_ex_metadata.CopyrightText != string.Empty) {
+	if (_aux_ex_metadata.CopyrightTextLong == string.Empty) {
+%>#region <%=_aux_ex_metadata.CopyrightText%>
+#endregion
+<%
+	} else {
+%>#region <%=_aux_ex_metadata.CopyrightText%>
+/*
+
+<%=_aux_ex_metadata.CopyrightTextLong%>
+
+*/
+#endregion
+<%
+	}
+}%>using System;
 
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures;
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared;

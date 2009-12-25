@@ -88,7 +88,12 @@ _aux_assemblyproduct = _aux_assemblytitle;
 _aux_assemblycompany = _aux_ex_metadata.ApplicationNamespace.Split('.')[0];
 #endregion
 //-----------------------------------------------------------------------------------------
-if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.CopyrightTextLong != string.Empty)) {
+if (_aux_ex_metadata.CopyrightText != string.Empty) {
+	if (_aux_ex_metadata.CopyrightTextLong == string.Empty) {
+%>#region <%=_aux_ex_metadata.CopyrightText%>
+#endregion
+<%
+	} else {
 %>#region <%=_aux_ex_metadata.CopyrightText%>
 /*
 
@@ -97,6 +102,7 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 */
 #endregion
 <%
+	}
 }%>using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;

@@ -44,14 +44,16 @@ string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
 #endregion
 //-----------------------------------------------------------------------------------------
 %><?xml version="1.0" encoding="utf-8" ?><%
-if (
-	//(_aux_ex_metadata.CopyrightText != string.Empty) 
-	//&& 
-	(_aux_ex_metadata.CopyrightTextLong != string.Empty)
-) {%>
+if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
 <!--
 
 <%=_aux_ex_metadata.CopyrightTextLong%>
+
+--><%
+} else if (_aux_ex_metadata.CopyrightText != string.Empty) {%>
+<!--
+
+<%=_aux_ex_metadata.CopyrightText%>
 
 --><%
 }%>

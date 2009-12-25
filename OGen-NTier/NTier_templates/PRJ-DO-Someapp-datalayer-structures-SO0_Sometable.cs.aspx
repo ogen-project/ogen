@@ -45,19 +45,12 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableUpdateType _aux_ex_update;
 
 #endregion
 //-----------------------------------------------------------------------------------------
-if (
-	(_aux_ex_metadata.CopyrightText != string.Empty) 
-	&& 
-	(_aux_ex_metadata.CopyrightTextLong == string.Empty)
-) {
+if (_aux_ex_metadata.CopyrightText != string.Empty) {
+	if (_aux_ex_metadata.CopyrightTextLong == string.Empty) {
 %>#region <%=_aux_ex_metadata.CopyrightText%>
 #endregion
 <%
-} else if (
-	(_aux_ex_metadata.CopyrightText != string.Empty)
-	&&
-	(_aux_ex_metadata.CopyrightTextLong != string.Empty)
-) {
+	} else {
 %>#region <%=_aux_ex_metadata.CopyrightText%>
 /*
 
@@ -66,6 +59,7 @@ if (
 */
 #endregion
 <%
+	}
 }%>using System;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
