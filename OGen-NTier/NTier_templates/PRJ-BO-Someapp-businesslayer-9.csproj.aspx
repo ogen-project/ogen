@@ -32,10 +32,14 @@ XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusines
 
 OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
 
-string _aux_path4_ntier_businesslayer = _arg_ogenpath + @"\..\..\OGen-NTier\NTier_businesslayer\NTier_businesslayer-9.csproj";
-string _aux_path4_ogen_datalayer__base = _arg_ogenpath + @"\..\..\OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj";
-
-//string _aux_path = _arg_ogenpath + @"\..\..";
+string _aux_path = _arg_ogenpath + @"\..\..";
+string _aux_path4_ntier_businesslayer = _aux_path + @"\OGen-NTier\NTier_businesslayer\NTier_businesslayer-9.csproj";
+string _aux_path4_ogen_datalayer__base = _aux_path + @"\OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj";
+////--- this could be a problem under linux, remember this is generating a visual studio project
+//string _aux_path = System.IO.Directory.GetParent(_arg_ogenpath).Parent.FullName;
+//string _aux_path4_ntier_businesslayer = System.IO.Path.Combine(_aux_path, @"OGen-NTier\NTier_businesslayer\NTier_businesslayer-9.csproj");
+//string _aux_path4_ogen_datalayer__base = System.IO.Path.Combine(_aux_path, @"OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj");
+                                                                  	
 string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
 #endregion
 //-----------------------------------------------------------------------------------------

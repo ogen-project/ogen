@@ -32,7 +32,7 @@ XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusines
 
 OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
 
-string _aux_path = _arg_ogenpath + @"\..\..";
+//string _aux_path = _arg_ogenpath + @"\..\..";
 string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
 
 //string _aux_guid1 = System.Guid.NewGuid().ToString("D");

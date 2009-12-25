@@ -31,6 +31,9 @@ XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedColle
 XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusinessCollection[0];
 
 string _aux_path = _arg_ogenpath + @"\..\..";
+////--- this could be a problem under linux, remember this is generating a visual studio solution,
+//string _aux_path = System.IO.Directory.GetParent(_arg_ogenpath).Parent.FullName;
+
 string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
 #endregion
 //-----------------------------------------------------------------------------------------

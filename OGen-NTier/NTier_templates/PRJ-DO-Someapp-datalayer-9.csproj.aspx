@@ -32,11 +32,11 @@ XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusines
 
 OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table;
 
-string _aux_path4_ogen_datalayer__base = _arg_ogenpath + @"\..\..\OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj"; 
-string _aux_path4_ntier_datalayer = _arg_ogenpath + @"\..\..\OGen-NTier\NTier_datalayer\NTier_datalayer-9.csproj";
-string _aux_path4_ntier_datalayer_proxy = _arg_ogenpath + @"\..\..\OGen-NTier\NTier_datalayer_proxy\NTier_datalayer_proxy-9.csproj";
+string _aux_path = _arg_ogenpath + @"\..\..";
+string _aux_path4_ogen_datalayer__base = _aux_path + @"\OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj";
+string _aux_path4_ntier_datalayer = _aux_path + @"\OGen-NTier\NTier_datalayer\NTier_datalayer-9.csproj";
+string _aux_path4_ntier_datalayer_proxy = _aux_path + @"\OGen-NTier\NTier_datalayer_proxy\NTier_datalayer_proxy-9.csproj";
 
-//string _aux_path = _arg_ogenpath + @"\..\..";
 string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
                                                                   	
 string _aux_path2;
