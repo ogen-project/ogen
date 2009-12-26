@@ -69,14 +69,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		: DO0__utils
 #endif
 	{
-#if !USE_PARTIAL_CLASSES || NET_1_1
-		#region public DO__utils(...);
-		///
-		public DO__utils() : base() {
-		}
-		#endregion
-#endif
 
 		// add your code here!
+
 	}
 }
