@@ -138,7 +138,6 @@ if (!_aux_db_table.isVirtualTable) {%>
 					DO__utils.DBLogfile
 				) 
 				: connection_in;
-
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
 				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
@@ -147,6 +146,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 				}%>
 			};
 			_connection.Execute_SQLFunction("sp0_<%=_aux_db_table.Name%>_getObject", _dataparameters);
+			if (connection_in == null) { _connection.Dispose(); }
 
 			if (_dataparameters[<%=_aux_db_table.firstKey%>].Value != DBNull.Value) {
 				_output = new SO_<%=_aux_db_table.Name%>();
@@ -220,7 +220,6 @@ if (!_aux_db_table.isVirtualTable) {%>
 					DO__utils.DBLogfile
 				) 
 				: connection_in;
-
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
 				for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 					_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];
@@ -229,6 +228,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 				}%>
 			};
 			_connection.Execute_SQLFunction("sp0_<%=_aux_db_table.Name%>_delObject", _dataparameters);
+			if (connection_in == null) { _connection.Dispose(); }
 		}
 		#endregion
 		#region public bool isObject(...);
@@ -247,6 +247,42 @@ if (!_aux_db_table.isVirtualTable) {%>
 			<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%>_in<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 			}%>
 		) {
+			return isObject(<%
+			for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
+				_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];
+				_aux_ex_field = _aux_db_field.parallel_ref;%><%=""%>
+				<%=_aux_db_field.Name%>_in, <%
+			}%>
+				null
+			);
+		}
+
+		/// <summary>
+		/// Checks to see if <%=_aux_db_table.Name%> exists at Database
+		/// </summary><%
+		for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
+			_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%><%=""%>
+		/// <param name="<%=_aux_db_field.Name%>_in"><%=_aux_db_field.Name%></param><%
+		}%>
+		/// <param name="connection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
+		/// <returns>True if <%=_aux_db_table.Name%> exists at Database, False if not</returns>
+		public static bool isObject(<%
+			for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
+				_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];
+				_aux_ex_field = _aux_db_field.parallel_ref;%><%=""%>
+			<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%>_in, <%
+			}%>
+			DBConnection connection_in
+		) {
+			bool _output;
+
+			DBConnection _connection = (connection_in == null)
+				? DO__utils.DBConnection_createInstance(
+					DO__utils.DBServerType,
+					DO__utils.DBConnectionstring,
+					DO__utils.DBLogfile
+				) 
+				: connection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
 				for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 					_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];
@@ -254,13 +290,15 @@ if (!_aux_db_table.isVirtualTable) {%>
 				_connection.newDBDataParameter("<%=_aux_db_field.Name%>_", DbType.<%=_aux_db_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_db_field.Name%>_in, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : "" %><%
 				}%>
 			};
-
-			return (bool)_connection.Execute_SQLFunction(
+			_output = (bool)_connection.Execute_SQLFunction(
 				"fnc0_<%=_aux_db_table.Name%>_isObject", 
 				_dataparameters, 
 				DbType.Boolean, 
 				0
 			);
+			if (connection_in == null) { _connection.Dispose(); }
+
+			return _output;
 		}
 		#endregion<%
 		if (!_aux_db_table.hasIdentityKey) {%>
@@ -270,7 +308,9 @@ if (!_aux_db_table.isVirtualTable) {%>
 		/// </summary>
 		/// <param name="forceUpdate_in">assign with True if you wish to force an Update (even if no changes have been made since last time getObject method was run) and False if not</param>
 		/// <returns>True if it didn't exist (INSERT), and False if it did exist (UPDATE)</returns>
-		public static bool setObject(bool forceUpdate_in<%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? ", out bool ConstraintExist_out" : ""%>) {
+		public static bool setObject(
+			bool forceUpdate_in<%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? ", out bool ConstraintExist_out" : ""%>
+		) {
 			<%if (!_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {
 				%>bool ConstraintExist_out;
 			<%}
@@ -397,11 +437,46 @@ if (!_aux_db_table.isVirtualTable) {%>
 		}%>
 		/// <returns>insertion sequence/identity seed</returns>
 		public static <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].DBType_generic.FWType%> insObject(
+			SO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name%>_in, 
 			bool selectIdentity_in<%
 			if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) { %>, 
 			out bool constraintExist_out<%
 			} %>
 		) {
+			return insObject(
+				<%=_aux_db_table.Name%>_in, 
+				selectIdentity_in, <%
+				if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) { %>
+				out constraintExist_out, <%
+				} %>
+				null
+			);
+		}
+
+		/// <summary>
+		/// Inserts <%=_aux_db_table.Name%> values into Database.
+		/// </summary>
+		/// <param name="selectIdentity_in">assign with True if you wish to retrieve insertion sequence/identity seed and with False if not</param><%
+		if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) { %>
+		/// <param name="constraintExist_out">returns True if constraint exists and insertion failed, and False if no constraint and insertion was successful</param><%
+		}%>
+		/// <param name="connection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
+		/// <returns>insertion sequence/identity seed</returns>
+		public static <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].DBType_generic.FWType%> insObject(
+			SO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name%>_in, 
+			bool selectIdentity_in, <%
+			if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) { %>
+			out bool constraintExist_out, <%
+			} %>
+			DBConnection connection_in
+		) {
+			DBConnection _connection = (connection_in == null)
+				? DO__utils.DBConnection_createInstance(
+					DO__utils.DBServerType,
+					DO__utils.DBConnectionstring,
+					DO__utils.DBLogfile
+				) 
+				: connection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
 				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
@@ -410,8 +485,8 @@ if (!_aux_db_table.isVirtualTable) {%>
 (_aux_db_field.isIdentity) 
 	? "null" 
 	: ((_aux_db_field.isNullable) 
-		? "fields_." + _aux_db_field.Name + "_isNull ? null : (object)fields_." + _aux_db_field.Name 
-		: "fields_." + _aux_db_field.Name
+		? _aux_db_table.Name + "_in." + _aux_db_field.Name + "_isNull ? null : (object)" + _aux_db_table.Name + "_in." + _aux_db_field.Name 
+		: _aux_db_table.Name + "_in." + _aux_db_field.Name
 	)%>, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>), <%
 				}%>
 
@@ -421,21 +496,22 @@ if (!_aux_db_table.isVirtualTable) {%>
 				"sp0_<%=_aux_db_table.Name%>_insObject", 
 				_dataparameters
 			);
+			if (connection_in == null) { _connection.Dispose(); }
 
 			<%
 			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey];
 			_aux_ex_field = _aux_db_field.parallel_ref;
-			%>fields_.<%=_aux_db_field.Name%> = (<%=_aux_db_field.DBType_generic.FWType%>)_dataparameters[<%=_aux_db_table.IdentityKey%>].Value;<%
+			%><%=_aux_db_table.Name%>_in.<%=_aux_db_field.Name%> = (<%=_aux_db_field.DBType_generic.FWType%>)_dataparameters[<%=_aux_db_table.IdentityKey%>].Value;<%
 			if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
-			constraintExist_out = (fields_.<%=_aux_db_field.Name%> == -1L);
+			constraintExist_out = (<%=_aux_db_table.Name%>_in.<%=_aux_db_field.Name%> == -1L);
 			if (!constraintExist_out) {
-				fields_.haschanges_ = false;
+				<%=_aux_db_table.Name%>_in.haschanges_ = false;
 			}<%
 			} else {%>
-			fields_.haschanges_ = false;
+			<%=_aux_db_table.Name%>_in.haschanges_ = false;
 			<%}%>
 
-			return fields_.<%=_aux_db_field.Name%>;
+			return <%=_aux_db_table.Name%>_in.<%=_aux_db_field.Name%>;
 		}
 		#endregion
 		#region public void updObject(...);
@@ -446,16 +522,53 @@ if (!_aux_db_table.isVirtualTable) {%>
 		if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) { %>
 		/// <param name="constraintExist_out">returns True if constraint exists and Update failed, and False if no constraint and Update was successful</param><%
 		}%>
-		public static void updObject(bool forceUpdate_in<%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? ", out bool constraintExist_out" : ""%>) {
-			if (forceUpdate_in || fields_.haschanges_) {
+		public static void updObject(
+			SO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name%>_in, 
+			bool forceUpdate_in<%=
+			(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? @", 
+			out bool constraintExist_out" : ""%>
+		) {
+			updObject(
+				<%=_aux_db_table.Name%>_in, 
+				forceUpdate_in, <%=
+				(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? @"
+				out constraintExist_out, " : ""%>
+				null
+			);
+		}
+
+		/// <summary>
+		/// Updates <%=_aux_db_table.Name%> values on Database.
+		/// </summary>
+		/// <param name="forceUpdate_in">assign with True if you wish to force an Update (even if no changes have been made since last time getObject method was run) and False if not</param><%
+		if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) { %>
+		/// <param name="constraintExist_out">returns True if constraint exists and Update failed, and False if no constraint and Update was successful</param><%
+		}%>
+		/// <param name="connection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
+		public static void updObject(
+			SO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name%>_in, 
+			bool forceUpdate_in, <%=
+			(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? @"
+			out bool constraintExist_out, " : ""%>
+			DBConnection connection_in
+		) {
+			if (forceUpdate_in || <%=_aux_db_table.Name%>_in.haschanges_) {
+				DBConnection _connection = (connection_in == null)
+					? DO__utils.DBConnection_createInstance(
+						DO__utils.DBServerType,
+						DO__utils.DBConnectionstring,
+						DO__utils.DBLogfile
+					) 
+					: connection_in;
+
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
 					for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 						_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 						_aux_ex_field = _aux_db_field.parallel_ref;%>
 					_connection.newDBDataParameter("<%=_aux_db_field.Name%>_", DbType.<%=_aux_db_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=
 ((_aux_db_field.isNullable) 
-	? "fields_." + _aux_db_field.Name + "_isNull ? null : (object)fields_." + _aux_db_field.Name 
-	: "fields_." + _aux_db_field.Name
+	? _aux_db_table.Name + "_in." + _aux_db_field.Name + "_isNull ? null : (object)fields_." + _aux_db_field.Name 
+	: _aux_db_table.Name + "_in." + _aux_db_field.Name
 )%>, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=((f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) || (_aux_ex_table.TableSearches.hasExplicitUniqueIndex)) ? ", " : ""%><%
 					}%><%
 					if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
@@ -470,10 +583,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 				<%if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 				constraintExist_out = <%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? "(bool)_dataparameters[" + (_aux_db_table.TableFields.TableFieldCollection.Count) + "].Value" : "false"%>;
 				if (!constraintExist_out) {
-					fields_.haschanges_ = false;
+					<%=_aux_db_table.Name%>_in.haschanges_ = false;
 				}<%
 				} else {
-				%>fields_.haschanges_ = false;<%
+				%><%=_aux_db_table.Name%>_in.haschanges_ = false;<%
 				}%>
 			<%if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 			} else {
