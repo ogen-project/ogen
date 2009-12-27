@@ -628,7 +628,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 		#endregion<%
 		}
 		}%>
-		#endregion
+//#endregion
 		#region Methods - Search...<%
 
 
@@ -641,8 +641,8 @@ if (!_aux_db_table.isVirtualTable) {%>
 
 		for (int s = 0; s < _aux_ex_table.TableSearches.TableSearchCollection.Count; s++) {
 			if (!_aux_ex_table.TableSearches.TableSearchCollection[s].isRange) {%>
-		#region public void ???Object_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>
-		#region public bool getObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(...);
+		#region ???Object_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>...
+		#region public static bool getObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(...);
 		/// <summary>
 		/// Selects <%=_aux_db_table.Name%> values from Database (based on the search condition) and assigns them to the appropriate DO0_<%=_aux_db_table.Name%> property.
 		/// </summary><%
@@ -651,8 +651,8 @@ if (!_aux_db_table.isVirtualTable) {%>
 			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 		/// <param name="<%=_aux_xx_field_name%>_search_in"><%=_aux_xx_field_name%> search condition</param><%
 		}%>
-		/// <returns>True if <%=_aux_db_table.Name%> exists at Database, False if not</returns>
-		public static bool getObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
+		/// <returns>null if <%=_aux_db_table.Name%> doesn't exists at Database</returns>
+		public static SO_<%=_aux_db_table.Name%> getObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
 			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 				_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 				_aux_db_field = _aux_ex_field.parallel_ref;
@@ -660,6 +660,44 @@ if (!_aux_db_table.isVirtualTable) {%>
 			<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 			}%>
 		) {
+			return getObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
+				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
+					_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+					_aux_db_field = _aux_ex_field.parallel_ref;
+					_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
+				<%=_aux_xx_field_name%>_search_in, <%
+				}%>
+				null
+			);
+		}
+
+		/// <summary>
+		/// Selects <%=_aux_db_table.Name%> values from Database (based on the search condition) and assigns them to the appropriate DO0_<%=_aux_db_table.Name%> property.
+		/// </summary><%
+		for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
+			_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
+		/// <param name="<%=_aux_xx_field_name%>_search_in"><%=_aux_xx_field_name%> search condition</param><%
+		}%>
+		/// <param name="connection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
+		/// <returns>null if <%=_aux_db_table.Name%> doesn't exists at Database</returns>
+		public static SO_<%=_aux_db_table.Name%> getObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
+			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
+				_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+				_aux_db_field = _aux_ex_field.parallel_ref;
+				_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
+			<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in, <%
+			}%>
+			DBConnection connection_in
+		) {
+			SO_<%=_aux_db_table.Name%> _output = null;
+			DBConnection _connection = (connection_in == null)
+				? DO__utils.DBConnection_createInstance(
+					DO__utils.DBServerType,
+					DO__utils.DBConnectionstring,
+					DO__utils.DBLogfile
+				) 
+				: connection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
 				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 					_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
@@ -677,34 +715,33 @@ if (!_aux_db_table.isVirtualTable) {%>
 				"sp0_<%=_aux_db_table.Name%>_getObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>", 
 				_dataparameters
 			);
+			if (connection_in == null) { _connection.Dispose(); }
 
-			if (_dataparameters[<%=_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count + _aux_db_table.firstKey%>].Value != DBNull.Value) {<%
+			if (_dataparameters[<%=_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count + _aux_db_table.firstKey%>].Value != DBNull.Value) {
+				_output = new SO_<%=_aux_db_table.Name%>();<%
 				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 					_aux_ex_field = _aux_db_field.parallel_ref;%>
 				if (_dataparameters[<%=_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count + f%>].Value == System.DBNull.Value) {<%
 					if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%>
-					fields_.<%=_aux_db_field.Name%>_isNull = true;<%
+					_output.<%=_aux_db_field.Name%>_isNull = true;<%
 					} else {%><%=""%>
-					fields_.<%=_aux_db_field.Name%> = <%=_aux_db_field.DBType_generic.FWEmptyValue%>;<%
+					_output.<%=_aux_db_field.Name%> = <%=_aux_db_field.DBType_generic.FWEmptyValue%>;<%
 					}%>
 				} else {
-					fields_.<%=_aux_db_field.Name%> = (<%=_aux_db_field.DBType_generic.FWType%>)_dataparameters[<%=_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count + f%>].Value;
+					_output.<%=_aux_db_field.Name%> = (<%=_aux_db_field.DBType_generic.FWType%>)_dataparameters[<%=_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count + f%>].Value;
 				}<%
 				}%>
 
-				fields_.haschanges_ = false;
-				return true;
+				<%--_output.haschanges_ = false;
+				--%>return _output;
 			}
 
-			//clrObject();
-			//fields_.haschanges_ = false;
-
-			return false;
+			return null;
 		}
 		#endregion<%
 		if (!_aux_db_table.isVirtualTable) {%>
-		#region public bool delObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(...);
+		#region public static bool delObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(...);
 		/// <summary>
 		/// Deletes <%=_aux_db_table.Name%> from Database (based on the search condition).
 		/// </summary><%
@@ -722,6 +759,43 @@ if (!_aux_db_table.isVirtualTable) {%>
 			<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in<%=(f != _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 			}%>
 		) {
+			return delObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
+				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
+					_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+					_aux_db_field = _aux_ex_field.parallel_ref;
+					_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
+				<%=_aux_xx_field_name%>_search_in, <%
+				}%>
+				null
+			);
+		}
+
+		/// <summary>
+		/// Deletes <%=_aux_db_table.Name%> from Database (based on the search condition).
+		/// </summary><%
+		for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
+			_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
+		/// <param name="<%=_aux_xx_field_name%>_search_in"> <%=_aux_xx_field_name%> search condition</param><%
+		}%>
+		/// <param name="connection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
+		/// <returns>True if <%=_aux_db_table.Name%> existed and was Deleted at Database, False if it didn't exist</returns>
+		public static bool delObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
+			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
+				_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+				_aux_db_field = _aux_ex_field.parallel_ref;
+				_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
+			<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in, <%
+			}%>
+			DBConnection connection_in
+		) {
+			DBConnection _connection = (connection_in == null)
+				? DO__utils.DBConnection_createInstance(
+					DO__utils.DBServerType,
+					DO__utils.DBConnectionstring,
+					DO__utils.DBLogfile
+				) 
+				: connection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
 				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 					_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
@@ -733,6 +807,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 				_connection.newDBDataParameter("Exists_", DbType.Boolean, ParameterDirection.Output, null, 1)
 			};
 			_connection.Execute_SQLFunction("sp0_<%=_aux_db_table.Name%>_delObject_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>", _dataparameters);
+			if (connection_in == null) { _connection.Dispose(); }
 
 			return ((bool)_dataparameters[<%=_aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count%>].Value);
 		}
