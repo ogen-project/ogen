@@ -320,12 +320,12 @@ if (!_aux_db_table.isVirtualTable) {%>
 						_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 						_aux_ex_field = _aux_db_field.parallel_ref;%>
 					_connection.newDBDataParameter("<%=_aux_db_field.Name%>_", DbType.<%=_aux_db_field.DBType_generic.Value.ToString()%>, ParameterDirection.<%=(_aux_db_field.isIdentity) ? "Out" : "In"%>put, <%=
-(_aux_db_field.isIdentity) 
-	?  "null" 
-	: ((_aux_db_field.isNullable) 
-		? "fields_." + _aux_db_field.Name + "_isNull ? null : (object)fields_." + _aux_db_field.Name 
-		: "fields_." + _aux_db_field.Name
-	)%>, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>), <%
+						(_aux_db_field.isIdentity) 
+							?  "null" 
+							: ((_aux_db_field.isNullable) 
+								? "fields_." + _aux_db_field.Name + "_isNull ? null : (object)fields_." + _aux_db_field.Name 
+								: "fields_." + _aux_db_field.Name
+							)%>, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>), <%
 					}%>
 
 					//_connection.newDBDataParameter("Exists", DbType.Boolean, ParameterDirection.Output, 0, 1)<%
@@ -482,12 +482,12 @@ if (!_aux_db_table.isVirtualTable) {%>
 					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 					_aux_ex_field = _aux_db_field.parallel_ref;%>
 				_connection.newDBDataParameter("<%=_aux_db_field.Name%>_", DbType.<%=_aux_db_field.DBType_generic.Value.ToString()%>, ParameterDirection.<%=(_aux_db_field.isIdentity) ? "Out" : "In"%>put, <%=
-(_aux_db_field.isIdentity) 
-	? "null" 
-	: ((_aux_db_field.isNullable) 
-		? _aux_db_table.Name + "_in." + _aux_db_field.Name + "_isNull ? null : (object)" + _aux_db_table.Name + "_in." + _aux_db_field.Name 
-		: _aux_db_table.Name + "_in." + _aux_db_field.Name
-	)%>, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>), <%
+					(_aux_db_field.isIdentity) 
+						? "null" 
+						: ((_aux_db_field.isNullable) 
+							? _aux_db_table.Name + "_in." + _aux_db_field.Name + "_isNull ? null : (object)" + _aux_db_table.Name + "_in." + _aux_db_field.Name 
+							: _aux_db_table.Name + "_in." + _aux_db_field.Name
+						)%>, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>), <%
 				}%>
 
 				_connection.newDBDataParameter("SelectIdentity_", DbType.Boolean, ParameterDirection.Input, selectIdentity_in, 1)
@@ -566,10 +566,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 						_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 						_aux_ex_field = _aux_db_field.parallel_ref;%>
 					_connection.newDBDataParameter("<%=_aux_db_field.Name%>_", DbType.<%=_aux_db_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=
-((_aux_db_field.isNullable) 
-	? _aux_db_table.Name + "_in." + _aux_db_field.Name + "_isNull ? null : (object)fields_." + _aux_db_field.Name 
-	: _aux_db_table.Name + "_in." + _aux_db_field.Name
-)%>, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=((f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) || (_aux_ex_table.TableSearches.hasExplicitUniqueIndex)) ? ", " : ""%><%
+						((_aux_db_field.isNullable) 
+							? _aux_db_table.Name + "_in." + _aux_db_field.Name + "_isNull ? null : (object)fields_." + _aux_db_field.Name 
+							: _aux_db_table.Name + "_in." + _aux_db_field.Name
+						)%>, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=((f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) || (_aux_ex_table.TableSearches.hasExplicitUniqueIndex)) ? ", " : ""%><%
 					}%><%
 					if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 
