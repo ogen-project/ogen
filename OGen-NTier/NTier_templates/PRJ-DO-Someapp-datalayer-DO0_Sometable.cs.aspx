@@ -309,12 +309,41 @@ if (!_aux_db_table.isVirtualTable) {%>
 		/// <param name="forceUpdate_in">assign with True if you wish to force an Update (even if no changes have been made since last time getObject method was run) and False if not</param>
 		/// <returns>True if it didn't exist (INSERT), and False if it did exist (UPDATE)</returns>
 		public static bool setObject(
-			bool forceUpdate_in<%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? ", out bool ConstraintExist_out" : ""%>
+			SO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name%>_in, 
+			bool forceUpdate_in<%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? @", 
+			out bool ConstraintExist_out" : ""%>
+		) {
+			return setObject(
+				<%=_aux_db_table.Name%>_in, 
+				forceUpdate_in, <%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? @"
+				out ConstraintExist_out, " : ""%>
+				null
+			);
+		}
+
+		/// <summary>
+		/// Inserts/Updates <%=_aux_db_table.Name%> values into/on Database. Inserts if <%=_aux_db_table.Name%> doesn't exist or Updates if <%=_aux_db_table.Name%> already exists.
+		/// </summary>
+		/// <param name="forceUpdate_in">assign with True if you wish to force an Update (even if no changes have been made since last time getObject method was run) and False if not</param>
+		/// <param name="connection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
+		/// <returns>True if it didn't exist (INSERT), and False if it did exist (UPDATE)</returns>
+		public static bool setObject(
+			SO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name%>_in, 
+			bool forceUpdate_in, <%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? @"
+			out bool ConstraintExist_out, " : ""%>
+			DBConnection connection_in
 		) {
 			<%if (!_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {
 				%>bool ConstraintExist_out;
 			<%}
-			%>if (forceUpdate_in || fields_.haschanges_) {
+			%>if (forceUpdate_in || <%=_aux_db_table.Name%>_in.haschanges_) {
+				DBConnection _connection = (connection_in == null)
+					? DO__utils.DBConnection_createInstance(
+						DO__utils.DBServerType,
+						DO__utils.DBConnectionstring,
+						DO__utils.DBLogfile
+					) 
+					: connection_in;
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
 					for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 						_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
@@ -323,8 +352,8 @@ if (!_aux_db_table.isVirtualTable) {%>
 						(_aux_db_field.isIdentity) 
 							?  "null" 
 							: ((_aux_db_field.isNullable) 
-								? "fields_." + _aux_db_field.Name + "_isNull ? null : (object)fields_." + _aux_db_field.Name 
-								: "fields_." + _aux_db_field.Name
+								? _aux_db_table.Name + "_in." + _aux_db_field.Name + "_isNull ? null : (object)" + _aux_db_table.Name + "_in." + _aux_db_field.Name 
+								: _aux_db_table.Name + "_in." + _aux_db_field.Name
 							)%>, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>), <%
 					}%>
 
@@ -338,10 +367,11 @@ if (!_aux_db_table.isVirtualTable) {%>
 					"sp0_<%=_aux_db_table.Name%>_setObject", 
 					_dataparameters
 				);
+				if (connection_in == null) { _connection.Dispose(); }
 
 				ConstraintExist_out = (((int)_dataparameters[<%=_aux_db_table.TableFields.TableFieldCollection.Count%>].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					fields_.haschanges_ = false;<%
+					<%=_aux_db_table.Name%>_in.haschanges_ = false;<%
 
 
 
@@ -396,7 +426,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 #endif
 									)
 								);%>
-					switch (fields_.<%=NameField%>) {<%
+					switch (<%=_aux_db_table.Name%>_in.<%=NameField%>) {<%
 								for (int r = 0; r < ConfigTable.Rows.Count; r++) {%>
 						case "<%=ConfigTable.Rows[r][NameField]%>": {
 #if USE_PARTIAL_CLASSES && !NET_1_1
@@ -580,6 +610,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 					"sp0_<%=_aux_db_table.Name%>_updObject", 
 					_dataparameters
 				);
+				if (connection_in == null) { _connection.Dispose(); }
 				<%if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 				constraintExist_out = <%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? "(bool)_dataparameters[" + (_aux_db_table.TableFields.TableFieldCollection.Count) + "].Value" : "false"%>;
 				if (!constraintExist_out) {
