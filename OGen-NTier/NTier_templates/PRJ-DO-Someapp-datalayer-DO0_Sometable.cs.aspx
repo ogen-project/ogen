@@ -270,32 +270,6 @@ if (!_aux_db_table.isVirtualTable) {%>
 			for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
 				_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];
 				_aux_ex_field = _aux_db_field.parallel_ref;%><%=""%>
-			<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%>_in<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
-			}%>
-		) {
-			return isObject(<%
-			for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-				_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];
-				_aux_ex_field = _aux_db_field.parallel_ref;%><%=""%>
-				<%=_aux_db_field.Name%>_in, <%
-			}%>
-				null
-			);
-		}
-
-		/// <summary>
-		/// Checks to see if <%=_aux_db_table.Name%> exists at Database
-		/// </summary><%
-		for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-			_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%><%=""%>
-		/// <param name="<%=_aux_db_field.Name%>_in"><%=_aux_db_field.Name%></param><%
-		}%>
-		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
-		/// <returns>True if <%=_aux_db_table.Name%> exists at Database, False if not</returns>
-		public static bool isObject(<%
-			for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-				_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];
-				_aux_ex_field = _aux_db_field.parallel_ref;%><%=""%>
 			<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%>_in, <%
 			}%>
 			DBConnection dbConnection_in
@@ -909,7 +883,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 				DbType.Boolean, 
 				0
 			);
-			if (connection_in == null) { _connection.Dispose(); }
+			if (dbConnection_in == null) { _connection.Dispose(); }
 
 			return _output;
 		}
