@@ -40,6 +40,7 @@ string _aux_path4_ntier_datalayer_proxy = _aux_path + @"\OGen-NTier\NTier_datala
 string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
                                                                   	
 string _aux_path2;
+string _aux_guid;
 #endregion
 //-----------------------------------------------------------------------------------------
 %><?xml version="1.0" encoding="utf-8" ?><%
@@ -141,10 +142,20 @@ if (!_arg_gac) {%>
 		_aux_path2 = string.Format(
 			@"{0}\..\..\OGen\OGen_datalayer_{1}\OGen_datalayer_{1}-9.csproj",
 			_arg_ogenpath, 
-			_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()
-		);%>
-    <ProjectReference Include="<%=_aux_path2%>"><%--
-      <Project>{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}</Project>--%>
+			_aux_ex_metadata.DBs.DBCollection[d].DBServerType
+		);
+		switch (_aux_ex_metadata.DBs.DBCollection[d].DBServerType) {
+			case "PostgreSQL":
+				_aux_guid = "07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA";
+			case "SQLServer":
+				_aux_guid = "F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7";
+			case "MySQL":
+				_aux_guid = "8F5F21DB-FED4-46A9-9E7E-B50B678D12B2";
+			default:
+				_aux_guid = "";
+		}%>
+    <ProjectReference Include="<%=_aux_path2%>">
+      <Project>{<%=_aux_guid%>}</Project>
       <Name>OGen_datalayer_<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%>-9</Name>
     </ProjectReference><%
     }%>

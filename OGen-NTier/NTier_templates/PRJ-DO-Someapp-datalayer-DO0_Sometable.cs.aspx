@@ -598,7 +598,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 						_aux_ex_field = _aux_db_field.parallel_ref;%>
 					_connection.newDBDataParameter("<%=_aux_db_field.Name%>_", DbType.<%=_aux_db_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=
 						((_aux_db_field.isNullable) 
-							? _aux_db_table.Name + "_in." + _aux_db_field.Name + "_isNull ? null : (object)fields_." + _aux_db_field.Name 
+							? _aux_db_table.Name + "_in." + _aux_db_field.Name + "_isNull ? null : (object)" + _aux_db_table.Name + "_in." + _aux_db_field.Name 
 							: _aux_db_table.Name + "_in." + _aux_db_field.Name
 						)%>, <%=_aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>)<%=((f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) || (_aux_ex_table.TableSearches.hasExplicitUniqueIndex)) ? ", " : ""%><%
 					}%><%
@@ -914,7 +914,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 		if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) { %>
 		/// <param name="constraintExist_out">returns True if constraint exists and Update failed, and False if no constraint and Update was successful</param><%
 		} %>
-		public static void updObject_<%=_aux_ex_update.Name%>(bool forceUpdate_in<%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? ", out bool constraintExist_out" : ""%>) {
+		public static void updObject_<%=_aux_ex_update.Name%>(
+			bool forceUpdate_in<%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? @", 
+			out bool constraintExist_out" : ""%>
+		) {
 			if (forceUpdate_in || fields_.haschanges_) {
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
 					for (int f = 0; f < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; f++) {
