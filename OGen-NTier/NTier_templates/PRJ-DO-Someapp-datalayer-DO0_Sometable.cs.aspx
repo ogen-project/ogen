@@ -967,22 +967,33 @@ if (!_aux_db_table.isVirtualTable) {%>
 		#region private static SO_<%=_aux_db_table.Name%>[] getRecord(DataTable dataTable_in);
 		private static SO_<%=_aux_db_table.Name%>[] getRecord(
 			DataTable dataTable_in
-		) {
+		) {<%
+			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
+			DataColumn _dc_<%=_aux_db_field.Name.ToLower()%> = null;<%
+			}%>
+
 			SO_<%=_aux_db_table.Name%>[] _output 
 				= new SO_<%=_aux_db_table.Name%>[dataTable_in.Rows.Count];
 			for (int r = 0; r < dataTable_in.Rows.Count; r++) {
-				_output[r] = new SO_<%=_aux_db_table.Name%>();
-<%
+				if (r == 0) {<%
+					for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+						_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
+					_dc_<%=_aux_db_field.Name.ToLower()%> = dataTable_in.Columns["<%=_aux_db_field.Name%>"];<%
+					}%>
+				}
+
+				_output[r] = new SO_<%=_aux_db_table.Name%>();<%
 				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
-				if (dataTable_in.Rows[r]["<%=_aux_db_field.Name%>"] == System.DBNull.Value) {<%
+				if (dataTable_in.Rows[r][_dc_<%=_aux_db_field.Name.ToLower()%>] == System.DBNull.Value) {<%
 					if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%>
 					_output[r].<%=_aux_db_field.Name%>_isNull = true;<%
 					} else {%><%=""%>
 					_output[r].<%=_aux_db_field.Name.ToLower()%>_ = <%=_aux_db_field.DBType_generic.FWEmptyValue%>;<%
 					}%>
 				} else {
-					_output[r].<%=_aux_db_field.Name.ToLower()%>_ = (<%=_aux_db_field.DBType_generic.FWType%>)dataTable_in.Rows[r]["<%=_aux_db_field.Name%>"];
+					_output[r].<%=_aux_db_field.Name.ToLower()%>_ = (<%=_aux_db_field.DBType_generic.FWType%>)dataTable_in.Rows[r][_dc_<%=_aux_db_field.Name.ToLower()%>];
 				}<%
 				}%>
 
@@ -1055,6 +1066,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 			DBConnection dbConnection_in
 		) {
 			SO_<%=_aux_db_table.Name%>[] _output;
+
 			DBConnection _connection = (dbConnection_in == null)
 				? DO__utils.DBConnection_createInstance(
 					DO__utils.DBServerType,
