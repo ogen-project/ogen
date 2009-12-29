@@ -140,8 +140,8 @@ if (!_arg_gac) {%>
     </ProjectReference><%
     for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
 		_aux_path2 = string.Format(
-			@"{0}\..\..\OGen\OGen_datalayer_{1}\OGen_datalayer_{1}-9.csproj",
-			_arg_ogenpath, 
+			@"{0}\OGen\OGen_datalayer_{1}\OGen_datalayer_{1}-9.csproj",
+			_aux_path,
 			_aux_ex_metadata.DBs.DBCollection[d].DBServerType
 		);
 		switch (_aux_ex_metadata.DBs.DBCollection[d].DBServerType) {
@@ -156,7 +156,7 @@ if (!_arg_gac) {%>
 		}%>
     <ProjectReference Include="<%=_aux_path2%>">
       <Project>{<%=_aux_guid%>}</Project>
-      <Name>OGen_datalayer_<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%>-9</Name>
+      <Name>OGen_datalayer_<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType%>-9</Name>
     </ProjectReference><%
     }%>
     <ProjectReference Include="<%=_aux_path4_ntier_datalayer%>">

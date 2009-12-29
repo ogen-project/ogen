@@ -35,6 +35,9 @@ string _aux_path = _arg_ogenpath + @"\..\..";
 //string _aux_path = System.IO.Directory.GetParent(_arg_ogenpath).Parent.FullName;
 
 string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
+
+string _aux_path2;
+string _aux_guid;
 #endregion
 //-----------------------------------------------------------------------------------------
 %>Microsoft Visual Studio Solution File, Format Version 10.00
@@ -43,9 +46,26 @@ if (!_arg_gac) {%>
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer__base-9", "<%=_aux_path%>\OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj", "{D66D0E69-852C-4695-9D63-C9AB1A959E0B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_datalayer-9", "<%=_aux_path%>\OGen-NTier\NTier_datalayer\NTier_datalayer-9.csproj", "{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer_PostgreSQL-9", "<%=_aux_path%>\OGen\OGen_datalayer_PostgreSQL\OGen_datalayer_PostgreSQL-9.csproj", "{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}"
-EndProject
+EndProject<%
+for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
+	_aux_path2 = string.Format(
+		@"{0}\OGen\OGen_datalayer_{1}\OGen_datalayer_{1}-9.csproj",
+		_aux_path, 
+		_aux_ex_metadata.DBs.DBCollection[d].DBServerType
+	);
+	switch (_aux_ex_metadata.DBs.DBCollection[d].DBServerType) {
+		case "PostgreSQL":
+			_aux_guid = "07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA";
+		case "SQLServer":
+			_aux_guid = "F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7";
+		case "MySQL":
+			_aux_guid = "8F5F21DB-FED4-46A9-9E7E-B50B678D12B2";
+		default:
+			_aux_guid = "";
+	}%>
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer_<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType%>-9", "<%=_aux_path2%>", "{<%=_aux_guid%>}"
+EndProject<%
+}%>
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_datalayer_proxy-9", "<%=_aux_path%>\OGen-NTier\NTier_datalayer_proxy\NTier_datalayer_proxy-9.csproj", "{F17F7FA0-920E-4AE1-908F-2798D0124996}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_businesslayer-9", "<%=_aux_path%>\OGen-NTier\NTier_businesslayer\NTier_businesslayer-9.csproj", "{8AEBEA64-6FC4-430C-922C-B88D105AE91C}"
