@@ -61,6 +61,7 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 <%
 	}
 }%>using System;
+using System.Data;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
@@ -218,6 +219,33 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 		#endregion
 
 		#region Methods...
+		#region public static DataTable getDataTable(...);
+		public static DataTable getDataTable(
+			SO_<%=_aux_db_table.Name%>[] serializableobjects_in
+		) {
+			DataTable _output = new DataTable();
+			DataRow _dr;
+<%
+			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
+			DataColumn _dc_<%=_aux_db_field.Name.ToLower()%> = new DataColumn("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>));
+			_output.Columns.Add(_dc_<%=_aux_db_field.Name.ToLower()%>);<%
+			}%>
+
+			foreach (SO_<%=_aux_db_table.Name%> _serializableobject in serializableobjects_in) {
+				_dr = _output.NewRow();
+<%
+				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
+				_dr[_dc_<%=_aux_db_field.Name.ToLower()%>] = _serializableobject.<%=_aux_db_field.Name%>;<%
+				}%>
+
+				_output.Rows.Add(_dr);
+			}
+
+			return _output;
+		}
+		#endregion
 		#region public void Clear();
 		public void Clear() {
 			haschanges_ = false;
