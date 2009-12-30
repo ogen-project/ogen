@@ -84,7 +84,7 @@ switch (_arg_where) {
 		_aux_guid = _aux_ex_metadata.GUID_test;
 		break;
 }
-_aux_assemblyproduct = _aux_assemblytitle;
+_aux_assemblyproduct = _aux_ex_metadata.ApplicationName;
 _aux_assemblycompany = _aux_ex_metadata.ApplicationNamespace.Split('.')[0];
 #endregion
 //-----------------------------------------------------------------------------------------
