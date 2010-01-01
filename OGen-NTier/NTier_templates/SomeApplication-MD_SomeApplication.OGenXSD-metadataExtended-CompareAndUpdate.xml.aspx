@@ -66,6 +66,28 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 	guidDistributedlayer_remoting_server="<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_server%>" 
 	guidDistributedlayer_remoting_client="<%=_aux_ex_metadata.GUIDDistributedlayer_remoting_client%>" 
 	guidTest="<%=_aux_ex_metadata.GUIDTest%>" 
+
+
+	guid_datalayer="<%=_aux_ex_metadata.GUID_datalayer%>"
+	guid_datalayer_structures="<%=_aux_ex_metadata.GUID_datalayer_structures%>"
+	guid_datalayer_uts="<%=_aux_ex_metadata.GUID_datalayer_uts%>"
+
+	guid_businesslayer="<%=_aux_ex_metadata.GUID_businesslayer%>"
+	guid_businesslayer_structures="<%=_aux_ex_metadata.GUID_businesslayer_structures%>"
+	guid_businesslayer_shared="<%=_aux_ex_metadata.GUID_businesslayer_shared%>"
+	guid_businesslayer_instances="<%=_aux_ex_metadata.GUID_businesslayer_instances%>"
+	guid_businesslayer_uts="<%=_aux_ex_metadata.GUID_businesslayer_uts%>"
+
+	guid_remoting_server="<%=_aux_ex_metadata.GUID_remoting_server%>"
+	guid_remoting_simpleserver="<%=_aux_ex_metadata.GUID_remoting_simpleserver%>"
+	guid_remoting_client="<%=_aux_ex_metadata.GUID_remoting_client%>"
+
+	guid_webservices_server="<%=_aux_ex_metadata.GUID_webservices_server%>"
+	guid_webservices_client="<%=_aux_ex_metadata.GUID_webservices_client%>"
+
+	guid_test="<%=_aux_ex_metadata.GUID_test%>"
+
+
 	feedbackEmailAddress="<%=_aux_ex_metadata.FeedbackEmailAddress%>" 
 	copyrightText="<%=_aux_ex_metadata.CopyrightText%>">
 	<copyrightTextLong><%=_aux_ex_metadata.CopyrightTextLong%></copyrightTextLong>
@@ -224,7 +246,7 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 <!--
 				<tableUpdate name="SomeUpdateTest">
 					<tableUpdateParameters>
-						<tableFieldRef tableName="User" tableFieldName="Password" paramName="Password" />
+						<tableFieldRef tableName="<%=_aux_db_table.Name%>" tableFieldName="<%=_aux_db_table.TableFields.TableFieldCollection[0].Name%>" paramName="<%=_aux_db_table.TableFields.TableFieldCollection[0].Name%>" />
 					</tableUpdateParameters>
 				</tableUpdate>
 -->
