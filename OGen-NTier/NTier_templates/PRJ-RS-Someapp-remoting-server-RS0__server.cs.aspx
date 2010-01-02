@@ -61,11 +61,19 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoti
 
 		public static void Start() {
 			#if NET_1_1
-			//ChannelServices.RegisterChannel(new HttpChannel(8085));
-			ChannelServices.RegisterChannel(new TcpChannel(8085));
+			//ChannelServices.RegisterChannel(new HttpChannel(int.Parse(
+			//	System.Configuration.ConfigurationSettings.AppSettings["RemotingServer_ServerPort"]
+			//)));
+			ChannelServices.RegisterChannel(new TcpChannel(int.Parse(
+				System.Configuration.ConfigurationSettings.AppSettings["RemotingServer_ServerPort"]
+			)));
 			#else
-			//ChannelServices.RegisterChannel(new HttpChannel(8085), false);
-			ChannelServices.RegisterChannel(new TcpChannel(8085), false);
+			//ChannelServices.RegisterChannel(new HttpChannel(int.Parse(
+			//	System.Configuration.ConfigurationManager.AppSettings["RemotingServer_ServerPort"]
+			//)), false);
+			ChannelServices.RegisterChannel(new TcpChannel(int.Parse(
+				System.Configuration.ConfigurationManager.AppSettings["RemotingServer_ServerPort"]
+			)), false);
 			#endif<%
 			for (int c = 0; c < _aux_business_metadata.Classes.ClassCollection.Count; c++) {
 				_aux_class = _aux_business_metadata.Classes.ClassCollection[c];%>

@@ -71,7 +71,16 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoti
 		static RC_<%=_aux_class.Name%>() {
 			bo_ = (IBO_<%=_aux_class.Name%>)RemotingServices.Connect(
 				typeof(IBO_<%=_aux_class.Name%>),
-				"tcp://127.0.0.1:8085/<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server.RS_<%=_aux_class.Name%>.remoting"
+				string.Format(
+					"{0}:{1}/<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server.RS_<%=_aux_class.Name%>.remoting",
+					#if NET_1_1
+					System.Configuration.ConfigurationSettings.AppSettings["RemotingServer_ServerURI"], 
+					System.Configuration.ConfigurationSettings.AppSettings["RemotingServer_ServerPort"]
+					#else
+					System.Configuration.ConfigurationManager.AppSettings["RemotingServer_ServerURI"], 
+					System.Configuration.ConfigurationManager.AppSettings["RemotingServer_ServerPort"]
+					#endif
+				)
 			);
 		}
 

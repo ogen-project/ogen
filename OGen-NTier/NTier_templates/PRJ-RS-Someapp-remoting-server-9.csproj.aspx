@@ -83,6 +83,7 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Xml" />

@@ -79,7 +79,16 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webser
 		IBO_<%=_aux_class.Name%>
 	{
 		public WC_<%=_aux_class.Name%>() {
-			this.Url = "http://localhost:4602/WS_<%=_aux_class.Name%>.asmx";
+			this.Url = string.Format(
+				"{0}:{1}/WS_<%=_aux_class.Name%>.asmx",
+				#if NET_1_1
+				System.Configuration.ConfigurationSettings.AppSettings["Webservices_ServerURI"], 
+				System.Configuration.ConfigurationSettings.AppSettings["Webservices_ServerPort"]
+				#else
+				System.Configuration.ConfigurationManager.AppSettings["Webservices_ServerURI"], 
+				System.Configuration.ConfigurationManager.AppSettings["Webservices_ServerPort"]
+				#endif
+			);
 		}
 <%
 		for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
