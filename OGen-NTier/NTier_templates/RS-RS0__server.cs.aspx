@@ -52,11 +52,11 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.s
 	public abstract class RS0__server {
 		public void Start() {
 			#if NET_1_1
-			//ChannelServices.RegisterChannel(new HttpChannel(8085));
-			ChannelServices.RegisterChannel(new TcpChannel(8085));
+			//ChannelServices.RegisterChannel(new HttpChannel(<%=_aux_ex_metadata.RemotingServer_ServerPort%>));
+			ChannelServices.RegisterChannel(new TcpChannel(<%=_aux_ex_metadata.RemotingServer_ServerPort%>));
 			#else
-			//ChannelServices.RegisterChannel(new HttpChannel(8085), false);
-			ChannelServices.RegisterChannel(new TcpChannel(8085), false);
+			//ChannelServices.RegisterChannel(new HttpChannel(<%=_aux_ex_metadata.RemotingServer_ServerPort%>), false);
+			ChannelServices.RegisterChannel(new TcpChannel(<%=_aux_ex_metadata.RemotingServer_ServerPort%>), false);
 			#endif<%
 			for (int c = 0; c < _aux_business_metadata.Classes.ClassCollection.Count; c++) {
 				_aux_class = _aux_business_metadata.Classes.ClassCollection[c];%>

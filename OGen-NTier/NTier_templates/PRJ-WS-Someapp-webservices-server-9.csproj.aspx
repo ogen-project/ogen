@@ -125,7 +125,7 @@ for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer_shared%>}</Project>
       <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared</Name>
     </ProjectReference>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>_Businesslayer_Structures\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures-9<%=_aux_no_gac%>.csproj">
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer_structures%>}</Project>
       <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures</Name>
     </ProjectReference>
@@ -152,8 +152,8 @@ for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>4602</DevelopmentServerPort>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort><%=_aux_ex_metadata.Webservices_ServerPort%></DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

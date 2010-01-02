@@ -452,6 +452,58 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
+		#region public string RemotingServer_ServerURI { get; set; }
+		internal string remotingserver_serveruri_;
+
+		[XmlAttribute("remotingServer_ServerURI")]
+		public string RemotingServer_ServerURI {
+			get {
+				return remotingserver_serveruri_;
+			}
+			set {
+				remotingserver_serveruri_ = value;
+			}
+		}
+		#endregion
+		#region public string RemotingServer_ServerPort { get; set; }
+		internal string remotingserver_serverport_;
+
+		[XmlAttribute("remotingServer_ServerPort")]
+		public string RemotingServer_ServerPort {
+			get {
+				return remotingserver_serverport_;
+			}
+			set {
+				remotingserver_serverport_ = value;
+			}
+		}
+		#endregion
+		#region public string Webservices_ServerURI { get; set; }
+		internal string webservices_serveruri_;
+
+		[XmlAttribute("webservices_ServerURI")]
+		public string Webservices_ServerURI {
+			get {
+				return webservices_serveruri_;
+			}
+			set {
+				webservices_serveruri_ = value;
+			}
+		}
+		#endregion
+		#region public string Webservices_ServerPort { get; set; }
+		internal string webservices_serverport_;
+
+		[XmlAttribute("webservices_ServerPort")]
+		public string Webservices_ServerPort {
+			get {
+				return webservices_serverport_;
+			}
+			set {
+				webservices_serverport_ = value;
+			}
+		}
+		#endregion
 		#region public string FeedbackEmailAddress { get; set; }
 		internal string feedbackemailaddress_;
 
@@ -572,6 +624,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			guid_webservices_server_ = metadataExtendedType_in.guid_webservices_server_;
 			guid_webservices_client_ = metadataExtendedType_in.guid_webservices_client_;
 			guid_test_ = metadataExtendedType_in.guid_test_;
+			remotingserver_serveruri_ = metadataExtendedType_in.remotingserver_serveruri_;
+			remotingserver_serverport_ = metadataExtendedType_in.remotingserver_serverport_;
+			webservices_serveruri_ = metadataExtendedType_in.webservices_serveruri_;
+			webservices_serverport_ = metadataExtendedType_in.webservices_serverport_;
 			feedbackemailaddress_ = metadataExtendedType_in.feedbackemailaddress_;
 			copyrighttext_ = metadataExtendedType_in.copyrighttext_;copyrighttextlong_ = metadataExtendedType_in.copyrighttextlong_;
 			if (metadataExtendedType_in.dbs__ != null) dbs__.CopyFrom(metadataExtendedType_in.dbs__);

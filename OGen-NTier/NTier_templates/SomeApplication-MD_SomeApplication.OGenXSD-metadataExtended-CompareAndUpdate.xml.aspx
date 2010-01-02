@@ -87,6 +87,11 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 
 	guid_test="<%=_aux_ex_metadata.GUID_test%>"
 
+	remotingServer_ServerURI="<%=_aux_ex_metadata.RemotingServer_ServerURI%>"
+	remotingServer_ServerPort="<%=_aux_ex_metadata.RemotingServer_ServerPort%>"
+
+	webservices_ServerURI="<%=_aux_ex_metadata.Webservices_ServerURI%>"
+	webservices_ServerPort="<%=_aux_ex_metadata.Webservices_ServerPort%>"
 
 	feedbackEmailAddress="<%=_aux_ex_metadata.FeedbackEmailAddress%>" 
 	copyrightText="<%=_aux_ex_metadata.CopyrightText%>">

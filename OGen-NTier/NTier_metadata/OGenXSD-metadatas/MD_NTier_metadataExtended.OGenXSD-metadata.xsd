@@ -341,6 +341,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		
 		<xs:attribute name="guid_test" type="xs:string" />
 
+		<xs:attribute name="remotingServer_ServerURI" type="xs:string" />
+		<xs:attribute name="remotingServer_ServerPort" type="xs:string" />
+		<xs:attribute name="webservices_ServerURI" type="xs:string" />
+		<xs:attribute name="webservices_ServerPort" type="xs:string" />
 
 		<xs:attribute name="feedbackEmailAddress" type="xs:string" />
 		<xs:attribute name="copyrightText" type="xs:string" />

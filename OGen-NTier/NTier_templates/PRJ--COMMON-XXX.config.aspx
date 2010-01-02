@@ -47,6 +47,12 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
 }%>
 <configuration>
 	<appSettings>
+		<add key="RemotingServer_ServerURI" value="<%=_aux_ex_metadata.RemotingServer_ServerURI%>" />
+		<add key="RemotingServer_ServerPort" value="<%=_aux_ex_metadata.RemotingServer_ServerPort%>" />
+
+		<add key="Webservices_ServerURI" value="<%=_aux_ex_metadata.Webservices_ServerURI%>" />
+		<add key="Webservices_ServerPort" value="<%=_aux_ex_metadata.Webservices_ServerPort%>" />
+
 		<add key="applications" value="<%=_aux_ex_metadata.ApplicationName%>" />
 
 		<add key="<%=_aux_ex_metadata.ApplicationName%>:ConfigModes" value="<%
