@@ -83,6 +83,7 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -107,6 +108,9 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
       <Project>{<%=_aux_ex_metadata.GUID_datalayer_structures%>}</Project>
       <Name><%=_aux_ex_metadata.ApplicationName%>-datalayer-structures</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
