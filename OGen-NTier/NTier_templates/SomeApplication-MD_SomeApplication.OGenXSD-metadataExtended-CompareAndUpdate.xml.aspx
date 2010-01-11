@@ -46,9 +46,9 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 
 <%=_aux_ex_metadata.CopyrightTextLong%>
 
---><%
-}%>
-<metadataExtended 
+-->
+<%
+}%><metadataExtended 
 	applicationName="<%=_aux_ex_metadata.ApplicationName%>" 
 	applicationNamespace="<%=_aux_ex_metadata.ApplicationNamespace%>" 
 	subAppName="<%=_aux_ex_metadata.SubAppName%>" 
