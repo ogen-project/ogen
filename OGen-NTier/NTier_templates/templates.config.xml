@@ -2595,6 +2595,22 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+	<!-- search:solution:businesslayer:instances:-Config0 -->
+	<template id="PRJ-BO-Someapp-businesslayer-instances--Config0.cs.aspx"
+			name="PRJ-BO-Someapp-businesslayer-instances--Config0.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-instances/_base/-Config0.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
 	<!-- search:solution:businesslayer:instances:Somebo0 -->
 	<template id="PRJ-BO-Someapp-businesslayer-instances-Somebo0.cs.aspx"
 			name="PRJ-BO-Someapp-businesslayer-instances-Somebo0.cs.aspx"

@@ -17,7 +17,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <%@ import namespace="OGen.NTier.lib.metadata.metadataBusiness" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
-string _arg_ClassName = System.Web.HttpUtility.UrlDecode(Request.QueryString["ClassName"]);
 #endregion
 
 #region varaux...
@@ -29,10 +28,7 @@ XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusinessCollection[0];
 
-OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class
-	= _aux_business_metadata.Classes.ClassCollection[
-		_arg_ClassName
-	];
+OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
 
 XS_methodType _aux_method;
 XS_parameterType _aux_parameter;
@@ -54,30 +50,25 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 <%
 	}
 }%>using System;
-using System.Collections.Generic;
-using System.Text;
 
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared;
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client;
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webservices.client;
+using AddSolutions.Excellencer.lib.businesslayer.shared.instances;
 
-namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.instances {
-	public class <%=_aux_class.Name%> {
-		private <%=_aux_class.Name%>() { }
+namespace AddSolutions.Excellencer.lib.businesslayer.shared.instances.utils {
+	public class Config {
+		private Config() { }
 
-		static <%=_aux_class.Name%>() {
+		public static void RemotingReConfig() {<%
+			for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
+				_aux_class = _aux_business_metadata.Classes.ClassCollection[i];%><%=""%>
+			<%=_aux_class.Name%>.RemotingClient_ReConfig();<%
+			}%>
 		}
 
-		public static readonly IBO_<%=_aux_class.Name%> BusinessObject = new BO_<%=_aux_class.Name%>();
-		public static readonly IBO_<%=_aux_class.Name%> RemotingClient = new RC_<%=_aux_class.Name%>();
-		public static readonly IBO_<%=_aux_class.Name%> WebserviceClient = new WC_<%=_aux_class.Name%>();
-
-		public static void RemotingClient_ReConfig() {
-			RC_<%=_aux_class.Name%>.ReConfig();
-		}
-		public static void WebserviceClient_ReConfig() {
-			((WC_<%=_aux_class.Name%>)WebserviceClient).ReConfig();
+		public static void WebserviceReConfig() {<%
+			for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
+				_aux_class = _aux_business_metadata.Classes.ClassCollection[i];%><%=""%>
+			<%=_aux_class.Name%>.WebserviceClient_ReConfig();<%
+			}%>
 		}
 	}
 }

@@ -69,6 +69,14 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoti
 		IBO_<%=_aux_class.Name%> 
 	{
 		static RC_<%=_aux_class.Name%>() {
+			ReConfig();
+		}
+
+		#region private Fields...
+		private static IBO_<%=_aux_class.Name%> bo_;
+		#endregion
+		#region public static void ReConfig();
+		public static void ReConfig() {
 			bo_ = (IBO_<%=_aux_class.Name%>)RemotingServices.Connect(
 				typeof(IBO_<%=_aux_class.Name%>),
 				string.Format(
@@ -83,10 +91,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoti
 				)
 			);
 		}
-
-		#region private Fields...
-		private static IBO_<%=_aux_class.Name%> bo_;
-		#endregion<%
+		#endregion
+<%
 		for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
 			_aux_method = _aux_class.Methods.MethodCollection[m];%>
 		#region public <%=_aux_method.OutputType%> <%=_aux_method.Name%>(...);

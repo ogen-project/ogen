@@ -79,6 +79,11 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webser
 		IBO_<%=_aux_class.Name%>
 	{
 		public WC_<%=_aux_class.Name%>() {
+			ReConfig();
+		}
+
+		#region public void ReConfig();
+		public void ReConfig() {
 			this.Url = string.Format(
 				"{0}:{1}/WS_<%=_aux_class.Name%>.asmx",
 				#if NET_1_1
@@ -90,6 +95,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webser
 				#endif
 			);
 		}
+		#endregion
 <%
 		for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
 			_aux_method = _aux_class.Methods.MethodCollection[m];%>
