@@ -76,6 +76,9 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 	guid_businesslayer_structures="<%=_aux_ex_metadata.GUID_businesslayer_structures%>"
 	guid_businesslayer_shared="<%=_aux_ex_metadata.GUID_businesslayer_shared%>"
 	guid_businesslayer_instances="<%=_aux_ex_metadata.GUID_businesslayer_instances%>"
+	guid_businesslayer_instances_remotingclient="<%=_aux_ex_metadata.GUID_businesslayer_instances_remotingclient%>"
+	guid_businesslayer_instances_webservicesclient="<%=_aux_ex_metadata.GUID_businesslayer_instances_webservicesclient%>"
+	guid_businesslayer_instances_businessobject="<%=_aux_ex_metadata.GUID_businesslayer_instances_businessobject%>"
 	guid_businesslayer_uts="<%=_aux_ex_metadata.GUID_businesslayer_uts%>"
 
 	guid_remoting_server="<%=_aux_ex_metadata.GUID_remoting_server%>"

@@ -361,6 +361,45 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
+		#region public string GUID_businesslayer_instances_remotingclient { get; set; }
+		internal string guid_businesslayer_instances_remotingclient_;
+
+		[XmlAttribute("guid_businesslayer_instances_remotingclient")]
+		public string GUID_businesslayer_instances_remotingclient {
+			get {
+				return guid_businesslayer_instances_remotingclient_;
+			}
+			set {
+				guid_businesslayer_instances_remotingclient_ = value;
+			}
+		}
+		#endregion
+		#region public string GUID_businesslayer_instances_webservicesclient { get; set; }
+		internal string guid_businesslayer_instances_webservicesclient_;
+
+		[XmlAttribute("guid_businesslayer_instances_webservicesclient")]
+		public string GUID_businesslayer_instances_webservicesclient {
+			get {
+				return guid_businesslayer_instances_webservicesclient_;
+			}
+			set {
+				guid_businesslayer_instances_webservicesclient_ = value;
+			}
+		}
+		#endregion
+		#region public string GUID_businesslayer_instances_businessobject { get; set; }
+		internal string guid_businesslayer_instances_businessobject_;
+
+		[XmlAttribute("guid_businesslayer_instances_businessobject")]
+		public string GUID_businesslayer_instances_businessobject {
+			get {
+				return guid_businesslayer_instances_businessobject_;
+			}
+			set {
+				guid_businesslayer_instances_businessobject_ = value;
+			}
+		}
+		#endregion
 		#region public string GUID_businesslayer_uts { get; set; }
 		internal string guid_businesslayer_uts_;
 
@@ -617,6 +656,9 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			guid_businesslayer_structures_ = metadataExtendedType_in.guid_businesslayer_structures_;
 			guid_businesslayer_shared_ = metadataExtendedType_in.guid_businesslayer_shared_;
 			guid_businesslayer_instances_ = metadataExtendedType_in.guid_businesslayer_instances_;
+			guid_businesslayer_instances_remotingclient_ = metadataExtendedType_in.guid_businesslayer_instances_remotingclient_;
+			guid_businesslayer_instances_webservicesclient_ = metadataExtendedType_in.guid_businesslayer_instances_webservicesclient_;
+			guid_businesslayer_instances_businessobject_ = metadataExtendedType_in.guid_businesslayer_instances_businessobject_;
 			guid_businesslayer_uts_ = metadataExtendedType_in.guid_businesslayer_uts_;
 			guid_remoting_server_ = metadataExtendedType_in.guid_remoting_server_;
 			guid_remoting_simpleserver_ = metadataExtendedType_in.guid_remoting_simpleserver_;

@@ -131,6 +131,9 @@ shared
 		<specificCase word="guid_businesslayer_structures" translation="GUID_businesslayer_structures" />
 		<specificCase word="guid_businesslayer_shared" translation="GUID_businesslayer_shared" />
 		<specificCase word="guid_businesslayer_instances" translation="GUID_businesslayer_instances" />
+		<specificCase word="guid_businesslayer_instances_remotingclient" translation="GUID_businesslayer_instances_remotingclient" />
+		<specificCase word="guid_businesslayer_instances_webservicesclient" translation="GUID_businesslayer_instances_webservicesclient" />
+		<specificCase word="guid_businesslayer_instances_businessobject" translation="GUID_businesslayer_instances_businessobject" />
 		<specificCase word="guid_businesslayer_uts" translation="GUID_businesslayer_uts" />
 
 		<specificCase word="guid_remoting_server" translation="GUID_remoting_server" />
