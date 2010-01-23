@@ -124,7 +124,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webser
 					}%>
 				}
 			);<%
-			_aux_outputparameter = 0;
+			_aux_outputparameter = (_aux_method.OutputType != "void") ? 0 : -1;
 			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];
 				if (!_aux_parameter.isOut)
