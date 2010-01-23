@@ -57,17 +57,10 @@ namespace AddSolutions.Excellencer.lib.businesslayer.shared.instances.utils {
 	public class Config {
 		private Config() { }
 
-		public static void RemotingReConfig() {<%
+		public static void ReConfig() {<%
 			for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
 				_aux_class = _aux_business_metadata.Classes.ClassCollection[i];%><%=""%>
-			<%=_aux_class.Name%>.RemotingClient_ReConfig();<%
-			}%>
-		}
-
-		public static void WebserviceReConfig() {<%
-			for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
-				_aux_class = _aux_business_metadata.Classes.ClassCollection[i];%><%=""%>
-			<%=_aux_class.Name%>.WebserviceClient_ReConfig();<%
+			<%=_aux_class.Name%>.ReConfig();<%
 			}%>
 		}
 	}

@@ -57,27 +57,59 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 using System.Collections.Generic;
 using System.Text;
 
+#if BUSINESSOBJECT
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;
+#endif
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared;
+#if REMOTINGCLIENT
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client;
+#endif
+#if WEBSERVICESCLIENT
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webservices.client;
+#endif
 
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.instances {
 	public class <%=_aux_class.Name%> {
 		private <%=_aux_class.Name%>() { }
 
 		static <%=_aux_class.Name%>() {
+#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
+			BusinessObject = new BO_<%=_aux_class.Name%>();
+			RemotingClient = new RC_<%=_aux_class.Name%>();
+			WebserviceClient = new WC_<%=_aux_class.Name%>();
+#else
+#if BUSINESSOBJECT
+			InstanceClient = new BO_<%=_aux_class.Name%>();
+#endif
+#if REMOTINGCLIENT
+			InstanceClient = new RC_<%=_aux_class.Name%>();
+#endif
+#if WEBSERVICESCLIENT
+			InstanceClient = new WC_<%=_aux_class.Name%>();
+#endif
+#endif
 		}
 
-		public static readonly IBO_<%=_aux_class.Name%> BusinessObject = new BO_<%=_aux_class.Name%>();
-		public static readonly IBO_<%=_aux_class.Name%> RemotingClient = new RC_<%=_aux_class.Name%>();
-		public static readonly IBO_<%=_aux_class.Name%> WebserviceClient = new WC_<%=_aux_class.Name%>();
+#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
+		public static IBO_<%=_aux_class.Name%> BusinessObject;
+		public static IBO_<%=_aux_class.Name%> RemotingClient;
+		public static IBO_<%=_aux_class.Name%> WebserviceClient;
+#else
+		public static IBO_<%=_aux_class.Name%> InstanceClient;
+#endif
 
-		public static void RemotingClient_ReConfig() {
+		public static void ReConfig() {
+#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
 			RC_<%=_aux_class.Name%>.ReConfig();
-		}
-		public static void WebserviceClient_ReConfig() {
 			((WC_<%=_aux_class.Name%>)WebserviceClient).ReConfig();
+#else
+#if REMOTINGCLIENT
+			RC_<%=_aux_class.Name%>.ReConfig();
+#endif
+#if WEBSERVICESCLIENT
+			((WC_<%=_aux_class.Name%>)InstanceClient).ReConfig();
+#endif
+#endif
 		}
 	}
 }

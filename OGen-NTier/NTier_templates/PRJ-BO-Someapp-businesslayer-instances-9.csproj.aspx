@@ -69,7 +69,7 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;NET_2_0</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NET_2_0;BUSINESSOBJECT;REMOTINGCLIENT;WEBSERVICESCLIENT</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -77,7 +77,7 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;NET_2_0</DefineConstants>
+    <DefineConstants>TRACE;NET_2_0;BUSINESSOBJECT;REMOTINGCLIENT;WEBSERVICESCLIENT</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
