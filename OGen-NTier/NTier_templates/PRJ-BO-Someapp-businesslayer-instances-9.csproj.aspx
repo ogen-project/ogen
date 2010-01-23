@@ -19,6 +19,33 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 bool _arg_gac = bool.Parse(System.Web.HttpUtility.UrlDecode(Request.QueryString["GAC"]));
 string _arg_ogenpath = System.Web.HttpUtility.UrlDecode(Request.QueryString["OGenPath"]);
+
+bool _arg_businessobject;
+if (!bool.TryParse(
+	System.Web.HttpUtility.UrlDecode(Request.QueryString["BusinessObject"]),
+	out _arg_businessobject
+)) {
+	_arg_businessobject = false;
+}
+bool _arg_remotingclient;
+if (!bool.TryParse(
+	System.Web.HttpUtility.UrlDecode(Request.QueryString["RemotingClient"]),
+	out _arg_remotingclient
+)) {
+	_arg_remotingclient = false;
+}
+bool _arg_webservicesclient;
+if (!bool.TryParse(
+	System.Web.HttpUtility.UrlDecode(Request.QueryString["WebservicesClient"]),
+	out _arg_webservicesclient
+)) {
+	_arg_webservicesclient = false;
+}
+if (!_arg_businessobject && !_arg_remotingclient && !_arg_webservicesclient) {
+	_arg_businessobject = true;
+	_arg_remotingclient = true;
+	_arg_webservicesclient = true;
+}
 #endregion
 
 #region varaux...
