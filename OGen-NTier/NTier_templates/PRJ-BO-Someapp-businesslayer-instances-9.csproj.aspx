@@ -41,11 +41,6 @@ if (!bool.TryParse(
 )) {
 	_arg_webservicesclient = false;
 }
-if (!_arg_businessobject && !_arg_remotingclient && !_arg_webservicesclient) {
-	_arg_businessobject = true;
-	_arg_remotingclient = true;
-	_arg_webservicesclient = true;
-}
 #endregion
 
 #region varaux...
@@ -61,6 +56,24 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
 
 //string _aux_path = _arg_ogenpath + @"\..\..";
 string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
+
+string _assembly = "";
+string _guid = "";
+if (!_arg_businessobject && !_arg_remotingclient && !_arg_webservicesclient) {
+	_arg_businessobject = true;
+	_arg_remotingclient = true;
+	_arg_webservicesclient = true;
+	_guid = _aux_ex_metadata.GUID_businesslayer_instances;
+} else if (_arg_businessobject) {
+	_guid = _aux_ex_metadata.GUID_businesslayer_instances_businessobject;
+	_assembly = ".businessobject";
+} else if (_arg_remotingclient) {
+	_guid = _aux_ex_metadata.GUID_businesslayer_instances_remotingclient;
+	_assembly = ".remotingclient";
+} else if (_arg_webservicesclient) {
+	_guid = _aux_ex_metadata.GUID_businesslayer_instances_webservicesclient;
+	_assembly = ".webservicesclient";
+}
 #endregion
 //-----------------------------------------------------------------------------------------
 %><?xml version="1.0" encoding="utf-8" ?><%
@@ -83,11 +96,11 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{<%=_aux_ex_metadata.GUID_businesslayer_instances%>}</ProjectGuid>
+    <ProjectGuid>{<%=_guid%>}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace><%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.instances</RootNamespace>
-    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.instances-2.0</AssemblyName>
+    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.instances<%=_assembly%>-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -96,7 +109,7 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;NET_2_0;BUSINESSOBJECT;REMOTINGCLIENT;WEBSERVICESCLIENT</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NET_2_0<%=(_arg_businessobject) ? ";BUSINESSOBJECT" : ""%><%=(_arg_remotingclient) ? ";REMOTINGCLIENT" : ""%><%=(_arg_webservicesclient) ? ";WEBSERVICESCLIENT" : ""%></DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -104,7 +117,7 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;NET_2_0;BUSINESSOBJECT;REMOTINGCLIENT;WEBSERVICESCLIENT</DefineConstants>
+    <DefineConstants>TRACE;NET_2_0<%=(_arg_businessobject) ? ";BUSINESSOBJECT" : ""%><%=(_arg_remotingclient) ? ";REMOTINGCLIENT" : ""%><%=(_arg_webservicesclient) ? ";WEBSERVICESCLIENT" : ""%></DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -123,22 +136,28 @@ for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
 }%>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-9<%=_aux_no_gac%>.csproj">
-      <Project>{<%=_aux_ex_metadata.GUID_businesslayer%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer_shared%>}</Project>
       <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared</Name>
-    </ProjectReference>
+    </ProjectReference><%
+if (_arg_businessobject) {%>
+    <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-9<%=_aux_no_gac%>.csproj">
+      <Project>{<%=_aux_ex_metadata.GUID_businesslayer%>}</Project>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer</Name>
+    </ProjectReference><%
+}
+if (_arg_remotingclient) {%>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-remoting-client\<%=_aux_ex_metadata.ApplicationName%>-remoting-client-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_remoting_client%>}</Project>
       <Name><%=_aux_ex_metadata.ApplicationName%>-remoting_client</Name>
-    </ProjectReference>
+    </ProjectReference><%
+}
+if (_arg_webservicesclient) {%>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-webservices-client\<%=_aux_ex_metadata.ApplicationName%>-webservices-client-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_webservices_client%>}</Project>
       <Name><%=_aux_ex_metadata.ApplicationName%>-webservices-client</Name>
-    </ProjectReference>
+    </ProjectReference><%
+}%>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
