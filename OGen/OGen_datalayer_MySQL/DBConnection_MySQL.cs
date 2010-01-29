@@ -210,7 +210,11 @@ namespace OGen.lib.datalayer.MySQL {
 					string.Format(
 						"Stored Procedure: {0}\nConnectionString: MySQL|{1}\nexception: {2}\ninner-exception: {3}\n",
 						function_in,
-						connectionstring_,
+#if DEBUG
+						connectionstring_, 
+#else
+						"- not available -", 
+#endif
 						_ex.Message, 
 						_ex.InnerException
 					)

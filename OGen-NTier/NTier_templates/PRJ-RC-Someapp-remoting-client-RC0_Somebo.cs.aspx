@@ -77,6 +77,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoti
 		#endregion
 		#region public static void ReConfig();
 		public static void ReConfig() {
+			bo_ = new <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server.RS_<%=_aux_class.Name%>();<%--
 			bo_ = (IBO_<%=_aux_class.Name%>)RemotingServices.Connect(
 				typeof(IBO_<%=_aux_class.Name%>),
 				string.Format(
@@ -89,7 +90,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoti
 					System.Configuration.ConfigurationManager.AppSettings["RemotingServer_ServerPort"]
 					#endif
 				)
-			);
+			);--%>
 		}
 		#endregion
 <%

@@ -27,8 +27,11 @@ XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
 );
 XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
+XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusinessCollection[0];
 
 string[] _aux_configmodes = _aux_ex_metadata.DBs.ConfigModes();
+
+OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
 #endregion
 //-----------------------------------------------------------------------------------------
 %><?xml version="1.0" encoding="utf-8" ?><%
@@ -76,7 +79,47 @@ if (_arg_where != "test") {%>
 }%>
 
 		<add key="Some_UT_config" value="tweak it here" />
-	</appSettings><%
+	</appSettings>
+	<system.runtime.remoting>
+		<application><%
+if (_arg_where == "test") {%>
+			<channels>
+				<channel ref="tcp">
+					<clientProviders>
+						<formatter ref="binary" typeFilterLevel="Full"/>
+						<provider type="<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client.sink.RC__CompressionClientSinkProvider, <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client-2.0" />
+					</clientProviders>
+				</channel>
+			</channels>
+			<client><%
+				for (int c = 0; c < _aux_business_metadata.Classes.ClassCollection.Count; c++) {
+					_aux_class = _aux_business_metadata.Classes.ClassCollection[c];%>
+				<wellknown 
+					type="<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server.RS_<%=_aux_class.Name%>, <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client-2.0"
+					url="<%=_aux_ex_metadata.RemotingServer_ServerURI%>:<%=_aux_ex_metadata.RemotingServer_ServerPort%>/<%=_aux_class.Name%>.remoting" /><%
+				}%>
+			</client><%
+} else if (_arg_where == "remoting-simpleserver") {%>
+			<channels>
+				<channel ref="tcp" port="<%=_aux_ex_metadata.RemotingServer_ServerPort%>">
+					<serverProviders>
+						<provider type="<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server.sink.RS__CompressionServerSinkProvider, <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server-2.0" />
+						<formatter ref="binary" typeFilterLevel="Full"/>
+					</serverProviders>
+				</channel>
+			</channels>
+			<service><%
+				for (int c = 0; c < _aux_business_metadata.Classes.ClassCollection.Count; c++) {
+					_aux_class = _aux_business_metadata.Classes.ClassCollection[c];%>
+				<wellknown 
+					mode="Singleton"
+					type="<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server.RS_<%=_aux_class.Name%>, <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server-2.0"
+					objectUri="<%=_aux_class.Name%>.remoting" /><%
+				}%>
+			</service><%
+}%>
+		</application>
+	</system.runtime.remoting><%
 
 if (_arg_where == "webservices-server") {%>
 	<connectionStrings/>

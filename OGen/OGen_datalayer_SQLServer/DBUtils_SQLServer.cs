@@ -237,7 +237,11 @@ namespace OGen.lib.datalayer.SQLServer {
 					"{0}.{1}.ParseParameter(): - error parsing db connectionstring: 'SQLServer|{2}'",
 					typeof(DBUtils_connectionString_SQLServer).Namespace,
 					typeof(DBUtils_connectionString_SQLServer).Name,
+#if DEBUG
 					connectionstring_in
+#else
+					"- not available -"
+#endif
 				)
 			);
 		}

@@ -215,7 +215,11 @@ namespace OGen.lib.datalayer.SQLServer {
 						"Stored Procedure: {0}\nConnectionString: {1}|{2}\nexception: {3}\ninner-exception: {4}\n",
 						function_in,
 						DBServerType, 
-						connectionstring_,
+#if DEBUG
+						connectionstring_, 
+#else
+						"- not available -", 
+#endif
 						_ex.Message, 
 						_ex.InnerException
 					)

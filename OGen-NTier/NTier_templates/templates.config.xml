@@ -2799,13 +2799,14 @@ XXX:TO_DOS -->
 		<dependencies />
 	</template>
 	<!-- search:solution:remoting:server:RS0_Somebo -->
-	<template id="PRJ-RS-Someapp-remoting-server-RS0_Somebo.cs.aspx"
+	<template id="PRJ-RS-Someapp-remoting-server-RS0_Somebo.cs.aspx?Client=False"
 			name="PRJ-RS-Someapp-remoting-server-RS0_Somebo.cs.aspx"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+			<argument name="Client" value="False" />
 		</arguments>
 		<conditions />
 		<outputs>
@@ -2946,6 +2947,24 @@ XXX:TO_DOS -->
 			<output
 				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-client/Properties/AssemblyInfo.cs"
 				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:remoting:client:RS0_Somebo -->
+	<template id="PRJ-RS-Someapp-remoting-server-RS0_Somebo.cs.aspx?Client=True"
+			name="PRJ-RS-Someapp-remoting-server-RS0_Somebo.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+			<argument name="Client" value="True" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-client/_base/RS0_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>

@@ -60,6 +60,10 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoti
 		private RS__server() { }
 
 		public static void Start() {
+			RemotingConfiguration.Configure(
+				AppDomain.CurrentDomain.SetupInformation.ConfigurationFile
+			);<%--
+
 			#if NET_1_1
 			//ChannelServices.RegisterChannel(new HttpChannel(int.Parse(
 			//	System.Configuration.ConfigurationSettings.AppSettings["RemotingServer_ServerPort"]
@@ -85,7 +89,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoti
 				WellKnownObjectMode.Singleton
 				//WellKnownObjectMode.SingleCall
 			);<%
-			}%>
+			}%>--%>
 		}
 	}
 }<%

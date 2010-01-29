@@ -211,7 +211,11 @@ namespace OGen.lib.datalayer.MySQL {
 					"{0}.{1}.ParseParameter(): - error parsing db connectionstring: 'MySQL|{2}'",
 					typeof(DBUtils_connectionString_MySQL).Namespace,
 					typeof(DBUtils_connectionString_MySQL).Name,
+#if DEBUG
 					connectionstring_in
+#else
+					"- not available -"
+#endif
 				)
 			);
 		}

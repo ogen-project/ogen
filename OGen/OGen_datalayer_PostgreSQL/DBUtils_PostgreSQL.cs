@@ -158,6 +158,9 @@ namespace OGen.lib.datalayer.PostgreSQL {
 				case "money":
 					return (int)NpgsqlDbType.Money;
 
+				//case "interval":
+				//    return (int)NpgsqlDbType.Interval;
+
 				//case "bigserial":
 				//case "serial8":
 				//	return ePgsqlDbType.BigSerial;
@@ -214,6 +217,9 @@ namespace OGen.lib.datalayer.PostgreSQL {
 				case NpgsqlDbType.Money:
 					return DbType.Decimal;
 
+				//case NpgsqlDbType.Interval:
+				//    return DbType.
+
 				default:
 					throw new Exception(string.Format(
 						"undefined variable type: {0}",
@@ -244,7 +250,11 @@ namespace OGen.lib.datalayer.PostgreSQL {
 					"{0}.{1}.ParseParameter(): - error parsing db connectionstring: 'PostgreSQL|{2}'",
 					typeof(DBUtils_connectionString_PostgreSQL).Namespace,
 					typeof(DBUtils_connectionString_PostgreSQL).Name,
+#if DEBUG
 					connectionstring_in
+#else
+					"- not available -"
+#endif
 				)
 			);
 		}

@@ -18,6 +18,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 string _arg_ClassName = System.Web.HttpUtility.UrlDecode(Request.QueryString["ClassName"]);
+bool _arg_Client = bool.Parse(System.Web.HttpUtility.UrlDecode(Request.QueryString["Client"]));
 #endregion
 
 #region varaux...
@@ -55,8 +56,10 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 	}
 }%>using System;
 
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures;
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures;<%
+if (!_arg_Client) {%>
+using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;<%
+}%>
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared;
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.structures;
 
@@ -76,13 +79,17 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoti
 				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
 			<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
 			}%>
-		) {
+		) {<%
+			if (_arg_Client) {%><%=""%>
+			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");<%
+			} else {%><%=""%>
 			<%=(_aux_method.OutputType == "void") ? "" : "return "%>SBO_<%=_aux_class.Name%>.<%=_aux_method.Name%>(<%
 				for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 					_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
 				<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
 				}%>
-			);
+			);<%
+			}%>
 		}
 		#endregion<%
 		}%>

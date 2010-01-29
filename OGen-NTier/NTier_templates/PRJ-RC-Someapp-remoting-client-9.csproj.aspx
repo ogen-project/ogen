@@ -91,7 +91,8 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
     <Compile Include="Properties\AssemblyInfo.cs" /><%
 for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
 	_aux_class = _aux_business_metadata.Classes.ClassCollection[i];%>
-    <Compile Include="_base\RC0_<%=_aux_class.Name%>.cs" /><%
+    <Compile Include="_base\RC0_<%=_aux_class.Name%>.cs" />
+    <Compile Include="_base\RS0_<%=_aux_class.Name%>.cs" /><%
 }%>
   </ItemGroup>
   <ItemGroup>
