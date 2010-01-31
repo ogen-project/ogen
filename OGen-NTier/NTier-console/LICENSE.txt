@@ -31,6 +31,9 @@ OGen is licensed under various different licenses.
 	* OGen.NTier.lib.datalayer.proxy: MIT
 	* OGen.NTier.lib.businesslayer: MIT
 	* OGen.NTier.lib.businesslayer.UTs: MIT
+	* OGen.NTier.lib.distributedlayer.remoting: MIT
+	* OGen.NTier.lib.distributedlayer.remoting.client: MIT
+	* OGen.NTier.lib.distributedlayer.remoting.server: MIT
 	* OGen.NTier.lib.distributedlayer.webservices.client: MIT
 	* OGen.NTier.lib.templates: MIT
 	* OGen.NTier.presentationlayer.winforms: MIT
@@ -51,11 +54,11 @@ OGen is licensed under various different licenses.
 	* OGen.NTier.UTs.distributedlayer.remoting.server: MIT
 	* OGen.NTier.UTs.lib.distributedlayer.remoting.client: MIT
 	* OGen.NTier.UTs.lib.business.client: MIT
-	* OGen.NTier.Dia.lib.generator: MIT
-	* OGen.NTier.Dia.lib.metadata: MIT
-	* OGen.NTier.Dia.lib.templates: MIT
-	* OGen.NTier.Dia.presentationlayer.console: MIT
-	* OGen.NTier.Dia.presentationlayer.test: MIT
+	* OGen.Dia.lib.generator: MIT
+	* OGen.Dia.lib.metadata: MIT
+	* OGen.Dia.lib.templates: MIT
+	* OGen.Dia.presentationlayer.console: MIT
+	* OGen.Dia.presentationlayer.test: MIT
 	* OGen.Doc.lib.generator: MIT
 	* OGen.Doc.lib.metadata: MIT
 	* OGen.Doc.lib.metadata.UTs: MIT
