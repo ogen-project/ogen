@@ -24,6 +24,9 @@ OGen-NTier, NTier_datalayer_UTs, OGen.NTier.lib.datalayer.UTs, f, f, f, MIT, f, 
 OGen-NTier, NTier_datalayer_proxy, OGen.NTier.lib.datalayer.proxy, t, f, f, MIT, f, t
 OGen-NTier, NTier_businesslayer, OGen.NTier.lib.businesslayer, t, f, f, MIT, f, t
 OGen-NTier, NTier_businesslayer_UTs, OGen.NTier.lib.businesslayer.UTs, f, f, f, MIT, f, f
+OGen-NTier, NTier_distributedlayer_remoting, OGen.NTier.lib.distributedlayer.remoting, t, f, f, MIT, f, t
+OGen-NTier, NTier_distributedlayer_remoting_client, OGen.NTier.lib.distributedlayer.remoting.client, t, f, f, MIT, f, t
+OGen-NTier, NTier_distributedlayer_remoting_server, OGen.NTier.lib.distributedlayer.remoting.server, t, f, f, MIT, f, t
 OGen-NTier, NTier_distributedlayer_webservices_client, OGen.NTier.lib.distributedlayer.webservices.client, t, f, f, MIT, f, t
 OGen-NTier, NTier_templates, OGen.NTier.lib.templates, f, t, f, MIT, f, t
 OGen-NTier, NTier, OGen.NTier.presentationlayer.winforms, f, f, t, MIT, f, t
