@@ -32,7 +32,11 @@ XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusines
 
 OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
 
-//string _aux_path = _arg_ogenpath + @"\..\..";
+string _aux_path = _arg_ogenpath + @"\..\..";
+string _aux_path4_ntier_distributedlayer_remoting = _aux_path + @"\NTier_distributedlayer_remoting\NTier_distributedlayer_remoting.csproj";
+string _aux_path4_ntier_distributedlayer_remoting_client = _aux_path + @"\NTier_distributedlayer_remoting_client\NTier_distributedlayer_remoting_client.csproj";
+string _aux_path4_ntier_distributedlayer_remoting_server = _aux_path + @"\NTier_distributedlayer_remoting_server\NTier_distributedlayer_remoting_server.csproj";
+
 string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
 #endregion
 //-----------------------------------------------------------------------------------------
@@ -85,7 +89,13 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml" /><%
+if (_arg_gac) {%>
+    <Reference Include="OGen.NTier.lib.distributedlayer.remoting.client-2.0">
+      <Name>OGen.NTier.lib.distributedlayer.remoting.client-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference><%
+}%>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" /><%
@@ -95,7 +105,13 @@ for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
     <Compile Include="_base\RS0_<%=_aux_class.Name%>.cs" /><%
 }%>
   </ItemGroup>
-  <ItemGroup>
+  <ItemGroup><%
+if (!_arg_gac) {%>
+    <ProjectReference Include="<%=_aux_path4_ntier_distributedlayer_remoting_client%>">
+      <Project>{A1711840-2FC2-457D-BA6B-0E36B54E395F}</Project>
+      <Name>NTier_distributedlayer_remoting_client</Name>
+    </ProjectReference><%
+}%>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer_shared%>}</Project>
       <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared</Name>

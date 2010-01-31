@@ -32,7 +32,11 @@ XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusines
 
 OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
 
-//string _aux_path = _arg_ogenpath + @"\..\..";
+string _aux_path = _arg_ogenpath + @"\..\..";
+string _aux_path4_ntier_distributedlayer_remoting = _aux_path + @"\NTier_distributedlayer_remoting\NTier_distributedlayer_remoting.csproj";
+string _aux_path4_ntier_distributedlayer_remoting_client = _aux_path + @"\NTier_distributedlayer_remoting_client\NTier_distributedlayer_remoting_client.csproj";
+string _aux_path4_ntier_distributedlayer_remoting_server = _aux_path + @"\NTier_distributedlayer_remoting_server\NTier_distributedlayer_remoting_server.csproj";
+
 string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
 #endregion
 //-----------------------------------------------------------------------------------------
@@ -86,7 +90,13 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Remoting" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml" /><%
+if (_arg_gac) {%>
+    <Reference Include="OGen.NTier.lib.distributedlayer.remoting.server-2.0">
+      <Name>OGen.NTier.lib.distributedlayer.remoting.server-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference><%
+}%>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,7 +106,13 @@ for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
     <Compile Include="_base\RS0_<%=_aux_class.Name%>.cs" /><%
 }%>
   </ItemGroup>
-  <ItemGroup>
+  <ItemGroup><%
+if (!_arg_gac) {%>
+    <ProjectReference Include="<%=_aux_path4_ntier_distributedlayer_remoting_server%>">
+      <Project>{29413A02-D0EB-4BFF-8EB6-A65AB1166FF3}</Project>
+      <Name>NTier_distributedlayer_remoting_server</Name>
+    </ProjectReference><%
+}%>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer%>}</Project>
       <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer</Name>
