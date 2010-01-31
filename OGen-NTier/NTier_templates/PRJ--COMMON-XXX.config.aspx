@@ -18,6 +18,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 string _arg_where = System.Web.HttpUtility.UrlDecode(Request.QueryString["where"]);
+string _aux_outputPath = System.Web.HttpUtility.UrlDecode(Request.QueryString["outputPath"]);
 #endregion
 
 #region varaux...
@@ -49,9 +50,9 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
 --><%
 }%>
 <configuration>
-	<appSettings>
+	<appSettings><%--
 		<add key="RemotingServer_ServerURI" value="<%=_aux_ex_metadata.RemotingServer_ServerURI%>" />
-		<add key="RemotingServer_ServerPort" value="<%=_aux_ex_metadata.RemotingServer_ServerPort%>" />
+		<add key="RemotingServer_ServerPort" value="<%=_aux_ex_metadata.RemotingServer_ServerPort%>" />--%>
 
 		<add key="Webservices_ServerURI" value="<%=_aux_ex_metadata.Webservices_ServerURI%>" />
 		<add key="Webservices_ServerPort" value="<%=_aux_ex_metadata.Webservices_ServerPort%>" /><%
@@ -86,8 +87,15 @@ if (_arg_where == "test") {%>
 			<channels>
 				<channel ref="tcp">
 					<clientProviders>
-						<formatter ref="binary" typeFilterLevel="Full"/>
-						<provider type="<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client.sink.RC__CompressionClientSinkProvider, <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client-2.0" />
+						<formatter 
+							ref="binary" 
+							typeFilterLevel="Full"/>
+						<provider 
+							type="OGen.NTier.lib.distributedlayer.remoting.client.CompressionClientSinkProvider, OGen.NTier.lib.distributedlayer.remoting.client-2.0" />
+						<provider 
+							type="OGen.NTier.lib.distributedlayer.remoting.client.EncryptionClientSinkProvider, OGen.NTier.lib.distributedlayer.remoting.client-2.0"
+							keysPath="<%=System.IO.Path.Combine(_aux_outputPath, "keys-client")%>"
+							clientID=" YOU MUST SET CLIENT KEY FILE HERE! "/>
 					</clientProviders>
 				</channel>
 			</channels>
@@ -103,8 +111,16 @@ if (_arg_where == "test") {%>
 			<channels>
 				<channel ref="tcp" port="<%=_aux_ex_metadata.RemotingServer_ServerPort%>">
 					<serverProviders>
-						<provider type="<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server.sink.RS__CompressionServerSinkProvider, <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server-2.0" />
-						<formatter ref="binary" typeFilterLevel="Full"/>
+						<provider 
+							type="OGen.NTier.lib.distributedlayer.remoting.server.EncryptionServerSinkProvider, OGen.NTier.lib.distributedlayer.remoting.server-2.0"
+							keysPath="<%=System.IO.Path.Combine(_aux_outputPath, "keys-server")%>"
+							mustDo="False" />
+						<provider 
+							type="OGen.NTier.lib.distributedlayer.remoting.server.CompressionServerSinkProvider, OGen.NTier.lib.distributedlayer.remoting.server-2.0"
+							mustDo="False" />
+						<formatter 
+							ref="binary" 
+							typeFilterLevel="Full"/>
 					</serverProviders>
 				</channel>
 			</channels>

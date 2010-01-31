@@ -51,9 +51,9 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 	}
 }%>using System;
 
-using AddSolutions.Excellencer.lib.businesslayer.shared.instances;
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.instances;
 
-namespace AddSolutions.Excellencer.lib.businesslayer.shared.instances.utils {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.instances.utils {
 	public class Config {
 		private Config() { }
 

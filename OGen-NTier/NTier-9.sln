@@ -47,6 +47,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_webs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_datalayer_proxy-9", "NTier_datalayer_proxy\NTier_datalayer_proxy-9.csproj", "{F17F7FA0-920E-4AE1-908F-2798D0124996}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting", "NTier_distributedlayer_remoting\NTier_distributedlayer_remoting.csproj", "{504D4214-DA98-4CA2-8849-70796D05F41B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting_client", "NTier_distributedlayer_remoting_client\NTier_distributedlayer_remoting_client.csproj", "{A1711840-2FC2-457D-BA6B-0E36B54E395F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting_server", "NTier_distributedlayer_remoting_server\NTier_distributedlayer_remoting_server.csproj", "{29413A02-D0EB-4BFF-8EB6-A65AB1166FF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LZMA-9", "..\libs\LZMA-9.10\CS\7zip\LZMA-9.csproj", "{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -145,6 +153,22 @@ Global
 		{F17F7FA0-920E-4AE1-908F-2798D0124996}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F17F7FA0-920E-4AE1-908F-2798D0124996}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F17F7FA0-920E-4AE1-908F-2798D0124996}.Release|Any CPU.Build.0 = Release|Any CPU
+		{504D4214-DA98-4CA2-8849-70796D05F41B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{504D4214-DA98-4CA2-8849-70796D05F41B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{504D4214-DA98-4CA2-8849-70796D05F41B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{504D4214-DA98-4CA2-8849-70796D05F41B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1711840-2FC2-457D-BA6B-0E36B54E395F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1711840-2FC2-457D-BA6B-0E36B54E395F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1711840-2FC2-457D-BA6B-0E36B54E395F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1711840-2FC2-457D-BA6B-0E36B54E395F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29413A02-D0EB-4BFF-8EB6-A65AB1166FF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29413A02-D0EB-4BFF-8EB6-A65AB1166FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29413A02-D0EB-4BFF-8EB6-A65AB1166FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29413A02-D0EB-4BFF-8EB6-A65AB1166FF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

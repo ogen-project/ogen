@@ -2875,6 +2875,7 @@ XXX:TO_DOS -->
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="where" value="remoting-simpleserver" />
+			<argument name="outputPath" value="${CONFIG.outputPath}" />
 		</arguments>
 		<conditions />
 		<outputs>
@@ -3045,6 +3046,7 @@ XXX:TO_DOS -->
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="where" value="webservices-server" />
+			<argument name="outputPath" value="${CONFIG.outputPath}" />
 		</arguments>
 		<conditions />
 		<outputs>
@@ -3216,6 +3218,7 @@ XXX:TO_DOS -->
 		<arguments>
 			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="where" value="test" />
+			<argument name="outputPath" value="${CONFIG.outputPath}" />
 		</arguments>
 		<conditions />
 		<outputs>
