@@ -50,18 +50,23 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 <%
 	}
 }%>using System;
+using System.Runtime.Remoting;
 
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.instances;
-
-namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.instances.utils {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client.utils {
 	public class Config {
 		private Config() { }
 
-		public static void ReConfig() {<%
-			for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
-				_aux_class = _aux_business_metadata.Classes.ClassCollection[i];%><%=""%>
-			<%=_aux_class.Name%>.ReConfig();<%
-			}%>
+		private static bool isconfigured_ = false;
+		public static void ReConfig() {
+			if (!isconfigured_) {
+				RemotingConfiguration.Configure(
+					AppDomain.CurrentDomain.SetupInformation.ConfigurationFile,
+					false
+				);
+				isconfigured_ = true;
+			}
 		}
 	}
-}
+}<%
+//-----------------------------------------------------------------------------------------
+%>

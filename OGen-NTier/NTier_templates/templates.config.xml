@@ -2951,6 +2951,22 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+	<!-- search:solution:remoting:client:Config0 -->
+	<template id="PRJ-RC-Someapp-remoting-client--Config.cs.aspx"
+			name="PRJ-RC-Someapp-remoting-client--Config.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-client/_base/Config0.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
 	<!-- search:solution:remoting:client:RS0_Somebo -->
 	<template id="PRJ-RS-Someapp-remoting-server-RS0_Somebo.cs.aspx?Client=True"
 			name="PRJ-RS-Someapp-remoting-server-RS0_Somebo.cs.aspx"
