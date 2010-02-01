@@ -1,4 +1,4 @@
-<%--
+﻿<%--
 
 OGen
 Copyright (C) 2002 Francisco Monteiro
@@ -17,7 +17,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <%@ import namespace="OGen.NTier.lib.metadata.metadataBusiness" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
-string _arg_ClassName = System.Web.HttpUtility.UrlDecode(Request.QueryString["ClassName"]);
 #endregion
 
 #region varaux...
@@ -29,28 +28,37 @@ XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusinessCollection[0];
 
-OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class
-	= _aux_business_metadata.Classes.ClassCollection[
-		_arg_ClassName
-	];
+OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
 
 XS_methodType _aux_method;
 XS_parameterType _aux_parameter;
 #endregion
 //-----------------------------------------------------------------------------------------
-if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {
-%><%="<%--"%>
+if (_aux_ex_metadata.CopyrightText != string.Empty) {
+	if (_aux_ex_metadata.CopyrightTextLong == string.Empty) {
+%>#region <%=_aux_ex_metadata.CopyrightText%>
+#endregion
+<%
+	} else {
+%>#region <%=_aux_ex_metadata.CopyrightText%>
+/*
 
 <%=_aux_ex_metadata.CopyrightTextLong%>
 
-<%="--%" + ">"%><%
-} else if (_aux_ex_metadata.CopyrightText != string.Empty) {
-%><%="<%--"%>
+*/
+#endregion
+<%
+	}
+}%>using System;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
-<%=_aux_ex_metadata.CopyrightText%>
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server {
+	public partial class Default : System.Web.UI.Page {
+		protected void Page_Load(object sender, EventArgs e) {
 
-<%="--%" + ">"%><%
-}%><%="<%" + "@"%> WebService 
-	Language="C#" 
-	CodeBehind="WS_<%=_aux_class.Name%>.asmx.cs" 
-	Class="<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server.WS_<%=_aux_class.Name%>" <%="%" + ">"%>
+		}
+	}
+}

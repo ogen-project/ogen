@@ -3072,6 +3072,54 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+	<!-- search:solution:webservices:server:Default.aspx -->
+	<template id="PRJ-WS-Someapp-webservices-server-Default.aspx.aspx"
+			name="PRJ-WS-Someapp-webservices-server-Default.aspx.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/Default.aspx"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:webservices:server:Default.aspx.cs -->
+	<template id="PRJ-WS-Someapp-webservices-server-Default.aspx.cs.aspx"
+			name="PRJ-WS-Someapp-webservices-server-Default.aspx.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/Default.aspx.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:webservices:server:Default.aspx.designer.cs -->
+	<template id="PRJ-WS-Someapp-webservices-server-Default.aspx.designer.cs.aspx"
+			name="PRJ-WS-Someapp-webservices-server-Default.aspx.designer.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/Default.aspx.designer.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
 	<!-- search:solution:webservices:server:WS_Somebo.asmx -->
 	<template id="PRJ-WS-Someapp-webservices-server-WS_Somebo.asmx.aspx"
 			name="PRJ-WS-Someapp-webservices-server-WS_Somebo.asmx.aspx"
