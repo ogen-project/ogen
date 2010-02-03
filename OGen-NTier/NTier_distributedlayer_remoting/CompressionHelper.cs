@@ -17,6 +17,8 @@ using System.IO;
 
 namespace OGen.NTier.lib.distributedlayer.remoting {
 	public class CompressionHelper {
+		public const string X_COMPRESS = "X-Compress";
+
 		#region public static Stream GetCompressedStreamCopy(...);
 		public static Stream GetCompressedStreamCopy(
 			Stream stream_in

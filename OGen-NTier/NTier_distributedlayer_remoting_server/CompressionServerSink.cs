@@ -46,13 +46,12 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 		#endregion
 
 
-		private const string X_COMPRESS = "X-Compress";
 		#region private bool isHeaderCompressed_(ITransportHeaders headers_in);
 		private bool isHeaderCompressed_(ITransportHeaders headers_in) {
 			return (
-				(headers_in[X_COMPRESS] != null)
+				(headers_in[CompressionHelper.X_COMPRESS] != null)
 				&&
-				((string)headers_in[X_COMPRESS] == "1")
+				((string)headers_in[CompressionHelper.X_COMPRESS] == "1")
 			);
 		}
 		#endregion
@@ -73,19 +72,19 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 			bool _hasBeenCompressed = (bool)state_in;
 
 			if (_hasBeenCompressed) {
-				// compress...
-				headers_in[X_COMPRESS] = "1";
+				#region compress...
+				headers_in[CompressionHelper.X_COMPRESS] = "1";
 
 				stream_in = CompressionHelper.GetCompressedStreamCopy(
 					stream_in
-				);
+				); 
+				#endregion
 			} else {
 				if (mustdo_) {
 					throw new Exception("\n\n\t\tyour activity is being logged!\n\n\t\tun-compressed communications not allowed!\n\n");
 				}
 			}
 
-			// forwarding to the stack for further processing...
 			sinkStack_in.AsyncProcessResponse(
 				message_in,
 				headers_in, 
@@ -122,20 +121,20 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 #endif
 			bool _isCompressed = false;
 
-			// uncompress...
 			if (isHeaderCompressed_(requestHeaders_in)) {
+				#region uncompress...
 				requestStream_in
 					= CompressionHelper.GetUncompressedStreamCopy(
 						requestStream_in
 					);
-				_isCompressed = true;
+				_isCompressed = true; 
+				#endregion
 			} else {
 				if (mustdo_) {
 					throw new Exception("\n\n\t\tyour activity is being logged!\n\n\t\tun-compressed communications not allowed!\n\n");
 				}
 			}
 
-			// pushing onto stack and forwarding the call
 			sinkStack_in.Push(
 				this, 
 				_isCompressed
@@ -153,13 +152,14 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 			);
 
 			if (_output == ServerProcessing.Complete) {
-				// compress...
 				if (_isCompressed) {
-					responseHeaders_out[X_COMPRESS] = "1";
+					#region compress...
+					responseHeaders_out[CompressionHelper.X_COMPRESS] = "1";
 					responseStream_out
 						= CompressionHelper.GetCompressedStreamCopy(
 							responseStream_out
-						);
+						); 
+					#endregion
 				}
 			} 
 			//// previously checked!
@@ -169,7 +169,6 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 			//    }
 			//}
 
-			// returning status information
 			return _output;
 		} 
 		#endregion

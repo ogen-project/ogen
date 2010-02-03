@@ -55,12 +55,10 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 		public IServerChannelSink CreateSink(
 			IChannelReceiver channel_in
 		) {
-			// create other sinks in the chain
 			IServerChannelSink _next = next_.CreateSink(
 				channel_in
 			);
 
-			// put our sink on top of the chain and return it
 			return new EncryptionServerSink(
 				_next, 
 				keyspath_, 
@@ -72,7 +70,7 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 		public void GetChannelData(
 			IChannelDataStore channelData_in
 		) {
-			// not yet needed
+			// ...
 		}
 		#endregion
 	}

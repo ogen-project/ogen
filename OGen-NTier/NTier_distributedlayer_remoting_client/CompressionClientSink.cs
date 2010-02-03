@@ -42,13 +42,12 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 		#endregion
 
 
-		private const string X_COMPRESS = "X-Compress";
 		#region private bool isHeaderCompressed_(ITransportHeaders headers_in);
 		private bool isHeaderCompressed_(ITransportHeaders headers_in) {
 			return (
-				(headers_in[X_COMPRESS] != null)
+				(headers_in[CompressionHelper.X_COMPRESS] != null)
 				&&
-				((string)headers_in[X_COMPRESS] == "1")
+				((string)headers_in[CompressionHelper.X_COMPRESS] == "1")
 			);
 		} 
 		#endregion
@@ -61,14 +60,14 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 			ITransportHeaders headers_in,
 			Stream stream_in
 		) {
-			// compress...
-			headers_in[X_COMPRESS] = "1";
+			#region compress...
+			headers_in[CompressionHelper.X_COMPRESS] = "1";
 			stream_in
 				= CompressionHelper.GetCompressedStreamCopy(
 					stream_in
-				);
+				); 
+			#endregion
 
-			// push onto stack and forward the request
 			sinkStack_in.Push(this, null);
 			nextchannelsink_.AsyncProcessRequest(
 				sinkStack_in,
@@ -85,15 +84,15 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 			ITransportHeaders headers_in,
 			Stream stream_in
 		) {
-			// uncompress...
+			#region uncompress...
 			if (isHeaderCompressed_(headers_in)) {
 				stream_in
 					= CompressionHelper.GetUncompressedStreamCopy(
 						stream_in
 					);
-			}
+			} 
+			#endregion
 
-			// forward the request...
 			sinkStack_in.AsyncProcessResponse(
 				headers_in,
 				stream_in
@@ -120,14 +119,14 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 			out ITransportHeaders responseHeaders_out,
 			out Stream responseStream_out
 		) {
-			// compress...
-			requestHeaders_in[X_COMPRESS] = "1";
+			#region compress...
+			requestHeaders_in[CompressionHelper.X_COMPRESS] = "1";
 			requestStream_in
 				= CompressionHelper.GetCompressedStreamCopy(
 					requestStream_in
-				);
+				); 
+			#endregion
 
-			// forward the call to the next sink
 			nextchannelsink_.ProcessMessage(
 				msg_in,
 				requestHeaders_in,
@@ -137,13 +136,14 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 				out responseStream_out
 			);
 
-			// uncompress...
+			#region uncompress...
 			if (isHeaderCompressed_(responseHeaders_out)) {
 				responseStream_out
 					= CompressionHelper.GetUncompressedStreamCopy(
 						responseStream_out
 					);
-			}
+			} 
+			#endregion
 		} 
 		#endregion
 	}

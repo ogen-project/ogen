@@ -46,14 +46,12 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 		#endregion
 
 
-		private const string X_ENCRYPT = "X-Encrypt";
-		private const string X_CLIENTID = "X-ClientID";
 		#region private bool isHeaderEncrypted(ITransportHeaders headers_in);
 		private bool isHeaderEncrypted(ITransportHeaders headers_in) {
 			return (
-				(headers_in[X_ENCRYPT] != null)
+				(headers_in[EncryptionHelper.X_ENCRYPT] != null)
 				&&
-				((string)headers_in[X_ENCRYPT] == "1")
+				((string)headers_in[EncryptionHelper.X_ENCRYPT] == "1")
 			);
 		} 
 		#endregion
@@ -68,18 +66,18 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 			ITransportHeaders headers_in,
 			Stream stream_in
 		) {
-			// compress...
-			headers_in[X_ENCRYPT] = "1";
-			headers_in[X_CLIENTID] = clientid_;
+			#region encrypt...
+			headers_in[EncryptionHelper.X_ENCRYPT] = "1";
+			headers_in[EncryptionHelper.X_CLIENTID] = clientid_;
 			stream_in
 				= EncryptionHelper.Encrypt(
-					stream_in, 
-					false, 
-					keyspath_, 
+					stream_in,
+					false,
+					keyspath_,
 					clientid_
-				);
+				); 
+			#endregion
 
-			// push onto stack and forward the request
 			sinkStack_in.Push(this, null);
 			nextchannelsink_.AsyncProcessRequest(
 				sinkStack_in,
@@ -96,18 +94,18 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 			ITransportHeaders headers_in,
 			Stream stream_in
 		) {
-			// uncompress...
+			#region decrypt...
 			if (isHeaderEncrypted(headers_in)) {
 				stream_in
 					= EncryptionHelper.Decrypt(
 						stream_in,
-						false, 
-						keyspath_, 
+						false,
+						keyspath_,
 						clientid_
 					);
-			}
+			} 
+			#endregion
 
-			// forward the request...
 			sinkStack_in.AsyncProcessResponse(
 				headers_in,
 				stream_in
@@ -134,18 +132,18 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 			out ITransportHeaders responseHeaders_out,
 			out Stream responseStream_out
 		) {
-			// compress...
-			requestHeaders_in[X_ENCRYPT] = "1";
-			requestHeaders_in[X_CLIENTID] = clientid_;
+			#region encrypt...
+			requestHeaders_in[EncryptionHelper.X_ENCRYPT] = "1";
+			requestHeaders_in[EncryptionHelper.X_CLIENTID] = clientid_;
 			requestStream_in
 				= EncryptionHelper.Encrypt(
 					requestStream_in,
-					false, 
-					keyspath_, 
+					false,
+					keyspath_,
 					clientid_
-				);
+				); 
+			#endregion
 
-			// forward the call to the next sink
 			nextchannelsink_.ProcessMessage(
 				msg_in,
 				requestHeaders_in,
@@ -155,16 +153,17 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 				out responseStream_out
 			);
 
-			// uncompress...
+			#region decrypt...
 			if (isHeaderEncrypted(responseHeaders_out)) {
 				responseStream_out
 					= EncryptionHelper.Decrypt(
-						responseStream_out, 
-						false, 
-						keyspath_, 
+						responseStream_out,
+						false,
+						keyspath_,
 						clientid_
 					);
-			}
+			} 
+			#endregion
 		} 
 		#endregion
 	}

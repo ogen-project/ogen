@@ -27,7 +27,6 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 			IDictionary properties_in,
 			ICollection providerData_in
 		) {
-			// not yet needed
 			keyspath_ = (string)properties_in["keysPath"];
 			clientid_ = (string)properties_in["clientID"];
 		} 
@@ -50,14 +49,12 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 			string url_in,
 			object remoteChannelData_in
 		) {
-			// create other sinks in the chain
 			IClientChannelSink _next = next_.CreateSink(
 				channel_in,
 				url_in,
 				remoteChannelData_in
 			);
 
-			// put our sink on top of the chain and return it
 			return new EncryptionClientSink(
 				_next, 
 				keyspath_, 

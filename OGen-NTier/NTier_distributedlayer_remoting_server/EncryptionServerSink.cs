@@ -50,14 +50,12 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 		#endregion
 
 
-		private const string X_ENCRYPT = "X-Encrypt";
-		private const string X_CLIENTID = "X-ClientID";
 		#region private bool isHeaderEncrypted(ITransportHeaders headers_in);
 		private bool isHeaderEncrypted(ITransportHeaders headers_in) {
 			return (
-				(headers_in[X_ENCRYPT] != null)
+				(headers_in[EncryptionHelper.X_ENCRYPT] != null)
 				&&
-				((string)headers_in[X_ENCRYPT] == "1")
+				((string)headers_in[EncryptionHelper.X_ENCRYPT] == "1")
 			);
 		}
 		#endregion
@@ -98,22 +96,22 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 				;
 
 			if (_hasBeenEncrypted) {
-				// compress...
-				headers_in[X_ENCRYPT] = "1";
+				#region encrypt...
+				headers_in[EncryptionHelper.X_ENCRYPT] = "1";
 				stream_in
 					= EncryptionHelper.Encrypt(
 						stream_in,
 						true,
 						keyspath_,
 						((StateStruct)state_in).ClientID
-					);
+					); 
+				#endregion
 			} else {
 				if (mustdo_) {
 					throw new Exception("\n\n\t\tyour activity is being logged!\n\n\t\tun-encrypted communications not allowed!\n\n");
 				}
 			}
 
-			// forwarding to the stack for further processing...
 			sinkStack_in.AsyncProcessResponse(
 				message_in,
 				headers_in, 
@@ -152,28 +150,28 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 
 			bool _isEncrypted = false;
 
-			// uncompress...
 			if (isHeaderEncrypted(requestHeaders_in)) {
+				#region decrypt...
 				requestStream_in
 					= EncryptionHelper.Decrypt(
 						requestStream_in,
 						true,
-						keyspath_, 
-						(string)requestHeaders_in[X_CLIENTID]
+						keyspath_,
+						(string)requestHeaders_in[EncryptionHelper.X_CLIENTID]
 					);
-				_isEncrypted = true;
+				_isEncrypted = true; 
+				#endregion
 			} else {
 				if (mustdo_) {
 					throw new Exception("\n\n\t\tyour activity is being logged!\n\n\t\tun-encrypted communications not allowed!\n\n");
 				}
 			}
 
-			// pushing onto stack and forwarding the call
 			sinkStack_in.Push(
 				this, 
 				new StateStruct(
 					_isEncrypted, 
-					_isEncrypted ? (string)requestHeaders_in[X_CLIENTID] : ""
+					_isEncrypted ? (string)requestHeaders_in[EncryptionHelper.X_CLIENTID] : ""
 				)
 			);
 
@@ -189,16 +187,17 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 			);
 
 			if (_output == ServerProcessing.Complete) {
-				// compress...
 				if (_isEncrypted) {
-					responseHeaders_out[X_ENCRYPT] = "1";
+					#region encrypt...
+					responseHeaders_out[EncryptionHelper.X_ENCRYPT] = "1";
 					responseStream_out
 						= EncryptionHelper.Encrypt(
 							responseStream_out,
-							true, 
-							keyspath_, 
-							(string)requestHeaders_in[X_CLIENTID]
-						);
+							true,
+							keyspath_,
+							(string)requestHeaders_in[EncryptionHelper.X_CLIENTID]
+						); 
+					#endregion
 				} 
 				//// previously checked!
 				//else {
@@ -208,7 +207,6 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 				//}
 			}
 
-			// returning status information
 			return _output;
 		} 
 		#endregion

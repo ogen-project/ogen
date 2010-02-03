@@ -26,6 +26,9 @@ namespace OGen.NTier.lib.distributedlayer.remoting {
 		private static RSACryptoServiceProvider serverpublic_rsa;
 		private static Dictionary<string, RSACryptoServiceProvider[]> client_rsakeys;
 
+		public const string X_ENCRYPT = "X-Encrypt";
+		public const string X_CLIENTID = "X-ClientID";
+
 		#region private static RSACryptoServiceProvider getRSA_forXMLFile(string filepath_in);
 		private static RSACryptoServiceProvider getRSA_forXMLFile(string filepath_in) {
 			CspParameters _cspParams = new CspParameters();
@@ -77,10 +80,11 @@ namespace OGen.NTier.lib.distributedlayer.remoting {
 		} 
 		#endregion
 
+		#region public static Stream Encrypt(...);
 		public static Stream Encrypt(
-			Stream stream_in, 
-			bool isServer_in, 
-			string keysPath_in, 
+			Stream stream_in,
+			bool isServer_in,
+			string keysPath_in,
 			string clientID_in
 		) {
 #if DEBUG
@@ -88,9 +92,9 @@ Console.WriteLine("encrypting...");
 #endif
 
 			if (!isServer_in && (serverpublic_rsa == null)) {
-				serverpublic_rsa 
+				serverpublic_rsa
 					= getRSA_forXMLFile(System.IO.Path.Combine(
-						keysPath_in, 
+						keysPath_in,
 						"ServerRSAKey.public.xml"
 					));
 			}
@@ -98,10 +102,10 @@ Console.WriteLine("encrypting...");
 			RSACryptoServiceProvider _clientpublic_rsa = null;
 			if (isServer_in) {
 				getRSA_forClient(
-					keysPath_in, 
+					keysPath_in,
 					clientID_in
 				);
-				_clientpublic_rsa 
+				_clientpublic_rsa
 					= client_rsakeys[clientID_in][1];
 
 				if (_clientpublic_rsa == null) {
@@ -130,7 +134,7 @@ _total += _count;
 				_output_stream.Write(
 					_enc = (isServer_in)
 						? _clientpublic_rsa.Encrypt(_buf_REAL_SIZE, false)
-						: serverpublic_rsa.Encrypt(_buf_REAL_SIZE, false), 
+						: serverpublic_rsa.Encrypt(_buf_REAL_SIZE, false),
 					0,
 					_enc.Length
 				);
@@ -144,11 +148,13 @@ Console.WriteLine("encrypt: size after: {0}", _output_stream.Length);
 #endif
 
 			return _output_stream;
-		}
+		} 
+		#endregion
+		#region public static Stream Decrypt(...);
 		public static Stream Decrypt(
 			Stream stream_in,
 			bool isServer_in,
-			string keysPath_in, 
+			string keysPath_in,
 			string clientID_in
 		) {
 #if DEBUG
@@ -158,7 +164,7 @@ Console.WriteLine("decrypting...");
 			if (isServer_in && (serverprivate_rsa == null)) {
 				serverprivate_rsa
 					= getRSA_forXMLFile(System.IO.Path.Combine(
-						keysPath_in, 
+						keysPath_in,
 						"ServerRSAKey.private.xml"
 					));
 			}
@@ -166,16 +172,16 @@ Console.WriteLine("decrypting...");
 			RSACryptoServiceProvider _clientprivate_rsa = null;
 			if (!isServer_in) {
 				getRSA_forClient(
-					keysPath_in, 
+					keysPath_in,
 					clientID_in
 				);
-				_clientprivate_rsa 
+				_clientprivate_rsa
 					= client_rsakeys[clientID_in][0];
 
 				if (_clientprivate_rsa == null) {
 					throw new Exception(string.Format(
-						"can't find keys (key path: {0}; client id: {1}", 
-						keysPath_in, 
+						"can't find keys (key path: {0}; client id: {1}",
+						keysPath_in,
 						clientID_in
 					));
 				}
@@ -209,6 +215,7 @@ Console.WriteLine("decrypt: size after: {0}", _output_stream.Length);
 #endif
 
 			return _output_stream;
-		}
+		} 
+		#endregion
 	}
 }
