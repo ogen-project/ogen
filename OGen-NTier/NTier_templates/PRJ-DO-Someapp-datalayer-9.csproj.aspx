@@ -147,12 +147,16 @@ if (!_arg_gac) {%>
 		switch (_aux_ex_metadata.DBs.DBCollection[d].DBServerType) {
 			case "PostgreSQL":
 				_aux_guid = "07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA";
+				break;
 			case "SQLServer":
 				_aux_guid = "F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7";
+				break;
 			case "MySQL":
 				_aux_guid = "8F5F21DB-FED4-46A9-9E7E-B50B678D12B2";
+				break;
 			default:
 				_aux_guid = "";
+				break;
 		}%>
     <ProjectReference Include="<%=_aux_path2%>">
       <Project>{<%=_aux_guid%>}</Project>
