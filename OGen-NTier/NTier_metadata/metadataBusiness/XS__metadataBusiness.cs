@@ -77,6 +77,19 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			int _method_index;
 			int _property_index;
 			Type[] _types = _assembly.GetTypes();
+
+#if NET_2_0
+			Array.Sort(
+				_types,
+				delegate(
+					Type arg1,
+					Type arg2
+				) {
+					return arg1.Name.CompareTo(arg2.Name);
+				}
+			);
+#endif
+
 			for (int t = 0; t < _types.Length; t++) {
 				Type _type = (Type)_types[t];
 
@@ -108,6 +121,19 @@ _output.Classes.ClassCollection[_class_index].Type
 							//BindingFlags.Instance 
 							BindingFlags.Static
 						);
+
+#if NET_2_0
+						Array.Sort(
+							_methods,
+							delegate(
+								MethodInfo arg1,
+								MethodInfo arg2
+							) {
+								return arg1.Name.CompareTo(arg2.Name);
+							}
+						);
+#endif
+
 						for (int m = 0; m < _methods.Length; m++) {
 							if (Attribute.IsDefined(
 								_methods[m],
