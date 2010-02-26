@@ -39,9 +39,10 @@ string[] _aux_path_items = _arg_ogenpath.Split('\\');
 for (int i = 0; i < _aux_path_items.Length - 2; i++) {
 	_aux_path += ((i != 0) ? "\\" : "") + _aux_path_items[i];
 }
-string _aux_path4_ogen_datalayer__base = _aux_path + @"\OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj";
-string _aux_path4_ntier_datalayer = _aux_path + @"\OGen-NTier\NTier_datalayer\NTier_datalayer-9.csproj";
-string _aux_path4_ntier_datalayer_proxy = _aux_path + @"\OGen-NTier\NTier_datalayer_proxy\NTier_datalayer_proxy-9.csproj";
+//// Visual Studio 2008 handles absolute project paths badly, hence the fallowing being commented
+string _aux_path4_ogen_datalayer__base = "OGen_datalayer__base-9.csproj"; // _aux_path + @"\OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj";
+string _aux_path4_ntier_datalayer = "NTier_datalayer-9.csproj"; // _aux_path + @"\OGen-NTier\NTier_datalayer\NTier_datalayer-9.csproj";
+string _aux_path4_ntier_datalayer_proxy = "NTier_datalayer_proxy-9.csproj"; // _aux_path + @"\OGen-NTier\NTier_datalayer_proxy\NTier_datalayer_proxy-9.csproj";
 
 string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
 
@@ -146,7 +147,9 @@ if (!_arg_gac) {%>
     </ProjectReference><%
     for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
 		_aux_path2 = string.Format(
-			@"{0}\OGen\OGen_datalayer_{1}\OGen_datalayer_{1}-9.csproj",
+			//// Visual Studio 2008 handles absolute project paths badly, hence the fallowing being commented
+			//@"{0}\OGen\OGen_datalayer_{1}\OGen_datalayer_{1}-9.csproj",
+			@"OGen_datalayer_{1}-9.csproj",
 			_aux_path,
 			_aux_ex_metadata.DBs.DBCollection[d].DBServerType
 		);

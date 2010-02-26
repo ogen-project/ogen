@@ -39,7 +39,8 @@ string[] _aux_path_items = _arg_ogenpath.Split('\\');
 for (int i = 0; i < _aux_path_items.Length - 2; i++) {
 	_aux_path += ((i != 0) ? "\\" : "") + _aux_path_items[i];
 }
-string _aux_path4_ntier_datalayer = _aux_path + @"\OGen-NTier\NTier_datalayer\NTier_datalayer-9.csproj";
+//// Visual Studio 2008 handles absolute project paths badly, hence the fallowing being commented
+string _aux_path4_ntier_datalayer = "NTier_datalayer-9.csproj"; // _aux_path + @"\OGen-NTier\NTier_datalayer\NTier_datalayer-9.csproj";
 
 string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
 #endregion

@@ -37,9 +37,10 @@ string[] _aux_path_items = _arg_ogenpath.Split('\\');
 for (int i = 0; i < _aux_path_items.Length - 2; i++) {
 	_aux_path += ((i != 0) ? "\\" : "") + _aux_path_items[i];
 }
-string _aux_path4_ntier_distributedlayer_remoting = _aux_path + @"\NTier_distributedlayer_remoting\NTier_distributedlayer_remoting.csproj";
-string _aux_path4_ntier_distributedlayer_remoting_client = _aux_path + @"\NTier_distributedlayer_remoting_client\NTier_distributedlayer_remoting_client.csproj";
-string _aux_path4_ntier_distributedlayer_remoting_server = _aux_path + @"\NTier_distributedlayer_remoting_server\NTier_distributedlayer_remoting_server.csproj";
+//// Visual Studio 2008 handles absolute project paths badly, hence the fallowing being commented
+string _aux_path4_ntier_distributedlayer_remoting = "NTier_distributedlayer_remoting.csproj"; // _aux_path + @"\NTier_distributedlayer_remoting\NTier_distributedlayer_remoting.csproj";
+string _aux_path4_ntier_distributedlayer_remoting_client = "NTier_distributedlayer_remoting_client.csproj"; // _aux_path + @"\NTier_distributedlayer_remoting_client\NTier_distributedlayer_remoting_client.csproj";
+string _aux_path4_ntier_distributedlayer_remoting_server = "NTier_distributedlayer_remoting_server.csproj"; // _aux_path + @"\NTier_distributedlayer_remoting_server\NTier_distributedlayer_remoting_server.csproj";
 
 string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
 #endregion

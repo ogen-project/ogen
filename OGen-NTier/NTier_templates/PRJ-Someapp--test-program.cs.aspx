@@ -52,7 +52,7 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures;
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared;
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.structures;
+//using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.structures;
 using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.instances;
 
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.presentationlayer.console {
