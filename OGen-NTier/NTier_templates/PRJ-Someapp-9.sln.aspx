@@ -47,6 +47,8 @@ string _aux_guid;
 %>Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008<%
 if (!_arg_gac) {%>
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LZMA-9", "<%=_aux_path%>\libs\LZMA-9.10\CS\7zip\LZMA-9.csproj", "{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting", "<%=_aux_path%>\OGen-NTier\NTier_distributedlayer_remoting\NTier_distributedlayer_remoting.csproj", "{504D4214-DA98-4CA2-8849-70796D05F41B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting_client", "<%=_aux_path%>\OGen-NTier\NTier_distributedlayer_remoting_client\NTier_distributedlayer_remoting_client.csproj", "{A1711840-2FC2-457D-BA6B-0E36B54E395F}"
@@ -116,6 +118,10 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution<%
 if (!_arg_gac) {%>
+		{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{504D4214-DA98-4CA2-8849-70796D05F41B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{504D4214-DA98-4CA2-8849-70796D05F41B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{504D4214-DA98-4CA2-8849-70796D05F41B}.Release|Any CPU.ActiveCfg = Release|Any CPU
