@@ -31,9 +31,6 @@ XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedColle
 XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusinessCollection[0];
 
 OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
-
-//string _aux_path = _arg_ogenpath + @"\..\..";
-//string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
 #endregion
 //-----------------------------------------------------------------------------------------
 if (_aux_ex_metadata.CopyrightText != string.Empty) {

@@ -54,7 +54,13 @@ XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusines
 
 OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
 
-//string _aux_path = _arg_ogenpath + @"\..\..";
+////// IMPORTANT: keep in mind this is a microsoft visual studio project file, 
+////// so forget about System.IO.Path.Combine, System.IO.Path.DirectorySeparatorChar, or any other such aproach
+//string _aux_path = ""; // _arg_ogenpath + @"\..\..";
+//string[] _aux_path_items = _arg_ogenpath.Split('\\');
+//for (int i = 0; i < _aux_path_items.Length - 2; i++) {
+//    _aux_path += ((i != 0) ? "\\" : "") + _aux_path_items[i];
+//}
 string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
 
 string _assembly = "";

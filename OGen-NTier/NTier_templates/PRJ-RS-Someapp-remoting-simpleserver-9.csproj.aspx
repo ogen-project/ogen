@@ -30,7 +30,13 @@ XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusinessCollection[0];
 
-string _aux_path = _arg_ogenpath + @"\..\..";
+//// IMPORTANT: keep in mind this is a microsoft visual studio project file, 
+//// so forget about System.IO.Path.Combine, System.IO.Path.DirectorySeparatorChar, or any other such aproach
+string _aux_path = ""; // _arg_ogenpath + @"\..\..";
+string[] _aux_path_items = _arg_ogenpath.Split('\\');
+for (int i = 0; i < _aux_path_items.Length - 2; i++) {
+	_aux_path += ((i != 0) ? "\\" : "") + _aux_path_items[i];
+}
 string _aux_path4_ntier_distributedlayer_remoting = _aux_path + @"\NTier_distributedlayer_remoting\NTier_distributedlayer_remoting.csproj";
 string _aux_path4_ntier_distributedlayer_remoting_client = _aux_path + @"\NTier_distributedlayer_remoting_client\NTier_distributedlayer_remoting_client.csproj";
 string _aux_path4_ntier_distributedlayer_remoting_server = _aux_path + @"\NTier_distributedlayer_remoting_server\NTier_distributedlayer_remoting_server.csproj";
