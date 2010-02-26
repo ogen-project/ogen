@@ -215,7 +215,7 @@ if (_comment[3] != "")
 							if (
 								(_table_a == this)
 								&&
-								(_direction == "2")
+								(_direction == "1")
 							) {
 								_output.Add(new FK(
 									_tableFieldName_a,
@@ -226,7 +226,7 @@ if (_comment[3] != "")
 							if (
 								(_table_b == this)
 								&&
-								(_direction == "1")
+								(_direction == "2")
 							) {
 								_output.Add(new FK(
 									_tableFieldName_b,
