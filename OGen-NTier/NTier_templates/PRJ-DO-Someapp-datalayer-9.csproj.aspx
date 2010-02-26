@@ -38,12 +38,12 @@ string _aux_path4_ntier_datalayer = _aux_path + @"\OGen-NTier\NTier_datalayer\NT
 string _aux_path4_ntier_datalayer_proxy = _aux_path + @"\OGen-NTier\NTier_datalayer_proxy\NTier_datalayer_proxy-9.csproj";
 
 string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
-                                                                  	
+
 string _aux_path2;
 string _aux_guid;
 #endregion
 //-----------------------------------------------------------------------------------------
-%><?xml version="1.0" encoding="utf-8" ?><%
+%><?xml version="1.0" encoding="utf-8"?><%
 if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
 <!--
 
@@ -128,7 +128,7 @@ if (_arg_gac) {%>
     <Compile Include="DO__utils.cs" /><%
 for (int i = 0; i < _aux_db_metadata.Tables.TableCollection.Count; i++) {
 	_aux_db_table = _aux_db_metadata.Tables.TableCollection[i];%>
-	<Compile Include="_base\DO0_<%=_aux_db_table.Name%>.cs" />
+    <Compile Include="_base\DO0_<%=_aux_db_table.Name%>.cs" />
     <Compile Include="DO_<%=_aux_db_table.Name%>.cs" /><%
 }%>
   </ItemGroup>

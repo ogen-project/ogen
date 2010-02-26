@@ -36,7 +36,7 @@ OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
 string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
 #endregion
 //-----------------------------------------------------------------------------------------
-%><?xml version="1.0" encoding="utf-8" ?><%
+%><?xml version="1.0" encoding="utf-8"?><%
 if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
 <!--
 

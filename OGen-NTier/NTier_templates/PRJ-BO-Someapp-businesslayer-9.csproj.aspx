@@ -39,11 +39,11 @@ string _aux_path4_ogen_datalayer__base = _aux_path + @"\OGen\OGen_datalayer__bas
 //string _aux_path = System.IO.Directory.GetParent(_arg_ogenpath).Parent.FullName;
 //string _aux_path4_ntier_businesslayer = System.IO.Path.Combine(_aux_path, @"OGen-NTier\NTier_businesslayer\NTier_businesslayer-9.csproj");
 //string _aux_path4_ogen_datalayer__base = System.IO.Path.Combine(_aux_path, @"OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj");
-                                                                  	
+
 string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
 #endregion
 //-----------------------------------------------------------------------------------------
-%><?xml version="1.0" encoding="utf-8" ?><%
+%><?xml version="1.0" encoding="utf-8"?><%
 if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
 <!--
 

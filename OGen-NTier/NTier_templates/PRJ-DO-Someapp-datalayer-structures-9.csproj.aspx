@@ -41,7 +41,7 @@ string _aux_path4_ntier_datalayer = _aux_path + @"\OGen-NTier\NTier_datalayer\NT
 string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
 #endregion
 //-----------------------------------------------------------------------------------------
-%><?xml version="1.0" encoding="utf-8" ?><%
+%><?xml version="1.0" encoding="utf-8"?><%
 if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
 <!--
 
@@ -101,7 +101,7 @@ if (_arg_gac) {%>
     <Compile Include="Properties\AssemblyInfo.cs" /><%
 for (int i = 0; i < _aux_db_metadata.Tables.TableCollection.Count; i++) {
 	_aux_db_table = _aux_db_metadata.Tables.TableCollection[i];%>
-	<Compile Include="_base\SO0_<%=_aux_db_table.Name%>.cs" /><%
+    <Compile Include="_base\SO0_<%=_aux_db_table.Name%>.cs" /><%
 }%>
   </ItemGroup><%
 if (!_arg_gac) {%>

@@ -76,7 +76,7 @@ if (!_arg_businessobject && !_arg_remotingclient && !_arg_webservicesclient) {
 }
 #endregion
 //-----------------------------------------------------------------------------------------
-%><?xml version="1.0" encoding="utf-8" ?><%
+%><?xml version="1.0" encoding="utf-8"?><%
 if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
 <!--
 
