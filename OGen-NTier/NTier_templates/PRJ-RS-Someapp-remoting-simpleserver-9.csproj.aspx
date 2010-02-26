@@ -109,7 +109,7 @@ if (!_arg_gac) {%>
     </ProjectReference><%
 }%>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-remoting-server\<%=_aux_ex_metadata.ApplicationName%>-remoting-server-9<%=_aux_no_gac%>.csproj">
-      <Project><%=_aux_ex_metadata.GUID_remoting_server%></Project>
+      <Project>{<%=_aux_ex_metadata.GUID_remoting_server%>}</Project>
       <Name><%=_aux_ex_metadata.ApplicationName%>-remoting-server</Name>
     </ProjectReference>
   </ItemGroup>
