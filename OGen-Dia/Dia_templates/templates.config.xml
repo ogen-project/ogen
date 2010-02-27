@@ -22,7 +22,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/1-all-tables.postgresql.sql"
 				type="File" mode="Replace" />
 			<output
-				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/2-all-tableConstraints.postgresql.sql"
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/2-all-table-constraints-pks.postgresql.sql"
+				type="File" mode="Replace" />
+			<output
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/3-all-table-constraints-fks.postgresql.sql"
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
@@ -56,8 +59,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</dependencies>
 	</template>
 
-	<template id="Table-Constraint-PostgreSQL.aspx"
-		name="Table-Constraint-PostgreSQL.aspx"
+	<template id="Table-Constraint-PKs-PostgreSQL.aspx"
+		name="Table-Constraint-PKs-PostgreSQL.aspx"
 		parserType="aspx"
 		iterationType="ROOT.diagram[0].layer[n].object[n]">
 		<arguments>
@@ -73,10 +76,37 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</conditions>
 		<outputs>
 			<output
-				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/tableConstraint-${ROOT.diagram[0].layer[n].object[n].tableName}.postgresql.sql"
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/table-constraints-pks-${ROOT.diagram[0].layer[n].object[n].tableName}.postgresql.sql"
 				type="File" mode="Replace" />
 			<output
-				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/2-all-tableConstraints.postgresql.sql"
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/2-all-table-constraints-pks.postgresql.sql"
+				type="File" mode="Append" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="emptyfile.txt" />
+		</dependencies>
+	</template>
+	<template id="Table-Constraint-FKs-PostgreSQL.aspx"
+		name="Table-Constraint-FKs-PostgreSQL.aspx"
+		parserType="aspx"
+		iterationType="ROOT.diagram[0].layer[n].object[n]">
+		<arguments>
+			<argument
+				name="MetadataFilepath"
+				value="${ROOT.diagram[0].filePath}" />
+			<argument
+				name="tableId"
+				value="${ROOT.diagram[0].layer[n].object[n].id}" />
+		</arguments>
+		<conditions>
+			<condition eval="ROOT.diagram[0].layer[n].object[n].type" to="Database - Table" />
+		</conditions>
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/table-constraints-fks-${ROOT.diagram[0].layer[n].object[n].tableName}.postgresql.sql"
+				type="File" mode="Replace" />
+			<output
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/3-all-table-constraints-fks.postgresql.sql"
 				type="File" mode="Append" />
 		</outputs>
 		<dependencies>

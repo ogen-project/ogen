@@ -92,7 +92,8 @@
     <Content Include="emptyfile.txt" />
     <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
-    <Content Include="Table-Constraint-PostgreSQL.aspx" />
+    <Content Include="Table-Constraint-FKs-PostgreSQL.aspx" />
+    <Content Include="Table-Constraint-PKs-PostgreSQL.aspx" />
     <Content Include="Table-PostgreSQL.aspx" />
     <Content Include="templates.config.xml" />
   </ItemGroup>

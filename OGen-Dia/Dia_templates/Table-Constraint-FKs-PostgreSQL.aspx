@@ -77,23 +77,4 @@ if (false && _aux_hasUnique) {
 ;
 
 --%><%
-}
-
-
-
-if (_aux_hasPK) {
-%>ALTER TABLE "<%=_aux_table.TableName%>"
-  ADD CONSTRAINT "<%=_aux_table.TableName%>_pkey" PRIMARY KEY (<%
-	_aux_first = true;
-	for (int f = 0; f < _tablefields.Length; f++) {
-		if (!_tablefields[f].isPK) {
-			continue;
-		}%><%=(_aux_first) ? "" : ","%>
-    "<%=_tablefields[f].Name%>"<%
-		_aux_first = false;
-	}%>
-  )
-;
-
-<%
 }%>
