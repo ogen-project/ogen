@@ -56,6 +56,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	<xs:complexType name="classType">
 		<xs:attribute name="name" type="xs:string" />
 		<xs:attribute name="type" type="boEnumeration" />
+		<xs:attribute name="namespace" type="xs:string" />
 
 		<xs:sequence>
 			<xs:element name="methods" type="methodsType" />

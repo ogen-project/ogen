@@ -73,6 +73,19 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			}
 		}
 		#endregion
+		#region public string Namespace { get; set; }
+		internal string namespace_;
+
+		[XmlAttribute("namespace")]
+		public string Namespace {
+			get {
+				return namespace_;
+			}
+			set {
+				namespace_ = value;
+			}
+		}
+		#endregion
 		#region public XS_methodsType Methods { get; set; }
 		internal XS_methodsType methods__;
 
@@ -102,6 +115,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 
 			name_ = classType_in.name_;
 			type_ = classType_in.type_;
+			namespace_ = classType_in.namespace_;
 			if (classType_in.methods__ != null) methods__.CopyFrom(classType_in.methods__);
 		}
 		#endregion

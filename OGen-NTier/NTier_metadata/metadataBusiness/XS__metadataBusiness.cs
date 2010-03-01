@@ -113,6 +113,8 @@ _output.Classes.ClassCollection.Add(
 		? _type.Name.Substring(4)
 		: _type.Name
 );
+_output.Classes.ClassCollection[_class_index].Namespace
+	= _type.Namespace;
 _output.Classes.ClassCollection[_class_index].Type
 	= XS_BoEnumeration.invalid;
 
