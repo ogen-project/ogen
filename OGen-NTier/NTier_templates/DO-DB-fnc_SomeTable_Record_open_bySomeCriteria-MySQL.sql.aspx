@@ -76,7 +76,7 @@ RETURN<%if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {
 			_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
 		`<%=_aux_db_field.Name%>`<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 		}%>
-	FROM `<%=_aux_db_table.Name%>`<%=((makeItAComment) || (_aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count == 0)) ? "/*" : ""%>
+	FROM `<%=_aux_db_table.Name%>`<%=(makeItAComment || (_aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count == 0)) ? "/*" : ""%>
 	WHERE<%
 for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
 	_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
@@ -95,7 +95,7 @@ for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection
 	} else {%>
 		(`<%=_aux_ex_field.Name%>` <%=(_aux_db_field.isText) ? "LIKE '%' +" : "="%> `<%=_aux_xx_field_name%>_search_`<%=(_aux_db_field.isText) ? " + '%' COLLATE " + _aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBCollationName : ""%>)<%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? " AND" : ""%><%
 	}
-}%><%=((makeItAComment) || (_aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count == 0)) ? "*/" : ""%>
+}%><%=(makeItAComment || (_aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count == 0)) ? "*/" : ""%>
 
 <%
 //-----------------------------------------------------------------------------------------
