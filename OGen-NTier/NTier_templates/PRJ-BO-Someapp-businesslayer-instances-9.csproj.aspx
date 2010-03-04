@@ -155,7 +155,7 @@ if (_arg_businessobject) {%>
 if (_arg_remotingclient) {%>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-remoting-client\<%=_aux_ex_metadata.ApplicationName%>-remoting-client-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_remoting_client%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>-remoting_client</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-remoting-client</Name>
     </ProjectReference><%
 }
 if (_arg_webservicesclient) {%>
