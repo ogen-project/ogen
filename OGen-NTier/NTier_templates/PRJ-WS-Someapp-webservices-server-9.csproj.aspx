@@ -133,19 +133,19 @@ for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
   <ItemGroup>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-9<%=_aux_no_gac%></Name>
     </ProjectReference>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer_shared%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared-9<%=_aux_no_gac%></Name>
     </ProjectReference>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer_structures%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures-9<%=_aux_no_gac%></Name>
     </ProjectReference>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-datalayer-structures\<%=_aux_ex_metadata.ApplicationName%>-datalayer-structures-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_datalayer_structures%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>-datalayer-structures</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-datalayer-structures-9<%=_aux_no_gac%></Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

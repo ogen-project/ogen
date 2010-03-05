@@ -144,24 +144,24 @@ for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
   <ItemGroup>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer_shared%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared-9<%=_aux_no_gac%></Name>
     </ProjectReference><%
 if (_arg_businessobject) {%>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-9<%=_aux_no_gac%></Name>
     </ProjectReference><%
 }
 if (_arg_remotingclient) {%>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-remoting-client\<%=_aux_ex_metadata.ApplicationName%>-remoting-client-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_remoting_client%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>-remoting-client</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-remoting-client-9<%=_aux_no_gac%></Name>
     </ProjectReference><%
 }
 if (_arg_webservicesclient) {%>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-webservices-client\<%=_aux_ex_metadata.ApplicationName%>-webservices-client-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_webservices_client%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>-webservices-client</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-webservices-client-9<%=_aux_no_gac%></Name>
     </ProjectReference><%
 }%>
   </ItemGroup>

@@ -117,20 +117,20 @@ for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
 if (!_arg_gac) {%>
     <ProjectReference Include="<%=_aux_path4_ntier_distributedlayer_remoting_client%>">
       <Project>{A1711840-2FC2-457D-BA6B-0E36B54E395F}</Project>
-      <Name>NTier_distributedlayer_remoting_client</Name>
+      <Name>NTier_distributedlayer_remoting_client-9</Name>
     </ProjectReference><%
 }%>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer_shared%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared-9<%=_aux_no_gac%></Name>
     </ProjectReference>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer_structures%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures-9<%=_aux_no_gac%></Name>
     </ProjectReference>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-datalayer-structures\<%=_aux_ex_metadata.ApplicationName%>-datalayer-structures-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_datalayer_structures%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>-datalayer-structures</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-datalayer-structures-9<%=_aux_no_gac%></Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

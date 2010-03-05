@@ -112,12 +112,12 @@ if (_arg_gac) {%>
 if (!_arg_gac) {%>
     <ProjectReference Include="<%=_aux_path4_ntier_distributedlayer_remoting_server%>">
       <Project>{29413A02-D0EB-4BFF-8EB6-A65AB1166FF3}</Project>
-      <Name>NTier_distributedlayer_remoting_server</Name>
+      <Name>NTier_distributedlayer_remoting_server-9</Name>
     </ProjectReference><%
 }%>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-remoting-server\<%=_aux_ex_metadata.ApplicationName%>-remoting-server-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_remoting_server%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>-remoting-server</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-remoting-server-9<%=_aux_no_gac%></Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -127,19 +127,19 @@ if (!_arg_gac) {%>
 }%>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer_shared%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-shared-9<%=_aux_no_gac%></Name>
     </ProjectReference>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer_structures%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures-9<%=_aux_no_gac%></Name>
     </ProjectReference>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-datalayer\<%=_aux_ex_metadata.ApplicationName%>-datalayer-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_datalayer%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>-datalayer</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-datalayer-9<%=_aux_no_gac%></Name>
     </ProjectReference>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-datalayer-structures\<%=_aux_ex_metadata.ApplicationName%>-datalayer-structures-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_datalayer_structures%>}</Project>
-      <Name><%=_aux_ex_metadata.ApplicationName%>-datalayer-structures</Name>
+      <Name><%=_aux_ex_metadata.ApplicationName%>-datalayer-structures-9<%=_aux_no_gac%></Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
