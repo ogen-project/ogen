@@ -148,6 +148,47 @@ _selection[i] = "";
 			 }
 		}%>
 
+		#region public void Bind__arrayOf<T>(...);
+		public delegate string ListitemValue<T>(T item_in);
+		public delegate string ListitemText<T>(T item_in);
+
+		public void Bind__arrayOf<T>(
+			string selectedValue_in,
+			bool allowNull_in,
+			T[] items_in,
+			ListitemValue<T> listitemValue_in,
+			ListitemText<T> listitemText_in
+		) {
+			bind_pre(
+				allowNull_in
+			);
+
+			foreach (T _item in items_in) {
+				listitemcollection_ref_.Add(
+					listitemText_in(_item),
+					listitemValue_in(_item)
+				);
+			}
+
+			SelectedValue__set(
+				selectedValue_in
+			);
+		} 
+		#endregion
+		#region public void SelectedValues__set_arrayOf<T>(...);
+		public void SelectedValues__set_arrayOf<T>(
+			T[] items_in,
+			ListitemValue<T> listitemValue_in
+		) {
+			string[] _selection = new string[items_in.Length];
+			for (int i = 0; i < items_in.Length; i++) {
+				_selection[i] = listitemValue_in(items_in[i]);
+			}
+
+			SelectedValue__set(_selection);
+		} 
+		#endregion
+
 		#region public void Bind__Enum(...);
 		#region private void bind__enum_post(...);
 		private void bind__enum_post(
