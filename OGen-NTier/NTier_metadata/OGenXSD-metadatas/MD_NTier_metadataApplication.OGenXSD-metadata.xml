@@ -166,6 +166,7 @@ shared
 		<specificCase word="isViewPK" translation="isViewPK" />
 		<specificCase word="isRange" translation="isRange" />
 		<specificCase word="isVirtualTable" translation="isVirtualTable" />
+		<specificCase word="isSearch" translation="isSearch" />
 
 		<specificCase word="isParams" translation="isParams" />
 		<specificCase word="isOut" translation="isOut" />

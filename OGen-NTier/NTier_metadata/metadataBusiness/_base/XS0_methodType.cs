@@ -86,6 +86,19 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			}
 		}
 		#endregion
+		#region public bool isSearch { get; set; }
+		internal bool issearch_;
+
+		[XmlAttribute("isSearch")]
+		public bool isSearch {
+			get {
+				return issearch_;
+			}
+			set {
+				issearch_ = value;
+			}
+		}
+		#endregion
 		#region public XS_parametersType Parameters { get; set; }
 		internal XS_parametersType parameters__;
 
@@ -116,6 +129,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			name_ = methodType_in.name_;
 			outputtype_ = methodType_in.outputtype_;
 			distribute_ = methodType_in.distribute_;
+			issearch_ = methodType_in.issearch_;
 			if (methodType_in.parameters__ != null) parameters__.CopyFrom(methodType_in.parameters__);
 		}
 		#endregion

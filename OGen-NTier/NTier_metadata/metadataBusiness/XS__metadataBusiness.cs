@@ -162,6 +162,9 @@ _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[
 ].Distribute = _methodattribute.Distribute;
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[
 	_method_index
+].isSearch = _methodattribute.isSearch;
+_output.Classes.ClassCollection[_class_index].Methods.MethodCollection[
+	_method_index
 ].OutputType
 	= translate(string.Format(
 		"{0}.{1}", 
