@@ -3325,4 +3325,23 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+
+
+
+
+	<template id="PRJ---xxx.cs.aspx"
+			name="PRJ---xxx.cs.aspx"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-weblayer/xxx0.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
 </templates>
