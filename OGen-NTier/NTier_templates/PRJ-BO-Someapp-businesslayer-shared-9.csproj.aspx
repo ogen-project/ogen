@@ -32,16 +32,17 @@ XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusines
 
 OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
 
-////// IMPORTANT: keep in mind this is a microsoft visual studio project file, 
-////// so forget about System.IO.Path.Combine, System.IO.Path.DirectorySeparatorChar, or any other such aproach
-//string _aux_path = ""; // _arg_ogenpath + @"\..\..";
-//string[] _aux_path_items = _arg_ogenpath.Split('\\');
-//for (int i = 0; i < _aux_path_items.Length - 2; i++) {
-//    _aux_path += ((i != 0) ? "\\" : "") + _aux_path_items[i];
-//}
-////// Visual Studio 2008 handles absolute project paths badly, hence the fallowing being commented
+//// IMPORTANT: keep in mind this is a microsoft visual studio project file, 
+//// so forget about System.IO.Path.Combine, System.IO.Path.DirectorySeparatorChar, or any other such aproach
+string _aux_path = ""; // _arg_ogenpath + @"\..\..";
+string[] _aux_path_items = _arg_ogenpath.Split('\\');
+for (int i = 0; i < _aux_path_items.Length - 2; i++) {
+	_aux_path += ((i != 0) ? "\\" : "") + _aux_path_items[i];
+}
+//// Visual Studio 2008 handles absolute project paths badly, hence the fallowing being commented
 //string _aux_path4_ntier_businesslayer = "NTier_businesslayer-9.csproj"; // _aux_path + @"\OGen-NTier\NTier_businesslayer\NTier_businesslayer-9.csproj";
 //string _aux_path4_ogen_datalayer__base = "OGen_datalayer__base-9.csproj"; // _aux_path + @"\OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj";
+string _aux_path4_ntier_datalayer_proxy = "NTier_datalayer_proxy-9.csproj"; // _aux_path + @"\OGen-NTier\NTier_datalayer_proxy\NTier_datalayer_proxy-9.csproj";
 
 string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
 #endregion
@@ -94,7 +95,13 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml" /><%
+if (_arg_gac) {%>
+    <Reference Include="OGen.NTier.lib.datalayer.proxy-2.0">
+      <Name>OGen.NTier.lib.datalayer.proxy-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference><%
+}%>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" /><%
@@ -104,7 +111,13 @@ for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
     <Compile Include="IBO_<%=_aux_class.Name%>.cs" /><%
 }%>
   </ItemGroup>
-  <ItemGroup>
+  <ItemGroup><%
+if (!_arg_gac) {%>
+    <ProjectReference Include="<%=_aux_path4_ntier_datalayer_proxy%>">
+      <Project>{F17F7FA0-920E-4AE1-908F-2798D0124996}</Project>
+      <Name>NTier_datalayer_proxy-9</Name>
+    </ProjectReference><%
+}%>
     <ProjectReference Include="..\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures\<%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures-9<%=_aux_no_gac%>.csproj">
       <Project>{<%=_aux_ex_metadata.GUID_businesslayer_structures%>}</Project>
       <Name><%=_aux_ex_metadata.ApplicationName%>-businesslayer-structures-9<%=_aux_no_gac%></Name>

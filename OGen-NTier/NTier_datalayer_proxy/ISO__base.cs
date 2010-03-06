@@ -13,15 +13,45 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
+using System.Runtime.Serialization;
 
 namespace OGen.NTier.lib.datalayer {
-	/// <summary>
-	/// Interface for SerializableObjects.
-	/// </summary>
-	public interface ISO__base {
+	public abstract class SO__base : ISerializable {
 		/// <summary>
-		/// Indicates if changes have been made to SerializableObject properties since last time getObject method was run.
+		/// Indicates if changes have been made to SerializableObject's properties since last time getObject method was run.
 		/// </summary>
-		bool hasChanges { get; }
+		public abstract bool hasChanges { get; }
+
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public abstract void Clear();
+
+		/// <summary>
+		/// implementing ISerializable
+		/// </summary>
+		public abstract void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 	}
+
+	public abstract class SO__ListItem<V, T> : SO__base {
+		public abstract V ListItem_Value { get; }
+		public abstract T ListItem_Text { get; }
+
+		//public abstract string ListItem_StringValue { get; }
+		//public abstract string ListItem_StringText { get; }
+	}
+
+	///// <summary>
+	///// Interface for SerializableObjects.
+	///// </summary>
+	//public interface ISO__base {
+	//    /// <summary>
+	//    /// Indicates if changes have been made to SerializableObject properties since last time getObject method was run.
+	//    /// </summary>
+	//    bool hasChanges { get; }
+	//}
+
+	/// <summary>
+	/// Abstract Class for SerializableObjects.
+	/// </summary>
 }

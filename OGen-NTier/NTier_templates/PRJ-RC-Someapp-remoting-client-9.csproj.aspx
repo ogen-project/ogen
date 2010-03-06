@@ -43,6 +43,7 @@ for (int i = 0; i < _aux_path_items.Length - 2; i++) {
 string _aux_path4_ntier_distributedlayer_remoting = "NTier_distributedlayer_remoting.csproj"; // _aux_path + @"\NTier_distributedlayer_remoting\NTier_distributedlayer_remoting.csproj";
 string _aux_path4_ntier_distributedlayer_remoting_client = "NTier_distributedlayer_remoting_client.csproj"; // _aux_path + @"\NTier_distributedlayer_remoting_client\NTier_distributedlayer_remoting_client.csproj";
 string _aux_path4_ntier_distributedlayer_remoting_server = "NTier_distributedlayer_remoting_server.csproj"; // _aux_path + @"\NTier_distributedlayer_remoting_server\NTier_distributedlayer_remoting_server.csproj";
+string _aux_path4_ntier_datalayer_proxy = "NTier_datalayer_proxy-9.csproj"; // _aux_path + @"\OGen-NTier\NTier_datalayer_proxy\NTier_datalayer_proxy-9.csproj";
 
 string _aux_no_gac = (_arg_gac) ? "" : "-no-gac";
 #endregion
@@ -98,6 +99,10 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" /><%
 if (_arg_gac) {%>
+    <Reference Include="OGen.NTier.lib.datalayer.proxy-2.0">
+      <Name>OGen.NTier.lib.datalayer.proxy-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference>
     <Reference Include="OGen.NTier.lib.distributedlayer.remoting.client-2.0">
       <Name>OGen.NTier.lib.distributedlayer.remoting.client-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
@@ -115,6 +120,10 @@ for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
   </ItemGroup>
   <ItemGroup><%
 if (!_arg_gac) {%>
+    <ProjectReference Include="<%=_aux_path4_ntier_datalayer_proxy%>">
+      <Project>{F17F7FA0-920E-4AE1-908F-2798D0124996}</Project>
+      <Name>NTier_datalayer_proxy-9</Name>
+    </ProjectReference>
     <ProjectReference Include="<%=_aux_path4_ntier_distributedlayer_remoting_client%>">
       <Project>{A1711840-2FC2-457D-BA6B-0E36B54E395F}</Project>
       <Name>NTier_distributedlayer_remoting_client-9</Name>

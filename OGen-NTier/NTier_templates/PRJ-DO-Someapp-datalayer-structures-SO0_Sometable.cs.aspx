@@ -43,6 +43,11 @@ string _aux_xx_field_name;
 
 OGen.NTier.lib.metadata.metadataExtended.XS_tableUpdateType _aux_ex_update;
 
+bool _aux_isListItem = (
+	(_aux_ex_table.ListItemValue != null)
+	&&
+	(_aux_ex_table.ListItemText != null)
+);
 #endregion
 //-----------------------------------------------------------------------------------------
 if (_aux_ex_metadata.CopyrightText != string.Empty) {
@@ -73,7 +78,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 	/// </summary>
 	[Serializable()]
 	public class SO_<%=_aux_db_table.Name%> : 
-		ISerializable 
+		<%=_aux_isListItem ? "SO__ListItem<" + _aux_ex_table.ListItemValue.parallel_ref.DBType_generic.FWType + ", " + _aux_ex_table.ListItemText.parallel_ref.DBType_generic.FWType + ">" : "SO__base"%> 
 	{
 		#region public SO_<%=_aux_db_table.Name%>();
 		public SO_<%=_aux_db_table.Name%>(
@@ -115,7 +120,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 		#endregion
 
 		#region Properties...
-		#region public bool hasChanges { get; }
+		#region public override bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
@@ -126,11 +131,36 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool hasChanges {
+		public override bool hasChanges {
 			get { return haschanges_; }
 		}
 		#endregion
-		//---<%
+<%
+		if (_aux_isListItem) {%><%=""%>
+		#region public override <%=_aux_ex_table.ListItemValue.parallel_ref.DBType_generic.FWType%> ListItem_Value { get; }
+		public override <%=_aux_ex_table.ListItemValue.parallel_ref.DBType_generic.FWType%> ListItem_Value {
+			get {<%
+				if (_aux_ex_table.ListItemValue.parallel_ref.isNullable && !_aux_ex_table.ListItemValue.parallel_ref.isPK) {%>
+				return <%=_aux_ex_table.ListItemValue.Name%>;<%
+				} else {%>
+				return <%=_aux_ex_table.ListItemValue.Name.ToLower()%>_;<%
+				}%>
+			}
+		}
+		#endregion
+		#region public override <%=_aux_ex_table.ListItemText.parallel_ref.DBType_generic.FWType%> ListItem_Text { get; }
+		public override <%=_aux_ex_table.ListItemText.parallel_ref.DBType_generic.FWType%> ListItem_Text {
+			get {<%
+				if (_aux_ex_table.ListItemText.parallel_ref.isNullable && !_aux_ex_table.ListItemText.parallel_ref.isPK) {%>
+				return <%=_aux_ex_table.ListItemText.Name%>;<%
+				} else {%>
+				return <%=_aux_ex_table.ListItemText.Name.ToLower()%>_;<%
+				}%>
+			}
+		} 
+		#endregion
+<%
+		}
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 			_aux_ex_field = _aux_db_field.parallel_ref;%>
@@ -246,8 +276,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 			return _output;
 		}
 		#endregion
-		#region public void Clear();
-		public void Clear() {
+		#region public override void Clear();
+		public override void Clear() {
 			haschanges_ = false;
 <%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
@@ -264,8 +294,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 		}%>
 		}
 		#endregion
-		#region public void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {<%
+		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
+		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {<%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
 			info_in.AddValue("<%=_aux_db_field.Name%>", <%=_aux_db_field.Name.ToLower()%>_);<%
