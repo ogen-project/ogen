@@ -33,7 +33,11 @@ namespace OGen.NTier.lib.datalayer {
 		public abstract void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 	}
 
-	public abstract class SO__ListItem<V, T> : SO__base {
+	public interface ISO__ListItem<V, T> {
+		V ListItem_Value { get; }
+		T ListItem_Text { get; }
+	}
+	public abstract class SO__ListItem<V, T> : SO__base, ISO__ListItem<V, T> {
 		public abstract V ListItem_Value { get; }
 		public abstract T ListItem_Text { get; }
 
