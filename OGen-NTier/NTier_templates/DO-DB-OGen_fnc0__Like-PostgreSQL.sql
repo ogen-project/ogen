@@ -1,6 +1,6 @@
 CREATE OR REPLACE FUNCTION "OGen_fnc0__Like"(
-	"word_" character varying, 
-	"word_search_" character varying
+	"string_" character varying, 
+	"patern_" character varying
 )
 /*
 
@@ -19,27 +19,41 @@ $BODY$
 	DECLARE
 		_Output boolean = false;
 	BEGIN
-		select
-			into _Output
-			(
-				--case when (
-					sum(
-						case 
-							----CASE SENSITIVE
-							--when "word_" like '%' || "OGen_fnc0__Split" || '%' then 1 
-							----CASE INSENSITIVE
-							when ("word_" ~* ('.*' || "OGen_fnc0__Split" || '.*')) then 1 
-							else 0 
-						end
-					) 
-					= 
-					count("OGen_fnc0__Split")
-				--) then true else false end
-			)
-		from "OGen_fnc0__Split"(string_to_array(
-			"word_search_", 
-			' '
-		));
+		if (
+			("patern_" is null) 
+			or 
+			("patern_" = '')
+		) then
+			select into _Output true;
+		else 
+			if (
+				("string_" is null)
+				or
+				("string_" = '')
+			) then
+				select into _Output false;
+			else
+				select
+					into _Output
+					(
+						sum(
+							case 
+								----CASE SENSITIVE
+								--when ("string_" like '%' || "OGen_fnc0__Split" || '%') then 1 
+								----CASE INSENSITIVE
+								when ("string_" ~* ('.*' || "OGen_fnc0__Split" || '.*')) then 1 
+								else 0 
+							end
+						) 
+						= 
+						count("OGen_fnc0__Split")
+					)
+				from "OGen_fnc0__Split"(string_to_array(
+					"patern_", 
+					' '
+				));
+			end if;
+		end if;
 
 		RETURN _Output;
 	END;
