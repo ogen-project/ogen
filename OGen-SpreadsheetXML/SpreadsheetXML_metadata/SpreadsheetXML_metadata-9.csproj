@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4F32A87A-8C41-4FEA-B683-4E6310E04CCF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OGen.SpreadsheetXML.lib.metadata</RootNamespace>
+    <AssemblyName>OGen.SpreadsheetXML.lib.metadata-2.0</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET_2_0</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NET_2_0</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="spreadsheet\XS_cellType.cs" />
+    <Compile Include="spreadsheet\XS_cellTypeCollection.cs" />
+    <Compile Include="spreadsheet\XS_pageType.cs" />
+    <Compile Include="spreadsheet\XS_pageTypeCollection.cs" />
+    <Compile Include="spreadsheet\XS_rowType.cs" />
+    <Compile Include="spreadsheet\XS_rowTypeCollection.cs" />
+    <Compile Include="spreadsheet\XS_spreadsheetType.cs" />
+    <Compile Include="spreadsheet\XS_spreadsheetTypeCollection.cs" />
+    <Compile Include="spreadsheet\XS__spreadsheet.cs" />
+    <Compile Include="spreadsheet\XS__spreadsheetCollection.cs" />
+    <Compile Include="spreadsheet\_base\XS0_cellType.cs" />
+    <Compile Include="spreadsheet\_base\XS0_cellTypeCollection.cs" />
+    <Compile Include="spreadsheet\_base\XS0_pageType.cs" />
+    <Compile Include="spreadsheet\_base\XS0_pageTypeCollection.cs" />
+    <Compile Include="spreadsheet\_base\XS0_rowType.cs" />
+    <Compile Include="spreadsheet\_base\XS0_rowTypeCollection.cs" />
+    <Compile Include="spreadsheet\_base\XS0_spreadsheetType.cs" />
+    <Compile Include="spreadsheet\_base\XS0_spreadsheetTypeCollection.cs" />
+    <Compile Include="spreadsheet\_base\XS0__spreadsheet.cs" />
+    <Compile Include="spreadsheet\_base\XS0__spreadsheetCollection.cs" />
+    <Compile Include="XS__RootMetadata.cs" />
+    <Compile Include="_base\XS0__RootMetadata.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OGen\OGen_collections\OGen_collections-9.csproj">
+      <Project>{A6E837F8-780F-4D05-B3ED-2FF1906B5766}</Project>
+      <Name>OGen_collections-9</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_generator\OGen_generator-9.csproj">
+      <Project>{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}</Project>
+      <Name>OGen_generator-9</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_webforms\OGen_webforms-9.csproj">
+      <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
+      <Name>OGen_webforms-9</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!--
+
+OGen
+Copyright (c) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->
+<xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://ogen.berlios.de"
+	xmlns="http://ogen.berlios.de"
+	elementFormDefault="qualified">
+
+	<xs:complexType name="cellType">
+		<xs:attribute name="name" type="xs:string" />
+
+		<xs:attribute name="data" type="xs:string" />
+		<xs:attribute name="formula" type="xs:string" />
+	</xs:complexType>
+
+	<xs:complexType name="rowType">
+		<xs:attribute name="name" type="xs:string" />
+
+		<xs:element name="cells" type="cellType" maxOccurs="unbounded" />
+	</xs:complexType>
+
+	<xs:complexType name="pageType">
+		<xs:attribute name="name" type="xs:string" />
+
+		<xs:element name="rows" type="rowType" maxOccurs="unbounded" />
+	</xs:complexType>
+
+	<xs:complexType name="spreadsheetType">
+		<xs:attribute name="spreadsheet" type="xs:string" />
+
+		<xs:sequence>
+			<xs:element name="pages" type="pageType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="spreadsheet" type="spreadsheetType" />
+</xs:schema>
