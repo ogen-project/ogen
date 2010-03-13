@@ -71,6 +71,8 @@ OGen is licensed under various different licenses.
 	* OGen.XSD.lib.templates: MIT
 	* OGen.XSD.presentationlayer.console: MIT
 	* OGen.XSD.presentationlayer.test: MIT
+	* OGen.SpreadsheetXML.lib.metadata: MIT
+	* OGen.SpreadsheetXML.presentationlayer.console: MIT
 	* OGen-Doc: GNU FDL
 	* OGen-NTier-Doc: GNU FDL
 	* OGen-NTier_UTs-Doc: GNU FDL
