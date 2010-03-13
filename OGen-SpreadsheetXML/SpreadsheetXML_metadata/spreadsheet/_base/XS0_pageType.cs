@@ -30,7 +30,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		public object parent_ref {
 			set {
 				parent_ref_ = value;
-				rowscollection_.parent_ref = this;
+				rowcollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
 		}
@@ -42,7 +42,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		public XS__RootMetadata root_ref {
 			set {
 				root_ref_ = value;
-				rowscollection_.root_ref = value;
+				rowcollection_.root_ref = value;
 			}
 			get { return root_ref_; }
 		}
@@ -60,19 +60,19 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 			}
 		}
 		#endregion
-		#region public XS_rowTypeCollection RowsCollection { get; }
-		internal XS_rowTypeCollection rowscollection_ 
+		#region public XS_rowTypeCollection RowCollection { get; }
+		internal XS_rowTypeCollection rowcollection_ 
 			= new XS_rowTypeCollection();
 
-		[XmlElement("rows")]
-		public XS_rowType[] rowscollection__xml {
-			get { return rowscollection_.cols__; }
-			set { rowscollection_.cols__ = value; }
+		[XmlElement("row")]
+		public XS_rowType[] rowcollection__xml {
+			get { return rowcollection_.cols__; }
+			set { rowcollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
-		public XS_rowTypeCollection RowsCollection {
-			get { return rowscollection_; }
+		public XS_rowTypeCollection RowCollection {
+			get { return rowcollection_; }
 		}
 		#endregion
 
@@ -81,14 +81,14 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 			int _index = -1;
 
 			name_ = pageType_in.name_;
-			rowscollection_.Clear();
-			for (int d = 0; d < pageType_in.rowscollection_.Count; d++) {
-				rowscollection_.Add(
+			rowcollection_.Clear();
+			for (int d = 0; d < pageType_in.rowcollection_.Count; d++) {
+				rowcollection_.Add(
 					out _index,
 					new XS_rowType()
 				);
-				rowscollection_[_index].CopyFrom(
-					pageType_in.rowscollection_[d]
+				rowcollection_[_index].CopyFrom(
+					pageType_in.rowcollection_[d]
 				);
 			}
 		}

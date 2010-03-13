@@ -6,24 +6,70 @@ using OGen.SpreadsheetXML.lib.metadata.spreadsheet;
 
 namespace SpreadsheetXML_Console {
 	class Program {
-		static void Main(string[] args) {
+		static XS__spreadsheet ProcessSS(
+			DataTable ss_in
+		) {
 			int _pageIndex;
 			int _rowIndex;
+			int _cellIndex;
 
-			XS__spreadsheet _ss = new XS__spreadsheet();
-			_ss.PagesCollection.Add(
+			XS__spreadsheet _ss_output = new XS__spreadsheet();
+			_ss_output.PageCollection.Add(
 				out _pageIndex,
 				new XS_pageType()
 			);
-			_ss.PagesCollection[_pageIndex].Name = "xxxxxxxxxxxxxxxxxxxxxx";
-			_ss.PagesCollection[_pageIndex].RowsCollection.Add(
+			_ss_output.PageCollection[_pageIndex].Name = ss_in.TableName;
+
+			_ss_output.PageCollection[_pageIndex].RowCollection.Add(
 				out _rowIndex,
 				new XS_rowType()
 			);
-			//_ss.PagesCollection[_pageIndex].RowsCollection[_rowIndex].
+			_ss_output.PageCollection[_pageIndex].RowCollection[_rowIndex].isHeader = true;
+			for (int c = 0; c < ss_in.Columns.Count; c++) {
+				_ss_output.PageCollection[_pageIndex].RowCollection[_rowIndex].CellCollection.Add(
+					out _cellIndex,
+					new XS_cellType()
+				);
+				_ss_output.PageCollection[_pageIndex].RowCollection[_rowIndex].CellCollection[_cellIndex].Data 
+					= ss_in.Columns[c].Caption;
+			}
 
-			return;
+			bool _isEmpty;
+			for (int r = 0; r < ss_in.Rows.Count; r++) {
+				_isEmpty = true;
+				for (int c = 0; c < ss_in.Columns.Count; c++) {
+					if (ss_in.Rows[r][c] != DBNull.Value) {
+						_isEmpty = false;
+					}
+				}
+				if (_isEmpty) continue;
 
+				_ss_output.PageCollection[_pageIndex].RowCollection.Add(
+					out _rowIndex,
+					new XS_rowType()
+				);
+				_ss_output.PageCollection[_pageIndex].RowCollection[_rowIndex].isHeader = false;
+				for (int c = 0; c < ss_in.Columns.Count; c++) {
+					_ss_output.PageCollection[_pageIndex].RowCollection[_rowIndex].CellCollection.Add(
+						out _cellIndex,
+						new XS_cellType()
+					);
+					if (ss_in.Rows[r][c] != DBNull.Value) {
+						_ss_output.PageCollection[_pageIndex].RowCollection[_rowIndex].CellCollection[_cellIndex].isNull = false;
+						_ss_output.PageCollection[_pageIndex].RowCollection[_rowIndex].CellCollection[_cellIndex].Data
+							= ss_in.Rows[r][c].ToString();
+
+					} else {
+						_ss_output.PageCollection[_pageIndex].RowCollection[_rowIndex].CellCollection[_cellIndex].isNull = true;
+						_ss_output.PageCollection[_pageIndex].RowCollection[_rowIndex].CellCollection[_cellIndex].Data
+							= "";
+					}
+				}
+			}
+
+			return _ss_output;
+		}
+		static void Main(string[] args) {
 			// 2007 Office System Driver: Data Connectivity Components
 			// http://www.microsoft.com/downloads/en/confirmation.aspx?familyId=7554f536-8c28-4598-9b72-ef94e038c891&displayLang=en
 
@@ -60,25 +106,27 @@ namespace SpreadsheetXML_Console {
 
 			DataTable _datatable = new DataTable();
 			_dataadaptar.Fill(_datatable);
-			for (int c = 0; c < _datatable.Columns.Count; c++) {
-				Console.Write("{0}\t", _datatable.Columns[c].Caption);
-			}
-			Console.WriteLine();
-			for (int r = 0; r < _datatable.Rows.Count; r++) {
-				Console.Write("{0})\t", r);
-				for (int c = 0; c < _datatable.Columns.Count; c++) {
-					if (_datatable.Rows[r][c] != DBNull.Value) {
-						Console.Write("{0}\t", _datatable.Rows[r][c]);//, _datatable.Rows[r][c].GetType());
-					}
-				}
-				Console.WriteLine();
-			}
+			ProcessSS(_datatable).SaveState_toFile(
+				@"C:\Documents and Settings\Administrator\Desktop\TEST\Livro1-xlsx.xml"
+			);
 			_datatable.Dispose();
 
 			_dataadaptar.Dispose();
 			_command.Dispose();
 
 			_con.Close(); _con.Dispose();
+
+			XS__spreadsheet _xxx = XS__spreadsheet.Load_fromFile(
+				@"C:\Documents and Settings\Administrator\Desktop\TEST\Livro1-xlsx.xml"
+			)[0];
+			for (int p = 0; p < _xxx.PageCollection.Count; p++) {
+				for (int r = 0; r < _xxx.PageCollection[p].RowCollection.Count; r++) {
+					for (int c = 0; c < _xxx.PageCollection[p].RowCollection[r].CellCollection.Count; c++) {
+						Console.Write("{0}\t", _xxx.PageCollection[p].RowCollection[r].CellCollection[c].Data);
+					}
+					Console.WriteLine();
+				}
+			}
 		}
 	}
 }

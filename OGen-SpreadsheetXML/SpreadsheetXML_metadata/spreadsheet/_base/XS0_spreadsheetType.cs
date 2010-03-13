@@ -30,7 +30,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		public object parent_ref {
 			set {
 				parent_ref_ = value;
-				pagescollection_.parent_ref = this;
+				pagecollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
 		}
@@ -42,7 +42,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		public XS__RootMetadata root_ref {
 			set {
 				root_ref_ = value;
-				pagescollection_.root_ref = value;
+				pagecollection_.root_ref = value;
 			}
 			get { return root_ref_; }
 		}
@@ -60,19 +60,19 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 			}
 		}
 		#endregion
-		#region public XS_pageTypeCollection PagesCollection { get; }
-		internal XS_pageTypeCollection pagescollection_ 
+		#region public XS_pageTypeCollection PageCollection { get; }
+		internal XS_pageTypeCollection pagecollection_ 
 			= new XS_pageTypeCollection();
 
-		[XmlElement("pages")]
-		public XS_pageType[] pagescollection__xml {
-			get { return pagescollection_.cols__; }
-			set { pagescollection_.cols__ = value; }
+		[XmlElement("page")]
+		public XS_pageType[] pagecollection__xml {
+			get { return pagecollection_.cols__; }
+			set { pagecollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
-		public XS_pageTypeCollection PagesCollection {
-			get { return pagescollection_; }
+		public XS_pageTypeCollection PageCollection {
+			get { return pagecollection_; }
 		}
 		#endregion
 
@@ -81,14 +81,14 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 			int _index = -1;
 
 			spreadsheet_ = spreadsheetType_in.spreadsheet_;
-			pagescollection_.Clear();
-			for (int d = 0; d < spreadsheetType_in.pagescollection_.Count; d++) {
-				pagescollection_.Add(
+			pagecollection_.Clear();
+			for (int d = 0; d < spreadsheetType_in.pagecollection_.Count; d++) {
+				pagecollection_.Add(
 					out _index,
 					new XS_pageType()
 				);
-				pagescollection_[_index].CopyFrom(
-					spreadsheetType_in.pagescollection_[d]
+				pagecollection_[_index].CopyFrom(
+					spreadsheetType_in.pagecollection_[d]
 				);
 			}
 		}

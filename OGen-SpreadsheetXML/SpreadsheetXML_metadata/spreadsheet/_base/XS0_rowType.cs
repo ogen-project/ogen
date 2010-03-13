@@ -30,7 +30,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		public object parent_ref {
 			set {
 				parent_ref_ = value;
-				cellscollection_.parent_ref = this;
+				cellcollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
 		}
@@ -42,37 +42,37 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		public XS__RootMetadata root_ref {
 			set {
 				root_ref_ = value;
-				cellscollection_.root_ref = value;
+				cellcollection_.root_ref = value;
 			}
 			get { return root_ref_; }
 		}
 		#endregion
-		#region public string Name { get; set; }
-		internal string name_;
+		#region public bool isHeader { get; set; }
+		internal bool isheader_;
 
-		[XmlAttribute("name")]
-		public string Name {
+		[XmlAttribute("isHeader")]
+		public bool isHeader {
 			get {
-				return name_;
+				return isheader_;
 			}
 			set {
-				name_ = value;
+				isheader_ = value;
 			}
 		}
 		#endregion
-		#region public XS_cellTypeCollection CellsCollection { get; }
-		internal XS_cellTypeCollection cellscollection_ 
+		#region public XS_cellTypeCollection CellCollection { get; }
+		internal XS_cellTypeCollection cellcollection_ 
 			= new XS_cellTypeCollection();
 
-		[XmlElement("cells")]
-		public XS_cellType[] cellscollection__xml {
-			get { return cellscollection_.cols__; }
-			set { cellscollection_.cols__ = value; }
+		[XmlElement("cell")]
+		public XS_cellType[] cellcollection__xml {
+			get { return cellcollection_.cols__; }
+			set { cellcollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
-		public XS_cellTypeCollection CellsCollection {
-			get { return cellscollection_; }
+		public XS_cellTypeCollection CellCollection {
+			get { return cellcollection_; }
 		}
 		#endregion
 
@@ -80,15 +80,15 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		public void CopyFrom(XS_rowType rowType_in) {
 			int _index = -1;
 
-			name_ = rowType_in.name_;
-			cellscollection_.Clear();
-			for (int d = 0; d < rowType_in.cellscollection_.Count; d++) {
-				cellscollection_.Add(
+			isheader_ = rowType_in.isheader_;
+			cellcollection_.Clear();
+			for (int d = 0; d < rowType_in.cellcollection_.Count; d++) {
+				cellcollection_.Add(
 					out _index,
 					new XS_cellType()
 				);
-				cellscollection_[_index].CopyFrom(
-					rowType_in.cellscollection_[d]
+				cellcollection_[_index].CopyFrom(
+					rowType_in.cellcollection_[d]
 				);
 			}
 		}

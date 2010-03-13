@@ -45,19 +45,6 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 			get { return root_ref_; }
 		}
 		#endregion
-		#region public string Name { get; set; }
-		internal string name_;
-
-		[XmlAttribute("name")]
-		public string Name {
-			get {
-				return name_;
-			}
-			set {
-				name_ = value;
-			}
-		}
-		#endregion
 		#region public string Data { get; set; }
 		internal string data_;
 
@@ -71,16 +58,16 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 			}
 		}
 		#endregion
-		#region public string Formula { get; set; }
-		internal string formula_;
+		#region public bool isNull { get; set; }
+		internal bool isnull_;
 
-		[XmlAttribute("formula")]
-		public string Formula {
+		[XmlAttribute("isNull")]
+		public bool isNull {
 			get {
-				return formula_;
+				return isnull_;
 			}
 			set {
-				formula_ = value;
+				isnull_ = value;
 			}
 		}
 		#endregion
@@ -89,9 +76,8 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		public void CopyFrom(XS_cellType cellType_in) {
 			int _index = -1;
 
-			name_ = cellType_in.name_;
 			data_ = cellType_in.data_;
-			formula_ = cellType_in.formula_;
+			isnull_ = cellType_in.isnull_;
 		}
 		#endregion
 	}
