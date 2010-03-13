@@ -129,6 +129,22 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 						Console.WriteLine();
 						Console.WriteLine();
 
+						Console.WriteLine("--- SpreadsheetXML_metadata");
+						DoIt(
+							System.IO.Path.Combine(
+								#if !NET_1_1
+								System.Configuration.ConfigurationManager.AppSettings
+								#else
+								System.Configuration.ConfigurationSettings.AppSettings
+								#endif
+									["ogenPath"],
+
+								@"..\..\OGen-SpreadsheetXML\SpreadsheetXML_metadata\OGenXSD-metadatas\MD_SpreadsheetXML_metadata.OGenXSD-metadata.xml"
+							)
+						);
+						Console.WriteLine();
+						Console.WriteLine();
+
 						Console.WriteLine("time: {0}", new DateTime(DateTime.Now.Ticks - _begin_ticks).ToString("HH'H' mm'm' ss's' fff"));
 					} catch (Exception _ex) {
 						Console.WriteLine(_ex.ToString());

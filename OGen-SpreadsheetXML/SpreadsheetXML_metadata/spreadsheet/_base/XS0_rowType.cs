@@ -30,6 +30,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		public object parent_ref {
 			set {
 				parent_ref_ = value;
+				cellscollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
 		}
@@ -41,6 +42,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		public XS__RootMetadata root_ref {
 			set {
 				root_ref_ = value;
+				cellscollection_.root_ref = value;
 			}
 			get { return root_ref_; }
 		}
@@ -58,12 +60,37 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 			}
 		}
 		#endregion
+		#region public XS_cellTypeCollection CellsCollection { get; }
+		internal XS_cellTypeCollection cellscollection_ 
+			= new XS_cellTypeCollection();
+
+		[XmlElement("cells")]
+		public XS_cellType[] cellscollection__xml {
+			get { return cellscollection_.cols__; }
+			set { cellscollection_.cols__ = value; }
+		}
+
+		[XmlIgnore()]
+		public XS_cellTypeCollection CellsCollection {
+			get { return cellscollection_; }
+		}
+		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_rowType rowType_in) {
 			int _index = -1;
 
 			name_ = rowType_in.name_;
+			cellscollection_.Clear();
+			for (int d = 0; d < rowType_in.cellscollection_.Count; d++) {
+				cellscollection_.Add(
+					out _index,
+					new XS_cellType()
+				);
+				cellscollection_[_index].CopyFrom(
+					rowType_in.cellscollection_[d]
+				);
+			}
 		}
 		#endregion
 	}

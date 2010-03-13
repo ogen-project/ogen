@@ -17,24 +17,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	xmlns="http://ogen.berlios.de"
 	elementFormDefault="qualified">
 
-	<xs:complexType name="cellType">
-		<xs:attribute name="name" type="xs:string" />
-
-		<xs:attribute name="data" type="xs:string" />
-		<xs:attribute name="formula" type="xs:string" />
-	</xs:complexType>
-
-	<xs:complexType name="rowType">
-		<xs:attribute name="name" type="xs:string" />
-
-		<xs:element name="cells" type="cellType" maxOccurs="unbounded" />
-	</xs:complexType>
-
-	<xs:complexType name="pageType">
-		<xs:attribute name="name" type="xs:string" />
-
-		<xs:element name="rows" type="rowType" maxOccurs="unbounded" />
-	</xs:complexType>
+	<xs:element name="spreadsheet" type="spreadsheetType" />
 
 	<xs:complexType name="spreadsheetType">
 		<xs:attribute name="spreadsheet" type="xs:string" />
@@ -44,5 +27,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:element name="spreadsheet" type="spreadsheetType" />
+	<xs:complexType name="pageType">
+		<xs:attribute name="name" type="xs:string" />
+
+		<xs:sequence>
+			<xs:element name="rows" type="rowType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="rowType">
+		<xs:attribute name="name" type="xs:string" />
+
+		<xs:sequence>
+			<xs:element name="cells" type="cellType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="cellType">
+		<xs:attribute name="name" type="xs:string" />
+
+		<xs:attribute name="data" type="xs:string" />
+		<xs:attribute name="formula" type="xs:string" />
+	</xs:complexType>
 </xs:schema>
