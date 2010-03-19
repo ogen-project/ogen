@@ -37,7 +37,7 @@ for (int f = 0; f < _tablefields.Length; f++) {
 	if (_tablefields[f].isPK) {
 		_tablefield_pk.Add(_tablefields[f]);
 	}%>
-	"<%=_tablefields[f].Name%>" "<%=_tablefields[f].DBType_inDB_name%>"<%=(_tablefields[f].DBType_inDB_name == "nvarchar") ? "(" + _tablefields[f].Size.ToString() + ")" : ""%><%=(_tablefields[f].isIdentity) ? " IDENTITY(1, 1)" : ""%> <%=(_tablefields[f].isNullable) ? "" : "NOT " %>NULL, <%
+	"<%=_tablefields[f].Name%>" "<%=_tablefields[f].DBType_inDB_name%>"<%=(_tablefields[f].DBType_inDB_name == "varchar") ? "(" + _tablefields[f].Size.ToString() + ")" : ""%><%=(_tablefields[f].isIdentity) ? " IDENTITY(1, 1)" : ""%> <%=(_tablefields[f].isNullable) ? "" : "NOT " %>NULL, <%
 }%>
 
 	CONSTRAINT "PK_<%=_aux_table.TableName%>" PRIMARY KEY CLUSTERED (<%
