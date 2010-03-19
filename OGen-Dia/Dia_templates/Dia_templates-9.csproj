@@ -93,8 +93,10 @@
     <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
     <Content Include="Table-Constraint-FKs-PostgreSQL.aspx" />
+    <Content Include="Table-Constraint-FKs-SQLServer.aspx" />
     <Content Include="Table-Constraint-PKs-PostgreSQL.aspx" />
     <Content Include="Table-PostgreSQL.aspx" />
+    <Content Include="Table-SQLServer.aspx" />
     <Content Include="templates.config.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
