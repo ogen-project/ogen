@@ -27,6 +27,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<output
 				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/3-all-table-constraints-fks.postgresql.sql"
 				type="File" mode="Replace" />
+			<output
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-SQLServer/1-all-tables.sqlserver.sql"
+				type="File" mode="Replace" />
+			<output
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-SQLServer/3-all-table-constraints-fks.sqlserver.sql"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -52,6 +58,33 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				type="File" mode="Replace" />
 			<output
 				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/1-all-tables.postgresql.sql"
+				type="File" mode="Append" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="emptyfile.txt" />
+		</dependencies>
+	</template>
+	<template id="Table-SQLServer.aspx"
+		name="Table-SQLServer.aspx"
+		parserType="aspx"
+		iterationType="ROOT.diagram[0].layer[n].object[n]">
+		<arguments>
+			<argument
+				name="MetadataFilepath"
+				value="${ROOT.diagram[0].filePath}" />
+			<argument
+				name="tableId"
+				value="${ROOT.diagram[0].layer[n].object[n].id}" />
+		</arguments>
+		<conditions>
+			<condition eval="ROOT.diagram[0].layer[n].object[n].type" to="Database - Table" />
+		</conditions>
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-SQLServer/table-${ROOT.diagram[0].layer[n].object[n].tableName}.sqlserver.sql"
+				type="File" mode="Replace" />
+			<output
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-SQLServer/1-all-tables.sqlserver.sql"
 				type="File" mode="Append" />
 		</outputs>
 		<dependencies>
@@ -86,6 +119,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<dependency templateID="emptyfile.txt" />
 		</dependencies>
 	</template>
+
 	<template id="Table-Constraint-FKs-PostgreSQL.aspx"
 		name="Table-Constraint-FKs-PostgreSQL.aspx"
 		parserType="aspx"
@@ -107,6 +141,33 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				type="File" mode="Replace" />
 			<output
 				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-PostgreSQL/3-all-table-constraints-fks.postgresql.sql"
+				type="File" mode="Append" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="emptyfile.txt" />
+		</dependencies>
+	</template>
+	<template id="Table-Constraint-FKs-SQLServer.aspx"
+		name="Table-Constraint-FKs-SQLServer.aspx"
+		parserType="aspx"
+		iterationType="ROOT.diagram[0].layer[n].object[n]">
+		<arguments>
+			<argument
+				name="MetadataFilepath"
+				value="${ROOT.diagram[0].filePath}" />
+			<argument
+				name="tableId"
+				value="${ROOT.diagram[0].layer[n].object[n].id}" />
+		</arguments>
+		<conditions>
+			<condition eval="ROOT.diagram[0].layer[n].object[n].type" to="Database - Table" />
+		</conditions>
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-SQLServer/table-constraints-fks-${ROOT.diagram[0].layer[n].object[n].tableName}.sqlserver.sql"
+				type="File" mode="Replace" />
+			<output
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-SQLServer/3-all-table-constraints-fks.sqlserver.sql"
 				type="File" mode="Append" />
 		</outputs>
 		<dependencies>
