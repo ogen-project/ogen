@@ -11,6 +11,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */%><%@ Page language="c#" contenttype="text/html" %>
 <%@ import namespace="System.IO" %>
+<%@ import namespace="System.Collections.Generic" %>
 <%@ import namespace="OGen.Dia.lib.metadata" %>
 <%@ import namespace="OGen.Dia.lib.metadata.diagram" %><%
 #region arguments...
@@ -25,7 +26,7 @@ XS__diagram _aux_diagram = XS__diagram.Load_fromFile(
 XS_objectType _aux_table = _aux_diagram.Table_search(_arg_tableId);
 
 DBTableField[] _tablefields = _aux_table.TableFields();
-DBTableField _tablefield_pk = null;
+List<DBTableField> _tablefield_pk = new List<DBTableField>(_tablefields.Length);
                                             	
 //string _aux_path = Path.GetDirectoryName(_arg_MetadataFilepath);
 //string _aux_path_directoryname = Path.GetFileName(_aux_path);
@@ -34,13 +35,15 @@ DBTableField _tablefield_pk = null;
 %>CREATE TABLE "<%=_aux_table.TableName%>" (<%
 for (int f = 0; f < _tablefields.Length; f++) {
 	if (_tablefields[f].isPK) {
-		_tablefield_pk = _tablefields[f];
+		_tablefield_pk.Add(_tablefields[f]);
 	}%>
 	"<%=_tablefields[f].Name%>" "<%=_tablefields[f].DBType_inDB_name%>"<%=(_tablefields[f].DBType_inDB_name == "nvarchar") ? "(" + _tablefields[f].Size.ToString() + ")" : ""%><%=(_tablefields[f].isIdentity) ? " IDENTITY(1, 1)" : ""%> <%=(_tablefields[f].isNullable) ? "" : "NOT " %>NULL, <%
 }%>
 
-	CONSTRAINT "PK_<%=_aux_table.TableName%>" PRIMARY KEY CLUSTERED (
-		"<%=_tablefield_pk.Name%>" ASC
+	CONSTRAINT "PK_<%=_aux_table.TableName%>" PRIMARY KEY CLUSTERED (<%
+	for (int p = 0; p < _tablefield_pk.Count; p++) {%>
+		"<%=_tablefield_pk[p].Name%>" ASC<%=(p == _tablefield_pk.Count - 1) ? "" : ", "%><%
+	}%>
 	) WITH (
 		PAD_INDEX = OFF, 
 		STATISTICS_NORECOMPUTE = OFF, 

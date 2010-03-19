@@ -55,7 +55,9 @@ if (_aux_fks.Length != 0) {
 	)
 GO
 ALTER TABLE "<%=_aux_table.TableName%>" CHECK CONSTRAINT "<%=_aux_table.TableName%>_<%=_aux_fks[f].TableFieldName%>_fkey"
-GO<%
+GO
+
+<%
 	}
 }
 
