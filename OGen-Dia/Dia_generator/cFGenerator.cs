@@ -127,8 +127,8 @@ namespace OGen.Dia.lib.generator {
 
 			OGen.lib.datalayer.PostgreSQL.DBUtils_convert_Postgresql _utils_pgsql = new OGen.lib.datalayer.PostgreSQL.DBUtils_convert_Postgresql();
 			OGen.lib.datalayer.SQLServer.DBUtils_convert_SQLServer _utils_sqls = new OGen.lib.datalayer.SQLServer.DBUtils_convert_SQLServer();
-			System.Data.DbType _dbtype_psql;
-			System.Data.DbType _dbtype_sqls;
+			Nullable<System.Data.DbType> _dbtype_psql;
+			Nullable<System.Data.DbType> _dbtype_sqls;
 			bool _isUsingPostgreSQL = false;
 			bool _isUsingSQLServer = false;
 			DBTableField[] _dbtablefields;
@@ -156,53 +156,66 @@ namespace OGen.Dia.lib.generator {
 
 					for (int f = 0; f < _dbtablefields.Length; f++) {
 						#region checking postgresql field type . . .
+						_dbtype_psql = null;
+
 						if (
 							_isUsingPostgreSQL
-							&&
-							(_dbtablefields[f].PostgreSQLTypeName.Trim() == "")
 						) {
-							throw new Exception(string.Format(
-								"invalid table field type - empty postgresql type: {0}.{1}",
-								_dbtablefields[f].TableName,
-								_dbtablefields[f].Name
-							));
-						} 
-						#endregion
-						#region checking sql server field type . . .
-						if (
-							_isUsingSQLServer
-							&&
-							(_dbtablefields[f].SQLServerTypeName.Trim() == "")
-						) {
-							throw new Exception(string.Format(
-								"invalid table field type - empty sql server type: {0}.{1}",
-								_dbtablefields[f].TableName,
-								_dbtablefields[f].Name
-							));
-						} 
-						#endregion
-						#region checking if field types match . . .
-						if (
-							_isUsingPostgreSQL
-							&&
-							_isUsingSQLServer
-						) {
+							if (_dbtablefields[f].PostgreSQLTypeName.Trim() == "") {
+								throw new Exception(string.Format(
+									"invalid table field type - empty postgresql type: {0}.{1}",
+									_dbtablefields[f].TableName,
+									_dbtablefields[f].Name
+								));
+							}
+
 							_dbtype_psql = _utils_pgsql.XDbType2DbType(
 								_utils_pgsql.XDbType_Parse(
 									_dbtablefields[f].PostgreSQLTypeName,
 									false
 								)
 							);
+						} 
+						#endregion
+						#region checking sql server field type . . .
+						_dbtype_sqls = null;
+
+						if (
+							_isUsingSQLServer
+						) {
+							if (_dbtablefields[f].SQLServerTypeName.Trim() == "") {
+								throw new Exception(string.Format(
+									"invalid table field type - empty sql server type: {0}.{1}",
+									_dbtablefields[f].TableName,
+									_dbtablefields[f].Name
+								));
+							}
+
 							_dbtype_sqls = _utils_sqls.XDbType2DbType(
 								_utils_sqls.XDbType_Parse(
 									_dbtablefields[f].SQLServerTypeName,
 									false
 								)
 							);
+						} 
+						#endregion
+
+						#region checking if field types match . . .
+						if (
+							_isUsingPostgreSQL
+							&&
+							_isUsingSQLServer
+						) {
 							if (
-								_dbtype_psql
-								!=
-								_dbtype_sqls
+								(_dbtype_psql == null)
+								||
+								(_dbtype_sqls == null)
+								||
+								(
+									_dbtype_psql.Value
+									!=
+									_dbtype_sqls.Value
+								)
 							) {
 								throw new Exception(string.Format(
 									"table field types don't match: {0}.{1}",
