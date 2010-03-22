@@ -113,12 +113,12 @@ namespace OGen.lib.datalayer.PostgreSQL {
 				case "bool":
 					return (int)NpgsqlDbType.Boolean;
 
-				case "bigserial": 
+				case "bigserial": // fmonteiro: bigserial is needed for Dia
 				case "bigint": 
 				case "int8":
 					return (int)NpgsqlDbType.Bigint;
 
-				case "serial": 
+				case "serial": // fmonteiro: serial is needed for Dia
 				case "integer": 
 				case "int4":
 					return (int)NpgsqlDbType.Integer;
