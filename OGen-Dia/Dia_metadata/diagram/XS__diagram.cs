@@ -54,6 +54,13 @@ namespace OGen.Dia.lib.metadata.diagram {
 
 		#region public XS_objectType Table_search(...);
 		public XS_objectType Table_search(
+			int layerIndex_in, 
+			int objectIndex_in
+		) {
+			return LayerCollection[layerIndex_in].ObjectCollection[objectIndex_in];
+		}
+
+		public XS_objectType Table_search(
 			string id_in
 		) {
 			for (int l = 0; l < LayerCollection.Count; l++) {
