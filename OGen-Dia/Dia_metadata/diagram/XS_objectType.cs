@@ -106,10 +106,15 @@ namespace OGen.Dia.lib.metadata.diagram {
 													_tableField.isIdentity = bool.Parse(_comment[0]);
 												if (_comment[1] != "")
 													_tableField.Size = int.Parse(_comment[1]);
-if (_comment[2] != "")
-	_tableField.DBType_inDB_name = _comment[2];
-if (_comment[3] != "")
-	_tableField.DBType_inDB_name = _comment[3];
+
+												// sql server
+												if (_comment[2] != "")
+													_tableField.SQLServerTypeName = _comment[2];
+
+												// postgresql
+												if (_comment[3] != "")
+													_tableField.PostgreSQLTypeName = _comment[3];
+
 												if (_comment[4] != "")
 													_tableField.Numeric_Precision = int.Parse(_comment[4]);
 												if (_comment[5] != "")

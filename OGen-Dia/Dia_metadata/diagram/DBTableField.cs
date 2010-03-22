@@ -19,5 +19,9 @@ using OGen.lib.datalayer;
 namespace OGen.Dia.lib.metadata.diagram {
 	public class DBTableField : OGen.lib.datalayer.DBTableField {
 		public bool isUnique;
+
+		public string SQLServerTypeName;
+		public string PostgreSQLTypeName;
+
 	}
 }

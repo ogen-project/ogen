@@ -32,7 +32,7 @@ DBTableField[] _tablefields = _aux_table.TableFields();
 //-----------------------------------------------------------------------------------------
 %>CREATE TABLE "<%=_aux_table.TableName%>" (<%
 for (int f = 0; f < _tablefields.Length; f++) {%>
-	"<%=_tablefields[f].Name%>" <%=_tablefields[f].DBType_inDB_name%><%=(_tablefields[f].DBType_inDB_name == "character varying") ? "(" + _tablefields[f].Size.ToString() + ")" : ""%> <%=(_tablefields[f].isNullable) ? "" : "NOT " %>NULL<%=(_tablefields.Length -1 == f) ? "" : "," %><%
+	"<%=_tablefields[f].Name%>" <%=_tablefields[f].PostgreSQLTypeName%><%=(_tablefields[f].PostgreSQLTypeName.ToLower() == "character varying") ? "(" + _tablefields[f].Size.ToString() + ")" : ""%> <%=(_tablefields[f].isNullable) ? "" : "NOT " %>NULL<%=(_tablefields.Length -1 == f) ? "" : "," %><%
 }%>
 )
 WITH (OIDS=FALSE);
