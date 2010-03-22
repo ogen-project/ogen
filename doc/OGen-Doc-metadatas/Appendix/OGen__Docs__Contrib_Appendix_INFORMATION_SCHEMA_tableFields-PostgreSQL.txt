@@ -16,7 +16,8 @@ SELECT
 --	_columns.table_catalog,
 --	_columns.udt_name
 --	AS udt_name,
-	_columns.table_name,
+
+	_columns.table_name,
 
 	_columns.column_name,
 
