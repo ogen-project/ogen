@@ -138,10 +138,18 @@ namespace OGen.Dia.lib.generator {
 
 					#region _isUsingPostgreSQL = ...; _isUsingSQLServer = ...;
 					for (int f = 0; f < _dbtablefields.Length; f++) {
-						if (_dbtablefields[f].PostgreSQLTypeName.Trim() != "") {
+						if (
+							(_dbtablefields[f].PostgreSQLTypeName != null)
+							&&
+							(_dbtablefields[f].PostgreSQLTypeName.Trim() != "")
+						) {
 							_isUsingPostgreSQL = true;
 						}
-						if (_dbtablefields[f].SQLServerTypeName.Trim() != "") {
+						if (
+							(_dbtablefields[f].SQLServerTypeName != null)
+							&&
+							(_dbtablefields[f].SQLServerTypeName.Trim() != "")
+						) {
 							_isUsingSQLServer = true;
 						}
 						if (
@@ -155,6 +163,20 @@ namespace OGen.Dia.lib.generator {
 					#endregion
 
 					for (int f = 0; f < _dbtablefields.Length; f++) {
+						#region checking if db server type supported
+						if (
+							!_isUsingPostgreSQL
+							&&
+							!_isUsingSQLServer
+						) {
+							throw new Exception(string.Format(
+								"no db type defined (should use at least one of the supported db servers: PostgreSQL or SQLServer)",
+								_dbtablefields[f].TableName,
+								_dbtablefields[f].Name
+							));
+						}
+						#endregion
+
 						#region checking postgresql field type . . .
 						_dbtype_psql = null;
 

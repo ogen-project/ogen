@@ -54,6 +54,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 			}
 		}
 		#endregion
+
 		#region public DBTableField[] TableFields();
 		public DBTableField[] TableFields() {
 			DBTableField _tableField;
