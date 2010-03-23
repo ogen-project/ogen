@@ -132,9 +132,18 @@ namespace OGen.Dia.lib.generator {
 			bool _isUsingPostgreSQL = false;
 			bool _isUsingSQLServer = false;
 			DBTableField[] _dbtablefields;
+			DBTableField[] _dbtablefields2;
+			XS_objectType.FK[] __fks;
+			System.Collections.Generic.Dictionary<string, XS_objectType.FK> _fks;
+			bool _foundFKTable;
+			bool _foundFKField;
 			for (int l = 0; l < diagram_.LayerCollection.Count; l++) {
 				for (int o = 0; o < diagram_.LayerCollection[l].ObjectCollection.Count; o++) {
 					_dbtablefields = diagram_.Table_search(l, o).TableFields();
+					diagram_.Table_search(l, o).TableFKs(
+						out __fks,
+						out _fks
+					);
 
 					#region _isUsingPostgreSQL = ...; _isUsingSQLServer = ...;
 					for (int f = 0; f < _dbtablefields.Length; f++) {
@@ -246,6 +255,213 @@ namespace OGen.Dia.lib.generator {
 								));
 							}
 						} 
+						#endregion
+
+						#region //checking FKs . . .
+						//if (
+						//    (_dbtablefields[f].FK_TableName != null)
+						//    &&
+						//    (_dbtablefields[f].FK_TableName.Trim() != "")
+						//) {
+						//    _foundFKTable = false;
+						//    _foundFKField = false;
+						//    for (int l2 = 0; l2 < diagram_.LayerCollection.Count; l2++) {
+						//        for (int o2 = 0; o2 < diagram_.LayerCollection[l2].ObjectCollection.Count; o2++) {
+						//            if (
+						//                diagram_.Table_search(l2, o2).TableName
+						//                ==
+						//                _dbtablefields[f].FK_TableName
+						//            ) {
+						//                _dbtablefields2 = diagram_.Table_search(l2, o2).TableFields();
+
+						//                for (int f2 = 0; f2 < _dbtablefields2.Length; f2++) {
+						//                    if (
+						//                        _dbtablefields2[f2].Name
+						//                        ==
+						//                        _dbtablefields[f].FK_FieldName
+						//                    ) {
+
+						//                        if (
+						//                            _dbtablefields2[f2].PostgreSQLTypeName
+						//                            !=
+						//                            _dbtablefields[f].PostgreSQLTypeName
+						//                        ) {
+						//                            throw new Exception(string.Format(
+						//                                "foreign key postgresql db type mismatch: {0}.{1}",
+						//                                _dbtablefields[f].FK_TableName,
+						//                                _dbtablefields[f].FK_FieldName
+						//                            ));
+						//                        }
+						//                        if (
+						//                            _dbtablefields2[f2].SQLServerTypeName
+						//                            !=
+						//                            _dbtablefields[f].SQLServerTypeName
+						//                        ) {
+						//                            throw new Exception(string.Format(
+						//                                "foreign key sql server db type mismatch: {0}.{1}",
+						//                                _dbtablefields[f].FK_TableName,
+						//                                _dbtablefields[f].FK_FieldName
+						//                            ));
+						//                        }
+
+						//                        _foundFKField = true;
+						//                        break;
+						//                    }
+						//                }
+
+						//                _foundFKTable = true;
+						//                break;
+						//            }
+						//        }
+						//    }
+
+						//    if (!_foundFKTable) {
+						//        throw new Exception(string.Format(
+						//            "can't find foreign key TABLE: {0}.{1}",
+						//            _dbtablefields[f].FK_TableName,
+						//            _dbtablefields[f].FK_FieldName
+						//        ));
+						//    }
+						//    if (!_foundFKField) {
+						//        throw new Exception(string.Format(
+						//            "can't find foreign key FIELD: {0}.{1}",
+						//            _dbtablefields[f].FK_TableName,
+						//            _dbtablefields[f].FK_FieldName
+						//        ));
+						//    }
+						//}
+						#endregion
+						#region checking FKs . . .
+						if (
+							_fks.ContainsKey(_dbtablefields[f].Name)
+						) {
+							_foundFKTable = false;
+							_foundFKField = false;
+							for (int l2 = 0; l2 < diagram_.LayerCollection.Count; l2++) {
+							    for (int o2 = 0; o2 < diagram_.LayerCollection[l2].ObjectCollection.Count; o2++) {
+									if (
+										diagram_.Table_search(l2, o2).TableName
+										==
+										_fks[_dbtablefields[f].Name].FK_TableName
+									) {
+										_dbtablefields2 = diagram_.Table_search(l2, o2).TableFields();
+
+										for (int f2 = 0; f2 < _dbtablefields2.Length; f2++) {
+											if (
+												_dbtablefields2[f2].Name
+												==
+												_fks[_dbtablefields[f].Name].FK_TableFieldName
+											) {
+
+												if (
+													(
+														(_dbtablefields2[f2].PostgreSQLTypeName == null)
+														!=
+														(_dbtablefields[f].PostgreSQLTypeName == null)
+													)
+													||
+													(
+														//_dbtablefields2[f2].PostgreSQLTypeName
+														//!=
+														//_dbtablefields[f].PostgreSQLTypeName
+
+														!(
+															(_dbtablefields2[f2].PostgreSQLTypeName == _dbtablefields[f].PostgreSQLTypeName)
+															||
+															(
+																(_dbtablefields2[f2].PostgreSQLTypeName == "serial")
+																&&
+																(_dbtablefields[f].PostgreSQLTypeName == "integer")
+															)
+															||
+															(
+																(_dbtablefields[f].PostgreSQLTypeName == "serial")
+																&&
+																(_dbtablefields2[f2].PostgreSQLTypeName == "integer")
+															)
+															||
+															(
+																(_dbtablefields2[f2].PostgreSQLTypeName == "bigserial")
+																&&
+																(_dbtablefields[f].PostgreSQLTypeName == "bigint")
+															)
+															||
+															(
+																(_dbtablefields[f].PostgreSQLTypeName == "bigserial")
+																&&
+																(_dbtablefields2[f2].PostgreSQLTypeName == "bigint")
+															)
+														)
+													)
+												) {
+													throw new Exception(string.Format(
+														"foreign key postgresql db type mismatch: {0}.{1} -> {2}.{3}",
+
+														diagram_.Table_search(l, o).TableName,
+														_dbtablefields[f].Name,
+
+														_fks[_dbtablefields[f].Name].FK_TableName,
+														_fks[_dbtablefields[f].Name].FK_TableFieldName
+													));
+												}
+												if (
+													(
+														(_dbtablefields2[f2].SQLServerTypeName == null)
+														!=
+														(_dbtablefields[f].SQLServerTypeName == null)
+													)
+													||
+													(
+														_dbtablefields2[f2].SQLServerTypeName
+														!=
+														_dbtablefields[f].SQLServerTypeName
+													)
+												) {
+													throw new Exception(string.Format(
+														"foreign key sql server db type mismatch: {0}.{1} -> {2}.{3}",
+
+														diagram_.Table_search(l, o).TableName,
+														_dbtablefields[f].Name,
+
+														_fks[_dbtablefields[f].Name].FK_TableName,
+														_fks[_dbtablefields[f].Name].FK_TableFieldName
+													));
+												}
+
+												_foundFKField = true;
+												break;
+											}
+										}
+
+										_foundFKTable = true;
+										break;
+							        }
+							    }
+							}
+
+							if (!_foundFKTable) {
+								throw new Exception(string.Format(
+									"can't find foreign key TABLE: {0}.{1} -> {2}.{3}",
+
+									diagram_.Table_search(l, o).TableName,
+									_dbtablefields[f].Name,
+
+									_fks[_dbtablefields[f].Name].FK_TableName,
+									_fks[_dbtablefields[f].Name].FK_TableFieldName
+								));
+							}
+							if (!_foundFKField) {
+								throw new Exception(string.Format(
+									"can't find foreign key FIELD: {0}.{1} -> {2}.{3}",
+
+									diagram_.Table_search(l, o).TableName,
+									_dbtablefields[f].Name,
+
+									_fks[_dbtablefields[f].Name].FK_TableName,
+									_fks[_dbtablefields[f].Name].FK_TableFieldName
+								));
+							}
+						}
 						#endregion
 					}
 				}

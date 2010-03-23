@@ -161,8 +161,24 @@ namespace OGen.Dia.lib.metadata.diagram {
 		#endregion
 
 		public FK[] TableFKs() {
+			FK[] _output;
+			System.Collections.Generic.Dictionary<string, FK> _output2;
+
+			TableFKs(
+				out _output, 
+				out _output2
+			);
+
+			return _output;
+		}
+		public void TableFKs(
+			out FK[] fks_out,
+			out System.Collections.Generic.Dictionary<string, FK> fks_dic_out
+		) {
 			System.Collections.Generic.List<FK> _output 
 				= new System.Collections.Generic.List<FK>();
+			System.Collections.Generic.Dictionary<string, FK> _output2
+				= new System.Collections.Generic.Dictionary<string, FK>();
 
 			XS_objectType _table_a;
 			string _tableName_a;
@@ -178,6 +194,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 			XS_layerType _layertype = (XS_layerType)_objecttypecollection.parent_ref;
 			XS_layerTypeCollection _layertypecollection = (XS_layerTypeCollection)_layertype.parent_ref;
 			XS__diagram _root_ref = (XS__diagram)_layertypecollection.parent_ref;
+			FK _aux;
 
 			for (int l = 0; l < _root_ref.LayerCollection.Count; l++) {
 				for (int o = 0; o < _root_ref.LayerCollection[l].ObjectCollection.Count; o++) {
@@ -223,29 +240,40 @@ namespace OGen.Dia.lib.metadata.diagram {
 								&&
 								(_direction == "1")
 							) {
-								_output.Add(new FK(
+								_output2.Add(
 									_tableFieldName_a,
-									_tableName_b,
-									_tableFieldName_b
-								));
+									_aux = new FK(
+										_tableFieldName_a,
+										_tableName_b,
+										_tableFieldName_b
+									)
+								);
+								_output.Add(_aux);
 							}
 							if (
 								(_table_b == this)
 								&&
 								(_direction == "2")
 							) {
-								_output.Add(new FK(
+								_output2.Add(
 									_tableFieldName_b,
-									_tableName_a,
-									_tableFieldName_a
-								));
+									_aux = new FK(
+										_tableFieldName_b,
+										_tableName_a,
+										_tableFieldName_a
+									)
+								);
+								_output.Add(_aux);
 							}
 							break;
 					}
 				}
 			}
 
-			return _output.ToArray();
+			fks_dic_out = _output2;
+			fks_out = _output.ToArray();
+
+			//return _output.ToArray();
 		}
 		#endregion
 	}
