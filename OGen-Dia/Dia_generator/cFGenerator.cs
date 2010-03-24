@@ -145,6 +145,19 @@ namespace OGen.Dia.lib.generator {
 						out _fks
 					);
 
+					#region checking for invalid foreign keys
+					if (
+						_fks.ContainsKey("")
+					) {
+						throw new Exception(string.Format(
+							"invalid foreign key at table: {0}.? -> {1}.?",
+
+							diagram_.Table_search(l, o).TableName,
+							_fks[""].FK_TableName
+						));
+					}
+					#endregion
+
 					#region _isUsingPostgreSQL = ...; _isUsingSQLServer = ...;
 					for (int f = 0; f < _dbtablefields.Length; f++) {
 						if (
@@ -192,7 +205,11 @@ namespace OGen.Dia.lib.generator {
 						if (
 							_isUsingPostgreSQL
 						) {
-							if (_dbtablefields[f].PostgreSQLTypeName.Trim() == "") {
+							if (
+								(_dbtablefields[f].PostgreSQLTypeName == null)
+								||
+								(_dbtablefields[f].PostgreSQLTypeName.Trim() == "")
+							) {
 								throw new Exception(string.Format(
 									"invalid table field type - empty postgresql type: {0}.{1}",
 									_dbtablefields[f].TableName,
@@ -214,7 +231,11 @@ namespace OGen.Dia.lib.generator {
 						if (
 							_isUsingSQLServer
 						) {
-							if (_dbtablefields[f].SQLServerTypeName.Trim() == "") {
+							if (
+								(_dbtablefields[f].SQLServerTypeName == null)
+								||
+								(_dbtablefields[f].SQLServerTypeName.Trim() == "")
+							) {
 								throw new Exception(string.Format(
 									"invalid table field type - empty sql server type: {0}.{1}",
 									_dbtablefields[f].TableName,
@@ -333,7 +354,9 @@ namespace OGen.Dia.lib.generator {
 						#endregion
 						#region checking FKs . . .
 						if (
-							_fks.ContainsKey(_dbtablefields[f].Name)
+							_fks.ContainsKey(
+								_dbtablefields[f].Name
+							)
 						) {
 							_foundFKTable = false;
 							_foundFKField = false;
