@@ -1126,7 +1126,7 @@ namespace OGen.lib.datalayer {
 				getTables_out[r] = new DBTable(
 					(string)_dtemp.Rows[r][INFORMATION_SCHEMA_TABLES_TABLE_NAME],
 					(1 == (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_TABLES_IS_VIEW], typeof(int))),
-					(string)_dtemp.Rows[r][INFORMATION_SCHEMA_TABLES_TABLE_DESCRIPTION]
+					(_dtemp.Rows[r][INFORMATION_SCHEMA_TABLES_TABLE_DESCRIPTION] == DBNull.Value) ? string.Empty : (string)_dtemp.Rows[r][INFORMATION_SCHEMA_TABLES_TABLE_DESCRIPTION]
 				);
 			}
 			_dtemp.Dispose(); _dtemp = null;
@@ -1247,7 +1247,7 @@ namespace OGen.lib.datalayer {
 
 				getTableFields_out[r].DBCollationName = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLLATION_NAME] == DBNull.Value) ? string.Empty : (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLLATION_NAME];
 
-				getTableFields_out[r].DBDescription = (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLUMN_DESCRIPTION];
+				getTableFields_out[r].DBDescription = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLUMN_DESCRIPTION] == DBNull.Value) ? string.Empty : (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLUMN_DESCRIPTION];
 			}
 			_dtemp.Dispose(); _dtemp = null;
 
