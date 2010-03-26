@@ -12,6 +12,23 @@ test',
 	@level1name = 'CRD_User';
 GO
 
+use "Kick"
+go
+exec sys.sp_addextendedproperty 
+	@name = N'MS_Description', 
+	@value = N'test test 
+test', 
+
+	@level0type = N'SCHEMA', 
+	@level0name = 'dbo', 
+
+	@level1type = N'TABLE',  
+	@level1name = 'CRD_User', 
+
+	@level2type = N'COLUMN', 
+	@level2name = 'IDUser';
+GO
+
 SELECT 
 	TABLE_NAME, 
 	ex2.value AS TABLE_DESCRIPTION 

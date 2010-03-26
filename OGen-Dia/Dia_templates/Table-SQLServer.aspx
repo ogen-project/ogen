@@ -53,3 +53,30 @@ for (int f = 0; f < _tablefields.Length; f++) {
 	) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+EXEC sys.sp_addextendedproperty 
+	@name = N'MS_Description', 
+	@value = N'<%=_aux_table.TableComment%>', 
+
+	@level0type = N'SCHEMA', 
+	@level0name = 'dbo', 
+
+	@level1type = N'TABLE',  
+	@level1name = '<%=_aux_table.TableName%>';
+GO<%
+for (int f = 0; f < _tablefields.Length; f++) {%><%=""%>
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'<%=_tablefields[f].DBDescription%>', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = '<%=_aux_table.TableName%>', 
+
+		@level2type = N'COLUMN', 
+		@level2name = '<%=_tablefields[f].Name%>';
+	GO<%
+}%><%=""%>
+<%=""%>
+<%=""%>
