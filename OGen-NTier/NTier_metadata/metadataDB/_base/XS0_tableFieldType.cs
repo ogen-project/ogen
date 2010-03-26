@@ -164,6 +164,19 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			}
 		}
 		#endregion
+		#region public string Description { get; set; }
+		internal string description_;
+
+		[XmlAttribute("description")]
+		public string Description {
+			get {
+				return description_;
+			}
+			set {
+				description_ = value;
+			}
+		}
+		#endregion
 		#region public XS_tableFieldDBsType TableFieldDBs { get; set; }
 		internal XS_tableFieldDBsType tablefielddbs__;
 
@@ -200,6 +213,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			size_ = tableFieldType_in.size_;
 			numericprecision_ = tableFieldType_in.numericprecision_;
 			numericscale_ = tableFieldType_in.numericscale_;
+			description_ = tableFieldType_in.description_;
 			if (tableFieldType_in.tablefielddbs__ != null) tablefielddbs__.CopyFrom(tableFieldType_in.tablefielddbs__);
 		}
 		#endregion

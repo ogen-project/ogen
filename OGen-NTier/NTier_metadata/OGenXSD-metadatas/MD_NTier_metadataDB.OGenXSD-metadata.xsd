@@ -116,6 +116,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<xs:attribute name="size" type="xs:integer" />
 		<xs:attribute name="numericPrecision" type="xs:integer" />
 		<xs:attribute name="numericScale" type="xs:integer" />
+		<xs:attribute name="description" type="xs:string" />
 		<xs:sequence>
 			<xs:element name="tableFieldDBs" type="tableFieldDBsType" />
 		</xs:sequence>
@@ -141,6 +142,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	<xs:complexType name="tableType">
 		<xs:attribute name="name" type="xs:string" />
 		<xs:attribute name="isVirtualTable" type="xs:boolean" />
+		<xs:attribute name="description" type="xs:string" />
 		<xs:sequence>
 			<xs:element name="tableDBs" type="tableDBsType" />
 			<xs:element name="tableFields" type="tableFieldsType" />
