@@ -12,13 +12,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 --<document>
 SELECT
-	TABLE_NAME AS "Name",
+	table_name,
 	CASE
 		WHEN (TABLE_TYPE = 'VIEW') THEN
 			CAST(1 AS unsigned)
 		ELSE
 			CAST(0 AS unsigned)
-		END AS "isVT"
+		END AS is_view, 
+	table_comment AS table_description
 FROM INFORMATION_SCHEMA.TABLES
 WHERE
 	(

@@ -24,8 +24,14 @@ SELECT
 		ELSE
 			CAST(0 AS INT)
 	END
-	AS is_view
+	AS is_view, 
+	_prop.value AS table_description 
 FROM information_schema.tables _table
+LEFT JOIN sys.extended_properties _prop ON (
+	(_prop.major_id = object_id(_table.table_name))
+	AND 
+	(_prop.name = 'MS_Description')
+)
 INNER JOIN [dbo].[OGen_fnc0__Split](
 	@subApp_, 
 	'|'

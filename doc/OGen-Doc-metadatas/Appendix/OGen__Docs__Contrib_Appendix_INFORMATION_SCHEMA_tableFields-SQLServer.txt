@@ -67,9 +67,19 @@ SELECT
 
 	_columns.numeric_precision,
 
-	_columns.numeric_scale
+	_columns.numeric_scale, 
+
+	_prop.value AS column_description
 
 FROM information_schema.columns AS _columns
+
+	LEFT JOIN sys.extended_properties _prop ON (
+		(_prop.major_id = Object_id(_field.table_name))
+		and
+		(_prop.minor_id = _field.ordinal_position)
+		and 
+		(_prop.name = 'MS_Description')
+	)
 
 	LEFT JOIN information_schema.tables AS _tables ON (
 		(_tables.table_catalog = _columns.table_catalog)

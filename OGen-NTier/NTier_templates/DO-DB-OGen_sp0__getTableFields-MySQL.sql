@@ -52,7 +52,10 @@ SELECT
 
 	_columns.numeric_precision,
 
-	_columns.numeric_scale
+	_columns.numeric_scale, 
+
+	_columns.column_comment
+	AS column_description
 
 FROM information_schema.columns AS _columns
 

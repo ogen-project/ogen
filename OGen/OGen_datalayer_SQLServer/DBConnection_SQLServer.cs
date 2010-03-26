@@ -349,8 +349,14 @@ SELECT
 		ELSE
 			CAST(0 AS INT)
 	END
-	AS is_view
+	AS is_view, 
+	_prop.value AS table_description 
 FROM information_schema.tables _table
+LEFT JOIN sys.extended_properties _prop ON (
+	(_prop.major_id = object_id(_table.table_name))
+	AND 
+	(_prop.name = 'MS_Description')
+)
 WHERE
 	(
 		(_table.table_type = 'BASE TABLE')
@@ -468,9 +474,19 @@ SELECT
 
 	_field.numeric_precision,
 
-	_field.numeric_scale
+	_field.numeric_scale, 
+
+	_prop.value AS column_description
 
 FROM information_schema.columns AS _field
+
+	LEFT JOIN sys.extended_properties _prop ON (
+		(_prop.major_id = Object_id(_field.table_name))
+		and
+		(_prop.minor_id = _field.ordinal_position)
+		and 
+		(_prop.name = 'MS_Description')
+	)
 
 	LEFT JOIN information_schema.tables _table ON (
 		(_table.table_catalog = _field.table_catalog)

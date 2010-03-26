@@ -34,3 +34,18 @@ exec sys.sp_dropextendedproperty
 	@level0name = 'dbo', 
 	@level1type = N'TABLE', 
 	@level1name = 'CRD_User'
+
+
+
+SELECT 
+	INFORMATION_SCHEMA.COLUMNS.TABLE_NAME, 
+	INFORMATION_SCHEMA.COLUMNS.COLUMN_NAME, 
+	ex2.value AS COLUMN_DESCRIPTION
+FROM INFORMATION_SCHEMA.COLUMNS
+LEFT JOIN sys.extended_properties ex2 ON (
+	ex2.major_id = Object_id(INFORMATION_SCHEMA.COLUMNS.TABLE_NAME) 
+	and
+	ex2.minor_id = INFORMATION_SCHEMA.COLUMNS.ORDINAL_POSITION
+	and 
+	ex2.name = 'MS_Description'
+)

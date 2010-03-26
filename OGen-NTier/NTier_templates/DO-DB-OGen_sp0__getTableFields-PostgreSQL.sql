@@ -78,7 +78,20 @@ RETURNS SETOF "v0__getTableFields" AS $BODY$
 
 				_field.numeric_precision,
 
-				_field.numeric_scale
+				_field.numeric_scale, 
+
+				col_description(
+					(
+						select
+							c.oid
+						from pg_catalog.pg_class c 
+						where
+							(c.relname = _field.table_name)
+
+					), 
+					_field.ordinal_position
+				) 
+				AS column_description
 
 			FROM information_schema.columns AS _field
 

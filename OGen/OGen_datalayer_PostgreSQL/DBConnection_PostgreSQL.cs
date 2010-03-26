@@ -349,7 +349,18 @@ SELECT
 		ELSE
 			CAST(0 AS INT)
 	END
-	AS is_view
+	AS is_view, 
+	obj_description(
+		(
+			select
+				c.oid
+			from pg_catalog.pg_class c 
+			where
+				(c.relname = _table.table_name)
+
+		), 
+		'pg_class'
+	) AS table_description 
 FROM information_schema.tables _table
 WHERE
 	(
@@ -472,7 +483,20 @@ SELECT
 
 	_field.numeric_precision,
 
-	_field.numeric_scale
+	_field.numeric_scale, 
+
+	col_description(
+		(
+			select
+				c.oid
+			from pg_catalog.pg_class c 
+			where
+				(c.relname = _field.table_name)
+
+		), 
+		_field.ordinal_position
+	) 
+	AS column_description
 
 FROM information_schema.columns AS _field
 

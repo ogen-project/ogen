@@ -20,7 +20,26 @@ SELECT
 		ELSE
 			CAST(0 AS INT)
 	END
-	AS is_view
+	AS is_view, 
+/*
+-- <PostgreSQL>
+	obj_description(
+		(
+			select
+				c.oid
+			from pg_catalog.pg_class c 
+			where
+				(c.relname = _table.table_name)
+
+		), 
+		'pg_class'
+	) AS table_description 
+-- </PostgreSQL>
+
+-- <SQLServer>
+	_prop.value AS table_description 
+-- </SQLServer>
+*/
 FROM information_schema.tables _table
 /*
 -- <PostgreSQL>
@@ -32,6 +51,11 @@ INNER JOIN "OGen_fnc0__Split"(
 -- </PostgreSQL>
 
 -- <SQLServer>
+LEFT JOIN sys.extended_properties _prop ON (
+	(_prop.major_id = object_id(_table.table_name))
+	AND 
+	(_prop.name = 'MS_Description')
+)
 INNER JOIN [dbo].[OGen_fnc0__Split](
 	@subApp_, 
 	'|'

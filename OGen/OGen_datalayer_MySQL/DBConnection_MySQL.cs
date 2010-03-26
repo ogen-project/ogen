@@ -352,7 +352,8 @@ SELECT
 			CAST(1 AS Signed Int)
 		ELSE
 			CAST(0 AS Signed Int)
-	END AS ""is_view""
+	END AS ""is_view"", 
+	""table_comment"" AS ""table_description""
 FROM INFORMATION_SCHEMA.TABLES
 WHERE
 	(
@@ -436,7 +437,10 @@ SELECT
 
 	_columns.numeric_precision,
 
-	_columns.numeric_scale
+	_columns.numeric_scale, 
+
+	_columns.column_comment
+	AS column_description
 
 FROM information_schema.columns AS _columns
 

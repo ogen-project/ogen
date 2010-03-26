@@ -34,7 +34,18 @@ RETURNS SETOF "v0__getTables" AS $BODY$
 					ELSE
 						CAST(0 AS INT)
 				END
-				AS is_view
+				AS is_view, 
+				obj_description(
+					(
+						select
+							c.oid
+						from pg_catalog.pg_class c 
+						where
+							(c.relname = _table.table_name)
+
+					), 
+					'pg_class'
+				) AS table_description 
 			FROM information_schema.tables _table
 			INNER JOIN "OGen_fnc0__Split"(
 				string_to_array("subApp_", '|')
