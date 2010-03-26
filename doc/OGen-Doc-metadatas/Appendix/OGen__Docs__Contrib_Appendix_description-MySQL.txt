@@ -1,0 +1,3 @@
+select 
+	COLUMN_COMMENT
+from information_schema.???

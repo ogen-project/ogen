@@ -1,0 +1,45 @@
+/*
+\dd "NWS_Highlight"
+                 Object descriptions
+ Schema |   Name        | Object |       Description
+--------+---------------+--------+--------------------------
+ public | NWS_Highlight | table | some description
+(1 row)
+*/
+
+/*
+select * from pg_shdescription
+*/
+
+select 
+	obj_description(
+		(
+			select
+				c."oid"
+			from "pg_catalog"."pg_class" c 
+			where
+				(c."relname" = information_schema.tables.table_name)
+
+		), 
+		'pg_class'
+	), 
+	* 
+from information_schema.tables
+where table_schema = 'public'
+
+
+select 
+	col_description(
+		(
+			select
+				c."oid"
+			from "pg_catalog"."pg_class" c 
+			where
+				(c."relname" = information_schema.columns.table_name)
+
+		), 
+		information_schema.columns.ordinal_position
+	), 
+	* 
+from information_schema.columns
+where table_schema = 'public'
