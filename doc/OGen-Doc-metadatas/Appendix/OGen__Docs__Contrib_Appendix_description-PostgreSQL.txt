@@ -1,17 +1,14 @@
 /*
 
 
-ALTER TABLE "NWS_Highlight" OWNER TO postgres;
-	COMMENT ON TABLE "NWS_Highlight" IS 'bla bla
+COMMENT ON TABLE "NWS_Highlight" IS 'bla bla
 bla
-.'
-;
+.';
 
 COMMENT ON COLUMN "NWS_Highlight"."IDHighlight" IS 'asd
 as
 a
-.'
-;
+.';
 
 
 \dd "NWS_Highlight"

@@ -36,4 +36,9 @@ for (int f = 0; f < _tablefields.Length; f++) {%>
 }%>
 )
 WITH (OIDS=FALSE);
-
+COMMENT ON TABLE "<%=_aux_table.TableName%>" IS <%=(_aux_table.TableComment) == "" ? "NULL" : "'" + _aux_table.TableComment + "'"%>;<%
+for (int f = 0; f < _tablefields.Length; f++) {%><%=""%>
+	COMMENT ON COLUMN "<%=_aux_table.TableName%>"."<%=_tablefields[f].Name%>" IS <%=(_tablefields[f].DBDescription == "") ? "NULL" : "'" + _tablefields[f].DBDescription + "'"%>;<%
+}%><%=""%>
+<%=""%>
+<%=""%>
