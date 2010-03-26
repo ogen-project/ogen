@@ -1055,6 +1055,7 @@ namespace OGen.lib.datalayer {
 		#region public cDBTable[] getTables(...);
 		private const string INFORMATION_SCHEMA_TABLES_TABLE_NAME = "table_name";
 		private const string INFORMATION_SCHEMA_TABLES_IS_VIEW = "is_view";
+		private const string INFORMATION_SCHEMA_TABLES_TABLE_DESCRIPTION = "table_description";
 
 		public abstract string getTables_query(
 			string dbName_in, 
@@ -1125,8 +1126,7 @@ namespace OGen.lib.datalayer {
 				getTables_out[r] = new DBTable(
 					(string)_dtemp.Rows[r][INFORMATION_SCHEMA_TABLES_TABLE_NAME],
 					(1 == (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_TABLES_IS_VIEW], typeof(int))),
-// ToDos: here!
-string.Empty
+					(string)_dtemp.Rows[r][INFORMATION_SCHEMA_TABLES_TABLE_DESCRIPTION]
 				);
 			}
 			_dtemp.Dispose(); _dtemp = null;
@@ -1148,6 +1148,7 @@ string.Empty
 		private const string INFORMATION_SCHEMA_COLUMNS_DATA_TYPE = "data_type";
 		private const string INFORMATION_SCHEMA_COLUMNS_COLUMN_DEFAULT = "column_default";
 		private const string INFORMATION_SCHEMA_COLUMNS_COLLATION_NAME = "collation_name";
+		private const string INFORMATION_SCHEMA_COLUMNS_COLUMN_DESCRIPTION = "column_description";
 
 		public abstract string getTableFields_query(
 			string tableName_in
@@ -1246,8 +1247,7 @@ string.Empty
 
 				getTableFields_out[r].DBCollationName = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLLATION_NAME] == DBNull.Value) ? string.Empty : (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLLATION_NAME];
 
-// ToDos: here!
-getTableFields_out[r].DBDescription = string.Empty;
+				getTableFields_out[r].DBDescription = (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLUMN_DESCRIPTION];
 			}
 			_dtemp.Dispose(); _dtemp = null;
 
