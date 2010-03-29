@@ -28,6 +28,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	</template-->
 	<template id="SomeApplication-MD_SomeApplication.OGenXSD-metadataExtended-CompareAndUpdate.xml.aspx"
 			name="SomeApplication-MD_SomeApplication.OGenXSD-metadataExtended-CompareAndUpdate.xml.aspx"
+			templateType=""
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -44,6 +45,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 	<template id="emptyfile.txt?PostgreSQL"
 			name="emptyfile.txt" 
+			templateType="DataLayer"
 			parserType="none"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -58,6 +60,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	</template>
 	<template id="emptyfile.txt?SQLServer"
 			name="emptyfile.txt"
+			templateType="DataLayer"
 			parserType="none"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -72,6 +75,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	</template>
 	<template id="emptyfile.txt?MySQL"
 			name="emptyfile.txt"
+			templateType="DataLayer"
 			parserType="none"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -88,6 +92,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 	<template id="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx"
 			name="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -112,6 +117,7 @@ XXX:TODOS -->
 	</template>
 	<template id="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx"
 			name="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -138,6 +144,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx"
 			name="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -165,6 +172,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx"
 			name="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -191,6 +199,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx"
 			name="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -219,6 +228,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx"
 			name="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -248,6 +258,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx"
 			name="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -276,6 +287,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-fnc0_SomeTable_isObject-MySQL.sql.aspx"
 			name="DO-DB-fnc0_SomeTable_isObject-MySQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -300,6 +312,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-fnc0_SomeTable_isObject-PostgreSQL.sql.aspx"
 			name="DO-DB-fnc0_SomeTable_isObject-PostgreSQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -326,6 +339,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-fnc0_SomeTable_isObject-SQLServer.sql.aspx"
 			name="DO-DB-fnc0_SomeTable_isObject-SQLServer.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -350,6 +364,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-MySQL.sql.aspx"
 			name="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-MySQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -378,6 +393,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-PostgreSQL.sql.aspx"
 			name="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-PostgreSQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -407,6 +423,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-SQLServer.sql.aspx"
 			name="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-SQLServer.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -435,6 +452,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-MySQL.sql.aspx"
 			name="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-MySQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -463,6 +481,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-PostgreSQL.sql.aspx"
 			name="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-PostgreSQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -492,6 +511,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-SQLServer.sql.aspx"
 			name="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-SQLServer.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -520,6 +540,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_insObject-MySQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_insObject-MySQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -547,6 +568,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_insObject-PostgreSQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_insObject-PostgreSQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -575,6 +597,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_insObject-SQLServer.sql.aspx"
 			name="DO-DB-sp0_SomeTable_insObject-SQLServer.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -602,6 +625,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_updObject-MySQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_updObject-MySQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -629,6 +653,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_updObject-PostgreSQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_updObject-PostgreSQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -657,6 +682,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_updObject-SQLServer.sql.aspx"
 			name="DO-DB-sp0_SomeTable_updObject-SQLServer.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -684,6 +710,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_setObject-MySQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_setObject-MySQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -709,6 +736,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_setObject-PostgreSQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_setObject-PostgreSQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -736,6 +764,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_setObject-SQLServer.sql.aspx"
 			name="DO-DB-sp0_SomeTable_setObject-SQLServer.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -761,6 +790,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_delObject-MySQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_delObject-MySQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -786,6 +816,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_delObject-PostgreSQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_delObject-PostgreSQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -813,6 +844,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_delObject-SQLServer.sql.aspx"
 			name="DO-DB-sp0_SomeTable_delObject-SQLServer.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -838,6 +870,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-MySQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-MySQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -867,6 +900,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-PostgreSQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-PostgreSQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -897,6 +931,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-SQLServer.sql.aspx"
 			name="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-SQLServer.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -926,6 +961,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-MySQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-MySQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -955,6 +991,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-PostgreSQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-PostgreSQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -986,6 +1023,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-SQLServer.sql.aspx"
 			name="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-SQLServer.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1015,6 +1053,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx"
 			name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1041,6 +1080,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx"
 			name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1069,6 +1109,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx"
 			name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1095,6 +1136,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx"
 			name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1121,6 +1163,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx"
 			name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1150,6 +1193,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx"
 			name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1176,6 +1220,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx"
 			name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1204,6 +1249,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx"
 			name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1234,6 +1280,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx"
 			name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1262,6 +1309,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_getObject-MySQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_getObject-MySQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -1286,6 +1334,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_getObject-PostgreSQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_getObject-PostgreSQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -1312,6 +1361,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_getObject-SQLServer.sql.aspx"
 			name="DO-DB-sp0_SomeTable_getObject-SQLServer.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -1336,6 +1386,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-MySQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-MySQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1364,6 +1415,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-PostgreSQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-PostgreSQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1393,6 +1445,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-SQLServer.sql.aspx"
 			name="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-SQLServer.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1421,6 +1474,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-MySQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-MySQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1449,6 +1503,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-PostgreSQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-PostgreSQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1478,6 +1533,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-SQLServer.sql.aspx"
 			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-SQLServer.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1506,6 +1562,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-MySQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-MySQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1534,6 +1591,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-PostgreSQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-PostgreSQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1564,6 +1622,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-SQLServer.sql.aspx"
 			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-SQLServer.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1592,6 +1651,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-MySQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-MySQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1620,6 +1680,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-PostgreSQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-PostgreSQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1649,6 +1710,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-SQLServer.sql.aspx"
 			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-SQLServer.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
 		<arguments>
@@ -1677,6 +1739,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-MySQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-MySQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].updates.update[n]">
 		<arguments>
@@ -1705,6 +1768,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-PostgreSQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-PostgreSQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].updates.update[n]">
 		<arguments>
@@ -1734,6 +1798,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-SQLServer.sql.aspx"
 			name="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-SQLServer.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].updates.update[n]">
 		<arguments>
@@ -1762,6 +1827,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_updObject_SomeUpdate-MySQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_updObject_SomeUpdate-MySQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableUpdates.tableUpdate[n]">
 		<arguments>
@@ -1788,6 +1854,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_updObject_SomeUpdate-PostgreSQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_updObject_SomeUpdate-PostgreSQL.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableUpdates.tableUpdate[n]">
 		<arguments>
@@ -1815,6 +1882,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-sp0_SomeTable_updObject_SomeUpdate-SQLServer.sql.aspx"
 			name="DO-DB-sp0_SomeTable_updObject_SomeUpdate-SQLServer.sql.aspx" 
+			templateType="DataLayer"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableUpdates.tableUpdate[n]">
 		<arguments>
@@ -1841,6 +1909,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-OGen_fnc0__Split-PostgreSQL.sql"
 			name="DO-DB-OGen_fnc0__Split-PostgreSQL.sql" 
+			templateType="DataLayer"
 			parserType="none" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -1861,6 +1930,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-OGen_fnc0__Split-SQLServer.sql"
 			name="DO-DB-OGen_fnc0__Split-SQLServer.sql" 
+			templateType="DataLayer"
 			parserType="none" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -1881,6 +1951,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-OGen_fnc0__Like-PostgreSQL.sql"
 			name="DO-DB-OGen_fnc0__Like-PostgreSQL.sql" 
+			templateType="DataLayer"
 			parserType="none" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -1903,6 +1974,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-OGen_fnc0__Like-SQLServer.sql"
 			name="DO-DB-OGen_fnc0__Like-SQLServer.sql" 
+			templateType="DataLayer"
 			parserType="none" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -1925,6 +1997,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-OGen_v0__getTables-PostgreSQL.sql"
 			name="DO-DB-OGen_v0__getTables-PostgreSQL.sql" 
+			templateType="DataLayer"
 			parserType="none" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -1945,6 +2018,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-OGen_sp0__getTables-PostgreSQL.sql"
 			name="DO-DB-OGen_sp0__getTables-PostgreSQL.sql" 
+			templateType="DataLayer"
 			parserType="none" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -1968,6 +2042,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-OGen_sp0__getTables-SQLServer.sql"
 			name="DO-DB-OGen_sp0__getTables-SQLServer.sql" 
+			templateType="DataLayer"
 			parserType="none" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -1990,6 +2065,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-OGen_v0__getTableFields-PostgreSQL.sql"
 			name="DO-DB-OGen_v0__getTableFields-PostgreSQL.sql" 
+			templateType="DataLayer"
 			parserType="none" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -2010,6 +2086,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-OGen_sp0__getTableFields-PostgreSQL.sql"
 			name="DO-DB-OGen_sp0__getTableFields-PostgreSQL.sql" 
+			templateType="DataLayer"
 			parserType="none" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -2032,6 +2109,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-OGen_sp0__getTableFields-SQLServer.sql"
 			name="DO-DB-OGen_sp0__getTableFields-SQLServer.sql" 
+			templateType="DataLayer"
 			parserType="none" 
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -2052,6 +2130,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="DO-DB-OGen_sp0__getTableFields-MySQL.sql"
 			name="DO-DB-OGen_sp0__getTableFields-MySQL.sql"
+			templateType="DataLayer"
 			parserType="none"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments />
@@ -2103,6 +2182,7 @@ XXX:TO_DOS -->
 	<!-- search:solution -->
 	<template id="PRJ-Someapp-9.sln.aspx?GAC=True"
 			name="PRJ-Someapp-9.sln.aspx"
+			templateType=""
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -2119,6 +2199,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="PRJ-Someapp-9.sln.aspx?GAC=False"
 			name="PRJ-Someapp-9.sln.aspx"
+			templateType=""
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -2138,6 +2219,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:datalayer -->
 	<template id="PRJ-DO-Someapp-datalayer-9.csproj.aspx?GAC=True"
 			name="PRJ-DO-Someapp-datalayer-9.csproj.aspx"
+			templateType="DataLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -2154,6 +2236,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="PRJ-DO-Someapp-datalayer-9.csproj.aspx?GAC=False"
 			name="PRJ-DO-Someapp-datalayer-9.csproj.aspx"
+			templateType="DataLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -2171,6 +2254,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:datalayer:AssemblyInfo -->
 	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=datalayer"
 			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType="DataLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -2188,6 +2272,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:datalayer:DO_Sometable -->
 	<template id="PRJ-DO-Someapp-datalayer-DO_Sometable.cs.aspx"
 			name="PRJ-DO-Someapp-datalayer-DO_Sometable.cs.aspx"
+			templateType="DataLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -2205,6 +2290,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:datalayer:DO0_Sometable -->
 	<template id="PRJ-DO-Someapp-datalayer-DO0_Sometable.cs.aspx"
 			name="PRJ-DO-Someapp-datalayer-DO0_Sometable.cs.aspx"
+			templateType="DataLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -2222,6 +2308,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:datalayer:DO__utils -->
 	<template id="PRJ-DO-Someapp-datalayer-DO__utils.cs.aspx"
 			name="PRJ-DO-Someapp-datalayer-DO__utils.cs.aspx"
+			templateType="DataLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -2238,6 +2325,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:datalayer:DO0__utils -->
 	<template id="PRJ-DO-Someapp-datalayer-DO0__utils.cs.aspx"
 			name="PRJ-DO-Someapp-datalayer-DO0__utils.cs.aspx"
+			templateType="DataLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -2255,6 +2343,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:datalayer:structures -->
 	<template id="PRJ-DO-Someapp-datalayer-structures-9.csproj.aspx?GAC=True"
 			name="PRJ-DO-Someapp-datalayer-structures-9.csproj.aspx"
+			templateType="DataLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -2271,6 +2360,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="PRJ-DO-Someapp-datalayer-structures-9.csproj.aspx?GAC=False"
 			name="PRJ-DO-Someapp-datalayer-structures-9.csproj.aspx"
+			templateType="DataLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -2288,6 +2378,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:datalayer:structures:AssemblyInfo -->
 	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=datalayer-structures"
 			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType="DataLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0]">
 		<arguments>
@@ -2305,6 +2396,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:datalayer:structures:SO0_Sometable -->
 	<template id="PRJ-DO-Someapp-datalayer-structures-SO0_Sometable.cs.aspx"
 			name="PRJ-DO-Someapp-datalayer-structures-SO0_Sometable.cs.aspx"
+			templateType="DataLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0].tables.table[n]">
 		<arguments>
@@ -2324,6 +2416,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:businesslayer -->
 	<template id="PRJ-BO-Someapp-businesslayer-9.csproj.aspx?GAC=True"
 			name="PRJ-BO-Someapp-businesslayer-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2340,6 +2433,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="PRJ-BO-Someapp-businesslayer-9.csproj.aspx?GAC=False"
 			name="PRJ-BO-Someapp-businesslayer-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2357,6 +2451,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:businesslayer:AssemblyInfo -->
 	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=businesslayer"
 			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2375,6 +2470,7 @@ XXX:TO_DOS -->
 	<!--
 	<template id="PRJ-BO-Someapp-businesslayer-SBO_Somebo.cs.aspx"
 			name="PRJ-BO-Someapp-businesslayer-SBO_Somebo.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
 		<arguments>
@@ -2393,6 +2489,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:businesslayer:BO0_Somebo -->
 	<template id="PRJ-BO-Someapp-businesslayer-BO0_Somebo.cs.aspx"
 			name="PRJ-BO-Someapp-businesslayer-BO0_Somebo.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
 		<arguments>
@@ -2411,6 +2508,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:businesslayer:structures -->
 	<template id="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx?GAC=True"
 			name="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2427,6 +2525,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx?GAC=False"
 			name="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2444,6 +2543,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:businesslayer:structures:AssemblyInfo -->
 	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=businesslayer-structures"
 			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2463,6 +2563,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:businesslayer:shared -->
 	<template id="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx?GAC=True"
 			name="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2479,6 +2580,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx?GAC=False"
 			name="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2496,6 +2598,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:businesslayer:shared:AssemblyInfo -->
 	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=businesslayer-shared"
 			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2513,6 +2616,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:businesslayer:shared:IBO_Somebo -->
 	<template id="PRJ-BO-Someapp-businesslayer-shared-IBO_Somebo.cs.aspx"
 			name="PRJ-BO-Someapp-businesslayer-shared-IBO_Somebo.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
 		<arguments>
@@ -2530,6 +2634,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:businesslayer:shared:IBO0_Somebo -->
 	<template id="PRJ-BO-Someapp-businesslayer-shared-IBO0_Somebo.cs.aspx"
 			name="PRJ-BO-Someapp-businesslayer-shared-IBO0_Somebo.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
 		<arguments>
@@ -2548,6 +2653,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:businesslayer:instances -->
 	<template id="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx?GAC=True"
 			name="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2564,6 +2670,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx?GAC=False"
 			name="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2580,6 +2687,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx?GAC=True&quot;BusinessObject=True"
 			name="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2597,6 +2705,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx?GAC=False&quot;BusinessObject=True"
 			name="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2614,6 +2723,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx?GAC=True&quot;RemotingClient=True"
 			name="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2631,6 +2741,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx?GAC=False&quot;RemotingClient=True"
 			name="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2648,6 +2759,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx?GAC=True&quot;WebservicesClient=True"
 			name="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2665,6 +2777,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx?GAC=False&quot;WebservicesClient=True"
 			name="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2683,6 +2796,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:businesslayer:instances:AssemblyInfo -->
 	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=businesslayer-instances"
 			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2700,6 +2814,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:businesslayer:instances:-Config0 -->
 	<template id="PRJ-BO-Someapp-businesslayer-instances--Config0.cs.aspx"
 			name="PRJ-BO-Someapp-businesslayer-instances--Config0.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2716,6 +2831,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:businesslayer:instances:Somebo0 -->
 	<template id="PRJ-BO-Someapp-businesslayer-instances-Somebo0.cs.aspx"
 			name="PRJ-BO-Someapp-businesslayer-instances-Somebo0.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
 		<arguments>
@@ -2735,6 +2851,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:remoting:server -->
 	<template id="PRJ-RS-Someapp-remoting-server-9.csproj.aspx?GAC=True"
 			name="PRJ-RS-Someapp-remoting-server-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2751,6 +2868,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="PRJ-RS-Someapp-remoting-server-9.csproj.aspx?GAC=False"
 			name="PRJ-RS-Someapp-remoting-server-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2768,6 +2886,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:remoting:server:AssemblyInfo -->
 	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=remoting-server"
 			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2785,6 +2904,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:remoting:server:RS0__server -->
 	<template id="PRJ-RS-Someapp-remoting-server-RS0__server.cs.aspx"
 			name="PRJ-RS-Someapp-remoting-server-RS0__server.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2801,6 +2921,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:remoting:server:RS0_Somebo -->
 	<template id="PRJ-RS-Someapp-remoting-server-RS0_Somebo.cs.aspx?Client=False"
 			name="PRJ-RS-Someapp-remoting-server-RS0_Somebo.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
 		<arguments>
@@ -2820,6 +2941,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:remoting:simpleserver -->
 	<template id="PRJ-RS-Someapp-remoting-simpleserver-9.csproj.aspx?GAC=True"
 			name="PRJ-RS-Someapp-remoting-simpleserver-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2836,6 +2958,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="PRJ-RS-Someapp-remoting-simpleserver-9.csproj.aspx?GAC=False"
 			name="PRJ-RS-Someapp-remoting-simpleserver-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2853,6 +2976,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:remoting:simpleserver:AssemblyInfo -->
 	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=remoting-simpleserver"
 			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2870,6 +2994,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:remoting:simpleserver:App.config -->
 	<template id="PRJ--COMMON-XXX.config.aspx?where=remoting-simpleserver"
 			name="PRJ--COMMON-XXX.config.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2888,6 +3013,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:remoting:simpleserver:Program.cs -->
 	<template id="PRJ-RS-Someapp-remoting-simpleserver-Program.cs.aspx"
 			name="PRJ-RS-Someapp-remoting-simpleserver-Program.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2904,6 +3030,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:remoting:client -->
 	<template id="PRJ-RC-Someapp-remoting-client-9.csproj.aspx?GAC=True"
 			name="PRJ-RC-Someapp-remoting-client-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2920,6 +3047,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="PRJ-RC-Someapp-remoting-client-9.csproj.aspx?GAC=False"
 			name="PRJ-RC-Someapp-remoting-client-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2937,6 +3065,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:remoting:client:AssemblyInfo -->
 	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=remoting-client"
 			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2954,6 +3083,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:remoting:client:Config0 -->
 	<template id="PRJ-RC-Someapp-remoting-client--Config.cs.aspx"
 			name="PRJ-RC-Someapp-remoting-client--Config.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -2970,6 +3100,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:remoting:client:RS0_Somebo -->
 	<template id="PRJ-RS-Someapp-remoting-server-RS0_Somebo.cs.aspx?Client=True"
 			name="PRJ-RS-Someapp-remoting-server-RS0_Somebo.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
 		<arguments>
@@ -2988,6 +3119,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:remoting:client:RC0_Somebo -->
 	<template id="PRJ-RC-Someapp-remoting-client-RC0_Somebo.cs.aspx"
 			name="PRJ-RC-Someapp-remoting-client-RC0_Somebo.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
 		<arguments>
@@ -3007,6 +3139,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:webservices:server -->
 	<template id="PRJ-WS-Someapp-webservices-server-9.csproj.aspx?GAC=True"
 			name="PRJ-WS-Someapp-webservices-server-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -3023,6 +3156,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="PRJ-WS-Someapp-webservices-server-9.csproj.aspx?GAC=False"
 			name="PRJ-WS-Someapp-webservices-server-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -3040,6 +3174,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:webservices:server:AssemblyInfo -->
 	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=webservices-server"
 			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -3057,6 +3192,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:webservices:server:Web.config -->
 	<template id="PRJ--COMMON-XXX.config.aspx?where=webservices-server"
 			name="PRJ--COMMON-XXX.config.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -3075,6 +3211,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:webservices:server:Default.aspx -->
 	<template id="PRJ-WS-Someapp-webservices-server-Default.aspx.aspx"
 			name="PRJ-WS-Someapp-webservices-server-Default.aspx.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -3091,6 +3228,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:webservices:server:Default.aspx.cs -->
 	<template id="PRJ-WS-Someapp-webservices-server-Default.aspx.cs.aspx"
 			name="PRJ-WS-Someapp-webservices-server-Default.aspx.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -3107,6 +3245,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:webservices:server:Default.aspx.designer.cs -->
 	<template id="PRJ-WS-Someapp-webservices-server-Default.aspx.designer.cs.aspx"
 			name="PRJ-WS-Someapp-webservices-server-Default.aspx.designer.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -3123,6 +3262,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:webservices:server:WS_Somebo.asmx -->
 	<template id="PRJ-WS-Someapp-webservices-server-WS_Somebo.asmx.aspx"
 			name="PRJ-WS-Someapp-webservices-server-WS_Somebo.asmx.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
 		<arguments>
@@ -3140,6 +3280,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:webservices:server:WS_Somebo.asmx.cs -->
 	<template id="PRJ-WS-Someapp-webservices-server-WS_Somebo.asmx.cs.aspx"
 			name="PRJ-WS-Someapp-webservices-server-WS_Somebo.asmx.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
 		<arguments>
@@ -3157,6 +3298,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:webservices:server:WS0_Somebo.cs -->
 	<template id="PRJ-WS-Someapp-webservices-server-WS0_Somebo.cs.aspx"
 			name="PRJ-WS-Someapp-webservices-server-WS0_Somebo.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
 		<arguments>
@@ -3175,6 +3317,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:webservices:client -->
 	<template id="PRJ-WC-Someapp-webservices-client-9.csproj.aspx?GAC=True"
 			name="PRJ-WC-Someapp-webservices-client-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -3191,6 +3334,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="PRJ-WC-Someapp-webservices-client-9.csproj.aspx?GAC=False"
 			name="PRJ-WC-Someapp-webservices-client-9.csproj.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -3208,6 +3352,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:webservices:client:AssemblyInfo -->
 	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=webservices-client"
 			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -3225,6 +3370,7 @@ XXX:TO_DOS -->
 	<!-- search:solution:webservices:client:WC0_Somebo -->
 	<template id="PRJ-WC-Someapp-webservices-client-WC0_Somebo.cs.aspx"
 			name="PRJ-WC-Someapp-webservices-client-WC0_Somebo.cs.aspx"
+			templateType="BusinessLayer"
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
 		<arguments>
@@ -3244,6 +3390,7 @@ XXX:TO_DOS -->
 	<!-- search:solution::test -->
 	<template id="PRJ-Someapp--test-9.csproj.aspx?GAC=True"
 			name="PRJ-Someapp--test-9.csproj.aspx"
+			templateType=""
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -3260,6 +3407,7 @@ XXX:TO_DOS -->
 	</template>
 	<template id="PRJ-Someapp--test-9.csproj.aspx?GAC=False"
 			name="PRJ-Someapp--test-9.csproj.aspx"
+			templateType=""
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -3277,6 +3425,7 @@ XXX:TO_DOS -->
 	<!-- search:solution::test:App.config -->
 	<template id="PRJ--COMMON-XXX.config.aspx?where=test"
 			name="PRJ--COMMON-XXX.config.aspx"
+			templateType=""
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -3295,6 +3444,7 @@ XXX:TO_DOS -->
 	<!-- search:solution::test:AssemblyInfo -->
 	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=test"
 			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType=""
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -3312,6 +3462,7 @@ XXX:TO_DOS -->
 	<!-- search:solution::test:program -->
 	<template id="PRJ-Someapp--test-program.cs.aspx"
 			name="PRJ-Someapp--test-program.cs.aspx"
+			templateType=""
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>
@@ -3331,6 +3482,7 @@ XXX:TO_DOS -->
 
 	<template id="PRJ---xxx.cs.aspx"
 			name="PRJ---xxx.cs.aspx"
+			templateType=""
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
 		<arguments>

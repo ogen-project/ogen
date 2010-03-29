@@ -69,7 +69,7 @@ SELECT
 FROM information_schema.columns AS _field
 
 	LEFT JOIN sys.extended_properties _prop ON (
-		(_prop.major_id = Object_id(_field.table_name))
+		(_prop.major_id = object_id(_field.table_name))
 		and
 		(_prop.minor_id = _field.ordinal_position)
 		and 

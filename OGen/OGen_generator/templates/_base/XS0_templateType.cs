@@ -48,6 +48,19 @@ namespace OGen.lib.templates {
 			}
 		}
 		#endregion
+		#region public string TemplateType { get; set; }
+		internal string templatetype_;
+
+		[XmlAttribute("templateType")]
+		public string TemplateType {
+			get {
+				return templatetype_;
+			}
+			set {
+				templatetype_ = value;
+			}
+		}
+		#endregion
 		#region public XS_ParserEnumeration ParserType { get; set; }
 		internal XS_ParserEnumeration parsertype_;
 
@@ -169,6 +182,7 @@ namespace OGen.lib.templates {
 
 			id_ = templateType_in.id_;
 			name_ = templateType_in.name_;
+			templatetype_ = templateType_in.templatetype_;
 			parsertype_ = templateType_in.parsertype_;
 			iterationtype_ = templateType_in.iterationtype_;
 			if (templateType_in.arguments__ != null) arguments__.CopyFrom(templateType_in.arguments__);
