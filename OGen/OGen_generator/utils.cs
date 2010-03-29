@@ -45,10 +45,22 @@ namespace OGen.lib.generator {
 	}
 	#endregion
 
-	public class utils {
-		private utils() { }
-
+	public static class utils {
 		public delegate void IterationFoundDelegate(string message_in);
+
+		public static bool StringArrayContains(
+			string[] array_in, 
+			string value_in
+		) {
+			string _value = value_in.ToLower();
+			for (int i = 0; i < array_in.Length; i++) {
+				if (array_in[i].ToLower() == _value) {
+					return true;
+				}
+			}
+
+			return false;
+		}
 
 		#region public static int MetaFile_find(...);
 		public static int MetaFile_find(

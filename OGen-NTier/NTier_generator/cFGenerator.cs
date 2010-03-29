@@ -35,6 +35,7 @@ namespace OGen.NTier.lib.generator {
 		//#region public Properties...
 		#region public string Filename { get; }
 		private string filename__;
+
 		public string Filename {
 			get { return filename__; }
 			set {
@@ -52,18 +53,21 @@ namespace OGen.NTier.lib.generator {
 		#endregion
 		#region public string Directoryname { get; }
 		private string directoryname__;
+
 		public string Directoryname {
 			get { return directoryname__; }
 		}
 		#endregion
 		#region public string ParentDirectoryname { get; }
 		private string parentdirectoryname__;
+
 		public string ParentDirectoryname {
 			get { return parentdirectoryname__; }
 		}
 		#endregion
 		#region public bool hasChanges { get; }
 		private bool haschanges_;
+
 		public bool hasChanges {
 			get { return haschanges_; }
 			set { haschanges_ = value; }
@@ -76,6 +80,7 @@ namespace OGen.NTier.lib.generator {
 		#endregion
 		#region public XS__RootMetadata Metadata { get ; }
 		private XS__RootMetadata metadata_;
+
 		public XS__RootMetadata Metadata {
 			get { return metadata_; }
 		}
@@ -372,7 +377,10 @@ throw new Exception("// ToDos: not implemented!");
 		}
 		//#endregion
 //		#region public void Build(cGenerator.dBuild notifyBase_in);
-		public void Build(cGenerator.dBuild notifyBase_in) {
+		public void Build(
+			cGenerator.dBuild notifyBase_in,
+			params string[] templateTypes_in
+		) {
 			#region string _outputDir = ...;
 			string _outputDir = ParentDirectoryname;
 			#endregion
@@ -403,7 +411,8 @@ throw new Exception("// ToDos: not implemented!");
 				_metafiles
 			).Build(
 				notifyBase_in, 
-				metadata_
+				metadata_,
+				templateTypes_in
 			);
 			if (notifyBase_in != null) notifyBase_in("...finished", true);
 		}

@@ -591,7 +591,8 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 		private void build(
 			dBuild notifyBack_in, 
 //			bool loadMetadata_in, 
-			MetadataInterface metadata_in
+			MetadataInterface metadata_in,
+			params string[] templateTypes_in
 		) {
 			notifyback_ = notifyBack_in;
 			//notifyback_("- common items", true);
@@ -651,6 +652,37 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 					}
 					if (_finishedPreviously) continue;
 					#endregion
+					#region if (!utils.StringArrayContains(templateTypes_in, templates_.TemplateCollection[template_].TemplateType)) continue;
+					if (
+						(templateTypes_in != null)
+						&&
+						(templateTypes_in.Length > 0)
+						&&
+						(templates_.TemplateCollection[template_].TemplateType != "")
+						&&
+						!utils.StringArrayContains(
+							templateTypes_in,
+							templates_.TemplateCollection[template_].TemplateType
+						)
+					) {
+						notifyback_(
+							string.Format(
+								"#{0}/{1} - {2} ",
+								_finishedTemplates.Count + 1,
+								templates_.TemplateCollection.Count,
+								templates_.TemplateCollection[template_].ID
+							),
+							false
+						);
+
+						_finishedTemplates.Add(templates_.TemplateCollection[template_].ID);
+						_finished = false;
+
+						notifyback_("... skipping!", true);
+
+						continue;
+					}
+					#endregion
 					#region if ((_finishedDependencies = ...) == templates_[template_].Dependencies.Count) { _finishedTemplates.Add(templates_[template_].ID); _finished = false; }
 					#region int _finishedDependencies = ...;
 					int _finishedDependencies = 0;
@@ -692,7 +724,7 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 						_finishedTemplates.Add(templates_.TemplateCollection[template_].ID);
 						_finished = false;
 
-						notifyback_((_valuehasbeenfound_out ? "... DONE!" : "nothing"), true);
+						notifyback_((_valuehasbeenfound_out ? "... DONE!" : "NOT doing!"), true);
 					}
 					#endregion
 				}
@@ -755,13 +787,15 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 //			);
 //		}
 		public void Build(
-			dBuild notifyBack_in, 
-			MetadataInterface metadata_in
+			dBuild notifyBack_in,
+			MetadataInterface metadata_in,
+			params string[] templateTypes_in
 		) {
 			build(
 				notifyBack_in, 
 //				false, 
-				metadata_in
+				metadata_in,
+				templateTypes_in
 			);
 		}
 		#endregion

@@ -38,9 +38,18 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 "
 			);
 			#endregion
-			if (args_in.Length == 1) {
+			if (args_in.Length >= 1) {
 				if (File.Exists(args_in[0])) {
-					DoIt(args_in[0]);
+					#region string[] _templateTypes = ...;
+					string[] _templateTypes = new string[args_in.Length - 1];
+					for (int a = 1; a < args_in.Length; a++) {
+						_templateTypes[a - 1] = args_in[a];
+					}
+					#endregion
+					DoIt(
+						args_in[0],
+						_templateTypes
+					);
 				} else {
 					Console.WriteLine("file doesn't exist");
 				}
@@ -79,7 +88,10 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 			}
 		}
 
-		static void DoIt(string filePath_in) {
+		static void DoIt(
+			string filePath_in,
+			params string[] templateTypes_in
+		) {
 			cFGenerator _generator = new cFGenerator();
 			_generator.Open(
 				filePath_in, 
@@ -88,7 +100,10 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 					Notify
 				)
 			);
-			_generator.Build(new cGenerator.dBuild(Notify));
+			_generator.Build(
+				new cGenerator.dBuild(Notify),
+				templateTypes_in
+			);
 
 			#region oldstuff...
 //			#region string _outputDir = ...;
@@ -161,7 +176,10 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 			#endregion
 		}
 		#region private static void Notify(string message_in, bool onANewLine_in);
-		private static void Notify(string message_in, bool onANewLine_in) {
+		private static void Notify(
+			string message_in, 
+			bool onANewLine_in
+		) {
 			if (onANewLine_in) {
 				Console.WriteLine(message_in);
 			} else {
