@@ -192,7 +192,7 @@ namespace OGen.lib.datalayer.PostgreSQL {
 
 				case NpgsqlDbType.Varchar:
 				case NpgsqlDbType.Text:
-					return DbType.String;
+					return DbType.AnsiString;
 
 				case NpgsqlDbType.TimestampTZ:
 				case NpgsqlDbType.Timestamp:
