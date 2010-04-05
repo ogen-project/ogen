@@ -1075,7 +1075,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = 
-				(page_in > 0)
+				((page_in > 0) && (page_numRecords_in))
 					? new IDbDataParameter[] {<%
 						for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 							_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
@@ -1097,7 +1097,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 				;
 			_output = getRecord(
 				_connection.Execute_SQLFunction_returnDataTable(
-					(page_in > 0)
+					((page_in > 0) && (page_numRecords_in > 0))
 						? "sp0_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>_page_fullmode"
 						: "sp0_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>_fullmode", 
 					_dataparameters
