@@ -108,6 +108,7 @@ namespace OGen.lib.datalayer {
 		public static bool isText(DbType dbType_in) {
 			switch (dbType_in) {
 				case DbType.String:
+				case DbType.StringFixedLength:
 				case DbType.AnsiString:
 				case DbType.AnsiStringFixedLength:
 					return true;
@@ -166,6 +167,9 @@ namespace OGen.lib.datalayer {
 					return typeof(UInt64).Name;
 
 				case DbType.String:
+				case DbType.StringFixedLength:
+				case DbType.AnsiString:
+				case DbType.AnsiStringFixedLength:
 					return "string"; //typeof(string).Name;
 
 				case DbType.DateTime:
@@ -254,6 +258,9 @@ namespace OGen.lib.datalayer {
 					return "false";
 
 				case DbType.String:
+				case DbType.StringFixedLength:
+				case DbType.AnsiString:
+				case DbType.AnsiStringFixedLength:
 					return "string.Empty";
 
 				case DbType.Guid:
@@ -301,6 +308,9 @@ namespace OGen.lib.datalayer {
 					return "true";
 
 				case DbType.String:
+				case DbType.StringFixedLength:
+				case DbType.AnsiString:
+				case DbType.AnsiStringFixedLength:
 					return "\"123\"";
 
 				case DbType.Guid:
@@ -349,6 +359,9 @@ namespace OGen.lib.datalayer {
 					return "0";
 
 				case DbType.String:
+				case DbType.StringFixedLength:
+				case DbType.AnsiString:
+				case DbType.AnsiStringFixedLength:
 					return "''";
 
 				case DbType.Binary:

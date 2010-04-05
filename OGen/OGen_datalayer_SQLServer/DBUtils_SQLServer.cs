@@ -160,11 +160,12 @@ namespace OGen.lib.datalayer.SQLServer {
 					return DbType.Boolean;
 
 				case SqlDbType.Char:
-				case SqlDbType.NChar:
-				case SqlDbType.NText:
-				case SqlDbType.NVarChar:
-				case SqlDbType.Text:
 				case SqlDbType.VarChar:
+				case SqlDbType.Text:
+					return DbType.AnsiString;
+				case SqlDbType.NChar:
+				case SqlDbType.NVarChar:
+				case SqlDbType.NText:
 					return DbType.String;
 
 				case SqlDbType.Date:
