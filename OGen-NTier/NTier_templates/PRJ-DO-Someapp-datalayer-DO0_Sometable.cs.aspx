@@ -1075,7 +1075,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = 
-				((page_in > 0) && (page_numRecords_in))
+				((page_in > 0) && (page_numRecords_in > 0))
 					? new IDbDataParameter[] {<%
 						for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 							_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
