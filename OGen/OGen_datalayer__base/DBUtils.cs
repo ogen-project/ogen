@@ -202,11 +202,8 @@ namespace OGen.lib.datalayer {
 					// ToDos: here! check if appropriate...
 					return typeof(Double).Name;
 
-				case DbType.AnsiString:
-				case DbType.AnsiStringFixedLength:
 				case DbType.Currency:
 				case DbType.SByte:
-				case DbType.StringFixedLength:
 				case DbType.VarNumeric:
 					// ToDos: here!
 					break;
