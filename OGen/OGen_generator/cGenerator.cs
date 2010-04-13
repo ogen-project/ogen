@@ -561,13 +561,24 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 	try {
 		dbconnectionstrings_[d].Connection.Execute_SQLQuery(_parsedOutput);
 	} catch (Exception _ex) {
+		System.Text.StringBuilder _sb = new System.Text.StringBuilder();
+		for (int a = 0; a < templates_.TemplateCollection[template_].Arguments.ArgumentCollection.Count; a++) {
+			_sb.Append(string.Format(
+				"{0}:\n\t{1}\n\t{2}\n",
+				templates_.TemplateCollection[template_].Arguments.ArgumentCollection[a].Name,
+				templates_.TemplateCollection[template_].Arguments.ArgumentCollection[a].Value,
+				_args[templates_.TemplateCollection[template_].Arguments.ArgumentCollection[a].Name]
+			));
+		}
+
 		throw new Exception(string.Format(
-			"---\nTEMPLATE: {0}\n---\nQUERY:\n\n{1}\n---\nDBServerType:\n\n{2}\n---\nEXCEPTION:\n\n{3}\n---\nINNER-EXCEPTION:\n\n{4}\n---\n",
+			"---\nTEMPLATE: {0}\n---\nARGUMENTS:\n\n{5}\n---\nDBServerType:\n\n{2}\n---\nQUERY:\n\n{1}\n---\nEXCEPTION:\n\n{3}\n---\nINNER-EXCEPTION:\n\n{4}\n---\n",
 			templates_.TemplateCollection[template_].Name,
 			_parsedOutput, 
 			dbconnectionstrings_[d].DBServerType.ToString(), 
 			_ex.Message,
-			_ex.InnerException
+			_ex.InnerException,
+			_sb.ToString()
 		));
 	}
 }

@@ -69,6 +69,7 @@ namespace OGen.lib {
 		}
 		#endregion
 
+		#region public static string Array_Join<T>(...);
 		public static string Array_Join<T>(
 			string splitter_in,
 			params T[] arguments_in
@@ -94,5 +95,6 @@ namespace OGen.lib {
 				return _sb.ToString();
 			}
 		}
+		#endregion
 	}
 }
