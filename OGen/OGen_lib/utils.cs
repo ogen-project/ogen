@@ -15,8 +15,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 
 namespace OGen.lib {
-	public class utils {
-		private utils() { }
+	public static class utils {
 
 		#region public static string[] ParamvalueList_Split(...);
 		public static string[] ParamvalueList_Split(
@@ -69,5 +68,31 @@ namespace OGen.lib {
 			return _output;
 		}
 		#endregion
+
+		public static string Array_Join<T>(
+			string splitter_in,
+			params T[] arguments_in
+		) {
+			if (
+				(arguments_in == null)
+				||
+				(arguments_in.Length == 0)
+			) {
+				return "";
+			} else {
+				bool _isfirst = true;
+				System.Text.StringBuilder _sb = new System.Text.StringBuilder();
+				foreach (T _argument in arguments_in) {
+					if (_isfirst) {
+						_isfirst = false;
+					} else {
+						_sb.Append(splitter_in);
+					}
+					_sb.Append(_argument.ToString());
+				}
+
+				return _sb.ToString();
+			}
+		}
 	}
 }
