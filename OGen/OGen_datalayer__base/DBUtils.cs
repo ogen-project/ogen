@@ -330,6 +330,7 @@ namespace OGen.lib.datalayer {
 		}
 		#endregion
 		#region public string DBType2DBEmptyValue(...);
+		private static DateTime datetime_minvalue_ = new DateTime(1900, 1, 1);
 		// <summary>
 		// Aimed for code generator, hence returning straight string.
 		// </summary>
@@ -339,7 +340,7 @@ namespace OGen.lib.datalayer {
 				case DbType.Date:
 				case DbType.Time:
 					return object2SQLobject(
-						new DateTime(1900, 1, 1)
+						datetime_minvalue_
 					);
 
 				case DbType.Int16: 
