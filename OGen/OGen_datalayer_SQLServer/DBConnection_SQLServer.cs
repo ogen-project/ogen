@@ -151,6 +151,9 @@ namespace OGen.lib.datalayer.SQLServer {
 			}
 			if (size_in != 0) {
 				_newdbdataparameter_out.Size = size_in;
+			} else if (dbType_in == DbType.AnsiString) {
+				// length can't be 0 for text and ntext, hence:
+				_newdbdataparameter_out.Size = 1;
 			}
 			if (precision_in != 0) {
 				_newdbdataparameter_out.Precision = precision_in;
