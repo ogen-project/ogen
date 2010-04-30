@@ -732,7 +732,9 @@ XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_setObject" 
 				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
-		<dependencies />
+		<dependencies>
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx" />
+		</dependencies>
 	</template>
 	<template id="DO-DB-sp0_SomeTable_setObject-PostgreSQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_setObject-PostgreSQL.sql.aspx" 
@@ -760,6 +762,7 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies>
 			<dependency templateID="emptyfile.txt?PostgreSQL" />
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx" />
 		</dependencies>
 	</template>
 	<template id="DO-DB-sp0_SomeTable_setObject-SQLServer.sql.aspx"
@@ -786,7 +789,9 @@ XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_setObject" 
 				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
-		<dependencies />
+		<dependencies>
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx" />
+		</dependencies>
 	</template>
 	<template id="DO-DB-sp0_SomeTable_delObject-MySQL.sql.aspx"
 			name="DO-DB-sp0_SomeTable_delObject-MySQL.sql.aspx" 
@@ -3491,7 +3496,7 @@ XXX:TO_DOS -->
 		<conditions />
 		<outputs>
 			<output
-				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-weblayer/xxx0.cs"
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-weblayer/xxx0.no-svn.cs"
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
