@@ -1,6 +1,6 @@
 create FUNCTION [dbo].[OGen_fnc0__Like](
-	@word_ varchar (255),
-	@word_search_ varchar (255) 
+	@string_ varchar (8000),
+	@pattern_ varchar (255) 
 )
 /*
 
@@ -25,7 +25,7 @@ BEGIN
 			case when (
 				sum(
 					case 
-						when @word_ like '%' + OutputValue + '%' then 1 
+						when @string_ like '%' + OutputValue + '%' then 1 
 						else 0 
 					end
 				) 
@@ -34,7 +34,7 @@ BEGIN
 			) then 1 else 0 end
 		)
 	from [OGen_fnc0__Split](
-		@word_search_,
+		@pattern_,
 		' '
 	)
 

@@ -1,6 +1,6 @@
 CREATE OR REPLACE FUNCTION "OGen_fnc0__Like"(
 	"string_" character varying, 
-	"patern_" character varying
+	"pattern_" character varying
 )
 /*
 
@@ -20,9 +20,9 @@ $BODY$
 		_Output boolean = false;
 	BEGIN
 		if (
-			("patern_" is null) 
+			("pattern_" is null) 
 			or 
-			("patern_" = '')
+			("pattern_" = '')
 		) then
 			select into _Output true;
 		else 
@@ -49,7 +49,7 @@ $BODY$
 						count("OGen_fnc0__Split")
 					)
 				from "OGen_fnc0__Split"(string_to_array(
-					"patern_", 
+					"pattern_", 
 					' '
 				));
 			end if;
