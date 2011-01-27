@@ -51,17 +51,17 @@ string _aux_xx_field_name;
 
 #endregion
 //-----------------------------------------------------------------------------------------
-%>CREATE OR REPLACE FUNCTION "sp0_<%=_aux_db_table.Name%>_Record_update_<%=update.Name%>_<%=_aux_ex_search.Name%>"(<%
+%>CREATE OR REPLACE FUNCTION "sp0_<%=_aux_db_table.Name%>_Record_update_<%=_aux_ex_update.Name%>_<%=_aux_ex_search.Name%>"(<%
 for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
 	_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 	_aux_db_field = _aux_ex_field.parallel_ref;
 	_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
 	"<%=_aux_xx_field_name%>_search_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>, <%
 }
-for (int f = 0; f < update.TableUpdateParameters.TableFieldRefCollection.Count; f++) {
-	_aux_ex_field = update.TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;
+for (int f = 0; f < _aux_ex_update.TableSearchUpdateParameters.TableFieldRefCollection.Count; f++) {
+	_aux_ex_field = _aux_ex_update.TableSearchUpdateParameters.TableFieldRefCollection[f].TableField_ref;
 	_aux_db_field = _aux_ex_field.parallel_ref;%>
-	"<%=_aux_ex_field.Name%>_update_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(f != update.TableUpdateParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+	"<%=_aux_ex_field.Name%>_update_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(f != _aux_ex_update.TableSearchUpdateParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 }%>
 )
 RETURNS VOID AS $BODY$
@@ -69,9 +69,9 @@ RETURNS VOID AS $BODY$
 	BEGIN
 		UPDATE "<%=_aux_db_table.Name%>"
 		SET<%
-		for (int f = 0; f < update.TableUpdateParameters.TableFieldRefCollection.Count; f++) {
-			_aux_ex_field = update.TableUpdateParameters.TableFieldRefCollection[f].TableField_ref;%>
-			"<%=_aux_ex_field.Name%>" = "<%=_aux_ex_field.Name%>_update_"<%=(f != update.TableUpdateParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+		for (int f = 0; f < _aux_ex_update.TableSearchUpdateParameters.TableFieldRefCollection.Count; f++) {
+			_aux_ex_field = _aux_ex_update.TableSearchUpdateParameters.TableFieldRefCollection[f].TableField_ref;%>
+			"<%=_aux_ex_field.Name%>" = "<%=_aux_ex_field.Name%>_update_"<%=(f != _aux_ex_update.TableSearchUpdateParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 		}%>
 		FROM "fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>"(<%
 		for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
