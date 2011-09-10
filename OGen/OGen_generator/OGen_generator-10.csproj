@@ -1,0 +1,201 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>OGen.lib.generator-2.0</AssemblyName>
+    <AssemblyOriginatorKeyFile>..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>OGen.lib.generator</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;DEBUG;NET_2_0;PostgreSQL;MySQL</DefineConstants>
+    <DocumentationFile>bin\Debug\OGen.lib.generator-2.0.XML</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;NET_2_0;PostgreSQL;MySQL</DefineConstants>
+    <DocumentationFile>bin\Debug\OGen.lib.generator-2.0.XML</DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Npgsql" />
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\OGen_collections\OGen_collections-10.csproj">
+      <Name>OGen_collections-10</Name>
+      <Project>{A6E837F8-780F-4D05-B3ED-2FF1906B5766}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\OGen_parser\OGen_parser-10.csproj">
+      <Name>OGen_parser-10</Name>
+      <Project>{981BC7DE-D93C-446E-861E-60A20E4E3391}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\OGen_webforms\OGen_webforms-10.csproj">
+      <Name>OGen_webforms-10</Name>
+      <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="cGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBConnectionstring.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBConnectionstrings.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="metadatas\Metadata.cs" />
+    <Compile Include="metadatas\MetadataCollection.cs" />
+    <Compile Include="metadatas\Metadatas.cs" />
+    <Compile Include="templates\XS_argumentsType.cs" />
+    <Compile Include="templates\XS_argumentsTypeCollection.cs" />
+    <Compile Include="templates\XS_argumentType.cs" />
+    <Compile Include="templates\XS_argumentTypeCollection.cs" />
+    <Compile Include="templates\XS_conditionsType.cs" />
+    <Compile Include="templates\XS_conditionsTypeCollection.cs" />
+    <Compile Include="templates\XS_conditionType.cs" />
+    <Compile Include="templates\XS_conditionTypeCollection.cs" />
+    <Compile Include="templates\XS_dependenciesType.cs" />
+    <Compile Include="templates\XS_dependenciesTypeCollection.cs" />
+    <Compile Include="templates\XS_dependencyType.cs" />
+    <Compile Include="templates\XS_dependencyTypeCollection.cs" />
+    <Compile Include="templates\XS_outputsType.cs" />
+    <Compile Include="templates\XS_outputsTypeCollection.cs" />
+    <Compile Include="templates\XS_outputType.cs" />
+    <Compile Include="templates\XS_outputTypeCollection.cs" />
+    <Compile Include="templates\XS_templatesType.cs" />
+    <Compile Include="templates\XS_templatesTypeCollection.cs" />
+    <Compile Include="templates\XS_templateType.cs" />
+    <Compile Include="templates\XS_templateTypeCollection.cs" />
+    <Compile Include="templates\XS__templates.cs" />
+    <Compile Include="templates\_base\XS0_argumentsType.cs" />
+    <Compile Include="templates\_base\XS0_argumentsTypeCollection.cs" />
+    <Compile Include="templates\_base\XS0_argumentType.cs" />
+    <Compile Include="templates\_base\XS0_argumentTypeCollection.cs" />
+    <Compile Include="templates\_base\XS0_conditionsType.cs" />
+    <Compile Include="templates\_base\XS0_conditionsTypeCollection.cs" />
+    <Compile Include="templates\_base\XS0_conditionType.cs" />
+    <Compile Include="templates\_base\XS0_conditionTypeCollection.cs" />
+    <Compile Include="templates\_base\XS0_dependenciesType.cs" />
+    <Compile Include="templates\_base\XS0_dependenciesTypeCollection.cs" />
+    <Compile Include="templates\_base\XS0_dependencyType.cs" />
+    <Compile Include="templates\_base\XS0_dependencyTypeCollection.cs" />
+    <Compile Include="templates\_base\XS0_outputEnumeration.cs" />
+    <Compile Include="templates\_base\XS0_outputModeEnumeration.cs" />
+    <Compile Include="templates\_base\XS0_outputsType.cs" />
+    <Compile Include="templates\_base\XS0_outputsTypeCollection.cs" />
+    <Compile Include="templates\_base\XS0_outputType.cs" />
+    <Compile Include="templates\_base\XS0_outputTypeCollection.cs" />
+    <Compile Include="templates\_base\XS0_parserEnumeration.cs" />
+    <Compile Include="templates\_base\XS0_templatesType.cs" />
+    <Compile Include="templates\_base\XS0_templatesTypeCollection.cs" />
+    <Compile Include="templates\_base\XS0_templateType.cs" />
+    <Compile Include="templates\_base\XS0_templateTypeCollection.cs" />
+    <Compile Include="templates\_base\XS0__templates.cs" />
+    <Compile Include="utils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="COPYING.MIT" />
+    <Content Include="LICENSE.MIT.txt" />
+    <Content Include="LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OGen_datalayersupport\OGen_datalayersupport-10.csproj">
+      <Project>{88D87481-CC3F-49C7-A013-758387F3452E}</Project>
+      <Name>OGen_datalayersupport-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OGen_datalayer_MySQL\OGen_datalayer_MySQL-10.csproj">
+      <Project>{8F5F21DB-FED4-46A9-9E7E-B50B678D12B2}</Project>
+      <Name>OGen_datalayer_MySQL-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OGen_datalayer_PostgreSQL\OGen_datalayer_PostgreSQL-10.csproj">
+      <Project>{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}</Project>
+      <Name>OGen_datalayer_PostgreSQL-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OGen_datalayer_SQLServer\OGen_datalayer_SQLServer-10.csproj">
+      <Project>{F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7}</Project>
+      <Name>OGen_datalayer_SQLServer-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OGen_datalayer__base\OGen_datalayer__base-10.csproj">
+      <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
+      <Name>OGen_datalayer__base-10</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
