@@ -1,59 +1,57 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_generator-9", "NTier_generator\NTier_generator-9.csproj", "{BC9835E7-8878-479D-BC0F-909FA77344DD}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_generator-10", "NTier_generator\NTier_generator-10.csproj", "{BC9835E7-8878-479D-BC0F-909FA77344DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_collections-9", "..\OGen\OGen_collections\OGen_collections-9.csproj", "{A6E837F8-780F-4D05-B3ED-2FF1906B5766}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_collections-10", "..\OGen\OGen_collections\OGen_collections-10.csproj", "{A6E837F8-780F-4D05-B3ED-2FF1906B5766}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_generator-9", "..\OGen\OGen_generator\OGen_generator-9.csproj", "{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_generator-10", "..\OGen\OGen_generator\OGen_generator-10.csproj", "{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_webforms-9", "..\OGen\OGen_webforms\OGen_webforms-9.csproj", "{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_webforms-10", "..\OGen\OGen_webforms\OGen_webforms-10.csproj", "{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_datalayer-9", "NTier_datalayer\NTier_datalayer-9.csproj", "{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_datalayer-10", "NTier_datalayer\NTier_datalayer-10.csproj", "{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_businesslayer-9", "NTier_businesslayer\NTier_businesslayer-9.csproj", "{8AEBEA64-6FC4-430C-922C-B88D105AE91C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_businesslayer-10", "NTier_businesslayer\NTier_businesslayer-10.csproj", "{8AEBEA64-6FC4-430C-922C-B88D105AE91C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_templates-9", "NTier_templates\NTier_templates-9.csproj", "{D5FDB433-994F-404C-B535-FB90B005B6B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_templates-10", "NTier_templates\NTier_templates-10.csproj", "{D5FDB433-994F-404C-B535-FB90B005B6B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier-9", "NTier\NTier-9.csproj", "{37C5F3D1-D158-4E05-BB2D-CD32553FB993}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier-10", "NTier\NTier-10.csproj", "{37C5F3D1-D158-4E05-BB2D-CD32553FB993}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier-console-9", "NTier-console\NTier-console-9.csproj", "{E853AF0F-1F72-4B4E-946F-2E9C4661C903}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier-console-10", "NTier-console\NTier-console-10.csproj", "{E853AF0F-1F72-4B4E-946F-2E9C4661C903}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_winforms-9", "..\OGen\OGen_winforms\OGen_winforms-9.csproj", "{B3835B3F-C899-416F-BA94-625A4B32A4AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_winforms-10", "..\OGen\OGen_winforms\OGen_winforms-10.csproj", "{B3835B3F-C899-416F-BA94-625A4B32A4AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_metadata-9", "NTier_metadata\NTier_metadata-9.csproj", "{0E77A4DB-AF8B-4290-BB33-F9EC97655433}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_metadata-10", "NTier_metadata\NTier_metadata-10.csproj", "{0E77A4DB-AF8B-4290-BB33-F9EC97655433}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_parser-9", "..\OGen\OGen_parser\OGen_parser-9.csproj", "{981BC7DE-D93C-446E-861E-60A20E4E3391}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_parser-10", "..\OGen\OGen_parser\OGen_parser-10.csproj", "{981BC7DE-D93C-446E-861E-60A20E4E3391}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_metadata_UTs-9", "NTier_metadata_UTs\NTier_metadata_UTs-9.csproj", "{9F1EEE8C-2097-4B8D-87D8-DA171FAE3480}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_metadata_UTs-10", "NTier_metadata_UTs\NTier_metadata_UTs-10.csproj", "{9F1EEE8C-2097-4B8D-87D8-DA171FAE3480}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_businesslayer_UTs-9", "NTier_businesslayer_UTs\NTier_businesslayer_UTs-9.csproj", "{21037A3C-D93B-45B2-B78A-76C92BA93A11}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_businesslayer_UTs-10", "NTier_businesslayer_UTs\NTier_businesslayer_UTs-10.csproj", "{21037A3C-D93B-45B2-B78A-76C92BA93A11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_datalayer_UTs-9", "NTier_datalayer_UTs\NTier_datalayer_UTs-9.csproj", "{CC28B2F4-2235-4605-98B5-8889F7BBC118}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_datalayer_UTs-10", "NTier_datalayer_UTs\NTier_datalayer_UTs-10.csproj", "{CC28B2F4-2235-4605-98B5-8889F7BBC118}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer__base-9", "..\OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj", "{D66D0E69-852C-4695-9D63-C9AB1A959E0B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer__base-10", "..\OGen\OGen_datalayer__base\OGen_datalayer__base-10.csproj", "{D66D0E69-852C-4695-9D63-C9AB1A959E0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer_PostgreSQL-9", "..\OGen\OGen_datalayer_PostgreSQL\OGen_datalayer_PostgreSQL-9.csproj", "{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer_PostgreSQL-10", "..\OGen\OGen_datalayer_PostgreSQL\OGen_datalayer_PostgreSQL-10.csproj", "{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer_SQLServer-9", "..\OGen\OGen_datalayer_SQLServer\OGen_datalayer_SQLServer-9.csproj", "{F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer_SQLServer-10", "..\OGen\OGen_datalayer_SQLServer\OGen_datalayer_SQLServer-10.csproj", "{F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer_MySQL-9", "..\OGen\OGen_datalayer_MySQL\OGen_datalayer_MySQL-9.csproj", "{8F5F21DB-FED4-46A9-9E7E-B50B678D12B2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayersupport-10", "..\OGen\OGen_datalayersupport\OGen_datalayersupport-10.csproj", "{88D87481-CC3F-49C7-A013-758387F3452E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayersupport-9", "..\OGen\OGen_datalayersupport\OGen_datalayersupport-9.csproj", "{88D87481-CC3F-49C7-A013-758387F3452E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier-test-10", "NTier-test\NTier-test-10.csproj", "{2AAFDEA0-0EC3-4757-AEA9-C142BEDAA545}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier-test-9", "NTier-test\NTier-test-9.csproj", "{2AAFDEA0-0EC3-4757-AEA9-C142BEDAA545}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_webservices_client-10", "NTier_distributedlayer_webservices_client\NTier_distributedlayer_webservices_client-10.csproj", "{7A52E316-CA44-4710-AF93-CC495DE77F6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_webservices_client-9", "NTier_distributedlayer_webservices_client\NTier_distributedlayer_webservices_client-9.csproj", "{7A52E316-CA44-4710-AF93-CC495DE77F6C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_datalayer_proxy-10", "NTier_datalayer_proxy\NTier_datalayer_proxy-10.csproj", "{F17F7FA0-920E-4AE1-908F-2798D0124996}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_datalayer_proxy-9", "NTier_datalayer_proxy\NTier_datalayer_proxy-9.csproj", "{F17F7FA0-920E-4AE1-908F-2798D0124996}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting-10", "NTier_distributedlayer_remoting\NTier_distributedlayer_remoting-10.csproj", "{504D4214-DA98-4CA2-8849-70796D05F41B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting-9", "NTier_distributedlayer_remoting\NTier_distributedlayer_remoting-9.csproj", "{504D4214-DA98-4CA2-8849-70796D05F41B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting_client-10", "NTier_distributedlayer_remoting_client\NTier_distributedlayer_remoting_client-10.csproj", "{A1711840-2FC2-457D-BA6B-0E36B54E395F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting_client-9", "NTier_distributedlayer_remoting_client\NTier_distributedlayer_remoting_client-9.csproj", "{A1711840-2FC2-457D-BA6B-0E36B54E395F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting_server-10", "NTier_distributedlayer_remoting_server\NTier_distributedlayer_remoting_server-10.csproj", "{29413A02-D0EB-4BFF-8EB6-A65AB1166FF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting_server-9", "NTier_distributedlayer_remoting_server\NTier_distributedlayer_remoting_server-9.csproj", "{29413A02-D0EB-4BFF-8EB6-A65AB1166FF3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LZMA-9", "..\libs\LZMA-9.10\CS\7zip\LZMA-9.csproj", "{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LZMA-10", "..\libs\LZMA-9.10\CS\7zip\LZMA-10.csproj", "{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -133,10 +131,6 @@ Global
 		{F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8F5F21DB-FED4-46A9-9E7E-B50B678D12B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8F5F21DB-FED4-46A9-9E7E-B50B678D12B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8F5F21DB-FED4-46A9-9E7E-B50B678D12B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8F5F21DB-FED4-46A9-9E7E-B50B678D12B2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{88D87481-CC3F-49C7-A013-758387F3452E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{88D87481-CC3F-49C7-A013-758387F3452E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88D87481-CC3F-49C7-A013-758387F3452E}.Release|Any CPU.ActiveCfg = Release|Any CPU
