@@ -10,27 +10,27 @@
 :: 
 @ECHO OFF
 SET thisdir=%~dp0
-:: is a doc project, hence:
-IF '%8' == 't' GOTO eof
-
-SET fw=
-IF '%1' == '/1_1' SET fw=1.1
-IF '%1' == '/2_0' SET fw=2.0
-IF '%fw%' == '' GOTO error4
-
-IF NOT '%2' == '' GOTO uninstall
 
 
-CALL "%thisdir%win-SET_SDK_PATH.bat" %1
+CALL "%thisdir%distro-auxscripts\win-SET_SDK_PATH.bat" /1_1
 
 
-IF NOT EXIST "%thisdir%..\distro-metadatas\OGen-solutions.txt" GOTO error2
-IF NOT EXIST "%thisdir%..\distro-metadatas\OGen-projects.txt" GOTO error3
+IF NOT EXIST "%thisdir%distro-keys" MKDIR "%thisdir%distro-keys"
 
 
-FOR /F "usebackq tokens=1,2,3,4,5,6,7,8,9 delims=, " %%a IN (`TYPE "%thisdir%..\distro-metadatas\OGen-projects.txt"`) DO (
-	CALL %0 %1 %%a %%b %%c %%d %%e %%f %%g %%h %%i
-)
+:makekey
+	IF EXIST "%thisdir%distro-keys\OGen.snk" GOTO eof_makekey
+	sn -k "%thisdir%distro-keys\OGen.snk"
+	ATTRIB +r "%thisdir%distro-keys\OGen.snk"
+:eof_makekey
+
+:makepublickey
+	IF EXIST "%thisdir%distro-keys\OGen-public.snk" DEL /q /f "%thisdir%distro-keys\OGen-public.snk"
+	sn -p "%thisdir%distro-keys\OGen.snk" "%thisdir%distro-keys\OGen-public.snk"
+	ATTRIB +r "%thisdir%distro-keys\OGen-public.snk"
+:eof_makepublickey
+
+
 PAUSE
 GOTO eof
 
@@ -40,44 +40,6 @@ GOTO eof
 	ECHO.
 	ECHO ERROR 1: - Can't set environment for Microsoft Visual Studio .NET tools
 	PAUSE
-GOTO eof
-:error2
-	ECHO.
-	ECHO.
-	ECHO ERROR 2: - Can't find file 'distro-metadatas\OGen-solutions.txt'
-	PAUSE
-GOTO eof
-:error3
-	ECHO.
-	ECHO.
-	ECHO ERROR 3: - Can't find file 'distro-metadatas\OGen-projects.txt'
-	PAUSE
-GOTO eof
-:error4
-	ECHO.
-	ECHO.
-	ECHO ERROR 4: - must specify framework version
-	PAUSE
-GOTO eof
-
-
-:uninstall
-	SHIFT
-
-	:::: is not a Release, hence:
-	::IF '%9' == 'f' GOTO eof
-	:::: is a Web App, hence:
-	::IF '%5' == 't' GOTO eof
-	:::: is an Executable, hence:
-	::IF '%6' == 't' GOTO eof
-	:::: is a Doc project, hence:
-	::IF '%8' == 't' GOTO eof
-
-	:: all resumed in one condition, 
-	:: is not on GAC, hence:
-	IF NOT '%4' == 'f' (
-		gacutil /u %3-%fw%
-	)
 GOTO eof
 
 

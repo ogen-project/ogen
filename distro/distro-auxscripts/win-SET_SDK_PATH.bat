@@ -11,20 +11,24 @@
 @ECHO OFF
 
 
-IF NOT EXIST "C:\Program Files\Microsoft SDKs\Windows\v7.0\Bin\x64" GOTO skip
+IF NOT EXIST "C:\Program Files\Microsoft SDKs\Windows\v7.0\Bin\x64" GOTO skip1
 ECHO %ComSpec%|find "SysWOW64">NUL
-IF ERRORLEVEL 1 GOTO skip
+IF ERRORLEVEL 1 GOTO skip1
 ECHO "%PATH%"|FIND "C:\Program Files\Microsoft SDKs\Windows\v7.0\Bin\x64">NUL
 IF ERRORLEVEL 1 SET PATH=%PATH%;C:\Program Files\Microsoft SDKs\Windows\v7.0\Bin\x64
 GOTO eof
-:skip
+:skip1
 
 
 SET SetEnvironmentPath=
+IF '%1' == '' GOTO error3
 IF '%1' == '/1_1' IF EXIST "C:\Program Files\Microsoft Visual Studio .NET 2003\Common7\Tools\vsvars32.bat" SET SetEnvironmentPath="c:\Program Files\Microsoft Visual Studio .NET 2003\Common7\Tools\vsvars32.bat"
-IF '%1' == '/2_0' IF EXIST "C:\Program Files\Microsoft Visual Studio 8\VC\vcvarsall.bat" SET SetEnvironmentPath="C:\Program Files\Microsoft Visual Studio 8\VC\vcvarsall.bat"
-IF NOT EXIST %SetEnvironmentPath% GOTO error2
+IF '%1' == '/2_0' (
+	IF EXIST "C:\Program Files\Microsoft Visual Studio 8\VC\vcvarsall.bat" SET SetEnvironmentPath="C:\Program Files\Microsoft Visual Studio 8\VC\vcvarsall.bat"
+	IF EXIST "C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\vcvarsall.bat" SET SetEnvironmentPath="C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\vcvarsall.bat"
+)
 IF '%SetEnvironmentPath%' == '' GOTO error1
+IF NOT EXIST %SetEnvironmentPath% GOTO error2
 ::CALL %SetEnvironmentPath% x86
   CALL %SetEnvironmentPath% %PROCESSOR_ARCHITECTURE%
 GOTO eof
@@ -42,6 +46,14 @@ GOTO eof
 	ECHO.
 	ECHO.
 	ECHO ERROR 2: - Can't find Microsoft Visual Studio .NET tools
+	PAUSE
+GOTO eof
+
+
+:error3
+	ECHO.
+	ECHO.
+	ECHO ERROR 3: - must specify framework version
 	PAUSE
 GOTO eof
 
