@@ -33,6 +33,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<output
 				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-SQLServer/3-all-table-constraints-fks.sqlserver.sql"
 				type="File" mode="Replace" />
+
+			<output
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-SQLServer2000/1-all-tables.sqlserver2000.sql"
+				type="File" mode="Replace" />
+			<output
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-SQLServer2000/3-all-table-constraints-fks.sqlserver2000.sql"
+				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
 	</template>
@@ -85,6 +92,33 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				type="File" mode="Replace" />
 			<output
 				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-SQLServer/1-all-tables.sqlserver.sql"
+				type="File" mode="Append" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="emptyfile.txt" />
+		</dependencies>
+	</template>
+	<template id="Table-SQLServer2000.aspx"
+		name="Table-SQLServer2000.aspx"
+		parserType="aspx"
+		iterationType="ROOT.diagram[0].layer[n].object[n]">
+		<arguments>
+			<argument
+				name="MetadataFilepath"
+				value="${ROOT.diagram[0].filePath}" />
+			<argument
+				name="tableId"
+				value="${ROOT.diagram[0].layer[n].object[n].id}" />
+		</arguments>
+		<conditions>
+			<condition eval="ROOT.diagram[0].layer[n].object[n].type" to="Database - Table" />
+		</conditions>
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-SQLServer2000/table-${ROOT.diagram[0].layer[n].object[n].tableName}.sqlserver2000.sql"
+				type="File" mode="Replace" />
+			<output
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-SQLServer2000/1-all-tables.sqlserver2000.sql"
 				type="File" mode="Append" />
 		</outputs>
 		<dependencies>
@@ -168,6 +202,33 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				type="File" mode="Replace" />
 			<output
 				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-SQLServer/3-all-table-constraints-fks.sqlserver.sql"
+				type="File" mode="Append" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="emptyfile.txt" />
+		</dependencies>
+	</template>
+	<template id="Table-Constraint-FKs-SQLServer2000.aspx"
+		name="Table-Constraint-FKs-SQLServer2000.aspx"
+		parserType="aspx"
+		iterationType="ROOT.diagram[0].layer[n].object[n]">
+		<arguments>
+			<argument
+				name="MetadataFilepath"
+				value="${ROOT.diagram[0].filePath}" />
+			<argument
+				name="tableId"
+				value="${ROOT.diagram[0].layer[n].object[n].id}" />
+		</arguments>
+		<conditions>
+			<condition eval="ROOT.diagram[0].layer[n].object[n].type" to="Database - Table" />
+		</conditions>
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-SQLServer2000/table-constraints-fks-${ROOT.diagram[0].layer[n].object[n].tableName}.sqlserver2000.sql"
+				type="File" mode="Replace" />
+			<output
+				to="${CONFIG.outputPath}/${ROOT.diagram[0].fileName}-SQLServer2000/3-all-table-constraints-fks.sqlserver2000.sql"
 				type="File" mode="Append" />
 		</outputs>
 		<dependencies>

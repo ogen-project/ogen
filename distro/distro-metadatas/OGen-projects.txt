@@ -66,3 +66,5 @@ OGen-XSD, XSD_metadata, OGen.XSD.lib.metadata, t, f, f, MIT, f, t
 OGen-XSD, XSD_templates, OGen.XSD.lib.templates, f, t, f, MIT, f, t
 OGen-XSD, XSD-console, OGen.XSD.presentationlayer.console, f, f, t, MIT, f, t
 OGen-XSD, XSD-test, OGen.XSD.presentationlayer.test, f, f, t, MIT, f, f
+OGen-SpreadsheetXML, SpreadsheetXML_metadata, OGen.SpreadsheetXML.lib.metadata, t, f, f, MIT, f, t
+OGen-SpreadsheetXML, SpreadsheetXML-Console, OGen.SpreadsheetXML.presentationlayer.console, f, f, t, MIT, f, t
