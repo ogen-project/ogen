@@ -1,0 +1,905 @@
+<?xml version="1.0"?>
+<metadataBusiness xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" applicationName="Kick">
+  <classes>
+    <class name="CRD_Authentication" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="ChangePassword" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="password_old_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="password_new_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="CheckCredentials" outputType="bool" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+          </parameters>
+        </method>
+        <method name="Login" outputType="string" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="login_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="password_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idUser_out" type="long" isParams="false" isOut="true" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="CRD_Permition" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="getRecord_all" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_isNull_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_ofProfilePermition_byProfile" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDProfile_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="setProfilePermitions" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfile_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idPermitions_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="CRD_Profile" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="delObject" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfile_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfile_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_all" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_ofUserProfile_byUser" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_UserProfile[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDUser_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="insObject" outputType="int" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="profile_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="setUserProfiles" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idUser_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfiles_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="profile_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="CRD_User" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="insObject_CreateUser" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="login_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="insObject_Registration" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="login_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="password_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="DIC_Dic" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="getRecord_byApplication" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="FOR_Forum" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vFOR_Message" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idMessage_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_byParent" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vFOR_Message[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idMessage__parent_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="isRecursive_orThread_notReplies_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="count_out" type="long" isParams="false" isOut="true" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_Forum" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vFOR_Message[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idMessage__forum_out" type="long" isParams="false" isOut="true" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="count_out" type="long" isParams="false" isOut="true" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="insObject" outputType="long" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="message_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_FOR_Message" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="selectIdentity_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="FOR_Thread" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer" />
+    <class name="LOG_Log" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="getRecord_generic" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_LOG_Log[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDLogtype_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDUser_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDErrortype_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="Stamp_begin_search_in" type="System.DateTime" isParams="false" isOut="false" isRef="false" />
+            <parameter name="Stamp_end_search_in" type="System.DateTime" isParams="false" isOut="false" isRef="false" />
+            <parameter name="Read_search_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="Read_search_isNull_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_isNull_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="error_out" type="int" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="Log" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="logtype_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errortype_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="format_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="args_in" type="System.String[]" isParams="false" isOut="false" isRef="false" />
+          </parameters>
+        </method>
+        <method name="MarkRead" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idLog_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="NWS_Attachment" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="delObject" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idAttachment_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idAttachment_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Attachment[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_byContent_andLanguage" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Attachment[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDContent_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDLanguage_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="insObject" outputType="long" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="attachment_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Name_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Description_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="selectIdentity_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="guid_out" type="string" isParams="false" isOut="true" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="attachment_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Name_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Description_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="NWS_Author" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="delObject" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idAuthor_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Author" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idAuthor_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_all" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Author[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_Approved" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Author[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentAuthor[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="insObject" outputType="long" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="author_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Author" isParams="false" isOut="false" isRef="false" />
+            <parameter name="selectIdentity_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="author_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Author" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Approve" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idAuthor_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="NWS_Highlight" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="delObject" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idHighlight_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idHighlight_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_all" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Highlight[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_Approved" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Highlight[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentHighlight[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="insObject" outputType="long" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="highlight_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight" isParams="false" isOut="false" isRef="false" />
+            <parameter name="selectIdentity_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="highlight_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Approve" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idHighlight_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="NWS_News" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="delObject" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idLanguage_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_generic" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDUser__Publisher_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDUser__Aproved_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="Begin_date_search_in" type="System.DateTime" isParams="false" isOut="false" isRef="false" />
+            <parameter name="End_date_search_in" type="System.DateTime" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idTags_search_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idAuthors_search_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idSources_search_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idHighlights_search_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfiles_search_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="charVar8000_search_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDLanguage_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="isAND_notOR_search_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="insObject" outputType="long" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Content" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Title_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_subtitle_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_summary_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idTags_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idAuthors_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idSources_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idHighlights_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfiles_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Content" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Title_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_subtitle_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_summary_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idTags_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idAuthors_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idSources_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idHighlights_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfiles_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Approve" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Authors" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idAuthors_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Content" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Content" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Title_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_subtitle_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_summary_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Highlights" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idHighlights_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Profiles" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfiles_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Sources" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idSources_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Tags" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idTags_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="NWS_Profile" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="delObject" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfile_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfile_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_all" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_Approved" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentProfile[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="insObject" outputType="long" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="profile_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="profile_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Approve" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfile_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="NWS_Source" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="delObject" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idSource_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Source" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idSource_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_all" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Source[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_Approved" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Source[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentSource[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="insObject" outputType="long" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="source_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Source" isParams="false" isOut="false" isRef="false" />
+            <parameter name="selectIdentity_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="source_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Source" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Approve" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idSource_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="NWS_Tag" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="delObject" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idTag_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idTag_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getObject_byTag_andLanguage" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idTag_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idLanguage_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_Approved_byLang" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idLanguage_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentTag[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_byLang" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idLanguage_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_byTag" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idTag_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="insObject" outputType="long" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tag_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Name_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="selectIdentity_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tag_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Name_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Approve" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idTag_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="WEB_User" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NET_User" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idUser_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getObject_details" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idUser_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_generic" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="login_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="email_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="name_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfile__in_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfile__out_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="insObject_Registration" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="login_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="email_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="name_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="verifyMailURL_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="companyName_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="Login" outputType="string" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="email_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="password_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idUser_out" type="long" isParams="false" isOut="true" isRef="false" />
+            <parameter name="login_out" type="string" isParams="false" isOut="true" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="Login_throughLink" outputType="string" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="email_verify_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idUser_out" type="long" isParams="false" isOut="true" isRef="false" />
+            <parameter name="login_out" type="string" isParams="false" isOut="true" isRef="false" />
+            <parameter name="name_out" type="string" isParams="false" isOut="true" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="Login_throughLink_andChangePassword" outputType="string" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="email_verify_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="password_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idUser_out" type="long" isParams="false" isOut="true" isRef="false" />
+            <parameter name="login_out" type="string" isParams="false" isOut="true" isRef="false" />
+            <parameter name="name_out" type="string" isParams="false" isOut="true" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="LostPassword_Recover" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="EMail_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="companyName_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="recoverLostPasswordURL_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="setObject" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idUser_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="updateName_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="name_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_EMail" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="credentials_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="EMail_verify_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="companyName_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="verifyMailURL_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+  </classes>
+</metadataBusiness>

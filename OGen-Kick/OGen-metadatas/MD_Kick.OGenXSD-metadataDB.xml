@@ -1,0 +1,1681 @@
+<?xml version="1.0"?>
+<metadataDB xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" applicationName="Kick">
+  <tables>
+    <table name="APP_Application" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="APP_Application" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="APP_Application" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDApplication" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="nextval('&quot;APP_Application_IDApplication_seq&quot;'::regclass)" dbCollationName="" dbFieldName="IDApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDApplication" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Name" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="20" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Name" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="CRD_Permition" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="CRD_Permition" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="CRD_Permition" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDPermition" isPK="true" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDPermition" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDPermition" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Name" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Name" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="APP_Application" fkFieldName="IDApplication" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="CRD_Profile" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="CRD_Profile" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="CRD_Profile" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDProfile" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="nextval('&quot;CRD_Profile_IDProfile_seq&quot;'::regclass)" dbCollationName="" dbFieldName="IDProfile" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDProfile" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Name" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Name" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="APP_Application" fkFieldName="IDApplication" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="CRD_ProfilePermition" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="CRD_ProfilePermition" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="CRD_ProfilePermition" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFProfile" isPK="true" isIdentity="false" fkTableName="CRD_Profile" fkFieldName="IDProfile" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFProfile" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFProfile" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFPermition" isPK="true" isIdentity="false" fkTableName="CRD_Permition" fkFieldName="IDPermition" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFPermition" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFPermition" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="CRD_User" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="CRD_User" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="CRD_User" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDUser" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="nextval('&quot;CRD_User_IDUser_seq&quot;'::regclass)" dbCollationName="" dbFieldName="IDUser" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDUser" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Login" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Login" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Login" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Password" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Password" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Password" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="APP_Application" fkFieldName="IDApplication" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="CRD_UserProfile" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="CRD_UserProfile" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="CRD_UserProfile" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFUser" isPK="true" isIdentity="false" fkTableName="CRD_User" fkFieldName="IDUser" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFProfile" isPK="true" isIdentity="false" fkTableName="CRD_Profile" fkFieldName="IDProfile" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFProfile" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFProfile" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="DIC_Language" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="DIC_Language" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="DIC_Language" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDLanguage" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="nextval('&quot;DIC_Language_IDLanguage_seq&quot;'::regclass)" dbCollationName="" dbFieldName="IDLanguage" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDLanguage" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="TX_Name" isPK="false" isIdentity="false" fkTableName="DIC_Text" fkFieldName="IDText" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Name" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="DIC_LanguageApplication" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="DIC_LanguageApplication" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="DIC_LanguageApplication" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFLanguage" isPK="true" isIdentity="false" fkTableName="DIC_Language" fkFieldName="IDLanguage" isNullable="false" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFLanguage" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFLanguage" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="true" isIdentity="false" fkTableName="APP_Application" fkFieldName="IDApplication" isNullable="false" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="DIC_Text" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="DIC_Text" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="DIC_Text" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDText" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="nextval('&quot;DIC_Text_IDText_seq&quot;'::regclass)" dbCollationName="" dbFieldName="IDText" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDText" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="APP_Application" fkFieldName="IDApplication" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="SourceTableField_ref" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="SourceTableField_ref" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="SourceTableField_ref" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="DIC_TextLanguage" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="DIC_TextLanguage" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="DIC_TextLanguage" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFText" isPK="true" isIdentity="false" fkTableName="DIC_Text" fkFieldName="IDText" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFText" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFText" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFLanguage" isPK="true" isIdentity="false" fkTableName="DIC_Language" fkFieldName="IDLanguage" isNullable="false" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFLanguage" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFLanguage" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="CharVar8000" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="8000" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="CharVar8000" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="CharVar8000" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Text" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="2147483647" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="text" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Text" />
+            <tableFieldDB dbServerType="SQLServer" dbType="text" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Text" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="FOR_Message" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="FOR_Message" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="FOR_Message" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDMessage" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;identity:True;" dbDefaultValue="" dbCollationName="" dbFieldName="IDMessage" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDMessage" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFMessage__parent" isPK="false" isIdentity="false" fkTableName="FOR_Message" fkFieldName="IDMessage" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFMessage__parent" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFMessage__parent" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="isSticky" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="boolean" dbDescription="psql:boolean;sqlserver:bit;" dbDefaultValue="" dbCollationName="" dbFieldName="isSticky" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bit" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="isSticky" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Subject" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="length:255;psql:character varying;sqlserver:varchar;" dbDefaultValue="" dbCollationName="" dbFieldName="Subject" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Subject" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Message__charvar8000" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="8000" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="length:8000;psql:character varying;sqlserver:varchar;" dbDefaultValue="" dbCollationName="" dbFieldName="Message__charvar8000" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Message__charvar8000" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Message__text" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="2147483647" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="text" dbDescription="psql:text;sqlserver:text;" dbDefaultValue="" dbCollationName="" dbFieldName="Message__text" />
+            <tableFieldDB dbServerType="SQLServer" dbType="text" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Message__text" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__Publisher" isPK="false" isIdentity="false" fkTableName="NET_User" fkFieldName="IFUser" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Publisher" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Publisher" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Publish_date" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Publish_date" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Publish_date" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="APP_Application" fkFieldName="IDApplication" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="LOG_Errortype" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="LOG_Errortype" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="LOG_Errortype" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDErrortype" isPK="true" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDErrortype" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDErrortype" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Name" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Name" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Description" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="2048" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Description" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Description" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="APP_Application" fkFieldName="IDApplication" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="LOG_Log" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="LOG_Log" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="LOG_Log" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDLog" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="nextval('&quot;LOG_Log_IDLog_seq&quot;'::regclass)" dbCollationName="" dbFieldName="IDLog" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDLog" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFLogtype" isPK="false" isIdentity="false" fkTableName="LOG_Logtype" fkFieldName="IDLogtype" isNullable="false" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFLogtype" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFLogtype" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser" isPK="false" isIdentity="false" fkTableName="CRD_User" fkFieldName="IDUser" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__read" isPK="false" isIdentity="false" fkTableName="CRD_User" fkFieldName="IDUser" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__read" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__read" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFErrortype" isPK="false" isIdentity="false" fkTableName="LOG_Errortype" fkFieldName="IDErrortype" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFErrortype" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFErrortype" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Stamp" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Stamp" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Stamp" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Stamp__read" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Stamp__read" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Stamp__read" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Message" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="4000" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Message" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Message" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFPermition" isPK="false" isIdentity="false" fkTableName="CRD_Permition" fkFieldName="IDPermition" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFPermition" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFPermition" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="APP_Application" fkFieldName="IDApplication" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFBrowser__OPT" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFBrowser__OPT" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFBrowser__OPT" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="LOG_Logtype" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="LOG_Logtype" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="LOG_Logtype" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDLogtype" isPK="true" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDLogtype" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDLogtype" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFLogtype_parent" isPK="false" isIdentity="false" fkTableName="LOG_Logtype" fkFieldName="IDLogtype" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFLogtype_parent" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFLogtype_parent" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Name" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="20" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Name" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="APP_Application" fkFieldName="IDApplication" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="NET_Browser" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="NET_Browser" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="NET_Browser" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDBrowser" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigserial;sqlserver:bigint;identity:True;" dbDefaultValue="nextval('&quot;NET_Browser_IDBrowser_seq&quot;'::regclass)" dbCollationName="" dbFieldName="IDBrowser" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDBrowser" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="HTTP_FULL_SIGNATURE" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="1024" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="length:1024;psql:character varying;sqlserver:varchar;" dbDefaultValue="" dbCollationName="" dbFieldName="HTTP_FULL_SIGNATURE" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="HTTP_FULL_SIGNATURE" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="HTTP_FULL_SIGNATURE__CRC" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="HTTP_FULL_SIGNATURE__CRC" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="HTTP_FULL_SIGNATURE__CRC" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="HTTP_ACCEPT" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="length:255;psql:character varying;sqlserver:varchar;" dbDefaultValue="" dbCollationName="" dbFieldName="HTTP_ACCEPT" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="HTTP_ACCEPT" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="HTTP_ACCEPT__CRC" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="HTTP_ACCEPT__CRC" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="HTTP_ACCEPT__CRC" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="HTTP_ACCEPT_CHARSET" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="length:255;psql:character varying;sqlserver:varchar;" dbDefaultValue="" dbCollationName="" dbFieldName="HTTP_ACCEPT_CHARSET" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="HTTP_ACCEPT_CHARSET" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="HTTP_ACCEPT_CHARSET__CRC" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="HTTP_ACCEPT_CHARSET__CRC" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="HTTP_ACCEPT_CHARSET__CRC" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="HTTP_ACCEPT_ENCODING" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="length:255;psql:character varying;sqlserver:varchar;" dbDefaultValue="" dbCollationName="" dbFieldName="HTTP_ACCEPT_ENCODING" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="HTTP_ACCEPT_ENCODING" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="HTTP_ACCEPT_ENCODING__CRC" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="HTTP_ACCEPT_ENCODING__CRC" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="HTTP_ACCEPT_ENCODING__CRC" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="HTTP_ACCEPT_LANGUAGE" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="length:255;psql:character varying;sqlserver:varchar;" dbDefaultValue="" dbCollationName="" dbFieldName="HTTP_ACCEPT_LANGUAGE" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="HTTP_ACCEPT_LANGUAGE" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="HTTP_ACCEPT_LANGUAGE__CRC" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="HTTP_ACCEPT_LANGUAGE__CRC" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="HTTP_ACCEPT_LANGUAGE__CRC" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="HTTP_USER_AGENT" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="length:255;psql:character varying;sqlserver:varchar;" dbDefaultValue="" dbCollationName="" dbFieldName="HTTP_USER_AGENT" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="HTTP_USER_AGENT" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="HTTP_USER_AGENT__CRC" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="HTTP_USER_AGENT__CRC" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="HTTP_USER_AGENT__CRC" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="NET_BrowserUser" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="NET_BrowserUser" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="NET_BrowserUser" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFBrowser" isPK="true" isIdentity="false" fkTableName="NET_Browser" fkFieldName="IDBrowser" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFBrowser" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFBrowser" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser" isPK="true" isIdentity="false" fkTableName="NET_User" fkFieldName="IFUser" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="NET_Defaultprofile" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="NET_Defaultprofile" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="NET_Defaultprofile" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDDefaultprofile" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigserial;sqlserver:bigint;identity:True;" dbDefaultValue="nextval('&quot;NET_Defaultprofile_IDDefaultprofile_seq&quot;'::regclass)" dbCollationName="" dbFieldName="IDDefaultprofile" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDDefaultprofile" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFProfile" isPK="false" isIdentity="false" fkTableName="CRD_Profile" fkFieldName="IDProfile" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFProfile" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFProfile" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="NWS_Attachment" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="NWS_Attachment" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="NWS_Attachment" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDAttachment" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigserial;sqlserver:bigint;identity:True;" dbDefaultValue="nextval('&quot;NWS_Attachment_IDAttachment_seq&quot;'::regclass)" dbCollationName="" dbFieldName="IDAttachment" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDAttachment" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFContent" isPK="false" isIdentity="false" fkTableName="NWS_Content" fkFieldName="IDContent" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFContent" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFContent" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="GUID" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="50" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="length:50;psql:character varying;sqlserver:varchar;" dbDefaultValue="" dbCollationName="" dbFieldName="GUID" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="GUID" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="OrderNum" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="OrderNum" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="OrderNum" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="isImage" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="boolean" dbDescription="psql:boolean;sqlserver:bit;" dbDefaultValue="" dbCollationName="" dbFieldName="isImage" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bit" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="isImage" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="TX_Name" isPK="false" isIdentity="false" fkTableName="DIC_Text" fkFieldName="IDText" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Name" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="TX_Description" isPK="false" isIdentity="false" fkTableName="DIC_Text" fkFieldName="IDText" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Description" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Description" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="FileName" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="FileName" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="FileName" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="NWS_Author" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="NWS_Author" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="NWS_Author" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDAuthor" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="nextval('&quot;NWS_Author_IDAuthor_seq&quot;'::regclass)" dbCollationName="" dbFieldName="IDAuthor" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDAuthor" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="APP_Application" fkFieldName="IDApplication" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Name" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Name" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__Approved" isPK="false" isIdentity="false" fkTableName="NET_User" fkFieldName="IFUser" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Approved" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Approved" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Approved_date" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Approved_date" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Approved_date" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="NWS_Content" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="NWS_Content" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="NWS_Content" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDContent" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="nextval('&quot;NWS_Content_IDContent_seq&quot;'::regclass)" dbCollationName="" dbFieldName="IDContent" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDContent" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="APP_Application" fkFieldName="IDApplication" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__Publisher" isPK="false" isIdentity="false" fkTableName="NET_User" fkFieldName="IFUser" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Publisher" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Publisher" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Publish_date" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Publish_date" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Publish_date" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__Aproved" isPK="false" isIdentity="false" fkTableName="NET_User" fkFieldName="IFUser" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Aproved" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Aproved" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Aproved_date" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Aproved_date" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Aproved_date" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Begin_date" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Begin_date" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Begin_date" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="End_date" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="End_date" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="End_date" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="TX_Title" isPK="false" isIdentity="false" fkTableName="DIC_Text" fkFieldName="IDText" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Title" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Title" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="TX_Content" isPK="false" isIdentity="false" fkTableName="DIC_Text" fkFieldName="IDText" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Content" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Content" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="tx_subtitle" isPK="false" isIdentity="false" fkTableName="DIC_Text" fkFieldName="IDText" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="tx_subtitle" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="tx_subtitle" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="tx_summary" isPK="false" isIdentity="false" fkTableName="DIC_Text" fkFieldName="IDText" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="tx_summary" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="tx_summary" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Newslettersent_date" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="time with time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Newslettersent_date" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Newslettersent_date" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="isNews_notForum" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="boolean" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="isNews_notForum" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bit" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="isNews_notForum" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="NWS_ContentAuthor" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="NWS_ContentAuthor" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="NWS_ContentAuthor" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFContent" isPK="true" isIdentity="false" fkTableName="NWS_Content" fkFieldName="IDContent" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFContent" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFContent" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFAuthor" isPK="true" isIdentity="false" fkTableName="NWS_Author" fkFieldName="IDAuthor" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFAuthor" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFAuthor" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="NWS_ContentHighlight" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="NWS_ContentHighlight" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="NWS_ContentHighlight" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFContent" isPK="true" isIdentity="false" fkTableName="NWS_Content" fkFieldName="IDContent" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFContent" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFContent" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFHighlight" isPK="true" isIdentity="false" fkTableName="NWS_Highlight" fkFieldName="IDHighlight" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFHighlight" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFHighlight" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Begin_date" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Begin_date" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Begin_date" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="End_date" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="End_date" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="End_date" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="NWS_ContentProfile" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="NWS_ContentProfile" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="NWS_ContentProfile" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFContent" isPK="true" isIdentity="false" fkTableName="NWS_Content" fkFieldName="IDContent" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFContent" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFContent" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFProfile" isPK="true" isIdentity="false" fkTableName="NWS_Profile" fkFieldName="IFProfile" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFProfile" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFProfile" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="NWS_ContentSource" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="NWS_ContentSource" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="NWS_ContentSource" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFContent" isPK="true" isIdentity="false" fkTableName="NWS_Content" fkFieldName="IDContent" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFContent" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFContent" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFSource" isPK="true" isIdentity="false" fkTableName="NWS_Source" fkFieldName="IDSource" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFSource" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFSource" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="NWS_ContentTag" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="NWS_ContentTag" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="NWS_ContentTag" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFContent" isPK="true" isIdentity="false" fkTableName="NWS_Content" fkFieldName="IDContent" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFContent" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFContent" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFTag" isPK="true" isIdentity="false" fkTableName="NWS_Tag" fkFieldName="IDTag" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFTag" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFTag" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="NWS_Highlight" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="NWS_Highlight" dbDescription="bla bla&#xA;bla&#xA;." />
+        <tableDB dbServerType="SQLServer" dbTableName="NWS_Highlight" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDHighlight" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="asd&#xA;as&#xA;a&#xA;." dbDefaultValue="nextval('&quot;NWS_Highlight_IDHighlight_seq&quot;'::regclass)" dbCollationName="" dbFieldName="IDHighlight" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDHighlight" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="APP_Application" fkFieldName="IDApplication" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFHighlight__parent" isPK="false" isIdentity="false" fkTableName="NWS_Highlight" fkFieldName="IDHighlight" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFHighlight__parent" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFHighlight__parent" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Name" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="100" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Name" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__Approved" isPK="false" isIdentity="false" fkTableName="NET_User" fkFieldName="IFUser" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Approved" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Approved" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Approved_date" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Approved_date" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Approved_date" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="NWS_Profile" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="NWS_Profile" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="NWS_Profile" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFProfile" isPK="true" isIdentity="false" fkTableName="CRD_Profile" fkFieldName="IDProfile" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFProfile" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFProfile" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__Approved" isPK="false" isIdentity="false" fkTableName="NET_User" fkFieldName="IFUser" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Approved" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Approved" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Approved_date" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Approved_date" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Approved_date" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="NWS_Source" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="NWS_Source" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="NWS_Source" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDSource" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="nextval('&quot;NWS_Source_IDSource_seq&quot;'::regclass)" dbCollationName="" dbFieldName="IDSource" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDSource" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="APP_Application" fkFieldName="IDApplication" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFSource__parent" isPK="false" isIdentity="false" fkTableName="NWS_Source" fkFieldName="IDSource" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFSource__parent" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFSource__parent" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Name" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Name" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__Approved" isPK="false" isIdentity="false" fkTableName="NET_User" fkFieldName="IFUser" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Approved" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Approved" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Approved_date" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Approved_date" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Approved_date" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="NWS_Tag" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="NWS_Tag" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="NWS_Tag" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDTag" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="nextval('&quot;NWS_Tag_IDTag_seq&quot;'::regclass)" dbCollationName="" dbFieldName="IDTag" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDTag" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="APP_Application" fkFieldName="IDApplication" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFTag__parent" isPK="false" isIdentity="false" fkTableName="NWS_Tag" fkFieldName="IDTag" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFTag__parent" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFTag__parent" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="TX_Name" isPK="false" isIdentity="false" fkTableName="DIC_Text" fkFieldName="IDText" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Name" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__Approved" isPK="false" isIdentity="false" fkTableName="NET_User" fkFieldName="IFUser" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Approved" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Approved" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Approved_date" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Approved_date" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Approved_date" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="NET_User" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="NET_User" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="NET_User" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFUser" isPK="true" isIdentity="false" fkTableName="CRD_User" fkFieldName="IDUser" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Name" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Name" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="EMail" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="EMail" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="EMail" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="EMail_verify" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="EMail_verify" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="EMail_verify" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="APP_Application" fkFieldName="IDApplication" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="NWS_UserTag" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="NWS_UserTag" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="NWS_UserTag" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFUser" isPK="true" isIdentity="false" fkTableName="NWS_User" fkFieldName="IFUser" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFTag" isPK="true" isIdentity="false" fkTableName="NWS_Tag" fkFieldName="IDTag" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFTag" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFTag" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="vCRD_ProfilePermition" isVirtualTable="true">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="vCRD_ProfilePermition" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="vCRD_ProfilePermition" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDPermition" isPK="true" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDPermition" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDPermition" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="PermitionName" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="PermitionName" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="PermitionName" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IDProfile" isPK="true" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDProfile" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDProfile" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="hasPermition" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="boolean" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="hasPermition" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bit" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="hasPermition" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="vCRD_UserProfile" isVirtualTable="true">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="vCRD_UserProfile" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="vCRD_UserProfile" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDProfile" isPK="true" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDProfile" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDProfile" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="ProfileName" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="ProfileName" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="ProfileName" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IDUser" isPK="true" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDUser" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDUser" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="hasProfile" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="boolean" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="hasProfile" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bit" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="hasProfile" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="vDIC_ApplicationLanguage" isVirtualTable="true">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="vDIC_ApplicationLanguage" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="vDIC_ApplicationLanguage" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFApplication" isPK="true" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IDLanguage" isPK="true" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDLanguage" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDLanguage" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Language" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="2147483647" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Language" />
+            <tableFieldDB dbServerType="SQLServer" dbType="text" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Language" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="vFOR_Message" isVirtualTable="true">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="vFOR_Message" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="vFOR_Message" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDMessage" isPK="true" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDMessage" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDMessage" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IDMessage__parent" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDMessage__parent" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDMessage__parent" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="isThread" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="boolean" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="isThread" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bit" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="isThread" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="isSticky" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="boolean" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="isSticky" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bit" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="isSticky" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Subject" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Subject" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Subject" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Message__charvar8000" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="8000" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Message__charvar8000" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Message__charvar8000" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Message__text" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="2147483647" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="text" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Message__text" />
+            <tableFieldDB dbServerType="SQLServer" dbType="text" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Message__text" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IDUser" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDUser" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDUser" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Name" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Name" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Publish_date" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Publish_date" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Publish_date" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Login" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Login" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Login" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="vNWS_Attachment" isVirtualTable="true">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="vNWS_Attachment" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="vNWS_Attachment" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDAttachment" isPK="true" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDAttachment" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDAttachment" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IDLanguage" isPK="true" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDLanguage" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDLanguage" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFContent" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFContent" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFContent" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="GUID" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="50" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="GUID" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="GUID" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="OrderNum" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="OrderNum" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="OrderNum" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="isImage" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="boolean" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="isImage" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bit" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="isImage" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Name" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="2147483647" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="text" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Name" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Description" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="2147483647" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Description" />
+            <tableFieldDB dbServerType="SQLServer" dbType="text" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Description" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="FileName" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="FileName" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="FileName" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="vNWS_Author" isVirtualTable="true">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="vNWS_Author" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="vNWS_Author" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDAuthor" isPK="true" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDAuthor" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDAuthor" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IDApplication" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDApplication" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Name" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Name" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__Approved" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Approved" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Approved" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="ManagerName" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="ManagerName" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="ManagerName" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Approved_date" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Approved_date" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Approved_date" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="vNWS_Content" isVirtualTable="true">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="vNWS_Content" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="vNWS_Content" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDContent" isPK="true" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDContent" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDContent" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IDLanguage" isPK="true" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDLanguage" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDLanguage" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__Publisher" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Publisher" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Publisher" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="PublisherName" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="PublisherName" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="PublisherName" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Publish_date" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Publish_date" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Publish_date" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__Aproved" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Aproved" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Aproved" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Aproved_date" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Aproved_date" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Aproved_date" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Title" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="2147483647" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Title" />
+            <tableFieldDB dbServerType="SQLServer" dbType="text" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Title" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Content" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="2147483647" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Content" />
+            <tableFieldDB dbServerType="SQLServer" dbType="text" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Content" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="subtitle" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="2147483647" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="subtitle" />
+            <tableFieldDB dbServerType="SQLServer" dbType="text" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="subtitle" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="summary" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="2147483647" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="summary" />
+            <tableFieldDB dbServerType="SQLServer" dbType="text" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="summary" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="vNWS_Highlight" isVirtualTable="true">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="vNWS_Highlight" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="vNWS_Highlight" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDHighlight" isPK="true" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDHighlight" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDHighlight" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFHighlight__parent" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFHighlight__parent" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFHighlight__parent" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__Approved" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Approved" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Approved" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Approved_date" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Approved_date" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Approved_date" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Name" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="8000" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Name" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="ManagerName" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="ManagerName" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="ManagerName" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="vNWS_Profile" isVirtualTable="true">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="vNWS_Profile" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="vNWS_Profile" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDProfile" isPK="true" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDProfile" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDProfile" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Name" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Name" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IDApplication" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDApplication" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__Approved" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Approved" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Approved" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Approved_date" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Approved_date" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Approved_date" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="ManagerName" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="ManagerName" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="ManagerName" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="vNWS_Source" isVirtualTable="true">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="vNWS_Source" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="vNWS_Source" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDSource" isPK="true" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDSource" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDSource" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFSource__parent" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFSource__parent" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFSource__parent" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__Approved" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Approved" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Approved" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Approved_date" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Approved_date" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Approved_date" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Name" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="8000" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Name" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="ManagerName" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="ManagerName" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="ManagerName" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="vNWS_Tag" isVirtualTable="true">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="vNWS_Tag" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="vNWS_Tag" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDTag" isPK="true" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDTag" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDTag" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IDLanguage" isPK="true" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDLanguage" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDLanguage" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFTag__parent" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFTag__parent" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFTag__parent" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__Approved" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Approved" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__Approved" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Approved_date" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Approved_date" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Approved_date" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Name" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="8000" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Name" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="ManagerName" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="ManagerName" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="ManagerName" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="ShortName" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="2147483647" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="ShortName" />
+            <tableFieldDB dbServerType="SQLServer" dbType="text" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="ShortName" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="vNET_User" isVirtualTable="true">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="vNET_User" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="vNET_User" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDUser" isPK="true" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDUser" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IDUser" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Login" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Login" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Login" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Name" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="Name" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="EMail" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="EMail" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="" dbDefaultValue="" dbCollationName="SQL_Latin1_General_CP1_CI_AS" dbFieldName="EMail" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+  </tables>
+</metadataDB>
