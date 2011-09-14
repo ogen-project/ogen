@@ -1,5 +1,5 @@
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kick--test-10", "Kick--test\Kick--test-10.csproj", "{5D0280A7-2A09-422F-87BA-683ACE9AA187}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kick-datalayer-10", "Kick-datalayer\Kick-datalayer-10.csproj", "{4072BCFE-FD4C-49C2-AA7B-0B63C97795F7}"
