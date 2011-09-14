@@ -248,6 +248,12 @@ case "CONFIG.metadatasPath":
 //							_con = (cDBConnection)connection_[DBServerTypes.PostgreSQL];
 							break;
 						}
+#else
+						case XS_OutputEnumeration.PostgreSQL_Function: 
+						case XS_OutputEnumeration.PostgreSQL_StoredProcedure: 
+						case XS_OutputEnumeration.PostgreSQL_View: {
+							continue;
+						}
 #endif
 #if MySQL
 						case XS_OutputEnumeration.MySQL_Function: 
@@ -256,6 +262,12 @@ case "CONFIG.metadatasPath":
 							if (!dbconnectionstrings_.Contains_disableIfNot(DBServerTypes.MySQL)) continue;
 //							_con = (cDBConnection)connection_[DBServerTypes.MySQL];
 							break;
+						}
+#else
+						case XS_OutputEnumeration.MySQL_Function: 
+						case XS_OutputEnumeration.MySQL_StoredProcedure: 
+						case XS_OutputEnumeration.MySQL_View: {
+							continue;
 						}
 #endif
 						case XS_OutputEnumeration.SQLServer_Function: 

@@ -115,29 +115,40 @@
       <Name>OGen_collections-10</Name>
       <Project>{A6E837F8-780F-4D05-B3ED-2FF1906B5766}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_generator\OGen_generator-10.csproj">
+      <Project>{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}</Project>
+      <Name>OGen_generator-10</Name>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\OGen\OGen_parser\OGen_parser-10.csproj">
       <Project>{981BC7DE-D93C-446E-861E-60A20E4E3391}</Project>
       <Name>OGen_parser-10</Name>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\OGen\OGen_webforms\OGen_webforms-10.csproj">
       <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
       <Name>OGen_webforms-10</Name>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\NTier_businesslayer\NTier_businesslayer-10.csproj">
       <Name>NTier_businesslayer-10</Name>
       <Project>{8AEBEA64-6FC4-430C-922C-B88D105AE91C}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\NTier_datalayer\NTier_datalayer-10.csproj">
       <Name>NTier_datalayer-10</Name>
       <Project>{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\NTier_metadata\NTier_metadata-10.csproj">
       <Name>NTier_metadata-10</Name>
       <Project>{0E77A4DB-AF8B-4290-BB33-F9EC97655433}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+      <Private>True</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -159,18 +170,18 @@
     <Content Include="PRJ--COMMON-XXX.config.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="PRJ-BO-Someapp-businesslayer-10.csproj.aspx">
+    <Content Include="PRJ-BO-Someapp-businesslayer-9.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="PRJ-BO-Someapp-businesslayer-BO0_Somebo.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="PRJ-BO-Someapp-businesslayer-instances-10.csproj.aspx">
+    <Content Include="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx">
     </Content>
     <Content Include="PRJ-BO-Someapp-businesslayer-instances-Somebo0.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="PRJ-BO-Someapp-businesslayer-shared-10.csproj.aspx">
+    <Content Include="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="PRJ-BO-Someapp-businesslayer-shared-IBO0_Somebo.cs.aspx">
@@ -178,9 +189,9 @@
     </Content>
     <Content Include="PRJ-BO-Someapp-businesslayer-shared-IBO_Somebo.cs.aspx">
     </Content>
-    <Content Include="PRJ-BO-Someapp-businesslayer-structures-10.csproj.aspx">
+    <Content Include="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx">
     </Content>
-    <Content Include="PRJ-DO-Someapp-datalayer-10.csproj.aspx">
+    <Content Include="PRJ-DO-Someapp-datalayer-9.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="PRJ-DO-Someapp-datalayer-DO0_Sometable.cs.aspx">
@@ -193,19 +204,19 @@
     <Content Include="PRJ-DO-Someapp-datalayer-DO__utils.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="PRJ-DO-Someapp-datalayer-structures-10.csproj.aspx">
+    <Content Include="PRJ-DO-Someapp-datalayer-structures-9.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="PRJ-DO-Someapp-datalayer-structures-SO0_Sometable.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="PRJ-RC-Someapp-remoting-client-10.csproj.aspx">
+    <Content Include="PRJ-RC-Someapp-remoting-client-9.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="PRJ-RC-Someapp-remoting-client-RC0_Somebo.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="PRJ-RS-Someapp-remoting-server-10.csproj.aspx">
+    <Content Include="PRJ-RS-Someapp-remoting-server-9.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="PRJ-RS-Someapp-remoting-server-RS0_Somebo.cs.aspx">
@@ -213,26 +224,26 @@
     <Content Include="PRJ-RS-Someapp-remoting-server-RS0__server.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="PRJ-RS-Someapp-remoting-simpleserver-10.csproj.aspx">
+    <Content Include="PRJ-RS-Someapp-remoting-simpleserver-9.csproj.aspx">
     </Content>
     <Content Include="PRJ-RS-Someapp-remoting-simpleserver-Program.cs.aspx">
     </Content>
-    <Content Include="PRJ-Someapp--test-10.csproj.aspx">
+    <Content Include="PRJ-Someapp--test-9.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="PRJ-Someapp--test-program.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="PRJ-Someapp-10.sln.aspx">
+    <Content Include="PRJ-Someapp-9.sln.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="PRJ-WC-Someapp-webservices-client-10.csproj.aspx">
+    <Content Include="PRJ-WC-Someapp-webservices-client-9.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="PRJ-WC-Someapp-webservices-client-WC0_Somebo.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="PRJ-WS-Someapp-webservices-server-10.csproj.aspx">
+    <Content Include="PRJ-WS-Someapp-webservices-server-9.csproj.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="PRJ-WS-Someapp-webservices-server-Default.aspx.aspx">
@@ -456,18 +467,22 @@
     <ProjectReference Include="..\..\OGen\OGen_datalayersupport\OGen_datalayersupport-10.csproj">
       <Project>{88D87481-CC3F-49C7-A013-758387F3452E}</Project>
       <Name>OGen_datalayersupport-10</Name>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\OGen\OGen_datalayer_PostgreSQL\OGen_datalayer_PostgreSQL-10.csproj">
       <Project>{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}</Project>
       <Name>OGen_datalayer_PostgreSQL-10</Name>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\OGen\OGen_datalayer_SQLServer\OGen_datalayer_SQLServer-10.csproj">
       <Project>{F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7}</Project>
       <Name>OGen_datalayer_SQLServer-10</Name>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\OGen\OGen_datalayer__base\OGen_datalayer__base-10.csproj">
       <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
       <Name>OGen_datalayer__base-10</Name>
+      <Private>True</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
