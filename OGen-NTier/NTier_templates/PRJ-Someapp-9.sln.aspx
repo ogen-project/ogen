@@ -49,11 +49,11 @@ string _aux_guid;
 if (!_arg_gac) {%>
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LZMA-9", "<%=_aux_path%>\libs\LZMA-9.10\CS\7zip\LZMA-9.csproj", "{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting", "<%=_aux_path%>\OGen-NTier\NTier_distributedlayer_remoting\NTier_distributedlayer_remoting.csproj", "{504D4214-DA98-4CA2-8849-70796D05F41B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting-9", "<%=_aux_path%>\OGen-NTier\NTier_distributedlayer_remoting\NTier_distributedlayer_remoting.-9csproj", "{504D4214-DA98-4CA2-8849-70796D05F41B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting_client", "<%=_aux_path%>\OGen-NTier\NTier_distributedlayer_remoting_client\NTier_distributedlayer_remoting_client.csproj", "{A1711840-2FC2-457D-BA6B-0E36B54E395F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting_client-9", "<%=_aux_path%>\OGen-NTier\NTier_distributedlayer_remoting_client\NTier_distributedlayer_remoting_client-9.csproj", "{A1711840-2FC2-457D-BA6B-0E36B54E395F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting_server", "<%=_aux_path%>\OGen-NTier\NTier_distributedlayer_remoting_server\NTier_distributedlayer_remoting_server.csproj", "{29413A02-D0EB-4BFF-8EB6-A65AB1166FF3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting_server-9", "<%=_aux_path%>\OGen-NTier\NTier_distributedlayer_remoting_server\NTier_distributedlayer_remoting_server-9.csproj", "{29413A02-D0EB-4BFF-8EB6-A65AB1166FF3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer__base-9", "<%=_aux_path%>\OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj", "{D66D0E69-852C-4695-9D63-C9AB1A959E0B}"
 EndProject

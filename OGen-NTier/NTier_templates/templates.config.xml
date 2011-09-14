@@ -53,7 +53,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
@@ -68,7 +68,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
@@ -83,7 +83,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
 		</conditions>
 		<outputs>
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Replace" />
 		</outputs>
 		<dependencies />
@@ -105,7 +105,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</conditions>
 		<outputs>
 <!-- XXX:TODOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TODOS -->
 			<output to="v0_${ROOT.metadataDB[0].tables.table[n].name}__onlyKeys"
@@ -132,7 +132,7 @@ XXX:TODOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}__ConstraintExist" 
@@ -159,7 +159,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}__ConstraintExist" 
@@ -187,7 +187,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}__ConstraintExist"
@@ -216,7 +216,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -245,7 +245,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_isObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -275,7 +275,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_isObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}"
@@ -302,7 +302,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject"
@@ -327,7 +327,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject" 
@@ -354,7 +354,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject"
@@ -381,7 +381,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_count_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -410,7 +410,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_count_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -440,7 +440,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_count_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -469,7 +469,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_hasObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -498,7 +498,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_hasObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -528,7 +528,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_hasObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -556,7 +556,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_insObject" 
@@ -584,7 +584,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_insObject" 
@@ -613,7 +613,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_insObject" 
@@ -641,7 +641,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_updObject" 
@@ -669,7 +669,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_updObject" 
@@ -698,7 +698,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_updObject" 
@@ -726,7 +726,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_setObject" 
@@ -754,7 +754,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_setObject" 
@@ -783,7 +783,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_setObject" 
@@ -811,7 +811,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject" 
@@ -837,7 +837,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject" 
@@ -865,7 +865,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject" 
@@ -893,7 +893,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_delObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -923,7 +923,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_delObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -954,7 +954,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_delObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -984,7 +984,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_delete_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -1014,7 +1014,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_delete_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -1046,7 +1046,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_delete_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -1075,7 +1075,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="fnc_${ROOT.metadataExtended[0].tables.table[n].name}_isObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -1102,7 +1102,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="fnc_${ROOT.metadataExtended[0].tables.table[n].name}_isObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -1131,7 +1131,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="fnc_${ROOT.metadataExtended[0].tables.table[n].name}_isObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -1158,7 +1158,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="fnc_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -1185,7 +1185,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="fnc_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -1215,7 +1215,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="fnc_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -1242,7 +1242,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -1271,7 +1271,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -1302,7 +1302,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -1329,7 +1329,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject" 
@@ -1354,7 +1354,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject" 
@@ -1381,7 +1381,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject" 
@@ -1408,7 +1408,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_getObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -1437,7 +1437,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_getObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -1467,7 +1467,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_getObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -1496,7 +1496,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_fullmode" 
@@ -1525,7 +1525,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_fullmode" 
@@ -1555,7 +1555,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_fullmode" 
@@ -1613,7 +1613,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_page" 
@@ -1644,7 +1644,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_page" 
@@ -1673,7 +1673,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_page_fullmode" 
@@ -1702,7 +1702,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_page_fullmode" 
@@ -1732,7 +1732,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_page_fullmode" 
@@ -1761,7 +1761,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_update_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].tableSearchUpdates.tableSearchUpdate[n].name}_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -1790,7 +1790,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_update_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].tableSearchUpdates.tableSearchUpdate[n].name}_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -1820,7 +1820,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_update_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].tableSearchUpdates.tableSearchUpdate[n].name}_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
@@ -1925,7 +1925,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="OGen_fnc0__Split" 
@@ -1946,7 +1946,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="OGen_fnc0__Split" 
@@ -1967,7 +1967,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="OGen_fnc0__Like" 
@@ -1990,7 +1990,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="OGen_fnc0__Like" 
@@ -2013,7 +2013,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="v0__getTables" 
@@ -2034,7 +2034,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="OGen_sp0__getTables" 
@@ -2058,7 +2058,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="OGen_sp0__getTables" 
@@ -2081,7 +2081,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="v0__getTables" 
@@ -2102,7 +2102,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="OGen_sp0__getTableFields" 
@@ -2125,7 +2125,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="OGen_sp0__getTableFields" 
@@ -2146,7 +2146,7 @@ XXX:TO_DOS -->
 		</conditions>
 		<outputs>
 <!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/${ROOT.metadataDB[0].applicationName}-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
 			<output to="OGen_sp0__getTableFields"
