@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+OGen
+Copyright (c) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{08F3001E-7C45-4A78-A295-48684AC9323E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OGen.NTier.Kick.distributedlayer.webservices.server</RootNamespace>
+    <AssemblyName>OGen.NTier.Kick.distributedlayer.webservices.server-2.0</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET_2_0</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;NET_2_0</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="OGen.NTier.lib.datalayer.proxy-2.0">
+      <Name>OGen.NTier.lib.datalayer.proxy-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+    <Content Include="Default.aspx" />
+    <Content Include="WS_CRD_Authentication.asmx" />
+    <Content Include="WS_CRD_Permition.asmx" />
+    <Content Include="WS_CRD_Profile.asmx" />
+    <Content Include="WS_CRD_User.asmx" />
+    <Content Include="WS_DIC_Dic.asmx" />
+    <Content Include="WS_FOR_Forum.asmx" />
+    <Content Include="WS_FOR_Thread.asmx" />
+    <Content Include="WS_LOG_Log.asmx" />
+    <Content Include="WS_NWS_Attachment.asmx" />
+    <Content Include="WS_NWS_Author.asmx" />
+    <Content Include="WS_NWS_Highlight.asmx" />
+    <Content Include="WS_NWS_News.asmx" />
+    <Content Include="WS_NWS_Profile.asmx" />
+    <Content Include="WS_NWS_Source.asmx" />
+    <Content Include="WS_NWS_Tag.asmx" />
+    <Content Include="WS_WEB_User.asmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_base\WS0_CRD_Authentication.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS_CRD_Authentication.asmx.cs">
+      <DependentUpon>WS_CRD_Authentication.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_base\WS0_CRD_Permition.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS_CRD_Permition.asmx.cs">
+      <DependentUpon>WS_CRD_Permition.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_base\WS0_CRD_Profile.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS_CRD_Profile.asmx.cs">
+      <DependentUpon>WS_CRD_Profile.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_base\WS0_CRD_User.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS_CRD_User.asmx.cs">
+      <DependentUpon>WS_CRD_User.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_base\WS0_DIC_Dic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS_DIC_Dic.asmx.cs">
+      <DependentUpon>WS_DIC_Dic.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_base\WS0_FOR_Forum.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS_FOR_Forum.asmx.cs">
+      <DependentUpon>WS_FOR_Forum.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_base\WS0_FOR_Thread.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS_FOR_Thread.asmx.cs">
+      <DependentUpon>WS_FOR_Thread.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_base\WS0_LOG_Log.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS_LOG_Log.asmx.cs">
+      <DependentUpon>WS_LOG_Log.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_base\WS0_NWS_Attachment.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS_NWS_Attachment.asmx.cs">
+      <DependentUpon>WS_NWS_Attachment.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_base\WS0_NWS_Author.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS_NWS_Author.asmx.cs">
+      <DependentUpon>WS_NWS_Author.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_base\WS0_NWS_Highlight.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS_NWS_Highlight.asmx.cs">
+      <DependentUpon>WS_NWS_Highlight.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_base\WS0_NWS_News.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS_NWS_News.asmx.cs">
+      <DependentUpon>WS_NWS_News.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_base\WS0_NWS_Profile.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS_NWS_Profile.asmx.cs">
+      <DependentUpon>WS_NWS_Profile.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_base\WS0_NWS_Source.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS_NWS_Source.asmx.cs">
+      <DependentUpon>WS_NWS_Source.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_base\WS0_NWS_Tag.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS_NWS_Tag.asmx.cs">
+      <DependentUpon>WS_NWS_Tag.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_base\WS0_WEB_User.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WS_WEB_User.asmx.cs">
+      <DependentUpon>WS_WEB_User.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kick-businesslayer\Kick-businesslayer-10.csproj">
+      <Project>{82A42F01-E060-43BA-8580-3AA3B55B8835}</Project>
+      <Name>Kick-businesslayer-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kick-businesslayer-shared\Kick-businesslayer-shared-10.csproj">
+      <Project>{13DD2252-A8D0-4672-86E4-67AFB821F03D}</Project>
+      <Name>Kick-businesslayer-shared-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kick-businesslayer-structures\Kick-businesslayer-structures-10.csproj">
+      <Project>{C25672B4-7EB7-485C-8486-DB71206ED6B3}</Project>
+      <Name>Kick-businesslayer-structures-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kick-datalayer-structures\Kick-datalayer-structures-10.csproj">
+      <Project>{11DBCAAE-7838-4204-B8BE-53B96864D928}</Project>
+      <Name>Kick-datalayer-structures-10</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>31818</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

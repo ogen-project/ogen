@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+OGen
+Copyright (c) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4072BCFE-FD4C-49C2-AA7B-0B63C97795F7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OGen.NTier.Kick.lib.datalayer</RootNamespace>
+    <AssemblyName>OGen.NTier.Kick.lib.datalayer-2.0</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET_2_0;PostgreSQL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NET_2_0;PostgreSQL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="OGen.lib.datalayer-2.0">
+      <Name>OGen.lib.datalayer-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="OGen.lib.datalayer.PostgreSQL-2.0">
+      <Name>OGen.lib.datalayer.PostgreSQL-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="OGen.NTier.lib.datalayer-2.0">
+      <Name>OGen.NTier.lib.datalayer-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="OGen.NTier.lib.datalayer.proxy-2.0">
+      <Name>OGen.NTier.lib.datalayer.proxy-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_base\DO0__utils.cs" />
+    <Compile Include="DO__utils.cs" />
+    <Compile Include="_base\DO0_APP_Application.cs" />
+    <Compile Include="DO_APP_Application.cs" />
+    <Compile Include="_base\DO0_CRD_Permition.cs" />
+    <Compile Include="DO_CRD_Permition.cs" />
+    <Compile Include="_base\DO0_CRD_Profile.cs" />
+    <Compile Include="DO_CRD_Profile.cs" />
+    <Compile Include="_base\DO0_CRD_ProfilePermition.cs" />
+    <Compile Include="DO_CRD_ProfilePermition.cs" />
+    <Compile Include="_base\DO0_CRD_User.cs" />
+    <Compile Include="DO_CRD_User.cs" />
+    <Compile Include="_base\DO0_CRD_UserProfile.cs" />
+    <Compile Include="DO_CRD_UserProfile.cs" />
+    <Compile Include="_base\DO0_DIC_Language.cs" />
+    <Compile Include="DO_DIC_Language.cs" />
+    <Compile Include="_base\DO0_DIC_LanguageApplication.cs" />
+    <Compile Include="DO_DIC_LanguageApplication.cs" />
+    <Compile Include="_base\DO0_DIC_Text.cs" />
+    <Compile Include="DO_DIC_Text.cs" />
+    <Compile Include="_base\DO0_DIC_TextLanguage.cs" />
+    <Compile Include="DO_DIC_TextLanguage.cs" />
+    <Compile Include="_base\DO0_FOR_Message.cs" />
+    <Compile Include="DO_FOR_Message.cs" />
+    <Compile Include="_base\DO0_LOG_Errortype.cs" />
+    <Compile Include="DO_LOG_Errortype.cs" />
+    <Compile Include="_base\DO0_LOG_Log.cs" />
+    <Compile Include="DO_LOG_Log.cs" />
+    <Compile Include="_base\DO0_LOG_Logtype.cs" />
+    <Compile Include="DO_LOG_Logtype.cs" />
+    <Compile Include="_base\DO0_NET_Browser.cs" />
+    <Compile Include="DO_NET_Browser.cs" />
+    <Compile Include="_base\DO0_NET_BrowserUser.cs" />
+    <Compile Include="DO_NET_BrowserUser.cs" />
+    <Compile Include="_base\DO0_NET_Defaultprofile.cs" />
+    <Compile Include="DO_NET_Defaultprofile.cs" />
+    <Compile Include="_base\DO0_NET_User.cs" />
+    <Compile Include="DO_NET_User.cs" />
+    <Compile Include="_base\DO0_NWS_Attachment.cs" />
+    <Compile Include="DO_NWS_Attachment.cs" />
+    <Compile Include="_base\DO0_NWS_Author.cs" />
+    <Compile Include="DO_NWS_Author.cs" />
+    <Compile Include="_base\DO0_NWS_Content.cs" />
+    <Compile Include="DO_NWS_Content.cs" />
+    <Compile Include="_base\DO0_NWS_ContentAuthor.cs" />
+    <Compile Include="DO_NWS_ContentAuthor.cs" />
+    <Compile Include="_base\DO0_NWS_ContentHighlight.cs" />
+    <Compile Include="DO_NWS_ContentHighlight.cs" />
+    <Compile Include="_base\DO0_NWS_ContentProfile.cs" />
+    <Compile Include="DO_NWS_ContentProfile.cs" />
+    <Compile Include="_base\DO0_NWS_ContentSource.cs" />
+    <Compile Include="DO_NWS_ContentSource.cs" />
+    <Compile Include="_base\DO0_NWS_ContentTag.cs" />
+    <Compile Include="DO_NWS_ContentTag.cs" />
+    <Compile Include="_base\DO0_NWS_Highlight.cs" />
+    <Compile Include="DO_NWS_Highlight.cs" />
+    <Compile Include="_base\DO0_NWS_Profile.cs" />
+    <Compile Include="DO_NWS_Profile.cs" />
+    <Compile Include="_base\DO0_NWS_Source.cs" />
+    <Compile Include="DO_NWS_Source.cs" />
+    <Compile Include="_base\DO0_NWS_Tag.cs" />
+    <Compile Include="DO_NWS_Tag.cs" />
+    <Compile Include="_base\DO0_NWS_UserTag.cs" />
+    <Compile Include="DO_NWS_UserTag.cs" />
+    <Compile Include="_base\DO0_vCRD_ProfilePermition.cs" />
+    <Compile Include="DO_vCRD_ProfilePermition.cs" />
+    <Compile Include="_base\DO0_vCRD_UserProfile.cs" />
+    <Compile Include="DO_vCRD_UserProfile.cs" />
+    <Compile Include="_base\DO0_vDIC_ApplicationLanguage.cs" />
+    <Compile Include="DO_vDIC_ApplicationLanguage.cs" />
+    <Compile Include="_base\DO0_vFOR_Message.cs" />
+    <Compile Include="DO_vFOR_Message.cs" />
+    <Compile Include="_base\DO0_vNET_User.cs" />
+    <Compile Include="DO_vNET_User.cs" />
+    <Compile Include="_base\DO0_vNWS_Attachment.cs" />
+    <Compile Include="DO_vNWS_Attachment.cs" />
+    <Compile Include="_base\DO0_vNWS_Author.cs" />
+    <Compile Include="DO_vNWS_Author.cs" />
+    <Compile Include="_base\DO0_vNWS_Content.cs" />
+    <Compile Include="DO_vNWS_Content.cs" />
+    <Compile Include="_base\DO0_vNWS_Highlight.cs" />
+    <Compile Include="DO_vNWS_Highlight.cs" />
+    <Compile Include="_base\DO0_vNWS_Profile.cs" />
+    <Compile Include="DO_vNWS_Profile.cs" />
+    <Compile Include="_base\DO0_vNWS_Source.cs" />
+    <Compile Include="DO_vNWS_Source.cs" />
+    <Compile Include="_base\DO0_vNWS_Tag.cs" />
+    <Compile Include="DO_vNWS_Tag.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kick-datalayer-structures\Kick-datalayer-structures-10.csproj">
+      <Project>{11DBCAAE-7838-4204-B8BE-53B96864D928}</Project>
+      <Name>Kick-datalayer-structures-10</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

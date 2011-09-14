@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+OGen
+Copyright (c) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{16AA0F44-C31C-4FA2-B461-A74946CD3224}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OGen.NTier.Kick.lib.distributedlayer.remoting.client</RootNamespace>
+    <AssemblyName>OGen.NTier.Kick.lib.distributedlayer.remoting.client-2.0</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET_2_0</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NET_2_0</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="OGen.NTier.lib.datalayer.proxy-2.0">
+      <Name>OGen.NTier.lib.datalayer.proxy-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="OGen.NTier.lib.distributedlayer.remoting.client-2.0">
+      <Name>OGen.NTier.lib.distributedlayer.remoting.client-2.0</Name>
+      <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_base\Config0.cs" />
+    <Compile Include="_base\RC0_CRD_Authentication.cs" />
+    <Compile Include="_base\RS0_CRD_Authentication.cs" />
+    <Compile Include="_base\RC0_CRD_Permition.cs" />
+    <Compile Include="_base\RS0_CRD_Permition.cs" />
+    <Compile Include="_base\RC0_CRD_Profile.cs" />
+    <Compile Include="_base\RS0_CRD_Profile.cs" />
+    <Compile Include="_base\RC0_CRD_User.cs" />
+    <Compile Include="_base\RS0_CRD_User.cs" />
+    <Compile Include="_base\RC0_DIC_Dic.cs" />
+    <Compile Include="_base\RS0_DIC_Dic.cs" />
+    <Compile Include="_base\RC0_FOR_Forum.cs" />
+    <Compile Include="_base\RS0_FOR_Forum.cs" />
+    <Compile Include="_base\RC0_FOR_Thread.cs" />
+    <Compile Include="_base\RS0_FOR_Thread.cs" />
+    <Compile Include="_base\RC0_LOG_Log.cs" />
+    <Compile Include="_base\RS0_LOG_Log.cs" />
+    <Compile Include="_base\RC0_NWS_Attachment.cs" />
+    <Compile Include="_base\RS0_NWS_Attachment.cs" />
+    <Compile Include="_base\RC0_NWS_Author.cs" />
+    <Compile Include="_base\RS0_NWS_Author.cs" />
+    <Compile Include="_base\RC0_NWS_Highlight.cs" />
+    <Compile Include="_base\RS0_NWS_Highlight.cs" />
+    <Compile Include="_base\RC0_NWS_News.cs" />
+    <Compile Include="_base\RS0_NWS_News.cs" />
+    <Compile Include="_base\RC0_NWS_Profile.cs" />
+    <Compile Include="_base\RS0_NWS_Profile.cs" />
+    <Compile Include="_base\RC0_NWS_Source.cs" />
+    <Compile Include="_base\RS0_NWS_Source.cs" />
+    <Compile Include="_base\RC0_NWS_Tag.cs" />
+    <Compile Include="_base\RS0_NWS_Tag.cs" />
+    <Compile Include="_base\RC0_WEB_User.cs" />
+    <Compile Include="_base\RS0_WEB_User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kick-businesslayer-shared\Kick-businesslayer-shared-10.csproj">
+      <Project>{13DD2252-A8D0-4672-86E4-67AFB821F03D}</Project>
+      <Name>Kick-businesslayer-shared-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kick-businesslayer-structures\Kick-businesslayer-structures-10.csproj">
+      <Project>{C25672B4-7EB7-485C-8486-DB71206ED6B3}</Project>
+      <Name>Kick-businesslayer-structures-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kick-datalayer-structures\Kick-datalayer-structures-10.csproj">
+      <Project>{11DBCAAE-7838-4204-B8BE-53B96864D928}</Project>
+      <Name>Kick-datalayer-structures-10</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

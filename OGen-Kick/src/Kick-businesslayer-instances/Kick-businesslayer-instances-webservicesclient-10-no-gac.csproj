@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+OGen
+Copyright (c) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E2282206-F42F-4302-AABA-70C15CF875F7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OGen.NTier.Kick.lib.businesslayer.shared.instances</RootNamespace>
+    <AssemblyName>OGen.NTier.Kick.lib.businesslayer.shared.instances.webservicesclient-2.0</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET_2_0;WEBSERVICESCLIENT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NET_2_0;WEBSERVICESCLIENT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_base\-Config0.cs" />
+    <Compile Include="_base\CRD_Authentication0.cs" />
+    <Compile Include="_base\CRD_Permition0.cs" />
+    <Compile Include="_base\CRD_Profile0.cs" />
+    <Compile Include="_base\CRD_User0.cs" />
+    <Compile Include="_base\DIC_Dic0.cs" />
+    <Compile Include="_base\FOR_Forum0.cs" />
+    <Compile Include="_base\FOR_Thread0.cs" />
+    <Compile Include="_base\LOG_Log0.cs" />
+    <Compile Include="_base\NWS_Attachment0.cs" />
+    <Compile Include="_base\NWS_Author0.cs" />
+    <Compile Include="_base\NWS_Highlight0.cs" />
+    <Compile Include="_base\NWS_News0.cs" />
+    <Compile Include="_base\NWS_Profile0.cs" />
+    <Compile Include="_base\NWS_Source0.cs" />
+    <Compile Include="_base\NWS_Tag0.cs" />
+    <Compile Include="_base\WEB_User0.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kick-businesslayer-shared\Kick-businesslayer-shared-10-no-gac.csproj">
+      <Project>{13DD2252-A8D0-4672-86E4-67AFB821F03D}</Project>
+      <Name>Kick-businesslayer-shared-10-no-gac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kick-webservices-client\Kick-webservices-client-10-no-gac.csproj">
+      <Project>{255CFEA8-71C6-45DE-82AB-1C99A91194A5}</Project>
+      <Name>Kick-webservices-client-10-no-gac</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
