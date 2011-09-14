@@ -58,17 +58,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	webservices_ServerURI="http://127.0.0.1"
 	webservices_ServerPort="31818"
 
-
 	feedbackEmailAddress="fmonteiro@users.berlios.de" 
 	copyrightText="Copyright (C) 2002 Francisco Monteiro">
 	<copyrightTextLong>OGen
 Copyright (c) 2002 Francisco Monteiro
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</copyrightTextLong>
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</copyrightTextLong>
 	<dbs
 		nameCase_defaultProvider="PostgreSQL"
 		description_defaultProvider="PostgreSQL">
@@ -76,12 +75,6 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 			<dbConnections>
 				<dbConnection configMode="DEBUG" isDefault="true" generateSQL="true" isIndexed_andReadOnly="false" connectionstring="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=Kick;" />
 				<dbConnection configMode="!DEBUG" isDefault="false" generateSQL="false" isIndexed_andReadOnly="false" connectionstring="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=Kick;" />
-			</dbConnections>
-		</db>
-		<db dbServerType="SQLServer">
-			<dbConnections>
-				<dbConnection configMode="DEBUG" isDefault="true" generateSQL="false" isIndexed_andReadOnly="false" connectionstring="server=127.0.0.1;uid=ogen;pwd=passpub;database=Kick;" />
-				<dbConnection configMode="!DEBUG" isDefault="false" generateSQL="false" isIndexed_andReadOnly="false" connectionstring="server=127.0.0.1;uid=ogen;pwd=passpub;database=Kick;" />
 			</dbConnections>
 		</db>
 	</dbs>
@@ -760,6 +753,59 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 -->
 			</tableUpdates>
 		</table>
+		<table name="NET_User" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
+			<tableFields>
+				<tableField name="IFUser" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="true" isListItemText="false" />
+				<tableField name="Name" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="true" />
+				<tableField name="EMail" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="EMail_verify" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IFApplication" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+			</tableFields>
+			<tableSearches>
+				<tableSearch name="Publisher" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="CRD_User" tableFieldName="IFApplication" paramName="IDApplication" />
+					</tableSearchParameters>
+				</tableSearch>
+				<tableSearch name="byEMail" isRange="false" isExplicitUniqueIndex="true">
+					<tableSearchParameters>
+						<tableFieldRef tableName="NET_User" tableFieldName="EMail" paramName="EMail" />
+						<tableFieldRef tableName="NET_User" tableFieldName="IFApplication" paramName="IDApplication" />
+					</tableSearchParameters>
+				</tableSearch>
+				<tableSearch name="byEMail_verify" isRange="false" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="NET_User" tableFieldName="EMail_verify" paramName="EMail_verify" />
+						<tableFieldRef tableName="NET_User" tableFieldName="IFApplication" paramName="IDApplication" />
+					</tableSearchParameters>
+				</tableSearch>
+<!--
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="NET_User" tableFieldName="IFUser" paramName="IFUser" />
+						<tableFieldRef tableName="NET_User" tableFieldName="IFUser" paramName="IFUser" />
+					</tableSearchParameters>
+					<tableSearchUpdates>
+						<tableSearchUpdate name="SomeUpdateTest">
+							<tableSearchUpdateParameters>
+								<tableFieldRef tableName="NET_User" tableFieldName="IFUser" paramName="IFUser" />
+								<tableFieldRef tableName="NET_User" tableFieldName="IFUser" paramName="IFUser" />
+							</tableSearchUpdateParameters>
+						</tableSearchUpdate>
+					</tableSearchUpdates>
+				</tableSearch>
+-->
+			</tableSearches>
+			<tableUpdates>
+<!--
+				<tableUpdate name="SomeUpdateTest">
+					<tableUpdateParameters>
+						<tableFieldRef tableName="NET_User" tableFieldName="IFUser" paramName="IFUser" />
+					</tableUpdateParameters>
+				</tableUpdate>
+-->
+			</tableUpdates>
+		</table>
 		<table name="NWS_Attachment" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
 				<tableField name="IDAttachment" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
@@ -1290,59 +1336,6 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 -->
 			</tableUpdates>
 		</table>
-		<table name="NET_User" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
-			<tableFields>
-				<tableField name="IFUser" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="true" isListItemText="false" />
-				<tableField name="Name" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="true" />
-				<tableField name="EMail" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="EMail_verify" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="IFApplication" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-			</tableFields>
-			<tableSearches>
-				<tableSearch name="Publisher" isRange="true" isExplicitUniqueIndex="false">
-					<tableSearchParameters>
-						<tableFieldRef tableName="CRD_User" tableFieldName="IFApplication" paramName="IDApplication" />
-					</tableSearchParameters>
-				</tableSearch>
-				<tableSearch name="byEMail" isRange="false" isExplicitUniqueIndex="true">
-					<tableSearchParameters>
-						<tableFieldRef tableName="NET_User" tableFieldName="EMail" paramName="EMail" />
-						<tableFieldRef tableName="NET_User" tableFieldName="IFApplication" paramName="IDApplication" />
-					</tableSearchParameters>
-				</tableSearch>
-				<tableSearch name="byEMail_verify" isRange="false" isExplicitUniqueIndex="false">
-					<tableSearchParameters>
-						<tableFieldRef tableName="NET_User" tableFieldName="EMail_verify" paramName="EMail_verify" />
-						<tableFieldRef tableName="NET_User" tableFieldName="IFApplication" paramName="IDApplication" />
-					</tableSearchParameters>
-				</tableSearch>
-<!--
-				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
-					<tableSearchParameters>
-						<tableFieldRef tableName="NET_User" tableFieldName="IFUser" paramName="IFUser" />
-						<tableFieldRef tableName="NET_User" tableFieldName="IFUser" paramName="IFUser" />
-					</tableSearchParameters>
-					<tableSearchUpdates>
-						<tableSearchUpdate name="SomeUpdateTest">
-							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="NET_User" tableFieldName="IFUser" paramName="IFUser" />
-								<tableFieldRef tableName="NET_User" tableFieldName="IFUser" paramName="IFUser" />
-							</tableSearchUpdateParameters>
-						</tableSearchUpdate>
-					</tableSearchUpdates>
-				</tableSearch>
--->
-			</tableSearches>
-			<tableUpdates>
-<!--
-				<tableUpdate name="SomeUpdateTest">
-					<tableUpdateParameters>
-						<tableFieldRef tableName="NET_User" tableFieldName="IFUser" paramName="IFUser" />
-					</tableUpdateParameters>
-				</tableUpdate>
--->
-			</tableUpdates>
-		</table>
 		<table name="NWS_UserTag" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
 				<tableField name="IFUser" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
@@ -1558,6 +1551,57 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 				<tableUpdate name="SomeUpdateTest">
 					<tableUpdateParameters>
 						<tableFieldRef tableName="vFOR_Message" tableFieldName="IDMessage" paramName="IDMessage" />
+					</tableUpdateParameters>
+				</tableUpdate>
+-->
+			</tableUpdates>
+		</table>
+		<table name="vNET_User" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
+			<tableFields>
+				<tableField name="IDUser" isViewPK="true" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="true" isListItemText="false" />
+				<tableField name="IFApplication" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="Login" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="true" />
+				<tableField name="Name" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="EMail" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+			</tableFields>
+			<tableSearches>
+				<tableSearch name="generic" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="vNET_User" tableFieldName="Login" paramName="Login" />
+						<tableFieldRef tableName="vNET_User" tableFieldName="Name" paramName="Name" />
+						<tableFieldRef tableName="vNET_User" tableFieldName="EMail" paramName="EMail" />
+						<tableFieldRef tableName="vNET_User" tableFieldName="IFApplication" paramName="IFApplication" />
+						<tableFieldRef tableName="CRD_Profile" tableFieldName="IDProfile" paramName="IDProfile__in" />
+						<tableFieldRef tableName="CRD_Profile" tableFieldName="IDProfile" paramName="IDProfile__out" />
+					</tableSearchParameters>
+				</tableSearch>
+				<tableSearch name="byUser" isRange="false" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="vNET_User" tableFieldName="IDUser" paramName="IDUser" />
+					</tableSearchParameters>
+				</tableSearch>
+<!--
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="vNET_User" tableFieldName="IDUser" paramName="IDUser" />
+						<tableFieldRef tableName="vNET_User" tableFieldName="IDUser" paramName="IDUser" />
+					</tableSearchParameters>
+					<tableSearchUpdates>
+						<tableSearchUpdate name="SomeUpdateTest">
+							<tableSearchUpdateParameters>
+								<tableFieldRef tableName="vNET_User" tableFieldName="IDUser" paramName="IDUser" />
+								<tableFieldRef tableName="vNET_User" tableFieldName="IDUser" paramName="IDUser" />
+							</tableSearchUpdateParameters>
+						</tableSearchUpdate>
+					</tableSearchUpdates>
+				</tableSearch>
+-->
+			</tableSearches>
+			<tableUpdates>
+<!--
+				<tableUpdate name="SomeUpdateTest">
+					<tableUpdateParameters>
+						<tableFieldRef tableName="vNET_User" tableFieldName="IDUser" paramName="IDUser" />
 					</tableUpdateParameters>
 				</tableUpdate>
 -->
@@ -1937,57 +1981,6 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 				<tableUpdate name="SomeUpdateTest">
 					<tableUpdateParameters>
 						<tableFieldRef tableName="vNWS_Tag" tableFieldName="IDTag" paramName="IDTag" />
-					</tableUpdateParameters>
-				</tableUpdate>
--->
-			</tableUpdates>
-		</table>
-		<table name="vNET_User" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
-			<tableFields>
-				<tableField name="IDUser" isViewPK="true" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="true" isListItemText="false" />
-				<tableField name="IFApplication" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Login" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="true" />
-				<tableField name="Name" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="EMail" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-			</tableFields>
-			<tableSearches>
-				<tableSearch name="generic" isRange="true" isExplicitUniqueIndex="false">
-					<tableSearchParameters>
-						<tableFieldRef tableName="vNET_User" tableFieldName="Login" paramName="Login" />
-						<tableFieldRef tableName="vNET_User" tableFieldName="Name" paramName="Name" />
-						<tableFieldRef tableName="vNET_User" tableFieldName="EMail" paramName="EMail" />
-						<tableFieldRef tableName="vNET_User" tableFieldName="IFApplication" paramName="IFApplication" />
-						<tableFieldRef tableName="CRD_Profile" tableFieldName="IDProfile" paramName="IDProfile__in" />
-						<tableFieldRef tableName="CRD_Profile" tableFieldName="IDProfile" paramName="IDProfile__out" />
-					</tableSearchParameters>
-				</tableSearch>
-				<tableSearch name="byUser" isRange="false" isExplicitUniqueIndex="false">
-					<tableSearchParameters>
-						<tableFieldRef tableName="vNET_User" tableFieldName="IDUser" paramName="IDUser" />
-					</tableSearchParameters>
-				</tableSearch>
-<!--
-				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
-					<tableSearchParameters>
-						<tableFieldRef tableName="vNET_User" tableFieldName="IDUser" paramName="IDUser" />
-						<tableFieldRef tableName="vNET_User" tableFieldName="IDUser" paramName="IDUser" />
-					</tableSearchParameters>
-					<tableSearchUpdates>
-						<tableSearchUpdate name="SomeUpdateTest">
-							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="vNET_User" tableFieldName="IDUser" paramName="IDUser" />
-								<tableFieldRef tableName="vNET_User" tableFieldName="IDUser" paramName="IDUser" />
-							</tableSearchUpdateParameters>
-						</tableSearchUpdate>
-					</tableSearchUpdates>
-				</tableSearch>
--->
-			</tableSearches>
-			<tableUpdates>
-<!--
-				<tableUpdate name="SomeUpdateTest">
-					<tableUpdateParameters>
-						<tableFieldRef tableName="vNET_User" tableFieldName="IDUser" paramName="IDUser" />
 					</tableUpdateParameters>
 				</tableUpdate>
 -->

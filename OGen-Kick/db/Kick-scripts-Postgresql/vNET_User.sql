@@ -1,4 +1,4 @@
-﻿create or replace view "vNWS_User"
+﻿create or replace view "vNET_User"
 as
 	select 
 		c1."IDUser", 
@@ -13,7 +13,7 @@ as
 ;
 
 select *
-from "vNWS_User"
+from "vNET_User"
 where 
 	("IFApplication" in (1))
 ;

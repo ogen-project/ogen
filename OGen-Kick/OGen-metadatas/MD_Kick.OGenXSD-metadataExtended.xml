@@ -58,7 +58,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	webservices_ServerURI="http://127.0.0.1"
 	webservices_ServerPort="31818"
 
-
 	feedbackEmailAddress="fmonteiro@users.berlios.de" 
 	copyrightText="Copyright (C) 2002 Francisco Monteiro">
 	<copyrightTextLong>OGen
@@ -78,12 +77,14 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 				<dbConnection configMode="!DEBUG" isDefault="false" generateSQL="false" isIndexed_andReadOnly="false" connectionstring="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=Kick;" />
 			</dbConnections>
 		</db>
+<!--
 		<db dbServerType="SQLServer">
 			<dbConnections>
 				<dbConnection configMode="DEBUG" isDefault="true" generateSQL="false" isIndexed_andReadOnly="false" connectionstring="server=127.0.0.1;uid=ogen;pwd=passpub;database=Kick;" />
 				<dbConnection configMode="!DEBUG" isDefault="false" generateSQL="false" isIndexed_andReadOnly="false" connectionstring="server=127.0.0.1;uid=ogen;pwd=passpub;database=Kick;" />
 			</dbConnections>
 		</db>
+-->
 	</dbs>
 	<tables>
 <!--
@@ -776,6 +777,59 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 -->
 			</tableUpdates>
 		</table>
+		<table name="NET_User" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
+			<tableFields>
+				<tableField name="IFUser" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="true" isListItemText="false" />
+				<tableField name="Name" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="true" />
+				<tableField name="EMail" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="EMail_verify" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IFApplication" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+			</tableFields>
+			<tableSearches>
+				<tableSearch name="Publisher" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="CRD_User" tableFieldName="IFApplication" paramName="IDApplication" />
+					</tableSearchParameters>
+				</tableSearch>
+				<tableSearch name="byEMail" isRange="false" isExplicitUniqueIndex="true">
+					<tableSearchParameters>
+						<tableFieldRef tableName="NET_User" tableFieldName="EMail" paramName="EMail" />
+						<tableFieldRef tableName="NET_User" tableFieldName="IFApplication" paramName="IDApplication" />
+					</tableSearchParameters>
+				</tableSearch>
+				<tableSearch name="byEMail_verify" isRange="false" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="NET_User" tableFieldName="EMail_verify" paramName="EMail_verify" />
+						<tableFieldRef tableName="NET_User" tableFieldName="IFApplication" paramName="IDApplication" />
+					</tableSearchParameters>
+				</tableSearch>
+<!--
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="NET_User" tableFieldName="IFUser" paramName="IFUser" />
+						<tableFieldRef tableName="NET_User" tableFieldName="IFUser" paramName="IFUser" />
+					</tableSearchParameters>
+					<tableSearchUpdates>
+						<tableSearchUpdate name="SomeUpdateTest">
+							<tableSearchUpdateParameters>
+								<tableFieldRef tableName="NET_User" tableFieldName="IFUser" paramName="IFUser" />
+								<tableFieldRef tableName="NET_User" tableFieldName="IFUser" paramName="IFUser" />
+							</tableSearchUpdateParameters>
+						</tableSearchUpdate>
+					</tableSearchUpdates>
+				</tableSearch>
+-->
+			</tableSearches>
+			<tableUpdates>
+<!--
+				<tableUpdate name="SomeUpdateTest">
+					<tableUpdateParameters>
+						<tableFieldRef tableName="NET_User" tableFieldName="IFUser" paramName="IFUser" />
+					</tableUpdateParameters>
+				</tableUpdate>
+-->
+			</tableUpdates>
+		</table>
 		<table name="NWS_Attachment" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
 				<tableField name="IDAttachment" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
@@ -1301,59 +1355,6 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 				<tableUpdate name="SomeUpdateTest">
 					<tableUpdateParameters>
 						<tableFieldRef tableName="NWS_Tag" tableFieldName="IDTag" paramName="IDTag" />
-					</tableUpdateParameters>
-				</tableUpdate>
--->
-			</tableUpdates>
-		</table>
-		<table name="NET_User" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
-			<tableFields>
-				<tableField name="IFUser" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="true" isListItemText="false" />
-				<tableField name="Name" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="true" />
-				<tableField name="EMail" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="EMail_verify" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="IFApplication" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-			</tableFields>
-			<tableSearches>
-				<tableSearch name="Publisher" isRange="true" isExplicitUniqueIndex="false">
-					<tableSearchParameters>
-						<tableFieldRef tableName="CRD_User" tableFieldName="IFApplication" paramName="IDApplication" />
-					</tableSearchParameters>
-				</tableSearch>
-				<tableSearch name="byEMail" isRange="false" isExplicitUniqueIndex="true">
-					<tableSearchParameters>
-						<tableFieldRef tableName="NET_User" tableFieldName="EMail" paramName="EMail" />
-						<tableFieldRef tableName="NET_User" tableFieldName="IFApplication" paramName="IDApplication" />
-					</tableSearchParameters>
-				</tableSearch>
-				<tableSearch name="byEMail_verify" isRange="false" isExplicitUniqueIndex="false">
-					<tableSearchParameters>
-						<tableFieldRef tableName="NET_User" tableFieldName="EMail_verify" paramName="EMail_verify" />
-						<tableFieldRef tableName="NET_User" tableFieldName="IFApplication" paramName="IDApplication" />
-					</tableSearchParameters>
-				</tableSearch>
-<!--
-				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
-					<tableSearchParameters>
-						<tableFieldRef tableName="NET_User" tableFieldName="IFUser" paramName="IFUser" />
-						<tableFieldRef tableName="NET_User" tableFieldName="IFUser" paramName="IFUser" />
-					</tableSearchParameters>
-					<tableSearchUpdates>
-						<tableSearchUpdate name="SomeUpdateTest">
-							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="NET_User" tableFieldName="IFUser" paramName="IFUser" />
-								<tableFieldRef tableName="NET_User" tableFieldName="IFUser" paramName="IFUser" />
-							</tableSearchUpdateParameters>
-						</tableSearchUpdate>
-					</tableSearchUpdates>
-				</tableSearch>
--->
-			</tableSearches>
-			<tableUpdates>
-<!--
-				<tableUpdate name="SomeUpdateTest">
-					<tableUpdateParameters>
-						<tableFieldRef tableName="NET_User" tableFieldName="IFUser" paramName="IFUser" />
 					</tableUpdateParameters>
 				</tableUpdate>
 -->
