@@ -45,6 +45,20 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		) {
 			throw new NotImplementedException();
 		}
+		public static void updObject_EMail(
+			string credentials_in,
+
+			string EMail_verify_in,
+
+			string companyName_in,
+			string verifyMailURL_in,
+
+			int idApplication_in,
+
+			out int[] errors_out
+		) {
+			throw new NotImplementedException();
+		}
 
 		#region public static SO_vNET_User[] getRecord_generic(...);
 		[BOMethodAttribute("getRecord_generic", true)]
@@ -409,7 +423,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#region public static void updObject_EMail(...);
 		[BOMethodAttribute("updObject_EMail", true)]
 		public static void updObject_EMail(
-			string credentials_in,
+			string sessionGuid_in,
 
 			string EMail_verify_in,
 
@@ -420,24 +434,29 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			out int[] errors_out
 		) {
-			List<int> _errors;
-			#region ServerCredentials _credentials = ...;
-			ServerCredentials _credentials
-				= new ServerCredentials(
-					credentials_in,
-					out _errors
-				);
-			if (_errors.Count != 0) {
-				errors_out = _errors.ToArray();
+			List<int> _errorlist;
+			Guid _sessionguid;
+			SBO_CRD_Authentication.Usersession _sessionuser;
+
+			#region check...
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in, 
+				out _sessionguid, 
+				out _sessionuser, 
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
+
 				return;
 			}
-			#endregion
-			#region check . . .
+
 			if (
-				!Mail.isEMail_valid(EMail_verify_in = EMail_verify_in.Trim())
+				!OGen.lib.mail.utils.isEMail_valid(EMail_verify_in = EMail_verify_in.Trim())
 			) {
-				_errors.Add(ErrorType.web__user__invalid_email);
-				errors_out = _errors.ToArray();
+				_errorlist.Add(ErrorType.web__user__invalid_email);
+				errors_out = _errorlist.ToArray();
 				return;
 			}
 
@@ -447,8 +466,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					idApplication_in
 				)
 			) {
-				_errors.Add(ErrorType.data__constraint_violation);
-				errors_out = _errors.ToArray();
+				_errorlist.Add(ErrorType.data__constraint_violation);
+				errors_out = _errorlist.ToArray();
 				return;
 			}
 			#endregion
@@ -456,7 +475,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			#region string _message = ...;
 			string _message = encrypt_mail(
 				idApplication_in,
-				_errors, 
+				_errorlist, 
 
 				EMail_verify_in, 
 				"1" // Verify EMail
@@ -466,7 +485,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				||
 				(_message == "")
 			) {
-				errors_out = _errors.ToArray();
+				errors_out = _errorlist.ToArray();
 				return;
 			}
 			#endregion
@@ -483,17 +502,16 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				//_con.Open();
 				//_con.Transaction.Begin(); 
 
-				//// NOTA: NAO É NECESSARIO TRANSACTION, o envio de mail pode ser demorado
-				//// e esta a bloquear uma tabela bastante usada e essencial, 
-				//// E ALÉM DISSO, qual é o problema, o mail so e alterado finalmente quando
-				//// ele confirma o mail (clicando no link que recenbeu no novo email)
-				//// - se der erro a enviar mail o utilizador é notificado
-				//// - embora nao haja rollback, isso nao é problema, a actualização 
-				//// quase nao faz nada ... vagamente isso!
+				//// NOTE: NO NEED TO USE TRANSACTION here, mail sending can delay and lock db table, 
+				//// BESIDES, it's NO PROBLEM if db gets changed and no mail is sent, 
+				//// the logic allows that (check db model graph).
+				//// AND MORE, user is informed there was an error, he'll just repeat mail update
 
 				SO_NET_User _user
 					= DO_NET_User.getObject(
-						_credentials.IDUser
+						_sessionuser.IDUser,
+
+						_con
 					);
 
 				bool _constraintExist;
@@ -540,12 +558,12 @@ A equipa {2}
 					}
 					#endregion
 					if (_exception == null) {
-						_errors.Add(ErrorType.web__user__updating_email__WARNING);
+						_errorlist.Add(ErrorType.web__user__updating_email__WARNING);
 					} else {
-						_errors.Add(ErrorType.web__user__can_not_send_mail);
+						_errorlist.Add(ErrorType.web__user__can_not_send_mail);
 					}
 				} else {
-					_errors.Add(ErrorType.data__constraint_violation);
+					_errorlist.Add(ErrorType.data__constraint_violation);
 				}
 
 				#region _con.Transaction.Commit();
@@ -584,7 +602,7 @@ A equipa {2}
 			if (_exception != null) {
 				#region SBO_LOG_Log.Log(ErrorType.data);
 				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
-					credentials_in,
+					_sessionuser,
 					LogType.error,
 					ErrorType.data,
 					idApplication_in,
@@ -594,10 +612,10 @@ A equipa {2}
 					}
 				);
 				#endregion
-				_errors.Add(ErrorType.data);
+				_errorlist.Add(ErrorType.data);
 			}
 
-			errors_out = _errors.ToArray();
+			errors_out = _errorlist.ToArray();
 		}
 		#endregion
 

@@ -1,4 +1,5 @@
 OGen, OGen_lib, OGen.lib, t, f, f, MIT, f, t
+OGen, OGen_mail, OGen.lib.mail, t, f, f, MIT, f, t
 OGen, OGen_datalayer__base, OGen.lib.datalayer, t, f, f, MIT, f, t
 OGen, OGen_datalayer_PostgreSQL, OGen.lib.datalayer.PostgreSQL, t, f, f, MIT, f, t
 OGen, OGen_datalayer_SQLServer, OGen.lib.datalayer.SQLServer, t, f, f, MIT, f, t

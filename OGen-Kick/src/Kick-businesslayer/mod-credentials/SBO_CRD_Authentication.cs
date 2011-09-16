@@ -82,6 +82,54 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 		internal static Dictionary<Guid, Usersession> UserSession
 			= new Dictionary<Guid, Usersession>();
+		#region public static bool isSessionGuid_valid(...);
+		public static bool isSessionGuid_valid(
+			string sessionGuid_in,
+
+			out Guid sessionGuid_out,
+			out List<int> errorlist_out,
+			out int[] errors_out
+		) {
+			errorlist_out = new List<int>();
+
+			if (!utils.Guid_TryParse(sessionGuid_in, out sessionGuid_out)) {
+				errorlist_out.Add(ErrorType.authentication__invalid_guid);
+
+				errors_out = errorlist_out.ToArray();
+				return false;
+			}
+
+			return true;
+		}
+
+		public static bool isSessionGuid_valid(
+			string sessionGuid_in, 
+
+			out Guid sessionGuid_out, 
+			out Usersession sessionUser_out,
+			out List<int> errorlist_out,
+			out int[] errors_out
+		) {
+			if (!isSessionGuid_valid(
+				sessionGuid_in,
+
+				out sessionGuid_out,
+				out errorlist_out,
+				out errors_out
+			)) {
+				return false;
+			}
+
+			if (!UserSession.TryGetValue(sessionGuid_out, out sessionUser_out)) {
+				errorlist_out.Add(ErrorType.authentication__expired_guid);
+
+				errors_out = errorlist_out.ToArray();
+				return false;
+			}
+
+			return true;
+		}
+		#endregion
 
 		#region public static void Login(...);
 		#region internal static void login(long idUser_in, ...);
@@ -100,7 +148,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out long idUser_out, 
 			out string login_out, 
 			out long[] idPermitions_out, 
-			ref List<int> errors_ref
+			ref List<int> errorlist_ref
 		) {
 			login(
 				DO_CRD_User.getObject(
@@ -119,7 +167,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				out idUser_out,
 				out login_out, 
 				out idPermitions_out, 
-				ref	errors_ref
+				ref	errorlist_ref
 			);
 		}
 		#endregion
@@ -139,7 +187,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out long idUser_out,
 			out  string login_out, 
 			out long[] idPermitions_out, 
-			ref List<int> errors_ref
+			ref List<int> errorlist_ref
 		) {
 			//// NOTES: 
 			//// - this method allows login without password (if andCheckPassword_in == false), 
@@ -185,7 +233,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 						_usersession.IDUser = user_in.IDUser;
 						_usersession.IDPermitions = idPermitions_out;
 					} else {
-						errors_ref.Add(ErrorType.authentication__guid_not_yours);
+						errorlist_ref.Add(ErrorType.authentication__guid_not_yours);
 						UserSession.Remove(sessionGuid_in);
 						return;
 
@@ -206,7 +254,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			} else {
 				idPermitions_out = new long[] { };
 
-				errors_ref.Add(ErrorType.authentication__invalid_login);
+				errorlist_ref.Add(ErrorType.authentication__invalid_login);
 				#region SBO_LOG_Log.Log(...);
 				SBO_LOG_Log.Log(
 					null,
@@ -240,23 +288,29 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out int[] errors_out
 		) {
 			idUser_out = -1L;
-			Guid _guid;
+			Guid _sessionguid;
 
-			List<int> _errors = new List<int>();
+			List<int> _errorlist;
 			#region check...
-			if (login_in.Trim() == string.Empty) {
-				_errors.Add(ErrorType.authentication__invalid_login);
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in, 
+				out _sessionguid,
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
 
 				idPermitions_out = new long[] { };
-				errors_out = _errors.ToArray();
+
 				return;
 			}
 
-			if (!utils.Guid_TryParse(sessionGuid_in, out _guid)) {
-				_errors.Add(ErrorType.authentication__invalid_guid);
+			if (login_in.Trim() == string.Empty) {
+				_errorlist.Add(ErrorType.authentication__invalid_login);
 
 				idPermitions_out = new long[] { };
-				errors_out = _errors.ToArray();
+				errors_out = _errorlist.ToArray();
 				return;
 			}
 			#endregion
@@ -267,7 +321,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					login_in,
 					idApplication_in
 				),
-				_guid, 
+				_sessionguid, 
  
 				login_in, 
 				whoAmI_forLogPurposes_in, 
@@ -280,10 +334,10 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				out idUser_out,
 				out _login, 
 				out idPermitions_out, 
-				ref _errors
+				ref _errorlist
 			);
 
-			errors_out = _errors.ToArray();
+			errors_out = _errorlist.ToArray();
 		}
 		#endregion
 		#region public static void ChangePassword(...);
@@ -296,34 +350,30 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			out int[] errors_out
 		) {
-			List<int> _errors = new List<int>();
-
+			List<int> _errorlist;
 			Guid _sessionguid;
 			Usersession _sessionuser;
-			SO_CRD_User _user;
+
 			#region check...
-			if (!utils.Guid_TryParse(sessionGuid_in, out _sessionguid)) {
-				_errors.Add(ErrorType.authentication__invalid_guid);
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in,
+				out _sessionguid,
+				out _sessionuser,
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
 
-				errors_out = _errors.ToArray();
-				return;
-			} else if (!UserSession.ContainsKey(_sessionguid)) {
-				_errors.Add(ErrorType.authentication__expired_guid);
-
-				errors_out = _errors.ToArray();
 				return;
 			}
 
-			_sessionuser = UserSession[_sessionguid];
-
-			_user = DO_CRD_User.getObject(
-				_sessionuser.IDUser
-			);
+			SO_CRD_User _user = DO_CRD_User.getObject(_sessionuser.IDUser);
 			if (_user == null) {
-				_errors.Add(ErrorType.authentication__no_such_user);
+				_errorlist.Add(ErrorType.authentication__no_such_user);
 				UserSession.Remove(_sessionguid);
 
-				errors_out = _errors.ToArray();
+				errors_out = _errorlist.ToArray();
 				return;
 			}
 			#endregion
@@ -336,11 +386,9 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					_user.Password
 				)
 			) {
-				_errors.Add(ErrorType.authentication__change_password__wrong_password);
-			} else if (
-				password_new_in.Trim() == ""
-			) {
-				_errors.Add(ErrorType.authentication__change_password__invalid_password);
+				_errorlist.Add(ErrorType.authentication__change_password__wrong_password);
+			} else if (password_new_in.Trim() == "") {
+				_errorlist.Add(ErrorType.authentication__change_password__invalid_password);
 			} else {
 				_user.Password
 					= SimpleHash.ComputeHash(
@@ -356,7 +404,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				);
 			}
 
-			errors_out = _errors.ToArray();
+			errors_out = _errorlist.ToArray();
 		}
 		#endregion
 	}
