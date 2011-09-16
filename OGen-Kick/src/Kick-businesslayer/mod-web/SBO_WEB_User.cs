@@ -45,8 +45,278 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		) {
 			throw new NotImplementedException();
 		}
-		public static void updObject_EMail(
+
+		private static string encrypt_mail(
+			int idApplication_in,
+
+			List<int> errors_in,
+
+			params string[] words_in
+		) {
+			throw new NotImplementedException();
+		} 
+
+		public static SO_vNET_User[] getRecord_generic(
 			string credentials_in,
+
+			string login_in,
+			string email_in,
+			string name_in,
+			long idProfile__in_in,
+			long idProfile__out_in,
+
+			int idApplication_in,
+
+			int page_in,
+			int page_numRecords_in,
+
+			out int[] errors_out
+		) {
+			throw new NotImplementedException();
+		}
+		public static SO_vNET_User getObject_details(
+			string credentials_in,
+
+			long idUser_in,
+
+			out int[] errors_out
+		) {
+			throw new NotImplementedException();
+		}
+		public static SO_NET_User getObject(
+			string credentials_in,
+
+			long idUser_in,
+
+			out int[] errors_out
+		) {
+			throw new NotImplementedException();
+		}
+		public static void setObject(
+			string credentials_in,
+
+			long idUser_in,
+
+			bool updateName_in,
+			string name_in,
+
+			//// add any other needed fields
+			// updateWHATEVER_in, 
+			// whatever_in
+
+			out int[] errors_out
+		) {
+			throw new NotImplementedException();
+		}
+		public static string Login_throughLink(
+			string email_verify_in,
+			int idApplication_in,
+
+			out long idUser_out,
+			out string login_out,
+			out string name_out,
+
+			out int[] errors_out
+		) {
+			throw new NotImplementedException();
+		}
+		public static string Login_throughLink_andChangePassword(
+			string email_verify_in,
+			int idApplication_in,
+			string password_in,
+
+			out long idUser_out,
+			out string login_out,
+			out string name_out,
+
+			out int[] errors_out
+		) {
+			throw new NotImplementedException();
+		}
+		public static void LostPassword_Recover(
+			//string credentials_in,
+
+			string EMail_in,
+
+			string companyName_in,
+			string recoverLostPasswordURL_in,
+
+			int idApplication_in,
+
+			out int[] errors_out
+		) {
+			throw new NotImplementedException();
+		}
+		public static void insObject_Registration(
+			string login_in,
+			string email_in,
+			string name_in,
+
+			string verifyMailURL_in,
+			string companyName_in,
+			int idApplication_in,
+
+			out int[] errors_out
+		) {
+			throw new NotImplementedException();
+		}
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//public static void updObject_EMail(
+		//    string credentials_in,
+
+		//    string EMail_verify_in,
+
+		//    string companyName_in,
+		//    string verifyMailURL_in,
+
+		//    int idApplication_in,
+
+		//    out int[] errors_out
+		//) {
+		//    throw new NotImplementedException();
+		//}
+
+		#region public static void Login(...);
+		[BOMethodAttribute("Login", true)]
+		public static void Login(
+			string email_in,
+			string password_in,
+			string sessionGuid_in,
+
+			string whoAmI_forLogPurposes_in, 
+
+			int idApplication_in,
+
+			out long idUser_out,
+			out string login_out, 
+			out long[] idPermitions_out, 
+			out int[] errors_out
+		) {
+			idUser_out = -1L;
+			login_out = "";
+			Guid _guid;
+
+			List<int> _errors = new List<int>();
+			#region check...
+			if (!OGen.lib.mail.utils.isEMail_valid(email_in)) {
+				_errors.Add(ErrorType.authentication__invalid_email);
+
+				idPermitions_out = new long[] { };
+				errors_out = _errors.ToArray();
+				return;
+			}
+
+			if (!utils.Guid_TryParse(sessionGuid_in, out _guid)) {
+				_errors.Add(ErrorType.authentication__invalid_guid);
+
+				idPermitions_out = new long[] { };
+				errors_out = _errors.ToArray();
+				return;
+			}
+			#endregion
+
+			SO_NET_User _user;
+			if (
+				((_user = DO_NET_User.getObject_byEMail(
+					email_in,
+					idApplication_in
+				)) != null)
+			) {
+				SBO_CRD_Authentication.login(
+					_user.IFUser, 
+					_guid,
+
+					email_in, 
+					whoAmI_forLogPurposes_in, 
+
+					true, 
+					password_in, 
+
+					idApplication_in,
+
+					out idUser_out,
+					out login_out, 
+					out idPermitions_out, 
+					ref _errors
+				);
+			} else {
+				idPermitions_out = new long[] { };
+
+				_errors.Add(ErrorType.authentication__invalid_login);
+				#region SBO_LOG_Log.log(...);
+				SBO_LOG_Log.log(
+					null,
+					LogType.error,
+					ErrorType.authentication, 
+					-1L, 
+					idApplication_in,
+					"EMail:{0};password:{1}**********;whoAmI:{2};",
+					new string[] { 
+						email_in, 
+						password_in.Length > 0 ? password_in.Substring(0, 1) : "", 
+						whoAmI_forLogPurposes_in
+					}
+				);
+				#endregion
+			}
+
+			errors_out = _errors.ToArray();
+		}
+		#endregion
+
+		#region public static void updObject_EMail(...);
+		[BOMethodAttribute("updObject_EMail", true)]
+		public static void updObject_EMail(
+			string sessionGuid_in,
 
 			string EMail_verify_in,
 
@@ -57,9 +327,193 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			out int[] errors_out
 		) {
-			throw new NotImplementedException();
-		}
+			List<int> _errorlist;
+			Guid _sessionguid;
+			utils.Sessionuser _sessionuser;
 
+			#region check...
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in, 
+				out _sessionguid, 
+				out _sessionuser, 
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
+
+				return;
+			}
+
+			if (
+				!OGen.lib.mail.utils.isEMail_valid(EMail_verify_in = EMail_verify_in.Trim())
+			) {
+				_errorlist.Add(ErrorType.web__user__invalid_email);
+				errors_out = _errorlist.ToArray();
+				return;
+			}
+
+			if (
+				DO_NET_User.isObject_byEMail(
+					EMail_verify_in,
+					idApplication_in
+				)
+			) {
+				_errorlist.Add(ErrorType.data__constraint_violation);
+				errors_out = _errorlist.ToArray();
+				return;
+			}
+			#endregion
+
+			#region string _message = ...;
+			string _message = encrypt_mail(
+				idApplication_in,
+				_errorlist, 
+
+				EMail_verify_in, 
+				"1" // Verify EMail
+			);
+			if (
+				(_message == null)
+				||
+				(_message == "")
+			) {
+				errors_out = _errorlist.ToArray();
+				return;
+			}
+			#endregion
+
+			Exception _exception = null;
+			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
+			DBConnection _con = DO__utils.DBConnection_createInstance(
+				DO__utils.DBServerType,
+				DO__utils.DBConnectionstring,
+				DO__utils.DBLogfile
+			);
+			#endregion
+			try {
+				//_con.Open();
+				//_con.Transaction.Begin(); 
+
+				//// NOTE: NO NEED TO USE TRANSACTION here, mail sending can delay and lock db table, 
+				//// BESIDES, it's NO PROBLEM if db gets changed and no mail is sent, 
+				//// the logic allows that (check db model graph).
+				//// AND MORE, user is informed there was an error, he'll just repeat mail update
+
+				SO_NET_User _user
+					= DO_NET_User.getObject(
+						_sessionuser.IDUser,
+
+						_con
+					);
+
+				bool _constraintExist;
+				_user.EMail_verify = EMail_verify_in;
+				DO_NET_User.setObject(
+					_user,
+					false,
+					out _constraintExist,
+
+					_con
+				);
+				if (!_constraintExist) {
+					#region MyMail.Send(EMail_verify_in, ...);
+					try {
+						OGen.lib.mail.utils.MailSend(
+							new System.Net.Mail.MailAddress[] {
+								new System.Net.Mail.MailAddress(
+									EMail_verify_in, 
+									_user.Name
+								)
+							},
+							null,
+							null,
+							"Confirmação da Alteração de Contacto",
+							string.Format(
+								@"
+Para associar à sua conta o novo contacto de email, por favor, clique no link que se segue:
+
+{0}{1}
+
+Atentamente,
+ 
+A equipa {2}
+
+",
+								//System.Configuration.ConfigurationSettings.AppSettings["URL__base"],
+								verifyMailURL_in,
+								_message,
+								companyName_in
+							)
+						);
+					} catch (Exception _ex) {
+						_exception = _ex;
+					}
+					#endregion
+					if (_exception == null) {
+						_errorlist.Add(ErrorType.web__user__updating_email__WARNING);
+					} else {
+						_errorlist.Add(ErrorType.web__user__can_not_send_mail);
+					}
+				} else {
+					_errorlist.Add(ErrorType.data__constraint_violation);
+				}
+
+				#region _con.Transaction.Commit();
+				if (
+					_con.isOpen
+					&&
+					_con.Transaction.inTransaction
+				) {
+					_con.Transaction.Commit();
+				}
+				#endregion
+			} catch (Exception _ex) {
+				#region _con.Transaction.Rollback();
+				if (
+					_con.isOpen
+					&&
+					_con.Transaction.inTransaction
+				) {
+					_con.Transaction.Rollback();
+				}
+				#endregion
+
+				_exception = _ex;
+			} finally {
+				#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
+				if (_con.isOpen) {
+					if (_con.Transaction.inTransaction) {
+						_con.Transaction.Terminate();
+					}
+					_con.Close();
+				}
+
+				_con.Dispose();
+				#endregion
+			}
+			if (_exception != null) {
+				#region SBO_LOG_Log.log(ErrorType.data);
+				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+					_sessionuser,
+					LogType.error, 
+					ErrorType.data,
+					-1L,
+					idApplication_in,
+					"{0}",
+					new string[] {
+						_exception.Message
+					}
+				);
+				#endregion
+				_errorlist.Add(ErrorType.data);
+			}
+
+			errors_out = _errorlist.ToArray();
+		}
+		#endregion
+
+#if LATER
 		#region public static SO_vNET_User[] getRecord_generic(...);
 		[BOMethodAttribute("getRecord_generic", true)]
 		public static SO_vNET_User[] getRecord_generic(
@@ -330,292 +784,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			errors_out = _errors.ToArray();
 			return;
-		}
-		#endregion
-
-		#region public static void Login(...);
-		[BOMethodAttribute("Login", true)]
-		public static void Login(
-			string email_in,
-			string password_in,
-			string sessionGuid_in,
-
-			string whoAmI_forLogPurposes_in, 
-
-			int idApplication_in,
-
-			out long idUser_out,
-			out string login_out, 
-			out long[] idPermitions_out, 
-			out int[] errors_out
-		) {
-			idUser_out = -1L;
-			login_out = "";
-			Guid _guid;
-
-			List<int> _errors = new List<int>();
-			#region check...
-			if (!OGen.lib.mail.utils.isEMail_valid(email_in)) {
-				_errors.Add(ErrorType.authentication__invalid_email);
-
-				idPermitions_out = new long[] { };
-				errors_out = _errors.ToArray();
-				return;
-			}
-
-			if (!utils.Guid_TryParse(sessionGuid_in, out _guid)) {
-				_errors.Add(ErrorType.authentication__invalid_guid);
-
-				idPermitions_out = new long[] { };
-				errors_out = _errors.ToArray();
-				return;
-			}
-			#endregion
-
-			SO_NET_User _user;
-			if (
-				((_user = DO_NET_User.getObject_byEMail(
-					email_in,
-					idApplication_in
-				)) != null)
-			) {
-				SBO_CRD_Authentication.login(
-					_user.IFUser, 
-					_guid,
-
-					email_in, 
-					whoAmI_forLogPurposes_in, 
-
-					true, 
-					password_in, 
-
-					idApplication_in,
-
-					out idUser_out,
-					out login_out, 
-					out idPermitions_out, 
-					ref _errors
-				);
-			} else {
-				idPermitions_out = new long[] { };
-
-				_errors.Add(ErrorType.authentication__invalid_login);
-				#region SBO_LOG_Log.Log(...);
-				SBO_LOG_Log.Log(
-					null,
-					LogType.error,
-					ErrorType.authentication,
-					idApplication_in,
-					"EMail:{0};password:{1}**********;whoAmI:{2};",
-					new string[] { 
-						email_in, 
-						password_in.Length > 0 ? password_in.Substring(0, 1) : "", 
-						whoAmI_forLogPurposes_in
-					}
-				);
-				#endregion
-			}
-
-			errors_out = _errors.ToArray();
-		}
-		#endregion
-
-		#region public static void updObject_EMail(...);
-		[BOMethodAttribute("updObject_EMail", true)]
-		public static void updObject_EMail(
-			string sessionGuid_in,
-
-			string EMail_verify_in,
-
-			string companyName_in,
-			string verifyMailURL_in,
-
-			int idApplication_in,
-
-			out int[] errors_out
-		) {
-			List<int> _errorlist;
-			Guid _sessionguid;
-			SBO_CRD_Authentication.Usersession _sessionuser;
-
-			#region check...
-			if (!SBO_CRD_Authentication.isSessionGuid_valid(
-				sessionGuid_in, 
-				out _sessionguid, 
-				out _sessionuser, 
-				out _errorlist,
-				out errors_out
-			)) {
-				//// no need!
-				//errors_out = _errors.ToArray();
-
-				return;
-			}
-
-			if (
-				!OGen.lib.mail.utils.isEMail_valid(EMail_verify_in = EMail_verify_in.Trim())
-			) {
-				_errorlist.Add(ErrorType.web__user__invalid_email);
-				errors_out = _errorlist.ToArray();
-				return;
-			}
-
-			if (
-				DO_NET_User.isObject_byEMail(
-					EMail_verify_in,
-					idApplication_in
-				)
-			) {
-				_errorlist.Add(ErrorType.data__constraint_violation);
-				errors_out = _errorlist.ToArray();
-				return;
-			}
-			#endregion
-
-			#region string _message = ...;
-			string _message = encrypt_mail(
-				idApplication_in,
-				_errorlist, 
-
-				EMail_verify_in, 
-				"1" // Verify EMail
-			);
-			if (
-				(_message == null)
-				||
-				(_message == "")
-			) {
-				errors_out = _errorlist.ToArray();
-				return;
-			}
-			#endregion
-
-			Exception _exception = null;
-			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
-			DBConnection _con = DO__utils.DBConnection_createInstance(
-				DO__utils.DBServerType,
-				DO__utils.DBConnectionstring,
-				DO__utils.DBLogfile
-			);
-			#endregion
-			try {
-				//_con.Open();
-				//_con.Transaction.Begin(); 
-
-				//// NOTE: NO NEED TO USE TRANSACTION here, mail sending can delay and lock db table, 
-				//// BESIDES, it's NO PROBLEM if db gets changed and no mail is sent, 
-				//// the logic allows that (check db model graph).
-				//// AND MORE, user is informed there was an error, he'll just repeat mail update
-
-				SO_NET_User _user
-					= DO_NET_User.getObject(
-						_sessionuser.IDUser,
-
-						_con
-					);
-
-				bool _constraintExist;
-				_user.EMail_verify = EMail_verify_in;
-				DO_NET_User.setObject(
-					_user,
-					false,
-					out _constraintExist,
-
-					_con
-				);
-				if (!_constraintExist) {
-					#region MyMail.Send(EMail_verify_in, ...);
-					try {
-						OGen.lib.mail.utils.MailSend(
-							new System.Net.Mail.MailAddress[] {
-								new System.Net.Mail.MailAddress(
-									EMail_verify_in, 
-									_user.Name
-								)
-							},
-							null,
-							null,
-							"Confirmação da Alteração de Contacto",
-							string.Format(
-								@"
-Para associar à sua conta o novo contacto de email, por favor, clique no link que se segue:
-
-{0}{1}
-
-Atentamente,
- 
-A equipa {2}
-
-",
-								//System.Configuration.ConfigurationSettings.AppSettings["URL__base"],
-								verifyMailURL_in,
-								_message,
-								companyName_in
-							)
-						);
-					} catch (Exception _ex) {
-						_exception = _ex;
-					}
-					#endregion
-					if (_exception == null) {
-						_errorlist.Add(ErrorType.web__user__updating_email__WARNING);
-					} else {
-						_errorlist.Add(ErrorType.web__user__can_not_send_mail);
-					}
-				} else {
-					_errorlist.Add(ErrorType.data__constraint_violation);
-				}
-
-				#region _con.Transaction.Commit();
-				if (
-					_con.isOpen
-					&&
-					_con.Transaction.inTransaction
-				) {
-					_con.Transaction.Commit();
-				}
-				#endregion
-			} catch (Exception _ex) {
-				#region _con.Transaction.Rollback();
-				if (
-					_con.isOpen
-					&&
-					_con.Transaction.inTransaction
-				) {
-					_con.Transaction.Rollback();
-				}
-				#endregion
-
-				_exception = _ex;
-			} finally {
-				#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
-				if (_con.isOpen) {
-					if (_con.Transaction.inTransaction) {
-						_con.Transaction.Terminate();
-					}
-					_con.Close();
-				}
-
-				_con.Dispose();
-				#endregion
-			}
-			if (_exception != null) {
-				#region SBO_LOG_Log.Log(ErrorType.data);
-				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
-					_sessionuser,
-					LogType.error,
-					ErrorType.data,
-					idApplication_in,
-					"{0}",
-					new string[] {
-						_exception.Message
-					}
-				);
-				#endregion
-				_errorlist.Add(ErrorType.data);
-			}
-
-			errors_out = _errorlist.ToArray();
 		}
 		#endregion
 
@@ -1508,5 +1676,6 @@ A equipa {2}
 			return true;
 		}
 		#endregion
+#endif
 	}
 }

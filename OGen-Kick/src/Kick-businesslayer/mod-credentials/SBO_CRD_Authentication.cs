@@ -48,40 +48,9 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		) {
 			throw new NotImplementedException();
 		}
-		//#region public static bool CheckCredentials(...);
-		//[BOMethodAttribute("CheckCredentials", true)]
-		//public static bool CheckCredentials(
-		//    string credentials_in
-		//) {
-		//    List<int> _errors;
 
-		//    ServerCredentials _credentials = new ServerCredentials(
-		//        credentials_in,
-		//        out _errors
-		//    );
-
-		//    return (_errors.Count == 0);
-		//}
-		//#endregion
-
-
-		public class Usersession {
-			public Usersession(
-				DateTime sessionstart_in, 
-				long idUser_in, 
-				long[] idPermitions_in
-			) {
-				Sessionstart = sessionstart_in;
-				IDUser = idUser_in;
-				IDPermitions = idPermitions_in;
-			}
-
-			public DateTime Sessionstart;
-			public long IDUser;
-			public long[] IDPermitions;
-		}
-		internal static Dictionary<Guid, Usersession> UserSession
-			= new Dictionary<Guid, Usersession>();
+		internal static Dictionary<Guid, utils.Sessionuser> UserSession
+			= new Dictionary<Guid, utils.Sessionuser>();
 		#region public static bool isSessionGuid_valid(...);
 		public static bool isSessionGuid_valid(
 			string sessionGuid_in,
@@ -99,14 +68,15 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return false;
 			}
 
+			errors_out = new int[] { };
 			return true;
 		}
 
 		public static bool isSessionGuid_valid(
 			string sessionGuid_in, 
 
-			out Guid sessionGuid_out, 
-			out Usersession sessionUser_out,
+			out Guid sessionGuid_out,
+			out utils.Sessionuser sessionUser_out,
 			out List<int> errorlist_out,
 			out int[] errors_out
 		) {
@@ -117,6 +87,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				out errorlist_out,
 				out errors_out
 			)) {
+				sessionUser_out = null;
 				return false;
 			}
 
@@ -227,7 +198,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				#endregion
 
 				if (UserSession.ContainsKey(sessionGuid_in)) {
-					Usersession _usersession = UserSession[sessionGuid_in];
+					utils.Sessionuser _usersession = UserSession[sessionGuid_in];
 					if (_usersession.IDUser == user_in.IDUser) {
 						_usersession.Sessionstart = DateTime.Now;
 						_usersession.IDUser = user_in.IDUser;
@@ -241,7 +212,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				} else {
 					UserSession.Add(
 						sessionGuid_in,
-						new Usersession(
+						new utils.Sessionuser(
 							DateTime.Now,
 							user_in.IDUser, 
 							idPermitions_out
@@ -352,7 +323,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		) {
 			List<int> _errorlist;
 			Guid _sessionguid;
-			Usersession _sessionuser;
+			utils.Sessionuser _sessionuser;
 
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(

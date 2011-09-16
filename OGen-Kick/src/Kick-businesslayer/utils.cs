@@ -18,6 +18,22 @@ using System.Text;
 
 namespace OGen.NTier.Kick.lib.businesslayer {
 	public static class utils {
+		public class Sessionuser {
+			public Sessionuser(
+				DateTime sessionstart_in,
+				long idUser_in,
+				long[] idPermitions_in
+			) {
+				Sessionstart = sessionstart_in;
+				IDUser = idUser_in;
+				IDPermitions = idPermitions_in;
+			}
+
+			public DateTime Sessionstart;
+			public long IDUser;
+			public long[] IDPermitions;
+		}
+
 		public static bool Guid_TryParse(string guid_in, out Guid guid_out) {
 			try {
 				guid_out = new Guid(guid_in);
