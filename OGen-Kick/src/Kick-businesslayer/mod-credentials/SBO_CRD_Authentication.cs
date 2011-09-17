@@ -52,7 +52,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return false;
 			}
 
-			errors_out = new int[] { };
+			errors_out = null;
 			return true;
 		}
 
