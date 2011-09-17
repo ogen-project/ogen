@@ -32,43 +32,39 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		#region public void ChangePassword(...);
 		[WebMethod]
 		public void ChangePassword(
-			string credentials_in, 
+			string sessionGuid_in, 
 			string password_old_in, 
 			string password_new_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.ChangePassword(
-				credentials_in, 
+				sessionGuid_in, 
 				password_old_in, 
 				password_new_in, 
 				out errors_out
 			);
 		}
 		#endregion
-		#region public bool CheckCredentials(...);
+		#region public void Login(...);
 		[WebMethod]
-		public bool CheckCredentials(
-			string credentials_in
-		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.CheckCredentials(
-				credentials_in
-			);
-		}
-		#endregion
-		#region public string Login(...);
-		[WebMethod]
-		public string Login(
+		public void Login(
 			string login_in, 
 			string password_in, 
+			string sessionGuid_in, 
+			string whoAmI_forLogPurposes_in, 
 			int idApplication_in, 
 			out long idUser_out, 
+			out System.Int64[] idPermitions_out, 
 			out System.Int32[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.Login(
+			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.Login(
 				login_in, 
 				password_in, 
+				sessionGuid_in, 
+				whoAmI_forLogPurposes_in, 
 				idApplication_in, 
 				out idUser_out, 
+				out idPermitions_out, 
 				out errors_out
 			);
 		}

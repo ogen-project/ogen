@@ -32,22 +32,6 @@ using OGen.NTier.Kick.lib.businesslayer.shared;
 namespace OGen.NTier.Kick.lib.businesslayer {
 	[BOClassAttribute("BO_CRD_Authentication", "")]
 	public static class SBO_CRD_Authentication {
-		public static string Login(
-			string login_in,
-			string password_in,
-
-			int idApplication_in,
-
-			out long idUser_out,
-			out int[] errors_out
-		) {
-			throw new NotImplementedException();
-		}
-		public static bool CheckCredentials(
-			string credentials_in
-		) {
-			throw new NotImplementedException();
-		}
 
 		internal static Dictionary<Guid, utils.Sessionuser> UserSession
 			= new Dictionary<Guid, utils.Sessionuser>();
@@ -226,11 +210,12 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				idPermitions_out = new long[] { };
 
 				errorlist_ref.Add(ErrorType.authentication__invalid_login);
-				#region SBO_LOG_Log.Log(...);
-				SBO_LOG_Log.Log(
+				#region SBO_LOG_Log.log(...);
+				SBO_LOG_Log.log(
 					null,
-					LogType.error,
+					LogType.error, 
 					ErrorType.authentication,
+					-1L,
 					idApplication_in,
 					"IDUser:{0};password:{1}**********;whoAmI:{2};",
 					new string[] { 

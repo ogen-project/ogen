@@ -19,19 +19,19 @@ using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 namespace OGen.NTier.Kick.lib.businesslayer.shared {
 	public interface IBO0_CRD_Authentication {
 		void ChangePassword(
-			string credentials_in, 
+			string sessionGuid_in, 
 			string password_old_in, 
 			string password_new_in, 
 			out System.Int32[] errors_out
 		);
-		bool CheckCredentials(
-			string credentials_in
-		);
-		string Login(
+		void Login(
 			string login_in, 
 			string password_in, 
+			string sessionGuid_in, 
+			string whoAmI_forLogPurposes_in, 
 			int idApplication_in, 
 			out long idUser_out, 
+			out System.Int64[] idPermitions_out, 
 			out System.Int32[] errors_out
 		);
 	}

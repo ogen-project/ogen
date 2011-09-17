@@ -63,20 +63,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Content Include="Web.config" />
     <Content Include="Default.aspx" />
     <Content Include="WS_CRD_Authentication.asmx" />
-    <Content Include="WS_CRD_Permition.asmx" />
-    <Content Include="WS_CRD_Profile.asmx" />
-    <Content Include="WS_CRD_User.asmx" />
-    <Content Include="WS_DIC_Dic.asmx" />
-    <Content Include="WS_FOR_Forum.asmx" />
-    <Content Include="WS_FOR_Thread.asmx" />
     <Content Include="WS_LOG_Log.asmx" />
-    <Content Include="WS_NWS_Attachment.asmx" />
-    <Content Include="WS_NWS_Author.asmx" />
-    <Content Include="WS_NWS_Highlight.asmx" />
-    <Content Include="WS_NWS_News.asmx" />
-    <Content Include="WS_NWS_Profile.asmx" />
-    <Content Include="WS_NWS_Source.asmx" />
-    <Content Include="WS_NWS_Tag.asmx" />
     <Content Include="WS_WEB_User.asmx" />
   </ItemGroup>
   <ItemGroup>
@@ -95,102 +82,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       <DependentUpon>WS_CRD_Authentication.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="_base\WS0_CRD_Permition.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WS_CRD_Permition.asmx.cs">
-      <DependentUpon>WS_CRD_Permition.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="_base\WS0_CRD_Profile.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WS_CRD_Profile.asmx.cs">
-      <DependentUpon>WS_CRD_Profile.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="_base\WS0_CRD_User.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WS_CRD_User.asmx.cs">
-      <DependentUpon>WS_CRD_User.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="_base\WS0_DIC_Dic.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WS_DIC_Dic.asmx.cs">
-      <DependentUpon>WS_DIC_Dic.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="_base\WS0_FOR_Forum.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WS_FOR_Forum.asmx.cs">
-      <DependentUpon>WS_FOR_Forum.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="_base\WS0_FOR_Thread.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WS_FOR_Thread.asmx.cs">
-      <DependentUpon>WS_FOR_Thread.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="_base\WS0_LOG_Log.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WS_LOG_Log.asmx.cs">
       <DependentUpon>WS_LOG_Log.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="_base\WS0_NWS_Attachment.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WS_NWS_Attachment.asmx.cs">
-      <DependentUpon>WS_NWS_Attachment.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="_base\WS0_NWS_Author.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WS_NWS_Author.asmx.cs">
-      <DependentUpon>WS_NWS_Author.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="_base\WS0_NWS_Highlight.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WS_NWS_Highlight.asmx.cs">
-      <DependentUpon>WS_NWS_Highlight.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="_base\WS0_NWS_News.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WS_NWS_News.asmx.cs">
-      <DependentUpon>WS_NWS_News.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="_base\WS0_NWS_Profile.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WS_NWS_Profile.asmx.cs">
-      <DependentUpon>WS_NWS_Profile.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="_base\WS0_NWS_Source.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WS_NWS_Source.asmx.cs">
-      <DependentUpon>WS_NWS_Source.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="_base\WS0_NWS_Tag.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WS_NWS_Tag.asmx.cs">
-      <DependentUpon>WS_NWS_Tag.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="_base\WS0_WEB_User.cs">

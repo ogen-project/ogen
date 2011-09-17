@@ -44,41 +44,38 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 
 		#region public void ChangePassword(...);
 		public void ChangePassword(
-			string credentials_in, 
+			string sessionGuid_in, 
 			string password_old_in, 
 			string password_new_in, 
 			out System.Int32[] errors_out
 		) {
 			bo_.ChangePassword(
-				credentials_in, 
+				sessionGuid_in, 
 				password_old_in, 
 				password_new_in, 
 				out errors_out
 			);
 		}
 		#endregion
-		#region public bool CheckCredentials(...);
-		public bool CheckCredentials(
-			string credentials_in
-		) {
-			return bo_.CheckCredentials(
-				credentials_in
-			);
-		}
-		#endregion
-		#region public string Login(...);
-		public string Login(
+		#region public void Login(...);
+		public void Login(
 			string login_in, 
 			string password_in, 
+			string sessionGuid_in, 
+			string whoAmI_forLogPurposes_in, 
 			int idApplication_in, 
 			out long idUser_out, 
+			out System.Int64[] idPermitions_out, 
 			out System.Int32[] errors_out
 		) {
-			return bo_.Login(
+			bo_.Login(
 				login_in, 
 				password_in, 
+				sessionGuid_in, 
+				whoAmI_forLogPurposes_in, 
 				idApplication_in, 
 				out idUser_out, 
+				out idPermitions_out, 
 				out errors_out
 			);
 		}

@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 	{
 		#region public void ChangePassword(...);
 		public void ChangePassword(
-			string credentials_in, 
+			string sessionGuid_in, 
 			string password_old_in, 
 			string password_new_in, 
 			out System.Int32[] errors_out
@@ -36,19 +36,15 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
 		#endregion
-		#region public bool CheckCredentials(...);
-		public bool CheckCredentials(
-			string credentials_in
-		) {
-			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
-		}
-		#endregion
-		#region public string Login(...);
-		public string Login(
+		#region public void Login(...);
+		public void Login(
 			string login_in, 
 			string password_in, 
+			string sessionGuid_in, 
+			string whoAmI_forLogPurposes_in, 
 			int idApplication_in, 
 			out long idUser_out, 
+			out System.Int64[] idPermitions_out, 
 			out System.Int32[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");

@@ -18,78 +18,19 @@ using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
 namespace OGen.NTier.Kick.lib.businesslayer.shared {
 	public interface IBO0_WEB_User {
-		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NET_User getObject(
-			string credentials_in, 
-			long idUser_in, 
-			out System.Int32[] errors_out
-		);
-		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User getObject_details(
-			string credentials_in, 
-			long idUser_in, 
-			out System.Int32[] errors_out
-		);
-		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User[] getRecord_generic(
-			string credentials_in, 
-			string login_in, 
-			string email_in, 
-			string name_in, 
-			long idProfile__in_in, 
-			long idProfile__out_in, 
-			int idApplication_in, 
-			int page_in, 
-			int page_numRecords_in, 
-			out System.Int32[] errors_out
-		);
-		void insObject_Registration(
-			string login_in, 
-			string email_in, 
-			string name_in, 
-			string verifyMailURL_in, 
-			string companyName_in, 
-			int idApplication_in, 
-			out System.Int32[] errors_out
-		);
-		string Login(
+		void Login(
 			string email_in, 
 			string password_in, 
+			string sessionGuid_in, 
+			string whoAmI_forLogPurposes_in, 
 			int idApplication_in, 
 			out long idUser_out, 
 			out string login_out, 
-			out System.Int32[] errors_out
-		);
-		string Login_throughLink(
-			string email_verify_in, 
-			int idApplication_in, 
-			out long idUser_out, 
-			out string login_out, 
-			out string name_out, 
-			out System.Int32[] errors_out
-		);
-		string Login_throughLink_andChangePassword(
-			string email_verify_in, 
-			int idApplication_in, 
-			string password_in, 
-			out long idUser_out, 
-			out string login_out, 
-			out string name_out, 
-			out System.Int32[] errors_out
-		);
-		void LostPassword_Recover(
-			string EMail_in, 
-			string companyName_in, 
-			string recoverLostPasswordURL_in, 
-			int idApplication_in, 
-			out System.Int32[] errors_out
-		);
-		void setObject(
-			string credentials_in, 
-			long idUser_in, 
-			bool updateName_in, 
-			string name_in, 
+			out System.Int64[] idPermitions_out, 
 			out System.Int32[] errors_out
 		);
 		void updObject_EMail(
-			string credentials_in, 
+			string sessionGuid_in, 
 			string EMail_verify_in, 
 			string companyName_in, 
 			string verifyMailURL_in, 

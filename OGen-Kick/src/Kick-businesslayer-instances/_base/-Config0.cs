@@ -22,20 +22,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared.instances.utils {
 
 		public static void ReConfig() {
 			CRD_Authentication.ReConfig();
-			CRD_Permition.ReConfig();
-			CRD_Profile.ReConfig();
-			CRD_User.ReConfig();
-			DIC_Dic.ReConfig();
-			FOR_Forum.ReConfig();
-			FOR_Thread.ReConfig();
 			LOG_Log.ReConfig();
-			NWS_Attachment.ReConfig();
-			NWS_Author.ReConfig();
-			NWS_Highlight.ReConfig();
-			NWS_News.ReConfig();
-			NWS_Profile.ReConfig();
-			NWS_Source.ReConfig();
-			NWS_Tag.ReConfig();
 			WEB_User.ReConfig();
 		}
 	}

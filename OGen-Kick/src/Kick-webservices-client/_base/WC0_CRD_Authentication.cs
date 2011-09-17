@@ -63,7 +63,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
 		public void ChangePassword(
-			string credentials_in, 
+			string sessionGuid_in, 
 			string password_old_in, 
 			string password_new_in, 
 			out System.Int32[] errors_out
@@ -71,7 +71,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			object[] results = this.Invoke(
 				"ChangePassword", 
 				new object[] {
-					credentials_in,
+					sessionGuid_in,
 					password_old_in,
 					password_new_in
 				}
@@ -79,27 +79,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			errors_out = (System.Int32[])results[0];
 		}
 		#endregion
-		#region public bool CheckCredentials(...);
-		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/CheckCredentials",
-			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			Use = System.Web.Services.Description.SoapBindingUse.Literal,
-			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
-		)]
-		public bool CheckCredentials(
-			string credentials_in
-		) {
-			object[] results = this.Invoke(
-				"CheckCredentials", 
-				new object[] {
-					credentials_in
-				}
-			);
-			return (bool)results[0];
-		}
-		#endregion
-		#region public string Login(...);
+		#region public void Login(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
 			"http://OGen.NTier.Kick.distributedlayer.webservices.server/Login",
 			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
@@ -107,11 +87,14 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
-		public string Login(
+		public void Login(
 			string login_in, 
 			string password_in, 
+			string sessionGuid_in, 
+			string whoAmI_forLogPurposes_in, 
 			int idApplication_in, 
 			out long idUser_out, 
+			out System.Int64[] idPermitions_out, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -119,12 +102,14 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				new object[] {
 					login_in,
 					password_in,
+					sessionGuid_in,
+					whoAmI_forLogPurposes_in,
 					idApplication_in
 				}
 			);
-			idUser_out = (long)results[1];
+			idUser_out = (long)results[0];
+			idPermitions_out = (System.Int64[])results[1];
 			errors_out = (System.Int32[])results[2];
-			return (string)results[0];
 		}
 		#endregion
 	}

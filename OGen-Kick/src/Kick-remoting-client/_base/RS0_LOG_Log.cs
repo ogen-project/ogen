@@ -26,42 +26,15 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		MarshalByRefObject, 
 		IBO_LOG_Log 
 	{
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_LOG_Log[] getRecord_generic(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_LOG_Log[] getRecord_generic(
-			string credentials_in, 
-			int IDLogtype_search_in, 
-			long IDUser_search_in, 
-			int IDErrortype_search_in, 
-			System.DateTime Stamp_begin_search_in, 
-			System.DateTime Stamp_end_search_in, 
-			bool Read_search_in, 
-			bool Read_search_isNull_in, 
-			int idApplication_in, 
-			bool idApplication_isNull_in, 
-			int page_in, 
-			int page_numRecords_in, 
-			out int error_out
-		) {
-			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
-		}
-		#endregion
 		#region public void Log(...);
 		public void Log(
-			string credentials_in, 
+			string sessionGuid_in, 
 			int logtype_in, 
 			int errortype_in, 
+			long idPermition_in, 
 			int idApplication_in, 
 			string format_in, 
 			System.String[] args_in
-		) {
-			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
-		}
-		#endregion
-		#region public void MarkRead(...);
-		public void MarkRead(
-			string credentials_in, 
-			int idLog_in, 
-			out System.Int32[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
