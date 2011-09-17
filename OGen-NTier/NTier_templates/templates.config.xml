@@ -3213,6 +3213,23 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+	<!-- search:solution:webservices:server:utils0.cs -->
+	<template id="PRJ-WS-Someapp-webservices-server-utils0.cs.aspx"
+			name="PRJ-WS-Someapp-webservices-server-utils0.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/_base/utils0.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
 	<!-- search:solution:webservices:server:Default.aspx -->
 	<template id="PRJ-WS-Someapp-webservices-server-Default.aspx.aspx"
 			name="PRJ-WS-Someapp-webservices-server-Default.aspx.aspx"

@@ -155,6 +155,9 @@
     <Content Include="app0.config.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="PRJ-WS-Someapp-webservices-server-utils0.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="PRJ---xxx.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>

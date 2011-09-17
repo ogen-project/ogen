@@ -127,7 +127,8 @@ for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" /><%
+    <Compile Include="Properties\AssemblyInfo.cs" />
+	<Compile Include="_base\utils0.cs" /><%
 for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
 	_aux_class = _aux_business_metadata.Classes.ClassCollection[i];%>
     <Compile Include="_base\WS0_<%=_aux_class.Name%>.cs">

@@ -23,11 +23,13 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 	#endif
 		public XS_methodType (
 		) {
+			ipparamnum_ = -1;
 		}
 		public XS_methodType (
 			string name_in
 		) {
 			name_ = name_in;
+			ipparamnum_ = -1;
 		}
 	}
 }

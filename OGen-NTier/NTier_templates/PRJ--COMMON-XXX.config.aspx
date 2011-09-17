@@ -55,7 +55,8 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
 		<add key="RemotingServer_ServerPort" value="<%=_aux_ex_metadata.RemotingServer_ServerPort%>" />--%>
 
 		<add key="Webservices_ServerURI" value="<%=_aux_ex_metadata.Webservices_ServerURI%>" />
-		<add key="Webservices_ServerPort" value="<%=_aux_ex_metadata.Webservices_ServerPort%>" /><%
+		<add key="Webservices_ServerPort" value="<%=_aux_ex_metadata.Webservices_ServerPort%>" />
+		<add key="Webservices_ResetClientIP" value="True" /><%
 
 if (_arg_where != "test") {%>
 

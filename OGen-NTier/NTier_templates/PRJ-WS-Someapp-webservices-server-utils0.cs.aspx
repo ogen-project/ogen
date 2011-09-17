@@ -17,7 +17,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <%@ import namespace="OGen.NTier.lib.metadata.metadataBusiness" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
-string _arg_ClassName = System.Web.HttpUtility.UrlDecode(Request.QueryString["ClassName"]);
 #endregion
 
 #region varaux...
@@ -28,14 +27,6 @@ XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
 XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusinessCollection[0];
-
-OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class
-	= _aux_business_metadata.Classes.ClassCollection[
-		_arg_ClassName
-	];
-
-XS_methodType _aux_method;
-XS_parameterType _aux_parameter;
 #endregion
 //-----------------------------------------------------------------------------------------
 if (_aux_ex_metadata.CopyrightText != string.Empty) {
@@ -54,46 +45,31 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 <%
 	}
 }%>using System;
-using System.Web;
-using System.Web.Services;
-
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures;
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared;
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.structures;
 
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server {
-	/// <summary>
-	/// <%=_aux_class.Name%> web service.
-	/// </summary>
-	public class WS0_<%=_aux_class.Name%> :
-		WebService,
-		IBO_<%=_aux_class.Name%>
-	{<%
-		for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
-			_aux_method = _aux_class.Methods.MethodCollection[m];%>
-		#region public <%=_aux_method.OutputType%> <%=_aux_method.Name%>(...);
-		[WebMethod]
-		public <%=_aux_method.OutputType%> <%=_aux_method.Name%>(<%
-			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
-				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
-			<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
-			}%>
-		) {
-			<%=(_aux_method.OutputType == "void") ? "" : "return "%><%=_aux_class.Namespace%>.SBO_<%=_aux_class.Name%>.<%=_aux_method.Name%>(<%
-				for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
-					_aux_parameter = _aux_method.Parameters.ParameterCollection[p];
-					if (_aux_method.IPParamNum == p) {%><%=""%>
-				<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%>(utils.ResetClientIP) 
-					? HttpContext.Current.Request.UserHostAddress 
-					: <%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
-					} else {%><%=""%>
-				<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
+	public static partial class utils {
+		#region public static bool ResetClientIP { get; }
+		private static bool resetclientip_beenread = false;
+		private static bool resetclientip__ = false;
+
+		public static bool ResetClientIP {
+			get {
+				if (!resetclientip_beenread) {
+					if (!bool.TryParse(
+						System.Configuration.ConfigurationManager.AppSettings[
+							"Webservices_ResetClientIP"
+						], 
+						out resetclientip__
+					)) {
+						resetclientip__ = false;
 					}
-				}%>
-			);
+
+					resetclientip_beenread = true;
+				}
+
+				return resetclientip__;
+			}
 		}
-		#endregion<%
-		}%>
+		#endregion
 	}
 }
