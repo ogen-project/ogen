@@ -1161,7 +1161,12 @@ A equipa {2}
 		private static string randompassword {
 			get {
 				if (randompassword__ == "") {
-					randompassword__ = utils.RandomText(64);
+					randompassword__ = 
+						SimpleHash.ComputeHash(
+						utils.RandomText(20),
+						SimpleHash.HashAlgotithm.SHA256,
+						null
+					);
 				}
 				return randompassword__;
 			}
