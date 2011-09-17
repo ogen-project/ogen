@@ -34,7 +34,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 	public static class SBO_CRD_Permition {
 
 		#region public static SO_CRD_Permition[] getRecord_all(...);
-		[BOMethodAttribute("getRecord_all", true)]
+		[BOMethodAttribute("getRecord_all", true, false, 1)]
 		public static SO_CRD_Permition[] getRecord_all(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -93,7 +93,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#endregion
 
 		#region public static void setProfilePermitions(...);
-		[BOMethodAttribute("setProfilePermitions", true)]
+		[BOMethodAttribute("setProfilePermitions", true, false, 1)]
 		public static void setProfilePermitions(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -213,7 +213,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#endregion
 
 		#region public static SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(...);
-		[BOMethodAttribute("getRecord_ofProfilePermition_byProfile", true)]
+		[BOMethodAttribute("getRecord_ofProfilePermition_byProfile", true, false, 1)]
 		public static SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 

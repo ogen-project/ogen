@@ -54,7 +54,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 #endif
 
 		#region public static void Login(...);
-		[BOMethodAttribute("Login", true)]
+		[BOMethodAttribute("Login", true, false, 3)]
 		public static void Login(
 			string email_in,
 			string password_in,
@@ -139,7 +139,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#endregion
 
 		#region public static void updObject_EMail(...);
-		[BOMethodAttribute("updObject_EMail", true)]
+		[BOMethodAttribute("updObject_EMail", true, false, 1)]
 		public static void updObject_EMail(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -341,7 +341,7 @@ A equipa {2}
 		#endregion
 
 		#region public static SO_vNET_User[] getRecord_generic(...);
-		[BOMethodAttribute("getRecord_generic", true)]
+		[BOMethodAttribute("getRecord_generic", true, false, 1)]
 		public static SO_vNET_User[] getRecord_generic(
 			#region params...
 			string sessionGuid_in,
@@ -413,7 +413,7 @@ A equipa {2}
 		#endregion
 
 		#region public static SO_vNET_User getObject_details(...);
-		[BOMethodAttribute("getObject_details", true)]
+		[BOMethodAttribute("getObject_details", true, false, 1)]
 		public static SO_vNET_User getObject_details(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -468,7 +468,7 @@ A equipa {2}
 		#endregion
 
 		#region public static SO_NET_User getObject(...);
-		[BOMethodAttribute("getObject", true)]
+		[BOMethodAttribute("getObject", true, false, 1)]
 		public static SO_NET_User getObject(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -522,7 +522,7 @@ A equipa {2}
 		}
 		#endregion
 		#region public static void setObject(...);
-		[BOMethodAttribute("setObject", true)]
+		[BOMethodAttribute("setObject", true, false, 1)]
 		public static void setObject(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -944,7 +944,7 @@ A equipa {2}
 		#endregion
 
 		#region public static void Login_throughLink(...);
-		[BOMethodAttribute("Login_throughLink", true)]
+		[BOMethodAttribute("Login_throughLink", true, false, 1)]
 		public static void Login_throughLink(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in,
@@ -978,7 +978,7 @@ A equipa {2}
 		}
 		#endregion
 		#region public static void Login_throughLink_andChangePassword(...);
-		[BOMethodAttribute("Login_throughLink_andChangePassword", true)]
+		[BOMethodAttribute("Login_throughLink_andChangePassword", true, false, 1)]
 		public static void Login_throughLink_andChangePassword(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in,

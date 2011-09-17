@@ -172,6 +172,8 @@ shared
 		<specificCase word="isOut" translation="isOut" />
 		<specificCase word="isRef" translation="isRef" />
 
+		<specificCase word="ipParamNum" translation="IPParamNum" />
+
 		<!-- caseSensitive="true" -->
 		<complexType name="dbConnectionType">
 			<complexTypeKey name="configMode" caseSensitive="true" />

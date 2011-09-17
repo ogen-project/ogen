@@ -99,11 +99,11 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			}
 		}
 		#endregion
-		#region public int IpParamNum { get; set; }
+		#region public int IPParamNum { get; set; }
 		internal int ipparamnum_;
 
 		[XmlAttribute("ipParamNum")]
-		public int IpParamNum {
+		public int IPParamNum {
 			get {
 				return ipparamnum_;
 			}

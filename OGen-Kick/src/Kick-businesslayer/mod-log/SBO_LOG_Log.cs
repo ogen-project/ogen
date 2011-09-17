@@ -134,7 +134,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 		#endregion
 
-		[BOMethodAttribute("Log", true)]
+		[BOMethodAttribute("Log", true, false, 1)]
 		public static void Log(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 

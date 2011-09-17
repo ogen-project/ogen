@@ -106,7 +106,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 		#endregion
 
-		[BOMethodAttribute("insObject_CreateUser", true)]
+		[BOMethodAttribute("insObject_CreateUser", true, false, 1)]
 		public static void insObject_CreateUser(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 

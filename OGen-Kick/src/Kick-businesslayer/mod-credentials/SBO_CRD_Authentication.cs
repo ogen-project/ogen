@@ -239,7 +239,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 		#endregion
 
-		[BOMethodAttribute("Login", true)]
+		[BOMethodAttribute("Login", true, false, 3)]
 		public static void Login(
 			string login_in,
 			string password_in,
@@ -305,7 +305,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 		#endregion
 		#region public static void ChangePassword(...);
-		[BOMethodAttribute("ChangePassword", true)]
+		[BOMethodAttribute("ChangePassword", true, false, 1)]
 		public static void ChangePassword(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
