@@ -13,34 +13,53 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
+using System.Web;
+using System.Web.Services;
 
+using OGen.NTier.Kick.lib.datalayer.shared.structures;
+using OGen.NTier.Kick.lib.businesslayer;
 using OGen.NTier.Kick.lib.businesslayer.shared;
 using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
-namespace OGen.NTier.Kick.lib.businesslayer {
-	public class BO_LOG_Log :
-		IBO_LOG_Log
+namespace OGen.NTier.Kick.distributedlayer.webservices.server {
+	/// <summary>
+	/// CRD_User web service.
+	/// </summary>
+	public class WS0_CRD_User :
+		WebService,
+		IBO_CRD_User
 	{
-		#region public void Log(...);
-		public void Log(
+		#region public void insObject_CreateUser(...);
+		[WebMethod]
+		public void insObject_CreateUser(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int logtype_in, 
-			int errortype_in, 
-			long idPermition_in, 
+			string login_in, 
 			int idApplication_in, 
-			string format_in, 
-			System.String[] args_in
+			out System.Int32[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
+			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_User.insObject_CreateUser(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
-				logtype_in, 
-				errortype_in, 
-				idPermition_in, 
+				login_in, 
 				idApplication_in, 
-				format_in, 
-				args_in
+				out errors_out
+			);
+		}
+		#endregion
+		#region public void insObject_Registration(...);
+		[WebMethod]
+		public void insObject_Registration(
+			string login_in, 
+			string password_in, 
+			int idApplication_in, 
+			out System.Int32[] errors_out
+		) {
+			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_User.insObject_Registration(
+				login_in, 
+				password_in, 
+				idApplication_in, 
+				out errors_out
 			);
 		}
 		#endregion

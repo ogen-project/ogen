@@ -14,35 +14,34 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 
-using OGen.NTier.Kick.lib.businesslayer.shared;
 using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
-namespace OGen.NTier.Kick.lib.businesslayer {
-	public class BO_LOG_Log :
-		IBO_LOG_Log
-	{
-		#region public void Log(...);
-		public void Log(
+namespace OGen.NTier.Kick.lib.businesslayer.shared {
+	public interface IBO0_CRD_Permition {
+		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int logtype_in, 
-			int errortype_in, 
-			long idPermition_in, 
 			int idApplication_in, 
-			string format_in, 
-			System.String[] args_in
-		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
-				sessionGuid_in, 
-				ip_forLogPurposes_in, 
-				logtype_in, 
-				errortype_in, 
-				idPermition_in, 
-				idApplication_in, 
-				format_in, 
-				args_in
-			);
-		}
-		#endregion
+			bool idApplication_isNull_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			out System.Int32[] errors_out
+		);
+		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			long IDProfile_search_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			out System.Int32[] errors_out
+		);
+		void setProfilePermitions(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			long idProfile_in, 
+			System.Int64[] idPermitions_in, 
+			int idApplication_in, 
+			out System.Int32[] errors_out
+		);
 	}
 }

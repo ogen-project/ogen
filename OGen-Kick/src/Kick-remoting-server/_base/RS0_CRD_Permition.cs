@@ -13,71 +13,75 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
-using System.Runtime.Remoting;
 
 using OGen.NTier.Kick.lib.datalayer.shared.structures;
 using OGen.NTier.Kick.lib.businesslayer;
 using OGen.NTier.Kick.lib.businesslayer.shared;
 using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
-namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
+namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 	/// <summary>
-	/// CRD_Authentication remoting client.
+	/// CRD_Permition remoting server.
 	/// </summary>
-	public class RC_CRD_Authentication : 
-		IBO_CRD_Authentication 
+	public class RS_CRD_Permition : 
+		MarshalByRefObject, 
+		IBO_CRD_Permition 
 	{
-		static RC_CRD_Authentication() {
-			ReConfig();
-		}
-
-		#region private Fields...
-		private static IBO_CRD_Authentication bo_;
-		#endregion
-		#region public static void ReConfig();
-		public static void ReConfig() {
-			utils.Config.ReConfig();
-
-			bo_ = new OGen.NTier.Kick.lib.distributedlayer.remoting.server.RS_CRD_Authentication();
-		}
-		#endregion
-
-		#region public void ChangePassword(...);
-		public void ChangePassword(
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[] getRecord_all(...);
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			string password_old_in, 
-			string password_new_in, 
+			int idApplication_in, 
+			bool idApplication_isNull_in, 
+			int page_in, 
+			int page_numRecords_in, 
 			out System.Int32[] errors_out
 		) {
-			bo_.ChangePassword(
+			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Permition.getRecord_all(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
-				password_old_in, 
-				password_new_in, 
+				idApplication_in, 
+				idApplication_isNull_in, 
+				page_in, 
+				page_numRecords_in, 
 				out errors_out
 			);
 		}
 		#endregion
-		#region public void Login(...);
-		public void Login(
-			string login_in, 
-			string password_in, 
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(...);
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idApplication_in, 
-			out long idUser_out, 
-			out System.Int64[] idPermitions_out, 
+			long IDProfile_search_in, 
+			int page_in, 
+			int page_numRecords_in, 
 			out System.Int32[] errors_out
 		) {
-			bo_.Login(
-				login_in, 
-				password_in, 
+			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Permition.getRecord_ofProfilePermition_byProfile(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
+				IDProfile_search_in, 
+				page_in, 
+				page_numRecords_in, 
+				out errors_out
+			);
+		}
+		#endregion
+		#region public void setProfilePermitions(...);
+		public void setProfilePermitions(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			long idProfile_in, 
+			System.Int64[] idPermitions_in, 
+			int idApplication_in, 
+			out System.Int32[] errors_out
+		) {
+			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Permition.setProfilePermitions(
+				sessionGuid_in, 
+				ip_forLogPurposes_in, 
+				idProfile_in, 
+				idPermitions_in, 
 				idApplication_in, 
-				out idUser_out, 
-				out idPermitions_out, 
 				out errors_out
 			);
 		}

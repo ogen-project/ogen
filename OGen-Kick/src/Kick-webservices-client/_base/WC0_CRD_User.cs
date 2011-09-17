@@ -22,27 +22,27 @@ using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
 namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 	/// <summary>
-	/// LOG_Log web service client.
+	/// CRD_User web service client.
 	/// </summary>
 	/// <remarks/>
 	//[System.Diagnostics.DebuggerStepThroughAttribute()]
 	//[System.ComponentModel.DesignerCategoryAttribute("code")]
 	[System.Web.Services.WebServiceBindingAttribute(
-		Name = "WS_LOG_LogSoap",
+		Name = "WS_CRD_UserSoap",
 		Namespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server"
 	)]
-	public class WC_LOG_Log : 
+	public class WC_CRD_User : 
 		SoapHttpClientProtocol, 
-		IBO_LOG_Log
+		IBO_CRD_User
 	{
-		public WC_LOG_Log() {
+		public WC_CRD_User() {
 			ReConfig();
 		}
 
 		#region public void ReConfig();
 		public void ReConfig() {
 			this.Url = string.Format(
-				"{0}:{1}/WS_LOG_Log.asmx",
+				"{0}:{1}/WS_CRD_User.asmx",
 				#if NET_1_1
 				System.Configuration.ConfigurationSettings.AppSettings["Webservices_ServerURI"], 
 				System.Configuration.ConfigurationSettings.AppSettings["Webservices_ServerPort"]
@@ -54,37 +54,56 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		}
 		#endregion
 
-		#region public void Log(...);
+		#region public void insObject_CreateUser(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/Log",
+			"http://OGen.NTier.Kick.distributedlayer.webservices.server/insObject_CreateUser",
 			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
 			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
-		public void Log(
+		public void insObject_CreateUser(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int logtype_in, 
-			int errortype_in, 
-			long idPermition_in, 
+			string login_in, 
 			int idApplication_in, 
-			string format_in, 
-			System.String[] args_in
+			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
-				"Log", 
+				"insObject_CreateUser", 
 				new object[] {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
-					logtype_in,
-					errortype_in,
-					idPermition_in,
-					idApplication_in,
-					format_in,
-					args_in
+					login_in,
+					idApplication_in
 				}
 			);
+			errors_out = (System.Int32[])results[0];
+		}
+		#endregion
+		#region public void insObject_Registration(...);
+		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
+			"http://OGen.NTier.Kick.distributedlayer.webservices.server/insObject_Registration",
+			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			Use = System.Web.Services.Description.SoapBindingUse.Literal,
+			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
+		)]
+		public void insObject_Registration(
+			string login_in, 
+			string password_in, 
+			int idApplication_in, 
+			out System.Int32[] errors_out
+		) {
+			object[] results = this.Invoke(
+				"insObject_Registration", 
+				new object[] {
+					login_in,
+					password_in,
+					idApplication_in
+				}
+			);
+			errors_out = (System.Int32[])results[0];
 		}
 		#endregion
 	}

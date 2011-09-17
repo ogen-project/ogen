@@ -57,7 +57,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 
 		public static bool isSessionGuid_valid(
-			string sessionGuid_in, 
+			string sessionGuid_in,
+			string ip_forLogPurposes_in, 
 
 			out Guid sessionGuid_out,
 			out utils.Sessionuser sessionUser_out,
@@ -76,8 +77,18 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 
 			if (!UserSession.TryGetValue(sessionGuid_out, out sessionUser_out)) {
-				errorlist_out.Add(ErrorType.authentication__expired_guid);
+				SBO_LOG_Log.log(
+					null,
+					LogType.error,
+					ErrorType.authentication__expired_guid,
+					-1L,
+					-1,
+					"IP:{0};",
+					ip_forLogPurposes_in
+				);
 
+
+				errorlist_out.Add(ErrorType.authentication__expired_guid);
 				errors_out = errorlist_out.ToArray();
 				return false;
 			}
@@ -93,7 +104,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			Guid sessionGuid_in, 
 
 			string login_forLogPurposes_in,
-			string whoAmI_forLogPurposes_in, 
+			string ip_forLogPurposes_in, 
 
 			bool andCheckPassword_in, 
 			string password_in,
@@ -112,7 +123,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				sessionGuid_in, 
 
 				login_forLogPurposes_in, 
-				whoAmI_forLogPurposes_in, 
+				ip_forLogPurposes_in, 
 
 				andCheckPassword_in, 
 				password_in,
@@ -132,7 +143,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			Guid sessionGuid_in, 
 
 			string login_forLogPurposes_in, 
-			string whoAmI_forLogPurposes_in, 
+			string ip_forLogPurposes_in, 
 
 			bool andCheckPassword_in, 
 			string password_in,
@@ -220,7 +231,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					new string[] { 
 						login_forLogPurposes_in, // user_in.IDUser.ToString(), 
 						password_in.Length > 0 ? password_in.Substring(0, 1) : "", 
-						whoAmI_forLogPurposes_in
+						ip_forLogPurposes_in
 					}
 				);
 				#endregion
@@ -234,7 +245,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string password_in,
 			string sessionGuid_in,
 
-			string whoAmI_forLogPurposes_in, 
+			string ip_forLogPurposes_in, 
 
 			int idApplication_in,
 
@@ -277,7 +288,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				_sessionguid, 
  
 				login_in, 
-				whoAmI_forLogPurposes_in, 
+				ip_forLogPurposes_in, 
 
 				true, 
 				password_in,
@@ -297,6 +308,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		[BOMethodAttribute("ChangePassword", true)]
 		public static void ChangePassword(
 			string sessionGuid_in,
+			string ip_forLogPurposes_in, 
 
 			string password_old_in,
 			string password_new_in,
@@ -310,6 +322,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(
 				sessionGuid_in,
+				ip_forLogPurposes_in, 
 				out _sessionguid,
 				out _sessionuser,
 				out _errorlist,

@@ -60,7 +60,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string password_in,
 			string sessionGuid_in,
 
-			string whoAmI_forLogPurposes_in, 
+			string ip_forLogPurposes_in, 
 
 			int idApplication_in,
 
@@ -103,7 +103,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					_guid,
 
 					email_in, 
-					whoAmI_forLogPurposes_in, 
+					ip_forLogPurposes_in, 
 
 					true, 
 					password_in, 
@@ -128,7 +128,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					new string[] { 
 						email_in, 
 						password_in.Length > 0 ? password_in.Substring(0, 1) : "", 
-						whoAmI_forLogPurposes_in
+						ip_forLogPurposes_in
 					}
 				);
 				#endregion
@@ -142,6 +142,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		[BOMethodAttribute("updObject_EMail", true)]
 		public static void updObject_EMail(
 			string sessionGuid_in,
+			string ip_forLogPurposes_in, 
 
 			string EMail_verify_in,
 
@@ -159,6 +160,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(
 				sessionGuid_in, 
+				ip_forLogPurposes_in, 
 				out _sessionguid, 
 				out _sessionuser, 
 				out _errorlist,
@@ -343,6 +345,7 @@ A equipa {2}
 		public static SO_vNET_User[] getRecord_generic(
 			#region params...
 			string sessionGuid_in,
+			string ip_forLogPurposes_in, 
 
 			string login_in, 
 			string email_in, 
@@ -365,6 +368,7 @@ A equipa {2}
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(
 				sessionGuid_in,
+				ip_forLogPurposes_in, 
 				out _sessionguid,
 				out _sessionuser,
 				out _errorlist,
@@ -412,6 +416,7 @@ A equipa {2}
 		[BOMethodAttribute("getObject_details", true)]
 		public static SO_vNET_User getObject_details(
 			string sessionGuid_in,
+			string ip_forLogPurposes_in, 
 
 			long idUser_in,
 
@@ -424,6 +429,7 @@ A equipa {2}
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(
 				sessionGuid_in,
+				ip_forLogPurposes_in, 
 				out _sessionguid,
 				out _sessionuser,
 				out _errorlist,
@@ -465,6 +471,7 @@ A equipa {2}
 		[BOMethodAttribute("getObject", true)]
 		public static SO_NET_User getObject(
 			string sessionGuid_in,
+			string ip_forLogPurposes_in, 
 
 			long idUser_in,
 
@@ -477,6 +484,7 @@ A equipa {2}
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(
 				sessionGuid_in,
+				ip_forLogPurposes_in, 
 				out _sessionguid,
 				out _sessionuser,
 				out _errorlist,
@@ -517,6 +525,7 @@ A equipa {2}
 		[BOMethodAttribute("setObject", true)]
 		public static void setObject(
 			string sessionGuid_in,
+			string ip_forLogPurposes_in, 
 
 			long idUser_in,
 
@@ -536,6 +545,7 @@ A equipa {2}
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(
 				sessionGuid_in,
+				ip_forLogPurposes_in, 
 				out _sessionguid,
 				out _sessionuser,
 				out _errorlist,
@@ -675,7 +685,7 @@ A equipa {2}
 		#region internal static void login_throughlink(...);
 		internal static void login_throughlink(
 			string sessionGuid_in,
-			string whoAmI_forLogPurposes_in,
+			string ip_forLogPurposes_in,
 
 			string email_verify_in, 
 			int idApplication_in, 
@@ -905,7 +915,7 @@ A equipa {2}
 						_guid, 
 						_crd_user.Login,
 
-						whoAmI_forLogPurposes_in, 
+						ip_forLogPurposes_in, 
 
 						false,
 						"",
@@ -937,7 +947,7 @@ A equipa {2}
 		[BOMethodAttribute("Login_throughLink", true)]
 		public static void Login_throughLink(
 			string sessionGuid_in,
-			string whoAmI_forLogPurposes_in,
+			string ip_forLogPurposes_in,
 
 			string email_verify_in,
 			int idApplication_in,
@@ -951,7 +961,7 @@ A equipa {2}
 		) {
 			login_throughlink(
 				sessionGuid_in,
-				whoAmI_forLogPurposes_in,
+				ip_forLogPurposes_in,
 
 				email_verify_in,
 				idApplication_in,
@@ -971,7 +981,7 @@ A equipa {2}
 		[BOMethodAttribute("Login_throughLink_andChangePassword", true)]
 		public static void Login_throughLink_andChangePassword(
 			string sessionGuid_in,
-			string whoAmI_forLogPurposes_in,
+			string ip_forLogPurposes_in,
 
 			string email_verify_in,
 			int idApplication_in,
@@ -986,7 +996,7 @@ A equipa {2}
 		) {
 			login_throughlink(
 				sessionGuid_in,
-				whoAmI_forLogPurposes_in,
+				ip_forLogPurposes_in,
 
 				email_verify_in,
 				idApplication_in,

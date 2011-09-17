@@ -30,6 +30,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		#region public void Log(...);
 		public void Log(
 			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
 			int logtype_in, 
 			int errortype_in, 
 			long idPermition_in, 
@@ -39,6 +40,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
 				sessionGuid_in, 
+				ip_forLogPurposes_in, 
 				logtype_in, 
 				errortype_in, 
 				idPermition_in, 

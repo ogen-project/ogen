@@ -18,29 +18,38 @@ using OGen.NTier.Kick.lib.businesslayer.shared;
 using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
 namespace OGen.NTier.Kick.lib.businesslayer {
-	public class BO_LOG_Log :
-		IBO_LOG_Log
+	public class BO_CRD_User :
+		IBO_CRD_User
 	{
-		#region public void Log(...);
-		public void Log(
+		#region public void insObject_CreateUser(...);
+		public void insObject_CreateUser(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int logtype_in, 
-			int errortype_in, 
-			long idPermition_in, 
+			string login_in, 
 			int idApplication_in, 
-			string format_in, 
-			System.String[] args_in
+			out System.Int32[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
+			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_User.insObject_CreateUser(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
-				logtype_in, 
-				errortype_in, 
-				idPermition_in, 
+				login_in, 
 				idApplication_in, 
-				format_in, 
-				args_in
+				out errors_out
+			);
+		}
+		#endregion
+		#region public void insObject_Registration(...);
+		public void insObject_Registration(
+			string login_in, 
+			string password_in, 
+			int idApplication_in, 
+			out System.Int32[] errors_out
+		) {
+			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_User.insObject_Registration(
+				login_in, 
+				password_in, 
+				idApplication_in, 
+				out errors_out
 			);
 		}
 		#endregion

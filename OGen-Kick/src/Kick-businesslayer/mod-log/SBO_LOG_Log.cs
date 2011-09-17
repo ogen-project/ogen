@@ -59,7 +59,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			int idApplication_in,
 
 			string format_in,
-			string[] args_in
+			params string[] args_in
 		) {
 			SO_LOG_Log _log = new SO_LOG_Log();
 
@@ -137,6 +137,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		[BOMethodAttribute("Log", true)]
 		public static void Log(
 			string sessionGuid_in,
+			string ip_forLogPurposes_in, 
 
 			int logtype_in,
 			int errortype_in,
@@ -157,6 +158,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				&& 
 				SBO_CRD_Authentication.isSessionGuid_valid(
 					sessionGuid_in,
+					ip_forLogPurposes_in, 
 					out _sessionguid,
 					out _sessionuser,
 					out _errorlist,

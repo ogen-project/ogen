@@ -37,6 +37,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		[BOMethodAttribute("getRecord_all", true)]
 		public static SO_CRD_Permition[] getRecord_all(
 			string sessionGuid_in,
+			string ip_forLogPurposes_in, 
 
 			int idApplication_in,
 			bool idApplication_isNull_in,
@@ -54,6 +55,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(
 				sessionGuid_in,
+				ip_forLogPurposes_in, 
 				out _sessionguid,
 				out _sessionuser,
 				out _errorlist,
@@ -94,6 +96,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		[BOMethodAttribute("setProfilePermitions", true)]
 		public static void setProfilePermitions(
 			string sessionGuid_in,
+			string ip_forLogPurposes_in, 
 
 			long idProfile_in,
 			long[] idPermitions_in,
@@ -109,6 +112,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(
 				sessionGuid_in,
+				ip_forLogPurposes_in, 
 				out _sessionguid,
 				out _sessionuser,
 				out _errorlist,
@@ -212,6 +216,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		[BOMethodAttribute("getRecord_ofProfilePermition_byProfile", true)]
 		public static SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(
 			string sessionGuid_in,
+			string ip_forLogPurposes_in, 
 
 			long IDProfile_search_in,
 			int page_in,
@@ -227,6 +232,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(
 				sessionGuid_in,
+				ip_forLogPurposes_in, 
 				out _sessionguid,
 				out _sessionuser,
 				out _errorlist,

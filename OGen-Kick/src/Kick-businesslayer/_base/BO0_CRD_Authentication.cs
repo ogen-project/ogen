@@ -24,12 +24,14 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#region public void ChangePassword(...);
 		public void ChangePassword(
 			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
 			string password_old_in, 
 			string password_new_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.ChangePassword(
 				sessionGuid_in, 
+				ip_forLogPurposes_in, 
 				password_old_in, 
 				password_new_in, 
 				out errors_out
@@ -41,7 +43,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string login_in, 
 			string password_in, 
 			string sessionGuid_in, 
-			string whoAmI_forLogPurposes_in, 
+			string ip_forLogPurposes_in, 
 			int idApplication_in, 
 			out long idUser_out, 
 			out System.Int64[] idPermitions_out, 
@@ -51,7 +53,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				login_in, 
 				password_in, 
 				sessionGuid_in, 
-				whoAmI_forLogPurposes_in, 
+				ip_forLogPurposes_in, 
 				idApplication_in, 
 				out idUser_out, 
 				out idPermitions_out, 

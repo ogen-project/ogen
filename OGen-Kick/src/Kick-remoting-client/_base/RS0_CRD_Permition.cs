@@ -20,32 +20,44 @@ using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
 namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 	/// <summary>
-	/// CRD_Authentication remoting server.
+	/// CRD_Permition remoting server.
 	/// </summary>
-	public class RS_CRD_Authentication : 
+	public class RS_CRD_Permition : 
 		MarshalByRefObject, 
-		IBO_CRD_Authentication 
+		IBO_CRD_Permition 
 	{
-		#region public void ChangePassword(...);
-		public void ChangePassword(
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[] getRecord_all(...);
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			string password_old_in, 
-			string password_new_in, 
+			int idApplication_in, 
+			bool idApplication_isNull_in, 
+			int page_in, 
+			int page_numRecords_in, 
 			out System.Int32[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
 		#endregion
-		#region public void Login(...);
-		public void Login(
-			string login_in, 
-			string password_in, 
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(...);
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
+			long IDProfile_search_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			out System.Int32[] errors_out
+		) {
+			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
+		}
+		#endregion
+		#region public void setProfilePermitions(...);
+		public void setProfilePermitions(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			long idProfile_in, 
+			System.Int64[] idPermitions_in, 
 			int idApplication_in, 
-			out long idUser_out, 
-			out System.Int64[] idPermitions_out, 
 			out System.Int32[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");

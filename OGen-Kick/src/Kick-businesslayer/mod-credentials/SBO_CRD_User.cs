@@ -109,6 +109,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		[BOMethodAttribute("insObject_CreateUser", true)]
 		public static void insObject_CreateUser(
 			string sessionGuid_in,
+			string ip_forLogPurposes_in, 
 
 			string login_in,
 			int idApplication_in,
@@ -122,6 +123,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(
 				sessionGuid_in,
+				ip_forLogPurposes_in, 
 				out _sessionguid,
 				out _sessionuser,
 				out _errorlist,

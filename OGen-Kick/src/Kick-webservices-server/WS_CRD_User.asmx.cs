@@ -13,36 +13,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
+using System.Web;
+using System.Web.Services;
 
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+namespace OGen.NTier.Kick.distributedlayer.webservices.server {
+	/// <summary>
+	/// CRD_User web service.
+	/// </summary>
+	[WebService(Namespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server")]
+	#if !NET_1_1
+	[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+	[System.ComponentModel.ToolboxItem(false)]
+	#endif
+	public class WS_CRD_User : WS0_CRD_User {
 
-namespace OGen.NTier.Kick.lib.businesslayer {
-	public class BO_LOG_Log :
-		IBO_LOG_Log
-	{
-		#region public void Log(...);
-		public void Log(
-			string sessionGuid_in, 
-			string ip_forLogPurposes_in, 
-			int logtype_in, 
-			int errortype_in, 
-			long idPermition_in, 
-			int idApplication_in, 
-			string format_in, 
-			System.String[] args_in
-		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
-				sessionGuid_in, 
-				ip_forLogPurposes_in, 
-				logtype_in, 
-				errortype_in, 
-				idPermition_in, 
-				idApplication_in, 
-				format_in, 
-				args_in
-			);
-		}
-		#endregion
 	}
 }

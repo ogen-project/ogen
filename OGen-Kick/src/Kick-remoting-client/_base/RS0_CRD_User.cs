@@ -14,34 +14,37 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 
+using OGen.NTier.Kick.lib.datalayer.shared.structures;
 using OGen.NTier.Kick.lib.businesslayer.shared;
 using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
-namespace OGen.NTier.Kick.lib.businesslayer {
-	public class BO_LOG_Log :
-		IBO_LOG_Log
+namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
+	/// <summary>
+	/// CRD_User remoting server.
+	/// </summary>
+	public class RS_CRD_User : 
+		MarshalByRefObject, 
+		IBO_CRD_User 
 	{
-		#region public void Log(...);
-		public void Log(
+		#region public void insObject_CreateUser(...);
+		public void insObject_CreateUser(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int logtype_in, 
-			int errortype_in, 
-			long idPermition_in, 
+			string login_in, 
 			int idApplication_in, 
-			string format_in, 
-			System.String[] args_in
+			out System.Int32[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
-				sessionGuid_in, 
-				ip_forLogPurposes_in, 
-				logtype_in, 
-				errortype_in, 
-				idPermition_in, 
-				idApplication_in, 
-				format_in, 
-				args_in
-			);
+			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
+		}
+		#endregion
+		#region public void insObject_Registration(...);
+		public void insObject_Registration(
+			string login_in, 
+			string password_in, 
+			int idApplication_in, 
+			out System.Int32[] errors_out
+		) {
+			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
 		#endregion
 	}

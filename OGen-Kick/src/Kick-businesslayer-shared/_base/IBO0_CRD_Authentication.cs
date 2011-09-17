@@ -20,6 +20,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 	public interface IBO0_CRD_Authentication {
 		void ChangePassword(
 			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
 			string password_old_in, 
 			string password_new_in, 
 			out System.Int32[] errors_out
@@ -28,7 +29,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string login_in, 
 			string password_in, 
 			string sessionGuid_in, 
-			string whoAmI_forLogPurposes_in, 
+			string ip_forLogPurposes_in, 
 			int idApplication_in, 
 			out long idUser_out, 
 			out System.Int64[] idPermitions_out, 

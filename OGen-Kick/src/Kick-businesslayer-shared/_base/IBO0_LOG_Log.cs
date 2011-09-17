@@ -20,6 +20,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 	public interface IBO0_LOG_Log {
 		void Log(
 			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
 			int logtype_in, 
 			int errortype_in, 
 			long idPermition_in, 

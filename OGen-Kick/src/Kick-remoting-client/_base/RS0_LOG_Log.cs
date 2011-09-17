@@ -29,6 +29,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		#region public void Log(...);
 		public void Log(
 			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
 			int logtype_in, 
 			int errortype_in, 
 			long idPermition_in, 

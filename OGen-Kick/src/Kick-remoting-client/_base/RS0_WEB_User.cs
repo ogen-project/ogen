@@ -26,12 +26,62 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		MarshalByRefObject, 
 		IBO_WEB_User 
 	{
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NET_User getObject(...);
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NET_User getObject(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			long idUser_in, 
+			out System.Int32[] errors_out
+		) {
+			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
+		}
+		#endregion
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User getObject_details(...);
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User getObject_details(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			long idUser_in, 
+			out System.Int32[] errors_out
+		) {
+			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
+		}
+		#endregion
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User[] getRecord_generic(...);
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User[] getRecord_generic(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			string login_in, 
+			string email_in, 
+			string name_in, 
+			long idProfile__in_in, 
+			long idProfile__out_in, 
+			int idApplication_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			out System.Int32[] errors_out
+		) {
+			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
+		}
+		#endregion
+		#region public void insObject_Registration(...);
+		public void insObject_Registration(
+			string login_in, 
+			string email_in, 
+			string name_in, 
+			string verifyMailURL_in, 
+			string companyName_in, 
+			int idApplication_in, 
+			out System.Int32[] errors_out
+		) {
+			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
+		}
+		#endregion
 		#region public void Login(...);
 		public void Login(
 			string email_in, 
 			string password_in, 
 			string sessionGuid_in, 
-			string whoAmI_forLogPurposes_in, 
+			string ip_forLogPurposes_in, 
 			int idApplication_in, 
 			out long idUser_out, 
 			out string login_out, 
@@ -41,9 +91,64 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
 		#endregion
+		#region public void Login_throughLink(...);
+		public void Login_throughLink(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			string email_verify_in, 
+			int idApplication_in, 
+			out long idUser_out, 
+			out string login_out, 
+			out string name_out, 
+			out System.Int64[] idPermitions_out, 
+			out System.Int32[] errors_out
+		) {
+			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
+		}
+		#endregion
+		#region public void Login_throughLink_andChangePassword(...);
+		public void Login_throughLink_andChangePassword(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			string email_verify_in, 
+			int idApplication_in, 
+			string password_in, 
+			out long idUser_out, 
+			out string login_out, 
+			out string name_out, 
+			out System.Int64[] idPermitions_out, 
+			out System.Int32[] errors_out
+		) {
+			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
+		}
+		#endregion
+		#region public void LostPassword_Recover(...);
+		public void LostPassword_Recover(
+			string EMail_in, 
+			string companyName_in, 
+			string recoverLostPasswordURL_in, 
+			int idApplication_in, 
+			out System.Int32[] errors_out
+		) {
+			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
+		}
+		#endregion
+		#region public void setObject(...);
+		public void setObject(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			long idUser_in, 
+			bool updateName_in, 
+			string name_in, 
+			out System.Int32[] errors_out
+		) {
+			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
+		}
+		#endregion
 		#region public void updObject_EMail(...);
 		public void updObject_EMail(
 			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
 			string EMail_verify_in, 
 			string companyName_in, 
 			string verifyMailURL_in, 
