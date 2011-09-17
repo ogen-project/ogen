@@ -1,4 +1,4 @@
-#region Copyright (C) 2002 Francisco Monteiro
+﻿#region Copyright (C) 2002 Francisco Monteiro
 /*
 
 OGen
@@ -13,13 +13,31 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
+using System.Collections.Generic;
+using System.Text;
 
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+namespace OGen.NTier.Kick.lib.businesslayer.shared {
+	public class LogType {
+		#region public static Dictionary<int, OGen.NTier.Kick.lib.businesslayer.shared.PseudoEnumItem> Items { get; }
+		protected static readonly Dictionary<int, PseudoEnumItem> items_;
 
-namespace OGen.NTier.Kick.lib.businesslayer {
-	public class BO_FOR_Thread :
-		IBO_FOR_Thread
-	{
+		public static Dictionary<int, OGen.NTier.Kick.lib.businesslayer.shared.PseudoEnumItem> Items {
+			get {
+				return items_;
+			}
+		} 
+		#endregion
+
+		static LogType() {
+			items_ = new Dictionary<int, PseudoEnumItem>();
+			items_.Add(error, new PseudoEnumItem("error"));
+			items_.Add(debug, new PseudoEnumItem("debug"));
+			items_.Add(thread_service, new PseudoEnumItem("thread service"));
+		}
+
+		public const int error = 1;
+		public const int debug = 2;
+		public const int thread_service = 3;
+
 	}
 }
