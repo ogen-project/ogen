@@ -18,6 +18,22 @@ using System.Text;
 
 namespace OGen.NTier.Kick.lib.businesslayer {
 	public static class utils {
+
+		#region public static string RandomText(...);
+		public static string RandomText(
+			int length_in
+		) {
+			StringBuilder _sb = new StringBuilder(length_in);
+
+			Random _rnd = new Random();
+			for (int i = 0; i < length_in; i++) {
+				_sb.Append((char)_rnd.Next(256));
+			}
+
+			return _sb.ToString();
+		}
+		#endregion
+
 		public class Sessionuser {
 			public Sessionuser(
 				DateTime sessionstart_in,

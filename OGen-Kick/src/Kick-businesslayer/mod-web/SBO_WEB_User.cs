@@ -875,7 +875,7 @@ A equipa {2}
 					#endregion
 				}
 				if (_exception != null) {
-					#region SBO_LOG_Log.Log(ErrorType.data);
+					#region SBO_LOG_Log.log(ErrorType.data);
 					OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
 						null,
 						LogType.error,
@@ -1049,7 +1049,6 @@ A equipa {2}
 		////}
 		////#endregion
 
-#if LATER
 		#region public static void LostPassword_Recover(...);
 		[BOMethodAttribute("LostPassword_Recover", true)]
 		public static void LostPassword_Recover(
@@ -1065,29 +1064,14 @@ A equipa {2}
 			out int[] errors_out
 		) {
 			List<int> _errors = new List<int>();
-		#region //ServerCredentials _credentials = ...;
-			//ServerCredentials _credentials
-			//    = new ServerCredentials(
-			//        credentials_in,
-			//        out _errors
-			//    );
-			//if (_errors.Count != 0) {
-			//    errors_out = _errors.ToArray();
-			//    return;
-			//}
-		#endregion
-		#region check . . .
-			if (
-				((EMail_in = EMail_in.Trim()) == "")
-				||
-				(EMail_in.IndexOf('@') <= 0)
-			) {
+			#region check . . .
+			if (OGen.lib.mail.utils.isEMail_valid(EMail_in = EMail_in.Trim())) {
 				_errors.Add(ErrorType.web__user__invalid_email);
 				errors_out = _errors.ToArray();
 				return;
 			}
-		#endregion
-		#region check Existence . . . SO_NET_User _user = ...;
+			#endregion
+			#region check Existence . . . SO_NET_User _user = ...;
 			SO_NET_User _user;
 			if (
 				((_user = DO_NET_User.getObject_byEMail(
@@ -1099,9 +1083,9 @@ A equipa {2}
 				errors_out = _errors.ToArray();
 				return;
 			}
-		#endregion
+			#endregion
 
-		#region string _message = ...;
+			#region string _message = ...;
 			string _message = encrypt_mail(
 				idApplication_in,
 				_errors, 
@@ -1117,10 +1101,10 @@ A equipa {2}
 				errors_out = _errors.ToArray();
 				return;
 			}
-		#endregion
+			#endregion
 
 			try {
-		#region OGen.lib.mail.utils.MailSend(...);
+				#region OGen.lib.mail.utils.MailSend(...);
 				OGen.lib.mail.utils.MailSend(
 					new System.Net.Mail.MailAddress[] {
 						new System.Net.Mail.MailAddress(
@@ -1148,20 +1132,21 @@ A equipa {2}
 						companyName_in
 					)
 				);
-		#endregion
+				#endregion
 			} catch (Exception _ex) {
-		#region SBO_LOG_Log.Log(ErrorType.data);
-				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
-					"",
+				#region SBO_LOG_Log.log(ErrorType.data);
+				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+					null, 
 					LogType.error,
 					ErrorType.web__user__can_not_send_mail,
+					-1L, 
 					idApplication_in,
 					"{0}",
 					new string[] {
 						_ex.Message
 					}
 				);
-		#endregion
+				#endregion
 				_errors.Add(ErrorType.web__user__can_not_send_mail);
 			}
 
@@ -1170,6 +1155,19 @@ A equipa {2}
 		#endregion
 
 		#region public static void insObject_Registration(...);
+		#region private static string randompassword { get; }
+		private static string randompassword__ = "";
+
+		private static string randompassword {
+			get {
+				if (randompassword__ == "") {
+					randompassword__ = utils.RandomText(64);
+				}
+				return randompassword__;
+			}
+		}
+		#endregion
+
 		[BOMethodAttribute("insObject_Registration", true)]
 		public static void insObject_Registration(
 			string login_in, 
@@ -1184,14 +1182,10 @@ A equipa {2}
 		) {
 			List<int> _errors = new List<int>();
 
-		#region check . . . (trying to accumulate errors for user)
+			#region check . . . (trying to accumulate errors for user)
 			bool _hasErrors = false;
 
-			if (
-				!Mail.isEMail_valid(
-					email_in
-				)
-			) {
+			if (!OGen.lib.mail.utils.isEMail_valid(email_in)) {
 				_errors.Add(ErrorType.web__user__invalid_email);
 				_hasErrors = true;
 			}
@@ -1228,9 +1222,9 @@ A equipa {2}
 				errors_out = _errors.ToArray();
 				return;
 			}
-		#endregion
+			#endregion
 
-		#region string _message = ...;
+			#region string _message = ...;
 			string _message = encrypt_mail(
 				idApplication_in,
 				_errors, 
@@ -1246,37 +1240,37 @@ A equipa {2}
 				errors_out = _errors.ToArray();
 				return;
 			}
-		#endregion
+			#endregion
 
 			Exception _exception = null;
-		#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
+			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
 			DBConnection _con = DO__utils.DBConnection_createInstance(
 				DO__utils.DBServerType,
 				DO__utils.DBConnectionstring,
 				DO__utils.DBLogfile
 			); 
-		#endregion
+			#endregion
 			try {
 				bool _commit;
 				_con.Open();
 				_con.Transaction.Begin();
 
-		#region // STEP 1: SBO_CRD_User.insObject_Registration(...);
+				#region // STEP 1: SBO_CRD_User.insObject_Registration(...);
 				long _iduser 
 					= SBO_CRD_User.insObject_Registration(
 						login_in,
-						"CTQ+/g8017r1jKCRRFE01yAMcQUwP06i1+z6epizlxKRfGIWqHx+dQ4PdNoXLfU=",
+						randompassword, 
 						idApplication_in,
 						true,
 						_errors,
 						_con
 					);
-		#endregion
+				#endregion
 
 				if (_iduser > 0L) {
 					bool _constraint;
 
-		#region // STEP 2: DO_NET_User.setObject(...);
+					#region // STEP 2: DO_NET_User.setObject(...);
 					DO_NET_User.setObject(
 						new SO_NET_User(
 							_iduser,
@@ -1294,34 +1288,34 @@ A equipa {2}
 						out _constraint,
 						_con
 					);
-		#endregion
+					#endregion
 
 					if (_constraint) {
 						_errors.Add(ErrorType.web__user__constraint_violation);
 						_commit = false;
 					} else {
-		#region // STEP 3: DO_CRD_UserProfile.setObject(...);
+						#region // STEP 3: DO_CRD_UserProfile.setObject(...);
 						SO_NET_Defaultprofile[] _profiles
 							= DO_NET_Defaultprofile.getRecord_all(
 								idApplication_in,
 								0, 0,
 								_con
 							);
-						foreach (SO_NET_Defaultprofile _profile in _profiles) {
+						for (int p = 0; p < _profiles.Length; p++) {
 							DO_CRD_UserProfile.setObject(
 								new SO_CRD_UserProfile(
 									_iduser,
-									_profile.IFProfile
+									_profiles[p].IFProfile
 								),
 								true,
 								_con
 							);
 						}
-		#endregion
+						#endregion
 
-		#region // STEP 4: MyMail.Send(...); _commit = ...;
+						#region // STEP 4: MyMail.Send(...); _commit = ...;
 						try {
-		#region MyMail.Send(email_in, ...);
+							#region MyMail.Send(email_in, ...);
 							OGen.lib.mail.utils.MailSend(
 								new System.Net.Mail.MailAddress[] {
 									new System.Net.Mail.MailAddress(
@@ -1351,35 +1345,36 @@ A equipa {2}
 									companyName_in
 								)
 							);
-		#endregion
+							#endregion
 
 							_errors.Add(ErrorType.user__successfully_created__WARNING);
 							_commit = true;
 						} catch (Exception _ex) {
-		#region SBO_LOG_Log.Log(ErrorType.web__user__can_not_send_mail);
-							OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
-								null,//credentials_in,
+							#region SBO_LOG_Log.log(ErrorType.web__user__can_not_send_mail);
+							OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+								null,
 								LogType.error,
 								ErrorType.web__user__can_not_send_mail,
+								-1L, 
 								idApplication_in,
 								"{0}",
 								new string[] {
 									_ex.Message
 								}
 							);
-		#endregion
+							#endregion
 
 							_errors.Add(ErrorType.web__user__can_not_send_mail);
 							_commit = false;
 						}
-		#endregion
+						#endregion
 					}
 				} else {
 					_commit = false;
 				}
 
 				if (_commit) {
-		#region _con.Transaction.Commit();
+					#region _con.Transaction.Commit();
 					if (
 						_con.isOpen
 						&&
@@ -1387,9 +1382,9 @@ A equipa {2}
 					) {
 						_con.Transaction.Commit();
 					}
-		#endregion
+					#endregion
 				} else {
-		#region _con.Transaction.Rollback();
+					#region _con.Transaction.Rollback();
 					if (
 						_con.isOpen
 						&&
@@ -1397,10 +1392,10 @@ A equipa {2}
 					) {
 						_con.Transaction.Rollback();
 					}
-		#endregion
+					#endregion
 				}
 			} catch (Exception _ex) {
-		#region _con.Transaction.Rollback();
+				#region _con.Transaction.Rollback();
 				if (
 					_con.isOpen
 					&&
@@ -1408,11 +1403,11 @@ A equipa {2}
 				) {
 					_con.Transaction.Rollback();
 				}
-		#endregion
+				#endregion
 
 				_exception = _ex;
 			} finally {
-		#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
+				#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
 				if (_con.isOpen) {
 					if (_con.Transaction.inTransaction) {
 						_con.Transaction.Terminate();
@@ -1421,21 +1416,22 @@ A equipa {2}
 				}
 
 				_con.Dispose();
-		#endregion
+				#endregion
 			}
 			if (_exception != null) {
-		#region SBO_LOG_Log.Log(ErrorType.data);
-				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
-					"",//credentials_in,
+				#region SBO_LOG_Log.log(ErrorType.data);
+				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+					null, 
 					LogType.error,
-					ErrorType.data,
+					ErrorType.data, 
+					-1L, 
 					idApplication_in,
 					"{0}",
 					new string[] {
 						_exception.Message
 					}
 				);
-		#endregion
+				#endregion
 				_errors.Add(ErrorType.data);
 			}
 
@@ -1444,6 +1440,7 @@ A equipa {2}
 		#endregion
 
 
+#if LATER
 		#region private static string encrypt_mail(...);
 		private static string encrypt_mail(
 			int idApplication_in,
@@ -1463,7 +1460,7 @@ A equipa {2}
 					)
 				);
 			} catch (Exception _ex) {
-		#region SBO_LOG_Log.Log(ErrorType.data);
+				#region SBO_LOG_Log.Log(ErrorType.data);
 				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
 					"",//credentials_in,
 					LogType.error,
@@ -1474,7 +1471,7 @@ A equipa {2}
 						_ex.Message
 					}
 				);
-		#endregion
+				#endregion
 				errors_in.Add(ErrorType.encryption__failled_to_encrypt);
 
 				return "";
@@ -1535,6 +1532,9 @@ A equipa {2}
 		#endregion
 
 
+#endif
+
+
 		// ToDos: here! this method could be shared!
 		#region public static bool checkLogin(string login_in, List<int> errors_in);
 		public static bool checkLogin(
@@ -1558,6 +1558,5 @@ A equipa {2}
 			return true;
 		}
 		#endregion
-#endif
 	}
 }
