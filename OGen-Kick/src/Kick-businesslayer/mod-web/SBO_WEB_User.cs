@@ -933,10 +933,12 @@ A equipa {2}
 		}
 		#endregion
 
-#if LATER
-		#region public static string Login_throughLink(...);
+		#region public static void Login_throughLink(...);
 		[BOMethodAttribute("Login_throughLink", true)]
-		public static string Login_throughLink(
+		public static void Login_throughLink(
+			string sessionGuid_in,
+			string whoAmI_forLogPurposes_in,
+
 			string email_verify_in,
 			int idApplication_in,
 
@@ -944,9 +946,13 @@ A equipa {2}
 			out string login_out,
 			out string name_out,
 
+			out long[] idPermitions_out, 
 			out int[] errors_out
 		) {
-			return login_throughlink(
+			login_throughlink(
+				sessionGuid_in,
+				whoAmI_forLogPurposes_in,
+
 				email_verify_in,
 				idApplication_in,
 				false,
@@ -956,13 +962,17 @@ A equipa {2}
 				out login_out,
 				out name_out, 
 
+				out idPermitions_out, 
 				out errors_out
 			);
 		}
 		#endregion
-		#region public static string Login_throughLink_andChangePassword(...);
+		#region public static void Login_throughLink_andChangePassword(...);
 		[BOMethodAttribute("Login_throughLink_andChangePassword", true)]
-		public static string Login_throughLink_andChangePassword(
+		public static void Login_throughLink_andChangePassword(
+			string sessionGuid_in,
+			string whoAmI_forLogPurposes_in,
+
 			string email_verify_in,
 			int idApplication_in,
 			string password_in,
@@ -970,10 +980,14 @@ A equipa {2}
 			out long idUser_out,
 			out string login_out,
 			out string name_out,
-			
+
+			out long[] idPermitions_out, 
 			out int[] errors_out
 		) {
-			return login_throughlink(
+			login_throughlink(
+				sessionGuid_in,
+				whoAmI_forLogPurposes_in,
+
 				email_verify_in,
 				idApplication_in,
 				true,
@@ -981,8 +995,9 @@ A equipa {2}
 
 				out idUser_out, 
 				out login_out,
-				out name_out, 
+				out name_out,
 
+				out idPermitions_out,
 				out errors_out
 			);
 		}
@@ -1034,6 +1049,7 @@ A equipa {2}
 		////}
 		////#endregion
 
+#if LATER
 		#region public static void LostPassword_Recover(...);
 		[BOMethodAttribute("LostPassword_Recover", true)]
 		public static void LostPassword_Recover(
