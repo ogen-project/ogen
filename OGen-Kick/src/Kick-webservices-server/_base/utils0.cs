@@ -13,46 +13,30 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
-using System.Web;
-using System.Web.Services;
-
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
 namespace OGen.NTier.Kick.distributedlayer.webservices.server {
-	/// <summary>
-	/// LOG_Log web service.
-	/// </summary>
-	public class WS0_LOG_Log :
-		WebService,
-		IBO_LOG_Log
-	{
-		#region public void Log(...);
-		[WebMethod]
-		public void Log(
-			string sessionGuid_in, 
-			string ip_forLogPurposes_in, 
-			int logtype_in, 
-			int errortype_in, 
-			long idPermition_in, 
-			int idApplication_in, 
-			string format_in, 
-			System.String[] args_in
-		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
-				sessionGuid_in, 
-				(utils.ResetClientIP) 
-					? HttpContext.Current.Request.UserHostAddress 
-					: ip_forLogPurposes_in, 
-				logtype_in, 
-				errortype_in, 
-				idPermition_in, 
-				idApplication_in, 
-				format_in, 
-				args_in
-			);
+	public static partial class utils {
+		#region public static bool ResetClientIP { get; }
+		private static bool resetclientip_beenread = false;
+		private static bool resetclientip__ = false;
+
+		public static bool ResetClientIP {
+			get {
+				if (!resetclientip_beenread) {
+					if (!bool.TryParse(
+						System.Configuration.ConfigurationManager.AppSettings[
+							"Webservices_ResetClientIP"
+						], 
+						out resetclientip__
+					)) {
+						resetclientip__ = false;
+					}
+
+					resetclientip_beenread = true;
+				}
+
+				return resetclientip__;
+			}
 		}
 		#endregion
 	}

@@ -40,7 +40,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.ChangePassword(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP) 
+					? HttpContext.Current.Request.UserHostAddress 
+					: ip_forLogPurposes_in, 
 				password_old_in, 
 				password_new_in, 
 				out errors_out
@@ -63,7 +65,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 				login_in, 
 				password_in, 
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP) 
+					? HttpContext.Current.Request.UserHostAddress 
+					: ip_forLogPurposes_in, 
 				idApplication_in, 
 				out idUser_out, 
 				out idPermitions_out, 

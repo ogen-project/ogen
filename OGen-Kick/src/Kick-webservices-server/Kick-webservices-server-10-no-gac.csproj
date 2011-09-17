@@ -80,13 +80,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WS_CRD_Permition.asmx.cs">
       <DependentUpon>WS_CRD_Permition.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="WS_CRD_Profile.asmx.cs">
       <DependentUpon>WS_CRD_Profile.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="WS_CRD_User.asmx.cs">
       <DependentUpon>WS_CRD_User.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
+    <Compile Include="_base\utils0.cs" />
     <Compile Include="_base\WS0_CRD_Authentication.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -94,9 +98,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       <DependentUpon>WS_CRD_Authentication.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="_base\WS0_CRD_Permition.cs" />
-    <Compile Include="_base\WS0_CRD_Profile.cs" />
-    <Compile Include="_base\WS0_CRD_User.cs" />
+    <Compile Include="_base\WS0_CRD_Permition.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_base\WS0_CRD_Profile.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_base\WS0_CRD_User.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="_base\WS0_LOG_Log.cs">
       <SubType>Component</SubType>
     </Compile>
