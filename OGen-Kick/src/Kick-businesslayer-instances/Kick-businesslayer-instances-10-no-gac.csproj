@@ -74,6 +74,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Compile Include="_base\-Config0.cs" />
     <Compile Include="_base\CRD_Authentication0.cs" />
     <Compile Include="_base\CRD_Permition0.cs" />
+    <Compile Include="_base\CRD_Profile0.cs" />
     <Compile Include="_base\CRD_User0.cs" />
     <Compile Include="_base\LOG_Log0.cs" />
     <Compile Include="_base\WEB_User0.cs" />

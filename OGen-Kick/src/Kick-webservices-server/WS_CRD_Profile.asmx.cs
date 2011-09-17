@@ -13,20 +13,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
+using System.Web;
+using System.Web.Services;
 
-using OGen.NTier.Kick.lib.businesslayer.shared.instances;
+namespace OGen.NTier.Kick.distributedlayer.webservices.server {
+	/// <summary>
+	/// CRD_Profile web service.
+	/// </summary>
+	[WebService(Namespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server")]
+	#if !NET_1_1
+	[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+	[System.ComponentModel.ToolboxItem(false)]
+	#endif
+	public class WS_CRD_Profile : WS0_CRD_Profile {
 
-namespace OGen.NTier.Kick.lib.businesslayer.shared.instances.utils {
-	public class Config {
-		private Config() { }
-
-		public static void ReConfig() {
-			CRD_Authentication.ReConfig();
-			CRD_Permition.ReConfig();
-			CRD_Profile.ReConfig();
-			CRD_User.ReConfig();
-			LOG_Log.ReConfig();
-			WEB_User.ReConfig();
-		}
 	}
 }

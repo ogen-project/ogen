@@ -14,19 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 
-using OGen.NTier.Kick.lib.businesslayer.shared.instances;
-
-namespace OGen.NTier.Kick.lib.businesslayer.shared.instances.utils {
-	public class Config {
-		private Config() { }
-
-		public static void ReConfig() {
-			CRD_Authentication.ReConfig();
-			CRD_Permition.ReConfig();
-			CRD_Profile.ReConfig();
-			CRD_User.ReConfig();
-			LOG_Log.ReConfig();
-			WEB_User.ReConfig();
-		}
+namespace OGen.NTier.Kick.lib.businesslayer.shared {
+	public interface IBO_CRD_Profile : IBO0_CRD_Profile {
 	}
 }
