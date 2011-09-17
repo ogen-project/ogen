@@ -165,6 +165,9 @@ _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[
 ].isSearch = _methodattribute.isSearch;
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[
 	_method_index
+].IPParamNum = _methodattribute.IPParamNum;
+_output.Classes.ClassCollection[_class_index].Methods.MethodCollection[
+	_method_index
 ].OutputType
 	= translate(string.Format(
 		"{0}.{1}", 

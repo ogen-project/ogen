@@ -43,6 +43,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<xs:attribute name="outputType" type="xs:string" />
 		<xs:attribute name="distribute" type="xs:boolean" />
 		<xs:attribute name="isSearch" type="xs:boolean" />
+		<xs:attribute name="ipParamNum" type="xs:integer" />
 
 		<xs:sequence>
 			<xs:element name="parameters" type="parametersType" />

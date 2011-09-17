@@ -6,6 +6,7 @@
         <method name="ChangePassword" outputType="void" distribute="true" isSearch="false">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="password_old_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="password_new_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
@@ -16,10 +17,66 @@
             <parameter name="login_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="password_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="whoAmI_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="idUser_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="idPermitions_out" type="System.Int64[]" isParams="false" isOut="true" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="CRD_Permition" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="getRecord_all" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_isNull_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_ofProfilePermition_byProfile" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDProfile_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="setProfilePermitions" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfile_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idPermitions_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="CRD_User" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="insObject_CreateUser" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="login_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="insObject_Registration" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="login_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="password_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -30,6 +87,7 @@
         <method name="Log" outputType="void" distribute="true" isSearch="false">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="logtype_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="errortype_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="idPermition_in" type="long" isParams="false" isOut="false" isRef="false" />
@@ -42,12 +100,54 @@
     </class>
     <class name="WEB_User" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
       <methods>
+        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NET_User" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idUser_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getObject_details" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idUser_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_generic" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User[]" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="login_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="email_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="name_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfile__in_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfile__out_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="insObject_Registration" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="login_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="email_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="name_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="verifyMailURL_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="companyName_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
         <method name="Login" outputType="void" distribute="true" isSearch="false">
           <parameters>
             <parameter name="email_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="password_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="whoAmI_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="idUser_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="login_out" type="string" isParams="false" isOut="true" isRef="false" />
@@ -55,9 +155,56 @@
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
+        <method name="Login_throughLink" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="email_verify_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idUser_out" type="long" isParams="false" isOut="true" isRef="false" />
+            <parameter name="login_out" type="string" isParams="false" isOut="true" isRef="false" />
+            <parameter name="name_out" type="string" isParams="false" isOut="true" isRef="false" />
+            <parameter name="idPermitions_out" type="System.Int64[]" isParams="false" isOut="true" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="Login_throughLink_andChangePassword" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="email_verify_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="password_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idUser_out" type="long" isParams="false" isOut="true" isRef="false" />
+            <parameter name="login_out" type="string" isParams="false" isOut="true" isRef="false" />
+            <parameter name="name_out" type="string" isParams="false" isOut="true" isRef="false" />
+            <parameter name="idPermitions_out" type="System.Int64[]" isParams="false" isOut="true" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="LostPassword_Recover" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="EMail_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="companyName_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="recoverLostPasswordURL_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="setObject" outputType="void" distribute="true" isSearch="false">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idUser_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="updateName_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="name_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
         <method name="updObject_EMail" outputType="void" distribute="true" isSearch="false">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="EMail_verify_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="companyName_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="verifyMailURL_in" type="string" isParams="false" isOut="false" isRef="false" />

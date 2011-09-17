@@ -24,14 +24,17 @@ namespace OGen.NTier.lib.businesslayer {
 		/// <param name="name_in">Name</param>
 		/// <param name="distribute_in">Distribute</param>
 		/// <param name="isSearch_in">isSearch</param>
+		/// <param name="ipParamNum_in">ipParamNum</param>
 		public BOMethodAttribute(
 			string name_in,
 			bool distribute_in, 
-			bool isSearch_in
+			bool isSearch_in,
+			int ipParamNum_in
 		) {
 			name_ = name_in;
 			distribute_ = distribute_in;
 			issearch_ = isSearch_in;
+			ipparamnum_ = ipParamNum_in;
 		}
 
 		/// <param name="name_in">Name</param>
@@ -42,7 +45,8 @@ namespace OGen.NTier.lib.businesslayer {
 		) : this (
 			name_in,
 			distribute_in, 
-			false
+			false, 
+			-1
 		) {
 		}
 		#endregion
@@ -75,6 +79,18 @@ namespace OGen.NTier.lib.businesslayer {
 		/// </summary>
 		public bool isSearch {
 			get { return issearch_; }
+		}
+		#endregion
+		#region public int IPParamNum { get; }
+		private int ipparamnum_;
+
+		/// <summary>
+		/// IPParamNum
+		/// </summary>
+		public int IPParamNum {
+			get {
+				return ipparamnum_;
+			}
 		}
 		#endregion
 	}

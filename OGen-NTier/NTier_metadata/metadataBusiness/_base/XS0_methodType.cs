@@ -99,6 +99,19 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			}
 		}
 		#endregion
+		#region public int IpParamNum { get; set; }
+		internal int ipparamnum_;
+
+		[XmlAttribute("ipParamNum")]
+		public int IpParamNum {
+			get {
+				return ipparamnum_;
+			}
+			set {
+				ipparamnum_ = value;
+			}
+		}
+		#endregion
 		#region public XS_parametersType Parameters { get; set; }
 		internal XS_parametersType parameters__;
 
@@ -130,6 +143,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			outputtype_ = methodType_in.outputtype_;
 			distribute_ = methodType_in.distribute_;
 			issearch_ = methodType_in.issearch_;
+			ipparamnum_ = methodType_in.ipparamnum_;
 			if (methodType_in.parameters__ != null) parameters__.CopyFrom(methodType_in.parameters__);
 		}
 		#endregion
