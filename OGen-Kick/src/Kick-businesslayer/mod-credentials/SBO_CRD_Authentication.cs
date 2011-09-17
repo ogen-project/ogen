@@ -148,6 +148,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			//// - this method allows login without password (if andCheckPassword_in == false), 
 			//// hence MUST NEVER be distributed (at least not directly)
 
+			idPermitions_out = null;
 			idUser_out = -1L;
 			login_out = "";
 
@@ -207,8 +208,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				idUser_out = user_in.IDUser;
 				#endregion
 			} else {
-				idPermitions_out = new long[] { };
-
 				errorlist_ref.Add(ErrorType.authentication__invalid_login);
 				#region SBO_LOG_Log.log(...);
 				SBO_LOG_Log.log(
@@ -243,6 +242,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out long[] idPermitions_out, 
 			out int[] errors_out
 		) {
+			idPermitions_out = null;
 			idUser_out = -1L;
 			Guid _sessionguid;
 
@@ -257,15 +257,12 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				//// no need!
 				//errors_out = _errors.ToArray();
 
-				idPermitions_out = new long[] { };
-
 				return;
 			}
 
 			if (login_in.Trim() == string.Empty) {
 				_errorlist.Add(ErrorType.authentication__invalid_login);
 
-				idPermitions_out = new long[] { };
 				errors_out = _errorlist.ToArray();
 				return;
 			}

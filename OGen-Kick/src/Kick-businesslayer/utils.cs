@@ -32,6 +32,42 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			public DateTime Sessionstart;
 			public long IDUser;
 			public long[] IDPermitions;
+
+			#region public bool hasPermition(...);
+			public bool hasPermition(
+				long idPermition_in
+			) {
+				return hasPermition(
+					false,
+					idPermition_in
+				);
+			}
+
+			public bool hasPermition(
+				bool forAll_notJustOne_in,
+				params long[] idPermitions_in
+			) {
+				int _total = 0;
+				for (int j = 0; j < idPermitions_in.Length; j++) {
+					for (int i = 0; i < IDPermitions.Length; i++) {
+						if (
+							IDPermitions[i]
+							==
+							idPermitions_in[j]
+						) {
+							if (!forAll_notJustOne_in)
+								return true;
+							_total++;
+							break;
+						}
+					}
+					if (_total == idPermitions_in.Length)
+						return true;
+				}
+
+				return false;
+			}
+			#endregion
 		}
 
 		public static bool Guid_TryParse(string guid_in, out Guid guid_out) {

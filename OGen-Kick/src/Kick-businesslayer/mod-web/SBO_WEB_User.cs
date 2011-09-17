@@ -33,6 +33,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 	[BOClassAttribute("BO_WEB_User", "")]
 	public static class SBO_WEB_User {
 
+#if DEBUG
 		private static string encrypt_mail(
 			int idApplication_in,
 
@@ -42,6 +43,15 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		) {
 			throw new NotImplementedException();
 		}
+		private static string[] decrypt_mail(
+			string enc_message_in,
+			//int idApplication_in,
+
+			List<int> errors_in
+		) {
+			throw new NotImplementedException();
+		}
+#endif
 
 		#region public static void Login(...);
 		[BOMethodAttribute("Login", true)]
@@ -59,6 +69,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out long[] idPermitions_out, 
 			out int[] errors_out
 		) {
+			idPermitions_out = null;
 			idUser_out = -1L;
 			login_out = "";
 			Guid _guid;
@@ -68,7 +79,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			if (!OGen.lib.mail.utils.isEMail_valid(email_in)) {
 				_errors.Add(ErrorType.authentication__invalid_email);
 
-				idPermitions_out = new long[] { };
 				errors_out = _errors.ToArray();
 				return;
 			}
@@ -76,7 +86,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			if (!utils.Guid_TryParse(sessionGuid_in, out _guid)) {
 				_errors.Add(ErrorType.authentication__invalid_guid);
 
-				idPermitions_out = new long[] { };
 				errors_out = _errors.ToArray();
 				return;
 			}
@@ -107,8 +116,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					ref _errors
 				);
 			} else {
-				idPermitions_out = new long[] { };
-
 				_errors.Add(ErrorType.authentication__invalid_login);
 				#region SBO_LOG_Log.log(...);
 				SBO_LOG_Log.log(
@@ -331,12 +338,11 @@ A equipa {2}
 		}
 		#endregion
 
-#if LATER
 		#region public static SO_vNET_User[] getRecord_generic(...);
 		[BOMethodAttribute("getRecord_generic", true)]
 		public static SO_vNET_User[] getRecord_generic(
 			#region params...
-			string credentials_in,
+			string sessionGuid_in,
 
 			string login_in, 
 			string email_in, 
@@ -352,27 +358,32 @@ A equipa {2}
 			out int[] errors_out
 			#endregion
 		) {
-			List<int> _errors;
+			List<int> _errorlist;
+			Guid _sessionguid;
+			utils.Sessionuser _sessionuser;
 
-			#region ServerCredentials _credentials = ...;
-			ServerCredentials _credentials
-				= new ServerCredentials(
-					credentials_in,
-					out _errors
-				);
-			if (_errors.Count != 0) {
-				errors_out = _errors.ToArray();
+			#region check...
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in,
+				out _sessionguid,
+				out _sessionuser,
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
+
 				return null;
 			}
 			#endregion
 			#region check Permitions . . .
 			if (
-				!_credentials.hasPermition(
-					(int)PermitionType.User__select
+				!_sessionuser.hasPermition(
+					PermitionType.User__select
 				)
 			) {
-				_errors.Add(ErrorType.user__lack_of_permitions_to_read);
-				errors_out = _errors.ToArray();
+				_errorlist.Add(ErrorType.user__lack_of_permitions_to_read);
+				errors_out = _errorlist.ToArray();
 				return null;
 			}
 			#endregion
@@ -392,7 +403,7 @@ A equipa {2}
 					null
 				);
 
-			errors_out = _errors.ToArray();
+			errors_out = _errorlist.ToArray();
 			return _output;
 		}
 		#endregion
@@ -400,35 +411,40 @@ A equipa {2}
 		#region public static SO_vNET_User getObject_details(...);
 		[BOMethodAttribute("getObject_details", true)]
 		public static SO_vNET_User getObject_details(
-			string credentials_in,
+			string sessionGuid_in,
 
 			long idUser_in,
 
 			out int[] errors_out
 		) {
-			List<int> _errors;
-			#region ServerCredentials _credentials = ...;
-			ServerCredentials _credentials
-				= new ServerCredentials(
-					credentials_in,
-					out _errors
-				);
-			if (_errors.Count != 0) {
-				errors_out = _errors.ToArray();
+			List<int> _errorlist;
+			Guid _sessionguid;
+			utils.Sessionuser _sessionuser;
+
+			#region check...
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in,
+				out _sessionguid,
+				out _sessionuser,
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
+
 				return null;
 			}
 			#endregion
-
 			#region check Permitions . . .
 			if (
-				(_credentials.IDUser != idUser_in)
+				(_sessionuser.IDUser != idUser_in)
 				&&
-				!_credentials.hasPermition(
-					(int)PermitionType.User__select
+				!_sessionuser.hasPermition(
+					PermitionType.User__select
 				)
 			) {
-				_errors.Add(ErrorType.user__lack_of_permitions_to_read);
-				errors_out = _errors.ToArray();
+				_errorlist.Add(ErrorType.user__lack_of_permitions_to_read);
+				errors_out = _errorlist.ToArray();
 				return null;
 			}
 			#endregion
@@ -440,42 +456,48 @@ A equipa {2}
 					null
 				);
 
-			errors_out = _errors.ToArray();
+			errors_out = _errorlist.ToArray();
 			return _output;
 		}
 		#endregion
+
 		#region public static SO_NET_User getObject(...);
 		[BOMethodAttribute("getObject", true)]
 		public static SO_NET_User getObject(
-			string credentials_in,
+			string sessionGuid_in,
 
 			long idUser_in,
 
 			out int[] errors_out
 		) {
-			List<int> _errors;
-			#region ServerCredentials _credentials = ...;
-			ServerCredentials _credentials
-				= new ServerCredentials(
-					credentials_in,
-					out _errors
-				);
-			if (_errors.Count != 0) {
-				errors_out = _errors.ToArray();
+			List<int> _errorlist;
+			Guid _sessionguid;
+			utils.Sessionuser _sessionuser;
+
+			#region check...
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in,
+				out _sessionguid,
+				out _sessionuser,
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
+
 				return null;
 			}
 			#endregion
-
 			#region check Permitions . . .
 			if (
-				(_credentials.IDUser != idUser_in)
+				(_sessionuser.IDUser != idUser_in)
 				&&
-				!_credentials.hasPermition(
-					(int)PermitionType.User__select
+				!_sessionuser.hasPermition(
+					PermitionType.User__select
 				)
 			) {
-				_errors.Add(ErrorType.user__lack_of_permitions_to_read);
-				errors_out = _errors.ToArray();
+				_errorlist.Add(ErrorType.user__lack_of_permitions_to_read);
+				errors_out = _errorlist.ToArray();
 				return null;
 			}
 			#endregion
@@ -487,14 +509,14 @@ A equipa {2}
 					null
 				);
 
-			errors_out = _errors.ToArray();
+			errors_out = _errorlist.ToArray();
 			return _output;
 		}
 		#endregion
 		#region public static void setObject(...);
 		[BOMethodAttribute("setObject", true)]
 		public static void setObject(
-			string credentials_in,
+			string sessionGuid_in,
 
 			long idUser_in,
 
@@ -507,19 +529,24 @@ A equipa {2}
 
 			out int[] errors_out
 		) {
-			List<int> _errors;
-			#region ServerCredentials _credentials = ...;
-			ServerCredentials _credentials
-				= new ServerCredentials(
-					credentials_in,
-					out _errors
-				);
-			if (_errors.Count != 0) {
-				errors_out = _errors.ToArray();
+			List<int> _errorlist;
+			Guid _sessionguid;
+			utils.Sessionuser _sessionuser;
+
+			#region check...
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in,
+				out _sessionguid,
+				out _sessionuser,
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
+
 				return;
 			}
 			#endregion
-
 			#region ckeck Fields . . .
 			if (
 				updateName_in
@@ -528,15 +555,15 @@ A equipa {2}
 					= name_in.Trim()
 				) == ""
 			) {
-				_errors.Add(ErrorType.web__user__invalid_name);
-				errors_out = _errors.ToArray();
+				_errorlist.Add(ErrorType.web__user__invalid_name);
+				errors_out = _errorlist.ToArray();
 				return;
 			}
 			#endregion
 			#region check Permitions . . .
-			if (_credentials.IDUser != idUser_in) {
-				_errors.Add(ErrorType.user__lack_of_permitions_to_write);
-				errors_out = _errors.ToArray();
+			if (_sessionuser.IDUser != idUser_in) {
+				_errorlist.Add(ErrorType.user__lack_of_permitions_to_write);
+				errors_out = _errorlist.ToArray();
 				return;
 			}
 
@@ -576,8 +603,8 @@ A equipa {2}
 					)
 				) == null
 			) {
-				_errors.Add(ErrorType.data__not_found);
-				errors_out = _errors.ToArray();
+				_errorlist.Add(ErrorType.data__not_found);
+				errors_out = _errorlist.ToArray();
 				return;
 			}
 			#endregion
@@ -595,12 +622,12 @@ A equipa {2}
 				null
 			);
 			if (_constraint) {
-				_errors.Add(ErrorType.data__constraint_violation);
+				_errorlist.Add(ErrorType.data__constraint_violation);
 			} else {
-				_errors.Add(ErrorType.web__user__successfully_updated__WARNING);
+				_errorlist.Add(ErrorType.web__user__successfully_updated__WARNING);
 			}
 
-			errors_out = _errors.ToArray();
+			errors_out = _errorlist.ToArray();
 			return;
 		}
 		#endregion
@@ -645,8 +672,11 @@ A equipa {2}
 
 		//}
 
-		#region internal static string login_throughlink(...);
-		internal static string login_throughlink(
+		#region internal static void login_throughlink(...);
+		internal static void login_throughlink(
+			string sessionGuid_in,
+			string whoAmI_forLogPurposes_in,
+
 			string email_verify_in, 
 			int idApplication_in, 
 
@@ -656,8 +686,9 @@ A equipa {2}
 
 			out long idUser_out, 
 			out string login_out,
-			out string name_out, 
+			out string name_out,
 
+			out long[] idPermitions_out, 
 			out int[] errors_out
 		) {
 			// this method will eventually be fallowed by any of the fallowing:
@@ -665,26 +696,40 @@ A equipa {2}
 			// - updObject_EMail (will NOT change password AND verify email)
 			// - LostPassword_Recover (WILL change password and NOT verify email)
 
-			string _output = "";
+			idPermitions_out = null;
 			idUser_out = -1L;
 			login_out = "";
 			name_out = "";
-
-			List<int> _errors = new List<int>();
 			Exception _exception;
+			Guid _guid;
+
+			List<int> _errorlist;
+			#region check...
+			if (SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in,
+				out _guid,
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
+
+				return;
+			}
+			#endregion
 
 			#region string _email_verify = ...; bool _andVerifyEMail = ...;
 			string[] _params = decrypt_mail(
 				email_verify_in,
-				_errors
+				_errorlist
 			);
 			if (
 				(_params == null)
 				||
 				(_params.Length == 0)
 			) {
-				errors_out = _errors.ToArray();
-				return _output;
+				errors_out = _errorlist.ToArray();
+				return;
 			}
 
 			string _email_verify = _params[0];
@@ -694,7 +739,7 @@ A equipa {2}
 				(_params[1] == "1")
 			);
 			#endregion
-			if (!andChangePassword_in && !_andVerifyEMail) { // se nem ... nem ...
+			if (!andChangePassword_in && !_andVerifyEMail) {
 #if DEBUG
 				throw new Exception("(nothing to do) what are you doing?");
 #else
@@ -719,9 +764,9 @@ A equipa {2}
 						)
 				) == null
 			) {
-				_errors.Add(ErrorType.data__not_found);
-				errors_out = _errors.ToArray();
-				return _output;
+				_errorlist.Add(ErrorType.data__not_found);
+				errors_out = _errorlist.ToArray();
+				return;
 			} else {
 				bool _commit = false;
 
@@ -775,7 +820,7 @@ A equipa {2}
 						if (!_constraint) {
 							_commit = true;
 						} else {
-							_errors.Add(ErrorType.data__constraint_violation);
+							_errorlist.Add(ErrorType.data__constraint_violation);
 
 							_commit = false;
 						}
@@ -831,10 +876,11 @@ A equipa {2}
 				}
 				if (_exception != null) {
 					#region SBO_LOG_Log.Log(ErrorType.data);
-					OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
-						"",//credentials_in,
+					OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+						null,
 						LogType.error,
 						ErrorType.data,
+						-1L, 
 						idApplication_in,
 						"{0}",
 						new string[] {
@@ -842,7 +888,7 @@ A equipa {2}
 						}
 					);
 					#endregion
-					_errors.Add(ErrorType.data);
+					_errorlist.Add(ErrorType.data);
 				}
 
 				if (_commit) {
@@ -853,39 +899,41 @@ A equipa {2}
 						); 
 					#endregion
 
-					#region _output = SBO_CRD_Authentication.login(..., out idUser_out, ...);
-					_output
-						= SBO_CRD_Authentication.login(
-							_crd_user,
+					#region SBO_CRD_Authentication.login(..., out idUser_out, ...);
+					SBO_CRD_Authentication.login(
+						_crd_user,
+						_guid, 
+						_crd_user.Login,
 
-							_crd_user.Login, 
+						whoAmI_forLogPurposes_in, 
 
-							false,
-							"",
+						false,
+						"",
 
-							idApplication_in,
+						idApplication_in,
 
-							out idUser_out,
-							out login_out, 
-							ref _errors
-						);
+						out idUser_out,
+						out login_out,
+						out idPermitions_out, 
+						ref _errorlist
+					);
 					#endregion
 					//login_out = _crd_user.Login;
 					name_out = _user.Name;
 
 					//_errors.Add(ErrorType.web__user__successfully_updated__WARNING);
 				} else {
-					_output = "";
 					idUser_out = -1L;
 					login_out = "";
 					name_out = "";
 				}
 			}
 
-			errors_out = _errors.ToArray();
-			return _output;
+			errors_out = _errorlist.ToArray();
 		}
 		#endregion
+
+#if LATER
 		#region public static string Login_throughLink(...);
 		[BOMethodAttribute("Login_throughLink", true)]
 		public static string Login_throughLink(
@@ -1001,7 +1049,7 @@ A equipa {2}
 			out int[] errors_out
 		) {
 			List<int> _errors = new List<int>();
-			#region //ServerCredentials _credentials = ...;
+		#region //ServerCredentials _credentials = ...;
 			//ServerCredentials _credentials
 			//    = new ServerCredentials(
 			//        credentials_in,
@@ -1011,8 +1059,8 @@ A equipa {2}
 			//    errors_out = _errors.ToArray();
 			//    return;
 			//}
-			#endregion
-			#region check . . .
+		#endregion
+		#region check . . .
 			if (
 				((EMail_in = EMail_in.Trim()) == "")
 				||
@@ -1022,8 +1070,8 @@ A equipa {2}
 				errors_out = _errors.ToArray();
 				return;
 			}
-			#endregion
-			#region check Existence . . . SO_NET_User _user = ...;
+		#endregion
+		#region check Existence . . . SO_NET_User _user = ...;
 			SO_NET_User _user;
 			if (
 				((_user = DO_NET_User.getObject_byEMail(
@@ -1035,9 +1083,9 @@ A equipa {2}
 				errors_out = _errors.ToArray();
 				return;
 			}
-			#endregion
+		#endregion
 
-			#region string _message = ...;
+		#region string _message = ...;
 			string _message = encrypt_mail(
 				idApplication_in,
 				_errors, 
@@ -1053,10 +1101,10 @@ A equipa {2}
 				errors_out = _errors.ToArray();
 				return;
 			}
-			#endregion
+		#endregion
 
 			try {
-				#region OGen.lib.mail.utils.MailSend(...);
+		#region OGen.lib.mail.utils.MailSend(...);
 				OGen.lib.mail.utils.MailSend(
 					new System.Net.Mail.MailAddress[] {
 						new System.Net.Mail.MailAddress(
@@ -1084,9 +1132,9 @@ A equipa {2}
 						companyName_in
 					)
 				);
-				#endregion
+		#endregion
 			} catch (Exception _ex) {
-				#region SBO_LOG_Log.Log(ErrorType.data);
+		#region SBO_LOG_Log.Log(ErrorType.data);
 				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
 					"",
 					LogType.error,
@@ -1097,7 +1145,7 @@ A equipa {2}
 						_ex.Message
 					}
 				);
-				#endregion
+		#endregion
 				_errors.Add(ErrorType.web__user__can_not_send_mail);
 			}
 
@@ -1120,7 +1168,7 @@ A equipa {2}
 		) {
 			List<int> _errors = new List<int>();
 
-			#region check . . . (trying to accumulate errors for user)
+		#region check . . . (trying to accumulate errors for user)
 			bool _hasErrors = false;
 
 			if (
@@ -1164,9 +1212,9 @@ A equipa {2}
 				errors_out = _errors.ToArray();
 				return;
 			}
-			#endregion
+		#endregion
 
-			#region string _message = ...;
+		#region string _message = ...;
 			string _message = encrypt_mail(
 				idApplication_in,
 				_errors, 
@@ -1182,22 +1230,22 @@ A equipa {2}
 				errors_out = _errors.ToArray();
 				return;
 			}
-			#endregion
+		#endregion
 
 			Exception _exception = null;
-			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
+		#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
 			DBConnection _con = DO__utils.DBConnection_createInstance(
 				DO__utils.DBServerType,
 				DO__utils.DBConnectionstring,
 				DO__utils.DBLogfile
 			); 
-			#endregion
+		#endregion
 			try {
 				bool _commit;
 				_con.Open();
 				_con.Transaction.Begin();
 
-				#region // STEP 1: SBO_CRD_User.insObject_Registration(...);
+		#region // STEP 1: SBO_CRD_User.insObject_Registration(...);
 				long _iduser 
 					= SBO_CRD_User.insObject_Registration(
 						login_in,
@@ -1207,12 +1255,12 @@ A equipa {2}
 						_errors,
 						_con
 					);
-				#endregion
+		#endregion
 
 				if (_iduser > 0L) {
 					bool _constraint;
 
-					#region // STEP 2: DO_NET_User.setObject(...);
+		#region // STEP 2: DO_NET_User.setObject(...);
 					DO_NET_User.setObject(
 						new SO_NET_User(
 							_iduser,
@@ -1230,13 +1278,13 @@ A equipa {2}
 						out _constraint,
 						_con
 					);
-					#endregion
+		#endregion
 
 					if (_constraint) {
 						_errors.Add(ErrorType.web__user__constraint_violation);
 						_commit = false;
 					} else {
-						#region // STEP 3: DO_CRD_UserProfile.setObject(...);
+		#region // STEP 3: DO_CRD_UserProfile.setObject(...);
 						SO_NET_Defaultprofile[] _profiles
 							= DO_NET_Defaultprofile.getRecord_all(
 								idApplication_in,
@@ -1253,11 +1301,11 @@ A equipa {2}
 								_con
 							);
 						}
-						#endregion
+		#endregion
 
-						#region // STEP 4: MyMail.Send(...); _commit = ...;
+		#region // STEP 4: MyMail.Send(...); _commit = ...;
 						try {
-							#region MyMail.Send(email_in, ...);
+		#region MyMail.Send(email_in, ...);
 							OGen.lib.mail.utils.MailSend(
 								new System.Net.Mail.MailAddress[] {
 									new System.Net.Mail.MailAddress(
@@ -1287,12 +1335,12 @@ A equipa {2}
 									companyName_in
 								)
 							);
-							#endregion
+		#endregion
 
 							_errors.Add(ErrorType.user__successfully_created__WARNING);
 							_commit = true;
 						} catch (Exception _ex) {
-							#region SBO_LOG_Log.Log(ErrorType.web__user__can_not_send_mail);
+		#region SBO_LOG_Log.Log(ErrorType.web__user__can_not_send_mail);
 							OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
 								null,//credentials_in,
 								LogType.error,
@@ -1303,19 +1351,19 @@ A equipa {2}
 									_ex.Message
 								}
 							);
-							#endregion
+		#endregion
 
 							_errors.Add(ErrorType.web__user__can_not_send_mail);
 							_commit = false;
 						}
-						#endregion
+		#endregion
 					}
 				} else {
 					_commit = false;
 				}
 
 				if (_commit) {
-					#region _con.Transaction.Commit();
+		#region _con.Transaction.Commit();
 					if (
 						_con.isOpen
 						&&
@@ -1323,9 +1371,9 @@ A equipa {2}
 					) {
 						_con.Transaction.Commit();
 					}
-					#endregion
+		#endregion
 				} else {
-					#region _con.Transaction.Rollback();
+		#region _con.Transaction.Rollback();
 					if (
 						_con.isOpen
 						&&
@@ -1333,10 +1381,10 @@ A equipa {2}
 					) {
 						_con.Transaction.Rollback();
 					}
-					#endregion
+		#endregion
 				}
 			} catch (Exception _ex) {
-				#region _con.Transaction.Rollback();
+		#region _con.Transaction.Rollback();
 				if (
 					_con.isOpen
 					&&
@@ -1344,11 +1392,11 @@ A equipa {2}
 				) {
 					_con.Transaction.Rollback();
 				}
-				#endregion
+		#endregion
 
 				_exception = _ex;
 			} finally {
-				#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
+		#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
 				if (_con.isOpen) {
 					if (_con.Transaction.inTransaction) {
 						_con.Transaction.Terminate();
@@ -1357,10 +1405,10 @@ A equipa {2}
 				}
 
 				_con.Dispose();
-				#endregion
+		#endregion
 			}
 			if (_exception != null) {
-				#region SBO_LOG_Log.Log(ErrorType.data);
+		#region SBO_LOG_Log.Log(ErrorType.data);
 				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
 					"",//credentials_in,
 					LogType.error,
@@ -1371,7 +1419,7 @@ A equipa {2}
 						_exception.Message
 					}
 				);
-				#endregion
+		#endregion
 				_errors.Add(ErrorType.data);
 			}
 
@@ -1399,7 +1447,7 @@ A equipa {2}
 					)
 				);
 			} catch (Exception _ex) {
-				#region SBO_LOG_Log.Log(ErrorType.data);
+		#region SBO_LOG_Log.Log(ErrorType.data);
 				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
 					"",//credentials_in,
 					LogType.error,
@@ -1410,7 +1458,7 @@ A equipa {2}
 						_ex.Message
 					}
 				);
-				#endregion
+		#endregion
 				errors_in.Add(ErrorType.encryption__failled_to_encrypt);
 
 				return "";
