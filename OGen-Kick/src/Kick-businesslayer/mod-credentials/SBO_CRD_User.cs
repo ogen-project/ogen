@@ -33,26 +33,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 	[BOClassAttribute("BO_CRD_User", "")]
 	public static class SBO_CRD_User {
 
-
-#if DEBUG
-		internal static long insObject_Registration(
-			string login_in,
-			string password_in,
-			int idApplication_in,
-
-			bool selectIdentity_in, 
-			List<int> errors_in,
-			DBConnection con_in
-		) {
-			throw new NotImplementedException();
-		}
-#endif
-
 		// ToDos: here! this method could be shared!
 		#region public static bool checkLogin(string login_in, List<int> errors_in);
 		public static bool checkLogin(
 			string login_in,
-			List<int> errors_in
+			ref List<int> errors_in
 		) {
 			if ((login_in = login_in.Trim()).Length < 3) {
 				errors_in.Add(ErrorType.user__invalid_login);
@@ -63,31 +48,30 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 		#endregion
 
-#if LATER
 		#region public static void insObject_CreateUser(string credentials_in, string login_in, ...);
 		#region internal static long insObject_CreateUser(ServerCredentials credentials_in, string login_in, ...);
 		internal static long insObject_CreateUser(
-			ServerCredentials credentials_in,
+			utils.Sessionuser sessionUser_in,
 
 			string login_in,
 			int idApplication_in,
 
 			bool selectIdentity_in, 
-			List<int> errors_in, 
+			ref List<int> errorlist_in, 
 
 			DBConnection con_in
 		) {
 			long _output = -1L;
 
 			// ToDos: here! must have permition to create user
-			if (!credentials_in.hasPermition(
+			if (!sessionUser_in.hasPermition(
 				PermitionType.User__insert
 			)) {
-				errors_in.Add(ErrorType.user__lack_of_permitions_to_write);
+				errorlist_in.Add(ErrorType.user__lack_of_permitions_to_write);
 				return _output;
 			}
 
-			if (!checkLogin(login_in, errors_in)) {
+			if (!checkLogin(login_in, ref errorlist_in)) {
 				return _output;
 			}
 
@@ -110,11 +94,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			);
 
 			if (_constraint) {
-				errors_in.Add(ErrorType.data__constraint_violation);
+				errorlist_in.Add(ErrorType.data__constraint_violation);
 			} else {
 				if (con_in == null) {
 					// assuming NO other (internal) operations are going on
-					errors_in.Add(ErrorType.user__successfully_created__WARNING);
+					errorlist_in.Add(ErrorType.user__successfully_created__WARNING);
 				}
 			}
 
@@ -124,23 +108,28 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 		[BOMethodAttribute("insObject_CreateUser", true)]
 		public static void insObject_CreateUser(
-			string credentials_in,
+			string sessionGuid_in,
 
 			string login_in,
 			int idApplication_in,
 
 			out int[] errors_out
 		) {
-			List<int> _errors = new List<int>();
+			List<int> _errorlist;
+			Guid _sessionguid;
+			utils.Sessionuser _sessionuser;
 
-		#region ServerCredentials _credentials = ...;
-			ServerCredentials _credentials
-				= new ServerCredentials(
-					credentials_in,
-					out _errors
-				);
-			if (_errors.Count != 0) {
-				errors_out = _errors.ToArray();
+			#region check...
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in,
+				out _sessionguid,
+				out _sessionuser,
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
+
 				return;
 			}
 			#endregion
@@ -150,19 +139,19 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			// password = login
 
 			insObject_CreateUser(
-				_credentials,
+				_sessionuser,
 
 				login_in,
 
 				idApplication_in,
 
 				false, 
-				_errors, 
+				ref _errorlist, 
 
 				null
 			);
 
-			errors_out = _errors.ToArray();
+			errors_out = _errorlist.ToArray();
 		}
 		#endregion
 		#region public static void insObject_Registration(string login_in, string password_in, ...);
@@ -173,7 +162,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			int idApplication_in,
 
 			bool selectIdentity_in, 
-			List<int> errors_in,
+			ref List<int> errorlist_in,
 			DBConnection con_in
 		) {
 			long _output = -1L;
@@ -181,7 +170,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			// user registering
 			// 
 
-			if (!checkLogin(login_in, errors_in)) {
+			if (!checkLogin(login_in, ref errorlist_in)) {
 				return _output;
 			}
 
@@ -203,11 +192,11 @@ password_in,
 				con_in
 			);
 			if (_constraint) {
-				errors_in.Add(ErrorType.data__constraint_violation);
+				errorlist_in.Add(ErrorType.data__constraint_violation);
 			} else {
 				if (con_in == null) {
 					// assuming NO other (internal) operations are going on
-					errors_in.Add(ErrorType.user__successfully_created__WARNING);
+					errorlist_in.Add(ErrorType.user__successfully_created__WARNING);
 				}
 			}
 
@@ -223,7 +212,7 @@ password_in,
 
 			out int[] errors_out
 		) {
-			List<int> _errors = new List<int>();
+			List<int> _errorlist = new List<int>();
 
 			// user registering
 			// 
@@ -234,13 +223,12 @@ password_in,
 				idApplication_in, 
 
 				false, 
-				_errors,
+				ref _errorlist,
 				null
 			);
 
-			errors_out = _errors.ToArray();
+			errors_out = _errorlist.ToArray();
 		}
 		#endregion
-#endif
 	}
 }

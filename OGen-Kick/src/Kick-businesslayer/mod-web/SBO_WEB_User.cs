@@ -1185,13 +1185,13 @@ A equipa {2}
 
 			out int[] errors_out
 		) {
-			List<int> _errors = new List<int>();
+			List<int> _errorlist = new List<int>();
 
 			#region check . . . (trying to accumulate errors for user)
 			bool _hasErrors = false;
 
 			if (!OGen.lib.mail.utils.isEMail_valid(email_in)) {
-				_errors.Add(ErrorType.web__user__invalid_email);
+				_errorlist.Add(ErrorType.web__user__invalid_email);
 				_hasErrors = true;
 			}
 
@@ -1201,14 +1201,14 @@ A equipa {2}
 					idApplication_in
 				) != null
 			) {
-				_errors.Add(ErrorType.web__user__constraint_violation);
+				_errorlist.Add(ErrorType.web__user__constraint_violation);
 				_hasErrors = true;
 			}
 
 			if (
 				!checkLogin(
 					login_in,
-					_errors
+					ref _errorlist
 				)
 			) {
 				//_errors.Add(ErrorType.user__invalid_login);
@@ -1219,12 +1219,12 @@ A equipa {2}
 					idApplication_in
 				) != null
 			) {
-				_errors.Add(ErrorType.data__constraint_violation);
+				_errorlist.Add(ErrorType.data__constraint_violation);
 				_hasErrors = true;
 			}
 
 			if (_hasErrors) {
-				errors_out = _errors.ToArray();
+				errors_out = _errorlist.ToArray();
 				return;
 			}
 			#endregion
@@ -1232,7 +1232,7 @@ A equipa {2}
 			#region string _message = ...;
 			string _message = encrypt_mail(
 				idApplication_in,
-				_errors, 
+				_errorlist, 
 
 				email_in,
 				"1" // Verify EMail
@@ -1242,7 +1242,7 @@ A equipa {2}
 				||
 				(_message == "")
 			) {
-				errors_out = _errors.ToArray();
+				errors_out = _errorlist.ToArray();
 				return;
 			}
 			#endregion
@@ -1267,7 +1267,7 @@ A equipa {2}
 						randompassword, 
 						idApplication_in,
 						true,
-						_errors,
+						ref _errorlist,
 						_con
 					);
 				#endregion
@@ -1296,7 +1296,7 @@ A equipa {2}
 					#endregion
 
 					if (_constraint) {
-						_errors.Add(ErrorType.web__user__constraint_violation);
+						_errorlist.Add(ErrorType.web__user__constraint_violation);
 						_commit = false;
 					} else {
 						#region // STEP 3: DO_CRD_UserProfile.setObject(...);
@@ -1352,7 +1352,7 @@ A equipa {2}
 							);
 							#endregion
 
-							_errors.Add(ErrorType.user__successfully_created__WARNING);
+							_errorlist.Add(ErrorType.user__successfully_created__WARNING);
 							_commit = true;
 						} catch (Exception _ex) {
 							#region SBO_LOG_Log.log(ErrorType.web__user__can_not_send_mail);
@@ -1369,7 +1369,7 @@ A equipa {2}
 							);
 							#endregion
 
-							_errors.Add(ErrorType.web__user__can_not_send_mail);
+							_errorlist.Add(ErrorType.web__user__can_not_send_mail);
 							_commit = false;
 						}
 						#endregion
@@ -1437,10 +1437,10 @@ A equipa {2}
 					}
 				);
 				#endregion
-				_errors.Add(ErrorType.data);
+				_errorlist.Add(ErrorType.data);
 			}
 
-			errors_out = _errors.ToArray();
+			errors_out = _errorlist.ToArray();
 		}
 		#endregion
 
@@ -1544,18 +1544,18 @@ A equipa {2}
 		#region public static bool checkLogin(string login_in, List<int> errors_in);
 		public static bool checkLogin(
 			string login_in,
-			List<int> errors_in
+			ref List<int> errorlist_in
 		) {
 			if (!SBO_CRD_User.checkLogin(
 				login_in,
-				errors_in
+				ref errorlist_in
 			)) {
 				return false;
 			} else {
 				if (
 					(login_in.IndexOf('@') >= 0)
 				) {
-					errors_in.Add(ErrorType.user__invalid_login);
+					errorlist_in.Add(ErrorType.user__invalid_login);
 					return false;
 				}
 			}
