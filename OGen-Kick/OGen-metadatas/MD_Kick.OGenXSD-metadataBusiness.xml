@@ -158,6 +158,24 @@
     </class>
     <class name="LOG_Log" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
       <methods>
+        <method name="getRecord_generic" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_LOG_Log[]" distribute="true" isSearch="false" ipParamNum="1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDLogtype_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDUser_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDErrortype_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="Stamp_begin_search_in" type="System.DateTime" isParams="false" isOut="false" isRef="false" />
+            <parameter name="Stamp_end_search_in" type="System.DateTime" isParams="false" isOut="false" isRef="false" />
+            <parameter name="Read_search_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="Read_search_isNull_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_isNull_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
         <method name="Log" outputType="void" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -168,6 +186,14 @@
             <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="format_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="args_in" type="System.String[]" isParams="false" isOut="false" isRef="false" />
+          </parameters>
+        </method>
+        <method name="MarkRead" outputType="void" distribute="true" isSearch="false" ipParamNum="1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idLog_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
       </methods>
