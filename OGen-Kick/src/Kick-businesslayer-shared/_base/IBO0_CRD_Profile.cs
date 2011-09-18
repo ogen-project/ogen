@@ -22,7 +22,6 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idProfile_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile getObject(
@@ -34,7 +33,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idApplication_in, 
+			bool allProfiles_notJustApplication_in, 
 			int page_in, 
 			int page_numRecords_in, 
 			out System.Int32[] errors_out
@@ -58,7 +57,6 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string ip_forLogPurposes_in, 
 			long idUser_in, 
 			System.Int64[] idProfiles_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		);
 		void updObject(

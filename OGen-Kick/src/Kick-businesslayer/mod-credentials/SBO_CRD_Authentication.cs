@@ -109,8 +109,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			bool andCheckPassword_in, 
 			string password_in,
 
-			int idApplication_in,
-
 			out long idUser_out, 
 			out string login_out, 
 			out long[] idPermitions_out, 
@@ -127,8 +125,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 				andCheckPassword_in, 
 				password_in,
-
-				idApplication_in,
 
 				out idUser_out,
 				out login_out, 
@@ -147,8 +143,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			bool andCheckPassword_in, 
 			string password_in,
-
-			int idApplication_in,
 
 			out long idUser_out,
 			out  string login_out, 
@@ -210,7 +204,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 						sessionGuid_in,
 						new utils.Sessionuser(
 							DateTime.Now,
-							user_in.IDUser, 
+							user_in.IDUser,
+							user_in.IFApplication,
 							idPermitions_out
 						)
 					);
@@ -226,7 +221,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					LogType.error, 
 					ErrorType.authentication,
 					-1L,
-					idApplication_in,
+					(user_in == null) ? -1 : user_in.IFApplication,
 					"IDUser:{0};password:{1}**********;whoAmI:{2};",
 					new string[] { 
 						login_forLogPurposes_in, // user_in.IDUser.ToString(), 
@@ -292,8 +287,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 				true, 
 				password_in,
-
-				idApplication_in,
 
 				out idUser_out,
 				out _login, 

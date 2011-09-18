@@ -170,9 +170,9 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 					logtype_in,
 					errortype_in,
-					idPermition_in, 
+					idPermition_in,
 
-					idApplication_in,
+					_sessionuser.IDApplication,
 
 					format_in,
 					args_in

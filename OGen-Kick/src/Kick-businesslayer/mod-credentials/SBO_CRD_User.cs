@@ -54,7 +54,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			utils.Sessionuser sessionUser_in,
 
 			string login_in,
-			int idApplication_in,
 
 			bool selectIdentity_in, 
 			ref List<int> errorlist_in, 
@@ -84,7 +83,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 // ToDos: here! encrypt before sending...
 					login_in, // default: password = login
 
-					idApplication_in
+					sessionUser_in.IDApplication
 				),
 
 				selectIdentity_in,
@@ -112,7 +111,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string ip_forLogPurposes_in, 
 
 			string login_in,
-			int idApplication_in,
 
 			out int[] errors_out
 		) {
@@ -144,8 +142,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				_sessionuser,
 
 				login_in,
-
-				idApplication_in,
 
 				false, 
 				ref _errorlist, 

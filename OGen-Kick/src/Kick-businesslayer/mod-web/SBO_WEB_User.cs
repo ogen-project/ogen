@@ -108,8 +108,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					true, 
 					password_in, 
 
-					idApplication_in,
-
 					out idUser_out,
 					out login_out, 
 					out idPermitions_out, 
@@ -117,20 +115,20 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				);
 			} else {
 				_errors.Add(ErrorType.authentication__invalid_login);
-				#region SBO_LOG_Log.log(...);
-				SBO_LOG_Log.log(
-					null,
-					LogType.error,
-					ErrorType.authentication, 
-					-1L, 
-					idApplication_in,
-					"EMail:{0};password:{1}**********;whoAmI:{2};",
-					new string[] { 
-						email_in, 
-						password_in.Length > 0 ? password_in.Substring(0, 1) : "", 
-						ip_forLogPurposes_in
-					}
-				);
+				#region //SBO_LOG_Log.log(...);
+				//SBO_LOG_Log.log(
+				//    null,
+				//    LogType.error,
+				//    ErrorType.authentication, 
+				//    -1L, 
+				//    idApplication_in,
+				//    "EMail:{0};password:{1}**********;whoAmI:{2};",
+				//    new string[] { 
+				//        email_in, 
+				//        password_in.Length > 0 ? password_in.Substring(0, 1) : "", 
+				//        ip_forLogPurposes_in
+				//    }
+				//);
 				#endregion
 			}
 
@@ -148,8 +146,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			string companyName_in,
 			string verifyMailURL_in,
-
-			int idApplication_in,
 
 			out int[] errors_out
 		) {
@@ -183,7 +179,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			if (
 				DO_NET_User.isObject_byEMail(
 					EMail_verify_in,
-					idApplication_in
+					_sessionuser.IDApplication
 				)
 			) {
 				_errorlist.Add(ErrorType.data__constraint_violation);
@@ -194,7 +190,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			#region string _message = ...;
 			string _message = encrypt_mail(
-				idApplication_in,
+				_sessionuser.IDApplication,
 				_errorlist, 
 
 				EMail_verify_in, 
@@ -326,7 +322,7 @@ A equipa {2}
 					LogType.error, 
 					ErrorType.data,
 					-1L,
-					idApplication_in,
+					_sessionuser.IDApplication,
 					"{0}",
 					new string[] {
 						_exception.Message
@@ -352,8 +348,6 @@ A equipa {2}
 			string name_in, 
 			long idProfile__in_in, 
 			long idProfile__out_in, 
-
-			int idApplication_in,
 
 			int page_in,
 			int page_numRecords_in,
@@ -396,8 +390,8 @@ A equipa {2}
 				= DO_vNET_User.getRecord_generic(
 					login_in, 
 					name_in, 
-					email_in, 
-					idApplication_in, 
+					email_in,
+					_sessionuser.IDApplication, 
 					idProfile__in_in, 
 					idProfile__out_in, 
 
@@ -919,8 +913,6 @@ A equipa {2}
 
 						false,
 						"",
-
-						idApplication_in,
 
 						out idUser_out,
 						out login_out,

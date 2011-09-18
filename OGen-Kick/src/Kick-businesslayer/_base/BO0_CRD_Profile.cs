@@ -26,14 +26,12 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idProfile_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.delObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idProfile_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}
@@ -57,7 +55,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idApplication_in, 
+			bool allProfiles_notJustApplication_in, 
 			int page_in, 
 			int page_numRecords_in, 
 			out System.Int32[] errors_out
@@ -65,7 +63,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.getRecord_all(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
-				idApplication_in, 
+				allProfiles_notJustApplication_in, 
 				page_in, 
 				page_numRecords_in, 
 				out errors_out
@@ -112,7 +110,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string ip_forLogPurposes_in, 
 			long idUser_in, 
 			System.Int64[] idProfiles_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.setUserProfiles(
@@ -120,7 +117,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				ip_forLogPurposes_in, 
 				idUser_in, 
 				idProfiles_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}

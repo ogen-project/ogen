@@ -21,8 +21,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idApplication_in, 
-			bool idApplication_isNull_in, 
+			bool allProfiles_notJustApplication_in, 
 			int page_in, 
 			int page_numRecords_in, 
 			out System.Int32[] errors_out
@@ -40,7 +39,6 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
 			System.Int64[] idPermitions_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		);
 	}

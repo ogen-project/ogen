@@ -38,15 +38,18 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			public Sessionuser(
 				DateTime sessionstart_in,
 				long idUser_in,
+				int idApplication_in, 
 				long[] idPermitions_in
 			) {
 				Sessionstart = sessionstart_in;
 				IDUser = idUser_in;
+				IDApplication = idApplication_in;
 				IDPermitions = idPermitions_in;
 			}
 
 			public DateTime Sessionstart;
 			public long IDUser;
+			public int IDApplication;
 			public long[] IDPermitions;
 
 			#region public bool hasPermition(...);

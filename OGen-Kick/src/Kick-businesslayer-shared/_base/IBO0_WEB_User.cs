@@ -38,7 +38,6 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string name_in, 
 			long idProfile__in_in, 
 			long idProfile__out_in, 
-			int idApplication_in, 
 			int page_in, 
 			int page_numRecords_in, 
 			out System.Int32[] errors_out
@@ -107,7 +106,6 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string EMail_verify_in, 
 			string companyName_in, 
 			string verifyMailURL_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		);
 	}

@@ -31,8 +31,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idApplication_in, 
-			bool idApplication_isNull_in, 
+			bool allProfiles_notJustApplication_in, 
 			int page_in, 
 			int page_numRecords_in, 
 			out System.Int32[] errors_out
@@ -42,8 +41,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
-				idApplication_in, 
-				idApplication_isNull_in, 
+				allProfiles_notJustApplication_in, 
 				page_in, 
 				page_numRecords_in, 
 				out errors_out
@@ -77,7 +75,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
 			System.Int64[] idPermitions_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Permition.setProfilePermitions(
@@ -87,7 +84,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 					: ip_forLogPurposes_in, 
 				idProfile_in, 
 				idPermitions_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}

@@ -70,7 +70,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string name_in, 
 			long idProfile__in_in, 
 			long idProfile__out_in, 
-			int idApplication_in, 
 			int page_in, 
 			int page_numRecords_in, 
 			out System.Int32[] errors_out
@@ -85,7 +84,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 				name_in, 
 				idProfile__in_in, 
 				idProfile__out_in, 
-				idApplication_in, 
 				page_in, 
 				page_numRecords_in, 
 				out errors_out
@@ -241,7 +239,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string EMail_verify_in, 
 			string companyName_in, 
 			string verifyMailURL_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_WEB_User.updObject_EMail(
@@ -252,7 +249,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 				EMail_verify_in, 
 				companyName_in, 
 				verifyMailURL_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}

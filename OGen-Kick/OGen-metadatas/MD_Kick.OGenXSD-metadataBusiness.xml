@@ -32,8 +32,7 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idApplication_isNull_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="allProfiles_notJustApplication_in" type="bool" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
@@ -55,7 +54,6 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idProfile_in" type="long" isParams="false" isOut="false" isRef="false" />
             <parameter name="idPermitions_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -68,7 +66,6 @@
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idProfile_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -84,7 +81,7 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="allProfiles_notJustApplication_in" type="bool" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
@@ -114,7 +111,6 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idUser_in" type="long" isParams="false" isOut="false" isRef="false" />
             <parameter name="idProfiles_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -135,7 +131,6 @@
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="login_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -204,7 +199,6 @@
             <parameter name="name_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idProfile__in_in" type="long" isParams="false" isOut="false" isRef="false" />
             <parameter name="idProfile__out_in" type="long" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
@@ -287,7 +281,6 @@
             <parameter name="EMail_verify_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="companyName_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="verifyMailURL_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>

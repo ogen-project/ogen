@@ -226,8 +226,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			int idProfile_in,
 
-			int idApplication_in,
-
 			out int[] errors_out
 		) {
 			List<int> _errorlist;
@@ -321,8 +319,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					_sessionuser,
 					LogType.error,
 					ErrorType.data,
-					-1L, 
-					idApplication_in,
+					-1L,
+					_sessionuser.IDApplication,
 					"{0}",
 					new string[] {
 						_exception.Message
@@ -342,7 +340,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
-			int idApplication_in,
+			bool allProfiles_notJustApplication_in,
 
 			int page_in,
 			int page_numRecords_in,
@@ -381,9 +379,9 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			_output
 				= DO_CRD_Profile.getRecord_all(
-					(idApplication_in > 0 )
-						? (object)idApplication_in
-						: null, 
+					(allProfiles_notJustApplication_in)
+						? null
+						: (object)_sessionuser.IDApplication, 
 					page_in,
 					page_numRecords_in, 
 					null
@@ -402,8 +400,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			long idUser_in,
 			long[] idProfiles_in,
-
-			int idApplication_in,
 
 			out int[] errors_out
 		) {
@@ -500,7 +496,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					LogType.error,
 					ErrorType.data, 
 					-1L, 
-					idApplication_in,
+					_sessionuser.IDApplication,
 					"{0}",
 					new string[] {
 						_exception.Message

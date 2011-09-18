@@ -32,7 +32,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			string login_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_User.insObject_CreateUser(
@@ -41,7 +40,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				login_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}

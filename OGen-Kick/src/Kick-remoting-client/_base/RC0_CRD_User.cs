@@ -47,14 +47,12 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			string login_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			bo_.insObject_CreateUser(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				login_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}
