@@ -49,7 +49,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			SO_CRD_Permition[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
-			utils.Sessionuser _sessionuser;
+			Sessionuser _sessionuser;
 
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(
@@ -104,7 +104,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		) {
 			List<int> _errorlist;
 			Guid _sessionguid;
-			utils.Sessionuser _sessionuser;
+			Sessionuser _sessionuser;
 
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(
@@ -224,7 +224,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			SO_vCRD_ProfilePermition[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
-			utils.Sessionuser _sessionuser;
+			Sessionuser _sessionuser;
 
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(

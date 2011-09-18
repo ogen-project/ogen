@@ -33,8 +33,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 	[BOClassAttribute("BO_CRD_Authentication", "")]
 	public static class SBO_CRD_Authentication {
 
-		internal static Dictionary<Guid, utils.Sessionuser> UserSession
-			= new Dictionary<Guid, utils.Sessionuser>();
+		internal static Dictionary<Guid, Sessionuser> UserSession
+			= new Dictionary<Guid, Sessionuser>();
 		#region public static bool isSessionGuid_valid(...);
 		public static bool isSessionGuid_valid(
 			string sessionGuid_in,
@@ -61,7 +61,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string ip_forLogPurposes_in, 
 
 			out Guid sessionGuid_out,
-			out utils.Sessionuser sessionUser_out,
+			out Sessionuser sessionUser_out,
 			out List<int> errorlist_out,
 			out int[] errors_out
 		) {
@@ -188,7 +188,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				#endregion
 
 				if (UserSession.ContainsKey(sessionGuid_in)) {
-					utils.Sessionuser _usersession = UserSession[sessionGuid_in];
+					Sessionuser _usersession = UserSession[sessionGuid_in];
 					if (_usersession.IDUser == user_in.IDUser) {
 						_usersession.Sessionstart = DateTime.Now;
 						_usersession.IDUser = user_in.IDUser;
@@ -202,11 +202,12 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				} else {
 					UserSession.Add(
 						sessionGuid_in,
-						new utils.Sessionuser(
-							DateTime.Now,
+						new Sessionuser(
 							user_in.IDUser,
+							idPermitions_out,
+
 							user_in.IFApplication,
-							idPermitions_out
+							DateTime.Now
 						)
 					);
 				}
@@ -310,7 +311,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		) {
 			List<int> _errorlist;
 			Guid _sessionguid;
-			utils.Sessionuser _sessionuser;
+			Sessionuser _sessionuser;
 
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(

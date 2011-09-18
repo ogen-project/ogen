@@ -50,7 +50,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#region public static void Log(...);
 		#region internal static void log(...);
 		internal static void log(
-			utils.Sessionuser usersession_in,
+			Sessionuser usersession_in,
 
 			int logtype_in,
 			int errortype_in,
@@ -151,7 +151,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			int[] _errors;
 			List<int> _errorlist;
 			Guid _sessionguid;
-			utils.Sessionuser _sessionuser;
+			Sessionuser _sessionuser;
 
 			if (
 				(sessionGuid_in != "") 
@@ -206,7 +206,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		) {
 			List<int> _errorlist = new List<int>();
 			Guid _sessionguid;
-			utils.Sessionuser _sessionuser;
+			Sessionuser _sessionuser;
 
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(
@@ -379,7 +379,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		) {
 			List<int> _errorlist;
 			Guid _sessionguid;
-			utils.Sessionuser _sessionuser;
+			Sessionuser _sessionuser;
 
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(

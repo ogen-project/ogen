@@ -16,32 +16,53 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OGen.NTier.Kick.lib.businesslayer {
-	public static class utils {
-
-		#region public static string RandomText(...);
-		public static string RandomText(
-			int length_in
+namespace OGen.NTier.Kick.lib.businesslayer.shared {
+	public class Sessionuser {
+		public Sessionuser(
+			long idUser_in,
+			long[] idPermitions_in
 		) {
-			StringBuilder _sb = new StringBuilder(length_in);
+			IDUser = idUser_in;
+			IDPermitions = idPermitions_in;
+		}
 
-			Random _rnd = new Random();
-			for (int i = 0; i < length_in; i++) {
-				_sb.Append((char)_rnd.Next(256));
+		public long IDUser;
+		public long[] IDPermitions;
+
+		#region public bool hasPermition(...);
+		public bool hasPermition(
+			long idPermition_in
+		) {
+			return hasPermition(
+				false,
+				idPermition_in
+			);
+		}
+
+		public bool hasPermition(
+			bool forAll_notJustOne_in,
+			params long[] idPermitions_in
+		) {
+			int _total = 0;
+			for (int j = 0; j < idPermitions_in.Length; j++) {
+				for (int i = 0; i < IDPermitions.Length; i++) {
+					if (
+						IDPermitions[i]
+						==
+						idPermitions_in[j]
+					) {
+						if (!forAll_notJustOne_in)
+							return true;
+						_total++;
+						break;
+					}
+				}
+				if (_total == idPermitions_in.Length)
+					return true;
 			}
 
-			return _sb.ToString();
+			return false;
 		}
 		#endregion
-
-		public static bool Guid_TryParse(string guid_in, out Guid guid_out) {
-			try {
-				guid_out = new Guid(guid_in);
-				return true;
-			} catch {
-				guid_out = Guid.Empty;
-				return false;
-			}
-		}
 	}
 }

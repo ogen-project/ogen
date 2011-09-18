@@ -17,31 +17,22 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace OGen.NTier.Kick.lib.businesslayer {
-	public static class utils {
+	public class Sessionuser : OGen.NTier.Kick.lib.businesslayer.shared.Sessionuser {
+		public Sessionuser(
+			long idUser_in,
+			long[] idPermitions_in, 
 
-		#region public static string RandomText(...);
-		public static string RandomText(
-			int length_in
+			int idApplication_in,
+			DateTime sessionstart_in
+		) : base (
+			idUser_in,
+			idPermitions_in
 		) {
-			StringBuilder _sb = new StringBuilder(length_in);
-
-			Random _rnd = new Random();
-			for (int i = 0; i < length_in; i++) {
-				_sb.Append((char)_rnd.Next(256));
-			}
-
-			return _sb.ToString();
+			IDApplication = idApplication_in;
+			Sessionstart = sessionstart_in;
 		}
-		#endregion
 
-		public static bool Guid_TryParse(string guid_in, out Guid guid_out) {
-			try {
-				guid_out = new Guid(guid_in);
-				return true;
-			} catch {
-				guid_out = Guid.Empty;
-				return false;
-			}
-		}
+		public int IDApplication;
+		public DateTime Sessionstart;
 	}
 }

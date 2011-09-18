@@ -51,7 +51,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#region public static void insObject_CreateUser(string credentials_in, string login_in, ...);
 		#region internal static long insObject_CreateUser(ServerCredentials credentials_in, string login_in, ...);
 		internal static long insObject_CreateUser(
-			utils.Sessionuser sessionUser_in,
+			Sessionuser sessionUser_in,
 
 			string login_in,
 
@@ -116,7 +116,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		) {
 			List<int> _errorlist;
 			Guid _sessionguid;
-			utils.Sessionuser _sessionuser;
+			Sessionuser _sessionuser;
 
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(

@@ -46,7 +46,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			SO_CRD_Profile _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
-			utils.Sessionuser _sessionuser;
+			Sessionuser _sessionuser;
 
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(
@@ -96,7 +96,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out List<int> errorlist_out
 		) {
 			Guid _sessionguid;
-			utils.Sessionuser _sessionuser;
+			Sessionuser _sessionuser;
 
 			#region check...
 			int[] _errors_out;
@@ -230,7 +230,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		) {
 			List<int> _errorlist;
 			Guid _sessionguid;
-			utils.Sessionuser _sessionuser;
+			Sessionuser _sessionuser;
 
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(
@@ -350,7 +350,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			SO_CRD_Profile[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
-			utils.Sessionuser _sessionuser;
+			Sessionuser _sessionuser;
 
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(
@@ -405,7 +405,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		) {
 			List<int> _errorlist;
 			Guid _sessionguid;
-			utils.Sessionuser _sessionuser;
+			Sessionuser _sessionuser;
 
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(
@@ -525,7 +525,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			SO_vCRD_UserProfile[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
-			utils.Sessionuser _sessionuser;
+			Sessionuser _sessionuser;
 
 			#region check...
 			if (!SBO_CRD_Authentication.isSessionGuid_valid(
