@@ -92,7 +92,7 @@ namespace OGen.lib.datalayer {
 		/// <param name="connectionstring_in">Connection String</param>
 		public DBConnection(
 			string connectionstring_in
-		) :this (
+		) : this (
 			connectionstring_in,
 			string.Empty
 		) {

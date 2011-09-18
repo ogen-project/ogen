@@ -14,43 +14,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer;
-using OGen.NTier.Kick.lib.businesslayer.shared;
 using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
-namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
-	/// <summary>
-	/// LOG_Log remoting server.
-	/// </summary>
-	public class RS_LOG_Log : 
-		MarshalByRefObject, 
-		IBO_LOG_Log 
-	{
-		#region public void Log(...);
-		public void Log(
+namespace OGen.NTier.Kick.lib.businesslayer.shared {
+	public interface IBO0_DIC_Dic {
+		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int logtype_in, 
-			int errortype_in, 
-			long idPermition_in, 
 			int idApplication_in, 
-			string format_in, 
-			System.String[] args_in
-		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
-				sessionGuid_in, 
-				(utils.ResetClientIP)
-					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
-					: ip_forLogPurposes_in, 
-				logtype_in, 
-				errortype_in, 
-				idPermition_in, 
-				idApplication_in, 
-				format_in, 
-				args_in
-			);
-		}
-		#endregion
+			out System.Int32[] errors_out
+		);
 	}
 }

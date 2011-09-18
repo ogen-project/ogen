@@ -14,7 +14,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using System.IO;
-using System.Collections;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Messaging;
 
@@ -56,7 +55,6 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 		}
 		#endregion
 		private bool mustdo_;
-
 
 		#region public void AsyncProcessResponse(...);
 		public void AsyncProcessResponse(

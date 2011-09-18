@@ -77,12 +77,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Compile Include="IBO_CRD_Permition.cs" />
     <Compile Include="IBO_CRD_Profile.cs" />
     <Compile Include="IBO_CRD_User.cs" />
+    <Compile Include="IBO_DIC_Dic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_base\IBO0_CRD_Authentication.cs" />
     <Compile Include="IBO_CRD_Authentication.cs" />
     <Compile Include="_base\IBO0_CRD_Permition.cs" />
     <Compile Include="_base\IBO0_CRD_Profile.cs" />
     <Compile Include="_base\IBO0_CRD_User.cs" />
+    <Compile Include="_base\IBO0_DIC_Dic.cs" />
     <Compile Include="_base\IBO0_LOG_Log.cs" />
     <Compile Include="IBO_LOG_Log.cs" />
     <Compile Include="_base\IBO0_WEB_User.cs" />

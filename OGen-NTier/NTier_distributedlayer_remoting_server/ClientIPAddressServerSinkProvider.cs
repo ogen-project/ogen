@@ -1,4 +1,4 @@
-#region Copyright (C) 2002 Francisco Monteiro
+﻿#region Copyright (C) 2002 Francisco Monteiro
 /*
 
 OGen
@@ -17,22 +17,21 @@ using System.IO;
 using System.Collections;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Messaging;
+using System.Net;
 
 namespace OGen.NTier.lib.distributedlayer.remoting.server {
-	public class CompressionServerSinkProvider :
-		IServerChannelSinkProvider
+	public class ClientIPAddressServerSinkProvider : 
+		IServerChannelSinkProvider 
 	{
-		#region public RS_CompressionServerSinkProvider(...);
-		public CompressionServerSinkProvider(
+		#region public ClientIPAddressServerSinkProvider(...);
+		public ClientIPAddressServerSinkProvider(
+		) {
+		}
+		public ClientIPAddressServerSinkProvider(
 			IDictionary properties_in,
 			ICollection providerData_in
 		) {
-#if DEBUG
-			Console.WriteLine("initiating compression sink provider");
-#endif
-
-			mustdo_ = bool.Parse((string)properties_in["mustDo"]);
-		} 
+		}
 		#endregion
 
 		#region public IServerChannelSinkProvider Next { get; set; }
@@ -47,17 +46,15 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 			}
 		}
 		#endregion
-		private bool mustdo_;
 
 		#region public IServerChannelSink CreateSink(...);
 		public IServerChannelSink CreateSink(
 			IChannelReceiver channel_in
 		) {
-			return new CompressionServerSink(
+			return new ClientIPAddressServerSink(
 				next_.CreateSink(
 					channel_in
-				), 
-				mustdo_
+				)
 			);
 		}
 		#endregion

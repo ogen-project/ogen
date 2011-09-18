@@ -66,6 +66,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Content Include="WS_CRD_Permition.asmx" />
     <Content Include="WS_CRD_Profile.asmx" />
     <Content Include="WS_CRD_User.asmx" />
+    <Content Include="WS_DIC_Dic.asmx" />
     <Content Include="WS_LOG_Log.asmx" />
     <Content Include="WS_WEB_User.asmx" />
   </ItemGroup>
@@ -90,6 +91,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       <DependentUpon>WS_CRD_User.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="WS_DIC_Dic.asmx.cs">
+      <DependentUpon>WS_DIC_Dic.asmx</DependentUpon>
+    </Compile>
     <Compile Include="_base\utils0.cs" />
     <Compile Include="_base\WS0_CRD_Authentication.cs">
       <SubType>Component</SubType>
@@ -107,6 +111,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Compile Include="_base\WS0_CRD_User.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="_base\WS0_DIC_Dic.cs" />
     <Compile Include="_base\WS0_LOG_Log.cs">
       <SubType>Component</SubType>
     </Compile>

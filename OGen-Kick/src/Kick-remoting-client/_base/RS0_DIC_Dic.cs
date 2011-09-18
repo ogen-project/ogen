@@ -15,60 +15,25 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 
 using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer;
 using OGen.NTier.Kick.lib.businesslayer.shared;
 using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
 namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 	/// <summary>
-	/// CRD_Authentication remoting server.
+	/// DIC_Dic remoting server.
 	/// </summary>
-	public class RS_CRD_Authentication : 
+	public class RS_DIC_Dic : 
 		MarshalByRefObject, 
-		IBO_CRD_Authentication 
+		IBO_DIC_Dic 
 	{
-		#region public void ChangePassword(...);
-		public void ChangePassword(
-			string sessionGuid_in, 
-			string ip_forLogPurposes_in, 
-			string password_old_in, 
-			string password_new_in, 
-			out System.Int32[] errors_out
-		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.ChangePassword(
-				sessionGuid_in, 
-				(utils.ResetClientIP)
-					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
-					: ip_forLogPurposes_in, 
-				password_old_in, 
-				password_new_in, 
-				out errors_out
-			);
-		}
-		#endregion
-		#region public void Login(...);
-		public void Login(
-			string login_in, 
-			string password_in, 
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(...);
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idApplication_in, 
-			out long idUser_out, 
-			out System.Int64[] idPermitions_out, 
 			out System.Int32[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.Login(
-				login_in, 
-				password_in, 
-				sessionGuid_in, 
-				(utils.ResetClientIP)
-					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
-					: ip_forLogPurposes_in, 
-				idApplication_in, 
-				out idUser_out, 
-				out idPermitions_out, 
-				out errors_out
-			);
+			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
 		#endregion
 	}

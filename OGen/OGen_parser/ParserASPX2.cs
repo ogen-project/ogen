@@ -67,7 +67,7 @@ namespace OGen.lib.parser {
 				string _virtualPath = "/";
 
 				myhost_.Add(
-					appPath_in, 
+					appPath_in,
 					ApplicationManager.GetApplicationManager().CreateObject(
 						_appId,
 						typeof(MyHost),

@@ -13,44 +13,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
+using System.Web;
+using System.Web.Services;
 
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-
-namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
+namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 	/// <summary>
-	/// LOG_Log remoting server.
+	/// DIC_Dic web service.
 	/// </summary>
-	public class RS_LOG_Log : 
-		MarshalByRefObject, 
-		IBO_LOG_Log 
-	{
-		#region public void Log(...);
-		public void Log(
-			string sessionGuid_in, 
-			string ip_forLogPurposes_in, 
-			int logtype_in, 
-			int errortype_in, 
-			long idPermition_in, 
-			int idApplication_in, 
-			string format_in, 
-			System.String[] args_in
-		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
-				sessionGuid_in, 
-				(utils.ResetClientIP)
-					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
-					: ip_forLogPurposes_in, 
-				logtype_in, 
-				errortype_in, 
-				idPermition_in, 
-				idApplication_in, 
-				format_in, 
-				args_in
-			);
-		}
-		#endregion
+	[WebService(Namespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server")]
+	#if !NET_1_1
+	[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+	[System.ComponentModel.ToolboxItem(false)]
+	#endif
+	public class WS_DIC_Dic : WS0_DIC_Dic {
+
 	}
 }
