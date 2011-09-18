@@ -194,68 +194,75 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 		#endregion
 
-		#if LATER
 		#region public static void MarkRead(...);
-		[BOMethodAttribute("MarkRead", true)]
+		[BOMethodAttribute("MarkRead", true, false, 1)]
 		public static void MarkRead(
-			string credentials_in,
+			string sessionGuid_in,
+			string ip_forLogPurposes_in, 
 
 			int idLog_in,
 
 			out int[] errors_out
 		) {
-			List<int> _errors = new List<int>();
+			List<int> _errorlist = new List<int>();
+			Guid _sessionguid;
+			utils.Sessionuser _sessionuser;
 
-			ServerCredentials _credentials;
-			if (
-				(credentials_in != "")
-				&&
-				((_credentials = new ServerCredentials(credentials_in)).IDUser > 0)
-			) {
-				if (
-					!_credentials.hasPermition((int)PermitionType.Log__mark_read)
-				) {
-					_errors.Add(ErrorType.lack_of_permitions);
-					errors_out = _errors.ToArray();
-					return;
-				}
+			#region check...
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in,
+				ip_forLogPurposes_in, 
+				out _sessionguid,
+				out _sessionuser,
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
 
-				SO_LOG_Log _log = DO_LOG_Log.getObject(
-					idLog_in,
-					null
-				);
-				if (_log == null) {
-					_errors.Add(ErrorType.data__not_found);
-					errors_out = _errors.ToArray();
-					return;
-				} else if (
-					!_log.IFUser__read_isNull
-					||
-					!_log.Stamp__read_isNull
-				) {
-					_errors.Add(ErrorType.log__already_marked_read);
-					errors_out = _errors.ToArray();
-					return;
-				} else {
-					_log.IFUser__read = _credentials.IDUser;
-					_log.Stamp__read = DateTime.Now;
-					DO_LOG_Log.updObject(
-						_log,
-						true, 
-
-						null
-					);
-
-					_errors.Add(ErrorType.log__marked_read__WARNING);
-				}
-
-			} else {
-				_errors.Add(ErrorType.lack_of_permitions__not_logged_in);
-				errors_out = _errors.ToArray();
 				return;
 			}
+			#endregion
+			#region check permitions...
+			if (
+				!_sessionuser.hasPermition(PermitionType.Log__mark_read)
+			) {
+				_errorlist.Add(ErrorType.lack_of_permitions);
+				errors_out = _errorlist.ToArray();
+				return;
+			}
+			#endregion
 
-			errors_out = _errors.ToArray();
+			SO_LOG_Log _log = DO_LOG_Log.getObject(
+				idLog_in,
+				null
+			);
+			if (_log == null) {
+				_errorlist.Add(ErrorType.data__not_found);
+				errors_out = _errorlist.ToArray();
+				return;
+			} else if (
+				!_log.IFUser__read_isNull
+				||
+				!_log.Stamp__read_isNull
+			) {
+				_errorlist.Add(ErrorType.log__already_marked_read);
+				errors_out = _errorlist.ToArray();
+				return;
+			} else {
+				_log.IFUser__read = _sessionuser.IDUser;
+				_log.Stamp__read = DateTime.Now;
+				DO_LOG_Log.updObject(
+					_log,
+					true, 
+
+					null
+				);
+
+				_errorlist.Add(ErrorType.log__marked_read__WARNING);
+			}
+
+			errors_out = _errorlist.ToArray();
 		}
 		#endregion
 
@@ -348,9 +355,10 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#endregion
 
 		#region public static SO_LOG_Log[] getRecord_generic(...);
-		[BOMethodAttribute("getRecord_generic", true)]
+		[BOMethodAttribute("getRecord_generic", true, false, 1)]
 		public static SO_LOG_Log[] getRecord_generic(
-			string credentials_in,
+			string sessionGuid_in,
+			string ip_forLogPurposes_in,
 
 			int IDLogtype_search_in,
 			long IDUser_search_in,
@@ -367,48 +375,56 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			int page_in,
 			int page_numRecords_in,
 
-			out int error_out
+			out int[] errors_out
 		) {
-			error_out = ErrorType.no_error;
+			List<int> _errorlist;
+			Guid _sessionguid;
+			utils.Sessionuser _sessionuser;
 
-			ServerCredentials _credentials;
-			if (
-				(credentials_in != "")
-				&&
-				((_credentials = new ServerCredentials(credentials_in)).IDUser > 0)
-			) {
-				if (
-					!_credentials.hasPermition((int)PermitionType.Log__read)
-				) {
-					error_out = ErrorType.log__lack_of_permitions_to_read;
-					return null;
-				}
+			#region check...
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in,
+				ip_forLogPurposes_in, 
+				out _sessionguid,
+				out _sessionuser,
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
 
-				return DO_LOG_Log.getRecord_generic(
-					IDLogtype_search_in,
-					IDUser_search_in,
-					IDErrortype_search_in,
-					Stamp_begin_search_in,
-					Stamp_end_search_in,
-					Read_search_isNull_in 
-						? null
-						: (object)Read_search_in,
-					idApplication_isNull_in 
-						? null 
-						: (object)idApplication_in, 
-
-					page_in,
-					page_numRecords_in,
-
-					null
-				);
-
-			} else {
-				error_out = ErrorType.lack_of_permitions__not_logged_in;
 				return null;
 			}
+			#endregion
+			#region check Permitions...
+			if (
+				!_sessionuser.hasPermition(PermitionType.Log__read)
+			) {
+				_errorlist.Add(ErrorType.log__lack_of_permitions_to_read);
+				errors_out = _errorlist.ToArray();
+				return null;
+			}
+			#endregion
+
+			return DO_LOG_Log.getRecord_generic(
+				IDLogtype_search_in,
+				IDUser_search_in,
+				IDErrortype_search_in,
+				Stamp_begin_search_in,
+				Stamp_end_search_in,
+				Read_search_isNull_in 
+					? null
+					: (object)Read_search_in,
+				idApplication_isNull_in 
+					? null 
+					: (object)idApplication_in, 
+
+				page_in,
+				page_numRecords_in,
+
+				null
+			);
 		}
 		#endregion
-		#endif
 	}
 }

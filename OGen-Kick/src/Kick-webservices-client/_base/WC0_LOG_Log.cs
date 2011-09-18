@@ -54,6 +54,52 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		}
 		#endregion
 
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_LOG_Log[] getRecord_generic(...);
+		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
+			"http://OGen.NTier.Kick.distributedlayer.webservices.server/getRecord_generic",
+			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			Use = System.Web.Services.Description.SoapBindingUse.Literal,
+			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
+		)]
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_LOG_Log[] getRecord_generic(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			int IDLogtype_search_in, 
+			long IDUser_search_in, 
+			int IDErrortype_search_in, 
+			System.DateTime Stamp_begin_search_in, 
+			System.DateTime Stamp_end_search_in, 
+			bool Read_search_in, 
+			bool Read_search_isNull_in, 
+			int idApplication_in, 
+			bool idApplication_isNull_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			out System.Int32[] errors_out
+		) {
+			object[] results = this.Invoke(
+				"getRecord_generic", 
+				new object[] {
+					sessionGuid_in,
+					ip_forLogPurposes_in,
+					IDLogtype_search_in,
+					IDUser_search_in,
+					IDErrortype_search_in,
+					Stamp_begin_search_in,
+					Stamp_end_search_in,
+					Read_search_in,
+					Read_search_isNull_in,
+					idApplication_in,
+					idApplication_isNull_in,
+					page_in,
+					page_numRecords_in
+				}
+			);
+			errors_out = (System.Int32[])results[1];
+			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_LOG_Log[])results[0];
+		}
+		#endregion
 		#region public void Log(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
 			"http://OGen.NTier.Kick.distributedlayer.webservices.server/Log",
@@ -85,6 +131,31 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					args_in
 				}
 			);
+		}
+		#endregion
+		#region public void MarkRead(...);
+		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
+			"http://OGen.NTier.Kick.distributedlayer.webservices.server/MarkRead",
+			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			Use = System.Web.Services.Description.SoapBindingUse.Literal,
+			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
+		)]
+		public void MarkRead(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			int idLog_in, 
+			out System.Int32[] errors_out
+		) {
+			object[] results = this.Invoke(
+				"MarkRead", 
+				new object[] {
+					sessionGuid_in,
+					ip_forLogPurposes_in,
+					idLog_in
+				}
+			);
+			errors_out = (System.Int32[])results[0];
 		}
 		#endregion
 	}
