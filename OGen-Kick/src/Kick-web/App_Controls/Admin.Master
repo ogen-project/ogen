@@ -1,0 +1,37 @@
+﻿<%@ Master 
+	Language="C#" 
+	AutoEventWireup="true" 
+	CodeBehind="Admin.master.cs" 
+	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.Admin"
+	MasterPageFile="~/App_Controls/_base.Master" %>
+<asp:Content
+	id="cnt_Title" runat="server" 
+	ContentPlaceHolderID="cph_Title">Kick - admin <asp:ContentPlaceHolder ID="cph_Title" runat="server" /></asp:Content>
+<asp:Content
+	id="cnt_Head" runat="server"
+	ContentPlaceHolderID="cph_Head">
+	<asp:ContentPlaceHolder ID="cph_Head" runat="server" />
+</asp:Content>
+<asp:Content
+	id="cnt_Body" runat="server"
+	ContentPlaceHolderID="cph_Body">
+
+	<table border="1" cellspacing="0" cellpadding="0" style="width: 100%">
+		<tr>
+			<td>
+				TOP
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<asp:ContentPlaceHolder ID="cph_Body" runat="server" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				BOTTOM
+			</td>
+		</tr>
+	</table>
+
+</asp:Content>

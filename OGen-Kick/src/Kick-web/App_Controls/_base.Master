@@ -1,0 +1,19 @@
+﻿<%@ Master 
+	Language="C#" 
+	AutoEventWireup="true" 
+	CodeBehind="_base.master.cs" 
+	Inherits="OGen.NTier.Kick.presentationlayer.weblayer._base" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head runat="server">
+		<title><asp:ContentPlaceHolder ID="cph_Title" runat="server" /></title>
+		<asp:ContentPlaceHolder ID="cph_Head" runat="server" />
+	</head>
+	<body>
+		<form id="form1" runat="server">
+			<div>
+				<asp:ContentPlaceHolder ID="cph_Body" runat="server" />
+			</div>
+		</form>
+	</body>
+</html>

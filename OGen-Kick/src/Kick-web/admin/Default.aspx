@@ -1,16 +1,23 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="OGen.NTier.Kick.presentationlayer.weblayer.admin.Default" %>
+﻿<%@ Page 
+	Language="C#" 
+	AutoEventWireup="true" 
+	CodeBehind="Default.aspx.cs" 
+	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.admin.Default" 
+	MasterPageFile="~/App_Controls/Admin.Master" %>
+<asp:Content
+	id="cnt_Title" runat="server" 
+	ContentPlaceHolderID="cph_Title">
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+</asp:Content>
+<asp:Content
+	id="cnt_Head" runat="server"
+	ContentPlaceHolderID="cph_Head">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
-</body>
-</html>
+</asp:Content>
+<asp:Content
+	id="cnt_Body" runat="server"
+	ContentPlaceHolderID="cph_Body">
+
+	xxx
+
+</asp:Content>
