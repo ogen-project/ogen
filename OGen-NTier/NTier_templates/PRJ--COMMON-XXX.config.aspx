@@ -121,6 +121,8 @@ if (_arg_where == "test") {%>
 						<provider 
 							type="OGen.NTier.lib.distributedlayer.remoting.server.CompressionServerSinkProvider, OGen.NTier.lib.distributedlayer.remoting.server-2.0"
 							mustDo="False" />
+						<provider
+							type="OGen.NTier.lib.distributedlayer.remoting.server.ClientIPAddressServerSinkProvider, OGen.NTier.lib.distributedlayer.remoting.server-2.0" />
 						<formatter 
 							ref="binary" 
 							typeFilterLevel="Full"/>

@@ -52,7 +52,7 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 		) {
 			CallContext.SetData(
 				"ClientIPAddress", 
-				(IPAddress)headers_in[CommonTransportKeys.IPAddress]
+				((IPAddress)headers_in[CommonTransportKeys.IPAddress]).ToString()
 			);
 
 			sinkStack_in.AsyncProcessResponse(
@@ -86,7 +86,7 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 			if (nextchannelsink_ != null) {
 				CallContext.SetData(
 					"ClientIPAddress", 
-					(IPAddress)requestHeaders_in[CommonTransportKeys.IPAddress]
+					((IPAddress)requestHeaders_in[CommonTransportKeys.IPAddress]).ToString()
 				);
 				ServerProcessing _serverprocessing = NextChannelSink.ProcessMessage(
 					sinkStack_in,
