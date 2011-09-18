@@ -8957,14 +8957,14 @@ Newsletter#</dia:string>
         <dia:point val="5,16"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="5,15.405;23.7875,17.75"/>
+        <dia:rectangle val="4.98137,15.3864;17.7375,17.7873"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
           <dia:attribute name="string">
-            <dia:string>#precisei de meter IFApplication no NET_User para poder 
-defenir pesquisa por mail (e IFApplication) com constraint,
-é um problema no OGen, está reportado#</dia:string>
+            <dia:string>#IFApplication (replicated here) is needed 
+to be able to define the constraint pair: 
+EMail - IFApplication#</dia:string>
           </dia:attribute>
           <dia:attribute name="font">
             <dia:font family="sans" style="0" name="Helvetica"/>
@@ -9176,16 +9176,16 @@ defenir pesquisa por mail (e IFApplication) com constraint,
     </dia:object>
     <dia:object type="Database - Table" version="0" id="O95">
       <dia:attribute name="obj_pos">
-        <dia:point val="14,19"/>
+        <dia:point val="14,20"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="14,19;24.925,30.5"/>
+        <dia:rectangle val="14,20;24.925,31.5"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
-        <dia:point val="14,19"/>
+        <dia:point val="14,20"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
         <dia:real val="10.925000000000001"/>
@@ -9506,16 +9506,16 @@ defenir pesquisa por mail (e IFApplication) com constraint,
     </dia:object>
     <dia:object type="Database - Table" version="0" id="O96">
       <dia:attribute name="obj_pos">
-        <dia:point val="3,19"/>
+        <dia:point val="3,20"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="3,19;9.0475,21.7"/>
+        <dia:rectangle val="3,20;9.0475,22.7"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
-        <dia:point val="3,19"/>
+        <dia:point val="3,20"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
         <dia:real val="6.0475000000000003"/>
@@ -9652,19 +9652,19 @@ defenir pesquisa por mail (e IFApplication) com constraint,
         <dia:boolean val="true"/>
       </dia:attribute>
       <dia:attribute name="obj_pos">
-        <dia:point val="9.0475,20.4"/>
+        <dia:point val="9.0475,21.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="9.0475,19.65;14.1125,21.25"/>
+        <dia:rectangle val="9.0475,20.65;14.1125,22.25"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
-        <dia:point val="9.0475,20.4"/>
-        <dia:point val="9.0475,20.4"/>
-        <dia:point val="14,20.4"/>
-        <dia:point val="14,20.4"/>
+        <dia:point val="9.0475,21.4"/>
+        <dia:point val="9.0475,21.4"/>
+        <dia:point val="14,21.4"/>
+        <dia:point val="14,21.4"/>
       </dia:attribute>
       <dia:attribute name="orth_orient">
         <dia:enum val="0"/>
@@ -9726,7 +9726,7 @@ defenir pesquisa por mail (e IFApplication) com constraint,
         <dia:point val="3,11.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-0.91,10.6;3.75,22.05"/>
+        <dia:rectangle val="-0.91,10.6;3.75,23.05"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -9734,8 +9734,8 @@ defenir pesquisa por mail (e IFApplication) com constraint,
       <dia:attribute name="orth_points">
         <dia:point val="3,11.4"/>
         <dia:point val="2,11.4"/>
-        <dia:point val="2,21.2"/>
-        <dia:point val="3,21.2"/>
+        <dia:point val="2,22.2"/>
+        <dia:point val="3,22.2"/>
       </dia:attribute>
       <dia:attribute name="orth_orient">
         <dia:enum val="0"/>
