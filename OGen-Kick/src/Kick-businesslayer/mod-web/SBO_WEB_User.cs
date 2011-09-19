@@ -33,26 +33,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 	[BOClassAttribute("BO_WEB_User", "")]
 	public static class SBO_WEB_User {
 
-#if DEBUG
-		private static string encrypt_mail(
-			int idApplication_in,
-
-			List<int> errors_in,
-
-			params string[] words_in
-		) {
-			throw new NotImplementedException();
-		}
-		private static string[] decrypt_mail(
-			string enc_message_in,
-			//int idApplication_in,
-
-			List<int> errors_in
-		) {
-			throw new NotImplementedException();
-		}
-#endif
-
 		#region public static void Login(...);
 		[BOMethodAttribute("Login", true, false, 3)]
 		public static void Login(
@@ -1208,7 +1188,7 @@ A equipa {2}
 			}
 
 			if (
-				!checkLogin(
+				!Sessionuser.checkLogin(
 					login_in,
 					ref _errorlist
 				)
@@ -1446,8 +1426,6 @@ A equipa {2}
 		}
 		#endregion
 
-
-#if LATER
 		#region private static string encrypt_mail(...);
 		private static string encrypt_mail(
 			int idApplication_in,
@@ -1468,10 +1446,11 @@ A equipa {2}
 				);
 			} catch (Exception _ex) {
 				#region SBO_LOG_Log.Log(ErrorType.data);
-				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
-					"",//credentials_in,
+				SBO_LOG_Log.log(
+					null,
 					LogType.error,
 					ErrorType.encryption__failled_to_encrypt,
+					-1L, 
 					idApplication_in,
 					"{0}",
 					new string[] {
@@ -1535,34 +1514,6 @@ A equipa {2}
 			}
 
 			return _output;
-		}
-		#endregion
-
-
-#endif
-
-
-		// ToDos: here! this method could be shared!
-		#region public static bool checkLogin(string login_in, List<int> errors_in);
-		public static bool checkLogin(
-			string login_in,
-			ref List<int> errorlist_in
-		) {
-			if (!SBO_CRD_User.checkLogin(
-				login_in,
-				ref errorlist_in
-			)) {
-				return false;
-			} else {
-				if (
-					(login_in.IndexOf('@') >= 0)
-				) {
-					errorlist_in.Add(ErrorType.user__invalid_login);
-					return false;
-				}
-			}
-
-			return true;
 		}
 		#endregion
 	}

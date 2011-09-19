@@ -75,5 +75,33 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			}
 		}
 		#endregion
+
+		#region public static bool checkLogin(string login_in, List<int> errors_in);
+		public static bool checkLogin(
+			string login_in,
+			ref List<int> errors_in
+		) {
+			if (
+				((login_in = login_in.Trim()).Length < 3)
+				||
+				(login_in.Length > 255)
+			) {
+				errors_in.Add(ErrorType.user__invalid_login);
+				return false;
+			}
+
+			for (int i = 0; i < login_in.Length; i++) {
+				switch (login_in[i]) {
+					case '@':
+					case '<':
+					case '>':
+						errors_in.Add(ErrorType.user__invalid_login);
+						return false;
+				}
+			}
+
+			return true;
+		}
+		#endregion
 	}
 }
