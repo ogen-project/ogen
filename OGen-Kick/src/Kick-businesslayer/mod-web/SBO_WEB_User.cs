@@ -553,15 +553,15 @@ A equipa {2}
 
 			//bool _forum__forum__select 
 			//    = _credentials.hasPermition(
-			//        (int)PermitionType.Forum__Forum__read
+			//        PermitionType.Forum__Forum__read
 			//    );
 			//bool _forum__thread__select
 			//    = _credentials.hasPermition(
-			//        (int)PermitionType.Forum__Thread__read
+			//        PermitionType.Forum__Thread__read
 			//    );
 			//bool _forum__reply__select
 			//    = _credentials.hasPermition(
-			//        (int)PermitionType.Forum__Reply__read
+			//        PermitionType.Forum__Reply__read
 			//    );
 
 			//if (

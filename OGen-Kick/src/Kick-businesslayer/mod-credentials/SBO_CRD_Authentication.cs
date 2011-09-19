@@ -40,20 +40,33 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in,
 
 			out Guid sessionGuid_out,
-			out List<int> errorlist_out,
-			out int[] errors_out
+			out List<int> errorlist_out
 		) {
 			errorlist_out = new List<int>();
 
 			if (!Sessionuser.Guid_TryParse(sessionGuid_in, out sessionGuid_out)) {
 				errorlist_out.Add(ErrorType.authentication__invalid_guid);
 
-				errors_out = errorlist_out.ToArray();
 				return false;
 			}
 
-			errors_out = null;
 			return true;
+		}
+		public static bool isSessionGuid_valid(
+			string sessionGuid_in,
+
+			out Guid sessionGuid_out,
+			out List<int> errorlist_out,
+			out int[] errors_out
+		) {
+			bool _output = isSessionGuid_valid(
+				sessionGuid_in,
+
+				out sessionGuid_out,
+				out errorlist_out
+			);
+			errors_out = (_output) ? null : errorlist_out.ToArray();
+			return _output;
 		}
 
 		public static bool isSessionGuid_valid(
@@ -62,15 +75,13 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			out Guid sessionGuid_out,
 			out Sessionuser sessionUser_out,
-			out List<int> errorlist_out,
-			out int[] errors_out
+			out List<int> errorlist_out
 		) {
 			if (!isSessionGuid_valid(
 				sessionGuid_in,
 
 				out sessionGuid_out,
-				out errorlist_out,
-				out errors_out
+				out errorlist_out
 			)) {
 				sessionUser_out = null;
 				return false;
@@ -89,11 +100,30 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 
 				errorlist_out.Add(ErrorType.authentication__expired_guid);
-				errors_out = errorlist_out.ToArray();
 				return false;
 			}
 
 			return true;
+		}
+		public static bool isSessionGuid_valid(
+			string sessionGuid_in,
+			string ip_forLogPurposes_in,
+
+			out Guid sessionGuid_out,
+			out Sessionuser sessionUser_out,
+			out List<int> errorlist_out,
+			out int[] errors_out
+		) {
+			bool _output = isSessionGuid_valid(
+				sessionGuid_in,
+				ip_forLogPurposes_in, 
+
+				out sessionGuid_out,
+				out sessionUser_out,
+				out errorlist_out
+			);
+			errors_out = (_output) ? null : errorlist_out.ToArray();
+			return _output;
 		}
 		#endregion
 

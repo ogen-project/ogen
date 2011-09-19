@@ -333,7 +333,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		//        ((_credentials = new ServerCredentials(credentials_in)).IDUser > 0)
 		//    ) {
 		//        if (
-		//            !_credentials.hasPermition((int)PermitionType.Admin)
+		//            !_credentials.hasPermition(PermitionType.Admin)
 		//        ) {
 		//            error_out = ErrorType.lack_of_permitions;
 		//            return null;

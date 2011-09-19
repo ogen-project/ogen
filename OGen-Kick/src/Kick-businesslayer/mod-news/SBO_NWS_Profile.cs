@@ -25,20 +25,21 @@ using OGen.NTier.Kick.lib.businesslayer.shared;
 //using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
 namespace OGen.NTier.Kick.lib.businesslayer {
-	[BOClassAttribute("BO_NWS_Attachment", "")]
-	public static class SBO_NWS_Attachment {
+	[BOClassAttribute("BO_NWS_Profile", "")]
+	public static class SBO_NWS_Profile {
 
-		#region public static SO_NWS_Attachment getObject(...);
+		#region public static SO_vNWS_Profile getObject(...);
 		[BOMethodAttribute("getObject", true)]
-		public static SO_NWS_Attachment getObject(
+		public static SO_vNWS_Profile getObject(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
-			long idAttachment_in,
+			long idProfile_in,
 
 			out int[] errors_out
 		) {
-			SO_NWS_Attachment _output = null;
+			
+			SO_vNWS_Profile _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
 			Sessionuser _sessionuser;
@@ -58,22 +59,20 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return _output;
 			}
 			#endregion
-			#region check Permitions...
+			#region check Permitions . . .
 			if (
 				!_sessionuser.hasPermition(
-					false, 
-					PermitionType.News__select_OnSchedule, 
-					PermitionType.News__select_OffSchedule
+					PermitionType.News__Profile__select
 				)
 			) {
-				_errorlist.Add(ErrorType.news__lack_of_permitions_to_read);
+				_errorlist.Add(ErrorType.news__profile__lack_of_permitions_to_read);
 				errors_out = _errorlist.ToArray();
 				return _output;
 			}
 			#endregion
 
-			_output = DO_NWS_Attachment.getObject(
-				idAttachment_in,
+			_output = DO_vNWS_Profile.getObject_byProfile(
+				idProfile_in,
 
 				null
 			);
@@ -88,7 +87,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
-			ref SO_NWS_Attachment attachment_ref,
+			ref SO_vNWS_Profile profile_ref,
 
 			out Guid sessionGuid_out,
 			out Sessionuser sessionUser_out,
@@ -108,41 +107,55 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			#region check Permitions . . .
 			if (
 				!sessionUser_out.hasPermition(
-					false, 
-					PermitionType.News__insert,
-					PermitionType.News__update_Approved,
-					PermitionType.News__update_Mine_notApproved
+					false,
+					PermitionType.News__Profile__insert,
+					PermitionType.News__Profile__update
 				)
 			) {
-				errorlist_out.Add(ErrorType.news__lack_of_permitions_to_write);
+				errorlist_out.Add(ErrorType.news__profile__lack_of_permitions_to_write);
+				return false;
+			}
+
+			if (
+				(
+					!profile_ref.Approved_date_isNull
+					||
+					!profile_ref.IFUser__Approved_isNull
+				)
+				&&
+				!sessionUser_out.hasPermition(PermitionType.News__Profile__approve)
+			) {
+				errorlist_out.Add(ErrorType.news__profile__lack_of_permitions_to_approve);
 				return false;
 			}
 			#endregion
 
-			#region //check Attachment ... (nothing to check!)
+			#region check Profile ...
+			if (
+				(profile_ref.Name = profile_ref.Name.Trim())
+				==
+				""
+			) {
+				errorlist_out.Add(ErrorType.news__profile__invalid_name);
+				return false;
+			}
 			#endregion
 
 			return true;
 		} 
 		#endregion
-		#region public static long insObject(...);
+		#region public static int insObject(...);
 		[BOMethodAttribute("insObject", true)]
 		public static long insObject(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
-			SO_NWS_Attachment attachment_in,
-			SO_DIC__TextLanguage[] tx_Name_in,
-			SO_DIC__TextLanguage[] tx_Description_in,
+			SO_vNWS_Profile profile_in, 
+
 			int idApplication_in, 
-
-			bool selectIdentity_in, 
-
-			out string guid_out, 
 
 			out int[] errors_out
 		) {
-			guid_out = "";
 			long _output = -1L;
 
 			Guid _sessionguid;
@@ -154,7 +167,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				sessionGuid_in,
 				ip_forLogPurposes_in, 
 
-				ref attachment_in, 
+				ref profile_in,
 
 				out _sessionguid,
 				out _sessionuser,
@@ -164,20 +177,53 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return _output;
 			} 
 			#endregion
-			#region check Existence . . .
+
+			#region SO_CRD_Profile _crd_profile = new SO_CRD_Profile(...);
+			SO_CRD_Profile _crd_profile
+				= new SO_CRD_Profile(
+					-1L,
+					profile_in.Name,
+					profile_in.IDApplication
+				); 
+			#endregion
+			#region _crd_profile.IFApplication = profile_in.IDApplication;
 			if (
-				(attachment_in.IFContent <= 0)
+				(profile_in.IDApplication_isNull)
 				||
-				!DO_NWS_Content.isObject(attachment_in.IFContent)
+				(profile_in.IDApplication <= 0)
 			) {
-				_errorlist.Add(ErrorType.data__not_found);
-				errors_out = _errorlist.ToArray();
-				return _output;
+				_crd_profile.IFApplication_isNull = true;
+			} else {
+				_crd_profile.IFApplication = profile_in.IDApplication;
 			}
 			#endregion
+			_crd_profile.Name = profile_in.Name;
 
-			// ToDos: here! should mark Content to be re-Approved!
-			// ToDos: here! or not allow if no approve permition
+			#region SO_NWS_Profile _nws_profile = new SO_NWS_Profile(...);
+			SO_NWS_Profile _nws_profile 
+				= new SO_NWS_Profile(
+				); 
+			#endregion
+			#region _nws_profile.IFUser__Approved = ...;
+			if (_sessionuser.hasPermition(PermitionType.News__Profile__approve)) {
+				_nws_profile.Approved_date = DateTime.Now;
+				_nws_profile.IFUser__Approved = _sessionuser.IDUser;
+			} else {
+				//// ALREADY CHECKED!!!
+				//if (
+				//    !profile_in.Approved_date_isNull
+				//    ||
+				//    !profile_in.IFUser__Approved_isNull
+				//) {
+				//    _errorlist.Add(ErrorType.news__profile__lack_of_permitions_to_approve);
+				//    errors_out = _errorlist.ToArray();
+				//    return _output;
+				//} else {
+					_nws_profile.Approved_date_isNull = true;
+					_nws_profile.IFUser__Approved_isNull = true;
+				//}
+			} 
+			#endregion
 
 			Exception _exception = null;
 			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
@@ -185,73 +231,28 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				DO__utils.DBServerType,
 				DO__utils.DBConnectionstring,
 				DO__utils.DBLogfile
-			); 
+			);
 			#endregion
 			try {
-				//if (
-				//    (
-				//        (tx_Name_in != null) 
-				//        && 
-				//        (tx_Name_in.Length != 0)) 
-				//    ||
-				//    (
-				//        (tx_Description_in != null) 
-				//        && 
-				//        (tx_Description_in.Length != 0)
-				//    )
-				//) {
 				_con.Open();
 				_con.Transaction.Begin();
-				//}
 
-				#region content_in.TX_Name = ...;
-				if (
-					(tx_Name_in == null)
-					||
-					(tx_Name_in.Length == 0)
-				) {
-					attachment_in.TX_Name_isNull = true;
-				} else {
-					attachment_in.TX_Name = SBO_DIC_Dic.insObject(
-						_con,
-
-						idApplication_in,
-						OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_ATTACHMENT__TX_NAME,
-
-						tx_Name_in
-					);
-				}
-				#endregion
-				#region content_in.TX_Description = ...;
-				if (
-					(tx_Description_in == null)
-					||
-					(tx_Description_in.Length == 0)
-				) {
-					attachment_in.TX_Description_isNull = true;
-				} else {
-					attachment_in.TX_Description = SBO_DIC_Dic.insObject(
-						_con,
-
-						idApplication_in,
-						OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_ATTACHMENT__TX_DESCRIPTION,
-
-						tx_Description_in
-					);
-				}
-				#endregion
-
-				attachment_in.GUID 
-					= guid_out 
-					= Guid.NewGuid().ToString("N");
-				attachment_in.OrderNum = DateTime.Now.Ticks;
-				_output = DO_NWS_Attachment.insObject(
-					attachment_in,
-					selectIdentity_in,
+				_output = DO_CRD_Profile.insObject(
+					_crd_profile,
+					true,
 
 					_con
 				);
-				_errorlist.Add(ErrorType.news__attachment__successfully_created__WARNING);
+
+				_nws_profile.IFProfile = _output;
+				DO_NWS_Profile.setObject(
+					_nws_profile,
+					true,
+
+					_con
+				);
+
+				_errorlist.Add(ErrorType.news__profile__successfully_created__WARNING);
 
 				#region _con.Transaction.Commit();
 				if (
@@ -305,7 +306,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			errors_out = _errorlist.ToArray();
 			return _output;
-		} 
+		}
 		#endregion
 		#region public static void updObject(...);
 		[BOMethodAttribute("updObject", true)]
@@ -313,13 +314,13 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
-			SO_NWS_Attachment attachment_in,
-			SO_DIC__TextLanguage[] tx_Name_in,
-			SO_DIC__TextLanguage[] tx_Description_in,
+			SO_vNWS_Profile profile_in,
+
 			int idApplication_in, 
 
 			out int[] errors_out
 		) {
+
 			Guid _sessionguid;
 			Sessionuser _sessionuser;
 
@@ -329,7 +330,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				sessionGuid_in,
 				ip_forLogPurposes_in,
 
-				ref attachment_in,
+				ref profile_in,
 
 				out _sessionguid,
 				out _sessionuser,
@@ -339,15 +340,14 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return;
 			}
 			#endregion
-
-			#region check existence . . .
-			SO_NWS_Attachment _attachment;
+			#region check existence . . . SO_NWS_Profile _nws_profile = DO_NWS_Profile.getObject(...);
+			SO_NWS_Profile _nws_profile;
 			if (
-				attachment_in.IDAttachment <= 0
+				profile_in.IDProfile <= 0
 				||
 				(
-					(_attachment = DO_NWS_Attachment.getObject(
-						attachment_in.IDAttachment
+					(_nws_profile = DO_NWS_Profile.getObject(
+						profile_in.IDProfile
 					)) == null
 				)
 			) {
@@ -356,9 +356,32 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return;
 			}
 			#endregion
+			#region _nws_profile.IFUser__Approved = ...;
+			if (
+					_nws_profile.IFUser__Approved_isNull
+					||
+					_nws_profile.Approved_date_isNull
+				) {
+				if (_sessionuser.hasPermition(PermitionType.News__Profile__approve)) {
+					_nws_profile.Approved_date = DateTime.Now;
+					_nws_profile.IFUser__Approved = _sessionuser.IDUser;
+				} else {
+					_nws_profile.Approved_date_isNull = true;
+					_nws_profile.IFUser__Approved_isNull = true;
+				}
+			}
+			#endregion
 
-			// ToDos: here! should mark Content to be re-Approved!
-			// ToDos: here! or not allow if no approve permition
+			#region SO_CRD_Profile _crd_profile = DO_CRD_Profile.getObject(_nws_profile.IFProfile);
+			SO_CRD_Profile _crd_profile
+				= DO_CRD_Profile.getObject(
+					_nws_profile.IFProfile
+				); 
+			#endregion
+			//// preserve, hence comment:
+			//_crd_profile.IFApplication = profile_in.IDApplication;
+			_crd_profile.Name = profile_in.Name;
+
 
 			Exception _exception = null;
 			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
@@ -366,57 +389,27 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				DO__utils.DBServerType,
 				DO__utils.DBConnectionstring,
 				DO__utils.DBLogfile
-			); 
+			);
 			#endregion
 			try {
 				_con.Open();
 				_con.Transaction.Begin();
 
-				#region TX_Name . . .
-				if ((tx_Name_in != null) && (tx_Name_in.Length != 0)) {
-					if (_attachment.TX_Name_isNull) {
-						_attachment.TX_Name = SBO_DIC_Dic.insObject(
-							_con,
-							idApplication_in,
-							OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_ATTACHMENT__TX_NAME,
-							tx_Name_in
-						);
-					} else {
-						SBO_DIC_Dic.updObject(
-							_con,
-							_attachment.TX_Name,
-							tx_Name_in
-						);
-					}
-				}
-				#endregion
-				#region TX_Description . . .
-				if ((tx_Description_in != null) && (tx_Description_in.Length != 0)) {
-					if (_attachment.TX_Description_isNull) {
-						_attachment.TX_Description = SBO_DIC_Dic.insObject(
-							_con,
-							idApplication_in,
-							OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_ATTACHMENT__TX_DESCRIPTION,
-							tx_Description_in
-						);
-					} else {
-						SBO_DIC_Dic.updObject(
-							_con,
-							_attachment.TX_Description,
-							tx_Description_in
-						);
-					}
-				}
-				#endregion
-
-				//_attachment.??? = attachment_in.???;
-				DO_NWS_Attachment.updObject(
-					_attachment,
+				DO_NWS_Profile.setObject(
+					_nws_profile,
 					true,
 
 					_con
 				);
-				_errorlist.Add(ErrorType.news__attachment__successfully_updated__WARNING);
+
+				DO_CRD_Profile.updObject(
+					_crd_profile,
+					false, // I did getObject prior, so no problem. BE CAREFULL in future updates!
+
+					_con
+				);
+
+				_errorlist.Add(ErrorType.news__profile__successfully_updated__WARNING);
 
 				#region _con.Transaction.Commit();
 				if (
@@ -457,7 +450,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					_sessionuser,
 					LogType.error,
 					ErrorType.data,
-					-1L, 
+					-1L,
 					idApplication_in,
 					"{0}",
 					new string[] {
@@ -472,6 +465,77 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 		#endregion
 
+		#region public static void updObject_Approve(...);
+		[BOMethodAttribute("updObject_Approve", true)]
+		public static void updObject_Approve(
+			string sessionGuid_in,
+			string ip_forLogPurposes_in, 
+
+			long idProfile_in,
+
+			out int[] errors_out
+		) {
+			List<int> _errorlist;
+			Guid _sessionguid;
+			Sessionuser _sessionuser;
+
+			#region check...
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in,
+				ip_forLogPurposes_in,
+				out _sessionguid,
+				out _sessionuser,
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
+
+				return;
+			}
+			#endregion
+			#region check Permitions . . .
+			if (
+				!_sessionuser.hasPermition(
+					PermitionType.News__Profile__approve
+				)
+			) {
+				_errorlist.Add(ErrorType.news__profile__lack_of_permitions_to_approve);
+				errors_out = _errorlist.ToArray();
+				return;
+			}
+			#endregion
+			#region check existence . . .
+			SO_NWS_Profile _profile;
+			if (
+				idProfile_in <= 0
+				||
+				(
+					(_profile = DO_NWS_Profile.getObject(
+						idProfile_in
+					)) == null
+				)
+			) {
+				_errorlist.Add(ErrorType.data__not_found);
+				errors_out = _errorlist.ToArray();
+				return;
+			}
+			#endregion
+
+			_profile.Approved_date = DateTime.Now;
+			_profile.IFUser__Approved = _sessionuser.IDUser;
+			DO_NWS_Profile.setObject(
+				_profile,
+				true,
+
+				null
+			);
+			_errorlist.Add(ErrorType.news__profile__successfully_approved__WARNING);
+
+			errors_out = _errorlist.ToArray();
+		}
+		#endregion
+
 		#region public static void delObject(...);
 		private static DateTime datetime_minvalue_ = new DateTime(1900, 1, 1);
 
@@ -480,7 +544,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
-			long idAttachment_in,
+			long idProfile_in,
 
 			int idApplication_in,
 
@@ -505,27 +569,25 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return;
 			}
 			#endregion
-			#region check Permitions...
+			#region check Permitions . . .
 			if (
 				!_sessionuser.hasPermition(
-					false, 
-					PermitionType.News__delete_Approved,
-					PermitionType.News__delete_Mine_notApproved
+					PermitionType.News__Profile__delete
 				)
 			) {
-				_errorlist.Add(ErrorType.news__lack_of_permitions_to_delete);
+				_errorlist.Add(ErrorType.news__profile__lack_of_permitions_to_delete);
 				errors_out = _errorlist.ToArray();
 				return;
 			}
 			#endregion
-			#region check existence...
-			SO_NWS_Attachment _attachment;
+			#region check existence . . .
+			SO_NWS_Profile _profile;
 			if (
-				idAttachment_in <= 0
+				idProfile_in <= 0
 				||
 				(
-					(_attachment = DO_NWS_Attachment.getObject(
-						idAttachment_in
+					(_profile = DO_NWS_Profile.getObject(
+						idProfile_in
 					)) == null
 				)
 			) {
@@ -534,16 +596,43 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return;
 			}
 			#endregion
-			#region //check References . . . (no references to check)
-			//if (
-			//    (DO_NWS_ContentAuthor.getCount_inRecord_byAuthor(
-			//        idAttachment_in
-			//    ) > 0)
-			//) {
-			//    _errors.Add(ErrorType.data__constraint_violation);
-			//    errors_out = _errors.ToArray();
-			//    return;
-			//}
+			#region check Permitions . . . (more)
+			if (
+				// is approved
+				(
+					!_profile.IFUser__Approved_isNull
+					||
+					!_profile.Approved_date_isNull
+				)
+				&&
+				// and no permition to approve
+				!_sessionuser.hasPermition(
+					PermitionType.News__Profile__approve
+				)
+			) {
+				_errorlist.Add(ErrorType.news__profile__lack_of_permitions_to_delete_approved);
+				errors_out = _errorlist.ToArray();
+				return;
+			}
+			#endregion
+			#region check References . . .
+			if (
+				(DO_NWS_ContentProfile.getCount_inRecord_byProfile(
+					idProfile_in
+				) > 0)
+				||
+				(DO_CRD_ProfilePermition.getCount_inRecord_byProfile(
+					idProfile_in
+				) > 0)
+				||
+				(DO_CRD_UserProfile.getCount_inRecord_byProfile(
+					idProfile_in
+				) > 0)
+			) {
+				_errorlist.Add(ErrorType.data__constraint_violation);
+				errors_out = _errorlist.ToArray();
+				return;
+			}
 			#endregion
 
 			Exception _exception = null;
@@ -558,31 +647,18 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				_con.Open();
 				_con.Transaction.Begin();
 
-				DO_NWS_Attachment.delObject(
-					idAttachment_in,
+				DO_NWS_Profile.delObject(
+					idProfile_in,
 
 					_con
 				);
-				#region SBO_DIC_Dic.delObject(_con, _attachment.TX_Name);
-				if (!_attachment.TX_Name_isNull) {
-					SBO_DIC_Dic.delObject(
-						_con,
+				DO_CRD_Profile.delObject(
+					idProfile_in,
 
-						_attachment.TX_Name
-					);
-				}
-				#endregion
-				#region SBO_DIC_Dic.delObject(_con, _attachment.TX_Description);
-				if (!_attachment.TX_Description_isNull) {
-					SBO_DIC_Dic.delObject(
-						_con,
+					_con
+				);
 
-						_attachment.TX_Description
-					);
-				}
-				#endregion
-
-				_errorlist.Add(ErrorType.news__attachment__successfully_deleted__WARNING);
+				_errorlist.Add(ErrorType.news__profile__successfully_deleted__WARNING);
 
 				#region _con.Transaction.Commit();
 				if (
@@ -638,18 +714,22 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 		#endregion
 
-		#region public static SO_vNWS_Attachment[] getRecord_byContent_andLanguage(...);
-		[BOMethodAttribute("getRecord_byContent_andLanguage", true)]
-		public static SO_vNWS_Attachment[] getRecord_byContent_andLanguage(
+		#region public static SO_vNWS_Profile[] getRecord_Approved(...);
+		[BOMethodAttribute("getRecord_Approved", true)]
+		public static SO_vNWS_Profile[] getRecord_Approved(
+			#region params...
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
-			long IDContent_search_in,
-			int IDLanguage_search_in, 
+			int idApplication_search_in,
+
+			int page_in,
+			int page_numRecords_in,
 
 			out int[] errors_out
+			#endregion
 		) {
-			SO_vNWS_Attachment[] _output = null;
+			SO_vNWS_Profile[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
 			Sessionuser _sessionuser;
@@ -669,36 +749,94 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return _output;
 			}
 			#endregion
-			#region check Permitions...
+			#region check Permitions . . .
 			if (
 				!_sessionuser.hasPermition(
-					false, 
-					PermitionType.News__select_OnSchedule, 
-					PermitionType.News__select_OffSchedule
+					PermitionType.News__Profile__select
 				)
 			) {
-				_errorlist.Add(ErrorType.news__lack_of_permitions_to_read);
+				_errorlist.Add(ErrorType.news__profile__lack_of_permitions_to_read);
 				errors_out = _errorlist.ToArray();
 				return _output;
 			}
 			#endregion
 
-			_output = DO_vNWS_Attachment.getRecord_byContent_andL(
-				IDContent_search_in, 
-				IDLanguage_search_in, 
+			_output 
+				= DO_vNWS_Profile.getRecord_Approved(
+					idApplication_search_in,
 
-				0, 0, 
-				null
-			);
+					page_in, 
+					page_numRecords_in,
+
+					null
+				);
 
 			errors_out = _errorlist.ToArray();
 			return _output;
 		}
 		#endregion
-		#region public static SO_vNWS_Attachment[] getRecord_byContent(...);
+		#region public static SO_vNWS_Profile[] getRecord_all(...);
+		[BOMethodAttribute("getRecord_all", true)]
+		public static SO_vNWS_Profile[] getRecord_all(
+			string sessionGuid_in,
+			string ip_forLogPurposes_in, 
+
+			int idApplication_in,
+
+			int page_in,
+			int page_numRecords_in,
+
+			out int[] errors_out
+		) {
+			SO_vNWS_Profile[] _output = null;
+			List<int> _errorlist;
+
+			Guid _sessionguid;
+			Sessionuser _sessionuser;
+
+			#region check...
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in,
+				ip_forLogPurposes_in,
+				out _sessionguid,
+				out _sessionuser,
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
+
+				return _output;
+			}
+			#endregion
+			#region check Permitions . . .
+			if (
+				!_sessionuser.hasPermition(PermitionType.News__Profile__select)
+			) {
+				_errorlist.Add(ErrorType.news__profile__lack_of_permitions_to_read);
+				errors_out = _errorlist.ToArray();
+				return _output;
+			}
+			#endregion
+
+			_output
+				= DO_vNWS_Profile.getRecord_all(
+					(idApplication_in > 0 )
+						? (object)idApplication_in
+						: null, 
+					page_in,
+					page_numRecords_in, 
+					null
+				);
+
+			errors_out = _errorlist.ToArray();
+			return _output;
+		}
+		#endregion
+
+		#region public static SO_NWS_ContentProfile[] getRecord_byContent(...);
 		[BOMethodAttribute("getRecord_byContent", true)]
-		public static SO_vNWS_Attachment[] getRecord_byContent(
-			#region params...
+		public static SO_NWS_ContentProfile[] getRecord_byContent(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
@@ -708,9 +846,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			int page_numRecords_in,
 
 			out int[] errors_out
-			#endregion
 		) {
-			SO_vNWS_Attachment[] _output = null;
+			SO_NWS_ContentProfile[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
 			Sessionuser _sessionuser;
@@ -730,12 +867,12 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return _output;
 			}
 			#endregion
-			#region check Permitions...
+			#region check Permitions . . .
 			if (
 				!_sessionuser.hasPermition(
 					false,
-					PermitionType.News__select_OnSchedule,
-					PermitionType.News__select_OffSchedule
+					PermitionType.News__select_OffSchedule,
+					PermitionType.News__select_OnSchedule
 				)
 			) {
 				_errorlist.Add(ErrorType.news__lack_of_permitions_to_read);
@@ -744,13 +881,12 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 			#endregion
 
-			_output 
-				= DO_vNWS_Attachment.getRecord_byContent(
-					idContent_search_in,
+			_output
+				= DO_NWS_ContentProfile.getRecord_byContent(
+					idContent_search_in, 
 
-					page_in, 
-					page_numRecords_in,
-
+					page_in,
+					page_numRecords_in, 
 					null
 				);
 
