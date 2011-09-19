@@ -79,18 +79,12 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 			public static void Logout(
 				bool andRedirect_in
 			) {
-				HttpContext.Current.Session.Remove(
-					SESSION_GUID
-				);
-				HttpContext.Current.Session.Remove(
-					SESSION_IDUSER
-				);
-				HttpContext.Current.Session.Remove(
-					SESSION_IDPERMITIONS
-				);
-				HttpContext.Current.Session.Remove(
-					SESSION_LOGIN
-				);
+				BusinessInstances.CRD_Authentication.InstanceClient.Logout(SessionGuid);
+
+				HttpContext.Current.Session.Remove(SESSION_GUID);
+				HttpContext.Current.Session.Remove(SESSION_IDUSER);
+				HttpContext.Current.Session.Remove(SESSION_IDPERMITIONS);
+				HttpContext.Current.Session.Remove(SESSION_LOGIN);
 
 				if (andRedirect_in) {
 					HttpContext.Current.Response.Redirect(
@@ -148,10 +142,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 							//(HttpContext.Current.Session[SESSION_GUID] == null)
 						) {
 							HttpContext.Current.Session.Remove(SESSION_GUID);
-							HttpContext.Current.Session.Add(
-								SESSION_GUID,
-								value
-							);
+							HttpContext.Current.Session.Add(SESSION_GUID, value);
 						} else {
 							HttpContext.Current.Session[SESSION_GUID] = value;
 						}
@@ -184,10 +175,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 							//(HttpContext.Current.Session[SESSION_IDUSER] == null)
 						) {
 							HttpContext.Current.Session.Remove(SESSION_IDUSER);
-							HttpContext.Current.Session.Add(
-								SESSION_IDUSER,
-								value
-							);
+							HttpContext.Current.Session.Add(SESSION_IDUSER, value);
 						} else {
 							HttpContext.Current.Session[SESSION_IDUSER] = value;
 						}
@@ -224,10 +212,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 							//(HttpContext.Current.Session[SESSION_IDPERMITIONS] == null)
 						) {
 							HttpContext.Current.Session.Remove(SESSION_IDPERMITIONS);
-							HttpContext.Current.Session.Add(
-								SESSION_IDPERMITIONS,
-								value
-							);
+							HttpContext.Current.Session.Add(SESSION_IDPERMITIONS, value);
 						} else {
 							HttpContext.Current.Session[SESSION_IDPERMITIONS] = value;
 						}
@@ -260,10 +245,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 							//(HttpContext.Current.Session[SESSION_IDCOWORKER] == null)
 						) {
 							HttpContext.Current.Session.Remove(SESSION_LOGIN);
-							HttpContext.Current.Session.Add(
-								SESSION_LOGIN,
-								value
-							);
+							HttpContext.Current.Session.Add(SESSION_LOGIN, value);
 						} else {
 							HttpContext.Current.Session[SESSION_LOGIN] = value;
 						}

@@ -74,5 +74,14 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			);
 		}
 		#endregion
+		#region public void Logout(...);
+		public void Logout(
+			string sessionGuid_in
+		) {
+			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.Logout(
+				sessionGuid_in
+			);
+		}
+		#endregion
 	}
 }

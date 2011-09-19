@@ -138,5 +138,24 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			errors_out = (System.Int32[])results[2];
 		}
 		#endregion
+		#region public void Logout(...);
+		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
+			"http://OGen.NTier.Kick.distributedlayer.webservices.server/Logout",
+			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			Use = System.Web.Services.Description.SoapBindingUse.Literal,
+			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
+		)]
+		public void Logout(
+			string sessionGuid_in
+		) {
+			object[] results = this.Invoke(
+				"Logout", 
+				new object[] {
+					sessionGuid_in
+				}
+			);
+		}
+		#endregion
 	}
 }

@@ -40,5 +40,8 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			out System.Int64[] idPermitions_out, 
 			out System.Int32[] errors_out
 		);
+		void Logout(
+			string sessionGuid_in
+		);
 	}
 }

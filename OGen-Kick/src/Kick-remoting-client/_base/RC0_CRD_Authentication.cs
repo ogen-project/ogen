@@ -95,5 +95,14 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			);
 		}
 		#endregion
+		#region public void Logout(...);
+		public void Logout(
+			string sessionGuid_in
+		) {
+			bo_.Logout(
+				sessionGuid_in
+			);
+		}
+		#endregion
 	}
 }

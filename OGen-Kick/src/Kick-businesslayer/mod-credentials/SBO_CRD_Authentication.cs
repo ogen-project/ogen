@@ -223,9 +223,9 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					ErrorType.authentication,
 					-1L,
 					(user_in == null) ? -1 : user_in.IFApplication,
-					"IDUser:{0};password:{1}**********;whoAmI:{2};",
+					"login:{0};password[0]:{1};whoAmI:{2};",
 					new string[] { 
-						login_forLogPurposes_in, // user_in.IDUser.ToString(), 
+						login_forLogPurposes_in,
 						password_in.Length > 0 ? password_in.Substring(0, 1) : "", 
 						ip_forLogPurposes_in
 					}
@@ -298,6 +298,22 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			errors_out = _errorlist.ToArray();
 		}
 		#endregion
+		#region public static void Logout(...);
+		[BOMethodAttribute("Logout", true)]
+		public static void Logout(
+			string sessionGuid_in
+		) {
+			Guid _sessionguid;
+			if (
+				Sessionuser.Guid_TryParse(sessionGuid_in, out _sessionguid)
+				&&
+				UserSession.ContainsKey(_sessionguid)
+			) {
+				UserSession.Remove(_sessionguid);
+			}
+		}
+		#endregion
+
 		#region public static void ChangePassword(...);
 		[BOMethodAttribute("ChangePassword", true, false, 1)]
 		public static void ChangePassword(

@@ -10,6 +10,21 @@
 <asp:Content
 	id="cnt_Head" runat="server"
 	ContentPlaceHolderID="cph_Head">
+
+	<style type="text/css"> 
+		.label_warning, 
+		.label_error {
+			font-weight: lighter;
+			font-family: Verdana;
+		}
+		.label_error {
+			color: Red;
+		}
+		.label_warning {
+			color: #3333FF;
+		}
+	</style>
+
 	<asp:ContentPlaceHolder ID="cph_Head" runat="server" />
 </asp:Content>
 <asp:Content
@@ -22,20 +37,30 @@
 				welcome <asp:Label ID="lbl_Welcome" runat="server" />!
 			</td>
 			<td>
-				EMail: <asp:TextBox 
+				<asp:Label 
+					ID="lbl_EMail" runat="server" 
+					Text="EMail: " />
+				<asp:TextBox 
 					ID="txt_EMail" runat="server" />
-				Password: <asp:TextBox 
+				<asp:Label 
+					ID="lbl_Password" runat="server" 
+					Text="Password: " />
+				<asp:TextBox 
 					ID="txt_Password" runat="server" 
 					TextMode="Password" />
 				<asp:Button
 					ID="btn_Login" runat="server"
 					Text="  OK  "
 					OnClick="btn_Login_Click" />
+
+				<asp:Button
+					ID="btn_Logout" runat="server"
+					Text="Logout"
+					OnClick="btn_Logout_Click" />
 			</td>
 			<td rowspan="3">
-				error log:<br />
-				...<br />
-				...<br />
+				<asp:Label
+					ID="lbl_Log" runat="server" />
 			</td>
 		</tr>
 		<tr>
