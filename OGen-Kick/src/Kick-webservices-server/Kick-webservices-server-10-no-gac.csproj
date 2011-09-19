@@ -132,6 +132,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       <Project>{F17F7FA0-920E-4AE1-908F-2798D0124996}</Project>
       <Name>NTier_datalayer_proxy-10</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\OGen\OGen_lib\OGen_lib-10.csproj">
+      <Project>{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}</Project>
+      <Name>OGen_lib-10</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kick-businesslayer\Kick-businesslayer-10-no-gac.csproj">
       <Project>{82A42F01-E060-43BA-8580-3AA3B55B8835}</Project>
       <Name>Kick-businesslayer-10-no-gac</Name>

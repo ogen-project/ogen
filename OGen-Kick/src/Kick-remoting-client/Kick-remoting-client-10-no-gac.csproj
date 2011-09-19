@@ -96,6 +96,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       <Project>{A1711840-2FC2-457D-BA6B-0E36B54E395F}</Project>
       <Name>NTier_distributedlayer_remoting_client-10</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\OGen\OGen_lib\OGen_lib-10.csproj">
+      <Project>{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}</Project>
+      <Name>OGen_lib-10</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kick-businesslayer-shared\Kick-businesslayer-shared-10-no-gac.csproj">
       <Project>{13DD2252-A8D0-4672-86E4-67AFB821F03D}</Project>
       <Name>Kick-businesslayer-shared-10-no-gac</Name>

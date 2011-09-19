@@ -435,7 +435,7 @@ A equipa {2}
 				return null;
 			}
 			#endregion
-			#region check Permitions . . .
+			#region check Permitions...
 			if (
 				(_sessionuser.IDUser != idUser_in)
 				&&

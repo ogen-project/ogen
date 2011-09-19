@@ -223,7 +223,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					ErrorType.authentication,
 					-1L,
 					(user_in == null) ? -1 : user_in.IFApplication,
-					"login:{0};password[0]:{1};whoAmI:{2};",
+					"login:{0};password[0]:{1};ip:{2};",
 					new string[] { 
 						login_forLogPurposes_in,
 						password_in.Length > 0 ? password_in.Substring(0, 1) : "", 

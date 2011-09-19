@@ -70,6 +70,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SO_DIC__TextLanguage.cs" />
     <Compile Include="_base\SO0_APP_Application.cs" />
     <Compile Include="_base\SO0_CRD_Permition.cs" />
     <Compile Include="_base\SO0_CRD_Profile.cs" />
@@ -118,6 +119,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <ProjectReference Include="..\..\..\OGen-NTier\NTier_datalayer_proxy\NTier_datalayer_proxy-10.csproj">
       <Project>{F17F7FA0-920E-4AE1-908F-2798D0124996}</Project>
       <Name>NTier_datalayer_proxy-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\OGen\OGen_lib\OGen_lib-10.csproj">
+      <Project>{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}</Project>
+      <Name>OGen_lib-10</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

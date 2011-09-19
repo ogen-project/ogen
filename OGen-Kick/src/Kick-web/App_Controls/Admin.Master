@@ -13,25 +13,14 @@
 	<asp:ContentPlaceHolder ID="cph_Head" runat="server" />
 </asp:Content>
 <asp:Content
+	id="cnt_Menu" runat="server"
+	ContentPlaceHolderID="cph_Menu">
+	...
+</asp:Content>
+<asp:Content
 	id="cnt_Body" runat="server"
 	ContentPlaceHolderID="cph_Body">
 
-	<table border="1" cellspacing="0" cellpadding="0" style="width: 100%">
-		<tr>
-			<td>
-				TOP
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<asp:ContentPlaceHolder ID="cph_Body" runat="server" />
-			</td>
-		</tr>
-		<tr>
-			<td>
-				BOTTOM
-			</td>
-		</tr>
-	</table>
+	<asp:ContentPlaceHolder ID="cph_Body" runat="server" />
 
 </asp:Content>

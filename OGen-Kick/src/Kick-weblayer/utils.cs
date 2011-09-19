@@ -65,7 +65,6 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 			}
 		} 
 		#endregion
-
 		public static string ClientIPAddress { get { return HttpContext.Current.Request.UserHostAddress; } }
 
 		#region public static class User { ... }
@@ -77,7 +76,6 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 
 			#region public static void Logout();
 			public static void Logout(
-				bool andRedirect_in
 			) {
 				BusinessInstances.CRD_Authentication.InstanceClient.Logout(SessionGuid);
 
@@ -85,13 +83,25 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 				HttpContext.Current.Session.Remove(SESSION_IDUSER);
 				HttpContext.Current.Session.Remove(SESSION_IDPERMITIONS);
 				HttpContext.Current.Session.Remove(SESSION_LOGIN);
+			}
+			public static void Logout(
+				string path_in, 
+				bool withReturnParams_in
+			) {
+				Logout();
 
-				if (andRedirect_in) {
+				if (path_in != "") {
 					HttpContext.Current.Response.Redirect(
 						string.Format(
-							"~/admin/Login.aspx?url={0}&args={1}",
-							HttpContext.Current.Server.UrlEncode(HttpContext.Current.Request.Params["PATH_INFO"]),
-							HttpContext.Current.Server.UrlEncode(HttpContext.Current.Request.QueryString.ToString())
+							"{0}{1}",
+							path_in,
+							withReturnParams_in 
+								? string.Format(
+									"?url={0}&args={1}",
+									HttpContext.Current.Server.UrlEncode(HttpContext.Current.Request.Params["PATH_INFO"]),
+									HttpContext.Current.Server.UrlEncode(HttpContext.Current.Request.QueryString.ToString())
+								) 
+								: ""
 						),
 						true
 					);
@@ -324,7 +334,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 					errors_out,
 					errorFound_in
 				)) {
-					Logout(false);
+					Logout();
 
 					return false;
 				} else {

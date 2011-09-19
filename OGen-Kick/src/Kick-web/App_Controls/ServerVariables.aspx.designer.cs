@@ -10,33 +10,24 @@
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
     
     
-    public partial class Site {
+    public partial class ServerVariables {
         
         /// <summary>
-        /// cph_Title control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cph_Title;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// cph_Head control.
+        /// lit_dump control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cph_Head;
-        
-        /// <summary>
-        /// cph_Body control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cph_Body;
+        protected global::System.Web.UI.WebControls.Literal lit_dump;
     }
 }

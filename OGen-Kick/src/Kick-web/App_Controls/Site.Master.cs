@@ -24,56 +24,6 @@ using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
 	public partial class Site : System.Web.UI.MasterPage {
 		protected void Page_Load(object sender, EventArgs e) {
-			lit_Log.Text = "";
-
-			if (!Page.IsPostBack) {
-				Bind();
-			}
-		}
-
-		protected void btn_Logout_Click(object sender, EventArgs e) {
-			utils.User.Logout(false);
-
-			Bind();
-		}
-		protected void btn_Login_Click(object sender, EventArgs e) {
-			System.Text.StringBuilder _sb = null;
-
-			utils.User.DoLogin(
-				txt_EMail.Text,
-				txt_Password.Text,
-				delegate(
-					string message_in,
-					bool isError_in
-				) {
-					if (_sb == null) _sb = new System.Text.StringBuilder();
-					_sb.Append(string.Format(
-						"<div class='label_{0}'>&bull; {1}</div>",
-						isError_in ? "error" : "warning", 
-						message_in
-					));
-				}
-			);
-
-			if (_sb != null) {
-				lit_Log.Text = _sb.ToString();
-			}
-
-			Bind();
-		}
-
-		public void Bind() {
-			bool _isloggedin = utils.User.isLoggedIn;
-
-			lbl_Welcome.Text = (_isloggedin) ? utils.User.Login : "anonynous";
-
-			lbl_EMail.Visible = !_isloggedin;
-			txt_EMail.Visible = !_isloggedin;
-			lbl_Password.Visible = !_isloggedin;
-			txt_Password.Visible = !_isloggedin;
-			btn_Login.Visible = !_isloggedin;
-
-			btn_Logout.Visible = _isloggedin;
 		}
 	}
 }

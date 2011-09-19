@@ -43,8 +43,11 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin\CRD-ProfilePermition.aspx" />
+    <Content Include="admin\CRD-User-list.aspx" />
+    <Content Include="admin\CRD-User.aspx" />
     <Content Include="admin\Default.aspx" />
-    <Content Include="admin\Login.aspx" />
+    <Content Include="App_Controls\ServerVariables.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -55,6 +58,27 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\CRD-ProfilePermition.aspx.cs">
+      <DependentUpon>CRD-ProfilePermition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\CRD-ProfilePermition.aspx.designer.cs">
+      <DependentUpon>CRD-ProfilePermition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\CRD-User-list.aspx.cs">
+      <DependentUpon>CRD-User-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\CRD-User-list.aspx.designer.cs">
+      <DependentUpon>CRD-User-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\CRD-User.aspx.cs">
+      <DependentUpon>CRD-User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\CRD-User.aspx.designer.cs">
+      <DependentUpon>CRD-User.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -62,19 +86,19 @@
     <Compile Include="admin\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admin\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Controls\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="App_Controls\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="App_Controls\ServerVariables.aspx.cs">
+      <DependentUpon>ServerVariables.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Controls\ServerVariables.aspx.designer.cs">
+      <DependentUpon>ServerVariables.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Controls\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -112,9 +136,21 @@
     <Content Include="App_Controls\_base.Master" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\libs\anthem-1.5.3\Anthem-2010\Anthem-2010.csproj">
+      <Project>{804C7DD0-0124-4A0B-AFA8-E90F403387AB}</Project>
+      <Name>Anthem-2010</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\OGen-NTier\NTier_datalayer_proxy\NTier_datalayer_proxy-10.csproj">
       <Project>{F17F7FA0-920E-4AE1-908F-2798D0124996}</Project>
       <Name>NTier_datalayer_proxy-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\OGen\OGen_lib\OGen_lib-10.csproj">
+      <Project>{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}</Project>
+      <Name>OGen_lib-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\OGen\OGen_webforms\OGen_webforms-10.csproj">
+      <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
+      <Name>OGen_webforms-10</Name>
     </ProjectReference>
     <ProjectReference Include="..\Kick-businesslayer-instances\Kick-businesslayer-instances-businessobject-10-no-gac.csproj">
       <Project>{0872F13E-F31D-4E15-BCDF-2AC7449D6B29}</Project>

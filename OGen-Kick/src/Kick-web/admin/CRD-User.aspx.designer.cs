@@ -10,33 +10,51 @@
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
     
     
-    public partial class Site {
+    public partial class CRD_User {
         
         /// <summary>
-        /// cph_Title control.
+        /// txt_Login control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cph_Title;
+        protected global::System.Web.UI.WebControls.TextBox txt_Login;
         
         /// <summary>
-        /// cph_Head control.
+        /// txt_EMail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cph_Head;
+        protected global::System.Web.UI.WebControls.TextBox txt_EMail;
         
         /// <summary>
-        /// cph_Body control.
+        /// txt_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cph_Body;
+        protected global::System.Web.UI.WebControls.TextBox txt_Name;
+        
+        /// <summary>
+        /// cbl_Profiles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+		protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList cbl_Profiles;
+        
+        /// <summary>
+        /// btn_Profile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Anthem.Button btn_Profile;
     }
 }

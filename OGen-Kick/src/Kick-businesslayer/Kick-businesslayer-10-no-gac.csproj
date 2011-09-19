@@ -66,25 +66,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="mod-credentials\SBO_CRD_Authentication.cs" />
+    <Compile Include="mod-credentials\SBO_CRD_Permition.cs" />
+    <Compile Include="mod-credentials\SBO_CRD_Profile.cs" />
+    <Compile Include="mod-credentials\SBO_CRD_User.cs" />
+    <Compile Include="mod-credentials\Sessionuser.cs" />
+    <Compile Include="mod-dic\SBO_DIC_Dic.cs" />
+    <Compile Include="mod-log\SBO_LOG_Log.cs" />
+    <Compile Include="mod-web\SBO_WEB_User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="utils.cs" />
     <Compile Include="_base\BO0_CRD_Authentication.cs" />
     <Compile Include="_base\BO0_CRD_Permition.cs" />
     <Compile Include="_base\BO0_CRD_Profile.cs" />
     <Compile Include="_base\BO0_CRD_User.cs" />
     <Compile Include="_base\BO0_DIC_Dic.cs" />
-    <Compile Include="_base\BO0_FOR_Forum.cs" />
-    <Compile Include="_base\BO0_FOR_Thread.cs" />
     <Compile Include="_base\BO0_LOG_Log.cs" />
-    <Compile Include="_base\BO0_NWS_Attachment.cs" />
-    <Compile Include="_base\BO0_NWS_Author.cs" />
-    <Compile Include="_base\BO0_NWS_Highlight.cs" />
-    <Compile Include="_base\BO0_NWS_News.cs" />
-    <Compile Include="_base\BO0_NWS_Profile.cs" />
-    <Compile Include="_base\BO0_NWS_Source.cs" />
-    <Compile Include="_base\BO0_NWS_Tag.cs" />
     <Compile Include="_base\BO0_WEB_User.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -92,9 +93,25 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       <Project>{8AEBEA64-6FC4-430C-922C-B88D105AE91C}</Project>
       <Name>NTier_businesslayer-10</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\OGen-NTier\NTier_datalayer_proxy\NTier_datalayer_proxy-10.csproj">
+      <Project>{F17F7FA0-920E-4AE1-908F-2798D0124996}</Project>
+      <Name>NTier_datalayer_proxy-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\OGen\OGen_crypt\OGen_crypt-10.csproj">
+      <Project>{98DEBF89-FC67-43EF-BB19-7E70F939A8D6}</Project>
+      <Name>OGen_crypt-10</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\OGen\OGen_datalayer__base\OGen_datalayer__base-10.csproj">
       <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
       <Name>OGen_datalayer__base-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\OGen\OGen_lib\OGen_lib-10.csproj">
+      <Project>{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}</Project>
+      <Name>OGen_lib-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\OGen\OGen_mail\OGen_mail-10.csproj">
+      <Project>{FA349CD4-2751-4160-9C78-7DFC16A41A17}</Project>
+      <Name>OGen_mail-10</Name>
     </ProjectReference>
     <ProjectReference Include="..\Kick-businesslayer-shared\Kick-businesslayer-shared-10-no-gac.csproj">
       <Project>{13DD2252-A8D0-4672-86E4-67AFB821F03D}</Project>

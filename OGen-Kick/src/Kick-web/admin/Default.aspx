@@ -17,6 +17,4 @@
 	id="cnt_Body" runat="server"
 	ContentPlaceHolderID="cph_Body">
 
-	xxx
-
 </asp:Content>

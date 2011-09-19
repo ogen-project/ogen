@@ -42,6 +42,10 @@
     <Compile Include="utils.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\OGen\OGen_webforms\OGen_webforms-10.csproj">
+      <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
+      <Name>OGen_webforms-10</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kick-businesslayer-instances\Kick-businesslayer-instances-businessobject-10-no-gac.csproj">
       <Project>{0872F13E-F31D-4E15-BCDF-2AC7449D6B29}</Project>
       <Name>Kick-businesslayer-instances-businessobject-10-no-gac</Name>
