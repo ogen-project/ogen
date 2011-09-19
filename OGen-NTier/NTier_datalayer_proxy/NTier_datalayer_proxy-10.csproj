@@ -66,7 +66,6 @@
     <Compile Include="DOPropertyAttribute.cs" />
     <Compile Include="DOProperty_andAttribute.cs" />
     <Compile Include="IRecordObject.cs" />
-    <Compile Include="ISO__base.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +91,12 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OGen\OGen_lib\OGen_lib-10.csproj">
+      <Project>{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}</Project>
+      <Name>OGen_lib-10</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

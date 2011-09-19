@@ -53,6 +53,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LZMA-10", "..\libs\LZMA-9.10\CS\7zip\LZMA-10.csproj", "{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anthem-2010", "..\libs\anthem-1.5.3\Anthem-2010\Anthem-2010.csproj", "{804C7DD0-0124-4A0B-AFA8-E90F403387AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -163,6 +165,10 @@ Global
 		{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{804C7DD0-0124-4A0B-AFA8-E90F403387AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{804C7DD0-0124-4A0B-AFA8-E90F403387AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{804C7DD0-0124-4A0B-AFA8-E90F403387AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{804C7DD0-0124-4A0B-AFA8-E90F403387AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
