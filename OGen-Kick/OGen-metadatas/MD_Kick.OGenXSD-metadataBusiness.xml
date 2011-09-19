@@ -31,6 +31,11 @@
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
+        <method name="Logout" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+          </parameters>
+        </method>
       </methods>
     </class>
     <class name="CRD_Permition" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">

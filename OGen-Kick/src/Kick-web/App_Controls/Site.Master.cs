@@ -24,6 +24,8 @@ using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
 	public partial class Site : System.Web.UI.MasterPage {
 		protected void Page_Load(object sender, EventArgs e) {
+			lit_Log.Text = "";
+
 			if (!Page.IsPostBack) {
 				Bind();
 			}
@@ -46,15 +48,15 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				) {
 					if (_sb == null) _sb = new System.Text.StringBuilder();
 					_sb.Append(string.Format(
-						"<div class='{0}'>{1}</div>",
-						isError_in ? "label_error" : "label_warning", 
+						"<div class='label_{0}'>&bull; {1}</div>",
+						isError_in ? "error" : "warning", 
 						message_in
 					));
 				}
 			);
 
 			if (_sb != null) {
-				lbl_Log.Text = _sb.ToString();
+				lit_Log.Text = _sb.ToString();
 			}
 
 			Bind();

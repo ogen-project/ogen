@@ -58,9 +58,9 @@
 					Text="Logout"
 					OnClick="btn_Logout_Click" />
 			</td>
-			<td rowspan="3">
-				<asp:Label
-					ID="lbl_Log" runat="server" />
+			<td rowspan="3" valign="top">
+				<asp:Literal
+					ID="lit_Log" runat="server" />
 			</td>
 		</tr>
 		<tr>
