@@ -72,7 +72,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Compile Include="enums\ErrorType.cs" />
     <Compile Include="enums\Logtype.cs" />
     <Compile Include="enums\PermitionType.cs" />
-    <Compile Include="enums\ScopeType.cs" />
     <Compile Include="enums\TablefieldSource.cs" />
     <Compile Include="IBO_CRD_Permition.cs" />
     <Compile Include="IBO_CRD_Profile.cs" />
