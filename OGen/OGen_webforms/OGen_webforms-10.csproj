@@ -110,9 +110,19 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="IXXXListControl.cs" />
+    <Compile Include="IXXXListItem.cs" />
+    <Compile Include="KickCheckBoxList.cs" />
+    <Compile Include="KickListBox.cs" />
+    <Compile Include="KickListControl.cs" />
+    <Compile Include="KickRadioButtonList.cs" />
+    <Compile Include="ogen_CheckBox.cs" />
+    <Compile Include="ogen_RadioButton.cs" />
     <Compile Include="utils.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Web_XXXListControl.cs" />
+    <Compile Include="Web_XXXListItem.cs" />
     <None Include="COPYING.MIT" />
     <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
@@ -133,6 +143,16 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\libs\anthem-1.5.3\Anthem-2010\Anthem-2010.csproj">
+      <Project>{804C7DD0-0124-4A0B-AFA8-E90F403387AB}</Project>
+      <Name>Anthem-2010</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OGen_lib\OGen_lib-10.csproj">
+      <Project>{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}</Project>
+      <Name>OGen_lib-10</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -19,13 +19,25 @@ using System.Net;
 using System.Collections;
 
 namespace OGen.lib.presentationlayer.webforms {
-	public class utils { private utils() {}
+	public
+#if !NET_1_1
+		static
+#endif
+		class utils { 
+#if NET_1_1
+		private utils() {}
+#endif
 
 		#region public static string ConcatenateURLParams(Hashtable parameters_in);
-		public static string ConcatenateURLParams(Hashtable parameters_in) {
+		public static string ConcatenateURLParams(
+			Hashtable parameters_in
+		) {
 			return ConcatenateURLParams(parameters_in, false);
 		}
-		public static string ConcatenateURLParams(Hashtable parameters_in, bool addQuestionmarkSeparator_in) {
+		public static string ConcatenateURLParams(
+			Hashtable parameters_in, 
+			bool addQuestionmarkSeparator_in
+		) {
 			string ConcatenateURLParams_out = "";
 			string _separator = (addQuestionmarkSeparator_in) ? "?" : "";
 
@@ -80,6 +92,17 @@ namespace OGen.lib.presentationlayer.webforms {
 		}
 		#endregion
 		#region public static string ReadURL_ToString(...) { ... }
+//#if !(NET_1_0 || NET_1_1)
+//        public static string ReadURL_ToString(
+//            string url_in,
+//            System.Collections.Generic.Dictionary<string, string> parameters_in
+//        ) {
+//            return ReadURL_ToString(
+//                url_in
+//                + ConcatenateURLParams(parameters_in, true)
+//            );
+//        }
+//#endif
 		public static string ReadURL_ToString(
 			string url_in, 
 			Hashtable parameters_in
