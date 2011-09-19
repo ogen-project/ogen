@@ -1,20 +1,53 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="OGen.NTier.Kick.presentationlayer.weblayer.Site" %>
+﻿<%@ Master 
+	Language="C#" 
+	AutoEventWireup="true" 
+	CodeBehind="Site.master.cs" 
+	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.Site"
+	MasterPageFile="~/App_Controls/_base.Master" %>
+<asp:Content
+	id="cnt_Title" runat="server" 
+	ContentPlaceHolderID="cph_Title">Kick <asp:ContentPlaceHolder ID="cph_Title" runat="server" /></asp:Content>
+<asp:Content
+	id="cnt_Head" runat="server"
+	ContentPlaceHolderID="cph_Head">
+	<asp:ContentPlaceHolder ID="cph_Head" runat="server" />
+</asp:Content>
+<asp:Content
+	id="cnt_Body" runat="server"
+	ContentPlaceHolderID="cph_Body">
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<table border="1" cellspacing="0" cellpadding="0" style="width: 100%">
+		<tr>
+			<td>
+				welcome <asp:Label ID="lbl_Welcome" runat="server" />!
+			</td>
+			<td>
+				EMail: <asp:TextBox 
+					ID="txt_EMail" runat="server" />
+				Password: <asp:TextBox 
+					ID="txt_Password" runat="server" 
+					TextMode="Password" />
+				<asp:Button
+					ID="btn_Login" runat="server"
+					Text="  OK  "
+					OnClick="btn_Login_Click" />
+			</td>
+			<td rowspan="3">
+				error log:<br />
+				...<br />
+				...<br />
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<asp:ContentPlaceHolder ID="cph_Body" runat="server" />
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				BOTTOM
+			</td>
+		</tr>
+	</table>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
-    </form>
-</body>
-</html>
+</asp:Content>

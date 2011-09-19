@@ -25,6 +25,11 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string password_new_in, 
 			out System.Int32[] errors_out
 		);
+		bool CheckCredentials(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			out System.Int32[] errors_out
+		);
 		void Login(
 			string login_in, 
 			string password_in, 

@@ -38,6 +38,19 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			);
 		}
 		#endregion
+		#region public bool CheckCredentials(...);
+		public bool CheckCredentials(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			out System.Int32[] errors_out
+		) {
+			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.CheckCredentials(
+				sessionGuid_in, 
+				ip_forLogPurposes_in, 
+				out errors_out
+			);
+		}
+		#endregion
 		#region public void Login(...);
 		public void Login(
 			string login_in, 

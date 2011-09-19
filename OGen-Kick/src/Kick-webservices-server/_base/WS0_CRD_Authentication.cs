@@ -49,6 +49,20 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			);
 		}
 		#endregion
+		#region public bool CheckCredentials(...);
+		[WebMethod]
+		public bool CheckCredentials(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			out System.Int32[] errors_out
+		) {
+			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.CheckCredentials(
+				sessionGuid_in, 
+				ip_forLogPurposes_in, 
+				out errors_out
+			);
+		}
+		#endregion
 		#region public void Login(...);
 		[WebMethod]
 		public void Login(

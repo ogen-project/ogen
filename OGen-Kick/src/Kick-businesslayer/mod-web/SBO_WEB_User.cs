@@ -83,7 +83,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return;
 			}
 
-			if (!utils.Guid_TryParse(sessionGuid_in, out _guid)) {
+			if (!Sessionuser.Guid_TryParse(sessionGuid_in, out _guid)) {
 				_errors.Add(ErrorType.authentication__invalid_guid);
 
 				errors_out = _errors.ToArray();

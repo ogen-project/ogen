@@ -2,11 +2,12 @@
 	Language="C#" 
 	AutoEventWireup="true" 
 	CodeBehind="Default.aspx.cs" 
-	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.admin.Default" 
-	MasterPageFile="~/App_Controls/Admin.Master" %>
+	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.Default" 
+	MasterPageFile="~/App_Controls/Site.Master" %>
 <asp:Content
 	id="cnt_Title" runat="server" 
-	ContentPlaceHolderID="cph_Title"> - Default
+	ContentPlaceHolderID="cph_Title">
+
 </asp:Content>
 <asp:Content
 	id="cnt_Head" runat="server"

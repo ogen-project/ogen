@@ -45,7 +45,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		) {
 			errorlist_out = new List<int>();
 
-			if (!utils.Guid_TryParse(sessionGuid_in, out sessionGuid_out)) {
+			if (!Sessionuser.Guid_TryParse(sessionGuid_in, out sessionGuid_out)) {
 				errorlist_out.Add(ErrorType.authentication__invalid_guid);
 
 				errors_out = errorlist_out.ToArray();
@@ -365,6 +365,39 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 
 			errors_out = _errorlist.ToArray();
+		}
+		#endregion
+		#region public static bool CheckCredentials(...);
+		[BOMethodAttribute("CheckCredentials", true)]
+		public static bool CheckCredentials(
+			string sessionGuid_in,
+			string ip_forLogPurposes_in,
+
+			out int[] errors_out
+		) {
+			List<int> _errorlist;
+			Guid _sessionguid;
+			Sessionuser _sessionuser;
+
+			#region check...
+			if (!
+				SBO_CRD_Authentication.isSessionGuid_valid(
+					sessionGuid_in,
+					ip_forLogPurposes_in,
+					out _sessionguid,
+					out _sessionuser,
+					out _errorlist,
+					out errors_out
+				)
+			) {
+				//// no need!
+				//errors_out = _errors.ToArray();
+
+				return false;
+			}
+			#endregion
+
+			return true;
 		}
 		#endregion
 	}

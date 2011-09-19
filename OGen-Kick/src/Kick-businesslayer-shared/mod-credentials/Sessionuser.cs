@@ -64,5 +64,16 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			return false;
 		}
 		#endregion
+		#region public static bool Guid_TryParse(string guid_in, out Guid guid_out);
+		public static bool Guid_TryParse(string guid_in, out Guid guid_out) {
+			try {
+				guid_out = new Guid(guid_in);
+				return true;
+			} catch {
+				guid_out = Guid.Empty;
+				return false;
+			}
+		}
+		#endregion
 	}
 }

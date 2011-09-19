@@ -12,6 +12,13 @@
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
+        <method name="CheckCredentials" outputType="bool" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
         <method name="Login" outputType="void" distribute="true" isSearch="false" ipParamNum="3">
           <parameters>
             <parameter name="login_in" type="string" isParams="false" isOut="false" isRef="false" />

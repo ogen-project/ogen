@@ -134,6 +134,14 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 		);
 
 		public static bool hasErrors(
+			int[] errors_in
+		) {
+			return hasErrors(
+				errors_in,
+				null
+			);
+		}
+		public static bool hasErrors(
 			int[] errors_in,
 			hasErrors_errorFound errorFound_in
 		) {
@@ -141,15 +149,23 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 
 			bool _isError;
 			foreach (int _error in errors_in) {
-				errorFound_in(
+				if (errorFound_in != null) {
+					errorFound_in(
+						ErrorMessage(
+							_error,
+							out _isError
+						),
+						_isError
+					);
+
+					if (_isError) _output = true;
+				} else {
 					ErrorMessage(
 						_error,
 						out _isError
-					),
-					_isError
-				);
-
-				if (_isError) _output = true;
+					);
+					if (_isError) return true;
+				}
 			}
 
 			return _output;

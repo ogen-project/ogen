@@ -81,6 +81,30 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			errors_out = (System.Int32[])results[0];
 		}
 		#endregion
+		#region public bool CheckCredentials(...);
+		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
+			"http://OGen.NTier.Kick.distributedlayer.webservices.server/CheckCredentials",
+			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			Use = System.Web.Services.Description.SoapBindingUse.Literal,
+			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
+		)]
+		public bool CheckCredentials(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			out System.Int32[] errors_out
+		) {
+			object[] results = this.Invoke(
+				"CheckCredentials", 
+				new object[] {
+					sessionGuid_in,
+					ip_forLogPurposes_in
+				}
+			);
+			errors_out = (System.Int32[])results[1];
+			return (bool)results[0];
+		}
+		#endregion
 		#region public void Login(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
 			"http://OGen.NTier.Kick.distributedlayer.webservices.server/Login",
