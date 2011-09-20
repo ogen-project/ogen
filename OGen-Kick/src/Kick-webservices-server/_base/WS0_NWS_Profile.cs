@@ -35,14 +35,12 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Profile.delObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idProfile_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}
@@ -68,7 +66,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idApplication_in, 
 			int page_in, 
 			int page_numRecords_in, 
 			out System.Int32[] errors_out
@@ -76,7 +73,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Profile.getRecord_all(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
-				idApplication_in, 
 				page_in, 
 				page_numRecords_in, 
 				out errors_out
@@ -129,14 +125,12 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile profile_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Profile.insObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				profile_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}
@@ -147,14 +141,12 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile profile_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Profile.updObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				profile_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}

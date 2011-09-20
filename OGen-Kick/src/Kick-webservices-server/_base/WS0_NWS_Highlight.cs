@@ -35,14 +35,12 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idHighlight_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.delObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idHighlight_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}

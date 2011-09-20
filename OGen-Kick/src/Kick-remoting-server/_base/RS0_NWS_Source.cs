@@ -32,14 +32,12 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idSource_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Source.delObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idSource_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}

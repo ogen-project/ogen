@@ -66,7 +66,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idAuthor_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -74,8 +73,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				new object[] {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
-					idAuthor_in,
-					idApplication_in
+					idAuthor_in
 				}
 			);
 			errors_out = (System.Int32[])results[0];

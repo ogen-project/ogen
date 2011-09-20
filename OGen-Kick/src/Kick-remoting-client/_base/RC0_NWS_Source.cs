@@ -47,14 +47,12 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idSource_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			bo_.delObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idSource_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}

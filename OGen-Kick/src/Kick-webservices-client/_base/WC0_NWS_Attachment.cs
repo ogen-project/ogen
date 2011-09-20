@@ -66,7 +66,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idAttachment_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -74,8 +73,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				new object[] {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
-					idAttachment_in,
-					idApplication_in
+					idAttachment_in
 				}
 			);
 			errors_out = (System.Int32[])results[0];
@@ -179,7 +177,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment attachment_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Description_in, 
-			int idApplication_in, 
 			bool selectIdentity_in, 
 			out string guid_out, 
 			out System.Int32[] errors_out
@@ -192,7 +189,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					attachment_in,
 					tx_Name_in,
 					tx_Description_in,
-					idApplication_in,
 					selectIdentity_in
 				}
 			);
@@ -215,7 +211,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment attachment_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Description_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -225,8 +220,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					ip_forLogPurposes_in,
 					attachment_in,
 					tx_Name_in,
-					tx_Description_in,
-					idApplication_in
+					tx_Description_in
 				}
 			);
 			errors_out = (System.Int32[])results[0];

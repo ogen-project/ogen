@@ -66,7 +66,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -74,8 +73,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				new object[] {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
-					idContent_in,
-					idApplication_in
+					idContent_in
 				}
 			);
 			errors_out = (System.Int32[])results[0];
@@ -146,7 +144,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content[] getRecord_generic(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int IDApplication_search_in, 
 			long IDUser__Publisher_search_in, 
 			long IDUser__Aproved_search_in, 
 			System.DateTime Begin_date_search_in, 
@@ -168,7 +165,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				new object[] {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
-					IDApplication_search_in,
 					IDUser__Publisher_search_in,
 					IDUser__Aproved_search_in,
 					Begin_date_search_in,
@@ -210,7 +206,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			System.Int64[] idSources_in, 
 			System.Int64[] idHighlights_in, 
 			System.Int64[] idProfiles_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -227,8 +222,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idAuthors_in,
 					idSources_in,
 					idHighlights_in,
-					idProfiles_in,
-					idApplication_in
+					idProfiles_in
 				}
 			);
 			errors_out = (System.Int32[])results[1];
@@ -256,7 +250,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			System.Int64[] idSources_in, 
 			System.Int64[] idHighlights_in, 
 			System.Int64[] idProfiles_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -273,8 +266,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idAuthors_in,
 					idSources_in,
 					idHighlights_in,
-					idProfiles_in,
-					idApplication_in
+					idProfiles_in
 				}
 			);
 			errors_out = (System.Int32[])results[0];
@@ -318,7 +310,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
 			System.Int64[] idAuthors_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -327,8 +318,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
 					idContent_in,
-					idAuthors_in,
-					idApplication_in
+					idAuthors_in
 				}
 			);
 			errors_out = (System.Int32[])results[0];
@@ -350,7 +340,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_subtitle_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_summary_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -362,8 +351,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					tx_Title_in,
 					tx_Content_in,
 					tx_subtitle_in,
-					tx_summary_in,
-					idApplication_in
+					tx_summary_in
 				}
 			);
 			errors_out = (System.Int32[])results[0];
@@ -382,7 +370,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
 			System.Int64[] idHighlights_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -391,8 +378,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
 					idContent_in,
-					idHighlights_in,
-					idApplication_in
+					idHighlights_in
 				}
 			);
 			errors_out = (System.Int32[])results[0];
@@ -411,7 +397,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
 			System.Int64[] idProfiles_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -420,8 +405,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
 					idContent_in,
-					idProfiles_in,
-					idApplication_in
+					idProfiles_in
 				}
 			);
 			errors_out = (System.Int32[])results[0];
@@ -440,7 +424,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
 			System.Int64[] idSources_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -449,8 +432,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
 					idContent_in,
-					idSources_in,
-					idApplication_in
+					idSources_in
 				}
 			);
 			errors_out = (System.Int32[])results[0];
@@ -469,7 +451,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
 			System.Int64[] idTags_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -478,8 +459,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
 					idContent_in,
-					idTags_in,
-					idApplication_in
+					idTags_in
 				}
 			);
 			errors_out = (System.Int32[])results[0];

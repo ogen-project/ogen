@@ -31,7 +31,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
@@ -62,7 +61,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content[] getRecord_generic(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int IDApplication_search_in, 
 			long IDUser__Publisher_search_in, 
 			long IDUser__Aproved_search_in, 
 			System.DateTime Begin_date_search_in, 
@@ -96,7 +94,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			System.Int64[] idSources_in, 
 			System.Int64[] idHighlights_in, 
 			System.Int64[] idProfiles_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
@@ -116,7 +113,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			System.Int64[] idSources_in, 
 			System.Int64[] idHighlights_in, 
 			System.Int64[] idProfiles_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
@@ -138,7 +134,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
 			System.Int64[] idAuthors_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
@@ -153,7 +148,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_subtitle_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_summary_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
@@ -165,7 +159,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
 			System.Int64[] idHighlights_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
@@ -177,7 +170,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
 			System.Int64[] idProfiles_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
@@ -189,7 +181,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
 			System.Int64[] idSources_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
@@ -201,7 +192,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
 			System.Int64[] idTags_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");

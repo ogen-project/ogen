@@ -22,7 +22,6 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idTag_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag getObject(
@@ -77,7 +76,6 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag tag_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
-			int idApplication_in, 
 			bool selectIdentity_in, 
 			out System.Int32[] errors_out
 		);
@@ -86,7 +84,6 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag tag_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		);
 		void updObject_Approve(

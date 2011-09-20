@@ -430,8 +430,6 @@ errors_out.Add(ErrorType.profile__invalid_name);
 
 			//bool andApprove_in, 
 
-			int idApplication_in,
-
 			out int[] errors_out
 			#endregion
 		) {
@@ -486,7 +484,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 					content_in.TX_Title = SBO_DIC_Dic.insObject(
 						_con,
 
-						idApplication_in,
+						_sessionuser.IDApplication,
 						OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_CONTENT__TX_TITLE,
 
 						tx_Title_in
@@ -504,7 +502,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 					content_in.TX_Content = SBO_DIC_Dic.insObject(
 						_con,
 
-						idApplication_in,
+						_sessionuser.IDApplication,
 						OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_CONTENT__TX_CONTENT,
 
 						tx_Content_in
@@ -522,7 +520,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 					content_in.tx_subtitle = SBO_DIC_Dic.insObject(
 						_con,
 
-						idApplication_in,
+						_sessionuser.IDApplication,
 						OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_CONTENT__TX_SUBTITLE,
 
 						tx_subtitle_in
@@ -540,7 +538,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 					content_in.tx_summary = SBO_DIC_Dic.insObject(
 						_con,
 
-						idApplication_in,
+						_sessionuser.IDApplication,
 						OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_CONTENT__TX_SUMMARY,
 
 						tx_summary_in
@@ -554,7 +552,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 					= content_in.End_date
 					= datetime_minvalue_;
 
-				content_in.IFApplication = idApplication_in;
+				content_in.IFApplication = _sessionuser.IDApplication;
 				content_in.IFUser__Publisher = _sessionuser.IDUser;
 				content_in.Publish_date = DateTime.Now;
 				content_in.Newslettersent_date_isNull = true;
@@ -611,7 +609,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 					LogType.error,
 					ErrorType.data,
 					-1L, 
-					idApplication_in,
+					_sessionuser.IDApplication,
 					"{0}",
 					new string[] {
 						_exception.Message
@@ -631,7 +629,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
-			bool updateContent_in, 
+			bool updateContent_in,
 			SO_NWS_Content content_in,
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Title_in,
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in,
@@ -654,8 +652,6 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			long[] idProfiles_in, 
 
 			//bool andApprove_in, 
-
-			int idApplication_in,
 
 			out int[] errors_out 
 			#endregion
@@ -735,7 +731,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 						if (_content.TX_Title_isNull) {
 							_content.TX_Title = SBO_DIC_Dic.insObject(
 								_con,
-								idApplication_in,
+								_sessionuser.IDApplication,
 								OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_CONTENT__TX_TITLE,
 								tx_Title_in
 							);
@@ -753,7 +749,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 						if (_content.TX_Content_isNull) {
 							_content.TX_Content = SBO_DIC_Dic.insObject(
 								_con,
-								idApplication_in,
+								_sessionuser.IDApplication,
 								OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_CONTENT__TX_CONTENT,
 								tx_Content_in
 							);
@@ -771,7 +767,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 						if (_content.tx_subtitle_isNull) {
 							_content.tx_subtitle = SBO_DIC_Dic.insObject(
 								_con,
-								idApplication_in,
+								_sessionuser.IDApplication,
 								OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_CONTENT__TX_SUBTITLE,
 								tx_subtitle_in
 							);
@@ -789,7 +785,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 						if (_content.tx_summary_isNull) {
 							_content.tx_summary = SBO_DIC_Dic.insObject(
 								_con,
-								idApplication_in,
+								_sessionuser.IDApplication,
 								OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_CONTENT__TX_SUMMARY,
 								tx_summary_in
 							);
@@ -903,7 +899,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 					LogType.error,
 					ErrorType.data,
 					-1L,
-					idApplication_in,
+					_sessionuser.IDApplication,
 					"{0}",
 					new string[] {
 						_exception.Message
@@ -937,8 +933,6 @@ errors_out.Add(ErrorType.profile__invalid_name);
 
 			//bool andApprove_in,
 
-			int idApplication_in,
-
 			out int[] errors_out
 			#endregion
 		) {
@@ -970,8 +964,6 @@ errors_out.Add(ErrorType.profile__invalid_name);
 
 				//andApprove_in,
 
-				idApplication_in,
-
 				out errors_out
 			);
 		} 
@@ -990,8 +982,6 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_summary_in,
 
 			//bool andApprove_in,
-
-			int idApplication_in,
 
 			out int[] errors_out
 			#endregion
@@ -1024,8 +1014,6 @@ errors_out.Add(ErrorType.profile__invalid_name);
 
 				//andApprove_in,
 
-				idApplication_in,
-
 				out errors_out
 			);
 		} 
@@ -1042,8 +1030,6 @@ errors_out.Add(ErrorType.profile__invalid_name);
 
 			//bool andApprove_in,
 
-			int idApplication_in,
-
 			out int[] errors_out
 			#endregion
 		) {
@@ -1054,7 +1040,11 @@ errors_out.Add(ErrorType.profile__invalid_name);
 				false,
 				new SO_NWS_Content(
 					idContent_in, 
-					idApplication_in, 
+
+					// since this is an update, there's no need to pass IDApplication, 
+					// update executes a select prior to updating
+					-1, 
+
 					-1L, 
 					datetime_minvalue_, 
 					-1L, 
@@ -1090,8 +1080,6 @@ errors_out.Add(ErrorType.profile__invalid_name);
 
 				//andApprove_in,
 
-				idApplication_in,
-
 				out errors_out
 			);
 		} 
@@ -1108,8 +1096,6 @@ errors_out.Add(ErrorType.profile__invalid_name);
 
 			//bool andApprove_in,
 
-			int idApplication_in,
-
 			out int[] errors_out
 			#endregion
 		) {
@@ -1120,7 +1106,11 @@ errors_out.Add(ErrorType.profile__invalid_name);
 				false,
 				new SO_NWS_Content(
 					idContent_in,
-					idApplication_in,
+
+					// since this is an update, there's no need to pass IDApplication, 
+					// update executes a select prior to updating
+					-1, 
+
 					-1L,
 					datetime_minvalue_,
 					-1L,
@@ -1156,8 +1146,6 @@ errors_out.Add(ErrorType.profile__invalid_name);
 
 				//andApprove_in,
 
-				idApplication_in,
-
 				out errors_out
 			);
 		} 
@@ -1174,8 +1162,6 @@ errors_out.Add(ErrorType.profile__invalid_name);
 
 			//bool andApprove_in,
 
-			int idApplication_in,
-
 			out int[] errors_out
 			#endregion
 		) {
@@ -1186,7 +1172,11 @@ errors_out.Add(ErrorType.profile__invalid_name);
 				false,
 				new SO_NWS_Content(
 					idContent_in,
-					idApplication_in,
+
+					// since this is an update, there's no need to pass IDApplication, 
+					// update executes a select prior to updating
+					-1, 
+
 					-1L,
 					datetime_minvalue_,
 					-1L,
@@ -1222,8 +1212,6 @@ errors_out.Add(ErrorType.profile__invalid_name);
 
 				//andApprove_in,
 
-				idApplication_in,
-
 				out errors_out
 			);
 		} 
@@ -1240,8 +1228,6 @@ errors_out.Add(ErrorType.profile__invalid_name);
 
 			//bool andApprove_in,
 
-			int idApplication_in,
-
 			out int[] errors_out
 			#endregion
 		) {
@@ -1252,7 +1238,11 @@ errors_out.Add(ErrorType.profile__invalid_name);
 				false,
 				new SO_NWS_Content(
 					idContent_in,
-					idApplication_in,
+
+					// since this is an update, there's no need to pass IDApplication, 
+					// update executes a select prior to updating
+					-1, 
+
 					-1L,
 					datetime_minvalue_,
 					-1L,
@@ -1288,8 +1278,6 @@ errors_out.Add(ErrorType.profile__invalid_name);
 
 				//andApprove_in,
 
-				idApplication_in,
-
 				out errors_out
 			);
 		} 
@@ -1306,8 +1294,6 @@ errors_out.Add(ErrorType.profile__invalid_name);
 
 			//bool andApprove_in,
 
-			int idApplication_in,
-
 			out int[] errors_out
 			#endregion
 		) {
@@ -1318,7 +1304,11 @@ errors_out.Add(ErrorType.profile__invalid_name);
 				false,
 				new SO_NWS_Content(
 					idContent_in, 
-					idApplication_in, 
+
+					// since this is an update, there's no need to pass IDApplication, 
+					// update executes a select prior to updating
+					-1, 
+
 					-1L, 
 					datetime_minvalue_, 
 					-1L, 
@@ -1353,8 +1343,6 @@ errors_out.Add(ErrorType.profile__invalid_name);
 				new long[] { },
 
 				//andApprove_in,
-
-				idApplication_in,
 
 				out errors_out
 			);
@@ -1401,8 +1389,6 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			string ip_forLogPurposes_in, 
 
 			long idContent_in,
-
-			int idApplication_in,
 
 			out int[] errors_out
 		) {
@@ -1638,7 +1624,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 					LogType.error,
 					ErrorType.data,
 					-1L,
-					idApplication_in, 
+					_sessionuser.IDApplication, 
 					"{0}",
 					new string[] {
 						_exception.Message
@@ -1660,7 +1646,6 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
-			int IDApplication_search_in,
 			long IDUser__Publisher_search_in,
 
 			long IDUser__Aproved_search_in,
@@ -1720,7 +1705,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 
 			_output
 				= DO_vNWS_Content.getRecord_generic(
-					IDApplication_search_in, 
+					_sessionuser.IDApplication, 
 					IDUser__Publisher_search_in,
 					IDUser__Aproved_search_in, 
 					(Begin_date_search_in <= datetime_minvalue_) ? null : (object)Begin_date_search_in,

@@ -285,7 +285,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			SO_NWS_Tag tag_in,
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in,
-			int idApplication_in, 
 
 			bool selectIdentity_in, 
 
@@ -335,7 +334,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 				long _tx_name = SBO_DIC_Dic.insObject(
 					_con,
-					idApplication_in,
+					_sessionuser.IDApplication,
 					TableFieldSource.NWS_TAG__TX_NAME,
 					tx_Name_in
 				);
@@ -389,7 +388,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					LogType.error,
 					ErrorType.data,
 					-1L,
-					idApplication_in,
+					_sessionuser.IDApplication,
 					"{0}",
 					new string[] {
 			            _exception.Message
@@ -411,8 +410,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			SO_NWS_Tag tag_in,
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in,
-
-			int idApplication_in, 
 
 			out int[] errors_out
 		) {
@@ -542,7 +539,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					LogType.error,
 					ErrorType.data,
 					-1L,
-					idApplication_in,
+					_sessionuser.IDApplication,
 					"{0}",
 					new string[] {
 			            _exception.Message
@@ -637,8 +634,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			long idTag_in,
 
-			int idApplication_in,
-
 			out int[] errors_out
 		) {
 			List<int> _errorlist;
@@ -714,7 +709,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				||
 				(DO_NWS_Tag.getCount_inRecord_byParent(
 					idTag_in, 
-					idApplication_in // ToDos: here! this should not be needed!
+					_sessionuser.IDApplication // ToDos: here! this should not be needed!
 				) > 0)
 			) {
 				_errorlist.Add(ErrorType.data__constraint_violation);
@@ -789,7 +784,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					LogType.error,
 					ErrorType.data,
 					-1L,
-					idApplication_in,
+					_sessionuser.IDApplication,
 					"{0}",
 					new string[] {
 			            _exception.Message

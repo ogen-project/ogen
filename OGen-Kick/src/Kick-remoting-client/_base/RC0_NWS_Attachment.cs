@@ -47,14 +47,12 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idAttachment_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			bo_.delObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idAttachment_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}
@@ -117,7 +115,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment attachment_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Description_in, 
-			int idApplication_in, 
 			bool selectIdentity_in, 
 			out string guid_out, 
 			out System.Int32[] errors_out
@@ -128,7 +125,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 				attachment_in, 
 				tx_Name_in, 
 				tx_Description_in, 
-				idApplication_in, 
 				selectIdentity_in, 
 				out guid_out, 
 				out errors_out
@@ -142,7 +138,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment attachment_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Description_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			bo_.updObject(
@@ -151,7 +146,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 				attachment_in, 
 				tx_Name_in, 
 				tx_Description_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}

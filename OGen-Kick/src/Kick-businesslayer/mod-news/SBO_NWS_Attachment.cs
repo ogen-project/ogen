@@ -134,7 +134,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			SO_NWS_Attachment attachment_in,
 			SO_DIC__TextLanguage[] tx_Name_in,
 			SO_DIC__TextLanguage[] tx_Description_in,
-			int idApplication_in, 
 
 			bool selectIdentity_in, 
 
@@ -215,7 +214,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					attachment_in.TX_Name = SBO_DIC_Dic.insObject(
 						_con,
 
-						idApplication_in,
+						_sessionuser.IDApplication,
 						OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_ATTACHMENT__TX_NAME,
 
 						tx_Name_in
@@ -233,7 +232,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					attachment_in.TX_Description = SBO_DIC_Dic.insObject(
 						_con,
 
-						idApplication_in,
+						_sessionuser.IDApplication,
 						OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_ATTACHMENT__TX_DESCRIPTION,
 
 						tx_Description_in
@@ -293,7 +292,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					LogType.error,
 					ErrorType.data,
 					-1L, 
-					idApplication_in,
+					_sessionuser.IDApplication,
 					"{0}",
 					new string[] {
 			            _exception.Message
@@ -316,7 +315,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			SO_NWS_Attachment attachment_in,
 			SO_DIC__TextLanguage[] tx_Name_in,
 			SO_DIC__TextLanguage[] tx_Description_in,
-			int idApplication_in, 
 
 			out int[] errors_out
 		) {
@@ -377,7 +375,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					if (_attachment.TX_Name_isNull) {
 						_attachment.TX_Name = SBO_DIC_Dic.insObject(
 							_con,
-							idApplication_in,
+							_sessionuser.IDApplication,
 							OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_ATTACHMENT__TX_NAME,
 							tx_Name_in
 						);
@@ -395,7 +393,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					if (_attachment.TX_Description_isNull) {
 						_attachment.TX_Description = SBO_DIC_Dic.insObject(
 							_con,
-							idApplication_in,
+							_sessionuser.IDApplication,
 							OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_ATTACHMENT__TX_DESCRIPTION,
 							tx_Description_in
 						);
@@ -458,7 +456,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					LogType.error,
 					ErrorType.data,
 					-1L, 
-					idApplication_in,
+					_sessionuser.IDApplication,
 					"{0}",
 					new string[] {
 			            _exception.Message
@@ -481,8 +479,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string ip_forLogPurposes_in, 
 
 			long idAttachment_in,
-
-			int idApplication_in,
 
 			out int[] errors_out
 		) {
@@ -624,7 +620,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					LogType.error,
 					ErrorType.data,
 					-1L, 
-					idApplication_in,
+					_sessionuser.IDApplication,
 					"{0}",
 					new string[] {
 			            _exception.Message

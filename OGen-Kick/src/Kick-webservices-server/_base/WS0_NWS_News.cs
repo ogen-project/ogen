@@ -35,14 +35,12 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.delObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idContent_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}
@@ -86,7 +84,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content[] getRecord_generic(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int IDApplication_search_in, 
 			long IDUser__Publisher_search_in, 
 			long IDUser__Aproved_search_in, 
 			System.DateTime Begin_date_search_in, 
@@ -106,7 +103,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.getRecord_generic(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
-				IDApplication_search_in, 
 				IDUser__Publisher_search_in, 
 				IDUser__Aproved_search_in, 
 				Begin_date_search_in, 
@@ -140,7 +136,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			System.Int64[] idSources_in, 
 			System.Int64[] idHighlights_in, 
 			System.Int64[] idProfiles_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.insObject(
@@ -156,7 +151,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 				idSources_in, 
 				idHighlights_in, 
 				idProfiles_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}
@@ -176,7 +170,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			System.Int64[] idSources_in, 
 			System.Int64[] idHighlights_in, 
 			System.Int64[] idProfiles_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.updObject(
@@ -192,7 +185,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 				idSources_in, 
 				idHighlights_in, 
 				idProfiles_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}
@@ -220,7 +212,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
 			System.Int64[] idAuthors_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.updObject_Authors(
@@ -228,7 +219,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 				ip_forLogPurposes_in, 
 				idContent_in, 
 				idAuthors_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}
@@ -243,7 +233,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_subtitle_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_summary_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.updObject_Content(
@@ -254,7 +243,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 				tx_Content_in, 
 				tx_subtitle_in, 
 				tx_summary_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}
@@ -266,7 +254,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
 			System.Int64[] idHighlights_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.updObject_Highlights(
@@ -274,7 +261,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 				ip_forLogPurposes_in, 
 				idContent_in, 
 				idHighlights_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}
@@ -286,7 +272,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
 			System.Int64[] idProfiles_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.updObject_Profiles(
@@ -294,7 +279,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 				ip_forLogPurposes_in, 
 				idContent_in, 
 				idProfiles_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}
@@ -306,7 +290,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
 			System.Int64[] idSources_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.updObject_Sources(
@@ -314,7 +297,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 				ip_forLogPurposes_in, 
 				idContent_in, 
 				idSources_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}
@@ -326,7 +308,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
 			System.Int64[] idTags_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.updObject_Tags(
@@ -334,7 +315,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 				ip_forLogPurposes_in, 
 				idContent_in, 
 				idTags_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}

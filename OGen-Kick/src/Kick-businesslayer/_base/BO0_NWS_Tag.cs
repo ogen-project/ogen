@@ -26,14 +26,12 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idTag_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.delObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idTag_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}
@@ -156,7 +154,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag tag_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
-			int idApplication_in, 
 			bool selectIdentity_in, 
 			out System.Int32[] errors_out
 		) {
@@ -165,7 +162,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				ip_forLogPurposes_in, 
 				tag_in, 
 				tx_Name_in, 
-				idApplication_in, 
 				selectIdentity_in, 
 				out errors_out
 			);
@@ -177,7 +173,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag tag_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.updObject(
@@ -185,7 +180,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				ip_forLogPurposes_in, 
 				tag_in, 
 				tx_Name_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}

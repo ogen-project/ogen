@@ -22,7 +22,6 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content getObject(
@@ -41,7 +40,6 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content[] getRecord_generic(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int IDApplication_search_in, 
 			long IDUser__Publisher_search_in, 
 			long IDUser__Aproved_search_in, 
 			System.DateTime Begin_date_search_in, 
@@ -71,7 +69,6 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			System.Int64[] idSources_in, 
 			System.Int64[] idHighlights_in, 
 			System.Int64[] idProfiles_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		);
 		void updObject(
@@ -87,7 +84,6 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			System.Int64[] idSources_in, 
 			System.Int64[] idHighlights_in, 
 			System.Int64[] idProfiles_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		);
 		void updObject_Approve(
@@ -101,7 +97,6 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
 			System.Int64[] idAuthors_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		);
 		void updObject_Content(
@@ -112,7 +107,6 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_subtitle_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_summary_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		);
 		void updObject_Highlights(
@@ -120,7 +114,6 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
 			System.Int64[] idHighlights_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		);
 		void updObject_Profiles(
@@ -128,7 +121,6 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
 			System.Int64[] idProfiles_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		);
 		void updObject_Sources(
@@ -136,7 +128,6 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
 			System.Int64[] idSources_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		);
 		void updObject_Tags(
@@ -144,7 +135,6 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
 			System.Int64[] idTags_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		);
 	}

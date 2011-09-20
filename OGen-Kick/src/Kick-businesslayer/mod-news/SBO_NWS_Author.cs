@@ -351,8 +351,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			long idAuthor_in,
 
-			int idApplication_in,
-
 			out int[] errors_out
 		) {
 			List<int> _errorlist;
@@ -492,7 +490,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					LogType.error,
 					ErrorType.data,
 					-1L, 
-					idApplication_in,
+					_sessionuser.IDApplication,
 					"{0}",
 					new string[] {
 			            _exception.Message

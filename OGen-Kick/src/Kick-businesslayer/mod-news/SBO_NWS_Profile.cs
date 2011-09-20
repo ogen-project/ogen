@@ -152,8 +152,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			SO_vNWS_Profile profile_in, 
 
-			int idApplication_in, 
-
 			out int[] errors_out
 		) {
 			long _output = -1L;
@@ -294,7 +292,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					LogType.error,
 					ErrorType.data,
 					-1L, 
-					idApplication_in,
+					_sessionuser.IDApplication,
 					"{0}",
 					new string[] {
 			            _exception.Message
@@ -315,8 +313,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string ip_forLogPurposes_in, 
 
 			SO_vNWS_Profile profile_in,
-
-			int idApplication_in, 
 
 			out int[] errors_out
 		) {
@@ -451,7 +447,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					LogType.error,
 					ErrorType.data,
 					-1L,
-					idApplication_in,
+					_sessionuser.IDApplication,
 					"{0}",
 					new string[] {
 			            _exception.Message
@@ -545,8 +541,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string ip_forLogPurposes_in, 
 
 			long idProfile_in,
-
-			int idApplication_in,
 
 			out int[] errors_out
 		) {
@@ -700,7 +694,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					LogType.error,
 					ErrorType.data,
 					-1L, 
-					idApplication_in,
+					_sessionuser.IDApplication,
 					"{0}",
 					new string[] {
 			            _exception.Message
@@ -781,8 +775,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
-			int idApplication_in,
-
 			int page_in,
 			int page_numRecords_in,
 
@@ -821,9 +813,10 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			_output
 				= DO_vNWS_Profile.getRecord_all(
-					(idApplication_in > 0 )
-						? (object)idApplication_in
-						: null, 
+					//(idApplication_in > 0)
+					//    ? (object)idApplication_in
+					//    : null,
+					_sessionuser.IDApplication, 
 					page_in,
 					page_numRecords_in, 
 					null

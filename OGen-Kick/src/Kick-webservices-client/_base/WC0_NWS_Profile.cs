@@ -66,7 +66,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -74,8 +73,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				new object[] {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
-					idProfile_in,
-					idApplication_in
+					idProfile_in
 				}
 			);
 			errors_out = (System.Int32[])results[0];
@@ -118,7 +116,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idApplication_in, 
 			int page_in, 
 			int page_numRecords_in, 
 			out System.Int32[] errors_out
@@ -128,7 +125,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				new object[] {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
-					idApplication_in,
 					page_in,
 					page_numRecords_in
 				}
@@ -209,7 +205,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile profile_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -217,8 +212,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				new object[] {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
-					profile_in,
-					idApplication_in
+					profile_in
 				}
 			);
 			errors_out = (System.Int32[])results[1];
@@ -237,7 +231,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile profile_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -245,8 +238,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				new object[] {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
-					profile_in,
-					idApplication_in
+					profile_in
 				}
 			);
 			errors_out = (System.Int32[])results[0];

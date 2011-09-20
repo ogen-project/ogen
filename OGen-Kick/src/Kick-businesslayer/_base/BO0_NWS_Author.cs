@@ -26,14 +26,12 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idAuthor_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Author.delObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idAuthor_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}
