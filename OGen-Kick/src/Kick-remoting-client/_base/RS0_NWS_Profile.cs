@@ -61,7 +61,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile[] getRecord_Approved(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idApplication_search_in, 
 			int page_in, 
 			int page_numRecords_in, 
 			out System.Int32[] errors_out

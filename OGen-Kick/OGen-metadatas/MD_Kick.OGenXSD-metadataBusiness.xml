@@ -292,7 +292,6 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
@@ -302,7 +301,6 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
@@ -367,7 +365,6 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
@@ -377,7 +374,6 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
@@ -600,7 +596,6 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
@@ -664,7 +659,6 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
@@ -674,7 +668,6 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
@@ -748,7 +741,6 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="idLanguage_search_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
@@ -769,7 +761,6 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="idLanguage_search_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />

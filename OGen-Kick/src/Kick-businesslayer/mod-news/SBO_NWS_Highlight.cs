@@ -587,8 +587,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
-			int idApplication_search_in,
-
 			int page_in,
 			int page_numRecords_in,
 
@@ -629,7 +627,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			_output 
 				= DO_vNWS_Highlight.getRecord_Approved(
-					idApplication_search_in,
+					_sessionuser.IDApplication,
 
 					page_in, 
 					page_numRecords_in,
@@ -647,8 +645,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			#region params...
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
-
-			int idApplication_search_in,
 
 			int page_in,
 			int page_numRecords_in,
@@ -690,7 +686,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			_output 
 				= DO_vNWS_Highlight.getRecord_all(
-					idApplication_search_in,
+					_sessionuser.IDApplication,
 
 					page_in, 
 					page_numRecords_in,

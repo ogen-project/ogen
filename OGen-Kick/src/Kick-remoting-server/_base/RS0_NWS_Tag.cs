@@ -78,7 +78,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[] getRecord_Approved_byLang(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idApplication_search_in, 
 			int idLanguage_search_in, 
 			int page_in, 
 			int page_numRecords_in, 
@@ -87,7 +86,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.getRecord_Approved_byLang(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
-				idApplication_search_in, 
 				idLanguage_search_in, 
 				page_in, 
 				page_numRecords_in, 
@@ -118,7 +116,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[] getRecord_byLang(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idApplication_search_in, 
 			int idLanguage_search_in, 
 			int page_in, 
 			int page_numRecords_in, 
@@ -127,7 +124,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.getRecord_byLang(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
-				idApplication_search_in, 
 				idLanguage_search_in, 
 				page_in, 
 				page_numRecords_in, 

@@ -66,7 +66,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Author[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idApplication_search_in, 
 			int page_in, 
 			int page_numRecords_in, 
 			out System.Int32[] errors_out
@@ -74,7 +73,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Author.getRecord_all(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
-				idApplication_search_in, 
 				page_in, 
 				page_numRecords_in, 
 				out errors_out
@@ -86,7 +84,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Author[] getRecord_Approved(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idApplication_search_in, 
 			int page_in, 
 			int page_numRecords_in, 
 			out System.Int32[] errors_out
@@ -94,7 +91,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Author.getRecord_Approved(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
-				idApplication_search_in, 
 				page_in, 
 				page_numRecords_in, 
 				out errors_out

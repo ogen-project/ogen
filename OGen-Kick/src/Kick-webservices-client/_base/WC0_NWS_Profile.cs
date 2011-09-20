@@ -144,7 +144,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile[] getRecord_Approved(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idApplication_search_in, 
 			int page_in, 
 			int page_numRecords_in, 
 			out System.Int32[] errors_out
@@ -154,7 +153,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				new object[] {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
-					idApplication_search_in,
 					page_in,
 					page_numRecords_in
 				}

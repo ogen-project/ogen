@@ -805,7 +805,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
-			int idApplication_search_in,
 			int idLanguage_search_in, 
 
 			int page_in,
@@ -848,7 +847,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			_output 
 				= DO_vNWS_Tag.getRecord_Approved_byLang(
-					idApplication_search_in, 
+					_sessionuser.IDApplication, 
 					idLanguage_search_in, 
 
 					page_in, 
@@ -868,7 +867,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
-			int idApplication_search_in,
 			int idLanguage_search_in, 
 
 			int page_in,
@@ -911,7 +909,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			_output 
 				= DO_vNWS_Tag.getRecord_byLang(
-					idApplication_search_in, 
+					_sessionuser.IDApplication, 
 					idLanguage_search_in, 
 
 					page_in, 
