@@ -21,7 +21,6 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		);
 	}

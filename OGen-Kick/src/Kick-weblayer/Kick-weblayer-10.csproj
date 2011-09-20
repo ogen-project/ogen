@@ -42,6 +42,10 @@
     <Compile Include="utils.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\OGen\OGen_lib\OGen_lib-10.csproj">
+      <Project>{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}</Project>
+      <Name>OGen_lib-10</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\OGen\OGen_webforms\OGen_webforms-10.csproj">
       <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
       <Name>OGen_webforms-10</Name>

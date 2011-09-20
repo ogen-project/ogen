@@ -50,6 +50,7 @@
     <Content Include="admin\LOG-Log.aspx" />
     <Content Include="admin\NWS-News-list.aspx" />
     <Content Include="App_Controls\ServerVariables.aspx" />
+    <Content Include="App_Controls\wuc_txt_Dic.ascx" />
     <Content Include="Default.aspx" />
     <Content Include="include\cssdropdownmenu.css" />
     <Content Include="include\htmlDatePicker.css" />
@@ -126,6 +127,13 @@
     </Compile>
     <Compile Include="App_Controls\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="App_Controls\wuc_txt_Dic.ascx.cs">
+      <DependentUpon>wuc_txt_Dic.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Controls\wuc_txt_Dic.ascx.designer.cs">
+      <DependentUpon>wuc_txt_Dic.ascx</DependentUpon>
     </Compile>
     <Compile Include="App_Controls\_base.Master.cs">
       <DependentUpon>_base.Master</DependentUpon>

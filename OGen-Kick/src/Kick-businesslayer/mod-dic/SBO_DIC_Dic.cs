@@ -148,18 +148,31 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
-			int idApplication_in,
-
 			out int[] errors_out
 		) {
-			// no need to check user or permitions,
-			// no errors to send
-			// LATER, if it becomes needed i can change this, using the input arguments...
+			SO_vDIC_ApplicationLanguage[]  _output = null;
 
-			errors_out = null;
+			List<int> _errorlist;
+			Guid _sessionguid;
+			Sessionuser _sessionuser;
+			#region check...
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in,
+				ip_forLogPurposes_in,
+				out _sessionguid,
+				out _sessionuser,
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
+
+				return _output;
+			}
+			#endregion
 
 			return DO_vDIC_ApplicationLanguage.getRecord_byApplication(
-				idApplication_in,
+				_sessionuser.IDApplication,
 				0,
 				0,
 				null

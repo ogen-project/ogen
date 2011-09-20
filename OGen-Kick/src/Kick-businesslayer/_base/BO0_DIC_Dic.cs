@@ -25,13 +25,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_DIC_Dic.getRecord_byApplication(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
-				idApplication_in, 
 				out errors_out
 			);
 		}

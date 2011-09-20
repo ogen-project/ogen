@@ -65,15 +65,13 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getRecord_byApplication", 
 				new object[] {
 					sessionGuid_in,
-					ip_forLogPurposes_in,
-					idApplication_in
+					ip_forLogPurposes_in
 				}
 			);
 			errors_out = (System.Int32[])results[1];

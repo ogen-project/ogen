@@ -30,7 +30,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idApplication_in, 
 			out System.Int32[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");

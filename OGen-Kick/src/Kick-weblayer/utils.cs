@@ -431,36 +431,35 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 		}
 		#endregion
 
-//        #region public static class Dic { ... }
-//        public static class Dic {
-//            #region public static AddSolutions.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] Languages { get; }
-//            private static AddSolutions.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] languages__ = null;
+		#region public static class Dic { ... }
+		public static class Dic {
+			#region public static OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] Languages { get; }
+			private static OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] languages__ = null;
 
-//            public static AddSolutions.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] Languages {
-//                get {
-////					if (languages__ == null) {
-//                        int[] _errors;
-//                        AddSolutions.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] _languages;
-//                        _languages = BusinessInstances.DIC_Dic.InstanceClient.getRecord_byApplication(
-//                            utils.User.Credentials_ENC,
+			public static OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] Languages {
+				get {
+//					if (languages__ == null) {
+						int[] _errors;
+						OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] _languages;
+						_languages = BusinessInstances.DIC_Dic.InstanceClient.getRecord_byApplication(
+							utils.User.SessionGuid,
+							utils.ClientIPAddress,
 
-//                            utils.IDApplication,
-
-//                            out _errors
-//                        );
-//                        if (
-//                            (_errors == null)
-//                            ||
-//                            (_errors.Length <= 0)
-//                        ) {
-//                            languages__ = _languages;
-//                        }
-////					}
-//                    return languages__;
-//                }
-//            }
-//            #endregion
-//        }
-//        #endregion
-    }
+							out _errors
+						);
+						if (
+							(_errors == null)
+							||
+							(_errors.Length <= 0)
+						) {
+							languages__ = _languages;
+						}
+//					}
+					return languages__;
+				}
+			}
+			#endregion
+		}
+		#endregion
+	}
 }
