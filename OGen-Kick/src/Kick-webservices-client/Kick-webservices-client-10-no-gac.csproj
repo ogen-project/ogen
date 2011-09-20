@@ -72,20 +72,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="_base\WC0_CRD_Authentication.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="_base\WC0_CRD_Permition.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="_base\WC0_CRD_Authentication.cs" />
+    <Compile Include="_base\WC0_CRD_Permition.cs" />
     <Compile Include="_base\WC0_CRD_Profile.cs" />
-    <Compile Include="_base\WC0_CRD_User.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="_base\WC0_CRD_User.cs" />
     <Compile Include="_base\WC0_DIC_Dic.cs" />
-    <Compile Include="_base\WC0_LOG_Log.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="_base\WC0_LOG_Log.cs" />
+    <Compile Include="_base\WC0_NWS_Attachment.cs" />
+    <Compile Include="_base\WC0_NWS_Author.cs" />
+    <Compile Include="_base\WC0_NWS_Highlight.cs" />
+    <Compile Include="_base\WC0_NWS_News.cs" />
+    <Compile Include="_base\WC0_NWS_Profile.cs" />
+    <Compile Include="_base\WC0_NWS_Source.cs" />
+    <Compile Include="_base\WC0_NWS_Tag.cs" />
     <Compile Include="_base\WC0_WEB_User.cs">
       <SubType>Component</SubType>
     </Compile>

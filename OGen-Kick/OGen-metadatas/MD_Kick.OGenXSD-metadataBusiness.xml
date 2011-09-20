@@ -210,6 +210,635 @@
         </method>
       </methods>
     </class>
+    <class name="NWS_Attachment" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="delObject" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idAttachment_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idAttachment_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Attachment[]" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_byContent_andLanguage" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Attachment[]" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDContent_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDLanguage_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="insObject" outputType="long" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="attachment_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Name_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Description_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="selectIdentity_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="guid_out" type="string" isParams="false" isOut="true" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="attachment_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Name_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Description_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="NWS_Author" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="delObject" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idAuthor_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Author" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idAuthor_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_all" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Author[]" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_Approved" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Author[]" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentAuthor[]" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="insObject" outputType="long" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="author_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Author" isParams="false" isOut="false" isRef="false" />
+            <parameter name="selectIdentity_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="author_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Author" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Approve" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idAuthor_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="NWS_Highlight" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="delObject" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idHighlight_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idHighlight_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_all" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Highlight[]" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_Approved" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Highlight[]" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentHighlight[]" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="insObject" outputType="long" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="highlight_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight" isParams="false" isOut="false" isRef="false" />
+            <parameter name="selectIdentity_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="highlight_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Approve" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idHighlight_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="NWS_News" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="delObject" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idLanguage_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content[]" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_generic" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content[]" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDUser__Publisher_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDUser__Aproved_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="Begin_date_search_in" type="System.DateTime" isParams="false" isOut="false" isRef="false" />
+            <parameter name="End_date_search_in" type="System.DateTime" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idTags_search_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idAuthors_search_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idSources_search_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idHighlights_search_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfiles_search_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="charVar8000_search_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDLanguage_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="isAND_notOR_search_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="insObject" outputType="long" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Content" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Title_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_subtitle_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_summary_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idTags_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idAuthors_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idSources_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idHighlights_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfiles_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Content" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Title_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_subtitle_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_summary_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idTags_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idAuthors_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idSources_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idHighlights_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfiles_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Approve" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Authors" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idAuthors_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Content" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Content" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Title_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_subtitle_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_summary_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Highlights" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idHighlights_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Profiles" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfiles_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Sources" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idSources_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Tags" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idTags_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="NWS_Profile" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="delObject" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfile_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfile_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_all" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile[]" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_Approved" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile[]" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentProfile[]" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="insObject" outputType="long" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="profile_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="profile_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Approve" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfile_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="NWS_Source" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="delObject" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idSource_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Source" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idSource_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_all" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Source[]" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_Approved" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Source[]" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentSource[]" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="insObject" outputType="long" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="source_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Source" isParams="false" isOut="false" isRef="false" />
+            <parameter name="selectIdentity_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="source_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Source" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Approve" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idSource_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="NWS_Tag" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="delObject" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idTag_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idTag_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getObject_byTag_andLanguage" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idTag_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idLanguage_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_Approved_byLang" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[]" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idLanguage_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentTag[]" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idContent_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_byLang" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[]" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idLanguage_search_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_byTag" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[]" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idTag_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="insObject" outputType="long" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tag_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Name_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="selectIdentity_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tag_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Name_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_Approve" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idTag_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
     <class name="WEB_User" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
       <methods>
         <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NET_User" distribute="true" isSearch="false" ipParamNum="1">

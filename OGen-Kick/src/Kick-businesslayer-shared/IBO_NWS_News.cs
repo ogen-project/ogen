@@ -14,27 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 
-using OGen.NTier.Kick.lib.businesslayer.shared.instances;
-
-namespace OGen.NTier.Kick.lib.businesslayer.shared.instances.utils {
-	public class Config {
-		private Config() { }
-
-		public static void ReConfig() {
-			CRD_Authentication.ReConfig();
-			CRD_Permition.ReConfig();
-			CRD_Profile.ReConfig();
-			CRD_User.ReConfig();
-			DIC_Dic.ReConfig();
-			LOG_Log.ReConfig();
-			NWS_Attachment.ReConfig();
-			NWS_Author.ReConfig();
-			NWS_Highlight.ReConfig();
-			NWS_News.ReConfig();
-			NWS_Profile.ReConfig();
-			NWS_Source.ReConfig();
-			NWS_Tag.ReConfig();
-			WEB_User.ReConfig();
-		}
+namespace OGen.NTier.Kick.lib.businesslayer.shared {
+	public interface IBO_NWS_News : IBO0_NWS_News {
 	}
 }

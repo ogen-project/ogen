@@ -76,7 +76,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Compile Include="mod-credentials\SBO_CRD_User.cs" />
     <Compile Include="mod-credentials\Sessionuser.cs" />
     <Compile Include="mod-dic\SBO_DIC_Dic.cs" />
+    <Compile Include="mod-forums\SBO_FOR_Forum.cs" />
+    <Compile Include="mod-forums\SBO_FOR_Thread.cs" />
     <Compile Include="mod-log\SBO_LOG_Log.cs" />
+    <Compile Include="mod-news\SBO_NWS_Attachment.cs" />
+    <Compile Include="mod-news\SBO_NWS_Author.cs" />
+    <Compile Include="mod-news\SBO_NWS_Highlight.cs" />
+    <Compile Include="mod-news\SBO_NWS_News.cs" />
+    <Compile Include="mod-news\SBO_NWS_Profile.cs" />
+    <Compile Include="mod-news\SBO_NWS_Source.cs" />
+    <Compile Include="mod-news\SBO_NWS_Tag.cs" />
+    <Compile Include="mod-news\SBO_NWS_User.cs" />
     <Compile Include="mod-web\SBO_WEB_User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="utils.cs" />
@@ -86,6 +96,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Compile Include="_base\BO0_CRD_User.cs" />
     <Compile Include="_base\BO0_DIC_Dic.cs" />
     <Compile Include="_base\BO0_LOG_Log.cs" />
+    <Compile Include="_base\BO0_NWS_Attachment.cs" />
+    <Compile Include="_base\BO0_NWS_Author.cs" />
+    <Compile Include="_base\BO0_NWS_Highlight.cs" />
+    <Compile Include="_base\BO0_NWS_News.cs" />
+    <Compile Include="_base\BO0_NWS_Profile.cs" />
+    <Compile Include="_base\BO0_NWS_Source.cs" />
+    <Compile Include="_base\BO0_NWS_Tag.cs" />
     <Compile Include="_base\BO0_WEB_User.cs" />
   </ItemGroup>
   <ItemGroup>

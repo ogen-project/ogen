@@ -1,5 +1,4 @@
-#region Copyright (C) 2002 Francisco Monteiro
-/*
+<%--
 
 OGen
 Copyright (c) 2002 Francisco Monteiro
@@ -10,31 +9,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-*/
-#endregion
-using System;
-
-using OGen.NTier.Kick.lib.businesslayer.shared.instances;
-
-namespace OGen.NTier.Kick.lib.businesslayer.shared.instances.utils {
-	public class Config {
-		private Config() { }
-
-		public static void ReConfig() {
-			CRD_Authentication.ReConfig();
-			CRD_Permition.ReConfig();
-			CRD_Profile.ReConfig();
-			CRD_User.ReConfig();
-			DIC_Dic.ReConfig();
-			LOG_Log.ReConfig();
-			NWS_Attachment.ReConfig();
-			NWS_Author.ReConfig();
-			NWS_Highlight.ReConfig();
-			NWS_News.ReConfig();
-			NWS_Profile.ReConfig();
-			NWS_Source.ReConfig();
-			NWS_Tag.ReConfig();
-			WEB_User.ReConfig();
-		}
-	}
-}
+--%><%@ WebService 
+	Language="C#" 
+	CodeBehind="WS_NWS_Attachment.asmx.cs" 
+	Class="OGen.NTier.Kick.distributedlayer.webservices.server.WS_NWS_Attachment" %>
