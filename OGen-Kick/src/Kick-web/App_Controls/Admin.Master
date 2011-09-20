@@ -11,11 +11,51 @@
 	id="cnt_Head" runat="server"
 	ContentPlaceHolderID="cph_Head">
 	<asp:ContentPlaceHolder ID="cph_Head" runat="server" />
+
+	<link href="../include/cssdropdownmenu.css" rel="stylesheet" type="text/css" />
+
 </asp:Content>
 <asp:Content
 	id="cnt_Menu" runat="server"
 	ContentPlaceHolderID="cph_Menu">
-	...
+
+	<ul id="cssdropdownmenu">
+		<li>
+			<table border="0" cellspacing="0" cellpadding="0"><tr><td>
+				xxxx
+			</td></tr></table>
+			<ul>
+				<li><div>
+					1111
+				</div></li>
+				<li><div>
+					22222222222222
+				</div></li>
+				<li><div>
+					3333333
+				</div></li>
+				<li><div>
+					4444444444
+				</div></li>
+			</ul>
+		</li>
+		<li>
+			<table border="0" cellspacing="0" cellpadding="0"><tr><td>
+				yyyy
+			</td></tr></table>
+			<ul>
+				<li><div>
+					aaaaaa
+				</div></li>
+				<li><div>
+					bbbbb
+				</div></li>
+				<li><div>
+					cccccccccc
+				</div></li>
+			</ul>
+		</li>
+	</ul>
 </asp:Content>
 <asp:Content
 	id="cnt_Body" runat="server"

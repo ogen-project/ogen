@@ -7,28 +7,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head runat="server">
 		<title><asp:ContentPlaceHolder ID="cph_Title" runat="server" /></title>
+
 		<asp:ContentPlaceHolder ID="cph_Head" runat="server" />
 
-		<style type="text/css"> 
-			.label_warning, 
-			.label_error {
-				font-weight: lighter;
-				font-family: Verdana;
-			}
-			.label_error {
-				color: Red;
-			}
-			.label_warning {
-				color: #3333FF;
-			}
-		</style>
-
+		<link href="~/include/style.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
 		<form id="form1" runat="server">
-			<div>
+			<div id="div_main">
 
-				<table border="1" cellspacing="0" cellpadding="0" style="width: 100%">
+				<table border="1" cellspacing="0" cellpadding="0" style="width: 100%; height: 100%;">
 					<tr>
 						<td style="width: 25%;">
 							welcome <asp:Label ID="lbl_Welcome" runat="server" />!
@@ -55,23 +43,23 @@
 								Text="Logout"
 								OnClick="btn_Logout_Click" />
 						</td>
-						<td style="width: 25%;" valign="top">
+						<td style="width: 25%;" valign="top" rowspan="4">
 							<asp:Literal
 								ID="lit_Log" runat="server" />
 						</td>
 					</tr>
 					<tr>
-						<td colspan="3">
+						<td colspan="2">
 							<asp:ContentPlaceHolder ID="cph_Menu" runat="server" />
 						</td>
 					</tr>
-					<tr>
-						<td colspan="3">
+					<tr style="height: 100%;">
+						<td colspan="2" valign="top">
 							<asp:ContentPlaceHolder ID="cph_Body" runat="server" />
 						</td>
 					</tr>
 					<tr>
-						<td colspan="3">
+						<td colspan="2">
 							BOTTOM
 						</td>
 					</tr>
