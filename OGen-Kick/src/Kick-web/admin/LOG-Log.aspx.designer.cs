@@ -10,123 +10,96 @@
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
     
     
-    public partial class _base {
+    public partial class LOG_Log {
         
         /// <summary>
-        /// cph_Title control.
+        /// ddl_Logtype control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cph_Title;
+        protected global::OGen.lib.presentationlayer.webforms.KickListBox ddl_Logtype;
         
         /// <summary>
-        /// cph_Head control.
+        /// ddl_Errortype control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cph_Head;
+        protected global::OGen.lib.presentationlayer.webforms.KickListBox ddl_Errortype;
         
         /// <summary>
-        /// form1 control.
+        /// txt_Date_begin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::OGen.NTier.Kick.presentationlayer.weblayer.htmlDatePicker txt_Date_begin;
         
         /// <summary>
-        /// lbl_Welcome control.
+        /// txt_Date_end control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Welcome;
+        protected global::OGen.NTier.Kick.presentationlayer.weblayer.htmlDatePicker txt_Date_end;
         
         /// <summary>
-        /// lbl_EMail control.
+        /// lbl_Date_lastDay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_EMail;
+        protected global::Anthem.LinkButton lbl_Date_lastDay;
         
         /// <summary>
-        /// txt_EMail control.
+        /// lbl_Date_lastWeek control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_EMail;
+        protected global::Anthem.LinkButton lbl_Date_lastWeek;
         
         /// <summary>
-        /// lbl_Password control.
+        /// lbl_Date_clear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Password;
+        protected global::Anthem.LinkButton lbl_Date_clear;
         
         /// <summary>
-        /// txt_Password control.
+        /// cbx_Read control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Password;
+        protected global::System.Web.UI.WebControls.CheckBox cbx_Read;
         
         /// <summary>
-        /// btn_Login control.
+        /// btn_Search control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Login;
+        protected global::Anthem.Button btn_Search;
         
         /// <summary>
-        /// btn_Logout control.
+        /// rep_Log control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Logout;
-        
-        /// <summary>
-        /// lbl_Log control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Anthem.Label lbl_Log;
-        
-        /// <summary>
-        /// cph_Menu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cph_Menu;
-        
-        /// <summary>
-        /// cph_Body control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cph_Body;
+        protected global::Anthem.Repeater rep_Log;
     }
 }

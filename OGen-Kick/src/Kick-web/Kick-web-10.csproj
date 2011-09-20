@@ -47,8 +47,14 @@
     <Content Include="admin\CRD-User-list.aspx" />
     <Content Include="admin\CRD-User.aspx" />
     <Content Include="admin\Default.aspx" />
+    <Content Include="admin\LOG-Log.aspx" />
+    <Content Include="admin\NWS-News-list.aspx" />
     <Content Include="App_Controls\ServerVariables.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="include\cssdropdownmenu.css" />
+    <Content Include="include\htmlDatePicker.css" />
+    <Content Include="include\htmlDatePicker.js" />
+    <Content Include="include\style.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -86,6 +92,20 @@
     <Compile Include="admin\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\LOG-Log.aspx.cs">
+      <DependentUpon>LOG-Log.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\LOG-Log.aspx.designer.cs">
+      <DependentUpon>LOG-Log.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\NWS-News-list.aspx.cs">
+      <DependentUpon>NWS-News-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\NWS-News-list.aspx.designer.cs">
+      <DependentUpon>NWS-News-list.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Controls\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -121,6 +141,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="include\htmlDatePicker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

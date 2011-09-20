@@ -3,6 +3,10 @@
 	AutoEventWireup="true" 
 	CodeBehind="_base.master.cs" 
 	Inherits="OGen.NTier.Kick.presentationlayer.weblayer._base" %>
+<%@ Register 
+	TagPrefix="anthem" 
+	Namespace="Anthem" 
+	Assembly="Anthem" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head runat="server">
@@ -44,8 +48,9 @@
 								OnClick="btn_Logout_Click" />
 						</td>
 						<td style="width: 25%;" valign="top" rowspan="4">
-							<asp:Literal
-								ID="lit_Log" runat="server" />
+							<anthem:Label
+								ID="lbl_Log" runat="server" 
+								AutoUpdateAfterCallBack="true" />
 						</td>
 					</tr>
 					<tr>

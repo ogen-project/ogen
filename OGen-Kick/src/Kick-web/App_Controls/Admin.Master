@@ -22,36 +22,27 @@
 	<ul id="cssdropdownmenu">
 		<li>
 			<table border="0" cellspacing="0" cellpadding="0"><tr><td>
-				xxxx
+				News
 			</td></tr></table>
 			<ul>
-				<li><div>
-					1111
-				</div></li>
-				<li><div>
-					22222222222222
-				</div></li>
-				<li><div>
-					3333333
-				</div></li>
-				<li><div>
-					4444444444
+				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+					<a runat="server" href="~/admin/NWS-News-list.aspx">search</a>
 				</div></li>
 			</ul>
 		</li>
 		<li>
 			<table border="0" cellspacing="0" cellpadding="0"><tr><td>
-				yyyy
+				Admin
 			</td></tr></table>
 			<ul>
-				<li><div>
-					aaaaaa
+				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+					<a runat="server" href="~/admin/CRD-User-list.aspx">users</a>
 				</div></li>
-				<li><div>
-					bbbbb
+				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+					<a runat="server" href="~/admin/CRD-ProfilePermition.aspx">profiles</a>
 				</div></li>
-				<li><div>
-					cccccccccc
+				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+					<a runat="server" href="~/admin/LOG-Log.aspx">log</a>
 				</div></li>
 			</ul>
 		</li>

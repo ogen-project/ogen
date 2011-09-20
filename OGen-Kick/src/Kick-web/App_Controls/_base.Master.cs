@@ -64,7 +64,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			);
 
 			if (_sb != null) {
-				lit_Log.Text = _sb.ToString();
+				lbl_Log.Text = _sb.ToString();
 			}
 
 			if (!_hasErrors) {
@@ -95,7 +95,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		}
 		#region public void Error_clear();
 		public void Error_clear() {
-			lit_Log.Text = "";
+			lbl_Log.Text = "";
 		}
 		#endregion
 		#region public bool Error_show(...);
@@ -129,7 +129,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				}
 			);
 			if (_sb != null) {
-				lit_Log.Text += _sb.ToString();
+				lbl_Log.Text += _sb.ToString();
 			}
 
 			return _output;

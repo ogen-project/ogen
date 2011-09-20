@@ -1,0 +1,343 @@
+﻿/*
+
+OGen
+Copyright (c) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+
+/****************************************************************************************************/
+html {
+	height: 98%;
+}
+body {
+	margin-right: 4px; /*auto*/
+	margin-left: 4px; /*auto*/
+	margin-top: 4px; /*auto*/
+}
+body, 
+form, 
+form > div#div_main {
+	height: 99%;
+}
+
+/****************************************************************************************************/
+.link_button {
+							font-weight: bold;
+	font-family: Verdana;
+	font-size: small;
+
+	color: Black;
+
+	text-decoration: none;
+}
+
+/****************************************************************************************************/
+.link_button_image {
+	text-decoration: none;
+}
+.link_button_image32_left, 
+.link_button_image32_center, 
+.link_button_image32_right {
+	height: 32px;
+}
+.link_button_image32_left {
+	width: 6px;
+	background-image: url(/images/botao32Left.png);
+}
+.link_button_image32_center {
+	font-family: Verdana;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-repeat: repeat-x;
+	background-image: url(/images/botao32Center.png);
+}
+.link_button_image32_right {
+	width: 6px;
+	background-image: url(/images/botao32Right.png);
+}
+
+.link_button_image22_left, 
+.link_button_image22_center, 
+.link_button_image22_right {
+	height: 22px;
+}
+.link_button_image22_left {
+	width: 5px;
+	background-image: url(/images/botao22Left.png);
+}
+.link_button_image22_center {
+	font-family: Verdana;
+	font-size: small;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-repeat: repeat-x;
+	background-image: url(/images/botao22Center.png);
+}
+.link_button_image22_right {
+	width: 5px;
+	background-image: url(/images/botao22Right.png);
+}
+
+/****************************************************************************************************/
+.button {
+	background-color: #d8261c;
+
+	font-family: Verdana;
+	color: White;
+}
+.button[disabled] {
+	color: Gray;/* #EE817B; *//* #d8261c; */
+}
+
+/****************************************************************************************************/
+.dropdownlist, 
+.dropdownlist_dim1, 
+.dropdownlist_dim2, 
+.dropdownlist_dim3, 
+.dropdownlist_dim4, 
+.dropdownlist_dim5 {
+	border: 1px solid #7f9aa4; 
+	background-color: #FFFFFF;
+
+
+	/* ToDos: here! */
+	/*border-spacing: 0px;
+	padding: 0px;*/
+
+
+	font-family: Courier New;
+}
+.dropdownlist_dim1 {
+	width: 100px;
+}
+.dropdownlist_dim2 {
+	width: 200px;
+}
+.dropdownlist_dim3 {
+	width: 300px;
+}
+.dropdownlist_dim4 {
+	width: 400px;
+}
+.dropdownlist_dim5 {
+	width: 500px;
+}
+
+/****************************************************************************************************/
+.alternating_item {
+	background-color: #CCCCFF;
+}
+
+/****************************************************************************************************/
+.textbox,
+.textbox_data, 
+.textbox_dim1,
+.textbox_dim1_center, 
+.textbox_dim15,
+.textbox_dim2,
+.textbox_dim3,
+.textbox_dim35,
+.textbox_dim4,
+.textbox_dim45,
+.textbox_dim5, 
+.textbox_dim55, 
+.textbox_dim6, 
+.textbox_postcode1,
+.textbox_postcode2 {
+	border: 1px solid #7f9aa4; 
+	background-color: #FFFFFF;
+
+	font-family: Courier New;
+	font-size: small;
+}
+.textbox_data {
+	text-align: center;
+	width: 95px;
+}
+.textbox_dim1, 
+.textbox_dim1_center {
+	width: 100px;
+}
+.textbox_dim15 {
+	width: 150px;
+}
+.textbox_dim1_center {
+	text-align: center;
+}
+.textbox_dim2 {
+	width: 200px;
+}
+.textbox_dim3 {
+	width: 300px;
+}
+.textbox_dim35 {
+	width: 350px;
+}
+.textbox_dim4 {
+	width: 400px;
+}
+.textbox_dim45 {
+	width: 450px;
+}
+.textbox_dim5 {
+	width: 500px;
+}
+.textbox_dim55 {
+	width: 550px;
+}
+.textbox_dim6 {
+	width: 600px;
+}
+.textbox_postcode1 {
+	text-align: center;
+	width: 36px;
+}
+.textbox_postcode2 {
+	text-align: center;
+	width: 28px;
+}
+.hidden {
+	visibility: hidden;
+	display: none;
+}
+
+/****************************************************************************************************/
+.label,
+.label_bold, 
+.label_nonBold, 
+.label_white, 
+.label_small,
+.label_title,
+.label_subtitle, 
+.label_warning, 
+.label_error {
+							/*font-weight: bold;*/
+	font-family: Verdana;
+}
+.label_bold {
+	font-weight: bold;
+}
+.label,
+.label_nonBold {
+							/*font-weight: normal;*/
+	font-size: small;
+}
+.label_nonBold {
+	font-weight: normal;
+}
+.label_white {
+	font-size: small;
+	color: White;
+}
+.label_small {
+							/*font-weight: normal;*/
+	font-size: x-small;
+}
+.label_title {
+	font-size: large;
+}
+.label_subtitle {
+	font-size: medium;
+}
+.label_error {
+	font-weight: lighter;/* bold;/*normal;*/
+	color: Red;
+}
+.label_warning {
+	font-weight: lighter; /* bold;/*normal;*/
+	color: #3333FF;
+}
+
+/****************************************************************************************************/
+
+.table_main, 
+.table_thin, 
+.border_thin {
+	border: 1px solid #7f9aa4;
+}
+
+.table_thin_black, 
+.border_thin_black {
+	border: 1px solid #000000;
+}
+
+.table_main, 
+.table_thin_black, 
+.table_thin, 
+.table__base {
+	border-spacing: 0px;
+	padding: 2px;
+}
+
+.table_main {
+	width: 100%;/*776px;*/
+}
+
+/*
+.checkboxlist tr:nth-child(odd), 
+.table_alternating tr:nth-child(odd) {
+	XXXbackground-color: #fff;
+}
+*/
+.checkboxlist_dim1 tr:nth-child(even), 
+.checkboxlist_dim2 tr:nth-child(even), 
+.checkboxlist_dim3 tr:nth-child(even), 
+.checkboxlist_dim4 tr:nth-child(even), 
+.checkboxlist_dim5 tr:nth-child(even), 
+.checkboxlist tr:nth-child(even), 
+.table_alternating tr:nth-child(even) {
+	background-color: #CCCCFF;
+}
+/*
+.table_alternating tr:nth-child(odd) {
+	background-color: #FFFFFF;
+}
+*/
+.checkboxlist_dim1, 
+.checkboxlist_dim2, 
+.checkboxlist_dim3, 
+.checkboxlist_dim4, 
+.checkboxlist_dim5, 
+.checkboxlist {
+	font-family: Verdana;
+	font-size: small;
+}
+.checkboxlist_dim1, 
+.checkboxlist_dim2, 
+.checkboxlist_dim3, 
+.checkboxlist_dim4, 
+.checkboxlist_dim5, 
+.checkboxlist tr td {
+	text-align: left;
+}
+
+.checkboxlist_dim1 {
+	min-width: 100px;
+}
+.checkboxlist_dim2 {
+	min-width: 200px;
+}
+.checkboxlist_dim3 {
+	min-width: 300px;
+}
+.checkboxlist_dim4 {
+	min-width: 400px;
+}
+.checkboxlist_dim5 {
+	min-width: 500px;
+}
+
+/*
+.checkboxlist tr td > input {
+	border: 1px solid #7f9aa4; 
+}
+.checkbox {
+	border: 1px solid #7f9aa4;
+}
+*/
