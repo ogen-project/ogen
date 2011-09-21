@@ -28,8 +28,6 @@
 				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
 					<a runat="server" href="~/admin/NWS-News-list.aspx">search</a>
 				</div></li>
-			</ul>
-			<ul>
 				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
 					<a runat="server" href="~/admin/NWS-News.aspx">create</a>
 				</div></li>

@@ -49,13 +49,16 @@
     <Content Include="admin\Default.aspx" />
     <Content Include="admin\LOG-Log.aspx" />
     <Content Include="admin\NWS-News-list.aspx" />
+    <Content Include="admin\NWS-News.aspx" />
     <Content Include="App_Controls\ServerVariables.aspx" />
     <Content Include="App_Controls\wuc_txt_Dic.ascx" />
     <Content Include="Default.aspx" />
     <Content Include="include\cssdropdownmenu.css" />
+    <Content Include="include\tabber.css" />
     <Content Include="include\htmlDatePicker.css" />
     <Content Include="include\htmlDatePicker.js" />
     <Content Include="include\style.css" />
+    <Content Include="include\tabber.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -107,6 +110,13 @@
     <Compile Include="admin\NWS-News-list.aspx.designer.cs">
       <DependentUpon>NWS-News-list.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\NWS-News.aspx.cs">
+      <DependentUpon>NWS-News.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\NWS-News.aspx.designer.cs">
+      <DependentUpon>NWS-News.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Controls\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -154,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="public-uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Controls\Admin.Master" />

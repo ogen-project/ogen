@@ -128,11 +128,23 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					));
 				}
 			);
-			if (_sb != null) {
-				lbl_Log.Text += _sb.ToString();
-			}
+			if (_sb != null) { lbl_Log.Text += _sb.ToString(); }
 
 			return _output;
+		}
+		public void Error_show(
+			bool isError_in,
+			string format_in,
+			params object[] args_in
+		) {
+			lbl_Log.Text += string.Format(
+				"<div class='label_{0}'>&bull; {1}</div>",
+				isError_in ? "error" : "warning",
+				string.Format(
+					format_in,
+					args_in
+				)
+			);
 		}
 		#endregion
 	}
