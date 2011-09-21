@@ -46,7 +46,7 @@ as
 		--and
 		(m2."IFMessage__parent" = m1."IDMessage")
 	)
-	inner join "NWS_User" as u1 on (
+	inner join "NET_User" as u1 on (
 		--(not m3."IFUser__Publisher" is null)
 		--and
 		m3."IFUser__Publisher" = u1."IFUser"
