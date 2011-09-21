@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION "fnc_NWS_Tag_Record_open_byParent"(
+﻿CREATE OR REPLACE FUNCTION "fnc_NWS_Tag_Record_open_byParent"(
 	"IFTag__parent_search_" bigint, 
 	"IFApplication_search_" integer
 )
@@ -8,10 +8,11 @@ $BODY$
 		_Output "v0_NWS_Tag__onlyKeys";
 	BEGIN
 		FOR _Output IN
-			SELECT
+
+			select
 				"IDTag"
-			FROM "NWS_Tag"
-			WHERE
+			from "NWS_Tag"
+			where
 				(
 					(
 						("IFTag__parent_search_" IS NULL)
@@ -33,6 +34,7 @@ $BODY$
 					OR 
 					("IFApplication" = "IFApplication_search_")
 				)
+
 		LOOP
 			RETURN NEXT _Output;
 		END LOOP;
@@ -43,3 +45,19 @@ $BODY$
 	LANGUAGE 'plpgsql' STABLE
 	COST 100
 	ROWS 1000;
+
+select *
+from "fnc_NWS_Tag_Record_open_byParent"(
+	1, 
+	1
+)
+
+
+
+
+
+
+
+
+
+
