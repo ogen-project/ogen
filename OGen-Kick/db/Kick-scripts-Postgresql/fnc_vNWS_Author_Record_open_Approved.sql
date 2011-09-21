@@ -5,10 +5,10 @@
 CREATE OR REPLACE FUNCTION "fnc_vNWS_Author_Record_open_Approved"(
 	"IDApplication_search_" integer
 )
-	RETURNS SETOF "v0_CRD_Permition__onlyKeys" AS
+	RETURNS SETOF "v0_vNWS_Author__onlyKeys" AS
 $BODY$
 	DECLARE
-		_Output "v0_CRD_Permition__onlyKeys";
+		_Output "v0_vNWS_Author__onlyKeys";
 	BEGIN
 		FOR _Output IN
 

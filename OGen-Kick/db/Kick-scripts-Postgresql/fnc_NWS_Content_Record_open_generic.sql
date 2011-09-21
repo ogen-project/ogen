@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION "fnc_NWS_Content_Record_open_generic"(
+﻿CREATE OR REPLACE FUNCTION "fnc_NWS_Content_Record_open_generic"(
 	"IFApplication_search_" integer, 
 	"IFUser__Publisher_search_" bigint, 
 	"IFUser__Aproved_search_" bigint, 
@@ -35,18 +35,18 @@ $BODY$
 		);
 	BEGIN
 		if (_conditional_join_NWS_ContentTag) then
-			select into _tagCount count(OutputValue)
-			from "OGen_fnc0__Split" (
+			select into _tagCount count("OGen_fnc0__Split")
+			from "OGen_fnc0__Split" (string_to_array(
 				"IDTag_search_", 
 				','
-			);
+			));
 		end if;
 		if (_conditional_join_NWS_ContentProfile) then
-			select into _profileCount count(OutputValue)
-			from "OGen_fnc0__Split" (
+			select into _profileCount count("OGen_fnc0__Split")
+			from "OGen_fnc0__Split" (string_to_array(
 				"IDProfile_search_", 
 				','
-			);
+			));
 		end if;
 
 		FOR _Output IN
@@ -54,7 +54,7 @@ $BODY$
 				"IDContent"
 			FROM "NWS_Content"
 			left join "DIC_TextLanguage" on (
-				conditional_join_DIC_TextLanguage
+				_conditional_join_DIC_TextLanguage
 				and
 				("DIC_TextLanguage"."IFLanguage" = "IDLanguage_")
 				and
@@ -106,7 +106,7 @@ $BODY$
 				)
 				and
 				(
-					(not "conditional_join_DIC_TextLanguage")
+					(not _conditional_join_DIC_TextLanguage)
 					or
 					(
 						select "OGen_fnc0__Like"(
@@ -122,11 +122,11 @@ $BODY$
 							), 			
 							"Keywords_search_"
 						)
-					) = 1
+					) = true
 				)
 				and
 				(
-					(not "conditional_join_NWS_ContentTag")
+					(not _conditional_join_NWS_ContentTag)
 					or
 					(
 						(
@@ -136,18 +136,18 @@ $BODY$
 								("NWS_ContentTag"."IFContent" = "NWS_Content"."IDContent")
 								and
 								("NWS_ContentTag"."IFTag" in (
-									select cast(OutputValue as bigint)
-									from "OGen_fnc0__Split" (
+									select cast("OGen_fnc0__Split" as bigint)
+									from "OGen_fnc0__Split" (string_to_array(
 										"IDTag_search_", 
 										','
-									)
+									))
 								))
-						) = tagCount
+						) = _tagCount
 					)
 				) 
 				and
 				(
-					(not "conditional_join_NWS_ContentProfile")
+					(not _conditional_join_NWS_ContentProfile)
 					or
 					(
 						(
@@ -157,13 +157,13 @@ $BODY$
 								("NWS_ContentProfile"."IFContent" = "NWS_Content"."IDContent")
 								and
 								("NWS_ContentProfile"."IFProfile" in (
-									select cast(OutputValue as bigint)
-									from "OGen_fnc0__Split" (
+									select cast("OGen_fnc0__Split" as bigint)
+									from "OGen_fnc0__Split" (string_to_array(
 										"IDProfile_search_", 
 										','
-									)
+									))
 								))
-						) = profileCount
+						) = _profileCount
 					)
 				) 
 		LOOP
