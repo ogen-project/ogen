@@ -182,6 +182,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				author_in.Approved_date_isNull = true;
 				author_in.IFUser__Approved_isNull = true;
 			}
+			author_in.IFApplication = _sessionuser.IDApplication;
+
 			_output = DO_NWS_Author.insObject(
 				author_in,
 				selectIdentity_in,

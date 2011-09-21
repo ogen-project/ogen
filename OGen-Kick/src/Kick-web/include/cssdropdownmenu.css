@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 /*** MAIN MENU: **********************************************************************/
 #cssdropdownmenu > li {
-	background-color: #c0c0c0;
+	background-color: #dde;
 	width: 140px;
 	height: 40px;
 
@@ -24,13 +24,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 	border: 0px solid black;
 }
-#cssdropdownmenu > li:hover {
-	background-color: #d0d0d0;
+#cssdropdownmenu > li table:hover {
+	background-color: #aae;
 }
 
 /*** SUB MENU: **********************************************************************/
 #cssdropdownmenu > li ul {
-	background-color: #d0d0d0;
+	background-color: #dde;
 	width: 140px;
 
 	border: 0px solid black;
@@ -47,7 +47,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	vertical-align: middle;
 }
 #cssdropdownmenu > li ul li:hover {
-	background-color: #1010e0;
+	background-color: #aae;
 }
 
 /*** OTHER: **********************************************************************/

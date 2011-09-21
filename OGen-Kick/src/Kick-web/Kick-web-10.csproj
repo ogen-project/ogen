@@ -50,6 +50,8 @@
     <Content Include="admin\LOG-Log.aspx" />
     <Content Include="admin\NWS-News-list.aspx" />
     <Content Include="admin\NWS-News.aspx" />
+    <Content Include="admin\NWS-NewsAuthor-list.aspx" />
+    <Content Include="admin\NWS-NewsAuthor.aspx" />
     <Content Include="App_Controls\ServerVariables.aspx" />
     <Content Include="App_Controls\wuc_txt_Dic.ascx" />
     <Content Include="Default.aspx" />
@@ -116,6 +118,20 @@
     </Compile>
     <Compile Include="admin\NWS-News.aspx.designer.cs">
       <DependentUpon>NWS-News.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\NWS-NewsAuthor-list.aspx.cs">
+      <DependentUpon>NWS-NewsAuthor-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\NWS-NewsAuthor-list.aspx.designer.cs">
+      <DependentUpon>NWS-NewsAuthor-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\NWS-NewsAuthor.aspx.cs">
+      <DependentUpon>NWS-NewsAuthor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\NWS-NewsAuthor.aspx.designer.cs">
+      <DependentUpon>NWS-NewsAuthor.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Controls\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>

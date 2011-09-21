@@ -20,7 +20,7 @@
 		<form id="form1" runat="server">
 			<div id="div_main">
 
-				<table border="1" cellspacing="0" cellpadding="0" style="width: 100%; height: 100%;">
+				<table border="1" cellspacing="0" cellpadding="4" style="width: 100%; height: 100%;">
 					<tr>
 						<td style="width: 25%;">
 							welcome <asp:Label ID="lbl_Welcome" runat="server" />!

@@ -45,7 +45,7 @@
 	ContentPlaceHolderID="cph_Body">
 	<table width="700" border="1" align="center" cellpadding="5" cellspacing="0">
 		<tr>
-			<td width="700" bgcolor="#DDDDDD" colspan="2" class="heads_maior">
+			<td width="700" bgcolor="#dde" colspan="2" class="heads_maior">
 				Article
 			</td>
 		</tr>
@@ -55,10 +55,9 @@
 			<td colspan="2">
 
 				<div class="tabber">
-
 					<div class="tabbertab">
 						<h2>Article</h2>
-						<p>
+						<div>
 							<table width="100%" border="1" align="center" cellpadding="5" cellspacing="0">
 								<tr>
 									<td width="0%" class="titulos">
@@ -121,11 +120,11 @@
 									</td>
 								</tr>
 							</table>
-						</p>
+						</div>
 					</div>
 					<div id="div_Attachments" runat="server" class="tabbertab">
 						<h2>Attachments</h2>
-						<p>
+						<div>
 							<anthem:Repeater
 								ID="rep_Attachments" runat="server"
 								AutoUpdateAfterCallBack="true">
@@ -229,11 +228,11 @@
 									</td>
 								</tr>
 							</table>
-						</p>
+						</div>
 					</div>
 					<div id="div_Tags" runat="server" class="tabbertab">
 						<h2>Tags</h2>
-						<p>
+						<div>
 							<table width="100%" border="1" align="center" cellpadding="5" cellspacing="0">
 								<tr>
 									<td align="center">
@@ -261,11 +260,11 @@
 									</td>
 								</tr>
 							</table>
-						</p>
+						</div>
 					</div>
 					<div id="div_Authors" runat="server" class="tabbertab">
 						<h2>Authors</h2>
-						<p>
+						<div>
 							<table width="100%" border="1" align="center" cellpadding="5" cellspacing="0">
 								<tr>
 									<td align="center">
@@ -293,11 +292,11 @@
 									</td>
 								</tr>
 							</table>
-						</p>
+						</div>
 					</div>
 					<div id="div_Sources" runat="server" class="tabbertab">
 						<h2>Sources</h2>
-						<p>
+						<div>
 							<table width="100%" border="1" align="center" cellpadding="5" cellspacing="0">
 								<tr>
 									<td align="center">
@@ -325,11 +324,11 @@
 									</td>
 								</tr>
 							</table>
-						</p>
+						</div>
 					</div>
 					<div id="div_Highlights" runat="server" class="tabbertab">
 						<h2>Highlights</h2>
-						<p>
+						<div>
 <% #if DEBUG %>
 <span class="label_error">
 	NOTA: tens de considerar o intervalo de tempo em que a noticia vai estar associada ao destaque<br />
@@ -359,11 +358,11 @@
 									</td>
 								</tr>
 							</table>
-						</p>
+						</div>
 					</div>
 					<div id="div_Profiles" runat="server" class="tabbertab">
 						<h2>Profiles</h2>
-						<p>
+						<div>
 							<table width="100%" border="1" align="center" cellpadding="5" cellspacing="0">
 								<tr>
 									<td align="center">
@@ -391,7 +390,7 @@
 									</td>
 								</tr>
 							</table>
-						</p>
+						</div>
 					</div>
 				</div>
 
