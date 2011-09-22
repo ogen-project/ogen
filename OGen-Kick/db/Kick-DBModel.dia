@@ -8957,7 +8957,7 @@ Newsletter#</dia:string>
         <dia:point val="5,16"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="4.98137,15.3864;17.7375,17.7873"/>
+        <dia:rectangle val="5,15.405;18.2375,17.75"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">

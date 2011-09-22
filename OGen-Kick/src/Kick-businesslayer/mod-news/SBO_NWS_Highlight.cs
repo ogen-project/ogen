@@ -190,6 +190,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				highlight_in.Approved_date_isNull = true;
 				highlight_in.IFUser__Approved_isNull = true;
 			}
+			highlight_in.IFApplication = _sessionuser.IDApplication;
 			_output = DO_NWS_Highlight.insObject(
 				highlight_in,
 				selectIdentity_in,

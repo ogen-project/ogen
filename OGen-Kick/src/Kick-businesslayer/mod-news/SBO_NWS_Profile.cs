@@ -181,19 +181,22 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				= new SO_CRD_Profile(
 					-1L,
 					profile_in.Name,
-					profile_in.IDApplication
+					//profile_in.IDApplication
+					_sessionuser.IDApplication
 				); 
 			#endregion
-			#region _crd_profile.IFApplication = profile_in.IDApplication;
-			if (
-				(profile_in.IDApplication_isNull)
-				||
-				(profile_in.IDApplication <= 0)
-			) {
-				_crd_profile.IFApplication_isNull = true;
-			} else {
-				_crd_profile.IFApplication = profile_in.IDApplication;
-			}
+			#region _crd_profile.IFApplication = ...;
+			//if (
+			//    (profile_in.IDApplication_isNull)
+			//    ||
+			//    (profile_in.IDApplication <= 0)
+			//) {
+			//    _crd_profile.IFApplication_isNull = true;
+			//} else {
+			//    _crd_profile.IFApplication = profile_in.IDApplication;
+			//}
+
+			_crd_profile.IFApplication = _sessionuser.IDApplication;
 			#endregion
 			_crd_profile.Name = profile_in.Name;
 

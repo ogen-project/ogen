@@ -178,6 +178,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			// ToDos: here! should mark Content to be re-Approved!
 			// ToDos: here! or not allow if no approve permition
 
+			attachment_in.GUID
+				= guid_out
+				= Guid.NewGuid().ToString("N");
+			attachment_in.OrderNum = DateTime.Now.Ticks;
+
 			Exception _exception = null;
 			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
 			DBConnection _con = DO__utils.DBConnection_createInstance(
@@ -240,10 +245,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				}
 				#endregion
 
-				attachment_in.GUID 
-					= guid_out 
-					= Guid.NewGuid().ToString("N");
-				attachment_in.OrderNum = DateTime.Now.Ticks;
 				_output = DO_NWS_Attachment.insObject(
 					attachment_in,
 					selectIdentity_in,

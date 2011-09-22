@@ -190,6 +190,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				source_in.Approved_date_isNull = true;
 				source_in.IFUser__Approved_isNull = true;
 			}
+			_sessionuser.IDApplication = _sessionuser.IDApplication;
 			_output = DO_NWS_Source.insObject(
 				source_in,
 				selectIdentity_in,

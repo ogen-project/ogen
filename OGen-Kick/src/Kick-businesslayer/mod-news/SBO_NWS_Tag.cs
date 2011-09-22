@@ -320,6 +320,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				tag_in.IFUser__Approved_isNull = true;
 			}
 
+			tag_in.IFApplication = _sessionuser.IDApplication;
+
 			Exception _exception = null;
 			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
 			DBConnection _con = DO__utils.DBConnection_createInstance(
@@ -467,6 +469,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				tag_in.IFUser__Approved = _tag.IFUser__Approved;
 			}
 
+			tag_in.IFApplication = _tag.IFApplication;
+
 			Exception _exception = null;
 			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
 			DBConnection _con = DO__utils.DBConnection_createInstance(
@@ -490,7 +494,6 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				#endregion
 				tag_in.TX_Name = _tag.TX_Name;
 
-				tag_in.IFApplication = _tag.IFApplication;
 				DO_NWS_Tag.updObject(
 					tag_in,
 					true,

@@ -37,6 +37,12 @@
 				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
 					<a runat="server" href="~/admin/NWS-NewsAuthor.aspx">authors create</a>
 				</div></li>
+				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+					<a runat="server" href="~/admin/NWS-NewsTag-list.aspx">tags list</a>
+				</div></li>
+				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+					<a runat="server" href="~/admin/NWS-NewsTag.aspx">tags create</a>
+				</div></li>
 			</ul>
 		</li>
 		<li>

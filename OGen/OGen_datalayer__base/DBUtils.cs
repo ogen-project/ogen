@@ -14,6 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 using System.Data;
+using System.Text;
 
 namespace OGen.lib.datalayer {
 	/// <summary>
@@ -116,6 +117,23 @@ namespace OGen.lib.datalayer {
 				default:
 					return false;
 			}
+		}
+		#endregion
+
+		#region public static string IDbDataParameter2String(...);
+		public static string IDbDataParameter2String(
+			IDbDataParameter[] dataParameters_in
+		) {
+			StringBuilder _sb = new StringBuilder();
+			for (int i = 0; i < dataParameters_in.Length; i++) {
+				_sb.Append(string.Format(
+					"\n\t{1}{2}\t\t--{0}",
+					dataParameters_in[i].ParameterName,
+					dataParameters_in[i].Value,
+					(i == dataParameters_in.Length - 1) ? "\n" : ","
+				));
+			}
+			return _sb.ToString();
 		}
 		#endregion
 	}

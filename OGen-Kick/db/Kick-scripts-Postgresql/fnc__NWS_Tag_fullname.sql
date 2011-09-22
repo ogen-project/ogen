@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION "fnc_NWS_Tag__fullname"(
+﻿CREATE OR REPLACE FUNCTION "fnc_NWS_Tag__fullname"(
 	"idTag_in" bigint, 
 	"idLanguage_in" bigint
 ) 
@@ -9,14 +9,14 @@ $BODY$
 	begin
 		select 
 			_output 
-			+ case 
+			|| case 
 				when "NWS_Tag"."IFTag__parent" is null then '' 
 				else "fnc_NWS_Tag__fullname"(
 					"NWS_Tag"."IFTag__parent", 
 					"idLanguage_in"
-				) + ' / '
+				) || ' / '
 			end
-			+ case 
+			|| case 
 				when not "DIC_TextLanguage"."CharVar8000" is null 
 					then "DIC_TextLanguage"."CharVar8000"
 				when not "DIC_TextLanguage"."Text" is null 

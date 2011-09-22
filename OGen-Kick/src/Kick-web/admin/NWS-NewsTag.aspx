@@ -1,8 +1,8 @@
 ﻿<%@ Page 
 	Language="C#" 
 	AutoEventWireup="true" 
-	CodeBehind="NWS-NewsAuthor.aspx.cs" 
-	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.NWS_NewsAuthor" 
+	CodeBehind="NWS-NewsTag.aspx.cs" 
+	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.NWS_NewsTag" 
 	MasterPageFile="~/App_Controls/Admin.Master" %>
 <%@ Register 
 	TagPrefix="anthem" 
@@ -20,7 +20,7 @@
 	id="cnt_Title" runat="server" 
 	ContentPlaceHolderID="cph_Title">
 
-	- Author
+	- Tag
 </asp:Content>
 <asp:Content
 	id="cnt_Head" runat="server"
@@ -34,7 +34,7 @@
 	<table width="700" border="1" align="center" cellpadding="5" cellspacing="0">
 		<tr>
 			<td width="700" bgcolor="#DDDDDD">
-				<span class="heads_maior">Author</span>
+				<span class="heads_maior">Tag</span>
 			</td>
 		</tr>
 	</table>
@@ -44,9 +44,24 @@
 				Name
 			</td>
 			<td width="500">
-				<asp:TextBox
-					ID="txt_Name" runat="server"
-					CssClass="textbox_dim4" />
+				<asol:wuc_Dic
+					ID="dic_Name" runat="server"
+					Text_CssClass="textbox_dim5"
+					Label_CssClass="cl_noticias_normal"
+					Rows="1" />
+			</td>
+		</tr>
+		<tr>
+			<td class="titulos">
+				Parent
+			</td>
+			<td>
+				<asol:KickListBox
+					ID="ddl_Tag_parent" runat="server" 
+
+					CssClass="cl_noticias_normal" 
+					Rows="1" 
+					SelectionMode="Single" />
 			</td>
 		</tr>
 		<tr style="border-color: #CCCCCC;">
@@ -60,7 +75,7 @@
 				<span class="titulos">
 					<input 
 						type="button" 
-						onclick="javascript:window.location='NWS-NewsAuthor-list.aspx';return false;" 
+						onclick="javascript:window.location='NWS-NewsTag-list.aspx';return false;" 
 						value="Cancel"
 						class="cl_noticias_normal" />
 					<asp:Button
