@@ -16,10 +16,6 @@
 	TagPrefix="anthem" 
 	Namespace="Anthem" 
 	Assembly="Anthem" %>
-<%--<%@ Register 
-	src="../App_Controls/wuc_Calendar.ascx" 
-	tagname="wuc_Calendar" 
-	tagprefix="uc1" %>--%>
 <asp:Content
 	id="cnt_Title" runat="server" 
 	ContentPlaceHolderID="cph_Title">

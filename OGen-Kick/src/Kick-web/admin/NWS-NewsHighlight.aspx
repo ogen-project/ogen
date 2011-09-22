@@ -13,14 +13,6 @@
 	Namespace="OGen.lib.presentationlayer.webforms"
 	Assembly="OGen.lib.presentationlayer.webforms-2.0" %>
 <%@ Register 
-	src="../App_Controls/wuc_Calendar.ascx" 
-	tagname="wuc_Calendar" 
-	tagprefix="PTExp" %>
-<%@ Register 
-	Assembly="AjaxControlToolkit" 
-	Namespace="AjaxControlToolkit" 
-	TagPrefix="ajaxToolkit" %>
-<%@ Register 
 	src="../App_Controls/wuc_txt_Dic.ascx" 
 	tagname="wuc_Dic" 
 	tagprefix="asol" %>
