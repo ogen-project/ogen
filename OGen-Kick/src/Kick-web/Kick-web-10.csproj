@@ -53,6 +53,11 @@
     <Content Include="admin\NWS-NewsAuthor-list.aspx" />
     <Content Include="admin\NWS-NewsAuthor.aspx" />
     <Content Include="admin\NWS-NewsHighlight-list.aspx" />
+    <Content Include="admin\NWS-NewsHighlight.aspx" />
+    <Content Include="admin\NWS-NewsProfile-list.aspx" />
+    <Content Include="admin\NWS-NewsProfile.aspx" />
+    <Content Include="admin\NWS-NewsSource-list.aspx" />
+    <Content Include="admin\NWS-NewsSource.aspx" />
     <Content Include="admin\NWS-NewsTag-list.aspx" />
     <Content Include="admin\NWS-NewsTag.aspx" />
     <Content Include="App_Controls\ServerVariables.aspx" />
@@ -142,6 +147,41 @@
     </Compile>
     <Compile Include="admin\NWS-NewsHighlight-list.aspx.designer.cs">
       <DependentUpon>NWS-NewsHighlight-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\NWS-NewsHighlight.aspx.cs">
+      <DependentUpon>NWS-NewsHighlight.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\NWS-NewsHighlight.aspx.designer.cs">
+      <DependentUpon>NWS-NewsHighlight.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\NWS-NewsProfile-list.aspx.cs">
+      <DependentUpon>NWS-NewsProfile-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\NWS-NewsProfile-list.aspx.designer.cs">
+      <DependentUpon>NWS-NewsProfile-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\NWS-NewsProfile.aspx.cs">
+      <DependentUpon>NWS-NewsProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\NWS-NewsProfile.aspx.designer.cs">
+      <DependentUpon>NWS-NewsProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\NWS-NewsSource-list.aspx.cs">
+      <DependentUpon>NWS-NewsSource-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\NWS-NewsSource-list.aspx.designer.cs">
+      <DependentUpon>NWS-NewsSource-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\NWS-NewsSource.aspx.cs">
+      <DependentUpon>NWS-NewsSource.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\NWS-NewsSource.aspx.designer.cs">
+      <DependentUpon>NWS-NewsSource.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\NWS-NewsTag-list.aspx.cs">
       <DependentUpon>NWS-NewsTag-list.aspx</DependentUpon>

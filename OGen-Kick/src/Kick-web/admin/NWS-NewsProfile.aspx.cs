@@ -102,7 +102,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
 					_profile,
-					utils.IDApplication,
 					out _errors
 				);
 			}
