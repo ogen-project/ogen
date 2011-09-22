@@ -52,6 +52,7 @@
     <Content Include="admin\NWS-News.aspx" />
     <Content Include="admin\NWS-NewsAuthor-list.aspx" />
     <Content Include="admin\NWS-NewsAuthor.aspx" />
+    <Content Include="admin\NWS-NewsHighlight-list.aspx" />
     <Content Include="admin\NWS-NewsTag-list.aspx" />
     <Content Include="admin\NWS-NewsTag.aspx" />
     <Content Include="App_Controls\ServerVariables.aspx" />
@@ -134,6 +135,13 @@
     </Compile>
     <Compile Include="admin\NWS-NewsAuthor.aspx.designer.cs">
       <DependentUpon>NWS-NewsAuthor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\NWS-NewsHighlight-list.aspx.cs">
+      <DependentUpon>NWS-NewsHighlight-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\NWS-NewsHighlight-list.aspx.designer.cs">
+      <DependentUpon>NWS-NewsHighlight-list.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\NWS-NewsTag-list.aspx.cs">
       <DependentUpon>NWS-NewsTag-list.aspx</DependentUpon>

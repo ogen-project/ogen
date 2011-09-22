@@ -26,22 +26,40 @@
 			</td></tr></table>
 			<ul>
 				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
-					<a runat="server" href="~/admin/NWS-News-list.aspx">search</a>
+					<a runat="server" href="~/admin/NWS-News-list.aspx">article search</a>
 				</div></li>
 				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
-					<a runat="server" href="~/admin/NWS-News.aspx">create</a>
+					<a runat="server" href="~/admin/NWS-News.aspx">article create</a>
 				</div></li>
 				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
-					<a runat="server" href="~/admin/NWS-NewsAuthor-list.aspx">authors list</a>
+					<a runat="server" href="~/admin/NWS-NewsAuthor-list.aspx">author search</a>
 				</div></li>
 				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
-					<a runat="server" href="~/admin/NWS-NewsAuthor.aspx">authors create</a>
+					<a runat="server" href="~/admin/NWS-NewsAuthor.aspx">author create</a>
 				</div></li>
 				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
-					<a runat="server" href="~/admin/NWS-NewsTag-list.aspx">tags list</a>
+					<a runat="server" href="~/admin/NWS-NewsTag-list.aspx">tag search</a>
 				</div></li>
 				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
-					<a runat="server" href="~/admin/NWS-NewsTag.aspx">tags create</a>
+					<a runat="server" href="~/admin/NWS-NewsTag.aspx">tag create</a>
+				</div></li>
+				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+					<a runat="server" href="~/admin/NWS-NewsHighlight-list.aspx">highlight search</a>
+				</div></li>
+				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+					<a runat="server" href="~/admin/NWS-NewsHighlight.aspx">highlight create</a>
+				</div></li>
+				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+					<a runat="server" href="~/admin/NWS-NewsProfile-list.aspx">profile search</a>
+				</div></li>
+				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+					<a runat="server" href="~/admin/NWS-NewsProfile.aspx">profile create</a>
+				</div></li>
+				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+					<a runat="server" href="~/admin/NWS-NewsSource-list.aspx">source search</a>
+				</div></li>
+				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+					<a runat="server" href="~/admin/NWS-NewsSource.aspx">source create</a>
 				</div></li>
 			</ul>
 		</li>
