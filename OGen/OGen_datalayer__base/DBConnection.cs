@@ -820,13 +820,14 @@ namespace OGen.lib.datalayer {
 			} catch (Exception _ex) {
 				throw new Exception(
 					string.Format(
-						"Stored Procedure: {0}\nParameters: {1}\nConnectionString: {2}|{3}\nexception: {4}\ninner-exception: {5}\n",
+						"Stored Procedure: {0}({6})\nParameters: {1}\nConnectionString: {2}|{3}\nexception: {4}\ninner-exception: {5}\n",
 						function_in,
 						dataParameters_in,
 						DBServerType, 
 						connectionstring_,
-						_ex.Message, 
-						_ex.InnerException
+						_ex.Message,
+						_ex.InnerException,
+						DBUtils.IDbDataParameter2String(dataParameters_in)
 					)
 				);
 			}

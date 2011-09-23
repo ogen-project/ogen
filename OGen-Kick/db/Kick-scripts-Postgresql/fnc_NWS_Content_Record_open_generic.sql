@@ -27,11 +27,15 @@ $BODY$
 		_tagCount integer = 0;
 		_conditional_join_NWS_ContentTag boolean = not (
 			("IDTag_search_" is null)
+			or
+			("IDTag_search_" = '')
 		);
 
 		_profileCount integer = 0;
 		_conditional_join_NWS_ContentProfile boolean = not (
 			("IDProfile_search_" is null)
+			or
+			("IDProfile_search_" = '')
 		);
 	BEGIN
 		if (_conditional_join_NWS_ContentTag) then
@@ -51,7 +55,7 @@ $BODY$
 
 		FOR _Output IN
 			SELECT
-				"IDContent"
+				distinct "IDContent"
 			FROM "NWS_Content"
 			left join "DIC_TextLanguage" on (
 				_conditional_join_DIC_TextLanguage
