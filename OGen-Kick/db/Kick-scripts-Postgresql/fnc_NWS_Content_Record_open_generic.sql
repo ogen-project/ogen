@@ -1,7 +1,11 @@
 ﻿CREATE OR REPLACE FUNCTION "fnc_NWS_Content_Record_open_generic"(
 	"IFApplication_search_" integer, 
 	"IFUser__Publisher_search_" bigint, 
-	"IFUser__Aproved_search_" bigint, 
+
+	"IFUser__Aproved_search_" bigint, ----------------------- = 0  - Approved
+	--------------------------------------------------------- = -1 - Not Approved
+	--------------------------------------------------------- < -1 - ignore
+
 	"Begin_date_search_" timestamp with time zone, 
 	"End_date_search_" timestamp with time zone, 
 	"IDTag_search_" character varying, 
@@ -31,6 +35,27 @@ $BODY$
 			("IDTag_search_" = '')
 		);
 
+		_authorCount integer = 0;
+		_conditional_join_NWS_ContentAuthor boolean = not (
+			("IDAuthor_search_" is null)
+			or
+			("IDAuthor_search_" = '')
+		);
+
+		_sourceCount integer = 0;
+		_conditional_join_NWS_ContentSource boolean = not (
+			("IDSource_search_" is null)
+			or
+			("IDSource_search_" = '')
+		);
+
+		_highlightCount integer = 0;
+		_conditional_join_NWS_ContentHighlight boolean = not (
+			("IDHighlight_search_" is null)
+			or
+			("IDHighlight_search_" = '')
+		);
+
 		_profileCount integer = 0;
 		_conditional_join_NWS_ContentProfile boolean = not (
 			("IDProfile_search_" is null)
@@ -42,6 +67,27 @@ $BODY$
 			select into _tagCount count("OGen_fnc0__Split")
 			from "OGen_fnc0__Split" (string_to_array(
 				"IDTag_search_", 
+				','
+			));
+		end if;
+		if (_conditional_join_NWS_ContentAuthor) then
+			select into _authorCount count("OGen_fnc0__Split")
+			from "OGen_fnc0__Split" (string_to_array(
+				"IDAuthor_search_", 
+				','
+			));
+		end if;
+		if (_conditional_join_NWS_ContentSource) then
+			select into _sourceCount count("OGen_fnc0__Split")
+			from "OGen_fnc0__Split" (string_to_array(
+				"IDSource_search_", 
+				','
+			));
+		end if;
+		if (_conditional_join_NWS_ContentHighlight) then
+			select into _highlightCount count("OGen_fnc0__Split")
+			from "OGen_fnc0__Split" (string_to_array(
+				"IDHighlight_search_", 
 				','
 			));
 		end if;
@@ -86,13 +132,23 @@ $BODY$
 				) 
 				and
 				(
-					("IFUser__Aproved_search_" <= 0)
+					("IFUser__Aproved_search_" < -1) -- < -1 !!! have in consideration argument comments
 					or 
 					(
-						("IFUser__Aproved_search_" is null)
+						(
+							("IFUser__Aproved_search_" is null)
+							or
+							("IFUser__Aproved_search_" = -1)
+						)
 						and
 						("NWS_Content"."IFUser__Aproved" is null)
 					) 
+					or
+					(
+						("IFUser__Aproved_search_" = 0)
+						and
+						(not "NWS_Content"."IFUser__Aproved" is null)
+					)
 					or
 					(
 						not ("IFUser__Aproved_search_" is null)
@@ -147,6 +203,69 @@ $BODY$
 									))
 								))
 						) = _tagCount
+					)
+				) 
+				and
+				(
+					(not _conditional_join_NWS_ContentAuthor)
+					or
+					(
+						(
+							select count("NWS_ContentAuthor"."IFAuthor")
+							from "NWS_ContentAuthor"
+							where 
+								("NWS_ContentAuthor"."IFContent" = "NWS_Content"."IDContent")
+								and
+								("NWS_ContentAuthor"."IFAuthor" in (
+									select cast("OGen_fnc0__Split" as bigint)
+									from "OGen_fnc0__Split" (string_to_array(
+										"IDAuthor_search_", 
+										','
+									))
+								))
+						) = _authorCount
+					)
+				) 
+				and
+				(
+					(not _conditional_join_NWS_ContentSource)
+					or
+					(
+						(
+							select count("NWS_ContentSource"."IFSource")
+							from "NWS_ContentSource"
+							where 
+								("NWS_ContentSource"."IFContent" = "NWS_Content"."IDContent")
+								and
+								("NWS_ContentSource"."IFSource" in (
+									select cast("OGen_fnc0__Split" as bigint)
+									from "OGen_fnc0__Split" (string_to_array(
+										"IDSource_search_", 
+										','
+									))
+								))
+						) = _sourceCount
+					)
+				) 
+				and
+				(
+					(not _conditional_join_NWS_ContentHighlight)
+					or
+					(
+						(
+							select count("NWS_ContentHighlight"."IFHighlight")
+							from "NWS_ContentHighlight"
+							where 
+								("NWS_ContentHighlight"."IFContent" = "NWS_Content"."IDContent")
+								and
+								("NWS_ContentHighlight"."IFHighlight" in (
+									select cast("OGen_fnc0__Split" as bigint)
+									from "OGen_fnc0__Split" (string_to_array(
+										"IDHighlight_search_", 
+										','
+									))
+								))
+						) = _highlightCount
 					)
 				) 
 				and
