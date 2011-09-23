@@ -20,32 +20,47 @@
 		<form id="form1" runat="server">
 			<div id="div_main">
 
-				<table border="1" cellspacing="0" cellpadding="4" style="width: 100%; height: 100%;">
+				<table 
+					border="1" cellspacing="0" cellpadding="4" 
+					style="width: 100%; height: 100%;"
+					class="">
 					<tr>
-						<td style="width: 25%;">
-							welcome <asp:Label ID="lbl_Welcome" runat="server" />!
-						</td>
-						<td style="width: 50%;" align="right">
-							<asp:Label 
-								ID="lbl_EMail" runat="server" 
-								Text="EMail: " />
-							<asp:TextBox 
-								ID="txt_EMail" runat="server" />
-							<asp:Label 
-								ID="lbl_Password" runat="server" 
-								Text="Password: " />
-							<asp:TextBox 
-								ID="txt_Password" runat="server" 
-								TextMode="Password" />
-							<asp:Button
-								ID="btn_Login" runat="server"
-								Text="  OK  "
-								OnClick="btn_Login_Click" />
+						<td style="width: 75%;" class="label_small">
+							<table border="0" cellpadding="0" cellspacing="0" width="100%">
+								<tr>
+									<td align="left">
+										welcome <asp:Label ID="lbl_Welcome" runat="server" />!
+									</td>
+									<td align="right">
+										<asp:Label 
+											ID="lbl_EMail" runat="server" 
+											CssClass="label_small"
+											Text="EMail: " />
+										<asp:TextBox 
+											ID="txt_EMail" runat="server" 
+											CssClass="textbox_dim1" />
+										<asp:Label 
+											ID="lbl_Password" runat="server" 
+											CssClass="label_small"
+											Text="Password: " />
+										<asp:TextBox 
+											ID="txt_Password" runat="server" 
+											CssClass="textbox_dim1"
+											TextMode="Password" />
+										<asp:Button
+											ID="btn_Login" runat="server"
+											Text="  login  "
+											CssClass="button"
+											OnClick="btn_Login_Click" />
 
-							<asp:Button
-								ID="btn_Logout" runat="server"
-								Text="Logout"
-								OnClick="btn_Logout_Click" />
+										<asp:Button
+											ID="btn_Logout" runat="server"
+											Text="  logout  "
+											CssClass="button"
+											OnClick="btn_Logout_Click" />
+									</td>
+								</tr>
+							</table>
 						</td>
 						<td style="width: 25%;" valign="top" rowspan="4">
 							<anthem:Label
@@ -54,17 +69,20 @@
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2">
+						<td colspan="1">
 							<asp:ContentPlaceHolder ID="cph_Menu" runat="server" />
 						</td>
 					</tr>
+
+					<%--<tr><td colspan="1">&nbsp;</td></tr>--%>
+
 					<tr style="height: 100%;">
-						<td colspan="2" valign="top">
+						<td colspan="1" valign="top" align="center">
 							<asp:ContentPlaceHolder ID="cph_Body" runat="server" />
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2">
+						<td colspan="1">
 							BOTTOM
 						</td>
 					</tr>

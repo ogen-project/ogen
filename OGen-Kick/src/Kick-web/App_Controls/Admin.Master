@@ -19,73 +19,91 @@
 	id="cnt_Menu" runat="server"
 	ContentPlaceHolderID="cph_Menu">
 
-	<ul id="cssdropdownmenu">
-		<li>
-			<table border="0" cellspacing="0" cellpadding="0"><tr><td>
-				News
-			</td></tr></table>
-			<ul>
-				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
-					<a runat="server" href="~/admin/NWS-News-list.aspx">article search</a>
-				</div></li>
-				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
-					<a runat="server" href="~/admin/NWS-News.aspx">article create</a>
-				</div></li>
-				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
-					<a runat="server" href="~/admin/NWS-NewsAuthor-list.aspx">author search</a>
-				</div></li>
-				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
-					<a runat="server" href="~/admin/NWS-NewsAuthor.aspx">author create</a>
-				</div></li>
-				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
-					<a runat="server" href="~/admin/NWS-NewsTag-list.aspx">tag search</a>
-				</div></li>
-				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
-					<a runat="server" href="~/admin/NWS-NewsTag.aspx">tag create</a>
-				</div></li>
-				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
-					<a runat="server" href="~/admin/NWS-NewsHighlight-list.aspx">highlight search</a>
-				</div></li>
-				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
-					<a runat="server" href="~/admin/NWS-NewsHighlight.aspx">highlight create</a>
-				</div></li>
-				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
-					<a runat="server" href="~/admin/NWS-NewsProfile-list.aspx">profile search</a>
-				</div></li>
-				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
-					<a runat="server" href="~/admin/NWS-NewsProfile.aspx">profile create</a>
-				</div></li>
-				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
-					<a runat="server" href="~/admin/NWS-NewsSource-list.aspx">source search</a>
-				</div></li>
-				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
-					<a runat="server" href="~/admin/NWS-NewsSource.aspx">source create</a>
-				</div></li>
-			</ul>
-		</li>
-		<li>
-			<table border="0" cellspacing="0" cellpadding="0"><tr><td>
-				Admin
-			</td></tr></table>
-			<ul>
-				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
-					<a runat="server" href="~/admin/CRD-User-list.aspx">users</a>
-				</div></li>
-				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
-					<a runat="server" href="~/admin/CRD-ProfilePermition.aspx">profiles</a>
-				</div></li>
-				<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
-					<a runat="server" href="~/admin/LOG-Log.aspx">log</a>
-				</div></li>
-			</ul>
-		</li>
-	</ul>
+	<table 
+		border="1" cellpadding="0" cellspacing="0" width="100%" 
+		style="background-color: #dde;"
+		class="cssdropdownmenucontainer">
+
+		<tr>
+			<td>
+				<ul id="cssdropdownmenu">
+					<li>
+						<table border="0" cellspacing="0" cellpadding="0"><tr><td>
+							News
+						</td></tr></table>
+						<ul>
+							<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+								<a runat="server" href="~/admin/NWS-News-list.aspx">Articles</a>
+							</div></li>
+							<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+								<a runat="server" href="~/admin/NWS-News.aspx">Article create</a>
+							</div></li>
+							<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+								<a runat="server" href="~/admin/NWS-NewsAuthor-list.aspx">Authors</a>
+							</div></li>
+							<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+								<a runat="server" href="~/admin/NWS-NewsAuthor.aspx">Author create</a>
+							</div></li>
+							<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+								<a runat="server" href="~/admin/NWS-NewsTag-list.aspx">Tags</a>
+							</div></li>
+							<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+								<a runat="server" href="~/admin/NWS-NewsTag.aspx">Tag create</a>
+							</div></li>
+							<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+								<a runat="server" href="~/admin/NWS-NewsHighlight-list.aspx">Highlights</a>
+							</div></li>
+							<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+								<a runat="server" href="~/admin/NWS-NewsHighlight.aspx">Highlight create</a>
+							</div></li>
+							<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+								<a runat="server" href="~/admin/NWS-NewsProfile-list.aspx">Profiles</a>
+							</div></li>
+							<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+								<a runat="server" href="~/admin/NWS-NewsProfile.aspx">Profile create</a>
+							</div></li>
+							<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+								<a runat="server" href="~/admin/NWS-NewsSource-list.aspx">Sources</a>
+							</div></li>
+							<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+								<a runat="server" href="~/admin/NWS-NewsSource.aspx">Source create</a>
+							</div></li>
+						</ul>
+					</li>
+					<li>
+						<table border="0" cellspacing="0" cellpadding="0"><tr><td>
+							Admin
+						</td></tr></table>
+						<ul>
+							<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+								<a runat="server" href="~/admin/CRD-User-list.aspx">users</a>
+							</div></li>
+							<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+								<a runat="server" href="~/admin/CRD-ProfilePermition.aspx">profiles</a>
+							</div></li>
+							<li onclick="javascript:window.location = this.getElementsByTagName('a')[0];"><div>
+								<a runat="server" href="~/admin/LOG-Log.aspx">log</a>
+							</div></li>
+						</ul>
+					</li>
+				</ul>
+			</td>
+		</tr>
+	</table>
 
 </asp:Content>
 <asp:Content
 	id="cnt_Body" runat="server"
 	ContentPlaceHolderID="cph_Body">
 
-	<asp:ContentPlaceHolder ID="cph_Body" runat="server" />
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tr>
+			<td style="width: 50%"></td>
+			<td valign="top" align="center">
+				<asp:ContentPlaceHolder ID="cph_Body" runat="server" />
+			</td>
+			<td style="width: 50%"></td>
+		</tr>
+	</table>
 
 </asp:Content>

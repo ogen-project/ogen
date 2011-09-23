@@ -12,8 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 
 /*** MAIN MENU: **********************************************************************/
+#cssdropdownmenucontainer,
 #cssdropdownmenu > li {
 	background-color: #dde;
+}
+#cssdropdownmenu > li {
 	width: 140px;
 	height: 40px;
 

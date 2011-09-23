@@ -12,7 +12,7 @@
 	id="cnt_Title" runat="server" 
 	ContentPlaceHolderID="cph_Title">
 
-	- User Search
+	- User List
 </asp:Content>
 <asp:Content
 	id="cnt_Head" runat="server"
@@ -23,106 +23,119 @@
 	id="cnt_Body" runat="server"
 	ContentPlaceHolderID="cph_Body">
 
-	<table border="1" align="center" cellpadding="0" cellspacing="0">
+	<table
+		border="0" cellpadding="2" cellspacing="0" width="100%">
 		<tr>
-			<td colspan="2">
-				Search
+			<td colspan="2" align="center" class="label_title">
+				User Search
 			</td>
 		</tr>
+
+		<tr><td colspan="2">&nbsp;</td></tr>
+
 		<tr>
-			<td>
-				Login:
+			<td align="right" class="label_small nowrap">
+				Login:&nbsp;
 			</td>
 			<td>
 				<asp:TextBox
-					ID="txt_Login" runat="server" />
+					ID="txt_Login" runat="server"
+					CssClass="textbox_dim2" />
 			</td>
+			<td style="width: 50%;"></td>
 		</tr>
 		<tr>
-			<td>
-				EMail:
+			<td align="right" class="label_small nowrap">
+				EMail:&nbsp;
 			</td>
 			<td>
 				<asp:TextBox
-					ID="txt_EMail" runat="server" />
+					ID="txt_EMail" runat="server"
+					CssClass="textbox_dim4" />
 			</td>
 		</tr>
 		<tr>
-			<td>
-				Name:
+			<td align="right" class="label_small nowrap">
+				Name:&nbsp;
 			</td>
 			<td>
 				<asp:TextBox
-					ID="txt_Name" runat="server" />
+					ID="txt_Name" runat="server"
+					CssClass="textbox_dim4" />
 			</td>
 		</tr>
 		<tr>
-			<td>
-				On Profile:
+			<td align="right" class="label_small nowrap">
+				On&nbsp;Profile:&nbsp;
 			</td>
 			<td>
 				<asol:KickListBox
 					id="ddl_Profile__in" runat="server"
 
+					CssClass="dropdownlist"
 					Rows="1" 
 					SelectionMode="Single" />
 			</td>
 		</tr>
 		<tr>
-			<td>
-				Not on Profile:
+			<td align="right" class="label_small nowrap">
+				Not&nbsp;on&nbsp;Profile:&nbsp;
 			</td>
 			<td>
 				<asol:KickListBox
 					id="ddl_Profile__out" runat="server"
 
+					CssClass="dropdownlist"
 					Rows="1" 
 					SelectionMode="Single" />
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2" align="right">
+			<td></td>
+			<td align="right">
 				<asp:Button
 					ID="btn_Search" runat="server"
 					OnClick="btn_Search_Click"
-
+					CssClass="button"
 					Text="Search" />
 			</td>
 		</tr>
 	</table>
+	<br />
 
 	<asp:Repeater
 		ID="rep_SearchResults" runat="server">
 		<HeaderTemplate>
-			<table border="1" align="center" cellpadding="0" cellspacing="0">
+			<table 
+				border="0" align="center" cellpadding="2" cellspacing="0" width="100%">
 				<tr>
-					<td colspan="3">
-						User List
+					<td colspan="3" align="center" class="label_subtitle">
+						Search Results
 					</td>
 				</tr>
 				<tr>
-					<td valign="bottom">
+					<td valign="bottom" class="label_small">
 						Login
 					</td>
-					<td valign="bottom">
+					<td valign="bottom" class="label_small">
 						EMail
 					</td>
-					<td valign="bottom">
+					<td valign="bottom" class="label_small">
 						Name
 					</td>
 				</tr>
 		</HeaderTemplate>
 		<ItemTemplate>
 				<tr>
-					<td style="white-space:normal;">
+					<td class="label_small wrap">
 						<a 
 							href='<%# "CRD-User.aspx?IDUser=" + ((long)DataBinder.Eval(Container.DataItem, "IDUser")).ToString() %>'>
 						<%# DataBinder.Eval(Container.DataItem, "Login") %></a>
 					</td>
-					<td style="white-space:normal;">
+					<td class="label_small wrap">
 						<%# DataBinder.Eval(Container.DataItem, "EMail") %>
 					</td>
-					<td style="white-space:nowrap;">
+					<td class="label_small wrap">
 						<%# DataBinder.Eval(Container.DataItem, "Name") %>
 					</td>
 				</tr>

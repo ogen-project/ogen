@@ -19,6 +19,13 @@ body {
 	margin-right: 4px; /*auto*/
 	margin-left: 4px; /*auto*/
 	margin-top: 4px; /*auto*/
+
+	font-family: Verdana, sans-serif;
+	font-weight: bold;
+	font-size: 12px;
+
+	color: #000000;
+	background: #ffffff;
 }
 body, 
 form, 
@@ -26,14 +33,19 @@ form > div#div_main {
 	height: 99%;
 }
 
+nowrap {
+	color: Purple;
+	white-space: nowrap;
+}
+wrap {
+	color: Purple;
+	white-space: normal;
+}
+
 /****************************************************************************************************/
 .link_button {
 							font-weight: bold;
-	font-family: Verdana;
 	font-size: small;
-
-	color: Black;
-
 	text-decoration: none;
 }
 
@@ -41,55 +53,13 @@ form > div#div_main {
 .link_button_image {
 	text-decoration: none;
 }
-.link_button_image32_left, 
-.link_button_image32_center, 
-.link_button_image32_right {
-	height: 32px;
-}
-.link_button_image32_left {
-	width: 6px;
-	background-image: url(/images/botao32Left.png);
-}
-.link_button_image32_center {
-	font-family: Verdana;
-	font-weight: bold;
-	color: #FFFFFF;
-	background-repeat: repeat-x;
-	background-image: url(/images/botao32Center.png);
-}
-.link_button_image32_right {
-	width: 6px;
-	background-image: url(/images/botao32Right.png);
-}
-
-.link_button_image22_left, 
-.link_button_image22_center, 
-.link_button_image22_right {
-	height: 22px;
-}
-.link_button_image22_left {
-	width: 5px;
-	background-image: url(/images/botao22Left.png);
-}
-.link_button_image22_center {
-	font-family: Verdana;
-	font-size: small;
-	font-weight: bold;
-	color: #FFFFFF;
-	background-repeat: repeat-x;
-	background-image: url(/images/botao22Center.png);
-}
-.link_button_image22_right {
-	width: 5px;
-	background-image: url(/images/botao22Right.png);
-}
 
 /****************************************************************************************************/
 .button {
-	background-color: #d8261c;
-
-	font-family: Verdana;
-	color: White;
+	background-color: #dde;
+}
+.button:hover {
+	background-color: #aae;
 }
 .button[disabled] {
 	color: Gray;/* #EE817B; *//* #d8261c; */
@@ -103,15 +73,10 @@ form > div#div_main {
 .dropdownlist_dim4, 
 .dropdownlist_dim5 {
 	border: 1px solid #7f9aa4; 
-	background-color: #FFFFFF;
-
 
 	/* ToDos: here! */
 	/*border-spacing: 0px;
 	padding: 0px;*/
-
-
-	font-family: Courier New;
 }
 .dropdownlist_dim1 {
 	width: 100px;
@@ -136,7 +101,7 @@ form > div#div_main {
 
 /****************************************************************************************************/
 .textbox,
-.textbox_data, 
+.textbox_date, 
 .textbox_dim1,
 .textbox_dim1_center, 
 .textbox_dim15,
@@ -151,49 +116,24 @@ form > div#div_main {
 .textbox_postcode1,
 .textbox_postcode2 {
 	border: 1px solid #7f9aa4; 
-	background-color: #FFFFFF;
-
-	font-family: Courier New;
 	font-size: small;
 }
-.textbox_data {
+.textbox_date {
 	text-align: center;
 	width: 95px;
 }
 .textbox_dim1, 
-.textbox_dim1_center {
-	width: 100px;
-}
-.textbox_dim15 {
-	width: 150px;
-}
-.textbox_dim1_center {
-	text-align: center;
-}
-.textbox_dim2 {
-	width: 200px;
-}
-.textbox_dim3 {
-	width: 300px;
-}
-.textbox_dim35 {
-	width: 350px;
-}
-.textbox_dim4 {
-	width: 400px;
-}
-.textbox_dim45 {
-	width: 450px;
-}
-.textbox_dim5 {
-	width: 500px;
-}
-.textbox_dim55 {
-	width: 550px;
-}
-.textbox_dim6 {
-	width: 600px;
-}
+.textbox_dim1_center  { width: 100px; }
+.textbox_dim1_center  { text-align: center; }
+.textbox_dim15        { width: 150px; }
+.textbox_dim2         { width: 200px; }
+.textbox_dim3         { width: 300px; }
+.textbox_dim35        { width: 350px; }
+.textbox_dim4         { width: 400px; }
+.textbox_dim45        { width: 450px; }
+.textbox_dim5         { width: 500px; }
+.textbox_dim55        { width: 550px; }
+.textbox_dim6         { width: 600px; }
 .textbox_postcode1 {
 	text-align: center;
 	width: 36px;
@@ -209,34 +149,17 @@ form > div#div_main {
 
 /****************************************************************************************************/
 .label,
-.label_bold, 
-.label_nonBold, 
-.label_white, 
 .label_small,
 .label_title,
 .label_subtitle, 
 .label_warning, 
 .label_error {
-							/*font-weight: bold;*/
-	font-family: Verdana;
+	font-weight: normal;
 }
 .label_bold {
 	font-weight: bold;
 }
-.label,
-.label_nonBold {
-							/*font-weight: normal;*/
-	font-size: small;
-}
-.label_nonBold {
-	font-weight: normal;
-}
-.label_white {
-	font-size: small;
-	color: White;
-}
 .label_small {
-							/*font-weight: normal;*/
 	font-size: x-small;
 }
 .label_title {
@@ -246,11 +169,11 @@ form > div#div_main {
 	font-size: medium;
 }
 .label_error {
-	font-weight: lighter;/* bold;/*normal;*/
+	font-weight: bold;
 	color: Red;
 }
 .label_warning {
-	font-weight: lighter; /* bold;/*normal;*/
+	font-weight: normal;
 	color: #3333FF;
 }
 
@@ -276,7 +199,7 @@ form > div#div_main {
 }
 
 .table_main {
-	width: 100%;/*776px;*/
+	width: 100%;
 }
 
 /*
@@ -305,7 +228,7 @@ form > div#div_main {
 .checkboxlist_dim4, 
 .checkboxlist_dim5, 
 .checkboxlist {
-	font-family: Verdana;
+	/*font-family: Verdana;*/
 	font-size: small;
 }
 .checkboxlist_dim1, 
@@ -317,21 +240,11 @@ form > div#div_main {
 	text-align: left;
 }
 
-.checkboxlist_dim1 {
-	min-width: 100px;
-}
-.checkboxlist_dim2 {
-	min-width: 200px;
-}
-.checkboxlist_dim3 {
-	min-width: 300px;
-}
-.checkboxlist_dim4 {
-	min-width: 400px;
-}
-.checkboxlist_dim5 {
-	min-width: 500px;
-}
+.checkboxlist_dim1 { min-width: 100px; }
+.checkboxlist_dim2 { min-width: 200px; }
+.checkboxlist_dim3 { min-width: 300px; }
+.checkboxlist_dim4 { min-width: 400px; }
+.checkboxlist_dim5 { min-width: 500px; }
 
 /*
 .checkboxlist tr td > input {

@@ -20,7 +20,7 @@
 	id="cnt_Title" runat="server" 
 	ContentPlaceHolderID="cph_Title">
 
-	- Source Search
+	- Source List
 </asp:Content>
 <asp:Content
 	id="cnt_Head" runat="server"

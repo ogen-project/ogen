@@ -20,7 +20,7 @@
 	id="cnt_Title" runat="server" 
 	ContentPlaceHolderID="cph_Title">
 
-	- Destaque
+	- Highlight
 </asp:Content>
 <asp:Content
 	id="cnt_Head" runat="server"
@@ -34,14 +34,14 @@
 	<table width="700" border="1" align="center" cellpadding="5" cellspacing="0">
 		<tr>
 			<td width="700" bgcolor="#DDDDDD">
-				<span class="heads_maior">Destaque</span>
+				<span class="heads_maior">Highlight</span>
 			</td>
 		</tr>
 	</table>
 	<table width="700" border="1" align="center" cellpadding="5" cellspacing="0">
 		<tr>
 			<td width="200" class="titulos">
-				Nome
+				Name
 			</td>
 			<td width="500">
 				<asp:TextBox

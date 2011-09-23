@@ -99,18 +99,27 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					out _errors
 				);
 			if (!Master__base.Error_show(_errors)) {
-				Array.Sort(
-					_users, 
-					delegate(
-						SO_vNET_User arg1_in, 
-						SO_vNET_User arg2_in
-					) {
-						return arg2_in.IDUser.CompareTo(arg1_in.IDUser);
-					}
-				);
+				if (_users.Length > 0) {
+					rep_SearchResults.Visible = true;
+					Array.Sort(
+						_users,
+						delegate(
+							SO_vNET_User arg1_in,
+							SO_vNET_User arg2_in
+						) {
+							return arg2_in.IDUser.CompareTo(arg1_in.IDUser);
+						}
+					);
 
-				rep_SearchResults.DataSource = _users;
-				rep_SearchResults.DataBind();
+					rep_SearchResults.DataSource = _users;
+					rep_SearchResults.DataBind();
+				} else {
+					rep_SearchResults.Visible = false;
+					Master__base.Error_show(
+						false,
+						"returned no results"
+					);
+				}
 			}
 		} 
 		#endregion

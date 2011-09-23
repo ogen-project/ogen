@@ -20,7 +20,7 @@
 	id="cnt_Title" runat="server" 
 	ContentPlaceHolderID="cph_Title">
 
-	- Authors List
+	- Author List
 </asp:Content>
 <asp:Content
 	id="cnt_Head" runat="server"
@@ -45,13 +45,13 @@
 			<table width="700" border="1" align="center" cellpadding="5" cellspacing="0">
 				<tr>
 					<td class="titulos">
-						Nome
+						Name
 					</td>
 					<td class="titulos" style="white-space:nowrap;">
-						Aprovado por
+						Approved by
 					</td>
 					<td class="titulos" style="white-space:nowrap;">
-						em
+						in
 					</td>
 					<td class="titulos">
 					</td>
