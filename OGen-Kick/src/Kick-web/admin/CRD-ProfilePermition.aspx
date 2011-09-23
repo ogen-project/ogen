@@ -27,15 +27,19 @@
 	id="cnt_Body" runat="server"
 	ContentPlaceHolderID="cph_Body">
 
-	<table border="1" align="center" cellpadding="0" cellspacing="0">
+	<table
+		border="0" cellpadding="2" cellspacing="0" width="100%">
 		<tr>
-			<td colspan="2">
-				Perfis
+			<td colspan="2" align="center" class="label_title">
+				Profiles
 			</td>
 		</tr>
+
+		<tr><td colspan="2">&nbsp;</td></tr>
+
 		<tr>
-			<td>
-				Profile:
+			<td align="right" class="label_small nowrap">
+				Profile:&nbsp;
 			</td>
 			<td>
 				<asol:KickListBox
@@ -45,30 +49,34 @@
 					AutoCallBack="true"
 					EnabledDuringCallBack="false"
 
+					CssClass="dropdownlist"
 					Rows="1" 
 					SelectionMode="Single" />
 			</td>
 		</tr>
 		<tr>
-			<td valign="top">
-				Permitions:
+			<td align="right" valign="top" class="label_small nowrap">
+				Permitions:&nbsp;
 			</td>
-			<td>
+			<td style="width: 200px;">
 				<asol:KickCheckBoxList
 					ID="cbl_Permitions" runat="server"
 
+					CssClass="checkboxlist nowrap"
 					AutoUpdateAfterCallBack="true"
 					EnableCallBack="false" />
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2" align="right">
+			<td></td>
+			<td align="right">
 				<anthem:Button
 					ID="btn_Profile" runat="server"
 					OnClick="btn_Profile_Click"
 					AutoUpdateAfterCallBack="true"
 					EnableCallBack="true"
 
+					CssClass="button"
 					Text="  Save  " />
 			</td>
 		</tr>

@@ -27,62 +27,71 @@
 	id="cnt_Body" runat="server"
 	ContentPlaceHolderID="cph_Body">
 
-	<table border="0" align="center" cellpadding="0" cellspacing="0">
+	<table
+		border="0" cellpadding="2" cellspacing="0" width="100%">
 		<tr>
-			<td colspan="2" align="center">
+			<td colspan="2" align="center" class="label_title">
 				<b>User</b>
 			</td>
 		</tr>
+
+		<tr><td colspan="2">&nbsp;</td></tr>
+
 		<tr>
-			<td>
-				Login:
+			<td align="right" class="label_small nowrap">
+				Login:&nbsp;
 			</td>
 			<td>
 				<asp:TextBox
 					ID="txt_Login" runat="server"
+					CssClass="textbox_dim2" 
 					Enabled="false" ReadOnly="true" />
 			</td>
 		</tr>
 		<tr>
-			<td>
-				EMail:
+			<td align="right" class="label_small nowrap">
+				EMail:&nbsp;
 			</td>
 			<td>
 				<asp:TextBox
 					ID="txt_EMail" runat="server"
+					CssClass="textbox_dim4" 
 					Enabled="false" ReadOnly="true" />
 			</td>
 		</tr>
 		<tr>
-			<td>
-				Nome:
+			<td align="right" class="label_small nowrap">
+				Name:&nbsp;
 			</td>
 			<td>
 				<asp:TextBox
 					ID="txt_Name" runat="server"
+					CssClass="textbox_dim4" 
 					Enabled="false" ReadOnly="true" />
 			</td>
 		</tr>
 		<tr>
-			<td valign="top">
-				Profiles:
+			<td align="right" valign="top" class="label_small nowrap">
+				Profiles:&nbsp;
 			</td>
 			<td>
 				<asol:KickCheckBoxList
 					ID="cbl_Profiles" runat="server"
 
+					CssClass="checkboxlist"
 					AutoUpdateAfterCallBack="true"
 					EnableCallBack="false" />
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2" align="right">
+			<td></td>
+			<td align="right">
 				<anthem:Button
 					ID="btn_Profile" runat="server"
 					OnClick="btn_Profile_Click"
 					AutoUpdateAfterCallBack="true"
 					EnableCallBack="true"
-
+					CssClass="button"
 					Text="Submit" />
 			</td>
 		</tr>

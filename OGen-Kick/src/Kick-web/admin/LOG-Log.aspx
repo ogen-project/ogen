@@ -39,27 +39,37 @@
 	id="cnt_Body" runat="server"
 	ContentPlaceHolderID="cph_Body">
 
-	<table 
-		class="table_main">
+	<table
+		border="0" cellpadding="2" cellspacing="0" width="100%">
 		<tr>
-			<td align="right" style="width: 35%;">
-				Log Type:
+			<td colspan="2" align="center" class="label_title">
+				Log
 			</td>
-			<td style="width: 65%;">
+		</tr>
+
+		<tr><td colspan="2">&nbsp;</td></tr>
+
+		<tr>
+			<td align="right" class="label_small nowrap">
+				Log Type:&nbsp;
+			</td>
+			<td>
 				<asol:KickListBox
 					ID="ddl_Logtype" runat="server" 
 					
+					CssClass="dropdownlist"
 					Rows="1" SelectionMode="Single" />
 			</td>
 		</tr>
 		<tr>
-			<td align="right">
-				Error Type:
+			<td align="right" class="label_small nowrap">
+				Error Type:&nbsp;
 			</td>
 			<td>
 				<asol:KickListBox
 					ID="ddl_Errortype" runat="server" 
 					
+					CssClass="dropdownlist"
 					Rows="1" SelectionMode="Single" />
 			</td>
 		</tr>
@@ -76,8 +86,8 @@
 			</td>
 		</tr>--%>
 		<tr>
-			<td align="right">
-				Date Interval:
+			<td align="right" class="label_small nowrap">
+				Date Interval:&nbsp;
 			</td>
 			<td>
 				<table border="0" cellpadding="0" cellspacing="0">
@@ -85,7 +95,7 @@
 						<td>
 							&nbsp; 
 						</td>
-						<td>
+						<td class="label_small">
 							begin:&nbsp;
 						</td>
 						<td>
@@ -101,7 +111,7 @@
 						<td>
 							&nbsp; 
 						</td>
-						<td>
+						<td class="label_small">
 							end:&nbsp;
 						</td>
 						<td>
@@ -126,6 +136,7 @@
 								EnableCallBack="true"
 								EnabledDuringCallBack="false"
 								
+								CssClass="label_small"
 								CommandArgument="1"
 								OnClick="lbt_Date_Click"
 								Text="Last&nbsp;Day" />
@@ -140,6 +151,7 @@
 								EnableCallBack="true"
 								EnabledDuringCallBack="false"
 								
+								CssClass="label_small"
 								CommandArgument="2"
 								OnClick="lbt_Date_Click"
 								Text="Last&nbsp;Week" />
@@ -154,6 +166,7 @@
 								EnableCallBack="true"
 								EnabledDuringCallBack="false"
 								
+								CssClass="label_small"
 								CommandArgument="0"
 								OnClick="lbt_Date_Click"
 								Text="Clear" />
@@ -163,13 +176,14 @@
 			</td>
 		</tr>
 		<tr>
-			<td class="label_nonBold" align="right">
-				State:
+			<td align="right" class="label_small nowrap">
+				State:&nbsp;
 			</td>
 			<td>
 				<asp:CheckBox
 					ID="cbx_Read" runat="server" 
 					
+					CssClass="checkboxlist"
 					Text="Read" />
 			</td>
 		</tr>
@@ -181,13 +195,24 @@
 					EnableCallBack="true"
 					EnabledDuringCallBack="false"
 					TextDuringCallBack="working..."
-					
+
+					CssClass="button"
 					OnClick="btn_Search_Click"
 					Text="&nbsp;&nbsp;Search&nbsp;&nbsp;" />
 			</td>
 		</tr>
+	</table>
+	<br />
+
+	<table 
+		border="0" align="center" cellpadding="2" cellspacing="0" width="100%">
 		<tr>
-			<td colspan="2">
+			<td align="center" class="label_subtitle">
+				Search Results
+			</td>
+		</tr>
+		<tr>
+			<td>
 				<anthem:Repeater
 					ID="rep_Log" runat="server"
 					
@@ -199,19 +224,19 @@
 								<%--<td class="label_nonBold">
 									ID
 								</td>--%>
-								<td class="label_nonBold" style="white-space:normal;">
+								<td class="label_small" style="white-space:normal;">
 									Log<%-- Type--%>
 								</td>
-								<td class="label_nonBold" style="white-space:normal;">
+								<td class="label_small" style="white-space:normal;">
 									Error<%-- Type--%>
 								</td>
-								<td class="label_nonBold">
+								<td class="label_small">
 									User
 								</td>
-								<td class="label_nonBold">
+								<td class="label_small">
 									Date
 								</td>
-								<td class="label_nonBold">
+								<td class="label_small">
 									Message
 								</td>
 								<td>
@@ -223,23 +248,23 @@
 								<%--<td class="label_nonBold" valign="top">
 									<%# DataBinder.Eval(Container.DataItem, "IDLog")%>
 								</td>--%>
-								<td style="white-space:normal;" valign="top">
+								<td class="label_small wrap" valign="top">
 									<%# DataBinder.Eval(Container.DataItem, "Logtype")%>
 								</td>
-								<td style="white-space:normal;" valign="top">
+								<td class="label_small wrap"valign="top">
 									<%# DataBinder.Eval(Container.DataItem, "Errortype")%>
 								</td>
-								<td valign="top">
+								<td class="label_small wrap" valign="top">
 									<a 
 										runat="server"
 										href='<%# "~/admin/CRD-User.aspx?IDUser=" + DataBinder.Eval(Container.DataItem, "IFUser")%>'>
 										<%# DataBinder.Eval(Container.DataItem, "IFUser")%>
 									</a>
 								</td>
-								<td style="white-space:nowrap;" valign="top">
+								<td class="label_small nowrap"valign="top">
 									<%# DataBinder.Eval(Container.DataItem, "Date")%>
 								</td>
-								<td style="white-space:normal;" valign="top">
+								<td class="label_small wrap" valign="top">
 									<%# DataBinder.Eval(Container.DataItem, "Message")%>
 								</td>
 								<td valign="top">
@@ -251,6 +276,7 @@
 										EnableCallBack="true"
 										EnabledDuringCallBack="false"
 										
+										CssClass="button"
 										CommandArgument='<%# DataBinder.Eval(Container.DataItem, "IDLog")%>'
 										OnClick="btn_MarkRead_Click"
 										Text="del" />

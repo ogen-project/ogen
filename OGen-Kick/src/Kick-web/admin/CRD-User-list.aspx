@@ -42,7 +42,6 @@
 					ID="txt_Login" runat="server"
 					CssClass="textbox_dim2" />
 			</td>
-			<td style="width: 50%;"></td>
 		</tr>
 		<tr>
 			<td align="right" class="label_small nowrap">

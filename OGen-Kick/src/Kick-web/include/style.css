@@ -33,12 +33,10 @@ form > div#div_main {
 	height: 99%;
 }
 
-nowrap {
-	color: Purple;
+.nowrap {
 	white-space: nowrap;
 }
-wrap {
-	color: Purple;
+.wrap {
 	white-space: normal;
 }
 
@@ -73,6 +71,9 @@ wrap {
 .dropdownlist_dim4, 
 .dropdownlist_dim5 {
 	border: 1px solid #7f9aa4; 
+
+	/*font-weight: normal;
+	font-size: small;*/
 
 	/* ToDos: here! */
 	/*border-spacing: 0px;
@@ -228,7 +229,7 @@ wrap {
 .checkboxlist_dim4, 
 .checkboxlist_dim5, 
 .checkboxlist {
-	/*font-family: Verdana;*/
+	font-weight: normal;
 	font-size: small;
 }
 .checkboxlist_dim1, 

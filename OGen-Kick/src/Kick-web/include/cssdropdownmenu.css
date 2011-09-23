@@ -12,11 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 
 /*** MAIN MENU: **********************************************************************/
-#cssdropdownmenucontainer,
-#cssdropdownmenu > li {
+.cssdropdownmenucontainer,
+.cssdropdownmenu > li {
 	background-color: #dde;
 }
-#cssdropdownmenu > li {
+.cssdropdownmenu > li {
 	width: 140px;
 	height: 40px;
 
@@ -27,21 +27,21 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 	border: 0px solid black;
 }
-#cssdropdownmenu > li table:hover {
+.cssdropdownmenu > li table:hover {
 	background-color: #aae;
 }
 
 /*** SUB MENU: **********************************************************************/
-#cssdropdownmenu > li ul {
+.cssdropdownmenu > li ul {
 	background-color: #dde;
 	width: 140px;
 
 	border: 0px solid black;
 }
-#cssdropdownmenu > li ul li {
+.cssdropdownmenu > li ul li {
 	height: 40px;
 }
-#cssdropdownmenu > li ul li div {
+.cssdropdownmenu > li ul li div {
 	height: inherit;
 
 	text-indent: 10px;
@@ -49,40 +49,40 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	display: table-cell;
 	vertical-align: middle;
 }
-#cssdropdownmenu > li ul li:hover {
+.cssdropdownmenu > li ul li:hover {
 	background-color: #aae;
 }
 
 /*** OTHER: **********************************************************************/
-#cssdropdownmenu > li table {
+.cssdropdownmenu > li table {
 	height: 100%;
 	width: 100%;
 	text-indent: inherit;
 }
-#cssdropdownmenu > li table td {
+.cssdropdownmenu > li table td {
 	text-indent: inherit;
 	vertical-align: middle;
 }
 
-#cssdropdownmenu, 
-#cssdropdownmenu ul {
+.cssdropdownmenu, 
+.cssdropdownmenu ul {
 	padding: 0px;
 	margin: 0px;
 	list-style: none;
 }
-#cssdropdownmenu li {
+.cssdropdownmenu li {
 	float: left;
 	position: relative;
 	margin: 0px;
 }
 
-#cssdropdownmenu > li ul {
+.cssdropdownmenu > li ul {
 	display: none;
 	position: absolute;
 }
-#cssdropdownmenu > li ul li {
+.cssdropdownmenu > li ul li {
 	width: 100%;
 }
-#cssdropdownmenu > li:hover ul {
+.cssdropdownmenu > li:hover ul {
 	display: block;
 }
