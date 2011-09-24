@@ -101,6 +101,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			if (!Master__base.Error_show(_errors)) {
 				if (_users.Length > 0) {
 					rep_SearchResults.Visible = true;
+
 					Array.Sort(
 						_users,
 						delegate(
@@ -115,6 +116,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					rep_SearchResults.DataBind();
 				} else {
 					rep_SearchResults.Visible = false;
+
 					Master__base.Error_show(
 						false,
 						"returned no results"

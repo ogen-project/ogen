@@ -54,10 +54,10 @@ form > div#div_main {
 
 /****************************************************************************************************/
 .button {
-	background-color: #dde;
+	background-color: #dddddd;
 }
 .button:hover {
-	background-color: #aae;
+	background-color: #ccccff;
 }
 .button[disabled] {
 	color: Gray;/* #EE817B; *//* #d8261c; */
@@ -97,7 +97,7 @@ form > div#div_main {
 
 /****************************************************************************************************/
 .alternating_item {
-	background-color: #CCCCFF;
+	background-color: #dddddd;
 }
 
 /****************************************************************************************************/
@@ -216,7 +216,7 @@ form > div#div_main {
 .checkboxlist_dim5 tr:nth-child(even), 
 .checkboxlist tr:nth-child(even), 
 .table_alternating tr:nth-child(even) {
-	background-color: #CCCCFF;
+	background-color: #dddddd;
 }
 /*
 .table_alternating tr:nth-child(odd) {

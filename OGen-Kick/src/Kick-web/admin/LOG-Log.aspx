@@ -204,92 +204,88 @@
 	</table>
 	<br />
 
-	<table 
-		border="0" align="center" cellpadding="2" cellspacing="0" width="100%">
-		<tr>
-			<td align="center" class="label_subtitle">
-				Search Results
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<anthem:Repeater
-					ID="rep_Log" runat="server"
+	<anthem:Repeater
+		ID="rep_Log" runat="server"
 					
-					AutoUpdateAfterCallBack="true">
-					<HeaderTemplate>
-						<table 
-							style="width: 100%;">
-							<tr>
-								<%--<td class="label_nonBold">
-									ID
-								</td>--%>
-								<td class="label_small" style="white-space:normal;">
-									Log<%-- Type--%>
-								</td>
-								<td class="label_small" style="white-space:normal;">
-									Error<%-- Type--%>
-								</td>
-								<td class="label_small">
-									User
-								</td>
-								<td class="label_small">
-									Date
-								</td>
-								<td class="label_small">
-									Message
-								</td>
-								<td>
-								</td>
-							</tr>
-					</HeaderTemplate>
-					<ItemTemplate>
-							<tr>
-								<%--<td class="label_nonBold" valign="top">
-									<%# DataBinder.Eval(Container.DataItem, "IDLog")%>
-								</td>--%>
-								<td class="label_small wrap" valign="top">
-									<%# DataBinder.Eval(Container.DataItem, "Logtype")%>
-								</td>
-								<td class="label_small wrap"valign="top">
-									<%# DataBinder.Eval(Container.DataItem, "Errortype")%>
-								</td>
-								<td class="label_small wrap" valign="top">
-									<a 
-										runat="server"
-										href='<%# "~/admin/CRD-User.aspx?IDUser=" + DataBinder.Eval(Container.DataItem, "IFUser")%>'>
-										<%# DataBinder.Eval(Container.DataItem, "IFUser")%>
-									</a>
-								</td>
-								<td class="label_small nowrap"valign="top">
-									<%# DataBinder.Eval(Container.DataItem, "Date")%>
-								</td>
-								<td class="label_small wrap" valign="top">
-									<%# DataBinder.Eval(Container.DataItem, "Message")%>
-								</td>
-								<td valign="top">
-									<anthem:Button
-										id="btn_MarkRead" runat="server"
+		AutoUpdateAfterCallBack="true">
+		<HeaderTemplate>
+			<table 
+				border="0" align="center" cellpadding="2" cellspacing="1" width="100%"
+				class="table_alternating">
+				<tr>
+					<td colspan="6" align="center" class="label_subtitle alternating_item">
+						Search Results
+					</td>
+				</tr>
+				<tr>
+					<%--<td class="label_nonBold">
+						ID
+					</td>--%>
+					<td class="label_small" style="white-space:normal;">
+						Log<%-- Type--%>
+					</td>
+					<td class="label_small" style="white-space:normal;">
+						Error<%-- Type--%>
+					</td>
+					<td class="label_small">
+						User
+					</td>
+					<td class="label_small">
+						Date
+					</td>
+					<td class="label_small">
+						Message
+					</td>
+					<td>
+					</td>
+				</tr>
+		</HeaderTemplate>
+		<ItemTemplate>
+				<tr>
+					<%--<td class="label_nonBold" valign="top">
+						<%# DataBinder.Eval(Container.DataItem, "IDLog")%>
+					</td>--%>
+					<td class="label_small wrap" valign="top">
+						<%# DataBinder.Eval(Container.DataItem, "Logtype")%>
+					</td>
+					<td class="label_small wrap"valign="top">
+						<%# DataBinder.Eval(Container.DataItem, "Errortype")%>
+					</td>
+					<td class="label_small wrap" valign="top">
+						<a 
+							runat="server"
+							href='<%# "~/admin/CRD-User.aspx?IDUser=" + DataBinder.Eval(Container.DataItem, "IFUser")%>'>
+							<%# DataBinder.Eval(Container.DataItem, "IFUser")%>
+						</a>
+					</td>
+					<td class="label_small nowrap"valign="top">
+						<%# DataBinder.Eval(Container.DataItem, "Date")%>
+					</td>
+					<td class="label_small wrap" valign="top">
+						<%# DataBinder.Eval(Container.DataItem, "Message")%>
+					</td>
+					<td valign="top">
+						<anthem:Button
+							id="btn_MarkRead" runat="server"
 										
-										Visible='<%# DataBinder.Eval(Container.DataItem, "Visible")%>'
+							Visible='<%# DataBinder.Eval(Container.DataItem, "Visible")%>'
 
-										EnableCallBack="true"
-										EnabledDuringCallBack="false"
+							EnableCallBack="true"
+							EnabledDuringCallBack="false"
 										
-										CssClass="button"
-										CommandArgument='<%# DataBinder.Eval(Container.DataItem, "IDLog")%>'
-										OnClick="btn_MarkRead_Click"
-										Text="del" />
-								</td>
-							</tr>
-					</ItemTemplate>
-					<FooterTemplate>
-						</table>
-					</FooterTemplate>
-				</anthem:Repeater>
-			</td>
-		</tr>
-	</table>
+							CssClass="button"
+							CommandArgument='<%# DataBinder.Eval(Container.DataItem, "IDLog")%>'
+							OnClick="btn_MarkRead_Click"
+							Text="del" />
+					</td>
+				</tr>
+		</ItemTemplate>
+		<FooterTemplate>
+					</td>
+				</tr>
+			</table>
+		</FooterTemplate>
+	</anthem:Repeater>
 
 
 </asp:Content>

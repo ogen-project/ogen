@@ -12,7 +12,7 @@
 	id="cnt_Title" runat="server" 
 	ContentPlaceHolderID="cph_Title">
 
-	- User List
+	- User Search
 </asp:Content>
 <asp:Content
 	id="cnt_Head" runat="server"
@@ -106,9 +106,10 @@
 		ID="rep_SearchResults" runat="server">
 		<HeaderTemplate>
 			<table 
-				border="0" align="center" cellpadding="2" cellspacing="0" width="100%">
+				border="0" align="center" cellpadding="2" cellspacing="1" width="100%"
+				class="table_alternating">
 				<tr>
-					<td colspan="3" align="center" class="label_subtitle">
+					<td colspan="3" align="center" class="label_subtitle alternating_item">
 						Search Results
 					</td>
 				</tr>

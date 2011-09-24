@@ -103,15 +103,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         protected global::System.Web.UI.WebControls.Button btn_Logout;
         
         /// <summary>
-        /// lbl_Log control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Anthem.Label lbl_Log;
-        
-        /// <summary>
         /// cph_Menu control.
         /// </summary>
         /// <remarks>
@@ -128,5 +119,14 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder cph_Body;
+        
+        /// <summary>
+        /// lbl_Log control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Anthem.Label lbl_Log;
     }
 }

@@ -323,8 +323,19 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			);
 			#endregion
 			if (!Master__base.Error_show(_errors)) {
-				rep_SearchResults.DataSource = _contents;
-				rep_SearchResults.DataBind();
+				if (_contents.Length > 0) {
+					rep_SearchResults.Visible = true;
+
+					rep_SearchResults.DataSource = _contents;
+					rep_SearchResults.DataBind();
+				} else {
+					rep_SearchResults.Visible = false;
+
+					Master__base.Error_show(
+						false,
+						"returned no results"
+					);
+				}
 			}
 
 		}

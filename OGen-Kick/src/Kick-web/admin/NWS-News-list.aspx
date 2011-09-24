@@ -4,9 +4,6 @@
 	CodeBehind="NWS-News-list.aspx.cs" 
 	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.NWS_News_list" 
 	MasterPageFile="~/App_Controls/Admin.Master" %>
-<%--<%@ Register 
-	src="../App_Controls/wuc_txt_Dic.ascx" 
-	tagname="wuc_txt_Dic" tagprefix="PTExp" %>--%>
 <%@ Register 
 	TagPrefix="kick" 
 	Namespace="OGen.NTier.Kick.presentationlayer.weblayer"
@@ -23,7 +20,7 @@
 	id="cnt_Title" runat="server" 
 	ContentPlaceHolderID="cph_Title">
 
-	- Search News
+	- Article Search
 </asp:Content>
 <asp:Content
 	id="cnt_Head" runat="server"
@@ -42,56 +39,44 @@
 	id="cnt_Body" runat="server"
 	ContentPlaceHolderID="cph_Body">
 
-	<table border="1" align="center" cellpadding="0" cellspacing="0">
+	<table
+		border="0" cellpadding="2" cellspacing="0" width="100%">
 		<tr>
-			<td colspan="2">
-				Search
+			<td colspan="2" align="center" class="label_title">
+				Article Search
 			</td>
 		</tr>
+
+		<tr><td colspan="2">&nbsp;</td></tr>
+
 		<tr>
-			<td>
-				Text:
+			<td align="right" class="label_small nowrap">
+				Text:&nbsp;
 			</td>
 			<td>
-				<%--
-				<PTExp:wuc_txt_Dic
-					ID="dic_Name" runat="server" 
-					Text_CssClass="textbox_dim4"
-					Label_CssClass="cl_noticias_normal"
-					Rows="1" />
-				--%>
 				<asp:TextBox
-					ID="txt_Text" runat="server" />
+					ID="txt_Text" runat="server"
+					CssClass="textbox_dim4" />
 			</td>
 		</tr>
 		<tr>
-			<td>
-				State:
+			<td align="right" class="label_small nowrap">
+				State:&nbsp;
 			</td>
 			<td>
 				<asol:KickListBox
 					id="ddl_Approved" runat="server"
 
-					CssClass="cl_noticias_normal" 
+					CssClass="dropdownlist" 
 					Rows="1" 
 					SelectionMode="Single" />
 			</td>
 		</tr>
-<%--
 		<tr>
-			<td>
-				Inserido por:
+			<td align="right" class="label_small nowrap">
+				Schedule:&nbsp;
 			</td>
-			<td>
-				...
-			</td>
-		</tr>
---%>
-		<tr>
-			<td class="titulos">
-				Schedule:
-			</td>
-			<td class="cl_noticias_normal">
+			<td class="label_small nowrap">
 				between:
 				<kick:htmlDatePicker
 					ID="txt_Begin_date" runat="server" 
@@ -107,120 +92,113 @@
 			</td>
 		</tr>
 		<tr>
-			<td class="titulos" valign="top">
-				Tag: 
+			<td align="right" valign="top" class="label_small nowrap">
+				Tag:&nbsp;
 			</td>
 			<td>
-				<span class="texto_home">
-					<asol:KickCheckBoxList
-						ID="cbl_Tags" runat="server"
+				<asol:KickCheckBoxList
+					ID="cbl_Tags" runat="server"
 
-						CssClass="cl_noticias_normal" 
-						RepeatColumns="2" 
-						RepeatDirection="Vertical" />
-				</span>
+					CssClass="checkboxlist" 
+					RepeatColumns="2" 
+					RepeatDirection="Vertical" />
 			</td>
 		</tr>
 		<tr>
-			<td class="titulos" valign="top">
-				Author: 
+			<td align="right" valign="top" class="label_small nowrap">
+				Author:&nbsp;
 			</td>
 			<td>
-				<span class="texto_home">
-					<asol:KickCheckBoxList
-						ID="cbl_Author" runat="server"
+				<asol:KickCheckBoxList
+					ID="cbl_Author" runat="server"
 
-						CssClass="cl_noticias_normal" 
-						RepeatColumns="2" 
-						RepeatDirection="Vertical" />
-				</span>
+					CssClass="checkboxlist" 
+					RepeatColumns="2" 
+					RepeatDirection="Vertical" />
 			</td>
 		</tr>
 		<tr>
-			<td class="titulos" valign="top">
-				Source: 
+			<td align="right" valign="top" class="label_small nowrap">
+				Source:&nbsp;
 			</td>
 			<td>
-				<span class="texto_home">
-					<asol:KickCheckBoxList
-						ID="cbl_Source" runat="server"
+				<asol:KickCheckBoxList
+					ID="cbl_Source" runat="server"
 
-						CssClass="cl_noticias_normal" 
-						RepeatColumns="2" 
-						RepeatDirection="Vertical" />
-				</span>
+					CssClass="checkboxlist" 
+					RepeatColumns="2" 
+					RepeatDirection="Vertical" />
 			</td>
 		</tr>
 		<tr>
-			<td class="titulos" valign="top">
-				Highlight: 
+			<td align="right" valign="top" class="label_small nowrap">
+				Highlight:&nbsp;
 			</td>
 			<td>
-				<span class="texto_home">
-					<asol:KickCheckBoxList
-						ID="cbl_Highlight" runat="server" 
+				<asol:KickCheckBoxList
+					ID="cbl_Highlight" runat="server" 
 
-						CssClass="cl_noticias_normal" 
-						RepeatColumns="2" 
-						RepeatDirection="Vertical" />
-				</span>
+					CssClass="checkboxlist" 
+					RepeatColumns="2" 
+					RepeatDirection="Vertical" />
 			</td>
 		</tr>
 		<tr>
-			<td class="titulos" valign="top">
-				Profile: 
+			<td align="right" valign="top" class="label_small nowrap">
+				Profile:&nbsp;
 			</td>
 			<td>
-				<span class="texto_home">
-					<asol:KickCheckBoxList
-						ID="cbl_Profile" runat="server"
+				<asol:KickCheckBoxList
+					ID="cbl_Profile" runat="server"
 
-						CssClass="cl_noticias_normal" 
-						RepeatColumns="2" 
-						RepeatDirection="Vertical" />
-				</span>
+					CssClass="checkboxlist" 
+					RepeatColumns="2" 
+					RepeatDirection="Vertical" />
 			</td>
 		</tr>
 		<tr>
-			<td height="70" colspan="2" align="right">
+			<td></td>
+			<td align="right">
 				<asp:Button
 					ID="btn_Search" runat="server"
 					OnClick="btn_Search_Click"
 
-					CssClass="cl_noticias_normal"
+					CssClass="button"
 					Text="Pesquisar" />
 			</td>
 		</tr>
 	</table>
+	<br />
 
 	<asp:Repeater
 		ID="rep_SearchResults" runat="server">
 		<HeaderTemplate>
-			<table width="700" border="1" align="center" cellpadding="5" cellspacing="0">
+			<table 
+				border="0" align="center" cellpadding="2" cellspacing="1" width="100%"
+				class="table_alternating">
 				<tr>
-					<td width="700" bgcolor="#DDDDDD" colspan="2" class="heads_maior">
-						News
+					<td colspan="4" align="center" class="label_subtitle alternating_item">
+						Search Results
 					</td>
 				</tr>
-			</table>
-			<table width="700" border="1" align="center" cellpadding="5" cellspacing="0">
+
 				<tr>
-					<td class="titulos" valign="bottom">
+					<td class="label_small" valign="bottom">
 						Title
 					</td>
-					<td class="titulos">
-						Inserido por
+					<td class="label_small" valign="bottom">
+						Created by
 					</td>
-					<td class="titulos" valign="bottom">
+					<td class="label_small" valign="bottom">
 						State
 					</td>
-					<td class="titulos" valign="bottom">
+					<td class="label_small" valign="bottom">
 					</td>
 				</tr>
 		</HeaderTemplate>
 		<ItemTemplate>
 				<tr>
-					<td class="cl_noticias_normal" style="white-space:normal;">
+					<td class="label_small wrap">
 						<a 
 							href='NWS-News.aspx?IDContent=<%# DataBinder.Eval(Container.DataItem, "IDContent") %>'
 							class="cl_noticias_normal">
@@ -232,14 +210,14 @@
 								) ? "&lt;empty&gt;" : (string)DataBinder.Eval(Container.DataItem, "Title")
 							%></a>
 					</td>
-					<td class="cl_noticias_normal" style="white-space:nowrap;">
+					<td class="label_small nowrap">
 						<a 
 							href='<%# "CRD-User.aspx?IDUser=" + ((long)DataBinder.Eval(Container.DataItem, "IFUser__Publisher")).ToString() %>'>
 							<%# DataBinder.Eval(Container.DataItem, "PublisherName") %></a>
 						<br />
 						<%# ((DateTime)DataBinder.Eval(Container.DataItem, "Publish_date")).ToString("dd-MMM-yyyy HH:mm") %>
 					</td>
-					<td class="cl_noticias_normal" style="white-space:nowrap;">
+					<td class="label_small nowrap">
 						<%# 
 							(
 								(
@@ -257,24 +235,24 @@
 									: OGen.NTier.Kick.presentationlayer.weblayer.NWS_News_list.ContentstateEnum.pending.ToString().Replace('_', ' ')
 							) %>
 					</td>
-					<td class="cl_noticias_normal" align="center" style="white-space:nowrap;">
+					<td class="label_small nowrap" align="center">
 						<table border="0" cellpadding="0" cellspacing="0" width="100%">
 							<tr>
 								<td align="left">
 									<asp:Button
 										ID="btn_Delete" runat="server"
-										CssClass="cl_noticias_normal"
+										CssClass="button"
 
 										CommandArgument='<%# DataBinder.Eval(Container.DataItem, "IDContent")%>'
 										OnClick="btn_Delete_Click"
 
-										Text="Remover" />
+										Text="Delete" />
 								</td>
 								<td>&nbsp;</td>
 								<td align="right">
 									<asp:Button
 										ID="btn_Approve" runat="server"
-										CssClass="cl_noticias_normal"
+										CssClass="button"
 										Visible='<%#
 											(
 												(
@@ -286,7 +264,7 @@
 										CommandArgument='<%# DataBinder.Eval(Container.DataItem, "IDContent")%>'
 										OnClick="btn_Approve_Click"
 
-										Text="Aprovar" />
+										Text="Approve" />
 								</td>
 							</tr>
 						</table>
