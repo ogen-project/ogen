@@ -127,7 +127,7 @@
 				<input 
 					type="button" 
 					onclick="javascript:window.location='NWS-NewsHighlight.aspx';return false;" 
-					value="Create"
+					value="New"
 					class="cl_noticias_normal" />
 			</td>
 		</tr>

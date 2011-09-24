@@ -31,61 +31,64 @@
 	id="cnt_Body" runat="server"
 	ContentPlaceHolderID="cph_Body">
 
-	<table width="700" border="1" align="center" cellpadding="5" cellspacing="0">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tr>
-			<td width="700" bgcolor="#DDDDDD">
-				<span class="heads_maior">Tag</span>
-			</td>
-		</tr>
-	</table>
-	<table width="700" border="1" align="center" cellpadding="5" cellspacing="0">
-		<tr>
-			<td width="200" class="titulos">
-				Name
-			</td>
-			<td width="500">
-				<asol:wuc_Dic
-					ID="dic_Name" runat="server"
-					Text_CssClass="textbox_dim5"
-					Label_CssClass="cl_noticias_normal"
-					Rows="1" />
-			</td>
-		</tr>
-		<tr>
-			<td class="titulos">
-				Parent
-			</td>
+			<td style="width: 50%"></td>
 			<td>
-				<asol:KickListBox
-					ID="ddl_Tag_parent" runat="server" 
+				<table
+					border="0" cellpadding="2" cellspacing="0" width="100%">
+					<tr>
+						<td colspan="2" align="center" class="label_title">
+							Tag
+						</td>
+					</tr>
 
-					CssClass="cl_noticias_normal" 
-					Rows="1" 
-					SelectionMode="Single" />
+					<tr><td colspan="2">&nbsp;</td></tr>
+
+					<tr>
+						<td align="right" valign="top" class="label_small nowrap">
+							Name:&nbsp;
+						</td>
+						<td>
+							<asol:wuc_Dic
+								ID="dic_Name" runat="server"
+								Text_CssClass="textbox_dim4"
+								Label_CssClass="label_small"
+								Rows="1" />
+						</td>
+					</tr>
+					<tr>
+						<td align="right" class="label_small nowrap">
+							Parent:&nbsp;
+						</td>
+						<td>
+							<asol:KickListBox
+								ID="ddl_Tag_parent" runat="server" 
+
+								CssClass="dropdownlist" 
+								Rows="1" 
+								SelectionMode="Single" />
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td align="right">
+							<input 
+								type="button" 
+								onclick="javascript:window.location='NWS-NewsTag-list.aspx';return false;" 
+								value="Cancel"
+								class="button" />
+							<asp:Button
+								ID="btn_Save" runat="server"
+								OnClick="btn_Save_Click"
+
+								CssClass="button"
+								Text="Save" />
+						</td>
+					</tr>
+				</table>
 			</td>
-		</tr>
-		<tr style="border-color: #CCCCCC;">
-			<td 
-				colspan="2"
-				height="70"
-				align="right" 
-				valign="middle" 
-				class="texto_home"
-				style="border-color:#CCCCCC;">
-				<span class="titulos">
-					<input 
-						type="button" 
-						onclick="javascript:window.location='NWS-NewsTag-list.aspx';return false;" 
-						value="Cancel"
-						class="cl_noticias_normal" />
-					<asp:Button
-						ID="btn_Save" runat="server"
-						OnClick="btn_Save_Click"
-						
-						CssClass="cl_noticias_normal"
-						Text="Save" />
-				</span>
-			</td>
+			<td style="width: 50%"></td>
 		</tr>
 	</table>
 

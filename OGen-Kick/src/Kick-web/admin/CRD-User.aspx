@@ -35,7 +35,7 @@
 					border="0" cellpadding="2" cellspacing="0" width="100%">
 					<tr>
 						<td colspan="2" align="center" class="label_title">
-							<b>User</b>
+							User
 						</td>
 					</tr>
 
@@ -96,7 +96,7 @@
 								AutoUpdateAfterCallBack="true"
 								EnableCallBack="true"
 								CssClass="button"
-								Text="Submit" />
+								Text="Save" />
 						</td>
 					</tr>
 				</table>

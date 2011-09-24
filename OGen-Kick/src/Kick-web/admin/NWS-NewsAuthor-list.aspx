@@ -140,7 +140,7 @@
 				<input 
 					type="button" 
 					onclick="javascript:window.location='NWS-NewsAuthor.aspx';return false;" 
-					value="Create"
+					value="New"
 					class="button" />
 			</td>
 		</tr>
