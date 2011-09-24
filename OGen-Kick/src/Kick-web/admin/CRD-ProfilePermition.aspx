@@ -27,60 +27,67 @@
 	id="cnt_Body" runat="server"
 	ContentPlaceHolderID="cph_Body">
 
-	<table
-		border="0" cellpadding="2" cellspacing="0" width="100%">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tr>
-			<td colspan="2" align="center" class="label_title">
-				Profiles
-			</td>
-		</tr>
-
-		<tr><td colspan="2">&nbsp;</td></tr>
-
-		<tr>
-			<td align="right" class="label_small nowrap">
-				Profile:&nbsp;
-			</td>
+			<td style="width: 50%"></td>
 			<td>
-				<asol:KickListBox
-					ID="ddl_Profile" runat="server" 
+				<table
+					border="0" cellpadding="2" cellspacing="0" width="100%">
+					<tr>
+						<td colspan="2" align="center" class="label_title">
+							Profiles
+						</td>
+					</tr>
 
-					OnSelectedIndexChanged="ddl_Profile_SelectedIndexChanged"
-					AutoCallBack="true"
-					EnabledDuringCallBack="false"
+					<tr><td colspan="2">&nbsp;</td></tr>
 
-					CssClass="dropdownlist"
-					Rows="1" 
-					SelectionMode="Single" />
-			</td>
-		</tr>
-		<tr>
-			<td align="right" valign="top" class="label_small nowrap">
-				Permitions:&nbsp;
-			</td>
-			<td style="width: 200px;">
-				<asol:KickCheckBoxList
-					ID="cbl_Permitions" runat="server"
+					<tr>
+						<td align="right" class="label_small nowrap">
+							Profile:&nbsp;
+						</td>
+						<td>
+							<asol:KickListBox
+								ID="ddl_Profile" runat="server" 
 
-					CssClass="checkboxlist nowrap"
-					AutoUpdateAfterCallBack="true"
-					EnableCallBack="false" />
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td align="right">
-				<anthem:Button
-					ID="btn_Profile" runat="server"
-					OnClick="btn_Profile_Click"
-					AutoUpdateAfterCallBack="true"
-					EnableCallBack="true"
+								OnSelectedIndexChanged="ddl_Profile_SelectedIndexChanged"
+								AutoCallBack="true"
+								EnabledDuringCallBack="false"
 
-					CssClass="button"
-					Text="  Save  " />
+								CssClass="dropdownlist"
+								Rows="1" 
+								SelectionMode="Single" />
+						</td>
+					</tr>
+					<tr>
+						<td align="right" valign="top" class="label_small nowrap">
+							Permitions:&nbsp;
+						</td>
+						<td style="width: 200px;">
+							<asol:KickCheckBoxList
+								ID="cbl_Permitions" runat="server"
+
+								CssClass="checkboxlist nowrap"
+								AutoUpdateAfterCallBack="true"
+								EnableCallBack="false" />
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td align="right">
+							<anthem:Button
+								ID="btn_Profile" runat="server"
+								OnClick="btn_Profile_Click"
+								AutoUpdateAfterCallBack="true"
+								EnableCallBack="true"
+
+								CssClass="button"
+								Text="  Save  " />
+						</td>
+					</tr>
+				</table>
 			</td>
+			<td style="width: 50%"></td>
 		</tr>
 	</table>
-
 
 </asp:Content>

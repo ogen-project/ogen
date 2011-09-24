@@ -23,81 +23,89 @@
 	id="cnt_Body" runat="server"
 	ContentPlaceHolderID="cph_Body">
 
-	<table
-		border="0" cellpadding="2" cellspacing="0" width="100%">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tr>
-			<td colspan="2" align="center" class="label_title">
-				User Search
-			</td>
-		</tr>
+			<td style="width: 50%"></td>
+			<td>
+				<table
+					border="0" cellpadding="2" cellspacing="0" width="100%">
+					<tr>
+						<td colspan="2" align="center" class="label_title">
+							User Search
+						</td>
+					</tr>
 
-		<tr><td colspan="2">&nbsp;</td></tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
 
-		<tr>
-			<td align="right" class="label_small nowrap">
-				Login:&nbsp;
-			</td>
-			<td>
-				<asp:TextBox
-					ID="txt_Login" runat="server"
-					CssClass="textbox_dim2" />
-			</td>
-		</tr>
-		<tr>
-			<td align="right" class="label_small nowrap">
-				EMail:&nbsp;
-			</td>
-			<td>
-				<asp:TextBox
-					ID="txt_EMail" runat="server"
-					CssClass="textbox_dim4" />
-			</td>
-		</tr>
-		<tr>
-			<td align="right" class="label_small nowrap">
-				Name:&nbsp;
-			</td>
-			<td>
-				<asp:TextBox
-					ID="txt_Name" runat="server"
-					CssClass="textbox_dim4" />
-			</td>
-		</tr>
-		<tr>
-			<td align="right" class="label_small nowrap">
-				On&nbsp;Profile:&nbsp;
-			</td>
-			<td>
-				<asol:KickListBox
-					id="ddl_Profile__in" runat="server"
+					<tr>
+						<td align="right" class="label_small nowrap">
+							Login:&nbsp;
+						</td>
+						<td>
+							<asp:TextBox
+								ID="txt_Login" runat="server"
+								CssClass="textbox_dim2" />
+						</td>
+					</tr>
+					<tr>
+						<td align="right" class="label_small nowrap">
+							EMail:&nbsp;
+						</td>
+						<td>
+							<asp:TextBox
+								ID="txt_EMail" runat="server"
+								CssClass="textbox_dim4" />
+						</td>
+					</tr>
+					<tr>
+						<td align="right" class="label_small nowrap">
+							Name:&nbsp;
+						</td>
+						<td>
+							<asp:TextBox
+								ID="txt_Name" runat="server"
+								CssClass="textbox_dim4" />
+						</td>
+					</tr>
+					<tr>
+						<td align="right" class="label_small nowrap">
+							On&nbsp;Profile:&nbsp;
+						</td>
+						<td>
+							<asol:KickListBox
+								id="ddl_Profile__in" runat="server"
 
-					CssClass="dropdownlist"
-					Rows="1" 
-					SelectionMode="Single" />
-			</td>
-		</tr>
-		<tr>
-			<td align="right" class="label_small nowrap">
-				Not&nbsp;on&nbsp;Profile:&nbsp;
-			</td>
-			<td>
-				<asol:KickListBox
-					id="ddl_Profile__out" runat="server"
+								CssClass="dropdownlist"
+								Rows="1" 
+								SelectionMode="Single" />
+						</td>
+					</tr>
+					<tr>
+						<td align="right" class="label_small nowrap">
+							Not&nbsp;on&nbsp;Profile:&nbsp;
+						</td>
+						<td>
+							<asol:KickListBox
+								id="ddl_Profile__out" runat="server"
 
-					CssClass="dropdownlist"
-					Rows="1" 
-					SelectionMode="Single" />
+								CssClass="dropdownlist"
+								Rows="1" 
+								SelectionMode="Single" />
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td align="right">
+							<asp:Button
+								ID="btn_Search" runat="server"
+								OnClick="btn_Search_Click"
+								CssClass="button"
+								Text="Search" />
+						</td>
+					</tr>
+				</table>
 			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td align="right">
-				<asp:Button
-					ID="btn_Search" runat="server"
-					OnClick="btn_Search_Click"
-					CssClass="button"
-					Text="Search" />
-			</td>
+			<td style="width: 50%"></td>
 		</tr>
 	</table>
 	<br />

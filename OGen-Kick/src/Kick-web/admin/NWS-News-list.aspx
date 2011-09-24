@@ -39,133 +39,141 @@
 	id="cnt_Body" runat="server"
 	ContentPlaceHolderID="cph_Body">
 
-	<table
-		border="0" cellpadding="2" cellspacing="0" width="100%">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tr>
-			<td colspan="2" align="center" class="label_title">
-				Article Search
-			</td>
-		</tr>
-
-		<tr><td colspan="2">&nbsp;</td></tr>
-
-		<tr>
-			<td align="right" class="label_small nowrap">
-				Text:&nbsp;
-			</td>
+			<td style="width: 50%"></td>
 			<td>
-				<asp:TextBox
-					ID="txt_Text" runat="server"
-					CssClass="textbox_dim4" />
-			</td>
-		</tr>
-		<tr>
-			<td align="right" class="label_small nowrap">
-				State:&nbsp;
-			</td>
-			<td>
-				<asol:KickListBox
-					id="ddl_Approved" runat="server"
+				<table
+					border="0" cellpadding="2" cellspacing="0" width="100%">
+					<tr>
+						<td colspan="2" align="center" class="label_title">
+							Article Search
+						</td>
+					</tr>
 
-					CssClass="dropdownlist" 
-					Rows="1" 
-					SelectionMode="Single" />
-			</td>
-		</tr>
-		<tr>
-			<td align="right" class="label_small nowrap">
-				Schedule:&nbsp;
-			</td>
-			<td class="label_small nowrap">
-				between:
-				<kick:htmlDatePicker
-					ID="txt_Begin_date" runat="server" 
-					class="date-pick"
-					onclick="javascript:GetDate(this);" />
+					<tr><td colspan="2">&nbsp;</td></tr>
 
-				and:
-				<kick:htmlDatePicker
-					ID="txt_End_date" runat="server" 
-					class="date-pick"
-					onclick="javascript:GetDate(this);" />
+					<tr>
+						<td align="right" class="label_small nowrap">
+							Text:&nbsp;
+						</td>
+						<td>
+							<asp:TextBox
+								ID="txt_Text" runat="server"
+								CssClass="textbox_dim4" />
+						</td>
+					</tr>
+					<tr>
+						<td align="right" class="label_small nowrap">
+							State:&nbsp;
+						</td>
+						<td>
+							<asol:KickListBox
+								id="ddl_Approved" runat="server"
 
-			</td>
-		</tr>
-		<tr>
-			<td align="right" valign="top" class="label_small nowrap">
-				Tag:&nbsp;
-			</td>
-			<td>
-				<asol:KickCheckBoxList
-					ID="cbl_Tags" runat="server"
+								CssClass="dropdownlist" 
+								Rows="1" 
+								SelectionMode="Single" />
+						</td>
+					</tr>
+					<tr>
+						<td align="right" class="label_small nowrap">
+							Schedule:&nbsp;
+						</td>
+						<td class="label_small nowrap">
+							between:
+							<kick:htmlDatePicker
+								ID="txt_Begin_date" runat="server" 
+								class="date-pick textbox_date"
+								onclick="javascript:GetDate(this);" />
 
-					CssClass="checkboxlist" 
-					RepeatColumns="2" 
-					RepeatDirection="Vertical" />
-			</td>
-		</tr>
-		<tr>
-			<td align="right" valign="top" class="label_small nowrap">
-				Author:&nbsp;
-			</td>
-			<td>
-				<asol:KickCheckBoxList
-					ID="cbl_Author" runat="server"
+							and:
+							<kick:htmlDatePicker
+								ID="txt_End_date" runat="server" 
+								class="date-pick textbox_date"
+								onclick="javascript:GetDate(this);" />
 
-					CssClass="checkboxlist" 
-					RepeatColumns="2" 
-					RepeatDirection="Vertical" />
-			</td>
-		</tr>
-		<tr>
-			<td align="right" valign="top" class="label_small nowrap">
-				Source:&nbsp;
-			</td>
-			<td>
-				<asol:KickCheckBoxList
-					ID="cbl_Source" runat="server"
+						</td>
+					</tr>
+					<tr>
+						<td align="right" valign="top" class="label_small nowrap">
+							Tag:&nbsp;
+						</td>
+						<td>
+							<asol:KickCheckBoxList
+								ID="cbl_Tags" runat="server"
 
-					CssClass="checkboxlist" 
-					RepeatColumns="2" 
-					RepeatDirection="Vertical" />
-			</td>
-		</tr>
-		<tr>
-			<td align="right" valign="top" class="label_small nowrap">
-				Highlight:&nbsp;
-			</td>
-			<td>
-				<asol:KickCheckBoxList
-					ID="cbl_Highlight" runat="server" 
+								CssClass="checkboxlist" 
+								RepeatColumns="2" 
+								RepeatDirection="Vertical" />
+						</td>
+					</tr>
+					<tr>
+						<td align="right" valign="top" class="label_small nowrap">
+							Author:&nbsp;
+						</td>
+						<td>
+							<asol:KickCheckBoxList
+								ID="cbl_Author" runat="server"
 
-					CssClass="checkboxlist" 
-					RepeatColumns="2" 
-					RepeatDirection="Vertical" />
-			</td>
-		</tr>
-		<tr>
-			<td align="right" valign="top" class="label_small nowrap">
-				Profile:&nbsp;
-			</td>
-			<td>
-				<asol:KickCheckBoxList
-					ID="cbl_Profile" runat="server"
+								CssClass="checkboxlist" 
+								RepeatColumns="2" 
+								RepeatDirection="Vertical" />
+						</td>
+					</tr>
+					<tr>
+						<td align="right" valign="top" class="label_small nowrap">
+							Source:&nbsp;
+						</td>
+						<td>
+							<asol:KickCheckBoxList
+								ID="cbl_Source" runat="server"
 
-					CssClass="checkboxlist" 
-					RepeatColumns="2" 
-					RepeatDirection="Vertical" />
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td align="right">
-				<asp:Button
-					ID="btn_Search" runat="server"
-					OnClick="btn_Search_Click"
+								CssClass="checkboxlist" 
+								RepeatColumns="2" 
+								RepeatDirection="Vertical" />
+						</td>
+					</tr>
+					<tr>
+						<td align="right" valign="top" class="label_small nowrap">
+							Highlight:&nbsp;
+						</td>
+						<td>
+							<asol:KickCheckBoxList
+								ID="cbl_Highlight" runat="server" 
 
-					CssClass="button"
-					Text="Pesquisar" />
+								CssClass="checkboxlist" 
+								RepeatColumns="2" 
+								RepeatDirection="Vertical" />
+						</td>
+					</tr>
+					<tr>
+						<td align="right" valign="top" class="label_small nowrap">
+							Profile:&nbsp;
+						</td>
+						<td>
+							<asol:KickCheckBoxList
+								ID="cbl_Profile" runat="server"
+
+								CssClass="checkboxlist" 
+								RepeatColumns="2" 
+								RepeatDirection="Vertical" />
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td align="right">
+							<asp:Button
+								ID="btn_Search" runat="server"
+								OnClick="btn_Search_Click"
+
+								CssClass="button"
+								Text="Pesquisar" />
+						</td>
+					</tr>
+				</table>
 			</td>
+			<td style="width: 50%"></td>
 		</tr>
 	</table>
 	<br />
@@ -201,7 +209,7 @@
 					<td class="label_small wrap">
 						<a 
 							href='NWS-News.aspx?IDContent=<%# DataBinder.Eval(Container.DataItem, "IDContent") %>'
-							class="cl_noticias_normal">
+							class="label_small">
 							<%# 
 								(
 									(DataBinder.Eval(Container.DataItem, "Title") == DBNull.Value)

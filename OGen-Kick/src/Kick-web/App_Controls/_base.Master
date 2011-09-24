@@ -72,11 +72,11 @@
 										<asp:ContentPlaceHolder ID="cph_Menu" runat="server" />
 									</td>
 								</tr>
-								<tr style="height: 100%;">
-									<td style="width: 75%;" valign="top" align="center">
+								<tr>
+									<td style="width: 75%; height: 100%;" valign="top" align="center">
 										<asp:ContentPlaceHolder ID="cph_Body" runat="server" />
 									</td>
-									<td style="width: 25%;" valign="top" class="label_small">
+									<td style="width: 25%; height: 100%;" valign="top" class="label_small">
 										<anthem:Label
 											ID="lbl_Log" runat="server" 
 											AutoUpdateAfterCallBack="true" />

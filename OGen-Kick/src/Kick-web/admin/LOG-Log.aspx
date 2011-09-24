@@ -39,167 +39,175 @@
 	id="cnt_Body" runat="server"
 	ContentPlaceHolderID="cph_Body">
 
-	<table
-		border="0" cellpadding="2" cellspacing="0" width="100%">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tr>
-			<td colspan="2" align="center" class="label_title">
-				Log
-			</td>
-		</tr>
-
-		<tr><td colspan="2">&nbsp;</td></tr>
-
-		<tr>
-			<td align="right" class="label_small nowrap">
-				Log Type:&nbsp;
-			</td>
+			<td style="width: 50%"></td>
 			<td>
-				<asol:KickListBox
-					ID="ddl_Logtype" runat="server" 
-					
-					CssClass="dropdownlist"
-					Rows="1" SelectionMode="Single" />
-			</td>
-		</tr>
-		<tr>
-			<td align="right" class="label_small nowrap">
-				Error Type:&nbsp;
-			</td>
-			<td>
-				<asol:KickListBox
-					ID="ddl_Errortype" runat="server" 
-					
-					CssClass="dropdownlist"
-					Rows="1" SelectionMode="Single" />
-			</td>
-		</tr>
-		<%--<tr>
-			<td class="label_nonBold" align="right">
-				Coworker:
-			</td>
-			<td>
-				<asol:KickListBox
-					ID="ddl_Coworker" runat="server" 
-					
-					Rows="1" SelectionMode="Single"
-					CssClass="dropdownlist" />
-			</td>
-		</tr>--%>
-		<tr>
-			<td align="right" class="label_small nowrap">
-				Date Interval:&nbsp;
-			</td>
-			<td>
-				<table border="0" cellpadding="0" cellspacing="0">
+				<table
+					border="0" cellpadding="2" cellspacing="0" width="100%">
 					<tr>
-						<td>
-							&nbsp; 
+						<td colspan="2" align="center" class="label_title">
+							Log
 						</td>
-						<td class="label_small">
-							begin:&nbsp;
-						</td>
-						<td>
-							<%--&nbsp;<uc1:wuc_Calendar 
-								ID="wuc_Date_begin" runat="server" 
-								Title="begin date" />&nbsp;&nbsp;--%>
-							&nbsp;<kick:htmlDatePicker 
-								ID="txt_Date_begin" runat="server" 
-								AutoUpdateAfterCallBack="true"
-								class="date-pick"
-								onclick="javascript:GetDate(this);" />&nbsp;&nbsp;
+					</tr>
+
+					<tr><td colspan="2">&nbsp;</td></tr>
+
+					<tr>
+						<td align="right" class="label_small nowrap">
+							Log Type:&nbsp;
 						</td>
 						<td>
-							&nbsp; 
+							<asol:KickListBox
+								ID="ddl_Logtype" runat="server" 
+					
+								CssClass="dropdownlist"
+								Rows="1" SelectionMode="Single" />
 						</td>
-						<td class="label_small">
-							end:&nbsp;
+					</tr>
+					<tr>
+						<td align="right" class="label_small nowrap">
+							Error Type:&nbsp;
 						</td>
 						<td>
-							<%--&nbsp;<uc1:wuc_Calendar 
-								ID="wuc_Date_end" runat="server" 
-								Title="end date" />&nbsp;&nbsp;--%>
-							&nbsp;<kick:htmlDatePicker 
-								ID="txt_Date_end" runat="server" 
-								AutoUpdateAfterCallBack="true"
-								class="date-pick"
-								onclick="javascript:GetDate(this);" />&nbsp;&nbsp;
+							<asol:KickListBox
+								ID="ddl_Errortype" runat="server" 
+					
+								CssClass="dropdownlist"
+								Rows="1" SelectionMode="Single" />
 						</td>
+					</tr>
+					<tr>
+						<td align="right" class="label_small nowrap">
+							State:&nbsp;
+						</td>
+						<td>
+							<asp:CheckBox
+								ID="cbx_Read" runat="server" 
+					
+								CssClass="checkboxlist"
+								Text="Read" />
+						</td>
+					</tr>
+					<%--<tr>
+						<td class="label_nonBold" align="right">
+							Coworker:
+						</td>
+						<td>
+							<asol:KickListBox
+								ID="ddl_Coworker" runat="server" 
+					
+								Rows="1" SelectionMode="Single"
+								CssClass="dropdownlist" />
+						</td>
+					</tr>--%>
+					<tr>
+						<td align="right" class="label_small nowrap">
+							Date Interval:&nbsp;
+						</td>
+						<td>
+							<table border="0" cellpadding="0" cellspacing="0">
+								<tr>
+									<td>
+										&nbsp; 
+									</td>
+									<td class="label_small">
+										begin:&nbsp;
+									</td>
+									<td>
+										<%--&nbsp;<uc1:wuc_Calendar 
+											ID="wuc_Date_begin" runat="server" 
+											Title="begin date" />&nbsp;&nbsp;--%>
+										&nbsp;<kick:htmlDatePicker 
+											ID="txt_Date_begin" runat="server" 
+											AutoUpdateAfterCallBack="true"
+											class="date-pick textbox_date"
+											onclick="javascript:GetDate(this);" />&nbsp;&nbsp;
+									</td>
+									<td>
+										&nbsp; 
+									</td>
+									<td class="label_small">
+										end:&nbsp;
+									</td>
+									<td>
+										<%--&nbsp;<uc1:wuc_Calendar 
+											ID="wuc_Date_end" runat="server" 
+											Title="end date" />&nbsp;&nbsp;--%>
+										&nbsp;<kick:htmlDatePicker 
+											ID="txt_Date_end" runat="server" 
+											AutoUpdateAfterCallBack="true"
+											class="date-pick textbox_date"
+											onclick="javascript:GetDate(this);" />&nbsp;&nbsp;
+									</td>
 
 
-						<td>
-							&nbsp;&nbsp;
-						</td>
-						<td>
-							<anthem:LinkButton
-								ID="lbl_Date_lastDay" runat="server" 
+									<td>
+										&nbsp;&nbsp;
+									</td>
+									<td>
+										<anthem:LinkButton
+											ID="lbl_Date_lastDay" runat="server" 
 								
+											EnableCallBack="true"
+											EnabledDuringCallBack="false"
+								
+											CssClass="label_small"
+											CommandArgument="1"
+											OnClick="lbt_Date_Click"
+											Text="Last&nbsp;Day" />
+									</td>
+									<td>
+										&nbsp;&nbsp;
+									</td>
+									<td>
+										<anthem:LinkButton
+											ID="lbl_Date_lastWeek" runat="server" 
+								
+											EnableCallBack="true"
+											EnabledDuringCallBack="false"
+								
+											CssClass="label_small"
+											CommandArgument="2"
+											OnClick="lbt_Date_Click"
+											Text="Last&nbsp;Week" />
+									</td>
+									<td>
+										&nbsp;&nbsp;
+									</td>
+									<td>
+										<anthem:LinkButton
+											ID="lbl_Date_clear" runat="server" 
+								
+											EnableCallBack="true"
+											EnabledDuringCallBack="false"
+								
+											CssClass="label_small"
+											CommandArgument="0"
+											OnClick="lbt_Date_Click"
+											Text="Clear" />
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="right">
+							<anthem:Button
+								ID="btn_Search" runat="server"
+					
 								EnableCallBack="true"
 								EnabledDuringCallBack="false"
-								
-								CssClass="label_small"
-								CommandArgument="1"
-								OnClick="lbt_Date_Click"
-								Text="Last&nbsp;Day" />
-						</td>
-						<td>
-							&nbsp;&nbsp;
-						</td>
-						<td>
-							<anthem:LinkButton
-								ID="lbl_Date_lastWeek" runat="server" 
-								
-								EnableCallBack="true"
-								EnabledDuringCallBack="false"
-								
-								CssClass="label_small"
-								CommandArgument="2"
-								OnClick="lbt_Date_Click"
-								Text="Last&nbsp;Week" />
-						</td>
-						<td>
-							&nbsp;&nbsp;
-						</td>
-						<td>
-							<anthem:LinkButton
-								ID="lbl_Date_clear" runat="server" 
-								
-								EnableCallBack="true"
-								EnabledDuringCallBack="false"
-								
-								CssClass="label_small"
-								CommandArgument="0"
-								OnClick="lbt_Date_Click"
-								Text="Clear" />
+								TextDuringCallBack="working..."
+
+								CssClass="button"
+								OnClick="btn_Search_Click"
+								Text="&nbsp;&nbsp;Search&nbsp;&nbsp;" />
 						</td>
 					</tr>
 				</table>
 			</td>
-		</tr>
-		<tr>
-			<td align="right" class="label_small nowrap">
-				State:&nbsp;
-			</td>
-			<td>
-				<asp:CheckBox
-					ID="cbx_Read" runat="server" 
-					
-					CssClass="checkboxlist"
-					Text="Read" />
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2" align="right">
-				<anthem:Button
-					ID="btn_Search" runat="server"
-					
-					EnableCallBack="true"
-					EnabledDuringCallBack="false"
-					TextDuringCallBack="working..."
-
-					CssClass="button"
-					OnClick="btn_Search_Click"
-					Text="&nbsp;&nbsp;Search&nbsp;&nbsp;" />
-			</td>
+			<td style="width: 50%"></td>
 		</tr>
 	</table>
 	<br />
