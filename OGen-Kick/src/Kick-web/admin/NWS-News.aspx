@@ -239,13 +239,13 @@
 					<div id="div_Tags" runat="server" class="tabbertab">
 						<h2>Tags</h2>
 						<div>
-							<table width="100%" border="1" cellpadding="5" cellspacing="0">
+							<table width="100%" border="0" cellpadding="2" cellspacing="1">
 								<tr>
 									<td align="center">
 										<asol:KickCheckBoxList
 											id="cbl_Tags" runat="server"
 
-											CssClass="cl_noticias_normal" 
+											CssClass="label_small" 
 											RepeatColumns="1" 
 											RepeatDirection="Vertical"
 
@@ -253,11 +253,11 @@
 									</td>
 								</tr>
 								<tr>
-									<td height="70" align="right">
+									<td align="right">
 										<anthem:Button
 											ID="btn_Tags" runat="server"
 
-											CssClass="cl_noticias_normal"
+											CssClass="button"
 											Text="Submeter"
 
 											OnClick="btn_Tags_Click" 
@@ -271,13 +271,13 @@
 					<div id="div_Authors" runat="server" class="tabbertab">
 						<h2>Authors</h2>
 						<div>
-							<table width="100%" border="1" cellpadding="5" cellspacing="0">
+							<table width="100%" border="0" cellpadding="2" cellspacing="1">
 								<tr>
 									<td align="center">
 										<asol:KickCheckBoxList
 											id="cbl_Author" runat="server"
 
-											CssClass="cl_noticias_normal" 
+											CssClass="label_small" 
 											RepeatColumns="1" 
 											RepeatDirection="Vertical"
 
@@ -285,11 +285,11 @@
 									</td>
 								</tr>
 								<tr>
-									<td height="70" align="right">
+									<td align="right">
 										<anthem:Button
 											ID="btn_Authors" runat="server"
 
-											CssClass="cl_noticias_normal"
+											CssClass="button"
 											Text="Submeter" 
 
 											OnClick="btn_Authors_Click" 
@@ -303,13 +303,13 @@
 					<div id="div_Sources" runat="server" class="tabbertab">
 						<h2>Sources</h2>
 						<div>
-							<table width="100%" border="1" cellpadding="5" cellspacing="0">
+							<table width="100%" border="0" cellpadding="2" cellspacing="1">
 								<tr>
 									<td align="center">
 										<asol:KickCheckBoxList
 											id="cbl_Source" runat="server"
 
-											CssClass="cl_noticias_normal" 
+											CssClass="label_small" 
 											RepeatColumns="1" 
 											RepeatDirection="Vertical"
 
@@ -317,11 +317,11 @@
 									</td>
 								</tr>
 								<tr>
-									<td height="70" align="right">
+									<td align="right">
 										<anthem:Button
 											ID="btn_Sources" runat="server"
 
-											CssClass="cl_noticias_normal"
+											CssClass="button"
 											Text="Submeter" 
 
 											OnClick="btn_Sources_Click"
@@ -340,13 +340,13 @@
 	NOTA: tens de considerar o intervalo de tempo em que a noticia vai estar associada ao destaque<br />
 </span>
 <% #endif %>
-							<table width="100%" border="1" cellpadding="5" cellspacing="0">
+							<table width="100%" border="0" cellpadding="2" cellspacing="1">
 								<tr>
 									<td align="center">
 										<asol:KickCheckBoxList
 											id="cbl_Highlight" runat="server"
 
-											CssClass="cl_noticias_normal" 
+											CssClass="label_small" 
 											RepeatColumns="1" 
 											RepeatDirection="Vertical" 
 
@@ -354,11 +354,11 @@
 									</td>
 								</tr>
 								<tr>
-									<td height="70" colspan="2" align="right">
+									<td colspan="2" align="right">
 										<anthem:Button
 											ID="btn_Highlights" runat="server"
 
-											CssClass="cl_noticias_normal"
+											CssClass="button"
 											Text="Submeter" 
 											OnClick="btn_Highlights_Click" />
 									</td>
@@ -369,13 +369,13 @@
 					<div id="div_Profiles" runat="server" class="tabbertab">
 						<h2>Profiles</h2>
 						<div>
-							<table width="100%" border="1" cellpadding="5" cellspacing="0">
+							<table width="100%" border="0" cellpadding="2" cellspacing="1">
 								<tr>
 									<td align="center">
 										<asol:KickCheckBoxList
 											id="cbl_Profiles" runat="server"
 
-											CssClass="cl_noticias_normal" 
+											CssClass="label_small" 
 											RepeatColumns="1" 
 											RepeatDirection="Vertical" 
 
@@ -383,11 +383,11 @@
 									</td>
 								</tr>
 								<tr>
-									<td height="70" colspan="2" align="right">
+									<td colspan="2" align="right">
 										<anthem:Button
 											ID="btn_Profiles" runat="server"
 
-											CssClass="cl_noticias_normal"
+											CssClass="button"
 											Text="Submeter" 
 
 											OnClick="btn_Profiles_Click"

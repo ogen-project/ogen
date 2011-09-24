@@ -9539,7 +9539,7 @@ EMail - IFApplication#</dia:string>
         <dia:color val="#000000"/>
       </dia:attribute>
       <dia:attribute name="line_colour">
-        <dia:color val="#a020f0"/>
+        <dia:color val="#ff0000"/>
       </dia:attribute>
       <dia:attribute name="fill_colour">
         <dia:color val="#ff0000"/>
