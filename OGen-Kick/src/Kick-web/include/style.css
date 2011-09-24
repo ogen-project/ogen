@@ -40,6 +40,13 @@ form > div#div_main {
 	white-space: normal;
 }
 
+hr {
+	border: 1px solid #7f9aa4;
+	border-bottom-width: 0px;
+	border-right-width: 0px;
+	border-left-width: 0px;
+}
+
 /****************************************************************************************************/
 .link_button {
 							font-weight: bold;
@@ -107,6 +114,7 @@ form > div#div_main {
 .textbox_dim1_center, 
 .textbox_dim15,
 .textbox_dim2,
+.textbox_dim25,
 .textbox_dim3,
 .textbox_dim35,
 .textbox_dim4,
@@ -128,6 +136,7 @@ form > div#div_main {
 .textbox_dim1_center  { text-align: center; }
 .textbox_dim15        { width: 150px; }
 .textbox_dim2         { width: 200px; }
+.textbox_dim25        { width: 250px; }
 .textbox_dim3         { width: 300px; }
 .textbox_dim35        { width: 350px; }
 .textbox_dim4         { width: 400px; }

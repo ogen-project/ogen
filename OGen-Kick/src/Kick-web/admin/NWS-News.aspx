@@ -43,68 +43,69 @@
 <asp:Content
 	id="cnt_Body" runat="server"
 	ContentPlaceHolderID="cph_Body">
-	<table width="700" border="1" align="center" cellpadding="5" cellspacing="0">
+
+	<table
+		border="0" cellpadding="2" cellspacing="0" width="100%">
 		<tr>
-			<td width="700" bgcolor="#dde" colspan="2" class="heads_maior">
+			<td colspan="2" align="center" class="label_title">
 				Article
 			</td>
 		</tr>
-	</table>
-	<table width="700" border="1" align="center" cellpadding="5" cellspacing="0">
+
 		<tr>
 			<td colspan="2">
 
 				<div class="tabber">
-					<div class="tabbertab">
+					<div id="div_Article" class="tabbertab">
 						<h2>Article</h2>
 						<div>
-							<table width="100%" border="1" align="center" cellpadding="5" cellspacing="0">
+							<table width="100%" border="0" cellpadding="2" cellspacing="1">
 								<tr>
-									<td width="0%" class="titulos">
-										T&iacute;tulo:&nbsp;
+									<td width="0%" class="label_small" align="right" valign="top">
+										Title:&nbsp;
 									</td>
 									<td width="100%">
 										<asol:wuc_Dic
 											ID="dic_Title" runat="server" 
-											Text_CssClass="textbox_dim5"
-											Label_CssClass="cl_noticias_normal"
+											Text_CssClass="textbox_dim4"
+											Label_CssClass="label_small"
 											Rows="1" />
 									</td>
 								</tr>
 								<tr>
-									<td class="titulos">
-										Subt&iacute;tulo:&nbsp;
+									<td class="label_small" align="right" valign="top">
+										Subtitle:&nbsp;
 									</td>
 									<td>
 										<asol:wuc_Dic
 											ID="dic_subtitle" runat="server" 
-											Text_CssClass="textbox_dim5"
-											Label_CssClass="cl_noticias_normal"
+											Text_CssClass="textbox_dim4"
+											Label_CssClass="label_small"
 											Rows="1" />
 									</td>
 								</tr>
 								<tr>
-									<td class="titulos">
-										Not&iacute;cia:&nbsp;
+									<td class="label_small" align="right" valign="top">
+										Article:&nbsp;
 									</td>
 									<td>
 										<asol:wuc_Dic
 											ID="dic_News" runat="server" 
-											Text_CssClass="textbox_dim55"
-											Label_CssClass="cl_noticias_normal"
+											Text_CssClass="textbox_dim45"
+											Label_CssClass="label_small"
 											Rows="12" 
 											isHorizontal_notVertial="false" />
 									</td>
 								</tr>
 								<tr>
-									<td class="titulos">
-										Resumo:&nbsp;
+									<td class="label_small" align="right" valign="top">
+										Summary:&nbsp;
 									</td>
 									<td>
 										<asol:wuc_Dic
 											ID="dic_summary" runat="server" 
-											Text_CssClass="textbox_dim55"
-											Label_CssClass="cl_noticias_normal"
+											Text_CssClass="textbox_dim45"
+											Label_CssClass="label_small"
 											Rows="6" 
 											isHorizontal_notVertial="false" />
 									</td>
@@ -115,8 +116,8 @@
 											ID="btn_News" runat="server"
 
 											OnClick="btn_News_Click"
-											CssClass="cl_noticias_normal"
-											Text="Submeter" />
+											CssClass="button"
+											Text="Save" />
 									</td>
 								</tr>
 							</table>
@@ -129,26 +130,30 @@
 								ID="rep_Attachments" runat="server"
 								AutoUpdateAfterCallBack="true">
 								<ItemTemplate>
-									<table border="1" cellpadding="5" cellspacing="0" width="100%">
+									<table width="100%" border="0" cellpadding="2" cellspacing="1">
 										<tr>
-											<td class="titulos">
+											<td class="label_small" align="right" valign="top">
 												Name:&nbsp;
 											</td>
 											<td>
 												<asol:wuc_Dic
 													ID="dic_Name" runat="server" 
-													Text_CssClass="textbox_dim3"
-													Label_CssClass="cl_noticias_normal"
+													Text_CssClass="textbox_dim25"
+													Label_CssClass="label_small"
 													Rows="1" />
 											</td>
-											<td rowspan="2" style="width: 100%;" align="center" valign="middle">
+											<td 
+												rowspan="2" 
+												align="center" 
+												valign="middle"
+												class="label_small">
 												<a 
 													id="a_Attachment" runat="server"
 
 													href=""
 
 													target="_blank"
-													class="cl_noticias_normal">
+													class="label_small">
 														<span 
 															runat="server"
 															visible='<%# !(bool)DataBinder.Eval(Container.DataItem, "isImage") %>'>
@@ -165,36 +170,36 @@
 																min-widthXXX: 120px;
 																min-heightXXX: 120px;
 
-																max-width: 130px; 
+																max-width: 132px; 
 																max-height: 220px;
 															" />
-													</a>
+												</a>
 											</td>
 										</tr>
 										<tr>
-											<td class="titulos">
-												Descri&ccedil;&atilde;o:&nbsp;
+											<td class="label_small" align="right" valign="top">
+												Description:&nbsp;
 											</td>
 											<td>
 												<asol:wuc_Dic
 													ID="dic_Description" runat="server" 
-													Text_CssClass="textbox_dim4"
-													Label_CssClass="cl_noticias_normal"
+													Text_CssClass="textbox_dim3"
+													Label_CssClass="label_small"
 													Rows="4" 
 													isHorizontal_notVertial="false" />
 											</td>
 										</tr>
 										<tr>
-											<td class="cl_noticias_normal" colspan="3" align="right">
+											<td class="label_small" colspan="3" align="right">
 												<%# DataBinder.Eval(Container.DataItem, "FileName") %>
 											</td>
 										</tr>
 										<tr>
-											<td colspan="3" height="70" align="right">
+											<td colspan="3" align="right">
 												<anthem:Button
 													ID="btn_AttachmentDelete" runat="server"
-													CssClass="cl_noticias_normal"
-													Text="Apagar"
+													CssClass="button"
+													Text="Delete"
 															
 													OnClick="btn_AttachmentDelete_Click" 
 													CommandArgument='<%# DataBinder.Eval(Container.DataItem, "IDAttachment") %>' 
@@ -202,8 +207,8 @@
 													EnabledDuringCallBack="false"/>
 												<anthem:Button
 													ID="btn_AttachmentSave" runat="server"
-													CssClass="cl_noticias_normal"
-													Text="Guardar"
+													CssClass="button"
+													Text="Save"
 															
 													OnClick="btn_AttachmentSave_Click"
 													CommandArgument='<%# DataBinder.Eval(Container.DataItem, "IDAttachment") %>' 
@@ -212,18 +217,19 @@
 											</td>
 										</tr>
 									</table>
+									<hr />
 									<br />
 								</ItemTemplate>
 							</anthem:Repeater>
-							<table border="1" cellpadding="5" cellspacing="0" width="100%">
+							<table width="100%" border="0" cellpadding="2" cellspacing="1">
 								<tr>
-									<td colspan="3" height="70" align="right">
+									<td align="right">
 										<asp:FileUpload
-											ID="fup_Attachment" runat="server"
-										/>
+											ID="fup_Attachment" runat="server" />
 										<asp:Button
 											ID="btn_AttachmentUpload" runat="server"
 											OnClick="btn_AttachmentUpload_Click"
+											CssClass="button"
 											Text="Upload" />
 									</td>
 								</tr>
@@ -233,7 +239,7 @@
 					<div id="div_Tags" runat="server" class="tabbertab">
 						<h2>Tags</h2>
 						<div>
-							<table width="100%" border="1" align="center" cellpadding="5" cellspacing="0">
+							<table width="100%" border="1" cellpadding="5" cellspacing="0">
 								<tr>
 									<td align="center">
 										<asol:KickCheckBoxList
@@ -265,7 +271,7 @@
 					<div id="div_Authors" runat="server" class="tabbertab">
 						<h2>Authors</h2>
 						<div>
-							<table width="100%" border="1" align="center" cellpadding="5" cellspacing="0">
+							<table width="100%" border="1" cellpadding="5" cellspacing="0">
 								<tr>
 									<td align="center">
 										<asol:KickCheckBoxList
@@ -297,7 +303,7 @@
 					<div id="div_Sources" runat="server" class="tabbertab">
 						<h2>Sources</h2>
 						<div>
-							<table width="100%" border="1" align="center" cellpadding="5" cellspacing="0">
+							<table width="100%" border="1" cellpadding="5" cellspacing="0">
 								<tr>
 									<td align="center">
 										<asol:KickCheckBoxList
@@ -334,7 +340,7 @@
 	NOTA: tens de considerar o intervalo de tempo em que a noticia vai estar associada ao destaque<br />
 </span>
 <% #endif %>
-							<table width="100%" border="1" align="center" cellpadding="5" cellspacing="0">
+							<table width="100%" border="1" cellpadding="5" cellspacing="0">
 								<tr>
 									<td align="center">
 										<asol:KickCheckBoxList
@@ -363,7 +369,7 @@
 					<div id="div_Profiles" runat="server" class="tabbertab">
 						<h2>Profiles</h2>
 						<div>
-							<table width="100%" border="1" align="center" cellpadding="5" cellspacing="0">
+							<table width="100%" border="1" cellpadding="5" cellspacing="0">
 								<tr>
 									<td align="center">
 										<asol:KickCheckBoxList

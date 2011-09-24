@@ -43,7 +43,7 @@ ul.tabbernav li a
  margin-left: 3px;
  border: 1px solid #778;
  border-bottom: none;
- background: #DDE;
+ background: #dddddd;
  text-decoration: none;
 }
 
@@ -53,7 +53,7 @@ ul.tabbernav li a:visited { color: #667; }
 ul.tabbernav li a:hover
 {
  color: #000;
- background: #AAE;
+ background: #ccccff;
  border-color: #227;
 }
 
