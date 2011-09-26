@@ -234,47 +234,58 @@ false,
 				return;
 			}
 
-			Array.Sort(
-				_logs,
-				delegate(
-					SO_LOG_Log _log1,
-					SO_LOG_Log _log2
-				) {
-					return (
-						_log2.IDLog.CompareTo(_log1.IDLog)
-					);
+			if (_logs.Length > 0) {
+				Array.Sort(
+					_logs,
+					delegate(
+						SO_LOG_Log _log1,
+						SO_LOG_Log _log2
+					) {
+						return (
+							_log2.IDLog.CompareTo(_log1.IDLog)
+						);
+					}
+				);
+
+				List<LogDetails> _logdetails = new List<LogDetails>(_logs.Length);
+				foreach (SO_LOG_Log _log in _logs) {
+					_logdetails.Add(new LogDetails(
+						_log.IDLog,
+						_log.IFLogtype,
+						_log.Stamp,
+						_log.Message.Replace("\n", "<br />"),
+						_log.IFUser,
+						_log.IFErrortype,
+						_log.IFUser__read, 
+						_log.Stamp__read,
+						_log.IFApplication, 
+						_log.IFBrowser__OPT, 
+
+						LogType.Items.ContainsKey(_log.IFLogtype) ? LogType.Items[_log.IFLogtype].Name.Replace(" - ", "<br />/") : "---",
+						!ErrorType.Items.ContainsKey(_log.IFErrortype) ? "???" : (_log.IFErrortype_isNull ? "---" : ErrorType.Items[_log.IFErrortype].Name.Replace(" - ", "<br />/")),
+						_log.Stamp.ToString("ddMMMyyyy<br />HH:mm:ss"),
+						!cbx_Read.Checked
+					));
 				}
-			);
 
-			List<LogDetails> _logdetails = new List<LogDetails>(_logs.Length);
-			foreach (SO_LOG_Log _log in _logs) {
-				_logdetails.Add(new LogDetails(
-					_log.IDLog,
-					_log.IFLogtype,
-					_log.Stamp,
-					_log.Message.Replace("\n", "<br />"),
-					_log.IFUser,
-					_log.IFErrortype,
-					_log.IFUser__read, 
-					_log.Stamp__read,
-					_log.IFApplication, 
-					_log.IFBrowser__OPT, 
+				rep_Log.DataSource = _logdetails;
+				rep_Log.DataBind();
 
-					LogType.Items.ContainsKey(_log.IFLogtype) ? LogType.Items[_log.IFLogtype].Name.Replace(" - ", "<br />/") : "---",
-					!ErrorType.Items.ContainsKey(_log.IFErrortype) ? "???" : (_log.IFErrortype_isNull ? "---" : ErrorType.Items[_log.IFErrortype].Name.Replace(" - ", "<br />/")),
-					_log.Stamp.ToString("ddMMMyyyy<br />HH:mm:ss"),
-					!cbx_Read.Checked
-				));
+				//if (cbx_Read.Checked) {
+				//    for (int i = 0; i < rep_Log.Items.Count; i++) {
+				//        ((Anthem.Button)rep_Log.Items[i].FindControl("btn_MarkRead")).Visible = false;
+				//    }
+				//}
+
+				rep_Log.Visible = true;
+			} else {
+				rep_Log.Visible = false;
+
+				Master__base.Error_show(
+					false,
+					"returned no results"
+				);
 			}
-
-			rep_Log.DataSource = _logdetails;
-			rep_Log.DataBind();
-
-			//if (cbx_Read.Checked) {
-			//    for (int i = 0; i < rep_Log.Items.Count; i++) {
-			//        ((Anthem.Button)rep_Log.Items[i].FindControl("btn_MarkRead")).Visible = false;
-			//    }
-			//}
 		}
 		#endregion
 	}

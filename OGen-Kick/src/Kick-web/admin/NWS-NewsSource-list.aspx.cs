@@ -80,17 +80,28 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					out _errors
 				);
 			if (!Master__base.Error_show(_errors)) {
-				Array.Sort(
-					_sources,
-					delegate(
-						SO_vNWS_Source arg1_in,
-						SO_vNWS_Source arg2_in
-					) {
-						return arg1_in.Name.CompareTo(arg2_in.Name);
-					}
-				);
-				rep_Sources.DataSource = _sources;
-				rep_Sources.DataBind();
+				if (_sources.Length > 0) {
+					Array.Sort(
+						_sources,
+						delegate(
+							SO_vNWS_Source arg1_in,
+							SO_vNWS_Source arg2_in
+						) {
+							return arg1_in.Name.CompareTo(arg2_in.Name);
+						}
+					);
+					rep_Sources.DataSource = _sources;
+					rep_Sources.DataBind();
+
+					rep_Sources.Visible = true;
+				} else {
+					rep_Sources.Visible = false;
+
+					Master__base.Error_show(
+						false,
+						"returned no results"
+					);
+				}
 			}
 		}
 		#endregion
