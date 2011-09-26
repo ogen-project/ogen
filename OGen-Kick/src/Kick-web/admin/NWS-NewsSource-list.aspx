@@ -20,7 +20,7 @@
 	id="cnt_Title" runat="server" 
 	ContentPlaceHolderID="cph_Title">
 
-	- Source List
+	- Source Search
 </asp:Content>
 <asp:Content
 	id="cnt_Head" runat="server"
@@ -31,48 +31,58 @@
 	id="cnt_Body" runat="server"
 	ContentPlaceHolderID="cph_Body">
 
-	<table width="700" border="1" align="center" cellpadding="5" cellspacing="0">
+	<table
+		border="0" cellpadding="2" cellspacing="0" width="100%">
 		<tr>
-			<td width="700" bgcolor="#DDDDDD" colspan="2" class="heads_maior">
+			<td align="center" class="label_title">
 				Source Search
 			</td>
 		</tr>
+		<tr><td>&nbsp;</td></tr>
 	</table>
 	<anthem:Repeater
 		ID="rep_Sources" runat="server"
 		AutoUpdateAfterCallBack="true">
 		<HeaderTemplate>
-			<table width="700" border="1" align="center" cellpadding="5" cellspacing="0">
+			<table 
+				border="0" align="center" cellpadding="2" cellspacing="1" width="100%"
+				class="table_alternating">
 				<tr>
-					<td class="titulos">
+					<td colspan="4" align="center" class="label_subtitle alternating_item">
+						Search Results
+					</td>
+				</tr>
+
+				<tr>
+					<td class="label_small">
 						Name
 					</td>
-					<td class="titulos" style="white-space:nowrap;">
+					<td class="label_small nowrap">
 						Approved by
 					</td>
-					<td class="titulos" style="white-space:nowrap;">
+					<td class="label_small nowrap">
 						in
 					</td>
-					<td class="titulos">
+					<td class="label_small">
 					</td>
 				</tr>
 		</HeaderTemplate>
 		<ItemTemplate>
 				<tr>
-					<td class="cl_noticias_normal" style="width: 100%;">
+					<td class="label_small nowrap" style="width: 100%;">
 						<a 
 							href='NWS-NewsSource.aspx?IDSource=<%# DataBinder.Eval(Container.DataItem, "IDSource") %>'
-							class="cl_noticias_normal">
+							class="label_small">
 							<%# 
 								(((string)DataBinder.Eval(Container.DataItem, "Name")).Trim() == "")
 									? "&lt;empty&gt;"
 									: (string)DataBinder.Eval(Container.DataItem, "Name")
 							%></a>
 					</td>
-					<td class="cl_noticias_normal" style="white-space:nowrap;">
+					<td class="label_small nowrap">
 						<%# DataBinder.Eval(Container.DataItem, "ManagerName") %>
 					</td>
-					<td class="cl_noticias_normal" style="white-space:nowrap;">
+					<td class="label_small nowrap">
 						<%#
 							(
 								(
@@ -81,12 +91,12 @@
 							) ? "" : ((DateTime)DataBinder.Eval(Container.DataItem, "Approved_date")).ToString("dd-MMM-yyyy HH:mm")
 						%>
 					</td>
-					<td class="cl_noticias_normal" align="center" style="white-space:nowrap;">
+					<td class="label_small nowrap" align="center">
 						<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
 							<td align="left">
 								<anthem:Button
 									ID="btn_Delete" runat="server"
-									CssClass="cl_noticias_normal"
+									CssClass="button"
 									Text="Delete" 
 
 									CommandArgument='<%# DataBinder.Eval(Container.DataItem, "IDSource")%>'
@@ -98,7 +108,7 @@
 							<td align="right">
 								<anthem:Button
 									ID="btn_Approve" runat="server"
-									CssClass="cl_noticias_normal"
+									CssClass="button"
 									Visible='<%#
 										(
 											(
@@ -121,14 +131,17 @@
 			</table>
 		</FooterTemplate>
 	</anthem:Repeater>
-	<table width="700" border="1" align="center" cellpadding="5" cellspacing="0">
-		<tr height="70">
+	<br />
+
+	<table
+		border="0" cellpadding="2" cellspacing="0" width="100%">
+		<tr>
 			<td align="right">
 				<input 
 					type="button" 
 					onclick="javascript:window.location='NWS-NewsSource.aspx';return false;" 
 					value="New"
-					class="cl_noticias_normal" />
+					class="button" />
 			</td>
 		</tr>
 	</table>

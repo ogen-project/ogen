@@ -34,11 +34,11 @@
 	<table
 		border="0" cellpadding="2" cellspacing="0" width="100%">
 		<tr>
-			<td colspan="2" align="center" class="label_title">
+			<td align="center" class="label_title">
 				Author Search
 			</td>
 		</tr>
-		<tr><td colspan="2">&nbsp;</td></tr>
+		<tr><td>&nbsp;</td></tr>
 	</table>
 	<anthem:Repeater
 		ID="rep_Authors" runat="server"
