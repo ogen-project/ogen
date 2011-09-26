@@ -65,7 +65,31 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 			}
 		} 
 		#endregion
-		public static string ClientIPAddress { get { return HttpContext.Current.Request.UserHostAddress; } }
+		#region public static long News_Highlight_for_Default { get; }
+		private static long news_highlight_for_default__ = -2;
+
+		public static long News_Highlight_for_Default {
+			get {
+				if (news_highlight_for_default__ == -2) {
+					if (
+						!long.TryParse(
+							System.Configuration.ConfigurationManager.AppSettings["News_Highlight_for_Default"],
+							out news_highlight_for_default__
+						)
+					) {
+						news_highlight_for_default__ = 0;
+					}
+				}
+				return news_highlight_for_default__;
+			}
+		}
+		#endregion
+
+		public static string ClientIPAddress {
+			get {
+				return HttpContext.Current.Request.UserHostAddress;
+			}
+		}
 
 		#region public static class User { ... }
 		public static class User {

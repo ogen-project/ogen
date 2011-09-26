@@ -22,6 +22,19 @@ using OGen.NTier.Kick.lib.businesslayer.shared;
 using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	public partial class SitePage : System.Web.UI.Page {
+		public Site MasterSite {
+			get {
+				return (Site)Master;
+			}
+		}
+		public _base Site__base {
+			get {
+				return (_base)((Site)Master).Master;
+			}
+		}
+	}
+
 	public partial class Site : System.Web.UI.MasterPage {
 		protected void Page_Load(object sender, EventArgs e) {
 		}

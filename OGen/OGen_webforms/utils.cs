@@ -58,6 +58,14 @@ namespace OGen.lib.presentationlayer.webforms {
 		}
 		#endregion
 
+		#region public static string Replace_RN_BR(...);
+		public static string Replace_RN_BR(
+			string value_in
+		) {
+			return value_in.Replace("\r\n", "<br />").Replace("\n", "<br />").Replace("\r", "<br />");
+		}
+		#endregion
+
 		#region public static System.IO.Stream ReadURL(...) { ... }
 		public static System.IO.Stream ReadURL(
 			string url_in, 

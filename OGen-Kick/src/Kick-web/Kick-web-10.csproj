@@ -69,6 +69,8 @@
     <Content Include="include\htmlDatePicker.js" />
     <Content Include="include\style.css" />
     <Content Include="include\tabber.js" />
+    <Content Include="News-list.aspx" />
+    <Content Include="News.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -240,6 +242,20 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="include\htmlDatePicker.cs" />
+    <Compile Include="News-list.aspx.cs">
+      <DependentUpon>News-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="News-list.aspx.designer.cs">
+      <DependentUpon>News-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="News.aspx.cs">
+      <DependentUpon>News.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="News.aspx.designer.cs">
+      <DependentUpon>News.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -267,6 +283,10 @@
     <ProjectReference Include="..\..\..\OGen\OGen_lib\OGen_lib-10.csproj">
       <Project>{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}</Project>
       <Name>OGen_lib-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\OGen\OGen_mail\OGen_mail-10.csproj">
+      <Project>{FA349CD4-2751-4160-9C78-7DFC16A41A17}</Project>
+      <Name>OGen_mail-10</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\OGen\OGen_webforms\OGen_webforms-10.csproj">
       <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
