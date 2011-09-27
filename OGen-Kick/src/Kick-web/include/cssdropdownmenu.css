@@ -25,39 +25,41 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	display: table-cell;
 	vertical-align: middle;
 
-	border: 0px solid black;
-	/*border-right: 1px solid #7f9aa4;*/
+	border: 0px solid #7f9aa4;/*
+	border-right: 1px solid #7f9aa4;*/
 }
 .cssdropdownmenu > li div:hover {
 	background-color: #ccccff;
 }
+.cssdropdownmenu > li a, 
+.cssdropdownmenu > li div {
+	line-height: 30px;
+}
 /*** SUB MENU: **********************************************************************/
 .cssdropdownmenu > li > ul {
 	background-color: #dddddd;
-	width: 130px;/*width: 131px;*/
 
 	border: 0px solid black;
-	/*
-	border: 1px solid black;
-	left: -1px;
-	*/
+	width: 130px;/*
+	border: 1px solid #7f9aa4;
+	width: 128px;*/
 }
 .cssdropdownmenu > li > ul > li {
 	height: 30px;
 }
 .cssdropdownmenu > li > ul > li a {
-	display: block;
-	vertical-align: middle; 
-	width: 100%; height: 100%; 
-}
-.cssdropdownmenu > li > ul > li a,
-.cssdropdownmenu > li div {
 	line-height: 30px;
 }
 .cssdropdownmenu > li > ul > li:hover {
 	background-color: #ccccff;
 }
 /*** OTHER: **********************************************************************/
+.cssdropdownmenu > li a, 
+.cssdropdownmenu > li > ul > li a {
+	display: block;
+	vertical-align: middle; 
+	width: 100%; height: 100%; 
+}
 .cssdropdownmenu > li div {
 	height: 100%; width: 100%;
 	text-indent: inherit;

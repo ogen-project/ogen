@@ -39,12 +39,19 @@ form > div#div_main {
 .wrap {
 	white-space: normal;
 }
-
 hr {
 	border: 1px solid #7f9aa4;
 	border-bottom-width: 0px;
 	border-right-width: 0px;
 	border-left-width: 0px;
+}
+a {
+	color: Black;
+	text-decoration: none;
+}
+a:hover {
+	color: Red;
+	text-decoration: underline;
 }
 
 /****************************************************************************************************/
