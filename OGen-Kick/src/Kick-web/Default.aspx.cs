@@ -166,7 +166,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				Master__base.Error_show(_errors);
 				#endregion
 
-				System.Web.UI.HtmlControls.HtmlTableRow _tr_ImageNews;
 				Anthem.Image _img_News;
 				Anthem.Repeater _rep_News_Tags;
 				Anthem.Repeater _rep_News_Sources;
@@ -274,7 +273,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						}
 						if (_attachment != null) {
 							_img_News = (Anthem.Image)rep_News.Items[n].FindControl("img_News");
-							_tr_ImageNews = (System.Web.UI.HtmlControls.HtmlTableRow)rep_News.Items[n].FindControl("tr_ImageNews");
 
 							_img_News.ImageUrl = string.Format(
 								"~/public-uploads/news/{0}/{1}-{2}/{3}",
@@ -284,7 +282,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 								_attachment.FileName
 							);
 							_img_News.Visible = true;
-							_tr_ImageNews.Visible = true;
 						}
 					}
 					#endregion

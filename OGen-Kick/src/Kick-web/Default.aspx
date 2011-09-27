@@ -26,99 +26,68 @@
 				ID="rep_News" runat="server"
 				AutoUpdateAfterCallBack="true">
 				<ItemTemplate>
-					<anthem:Repeater
-						ID="rep_News_Tags" runat="server"
-						AutoUpdateAfterCallBack="true">
-						<HeaderTemplate>
-							<table width="100%" border="1" cellpadding="0" cellspacing="0">
-								<tr>
-									<td>&nbsp;&nbsp;</td>
-						</HeaderTemplate>
-						<ItemTemplate>
-									<td>
-										<%# DataBinder.Eval(Container.DataItem, "Name") %>&nbsp;&nbsp;&nbsp;
-									</td>
-						</ItemTemplate>
-						<FooterTemplate>
-									<td width="100%"></td>
-								</tr>
-							</table>
-						</FooterTemplate>
-					</anthem:Repeater>
-					<table width="100%" border="1" cellpadding="0" cellspacing="0">
+					<table width="100%" border="0" cellpadding="4" cellspacing="0" class="table_thin">
 						<tr>
-							<td></td>
-							<td>
+							<td colspan="3" class="alternating_item">
 								<a 
-									href='<%# "News.aspx?IDNews=" + ((long)DataBinder.Eval(Container.DataItem, "IDContent")).ToString() %>'>
-									<strong><%# DataBinder.Eval(Container.DataItem, "Title") %></strong></a>
+									href='<%# "News.aspx?IDNews=" + ((long)DataBinder.Eval(Container.DataItem, "IDContent")).ToString() %>'
+									class="">
+									<%# DataBinder.Eval(Container.DataItem, "Title") %></a>
 							</td>
-							<td></td>
 						</tr>
 
-						<tr id="tr_ImageNews" runat="server" visible="false">
-							<td></td>
+						<tr>
 							<td valign="top">
 								<anthem:Image
 									ID="img_News" runat="server"
 									AutoUpdateAfterCallBack="true"
 									Visible="false"
-									style="max-height: 100px; max-width: 400px;" />
+									style="
+										max-height: 100px; max-width: 400px;
+										margin: 3px;
+									" />
 							</td>
-							<td></td>
-						</tr>
-
-						<tr>
-							<td></td>
-							<td>
+							<td colspan="2" valign="top">
 								<a 
 									href='<%# "News.aspx?IDNews=" + ((long)DataBinder.Eval(Container.DataItem, "IDContent")).ToString() %>' 
 									class="texto_11"><%# DataBinder.Eval(Container.DataItem, "summary") %></a>
 							</td>
-							<td></td>
 						</tr>
-						<tr valign="bottom">
+						<tr>
 							<td></td>
-							<td>
-
-
-
-								<table border="1" cellpadding="0" cellspacing="0" width="100%">
-									<tr>
-										<td align="left">
-											<anthem:Repeater
-												ID="rep_News_Sources" runat="server"
-												Visible="false"
-												AutoUpdateAfterCallBack="true">
-												<HeaderTemplate>
-													<em>(Fonte 
-												</HeaderTemplate>
-												<ItemTemplate><%# 
-													(Container.ItemIndex == 0) ? "" : ", " %>
-													<span>
-														<%# DataBinder.Eval(Container.DataItem, "Name") %></span></ItemTemplate>
-												<FooterTemplate>)</em>
-												</FooterTemplate>
-											</anthem:Repeater>
-										</td>
-										<td align="right">
-											<a 
-												href='<%# "News.aspx?IDNews=" + ((long)DataBinder.Eval(Container.DataItem, "IDContent")).ToString() %>'>VER MAIS</a>
-										</td>
-									</tr>
-								</table>
-
-
-
-
-
-							</td>
+							<td style="width: 100%;"></td>
 							<td></td>
 						</tr>
 						<tr>
-							<td colspan="3">&nbsp;</td>
+							<td colspan="2" align="left" class="label_small nowrap">
+								<anthem:Repeater
+									ID="rep_News_Sources" runat="server"
+									Visible="false"
+									AutoUpdateAfterCallBack="true">
+									<HeaderTemplate>(source: </HeaderTemplate>
+									<ItemTemplate><%# 
+										(Container.ItemIndex == 0) ? "" : ", " %>
+										<span>
+											<%# DataBinder.Eval(Container.DataItem, "Name") %></span></ItemTemplate>
+									<FooterTemplate>)</FooterTemplate>
+								</anthem:Repeater>
+							</td>
+							<td align="right" class="label_small nowrap">
+								<anthem:Repeater
+									ID="rep_News_Tags" runat="server"
+									AutoUpdateAfterCallBack="true">
+									<HeaderTemplate>
+									</HeaderTemplate>
+									<ItemTemplate>
+										&nbsp;#<%# DataBinder.Eval(Container.DataItem, "Name") %>
+									</ItemTemplate>
+									<FooterTemplate>
+									</FooterTemplate>
+								</anthem:Repeater>
+							</td>
 						</tr>
 					</table>
+					<br />
 				</ItemTemplate>
 			</anthem:Repeater>
 
