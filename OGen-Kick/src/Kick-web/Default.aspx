@@ -28,7 +28,7 @@
 				<ItemTemplate>
 					<table width="100%" border="0" cellpadding="4" cellspacing="0" class="table_thin">
 						<tr>
-							<td colspan="3" class="alternating_item">
+							<td colspan="4" class="alternating_item">
 								<a 
 									href='<%# "News.aspx?IDNews=" + ((long)DataBinder.Eval(Container.DataItem, "IDContent")).ToString() %>'
 									class="">
@@ -47,16 +47,17 @@
 										margin: 3px;
 									" />
 							</td>
-							<td colspan="2" valign="top">
+							<td colspan="3" valign="top">
 								<a 
 									href='<%# "News.aspx?IDNews=" + ((long)DataBinder.Eval(Container.DataItem, "IDContent")).ToString() %>' 
 									class="texto_11"><%# DataBinder.Eval(Container.DataItem, "summary") %></a>
 							</td>
 						</tr>
 						<tr>
-							<td></td>
-							<td style="width: 100%;"></td>
-							<td></td>
+							<td style="height: 0px;"></td>
+							<td style="height: 0px; width: 50%;"></td>
+							<td style="height: 0px; width: 50%;"></td>
+							<td style="height: 0px;"></td>
 						</tr>
 						<tr>
 							<td colspan="2" align="left" class="label_small nowrap">
@@ -72,7 +73,7 @@
 									<FooterTemplate>)</FooterTemplate>
 								</anthem:Repeater>
 							</td>
-							<td align="right" class="label_small nowrap">
+							<td colspan="2" align="right" class="label_small nowrap">
 								<anthem:Repeater
 									ID="rep_News_Tags" runat="server"
 									AutoUpdateAfterCallBack="true">
