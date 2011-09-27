@@ -97,7 +97,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					new long[] { },
 					new long[] { },
 					(utils.News_Highlight_for_Default <= 0) ? new long[] { } : new long[] { utils.News_Highlight_for_Default },
-					new long[] { }, // ToDos: here!
+
+new long[] { }, // ToDos: here!
+
 					"",
 					utils.IDLanguage__default,
 					true,

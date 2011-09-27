@@ -89,9 +89,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				utils.IDLanguage__default, 
 				out _errors
 			);
-			if (
-				!Master__base.Error_show(_errors)
-			) {
+			if (!Master__base.Error_show(_errors)) {
 				if (_content != null) {
 					#region rep_Attachments.DataSource = ...; rep_Attachments.DataBind();
 					_attachments = BusinessInstances.NWS_Attachment.InstanceClient.getRecord_byContent_andLanguage(
