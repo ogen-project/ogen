@@ -13,6 +13,15 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     public partial class FE_News {
         
         /// <summary>
+        /// tbl_News control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable tbl_News;
+        
+        /// <summary>
         /// lbl_Title control.
         /// </summary>
         /// <remarks>
@@ -29,15 +38,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_Publish_date;
-        
-        /// <summary>
-        /// td_image1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell td_image1;
         
         /// <summary>
         /// img_News control.
@@ -92,6 +92,15 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rep_Attachments;
+        
+        /// <summary>
+        /// tr_Details control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_Details;
         
         /// <summary>
         /// rep_Sources control.

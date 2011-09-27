@@ -27,8 +27,8 @@
 		AutoUpdateAfterCallBack="true">
 		<ItemTemplate>
 			<table width="100%" border="0" cellpadding="4" cellspacing="0" class="table_thin">
-				<tr>
-					<td colspan="2" class="alternating_item">
+				<tr class="alternating_item">
+					<td colspan="2">
 						<a 
 							href='<%# "News.aspx?IDNews=" + ((long)DataBinder.Eval(Container.DataItem, "IDContent")).ToString() %>'
 							style="width: 100%; height: 100%;"

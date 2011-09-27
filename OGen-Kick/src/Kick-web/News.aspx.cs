@@ -59,10 +59,18 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		}
 
 		public void Bind() {
+			rep_Tags.Visible = false;
+			rep_Sources.Visible = false;
+			rep_Attachments.Visible = false;
+			tr_Attachments1.Visible = false;
+			tr_Details.Visible = false;
+			tbl_News.Visible = false;
+
 			if (IDNews <= 0) {
 				return;
 			}
 
+			bool _showDetails = false;
 			int[] _errors;
 
 			SO_vNWS_Source[] _sources;
@@ -83,183 +91,206 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			);
 			if (
 				!Master__base.Error_show(_errors)
-				&&
-				(_content != null)
 			) {
-				#region attachments . . .
-				_attachments = BusinessInstances.NWS_Attachment.InstanceClient.getRecord_byContent_andLanguage(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
-					IDNews,
-					utils.IDLanguage__default,
-					out _errors
-				);
-				if (
-					!Master__base.Error_show(_errors)
-					&&
-					(_attachments != null)
-				) {
-					Array.Sort(
-						_attachments,
-						delegate(
-							SO_vNWS_Attachment arg1_in,
-							SO_vNWS_Attachment arg2_in
-						) {
-							return arg1_in.IDAttachment.CompareTo(arg2_in.IDAttachment);
-						}
+				if (_content != null) {
+					#region rep_Attachments.DataSource = ...; rep_Attachments.DataBind();
+					_attachments = BusinessInstances.NWS_Attachment.InstanceClient.getRecord_byContent_andLanguage(
+						utils.User.SessionGuid,
+						utils.ClientIPAddress,
+						IDNews,
+						utils.IDLanguage__default,
+						out _errors
 					);
-
-					#region _attachment = ...; _attachments_final = ...;
-					_attachments_final = (_attachments.Length > 0) ? new List<SO_vNWS_Attachment>(_attachments.Length) : null;
-
-					_attachment = null;
-					int _image_count = 0;
-					foreach (SO_vNWS_Attachment _attachment2 in _attachments) {
-						if (_attachment2.isImage) {
-							_image_count++;
-							if (
-								(_image_count != 0)
-								&&
-								(_image_count <= 2)
+					if (
+						!Master__base.Error_show(_errors)
+						&&
+						(_attachments != null)
+						&&
+						(_attachments.Length > 0)
+					) {
+						Array.Sort(
+							_attachments,
+							delegate(
+								SO_vNWS_Attachment arg1_in,
+								SO_vNWS_Attachment arg2_in
 							) {
-								_attachment = _attachment2;
+								return arg1_in.IDAttachment.CompareTo(arg2_in.IDAttachment);
 							}
-						}
-
-						if (
-							!_attachment2.isImage
-							||
-							(_image_count > 2)
-						) {
-							// NOT image OR [ image BUT beyond the ones used for display ]
-							_attachments_final.Add(_attachment2);
-						}
-					} 
-					#endregion
-
-					#region img_News.ImageUrl = ...;
-					if (_attachment != null) {
-						img_News.ImageUrl = string.Format(
-							"~/public-uploads/news/{0}/{1}-{2}/{3}",
-							_attachment.IFContent,
-							_attachment.IDAttachment,
-							_attachment.GUID,
-							_attachment.FileName
 						);
 
-						if (
-							!_attachment.Name_isNull
-							&&
-							(_attachment.Name != "")
-						) {
-							lbl_Image_Name.Text = _attachment.Name;
+						#region _attachment = ...; _attachments_final = ...;
+						_attachments_final = (_attachments.Length > 0) ? new List<SO_vNWS_Attachment>(_attachments.Length) : null;
+
+						_attachment = null;
+						int _image_count = 0;
+						foreach (SO_vNWS_Attachment _attachment2 in _attachments) {
+							if (_attachment2.isImage) {
+								_image_count++;
+								if (
+									(_image_count != 0)
+									&&
+									(_image_count <= 2)
+								) {
+									_attachment = _attachment2;
+								}
+							}
+
+							if (
+								!_attachment2.isImage
+								||
+								(_image_count > 2)
+							) {
+								// NOT image OR [ image BUT beyond the ones used for display ]
+								_attachments_final.Add(_attachment2);
+							}
 						}
-						if (
-							!_attachment.Description_isNull
-							&&
-							(_attachment.Description != "")
-						) {
-							lbl_Image_Description.Text = string.Format(
-								"({0})",
-								_attachment.Description
+						#endregion
+
+						#region img_News.ImageUrl = ...;
+						if (_attachment != null) {
+							img_News.ImageUrl = string.Format(
+								"~/public-uploads/news/{0}/{1}-{2}/{3}",
+								_attachment.IFContent,
+								_attachment.IDAttachment,
+								_attachment.GUID,
+								_attachment.FileName
 							);
-						}
-					} else {
-						td_image1.Visible = false;
-					} 
-					#endregion
-					#region rep_Attachments...
-					if (_attachments_final != null) {
-						tr_Attachments1.Visible = true;
 
-						rep_Attachments.DataSource = _attachments_final;
-						rep_Attachments.DataBind();
-					} else {
-						tr_Attachments1.Visible = false;
+							if (
+								!_attachment.Name_isNull
+								&&
+								(_attachment.Name != "")
+							) {
+								lbl_Image_Name.Text = _attachment.Name;
+							}
+							if (
+								!_attachment.Description_isNull
+								&&
+								(_attachment.Description != "")
+							) {
+								lbl_Image_Description.Text = string.Format(
+									"({0})",
+									_attachment.Description
+								);
+							}
+						}
+						#endregion
+						#region rep_Attachments...
+						if (
+							(_attachments_final != null)
+							&&
+							(_attachments_final.Count > 0)
+						) {
+							rep_Attachments.DataSource = _attachments_final;
+							rep_Attachments.DataBind();
+							rep_Attachments.Visible = true;
+
+							tr_Attachments1.Visible = true;
+						}
+						#endregion
 					}
 					#endregion
-				}
-				#endregion
-				#region rep_Sources.DataSource = ...; rep_Sources.DataBind();
-				_sources
-					= BusinessInstances.NWS_Source.InstanceClient.getRecord_Approved(
+
+					#region rep_Sources.DataSource = ...; rep_Sources.DataBind();
+					_contentsources = BusinessInstances.NWS_Source.InstanceClient.getRecord_byContent(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
+						IDNews,
 						0, 0,
 						out _errors
 					);
-				if (
-					(_sources != null)
-					&&
-					((_contentsources = BusinessInstances.NWS_Source.InstanceClient.getRecord_byContent(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
-						IDNews, 
-				        0, 0, 
-				        out _errors
-				    )) != null)
-				) {
-					SO_vNWS_Source[] _sources2 = new SO_vNWS_Source[_contentsources.Length];
-					for (int s1 = 0; s1 < _contentsources.Length; s1++) {
-						for (int s2 = 0; s2 < _sources.Length; s2++) {
-							if (_contentsources[s1].IFSource == _sources[s2].IDSource) {
-								_sources2[s1] = _sources[s2];
-								break;
+					if (
+						!Master__base.Error_show(_errors)
+						&&
+						(_contentsources != null)
+						&&
+						(_contentsources.Length > 0)
+					) {
+						_sources
+							= BusinessInstances.NWS_Source.InstanceClient.getRecord_Approved(
+								utils.User.SessionGuid,
+								utils.ClientIPAddress,
+								0, 0,
+								out _errors
+							);
+						if (!Master__base.Error_show(_errors)) {
+							SO_vNWS_Source[] _sources2 = new SO_vNWS_Source[_contentsources.Length];
+							for (int s1 = 0; s1 < _contentsources.Length; s1++) {
+								for (int s2 = 0; s2 < _sources.Length; s2++) {
+									if (_contentsources[s1].IFSource == _sources[s2].IDSource) {
+										_sources2[s1] = _sources[s2];
+										break;
+									}
+								}
 							}
+
+							rep_Sources.DataSource = _sources2;
+							rep_Sources.DataBind();
+
+							rep_Sources.Visible = true;
+							_showDetails = true;
 						}
 					}
-
-
-					rep_Sources.DataSource = _sources2;
-					rep_Sources.DataBind();
-				}
-				#endregion
-				#region rep_Tags.DataSource = ...; rep_Tags.DataBind();
-				_tags
-					= BusinessInstances.NWS_Tag.InstanceClient.getRecord_Approved_byLang(
+					#endregion
+					#region rep_Tags.DataSource = ...; rep_Tags.DataBind();
+					_contenttags = BusinessInstances.NWS_Tag.InstanceClient.getRecord_byContent(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						utils.IDLanguage__default,
+						IDNews,
 						0, 0,
 						out _errors
 					);
-				if (
-					(_tags != null)
-					&&
-					((_contenttags = BusinessInstances.NWS_Tag.InstanceClient.getRecord_byContent(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
-						IDNews, 
-						0, 0, 
-						out _errors
-					)) != null)
-				) {
-					SO_vNWS_Tag[] _tags2 = new SO_vNWS_Tag[_contenttags.Length];
-					for (int t1 = 0; t1 < _contenttags.Length; t1++) {
-						for (int t2 = 0; t2 < _tags.Length; t2++) {
-							if (_contenttags[t1].IFTag == _tags[t2].IDTag) {
-								_tags2[t1] = _tags[t2];
-								break;
+					if (
+						!Master__base.Error_show(_errors)
+						&&
+						(_contenttags != null)
+						&&
+						(_contenttags.Length > 0)
+					) {
+						_tags
+							= BusinessInstances.NWS_Tag.InstanceClient.getRecord_Approved_byLang(
+								utils.User.SessionGuid,
+								utils.ClientIPAddress,
+								utils.IDLanguage__default,
+								0, 0,
+								out _errors
+							);
+						if (!Master__base.Error_show(_errors)) {
+							SO_vNWS_Tag[] _tags2 = new SO_vNWS_Tag[_contenttags.Length];
+							for (int t1 = 0; t1 < _contenttags.Length; t1++) {
+								for (int t2 = 0; t2 < _tags.Length; t2++) {
+									if (_contenttags[t1].IFTag == _tags[t2].IDTag) {
+										_tags2[t1] = _tags[t2];
+										break;
+									}
+								}
 							}
+
+							rep_Tags.DataSource = _tags2;
+							rep_Tags.DataBind();
+
+							rep_Tags.Visible = true;
+							_showDetails = true;
 						}
 					}
+					#endregion
+					tr_Details.Visible = _showDetails;
 
+					lbl_Publish_date.Text = string.Format(
+						"{0}.{1}.{2} | {3}h{4}",
+						_content.Publish_date.Day.ToString().PadLeft(2, '0'),
+						_content.Publish_date.Month.ToString().PadLeft(2, '0'),
+						_content.Publish_date.Year,
+						_content.Publish_date.Hour.ToString().PadLeft(2, '0'),
+						_content.Publish_date.Minute.ToString().PadLeft(2, '0')
+					);
+					lbl_Title.Text = _content.Title;
+					lbl_Content.Text = OGen.lib.presentationlayer.webforms.utils.Replace_RN_BR(_content.Content);
 
-					rep_Tags.DataSource = _tags2;
-					rep_Tags.DataBind();
+					tbl_News.Visible = true;
+				} else {
+					Master__base.Error_show(false, "no data");
 				}
-				#endregion
-
-				lbl_Publish_date.Text = string.Format(
-					"{0}.{1}.{2} | {3}h{4}", 
-					_content.Publish_date.Day.ToString().PadLeft(2, '0'),
-					_content.Publish_date.Month.ToString().PadLeft(2, '0'), 
-					_content.Publish_date.Year,
-					_content.Publish_date.Hour.ToString().PadLeft(2, '0'),
-					_content.Publish_date.Minute.ToString().PadLeft(2, '0')
-				);
-				lbl_Title.Text = _content.Title;
-				lbl_Content.Text = OGen.lib.presentationlayer.webforms.utils.Replace_RN_BR(_content.Content);
 			}
 		}
 	}
