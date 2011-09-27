@@ -30,96 +30,80 @@
 						ID="rep_News_Tags" runat="server"
 						AutoUpdateAfterCallBack="true">
 						<HeaderTemplate>
-							<table width="100%" height="15" border="0" cellpadding="0" cellspacing="0">
+							<table width="100%" border="1" cellpadding="0" cellspacing="0">
 								<tr>
-									<td width="5" class="subtitulo_preto">&nbsp;&nbsp;</td>
+									<td>&nbsp;&nbsp;</td>
 						</HeaderTemplate>
 						<ItemTemplate>
-									<td bgcolor="#E6F0D5" class="titulo_branco">
-										<span class="subtitulo_preto">
-											<%# DataBinder.Eval(Container.DataItem, "Name") %></span>
+									<td>
+										<%# DataBinder.Eval(Container.DataItem, "Name") %>&nbsp;&nbsp;&nbsp;
 									</td>
-									<td bgcolor="#E6F0D5" class="subtitulo_preto">&nbsp;&nbsp;&nbsp;</td>
-									<td><img src="imagens/1x1.png" /></td>
 						</ItemTemplate>
 						<FooterTemplate>
-									<td width="100%" bgcolor="#E6F0D5"></td>
+									<td width="100%"></td>
 								</tr>
 							</table>
 						</FooterTemplate>
 					</anthem:Repeater>
-					<table width="100%" border="0" cellpadding="0" cellspacing="0">
+					<table width="100%" border="1" cellpadding="0" cellspacing="0">
 						<tr>
-							<td width="5" height="10"></td>
-							<td width="389" height="10"></td>
-							<td width="5"></td>
-						</tr>
-						<tr>
-							<td width="5"></td>
-							<td width="389">
+							<td></td>
+							<td>
 								<a 
-									href='<%# "News.aspx?IDNews=" + ((long)DataBinder.Eval(Container.DataItem, "IDContent")).ToString() %>'
-									class="texto_home2 titulos_noticias"><strong><%# DataBinder.Eval(Container.DataItem, "Title") %></strong></a>
+									href='<%# "News.aspx?IDNews=" + ((long)DataBinder.Eval(Container.DataItem, "IDContent")).ToString() %>'>
+									<strong><%# DataBinder.Eval(Container.DataItem, "Title") %></strong></a>
 							</td>
-							<td width="5"></td>
+							<td></td>
 						</tr>
 
-						<tr>
-							<td width="5" height="10"></td>
-							<td width="389" height="10"></td>
-							<td width="5"></td>
-						</tr>
-						<tr id="tr_ImageNews" runat="server">
+						<tr id="tr_ImageNews" runat="server" visible="false">
 							<td></td>
-							<td height="105" valign="top">
+							<td valign="top">
 								<anthem:Image
 									ID="img_News" runat="server"
 									AutoUpdateAfterCallBack="true"
+									Visible="false"
 									style="max-height: 100px; max-width: 400px;" />
 							</td>
 							<td></td>
 						</tr>
 
 						<tr>
-							<td width="5"></td>
-							<td width="389">
+							<td></td>
+							<td>
 								<a 
 									href='<%# "News.aspx?IDNews=" + ((long)DataBinder.Eval(Container.DataItem, "IDContent")).ToString() %>' 
 									class="texto_11"><%# DataBinder.Eval(Container.DataItem, "summary") %></a>
 							</td>
-							<td width="5"></td>
+							<td></td>
 						</tr>
 						<tr valign="bottom">
-							<td height="20"></td>
-							<td height="20">
+							<td></td>
+							<td>
 
 
 
-								<table width="389" border="0" cellpadding="0" cellspacing="0">
+								<table border="1" cellpadding="0" cellspacing="0" width="100%">
 									<tr>
-										<td align="left" valign="middle" style="width: 338px;">
-
+										<td align="left">
 											<anthem:Repeater
 												ID="rep_News_Sources" runat="server"
+												Visible="false"
 												AutoUpdateAfterCallBack="true">
 												<HeaderTemplate>
-													<em class="fonte">(Fonte 
+													<em>(Fonte 
 												</HeaderTemplate>
 												<ItemTemplate><%# 
 													(Container.ItemIndex == 0) ? "" : ", " %>
-													<span class="fonte">
+													<span>
 														<%# DataBinder.Eval(Container.DataItem, "Name") %></span></ItemTemplate>
-												<FooterTemplate>
-													)</em>
+												<FooterTemplate>)</em>
 												</FooterTemplate>
 											</anthem:Repeater>
-
 										</td>
-										<td style="width: 1px;" align="center" valign="middle" bgcolor="#93bb1a"> </td>
-										<td style="width: 50px;" align="right" valign="middle">
+										<td align="right">
 											<a 
-												href='<%# "News.aspx?IDNews=" + ((long)DataBinder.Eval(Container.DataItem, "IDContent")).ToString() %>' 
-												class="vermais">VER MAIS</a>
+												href='<%# "News.aspx?IDNews=" + ((long)DataBinder.Eval(Container.DataItem, "IDContent")).ToString() %>'>VER MAIS</a>
 										</td>
 									</tr>
 								</table>
@@ -129,7 +113,7 @@
 
 
 							</td>
-							<td height="20"></td>
+							<td></td>
 						</tr>
 						<tr>
 							<td colspan="3">&nbsp;</td>

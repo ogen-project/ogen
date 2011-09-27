@@ -23,12 +23,12 @@ using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
 	public partial class SitePage : System.Web.UI.Page {
-		public Site MasterSite {
+		public Site Master_Site {
 			get {
 				return (Site)Master;
 			}
 		}
-		public _base Site__base {
+		public _base Master__base {
 			get {
 				return (_base)((Site)Master).Master;
 			}

@@ -69,7 +69,6 @@
     <Content Include="include\htmlDatePicker.js" />
     <Content Include="include\style.css" />
     <Content Include="include\tabber.js" />
-    <Content Include="News-list.aspx" />
     <Content Include="News.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -242,13 +241,6 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="include\htmlDatePicker.cs" />
-    <Compile Include="News-list.aspx.cs">
-      <DependentUpon>News-list.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="News-list.aspx.designer.cs">
-      <DependentUpon>News-list.aspx</DependentUpon>
-    </Compile>
     <Compile Include="News.aspx.cs">
       <DependentUpon>News.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
