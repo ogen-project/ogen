@@ -67,8 +67,7 @@
 									<HeaderTemplate>(source: </HeaderTemplate>
 									<ItemTemplate><%# 
 										(Container.ItemIndex == 0) ? "" : ", " %>
-										<span>
-											<%# DataBinder.Eval(Container.DataItem, "Name") %></span></ItemTemplate>
+										<%# DataBinder.Eval(Container.DataItem, "Name") %></ItemTemplate>
 									<FooterTemplate>)</FooterTemplate>
 								</anthem:Repeater>
 							</td>
