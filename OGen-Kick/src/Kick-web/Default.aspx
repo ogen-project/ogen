@@ -31,8 +31,9 @@
 							<td colspan="4" class="alternating_item">
 								<a 
 									href='<%# "News.aspx?IDNews=" + ((long)DataBinder.Eval(Container.DataItem, "IDContent")).ToString() %>'
+									style="width: 100%; height: 100%;"
 									class="">
-									<%# DataBinder.Eval(Container.DataItem, "Title") %></a>
+									<div style="width: 100%; height: 100%;"><%# DataBinder.Eval(Container.DataItem, "Title") %></div></a>
 							</td>
 						</tr>
 
@@ -48,9 +49,7 @@
 									" />
 							</td>
 							<td colspan="3" valign="top">
-								<a 
-									href='<%# "News.aspx?IDNews=" + ((long)DataBinder.Eval(Container.DataItem, "IDContent")).ToString() %>' 
-									class="texto_11"><%# DataBinder.Eval(Container.DataItem, "summary") %></a>
+								<%# DataBinder.Eval(Container.DataItem, "summary") %>
 							</td>
 						</tr>
 						<tr>
@@ -77,13 +76,9 @@
 								<anthem:Repeater
 									ID="rep_News_Tags" runat="server"
 									AutoUpdateAfterCallBack="true">
-									<HeaderTemplate>
-									</HeaderTemplate>
 									<ItemTemplate>
 										&nbsp;#<%# DataBinder.Eval(Container.DataItem, "Name") %>
 									</ItemTemplate>
-									<FooterTemplate>
-									</FooterTemplate>
 								</anthem:Repeater>
 							</td>
 						</tr>

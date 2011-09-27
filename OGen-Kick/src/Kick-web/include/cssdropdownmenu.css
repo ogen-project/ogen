@@ -17,49 +17,49 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	background-color: #dddddd;
 }
 .cssdropdownmenu > li {
-	width: 140px;
-	height: 40px;
+	width: 130px; height: 30px;
 
 	text-indent: 10px;
 	text-align: left;
+	text-transform: lowercase;
 	display: table-cell;
 	vertical-align: middle;
 
 	border: 0px solid black;
+	/*border-right: 1px solid #7f9aa4;*/
 }
-.cssdropdownmenu > li table:hover {
+.cssdropdownmenu > li div:hover {
 	background-color: #ccccff;
 }
-
 /*** SUB MENU: **********************************************************************/
 .cssdropdownmenu > li ul {
 	background-color: #dddddd;
-	width: 140px;
+	width: 130px;/*width: 131px;*/
 
 	border: 0px solid black;
+	/*
+	border: 1px solid black;
+	left: -1px;
+	*/
 }
 .cssdropdownmenu > li ul li {
-	height: 40px;
+	height: 30px;
 }
-.cssdropdownmenu > li ul li div {
-	height: inherit;
-
-	text-indent: 10px;
-	text-align: left;
-	display: table-cell;
-	vertical-align: middle;
+.cssdropdownmenu > li ul li a {
+	display: block;
+	vertical-align: middle; 
+	width: 100%; height: 100%; 
+}
+.cssdropdownmenu > li ul li a,
+.cssdropdownmenu > li div {
+	line-height: 30px;
 }
 .cssdropdownmenu > li ul li:hover {
 	background-color: #ccccff;
 }
-
 /*** OTHER: **********************************************************************/
-.cssdropdownmenu > li table {
-	height: 100%;
-	width: 100%;
-	text-indent: inherit;
-}
-.cssdropdownmenu > li table td {
+.cssdropdownmenu > li div {
+	height: 100%; width: 100%;
 	text-indent: inherit;
 	vertical-align: middle;
 }
