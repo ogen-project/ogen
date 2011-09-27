@@ -166,10 +166,14 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				Master__base.Error_show(_errors);
 				#endregion
 
+				bool _show_Details;
 				Anthem.Image _img_News;
 				Anthem.Repeater _rep_News_Tags;
 				Anthem.Repeater _rep_News_Sources;
+				System.Web.UI.HtmlControls.HtmlTableRow _tr_Details;
 				for (int n = 0; n < _news.Length; n++) {
+					_show_Details = false;
+
 					#region _rep_News_Tags.DataSource = ...; _rep_News_Tags.DataBind();
 					SO_NWS_ContentTag[] _content_tags
 						= BusinessInstances.NWS_Tag.InstanceClient.getRecord_byContent(
@@ -199,6 +203,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						_rep_News_Tags = (Anthem.Repeater)rep_News.Items[n].FindControl("rep_News_Tags");
 						_rep_News_Tags.DataSource = _tags2;
 						_rep_News_Tags.DataBind();
+						_rep_News_Tags.Visible = true;
+
+						_show_Details = true;
 					}
 					#endregion
 					#region _rep_News_Sources.DataSource = ...; _rep_News_Sources.DataBind();
@@ -230,8 +237,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						_rep_News_Sources = (Anthem.Repeater)rep_News.Items[n].FindControl("rep_News_Sources");
 						_rep_News_Sources.DataSource = _sources2;
 						_rep_News_Sources.DataBind();
-
 						_rep_News_Sources.Visible = true;
+
+						_show_Details = true;
 					}
 					#endregion
 					#region _img_News = ...;
@@ -285,6 +293,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						}
 					}
 					#endregion
+
+					_tr_Details = (System.Web.UI.HtmlControls.HtmlTableRow)rep_News.Items[n].FindControl("tr_Details");
+					_tr_Details.Visible = _show_Details;
 				}
 			}
 		}

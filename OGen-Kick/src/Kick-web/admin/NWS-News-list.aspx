@@ -290,4 +290,19 @@
 			</table>
 		</FooterTemplate>
 	</asp:Repeater>
+	<br />
+
+	<table
+		border="0" cellpadding="2" cellspacing="0" width="100%">
+		<tr>
+			<td align="right">
+				<input 
+					type="button" 
+					onclick="javascript:window.location='NWS-News.aspx';return false;" 
+					value="New"
+					class="button" />
+			</td>
+		</tr>
+	</table>
+
 </asp:Content>

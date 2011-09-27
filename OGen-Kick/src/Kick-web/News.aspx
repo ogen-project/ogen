@@ -39,7 +39,10 @@
 				valign="top" style="border-width: 1px;">
 				<asp:Image 
 					ID="img_News" runat="server"
-					style="max-height: 176px; max-width: 300px; background-color: Red;" />
+					style="
+						max-height: 176px; max-width: 300px; 
+						margin: 3px;
+					" />
 				<br />
 				<asp:Label
 					ID="lbl_Image_Name" runat="server" />
@@ -68,7 +71,7 @@
 					<ItemTemplate>
 						<tr>
 							<td>
-								&bull;&nbsp;<a 
+								-&nbsp;<a 
 									runat="server"
 									target="_blank"
 									href='<%# 
