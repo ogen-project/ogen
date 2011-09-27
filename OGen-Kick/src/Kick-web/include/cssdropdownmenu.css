@@ -32,7 +32,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	background-color: #ccccff;
 }
 /*** SUB MENU: **********************************************************************/
-.cssdropdownmenu > li ul {
+.cssdropdownmenu > li > ul {
 	background-color: #dddddd;
 	width: 130px;/*width: 131px;*/
 
@@ -42,19 +42,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	left: -1px;
 	*/
 }
-.cssdropdownmenu > li ul li {
+.cssdropdownmenu > li > ul > li {
 	height: 30px;
 }
-.cssdropdownmenu > li ul li a {
+.cssdropdownmenu > li > ul > li a {
 	display: block;
 	vertical-align: middle; 
 	width: 100%; height: 100%; 
 }
-.cssdropdownmenu > li ul li a,
+.cssdropdownmenu > li > ul > li a,
 .cssdropdownmenu > li div {
 	line-height: 30px;
 }
-.cssdropdownmenu > li ul li:hover {
+.cssdropdownmenu > li > ul > li:hover {
 	background-color: #ccccff;
 }
 /*** OTHER: **********************************************************************/
@@ -63,26 +63,38 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	text-indent: inherit;
 	vertical-align: middle;
 }
-
 .cssdropdownmenu, 
-.cssdropdownmenu ul {
+.cssdropdownmenu > li > ul {
 	padding: 0px;
 	margin: 0px;
 	list-style: none;
 }
+.cssdropdownmenu > li > ul {
+	display: none;
+	position: absolute;
+}
+.cssdropdownmenu > li > ul > li {
+	width: 100%;
+}
+.cssdropdownmenu > li:hover > ul {
+	display: block;
+}
+/*** COMMON: **********************************************************************/
 .cssdropdownmenu li {
 	float: left;
 	position: relative;
 	margin: 0px;
 }
-
-.cssdropdownmenu > li ul {
-	display: none;
-	position: absolute;
+/*
+.cssdropdownmenu {
+	color: #000000;
 }
-.cssdropdownmenu > li ul li {
-	width: 100%;
+.cssdropdownmenu a {
+	text-decoration: none;
+	color: #000000;
 }
-.cssdropdownmenu > li:hover ul {
-	display: block;
+.cssdropdownmenu a:hover {
+	text-decoration: underline;
+	color: Red;
 }
+*/
