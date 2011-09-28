@@ -53,6 +53,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#endregion
 
 		protected void Page_Load(object sender, EventArgs e) {
+			Master__base.Error_clear();
+
 			if (!Page.IsPostBack) {
 				Bind();
 			}

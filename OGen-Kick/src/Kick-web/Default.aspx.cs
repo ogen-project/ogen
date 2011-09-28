@@ -30,6 +30,8 @@ using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
 	public partial class Default : SitePage {
 		protected void Page_Load(object sender, EventArgs e) {
+			Master__base.Error_clear();
+
 			if (!Page.IsPostBack) {
 				Bind();
 			}
