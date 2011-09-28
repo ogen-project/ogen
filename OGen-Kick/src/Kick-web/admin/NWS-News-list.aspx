@@ -168,7 +168,7 @@
 								OnClick="btn_Search_Click"
 
 								CssClass="button"
-								Text="Pesquisar" />
+								Text="Search" />
 						</td>
 					</tr>
 				</table>
