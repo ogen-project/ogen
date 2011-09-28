@@ -84,12 +84,13 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 			}
 		}
 		#endregion
-
+		#region public static string ClientIPAddress { get; }
 		public static string ClientIPAddress {
 			get {
 				return HttpContext.Current.Request.UserHostAddress;
 			}
 		}
+		#endregion
 
 		#region public static class User { ... }
 		public static class User {

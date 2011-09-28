@@ -83,7 +83,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		public void Bind() {
 			bool _isloggedin = utils.User.isLoggedIn;
 
-			lbl_Welcome.Text = (_isloggedin) ? utils.User.Login : "anonynous";
+			lbt_Registration.Text = (_isloggedin) ? utils.User.Login : "anonynous";
+			lbt_Registration.PostBackUrl = (_isloggedin) ? "~/Registration-update.aspx" : "~/Registration.aspx";
 
 			lbl_EMail.Visible = !_isloggedin;
 			txt_EMail.Visible = !_isloggedin;
