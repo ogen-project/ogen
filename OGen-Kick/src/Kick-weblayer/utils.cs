@@ -151,7 +151,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 			}
 			#endregion
 
-//			#region public static string SessionGuid { get; set; }
+			#region public static string SessionGuid { get; set; }
 			public static string SessionGuid {
 				get {
 					if (
@@ -161,8 +161,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 						||
 						(((string)HttpContext.Current.Session[SESSION_GUID]).Trim() == "")
 					) {
-//return Anonymous.SessionGuid;
-						return null;
+						return Anonymous.SessionGuid;
 					} else {
 						return (string)HttpContext.Current.Session[SESSION_GUID];
 					}
@@ -185,7 +184,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 					}
 				}
 			}
-//			#endregion
+			#endregion
 			#region public static long IDUser{ get; set; }
 			public static long IDUser {
 				get {
@@ -296,8 +295,8 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 					int[] _errors;
 					return (
 						(SessionGuid != null)
-//&&
-//(SessionGuid != Anonymous.SessionGuid)
+						&&
+						(SessionGuid != Anonymous.SessionGuid)
 						&&
 
 						// session may have expired on server side, hence:
@@ -397,61 +396,107 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 			}
 			#endregion
 
-			//public static class Anonymous {
-			//    //static Anonymous() {
-			//    //}
+			private static class Anonymous {
+				//static Anonymous() { }
 
-			//    #region public static string Login { get; }
-			//    private static string login_;
+				#region public static string Login { get; }
+				private static string login__ = null;
 
-			//    public static string Login {
-			//        get {
-			//            return login_;
-			//        }
-			//    }
-			//    #endregion
-			//    #region public static long IDUser { get; }
-			//    private static long iduser_;
+				public static string Login {
+					get {
+						if (login__ == null) {
+							login__ = System.Configuration.ConfigurationManager.AppSettings["Anonymos_login"];
+						}
+						return login__;
+					}
+				}
+				#endregion
+				#region public static string Password { get; }
+				private static string password__ = null;
 
-			//    public static long IDUser {
-			//        get {
-			//            return iduser_;
-			//        }
-			//    }
-			//    #endregion
+				private static string Password {
+					get {
+						if (password__ == null) {
+							password__ = System.Configuration.ConfigurationManager.AppSettings["Anonymos_password"];
+						}
+						return password__;
+					}
+				}
+				#endregion
+				#region public static long IDUser { get; }
+				private static long iduser_;
 
-			//    #region public static string Credentials_ENC { get; }
-			//    public static long credentials_enc__timeout = -1L;
-			//    private static string credentials_enc__ = "";
+				public static long IDUser {
+					get {
+						return iduser_;
+					}
+				}
+				#endregion
+				#region public static long[] IDPermitions { get; }
+				private static long[] idpermitions_;
 
-			//    public static string Credentials_ENC {
-			//        get {
-			//            if (
-			//                (DateTime.Now.Ticks >= credentials_enc__timeout)
-			//                ||
-			//                (credentials_enc__ == "")
-			//            ) {
+				public static long[] IDPermitions {
+					get {
+						return idpermitions_;
+					}
+				}
+				#endregion
 
-			//                int[] _errors;
-			//                credentials_enc__
-			//                    = BusinessInstances.CRD_Authentication.InstanceClient.Login(
-			//                        "anonymous",
-			//                        "@n0nym0u$covv@rd", // "-= A/\/O/\/Y/\/\0U$ c0vv@rd. =-",
+				#region public static string Credentials_ENC { get; }
+				public static long sessionguid__timeout = -1L;
+				private static string sessionguid__ = "";
 
-			//                        utils.IDApplication,
+				public static string SessionGuid {
+					get {
+						int[] _errors;
 
-			//                        out iduser_,
-			//                        out _errors
-			//                    );
+						if (
+							(sessionguid__ == "")
+							||
+							(DateTime.Now.Ticks >= sessionguid__timeout)
+							||
+							!BusinessInstances.CRD_Authentication.InstanceClient.CheckCredentials(
+								sessionguid__,
+								utils.ClientIPAddress,
+								out _errors
+							)
+						) {
+							BusinessInstances.CRD_Authentication.InstanceClient.Login(
+								Login,
+								Password,
+								sessionguid__ = Guid.NewGuid().ToString("N"), 
+								utils.ClientIPAddress, 
 
-			//                credentials_enc__timeout = DateTime.Now.AddMinutes(1D).Ticks;
-			//            }
+								utils.IDApplication, 
 
-			//            return credentials_enc__;
-			//        }
-			//    } 
-			//    #endregion
-			//}
+								out iduser_,
+								out idpermitions_, 
+								out _errors
+							);
+
+							if (ErrorType.hasErrors(_errors)) {
+								BusinessInstances.LOG_Log.InstanceClient.Log(
+									"",
+									utils.ClientIPAddress,
+									LogType.error,
+									ErrorType.authentication,
+									-1L,
+									utils.IDApplication,
+									"anonymous login error: {0}", 
+									new string[] {
+										ErrorType.ErrorMessage("|", _errors)
+									}
+								);
+							} else {
+								sessionguid__timeout = DateTime.Now.AddMinutes(1D).Ticks;
+							}
+						}
+
+						return sessionguid__;
+					}
+				}
+				#endregion
+			}
 		}
 		#endregion
 

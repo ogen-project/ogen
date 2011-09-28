@@ -56,6 +56,25 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 
 		#region public static string ErrorMessage(...);
 		public static string ErrorMessage(
+			string splitChar_in, 
+			params int[] error_in
+		) {
+			if (error_in.Length > 0) {
+				StringBuilder _sb = new StringBuilder();
+				for (int i = 0; i < error_in.Length; i++) {
+					_sb.Append(string.Format(
+						"{0}{1}",
+						(i == 0) ? "" : splitChar_in,
+						ErrorType.Items[error_in[i]].Name
+					));
+				}
+
+				return _sb.ToString();
+			} else {
+				return "";
+			}
+		}
+		public static string ErrorMessage(
 			int error_in
 		) {
 			return ErrorMessage(
