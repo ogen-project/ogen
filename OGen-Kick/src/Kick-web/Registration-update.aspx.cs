@@ -1,4 +1,18 @@
-﻿using System;
+﻿#region Copyright (C) 2002 Francisco Monteiro
+/*
+
+OGen
+Copyright (c) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+#endregion
+using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
@@ -14,6 +28,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 	public partial class Registration_update : SitePage {
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
+			Master__base.Error_clear();
+
 			if (!utils.User.isLoggedIn) {
 				Response.Redirect(
 					"~/Registration.aspx",
@@ -25,12 +41,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 
 
-			tcl_RegistrationPassword_Error.Text = "";		tbl_RegistrationPassword_Error.Visible = false;
-			//---
-			tcl_RegistrationEMail_Error.Text = "";			tbl_RegistrationEMail_Error.Visible = false;
-			//---
-			tcl_RegistrationData_Error.Text = "";			tbl_RegistrationData_Error.Visible = false;
-			//===
 			lbl_Password.Text = "";							lbl_Password.Visible = false;
 			lbl_PasswordNew.Text = "";						lbl_PasswordNew.Visible = false;
 			lbl_PasswordConfirm.Text = "";					lbl_PasswordConfirm.Visible = false;
@@ -52,7 +62,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			tbl_RegistrationData.Visible = true;
 			lbt_RegistrationDataHide.Visible = true;
 			lbt_RegistrationDataShow.Enabled = false;
-			//lbt_RegistrationDataShow.CssClass = "vermais";
 
 			btn_RegistrationEMailCancel_Click(null, null);
 			btn_RegistrationPasswordCancel_Click(null, null);
@@ -66,7 +75,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			tbl_RegistrationData.Visible = false;
 			lbt_RegistrationDataHide.Visible = false;
 			lbt_RegistrationDataShow.Enabled = true;
-			//lbt_RegistrationDataShow.CssClass = "titulo_branco";
 		}
 		#endregion
 		#region protected void btn_RegistrationDataCancel_Click(object sender, EventArgs e);
@@ -107,26 +115,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					out _errors
 				);
 
-				tbl_RegistrationData_Error.Visible = (_errors.Length > 0);
-				tcl_RegistrationData_Error.Text = (tbl_RegistrationData_Error.Visible) ? "<ul>" : "";
-				if (!ErrorType.hasErrors(
-					_errors,
-					delegate(
-						string message_in,
-						bool isError_in
-					) {
-						tcl_RegistrationData_Error.Text += string.Format(
-							"<li class='{0}'>{1}</li>",
-							isError_in ? "error" : "no_error",
-							message_in
-						);
-					}
-				)) {
+				if (!Master__base.Error_show(_errors)) {
 					hfi_Name.Value = txt_Name.Text;
 					lbt_RegistrationDataHide_Click(null, null);
-				}
-				if (tbl_RegistrationData_Error.Visible) {
-					tcl_RegistrationData_Error.Text += "</ul>";
 				}
 			}
 		}
@@ -197,30 +188,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 					out _errors
 				);
-
-				tbl_RegistrationEMail_Error.Visible = (_errors.Length > 0);
-				tcl_RegistrationEMail_Error.Text = (tbl_RegistrationEMail_Error.Visible) ? "<ul>" : "";
-				if (!ErrorType.hasErrors(
-					_errors,
-					delegate(
-						string message_in,
-						bool isError_in
-					) {
-						tcl_RegistrationEMail_Error.Text += string.Format(
-							"<li class='{0}'>{1}</li>",
-							isError_in ? "error" : "no_error",
-							message_in
-						);
-					}
-				)) {
+				if (!Master__base.Error_show(_errors)) {
 
 // ToDos: here! // mail hasn't been changed yet, waiting user confirmation, hence comment:
 //hfi_EMail.Value = txt_EMail.Text;
 
 					lbt_RegistrationEMailHide_Click(null, null);
-				}
-				if (tbl_RegistrationEMail_Error.Visible) {
-					tcl_RegistrationEMail_Error.Text += "</ul>";
 				}
 			}
 		}
@@ -231,7 +204,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			tbl_RegistrationPassword.Visible = true;
 			lbt_RegistrationPasswordHide.Visible = true;
 			lbt_RegistrationPasswordShow.Enabled = false;
-			//lbt_RegistrationPasswordShow.CssClass = "vermais";
 
 			btn_RegistrationDataCancel_Click(null, null);
 			btn_RegistrationEMailCancel_Click(null, null);
@@ -244,7 +216,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			tbl_RegistrationPassword.Visible = false;
 			lbt_RegistrationPasswordHide.Visible = false;
 			lbt_RegistrationPasswordShow.Enabled = true;
-			//lbt_RegistrationPasswordShow.CssClass = "titulo_branco";
 		}
 		#endregion
 		#region protected void btn_RegistrationPasswordCancel_Click(object sender, EventArgs e);
@@ -290,25 +261,18 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					out _errors
 				);
 
-				tbl_RegistrationPassword_Error.Visible = (_errors.Length > 0);
-				tcl_RegistrationPassword_Error.Text = (tbl_RegistrationPassword_Error.Visible) ? "<ul>" : "";
-				if (!ErrorType.hasErrors(
-					_errors,
-					delegate(
-						string message_in, 
-						bool isError_in
-					) {
-						tcl_RegistrationPassword_Error.Text += string.Format(
-							"<li class='{0}'>{1}</li>", 
-							isError_in ? "error" : "no_error", 
-							message_in
-						);
+				if (
+					ErrorType.hasError(
+						ErrorType.authentication__change_password__wrong_password, 
+						_errors
+					)
+				) {
+					lbl_Password.Text = "wrong password";
+					lbl_Password.Visible = true;
+				} else {
+					if (!Master__base.Error_show(_errors)) {
+						lbt_RegistrationPasswordHide_Click(null, null);
 					}
-				)) {
-					lbt_RegistrationPasswordHide_Click(null, null);
-				}
-				if (tbl_RegistrationPassword_Error.Visible) {
-					tcl_RegistrationPassword_Error.Text += "</ul>";
 				}
 			}
 		}
@@ -334,17 +298,29 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 					out _errors
 				);
+			if (!Master__base.Error_show(_errors)) {
+				txt_Name.Text
+					= hfi_Name.Value
+					= _user.Name;
+				txt_Login.Text
+					= hfi_Login.Value
+					= utils.User.Login;
 
-			txt_Name.Text
-				= hfi_Name.Value
-				= _user.Name;
-			txt_Login.Text
-				= hfi_Login.Value
-				= utils.User.Login;
+				txt_EMail.Text
+					= hfi_EMail.Value
+					= _user.EMail;
+			} else {
+				txt_Name.Text
+					= hfi_Name.Value
+					= "";
+				txt_Login.Text
+					= hfi_Login.Value
+					= "";
 
-			txt_EMail.Text
-				= hfi_EMail.Value
-				= _user.EMail;
+				txt_EMail.Text
+					= hfi_EMail.Value
+					= "";
+			}
 		}
 		#endregion
 	}

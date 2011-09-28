@@ -146,6 +146,29 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 		}
 		#endregion
 
+		#region public static bool hasError(...);
+		public static bool hasError(
+			int error_in,
+			params int[] errors_in
+		) {
+			if (
+				(errors_in == null)
+				||
+				(errors_in.Length == 0)
+			) {
+				return false;
+			}
+
+			for (int i = 0; i < errors_in.Length; i++) {
+				if (errors_in[i] == error_in) {
+					return true;
+				}
+			}
+
+			return false;
+		}
+		#endregion
+
 		#region public static bool hasErrors(...);
 		public delegate void hasErrors_errorFound(
 			string message_in,

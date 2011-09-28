@@ -103,24 +103,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         protected global::Anthem.Button btn_RegistrationDataUpdate;
         
         /// <summary>
-        /// tbl_RegistrationData_Error control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Anthem.Table tbl_RegistrationData_Error;
-        
-        /// <summary>
-        /// tcl_RegistrationData_Error control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell tcl_RegistrationData_Error;
-        
-        /// <summary>
         /// lbt_RegistrationEMailShow control.
         /// </summary>
         /// <remarks>
@@ -191,24 +173,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Anthem.Button btn_RegistrationEMailUpdate;
-        
-        /// <summary>
-        /// tbl_RegistrationEMail_Error control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Anthem.Table tbl_RegistrationEMail_Error;
-        
-        /// <summary>
-        /// tcl_RegistrationEMail_Error control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell tcl_RegistrationEMail_Error;
         
         /// <summary>
         /// lbt_RegistrationPasswordShow control.
@@ -308,23 +272,5 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Anthem.Button btn_RegistrationPasswordUpdate;
-        
-        /// <summary>
-        /// tbl_RegistrationPassword_Error control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Anthem.Table tbl_RegistrationPassword_Error;
-        
-        /// <summary>
-        /// tcl_RegistrationPassword_Error control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell tcl_RegistrationPassword_Error;
     }
 }

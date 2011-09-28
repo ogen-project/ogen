@@ -126,18 +126,6 @@
 						</asp:TableCell>
 					</asp:TableRow>
 				</anthem:Table>
-				<anthem:Table
-					ID="tbl_RegistrationData_Error" runat="server"
-					AutoUpdateAfterCallBack="true"
-
-					Visible="false"
-					Width="100%" BorderWidth="0" CellPadding="4" CellSpacing="0">
-					<asp:TableRow>
-						<asp:TableCell 
-							ID="tcl_RegistrationData_Error" runat="server" CssClass="label_error">
-						</asp:TableCell>
-					</asp:TableRow>
-				</anthem:Table>
 			</td>
 		</tr>
 	</table>
@@ -181,22 +169,22 @@
 					Visible="false"
 					Width="100%" BorderWidth="0" CellPadding="4" CellSpacing="0">
 					<asp:TableRow>
-						<asp:TableCell Width="35%" HorizontalAlign="Right" VerticalAlign="Middle" CssClass="label_small">
+						<asp:TableCell Width="35%" HorizontalAlign="Right" CssClass="label_small">
 							Email:&nbsp;
 						</asp:TableCell>
-						<asp:TableCell Width="65%" HorizontalAlign="Left" VerticalAlign="Middle">
+						<asp:TableCell Width="65%" HorizontalAlign="Left">
 							<anthem:HiddenField
 								ID="hfi_EMail" runat="server" 
 								AutoUpdateAfterCallBack="true" />
 							<anthem:TextBox
-								ID="txt_EMail" runat="server" Width="250" 
+								ID="txt_EMail" runat="server" CssClass="textbox_dim25"
 								AutoUpdateAfterCallBack="true" />
 
 							&nbsp;<anthem:Label
 								ID="lbl_EMail" runat="server" 
 								AutoUpdateAfterCallBack="true"
 
-								CssClass="error" />
+								CssClass="label_error" />
 						</asp:TableCell>
 					</asp:TableRow>
 					<asp:TableRow>
@@ -228,19 +216,6 @@
 									</td>
 								</tr>
 							</table>
-						</asp:TableCell>
-					</asp:TableRow>
-				</anthem:Table>
-				<anthem:Table
-					ID="tbl_RegistrationEMail_Error" runat="server"
-					AutoUpdateAfterCallBack="true"
-
-					Visible="false"
-					Width="100%" BorderWidth="0" CellPadding="4" CellSpacing="0">
-
-					<asp:TableRow>
-						<asp:TableCell 
-							ID="tcl_RegistrationEMail_Error" runat="server" CssClass="label_error">
 						</asp:TableCell>
 					</asp:TableRow>
 				</anthem:Table>
@@ -287,62 +262,62 @@
 					Visible="false"
 					Width="100%" BorderWidth="0" CellPadding="4" CellSpacing="0">
 					<asp:TableRow>
-						<asp:TableCell Width="45%" HorizontalAlign="Right" VerticalAlign="Middle" CssClass="label_small">
+						<asp:TableCell Width="45%" HorizontalAlign="Right" CssClass="label_small">
 							Password:&nbsp;
 						</asp:TableCell>
-						<asp:TableCell Width="55%" HorizontalAlign="Left" VerticalAlign="Middle">
+						<asp:TableCell Width="55%" HorizontalAlign="Left">
 							<anthem:TextBox
 								ID="txt_Password" runat="server" 
 								AutoUpdateAfterCallBack="true" 
 
 								TextMode="Password"
-								Width="120" />
+								CssClass="textbox_dim15" />
 
 							&nbsp;<anthem:Label
 								ID="lbl_Password" runat="server"
 								AutoUpdateAfterCallBack="true"
 
-								CssClass="error" />
+								CssClass="label_error" />
 						</asp:TableCell>
 					</asp:TableRow>
 					<asp:TableRow>
-						<asp:TableCell HorizontalAlign="Right" VerticalAlign="Middle" CssClass="label_small">
+						<asp:TableCell HorizontalAlign="Right" CssClass="label_small">
 							Nova Password:&nbsp;
 						</asp:TableCell>
-						<asp:TableCell HorizontalAlign="Left" VerticalAlign="Middle">
+						<asp:TableCell HorizontalAlign="Left">
 							<anthem:TextBox
 								ID="txt_PasswordNew" runat="server" 
 								AutoUpdateAfterCallBack="true" 
 
 								TextMode="Password"
-								Width="120" />
+								CssClass="textbox_dim15" />
 
 							&nbsp;&nbsp;
 							<anthem:Label
 								ID="lbl_PasswordNew" runat="server"
 								AutoUpdateAfterCallBack="true"
 
-								CssClass="error" />
+								CssClass="label_error" />
 						</asp:TableCell>
 					</asp:TableRow>
 					<asp:TableRow>
-						<asp:TableCell HorizontalAlign="Right" VerticalAlign="Middle" CssClass="label_small">
+						<asp:TableCell HorizontalAlign="Right" CssClass="label_small">
 							Confirmar Password:&nbsp;
 						</asp:TableCell>
-						<asp:TableCell HorizontalAlign="Left" VerticalAlign="Middle">
+						<asp:TableCell HorizontalAlign="Left">
 							<anthem:TextBox
 								ID="txt_PasswordConfirm" runat="server" 
 								AutoUpdateAfterCallBack="true" 
 
 								TextMode="Password"
-								Width="120" />
+								CssClass="textbox_dim15" />
 
 							&nbsp;&nbsp;
 							<anthem:Label
 								ID="lbl_PasswordConfirm" runat="server"
 								AutoUpdateAfterCallBack="true"
 
-								CssClass="error" />
+								CssClass="label_error" />
 						</asp:TableCell>
 					</asp:TableRow>
 					<asp:TableRow>
@@ -374,19 +349,6 @@
 									</td>
 								</tr>
 							</table>
-						</asp:TableCell>
-					</asp:TableRow>
-				</anthem:Table>
-				<anthem:Table
-					ID="tbl_RegistrationPassword_Error" runat="server"
-					AutoUpdateAfterCallBack="true"
-
-					Visible="false"
-					Width="100%" BorderWidth="0" CellPadding="4" CellSpacing="0">
-
-					<asp:TableRow>
-						<asp:TableCell 
-							ID="tcl_RegistrationPassword_Error" runat="server" CssClass="label_error">
 						</asp:TableCell>
 					</asp:TableRow>
 				</anthem:Table>
