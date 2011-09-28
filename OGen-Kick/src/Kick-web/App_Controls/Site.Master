@@ -33,9 +33,9 @@
 					<li>
 						<a runat="server" href="~/News-list.aspx">News</a>
 					</li>
-					<li></li>
-					<li></li>
-					<li></li>
+					<li class="cssdropdownmenuinvisible"></li>
+					<li class="cssdropdownmenuinvisible"></li>
+					<li class="cssdropdownmenuinvisible"></li>
 					<li>
 						<a runat="server" href="~/admin/Default.aspx">admin</a>
 					</li>

@@ -28,6 +28,9 @@
 				<ul class="cssdropdownmenu">
 					<li>
 						<a runat="server" href="~/Default.aspx">Home</a>
+						<ul>
+							<li><a runat="server" href="~/News-list.aspx">News</a></li>
+						</ul>
 					</li>
 					<li>
 						<div>News</div>

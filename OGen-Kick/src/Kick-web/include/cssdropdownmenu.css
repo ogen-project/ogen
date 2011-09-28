@@ -28,9 +28,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	border: 0px solid #7f9aa4;/*
 	border-right: 1px solid #7f9aa4;*/
 }
-.cssdropdownmenu > li div:hover {
+.cssdropdownmenu > li:hover {
 	background-color: #ccccff;
 }
+.cssdropdownmenuinvisible:hover {
+	background-color: #dddddd !important;
+}
+
 .cssdropdownmenu > li a, 
 .cssdropdownmenu > li div {
 	line-height: 30px;
