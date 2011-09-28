@@ -28,29 +28,16 @@
 			<td>
 				<ul class="cssdropdownmenu">
 					<li>
-						<a runat="server" href="~/News-list.aspx">News</a>
-						<ul>
-							<li><a runat="server" href="~/admin/NWS-News-list.aspx">Articles</a></li>
-							<li><a runat="server" href="~/admin/NWS-News.aspx">Article create</a></li>
-							<li><a runat="server" href="~/admin/NWS-NewsAuthor-list.aspx">Authors</a></li>
-							<li><a runat="server" href="~/admin/NWS-NewsAuthor.aspx">Author create</a></li>
-							<li><a runat="server" href="~/admin/NWS-NewsTag-list.aspx">Tags</a></li>
-							<li><a runat="server" href="~/admin/NWS-NewsTag.aspx">Tag create</a></li>
-							<li><a runat="server" href="~/admin/NWS-NewsHighlight-list.aspx">Highlights</a></li>
-							<li><a runat="server" href="~/admin/NWS-NewsHighlight.aspx">Highlight create</a></li>
-							<li><a runat="server" href="~/admin/NWS-NewsProfile-list.aspx">Profiles</a></li>
-							<li><a runat="server" href="~/admin/NWS-NewsProfile.aspx">Profile create</a></li>
-							<li><a runat="server" href="~/admin/NWS-NewsSource-list.aspx">Sources</a></li>
-							<li><a runat="server" href="~/admin/NWS-NewsSource.aspx">Source create</a></li>
-						</ul>
+						<a runat="server" href="~/Default.aspx">Home</a>
 					</li>
 					<li>
-						<div>Admin</div>
-						<ul>
-							<li><a runat="server" href="~/admin/CRD-User-list.aspx">users</a></li>
-							<li><a runat="server" href="~/admin/CRD-ProfilePermition.aspx">profiles</a></li>
-							<li><a runat="server" href="~/admin/LOG-Log.aspx">log</a></li>
-						</ul>
+						<a runat="server" href="~/News-list.aspx">News</a>
+					</li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li>
+						<a runat="server" href="~/admin/Default.aspx">admin</a>
 					</li>
 				</ul>
 			</td>
