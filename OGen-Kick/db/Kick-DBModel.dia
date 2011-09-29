@@ -8773,13 +8773,13 @@ EMail - IFApplication#</dia:string>
         <dia:real val="2.7000000000000002"/>
       </dia:attribute>
       <dia:attribute name="text_colour">
-        <dia:color val="#ff0000"/>
+        <dia:color val="#000000"/>
       </dia:attribute>
       <dia:attribute name="line_colour">
         <dia:color val="#ff0000"/>
       </dia:attribute>
       <dia:attribute name="fill_colour">
-        <dia:color val="#ffffff"/>
+        <dia:color val="#ff0000"/>
       </dia:attribute>
       <dia:attribute name="line_width">
         <dia:real val="0.10000000000000001"/>
