@@ -46,10 +46,11 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			int page_numRecords_in, 
 			out System.Int32[] errors_out
 		);
-		int insObject(
+		long insObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
+			System.Int64[] idProfile_parent_in, 
 			out System.Int32[] errors_out
 		);
 		void setUserProfiles(

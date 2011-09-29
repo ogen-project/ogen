@@ -103,11 +103,12 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			);
 		}
 		#endregion
-		#region public int insObject(...);
-		public int insObject(
+		#region public long insObject(...);
+		public long insObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
+			System.Int64[] idProfile_parent_in, 
 			out System.Int32[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.insObject(
@@ -116,6 +117,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				profile_in, 
+				idProfile_parent_in, 
 				out errors_out
 			);
 		}

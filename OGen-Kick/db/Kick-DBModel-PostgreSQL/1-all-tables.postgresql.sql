@@ -20,26 +20,6 @@ COMMENT ON TABLE "CRD_User" IS NULL;
 	COMMENT ON COLUMN "CRD_User"."Password" IS 'length:255;psql:character varying;sqlserver:varchar;';
 	COMMENT ON COLUMN "CRD_User"."IFApplication" IS 'psql:integer;sqlserver:int;';
 
-CREATE TABLE "CRD_Profile" (
-	"IDProfile" bigserial NOT NULL,
-	"Name" character varying(255) NOT NULL,
-	"IFApplication" integer NULL
-)
-WITH (OIDS=FALSE);
-COMMENT ON TABLE "CRD_Profile" IS NULL;
-	COMMENT ON COLUMN "CRD_Profile"."IDProfile" IS 'psql:bigserial;sqlserver:bigint;identity:True;';
-	COMMENT ON COLUMN "CRD_Profile"."Name" IS 'length:255;psql:character varying;sqlserver:varchar;';
-	COMMENT ON COLUMN "CRD_Profile"."IFApplication" IS 'psql:integer;sqlserver:int;';
-
-CREATE TABLE "CRD_UserProfile" (
-	"IFUser" bigint NOT NULL,
-	"IFProfile" bigint NOT NULL
-)
-WITH (OIDS=FALSE);
-COMMENT ON TABLE "CRD_UserProfile" IS NULL;
-	COMMENT ON COLUMN "CRD_UserProfile"."IFUser" IS 'psql:bigint;sqlserver:bigint;';
-	COMMENT ON COLUMN "CRD_UserProfile"."IFProfile" IS 'psql:bigint;sqlserver:bigint;';
-
 CREATE TABLE "CRD_ProfilePermition" (
 	"IFProfile" bigint NOT NULL,
 	"IFPermition" bigint NOT NULL
@@ -274,21 +254,6 @@ COMMENT ON TABLE "NWS_Tag" IS NULL;
 	COMMENT ON COLUMN "NWS_Tag"."IFUser__Approved" IS 'psql:bigint;sqlserver:bigint;';
 	COMMENT ON COLUMN "NWS_Tag"."Approved_date" IS 'psql:timestamp with time zone;sqlserver:datetime;';
 
-CREATE TABLE "NET_User" (
-	"IFUser" bigint NOT NULL,
-	"Name" character varying(255) NULL,
-	"EMail" character varying(255) NOT NULL,
-	"EMail_verify" character varying(255) NULL,
-	"IFApplication" integer NULL
-)
-WITH (OIDS=FALSE);
-COMMENT ON TABLE "NET_User" IS NULL;
-	COMMENT ON COLUMN "NET_User"."IFUser" IS 'psql:bigint;sqlserver:bigint;';
-	COMMENT ON COLUMN "NET_User"."Name" IS 'length:255;psql:character varying;sqlserver:varchar;';
-	COMMENT ON COLUMN "NET_User"."EMail" IS 'length:255;psql:character varying;sqlserver:varchar;';
-	COMMENT ON COLUMN "NET_User"."EMail_verify" IS 'length:255;psql:character varying;sqlserver:varchar;';
-	COMMENT ON COLUMN "NET_User"."IFApplication" IS 'psql:integer;sqlserver:int;';
-
 CREATE TABLE "NWS_ContentProfile" (
 	"IFContent" bigint NOT NULL,
 	"IFProfile" bigint NOT NULL
@@ -430,4 +395,48 @@ WITH (OIDS=FALSE);
 COMMENT ON TABLE "NET_BrowserUser" IS NULL;
 	COMMENT ON COLUMN "NET_BrowserUser"."IFBrowser" IS 'psql:bigint;sqlserver:bigint;';
 	COMMENT ON COLUMN "NET_BrowserUser"."IFUser" IS 'psql:bigint;sqlserver:bigint;';
+
+CREATE TABLE "CRD_ProfileProfile" (
+	"IFProfile" bigint NOT NULL,
+	"IFProfile_parent" bigint NOT NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "CRD_ProfileProfile" IS NULL;
+	COMMENT ON COLUMN "CRD_ProfileProfile"."IFProfile" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "CRD_ProfileProfile"."IFProfile_parent" IS 'psql:bigint;sqlserver:bigint;';
+
+CREATE TABLE "CRD_Profile" (
+	"IDProfile" bigserial NOT NULL,
+	"Name" character varying(255) NOT NULL,
+	"IFApplication" integer NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "CRD_Profile" IS NULL;
+	COMMENT ON COLUMN "CRD_Profile"."IDProfile" IS 'psql:bigserial;sqlserver:bigint;identity:True;';
+	COMMENT ON COLUMN "CRD_Profile"."Name" IS 'length:255;psql:character varying;sqlserver:varchar;';
+	COMMENT ON COLUMN "CRD_Profile"."IFApplication" IS 'psql:integer;sqlserver:int;';
+
+CREATE TABLE "CRD_UserProfile" (
+	"IFUser" bigint NOT NULL,
+	"IFProfile" bigint NOT NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "CRD_UserProfile" IS NULL;
+	COMMENT ON COLUMN "CRD_UserProfile"."IFUser" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "CRD_UserProfile"."IFProfile" IS 'psql:bigint;sqlserver:bigint;';
+
+CREATE TABLE "NET_User" (
+	"IFUser" bigint NOT NULL,
+	"Name" character varying(255) NULL,
+	"EMail" character varying(255) NOT NULL,
+	"EMail_verify" character varying(255) NULL,
+	"IFApplication" integer NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "NET_User" IS NULL;
+	COMMENT ON COLUMN "NET_User"."IFUser" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "NET_User"."Name" IS 'length:255;psql:character varying;sqlserver:varchar;';
+	COMMENT ON COLUMN "NET_User"."EMail" IS 'length:255;psql:character varying;sqlserver:varchar;';
+	COMMENT ON COLUMN "NET_User"."EMail_verify" IS 'length:255;psql:character varying;sqlserver:varchar;';
+	COMMENT ON COLUMN "NET_User"."IFApplication" IS 'psql:integer;sqlserver:int;';
 

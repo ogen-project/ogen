@@ -32,7 +32,6 @@ using OGen.NTier.Kick.lib.businesslayer.shared;
 namespace OGen.NTier.Kick.lib.businesslayer {
 	[BOClassAttribute("BO_CRD_Profile", "")]
 	public static class SBO_CRD_Profile {
-
 		#region public static SO_CRD_Profile getObject(...);
 		[BOMethodAttribute("getObject", true, false, 1)]
 		public static SO_CRD_Profile getObject(
@@ -93,10 +92,10 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			ref SO_CRD_Profile profile_ref,
 
+			out Sessionuser sessionUser_out, 
 			out List<int> errorlist_out
 		) {
 			Guid _sessionguid;
-			Sessionuser _sessionuser;
 
 			#region check...
 			int[] _errors_out;
@@ -105,7 +104,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				sessionGuid_in,
 				ip_forLogPurposes_in,
 				out _sessionguid,
-				out _sessionuser,
+				out sessionUser_out,
 				out errorlist_out,
 				out _errors_out
 			)) {
@@ -117,7 +116,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			#endregion
 			#region check Permitions...
 			if (
-				!_sessionuser.hasPermition(
+				!sessionUser_out.hasPermition(
 					false, 
 					PermitionType.Profile__insert,
 					PermitionType.Profile__update
@@ -141,18 +140,21 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			return true;
 		} 
 		#endregion
-		#region public static int insObject(...);
+		#region public static long insObject(...);
 		[BOMethodAttribute("insObject", true, false, 1)]
-		public static int insObject(
+		public static long insObject(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
 			SO_CRD_Profile profile_in, 
 
+			long[] idProfile_parent_in, 
+
 			out int[] errors_out
 		) {
-			int _output = -1;
+			long _output = -1;
 			List<int> _errorlist;
+			Sessionuser _sessionuser;
 
 			#region check...
 			if (!check(
@@ -161,6 +163,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 				ref profile_in,
 
+				out _sessionuser, 
 				out _errorlist
 			)) {
 				errors_out = _errorlist.ToArray();
@@ -168,14 +171,82 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			} 
 			#endregion
 
-			DO_CRD_Profile.insObject(
-				profile_in,
-				false,
 
-				null
+			Exception _exception = null;
+			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
+			DBConnection _con = DO__utils.DBConnection_createInstance(
+				DO__utils.DBServerType,
+				DO__utils.DBConnectionstring,
+				DO__utils.DBLogfile
 			);
-			_errorlist.Add(ErrorType.profile__successfully_created__WARNING);
+			#endregion
+			try {
+				_con.Open();
+				_con.Transaction.Begin();
 
+
+				_output = DO_CRD_Profile.insObject(
+					profile_in,
+					(idProfile_parent_in != null) && (idProfile_parent_in.Length > 0),
+					_con
+				);
+				for (int i = 0; i < idProfile_parent_in.Length; i++) {
+					DO_CRD_ProfileProfile.setObject(
+						new SO_CRD_ProfileProfile(
+							_output,
+							idProfile_parent_in[i]
+						),
+						true,
+						_con
+					);
+				}
+
+
+				_errorlist.Add(ErrorType.user_profile__successfully_set__WARNING);
+				_con.Transaction.Commit();
+			} catch (Exception _ex) {
+				#region _con.Transaction.Rollback();
+				if (
+					_con.isOpen
+					&&
+					_con.Transaction.inTransaction
+				) {
+					_con.Transaction.Rollback();
+				}
+				#endregion
+
+				_exception = _ex;
+			} finally {
+				#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
+				if (_con.isOpen) {
+					if (_con.Transaction.inTransaction) {
+						_con.Transaction.Terminate();
+					}
+					_con.Close();
+				}
+
+				_con.Dispose();
+				#endregion
+			}
+			if (_exception != null) {
+				#region SBO_LOG_Log.log(ErrorType.data);
+				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+					_sessionuser,
+					LogType.error,
+					ErrorType.data,
+					-1L,
+					_sessionuser.IDApplication,
+					"{0}",
+					new string[] {
+						_exception.Message
+					}
+				);
+				#endregion
+				_errorlist.Add(ErrorType.data);
+			}
+
+
+			_errorlist.Add(ErrorType.profile__successfully_created__WARNING);
 			errors_out = _errorlist.ToArray();
 			return _output;
 		} 
@@ -191,6 +262,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out int[] errors_out
 		) {
 			List<int> _errorlist;
+			Sessionuser _sessionuser;
 
 			#region check...
 			if (!check(
@@ -198,6 +270,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				ip_forLogPurposes_in,
 
 				ref profile_in,
+				out _sessionuser, 
 
 				out _errorlist
 			)) {

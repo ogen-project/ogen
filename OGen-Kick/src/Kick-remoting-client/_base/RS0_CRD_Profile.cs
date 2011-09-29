@@ -70,11 +70,12 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
 		#endregion
-		#region public int insObject(...);
-		public int insObject(
+		#region public long insObject(...);
+		public long insObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
+			System.Int64[] idProfile_parent_in, 
 			out System.Int32[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");

@@ -8,36 +8,6 @@ GO
 ALTER TABLE "CRD_User" CHECK CONSTRAINT "CRD_User_IFApplication_fkey"
 GO
 
-ALTER TABLE "CRD_Profile" WITH CHECK 
-	ADD CONSTRAINT "CRD_Profile_IFApplication_fkey" FOREIGN KEY (
-		"IFApplication"
-	) REFERENCES "APP_Application" (
-		"IDApplication"
-	)
-GO
-ALTER TABLE "CRD_Profile" CHECK CONSTRAINT "CRD_Profile_IFApplication_fkey"
-GO
-
-ALTER TABLE "CRD_UserProfile" WITH CHECK 
-	ADD CONSTRAINT "CRD_UserProfile_IFUser_fkey" FOREIGN KEY (
-		"IFUser"
-	) REFERENCES "CRD_User" (
-		"IDUser"
-	)
-GO
-ALTER TABLE "CRD_UserProfile" CHECK CONSTRAINT "CRD_UserProfile_IFUser_fkey"
-GO
-
-ALTER TABLE "CRD_UserProfile" WITH CHECK 
-	ADD CONSTRAINT "CRD_UserProfile_IFProfile_fkey" FOREIGN KEY (
-		"IFProfile"
-	) REFERENCES "CRD_Profile" (
-		"IDProfile"
-	)
-GO
-ALTER TABLE "CRD_UserProfile" CHECK CONSTRAINT "CRD_UserProfile_IFProfile_fkey"
-GO
-
 ALTER TABLE "CRD_ProfilePermition" WITH CHECK 
 	ADD CONSTRAINT "CRD_ProfilePermition_IFProfile_fkey" FOREIGN KEY (
 		"IFProfile"
@@ -448,26 +418,6 @@ GO
 ALTER TABLE "NWS_Tag" CHECK CONSTRAINT "NWS_Tag_IFUser__Approved_fkey"
 GO
 
-ALTER TABLE "NET_User" WITH CHECK 
-	ADD CONSTRAINT "NET_User_IFUser_fkey" FOREIGN KEY (
-		"IFUser"
-	) REFERENCES "CRD_User" (
-		"IDUser"
-	)
-GO
-ALTER TABLE "NET_User" CHECK CONSTRAINT "NET_User_IFUser_fkey"
-GO
-
-ALTER TABLE "NET_User" WITH CHECK 
-	ADD CONSTRAINT "NET_User_IFApplication_fkey" FOREIGN KEY (
-		"IFApplication"
-	) REFERENCES "APP_Application" (
-		"IDApplication"
-	)
-GO
-ALTER TABLE "NET_User" CHECK CONSTRAINT "NET_User_IFApplication_fkey"
-GO
-
 ALTER TABLE "NWS_ContentProfile" WITH CHECK 
 	ADD CONSTRAINT "NWS_ContentProfile_IFContent_fkey" FOREIGN KEY (
 		"IFContent"
@@ -656,5 +606,75 @@ ALTER TABLE "NET_BrowserUser" WITH CHECK
 	)
 GO
 ALTER TABLE "NET_BrowserUser" CHECK CONSTRAINT "NET_BrowserUser_IFUser_fkey"
+GO
+
+ALTER TABLE "CRD_ProfileProfile" WITH CHECK 
+	ADD CONSTRAINT "CRD_ProfileProfile_IFProfile_fkey" FOREIGN KEY (
+		"IFProfile"
+	) REFERENCES "CRD_Profile" (
+		"IDProfile"
+	)
+GO
+ALTER TABLE "CRD_ProfileProfile" CHECK CONSTRAINT "CRD_ProfileProfile_IFProfile_fkey"
+GO
+
+ALTER TABLE "CRD_ProfileProfile" WITH CHECK 
+	ADD CONSTRAINT "CRD_ProfileProfile_IFProfile_parent_fkey" FOREIGN KEY (
+		"IFProfile_parent"
+	) REFERENCES "CRD_Profile" (
+		"IDProfile"
+	)
+GO
+ALTER TABLE "CRD_ProfileProfile" CHECK CONSTRAINT "CRD_ProfileProfile_IFProfile_parent_fkey"
+GO
+
+ALTER TABLE "CRD_Profile" WITH CHECK 
+	ADD CONSTRAINT "CRD_Profile_IFApplication_fkey" FOREIGN KEY (
+		"IFApplication"
+	) REFERENCES "APP_Application" (
+		"IDApplication"
+	)
+GO
+ALTER TABLE "CRD_Profile" CHECK CONSTRAINT "CRD_Profile_IFApplication_fkey"
+GO
+
+ALTER TABLE "CRD_UserProfile" WITH CHECK 
+	ADD CONSTRAINT "CRD_UserProfile_IFUser_fkey" FOREIGN KEY (
+		"IFUser"
+	) REFERENCES "CRD_User" (
+		"IDUser"
+	)
+GO
+ALTER TABLE "CRD_UserProfile" CHECK CONSTRAINT "CRD_UserProfile_IFUser_fkey"
+GO
+
+ALTER TABLE "CRD_UserProfile" WITH CHECK 
+	ADD CONSTRAINT "CRD_UserProfile_IFProfile_fkey" FOREIGN KEY (
+		"IFProfile"
+	) REFERENCES "CRD_Profile" (
+		"IDProfile"
+	)
+GO
+ALTER TABLE "CRD_UserProfile" CHECK CONSTRAINT "CRD_UserProfile_IFProfile_fkey"
+GO
+
+ALTER TABLE "NET_User" WITH CHECK 
+	ADD CONSTRAINT "NET_User_IFUser_fkey" FOREIGN KEY (
+		"IFUser"
+	) REFERENCES "CRD_User" (
+		"IDUser"
+	)
+GO
+ALTER TABLE "NET_User" CHECK CONSTRAINT "NET_User_IFUser_fkey"
+GO
+
+ALTER TABLE "NET_User" WITH CHECK 
+	ADD CONSTRAINT "NET_User_IFApplication_fkey" FOREIGN KEY (
+		"IFApplication"
+	) REFERENCES "APP_Application" (
+		"IDApplication"
+	)
+GO
+ALTER TABLE "NET_User" CHECK CONSTRAINT "NET_User_IFApplication_fkey"
 GO
 

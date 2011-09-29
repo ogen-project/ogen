@@ -10,19 +10,6 @@ ALTER TABLE "CRD_User"
   )
 ;
 
-ALTER TABLE "CRD_Profile"
-  ADD CONSTRAINT "CRD_Profile_pkey" PRIMARY KEY (
-    "IDProfile"
-  )
-;
-
-ALTER TABLE "CRD_UserProfile"
-  ADD CONSTRAINT "CRD_UserProfile_pkey" PRIMARY KEY (
-    "IFUser",
-    "IFProfile"
-  )
-;
-
 ALTER TABLE "CRD_ProfilePermition"
   ADD CONSTRAINT "CRD_ProfilePermition_pkey" PRIMARY KEY (
     "IFProfile",
@@ -126,12 +113,6 @@ ALTER TABLE "NWS_Tag"
   )
 ;
 
-ALTER TABLE "NET_User"
-  ADD CONSTRAINT "NET_User_pkey" PRIMARY KEY (
-    "IFUser"
-  )
-;
-
 ALTER TABLE "NWS_ContentProfile"
   ADD CONSTRAINT "NWS_ContentProfile_pkey" PRIMARY KEY (
     "IFContent",
@@ -191,6 +172,32 @@ ALTER TABLE "NET_Browser"
 ALTER TABLE "NET_BrowserUser"
   ADD CONSTRAINT "NET_BrowserUser_pkey" PRIMARY KEY (
     "IFBrowser",
+    "IFUser"
+  )
+;
+
+ALTER TABLE "CRD_ProfileProfile"
+  ADD CONSTRAINT "CRD_ProfileProfile_pkey" PRIMARY KEY (
+    "IFProfile",
+    "IFProfile_parent"
+  )
+;
+
+ALTER TABLE "CRD_Profile"
+  ADD CONSTRAINT "CRD_Profile_pkey" PRIMARY KEY (
+    "IDProfile"
+  )
+;
+
+ALTER TABLE "CRD_UserProfile"
+  ADD CONSTRAINT "CRD_UserProfile_pkey" PRIMARY KEY (
+    "IFUser",
+    "IFProfile"
+  )
+;
+
+ALTER TABLE "NET_User"
+  ADD CONSTRAINT "NET_User_pkey" PRIMARY KEY (
     "IFUser"
   )
 ;

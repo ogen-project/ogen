@@ -251,6 +251,39 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 -->
 			</tableUpdates>
 		</table>
+		<table name="CRD_ProfileProfile" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
+			<tableFields>
+				<tableField name="IFProfile" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IFProfile_parent" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+			</tableFields>
+			<tableSearches>
+<!--
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="CRD_ProfileProfile" tableFieldName="IFProfile" paramName="IFProfile" />
+						<tableFieldRef tableName="CRD_ProfileProfile" tableFieldName="IFProfile" paramName="IFProfile" />
+					</tableSearchParameters>
+					<tableSearchUpdates>
+						<tableSearchUpdate name="SomeUpdateTest">
+							<tableSearchUpdateParameters>
+								<tableFieldRef tableName="CRD_ProfileProfile" tableFieldName="IFProfile" paramName="IFProfile" />
+								<tableFieldRef tableName="CRD_ProfileProfile" tableFieldName="IFProfile" paramName="IFProfile" />
+							</tableSearchUpdateParameters>
+						</tableSearchUpdate>
+					</tableSearchUpdates>
+				</tableSearch>
+-->
+			</tableSearches>
+			<tableUpdates>
+<!--
+				<tableUpdate name="SomeUpdateTest">
+					<tableUpdateParameters>
+						<tableFieldRef tableName="CRD_ProfileProfile" tableFieldName="IFProfile" paramName="IFProfile" />
+					</tableUpdateParameters>
+				</tableUpdate>
+-->
+			</tableUpdates>
+		</table>
 		<table name="CRD_User" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
 				<tableField name="IDUser" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="true" isListItemText="false" />

@@ -109,11 +109,12 @@
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="insObject" outputType="int" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="insObject" outputType="long" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="profile_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfile_parent_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>

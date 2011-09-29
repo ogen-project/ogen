@@ -165,7 +165,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_UserProfile[])results[0];
 		}
 		#endregion
-		#region public int insObject(...);
+		#region public long insObject(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
 			"http://OGen.NTier.Kick.distributedlayer.webservices.server/insObject",
 			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
@@ -173,10 +173,11 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
-		public int insObject(
+		public long insObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
+			System.Int64[] idProfile_parent_in, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -184,11 +185,12 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				new object[] {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
-					profile_in
+					profile_in,
+					idProfile_parent_in
 				}
 			);
 			errors_out = (System.Int32[])results[1];
-			return (int)results[0];
+			return (long)results[0];
 		}
 		#endregion
 		#region public void setUserProfiles(...);
