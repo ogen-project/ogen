@@ -56,7 +56,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				)) {
 					Response.Redirect("~/Default.aspx");
 				} else {
-					Master__base.Error_show(_errors);
+					Master__base.Error_add(_errors);
 				}
 			}
 		}

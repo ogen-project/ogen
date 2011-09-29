@@ -29,7 +29,7 @@
 								style="width: 788px; height: 100%;"
 								class="">
 								<tr>
-									<td colspan="2" class="label_small">
+									<td class="label_small">
 										<table border="0" cellpadding="0" cellspacing="0" width="100%">
 											<tr>
 												<td align="left">
@@ -70,31 +70,17 @@
 									</td>
 								</tr>
 								<tr>
-									<td colspan="2">
+									<td>
 										<asp:ContentPlaceHolder ID="cph_Menu" runat="server" />
 									</td>
 								</tr>
 								<tr>
-									<td style="width: 75%; height: 100%;" valign="top" align="center">
+									<td style="height: 100%;" valign="top" align="center">
 										<asp:ContentPlaceHolder ID="cph_Body" runat="server" />
-									</td>
-									<td style="width: 25%; height: 100%;" valign="top" class="label_small">
-										<table 
-											border="0" cellpadding="6" cellspacing="0" style="
-												width: 100%; height: 100%;
-											" class="alternating_item">
-											<tr>
-												<td valign="top">
-													<anthem:Label
-														ID="lbl_Log" runat="server" 
-														AutoUpdateAfterCallBack="true" />
-												</td>
-											</tr>
-										</table>
 									</td>
 								</tr>
 								<tr>
-									<td colspan="2" class="label_small" align="right">
+									<td class="label_small" align="right">
 										OGen<br />
 										Copyright (c) 2002 Francisco Monteiro
 									</td>
@@ -107,5 +93,10 @@
 				</table>
 			</div>
 		</form>
+
+		<script language="javascript" type="text/javascript">
+			<asp:Literal
+				ID="lit_ClientScript" runat="server" />
+		</script>
 	</body>
 </html>

@@ -29,8 +29,6 @@ using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
 	public partial class CRD_ProfilePermition : AdminPage {
 		protected void Page_Load(object sender, EventArgs e) {
-			Master__base.Error_clear();
-
 			if (!Page.IsPostBack) {
 				int[] _errors;
 				SO_CRD_Profile[] _profiles
@@ -41,7 +39,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0,
 						out _errors
 					);
-				if (!Master__base.Error_show(_errors)) {
+				if (!Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_profiles,
 						delegate(
@@ -79,7 +77,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				cbl_Permitions.Kick.SelectedValue__get<long>(), 
 				out _errors
 			);
-			if (!Master__base.Error_show(_errors)) {
+			if (!Master__base.Error_add(_errors)) {
 				Bind();
 			}
 		} 
@@ -96,7 +94,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					0, 0,
 					out _errors
 				);
-			if (!Master__base.Error_show(_errors)) {
+			if (!Master__base.Error_add(_errors)) {
 				Array.Sort(
 					_permitions,
 					delegate(
@@ -126,7 +124,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						return item_in.hasPermition;
 					}
 				);
-				if (!Master__base.Error_show(_errors)) {
+				if (!Master__base.Error_add(_errors)) {
 					// ToDos: here!
 				}
 			}

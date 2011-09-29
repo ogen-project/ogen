@@ -28,8 +28,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 	public partial class Registration_update : SitePage {
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			Master__base.Error_clear();
-
 			if (!utils.User.isLoggedIn) {
 				Response.Redirect(
 					"~/Registration.aspx",
@@ -115,7 +113,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					out _errors
 				);
 
-				if (!Master__base.Error_show(_errors)) {
+				if (!Master__base.Error_add(_errors)) {
 					hfi_Name.Value = txt_Name.Text;
 					lbt_RegistrationDataHide_Click(null, null);
 				}
@@ -188,7 +186,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 					out _errors
 				);
-				if (!Master__base.Error_show(_errors)) {
+				if (!Master__base.Error_add(_errors)) {
 
 // ToDos: here! // mail hasn't been changed yet, waiting user confirmation, hence comment:
 //hfi_EMail.Value = txt_EMail.Text;
@@ -270,7 +268,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					lbl_Password.Text = "wrong password";
 					lbl_Password.Visible = true;
 				} else {
-					if (!Master__base.Error_show(_errors)) {
+					if (!Master__base.Error_add(_errors)) {
 						lbt_RegistrationPasswordHide_Click(null, null);
 					}
 				}
@@ -298,7 +296,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 					out _errors
 				);
-			if (!Master__base.Error_show(_errors)) {
+			if (!Master__base.Error_add(_errors)) {
 				txt_Name.Text
 					= hfi_Name.Value
 					= _user.Name;

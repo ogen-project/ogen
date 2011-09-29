@@ -30,8 +30,6 @@ using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
 	public partial class Default : SitePage {
 		protected void Page_Load(object sender, EventArgs e) {
-			Master__base.Error_clear();
-
 			if (!Page.IsPostBack) {
 				Bind();
 			}
@@ -109,7 +107,7 @@ new long[] { }, // ToDos: here!
 					out _errors
 				);
 			if (
-				!Master__base.Error_show(_errors)
+				!Master__base.Error_add(_errors)
 				&&
 				(_news != null)
 				&&
@@ -144,7 +142,7 @@ new long[] { }, // ToDos: here!
 						0, 0,
 						out _errors
 					);
-				if (!Master__base.Error_show(_errors)) {
+				if (!Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_tags,
 						delegate(
@@ -167,7 +165,7 @@ new long[] { }, // ToDos: here!
 						0, 0,
 						out _errors
 					);
-				Master__base.Error_show(_errors);
+				Master__base.Error_add(_errors);
 				#endregion
 
 				bool _show_Details;
@@ -188,7 +186,7 @@ new long[] { }, // ToDos: here!
 							out _errors
 						);
 					if (
-						!Master__base.Error_show(_errors)
+						!Master__base.Error_add(_errors)
 						&&
 						(_content_tags != null)
 						&&
@@ -222,7 +220,7 @@ new long[] { }, // ToDos: here!
 							out _errors
 						);
 					if (
-						!Master__base.Error_show(_errors)
+						!Master__base.Error_add(_errors)
 						&&
 						(_content_sources != null)
 						&&
@@ -259,7 +257,7 @@ new long[] { }, // ToDos: here!
 						);
 					#endregion
 					if (
-						!Master__base.Error_show(_errors)
+						!Master__base.Error_add(_errors)
 						&&
 						(_attachments != null)
 						&&

@@ -30,8 +30,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 	public partial class NWS_NewsSource_list : AdminPage {
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			Master__base.Error_clear();
-
 			if (!Page.IsPostBack) {
 				Bind();
 			}
@@ -48,7 +46,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				_idSource,
 				out _errors
 			);
-			if (!Master__base.Error_show(_errors)) {
+			if (!Master__base.Error_add(_errors)) {
 				Bind();
 			}
 		}
@@ -63,7 +61,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				_idSource,
 				out _errors
 			);
-			if (!Master__base.Error_show(_errors)) {
+			if (!Master__base.Error_add(_errors)) {
 				Bind();
 			}
 		}
@@ -79,7 +77,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					0, 0,
 					out _errors
 				);
-			if (!Master__base.Error_show(_errors)) {
+			if (!Master__base.Error_add(_errors)) {
 				if (_sources.Length > 0) {
 					Array.Sort(
 						_sources,
@@ -97,7 +95,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				} else {
 					rep_Sources.Visible = false;
 
-					Master__base.Error_show(
+					Master__base.Error_add(
 						false,
 						"returned no results"
 					);

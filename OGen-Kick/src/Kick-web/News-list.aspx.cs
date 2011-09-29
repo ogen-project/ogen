@@ -73,8 +73,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#endregion
 
 		protected void Page_Load(object sender, EventArgs e) {
-			Master__base.Error_clear();
-
 			if (!Page.IsPostBack) {
 				Bind();
 			}
@@ -135,12 +133,12 @@ new long[] { },
 					out _errors
 				);
 			if (
-				!Master__base.Error_show(_errors)
+				!Master__base.Error_add(_errors)
 				&&
 				(_news != null)
 			) {
 				if (_news.Length <= 0) {
-					Master__base.Error_show(false, "no data");
+					Master__base.Error_add(false, "no data");
 //					rep_News.Visible = false;
 					return;
 				}
@@ -179,7 +177,7 @@ new long[] { },
 					out _errors
 				);
 			if (
-				!Master__base.Error_show(_errors)
+				!Master__base.Error_add(_errors)
 				&&
 				(_tags != null)
 				&&
@@ -209,7 +207,7 @@ new long[] { },
 					out _errors
 				);
 
-			Master__base.Error_show(_errors);
+			Master__base.Error_add(_errors);
 			#endregion
 
 //			System.Web.UI.HtmlControls.HtmlTableRow _tr_ImageNews;
@@ -232,7 +230,7 @@ new long[] { },
 							out _errors
 						);
 					if (
-						!Master__base.Error_show(_errors)
+						!Master__base.Error_add(_errors)
 						&&
 						(_content_tags != null)
 						&&
@@ -269,7 +267,7 @@ new long[] { },
 							out _errors
 						);
 					if (
-						!Master__base.Error_show(_errors)
+						!Master__base.Error_add(_errors)
 						&&
 						(_content_sources != null)
 						&&
@@ -305,7 +303,7 @@ new long[] { },
 						out _errors
 					);
 				if (
-					!Master__base.Error_show(_errors)
+					!Master__base.Error_add(_errors)
 					&&
 					(_attachments != null)
 					&&

@@ -121,12 +121,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder cph_Body;
         
         /// <summary>
-        /// lbl_Log control.
+        /// lit_ClientScript control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Label lbl_Log;
+        protected global::System.Web.UI.WebControls.Literal lit_ClientScript;
     }
 }

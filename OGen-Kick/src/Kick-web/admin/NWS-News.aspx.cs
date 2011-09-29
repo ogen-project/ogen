@@ -66,8 +66,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			Master__base.Error_clear();
-
 			if (!Page.IsPostBack) {
 				int[] _errors;
 
@@ -80,7 +78,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0,
 						out _errors
 					);
-				if (!Master__base.Error_show(_errors)) {
+				if (!Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_so_tags,
 						delegate(
@@ -104,7 +102,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0,
 						out _errors
 					);
-				if (!Master__base.Error_show(_errors)) {
+				if (!Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_so_sources,
 						delegate(
@@ -128,7 +126,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0,
 						out _errors
 					);
-				if (!Master__base.Error_show(_errors)) {
+				if (!Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_so_authors,
 						delegate(
@@ -152,7 +150,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0,
 						out _errors
 					);
-				if (!Master__base.Error_show(_errors)) {
+				if (!Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_so_highlights,
 						delegate(
@@ -176,7 +174,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0,
 						out _errors
 					);
-				if (!Master__base.Error_show(_errors)) {
+				if (!Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_so_profiles,
 						delegate(
@@ -233,7 +231,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					out _errors
 				);
 
-				Master__base.Error_show(_errors);
+				Master__base.Error_add(_errors);
 			} else {
 				long _idcontent = BusinessInstances.NWS_News.InstanceClient.insObject(
 					utils.User.SessionGuid,
@@ -266,7 +264,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					out _errors
 				);
 
-				if (!Master__base.Error_show(_errors)) {
+				if (!Master__base.Error_add(_errors)) {
 					Response.Redirect(string.Format(
 						"NWS-News.aspx?IDContent={0}",
 						_idcontent
@@ -285,7 +283,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				cbl_Tags.Kick.SelectedValue__get<long>(),
 				out _errors
 			);
-			Master__base.Error_show(_errors);
+			Master__base.Error_add(_errors);
 		} 
 		#endregion
 		#region protected void btn_Authors_Click(object sender, EventArgs e);
@@ -298,7 +296,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				cbl_Author.Kick.SelectedValue__get<long>(),
 				out _errors
 			);
-			Master__base.Error_show(_errors);
+			Master__base.Error_add(_errors);
 		}
 		#endregion
 		#region protected void btn_Sources_Click(object sender, EventArgs e);
@@ -311,7 +309,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				cbl_Source.Kick.SelectedValue__get<long>(),
 				out _errors
 			);
-			Master__base.Error_show(_errors);
+			Master__base.Error_add(_errors);
 		}
 		#endregion
 		#region protected void btn_Highlights_Click(object sender, EventArgs e);
@@ -324,7 +322,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				cbl_Highlight.Kick.SelectedValue__get<long>(),
 				out _errors
 			);
-			Master__base.Error_show(_errors);
+			Master__base.Error_add(_errors);
 		}
 		#endregion
 		#region protected void btn_Profiles_Click(object sender, EventArgs e);
@@ -337,7 +335,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				cbl_Profiles.Kick.SelectedValue__get<long>(),
 				out _errors
 			);
-			Master__base.Error_show(_errors);
+			Master__base.Error_add(_errors);
 		}
 		#endregion
 
@@ -382,7 +380,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					out _guid,
 					out _errors
 				);
-				if (!Master__base.Error_show(_errors)) {
+				if (!Master__base.Error_add(_errors)) {
 					#region string _uploadPath = ...;
 					string _uploadPath
 						= System.IO.Path.Combine(
@@ -424,7 +422,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						)
 					);
 #if DEBUG
-					Master__base.Error_show(
+					Master__base.Error_add(
 						false, 
 						_filePath
 					);
@@ -434,7 +432,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					Bind();
 				}
 			} else {
-				Master__base.Error_show(true, "no file!");
+				Master__base.Error_add(true, "no file!");
 			}
 		} 
 		#endregion
@@ -448,7 +446,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				_idattachment,
 				out _errors
 			);
-			if (!Master__base.Error_show(_errors)) {
+			if (!Master__base.Error_add(_errors)) {
 				Bind();
 			}
 		}
@@ -490,7 +488,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					_dic_description.Texts,
 					out _errors
 				);
-				if (!Master__base.Error_show(_errors)) {
+				if (!Master__base.Error_add(_errors)) {
 				}
 			}
 		}
@@ -510,7 +508,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						out _errors
 					);
 				if (
-					!Master__base.Error_show(_errors)
+					!Master__base.Error_add(_errors)
 					&&
 					(_contents != null)
 					&&
@@ -579,7 +577,7 @@ div_Profiles.Visible = true;
 							0, 0,
 							out _errors
 						);
-					if (!Master__base.Error_show(_errors)) {
+					if (!Master__base.Error_add(_errors)) {
 						cbl_Tags.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentTag>(
 							_tags,
 							delegate(
@@ -598,7 +596,7 @@ div_Profiles.Visible = true;
 						0, 0,
 						out _errors
 					);
-					if (!Master__base.Error_show(_errors)) {
+					if (!Master__base.Error_add(_errors)) {
 						cbl_Author.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentAuthor>(
 							_authors,
 							delegate(
@@ -617,7 +615,7 @@ div_Profiles.Visible = true;
 						0, 0,
 						out _errors
 					);
-					if (!Master__base.Error_show(_errors)) {
+					if (!Master__base.Error_add(_errors)) {
 						cbl_Source.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentSource>(
 							_sources,
 							delegate(
@@ -636,7 +634,7 @@ div_Profiles.Visible = true;
 						0, 0,
 						out _errors
 					);
-					if (!Master__base.Error_show(_errors)) {
+					if (!Master__base.Error_add(_errors)) {
 						cbl_Profiles.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentProfile>(
 							_profiles,
 							delegate(
@@ -655,7 +653,7 @@ div_Profiles.Visible = true;
 						0, 0,
 						out _errors
 					);
-					if (!Master__base.Error_show(_errors)) {
+					if (!Master__base.Error_add(_errors)) {
 						cbl_Highlight.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentHighlight>(
 							_highlights,
 							delegate(
@@ -676,7 +674,7 @@ div_Profiles.Visible = true;
 							0, 0,
 							out _errors
 						);
-					if (!Master__base.Error_show(_errors)) {
+					if (!Master__base.Error_add(_errors)) {
 						#region Array.Sort(_attachments);
 						Array.Sort(
 							_attachments,

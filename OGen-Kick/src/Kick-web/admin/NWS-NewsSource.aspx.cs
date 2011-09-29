@@ -53,8 +53,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			Master__base.Error_clear();
-
 			if (!Page.IsPostBack) {
 				int[] _errors;
 				SO_vNWS_Source[] _sources
@@ -64,7 +62,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0,
 						out _errors
 					);
-				if (!Master__base.Error_show(_errors)) {
+				if (!Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_sources,
 						delegate(
@@ -120,7 +118,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					null
 				)
 				&&
-				!Master__base.Error_show(_errors)
+				!Master__base.Error_add(_errors)
 				#endregion
 			) {
 
@@ -152,7 +150,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					out _errors
 				);
 			}
-			if (!Master__base.Error_show(_errors)) {
+			if (!Master__base.Error_add(_errors)) {
 				Response.Redirect(
 					"NWS-NewsSource-list.aspx",
 					true
@@ -180,7 +178,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					null
 				)
 				&&
-				!Master__base.Error_show(_errors)
+				!Master__base.Error_add(_errors)
 				#endregion
 			) {
 				txt_Name.Text = _source.Name;

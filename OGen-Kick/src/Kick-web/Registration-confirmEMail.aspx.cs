@@ -37,7 +37,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			)) {
 				lbl_Error.Text += "- EMail updated successfully!";
 			} else {
-				Master__base.Error_show(_errors);
+				Master__base.Error_add(_errors);
 			}
 		}
 	}

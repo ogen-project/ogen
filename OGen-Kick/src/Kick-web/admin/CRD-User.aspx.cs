@@ -53,8 +53,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			Master__base.Error_clear();
-
 			if (!Page.IsPostBack) {
 				Bind();
 			}
@@ -72,7 +70,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				cbl_Profiles.Kick.SelectedValue__get<long>(), 
 				out _errors
 			);
-			if (!Master__base.Error_show(_errors)) {
+			if (!Master__base.Error_add(_errors)) {
 				Bind();
 			}
 		} 
@@ -89,7 +87,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					IDUser,
 					out _errors
 				);
-			if (!Master__base.Error_show(_errors)) {
+			if (!Master__base.Error_add(_errors)) {
 				if (_user == null) {
 					Response.Redirect(
 						"CRD_User-list.aspx", 
@@ -112,7 +110,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					0, 0,
 					out _errors
 				);
-			if (!Master__base.Error_show(_errors)) {
+			if (!Master__base.Error_add(_errors)) {
 				Array.Sort(
 					_profiles,
 					delegate(

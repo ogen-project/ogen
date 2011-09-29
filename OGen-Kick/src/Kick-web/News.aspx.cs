@@ -53,8 +53,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#endregion
 
 		protected void Page_Load(object sender, EventArgs e) {
-			Master__base.Error_clear();
-
 			if (!Page.IsPostBack) {
 				Bind();
 			}
@@ -91,7 +89,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				utils.IDLanguage__default, 
 				out _errors
 			);
-			if (!Master__base.Error_show(_errors)) {
+			if (!Master__base.Error_add(_errors)) {
 				if (_content != null) {
 					#region rep_Attachments.DataSource = ...; rep_Attachments.DataBind();
 					_attachments = BusinessInstances.NWS_Attachment.InstanceClient.getRecord_byContent_andLanguage(
@@ -102,7 +100,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						out _errors
 					);
 					if (
-						!Master__base.Error_show(_errors)
+						!Master__base.Error_add(_errors)
 						&&
 						(_attachments != null)
 						&&
@@ -200,7 +198,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						out _errors
 					);
 					if (
-						!Master__base.Error_show(_errors)
+						!Master__base.Error_add(_errors)
 						&&
 						(_contentsources != null)
 						&&
@@ -213,7 +211,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 								0, 0,
 								out _errors
 							);
-						if (!Master__base.Error_show(_errors)) {
+						if (!Master__base.Error_add(_errors)) {
 							SO_vNWS_Source[] _sources2 = new SO_vNWS_Source[_contentsources.Length];
 							for (int s1 = 0; s1 < _contentsources.Length; s1++) {
 								for (int s2 = 0; s2 < _sources.Length; s2++) {
@@ -241,7 +239,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						out _errors
 					);
 					if (
-						!Master__base.Error_show(_errors)
+						!Master__base.Error_add(_errors)
 						&&
 						(_contenttags != null)
 						&&
@@ -255,7 +253,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 								0, 0,
 								out _errors
 							);
-						if (!Master__base.Error_show(_errors)) {
+						if (!Master__base.Error_add(_errors)) {
 							SO_vNWS_Tag[] _tags2 = new SO_vNWS_Tag[_contenttags.Length];
 							for (int t1 = 0; t1 < _contenttags.Length; t1++) {
 								for (int t2 = 0; t2 < _tags.Length; t2++) {
@@ -289,7 +287,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 					tbl_News.Visible = true;
 				} else {
-					Master__base.Error_show(false, "no data");
+					Master__base.Error_add(false, "no data");
 				}
 			}
 		}

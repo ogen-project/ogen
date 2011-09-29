@@ -31,8 +31,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			Master__base.Error_clear();
-
 			if (!Page.IsPostBack) {
 				//int _error;
 
@@ -92,7 +90,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				//        out _error
 				//    )
 				//);
-				//Master__base.Error_show(_error);
+				//Master__base.Error_add(_error);
 
 				Bind();
 			}
@@ -135,7 +133,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				_idlog,
 				out _errors
 			);
-			if (Master__base.Error_show(_errors)) {
+			if (Master__base.Error_add(_errors)) {
 				return;
 			}
 
@@ -230,7 +228,7 @@ false,
 
 					out _error
 				);
-			if (Master__base.Error_show(_error)) {
+			if (Master__base.Error_add(_error)) {
 				return;
 			}
 
@@ -281,7 +279,7 @@ false,
 			} else {
 				rep_Log.Visible = false;
 
-				Master__base.Error_show(
+				Master__base.Error_add(
 					false,
 					"returned no results"
 				);

@@ -37,8 +37,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			Master__base.Error_clear();
-
 			if (!Page.IsPostBack) {
 				//dic_Name.Texts = null;
 
@@ -65,7 +63,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0,
 						out _errors
 					);
-				if (!Master__base.Error_show(_errors)) {
+				if (!Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_so_tags,
 						delegate(
@@ -89,7 +87,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0,
 						out _errors
 					);
-				if (!Master__base.Error_show(_errors)) {
+				if (!Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_so_sources,
 						delegate(
@@ -113,7 +111,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0,
 						out _errors
 					);
-				if (!Master__base.Error_show(_errors)) {
+				if (!Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_so_authors,
 						delegate(
@@ -137,7 +135,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0,
 						out _errors
 					);
-				if (!Master__base.Error_show(_errors)) {
+				if (!Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_so_highlights,
 						delegate(
@@ -161,7 +159,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0,
 						out _errors
 					);
-				if (!Master__base.Error_show(_errors)) {
+				if (!Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_so_profiles,
 						delegate(
@@ -200,7 +198,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				_idcontent,
 				out _errors
 			);
-			if (!Master__base.Error_show(_errors)) {
+			if (!Master__base.Error_add(_errors)) {
 				Bind();
 			}
 		}
@@ -216,7 +214,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				_idcontent, 
 				out _errors
 			);
-			if (!Master__base.Error_show(_errors)) {
+			if (!Master__base.Error_add(_errors)) {
 				Bind();
 			}
 		}
@@ -322,7 +320,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				out _errors
 			);
 			#endregion
-			if (!Master__base.Error_show(_errors)) {
+			if (!Master__base.Error_add(_errors)) {
 				if (_contents.Length > 0) {
 					rep_SearchResults.Visible = true;
 
@@ -331,7 +329,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				} else {
 					rep_SearchResults.Visible = false;
 
-					Master__base.Error_show(
+					Master__base.Error_add(
 						false,
 						"returned no results"
 					);

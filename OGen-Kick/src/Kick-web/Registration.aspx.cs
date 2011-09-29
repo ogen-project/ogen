@@ -27,8 +27,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 	public partial class Registration : SitePage {
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			Master__base.Error_clear();
-
 			if (utils.User.isLoggedIn) {
 				Response.Redirect(
 					"~/Registration-update.aspx",
@@ -147,7 +145,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 							break;
 						default:
-							Master__base.Error_show(_error);
+							Master__base.Error_add(_error);
 							break;
 					}
 				}
@@ -218,7 +216,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 				    out _errors
 				);
-				if (!Master__base.Error_show(_errors)) {
+				if (!Master__base.Error_add(_errors)) {
 					lbl_LostPassword_Error.Text
 						+= "<li>Please check your email to recover your account</li>";
 
