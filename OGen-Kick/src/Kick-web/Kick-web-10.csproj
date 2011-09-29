@@ -71,6 +71,7 @@
     <Content Include="include\tabber.js" />
     <Content Include="News-list.aspx" />
     <Content Include="News.aspx" />
+    <Content Include="Registration-changePassword.aspx" />
     <Content Include="Registration-confirmEMail.aspx" />
     <Content Include="Registration-update.aspx" />
     <Content Include="Registration.aspx" />
@@ -260,6 +261,13 @@
       <DependentUpon>News.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registration-changePassword.aspx.cs">
+      <DependentUpon>Registration-changePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registration-changePassword.aspx.designer.cs">
+      <DependentUpon>Registration-changePassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Registration-confirmEMail.aspx.cs">
       <DependentUpon>Registration-confirmEMail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

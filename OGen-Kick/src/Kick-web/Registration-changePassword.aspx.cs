@@ -26,18 +26,38 @@ using OGen.NTier.Kick.lib.businesslayer.shared.instances;
 using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
-	public partial class Registration_confirmEMail : SitePage {
-
+	public partial class Registration_changePassword : SitePage {
 		protected void Page_Load(object sender, EventArgs e) {
-			lbl_Error.Text = "";
-
+			lbl_PasswordNew.Text = "";					lbl_PasswordNew.Visible = false;
+			lbl_PasswordConfirm.Text = "";				lbl_PasswordConfirm.Visible = false;
+		}
+		protected void lbt_RegistrationPasswordUpdate_Click(object sender, EventArgs e) {
 			int[] _errors;
-			if (utils.User.DoLogin_throughLink(
-				out _errors
-			)) {
-				lbl_Error.Text += "- EMail updated successfully!";
-			} else {
-				Master__base.Error_show(_errors);
+
+			#region bool _foundErrors = ...;
+			bool _foundErrors = false;
+			if ((txt_PasswordNew.Text = txt_PasswordNew.Text.Trim()) == "") {
+				lbl_PasswordNew.Text = "invalid";
+				lbl_PasswordNew.Visible = true;
+
+				_foundErrors = true;
+			}
+			if (txt_PasswordNew.Text != txt_PasswordConfirm.Text) {
+				lbl_PasswordConfirm.Text = "passwords differ";
+				lbl_PasswordConfirm.Visible = true;
+
+				_foundErrors = true;
+			}
+			#endregion
+			if (!_foundErrors) {
+				if (utils.User.DoLogin_throughLink_andChangePassword(
+					txt_PasswordNew.Text,
+					out _errors
+				)) {
+					Response.Redirect("~/Default.aspx");
+				} else {
+					Master__base.Error_show(_errors);
+				}
 			}
 		}
 	}
