@@ -21,32 +21,6 @@ using System.Net.Mail;
 namespace OGen.lib.mail {
 	public static class utils {
 		static utils() {
-			smtpserver_ = new SmtpClient();
-			smtpserver_.Host = System.Configuration.ConfigurationManager.AppSettings[
-				"SMTP_ServerName"
-			];
-			smtpserver_.Port = int.Parse(System.Configuration.ConfigurationManager.AppSettings[
-				"SMTP_ServerPort"
-			]);
-			smtpserver_.UseDefaultCredentials = false;
-			smtpserver_.Credentials = new System.Net.NetworkCredential(
-				System.Configuration.ConfigurationManager.AppSettings[
-					"SMTP_User"
-				],
-				System.Configuration.ConfigurationManager.AppSettings[
-					"SMTP_Password"
-				]
-			);
-			//smtpserver_.EnableSsl = true;
-
-			from_ = new MailAddress(
-				System.Configuration.ConfigurationManager.AppSettings[
-					"SMTP_FROM_EMail"
-				],
-				System.Configuration.ConfigurationManager.AppSettings[
-					"SMTP_FROM_Name"
-				]
-			);
 		}
 
 		#region	public static bool isEMail_valid(...);
@@ -75,10 +49,14 @@ namespace OGen.lib.mail {
 		public static bool isEMail_valid(
 			string email_in
 		) {
-			return regex__.IsMatch(email_in);
+			if ((email_in = email_in.Trim()) == "") {
+				return false;
+			}
+
+			return regex.IsMatch(email_in);
 		}
 		#endregion
-
+		#region public static MailAddress[] ParseMailAddress(string mailAddress_in);
 		public static MailAddress[] ParseMailAddress(string mailAddress_in) {
 			if (mailAddress_in == "") return null;
 
@@ -91,9 +69,71 @@ namespace OGen.lib.mail {
 
 			return _output;
 		}
+		#endregion
+		#region private static MailAddress From { get; }
+		private static MailAddress from__ = null;
 
-		private static SmtpClient smtpserver_;
-		private static MailAddress from_;
+		private static MailAddress From {
+			get {
+				if (from__ == null) {
+					from__ = new MailAddress(
+						System.Configuration.ConfigurationManager.AppSettings[
+							"SMTP_FROM_EMail"
+						],
+						System.Configuration.ConfigurationManager.AppSettings[
+							"SMTP_FROM_Name"
+						]
+					);
+				}
+
+				return from__;
+			}
+		}
+		#endregion
+
+#if !DEBUG
+		#region private static SmtpClient SMTPServer { get; }
+		private static SmtpClient smtpserver__ = null;
+
+		private static SmtpClient SMTPServer {
+			get {
+				if (smtpserver__ == null) {
+					smtpserver__ = new SmtpClient();
+					smtpserver__.Host = System.Configuration.ConfigurationManager.AppSettings[
+						"SMTP_ServerName"
+					];
+					smtpserver__.Port = int.Parse(System.Configuration.ConfigurationManager.AppSettings[
+						"SMTP_ServerPort"
+					]);
+					if (
+						(System.Configuration.ConfigurationManager.AppSettings["SMTP_User"] != null)
+						&&
+						(System.Configuration.ConfigurationManager.AppSettings["SMTP_User"] != "")
+						&&
+						(System.Configuration.ConfigurationManager.AppSettings["SMTP_Password"] != null)
+						&&
+						(System.Configuration.ConfigurationManager.AppSettings["SMTP_Password"] != "")
+					) {
+						smtpserver__.UseDefaultCredentials = false;
+
+						smtpserver__.Credentials = new System.Net.NetworkCredential(
+							System.Configuration.ConfigurationManager.AppSettings[
+								"SMTP_User"
+							],
+							System.Configuration.ConfigurationManager.AppSettings[
+								"SMTP_Password"
+							]
+						);
+						//smtpserver__.EnableSsl = true;
+					} else {
+						smtpserver__.UseDefaultCredentials = true;
+					}
+				}
+				return smtpserver__;
+			}
+		}
+		#endregion
+#endif
 
 		public static void MailSend(
 			MailAddress[] to_in,
@@ -103,7 +143,7 @@ namespace OGen.lib.mail {
 			string body_in
 		) {
 			MailSend(
-				from_, 
+				From, 
 				to_in,
 				cc_in,
 				bcc_in,
@@ -235,7 +275,7 @@ namespace OGen.lib.mail {
 				_mail2.Attachments.Add(_att);
 			}
 
-			smtpserver_.Send(_mail2);
+			MailSend(_mail2);
 
 
 			//System.Web.Mail.MailMessage _mail = new System.Web.Mail.MailMessage();
@@ -252,9 +292,26 @@ namespace OGen.lib.mail {
 		public static void MailSend(
 			MailMessage mailMessage_in
 		) {
-			smtpserver_.Send(
+#if !DEBUG
+			SMTPServer.Send(
 				mailMessage_in
 			);
+#else
+			System.IO.StreamWriter _writer = new System.IO.StreamWriter("c:\\SMTPServer.log", true);
+			_writer.WriteLine(string.Format(
+				"-------------------------------------------------------------------\n" +
+				"FROM: {0}\n" +
+				"TO: {1}\n" +
+				"SUBJECT: {2}\n" +
+				"{3}", 
+				mailMessage_in.From.ToString(), 
+				mailMessage_in.To.ToString(), 
+				mailMessage_in.Subject, 
+				mailMessage_in.Body
+			));
+			_writer.Close();
+			_writer.Dispose();
+#endif
 		}
 	}
 }
