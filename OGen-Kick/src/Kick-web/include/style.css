@@ -74,7 +74,10 @@ a:hover {
 	background-color: #ccccff;
 }
 .button[disabled] {
-	color: Gray;/* #EE817B; *//* #d8261c; */
+	color: Gray;
+}
+.button[disabled]:hover {
+	background-color: #dddddd !important;
 }
 
 /****************************************************************************************************/

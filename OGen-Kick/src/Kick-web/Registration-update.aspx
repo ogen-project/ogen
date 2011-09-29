@@ -282,7 +282,7 @@
 					</asp:TableRow>
 					<asp:TableRow>
 						<asp:TableCell HorizontalAlign="Right" CssClass="label_small">
-							Nova Password:&nbsp;
+							New Password:&nbsp;
 						</asp:TableCell>
 						<asp:TableCell HorizontalAlign="Left">
 							<anthem:TextBox
@@ -302,7 +302,7 @@
 					</asp:TableRow>
 					<asp:TableRow>
 						<asp:TableCell HorizontalAlign="Right" CssClass="label_small">
-							Confirmar Password:&nbsp;
+							Re-type New Password:&nbsp;
 						</asp:TableCell>
 						<asp:TableCell HorizontalAlign="Left">
 							<anthem:TextBox

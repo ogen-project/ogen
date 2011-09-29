@@ -1047,7 +1047,7 @@ A equipa {2}
 		) {
 			List<int> _errors = new List<int>();
 			#region check . . .
-			if (OGen.lib.mail.utils.isEMail_valid(EMail_in = EMail_in.Trim())) {
+			if (!OGen.lib.mail.utils.isEMail_valid(EMail_in = EMail_in.Trim())) {
 				_errors.Add(ErrorType.web__user__invalid_email);
 				errors_out = _errors.ToArray();
 				return;
@@ -1105,9 +1105,7 @@ Para recuperar o seu registo, por favor, clique no link que se segue:
 
 Atentamente,
  
-A equipa {2}
-
-",
+A equipa {2}",
 						//System.Configuration.ConfigurationSettings.AppSettings["URL__base"],
 						recoverLostPasswordURL_in,
 						_message,
@@ -1302,6 +1300,13 @@ A equipa {2}
 
 						#region // STEP 4: MyMail.Send(...); _commit = ...;
 						try {
+
+// ToDos: here! very wrong sending an email while the transaction is open on db, smtp server can delay sending,
+// this needs to be changed!
+
+// ToDos: here! more, these messages should go somewhere like an XML file, 
+// and multi language support must be implemented
+
 							#region MyMail.Send(email_in, ...);
 							OGen.lib.mail.utils.MailSend(
 								new System.Net.Mail.MailAddress[] {
@@ -1323,9 +1328,7 @@ Recebemos o seu pedido de registo, para activar a sua conta, por favor, clique n
 
 Atentamente,
  
-A equipa {2}
-
-",
+A equipa {2}",
 									//System.Configuration.ConfigurationSettings.AppSettings["URL__base"],
 									verifyMailURL_in,
 									_message,
