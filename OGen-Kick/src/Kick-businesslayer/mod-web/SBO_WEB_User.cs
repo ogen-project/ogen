@@ -689,7 +689,7 @@ A equipa {2}
 
 			List<int> _errorlist;
 			#region check...
-			if (SBO_CRD_Authentication.isSessionGuid_valid(
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
 				sessionGuid_in,
 				out _guid,
 				out _errorlist,
@@ -1442,6 +1442,8 @@ A equipa {2}",
 					OGen.lib.crypt.utils.Server.RSA_Server_public_Encrypt64(
 						string.Format(
 							"{0}|{1}",
+
+							// valid for 2 days
 							DateTime.Now.AddDays(2).Ticks.ToString(),
 							string.Join("|", words_in)
 						)
@@ -1478,6 +1480,15 @@ A equipa {2}",
 			string _message;
 			string[] _params;
 			long _ticks;
+
+			if (
+				(enc_message_in == null)
+				||
+				(enc_message_in == "")
+			) {
+				errors_in.Add(ErrorType.encryption__failled_to_decrypt);
+				return _output;
+			}
 
 			Exception _exception = null;
 			try {

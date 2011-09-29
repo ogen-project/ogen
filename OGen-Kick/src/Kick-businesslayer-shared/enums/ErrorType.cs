@@ -189,24 +189,28 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 		) {
 			bool _output = false;
 
-			bool _isError;
-			foreach (int _error in errors_in) {
-				if (errorFound_in != null) {
-					errorFound_in(
-						ErrorMessage(
-							_error,
-							out _isError
-						),
-						_isError
-					);
+			if (errors_in != null) {
+				bool _isError;
+				for (int i = 0; i < errors_in.Length; i++ ) {
+					if (errorFound_in != null) {
+						errorFound_in(
+							ErrorMessage(
+								errors_in[i],
+								out _isError
+							),
+							_isError
+						);
 
-					if (_isError) _output = true;
-				} else {
-					ErrorMessage(
-						_error,
-						out _isError
-					);
-					if (_isError) return true;
+						if (_isError)
+							_output = true;
+					} else {
+						ErrorMessage(
+							errors_in[i],
+							out _isError
+						);
+						if (_isError)
+							return true;
+					}
 				}
 			}
 

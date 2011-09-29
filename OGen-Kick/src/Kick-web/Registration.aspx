@@ -25,7 +25,7 @@
 
 	<table border="0" cellpadding="4" cellspacing="0" width="100%" class="table_thin">
 		<tr class="alternating_item">
-			<td colspan="2">
+			<td colspan="2" class="label_small">
 				Join
 			</td>
 		</tr>
@@ -126,7 +126,7 @@
 
 	<table border="0" cellpadding="4" cellspacing="0" width="100%" class="table_thin">
 		<tr class="alternating_item">
-			<td colspan="2">
+			<td colspan="2" class="label_small">
 				Lost your Password? Let us mail you with instructions to recover your account
 			</td>
 		</tr>

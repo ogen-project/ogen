@@ -395,6 +395,55 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 					out _errors
 				);
 			}
+			public static bool DoLogin(
+				out int[] _errors_out
+			) {
+				string _email = HttpContext.Current.Request.QueryString["param"];
+				if (
+					(_email == null)
+					||
+					((_email = _email.Trim()) == "")
+				) {
+					_errors_out = new int[] {
+						ErrorType.authentication__invalid_email, 
+						ErrorType.encryption__failled_to_decrypt
+					};
+					return false;
+				}
+
+
+				long _iduser;
+				long[] _idpermitions;
+				string _login;
+				string _name;
+
+				string _sessionguid = Guid.NewGuid().ToString("N");
+
+				BusinessInstances.WEB_User.InstanceClient.Login_throughLink(
+					_sessionguid,
+					utils.ClientIPAddress,
+
+					_email,
+
+					utils.IDApplication,
+					out _iduser,
+					out _login,
+					out _name,
+					out _idpermitions,
+					out _errors_out
+				);
+
+				if (!ErrorType.hasErrors(_errors_out)) {
+					utils.User.SessionGuid = _sessionguid;
+					utils.User.IDPermitions = _idpermitions;
+					utils.User.IDUser = _iduser;
+					utils.User.Login = _login;
+
+					return true;
+				} else {
+					return false;
+				}
+			}
 			#endregion
 
 			private static class Anonymous {

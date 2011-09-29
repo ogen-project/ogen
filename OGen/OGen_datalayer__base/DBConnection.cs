@@ -327,7 +327,8 @@ namespace OGen.lib.datalayer {
 				value_in, 
 				_parameters.ToString()
 			));
-			_writer.Close(); //_writer.Dispose();
+			_writer.Close();
+			_writer.Dispose();
 		}
 		#endregion
 

@@ -71,6 +71,7 @@
     <Content Include="include\tabber.js" />
     <Content Include="News-list.aspx" />
     <Content Include="News.aspx" />
+    <Content Include="Registration-confirmEMail.aspx" />
     <Content Include="Registration-update.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="Web.config" />
@@ -259,6 +260,13 @@
       <DependentUpon>News.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registration-confirmEMail.aspx.cs">
+      <DependentUpon>Registration-confirmEMail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registration-confirmEMail.aspx.designer.cs">
+      <DependentUpon>Registration-confirmEMail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Registration-update.aspx.cs">
       <DependentUpon>Registration-update.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
