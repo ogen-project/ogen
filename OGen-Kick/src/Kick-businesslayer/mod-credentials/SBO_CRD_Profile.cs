@@ -639,6 +639,13 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					_con
 				);
 #endif
+#if MOD_NEWS
+				DO_NWS_Profile.delObject(
+					idProfile_in,
+
+					_con
+				);
+#endif
 				DO_CRD_ProfileProfile.delRecord_byProfile(
 					idProfile_in,
 
