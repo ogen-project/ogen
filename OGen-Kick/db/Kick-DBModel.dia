@@ -8004,7 +8004,7 @@ EMail - IFApplication#</dia:string>
         <dia:color val="#387ec3"/>
       </dia:attribute>
       <dia:attribute name="fill_colour">
-        <dia:color val="#ffffff"/>
+        <dia:color val="#ff0000"/>
       </dia:attribute>
       <dia:attribute name="line_width">
         <dia:real val="0.10000000000000001"/>
@@ -9514,7 +9514,7 @@ EMail - IFApplication#</dia:string>
         <dia:color val="#a020f0"/>
       </dia:attribute>
       <dia:attribute name="fill_colour">
-        <dia:color val="#ff0000"/>
+        <dia:color val="#ffffff"/>
       </dia:attribute>
       <dia:attribute name="line_width">
         <dia:real val="0.10000000000000001"/>

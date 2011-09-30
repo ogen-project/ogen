@@ -6,14 +6,29 @@ RETURNS TABLE
 AS
 RETURN
 
-	select
-		distinct pp1."IFPermition" as "IDPermition"
-	from "CRD_UserProfile" as up1
-	left join "CRD_ProfilePermition" as pp1 on (
-		pp1."IFProfile" = up1."IFProfile"
+	--select
+	--	distinct pp1."IFPermition" as "IDPermition"
+	--from "CRD_UserProfile" as up1
+	--left join "CRD_ProfilePermition" as pp1 on (
+	--	pp1."IFProfile" = up1."IFProfile"
+	--)
+	--where 
+	--	(up1."IFUser" = @IDUser_search_)
+
+	select 
+		distinct "CRD_ProfilePermition"."IFPermition" as "IDPermition"
+	from "CRD_UserProfile"
+	left join "CRD_ProfileProfile" on (
+		"CRD_ProfileProfile"."IFProfile" = "CRD_UserProfile"."IFProfile"
 	)
-	where 
-		(up1."IFUser" = @IDUser_search_)
+	left join "CRD_ProfilePermition" on (
+		("CRD_UserProfile"."IFProfile" = "CRD_ProfilePermition"."IFProfile")
+		or
+		("CRD_ProfileProfile"."IFProfile_parent" = "CRD_ProfilePermition"."IFProfile")
+	)
+	where
+		"CRD_UserProfile"."IFUser" = @IDUser_search_
+
 GO
 
 select *
