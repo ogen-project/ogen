@@ -42,21 +42,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 		}
 		#endregion
 
-		#region public void delObject(...);
-		public void delObject(
-			string sessionGuid_in, 
-			string ip_forLogPurposes_in, 
-			System.Int64[] idProfile_in, 
-			out System.Int32[] errors_out
-		) {
-			bo_.delObject(
-				sessionGuid_in, 
-				ip_forLogPurposes_in, 
-				idProfile_in, 
-				out errors_out
-			);
-		}
-		#endregion
 		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[] getRecord_all(...);
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[] getRecord_all(
 			string sessionGuid_in, 

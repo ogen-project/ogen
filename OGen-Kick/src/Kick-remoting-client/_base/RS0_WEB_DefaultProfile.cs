@@ -26,16 +26,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		MarshalByRefObject, 
 		IBO_WEB_DefaultProfile 
 	{
-		#region public void delObject(...);
-		public void delObject(
-			string sessionGuid_in, 
-			string ip_forLogPurposes_in, 
-			System.Int64[] idProfile_in, 
-			out System.Int32[] errors_out
-		) {
-			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
-		}
-		#endregion
 		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[] getRecord_all(...);
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[] getRecord_all(
 			string sessionGuid_in, 

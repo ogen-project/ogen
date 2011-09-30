@@ -60,6 +60,7 @@
     <Content Include="admin\NWS-NewsSource.aspx" />
     <Content Include="admin\NWS-NewsTag-list.aspx" />
     <Content Include="admin\NWS-NewsTag.aspx" />
+    <Content Include="admin\WEB-Defaultprofile.aspx" />
     <Content Include="App_Controls\ServerVariables.aspx" />
     <Content Include="App_Controls\wuc_txt_Dic.ascx" />
     <Content Include="Default.aspx" />
@@ -202,6 +203,13 @@
     </Compile>
     <Compile Include="admin\NWS-NewsTag.aspx.designer.cs">
       <DependentUpon>NWS-NewsTag.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\WEB-Defaultprofile.aspx.cs">
+      <DependentUpon>WEB-Defaultprofile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\WEB-Defaultprofile.aspx.designer.cs">
+      <DependentUpon>WEB-Defaultprofile.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Controls\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>

@@ -32,31 +32,6 @@ using OGen.NTier.Kick.lib.businesslayer.shared;
 namespace OGen.NTier.Kick.lib.businesslayer {
 	[BOClassAttribute("BO_CRD_Permition", "")]
 	public static class SBO_CRD_Permition {
-
-		public static SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(
-			string sessionGuid_in,
-			string ip_forLogPurposes_in,
-
-			long IDProfile_search_in,
-			int page_in,
-			int page_numRecords_in,
-
-			out int[] errors_out
-		) {
-			throw new NotImplementedException();
-		}
-		public static void setProfilePermitions(
-			string sessionGuid_in,
-			string ip_forLogPurposes_in, 
-
-			long idProfile_in,
-			long[] idPermitions_in,
-
-			out int[] errors_out
-		) {
-			throw new NotImplementedException();
-		}
-
 		#region public static SO_CRD_Permition[] getRecord_all(...);
 		[BOMethodAttribute("getRecord_all", true, false, 1)]
 		public static SO_CRD_Permition[] getRecord_all(

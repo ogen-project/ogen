@@ -54,6 +54,7 @@
 						<ul>
 							<li><a runat="server" href="~/admin/CRD-User-list.aspx">users</a></li>
 							<li><a runat="server" href="~/admin/CRD-ProfilePermition.aspx">profiles</a></li>
+							<li><a runat="server" href="~/admin/WEB-Defaultprofile.aspx">default profiles</a></li>
 							<li><a runat="server" href="~/admin/LOG-Log.aspx">log</a></li>
 						</ul>
 					</li>

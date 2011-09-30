@@ -29,24 +29,6 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		WebService,
 		IBO_WEB_DefaultProfile
 	{
-		#region public void delObject(...);
-		[WebMethod]
-		public void delObject(
-			string sessionGuid_in, 
-			string ip_forLogPurposes_in, 
-			System.Int64[] idProfile_in, 
-			out System.Int32[] errors_out
-		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_WEB_DefaultProfile.delObject(
-				sessionGuid_in, 
-				(utils.ResetClientIP) 
-					? HttpContext.Current.Request.UserHostAddress 
-					: ip_forLogPurposes_in, 
-				idProfile_in, 
-				out errors_out
-			);
-		}
-		#endregion
 		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[] getRecord_all(...);
 		[WebMethod]
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[] getRecord_all(

@@ -25,7 +25,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_vNET_Profile : 
-		SO__base 
+		SO__ListItem<long, string> 
 	{
 		#region public SO_vNET_Profile();
 		public SO_vNET_Profile(
@@ -87,6 +87,21 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		}
 		#endregion
 
+		#region public override long ListItem_Value { get; }
+		public override long ListItem_Value {
+			get {
+				return idprofile_;
+			}
+		}
+		#endregion
+		#region public override string ListItem_Text { get; }
+		public override string ListItem_Text {
+			get {
+				return Name;
+			}
+		} 
+		#endregion
+
 		#region public long IDProfile { get; set; }
 		[NonSerialized()]
 		[XmlIgnore()]
@@ -116,7 +131,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			true, 
 			false, 
 			false, 
-			false, 
+			true, 
 			false, 
 			0, 
 			""
@@ -165,7 +180,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			false, 
 			true, 
 			false, 
-			false, 
+			true, 
 			255, 
 			""
 		)]

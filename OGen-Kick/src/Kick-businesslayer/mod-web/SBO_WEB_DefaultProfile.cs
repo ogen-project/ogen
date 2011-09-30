@@ -32,7 +32,6 @@ using OGen.NTier.Kick.lib.businesslayer.shared;
 namespace OGen.NTier.Kick.lib.businesslayer {
 	[BOClassAttribute("BO_WEB_DefaultProfile", "")]
 	public static class SBO_WEB_DefaultProfile {
-
 		#region public static void setObject(...);
 		[BOMethodAttribute("setObject", true, false, 1)]
 		public static void setObject(
@@ -72,11 +71,28 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 			#endregion
 
-			for (int i = 0; i < idProfile_in.Length; i++) {
-				if (!DO_vNET_Profile.isObject_inRecord_all(
-					idProfile_in[i],
-					_sessionuser.IDApplication
-				)) {
+
+			Exception _exception = null;
+			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
+			DBConnection _con = DO__utils.DBConnection_createInstance(
+				DO__utils.DBServerType,
+				DO__utils.DBConnectionstring,
+				DO__utils.DBLogfile
+			);
+			#endregion
+			try {
+				_con.Open();
+				_con.Transaction.Begin();
+
+				DO_NET_Defaultprofile.delRecord_all(
+					_sessionuser.IDApplication,
+					_con
+				);
+				for (int i = 0; i < idProfile_in.Length; i++) {
+					//if (!DO_vNET_Profile.isObject_inRecord_all(
+					//	idProfile_in[i],
+					//	_sessionuser.IDApplication
+					//)) {
 					DO_NET_Defaultprofile.insObject(
 						new SO_NET_Defaultprofile(
 							-1L,
@@ -84,60 +100,113 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 						),
 						false,
 
-						null
+						_con
 					);
+					//}
 				}
+
+				#region _con.Transaction.Commit();
+				if (_con.Transaction.inTransaction) {
+					_con.Transaction.Commit();
+				}
+				#endregion
+				_errorlist.Add(ErrorType.profile__successfully_updated__WARNING);
+			} catch (Exception _ex) {
+				#region _con.Transaction.Rollback();
+				if (
+					_con.isOpen
+					&&
+					_con.Transaction.inTransaction
+				) {
+					_con.Transaction.Rollback();
+				}
+				#endregion
+
+				_exception = _ex;
+			} finally {
+				#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
+				if (_con.isOpen) {
+					if (_con.Transaction.inTransaction) {
+						_con.Transaction.Terminate();
+					}
+					_con.Close();
+				}
+
+				_con.Dispose();
+				#endregion
 			}
+			if (_exception != null) {
+				#region SBO_LOG_Log.log(ErrorType.data);
+				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+					_sessionuser,
+					LogType.error,
+					ErrorType.data,
+					-1L,
+					_sessionuser.IDApplication,
+					"{0}",
+					new string[] {
+						_exception.Message
+					}
+				);
+				#endregion
+				_errorlist.Add(ErrorType.data);
+			}
+
+			errors_out = _errorlist.ToArray();
+			return;
 		}
 		#endregion
 
-		#region public static void delObject(...);
-		[BOMethodAttribute("delObject", true, false, 1)]
-		public static void delObject(
-			string sessionGuid_in,
-			string ip_forLogPurposes_in,
+		#region //public static void delObject(...);
+		//[BOMethodAttribute("delObject", true, false, 1)]
+		//public static void delObject(
+		//    string sessionGuid_in,
+		//    string ip_forLogPurposes_in,
 
-			long[] idProfile_in,
+		//    long[] idProfile_in,
 
-			out int[] errors_out
-		) {
-			List<int> _errorlist;
-			Guid _sessionguid;
-			Sessionuser _sessionuser;
+		//    out int[] errors_out
+		//) {
+		//    List<int> _errorlist;
+		//    Guid _sessionguid;
+		//    Sessionuser _sessionuser;
 
-			#region check...
-			if (!SBO_CRD_Authentication.isSessionGuid_valid(
-				sessionGuid_in,
-				ip_forLogPurposes_in,
-				out _sessionguid,
-				out _sessionuser,
-				out _errorlist,
-				out errors_out
-			)) {
-				//// no need!
-				//errors_out = _errors.ToArray();
+		//    #region check...
+		//    if (!SBO_CRD_Authentication.isSessionGuid_valid(
+		//        sessionGuid_in,
+		//        ip_forLogPurposes_in,
+		//        out _sessionguid,
+		//        out _sessionuser,
+		//        out _errorlist,
+		//        out errors_out
+		//    )) {
+		//        //// no need!
+		//        //errors_out = _errors.ToArray();
 
-				return;
-			}
-			#endregion
-			#region check Permitions...
-			if (
-				!_sessionuser.hasPermition(PermitionType.Profile__delete)
-			) {
-				_errorlist.Add(ErrorType.profile__lack_of_permitions_to_delete);
-				errors_out = _errorlist.ToArray();
-				return;
-			}
-			#endregion
+		//        return;
+		//    }
+		//    #endregion
+		//    #region check Permitions...
+		//    if (
+		//        !_sessionuser.hasPermition(PermitionType.Profile__delete)
+		//    ) {
+		//        _errorlist.Add(ErrorType.profile__lack_of_permitions_to_delete);
+		//        errors_out = _errorlist.ToArray();
+		//        return;
+		//    }
+		//    #endregion
 
-			for (int i = 0; i < idProfile_in.Length; i++) {
-				DO_NET_Defaultprofile.delObject_byProfile(
-					idProfile_in[i],
+		//    for (int i = 0; i < idProfile_in.Length; i++) {
+		//        DO_NET_Defaultprofile.delObject_byProfile(
+		//            idProfile_in[i],
 
-					null
-				);
-			}
-		}
+		//            null
+		//        );
+		//    }
+
+		//    errors_out = _errorlist.ToArray();
+		//    return;
+		//}
 		#endregion
 
 		#region public static SO_vNET_Profile[] getRecord_all(...);
@@ -198,6 +267,5 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			return _output;
 		}
 		#endregion
-
 	}
 }

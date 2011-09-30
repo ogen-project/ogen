@@ -27,15 +27,16 @@ using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
 using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
-	public partial class CRD_ProfilePermition : AdminPage {
+	public partial class WEB_Defaultprofile : AdminPage {
 		protected void Page_Load(object sender, EventArgs e) {
 			if (!Page.IsPostBack) {
+				#region cbl_Profile.Kick.Bind__arrayOf<long, string>(...);
 				int[] _errors;
 				SO_CRD_Profile[] _profiles
 					= BusinessInstances.CRD_Profile.InstanceClient.getRecord_all(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						false, 
+						false,
 						0, 0,
 						out _errors
 					);
@@ -49,88 +50,51 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							return arg1_in.Name.CompareTo(arg2_in.Name);
 						}
 					);
-					ddl_Profile.Kick.Bind__arrayOf<long, string>(
+					cbl_Profile.Kick.Bind__arrayOf<long, string>(
 						"",
 						false,
 						_profiles
 					);
-					if (ddl_Profile.Items.Count > 0) {
-						ddl_Profile.SelectedIndex = 0;
-					}
 
 					Bind();
 				}
+				#endregion
 			}
-		}
-
-		protected void ddl_Profile_SelectedIndexChanged(object sender, EventArgs e) {
-			Bind();
 		}
 		#region protected void btn_Profile_Click(object sender, EventArgs e);
-		protected void btn_Profile_Click(object sender, EventArgs e) {
+		protected void btn_Save_Click(object sender, EventArgs e) {
 			int[] _errors;
 
-			BusinessInstances.CRD_Profile.InstanceClient.updObject_relationsOnly(
+			BusinessInstances.WEB_DefaultProfile.InstanceClient.setObject(
 				utils.User.SessionGuid,
 				utils.ClientIPAddress,
-
-				long.Parse(ddl_Profile.SelectedValue),
-
-				cbl_Permitions.Kick.SelectedValue__get<long>(),
-				null, 
-
+				cbl_Profile.Kick.SelectedValue__get<long>(),
 				out _errors
 			);
-			if (!Master__base.Error_add(_errors)) {
+			if (Master__base.Error_add(_errors)) {
 				Bind();
 			}
-		} 
+		}
 		#endregion
-
 		#region public void Bind(...);
 		public void Bind() {
 			int[] _errors;
-			SO_CRD_Permition[] _permitions
-				= BusinessInstances.CRD_Permition.InstanceClient.getRecord_all(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
-					false, 
-					0, 0,
-					out _errors
-				);
-			if (!Master__base.Error_add(_errors)) {
-				Array.Sort(
-					_permitions,
-					delegate(
-						SO_CRD_Permition arg1_in,
-						SO_CRD_Permition arg2_in
-					) {
-						return arg1_in.Name.CompareTo(arg2_in.Name);
-					}
-				);
-				cbl_Permitions.Kick.Bind__arrayOf<long, string>(
-					"",
-					false,
-					_permitions
-				);
 
-				cbl_Permitions.Kick.SelectedValues__set_arrayOf<long, string, SO_vCRD_ProfilePermition>(
-					BusinessInstances.CRD_Profile.InstanceClient.getRecord_ofProfilePermition_byProfile(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
-						long.Parse(ddl_Profile.SelectedValue),
-						0, 0,
-						out _errors
-					),
+			SO_vNET_Profile[] _profiles = BusinessInstances.WEB_DefaultProfile.InstanceClient.getRecord_all(
+				utils.User.SessionGuid,
+				utils.ClientIPAddress,
+				0, 0,
+				out _errors
+			);
+			if (!Master__base.Error_add(_errors)) {
+				cbl_Profile.Kick.SelectedValues__set_arrayOf<long, string, SO_vNET_Profile>(
+					_profiles,
 					delegate(
-						SO_vCRD_ProfilePermition item_in
+						SO_vNET_Profile item_in
 					) {
-						return item_in.hasPermition;
+						return item_in.isDefaultprofile;
 					}
 				);
-				if (!Master__base.Error_add(_errors)) {
-					// ToDos: here!
-				}
 			}
 		}
 		#endregion

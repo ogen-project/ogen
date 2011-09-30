@@ -54,31 +54,6 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		}
 		#endregion
 
-		#region public void delObject(...);
-		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/delObject",
-			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			Use = System.Web.Services.Description.SoapBindingUse.Literal,
-			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
-		)]
-		public void delObject(
-			string sessionGuid_in, 
-			string ip_forLogPurposes_in, 
-			System.Int64[] idProfile_in, 
-			out System.Int32[] errors_out
-		) {
-			object[] results = this.Invoke(
-				"delObject", 
-				new object[] {
-					sessionGuid_in,
-					ip_forLogPurposes_in,
-					idProfile_in
-				}
-			);
-			errors_out = (System.Int32[])results[0];
-		}
-		#endregion
 		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[] getRecord_all(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
 			"http://OGen.NTier.Kick.distributedlayer.webservices.server/getRecord_all",
