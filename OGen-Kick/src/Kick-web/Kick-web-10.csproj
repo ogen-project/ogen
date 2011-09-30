@@ -43,7 +43,6 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="admin\CRD-ProfilePermition.aspx" />
     <Content Include="admin\CRD-User-list.aspx" />
     <Content Include="admin\CRD-User.aspx" />
     <Content Include="admin\CRD-Profile-list.aspx" />
@@ -87,13 +86,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="admin\CRD-ProfilePermition.aspx.cs">
-      <DependentUpon>CRD-ProfilePermition.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\CRD-ProfilePermition.aspx.designer.cs">
-      <DependentUpon>CRD-ProfilePermition.aspx</DependentUpon>
-    </Compile>
     <Compile Include="admin\CRD-User-list.aspx.cs">
       <DependentUpon>CRD-User-list.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

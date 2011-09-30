@@ -22,6 +22,24 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         protected global::System.Web.UI.WebControls.TextBox txt_Name;
         
         /// <summary>
+        /// cbl_ParentProfiles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList cbl_ParentProfiles;
+        
+        /// <summary>
+        /// cbl_Permitions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList cbl_Permitions;
+        
+        /// <summary>
         /// btn_Save control.
         /// </summary>
         /// <remarks>

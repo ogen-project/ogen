@@ -54,6 +54,61 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
 			if (!Page.IsPostBack) {
+				int[] _errors;
+
+				#region cbl_Permitions.Kick.Bind__arrayOf<long, string>(...);
+				SO_CRD_Permition[] _permitions
+					= BusinessInstances.CRD_Permition.InstanceClient.getRecord_all(
+						utils.User.SessionGuid,
+						utils.ClientIPAddress,
+						false,
+						0, 0,
+						out _errors
+					);
+				if (!Master__base.Error_add(_errors)) {
+					Array.Sort(
+						_permitions,
+						delegate(
+							SO_CRD_Permition arg1_in,
+							SO_CRD_Permition arg2_in
+						) {
+							return arg1_in.Name.CompareTo(arg2_in.Name);
+						}
+					);
+					cbl_Permitions.Kick.Bind__arrayOf<long, string>(
+						"",
+						false,
+						_permitions
+					);
+				}
+				#endregion
+				#region cbl_Permitions.Kick.Bind__arrayOf<long, string>(...);
+				SO_CRD_Profile[] _profiles
+					= BusinessInstances.CRD_Profile.InstanceClient.getRecord_all(
+						utils.User.SessionGuid,
+						utils.ClientIPAddress,
+						false,
+						0, 0,
+						out _errors
+					);
+				if (!Master__base.Error_add(_errors)) {
+					Array.Sort(
+						_profiles,
+						delegate(
+							SO_CRD_Profile arg1_in,
+							SO_CRD_Profile arg2_in
+						) {
+							return arg1_in.Name.CompareTo(arg2_in.Name);
+						}
+					);
+					cbl_ParentProfiles.Kick.Bind__arrayOf<long, string>(
+						"",
+						false,
+						_profiles
+					);
+				}
+				#endregion
+
 				Bind();
 			}
 		} 
@@ -61,10 +116,11 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		#region public void btn_Save_Click(object sender, EventArgs e);
 		public void btn_Save_Click(object sender, EventArgs e) {
+			bool _isInsert_notUpdate;
 			int[] _errors;
 			SO_CRD_Profile _profile;
 			if (
-				#region ((_author = ...) != null)
+				#region ((_profile = ...) != null)
 				(IDProfile > 0)
 				&&
 				(
@@ -88,11 +144,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					utils.ClientIPAddress,
 					_profile,
 
-null,
-null,
+					cbl_ParentProfiles.Kick.SelectedValue__get<long>(),
+					cbl_Permitions.Kick.SelectedValue__get<long>(),
 
 					out _errors
 				);
+
+				_isInsert_notUpdate = false;
 			} else {
 				_profile = new SO_CRD_Profile();
 				_profile.Name = txt_Name.Text;
@@ -102,17 +160,16 @@ null,
 					utils.ClientIPAddress,
 					_profile,
 
-null,
-null,
+					cbl_ParentProfiles.Kick.SelectedValue__get<long>(),
+					cbl_Permitions.Kick.SelectedValue__get<long>(),
 
 					out _errors
 				);
+
+				_isInsert_notUpdate = true;
 			}
-			if (!Master__base.Error_add(_errors)) {
-				Response.Redirect(
-					"NWS-NewsAuthor-list.aspx",
-					true
-				);
+			if (!Master__base.Error_add(_errors) && _isInsert_notUpdate) {
+				Response.Redirect("~/admin/CRD-Profile-list.aspx");
 			}
 		}
 		#endregion
@@ -122,7 +179,7 @@ null,
 			int[] _errors;
 			SO_CRD_Profile _profile;
 			if (
-				#region ((_author = ...) != null)
+				#region ((_profile = ...) != null)
 				(IDProfile > 0)
 				&&
 				(
@@ -140,6 +197,43 @@ null,
 				#endregion
 			) {
 				txt_Name.Text = _profile.Name;
+
+				#region cbl_Permitions.Kick.SelectedValues__set_arrayOf<long, string, SO_vCRD_ProfilePermition>(...);
+				cbl_Permitions.Kick.SelectedValues__set_arrayOf<long, string, SO_vCRD_ProfilePermition>(
+					BusinessInstances.CRD_Profile.InstanceClient.getRecord_ofProfilePermition_byProfile(
+						utils.User.SessionGuid,
+						utils.ClientIPAddress,
+						IDProfile,
+						0, 0,
+						out _errors
+					),
+					delegate(
+						SO_vCRD_ProfilePermition item_in
+					) {
+						return item_in.hasPermition;
+					}
+				);
+				Master__base.Error_add(_errors);
+				#endregion
+				#region cbl_ParentProfiles.Kick.SelectedValues__set_arrayOf<SO_CRD_ProfileProfile>(...);
+				if (!Master__base.Error_add(_errors)) {
+					cbl_ParentProfiles.Kick.SelectedValues__set_arrayOf<SO_CRD_ProfileProfile>(
+						BusinessInstances.CRD_Profile.InstanceClient.getRecord_byProfile(
+							utils.User.SessionGuid,
+							utils.ClientIPAddress,
+							IDProfile,
+							0, 0,
+							out _errors
+						), 
+						delegate(
+							SO_CRD_ProfileProfile item_in
+						) {
+							return item_in.IFProfile_parent.ToString();
+						}
+					);
+				}
+				Master__base.Error_add(_errors);
+				#endregion
 			} else {
 				txt_Name.Text = "";
 			}

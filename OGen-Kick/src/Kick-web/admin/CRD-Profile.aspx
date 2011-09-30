@@ -51,6 +51,36 @@
 								CssClass="textbox_dim4" />
 						</td>
 					</tr>
+
+					<tr>
+						<td align="right" class="label_small nowrap">
+							Parent Profiles:&nbsp;
+						</td>
+						<td>
+							<asol:KickCheckBoxList
+								ID="cbl_ParentProfiles" runat="server"
+
+								CssClass="checkboxlist nowrap"
+								AutoUpdateAfterCallBack="true"
+								EnableCallBack="false"
+								RepeatColumns="2" />
+						</td>
+					</tr>
+					<tr>
+						<td align="right" class="label_small nowrap">
+							Permitions:&nbsp;
+						</td>
+						<td>
+							<asol:KickCheckBoxList
+								ID="cbl_Permitions" runat="server"
+
+								CssClass="checkboxlist nowrap"
+								AutoUpdateAfterCallBack="true"
+								EnableCallBack="false"
+								RepeatColumns="2" />
+						</td>
+					</tr>
+
 					<tr>
 						<td></td>
 						<td align="right">

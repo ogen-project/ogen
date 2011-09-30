@@ -764,6 +764,61 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			return _output;
 		}
 		#endregion
+		#region public static SO_CRD_ProfileProfile[] getRecord_byProfile(...);
+		[BOMethodAttribute("getRecord_byProfile", true, false, 1)]
+		public static SO_CRD_ProfileProfile[] getRecord_byProfile(
+			string sessionGuid_in,
+			string ip_forLogPurposes_in,
+
+			long idProfile_in, 
+
+			int page_in,
+			int page_numRecords_in,
+
+			out int[] errors_out
+		) {
+			SO_CRD_ProfileProfile[] _output = null;
+			List<int> _errorlist;
+			Guid _sessionguid;
+			Sessionuser _sessionuser;
+
+			#region check...
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in,
+				ip_forLogPurposes_in,
+				out _sessionguid,
+				out _sessionuser,
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
+
+				return _output;
+			}
+			#endregion
+			#region check Permitions...
+			if (
+				!_sessionuser.hasPermition(PermitionType.Profile__select)
+			) {
+				_errorlist.Add(ErrorType.profile__lack_of_permitions_to_read);
+				errors_out = _errorlist.ToArray();
+				return _output;
+			}
+			#endregion
+
+			_output
+				= DO_CRD_ProfileProfile.getRecord_byProfile(
+					idProfile_in, 
+					page_in,
+					page_numRecords_in,
+					null
+				);
+
+			errors_out = _errorlist.ToArray();
+			return _output;
+		}
+		#endregion
 
 		#region public static void setUserProfiles(...);
 		[BOMethodAttribute("setUserProfiles", true, false, 1)]
