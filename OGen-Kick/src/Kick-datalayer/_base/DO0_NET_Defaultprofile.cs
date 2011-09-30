@@ -288,6 +288,161 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		#endregion
 		#endregion
 		#region Methods - Object Searches...
+		#region ???Object_byProfile...
+		#region public static SO_NET_Defaultprofile getObject_byProfile(...);
+		/// <summary>
+		/// Selects NET_Defaultprofile values from Database (based on the search condition) and assigns them to the appropriate DO0_NET_Defaultprofile property.
+		/// </summary>
+		/// <param name="IDProfile_search_in">IDProfile search condition</param>
+		/// <returns>null if NET_Defaultprofile doesn't exists at Database</returns>
+		public static SO_NET_Defaultprofile getObject_byProfile(
+			long IDProfile_search_in
+		) {
+			return getObject_byProfile(
+				IDProfile_search_in, 
+				null
+			);
+		}
+
+		/// <summary>
+		/// Selects NET_Defaultprofile values from Database (based on the search condition) and assigns them to the appropriate DO0_NET_Defaultprofile property.
+		/// </summary>
+		/// <param name="IDProfile_search_in">IDProfile search condition</param>
+		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
+		/// <returns>null if NET_Defaultprofile doesn't exists at Database</returns>
+		public static SO_NET_Defaultprofile getObject_byProfile(
+			long IDProfile_search_in, 
+			DBConnection dbConnection_in
+		) {
+			SO_NET_Defaultprofile _output = null;
+			DBConnection _connection = (dbConnection_in == null)
+				? DO__utils.DBConnection_createInstance(
+					DO__utils.DBServerType,
+					DO__utils.DBConnectionstring,
+					DO__utils.DBLogfile
+				) 
+				: dbConnection_in;
+			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
+				_connection.newDBDataParameter("IDProfile_search_", DbType.Int64, ParameterDirection.Input, IDProfile_search_in, 0), 
+				_connection.newDBDataParameter("IDDefaultprofile", DbType.Int64, ParameterDirection.Output, null, 0), 
+				_connection.newDBDataParameter("IFProfile", DbType.Int64, ParameterDirection.Output, null, 0)
+			};
+			_connection.Execute_SQLFunction(
+				"sp0_NET_Defaultprofile_getObject_byProfile", 
+				_dataparameters
+			);
+			if (dbConnection_in == null) { _connection.Dispose(); }
+
+			if (_dataparameters[1].Value != DBNull.Value) {
+				_output = new SO_NET_Defaultprofile();
+				if (_dataparameters[1].Value == System.DBNull.Value) {
+					_output.IDDefaultprofile = 0L;
+				} else {
+					_output.IDDefaultprofile = (long)_dataparameters[1].Value;
+				}
+				if (_dataparameters[2].Value == System.DBNull.Value) {
+					_output.IFProfile = 0L;
+				} else {
+					_output.IFProfile = (long)_dataparameters[2].Value;
+				}
+
+				return _output;
+			}
+
+			return null;
+		}
+		#endregion
+		#region public static bool delObject_byProfile(...);
+		/// <summary>
+		/// Deletes NET_Defaultprofile from Database (based on the search condition).
+		/// </summary>
+		/// <param name="IDProfile_search_in"> IDProfile search condition</param>
+		/// <returns>True if NET_Defaultprofile existed and was Deleted at Database, False if it didn't exist</returns>
+		public static bool delObject_byProfile(
+			long IDProfile_search_in
+		) {
+			return delObject_byProfile(
+				IDProfile_search_in, 
+				null
+			);
+		}
+
+		/// <summary>
+		/// Deletes NET_Defaultprofile from Database (based on the search condition).
+		/// </summary>
+		/// <param name="IDProfile_search_in"> IDProfile search condition</param>
+		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
+		/// <returns>True if NET_Defaultprofile existed and was Deleted at Database, False if it didn't exist</returns>
+		public static bool delObject_byProfile(
+			long IDProfile_search_in, 
+			DBConnection dbConnection_in
+		) {
+			DBConnection _connection = (dbConnection_in == null)
+				? DO__utils.DBConnection_createInstance(
+					DO__utils.DBServerType,
+					DO__utils.DBConnectionstring,
+					DO__utils.DBLogfile
+				) 
+				: dbConnection_in;
+			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
+				_connection.newDBDataParameter("IDProfile_search_", DbType.Int64, ParameterDirection.Input, IDProfile_search_in, 0), 
+
+				_connection.newDBDataParameter("Exists_", DbType.Boolean, ParameterDirection.Output, null, 1)
+			};
+			_connection.Execute_SQLFunction("sp0_NET_Defaultprofile_delObject_byProfile", _dataparameters);
+			if (dbConnection_in == null) { _connection.Dispose(); }
+
+			return ((bool)_dataparameters[1].Value);
+		}
+		#endregion
+		#region public static bool isObject_byProfile(...);
+		/// <summary>
+		/// Checks to see if NET_Defaultprofile exists at Database (based on the search condition).
+		/// </summary>
+		/// <param name="IDProfile_search_in">IDProfile search condition</param>
+		/// <returns>True if NET_Defaultprofile exists at Database, False if not</returns>
+		public static bool isObject_byProfile(
+			long IDProfile_search_in
+		) {
+			return isObject_byProfile(
+				IDProfile_search_in, 
+				null
+			);
+		}
+
+		/// <summary>
+		/// Checks to see if NET_Defaultprofile exists at Database (based on the search condition).
+		/// </summary>
+		/// <param name="IDProfile_search_in">IDProfile search condition</param>
+		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
+		/// <returns>True if NET_Defaultprofile exists at Database, False if not</returns>
+		public static bool isObject_byProfile(
+			long IDProfile_search_in, 
+			DBConnection dbConnection_in
+		) {
+			bool _output;
+			DBConnection _connection = (dbConnection_in == null)
+				? DO__utils.DBConnection_createInstance(
+					DO__utils.DBServerType,
+					DO__utils.DBConnectionstring,
+					DO__utils.DBLogfile
+				) 
+				: dbConnection_in;
+			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
+				_connection.newDBDataParameter("IDProfile_search_", DbType.Int64, ParameterDirection.Input, IDProfile_search_in, 0)
+			};
+			_output = (bool)_connection.Execute_SQLFunction(
+				"fnc0_NET_Defaultprofile_isObject_byProfile", 
+				_dataparameters, 
+				DbType.Boolean, 
+				0
+			);
+			if (dbConnection_in == null) { _connection.Dispose(); }
+
+			return _output;
+		}
+		#endregion
+		#endregion
 		#endregion
 		#region Methods - Object Updates...
 		#endregion

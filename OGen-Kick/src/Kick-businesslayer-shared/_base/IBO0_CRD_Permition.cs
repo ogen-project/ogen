@@ -26,20 +26,5 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			int page_numRecords_in, 
 			out System.Int32[] errors_out
 		);
-		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(
-			string sessionGuid_in, 
-			string ip_forLogPurposes_in, 
-			long IDProfile_search_in, 
-			int page_in, 
-			int page_numRecords_in, 
-			out System.Int32[] errors_out
-		);
-		void setProfilePermitions(
-			string sessionGuid_in, 
-			string ip_forLogPurposes_in, 
-			long idProfile_in, 
-			System.Int64[] idPermitions_in, 
-			out System.Int32[] errors_out
-		);
 	}
 }

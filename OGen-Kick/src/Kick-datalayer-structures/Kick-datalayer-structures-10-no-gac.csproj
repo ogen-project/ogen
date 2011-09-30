@@ -107,6 +107,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Compile Include="_base\SO0_vCRD_UserProfile.cs" />
     <Compile Include="_base\SO0_vDIC_ApplicationLanguage.cs" />
     <Compile Include="_base\SO0_vFOR_Message.cs" />
+    <Compile Include="_base\SO0_vNET_Profile.cs" />
     <Compile Include="_base\SO0_vNET_User.cs" />
     <Compile Include="_base\SO0_vNWS_Attachment.cs" />
     <Compile Include="_base\SO0_vNWS_Author.cs" />

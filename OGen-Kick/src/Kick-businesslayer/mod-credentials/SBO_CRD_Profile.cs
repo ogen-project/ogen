@@ -90,7 +90,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
-			ref SO_CRD_Profile profile_ref,
+			SO_CRD_Profile profile_in,
 
 			out Sessionuser sessionUser_out, 
 			out List<int> errorlist_out
@@ -126,16 +126,18 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return false;
 			}
 			#endregion
-			#region check Profile...
-			if (
-				(profile_ref.Name = profile_ref.Name.Trim())
-				==
-				""
-			) {
-				errorlist_out.Add(ErrorType.profile__invalid_name);
-				return false;
+			if (profile_in != null) {
+				#region check Profile...
+				if (
+					(profile_in.Name = profile_in.Name.Trim())
+					==
+					""
+				) {
+					errorlist_out.Add(ErrorType.profile__invalid_name);
+					return false;
+				}
+				#endregion
 			}
-			#endregion
 
 			return true;
 		} 
@@ -149,6 +151,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			SO_CRD_Profile profile_in, 
 
 			long[] idProfile_parent_in, 
+//			long[] idUser_in, 
+			long[] idPermition_in, 
 
 			out int[] errors_out
 		) {
@@ -161,7 +165,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				sessionGuid_in,
 				ip_forLogPurposes_in, 
 
-				ref profile_in,
+				profile_in,
 
 				out _sessionuser, 
 				out _errorlist
@@ -170,6 +174,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return _output;
 			} 
 			#endregion
+			if (profile_in == null) {
+				_errorlist.Add(ErrorType.data__not_found);
+				errors_out = _errorlist.ToArray();
+				return _output;
+			}
 
 
 			Exception _exception = null;
@@ -181,13 +190,37 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			);
 			#endregion
 			try {
-				_con.Open();
-				_con.Transaction.Begin();
+				if (
+					(
+						(idProfile_parent_in != null)
+						&&
+						(idProfile_parent_in.Length > 0)
+					)
+					||
+//					(
+//						(idUser_in != null)
+//						&&
+//						(idUser_in.Length > 0)
+//					)
+//					||
+					(
+						(idPermition_in != null)
+						&&
+						(idPermition_in.Length > 0)
+					)
+				) {
+					_con.Open();
+					_con.Transaction.Begin();
+				}
 
 
 				_output = DO_CRD_Profile.insObject(
 					profile_in,
-					(idProfile_parent_in != null) && (idProfile_parent_in.Length > 0),
+
+					// if connection is open that means I'm doing operations on other tables 
+					// and I will need the identity seed
+					_con.isOpen, 
+
 					_con
 				);
 				for (int i = 0; i < idProfile_parent_in.Length; i++) {
@@ -200,10 +233,34 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 						_con
 					);
 				}
+//				for (int i = 0; i < idUser_in.Length; i++) {
+//                    DO_CRD_UserProfile.setObject(
+//                        new SO_CRD_UserProfile(
+//                            _output,
+//                            idUser_in[i]
+//                        ),
+//                        true,
+//                        _con
+//                    );
+//                }
+				for (int i = 0; i < idPermition_in.Length; i++) {
+					DO_CRD_ProfilePermition.setObject(
+						new SO_CRD_ProfilePermition(
+							_output,
+							idPermition_in[i]
+						),
+						true,
+						_con
+					);
+				}
 
 
-				_errorlist.Add(ErrorType.user_profile__successfully_set__WARNING);
-				_con.Transaction.Commit();
+				#region _con.Transaction.Commit();
+				if (_con.Transaction.inTransaction) {
+					_con.Transaction.Commit();
+				}
+				#endregion
+				_errorlist.Add(ErrorType.profile__successfully_created__WARNING);
 			} catch (Exception _ex) {
 				#region _con.Transaction.Rollback();
 				if (
@@ -246,30 +303,48 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 
 
-			_errorlist.Add(ErrorType.profile__successfully_created__WARNING);
+			
 			errors_out = _errorlist.ToArray();
 			return _output;
 		} 
 		#endregion
+
 		#region public static void updObject(...);
-		[BOMethodAttribute("updObject", true, false, 1)]
-		public static void updObject(
+		#region private static void updobject(...);
+		private static void updobject(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
 			SO_CRD_Profile profile_in,
+			bool updateObject_in, 
 
+			long[] idProfile_parent_in,
+//			long[] idUser_in,
+			long[] idPermition_in,
+			
 			out int[] errors_out
 		) {
 			List<int> _errorlist;
 			Sessionuser _sessionuser;
+
+
+			// if (idProfile_parent_in == null) nothing is done on CRD_ProfileProfile
+			// if (idProfile_parent_in != null) {
+			//		if (idProfile_parent_in.length == 0) all relations are deleted
+			//		if (idProfile_parent_in.length != 0) {
+			//			all relations are deleted
+			//			and new ones are set
+			//		}
+			// }
+			// SAME WITH idUser_in and idPermition_in
+
 
 			#region check...
 			if (!check(
 				sessionGuid_in,
 				ip_forLogPurposes_in,
 
-				ref profile_in,
+				updateObject_in ? profile_in : null,
 				out _sessionuser, 
 
 				out _errorlist
@@ -278,16 +353,209 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return;
 			}
 			#endregion
+			#region check existence...
+			SO_CRD_Profile _profile = DO_CRD_Profile.getObject(profile_in.IDProfile);
+			if (_profile == null) {
+				_errorlist.Add(ErrorType.data__not_found);
+				errors_out = _errorlist.ToArray();
+				return;
+			}
+			#endregion
 
-			DO_CRD_Profile.updObject(
-				profile_in,
-				true,
+			profile_in.IFApplication = _profile.IFApplication;
 
-				null
+			Exception _exception = null;
+			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
+			DBConnection _con = DO__utils.DBConnection_createInstance(
+				DO__utils.DBServerType,
+				DO__utils.DBConnectionstring,
+				DO__utils.DBLogfile
 			);
-			_errorlist.Add(ErrorType.profile__successfully_updated__WARNING);
+			#endregion
+			try {
+				if (
+					(idProfile_parent_in != null)
+					||
+//					(idUser_in != null)
+//					||
+					(idPermition_in != null)
+				) {
+					_con.Open();
+					_con.Transaction.Begin();
+				}
+
+
+				DO_CRD_Profile.updObject(
+					profile_in,
+					true,
+
+					_con
+				);
+
+				if (idProfile_parent_in != null) {
+					DO_CRD_ProfileProfile.delRecord_byProfile(
+						profile_in.IDProfile,
+						_con
+					);
+
+					for (int i = 0; i < idProfile_parent_in.Length; i++) {
+						DO_CRD_ProfileProfile.setObject(
+							new SO_CRD_ProfileProfile(
+								profile_in.IDProfile,
+								idProfile_parent_in[i]
+							),
+							true,
+							_con
+						);
+					}
+				}
+//				if (idUser_in != null) {
+//                    DO_CRD_UserProfile.delRecord_byProfile(
+//                        profile_in.IDProfile,
+//                        _con
+//                    );
+
+//                    for (int i = 0; i < idUser_in.Length; i++) {
+//                        DO_CRD_UserProfile.setObject(
+//                            new SO_CRD_UserProfile(
+//                                idUser_in[i], 
+//                                profile_in.IDProfile
+//                            ),
+//                            true,
+//                            _con
+//                        );
+//                    }
+//                }
+				if (idPermition_in != null) {
+					DO_CRD_ProfilePermition.delRecord_byProfile(
+						profile_in.IDProfile,
+						_con
+					);
+
+					for (int i = 0; i < idPermition_in.Length; i++) {
+						DO_CRD_ProfilePermition.setObject(
+							new SO_CRD_ProfilePermition(
+								profile_in.IDProfile,
+								idPermition_in[i]
+							),
+							true,
+							_con
+						);
+					}
+				}
+
+
+				#region _con.Transaction.Commit();
+				if (_con.Transaction.inTransaction) {
+					_con.Transaction.Commit();
+				}
+				#endregion
+				_errorlist.Add(ErrorType.profile__successfully_updated__WARNING);
+			} catch (Exception _ex) {
+				#region _con.Transaction.Rollback();
+				if (
+					_con.isOpen
+					&&
+					_con.Transaction.inTransaction
+				) {
+					_con.Transaction.Rollback();
+				}
+				#endregion
+
+				_exception = _ex;
+			} finally {
+				#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
+				if (_con.isOpen) {
+					if (_con.Transaction.inTransaction) {
+						_con.Transaction.Terminate();
+					}
+					_con.Close();
+				}
+
+				_con.Dispose();
+				#endregion
+			}
+			if (_exception != null) {
+				#region SBO_LOG_Log.log(ErrorType.data);
+				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+					_sessionuser,
+					LogType.error,
+					ErrorType.data,
+					-1L,
+					_sessionuser.IDApplication,
+					"{0}",
+					new string[] {
+						_exception.Message
+					}
+				);
+				#endregion
+				_errorlist.Add(ErrorType.data);
+			}
+
 
 			errors_out = _errorlist.ToArray();
+		}
+		#endregion
+
+		[BOMethodAttribute("updObject", true, false, 1)]
+		public static void updObject(
+			string sessionGuid_in,
+			string ip_forLogPurposes_in, 
+
+			SO_CRD_Profile profile_in,
+
+			long[] idProfile_parent_in,
+//			long[] idUser_in,
+			long[] idPermition_in,
+			
+			out int[] errors_out
+		) {
+			updobject(
+				sessionGuid_in,
+				ip_forLogPurposes_in, 
+
+				profile_in,
+				true, 
+
+				idProfile_parent_in,
+//				idUser_in,
+				idPermition_in,
+			
+				out errors_out
+			);
+		}
+		#endregion
+		#region public static void updObject_relationsOnly(...);
+		[BOMethodAttribute("updObject_relationsOnly", true, false, 1)]
+		public static void updObject_relationsOnly(
+			string sessionGuid_in,
+			string ip_forLogPurposes_in,
+
+			long idProfile_in,
+
+			long[] idProfile_parent_in,
+//			long[] idUser_in,
+			long[] idPermition_in,
+
+			out int[] errors_out
+		) {
+			updobject(
+				sessionGuid_in,
+				ip_forLogPurposes_in,
+
+				new SO_CRD_Profile(
+					idProfile_in, 
+					"", 
+					-1
+				),
+				false,
+
+				idProfile_parent_in,
+//				idUser_in,
+				idPermition_in,
+
+				out errors_out
+			);
 		}
 		#endregion
 
@@ -344,7 +612,14 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				_con.Open();
 				_con.Transaction.Begin();
 
-				DO_CRD_Profile.delObject(
+#if MOD_WEB
+				DO_NET_Defaultprofile.delObject_byProfile(
+					idProfile_in,
+
+					_con
+				);
+#endif
+				DO_CRD_ProfileProfile.delRecord_byProfile(
 					idProfile_in,
 
 					_con
@@ -355,6 +630,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					_con
 				);
 				DO_CRD_UserProfile.delRecord_byProfile(
+					idProfile_in,
+
+					_con
+				);
+				DO_CRD_Profile.delObject(
 					idProfile_in,
 
 					_con
@@ -583,7 +863,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 		#endregion
 
-		#region public static SO_vCRD_ProfilePermition[] getRecord_ofUserProfile_byUser(...);
+		#region public static SO_vCRD_UserProfile[] getRecord_ofUserProfile_byUser(...);
 		[BOMethodAttribute("getRecord_ofUserProfile_byUser", true, false, 1)]
 		public static SO_vCRD_UserProfile[] getRecord_ofUserProfile_byUser(
 			string sessionGuid_in,
@@ -637,6 +917,59 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			errors_out = _errorlist.ToArray();
 			return _output;
 		}
+		#endregion
+		#region public static SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(...);
+		[BOMethodAttribute("getRecord_ofProfilePermition_byProfile", true, false, 1)]
+		public static SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(
+			string sessionGuid_in,
+			string ip_forLogPurposes_in, 
+
+			long IDProfile_search_in,
+			int page_in,
+			int page_numRecords_in,
+
+			out int[] errors_out
+		) {
+			SO_vCRD_ProfilePermition[] _output = null;
+			List<int> _errorlist;
+			Guid _sessionguid;
+			Sessionuser _sessionuser;
+
+			#region check...
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in,
+				ip_forLogPurposes_in, 
+				out _sessionguid,
+				out _sessionuser,
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
+
+				return _output;
+			}
+			#endregion
+			#region check Admin . . .
+			if (
+				!_sessionuser.hasPermition(PermitionType.Profile__select)
+			) {
+				_errorlist.Add(ErrorType.profile__lack_of_permitions_to_read);
+				errors_out = _errorlist.ToArray();
+				return _output;
+			}
+			#endregion
+
+			_output
+				= DO_vCRD_ProfilePermition.getRecord_byProfile(
+					IDProfile_search_in,
+					page_in,
+					page_numRecords_in
+				);
+
+			errors_out = _errorlist.ToArray();
+			return _output;
+		} 
 		#endregion
 	}
 }

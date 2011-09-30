@@ -306,6 +306,221 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		}
 		#endregion
 
+		#region ???_byProfile...
+		#region public static SO_CRD_ProfileProfile[] getRecord_byProfile(...);
+		/// <summary>
+		/// Gets Record, based on 'byProfile' search. It selects CRD_ProfileProfile values from Database based on the 'byProfile' search.
+		/// </summary>
+		/// <param name="IFProfile_search_in">IFProfile search condition</param>
+		/// <param name="page_in">page number</param>
+		/// <param name="page_numRecords_in">number of records per page</param>
+		public static SO_CRD_ProfileProfile[] getRecord_byProfile(
+			long IFProfile_search_in, 
+			int page_in, 
+			int page_numRecords_in
+		) {
+			return getRecord_byProfile(
+				IFProfile_search_in, 
+				page_in, 
+				page_numRecords_in, 
+				null
+			);
+		}
+
+		/// <summary>
+		/// Gets Record, based on 'byProfile' search. It selects CRD_ProfileProfile values from Database based on the 'byProfile' search.
+		/// </summary>
+		/// <param name="IFProfile_search_in">IFProfile search condition</param>
+		/// <param name="page_in">page number</param>
+		/// <param name="page_numRecords_in">number of records per page</param>
+		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
+		public static SO_CRD_ProfileProfile[] getRecord_byProfile(
+			long IFProfile_search_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			DBConnection dbConnection_in
+		) {
+			SO_CRD_ProfileProfile[] _output;
+
+			DBConnection _connection = (dbConnection_in == null)
+				? DO__utils.DBConnection_createInstance(
+					DO__utils.DBServerType,
+					DO__utils.DBConnectionstring,
+					DO__utils.DBLogfile
+				) 
+				: dbConnection_in;
+			IDbDataParameter[] _dataparameters = 
+				((page_in > 0) && (page_numRecords_in > 0))
+					? new IDbDataParameter[] {
+						_connection.newDBDataParameter("IFProfile_search_", DbType.Int64, ParameterDirection.Input, IFProfile_search_in, 0), 
+						_connection.newDBDataParameter("page_", DbType.Int32, ParameterDirection.Input, page_in, 0), 
+						_connection.newDBDataParameter("page_numRecords_", DbType.Int32, ParameterDirection.Input, page_numRecords_in, 0)
+					}
+					: new IDbDataParameter[] {
+						_connection.newDBDataParameter("IFProfile_search_", DbType.Int64, ParameterDirection.Input, IFProfile_search_in, 0)
+					}
+				;
+			_output = getRecord(
+				_connection.Execute_SQLFunction_returnDataTable(
+					((page_in > 0) && (page_numRecords_in > 0))
+						? "sp0_CRD_ProfileProfile_Record_open_byProfile_page_fullmode"
+						: "sp0_CRD_ProfileProfile_Record_open_byProfile_fullmode", 
+					_dataparameters
+				)
+			);
+			if (dbConnection_in == null) { _connection.Dispose(); }
+
+			return _output;			
+		}
+		#endregion
+		#region public static bool isObject_inRecord_byProfile(...);
+		/// <summary>
+		/// It selects CRD_ProfileProfile values from Database based on the 'byProfile' search and checks to see if CRD_ProfileProfile Keys(passed as parameters) are met.
+		/// </summary>
+		/// <param name="IFProfile_in">CRD_ProfileProfile's IFProfile Key used for checking</param>
+		/// <param name="IFProfile_parent_in">CRD_ProfileProfile's IFProfile_parent Key used for checking</param>
+		/// <param name="IFProfile_search_in">IFProfile search condition</param>
+		/// <returns>True if CRD_ProfileProfile Keys are met in the 'byProfile' search, False if not</returns>
+		public static bool isObject_inRecord_byProfile(
+			long IFProfile_in, 
+			long IFProfile_parent_in, 
+			long IFProfile_search_in
+		) {
+			return isObject_inRecord_byProfile(
+				IFProfile_in, 
+				IFProfile_parent_in, IFProfile_search_in, 
+				null
+			);
+		}
+
+		/// <summary>
+		/// It selects CRD_ProfileProfile values from Database based on the 'byProfile' search and checks to see if CRD_ProfileProfile Keys(passed as parameters) are met.
+		/// </summary>
+		/// <param name="IFProfile_in">CRD_ProfileProfile's IFProfile Key used for checking</param>
+		/// <param name="IFProfile_parent_in">CRD_ProfileProfile's IFProfile_parent Key used for checking</param>
+		/// <param name="IFProfile_search_in">IFProfile search condition</param>
+		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
+		/// <returns>True if CRD_ProfileProfile Keys are met in the 'byProfile' search, False if not</returns>
+		public static bool isObject_inRecord_byProfile(
+			long IFProfile_in, 
+			long IFProfile_parent_in, 
+			long IFProfile_search_in, 
+			DBConnection dbConnection_in
+		) {
+			bool _output;
+
+			DBConnection _connection = (dbConnection_in == null)
+				? DO__utils.DBConnection_createInstance(
+					DO__utils.DBServerType,
+					DO__utils.DBConnectionstring,
+					DO__utils.DBLogfile
+				) 
+				: dbConnection_in;
+			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
+				_connection.newDBDataParameter("IFProfile_", DbType.Int64, ParameterDirection.Input, IFProfile_in, 0), 
+				_connection.newDBDataParameter("IFProfile_parent_", DbType.Int64, ParameterDirection.Input, IFProfile_parent_in, 0), 
+				_connection.newDBDataParameter("IFProfile_search_", DbType.Int64, ParameterDirection.Input, IFProfile_search_in, 0)
+			};
+			_output = (bool)_connection.Execute_SQLFunction(
+				"fnc0_CRD_ProfileProfile_Record_hasObject_byProfile", 
+				_dataparameters, 
+				DbType.Boolean,
+				0
+			);
+			if (dbConnection_in == null) { _connection.Dispose(); }
+
+			return _output;
+		}
+		#endregion
+		#region public static long getCount_inRecord_byProfile(...);
+		/// <summary>
+		/// Count's number of search results from CRD_ProfileProfile at Database based on the 'byProfile' search.
+		/// </summary>
+		/// <param name="IFProfile_search_in">IFProfile search condition</param>
+		/// <returns>number of existing Records for the 'byProfile' search</returns>
+		public static long getCount_inRecord_byProfile(
+			long IFProfile_search_in
+		) {
+			return getCount_inRecord_byProfile(
+				IFProfile_search_in, 
+				null
+			);
+		}
+
+		/// <summary>
+		/// Count's number of search results from CRD_ProfileProfile at Database based on the 'byProfile' search.
+		/// </summary>
+		/// <param name="IFProfile_search_in">IFProfile search condition</param>
+		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
+		/// <returns>number of existing Records for the 'byProfile' search</returns>
+		public static long getCount_inRecord_byProfile(
+			long IFProfile_search_in, 
+			DBConnection dbConnection_in
+		) {
+			long _output;
+
+			DBConnection _connection = (dbConnection_in == null)
+				? DO__utils.DBConnection_createInstance(
+					DO__utils.DBServerType,
+					DO__utils.DBConnectionstring,
+					DO__utils.DBLogfile
+				) 
+				: dbConnection_in;
+			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
+				_connection.newDBDataParameter("IFProfile_search_", DbType.Int64, ParameterDirection.Input, IFProfile_search_in, 0)
+			};
+			_output = (long)_connection.Execute_SQLFunction(
+				"fnc0_CRD_ProfileProfile_Record_count_byProfile", 
+				_dataparameters, 
+				DbType.Int64,
+				0
+			);
+			if (dbConnection_in == null) { _connection.Dispose(); }
+
+			return _output;
+		}
+		#endregion
+		#region public static void delRecord_byProfile(...);
+		/// <summary>
+		/// Deletes CRD_ProfileProfile values from Database based on the 'byProfile' search.
+		/// </summary>
+		/// <param name="IFProfile_search_in">IFProfile search condition</param>
+		public static void delRecord_byProfile(
+			long IFProfile_search_in
+		) {
+			delRecord_byProfile(
+				IFProfile_search_in, 
+				null
+			);
+		}
+
+		/// <summary>
+		/// Deletes CRD_ProfileProfile values from Database based on the 'byProfile' search.
+		/// </summary>
+		/// <param name="IFProfile_search_in">IFProfile search condition</param>
+		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
+		public static void delRecord_byProfile(
+			long IFProfile_search_in, 
+			DBConnection dbConnection_in
+		) {
+			DBConnection _connection = (dbConnection_in == null)
+				? DO__utils.DBConnection_createInstance(
+					DO__utils.DBServerType,
+					DO__utils.DBConnectionstring,
+					DO__utils.DBLogfile
+				) 
+				: dbConnection_in;
+			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
+				_connection.newDBDataParameter("IFProfile_search_", DbType.Int64, ParameterDirection.Input, IFProfile_search_in, 0)
+			};
+			_connection.Execute_SQLFunction(
+				"sp0_CRD_ProfileProfile_Record_delete_byProfile", 
+				_dataparameters
+			);
+			if (dbConnection_in == null) { _connection.Dispose(); }
+		}
+		#endregion
+		#endregion
 		#endregion
 	}
 }

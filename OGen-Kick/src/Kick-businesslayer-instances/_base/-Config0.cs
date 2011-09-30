@@ -34,6 +34,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared.instances.utils {
 			NWS_Profile.ReConfig();
 			NWS_Source.ReConfig();
 			NWS_Tag.ReConfig();
+			WEB_DefaultProfile.ReConfig();
 			WEB_User.ReConfig();
 		}
 	}

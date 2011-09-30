@@ -1,5 +1,4 @@
-#region Copyright (C) 2002 Francisco Monteiro
-/*
+<%--
 
 OGen
 Copyright (c) 2002 Francisco Monteiro
@@ -10,33 +9,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-*/
-#endregion
-using System;
-
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-
-namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
-	/// <summary>
-	/// CRD_Permition remoting server.
-	/// </summary>
-	public class RS_CRD_Permition : 
-		MarshalByRefObject, 
-		IBO_CRD_Permition 
-	{
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[] getRecord_all(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[] getRecord_all(
-			string sessionGuid_in, 
-			string ip_forLogPurposes_in, 
-			bool allProfiles_notJustApplication_in, 
-			int page_in, 
-			int page_numRecords_in, 
-			out System.Int32[] errors_out
-		) {
-			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
-		}
-		#endregion
-	}
-}
+--%><%@ WebService 
+	Language="C#" 
+	CodeBehind="WS_WEB_DefaultProfile.asmx.cs" 
+	Class="OGen.NTier.Kick.distributedlayer.webservices.server.WS_WEB_DefaultProfile" %>

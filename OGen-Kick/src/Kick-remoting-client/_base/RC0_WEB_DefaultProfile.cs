@@ -13,37 +13,78 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
+using System.Runtime.Remoting;
 
 using OGen.NTier.Kick.lib.datalayer.shared.structures;
 using OGen.NTier.Kick.lib.businesslayer;
 using OGen.NTier.Kick.lib.businesslayer.shared;
 using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
-namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
+namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 	/// <summary>
-	/// CRD_Permition remoting server.
+	/// WEB_DefaultProfile remoting client.
 	/// </summary>
-	public class RS_CRD_Permition : 
-		MarshalByRefObject, 
-		IBO_CRD_Permition 
+	public class RC_WEB_DefaultProfile : 
+		IBO_WEB_DefaultProfile 
 	{
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[] getRecord_all(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[] getRecord_all(
+		static RC_WEB_DefaultProfile() {
+			ReConfig();
+		}
+
+		#region private Fields...
+		private static IBO_WEB_DefaultProfile bo_;
+		#endregion
+		#region public static void ReConfig();
+		public static void ReConfig() {
+			utils.Config.ReConfig();
+
+			bo_ = new OGen.NTier.Kick.lib.distributedlayer.remoting.server.RS_WEB_DefaultProfile();
+		}
+		#endregion
+
+		#region public void delObject(...);
+		public void delObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			bool allProfiles_notJustApplication_in, 
+			System.Int64[] idProfile_in, 
+			out System.Int32[] errors_out
+		) {
+			bo_.delObject(
+				sessionGuid_in, 
+				ip_forLogPurposes_in, 
+				idProfile_in, 
+				out errors_out
+			);
+		}
+		#endregion
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[] getRecord_all(...);
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[] getRecord_all(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
 			int page_in, 
 			int page_numRecords_in, 
 			out System.Int32[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Permition.getRecord_all(
+			return bo_.getRecord_all(
 				sessionGuid_in, 
-				(utils.ResetClientIP)
-					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
-					: ip_forLogPurposes_in, 
-				allProfiles_notJustApplication_in, 
+				ip_forLogPurposes_in, 
 				page_in, 
 				page_numRecords_in, 
+				out errors_out
+			);
+		}
+		#endregion
+		#region public void setObject(...);
+		public void setObject(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			System.Int64[] idProfile_in, 
+			out System.Int32[] errors_out
+		) {
+			bo_.setObject(
+				sessionGuid_in, 
+				ip_forLogPurposes_in, 
+				idProfile_in, 
 				out errors_out
 			);
 		}

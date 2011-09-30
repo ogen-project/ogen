@@ -70,11 +70,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		protected void btn_Profile_Click(object sender, EventArgs e) {
 			int[] _errors;
 
-			BusinessInstances.CRD_Permition.InstanceClient.setProfilePermitions(
+			BusinessInstances.CRD_Profile.InstanceClient.updObject_relationsOnly(
 				utils.User.SessionGuid,
 				utils.ClientIPAddress,
 				long.Parse(ddl_Profile.SelectedValue),
-				cbl_Permitions.Kick.SelectedValue__get<long>(), 
+				cbl_Permitions.Kick.SelectedValue__get<long>(),
+				null, 
 				out _errors
 			);
 			if (!Master__base.Error_add(_errors)) {
@@ -111,7 +112,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				);
 
 				cbl_Permitions.Kick.SelectedValues__set_arrayOf<long, string, SO_vCRD_ProfilePermition>(
-					BusinessInstances.CRD_Permition.InstanceClient.getRecord_ofProfilePermition_byProfile(
+					BusinessInstances.CRD_Profile.InstanceClient.getRecord_ofProfilePermition_byProfile(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
 						long.Parse(ddl_Profile.SelectedValue),

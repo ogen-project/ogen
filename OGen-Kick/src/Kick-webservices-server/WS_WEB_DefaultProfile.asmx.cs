@@ -13,30 +13,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
+using System.Web;
+using System.Web.Services;
 
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-
-namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
+namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 	/// <summary>
-	/// CRD_Permition remoting server.
+	/// WEB_DefaultProfile web service.
 	/// </summary>
-	public class RS_CRD_Permition : 
-		MarshalByRefObject, 
-		IBO_CRD_Permition 
-	{
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[] getRecord_all(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[] getRecord_all(
-			string sessionGuid_in, 
-			string ip_forLogPurposes_in, 
-			bool allProfiles_notJustApplication_in, 
-			int page_in, 
-			int page_numRecords_in, 
-			out System.Int32[] errors_out
-		) {
-			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
-		}
-		#endregion
+	[WebService(Namespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server")]
+	#if !NET_1_1
+	[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+	[System.ComponentModel.ToolboxItem(false)]
+	#endif
+	public class WS_WEB_DefaultProfile : WS0_WEB_DefaultProfile {
+
 	}
 }

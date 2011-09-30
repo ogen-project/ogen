@@ -257,6 +257,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				<tableField name="IFProfile_parent" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
 			<tableSearches>
+				<tableSearch name="byProfile" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="CRD_ProfileProfile" tableFieldName="IFProfile" paramName="IFProfile" />
+					</tableSearchParameters>
+				</tableSearch>
 <!--
 				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
@@ -757,6 +762,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				<tableSearch name="all" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
 						<tableFieldRef tableName="NET_User" tableFieldName="IFApplication" paramName="IDApplication" />
+					</tableSearchParameters>
+				</tableSearch>
+				<tableSearch name="byProfile" isRange="false" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="NET_Defaultprofile" tableFieldName="IFProfile" paramName="IDProfile" />
 					</tableSearchParameters>
 				</tableSearch>
 <!--
@@ -1584,6 +1594,46 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				<tableUpdate name="SomeUpdateTest">
 					<tableUpdateParameters>
 						<tableFieldRef tableName="vFOR_Message" tableFieldName="IDMessage" paramName="IDMessage" />
+					</tableUpdateParameters>
+				</tableUpdate>
+-->
+			</tableUpdates>
+		</table>
+		<table name="vNET_Profile" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
+			<tableFields>
+				<tableField name="IDProfile" isViewPK="true" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="Name" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IFApplication" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="isDefaultprofile" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+			</tableFields>
+			<tableSearches>
+				<tableSearch name="all" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="vNET_Profile" tableFieldName="IFApplication" paramName="IDApplication" />
+					</tableSearchParameters>
+				</tableSearch>
+<!--
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="vNET_Profile" tableFieldName="IDProfile" paramName="IDProfile" />
+						<tableFieldRef tableName="vNET_Profile" tableFieldName="IDProfile" paramName="IDProfile" />
+					</tableSearchParameters>
+					<tableSearchUpdates>
+						<tableSearchUpdate name="SomeUpdateTest">
+							<tableSearchUpdateParameters>
+								<tableFieldRef tableName="vNET_Profile" tableFieldName="IDProfile" paramName="IDProfile" />
+								<tableFieldRef tableName="vNET_Profile" tableFieldName="IDProfile" paramName="IDProfile" />
+							</tableSearchUpdateParameters>
+						</tableSearchUpdate>
+					</tableSearchUpdates>
+				</tableSearch>
+-->
+			</tableSearches>
+			<tableUpdates>
+<!--
+				<tableUpdate name="SomeUpdateTest">
+					<tableUpdateParameters>
+						<tableFieldRef tableName="vNET_Profile" tableFieldName="IDProfile" paramName="IDProfile" />
 					</tableUpdateParameters>
 				</tableUpdate>
 -->

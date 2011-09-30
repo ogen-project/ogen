@@ -40,41 +40,5 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(
-			string sessionGuid_in, 
-			string ip_forLogPurposes_in, 
-			long IDProfile_search_in, 
-			int page_in, 
-			int page_numRecords_in, 
-			out System.Int32[] errors_out
-		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Permition.getRecord_ofProfilePermition_byProfile(
-				sessionGuid_in, 
-				ip_forLogPurposes_in, 
-				IDProfile_search_in, 
-				page_in, 
-				page_numRecords_in, 
-				out errors_out
-			);
-		}
-		#endregion
-		#region public void setProfilePermitions(...);
-		public void setProfilePermitions(
-			string sessionGuid_in, 
-			string ip_forLogPurposes_in, 
-			long idProfile_in, 
-			System.Int64[] idPermitions_in, 
-			out System.Int32[] errors_out
-		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Permition.setProfilePermitions(
-				sessionGuid_in, 
-				ip_forLogPurposes_in, 
-				idProfile_in, 
-				idPermitions_in, 
-				out errors_out
-			);
-		}
-		#endregion
 	}
 }

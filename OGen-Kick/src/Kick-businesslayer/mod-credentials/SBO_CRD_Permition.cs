@@ -33,6 +33,30 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 	[BOClassAttribute("BO_CRD_Permition", "")]
 	public static class SBO_CRD_Permition {
 
+		public static SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(
+			string sessionGuid_in,
+			string ip_forLogPurposes_in,
+
+			long IDProfile_search_in,
+			int page_in,
+			int page_numRecords_in,
+
+			out int[] errors_out
+		) {
+			throw new NotImplementedException();
+		}
+		public static void setProfilePermitions(
+			string sessionGuid_in,
+			string ip_forLogPurposes_in, 
+
+			long idProfile_in,
+			long[] idPermitions_in,
+
+			out int[] errors_out
+		) {
+			throw new NotImplementedException();
+		}
+
 		#region public static SO_CRD_Permition[] getRecord_all(...);
 		[BOMethodAttribute("getRecord_all", true, false, 1)]
 		public static SO_CRD_Permition[] getRecord_all(
@@ -91,176 +115,177 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 		#endregion
 
-		#region public static void setProfilePermitions(...);
-		[BOMethodAttribute("setProfilePermitions", true, false, 1)]
-		public static void setProfilePermitions(
-			string sessionGuid_in,
-			string ip_forLogPurposes_in, 
+		#region //public static void setProfilePermitions(...);
+		//[Obsolete("Use SBO_CRD_Profile.updObject() instead")]
+		//[BOMethodAttribute("setProfilePermitions", true, false, 1)]
+		//public static void setProfilePermitions(
+		//    string sessionGuid_in,
+		//    string ip_forLogPurposes_in, 
 
-			long idProfile_in,
-			long[] idPermitions_in,
+		//    long idProfile_in,
+		//    long[] idPermitions_in,
 
-			out int[] errors_out
-		) {
-			List<int> _errorlist;
-			Guid _sessionguid;
-			Sessionuser _sessionuser;
+		//    out int[] errors_out
+		//) {
+		//    List<int> _errorlist;
+		//    Guid _sessionguid;
+		//    Sessionuser _sessionuser;
 
-			#region check...
-			if (!SBO_CRD_Authentication.isSessionGuid_valid(
-				sessionGuid_in,
-				ip_forLogPurposes_in, 
-				out _sessionguid,
-				out _sessionuser,
-				out _errorlist,
-				out errors_out
-			)) {
-				//// no need!
-				//errors_out = _errors.ToArray();
+		//    #region check...
+		//    if (!SBO_CRD_Authentication.isSessionGuid_valid(
+		//        sessionGuid_in,
+		//        ip_forLogPurposes_in, 
+		//        out _sessionguid,
+		//        out _sessionuser,
+		//        out _errorlist,
+		//        out errors_out
+		//    )) {
+		//        //// no need!
+		//        //errors_out = _errors.ToArray();
 
-				return;
-			}
-			#endregion
-			#region check permitions . . .
-			if (
-				!_sessionuser.hasPermition(PermitionType.Profile__insert)
-				&&
-				!_sessionuser.hasPermition(PermitionType.Profile__update)
-			) {
-				_errorlist.Add(ErrorType.lack_of_permitions);
-				errors_out = _errorlist.ToArray();
-				return;
-			}
-			#endregion
+		//        return;
+		//    }
+		//    #endregion
+		//    #region check permitions . . .
+		//    if (
+		//        !_sessionuser.hasPermition(PermitionType.Profile__insert)
+		//        &&
+		//        !_sessionuser.hasPermition(PermitionType.Profile__update)
+		//    ) {
+		//        _errorlist.Add(ErrorType.lack_of_permitions);
+		//        errors_out = _errorlist.ToArray();
+		//        return;
+		//    }
+		//    #endregion
 
-			Exception _exception = null;
-			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
-			DBConnection _con = DO__utils.DBConnection_createInstance(
-				DO__utils.DBServerType,
-				DO__utils.DBConnectionstring,
-				DO__utils.DBLogfile
-			);
-			#endregion
-			try {
-				_con.Open();
-				_con.Transaction.Begin();
+		//    Exception _exception = null;
+		//    #region DBConnection _con = DO__utils.DBConnection_createInstance(...);
+		//    DBConnection _con = DO__utils.DBConnection_createInstance(
+		//        DO__utils.DBServerType,
+		//        DO__utils.DBConnectionstring,
+		//        DO__utils.DBLogfile
+		//    );
+		//    #endregion
+		//    try {
+		//        _con.Open();
+		//        _con.Transaction.Begin();
 
-				DO_CRD_ProfilePermition.delRecord_byProfile(
-					idProfile_in,
+		//        DO_CRD_ProfilePermition.delRecord_byProfile(
+		//            idProfile_in,
 
-					_con
-				);
-				foreach (long _idpermition in idPermitions_in) {
-					DO_CRD_ProfilePermition.setObject(
-						new SO_CRD_ProfilePermition(
-							idProfile_in,
-							_idpermition
-						),
-						true,
+		//            _con
+		//        );
+		//        foreach (long _idpermition in idPermitions_in) {
+		//            DO_CRD_ProfilePermition.setObject(
+		//                new SO_CRD_ProfilePermition(
+		//                    idProfile_in,
+		//                    _idpermition
+		//                ),
+		//                true,
 
-						_con
-					);
-				}
+		//                _con
+		//            );
+		//        }
 
-				_errorlist.Add(ErrorType.profile_permition__successfully_set__WARNING);
-				_con.Transaction.Commit();
-			} catch (Exception _ex) {
-				#region _con.Transaction.Rollback();
-				if (
-					_con.isOpen
-					&&
-					_con.Transaction.inTransaction
-				) {
-					_con.Transaction.Rollback();
-				}
-				#endregion
+		//        _errorlist.Add(ErrorType.profile_permition__successfully_set__WARNING);
+		//        _con.Transaction.Commit();
+		//    } catch (Exception _ex) {
+		//        #region _con.Transaction.Rollback();
+		//        if (
+		//            _con.isOpen
+		//            &&
+		//            _con.Transaction.inTransaction
+		//        ) {
+		//            _con.Transaction.Rollback();
+		//        }
+		//        #endregion
 
-				_exception = _ex;
-			} finally {
-				#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
-				if (_con.isOpen) {
-					if (_con.Transaction.inTransaction) {
-						_con.Transaction.Terminate();
-					}
-					_con.Close();
-				}
+		//        _exception = _ex;
+		//    } finally {
+		//        #region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
+		//        if (_con.isOpen) {
+		//            if (_con.Transaction.inTransaction) {
+		//                _con.Transaction.Terminate();
+		//            }
+		//            _con.Close();
+		//        }
 
-				_con.Dispose();
-				#endregion
-			}
-			if (_exception != null) {
-				#region SBO_LOG_Log.Log(ErrorType.data);
-				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
-					_sessionuser, 
-					LogType.error,
-					ErrorType.data, 
-					-1L,
-					_sessionuser.IDApplication, 
-					"{0}",
-					new string[] {
-						_exception.Message
-					}
-				);
-				#endregion
-				_errorlist.Add(ErrorType.data);
-			}
+		//        _con.Dispose();
+		//        #endregion
+		//    }
+		//    if (_exception != null) {
+		//        #region SBO_LOG_Log.Log(ErrorType.data);
+		//        OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+		//            _sessionuser, 
+		//            LogType.error,
+		//            ErrorType.data, 
+		//            -1L,
+		//            _sessionuser.IDApplication, 
+		//            "{0}",
+		//            new string[] {
+		//                _exception.Message
+		//            }
+		//        );
+		//        #endregion
+		//        _errorlist.Add(ErrorType.data);
+		//    }
 
-			errors_out = _errorlist.ToArray();
-		}
+		//    errors_out = _errorlist.ToArray();
+		//}
 		#endregion
 
-		#region public static SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(...);
-		[BOMethodAttribute("getRecord_ofProfilePermition_byProfile", true, false, 1)]
-		public static SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(
-			string sessionGuid_in,
-			string ip_forLogPurposes_in, 
+		#region //public static SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(...);
+		//[BOMethodAttribute("getRecord_ofProfilePermition_byProfile", true, false, 1)]
+		//public static SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(
+		//    string sessionGuid_in,
+		//    string ip_forLogPurposes_in, 
 
-			long IDProfile_search_in,
-			int page_in,
-			int page_numRecords_in,
+		//    long IDProfile_search_in,
+		//    int page_in,
+		//    int page_numRecords_in,
 
-			out int[] errors_out
-		) {
-			SO_vCRD_ProfilePermition[] _output = null;
-			List<int> _errorlist;
-			Guid _sessionguid;
-			Sessionuser _sessionuser;
+		//    out int[] errors_out
+		//) {
+		//    SO_vCRD_ProfilePermition[] _output = null;
+		//    List<int> _errorlist;
+		//    Guid _sessionguid;
+		//    Sessionuser _sessionuser;
 
-			#region check...
-			if (!SBO_CRD_Authentication.isSessionGuid_valid(
-				sessionGuid_in,
-				ip_forLogPurposes_in, 
-				out _sessionguid,
-				out _sessionuser,
-				out _errorlist,
-				out errors_out
-			)) {
-				//// no need!
-				//errors_out = _errors.ToArray();
+		//    #region check...
+		//    if (!SBO_CRD_Authentication.isSessionGuid_valid(
+		//        sessionGuid_in,
+		//        ip_forLogPurposes_in, 
+		//        out _sessionguid,
+		//        out _sessionuser,
+		//        out _errorlist,
+		//        out errors_out
+		//    )) {
+		//        //// no need!
+		//        //errors_out = _errors.ToArray();
 
-				return _output;
-			}
-			#endregion
-			#region check Admin . . .
-			if (
-				!_sessionuser.hasPermition(PermitionType.Profile__select)
-			) {
-				_errorlist.Add(ErrorType.profile__lack_of_permitions_to_read);
-				errors_out = _errorlist.ToArray();
-				return _output;
-			}
-			#endregion
+		//        return _output;
+		//    }
+		//    #endregion
+		//    #region check Admin . . .
+		//    if (
+		//        !_sessionuser.hasPermition(PermitionType.Profile__select)
+		//    ) {
+		//        _errorlist.Add(ErrorType.profile__lack_of_permitions_to_read);
+		//        errors_out = _errorlist.ToArray();
+		//        return _output;
+		//    }
+		//    #endregion
 
-			_output
-				= DO_vCRD_ProfilePermition.getRecord_byProfile(
-					IDProfile_search_in,
-					page_in,
-					page_numRecords_in
-				);
+		//    _output
+		//        = DO_vCRD_ProfilePermition.getRecord_byProfile(
+		//            IDProfile_search_in,
+		//            page_in,
+		//            page_numRecords_in
+		//        );
 
-			errors_out = _errorlist.ToArray();
-			return _output;
-		} 
+		//    errors_out = _errorlist.ToArray();
+		//    return _output;
+		//} 
 		#endregion
 	}
 }

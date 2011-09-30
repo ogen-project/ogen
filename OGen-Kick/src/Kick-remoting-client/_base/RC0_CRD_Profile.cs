@@ -91,6 +91,25 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			);
 		}
 		#endregion
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(...);
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			long IDProfile_search_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			out System.Int32[] errors_out
+		) {
+			return bo_.getRecord_ofProfilePermition_byProfile(
+				sessionGuid_in, 
+				ip_forLogPurposes_in, 
+				IDProfile_search_in, 
+				page_in, 
+				page_numRecords_in, 
+				out errors_out
+			);
+		}
+		#endregion
 		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_UserProfile[] getRecord_ofUserProfile_byUser(...);
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_UserProfile[] getRecord_ofUserProfile_byUser(
 			string sessionGuid_in, 
@@ -116,6 +135,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
 			System.Int64[] idProfile_parent_in, 
+			System.Int64[] idPermition_in, 
 			out System.Int32[] errors_out
 		) {
 			return bo_.insObject(
@@ -123,6 +143,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 				ip_forLogPurposes_in, 
 				profile_in, 
 				idProfile_parent_in, 
+				idPermition_in, 
 				out errors_out
 			);
 		}
@@ -149,12 +170,35 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
+			System.Int64[] idProfile_parent_in, 
+			System.Int64[] idPermition_in, 
 			out System.Int32[] errors_out
 		) {
 			bo_.updObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				profile_in, 
+				idProfile_parent_in, 
+				idPermition_in, 
+				out errors_out
+			);
+		}
+		#endregion
+		#region public void updObject_relationsOnly(...);
+		public void updObject_relationsOnly(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			long idProfile_in, 
+			System.Int64[] idProfile_parent_in, 
+			System.Int64[] idPermition_in, 
+			out System.Int32[] errors_out
+		) {
+			bo_.updObject_relationsOnly(
+				sessionGuid_in, 
+				ip_forLogPurposes_in, 
+				idProfile_in, 
+				idProfile_parent_in, 
+				idPermition_in, 
 				out errors_out
 			);
 		}

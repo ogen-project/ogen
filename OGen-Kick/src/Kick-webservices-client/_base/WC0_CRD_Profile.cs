@@ -135,6 +135,36 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile[])results[0];
 		}
 		#endregion
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(...);
+		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
+			"http://OGen.NTier.Kick.distributedlayer.webservices.server/getRecord_ofProfilePermition_byProfile",
+			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			Use = System.Web.Services.Description.SoapBindingUse.Literal,
+			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
+		)]
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			long IDProfile_search_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			out System.Int32[] errors_out
+		) {
+			object[] results = this.Invoke(
+				"getRecord_ofProfilePermition_byProfile", 
+				new object[] {
+					sessionGuid_in,
+					ip_forLogPurposes_in,
+					IDProfile_search_in,
+					page_in,
+					page_numRecords_in
+				}
+			);
+			errors_out = (System.Int32[])results[1];
+			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[])results[0];
+		}
+		#endregion
 		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_UserProfile[] getRecord_ofUserProfile_byUser(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
 			"http://OGen.NTier.Kick.distributedlayer.webservices.server/getRecord_ofUserProfile_byUser",
@@ -178,6 +208,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
 			System.Int64[] idProfile_parent_in, 
+			System.Int64[] idPermition_in, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -186,7 +217,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
 					profile_in,
-					idProfile_parent_in
+					idProfile_parent_in,
+					idPermition_in
 				}
 			);
 			errors_out = (System.Int32[])results[1];
@@ -232,6 +264,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
+			System.Int64[] idProfile_parent_in, 
+			System.Int64[] idPermition_in, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -239,7 +273,38 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				new object[] {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
-					profile_in
+					profile_in,
+					idProfile_parent_in,
+					idPermition_in
+				}
+			);
+			errors_out = (System.Int32[])results[0];
+		}
+		#endregion
+		#region public void updObject_relationsOnly(...);
+		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
+			"http://OGen.NTier.Kick.distributedlayer.webservices.server/updObject_relationsOnly",
+			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			Use = System.Web.Services.Description.SoapBindingUse.Literal,
+			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
+		)]
+		public void updObject_relationsOnly(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			long idProfile_in, 
+			System.Int64[] idProfile_parent_in, 
+			System.Int64[] idPermition_in, 
+			out System.Int32[] errors_out
+		) {
+			object[] results = this.Invoke(
+				"updObject_relationsOnly", 
+				new object[] {
+					sessionGuid_in,
+					ip_forLogPurposes_in,
+					idProfile_in,
+					idProfile_parent_in,
+					idPermition_in
 				}
 			);
 			errors_out = (System.Int32[])results[0];

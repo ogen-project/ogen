@@ -14,28 +14,58 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
 using OGen.NTier.Kick.lib.businesslayer.shared;
 using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
-namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
-	/// <summary>
-	/// CRD_Permition remoting server.
-	/// </summary>
-	public class RS_CRD_Permition : 
-		MarshalByRefObject, 
-		IBO_CRD_Permition 
+namespace OGen.NTier.Kick.lib.businesslayer {
+	public class BO_WEB_DefaultProfile :
+		IBO_WEB_DefaultProfile
 	{
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[] getRecord_all(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[] getRecord_all(
+		#region public void delObject(...);
+		public void delObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			bool allProfiles_notJustApplication_in, 
+			System.Int64[] idProfile_in, 
+			out System.Int32[] errors_out
+		) {
+			OGen.NTier.Kick.lib.businesslayer.SBO_WEB_DefaultProfile.delObject(
+				sessionGuid_in, 
+				ip_forLogPurposes_in, 
+				idProfile_in, 
+				out errors_out
+			);
+		}
+		#endregion
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[] getRecord_all(...);
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[] getRecord_all(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
 			int page_in, 
 			int page_numRecords_in, 
 			out System.Int32[] errors_out
 		) {
-			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
+			return OGen.NTier.Kick.lib.businesslayer.SBO_WEB_DefaultProfile.getRecord_all(
+				sessionGuid_in, 
+				ip_forLogPurposes_in, 
+				page_in, 
+				page_numRecords_in, 
+				out errors_out
+			);
+		}
+		#endregion
+		#region public void setObject(...);
+		public void setObject(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			System.Int64[] idProfile_in, 
+			out System.Int32[] errors_out
+		) {
+			OGen.NTier.Kick.lib.businesslayer.SBO_WEB_DefaultProfile.setObject(
+				sessionGuid_in, 
+				ip_forLogPurposes_in, 
+				idProfile_in, 
+				out errors_out
+			);
 		}
 		#endregion
 	}

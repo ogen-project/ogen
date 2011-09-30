@@ -111,6 +111,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Compile Include="_base\WC0_NWS_Tag.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="_base\WC0_WEB_DefaultProfile.cs" />
     <Compile Include="_base\WC0_WEB_User.cs">
       <SubType>Component</SubType>
     </Compile>

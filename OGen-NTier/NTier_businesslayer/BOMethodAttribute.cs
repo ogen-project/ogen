@@ -39,6 +39,7 @@ namespace OGen.NTier.lib.businesslayer {
 
 		/// <param name="name_in">Name</param>
 		/// <param name="distribute_in">Distribute</param>
+		[Obsolete("Use BOMethodAttribute(string, bool, bool, int) instead")]
 		public BOMethodAttribute(
 			string name_in,
 			bool distribute_in

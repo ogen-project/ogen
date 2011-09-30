@@ -14,29 +14,28 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+using OGen.lib.datalayer;
 
-namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
+using OGen.NTier.Kick.lib.datalayer.shared.structures;
+
+namespace OGen.NTier.Kick.lib.datalayer {
 	/// <summary>
-	/// CRD_Permition remoting server.
+	/// vNET_Profile DataObject which provides access to vNET_Profile's Database table.
 	/// </summary>
-	public class RS_CRD_Permition : 
-		MarshalByRefObject, 
-		IBO_CRD_Permition 
+	public 
+#if !NET_1_1
+		partial 
+#endif
+		class DO_vNET_Profile 
+#if NET_1_1
+			: DO0_vNET_Profile
+#endif
 	{
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[] getRecord_all(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[] getRecord_all(
-			string sessionGuid_in, 
-			string ip_forLogPurposes_in, 
-			bool allProfiles_notJustApplication_in, 
-			int page_in, 
-			int page_numRecords_in, 
-			out System.Int32[] errors_out
-		) {
-			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
-		}
+		#region private static Fields...
+		#endregion
+		#region static Properties...
+		#endregion
+		#region static Methods...
 		#endregion
 	}
 }

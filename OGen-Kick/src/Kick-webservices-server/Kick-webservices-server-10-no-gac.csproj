@@ -75,6 +75,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Content Include="WS_NWS_Profile.asmx" />
     <Content Include="WS_NWS_Source.asmx" />
     <Content Include="WS_NWS_Tag.asmx" />
+    <Content Include="WS_WEB_DefaultProfile.asmx" />
     <Content Include="WS_WEB_User.asmx" />
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +131,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       <DependentUpon>WS_NWS_Tag.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="WS_WEB_DefaultProfile.asmx.cs">
+      <DependentUpon>WS_WEB_DefaultProfile.asmx</DependentUpon>
+    </Compile>
     <Compile Include="_base\utils0.cs" />
     <Compile Include="_base\WS0_CRD_Authentication.cs">
       <SubType>Component</SubType>
@@ -178,6 +182,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Compile Include="_base\WS0_NWS_Tag.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="_base\WS0_WEB_DefaultProfile.cs" />
     <Compile Include="_base\WS0_WEB_User.cs">
       <SubType>Component</SubType>
     </Compile>

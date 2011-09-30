@@ -87,6 +87,28 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			);
 		}
 		#endregion
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(...);
+		[WebMethod]
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			long IDProfile_search_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			out System.Int32[] errors_out
+		) {
+			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.getRecord_ofProfilePermition_byProfile(
+				sessionGuid_in, 
+				(utils.ResetClientIP) 
+					? HttpContext.Current.Request.UserHostAddress 
+					: ip_forLogPurposes_in, 
+				IDProfile_search_in, 
+				page_in, 
+				page_numRecords_in, 
+				out errors_out
+			);
+		}
+		#endregion
 		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_UserProfile[] getRecord_ofUserProfile_byUser(...);
 		[WebMethod]
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_UserProfile[] getRecord_ofUserProfile_byUser(
@@ -116,6 +138,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
 			System.Int64[] idProfile_parent_in, 
+			System.Int64[] idPermition_in, 
 			out System.Int32[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.insObject(
@@ -125,6 +148,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 					: ip_forLogPurposes_in, 
 				profile_in, 
 				idProfile_parent_in, 
+				idPermition_in, 
 				out errors_out
 			);
 		}
@@ -155,6 +179,8 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
+			System.Int64[] idProfile_parent_in, 
+			System.Int64[] idPermition_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.updObject(
@@ -163,6 +189,30 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				profile_in, 
+				idProfile_parent_in, 
+				idPermition_in, 
+				out errors_out
+			);
+		}
+		#endregion
+		#region public void updObject_relationsOnly(...);
+		[WebMethod]
+		public void updObject_relationsOnly(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			long idProfile_in, 
+			System.Int64[] idProfile_parent_in, 
+			System.Int64[] idPermition_in, 
+			out System.Int32[] errors_out
+		) {
+			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.updObject_relationsOnly(
+				sessionGuid_in, 
+				(utils.ResetClientIP) 
+					? HttpContext.Current.Request.UserHostAddress 
+					: ip_forLogPurposes_in, 
+				idProfile_in, 
+				idProfile_parent_in, 
+				idPermition_in, 
 				out errors_out
 			);
 		}

@@ -50,25 +50,6 @@
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_ofProfilePermition_byProfile" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[]" distribute="true" isSearch="false" ipParamNum="1">
-          <parameters>
-            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="IDProfile_search_in" type="long" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
-          </parameters>
-        </method>
-        <method name="setProfilePermitions" outputType="void" distribute="true" isSearch="false" ipParamNum="1">
-          <parameters>
-            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idProfile_in" type="long" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idPermitions_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
-          </parameters>
-        </method>
       </methods>
     </class>
     <class name="CRD_Profile" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
@@ -99,6 +80,16 @@
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
+        <method name="getRecord_ofProfilePermition_byProfile" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[]" distribute="true" isSearch="false" ipParamNum="1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDProfile_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
         <method name="getRecord_ofUserProfile_byUser" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_UserProfile[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -115,6 +106,7 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="profile_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile" isParams="false" isOut="false" isRef="false" />
             <parameter name="idProfile_parent_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idPermition_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -132,6 +124,18 @@
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="profile_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfile_parent_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idPermition_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="updObject_relationsOnly" outputType="void" distribute="true" isSearch="false" ipParamNum="1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfile_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfile_parent_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idPermition_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -802,6 +806,35 @@
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idTag_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+    <class name="WEB_DefaultProfile" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+      <methods>
+        <method name="delObject" outputType="void" distribute="true" isSearch="false" ipParamNum="1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfile_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getRecord_all" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[]" distribute="true" isSearch="false" ipParamNum="1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="setObject" outputType="void" distribute="true" isSearch="false" ipParamNum="1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfile_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>

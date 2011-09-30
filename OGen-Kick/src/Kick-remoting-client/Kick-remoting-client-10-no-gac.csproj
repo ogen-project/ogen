@@ -84,6 +84,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Compile Include="_base\RC0_NWS_Profile.cs" />
     <Compile Include="_base\RC0_NWS_Source.cs" />
     <Compile Include="_base\RC0_NWS_Tag.cs" />
+    <Compile Include="_base\RC0_WEB_DefaultProfile.cs" />
     <Compile Include="_base\RS0_CRD_Authentication.cs" />
     <Compile Include="_base\RC0_LOG_Log.cs" />
     <Compile Include="_base\RS0_CRD_Permition.cs" />
@@ -99,6 +100,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Compile Include="_base\RS0_NWS_Profile.cs" />
     <Compile Include="_base\RS0_NWS_Source.cs" />
     <Compile Include="_base\RS0_NWS_Tag.cs" />
+    <Compile Include="_base\RS0_WEB_DefaultProfile.cs" />
     <Compile Include="_base\RS0_WEB_User.cs" />
   </ItemGroup>
   <ItemGroup>

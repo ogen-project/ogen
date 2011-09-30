@@ -22,27 +22,27 @@ using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
 namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 	/// <summary>
-	/// CRD_Permition web service client.
+	/// WEB_DefaultProfile web service client.
 	/// </summary>
 	/// <remarks/>
 	//[System.Diagnostics.DebuggerStepThroughAttribute()]
 	//[System.ComponentModel.DesignerCategoryAttribute("code")]
 	[System.Web.Services.WebServiceBindingAttribute(
-		Name = "WS_CRD_PermitionSoap",
+		Name = "WS_WEB_DefaultProfileSoap",
 		Namespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server"
 	)]
-	public class WC_CRD_Permition : 
+	public class WC_WEB_DefaultProfile : 
 		SoapHttpClientProtocol, 
-		IBO_CRD_Permition
+		IBO_WEB_DefaultProfile
 	{
-		public WC_CRD_Permition() {
+		public WC_WEB_DefaultProfile() {
 			ReConfig();
 		}
 
 		#region public void ReConfig();
 		public void ReConfig() {
 			this.Url = string.Format(
-				"{0}:{1}/WS_CRD_Permition.asmx",
+				"{0}:{1}/WS_WEB_DefaultProfile.asmx",
 				#if NET_1_1
 				System.Configuration.ConfigurationSettings.AppSettings["Webservices_ServerURI"], 
 				System.Configuration.ConfigurationSettings.AppSettings["Webservices_ServerPort"]
@@ -54,7 +54,32 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		}
 		#endregion
 
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[] getRecord_all(...);
+		#region public void delObject(...);
+		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
+			"http://OGen.NTier.Kick.distributedlayer.webservices.server/delObject",
+			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			Use = System.Web.Services.Description.SoapBindingUse.Literal,
+			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
+		)]
+		public void delObject(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			System.Int64[] idProfile_in, 
+			out System.Int32[] errors_out
+		) {
+			object[] results = this.Invoke(
+				"delObject", 
+				new object[] {
+					sessionGuid_in,
+					ip_forLogPurposes_in,
+					idProfile_in
+				}
+			);
+			errors_out = (System.Int32[])results[0];
+		}
+		#endregion
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[] getRecord_all(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
 			"http://OGen.NTier.Kick.distributedlayer.webservices.server/getRecord_all",
 			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
@@ -62,10 +87,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[] getRecord_all(
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			bool allProfiles_notJustApplication_in, 
 			int page_in, 
 			int page_numRecords_in, 
 			out System.Int32[] errors_out
@@ -75,13 +99,37 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				new object[] {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
-					allProfiles_notJustApplication_in,
 					page_in,
 					page_numRecords_in
 				}
 			);
 			errors_out = (System.Int32[])results[1];
-			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[])results[0];
+			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[])results[0];
+		}
+		#endregion
+		#region public void setObject(...);
+		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
+			"http://OGen.NTier.Kick.distributedlayer.webservices.server/setObject",
+			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			Use = System.Web.Services.Description.SoapBindingUse.Literal,
+			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
+		)]
+		public void setObject(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			System.Int64[] idProfile_in, 
+			out System.Int32[] errors_out
+		) {
+			object[] results = this.Invoke(
+				"setObject", 
+				new object[] {
+					sessionGuid_in,
+					ip_forLogPurposes_in,
+					idProfile_in
+				}
+			);
+			errors_out = (System.Int32[])results[0];
 		}
 		#endregion
 	}

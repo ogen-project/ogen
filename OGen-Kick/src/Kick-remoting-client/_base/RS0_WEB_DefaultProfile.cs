@@ -20,19 +20,38 @@ using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
 namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 	/// <summary>
-	/// CRD_Permition remoting server.
+	/// WEB_DefaultProfile remoting server.
 	/// </summary>
-	public class RS_CRD_Permition : 
+	public class RS_WEB_DefaultProfile : 
 		MarshalByRefObject, 
-		IBO_CRD_Permition 
+		IBO_WEB_DefaultProfile 
 	{
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[] getRecord_all(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[] getRecord_all(
+		#region public void delObject(...);
+		public void delObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			bool allProfiles_notJustApplication_in, 
+			System.Int64[] idProfile_in, 
+			out System.Int32[] errors_out
+		) {
+			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
+		}
+		#endregion
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[] getRecord_all(...);
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[] getRecord_all(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out System.Int32[] errors_out
+		) {
+			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
+		}
+		#endregion
+		#region public void setObject(...);
+		public void setObject(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			System.Int64[] idProfile_in, 
 			out System.Int32[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
