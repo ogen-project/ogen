@@ -21,13 +21,13 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 		void delObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idProfile_in, 
+			long idProfile_in, 
 			out System.Int32[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idProfile_in, 
+			long idProfile_in, 
 			out System.Int32[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile[] getRecord_all(

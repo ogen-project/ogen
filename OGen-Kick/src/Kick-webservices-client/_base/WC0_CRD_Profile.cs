@@ -65,7 +65,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		public void delObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idProfile_in, 
+			long idProfile_in, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -90,7 +90,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idProfile_in, 
+			long idProfile_in, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(

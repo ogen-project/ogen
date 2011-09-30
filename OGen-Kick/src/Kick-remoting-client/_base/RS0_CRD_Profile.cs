@@ -30,7 +30,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		public void delObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idProfile_in, 
+			long idProfile_in, 
 			out System.Int32[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
@@ -40,7 +40,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idProfile_in, 
+			long idProfile_in, 
 			out System.Int32[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");

@@ -58,7 +58,7 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idProfile_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfile_in" type="long" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -66,7 +66,7 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idProfile_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idProfile_in" type="long" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -813,14 +813,6 @@
     </class>
     <class name="WEB_DefaultProfile" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
       <methods>
-        <method name="delObject" outputType="void" distribute="true" isSearch="false" ipParamNum="1">
-          <parameters>
-            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idProfile_in" type="System.Int64[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
-          </parameters>
-        </method>
         <method name="getRecord_all" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />

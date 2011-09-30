@@ -133,6 +133,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     </Compile>
     <Compile Include="WS_WEB_DefaultProfile.asmx.cs">
       <DependentUpon>WS_WEB_DefaultProfile.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="_base\utils0.cs" />
     <Compile Include="_base\WS0_CRD_Authentication.cs">
@@ -182,7 +183,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Compile Include="_base\WS0_NWS_Tag.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="_base\WS0_WEB_DefaultProfile.cs" />
+    <Compile Include="_base\WS0_WEB_DefaultProfile.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="_base\WS0_WEB_User.cs">
       <SubType>Component</SubType>
     </Compile>

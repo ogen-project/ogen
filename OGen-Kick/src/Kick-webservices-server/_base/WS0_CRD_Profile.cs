@@ -34,7 +34,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		public void delObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idProfile_in, 
+			long idProfile_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.delObject(
@@ -52,7 +52,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			int idProfile_in, 
+			long idProfile_in, 
 			out System.Int32[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.getObject(

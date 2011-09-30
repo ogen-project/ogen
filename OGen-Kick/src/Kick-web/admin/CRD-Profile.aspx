@@ -1,8 +1,8 @@
 ﻿<%@ Page 
 	Language="C#" 
 	AutoEventWireup="true" 
-	CodeBehind="WEB_Defaultprofile.aspx.cs" 
-	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.WEB_Defaultprofile" 
+	CodeBehind="CRD-Profile.aspx.cs" 
+	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.CRD_Profile" 
 	MasterPageFile="~/App_Controls/Admin.Master" %>
 <%@ Register 
 	TagPrefix="asol" 
@@ -16,7 +16,7 @@
 	id="cnt_Title" runat="server" 
 	ContentPlaceHolderID="cph_Title">
 
-	- Default Profiles
+	- Profile
 </asp:Content>
 <asp:Content
 	id="cnt_Head" runat="server"
@@ -34,14 +34,8 @@
 				<table
 					border="0" cellpadding="2" cellspacing="0" width="100%">
 					<tr>
-						<td colspan="2" align="center" class="label_title nowrap">
-							Default Profiles
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2" align="left" class="label_small nowrap">
-							uppon registration, new users will be associated with selected profiles below<br />
-							you should pick profiles suitable for new registered users
+						<td colspan="2" align="center" class="label_title">
+							Profile
 						</td>
 					</tr>
 
@@ -49,27 +43,28 @@
 
 					<tr>
 						<td align="right" class="label_small nowrap">
-							Profiles:&nbsp;
+							Name:&nbsp;
 						</td>
 						<td>
-							<asol:KickCheckBoxList
-								ID="cbl_Profile" runat="server"
-								AutoUpdateAfterCallBack="true"
-
-								CssClass="checkboxlist nowrap" />
+							<asp:TextBox
+								ID="txt_Name" runat="server"
+								CssClass="textbox_dim4" />
 						</td>
 					</tr>
 					<tr>
 						<td></td>
 						<td align="right">
-							<anthem:Button
+							<input 
+								type="button" 
+								onclick="javascript:window.location='CRD-Profile-list.aspx';return false;" 
+								value="Cancel"
+								class="button" />
+							<asp:Button
 								ID="btn_Save" runat="server"
 								OnClick="btn_Save_Click"
-								AutoUpdateAfterCallBack="true"
-								EnableCallBack="true"
 
 								CssClass="button"
-								Text="  Save  " />
+								Text="Save" />
 						</td>
 					</tr>
 				</table>
@@ -77,6 +72,5 @@
 			<td style="width: 50%"></td>
 		</tr>
 	</table>
-
 
 </asp:Content>

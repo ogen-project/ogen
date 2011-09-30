@@ -46,6 +46,8 @@
     <Content Include="admin\CRD-ProfilePermition.aspx" />
     <Content Include="admin\CRD-User-list.aspx" />
     <Content Include="admin\CRD-User.aspx" />
+    <Content Include="admin\CRD-Profile-list.aspx" />
+    <Content Include="admin\CRD-Profile.aspx" />
     <Content Include="admin\Default.aspx" />
     <Content Include="admin\LOG-Log.aspx" />
     <Content Include="admin\NWS-News-list.aspx" />
@@ -105,6 +107,20 @@
     </Compile>
     <Compile Include="admin\CRD-User.aspx.designer.cs">
       <DependentUpon>CRD-User.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\CRD-Profile-list.aspx.cs">
+      <DependentUpon>CRD-Profile-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\CRD-Profile-list.aspx.designer.cs">
+      <DependentUpon>CRD-Profile-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\CRD-Profile.aspx.cs">
+      <DependentUpon>CRD-Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\CRD-Profile.aspx.designer.cs">
+      <DependentUpon>CRD-Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

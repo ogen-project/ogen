@@ -38,7 +38,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
-			int idProfile_in,
+			long idProfile_in,
 
 			out int[] errors_out
 		) {
@@ -179,6 +179,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				errors_out = _errorlist.ToArray();
 				return _output;
 			}
+			if (profile_in.IFApplication != _sessionuser.IDApplication) {
+				_errorlist.Add(ErrorType.lack_of_permitions);
+				errors_out = _errorlist.ToArray();
+				return _output;
+			}
 
 
 			Exception _exception = null;
@@ -223,16 +228,19 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 					_con
 				);
-				for (int i = 0; i < idProfile_parent_in.Length; i++) {
-					DO_CRD_ProfileProfile.setObject(
-						new SO_CRD_ProfileProfile(
-							_output,
-							idProfile_parent_in[i]
-						),
-						true,
-						_con
-					);
+				if (idProfile_parent_in != null) {
+					for (int i = 0; i < idProfile_parent_in.Length; i++) {
+						DO_CRD_ProfileProfile.setObject(
+							new SO_CRD_ProfileProfile(
+								_output,
+								idProfile_parent_in[i]
+							),
+							true,
+							_con
+						);
+					}
 				}
+//				if (idUser_in != null) {
 //				for (int i = 0; i < idUser_in.Length; i++) {
 //                    DO_CRD_UserProfile.setObject(
 //                        new SO_CRD_UserProfile(
@@ -243,15 +251,18 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 //                        _con
 //                    );
 //                }
-				for (int i = 0; i < idPermition_in.Length; i++) {
-					DO_CRD_ProfilePermition.setObject(
-						new SO_CRD_ProfilePermition(
-							_output,
-							idPermition_in[i]
-						),
-						true,
-						_con
-					);
+//                }
+				if (idPermition_in != null) {
+					for (int i = 0; i < idPermition_in.Length; i++) {
+						DO_CRD_ProfilePermition.setObject(
+							new SO_CRD_ProfilePermition(
+								_output,
+								idPermition_in[i]
+							),
+							true,
+							_con
+						);
+					}
 				}
 
 
@@ -361,8 +372,17 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return;
 			}
 			#endregion
+			//profile_in.IFApplication = _profile.IFApplication;
+			if (
+				(profile_in.IFApplication != _profile.IFApplication)
+				||
+				(_profile.IFApplication != _sessionuser.IDApplication)
+			) {
+				_errorlist.Add(ErrorType.lack_of_permitions);
+				errors_out = _errorlist.ToArray();
+				return;
+			}
 
-			profile_in.IFApplication = _profile.IFApplication;
 
 			Exception _exception = null;
 			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
@@ -565,7 +585,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
-			int idProfile_in,
+			long idProfile_in,
 
 			out int[] errors_out
 		) {
