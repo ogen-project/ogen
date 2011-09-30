@@ -38,6 +38,12 @@
 							Default Profiles
 						</td>
 					</tr>
+					<tr>
+						<td colspan="2" align="left" class="label_small nowrap">
+							uppon user registration, new users will be associated with selected profiles below<br />
+							you should pick profiles suitable for new registered users
+						</td>
+					</tr>
 
 					<tr><td colspan="2">&nbsp;</td></tr>
 
