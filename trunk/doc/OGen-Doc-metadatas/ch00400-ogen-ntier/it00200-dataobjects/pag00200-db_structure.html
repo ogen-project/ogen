@@ -1,0 +1,49 @@
+
+.-----------------.               .------------------.              .---------------.
+| User            |               | Log              |              | Logcode       |
+|-----------------|               |------------------|              |---------------|
+|> +IDUser        |               |> +IDLog          |              |> +IDLogcode   |
+|   Login         |               |   IDLogcode     <|Logcode       |   Warning     |
+|   Password      |               |   IDUser_posted <|User          |   Error       |
+|   SomeNullValue |               |   Date_posted    |              |   Code        |
+'-----------------'               |   Logdata        |              |   Description |
+                                  '------------------'              '---------------'
+
+.--------------------.            .----------------.
+| UserGroup          |            | GroupPermition |
+|--------------------|            |----------------|
+|>  IDUser          <|User        |>  IDGroup     <|Group
+|>  IDGroup         <|Group       |>  IDPermition <|Permition
+|   Relationdate     |            '----------------'
+|   Defaultrelation  |
+'--------------------'
+
+.-----------.                     .---------------.
+| Group     |                     | Permition     |
+|-----------|                     |---------------|
+|> +IDGroup |                     |> +IDPermition |
+|   Name    |                     |   Name        |
+'-----------'                     '---------------'
+
+.---------------.
+| Config        |
+|---------------|
+|>  Name        |
+|   Config      |
+|   Type        |
+|   Description |
+'---------------'
+
+.----------------------.          .---------------.                 .----------------.
+| Word                 |          | WordLanguage  |                 | Language       |
+|----------------------|          |---------------|                 |----------------|
+|> +IDWord             |          |> IDWord      <|Word             |> +IDLanguage   |
+|  DeleteThisTestField |          |> IDLanguage  <|Language         |   IDWord_name <|Word
+'----------------------'          |  Translation  |                 '----------------'
+                                  '---------------'
+
+
+legend:
+	+ identity key
+	> primary key
+	< foreign key

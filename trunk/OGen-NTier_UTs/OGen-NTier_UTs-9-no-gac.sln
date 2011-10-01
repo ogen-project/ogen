@@ -1,0 +1,140 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_datalayer-9-no-gac", "OGen-NTier_UTs_datalayer\OGen-NTier_UTs_datalayer-9-no-gac.csproj", "{2C45EF1A-75BE-4B12-A232-62DEB5662239}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_datalayer_proxy-9-no-gac", "OGen-NTier_UTs_datalayer_proxy\OGen-NTier_UTs_datalayer_proxy-9-no-gac.csproj", "{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_datalayer_UTs-9-no-gac", "OGen-NTier_UTs_datalayer_UTs\OGen-NTier_UTs_datalayer_UTs-9-no-gac.csproj", "{4F18877D-A981-426B-8A09-5EDF95E9AE2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_businesslayer-9-no-gac", "OGen-NTier_UTs_businesslayer\OGen-NTier_UTs_businesslayer-9-no-gac.csproj", "{B3555514-3A7D-4159-B05D-E8D0C265B649}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_businesslayer_proxy-9-no-gac", "OGen-NTier_UTs_businesslayer_proxy\OGen-NTier_UTs_businesslayer_proxy-9-no-gac.csproj", "{ADA0411C-8645-4AA0-BFF3-5359E111D98A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_businesslayer_UTs-9-no-gac", "OGen-NTier_UTs_businesslayer_UTs\OGen-NTier_UTs_businesslayer_UTs-9-no-gac.csproj", "{980912F1-6877-4BD1-A2E0-61D366839C52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_test-9-no-gac", "OGen-NTier_UTs_test\OGen-NTier_UTs_test-9-no-gac.csproj", "{2E2A748F-E72A-4B23-9011-F7AE725AB330}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_webservices_server-9-no-gac", "OGen-NTier_UTs_webservices_server\OGen-NTier_UTs_webservices_server-9-no-gac.csproj", "{89EE33CB-FAAD-4251-809C-13B5FC57F101}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_webservices_client-9-no-gac", "OGen-NTier_UTs_webservices_client\OGen-NTier_UTs_webservices_client-9-no-gac.csproj", "{3E90C87B-1643-4323-8A50-96000EBFD406}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_datalayer-9", "..\OGen-NTier\NTier_datalayer\NTier_datalayer-9.csproj", "{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_businesslayer-9", "..\OGen-NTier\NTier_businesslayer\NTier_businesslayer-9.csproj", "{8AEBEA64-6FC4-430C-922C-B88D105AE91C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer__base-9", "..\OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj", "{D66D0E69-852C-4695-9D63-C9AB1A959E0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer_PostgreSQL-9", "..\OGen\OGen_datalayer_PostgreSQL\OGen_datalayer_PostgreSQL-9.csproj", "{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer_SQLServer-9", "..\OGen\OGen_datalayer_SQLServer\OGen_datalayer_SQLServer-9.csproj", "{F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayersupport-9", "..\OGen\OGen_datalayersupport\OGen_datalayersupport-9.csproj", "{88D87481-CC3F-49C7-A013-758387F3452E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer_MySQL-9", "..\OGen\OGen_datalayer_MySQL\OGen_datalayer_MySQL-9.csproj", "{8F5F21DB-FED4-46A9-9E7E-B50B678D12B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_remoting_server-9-no-gac", "OGen-NTier_UTs_remoting_server\OGen-NTier_UTs_remoting_server-9-no-gac.csproj", "{620124DD-28FF-4D6C-93A2-170730EC2778}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_remoting_client-9-no-gac", "OGen-NTier_UTs_remoting_client\OGen-NTier_UTs_remoting_client-9-no-gac.csproj", "{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_webservices_client-9", "..\OGen-NTier\NTier_distributedlayer_webservices_client\NTier_distributedlayer_webservices_client-9.csproj", "{7A52E316-CA44-4710-AF93-CC495DE77F6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-NTier_UTs_business_client-9-no-gac", "OGen-NTier_UTs_business_client\OGen-NTier_UTs_business_client-9-no-gac.csproj", "{76D35775-37DA-427C-95AA-050F152CAF92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_datalayer_proxy-9", "..\OGen-NTier\NTier_datalayer_proxy\NTier_datalayer_proxy-9.csproj", "{F17F7FA0-920E-4AE1-908F-2798D0124996}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C45EF1A-75BE-4B12-A232-62DEB5662239}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C45EF1A-75BE-4B12-A232-62DEB5662239}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C45EF1A-75BE-4B12-A232-62DEB5662239}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C45EF1A-75BE-4B12-A232-62DEB5662239}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78096C45-7B20-4669-BF3D-EFF5ECD74FC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F18877D-A981-426B-8A09-5EDF95E9AE2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F18877D-A981-426B-8A09-5EDF95E9AE2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F18877D-A981-426B-8A09-5EDF95E9AE2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F18877D-A981-426B-8A09-5EDF95E9AE2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3555514-3A7D-4159-B05D-E8D0C265B649}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3555514-3A7D-4159-B05D-E8D0C265B649}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3555514-3A7D-4159-B05D-E8D0C265B649}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3555514-3A7D-4159-B05D-E8D0C265B649}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADA0411C-8645-4AA0-BFF3-5359E111D98A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{980912F1-6877-4BD1-A2E0-61D366839C52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{980912F1-6877-4BD1-A2E0-61D366839C52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{980912F1-6877-4BD1-A2E0-61D366839C52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{980912F1-6877-4BD1-A2E0-61D366839C52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E2A748F-E72A-4B23-9011-F7AE725AB330}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E2A748F-E72A-4B23-9011-F7AE725AB330}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E2A748F-E72A-4B23-9011-F7AE725AB330}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E2A748F-E72A-4B23-9011-F7AE725AB330}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89EE33CB-FAAD-4251-809C-13B5FC57F101}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89EE33CB-FAAD-4251-809C-13B5FC57F101}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89EE33CB-FAAD-4251-809C-13B5FC57F101}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89EE33CB-FAAD-4251-809C-13B5FC57F101}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E90C87B-1643-4323-8A50-96000EBFD406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E90C87B-1643-4323-8A50-96000EBFD406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E90C87B-1643-4323-8A50-96000EBFD406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E90C87B-1643-4323-8A50-96000EBFD406}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AEBEA64-6FC4-430C-922C-B88D105AE91C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AEBEA64-6FC4-430C-922C-B88D105AE91C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AEBEA64-6FC4-430C-922C-B88D105AE91C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AEBEA64-6FC4-430C-922C-B88D105AE91C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D66D0E69-852C-4695-9D63-C9AB1A959E0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D66D0E69-852C-4695-9D63-C9AB1A959E0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D66D0E69-852C-4695-9D63-C9AB1A959E0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D66D0E69-852C-4695-9D63-C9AB1A959E0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88D87481-CC3F-49C7-A013-758387F3452E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88D87481-CC3F-49C7-A013-758387F3452E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88D87481-CC3F-49C7-A013-758387F3452E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88D87481-CC3F-49C7-A013-758387F3452E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F5F21DB-FED4-46A9-9E7E-B50B678D12B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F5F21DB-FED4-46A9-9E7E-B50B678D12B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F5F21DB-FED4-46A9-9E7E-B50B678D12B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F5F21DB-FED4-46A9-9E7E-B50B678D12B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{620124DD-28FF-4D6C-93A2-170730EC2778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{620124DD-28FF-4D6C-93A2-170730EC2778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{620124DD-28FF-4D6C-93A2-170730EC2778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{620124DD-28FF-4D6C-93A2-170730EC2778}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F68F7CE9-B8CD-4F51-A702-59F3C2CE34EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A52E316-CA44-4710-AF93-CC495DE77F6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76D35775-37DA-427C-95AA-050F152CAF92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76D35775-37DA-427C-95AA-050F152CAF92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76D35775-37DA-427C-95AA-050F152CAF92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76D35775-37DA-427C-95AA-050F152CAF92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F17F7FA0-920E-4AE1-908F-2798D0124996}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F17F7FA0-920E-4AE1-908F-2798D0124996}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F17F7FA0-920E-4AE1-908F-2798D0124996}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F17F7FA0-920E-4AE1-908F-2798D0124996}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,11 @@
+<metadatas>
+	<metadata
+		xmlFilename="MD_Kick.OGenXSD-metadataDB.xml"
+		xmlFileType="metadataDB" />
+	<metadata
+		xmlFilename="MD_Kick.OGenXSD-metadataExtended.xml"
+		xmlFileType="metadataExtended" />
+	<metadata
+		xmlFilename="MD_Kick.OGenXSD-metadataBusiness.xml"
+		xmlFileType="metadataBusiness" />
+</metadatas>

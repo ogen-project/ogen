@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<metadataBusiness xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" applicationName="OGen-NTier_UTs">
+  <classes>
+    <class name="Authentication" type="BO">
+      <methods>
+        <method name="Login" outputType="string" distribute="true">
+          <parameters>
+            <parameter name="login_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="password_in" type="string" isParams="false" isOut="false" isRef="false" />
+          </parameters>
+        </method>
+        <method name="Logout" outputType="void" distribute="true" />
+      </methods>
+    </class>
+    <class name="User" type="BDO">
+      <methods>
+        <method name="insObject" outputType="long" distribute="true">
+          <parameters>
+            <parameter name="user_in" type="OGen.NTier.UTs.lib.datalayer.proxy.SO_User" isParams="false" isOut="false" isRef="false" />
+            <parameter name="selectIdentity_in" type="bool" isParams="false" isOut="false" isRef="false" />
+            <parameter name="login_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="constraintExist_out" type="bool" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="getObject" outputType="OGen.NTier.UTs.lib.datalayer.proxy.SO_User" distribute="true">
+          <parameters>
+            <parameter name="idUser_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="login_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="exists_out" type="bool" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+        <method name="Record_Open_byGroup" outputType="OGen.NTier.UTs.lib.datalayer.proxy.SO_User[]" distribute="true">
+          <parameters>
+            <parameter name="IDGroup_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="login_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="recordLength_out" type="long" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
+      </methods>
+    </class>
+  </classes>
+</metadataBusiness>

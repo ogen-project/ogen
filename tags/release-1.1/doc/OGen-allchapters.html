@@ -1,0 +1,4507 @@
+<html>
+	<head>
+		<title>
+			OGen - OGen User's Guide
+		</title>
+		<link rel="stylesheet" href="_include/doc.css" type="text/css" />
+	</head>
+	<body
+		style="background-color:White;bottom:0;top:0;left:0;right:0"
+		bottommargin="0"
+		topmargin="0"
+		leftmargin="0"
+		rightmargin="0">
+
+		<table cellpadding="0" cellspacing="0" width="100%" border="0">
+<!-- menu -->
+			<tr>
+				<td colspan="4" bgcolor="#C0C0C0">
+					<table cellpadding="5" cellspacing="5" width="100%" class="menu" border="0">
+						<tr>
+							<td align="left">
+								<a href="http://ogen.berlios.de">
+									home</a>
+								&nbsp;&nbsp;|&nbsp;&nbsp;
+								<a href="OGen-index-all.html">
+									Documentation</a>
+								&nbsp;&nbsp;|&nbsp;&nbsp;
+								<a href="http://developer.berlios.de/projects/ogen/">
+									BerliOS project page</a>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+<!-- /menu -->
+<!-- separator -->
+			<tr valign="top">
+				<td colspan="4" bgcolor="#000000" height="1"></td>
+			</tr>
+<!-- /separator -->
+<!-- head -->
+			<tr>
+				<td colspan="4" bgcolor="#99CCFF">
+					<table cellpadding="5" cellspacing="5" width="100%" class="menu" border="0">
+						<tr>
+							<td align="left" colspan="2">
+								OGen User's Guide
+							</td>
+							<td align="right">
+								OGen 2.0</td>
+						</tr>
+
+
+<!-- head:paging -->
+						<tr>
+							<td align="left" valign="top" style="width:33%;">
+							</td>
+							<td align="center" valign="top" style="width:34%;">
+								<span class="text">
+									<a href="OGen-index-all.html">
+										index</a>
+								</span>
+							</td>
+							<td align="right" valign="top" style="width:33%;">
+							</td>
+						</tr>
+<!-- /head:paging -->
+
+
+					</table>
+				</td>
+			</tr>
+<!-- /head -->
+<!-- separator -->
+			<tr valign="top">
+				<td colspan="4" bgcolor="#000000" height="1"></td>
+			</tr>
+<!-- /separator -->
+<!-- chapter -->
+			<tr>
+				<td width="10"></td>
+				<td colspan="2">
+					<a name="ch1"></a>
+					<br />
+
+					<span class="title">
+						1.
+						OGen
+						- open generation
+					</span>
+					<br />
+					<br />
+				</td>
+				<td width="10"></td>
+			</tr>
+<!-- /chapter -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="ch1.it1"></a>
+						<span class="title">
+							1.1. 
+							introduction
+						</span>
+						<br />
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+								<a name="ch1.it1.at1"></a>
+									<span class="subsubtitle">
+										What is OGen
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										OGen is a code generator framework.<br />
+<br />
+
+TODOS<br />
+<br />
+
+It generates code on text files and databases<sup>(1)</sup> based on sets of XML metadatas<sup>(2)</sup> and aspx/XSLT templates provided by users.<br />
+<br />
+
+<sup>(1)</sup> PostgreSQL, SQL Server and MySQL are currently supported<br />
+<sup>(2)</sup> gathered from SQL information schema, user specific XML data and .net assemblies<br />
+
+<br />
+									</span>
+								<a name="ch1.it1.at2"></a>
+									<span class="subsubtitle">
+										Audience
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										Then main audience for the OGen code generator framework are developers<br />
+<br />
+
+TODOS<br />
+TODOS<br />
+TODOS<br />
+<br />
+									</span>
+								<a name="ch1.it1.at3"></a>
+									<span class="subsubtitle">
+										License
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										OGen is distributed under the permissive 
+
+<a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>
+
+which is similar to the BSD License and is 
+
+<a href="http://www.fsf.org/licensing/licenses/index_html#Expat">compatible</a> 
+
+with the GNU General Public License ("GNU GPL")
+<br />
+<br />
+
+Should you decide to use MySQL under OGen you should be aware of the 
+
+<a href="http://www.fsf.org/licensing/licenses/gpl-faq.html">implications</a>.
+
+MySQL is 
+
+<a href="http://www.mysql.com/about/legal/licensing/">licensed</a>
+
+under the GNU GPL license.<br />
+<br />
+									</span>
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="ch1.it2"></a>
+						<span class="title">
+							1.2. 
+							key features
+						</span>
+						<br />
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+								<a name="ch1.it2.at1"></a>
+									<span class="subsubtitle">
+										easily create your own generator
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch1.it2.at2"></a>
+									<span class="subsubtitle">
+										easily add or change existing generator templates
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="ch1.it3"></a>
+						<span class="title">
+							1.3. 
+							summary
+						</span>
+						<br />
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+								<a name="ch1.it3.at1"></a>
+									<span class="subsubtitle">
+										why
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="ch1.it4"></a>
+						<span class="title">
+							1.4. 
+							TESTINGS
+						</span>
+						<br />
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+								<a name="ch1.it4.at1"></a>
+									<span class="title">
+										1.4.1.
+										code
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="ch1.it4.at2"></a>
+									<span class="subsubtitle">
+										code - no desc
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="1.4.1"
+																class="code"
+														>using System;
+
+namespace OGen.Test.presentationlayer.console {
+	class MainClass {
+		[STAThread]
+		static void Main(string[] args_in) {
+			Console.WriteLine("hello world!");
+		}
+	}
+}</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 1.4.1
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch1.it4.at3"></a>
+									<span class="subsubtitle">
+										code - with desc
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="1.4.2"
+																class="code"
+														>using System;
+
+namespace OGen.Test.presentationlayer.console {
+	class MainClass {
+		[STAThread]
+		static void Main(string[] args_in) {
+			Console.WriteLine("hello world!");
+		}
+	}
+}</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 1.4.2: some code
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="1.4.3"
+																class="code"
+														>using System;
+
+namespace OGen.Test.presentationlayer.console {
+	class MainClass {
+		[STAThread]
+		static void Main(string[] args_in) {
+			Console.WriteLine("hello world!");
+		}
+	}
+}</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 1.4.3: some code
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch1.it4.at5"></a>
+									<span class="title">
+										1.4.2.
+										table
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="ch1.it4.at6"></a>
+									<span class="subsubtitle">
+										table - no desc
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<div class="anex">
+													<table 
+														cellpadding="4" 
+														cellspacing="0" 
+														border="0" 
+														width="100%">
+														<tr>
+	<td>number</td>
+	<td>description</td>
+</tr>
+<tr>
+	<td>1</td>
+	<td>um</td>
+</tr>
+<tr>
+	<td>2</td>
+	<td>dois</td>
+</tr>
+<tr>
+	<td>3</td>
+	<td>tres</td>
+</tr>
+													</table>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td align="center">
+												<span class="text">
+													table 1.4.1
+												</span>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch1.it4.at7"></a>
+									<span class="subsubtitle">
+										table - with desc
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<div class="anex">
+													<table 
+														cellpadding="4" 
+														cellspacing="0" 
+														border="0" 
+														width="100%">
+														<tr>
+	<td>number</td>
+	<td>description</td>
+</tr>
+<tr>
+	<td>1</td>
+	<td>um</td>
+</tr>
+<tr>
+	<td>2</td>
+	<td>dois</td>
+</tr>
+<tr>
+	<td>3</td>
+	<td>tres</td>
+</tr>
+													</table>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td align="center">
+												<span class="text">
+													table 1.4.2: some table
+												</span>
+											</td>
+										</tr>
+									</table>
+									<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<div class="anex">
+													<table 
+														cellpadding="4" 
+														cellspacing="0" 
+														border="0" 
+														width="100%">
+														<tr>
+	<td>number</td>
+	<td>description</td>
+</tr>
+<tr>
+	<td>1</td>
+	<td>um</td>
+</tr>
+<tr>
+	<td>2</td>
+	<td>dois</td>
+</tr>
+<tr>
+	<td>3</td>
+	<td>tres</td>
+</tr>
+													</table>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td align="center">
+												<span class="text">
+													table 1.4.3: some table
+												</span>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch1.it4.at9"></a>
+									<span class="title">
+										1.4.3.
+										image
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="ch1.it4.at10"></a>
+									<span class="subsubtitle">
+										image - no desc
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<img 
+													src="OGen-Doc-metadatas/ch00100-ogen/it00100-introduction/img00200-audience.png" /></td>
+										</tr>
+										<tr>
+											<td align="center">
+												<span class="text">
+													figure 1.4.1
+												</span>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch1.it4.at11"></a>
+									<span class="subsubtitle">
+										image - with desc
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<img 
+													src="OGen-Doc-metadatas/ch00100-ogen/it00100-introduction/img00200-audience.png" /></td>
+										</tr>
+										<tr>
+											<td align="center">
+												<span class="text">
+													figure 1.4.2: some image
+												</span>
+											</td>
+										</tr>
+									</table>
+									<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<img 
+													src="OGen-Doc-metadatas/ch00100-ogen/it00100-introduction/img00200-audience.png" /></td>
+										</tr>
+										<tr>
+											<td align="center">
+												<span class="text">
+													figure 1.4.3: some image
+												</span>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch1.it4.at13"></a>
+									<span class="title">
+										1.4.4.
+										comments
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="ch1.it4.at14"></a>
+									<span class="subsubtitle">
+										some comment
+									</span>
+								<br />
+								<br />
+									<div class="anex">
+										<table cellpadding="4" cellspacing="0" border="0" width="100%">
+											<tr>
+												<td valign="top" align="right" style="width:10%;">
+													<span 
+														class="text">
+																<span class="comment">
+																	Comment
+																</span>
+													</span>
+												</td>
+												<td>&nbsp;&nbsp;</td>
+												<td valign="top" align="left" style="width:90%;">
+													<span class="text">
+														OGen is distributed under the permissive 
+
+<a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>
+
+which is similar to the BSD License and is 
+
+<a href="http://www.fsf.org/licensing/licenses/index_html#Expat">compatible</a> 
+
+with the GNU General Public License ("GNU GPL")
+<br />
+<br />
+
+Should you decide to use MySQL under OGen you should be aware of the 
+
+<a href="http://www.fsf.org/licensing/licenses/gpl-faq.html">implications</a>.
+
+MySQL is 
+
+<a href="http://www.mysql.com/about/legal/licensing/">licensed</a>
+
+under the GNU GPL license.<br />
+<br />
+													</span>
+												</td>
+											</tr>
+										</table>
+									</div>
+									<br />
+									<div class="anex">
+										<table cellpadding="4" cellspacing="0" border="0" width="100%">
+											<tr>
+												<td valign="top" align="right" style="width:10%;">
+													<span 
+														class="text">
+																<span class="warning">
+																	Warning
+																</span>
+													</span>
+												</td>
+												<td>&nbsp;&nbsp;</td>
+												<td valign="top" align="left" style="width:90%;">
+													<span class="text">
+														OGen is distributed under the permissive 
+
+<a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>
+
+which is similar to the BSD License and is 
+
+<a href="http://www.fsf.org/licensing/licenses/index_html#Expat">compatible</a> 
+
+with the GNU General Public License ("GNU GPL")
+<br />
+<br />
+
+Should you decide to use MySQL under OGen you should be aware of the 
+
+<a href="http://www.fsf.org/licensing/licenses/gpl-faq.html">implications</a>.
+
+MySQL is 
+
+<a href="http://www.mysql.com/about/legal/licensing/">licensed</a>
+
+under the GNU GPL license.<br />
+<br />
+													</span>
+												</td>
+											</tr>
+										</table>
+									</div>
+									<br />
+								<a name="ch1.it4.at16"></a>
+									<span class="subsubtitle">
+										some tip
+									</span>
+								<br />
+								<br />
+									<div class="anex">
+										<table cellpadding="4" cellspacing="0" border="0" width="100%">
+											<tr>
+												<td valign="top" align="right" style="width:10%;">
+													<span 
+														class="text">
+																<span class="tip">
+																	Tip
+																</span>
+													</span>
+												</td>
+												<td>&nbsp;&nbsp;</td>
+												<td valign="top" align="left" style="width:90%;">
+													<span class="text">
+														OGen is distributed under the permissive 
+
+<a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>
+
+which is similar to the BSD License and is 
+
+<a href="http://www.fsf.org/licensing/licenses/index_html#Expat">compatible</a> 
+
+with the GNU General Public License ("GNU GPL")
+<br />
+<br />
+
+Should you decide to use MySQL under OGen you should be aware of the 
+
+<a href="http://www.fsf.org/licensing/licenses/gpl-faq.html">implications</a>.
+
+MySQL is 
+
+<a href="http://www.mysql.com/about/legal/licensing/">licensed</a>
+
+under the GNU GPL license.<br />
+<br />
+													</span>
+												</td>
+											</tr>
+										</table>
+									</div>
+									<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- chapter -->
+			<tr>
+				<td width="10"></td>
+				<td colspan="2">
+					<a name="ch2"></a>
+					<br />
+
+					<span class="title">
+						2.
+						OGen - code generation framework
+					</span>
+					<br />
+					<br />
+				</td>
+				<td width="10"></td>
+			</tr>
+<!-- /chapter -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="ch2.it1"></a>
+						<span class="title">
+							2.1. 
+							introduction
+						</span>
+						<br />
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+								<a name="ch2.it1.at1"></a>
+									<span class="subsubtitle">
+										introduction
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="ch2.it2"></a>
+						<span class="title">
+							2.2. 
+							installing ogen
+						</span>
+						<br />
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+								<a name="ch2.it2.at1"></a>
+									<span class="subsubtitle">
+										dependencies and pre-requisites
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										If you don't plan to build from source or contribute to OGen you'll only need:
+<ul>
+	<li type="circle">
+		<a href="http://pgfoundry.org/projects/npgsql/">Npgsql</a>
+
+	</li>
+	<li type="circle">
+		<a href="http://dev.mysql.com/downloads/connector/net/">MySQL Connector/Net</a>
+		(support is on the way)
+	</li>
+</ul>
+
+If you're building from source, or plan to contribute you'll <u>also</u> need:
+<ul>
+	<li type="circle">
+		build source files using
+		<a href="http://www.icsharpcode.net/OpenSource/SD/">SharpDevelop</a>
+		or 
+		<a href="http://msdn.microsoft.com/vstudio/express/visualcsharp/">Visual C# 2005 Express Edition</a>
+		(<a href="http://nant.sourceforge.net/">NAnt</a> and 
+		<a href="http://www.monodevelop.org/">MonoDevelop</a> not supported yet)
+	</li>
+
+	<li type="circle">
+		a subversion client like
+		<a href="http://tortoisesvn.tigris.org/">TortoiseSVN</a>
+		(for windows)
+		or
+		<a href="http://subversion.tigris.org/">Subversion</a>
+		(multi-platform)
+	</li>
+	<li type="circle">
+		<a href="http://www.nunit.org/">NUnit</a>
+
+	</li>
+	<li type="circle">
+		<a href="http://ndoc.sourceforge.net/">NDoc</a>
+	</li>
+</ul>
+									</span>
+								<a name="ch2.it2.at2"></a>
+									<span class="subsubtitle">
+										installing OGen under windows
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										OGen at BerliOS:
+<a href="http://developer.berlios.de/projects/ogen/">
+	http://developer.berlios.de/projects/ogen
+/</a>
+<br>
+
+<ol type="a">
+	<li>
+
+		Building from Source:
+		<br>
+		<br>
+
+		<ol>
+			<li>
+
+				Anonymous Subversion Access via SVN:
+				svn://svn.berlios.de/ogen/trunk/
+				<br>
+				or HTTP: 
+				<a href="http://svn.berlios.de/svnroot/repos/ogen/trunk/">
+
+					http://svn.berlios.de/svnroot/repos/ogen/trunk/
+				</a>
+<!--
+				<br>
+				subversion clients: 
+				<a href="http://tortoisesvn.tigris.org/">windows</a>
+				/
+				<a href="http://subversion.tigris.org/">multi-platform command line</a>
+-->
+				<br>
+				<br>
+
+			</li>
+			<li>
+				Once you have the sources, check the 'distro' directory for solution and scripts files.
+				<br>
+				<br>
+
+				<ol type="i">
+					<li>
+						win-100-generate-keys.bat
+						<br>
+						generates keys needed to compile assemblies with strong name so they can be added to the GAC
+						<br>
+						<br>
+					</li>
+					<li>
+
+						win-110-generate-app.config.bat
+						<br>
+						generates app.config with your local path to OGen project
+						<br>
+						<br>
+					</li>
+					<li>
+						win-120-buildAssembies-7.1-registry-tweak4visualstudio.js
+						<br>
+						if you're using Visual Studio 2003, you'll need to define where to find dependant asseblies (even if they're in the GAC)
+						<br>
+
+						<br>
+					</li>
+					<li>
+						win-120-buildAssembies-7.1.sln (Visual Studio 2003)
+						<br>
+						win-120-buildAssembies-8.sln (<a href="http://www.icsharpcode.net/OpenSource/SD/">SharpDevelop</a>, <a href="http://msdn.microsoft.com/vstudio/express/visualcsharp/">Visual C# 2005 Express Edition</a> or Visual Studio 2005)
+						<br>
+
+						win-120-buildAssembies.build (<a href="http://nant.sourceforge.net/">NAnt</a>, not yet supported)
+						<br>
+						<br>
+						you should set build configuration to RELEASE and compile using any of the provided solutions
+						<br>
+						<br>
+					</li>
+					<li>
+						win-130-copyAssemblies-1.1.bat
+						<br>
+
+						copies (Visual Studio 2003) compiled assemblies (framework 1.1) to bin directory
+						<br>
+						<br>
+					</li>
+					<li>
+						win-130-copyAssemblies-2.0.bat
+						<br>
+						copies (Sharp Development / Visual Studio 2005) compiled assemblies (framework 2.0) to bin directory
+						<br>
+						<br>
+
+					</li>
+					<li>
+						win-140-installAssemblies-intoGAC-1.1.bat
+						<br>
+						adds (Visual Studio 2003) compiled assemblies (framework 1.1) to the GAC
+						<br>
+						<br>
+					</li>
+					<li>
+						win-140-installAssemblies-intoGAC-2.0.bat
+						<br>
+
+						adds (Sharp Development / Visual Studio 2005) compiled assemblies (framework 2.0) to the GAC
+						<br>
+						<br>
+					</li>
+					<li>
+						win-150-OGen.ALL.Templates-install-1.1.bat
+						<br>
+						copies (Visual Studio 2003) compiled assembly (framework 1.1) for the OGen-NTier, OGen-Doc 
+						and OGen-XSD Templates to bin directory and generates web.config file
+						<br>
+						<br>
+
+					</li>
+					<li>
+						win-150-OGen.ALL.Templates-install-2.0.bat
+						<br>
+						copies (Sharp Development / Visual Studio 2005) compiled assembly (framework 2.0) for the OGen-Doc, OGen-Doc 
+						and OGen-XSD Templates to bin directory
+						and generates web.config file
+						<br>
+						<br>
+					</li>
+
+				</ol>
+
+			</li>
+			<li>
+				Once you have the compiled assemblies installed in the GAC, check the 'distro\bin' directory where you'll find OGen binaries and generation templates.
+				<br>
+				<br>
+
+			</li>
+<!--
+			<li>
+
+ToDos: here!<br>
+...<br>
+<br>
+
+
+			</li>
+-->
+		</ol>
+	</li>
+
+	<li>
+		Getting Binaries:
+		<br>
+		<br>
+
+		<ol>
+			<li>
+				Not available yet.
+			</li>
+		</ol>
+
+	</li>
+</ol>
+									</span>
+								<a name="ch2.it2.at3"></a>
+									<span class="subsubtitle">
+										installing OGen under linux with the Mono .net framework
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="ch2.it3"></a>
+						<span class="title">
+							2.3. 
+							creating your own generator
+						</span>
+						<br />
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+								<a name="ch2.it3.at1"></a>
+									<span class="subsubtitle">
+										...
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- chapter -->
+			<tr>
+				<td width="10"></td>
+				<td colspan="2">
+					<a name="ch3"></a>
+					<br />
+
+					<span class="title">
+						3.
+						C# classes generator to interact with XML
+					</span>
+					<br />
+					<br />
+				</td>
+				<td width="10"></td>
+			</tr>
+<!-- /chapter -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="ch3.it1"></a>
+						<span class="title">
+							3.1. 
+							introduction
+						</span>
+						<br />
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+								<a name="ch3.it1.at1"></a>
+									<span class="subsubtitle">
+										What is OGen
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="ch3.it1.at2"></a>
+									<span class="subsubtitle">
+										Audience
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="ch3.it1.at3"></a>
+									<span class="subsubtitle">
+										License
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- chapter -->
+			<tr>
+				<td width="10"></td>
+				<td colspan="2">
+					<a name="ch4"></a>
+					<br />
+
+					<span class="title">
+						4.
+						NTier application generator
+					</span>
+					<br />
+					<br />
+				</td>
+				<td width="10"></td>
+			</tr>
+<!-- /chapter -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="ch4.it1"></a>
+						<span class="title">
+							4.1. 
+							introduction
+						</span>
+						<br />
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+								<a name="ch4.it1.at1"></a>
+									<span class="subsubtitle">
+										NTier Application
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it1.at2"></a>
+									<span class="subsubtitle">
+										Data Layer
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it1.at3"></a>
+									<span class="subsubtitle">
+										Business Layer
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it1.at4"></a>
+									<span class="subsubtitle">
+										Distributed Layer
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it1.at5"></a>
+									<span class="subsubtitle">
+										Presentation Layer
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="ch4.it2"></a>
+						<span class="title">
+							4.2. 
+							using Data Objects
+						</span>
+						<br />
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+								<a name="ch4.it2.at1"></a>
+									<span class="title">
+										4.2.1.
+										creating a sample database for the project
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at2"></a>
+									<span class="subsubtitle">
+										db structure
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.1"
+																class="code"
+														>.-----------------.               .------------------.              .---------------.
+| User            |               | Log              |              | Logcode       |
+|-----------------|               |------------------|              |---------------|
+|> +IDUser        |               |> +IDLog          |              |> +IDLogcode   |
+|   Login         |               |   IDLogcode     <|Logcode       |   Warning     |
+|   Password      |               |   IDUser_posted <|User          |   Error       |
+|   SomeNullValue |               |   Date_posted    |              |   Code        |
+'-----------------'               |   Logdata        |              |   Description |
+                                  '------------------'              '---------------'
+
+.--------------------.            .----------------.
+| UserGroup          |            | GroupPermition |
+|--------------------|            |----------------|
+|>  IDUser          <|User        |>  IDGroup     <|Group
+|>  IDGroup         <|Group       |>  IDPermition <|Permition
+|   Relationdate     |            '----------------'
+|   Defaultrelation  |
+'--------------------'
+
+.-----------.                     .---------------.
+| Group     |                     | Permition     |
+|-----------|                     |---------------|
+|> +IDGroup |                     |> +IDPermition |
+|   Name    |                     |   Name        |
+'-----------'                     '---------------'
+
+.---------------.
+| Config        |
+|---------------|
+|>  Name        |
+|   Config      |
+|   Type        |
+|   Description |
+'---------------'
+
+.----------------------.          .---------------.                 .----------------.
+| Word                 |          | WordLanguage  |                 | Language       |
+|----------------------|          |---------------|                 |----------------|
+|> +IDWord             |          |> IDWord      <|Word             |> +IDLanguage   |
+|  DeleteThisTestField |          |> IDLanguage  <|Language         |   IDWord_name <|Word
+'----------------------'          |  Translation  |                 '----------------'
+                                  '---------------'
+
+
+legend:
+	+ identity key
+	> primary key
+	< foreign key</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.1
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at3"></a>
+									<span class="subsubtitle">
+										brief explanation
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at4"></a>
+									<span class="subsubtitle">
+										PostgreSQL
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.2"
+																class="code"
+														><span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br /></pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.2
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at5"></a>
+									<span class="subsubtitle">
+										SQL Server
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.3"
+																class="code"
+														><span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br /></pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.3
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at6"></a>
+									<span class="subsubtitle">
+										MySQL
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.4"
+																class="code"
+														><span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br /></pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.4
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at7"></a>
+									<span class="title">
+										4.2.2.
+										generating a new project
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at8"></a>
+									<span class="subsubtitle">
+										...
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="ch4.it2.at9"></a>
+									<span class="subsubtitle">
+										consuming db metatadas
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at10"></a>
+									<span class="subsubtitle">
+										adding metadatas
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at11"></a>
+									<span class="subsubtitle">
+										...
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="ch4.it2.at12"></a>
+									<span class="title">
+										4.2.3.
+										the basics - the four basic operations over a db table and more
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at13"></a>
+									<span class="subsubtitle">
+										Insert / insObject
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.5"
+																class="code"
+														>
+long _idgroup = 0L;
+
+OGen.NTier.UTs.lib.datalayer.DO_Group _group = new OGen.NTier.UTs.lib.datalayer.DO_Group();
+_group.Fields.Name = "someGroup";
+// assigning selectIdentity parameter to true retrieves Sequence/Identity for IDUser
+_idgroup = _group.insObject(true);
+_group.Dispose(); _group = null;
+
+Console.WriteLine(
+  "group inserted, at:\nIDGroup = {0}", 
+  _idgroup
+);
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.5
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at14"></a>
+									<span class="subsubtitle">
+										Select / getObject
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.6"
+																class="code"
+														>
+long _iduser = 1L;
+
+OGen.NTier.UTs.lib.datalayer.DO_User _user = new OGen.NTier.UTs.lib.datalayer.DO_User();
+if (_user.getObject(_iduser))
+	Console.WriteLine(
+	  "user found:\nIDUser = {0}\nLogin = {1}", 
+	  _iduser, 
+	  _user.Fields.Login
+	);
+else
+	Console.WriteLine("user not found");
+_user.Dispose(); _user = null;
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.6
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at15"></a>
+									<span class="subsubtitle">
+										Update / updObject
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.7"
+																class="code"
+														>
+long _idgroup = 1L;
+
+OGen.NTier.UTs.lib.datalayer.DO_Group _group = new OGen.NTier.UTs.lib.datalayer.DO_Group();
+if (_group.getObject(_idgroup)) {
+	Console.Write(
+	  "updating group name:\nName = {0}\nnew Name = {1} ... ",
+	  _group.Fields.Name,
+	  _group.Fields.Name = "whatever"
+	);
+
+	// makes no update unless changes have been made, 
+	// you can force update by sending true parameter
+	_group.updObject(false);
+
+	Console.WriteLine("DONE!");
+} else {
+	Console.WriteLine("group not found");
+}
+_group.Dispose(); _group = null;
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.7
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at16"></a>
+									<span class="subsubtitle">
+										Delete / delObject
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.8"
+																class="code"
+														>
+long _iduser = 1L;
+
+OGen.NTier.UTs.lib.datalayer.DO_User _user = new OGen.NTier.UTs.lib.datalayer.DO_User();
+if (_user.getObject(_iduser)) {
+	Console.Write(
+	  "deleting user {0} ... ",
+	  _user.Fields.Login
+	);
+
+	//--- if parameter not specified uses object property _user.IDUser
+	//_user.delObject(_iduser);
+
+	//-- so in the case no need to provide IDUser
+	_user.delObject();
+
+	Console.WriteLine("DONE!");
+} else {
+	Console.WriteLine("user not found");
+}
+_user.Dispose(); _user = null;
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.8
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at17"></a>
+									<span class="subsubtitle">
+										Insert (if not exists) or Update (if exists) / setObject
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.9"
+																class="code"
+														>
+long _iduser = 1L;
+long _idgroup = 1L;
+
+OGen.NTier.UTs.lib.datalayer.DO_UserGroup _usergroup = new OGen.NTier.UTs.lib.datalayer.DO_UserGroup();
+_usergroup.Fields.IDUser = _iduser;
+_usergroup.Fields.IDGroup = _idgroup;
+_usergroup.Fields.Relationdate = DateTime.Now;
+_usergroup.Fields.Defaultrelation = false;
+
+// if relation exists, it updates, if not it inserts:
+_usergroup.setObject(true);
+
+_usergroup.Dispose(); _usergroup = null;
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.9
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at18"></a>
+									<span class="title">
+										4.2.4.
+										using DBConnection
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at19"></a>
+									<span class="subsubtitle">
+										why and other considerations
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at20"></a>
+									<span class="subsubtitle">
+										executing an sql query
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										You should note that by using db functions and stored procedures the code you write, making use of DBConnection class, becomes generic for all the supported db servers. This means you can re-use same code to handle all supported db servers, which is very usefull when creating data objects to handle db tables. There is no need for you to write code to handle each supported db server.<br />
+<br />
+You can reuse the following examples to handle any of the supported db servers.<br />
+<br />
+									</span>
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.10"
+																class="code"
+														>
+long _iduser = 0L;
+
+OGen.lib.datalayer.DBConnection _con 
+	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+		// set your db server type here
+		OGen.lib.datalayer.DBServerTypes.PostgreSQL, 
+		// and connectionstring
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+	);
+
+// executing your sql query
+_con.Execute_SQLQuery(
+	string.Format(
+		"delete from \"User\" where \"IDUser\" = {0}", 
+		_iduser.ToString()
+	)
+);
+
+_con.Dispose(); _con = null;
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.10: executing an sql query
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at22"></a>
+									<span class="subsubtitle">
+										executing and retrieving data table from an sql query
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.10"
+																class="code"
+														>
+OGen.lib.datalayer.DBConnection _con 
+	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+		// set your db server type here
+		OGen.lib.datalayer.DBServerTypes.PostgreSQL, 
+		// and connectionstring
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+	);
+
+// you now have a DataTable populated
+// with results from your sql query
+System.Data.DataTable _datatable 
+	= _con.Execute_SQLQuery_returnDataTable(
+		"select * from \"User\""
+	);
+
+_con.Dispose(); _con = null;
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.10: executing and retrieving data table from an sql query
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at24"></a>
+									<span class="subsubtitle">
+										executing an sql function or stored procedure
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.10"
+																class="code"
+														>
+long _iduser = 0L;
+
+OGen.lib.datalayer.DBConnection _con 
+	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+		// set your db server type here
+		OGen.lib.datalayer.DBServerTypes.PostgreSQL, 
+		// and connectionstring
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+	);
+
+// set your function parameters
+System.Data.IDbDataParameter[] _dataparameters 
+	= new System.Data.IDbDataParameter[] {
+		_con.newDBDataParameter(
+			"IDUser_", 
+			System.Data.DbType.Int64, 
+			System.Data.ParameterDirection.Input, 
+			_iduser, 
+			0
+		)
+	};
+
+// call you function
+_con.Execute_SQLFunction(
+	"sp0_User_delObject", 
+	_dataparameters
+);
+
+_con.Dispose(); _con = null;
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.10: executing an sql function or stored procedure
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at26"></a>
+									<span class="subsubtitle">
+										executing and retrieving data values from an sql function
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.10"
+																class="code"
+														>
+long _iduser = 0L;
+
+OGen.lib.datalayer.DBConnection _con 
+	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+		// set your db server type here
+		OGen.lib.datalayer.DBServerTypes.PostgreSQL, 
+		// and connectionstring
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+	);
+
+// set your function parameters
+System.Data.IDbDataParameter[] _dataparameters 
+	= new System.Data.IDbDataParameter[] {
+		_con.newDBDataParameter(
+			"IDUser_", 
+			System.Data.DbType.Int64, 
+			System.Data.ParameterDirection.Input, 
+			_iduser, 
+			0
+		)
+	};
+
+// call you function and get returning value
+bool _result = (bool)_con.Execute_SQLFunction(
+	"fnc0_User_isObject", 
+	_dataparameters,
+	System.Data.DbType.Boolean, // returning value db type
+	0 // returning value size, if applicable
+);
+
+_con.Dispose(); _con = null;
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.10: executing and retrieving data values from an sql function
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at28"></a>
+									<span class="subsubtitle">
+										executing and retrieving data tables from an sql function or stored procedure
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.10"
+																class="code"
+														>
+long _idgroup_search = 1L;
+
+OGen.lib.datalayer.DBConnection _con 
+	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+		// set your db server type here
+		OGen.lib.datalayer.DBServerTypes.PostgreSQL, 
+		// and connectionstring
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+	);
+
+// set your function parameters
+System.Data.IDbDataParameter[] _dataparameters 
+	= new System.Data.IDbDataParameter[] {
+		_con.newDBDataParameter(
+			"IDGroup_search_", 
+			System.Data.DbType.Int64, 
+			System.Data.ParameterDirection.Input, 
+			_idgroup_search, 
+			0
+		)
+	};
+
+// you now have a DataTable populated
+// with results from your sql function
+System.Data.DataTable _datatable 
+	= _con.Execute_SQLFunction_returnDataTable(
+		"sp0_User_Record_open_byGroup_fullmode", 
+		_dataparameters
+	);
+
+_con.Dispose(); _con = null;
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.10: executing and retrieving data tables from an sql function or stored procedure
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at30"></a>
+									<span class="subsubtitle">
+										information schema
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										Using DBConnection to extract information schema from db server, like:<br />
+<ul>
+	<li>available db servers databases</li>
+	<li>table details for a specific database</li>
+	<li>field details for a specific table</li>
+</ul>
+This is very usefull to generate data object classes for the data layer to handle each table at database.<br />
+<br />
+									</span>
+								<a name="ch4.it2.at31"></a>
+									<span class="subsubtitle">
+										list dbs
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.15"
+																class="code"
+														>
+OGen.lib.datalayer.DBConnection _con
+	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+		// set your db server type here
+		OGen.lib.datalayer.DBServerTypes.PostgreSQL,
+		// and connectionstring
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+	);
+
+// you now have a string array populated with all
+// databases (except system ones) at you db server
+string[] _dbs = _con.getDBs();
+
+_con.Dispose(); _con = null;
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.15: list dbs
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at32"></a>
+									<span class="subsubtitle">
+										list db tables
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.16"
+																class="code"
+														>
+OGen.lib.datalayer.DBConnection _con 
+	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+		// set your db server type here
+		OGen.lib.datalayer.DBServerTypes.PostgreSQL, 
+		// and connectionstring
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+	);
+
+// you now have a cDBTable array populated with all
+// table names and other properties for your database
+OGen.lib.datalayer.DBTable[] _tables = _con.getTables();
+
+for (int t = 0; t < _tables.Length; t++)
+	Console.WriteLine(
+		"table name: {0}\nis this a view and not a table: {1}", 
+		_tables[t].Name, 
+		_tables[t].isVirtualTable
+	);
+
+_con.Dispose(); _con = null;
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.16: list db tables
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at33"></a>
+									<span class="subsubtitle">
+										list db table fields
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.17"
+																class="code"
+														>
+OGen.lib.datalayer.DBConnection _con 
+	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+		// set your db server type here
+		OGen.lib.datalayer.DBServerTypes.PostgreSQL, 
+		// and connectionstring
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+	);
+
+// you now have a cDBTableField array populated with all
+// field names and other properties for specified table
+OGen.lib.datalayer.DBTableField[] _fields = _con.getTableFields("User");
+
+for (int f = 0; f < _fields.Length; f++)
+	Console.WriteLine(
+		"field name: {0}\nis PK: {1}\nis Identity: {2}\nis nullable: {3}", 
+		_fields[f].Name, 
+		_fields[f].isPK, 
+		_fields[f].isIdentity, 
+		_fields[f].isNullable, 
+
+		// many other properties available, like:
+		_fields[f].DBCollationName, 
+		_fields[f].DBDefaultValue, 
+		_fields[f].DBDescription, 
+		_fields[f].FK_FieldName, 
+		_fields[f].FK_TableName, 
+		_fields[f].Numeric_Precision, 
+		_fields[f].Numeric_Scale, 
+		_fields[f].Size
+	);
+
+_con.Dispose(); _con = null;
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.17: list db table fields
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at34"></a>
+									<span class="subsubtitle">
+										using transactions
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										Using db server transactions with DBConnection:<br />
+<br />
+									</span>
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.10"
+																class="code"
+														>
+long _iduser = 0L;
+
+OGen.lib.datalayer.DBConnection _con
+	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+		// set your db server type here
+		OGen.lib.datalayer.DBServerTypes.PostgreSQL,
+		// and connectionstring
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+	);
+
+// before beginning a transaction we need to open the connection
+_con.Open();
+try {
+	// beginning transaction
+	_con.Transaction.Begin();
+
+	// performing some operations on db
+	_con.Execute_SQLQuery(
+		string.Format(
+			"delete from \"User\" where \"IDUser\" = {0}",
+			_iduser.ToString()
+		)
+	);
+
+	// commit transaction
+	_con.Transaction.Commit();
+} catch (Exception _ex) {
+	// rollback transaction
+	_con.Transaction.Rollback();
+} finally {
+	// terminate transaction
+	_con.Transaction.Terminate();
+}
+// closing connection
+_con.Close();
+_con.Dispose(); _con = null;
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.10: using transactions
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at36"></a>
+									<span class="subsubtitle">
+										using transactions on dataobjects
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										Same on a generated data object class:<br />
+<br />
+									</span>
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.10"
+																class="code"
+														>
+string _testid = DateTime.Now.Ticks.ToString();
+bool _constraint;
+long _iduser;
+long _idgroup;
+
+OGen.NTier.UTs.lib.datalayer.DO_User _user 
+	= new OGen.NTier.UTs.lib.datalayer.DO_User();
+
+// before beginning a transaction we need to open the connection
+_user.Connection.Open();
+try {
+	// beginning transaction
+	_user.Connection.Transaction.Begin();
+
+	// performing some operations on User Data Object
+	_user.Fields.Login = _testid;
+	_user.Fields.Password = _testid;
+	_iduser = _user.insObject(true, out _constraint);
+	// handling constraint code should be added here
+
+	// commit transaction
+	_user.Connection.Transaction.Commit();
+} catch (Exception _ex) {
+	// rollback transaction
+	_user.Connection.Transaction.Rollback();
+} finally {
+	// terminate transaction
+	_user.Connection.Transaction.Terminate();
+}
+// closing connection
+_user.Connection.Close();
+_user.Dispose(); _user = null;
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.10: using transactions on dataobjects
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at38"></a>
+									<span class="subsubtitle">
+										using transactions between dataobjects
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										Sharing one connection between generated data objects classes, to make use of a shared transaction between them:<br />
+<br />
+									</span>
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.10"
+																class="code"
+														>
+string _testid = DateTime.Now.Ticks.ToString();
+bool _constraint;
+long _iduser;
+long _idgroup;
+
+// we need a shared connection between Data Objects
+OGen.lib.datalayer.DBConnection _con = OGen.NTier.UTs.lib.datalayer.DO__utils.DBConnection_createInstance(
+	OGen.NTier.UTs.lib.datalayer.DO__utils.DBServerType,
+	OGen.NTier.UTs.lib.datalayer.DO__utils.DBConnectionstring, 
+	string.Empty
+);
+
+// before beginning a transaction we need to open the connection
+_con.Open();
+try {
+	// beginning transaction
+	_con.Transaction.Begin();
+
+	// sharing connection with User Data Object
+	OGen.NTier.UTs.lib.datalayer.DO_User _user 
+		= new OGen.NTier.UTs.lib.datalayer.DO_User(_con);
+	// performing some operations on User Data Object
+	_user.Fields.Login = _testid;
+	_user.Fields.Password = _testid;
+	_iduser = _user.insObject(true, out _constraint);
+	// handling constraint code should be added here
+	_user.Dispose(); _user = null;
+
+	// sharing connection with Group Data Object
+	OGen.NTier.UTs.lib.datalayer.DO_Group _group 
+		= new OGen.NTier.UTs.lib.datalayer.DO_Group(_con);
+	// performing some operations on User Data Object
+	_group.Fields.Name = _testid;
+	_idgroup = _group.insObject(true);
+	_group.Dispose(); _group = null;
+
+	// sharing connection with Group Data Object
+	OGen.NTier.UTs.lib.datalayer.DO_UserGroup _usergroup
+		= new OGen.NTier.UTs.lib.datalayer.DO_UserGroup(_con);
+	// performing some operations on User Data Object
+	_usergroup.Fields.IDGroup = _idgroup;
+	_usergroup.Fields.IDUser = _iduser;
+	_usergroup.Fields.Relationdate = DateTime.Now;
+	_usergroup.Fields.Defaultrelation = false;
+	_usergroup.setObject(false);
+	_usergroup.Dispose(); _usergroup = null;
+
+	// commit transaction
+	_con.Transaction.Commit();
+} catch (Exception _ex) {
+	// rollback transaction
+	_con.Transaction.Rollback();
+} finally {
+	// terminate transaction
+	_con.Transaction.Terminate();
+}
+// closing connection
+_con.Close();
+_con.Dispose(); _con = null;
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.10: using transactions between dataobjects
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at40"></a>
+									<span class="title">
+										4.2.5.
+										Reflecting Data Objects
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at41"></a>
+									<span class="subsubtitle">
+										using reflection to list dataobjects
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.21"
+																class="code"
+														>
+System.Reflection.Assembly _assembly = System.Reflection.Assembly.Load(
+	#if NET_1_1
+	"OGen.NTier.UTs.lib.datalayer-1.1"
+	#elif NET_2_0
+	"OGen.NTier.UTs.lib.datalayer-2.0"
+	#endif
+);
+if (_assembly != null) {
+	Type[] _types = _assembly.GetTypes();
+	for (int _tp = 0; _tp < _types.Length; _tp++) {
+		Type _type = (Type)_types[_tp];
+
+		object[] _doclassattributes = _type.GetCustomAttributes(
+			typeof(OGen.NTier.lib.datalayer.DOClassAttribute),
+			true//false
+		);
+		if (
+			(_doclassattributes.Length > 0)
+			&&
+			(_type.Name.IndexOf("DO0_") != 0)
+		) {
+			Console.Write("{0};  ", _type.Name);
+			for (int _catt = 0; _catt < _doclassattributes.Length; _catt++) {
+				OGen.NTier.lib.datalayer.DOClassAttribute _classattribute 
+					= (OGen.NTier.lib.datalayer.DOClassAttribute)_doclassattributes[_catt];
+				Console.WriteLine(
+					"name: {0};  isVirtualTable: {1};  isConfig: {2};  ",
+					_classattribute.Name,
+					_classattribute.isVirtualTable,
+					_classattribute.isConfig
+				);
+
+				System.Reflection.PropertyInfo[] _properties = _type.GetProperties(
+					System.Reflection.BindingFlags.Public |
+					System.Reflection.BindingFlags.Instance
+				);
+				for (int _prop = 0; _prop < _properties.Length; _prop++) {
+					if (Attribute.IsDefined(
+						_properties[_prop],
+						typeof(OGen.NTier.lib.datalayer.DOPropertyAttribute)
+					)) {
+						Console.Write(
+							"\t{0}: ",
+							_properties[_prop].Name
+						);
+						Attribute[] _attributes = Attribute.GetCustomAttributes(
+							_properties[_prop]
+							//, typeof(DOPropertyAttribute)
+							//, true
+						);
+						//Console.WriteLine("Name \t isPK \t isIdentity \t DefaultValue \t \t \t \t isBool");
+						for (int _att = 0; _att < _attributes.Length; _att++) {
+							//if (_attributes[_att].GetType() == typeof(DOPropertyAttribute)) {
+								OGen.NTier.lib.datalayer.DOPropertyAttribute _propertyattribute
+									= (OGen.NTier.lib.datalayer.DOPropertyAttribute)_attributes[_att];
+								Console.Write(
+									"name:{0};  isPK:{1};  isIdentity:{2};  isText:{3};",
+									_propertyattribute.Name,
+									_propertyattribute.isPK,
+									_propertyattribute.isIdentity,
+									//att3.DefaultValue,
+									//att3.isConfig_Name, 
+									//att3.isConfig_Config, 
+									//att3.isConfig_Datatype, 
+									_propertyattribute.isText
+								);
+							//}
+						}
+						Console.WriteLine();
+					}
+				}
+				Console.WriteLine();
+			}
+		}
+	}
+}
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.21: using reflection to list dataobjects
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at42"></a>
+									<span class="subsubtitle">
+										using reflection to read from dataobject property attributes
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.22"
+																class="code"
+														>
+OGen.NTier.lib.datalayer.DOPropertyAttribute _attribute
+	= (OGen.NTier.lib.datalayer.DOPropertyAttribute)Attribute.GetCustomAttribute(
+		typeof(OGen.NTier.UTs.lib.datalayer.proxy.SO_User).GetProperty("IDUser"),
+		typeof(OGen.NTier.lib.datalayer.DOPropertyAttribute),
+		true
+	);
+Console.WriteLine(
+	"name:{0};  isPK:{1};  isIdentity:{2};  DefaultValue:{3};",
+	_attribute.Name,
+	_attribute.isPK,
+	_attribute.isIdentity,
+	_attribute.DefaultValue,
+
+	// many other properties available, like:
+	_attribute.AditionalInfo, 
+	_attribute.DefaultValue, 
+	_attribute.ExtendedDescription, 
+	_attribute.FK_FieldName, 
+	_attribute.FK_TableName, 
+	_attribute.FriendlyName, 
+	_attribute.isBool, 
+	_attribute.isConfig_Config, 
+	_attribute.isConfig_Datatype, 
+	_attribute.isConfig_Name, 
+	_attribute.isDateTime, 
+	_attribute.isDecimal, 
+	_attribute.isInt, 
+	_attribute.isListItemText, 
+	_attribute.isListItemValue, 
+	_attribute.isNullable, 
+	_attribute.isText, 
+	_attribute.Size
+);
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.22: using reflection to read from dataobject property attributes
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at43"></a>
+									<span class="subsubtitle">
+										using reflection to read from and write to dataobject properties
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="4.2.23"
+																class="code"
+														>
+OGen.NTier.UTs.lib.datalayer.DO_User _user = new OGen.NTier.UTs.lib.datalayer.DO_User();
+_user.Fields.IDUser = 123;
+_user.Fields.Login = "123";
+_user.Fields.Password = "123";
+
+System.Reflection.PropertyInfo[] _properties
+	= typeof(OGen.NTier.UTs.lib.datalayer.proxy.SO_User).GetProperties(
+		System.Reflection.BindingFlags.Public |
+		System.Reflection.BindingFlags.Instance
+	);
+for (int _prop = 0; _prop < _properties.Length; _prop++) {
+	if (Attribute.IsDefined(
+		_properties[_prop],
+		typeof(OGen.NTier.lib.datalayer.DOPropertyAttribute)
+	)) {
+		Console.Write(
+			"{0}: ", 
+			_properties[_prop].Name
+		);
+		Attribute[] _attributes = Attribute.GetCustomAttributes(
+			_properties[_prop],
+			typeof(OGen.NTier.lib.datalayer.DOPropertyAttribute), 
+			true
+		);
+		for (int _att = 0; _att < _attributes.Length; _att++) {
+			//if (_attributes[_att].GetType() == typeof(DOPropertyAttribute)) {
+			OGen.NTier.lib.datalayer.DOPropertyAttribute _attribute
+					= (OGen.NTier.lib.datalayer.DOPropertyAttribute)_attributes[_att];
+				Console.Write(
+					"name:{0};  isPK:{1};  isIdentity:{2};  DefaultValue:{3};  ",
+					_attribute.Name,
+					_attribute.isPK,
+					_attribute.isIdentity,
+					_attribute.DefaultValue
+				);
+			//}
+		}
+		Console.Write(
+			"value: {0}; ", 
+			_properties[_prop].GetValue(_user.Fields, null)
+		);
+		_properties[_prop].SetValue(
+			_user.Fields, 
+			Convert.ChangeType(
+				456, 
+				_properties[_prop].PropertyType
+			), 
+			null
+		);
+		Console.WriteLine(
+			"new value: {0}", 
+			_properties[_prop].GetValue(_user.Fields, null)
+		);
+	}
+}
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 4.2.23: using reflection to read from and write to dataobject properties
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch4.it2.at44"></a>
+									<span class="title">
+										4.2.6.
+										searches
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at45"></a>
+									<span class="subsubtitle">
+										defining a search
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at46"></a>
+									<span class="subsubtitle">
+										explicit unique index search
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										considerations<br />
+not supported by Range Search Updates<br />
+...<br />
+<br />
+									</span>
+								<a name="ch4.it2.at47"></a>
+									<span class="subsubtitle">
+										tweaking a search
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at48"></a>
+									<span class="subsubtitle">
+										using a search
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at52"></a>
+									<span class="title">
+										4.2.7.
+										range searches
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at53"></a>
+									<span class="subsubtitle">
+										defining a range search
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at54"></a>
+									<span class="subsubtitle">
+										tweaking a range search
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at57"></a>
+									<span class="subsubtitle">
+										using a range search
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at63"></a>
+									<span class="title">
+										4.2.8.
+										views
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at64"></a>
+									<span class="subsubtitle">
+										considerations (just like a table, but read-only)
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at65"></a>
+									<span class="subsubtitle">
+										why Views and when should we use them rather than using Searches
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at66"></a>
+									<span class="subsubtitle">
+										creating a view
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at67"></a>
+									<span class="subsubtitle">
+										creating a view
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at68"></a>
+									<span class="subsubtitle">
+										defining PKs for the view (so that searches can be made)
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at69"></a>
+									<span class="subsubtitle">
+										defining a range search over a view
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it2.at70"></a>
+									<span class="subsubtitle">
+										using a view
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="ch4.it3"></a>
+						<span class="title">
+							4.3. 
+							using Business Objects
+						</span>
+						<br />
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+								<a name="ch4.it3.at1"></a>
+									<span class="title">
+										4.3.1.
+										...
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="ch4.it4"></a>
+						<span class="title">
+							4.4. 
+							using Distributed Objects
+						</span>
+						<br />
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+								<a name="ch4.it4.at1"></a>
+									<span class="title">
+										4.4.1.
+										...
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="ch4.it4.at2"></a>
+									<span class="title">
+										4.4.2.
+										remoting objects
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="ch4.it4.at3"></a>
+									<span class="title">
+										4.4.3.
+										web services
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="ch4.it4.at4"></a>
+									<span class="title">
+										4.4.4.
+										...
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="ch4.it5"></a>
+						<span class="title">
+							4.5. 
+							using Presentation Objects
+						</span>
+						<br />
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+								<a name="ch4.it5.at1"></a>
+									<span class="title">
+										4.5.1.
+										...
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="ch4.it5.at2"></a>
+									<span class="title">
+										4.5.2.
+										configuring business objects source
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it5.at3"></a>
+									<span class="subsubtitle">
+										reference directly assembly / GAC
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it5.at4"></a>
+									<span class="subsubtitle">
+										Remoting
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it5.at5"></a>
+									<span class="subsubtitle">
+										WebServices
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it5.at6"></a>
+									<span class="title">
+										4.5.3.
+										consuming business objects
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="ch4.it5.at7"></a>
+									<span class="title">
+										4.5.4.
+										winforms
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it5.at8"></a>
+									<span class="title">
+										4.5.5.
+										webforms
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it5.at9"></a>
+									<span class="title">
+										4.5.6.
+										...
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="ch4.it6"></a>
+						<span class="title">
+							4.6. 
+							modules
+								- available with NTier generator
+						</span>
+						<br />
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+								<a name="ch4.it6.at1"></a>
+									<span class="title">
+										4.6.1.
+										config
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it6.at2"></a>
+									<span class="title">
+										4.6.2.
+										cache
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it6.at3"></a>
+									<span class="title">
+										4.6.3.
+										authentication (users and permitions)
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it6.at4"></a>
+									<span class="title">
+										4.6.4.
+										listings and reference data (reflecting through data and business layers)
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it6.at5"></a>
+									<span class="title">
+										4.6.5.
+										Concurrent Updates Timestamp
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it6.at6"></a>
+									<span class="title">
+										4.6.6.
+										log
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="ch4.it6.at7"></a>
+									<span class="title">
+										4.6.7.
+										dictionary
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it6.at8"></a>
+									<span class="title">
+										4.6.8.
+										...
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="ch4.it7"></a>
+						<span class="title">
+							4.7. 
+							summary
+						</span>
+						<br />
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+								<a name="ch4.it7.at1"></a>
+									<span class="title">
+										4.7.1.
+										don't like it? doesn't suit you needs?
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it7.at2"></a>
+									<span class="subsubtitle">
+										you can either build your own code generator using OGen framework, as seen in "creating your own generator" chapter
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it7.at3"></a>
+									<span class="subsubtitle">
+										or you can use part of what's been done so far and create your own templates project, and point configuration file to it
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it7.at4"></a>
+									<span class="subsubtitle">
+										you can add more items to xml metadatas files (to suit your specific needs), and re-generate C# classes dealing with xml metadata files
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it7.at5"></a>
+									<span class="subsubtitle">
+										please share your ideas, help me make it better or even get involved in the project
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />
+									</span>
+								<a name="ch4.it7.at6"></a>
+									<span class="title">
+										4.7.2.
+										...
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- chapter -->
+			<tr>
+				<td width="10"></td>
+				<td colspan="2">
+					<a name="ch5"></a>
+					<br />
+
+					<span class="title">
+						5.
+						Documentation generator
+						- what ever
+					</span>
+					<br />
+					<br />
+				</td>
+				<td width="10"></td>
+			</tr>
+<!-- /chapter -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="ch5.it1"></a>
+						<span class="title">
+							5.1. 
+							introduction
+						</span>
+						<br />
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+								<a name="ch5.it1.at1"></a>
+									<span class="subsubtitle">
+										What is OGen
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="ch5.it1.at2"></a>
+									<span class="subsubtitle">
+										Audience
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+								<a name="ch5.it1.at3"></a>
+									<span class="subsubtitle">
+										License
+									</span>
+								<br />
+								<br />
+									<span class="text">
+										<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />
+									</span>
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- chapter -->
+			<tr>
+				<td width="10"></td>
+				<td colspan="2">
+					<a name="ch6"></a>
+					<br />
+
+					<span class="title">
+						6.
+						Appendix
+					</span>
+					<br />
+					<br />
+				</td>
+				<td width="10"></td>
+			</tr>
+<!-- /chapter -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="ch6.it1"></a>
+						<span class="title">
+							6.1. 
+							sql data base - information schema
+						</span>
+						<br />
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+								<a name="ch6.it1.at1"></a>
+									<span class="subsubtitle">
+										getting table names (generic)
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="6.1.1"
+																class="code"
+														>
+SELECT
+	DISTINCT
+	_table.table_name,
+	CASE
+		WHEN (_table.table_type = 'VIEW') THEN
+			CAST(1 AS INT)
+		ELSE
+			CAST(0 AS INT)
+	END
+	AS is_view
+FROM information_schema.tables _table
+/*
+-- <PostgreSQL>
+INNER JOIN "OGen_fnc0__Split"(
+	string_to_array("subApp_", '|')
+) ON (
+	(_table.table_name LIKE "OGen_fnc0__Split")
+)
+-- </PostgreSQL>
+
+-- <SQLServer>
+INNER JOIN [dbo].[OGen_fnc0__Split](
+	@subApp_, 
+	'|'
+) t2 ON (
+	(_table.table_name LIKE t2.[OutputValue])
+)
+-- </SQLServer>
+*/
+WHERE
+	(
+		(_table.table_type = 'BASE TABLE')
+		OR
+		(_table.table_type = 'VIEW')
+	)
+
+	-- <PostgreSQL>
+	AND
+	(
+		(_table.table_type != 'VIEW')
+		OR
+		(
+			(_table.table_type = 'VIEW')
+			AND
+			(_table.table_name NOT LIKE 'v0_%')
+		)
+	)
+	-- </PostgreSQL>
+
+	-- <PostgreSQL>
+	AND
+	(_table.table_schema NOT IN (
+		'information_schema', 
+		'pg_catalog'
+	))
+	-- </PostgreSQL>
+
+	-- <SQLServer>
+	AND
+	(_table.table_name NOT IN (
+		'sysconstraints', 
+		'syssegments', 
+		'dtproperties', 
+		'sysdiagrams'
+	))
+	-- </SQLServer>
+
+	AND
+	(_table.table_catalog = @dbName_)
+ORDER BY _table.table_name
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 6.1.1: getting table names (generic)
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch6.it1.at2"></a>
+									<span class="subsubtitle">
+										getting table names (MySQL)
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="6.1.2"
+																class="code"
+														>
+SELECT
+	TABLE_NAME AS "Name",
+	CASE
+		WHEN (TABLE_TYPE = 'VIEW') THEN
+			CAST(1 AS unsigned)
+		ELSE
+			CAST(0 AS unsigned)
+		END AS "isVT"
+FROM INFORMATION_SCHEMA.TABLES
+WHERE
+	(
+		(TABLE_TYPE = 'BASE TABLE')
+		OR
+		(TABLE_TYPE = 'VIEW')
+	)
+	AND
+	(TABLE_SCHEMA != 'mysql')
+ORDER BY "Name"
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 6.1.2: getting table names (MySQL)
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch6.it1.at3"></a>
+									<span class="subsubtitle">
+										getting table field properties (PostgreSQL)
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="6.1.3"
+																class="code"
+														>
+SELECT
+
+--	_columns.table_catalog,
+--	_columns.udt_name
+--	AS udt_name,
+	_columns.table_name,
+
+	_columns.column_name,
+
+	CASE
+		WHEN ((_tables.table_type = 'VIEW') OR (_columns.is_nullable = 'No')) THEN
+			CAST(0 AS INT)
+		ELSE
+			CAST(1 AS INT)
+	END
+	AS is_nullable,
+
+	_columns.data_type,
+
+	_columns.character_maximum_length,
+
+	CASE
+		WHEN (_tables.table_type = 'VIEW') THEN
+			CAST(0 AS INT)
+		WHEN (_columns.column_name = _key_column_usage_PKs.column_name) THEN
+			CAST(1 AS INT)
+		ELSE
+			CAST(0 AS INT)
+	END
+	AS is_pk,
+
+	CASE
+		WHEN (_tables.table_type = 'VIEW') THEN
+			CAST(0 AS INT)
+		ELSE
+			CASE
+				WHEN (_columns.column_default LIKE 'nextval(''%') THEN
+					CAST(1 AS INT)
+				ELSE
+					CAST(0 AS INT)
+			END
+	END
+	AS is_identity,
+
+	_fk.fk_table_name,
+
+	_fk.fk_column_name,
+
+	_columns.column_default,
+
+	_columns.collation_name,
+
+	_columns.numeric_precision,
+
+	_columns.numeric_scale
+
+FROM information_schema.columns AS _columns
+
+	LEFT JOIN information_schema.tables AS _tables ON (
+		(_tables.table_catalog = _columns.table_catalog)
+		AND
+		(_tables.table_schema = _columns.table_schema)
+		AND
+		(_tables.table_name = _columns.table_name)
+	)
+
+	LEFT JOIN (
+		SELECT
+			_key_column_usage.table_name,
+			_key_column_usage.column_name,
+			_key_column_usage.table_catalog,
+			_key_column_usage.table_schema
+		FROM information_schema.table_constraints AS _table_constraints
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage ON
+			(_key_column_usage.constraint_catalog = _table_constraints.constraint_catalog)
+			AND
+			(_key_column_usage.constraint_schema = _table_constraints.constraint_schema)
+			AND
+			(_key_column_usage.constraint_name = _table_constraints.constraint_name)
+			AND
+			(_table_constraints.constraint_type = 'PRIMARY KEY')
+	) AS _key_column_usage_PKs ON
+		(_key_column_usage_PKs.table_catalog = _columns.table_catalog)
+		AND
+		(_key_column_usage_PKs.table_schema = _columns.table_schema)
+		AND
+		(_key_column_usage_PKs.table_name = _columns.table_name)
+		AND
+		(_key_column_usage_PKs.column_name = _columns.column_name)
+
+	LEFT JOIN (
+/*
+		SELECT
+			_ccu2.table_name AS fk_table_name,
+			_ccu2.column_name AS fk_column_name,
+
+			_tc2.table_name,
+			_kcu2.column_name,
+			_tc2.table_catalog,
+			_tc2.table_schema
+		FROM information_schema.table_constraints _tc2
+		INNER JOIN information_schema.constraint_column_usage _ccu2 ON
+			(_ccu2.constraint_catalog = _tc2.constraint_catalog)
+			AND
+			(_ccu2.constraint_schema = _tc2.constraint_schema)
+			AND
+			(_ccu2.constraint_name = _tc2.constraint_name)
+		INNER JOIN  information_schema.key_column_usage _kcu2 ON
+			(_kcu2.constraint_catalog = _ccu2.constraint_catalog)
+			AND
+			(_kcu2.constraint_schema = _ccu2.constraint_schema)
+			AND
+			(_kcu2.constraint_name = _ccu2.constraint_name)
+		WHERE
+			_tc2.constraint_type = 'FOREIGN KEY'
+*/
+
+		SELECT
+			_key_column_usage_PKs.table_name AS fk_table_name,
+			_key_column_usage_PKs.column_name AS fk_column_name,
+
+			_key_column_usage_FKs.table_name,
+			_key_column_usage_FKs.column_name,
+			_key_column_usage_FKs.table_catalog,
+			_key_column_usage_FKs.table_schema
+		FROM information_schema.referential_constraints AS _referential_constraints
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage_FKs ON
+			(_key_column_usage_FKs.constraint_catalog = _referential_constraints.constraint_catalog)
+			AND
+			(_key_column_usage_FKs.constraint_schema = _referential_constraints.constraint_schema)
+			AND
+			(_key_column_usage_FKs.constraint_name = _referential_constraints.constraint_name)
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage_PKs ON
+			(_key_column_usage_PKs.constraint_catalog = _referential_constraints.constraint_catalog)
+			AND
+			(_key_column_usage_PKs.constraint_schema = _referential_constraints.constraint_schema)
+			AND
+			(_key_column_usage_PKs.constraint_name = _referential_constraints.unique_constraint_name)
+	) AS _fk ON
+		(_fk.table_catalog = _columns.table_catalog)
+		AND
+		(_fk.table_schema = _columns.table_schema)
+		AND
+		(_fk.table_name = _columns.table_name)
+		AND
+		(_fk.column_name = _columns.column_name)
+
+WHERE
+--	(_columns.table_schema = 'public')
+--	AND
+--	(_columns.table_name NOT LIKE 'v0%')
+--	AND
+--	(_columns.table_catalog = '{0}')
+--	AND
+--	(
+--		('' = '{1}')
+--		OR
+--		(_columns.table_name = '{1}')
+--	)
+--	AND
+	(_columns.table_name = 'UserGroup') OR (_columns.table_name = 'User') OR (_columns.table_name = 'Group')
+
+ORDER BY
+	_columns.table_name,
+--	_columns.column_name,
+	_columns.ordinal_position
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 6.1.3: getting table field properties (PostgreSQL)
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch6.it1.at4"></a>
+									<span class="subsubtitle">
+										getting table field properties (SQL Sever)
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="6.1.4"
+																class="code"
+														>
+SELECT
+--	_columns.table_catalog,
+
+
+	_columns.table_name,
+
+	_columns.column_name,
+
+	CASE
+		WHEN ((_tables.table_type = 'VIEW') OR (_columns.is_nullable = 'No')) THEN
+			CAST(0 AS INT)
+		ELSE
+			CAST(1 AS INT)
+	END
+	AS is_nullable,
+
+	_columns.data_type,
+
+
+
+
+	_columns.character_maximum_length,
+
+	CASE
+		WHEN (_tables.table_type = 'VIEW') THEN
+			CAST(0 AS INT)
+		WHEN (_columns.column_name = _key_column_usage_PKs.column_name) THEN
+			CAST(1 AS INT)
+		ELSE
+			CAST(0 AS INT)
+	END
+	AS is_pk,
+
+	CASE
+		WHEN (_tables.table_type = 'VIEW') THEN
+			CAST(0 AS INT)
+		ELSE
+			CAST(COLUMNPROPERTY(OBJECT_ID(_columns.table_name), _columns.column_name, 'IsIdentity') AS INT)
+
+
+
+
+
+	END
+	AS is_identity,
+
+	_fk.fk_table_name,
+
+	_fk.fk_column_name,
+
+	_columns.column_default,
+
+	_columns.collation_name,
+
+	_columns.numeric_precision,
+
+	_columns.numeric_scale
+
+FROM information_schema.columns AS _columns
+
+	LEFT JOIN information_schema.tables AS _tables ON (
+		(_tables.table_catalog = _columns.table_catalog)
+		AND
+		(_tables.table_schema = _columns.table_schema)
+		AND
+		(_tables.table_name = _columns.table_name)
+	)
+
+	LEFT JOIN (
+		SELECT
+			_key_column_usage.table_name,
+			_key_column_usage.column_name,
+			_key_column_usage.table_catalog,
+			_key_column_usage.table_schema
+		FROM information_schema.table_constraints AS _table_constraints
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage ON
+			(_key_column_usage.constraint_catalog = _table_constraints.constraint_catalog)
+			AND
+			(_key_column_usage.constraint_schema = _table_constraints.constraint_schema)
+			AND
+			(_key_column_usage.constraint_name = _table_constraints.constraint_name)
+			AND
+			(_table_constraints.constraint_type = 'PRIMARY KEY')
+	) AS _key_column_usage_PKs ON
+		(_key_column_usage_PKs.table_catalog = _columns.table_catalog)
+		AND
+		(_key_column_usage_PKs.table_schema = _columns.table_schema)
+		AND
+		(_key_column_usage_PKs.table_name = _columns.table_name)
+		AND
+		(_key_column_usage_PKs.column_name = _columns.column_name)
+
+	LEFT JOIN (
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		SELECT
+			_key_column_usage_PKs.table_name AS fk_table_name,
+			_key_column_usage_PKs.column_name AS fk_column_name,
+
+			_key_column_usage_FKs.table_name,
+			_key_column_usage_FKs.column_name,
+			_key_column_usage_FKs.table_catalog,
+			_key_column_usage_FKs.table_schema
+		FROM information_schema.referential_constraints AS _referential_constraints
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage_FKs ON
+			(_key_column_usage_FKs.constraint_catalog = _referential_constraints.constraint_catalog)
+			AND
+			(_key_column_usage_FKs.constraint_schema = _referential_constraints.constraint_schema)
+			AND
+			(_key_column_usage_FKs.constraint_name = _referential_constraints.constraint_name)
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage_PKs ON
+			(_key_column_usage_PKs.constraint_catalog = _referential_constraints.constraint_catalog)
+			AND
+			(_key_column_usage_PKs.constraint_schema = _referential_constraints.constraint_schema)
+			AND
+			(_key_column_usage_PKs.constraint_name = _referential_constraints.unique_constraint_name)
+	) AS _fk ON
+		(_fk.table_catalog = _columns.table_catalog)
+		AND
+		(_fk.table_schema = _columns.table_schema)
+		AND
+		(_fk.table_name = _columns.table_name)
+		AND
+		(_fk.column_name = _columns.column_name)
+
+WHERE
+	(_columns.table_name NOT IN (
+		'sysconstraints', 
+		'syssegments', 
+		'dtproperties', 
+		'sysdiagrams'
+	))
+	AND
+--	(_columns.table_catalog = '{0}')
+--	AND
+--	(
+--		('' = '{1}')
+--		OR
+--		(_columns.table_name = '{1}')
+--	)
+--	AND
+	(_columns.table_name = 'UserGroup') OR (_columns.table_name = 'User') OR (_columns.table_name = 'Group')
+
+ORDER BY
+	_columns.table_name,
+--	_columns.column_name,
+	_columns.ordinal_position
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 6.1.4: getting table field properties (SQL Sever)
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch6.it1.at5"></a>
+									<span class="subsubtitle">
+										getting table field properties (MySQL)
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="6.1.5"
+																class="code"
+														>
+SELECT
+	_columns.table_name,
+
+	_columns.column_name,
+
+	CASE
+		WHEN ((_tables.table_type = 'VIEW') OR (_columns.is_nullable = 'No')) THEN
+			CAST(0 AS unsigned)
+		ELSE
+			CAST(1 AS unsigned)
+	END 
+	AS is_nullable,
+
+	_columns.data_type,
+
+	_columns.character_maximum_length,
+
+	CASE
+		WHEN ((_tables.table_type != 'VIEW') AND (_columns.column_key = 'PRI')) THEN
+			CAST(1 AS unsigned)
+		ELSE
+			CAST(0 AS unsigned)
+	END 
+	AS is_pk,
+
+	CASE
+		WHEN ((_tables.table_type != 'VIEW') AND (_columns.extra = 'auto_increment')) THEN
+			CAST(1 AS unsigned)
+		ELSE
+			CAST(0 AS unsigned)
+	END 
+	AS is_identity,
+
+	_key_column_usage.referenced_table_name
+	AS fk_table_name,
+
+	_key_column_usage.referenced_column_name
+	AS fk_column_name,
+
+	_columns.column_default,
+
+	_columns.collation_name,
+
+	_columns.numeric_precision,
+
+	_columns.numeric_scale
+
+FROM information_schema.columns AS _columns
+
+	LEFT JOIN information_schema.tables AS _tables ON (
+
+
+		(_tables.table_schema = _columns.table_schema)
+		AND
+		(_tables.table_name = _columns.table_name)
+	)
+	LEFT JOIN information_schema.key_column_usage AS _key_column_usage ON (
+		(_key_column_usage.table_name = _columns.table_name)
+		AND
+		(_key_column_usage.column_name = _columns.column_name)
+		AND
+		(_key_column_usage.referenced_table_schema = 'OGen-NTier_UTs')
+		AND 
+		(_key_column_usage.referenced_table_name is not null)
+	)
+/*
+	LEFT JOIN (
+		SELECT
+			_key_column_usage.table_name,
+			_key_column_usage.column_name,
+
+			_key_column_usage.table_schema
+		FROM information_schema.table_constraints AS _table_constraints
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage ON
+
+
+			(_key_column_usage.constraint_schema = _table_constraints.constraint_schema)
+			AND
+			(_key_column_usage.constraint_name = _table_constraints.constraint_name)
+			AND
+			(_table_constraints.constraint_type = 'PRIMARY KEY')
+	) AS _key_column_usage_PKs ON
+
+
+		(_key_column_usage_PKs.table_schema = _columns.table_schema)
+		AND
+		(_key_column_usage_PKs.table_name = _columns.table_name)
+		AND
+		(_key_column_usage_PKs.column_name = _columns.column_name)
+
+	LEFT JOIN (
+*//*
+		SELECT
+			_ccu2.table_name AS fk_table_name,
+			_ccu2.column_name AS fk_column_name,
+
+			_tc2.table_name,
+			_kcu2.column_name,
+
+			_tc2.table_schema
+		FROM information_schema.table_constraints _tc2
+		INNER JOIN information_schema.constraint_column_usage _ccu2 ON
+
+
+			(_ccu2.constraint_schema = _tc2.constraint_schema)
+			AND
+			(_ccu2.constraint_name = _tc2.constraint_name)
+		INNER JOIN  information_schema.key_column_usage _kcu2 ON
+
+
+			(_kcu2.constraint_schema = _ccu2.constraint_schema)
+			AND
+			(_kcu2.constraint_name = _ccu2.constraint_name)
+		WHERE
+			_tc2.constraint_type = 'FOREIGN KEY'
+*//*
+
+		SELECT
+			_key_column_usage_PKs.table_name AS fk_table_name,
+			_key_column_usage_PKs.column_name AS fk_column_name,
+
+			_key_column_usage_FKs.table_name,
+			_key_column_usage_FKs.column_name,
+
+			_key_column_usage_FKs.table_schema
+		FROM information_schema.referential_constraints AS _referential_constraints
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage_FKs ON
+
+
+			(_key_column_usage_FKs.constraint_schema = _referential_constraints.constraint_schema)
+			AND
+			(_key_column_usage_FKs.constraint_name = _referential_constraints.constraint_name)
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage_PKs ON
+
+
+			(_key_column_usage_PKs.constraint_schema = _referential_constraints.constraint_schema)
+			AND
+			(_key_column_usage_PKs.constraint_name = _referential_constraints.unique_constraint_name)
+	) AS _fk ON
+
+
+		(_fk.table_schema = _columns.table_schema)
+		AND
+		(_fk.table_name = _columns.table_name)
+		AND
+		(_fk.column_name = _columns.column_name)
+*/
+WHERE
+	(_columns.table_schema = 'OGen-NTier_UTs')
+	AND
+	(
+		(_columns.table_name = 'User')
+		OR
+		(_columns.table_name = 'UserGroup')
+	)
+ORDER BY
+	_columns.table_name,
+	_columns.ordinal_position
+</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 6.1.5: getting table field properties (MySQL)
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="ch6.it2"></a>
+						<span class="title">
+							6.2. 
+							Installing PostgreSQL
+						</span>
+						<br />
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+								<a name="ch6.it2.at1"></a>
+									<span class="subsubtitle">
+										how to install PostgreSQL on Linux
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="6.2.1"
+																class="code"
+														>### Copyright (C) 2002 Francisco Monteiro
+### NOTES
+# tar xvfz ... .tar.gz
+# tar xvfj ... .tar.bz2
+
+#--- preparation
+go adduser postgres # give privileges: root, sys, adm, bin, daemon, disk 
+mkdir /home/postgres/dump
+cd /home/postgres/dump
+#tar xvfz postgresql-8.?.?.tar.gz
+tar xvfj postgresql-8.?.?.tar.bz2
+chown -R postgres:root /home/postgres/dump/postgresql-8.?.?
+cd postgresql-8.?.?
+
+su - postgres
+cd /home/postgres/dump/postgresql-8.?.?
+
+#--- instalation
+./configure --with-openssl
+gmake
+su
+gmake install
+
+
+### NOTE:
+# - eu tendo a copiar o script de config do pgsql sempre que reinstalo o linux,
+# ele pode ja la estar, mas tem de ser apagado antes de proceguir!
+#
+# rm /usr/local/pgsql/data/pg_hba.conf
+# rmdir /usr/local/pgsql/data
+
+mkdir /usr/local/pgsql/data
+#chown postgres /usr/local/pgsql/data
+chown -R postgres /usr/local/pgsql
+exit # su - postgres
+
+/usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data
+exit
+
+#--- configuration
+cp /root/MyDocuments/MyCFGs/usr/local/pgsql/data/pg_hba.conf /usr/local/pgsql/data/pg_hba.conf
+cp /root/MyDocuments/MyCFGs/etc/rc.d/rc.psql /etc/rc.d/rc.psql
+go psql ed cfg # vai precisar de copiar o script quase de certeza, verifica os atributos e os users
+chmod u+x /etc/rc.d/rc.psql
+go psql restart
+su - postgres -c "/usr/local/pgsql/bin/createdb testdb"
+go psql testdb</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 6.2.1: how to install PostgreSQL on Linux
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch6.it2.at2"></a>
+									<span class="subsubtitle">
+										how to install pgAdminIII on Linux
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="6.2.2"
+																class="code"
+														>### Copyright (C) 2002 Francisco Monteiro
+### NOTES
+# tar xvfz ... .tar.gz
+# tar xvfj ... .tar.bz2
+
+
+cd /root/MyDocuments/myDump
+
+
+### wxWidgets:
+# Download wxWidgets 2.5.3 from http://www.wxwidgets.org/
+tar xvfj wxGTK-2.5.3.tar.bz2
+cd wxGTK-2.5.3
+./configure --with-gtk --enable-gtk2 --enable-unicode --disable-shared --enable-debug --prefix=/usr/local
+make
+make install
+ldconfig
+# install wxWidgets Styled Text Control
+cd contrib/src/stc
+make
+make install
+ldconfig
+
+
+### pgadmin3:
+tar xvfz pgadmin3-1.2.0.tar.gz
+cd pgadmin3-1.2.0
+
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+./configure --enable-static --enable-debug --prefix=/usr/local
+make all
+make install</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 6.2.2: how to install pgAdminIII on Linux
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- chapter:items -->
+				<tr>
+					<td width="10"></td>
+					<td colspan="2">
+						<a name="ch6.it3"></a>
+						<span class="title">
+							6.3. 
+							data base - specific information
+						</span>
+						<br />
+						<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+
+				<tr>
+					<td width="10"></td>
+					<td width="20"></td>
+					<td>
+								<a name="ch6.it3.at1"></a>
+									<span class="subsubtitle">
+										PostgreSQL
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="6.3.1"
+																class="code"
+														>.------------------------------------------------------------------------------------------------------.
+|                          based on Npgsql User's Manual 2006/10/08 21:50:43                           |
+|                                                                                                      |
+|Postgresql |INFORMATION_SCHEMA                     |NpgsqlDbType |System.DbType     |.Net System Type |
+|===========|=======================================|=============|==================|=================|
+|bool       |boolean, bool                          |Boolean      |Boolean           |Boolean          |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|int2       |smallint, int2                         |Smallint     |Int16             |Int16            |
+|int4       |integer, int4                          |Integer      |Int32             |Int32            |
+|int8       |bigint, int8                           |Bigint       |Int64             |Int64            |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|Box        |?                                      |Box          |Object            |Object           |
+|Circle     |?                                      |Circle       |Object            |Object           |
+|Line       |?                                      |Line         |Object            |Object           |
+|LSeg       |?                                      |LSeg         |Object            |Object           |
+|Path       |?                                      |Path         |Object            |Object           |
+|Point      |?                                      |Point        |Object            |Object           |
+|Polygon    |?                                      |Polygon      |Object            |Object           |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|bytea      |bytea                                  |Bytea        |Binary            |Byte[]           |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|float8     |double precision, float8               |Double       |Double            |Double           |
+|money      |money                                  |Money        |Decimal           |Decimal          |
+|numeric    |numeric                                |Numeric      |Decimal           |Decimal          |
+|float4     |real, float4                           |Real         |Single            |Single           |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|date       |date                                   |Date         |Date              |DateTime         |
+|time       |time, time without time zone           |Time         |Time              |DateTime         |
+|timetz     |timetz, time with time zone            |Time         |Time              |DateTime         |
+|timestamp  |timestamp, timestamp without time zone |Timestamp    |DateTime          |DateTime         |
+|timestamptz|timestamptz, timestamp with time zone  |TimestampTZ  |DateTime          |DateTime         |<- DIFF!!!
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|varchar    |character varying, varchar             |Varchar      |String            |String           |
+|text       |text                                   |Text         |String            |String           |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|inet       |?                                      |Inet         |Object            |NpgsqlInet,      |<- DIFF!!!
+|           |                                       |             |                  |IPAddress        |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|bit        |?                                      |Bit          |Boolean           |Boolean, Int32   |<- DIFF!!!
+'------------------------------------------------------------------------------------------------------'</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 6.3.1: PostgreSQL
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+								<a name="ch6.it3.at2"></a>
+									<span class="subsubtitle">
+										MySQL
+									</span>
+								<br />
+								<br />
+									<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="center">
+												<table cellpadding="0" cellspacing="0" border="0" width="100%">
+													<tr>
+														<td 
+															align="left"><pre
+																id="6.3.2"
+																class="code"
+														>.------------------------------------------------------------------------------------------------------.
+|MySQL      |INFORMATION_SCHEMA                     |MySqlDbType  |System.DbType     |.Net System Type |
+|===========|=======================================|=============|==================|=================|
+|BOOLEAN    |tinyint                                |Byte         |Byte              |                 |
+|* BOOLEAN  |* tinyint                              |* Bit        |* Boolean         |                 |
+|TINYINT    |tinyint                                |Byte         |Byte              |                 |
+|SMALLINT   |smallint                               |Int16        |Int16             |                 |
+|INTEGER    |int                                    |Int32        |Int32             |                 |
+|MEDIUMINT  |mediumint                              |Int24        |?                 |                 |
+|BIGINT     |bigint                                 |Int64        |Int64             |                 |
+|FLOAT      |float                                  |Float        |Double?           |                 |
+|DOUBLE     |double                                 |Double       |Double?           |                 |
+|DECIMAL    |decimal                                |Decimal      |Decimal?          |                 |
+|DATE       |date                                   |Date         |Date?             |                 |
+|DATETIME   |datetime                               |Datetime     |DateTime?         |                 |
+|TIMESTAMP  |timestamp                              |Timestamp    |DateTime??        |                 |
+|TIME       |time                                   |Time         |Time?             |                 |
+|YEAR       |year                                   |Year         |?                 |                 |
+|VARCHAR    |varchar                                |VarChar      |?                 |                 |
+|TINYBLOB   |tinyblob                               |TinyBlob     |?                 |                 |
+|BLOB       |blob                                   |Blob         |?                 |                 |
+|MEDIUMBLOB |mediumblob                             |MediumBlob   |?                 |                 |
+|LONGBLOB   |longblob                               |LongBlob     |?                 |                 |
+|GEOMETRY   |geometry                               |Geometry     |?                 |                 |
+|BIT        |bit                                    |Bit          |?                 |                 |
+|* BIT      |* bit                                  |* Bit        |* Boolean         |                 |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|CHAR       |char                                   |?            |?                 |                 |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|TINYTEXT   |tinytext                               |?            |?                 |                 |
+|TEXT       |text                                   |?            |?                 |                 |
+|MEDIUMTEXT |mediumtext                             |?            |?                 |                 |
+|LONGTEXT   |longtext                               |?            |?                 |                 |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|BINARY     |binary                                 |?            |?                 |                 |
+|VARBINARY  |varbinary                              |?            |?                 |                 |
+'------------------------------------------------------------------------------------------------------'
+
+* needs revisig</pre></td>
+													</tr>
+													<tr>
+														<td 
+															align="center">
+															<span class="text">
+																code 6.3.2: MySQL
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+									<br />
+					</td>
+					<td width="10"></td>
+				</tr>
+<!-- /chapter:items -->
+<!-- separator -->
+			<tr valign="top">
+				<td colspan="4" bgcolor="#000000" height="1"></td>
+			</tr>
+<!-- /separator -->
+<!-- bottom -->
+			<tr>
+				<td colspan="4" bgcolor="#99CCFF" valign="top">
+					<table cellpadding="5" cellspacing="5" width="100%" class="menu" border="0">
+
+
+<!-- bottom:paging -->
+						<tr>
+							<td align="left" valign="top" style="width:33%;">
+							</td>
+							<td align="center" valign="top" style="width:34%;">
+								<span class="text">
+									<a href="OGen-index-all.html">
+										index</a>
+								</span>
+							</td>
+							<td align="right" valign="top" style="width:33%;">
+							</td>
+						</tr>
+<!-- /bottom:paging -->
+
+
+						<tr>
+							<td align="left" valign="top" colspan="3">
+								<a href="mailto:fmonteiro@users.berlios.de?subject=[OGen] 6. Appendix">Send comments on this topic.</a>
+								<br />
+								<a href="LICENSE.FDL.txt">Copyright (C) 2002 Francisco Monteiro</a>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+<!-- /bottom -->
+		</table>
+	</body>
+</html>

@@ -1,0 +1,68 @@
+use "Kick"
+go
+exec sys.sp_addextendedproperty 
+	@name = N'MS_Description', 
+	@value = N'test test 
+test', 
+
+	@level0type = N'SCHEMA', 
+	@level0name = 'dbo', 
+
+	@level1type = N'TABLE',  
+	@level1name = 'CRD_User';
+GO
+
+use "Kick"
+go
+exec sys.sp_addextendedproperty 
+	@name = N'MS_Description', 
+	@value = N'test test 
+test', 
+
+	@level0type = N'SCHEMA', 
+	@level0name = 'dbo', 
+
+	@level1type = N'TABLE',  
+	@level1name = 'CRD_User', 
+
+	@level2type = N'COLUMN', 
+	@level2name = 'IDUser';
+GO
+
+SELECT 
+	TABLE_NAME, 
+	ex2.value AS TABLE_DESCRIPTION 
+FROM INFORMATION_SCHEMA.Tables 
+LEFT JOIN sys.extended_properties ex2 ON (
+	ex2.major_id = Object_id(TABLE_NAME) 
+	AND 
+	ex2.name = 'MS_Description'
+)
+WHERE 
+	TABLE_TYPE = 'BASE TABLE' 
+ORDER BY TABLE_NAME
+
+select *
+from sys.extended_properties
+
+exec sys.sp_dropextendedproperty 
+	@name = N'MS_Description', 
+	@level0type = N'SCHEMA', 
+	@level0name = 'dbo', 
+	@level1type = N'TABLE', 
+	@level1name = 'CRD_User'
+
+
+
+SELECT 
+	INFORMATION_SCHEMA.COLUMNS.TABLE_NAME, 
+	INFORMATION_SCHEMA.COLUMNS.COLUMN_NAME, 
+	ex2.value AS COLUMN_DESCRIPTION
+FROM INFORMATION_SCHEMA.COLUMNS
+LEFT JOIN sys.extended_properties ex2 ON (
+	ex2.major_id = Object_id(INFORMATION_SCHEMA.COLUMNS.TABLE_NAME) 
+	and
+	ex2.minor_id = INFORMATION_SCHEMA.COLUMNS.ORDINAL_POSITION
+	and 
+	ex2.name = 'MS_Description'
+)

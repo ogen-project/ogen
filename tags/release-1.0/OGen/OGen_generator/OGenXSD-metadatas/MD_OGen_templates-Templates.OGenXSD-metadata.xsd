@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<!--
+
+OGen
+Copyright (c) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->
+<xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://ogen.berlios.de"
+	xmlns="http://ogen.berlios.de"
+	elementFormDefault="qualified">
+
+	<!--
+	<templates>
+		<template name="xxxxxx" parserType="xslt|aspx|none" iterationType="xxxxxx">
+			<arguments>
+				<argument name="xxxxxx" value="xxxxxx" />
+				<argument name="xxxxxx" value="xxxxxx" />
+			</arguments>
+			<conditions>
+				<condition eval="xxxxxx" to="xxxxxx" />
+				<condition eval="xxxxxx" to="xxxxxx" />
+			</conditions>
+			<outputs>
+				<output 
+					to="xxxxxx" 
+					type="File|PostgreSQL_Function|PostgreSQL_StoredProcedure|PostgreSQL_View|SQLServer_Function|SQLServer_StoredProcedure|SQLServer_View|MySQL_Function|MySQL_StoredProcedure|MySQL_View"
+					mode="Replace|Append|Create_doNotReplace" />
+			</outputs>
+			<dependencies>
+				<dependency name="xxxxxx" />
+				<dependency name="xxxxxx" />
+			</dependencies>
+		</template>
+	</templates>
+	-->
+
+	<xs:simpleType name="parserEnumeration">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="xslt" />
+			<xs:enumeration value="aspx" />
+			<xs:enumeration value="none" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="outputEnumeration">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="File" />
+			<xs:enumeration value="PostgreSQL_Function" />
+			<xs:enumeration value="PostgreSQL_StoredProcedure" />
+			<xs:enumeration value="PostgreSQL_View" />
+			<xs:enumeration value="SQLServer_Function" />
+			<xs:enumeration value="SQLServer_StoredProcedure" />
+			<xs:enumeration value="SQLServer_View" />
+			<xs:enumeration value="MySQL_Function" />
+			<xs:enumeration value="MySQL_StoredProcedure" />
+			<xs:enumeration value="MySQL_View" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="outputModeEnumeration">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Replace" />
+			<xs:enumeration value="Append" />
+			<xs:enumeration value="Create_doNotReplace" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!--
+				<argument name="xxxxxx" value="xxxxxx" />
+				<argument name="xxxxxx" value="xxxxxx" />
+	-->
+	<xs:complexType name="argumentType">
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="value" type="xs:string" />
+	</xs:complexType>
+	<!--
+			<arguments>
+				<argument name="xxxxxx" value="xxxxxx" />
+				<argument name="xxxxxx" value="xxxxxx" />
+			</arguments>
+	-->
+<!-- -->
+	<xs:complexType name="argumentsType">
+		<xs:sequence>
+			<xs:element name="argument" type="argumentType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+<!-- -->
+
+	<!--
+				<condition eval="xxxxxx" to="xxxxxx" />
+				<condition eval="xxxxxx" to="xxxxxx" />
+	-->
+	<xs:complexType name="conditionType">
+		<xs:attribute name="eval" type="xs:string" />
+		<xs:attribute name="to" type="xs:string" />
+	</xs:complexType>
+	<!--
+			<conditions>
+				<condition eval="xxxxxx" to="xxxxxx" />
+				<condition eval="xxxxxx" to="xxxxxx" />
+			</conditions>
+	-->
+<!-- -->
+	<xs:complexType name="conditionsType">
+		<xs:sequence>
+			<xs:element name="condition" type="conditionType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+<!-- -->
+
+	<!--
+				<output 
+					to="xxxxxx" 
+					type="File|PostgreSQL_Function|PostgreSQL_StoredProcedure|PostgreSQL_View|SQLServer_Function|SQLServer_StoredProcedure|SQLServer_View|MySQL_Function|MySQL_StoredProcedure|MySQL_View"
+					mode="Replace|Append|Create_doNotReplace" />
+	-->
+	<xs:complexType name="outputType">
+		<xs:attribute name="to" type="xs:string" />
+		<xs:attribute name="type" type="outputEnumeration" />
+		<xs:attribute name="mode" type="outputModeEnumeration" />
+	</xs:complexType>
+	<!--
+			<outputs>
+				<output ... />
+				<output ... />
+			</outputs>
+	-->
+<!-- -->
+	<xs:complexType name="outputsType">
+		<xs:sequence>
+			<xs:element name="output" type="outputType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+<!-- -->
+
+	<!--
+				<dependency name="xxxxxx" />
+				<dependency name="xxxxxx" />
+	-->
+	<xs:complexType name="dependencyType">
+		<xs:attribute name="name" type="xs:string" />
+	</xs:complexType>
+	<!--
+			<dependencies>
+				<dependency name="xxxxxx" />
+				<dependency name="xxxxxx" />
+			</dependencies>
+	-->
+<!-- -->
+	<xs:complexType name="dependenciesType">
+		<xs:sequence>
+			<xs:element name="dependency" type="dependencyType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+<!-- -->
+
+	<!--
+		<template name="xxxxxx" parserType="xslt|aspx|none" iterationType="xxxxxx">
+			<arguments />
+			<conditions />
+			<outputs />
+			<dependencies />
+		</template>
+	-->
+	<xs:complexType name="templateType">
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="parserType" type="parserEnumeration" />
+		<xs:attribute name="iterationType" type="xs:string" />
+
+		<xs:sequence>
+<!--
+			<xs:element name="arguments" type="argumentType" maxOccurs="unbounded" />
+			<xs:element name="conditions" type="conditionType" maxOccurs="unbounded" />
+			<xs:element name="outputs" type="outputType" maxOccurs="unbounded" />
+			<xs:element name="dependencies" type="dependencyType" maxOccurs="unbounded" />
+-->
+<!-- -->
+			<xs:element name="arguments" type="argumentsType" />
+			<xs:element name="conditions" type="conditionsType" />
+			<xs:element name="outputs" type="outputsType" />
+			<xs:element name="dependencies" type="dependenciesType" />
+<!-- -->
+		</xs:sequence>
+	</xs:complexType>
+	<!--
+	<templates>
+		<template ... />
+		<template ... />
+	</templates>
+	-->
+	<xs:complexType name="templatesType">
+		<xs:sequence>
+			<xs:element name="template" type="templateType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="templates" type="templatesType" />
+</xs:schema>

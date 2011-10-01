@@ -1,0 +1,40 @@
+.------------------------------------------------------------------------------------------------------.
+|                          based on Npgsql User's Manual 2006/10/08 21:50:43                           |
+|                                                                                                      |
+|Postgresql |INFORMATION_SCHEMA                     |NpgsqlDbType |System.DbType     |.Net System Type |
+|===========|=======================================|=============|==================|=================|
+|bool       |boolean, bool                          |Boolean      |Boolean           |Boolean          |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|int2       |smallint, int2                         |Smallint     |Int16             |Int16            |
+|int4       |integer, int4                          |Integer      |Int32             |Int32            |
+|int8       |bigint, int8                           |Bigint       |Int64             |Int64            |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|Box        |?                                      |Box          |Object            |Object           |
+|Circle     |?                                      |Circle       |Object            |Object           |
+|Line       |?                                      |Line         |Object            |Object           |
+|LSeg       |?                                      |LSeg         |Object            |Object           |
+|Path       |?                                      |Path         |Object            |Object           |
+|Point      |?                                      |Point        |Object            |Object           |
+|Polygon    |?                                      |Polygon      |Object            |Object           |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|bytea      |bytea                                  |Bytea        |Binary            |Byte[]           |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|float8     |double precision, float8               |Double       |Double            |Double           |
+|money      |money                                  |Money        |Decimal           |Decimal          |
+|numeric    |numeric                                |Numeric      |Decimal           |Decimal          |
+|float4     |real, float4                           |Real         |Single            |Single           |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|date       |date                                   |Date         |Date              |DateTime         |
+|time       |time, time without time zone           |Time         |Time              |DateTime         |
+|timetz     |timetz, time with time zone            |Time         |Time              |DateTime         |
+|timestamp  |timestamp, timestamp without time zone |Timestamp    |DateTime          |DateTime         |
+|timestamptz|timestamptz, timestamp with time zone  |TimestampTZ  |DateTime          |DateTime         |<- DIFF!!!
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|varchar    |character varying, varchar             |Varchar      |String            |String           |
+|text       |text                                   |Text         |String            |String           |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|inet       |?                                      |Inet         |Object            |NpgsqlInet,      |<- DIFF!!!
+|           |                                       |             |                  |IPAddress        |
+|-----------+---------------------------------------+-------------+------------------+-----------------|
+|bit        |?                                      |Bit          |Boolean           |Boolean, Int32   |<- DIFF!!!
+'------------------------------------------------------------------------------------------------------'

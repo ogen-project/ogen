@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BE3E31C9-69AA-4F21-B945-225E78D62D03}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OGen.Dia.lib.generator</RootNamespace>
+    <AssemblyName>OGen.Dia.lib.generator-2.0</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET_2_0</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\OGen.Dia.lib.generator-2.0.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NET_2_0</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\OGen.Dia.lib.generator-2.0.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="cFGenerator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OGen\OGen_collections\OGen_collections-9.csproj">
+      <Project>{A6E837F8-780F-4D05-B3ED-2FF1906B5766}</Project>
+      <Name>OGen_collections-9</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_datalayersupport\OGen_datalayersupport-9.csproj">
+      <Project>{88D87481-CC3F-49C7-A013-758387F3452E}</Project>
+      <Name>OGen_datalayersupport-9</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_datalayer_MySQL\OGen_datalayer_MySQL-9.csproj">
+      <Project>{8F5F21DB-FED4-46A9-9E7E-B50B678D12B2}</Project>
+      <Name>OGen_datalayer_MySQL-9</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_datalayer_PostgreSQL\OGen_datalayer_PostgreSQL-9.csproj">
+      <Project>{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}</Project>
+      <Name>OGen_datalayer_PostgreSQL-9</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_datalayer_SQLServer\OGen_datalayer_SQLServer-9.csproj">
+      <Project>{F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7}</Project>
+      <Name>OGen_datalayer_SQLServer-9</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_datalayer__base\OGen_datalayer__base-9.csproj">
+      <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
+      <Name>OGen_datalayer__base-9</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_generator\OGen_generator-9.csproj">
+      <Project>{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}</Project>
+      <Name>OGen_generator-9</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_parser\OGen_parser-9.csproj">
+      <Project>{981BC7DE-D93C-446E-861E-60A20E4E3391}</Project>
+      <Name>OGen_parser-9</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_webforms\OGen_webforms-9.csproj">
+      <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
+      <Name>OGen_webforms-9</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dia_metadata\Dia_metadata-9.csproj">
+      <Project>{8D5C03A2-FA8C-40C3-BF9A-B12ABBC3E158}</Project>
+      <Name>Dia_metadata-9</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="COPYING.MIT" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LICENSE.MIT.txt" />
+    <Content Include="LICENSE.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

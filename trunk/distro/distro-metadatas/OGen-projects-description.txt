@@ -1,0 +1,32 @@
+|1.main dir  |2.sub dir              |3.assembly name                       |4.install on GAC  |5.web app        |6.is an exe      |7.license  |8.is a doc project   |9.is a Release |
+|------------|-----------------------|--------------------------------------|------------------|-----------------|-----------------|-----------|---------------------|---------------|
+|OGen        |OGen_config            |OGen.lib.config                       |t                 |f                |f                |MIT        |f                    |t              |
+|OGen        |OGen_config_UTs        |OGen.lib.config.UTs                   |f                 |f                |f                |MIT        |f                    |f              |
+|OGen        |OGen_datalayer         |OGen.lib.datalayer                    |t                 |f                |f                |MIT        |f                    |t              |
+|OGen        |OGen_datalayer_UTs     |OGen.lib.datalayer.UTs                |f                 |f                |f                |MIT        |f                    |f              |
+|OGen        |OGen_collections       |OGen.lib.collections                  |t                 |f                |f                |MIT        |f                    |t              |
+|OGen        |OGen_collections_UTs   |OGen.lib.collections.UTs              |f                 |f                |f                |MIT        |f                    |f              |
+|OGen        |OGen_webforms          |OGen.lib.presentationlayer.webforms   |t                 |f                |f                |MIT        |f                    |t              |
+|OGen        |OGen_winforms          |OGen.lib.presentationlayer.winforms   |t                 |f                |f                |MIT        |f                    |t              |
+|OGen        |OGen_parser            |OGen.lib.parser                       |t                 |f                |f                |MIT        |f                    |t              |
+|OGen        |OGen_generator         |OGen.lib.generator                    |t                 |f                |f                |MIT        |f                    |t              |
+|OGen        |OGen-test.no-svn       |OGen.test                             |f                 |f                |t                |MIT        |f                    |f              |
+|OGen        |OGen-Doc               |-not aplicable-                       |f                 |f                |f                |GNU_FDL    |t                    |f              |
+|OGen-NTier  |NTier_metadata         |OGen.NTier.lib.metadata               |t                 |f                |f                |MIT        |f                    |t              |
+|OGen-NTier  |NTier_metadata_UTs     |OGen.NTier.lib.metadata.UTs           |f                 |f                |f                |MIT        |f                    |f              |
+|OGen-NTier  |NTier_generator        |OGen.NTier.lib.generator              |t                 |f                |f                |MIT        |f                    |t              |
+|OGen-NTier  |NTier_datalayer        |OGen.NTier.lib.datalayer              |t                 |f                |f                |MIT        |f                    |t              |
+|OGen-NTier  |NTier_businesslayer    |OGen.NTier.lib.businesslayer          |t                 |f                |f                |MIT        |f                    |t              |
+|OGen-NTier  |NTier_templates        |OGen.NTier.lib.templates              |f                 |t                |f                |MIT        |f                    |t              |
+|OGen-NTier  |NTier                  |OGen.NTier.presentationlayer.winforms |f                 |f                |t                |MIT        |f                    |t              |
+|OGen-NTier  |NTier-console          |OGen.NTier.presentationlayer.console  |f                 |f                |t                |MIT        |f                    |t              |
+|OGen-NTier  |NTier-test.no-svn      |OGen.NTier.test                       |f                 |f                |t                |MIT        |f                    |f              |
+|OGen-NTier  |OGen-NTier-Doc         |-not aplicable-                       |f                 |f                |f                |GNU_FDL    |t                    |f              |
+|OGen-Doc    |Doc_generator          |OGen.Doc.lib.generator                |t                 |f                |f                |MIT        |f                    |t              |
+|OGen-Doc    |Doc_metadata           |OGen.Doc.lib.metadata                 |t                 |f                |f                |MIT        |f                    |t              |
+|OGen-Doc    |Doc_metadata_UTs       |OGen.Doc.lib.metadata.UTs             |f                 |f                |f                |MIT        |f                    |f              |
+|OGen-Doc    |Doc_templates          |OGen.Doc.lib.templates                |f                 |t                |f                |MIT        |f                    |t              |
+|OGen-Doc    |Doc.no-svn             |OGen.Doc.presentationlayer.winforms   |f                 |f                |t                |MIT        |f                    |f              |
+|OGen-Doc    |Doc-console            |OGen.Doc.presentationlayer.console    |f                 |f                |t                |MIT        |f                    |t              |
+|OGen-Doc    |Doc-test.no-svn        |OGen.Doc.test                         |f                 |f                |t                |MIT        |f                    |f              |
+|OGen-Doc    |OGen-Doc-Doc           |-not aplicable-                       |f                 |f                |f                |GNU_FDL    |t                    |f              |

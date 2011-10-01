@@ -1,0 +1,29 @@
+OGen.lib.config
+
+OGen.lib.collections
+
+OGen.lib.datalayer
+	- Npgsql
+
+OGen.lib.webforms
+
+OGen.lib.winforms
+	- OGen.lib.collections
+
+OGen.lib.parser
+	- OGen.lib.webforms
+
+OGen.lib.templates
+	- OGen.lib.collections
+	- OGen.lib.webforms
+
+OGen.lib.generator
+	- Npgsql
+	- OGen.lib.collections
+	- OGen.lib.collections
+	- OGen.lib.config
+	- OGen.lib.datalayer
+	- OGen.lib.parser
+	- OGen.lib.templates
+	- OGen.lib.webforms
+	- OGen.lib.webforms

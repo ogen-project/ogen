@@ -1,0 +1,118 @@
+<!--
+
+OGen
+Copyright (c) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->
+<metadata
+	applicationName="NTier_metadata" 
+	namespace="OGen.NTier.lib.metadata" 
+	caseType="PascalCase"
+	allowSettersOnObjects="false"
+	isSimple="false"
+	prefix="XS_"
+	prefixGenerated="XS0_"
+	prefixBase="XS__"
+	prefixBaseGenerated="XS0__"
+	copyrightText="Copyright (C) 2002 Francisco Monteiro">
+	<copyrightTextLong>OGen
+Copyright (c) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</copyrightTextLong>
+
+<!--
+	<metadata names="metadata" indexPath="ApplicationName">
+		<specificCase word="db" translation="DB" />
+		<specificCase word="dbCollationName" translation="DBCollationName" />
+
+		<complexTypeKeys name="dbConnectionType" keys="configMode" />
+		<complexTypeKeys name="dbType" keys="dbServerType" />
+	</metadata>
+	<metadata names="someTest" indexPath="SomeAttrib3">
+		...
+	</metadata>
+	<metadata names="metadata|someTest" indexPath="">
+		...
+	</metadata>
+-->
+
+		<metadataIndex 
+			metadata="metadataExtended" 
+			index="ApplicationName" />
+		<metadataIndex 
+			metadata="metadataDB" 
+			index="ApplicationName" />
+<!--
+		<metadataIndex 
+			metadata="metadata" 
+			index="ApplicationName" />
+		<metadataIndex 
+			metadata="someTest" 
+			index="SomeAttrib3" />
+-->
+
+		<specificCase word="db" translation="DB" />
+		<specificCase word="dbCollationName" translation="DBCollationName" />
+		<specificCase word="dbConnection" translation="DBConnection" />
+		<specificCase word="dbConnections" translation="DBConnections" />
+		<specificCase word="dbConnectionType" translation="DBConnectionType" />
+		<specificCase word="dbDefaultValue" translation="DBDefaultValue" />
+		<specificCase word="dbDescription" translation="DBDescription" />
+		<specificCase word="dbDescription" translation="DBDescription" />
+		<specificCase word="dbFieldName" translation="DBFieldName" />
+		<specificCase word="dbs" translation="DBs" />
+		<specificCase word="dbServerType" translation="DBServerType" />
+		<specificCase word="dbTableName" translation="DBTableName" />
+		<specificCase word="dbType" translation="DBType" />
+		<specificCase word="fkFieldName" translation="FKFieldName" />
+		<specificCase word="fkTableName" translation="FKTableName" />
+		<specificCase word="sqlScriptOption" translation="SQLScriptOption" />
+		<specificCase word="sqlScriptOptionEnumeration" translation="SQLScriptOptionEnumeration" />
+
+		<specificCase word="generateSQL" translation="generateSQL" />
+		<specificCase word="isConfig" translation="isConfig" />
+		<specificCase word="isConfig_Config" translation="isConfig_Config" />
+		<specificCase word="isConfig_Datatype" translation="isConfig_Datatype" />
+		<specificCase word="isConfig_Name" translation="isConfig_Name" />
+		<specificCase word="isDefault" translation="isDefault" />
+		<specificCase word="isExplicitUniqueIndex" translation="isExplicitUniqueIndex" />
+		<specificCase word="isIdentity" translation="isIdentity" />
+		<specificCase word="isIndexed_andReadOnly" translation="isIndexed_andReadOnly" />
+		<specificCase word="isListItemText" translation="isListItemText" />
+		<specificCase word="isListItemValue" translation="isListItemValue" />
+		<specificCase word="isNullable" translation="isNullable" />
+		<specificCase word="isPK" translation="isPK" />
+		<specificCase word="isRange" translation="isRange" />
+		<specificCase word="isVirtualTable" translation="isVirtualTable" />
+
+
+		<complexTypeKeys name="dbConnectionType" keys="configMode" />
+		<complexTypeKeys name="dbType" keys="dbServerType" />
+		<complexTypeKeys name="tableDBType" keys="dbServerType" />
+		<complexTypeKeys name="tableFieldDBType" keys="dbServerType" />
+		<complexTypeKeys name="tableFieldRefType" keys="paramName" />
+		<complexTypeKeys name="tableFieldType" keys="name" />
+		<complexTypeKeys name="tableSearchType" keys="name" />
+		<complexTypeKeys name="tableSearchUpdateType" keys="name" />
+		<complexTypeKeys name="tableType" keys="name" />
+		<complexTypeKeys name="tableUpdateType" keys="name" />
+		<!--
+		<complexTypeKeys name="tableDBsType" keys="" />
+		<complexTypeKeys name="tableFieldsType" keys="" />
+		<complexTypeKeys name="tableSearchesType" keys="" />
+		<complexTypeKeys name="tableSearchParametersType" keys="" />
+		<complexTypeKeys name="tableSearchUpdateParametersType" keys="" />
+		<complexTypeKeys name="tableSearchUpdatesType" keys="" />
+		<complexTypeKeys name="tableUpdatesType" keys="" />
+		-->
+</metadata>

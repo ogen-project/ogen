@@ -1,0 +1,510 @@
+<VisualStudioProject>
+    <CSHARP
+        ProjectType = "Local"
+        ProductVersion = "7.10.3077"
+        SchemaVersion = "2.0"
+        ProjectGuid = "{37C5F3D1-D158-4E05-BB2D-CD32553FB993}"
+    >
+        <Build>
+            <Settings
+                ApplicationIcon = "App.ico"
+                AssemblyKeyContainerName = ""
+                AssemblyName = "OGen.NTier.presentationlayer.winforms-1.1"
+                AssemblyOriginatorKeyFile = ""
+                DefaultClientScript = "JScript"
+                DefaultHTMLPageLayout = "Grid"
+                DefaultTargetSchema = "IE50"
+                DelaySign = "false"
+                OutputType = "WinExe"
+                PreBuildEvent = ""
+                PostBuildEvent = ""
+                RootNamespace = "OGen.NTier.presentationlayer.winforms"
+                RunPostBuildEvent = "OnBuildSuccess"
+                StartupObject = ""
+            >
+                <Config
+                    Name = "Debug"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "DEBUG;TRACE;NET_1_1"
+                    DocumentationFile = ""
+                    DebugSymbols = "true"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "false"
+                    OutputPath = "bin\Debug\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+                <Config
+                    Name = "Release"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "TRACE;NET_1_1"
+                    DocumentationFile = ""
+                    DebugSymbols = "false"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "true"
+                    OutputPath = "bin\Release\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+            </Settings>
+            <References>
+                <Reference
+                    Name = "System"
+                    AssemblyName = "System"
+                    HintPath = "..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
+                />
+                <Reference
+                    Name = "System.Data"
+                    AssemblyName = "System.Data"
+                    HintPath = "..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
+                />
+                <Reference
+                    Name = "System.Drawing"
+                    AssemblyName = "System.Drawing"
+                    HintPath = "..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Drawing.dll"
+                />
+                <Reference
+                    Name = "System.Windows.Forms"
+                    AssemblyName = "System.Windows.Forms"
+                    HintPath = "..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Windows.Forms.dll"
+                />
+                <Reference
+                    Name = "System.XML"
+                    AssemblyName = "System.Xml"
+                    HintPath = "..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                />
+                <Reference
+                    Name = "OGen_collections"
+                    Project = "{A6E837F8-780F-4D05-B3ED-2FF1906B5766}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "OGen_generator"
+                    Project = "{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "OGen_webforms"
+                    Project = "{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "OGen_winforms"
+                    Project = "{B3835B3F-C899-416F-BA94-625A4B32A4AC}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "NTier_generator"
+                    Project = "{BC9835E7-8878-479D-BC0F-909FA77344DD}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "NTier_metadata"
+                    Project = "{0E77A4DB-AF8B-4290-BB33-F9EC97655433}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "OGen_parser"
+                    Project = "{981BC7DE-D93C-446E-861E-60A20E4E3391}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "OGen_datalayer__base"
+                    Project = "{0BE6274C-5536-4690-9597-8FCD8459C2A3}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "OGen_datalayer_PostgreSQL"
+                    Project = "{2BBB8F6D-B85C-4939-B781-5768DE287455}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "OGen_datalayer_SQLServer"
+                    Project = "{1B07A59E-56C1-49C5-B3A5-C6B5EED72F5D}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "OGen_datalayersupport"
+                    Project = "{C982B439-F21D-469A-8077-F01D29B6C003}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+            </References>
+        </Build>
+        <Files>
+            <Include>
+                <File
+                    RelPath = "app.config"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "App.ico"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "AssemblyInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "COPYING.MIT"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "frm_about.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "frm_about.resx"
+                    DependentUpon = "frm_about.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "frm_Main.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "frm_Main.resx"
+                    DependentUpon = "frm_Main.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "LICENSE.MIT.txt"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "LICENSE.txt"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "_utils\eInsUpdDel.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FlowForms\_cMODEL_s000.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FlowForms\_cMODEL_s010.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FlowForms\cGenerator_Generate_s000.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FlowForms\cManage_ConfigTables_s000.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FlowForms\cManage_ConfigTables_s010.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FlowForms\cManage_ConfigTables_s020.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FlowForms\cManage_Configuration_Project_s000.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FlowForms\cManage_Views_PK_s000.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FlowForms\cManage_Views_PK_s010.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FlowForms\cManage_Views_PK_s020.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FlowForms\Forms\_frmMODEL.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FlowForms\Forms\_frmMODEL.resx"
+                    DependentUpon = "_frmMODEL.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "FlowForms\Forms\frmGenerator_Generate_s000.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FlowForms\Forms\frmGenerator_Generate_s000.resx"
+                    DependentUpon = "frmGenerator_Generate_s000.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "FlowForms\Forms\frmManage_ConfigTables_s000.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FlowForms\Forms\frmManage_ConfigTables_s000.resx"
+                    DependentUpon = "frmManage_ConfigTables_s000.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "FlowForms\Forms\frmManage_ConfigTables_s010.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FlowForms\Forms\frmManage_ConfigTables_s010.resx"
+                    DependentUpon = "frmManage_ConfigTables_s010.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "FlowForms\Forms\frmManage_ConfigTables_s020.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FlowForms\Forms\frmManage_ConfigTables_s020.resx"
+                    DependentUpon = "frmManage_ConfigTables_s020.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "FlowForms\Forms\frmManage_Views_PK_s000.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FlowForms\Forms\frmManage_Views_PK_s000.resx"
+                    DependentUpon = "frmManage_Views_PK_s000.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "FlowForms\Forms\frmManage_Views_PK_s010.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FlowForms\Forms\frmManage_Views_PK_s010.resx"
+                    DependentUpon = "frmManage_Views_PK_s010.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "FlowForms\Forms\frmManage_Views_PK_s020.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FlowForms\Forms\frmManage_Views_PK_s020.resx"
+                    DependentUpon = "frmManage_Views_PK_s020.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "FlowForms\Forms-generic\frmManage_Configuration_Project_s000.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FlowForms\Forms-generic\frmManage_Configuration_Project_s000.resx"
+                    DependentUpon = "frmManage_Configuration_Project_s000.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "FlowForms\Processes\_PO_MODEL.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FlowForms\Processes\PO_ConfigTables.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FlowForms\Processes\PO_Manage_Views_PK.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Forms\frmConnectionstring.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Forms\frmConnectionstring.resx"
+                    DependentUpon = "frmConnectionstring.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Forms.old\frmManage_Searches.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Forms.old\frmManage_Searches.resx"
+                    DependentUpon = "frmManage_Searches.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Forms.old\frmManage_Searches_Create_step010.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Forms.old\frmManage_Searches_Create_step010.resx"
+                    DependentUpon = "frmManage_Searches_Create_step010.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Forms.old\frmManage_Searches_Create_step020.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Forms.old\frmManage_Searches_Create_step020.resx"
+                    DependentUpon = "frmManage_Searches_Create_step020.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Forms.old\frmManage_Searches_Create_step030.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Forms.old\frmManage_Searches_Create_step030.resx"
+                    DependentUpon = "frmManage_Searches_Create_step030.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Forms.old\frmManage_Updates.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Forms.old\frmManage_Updates.resx"
+                    DependentUpon = "frmManage_Updates.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Forms.old\frmManage_Updates_Create_step010.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Forms.old\frmManage_Updates_Create_step010.resx"
+                    DependentUpon = "frmManage_Updates_Create_step010.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Forms.old\frmManage_Updates_Create_step020.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Forms.old\frmManage_Updates_Create_step020.resx"
+                    DependentUpon = "frmManage_Updates_Create_step020.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Forms.old\frmManage_Updates_Create_step030.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Forms.old\frmManage_Updates_Create_step030.resx"
+                    DependentUpon = "frmManage_Updates_Create_step030.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Forms.old\frmManage_Updates_Create_step040.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Forms.old\frmManage_Updates_Create_step040.resx"
+                    DependentUpon = "frmManage_Updates_Create_step040.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "UserControls\ucPick_DBType.cs"
+                    SubType = "UserControl"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "UserControls\ucPick_DBType.resx"
+                    DependentUpon = "ucPick_DBType.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "UserControls\ucPick_Fields.cs"
+                    SubType = "UserControl"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "UserControls\ucPick_Fields.resx"
+                    DependentUpon = "ucPick_Fields.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "UserControls\ucPick_Fields_forCriteria.cs"
+                    SubType = "UserControl"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "UserControls\ucPick_Fields_forCriteria.resx"
+                    DependentUpon = "ucPick_Fields_forCriteria.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "UserControls\ucPick_Searches.cs"
+                    SubType = "UserControl"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "UserControls\ucPick_Searches.resx"
+                    DependentUpon = "ucPick_Searches.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "UserControls\ucPick_Tables.cs"
+                    SubType = "UserControl"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "UserControls\ucPick_Tables.resx"
+                    DependentUpon = "ucPick_Tables.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+            </Include>
+        </Files>
+    </CSHARP>
+</VisualStudioProject>
+

@@ -1,0 +1,32 @@
+### Copyright (C) 2002 Francisco Monteiro
+### NOTES
+# tar xvfz ... .tar.gz
+# tar xvfj ... .tar.bz2
+
+
+cd /root/MyDocuments/myDump
+
+
+### wxWidgets:
+# Download wxWidgets 2.5.3 from http://www.wxwidgets.org/
+tar xvfj wxGTK-2.5.3.tar.bz2
+cd wxGTK-2.5.3
+./configure --with-gtk --enable-gtk2 --enable-unicode --disable-shared --enable-debug --prefix=/usr/local
+make
+make install
+ldconfig
+# install wxWidgets Styled Text Control
+cd contrib/src/stc
+make
+make install
+ldconfig
+
+
+### pgadmin3:
+tar xvfz pgadmin3-1.2.0.tar.gz
+cd pgadmin3-1.2.0
+
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+./configure --enable-static --enable-debug --prefix=/usr/local
+make all
+make install

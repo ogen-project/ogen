@@ -1,0 +1,102 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{327AF732-DFFD-488F-85C7-92B23D03BD34}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>OGen.XSD.lib.templates</RootNamespace>
+    <AssemblyName>OGen.XSD.lib.templates-2.0</AssemblyName>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>False</DelaySign>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE;NET_2_0</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\</OutputPath>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE;NET_2_0</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <None Include="COPYING.MIT" />
+    <None Include="LICENSE.MIT.txt" />
+    <None Include="LICENSE.txt" />
+    <None Include="templates.config.xml" />
+    <None Include="XS-XS0_SomeClassCollection.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="XS-XS0_SomeEnumeration.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="XS-XS0_SomeClass.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="Web.config" />
+    <None Include="XS-XS0__BaseClassCollection.cs.aspx">
+    </None>
+    <None Include="XS-XS_SomeClass.cs.aspx">
+    </None>
+    <None Include="XS-XS__BaseClassCollection.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OGen\OGen_collections\OGen_collections-8.csproj">
+      <Project>{A6E837F8-780F-4D05-B3ED-2FF1906B5766}</Project>
+      <Name>OGen_collections-8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_parser\OGen_parser-8.csproj">
+      <Project>{981BC7DE-D93C-446E-861E-60A20E4E3391}</Project>
+      <Name>OGen_parser-8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_webforms\OGen_webforms-8.csproj">
+      <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
+      <Name>OGen_webforms-8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XSD_metadata\XSD_metadata-8.csproj">
+      <Project>{4DF3D49D-AE3E-47F9-A33F-EB335D7B418E}</Project>
+      <Name>XSD_metadata-8</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="XS-XS0__BaseClass.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XS-XS0__RootMetadata.cs.aspx">
+    </Content>
+    <Content Include="XS-XS_SomeClassCollection.cs.aspx">
+    </Content>
+    <Content Include="XS-XS__BaseClass.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XS-XS__RootMetadata.cs.aspx">
+    </Content>
+  </ItemGroup>
+</Project>

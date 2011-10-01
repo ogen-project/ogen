@@ -1,0 +1,3538 @@
+<!--
+
+OGen
+Copyright (c) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->
+<templates>
+	<!--template id="__XSLT-TEST.txt.xslt"
+			name="__XSLT-TEST.txt.xslt" 
+			parserType="xslt"
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n]}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/__XSLT-TEST-${ROOT.metadataDB[0].tables.table[n]}.txt" 
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template-->
+	<template id="SomeApplication-MD_SomeApplication.OGenXSD-metadataExtended-CompareAndUpdate.xml.aspx"
+			name="SomeApplication-MD_SomeApplication.OGenXSD-metadataExtended-CompareAndUpdate.xml.aspx"
+			templateType=""
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadataExtended-CompareAndUpdate.xml"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+
+
+	<template id="emptyfile.txt?PostgreSQL"
+			name="emptyfile.txt" 
+			templateType="data"
+			parserType="none"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments />
+		<conditions>
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+		</conditions>
+		<outputs>
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="emptyfile.txt?SQLServer"
+			name="emptyfile.txt"
+			templateType="data"
+			parserType="none"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments />
+		<conditions>
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+		</conditions>
+		<outputs>
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="emptyfile.txt?MySQL"
+			name="emptyfile.txt"
+			templateType="data"
+			parserType="none"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments />
+		<conditions>
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+		</conditions>
+		<outputs>
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+
+
+	<template id="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx"
+			name="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions>
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TODOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TODOS -->
+			<output to="v0_${ROOT.metadataDB[0].tables.table[n].name}__onlyKeys"
+				type="PostgreSQL_View" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="emptyfile.txt?PostgreSQL" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx"
+			name="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].tableSearches_hasExplicitUniqueIndex" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}__ConstraintExist" 
+				type="MySQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx"
+			name="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].tableSearches_hasExplicitUniqueIndex" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}__ConstraintExist" 
+				type="PostgreSQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt?PostgreSQL" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx"
+			name="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].tableSearches_hasExplicitUniqueIndex" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}__ConstraintExist"
+				type="SQLServer_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="MySQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_isObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="PostgreSQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt?PostgreSQL" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_isObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}"
+				type="SQLServer_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-fnc0_SomeTable_isObject-MySQL.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_isObject-MySQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject"
+				type="MySQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="DO-DB-fnc0_SomeTable_isObject-PostgreSQL.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_isObject-PostgreSQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject" 
+				type="PostgreSQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="emptyfile.txt?PostgreSQL" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-fnc0_SomeTable_isObject-SQLServer.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_isObject-SQLServer.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="fnc0_${ROOT.metadataDB[0].tables.table[n].name}_isObject"
+				type="SQLServer_Function" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-MySQL.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-MySQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_count_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="MySQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-PostgreSQL.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-PostgreSQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_count_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="PostgreSQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt?PostgreSQL" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-SQLServer.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-SQLServer.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_count_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="SQLServer_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-MySQL.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-MySQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_hasObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="MySQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-PostgreSQL.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-PostgreSQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_hasObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="PostgreSQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt?PostgreSQL" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-SQLServer.sql.aspx"
+			name="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-SQLServer.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="fnc0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_hasObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="SQLServer_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_insObject-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_insObject-MySQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_insObject" 
+				type="MySQL_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_insObject-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_insObject-PostgreSQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_insObject" 
+				type="PostgreSQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt?PostgreSQL" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_insObject-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_insObject-SQLServer.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_insObject" 
+				type="SQLServer_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_updObject-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_updObject-MySQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_updObject" 
+				type="MySQL_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_updObject-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_updObject-PostgreSQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_updObject" 
+				type="PostgreSQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt?PostgreSQL" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_updObject-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_updObject-SQLServer.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="True" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_updObject" 
+				type="SQLServer_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_setObject-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_setObject-MySQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="False" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_setObject" 
+				type="MySQL_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_setObject-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_setObject-PostgreSQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="False" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_setObject" 
+				type="PostgreSQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="emptyfile.txt?PostgreSQL" />
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_setObject-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_setObject-SQLServer.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].hasIdentityKey" to="False" />
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_setObject" 
+				type="SQLServer_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_delObject-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_delObject-MySQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+			<!-- condition eval="ROOT.metadataDB[0].tables.table[n].tableSearches_hasExplicitUniqueIndex" to="False" / -->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject" 
+				type="MySQL_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="DO-DB-sp0_SomeTable_delObject-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_delObject-PostgreSQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+			<!-- condition eval="ROOT.metadataDB[0].tables.table[n].tableSearches_hasExplicitUniqueIndex" to="False" / -->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject" 
+				type="PostgreSQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="emptyfile.txt?PostgreSQL" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_delObject-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_delObject-SQLServer.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+			<!-- condition eval="ROOT.metadataDB[0].tables.table[n].tableSearches_hasExplicitUniqueIndex" to="False" / -->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_delObject" 
+				type="SQLServer_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-MySQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].isVirtualTable" to="False" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_delObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="MySQL_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-PostgreSQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].isVirtualTable" to="False" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_delObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="PostgreSQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt?PostgreSQL" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-SQLServer.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].isVirtualTable" to="False" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_delObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="SQLServer_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-MySQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].isVirtualTable" to="False" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_delete_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="MySQL_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-PostgreSQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].isVirtualTable" to="False" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_delete_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="PostgreSQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt?PostgreSQL" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-SQLServer.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].isVirtualTable" to="False" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_delete_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="SQLServer_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx"
+			name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="fnc_${ROOT.metadataExtended[0].tables.table[n].name}_isObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="MySQL_Function" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx"
+			name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="fnc_${ROOT.metadataExtended[0].tables.table[n].name}_isObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="PostgreSQL_Function" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="emptyfile.txt?PostgreSQL" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx"
+			name="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="fnc_${ROOT.metadataExtended[0].tables.table[n].name}_isObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="SQLServer_Function" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx"
+			name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="fnc_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="MySQL_Function" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx"
+			name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="fnc_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="PostgreSQL_Function" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt?PostgreSQL" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx"
+			name="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="fnc_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="SQLServer_Function" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx"
+			name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="MySQL_StoredProcedure" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx"
+			name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="PostgreSQL_Function" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt?PostgreSQL" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx"
+			name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="SQLServer_StoredProcedure" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_getObject-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_getObject-MySQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject" 
+				type="MySQL_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="DO-DB-sp0_SomeTable_getObject-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_getObject-PostgreSQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject" 
+				type="PostgreSQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="emptyfile.txt?PostgreSQL" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_getObject-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_getObject-SQLServer.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+			<condition eval="ROOT.metadataDB[0].tables.table[n].isVirtualTable" to="False" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataDB[0].tables.table[n].name}_getObject" 
+				type="SQLServer_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-MySQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_getObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="MySQL_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-PostgreSQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_getObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="PostgreSQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt?PostgreSQL" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-SQLServer.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="False" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_getObject_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="SQLServer_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-MySQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_fullmode" 
+				type="MySQL_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-PostgreSQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_fullmode" 
+				type="PostgreSQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt?PostgreSQL" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-SQLServer.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_fullmode" 
+				type="SQLServer_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-MySQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-MySQL/sql0-${ROOT.metadataExtended[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_page" 
+				type="MySQL_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-PostgreSQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_page" 
+				type="PostgreSQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" />
+			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt?PostgreSQL" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-SQLServer.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_page" 
+				type="SQLServer_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-MySQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_page_fullmode" 
+				type="MySQL_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-PostgreSQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_page_fullmode" 
+				type="PostgreSQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt?PostgreSQL" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-SQLServer.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_page_fullmode" 
+				type="SQLServer_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-MySQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].tableSearchUpdates.tableSearchUpdate[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+			<argument name="UpdateName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].tableSearchUpdates.tableSearchUpdate[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_update_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].tableSearchUpdates.tableSearchUpdate[n].name}_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="MySQL_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-PostgreSQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].tableSearchUpdates.tableSearchUpdate[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+			<argument name="UpdateName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].tableSearchUpdates.tableSearchUpdate[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_update_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].tableSearchUpdates.tableSearchUpdate[n].name}_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="PostgreSQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="emptyfile.txt?PostgreSQL" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-SQLServer.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].tableSearchUpdates.tableSearchUpdate[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
+			<argument name="UpdateName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].tableSearchUpdates.tableSearchUpdate[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_update_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].tableSearchUpdates.tableSearchUpdate[n].name}_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="SQLServer_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_updObject_SomeUpdate-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_updObject_SomeUpdate-MySQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableUpdates.tableUpdate[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="UpdateName" value="${ROOT.metadataExtended[0].tables.table[n].tableUpdates.tableUpdate[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-MySQL/sql0-${ROOT.metadataExtended[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_updObject_${ROOT.metadataExtended[0].tables.table[n].tableUpdates.tableUpdate[n].name}" 
+				type="MySQL_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_updObject_SomeUpdate-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_updObject_SomeUpdate-PostgreSQL.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableUpdates.tableUpdate[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="UpdateName" value="${ROOT.metadataExtended[0].tables.table[n].tableUpdates.tableUpdate[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-PostgreSQL/sql0-${ROOT.metadataExtended[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_updObject_${ROOT.metadataExtended[0].tables.table[n].tableUpdates.tableUpdate[n].name}" 
+				type="PostgreSQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="emptyfile.txt?PostgreSQL" />
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-sp0_SomeTable_updObject_SomeUpdate-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_updObject_SomeUpdate-SQLServer.sql.aspx" 
+			templateType="data"
+			parserType="aspx" 
+			iterationType="ROOT.metadataExtended[0].tables.table[n].tableUpdates.tableUpdate[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataExtended[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
+			<argument name="UpdateName" value="${ROOT.metadataExtended[0].tables.table[n].tableUpdates.tableUpdate[n].name}" />
+		</arguments>
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-SQLServer/sql0-${ROOT.metadataExtended[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_updObject_${ROOT.metadataExtended[0].tables.table[n].tableUpdates.tableUpdate[n].name}" 
+				type="SQLServer_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-OGen_fnc0__Split-PostgreSQL.sql"
+			name="DO-DB-OGen_fnc0__Split-PostgreSQL.sql" 
+			templateType="data"
+			parserType="none" 
+			iterationType="ROOT.metadataDB[0]">
+		<arguments />
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="OGen_fnc0__Split" 
+				type="PostgreSQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="DO-DB-OGen_fnc0__Split-SQLServer.sql"
+			name="DO-DB-OGen_fnc0__Split-SQLServer.sql" 
+			templateType="data"
+			parserType="none" 
+			iterationType="ROOT.metadataDB[0]">
+		<arguments />
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="OGen_fnc0__Split" 
+				type="SQLServer_Function" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="DO-DB-OGen_fnc0__Like-PostgreSQL.sql"
+			name="DO-DB-OGen_fnc0__Like-PostgreSQL.sql" 
+			templateType="data"
+			parserType="none" 
+			iterationType="ROOT.metadataDB[0]">
+		<arguments />
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="OGen_fnc0__Like" 
+				type="PostgreSQL_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-OGen_fnc0__Split-PostgreSQL.sql" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-OGen_fnc0__Like-SQLServer.sql"
+			name="DO-DB-OGen_fnc0__Like-SQLServer.sql" 
+			templateType="data"
+			parserType="none" 
+			iterationType="ROOT.metadataDB[0]">
+		<arguments />
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="OGen_fnc0__Like" 
+				type="SQLServer_Function" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-OGen_fnc0__Split-PostgreSQL.sql" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-OGen_v0__getTables-PostgreSQL.sql"
+			name="DO-DB-OGen_v0__getTables-PostgreSQL.sql" 
+			templateType="data"
+			parserType="none" 
+			iterationType="ROOT.metadataDB[0]">
+		<arguments />
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="v0__getTables" 
+				type="PostgreSQL_View" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="DO-DB-OGen_sp0__getTables-PostgreSQL.sql"
+			name="DO-DB-OGen_sp0__getTables-PostgreSQL.sql" 
+			templateType="data"
+			parserType="none" 
+			iterationType="ROOT.metadataDB[0]">
+		<arguments />
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="OGen_sp0__getTables" 
+				type="PostgreSQL_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-OGen_fnc0__Split-PostgreSQL.sql" />
+			<dependency templateID="DO-DB-OGen_v0__getTables-PostgreSQL.sql" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-OGen_sp0__getTables-SQLServer.sql"
+			name="DO-DB-OGen_sp0__getTables-SQLServer.sql" 
+			templateType="data"
+			parserType="none" 
+			iterationType="ROOT.metadataDB[0]">
+		<arguments />
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="OGen_sp0__getTables" 
+				type="SQLServer_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-OGen_fnc0__Split-SQLServer.sql" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-OGen_v0__getTableFields-PostgreSQL.sql"
+			name="DO-DB-OGen_v0__getTableFields-PostgreSQL.sql" 
+			templateType="data"
+			parserType="none" 
+			iterationType="ROOT.metadataDB[0]">
+		<arguments />
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="v0__getTables" 
+				type="PostgreSQL_View" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="DO-DB-OGen_sp0__getTableFields-PostgreSQL.sql"
+			name="DO-DB-OGen_sp0__getTableFields-PostgreSQL.sql" 
+			templateType="data"
+			parserType="none" 
+			iterationType="ROOT.metadataDB[0]">
+		<arguments />
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
+-->
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="OGen_sp0__getTableFields" 
+				type="PostgreSQL_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies>
+			<dependency templateID="DO-DB-OGen_v0__getTableFields-PostgreSQL.sql" />
+		</dependencies>
+	</template>
+	<template id="DO-DB-OGen_sp0__getTableFields-SQLServer.sql"
+			name="DO-DB-OGen_sp0__getTableFields-SQLServer.sql" 
+			templateType="data"
+			parserType="none" 
+			iterationType="ROOT.metadataDB[0]">
+		<arguments />
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
+-->
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="OGen_sp0__getTableFields" 
+				type="SQLServer_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="DO-DB-OGen_sp0__getTableFields-MySQL.sql"
+			name="DO-DB-OGen_sp0__getTableFields-MySQL.sql"
+			templateType="data"
+			parserType="none"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments />
+		<conditions>
+<!-- XXX:NO_NEED
+			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
+-->
+		</conditions>
+		<outputs>
+<!-- XXX:TO_DOS
+			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
+				type="File" mode="Append" />
+XXX:TO_DOS -->
+			<output to="OGen_sp0__getTableFields"
+				type="MySQL_StoredProcedure" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- search:solution -->
+	<template id="PRJ-Someapp-9.sln.aspx?GAC=True"
+			name="PRJ-Someapp-9.sln.aspx"
+			templateType=""
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-9.sln"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-Someapp-9.sln.aspx?GAC=False"
+			name="PRJ-Someapp-9.sln.aspx"
+			templateType=""
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-9-no-gac.sln"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+
+
+	<!-- search:solution:datalayer -->
+	<template id="PRJ-DO-Someapp-datalayer-9.csproj.aspx?GAC=True"
+			name="PRJ-DO-Someapp-datalayer-9.csproj.aspx"
+			templateType="data"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-datalayer/${ROOT.metadataDB[0].applicationName}-datalayer-9.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-DO-Someapp-datalayer-9.csproj.aspx?GAC=False"
+			name="PRJ-DO-Someapp-datalayer-9.csproj.aspx"
+			templateType="data"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-datalayer/${ROOT.metadataDB[0].applicationName}-datalayer-9-no-gac.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:datalayer:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=datalayer"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType="data"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="datalayer" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-datalayer/Properties/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:datalayer:DO_Sometable -->
+	<template id="PRJ-DO-Someapp-datalayer-DO_Sometable.cs.aspx"
+			name="PRJ-DO-Someapp-datalayer-DO_Sometable.cs.aspx"
+			templateType="data"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-datalayer/DO_${ROOT.metadataDB[0].tables.table[n].name}.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:datalayer:DO0_Sometable -->
+	<template id="PRJ-DO-Someapp-datalayer-DO0_Sometable.cs.aspx"
+			name="PRJ-DO-Someapp-datalayer-DO0_Sometable.cs.aspx"
+			templateType="data"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-datalayer/_base/DO0_${ROOT.metadataDB[0].tables.table[n].name}.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:datalayer:DO__utils -->
+	<template id="PRJ-DO-Someapp-datalayer-DO__utils.cs.aspx"
+			name="PRJ-DO-Someapp-datalayer-DO__utils.cs.aspx"
+			templateType="data"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-datalayer/DO__utils.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:datalayer:DO0__utils -->
+	<template id="PRJ-DO-Someapp-datalayer-DO0__utils.cs.aspx"
+			name="PRJ-DO-Someapp-datalayer-DO0__utils.cs.aspx"
+			templateType="data"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-datalayer/_base/DO0__utils.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+
+	<!-- search:solution:datalayer:structures -->
+	<template id="PRJ-DO-Someapp-datalayer-structures-9.csproj.aspx?GAC=True"
+			name="PRJ-DO-Someapp-datalayer-structures-9.csproj.aspx"
+			templateType="data"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-datalayer-structures/${ROOT.metadataDB[0].applicationName}-datalayer-structures-9.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-DO-Someapp-datalayer-structures-9.csproj.aspx?GAC=False"
+			name="PRJ-DO-Someapp-datalayer-structures-9.csproj.aspx"
+			templateType="data"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-datalayer-structures/${ROOT.metadataDB[0].applicationName}-datalayer-structures-9-no-gac.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:datalayer:structures:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=datalayer-structures"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType="data"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="datalayer-structures" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-datalayer-structures/Properties/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:datalayer:structures:SO0_Sometable -->
+	<template id="PRJ-DO-Someapp-datalayer-structures-SO0_Sometable.cs.aspx"
+			name="PRJ-DO-Someapp-datalayer-structures-SO0_Sometable.cs.aspx"
+			templateType="data"
+			parserType="aspx"
+			iterationType="ROOT.metadataDB[0].tables.table[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="TableName" value="${ROOT.metadataDB[0].tables.table[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-datalayer-structures/_base/SO0_${ROOT.metadataDB[0].tables.table[n].name}.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+
+
+	<!-- search:solution:businesslayer -->
+	<template id="PRJ-BO-Someapp-businesslayer-9.csproj.aspx?GAC=True"
+			name="PRJ-BO-Someapp-businesslayer-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer/${ROOT.metadataDB[0].applicationName}-businesslayer-9.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-BO-Someapp-businesslayer-9.csproj.aspx?GAC=False"
+			name="PRJ-BO-Someapp-businesslayer-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer/${ROOT.metadataDB[0].applicationName}-businesslayer-9-no-gac.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:businesslayer:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=businesslayer"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="businesslayer" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer/Properties/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:businesslayer:SBO_Somebo -->
+	<!--
+	<template id="PRJ-BO-Someapp-businesslayer-SBO_Somebo.cs.aspx"
+			name="PRJ-BO-Someapp-businesslayer-SBO_Somebo.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer/SBO_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	-->
+	<!-- search:solution:businesslayer:BO0_Somebo -->
+	<template id="PRJ-BO-Someapp-businesslayer-BO0_Somebo.cs.aspx"
+			name="PRJ-BO-Someapp-businesslayer-BO0_Somebo.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer/_base/BO0_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+
+	<!-- search:solution:businesslayer:structures -->
+	<template id="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx?GAC=True"
+			name="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-structures/${ROOT.metadataDB[0].applicationName}-businesslayer-structures-9.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx?GAC=False"
+			name="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-structures/${ROOT.metadataDB[0].applicationName}-businesslayer-structures-9-no-gac.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:businesslayer:structures:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=businesslayer-structures"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="businesslayer-structures" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-structures/Properties/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- ... -->
+
+	<!-- search:solution:businesslayer:shared -->
+	<template id="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx?GAC=True"
+			name="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-shared/${ROOT.metadataDB[0].applicationName}-businesslayer-shared-9.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx?GAC=False"
+			name="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-shared/${ROOT.metadataDB[0].applicationName}-businesslayer-shared-9-no-gac.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:businesslayer:shared:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=businesslayer-shared"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="businesslayer-shared" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-shared/Properties/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:businesslayer:shared:IBO_Somebo -->
+	<template id="PRJ-BO-Someapp-businesslayer-shared-IBO_Somebo.cs.aspx"
+			name="PRJ-BO-Someapp-businesslayer-shared-IBO_Somebo.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-shared/IBO_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:businesslayer:shared:IBO0_Somebo -->
+	<template id="PRJ-BO-Someapp-businesslayer-shared-IBO0_Somebo.cs.aspx"
+			name="PRJ-BO-Someapp-businesslayer-shared-IBO0_Somebo.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-shared/_base/IBO0_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+
+	<!-- search:solution:businesslayer:instances -->
+	<template id="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx?GAC=True"
+			name="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-instances/${ROOT.metadataDB[0].applicationName}-businesslayer-instances-9.csproj"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx?GAC=False"
+			name="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-instances/${ROOT.metadataDB[0].applicationName}-businesslayer-instances-9-no-gac.csproj"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx?GAC=True&quot;BusinessObject=True"
+			name="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+			<argument name="BusinessObject" value="True" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-instances/${ROOT.metadataDB[0].applicationName}-businesslayer-instances-businessobject-9.csproj"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx?GAC=False&quot;BusinessObject=True"
+			name="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+			<argument name="BusinessObject" value="True" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-instances/${ROOT.metadataDB[0].applicationName}-businesslayer-instances-businessobject-9-no-gac.csproj"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx?GAC=True&quot;RemotingClient=True"
+			name="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+			<argument name="RemotingClient" value="True" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-instances/${ROOT.metadataDB[0].applicationName}-businesslayer-instances-remotingclient-9.csproj"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx?GAC=False&quot;RemotingClient=True"
+			name="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+			<argument name="RemotingClient" value="True" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-instances/${ROOT.metadataDB[0].applicationName}-businesslayer-instances-remotingclient-9-no-gac.csproj"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx?GAC=True&quot;WebservicesClient=True"
+			name="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+			<argument name="WebservicesClient" value="True" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-instances/${ROOT.metadataDB[0].applicationName}-businesslayer-instances-webservicesclient-9.csproj"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx?GAC=False&quot;WebservicesClient=True"
+			name="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+			<argument name="WebservicesClient" value="True" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-instances/${ROOT.metadataDB[0].applicationName}-businesslayer-instances-webservicesclient-9-no-gac.csproj"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:businesslayer:instances:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=businesslayer-instances"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="businesslayer-instances" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-instances/Properties/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:businesslayer:instances:-Config0 -->
+	<template id="PRJ-BO-Someapp-businesslayer-instances--Config0.cs.aspx"
+			name="PRJ-BO-Someapp-businesslayer-instances--Config0.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-instances/_base/-Config0.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:businesslayer:instances:Somebo0 -->
+	<template id="PRJ-BO-Someapp-businesslayer-instances-Somebo0.cs.aspx"
+			name="PRJ-BO-Someapp-businesslayer-instances-Somebo0.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-businesslayer-instances/_base/${ROOT.metadataBusiness[0].classes.class[n].name}0.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+
+
+	<!-- search:solution:remoting:server -->
+	<template id="PRJ-RS-Someapp-remoting-server-9.csproj.aspx?GAC=True"
+			name="PRJ-RS-Someapp-remoting-server-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-server/${ROOT.metadataDB[0].applicationName}-remoting-server-9.csproj"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-RS-Someapp-remoting-server-9.csproj.aspx?GAC=False"
+			name="PRJ-RS-Someapp-remoting-server-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-server/${ROOT.metadataDB[0].applicationName}-remoting-server-9-no-gac.csproj"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:remoting:server:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=remoting-server"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="remoting-server" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-server/Properties/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:remoting:server:utils0.cs -->
+	<template id="PRJ-RS-Someapp-remoting-server-utils0.cs.aspx"
+			name="PRJ-RS-Someapp-remoting-server-utils0.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-server/_base/utils0.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:remoting:server:RS0__server -->
+	<template id="PRJ-RS-Someapp-remoting-server-RS0__server.cs.aspx"
+			name="PRJ-RS-Someapp-remoting-server-RS0__server.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-server/_base/RS0__server.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:remoting:server:RS0_Somebo -->
+	<template id="PRJ-RS-Someapp-remoting-server-RS0_Somebo.cs.aspx?Client=False"
+			name="PRJ-RS-Someapp-remoting-server-RS0_Somebo.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+			<argument name="Client" value="False" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-server/_base/RS0_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+
+	<!-- search:solution:remoting:simpleserver -->
+	<template id="PRJ-RS-Someapp-remoting-simpleserver-9.csproj.aspx?GAC=True"
+			name="PRJ-RS-Someapp-remoting-simpleserver-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-simpleserver/${ROOT.metadataDB[0].applicationName}-remoting-simpleserver-9.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-RS-Someapp-remoting-simpleserver-9.csproj.aspx?GAC=False"
+			name="PRJ-RS-Someapp-remoting-simpleserver-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+-			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-simpleserver/${ROOT.metadataDB[0].applicationName}-remoting-simpleserver-9-no-gac.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:remoting:simpleserver:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=remoting-simpleserver"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="remoting-simpleserver" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-simpleserver/Properties/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:remoting:simpleserver:App.config -->
+	<template id="PRJ--COMMON-XXX.config.aspx?where=remoting-simpleserver"
+			name="PRJ--COMMON-XXX.config.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="remoting-simpleserver" />
+			<argument name="outputPath" value="${CONFIG.outputPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-simpleserver/App.config"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:remoting:simpleserver:Program.cs -->
+	<template id="PRJ-RS-Someapp-remoting-simpleserver-Program.cs.aspx"
+			name="PRJ-RS-Someapp-remoting-simpleserver-Program.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-simpleserver/Program.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+
+	<!-- search:solution:remoting:client -->
+	<template id="PRJ-RC-Someapp-remoting-client-9.csproj.aspx?GAC=True"
+			name="PRJ-RC-Someapp-remoting-client-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-client/${ROOT.metadataDB[0].applicationName}-remoting-client-9.csproj"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-RC-Someapp-remoting-client-9.csproj.aspx?GAC=False"
+			name="PRJ-RC-Someapp-remoting-client-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-client/${ROOT.metadataDB[0].applicationName}-remoting-client-9-no-gac.csproj"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:remoting:client:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=remoting-client"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="remoting-client" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-client/Properties/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:remoting:client:Config0 -->
+	<template id="PRJ-RC-Someapp-remoting-client--Config.cs.aspx"
+			name="PRJ-RC-Someapp-remoting-client--Config.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-client/_base/Config0.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:remoting:client:RS0_Somebo -->
+	<template id="PRJ-RS-Someapp-remoting-server-RS0_Somebo.cs.aspx?Client=True"
+			name="PRJ-RS-Someapp-remoting-server-RS0_Somebo.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+			<argument name="Client" value="True" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-client/_base/RS0_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:remoting:client:RC0_Somebo -->
+	<template id="PRJ-RC-Someapp-remoting-client-RC0_Somebo.cs.aspx"
+			name="PRJ-RC-Someapp-remoting-client-RC0_Somebo.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-client/_base/RC0_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+
+
+	<!-- search:solution:webservices:server -->
+	<template id="PRJ-WS-Someapp-webservices-server-9.csproj.aspx?GAC=True"
+			name="PRJ-WS-Someapp-webservices-server-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/${ROOT.metadataDB[0].applicationName}-webservices-server-9.csproj"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-WS-Someapp-webservices-server-9.csproj.aspx?GAC=False"
+			name="PRJ-WS-Someapp-webservices-server-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/${ROOT.metadataDB[0].applicationName}-webservices-server-9-no-gac.csproj"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:webservices:server:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=webservices-server"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="webservices-server" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/Properties/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:webservices:server:Web.config -->
+	<template id="PRJ--COMMON-XXX.config.aspx?where=webservices-server"
+			name="PRJ--COMMON-XXX.config.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="webservices-server" />
+			<argument name="outputPath" value="${CONFIG.outputPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/Web.config"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:webservices:server:utils0.cs -->
+	<template id="PRJ-WS-Someapp-webservices-server-utils0.cs.aspx"
+			name="PRJ-WS-Someapp-webservices-server-utils0.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/_base/utils0.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:webservices:server:Default.aspx -->
+	<template id="PRJ-WS-Someapp-webservices-server-Default.aspx.aspx"
+			name="PRJ-WS-Someapp-webservices-server-Default.aspx.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/Default.aspx"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:webservices:server:Default.aspx.cs -->
+	<template id="PRJ-WS-Someapp-webservices-server-Default.aspx.cs.aspx"
+			name="PRJ-WS-Someapp-webservices-server-Default.aspx.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/Default.aspx.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:webservices:server:Default.aspx.designer.cs -->
+	<template id="PRJ-WS-Someapp-webservices-server-Default.aspx.designer.cs.aspx"
+			name="PRJ-WS-Someapp-webservices-server-Default.aspx.designer.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/Default.aspx.designer.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:webservices:server:WS_Somebo.asmx -->
+	<template id="PRJ-WS-Someapp-webservices-server-WS_Somebo.asmx.aspx"
+			name="PRJ-WS-Someapp-webservices-server-WS_Somebo.asmx.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/WS_${ROOT.metadataBusiness[0].classes.class[n].name}.asmx"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:webservices:server:WS_Somebo.asmx.cs -->
+	<template id="PRJ-WS-Someapp-webservices-server-WS_Somebo.asmx.cs.aspx"
+			name="PRJ-WS-Someapp-webservices-server-WS_Somebo.asmx.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/WS_${ROOT.metadataBusiness[0].classes.class[n].name}.asmx.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:webservices:server:WS0_Somebo.cs -->
+	<template id="PRJ-WS-Someapp-webservices-server-WS0_Somebo.cs.aspx"
+			name="PRJ-WS-Someapp-webservices-server-WS0_Somebo.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/_base/WS0_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+
+	<!-- search:solution:webservices:client -->
+	<template id="PRJ-WC-Someapp-webservices-client-9.csproj.aspx?GAC=True"
+			name="PRJ-WC-Someapp-webservices-client-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-client/${ROOT.metadataDB[0].applicationName}-webservices-client-9.csproj"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-WC-Someapp-webservices-client-9.csproj.aspx?GAC=False"
+			name="PRJ-WC-Someapp-webservices-client-9.csproj.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-client/${ROOT.metadataDB[0].applicationName}-webservices-client-9-no-gac.csproj"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:webservices:client:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=webservices-client"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="webservices-client" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-client/Properties/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution:webservices:client:WC0_Somebo -->
+	<template id="PRJ-WC-Someapp-webservices-client-WC0_Somebo.cs.aspx"
+			name="PRJ-WC-Someapp-webservices-client-WC0_Somebo.cs.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0].classes.class[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="ClassName" value="${ROOT.metadataBusiness[0].classes.class[n].name}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-client/_base/WC0_${ROOT.metadataBusiness[0].classes.class[n].name}.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+
+
+	<!-- search:solution::test -->
+	<template id="PRJ-Someapp--test-9.csproj.aspx?GAC=True"
+			name="PRJ-Someapp--test-9.csproj.aspx"
+			templateType=""
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="True" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}--test/${ROOT.metadataDB[0].applicationName}--test-9.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="PRJ-Someapp--test-9.csproj.aspx?GAC=False"
+			name="PRJ-Someapp--test-9.csproj.aspx"
+			templateType=""
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="GAC" value="False" />
+			<argument name="OGenPath" value="${CONFIG.ogenPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}--test/${ROOT.metadataDB[0].applicationName}--test-9-no-gac.csproj"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution::test:App.config -->
+	<template id="PRJ--COMMON-XXX.config.aspx?where=test"
+			name="PRJ--COMMON-XXX.config.aspx"
+			templateType=""
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="test" />
+			<argument name="outputPath" value="${CONFIG.outputPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}--test/App.config"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution::test:AssemblyInfo -->
+	<template id="PRJ--COMMON-AssemblyInfo.cs.aspx?where=test"
+			name="PRJ--COMMON-AssemblyInfo.cs.aspx"
+			templateType=""
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="test" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}--test/Properties/AssemblyInfo.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<!-- search:solution::test:program -->
+	<template id="PRJ-Someapp--test-program.cs.aspx"
+			name="PRJ-Someapp--test-program.cs.aspx"
+			templateType=""
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}--test/Program.cs"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+
+
+
+
+	<template id="PRJ---xxx.cs.aspx"
+			name="PRJ---xxx.cs.aspx"
+			templateType=""
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-weblayer/xxx0.no-svn.cs"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+</templates>

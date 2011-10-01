@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!--
+
+OGen
+Copyright (c) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->
+<xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://ogen.berlios.de"
+	xmlns="http://ogen.berlios.de"
+	elementFormDefault="qualified">
+
+	<xs:simpleType name="sourceTypeEnumeration">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="file" />
+			<xs:enumeration value="uri" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="sourceContentTypeEnumeration">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="html" />
+			<xs:enumeration value="code" />
+			<xs:enumeration value="image" />
+			<xs:enumeration value="table" />
+
+			<xs:enumeration value="comment" />
+			<xs:enumeration value="tip" />
+			<xs:enumeration value="warning" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="attachmentType">
+		<xs:attribute name="title" type="xs:string" />
+		<xs:attribute name="showTitle" type="xs:boolean" />
+		<xs:attribute name="incrementLevel" type="xs:boolean" />
+		<xs:attribute name="source" type="xs:string" />
+		<xs:attribute name="sourceType" type="sourceTypeEnumeration" />
+		<xs:attribute name="sourceContentType" type="sourceContentTypeEnumeration" />
+		<xs:attribute name="description" type="xs:string" />
+	</xs:complexType>
+
+	<xs:complexType name="attachmentsType">
+		<xs:sequence>
+			<xs:element name="attachment" type="attachmentType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="itemType">
+		<xs:attribute name="title" type="xs:string" />
+		<xs:attribute name="subTitle" type="xs:string" />
+		<xs:attribute name="isIntroduction" type="xs:boolean" />
+		<xs:attribute name="isSummary" type="xs:boolean" />
+
+		<xs:sequence>
+			<xs:element name="attachments" type="attachmentsType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="itemsType">
+		<xs:sequence>
+			<xs:element name="item" type="itemType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="chapterType">
+		<xs:attribute name="title" type="xs:string" />
+		<xs:attribute name="fileName" type="xs:string" />
+		<xs:attribute name="subtitle" type="xs:string" />
+		<xs:attribute name="isIntroduction" type="xs:boolean" />
+		<xs:attribute name="isAppendix" type="xs:boolean" />
+
+		<xs:sequence>
+			<xs:element name="items" type="itemsType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="chaptersType">
+		<xs:sequence>
+			<xs:element name="chapter" type="chapterType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="documentationType">
+		<xs:attribute name="documentationName" type="xs:string" />
+		<xs:attribute name="documentationTitle" type="xs:string" />
+		<xs:attribute name="projectURL" type="xs:string" />
+		<xs:attribute name="copyrightText" type="xs:string" />
+		<xs:attribute name="feedbackEmailAddress" type="xs:string" />
+		<xs:attribute name="version" type="xs:string" />
+		<xs:attribute name="date" type="xs:string" />
+		<xs:sequence>
+			<xs:element name="chapters" type="chaptersType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="documentation" type="documentationType" />
+</xs:schema>

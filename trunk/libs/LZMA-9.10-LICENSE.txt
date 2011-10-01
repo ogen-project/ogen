@@ -1,0 +1,6 @@
+http://www.7-zip.org/sdk.html
+
+
+License
+
+LZMA SDK is placed in the public domain.

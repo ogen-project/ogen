@@ -1,0 +1,2029 @@
+<!--
+
+OGen
+Copyright (c) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->
+<documentation
+	documentationName="OGen"
+
+
+projectURL_TODOS_HERE ="http://developer.berlios.de/projects/ogen/"
+projectURL            ="http://ogen.berlios.de/"
+
+
+	copyrightText="Copyright (C) 2002 Francisco Monteiro"
+	feedbackEmailAddress="fmonteiro@users.berlios.de"
+	version="v0.1"
+	date="2005.07.19 21:46">
+
+	<configs>
+		<config name="someTest" value="someValue" />
+		<config name="someOtherTest" value="someOtherValue" />
+	</configs>
+	<subjects>
+		<subject idSubject="0" idSubject_parent="" 
+			name="Help"> 
+			<description>
+help for OGen
+
+
+&lt;!--
+ToDos: here!
+--&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;gt; &lt;a href=&quot;http://developer.berlios.de/projects/ogen/&quot;&gt;BerliOS project page&lt;/a&gt;
+			</description>
+			<documents />
+		</subject>
+		<subject idSubject="1" idSubject_parent="0" 
+			name="what is OGen?">
+			<description>
+				OGen is a code generator. It generates code both on text files and database functions (PostgreSQL and SQL Server are currently supported) based on xml metadatas and aspx/xslt templates provided by users.
+			</description>
+			<documents>
+				<!--document idDocument="5" 
+					name="description" 
+					description="ToDos: here!">
+					<document />
+				</document-->
+				<document idDocument="2" 
+					name="who is it intended to?" 
+					description="">
+					<document>
+						Developers
+					</document>
+				</document>
+				<document idDocument="1" 
+					name="license" 
+					description="ToDos: here!">
+					<document>
+OGen is distributed under the permissive
+&lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;
+	MIT License&lt;/a&gt;
+
+which is similar to the
+
+&lt;!--
+&lt;a href=&quot;http://www.opensource.org/licenses/bsd-license.php&quot;&gt;
+--&gt;
+	BSD License
+&lt;!--
+&lt;/a&gt;
+--&gt;
+
+and is
+
+&lt;a href=&quot;http://www.fsf.org/licensing/licenses/index_html#GPLCompatibleLicenses&quot;&gt;
+	compatible&lt;/a&gt;
+
+with the
+
+&lt;!--
+&lt;a href=&quot;http://www.fsf.org/licensing/licenses/gpl.txt&quot;&gt;
+--&gt;
+	GNU General Public License (&quot;GNU GPL&quot;)
+&lt;!--
+&lt;/a&gt;
+--&gt;
+					</document>
+				</document>
+				<document idDocument="3" 
+					name="why?" 
+					description="ToDos: here!">
+					<document>
+ToDos: here!&lt;br&gt;
+ToDos: here!&lt;br&gt;
+...
+					</document>
+				</document>
+				<document idDocument="4" 
+					name="considerations" 
+					description="ToDos: here!">
+					<document>
+ToDos: here!&lt;br&gt;
+ToDos: here!&lt;br&gt;
+...
+					</document>
+				</document>
+			</documents>
+		</subject>
+
+
+		<subject idSubject="2" idSubject_parent="0" 
+			name="introduction">
+			<description>ToDos: here! a more proper introduction to OGen</description>
+			<documents />
+		</subject>
+		<subject idSubject="18" idSubject_parent="2" 
+			name="installing OGen">
+			<description></description>
+			<documents>
+				<document idDocument="1" 
+					name="dependencies and pre-requisites" 
+					description="">
+					<document>
+&lt;br&gt;
+If you don't plan to build from source or contribute to OGen you'll only need:
+&lt;ul&gt;
+	&lt;li type=&quot;circle&quot;&gt;
+		&lt;a href=&quot;http://pgfoundry.org/projects/npgsql/&quot;&gt;Npgsql&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li type=&quot;circle&quot;&gt;
+		&lt;a href=&quot;http://dev.mysql.com/downloads/connector/net/&quot;&gt;MySQL Connector/Net&lt;/a&gt;
+		(support is on the way)
+	&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+
+If you're building from source, or plan to contribute you'll &lt;u&gt;also&lt;/u&gt; need:
+&lt;ul&gt;
+	&lt;li type=&quot;circle&quot;&gt;
+		build source files using
+		&lt;a href=&quot;http://www.icsharpcode.net/OpenSource/SD/&quot;&gt;SharpDevelop&lt;/a&gt;
+		or 
+		&lt;a href=&quot;http://msdn.microsoft.com/vstudio/express/visualcsharp/&quot;&gt;Visual C# 2005 Express Edition&lt;/a&gt;
+		(&lt;a href=&quot;http://nant.sourceforge.net/&quot;&gt;NAnt&lt;/a&gt; and 
+		&lt;a href=&quot;http://www.monodevelop.org/&quot;&gt;MonoDevelop&lt;/a&gt; not supported yet)
+	&lt;/li&gt;
+	&lt;li type=&quot;circle&quot;&gt;
+		a subversion client like
+		&lt;a href=&quot;http://tortoisesvn.tigris.org/&quot;&gt;TortoiseSVN&lt;/a&gt;
+		(for windows)
+		or
+		&lt;a href=&quot;http://subversion.tigris.org/&quot;&gt;Subversion&lt;/a&gt;
+		(multi-platform)
+	&lt;/li&gt;
+	&lt;li type=&quot;circle&quot;&gt;
+		&lt;a href=&quot;http://www.nunit.org/&quot;&gt;NUnit&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li type=&quot;circle&quot;&gt;
+		&lt;a href=&quot;http://ndoc.sourceforge.net/&quot;&gt;NDoc&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+					</document>
+				</document>
+				<document idDocument="2" 
+					name="installing OGen" 
+					description="">
+					<document>
+&lt;br&gt;
+OGen at BerliOS:
+&lt;a href=&quot;http://developer.berlios.de/projects/ogen/&quot;&gt;
+	http://developer.berlios.de/projects/ogen
+/&lt;/a&gt;
+&lt;br&gt;
+
+&lt;ol type=&quot;a&quot;&gt;
+	&lt;li&gt;
+		Building from Source:
+		&lt;br&gt;
+		&lt;br&gt;
+
+		&lt;ol&gt;
+			&lt;li&gt;
+
+				Anonymous Subversion Access via SVN:
+				svn://svn.berlios.de/ogen/trunk/
+				&lt;br&gt;
+				or HTTP: 
+				&lt;a href=&quot;http://svn.berlios.de/svnroot/repos/ogen/trunk/&quot;&gt;
+					http://svn.berlios.de/svnroot/repos/ogen/trunk/
+				&lt;/a&gt;
+&lt;!--
+				&lt;br&gt;
+				subversion clients: 
+				&lt;a href=&quot;http://tortoisesvn.tigris.org/&quot;&gt;windows&lt;/a&gt;
+				/
+				&lt;a href=&quot;http://subversion.tigris.org/&quot;&gt;multi-platform command line&lt;/a&gt;
+--&gt;
+				&lt;br&gt;
+				&lt;br&gt;
+
+			&lt;/li&gt;
+			&lt;li&gt;
+				Once you have the sources, check the 'distro' directory for solution and scripts files.
+				&lt;br&gt;
+				&lt;br&gt;
+
+				&lt;ol type=&quot;i&quot;&gt;
+					&lt;li&gt;
+						win-100-generate-keys.bat
+						&lt;br&gt;
+						generates keys needed to compile assemblies with strong name so they can be added to the GAC
+						&lt;br&gt;
+						&lt;br&gt;
+					&lt;/li&gt;
+					&lt;li&gt;
+						win-110-generate-app.config.bat
+						&lt;br&gt;
+						generates app.config with your local path to OGen project
+						&lt;br&gt;
+						&lt;br&gt;
+					&lt;/li&gt;
+					&lt;li&gt;
+						win-120-buildAssembies-7.1-registry-tweak4visualstudio.js
+						&lt;br&gt;
+						if you're using Visual Studio 2003, you'll need to define where to find dependant asseblies (even if they're in the GAC)
+						&lt;br&gt;
+						&lt;br&gt;
+					&lt;/li&gt;
+					&lt;li&gt;
+						win-120-buildAssembies-7.1.sln (Visual Studio 2003)
+						&lt;br&gt;
+						win-120-buildAssembies-8.sln (&lt;a href=&quot;http://www.icsharpcode.net/OpenSource/SD/&quot;&gt;SharpDevelop&lt;/a&gt;, &lt;a href=&quot;http://msdn.microsoft.com/vstudio/express/visualcsharp/&quot;&gt;Visual C# 2005 Express Edition&lt;/a&gt; or Visual Studio 2005)
+						&lt;br&gt;
+						win-120-buildAssembies.build (&lt;a href=&quot;http://nant.sourceforge.net/&quot;&gt;NAnt&lt;/a&gt;, not yet supported)
+						&lt;br&gt;
+						&lt;br&gt;
+						you should set build configuration to RELEASE and compile using any of the provided solutions
+						&lt;br&gt;
+						&lt;br&gt;
+					&lt;/li&gt;
+					&lt;li&gt;
+						win-130-copyAssemblies-1.1.bat
+						&lt;br&gt;
+						copies (Visual Studio 2003) compiled assemblies (framework 1.1) to bin directory
+						&lt;br&gt;
+						&lt;br&gt;
+					&lt;/li&gt;
+					&lt;li&gt;
+						win-130-copyAssemblies-2.0.bat
+						&lt;br&gt;
+						copies (Sharp Development / Visual Studio 2005) compiled assemblies (framework 2.0) to bin directory
+						&lt;br&gt;
+						&lt;br&gt;
+					&lt;/li&gt;
+					&lt;li&gt;
+						win-140-installAssemblies-intoGAC-1.1.bat
+						&lt;br&gt;
+						adds (Visual Studio 2003) compiled assemblies (framework 1.1) to the GAC
+						&lt;br&gt;
+						&lt;br&gt;
+					&lt;/li&gt;
+					&lt;li&gt;
+						win-140-installAssemblies-intoGAC-2.0.bat
+						&lt;br&gt;
+						adds (Sharp Development / Visual Studio 2005) compiled assemblies (framework 2.0) to the GAC
+						&lt;br&gt;
+						&lt;br&gt;
+					&lt;/li&gt;
+					&lt;li&gt;
+						win-150-OGen.ALL.Templates-install-1.1.bat
+						&lt;br&gt;
+						copies (Visual Studio 2003) compiled assembly (framework 1.1) for the OGen-NTier, OGen-Doc 
+						and OGen-XSD Templates to bin directory and generates web.config file
+						&lt;br&gt;
+						&lt;br&gt;
+					&lt;/li&gt;
+					&lt;li&gt;
+						win-150-OGen.ALL.Templates-install-2.0.bat
+						&lt;br&gt;
+						copies (Sharp Development / Visual Studio 2005) compiled assembly (framework 2.0) for the OGen-Doc, OGen-Doc 
+						and OGen-XSD Templates to bin directory
+						and generates web.config file
+						&lt;br&gt;
+						&lt;br&gt;
+					&lt;/li&gt;
+
+				&lt;/ol&gt;
+
+			&lt;/li&gt;
+			&lt;li&gt;
+				Once you have the compiled assemblies installed in the GAC, check the 'distro\bin' directory where you'll find OGen binaries and generation templates.
+				&lt;br&gt;
+				&lt;br&gt;
+
+			&lt;/li&gt;
+&lt;!--
+			&lt;li&gt;
+
+ToDos: here!&lt;br&gt;
+...&lt;br&gt;
+&lt;br&gt;
+
+
+			&lt;/li&gt;
+--&gt;
+		&lt;/ol&gt;
+	&lt;/li&gt;
+
+	&lt;li&gt;
+		Getting Binaries:
+		&lt;br&gt;
+		&lt;br&gt;
+
+		&lt;ol&gt;
+			&lt;li&gt;
+				Not available yet.
+			&lt;/li&gt;
+		&lt;/ol&gt;
+
+	&lt;/li&gt;
+&lt;/ol&gt;
+					</document>
+				</document>
+			</documents>
+		</subject>
+<!-- ToDos: here!
+		<subject idSubject="37" idSubject_parent="2" 
+			name="configurations">
+			<description>ToDos: here!</description>
+			<documents />
+		</subject>
+		<subject idSubject="38" idSubject_parent="37" 
+			name="configs">
+			<description>ToDos: here!</description>
+			<documents>
+				<document idDocument="1" 
+					name="defining a config table" 
+					description="ToDos: here!">
+					<document>
+ToDos: here!&lt;br&gt;
+ToDos: here!&lt;br&gt;
+...
+					</document>
+				</document>
+				<document idDocument="2" 
+					name="using configs" 
+					description="ToDos: here!">
+					<document>
+ToDos: here!&lt;br&gt;
+ToDos: here!&lt;br&gt;
+...
+					</document>
+				</document>
+			</documents>
+		</subject>
+		<subject idSubject="39" idSubject_parent="37" 
+			name="other configurations">
+			<description>ToDos: here!</description>
+			<documents>
+				<document idDocument="1" 
+					name="db connection string" 
+					description="ToDos: here!">
+					<document>
+ToDos: here!&lt;br&gt;
+ToDos: here!&lt;br&gt;
+...
+					</document>
+				</document>
+			</documents>
+		</subject>
+-->
+		<subject idSubject="19" idSubject_parent="2" 
+			name="generating a new project">
+			<description>ToDos: here!</description>
+			<documents>
+				<document idDocument="1" 
+					name="the new project" 
+					description="">
+					<document>
+&lt;pre&gt;
+    .----------.    .-----------------.    .----------.
+    | User     |    | UserGroup       |    | Group    |
+    |----------|    |-----------------|    |----------|
+    |*IDUser   |    |*IDUser          |    |*IDGroup  |
+    | Login    |    |*IDGroup         |    | Name     |
+    | Password |    | Relationdate    |    '----------'
+    '----------'    | Defaultrelation |
+                    '-----------------'
+
+                    .----------.
+                    | Config   |
+                    |----------|
+                    |*Name     |
+                    | Config   |
+                    | Type     |
+                    '----------'&lt;/pre&gt;
+					</document>
+				</document>
+				<document idDocument="2" 
+					name="creating the database for the project" 
+					description="ToDos: here!">
+					<document>
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/001.png' /&gt;
+							&lt;br&gt;
+							Connecting to the DB&lt;br&gt;
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/002.png' /&gt;
+							&lt;br&gt;
+							Creating a new DB
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/003.png' /&gt;
+							&lt;br&gt;
+							Creating the NTierTutorial DB
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/004.png' /&gt;
+							&lt;br&gt;
+							Executing SQL queries
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;a href='resource_files/NTierTutorial.sql'&gt;
+							Here&lt;/a&gt;
+						is a copy of the script used.
+						&lt;br&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/005.png' /&gt;
+							&lt;br&gt;
+							Creating Tables for the NTierTutorial DB
+						&lt;/div&gt;
+						&lt;br&gt;
+					</document>
+				</document>
+				<document idDocument="3" 
+					name="setting up a new project for generation" 
+					description="ToDos: here!">
+					<document>
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/006.png' /&gt;
+							&lt;br&gt;
+							creating a new project
+							&lt;br&gt;
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/007.png' /&gt;
+							&lt;br&gt;
+							tweaking configurations for the new project
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/008.png' /&gt;
+							&lt;br&gt;
+							tweaking configurations for the new project
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/009.png' /&gt;
+							&lt;br&gt;
+							creating the new project
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/010.png' /&gt;
+							&lt;br&gt;
+							generate new project
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/011.png' /&gt;
+							&lt;br&gt;
+							generate new project
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/012.png' /&gt;
+							&lt;br&gt;
+							finished generating
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/013.png' /&gt;
+							&lt;br&gt;
+							the new project
+						&lt;/div&gt;
+						&lt;br&gt;
+					</document>
+				</document>
+			</documents>
+		</subject>
+		<subject idSubject="20" idSubject_parent="2" 
+			name="using Data Objects">
+			<description>ToDos: here!</description>
+			<documents />
+		</subject>
+		<subject idSubject="21" idSubject_parent="20" 
+			name="the basics">
+			<description>the four basic operations over a db table</description>
+			<documents>
+				<document idDocument="1" 
+					name="Insert / insObject" 
+					description="">
+					<document>&lt;br&gt;Assigning Fields for Table User, Inserting and retrieving Sequence for IDUser Field:&lt;br&gt;${code::1}</document>
+				</document>
+				<document idDocument="2" 
+					name="Select / getObject" 
+					description="">
+					<document>&lt;br&gt;Reading Table User Fields, based on IDUser Field:&lt;br&gt;${code::2}</document>
+				</document>
+				<document idDocument="3" 
+					name="Update / updObject" 
+					description="">
+					<document>&lt;br&gt;Updating Table User Login Field:&lt;br&gt;${code::3}</document>
+				</document>
+				<document idDocument="4" 
+					name="Delete / delObject" 
+					description="">
+					<document>&lt;br&gt;Deleting User from Table, based on IDUser Field:&lt;br&gt;${code::4}</document>
+				</document>
+			</documents>
+		</subject>
+		<subject idSubject="22" idSubject_parent="20" 
+			name="searches">
+			<description>working with defined searches</description>
+			<documents />
+		</subject>
+		<subject idSubject="23" idSubject_parent="22" 
+			name="search">
+			<description>ToDos: here!</description>
+			<documents />
+		</subject>
+		<subject idSubject="24" idSubject_parent="23" 
+			name="defining a search">
+			<description>ToDos: here!</description>
+			<documents>
+				<document idDocument="1" 
+					name="openning an existing project" 
+					description="">
+					<document>
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/014.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/015.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/016.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+					</document>
+				</document>
+				<document idDocument="2" 
+					name="defining a search" 
+					description="">
+					<document>
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/017.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/018.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/019.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/020.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/021.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+					</document>
+				</document>
+				<document idDocument="3" 
+					name="generating" 
+					description="">
+					<document>
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/010.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/011.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/012.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+					</document>
+				</document>
+			</documents>
+		</subject>
+		<subject idSubject="25" idSubject_parent="23" 
+			name="tweaking a search">
+			<description>ToDos: here!</description>
+			<documents>
+				<document idDocument="1" 
+					name="tweaking a search" 
+					description="">
+					<document>
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/022.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/023.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+					</document>
+				</document>
+			</documents>
+		</subject>
+		<subject idSubject="26" idSubject_parent="23" 
+			name="using a search">
+			<description>ToDos: here!</description>
+			<documents>
+				<document idDocument="1" 
+					name="to retrieve data" 
+					description="ToDos: here!">
+					<document>&lt;br&gt;ToDos: here!:&lt;br&gt;${code::5}</document>
+				</document>
+				<document idDocument="1" 
+					name="for deleting" 
+					description="ToDos: here!">
+					<document>&lt;br&gt;ToDos: here!:&lt;br&gt;${code::6}</document>
+				</document>
+			</documents>
+		</subject>
+		<subject idSubject="27" idSubject_parent="22" 
+			name="range search">
+			<description>ToDos: here!</description>
+			<documents />
+		</subject>
+		<subject idSubject="28" idSubject_parent="27" 
+			name="defining a range search">
+			<description>ToDos: here!</description>
+			<documents>
+				<document idDocument="1" 
+					name="openning an existing project" 
+					description="">
+					<document>
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/014.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/015.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/016.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+					</document>
+				</document>
+				<document idDocument="2" 
+					name="defining a range search" 
+					description="">
+					<document>
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/017.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/018.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/019.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/024.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/025.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+					</document>
+				</document>
+				<document idDocument="3" 
+					name="generating" 
+					description="">
+					<document>
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/010.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/011.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/012.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+					</document>
+				</document>
+			</documents>
+		</subject>
+		<subject idSubject="29" idSubject_parent="27" 
+			name="tweaking a range search">
+			<description>ToDos: here!</description>
+			<documents>
+				<document idDocument="1" 
+					name="tweaking the search query" 
+					description="">
+					<document>
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/026.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/027.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+					</document>
+				</document>
+				<document idDocument="2" 
+					name="tweaking the search order query" 
+					description="ToDos: here!">
+					<document>
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/028.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/029.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+					</document>
+				</document>
+			</documents>
+		</subject>
+		<subject idSubject="30" idSubject_parent="27" 
+			name="using a range search">
+			<description>ToDos: here!</description>
+			<documents>
+				<document idDocument="1" 
+					name="to retrieve data" 
+					description="">
+					<document>&lt;br&gt;ToDos: here!:&lt;br&gt;${code::7}</document>
+				</document>
+			</documents>
+		</subject>
+		<subject idSubject="31" idSubject_parent="22" 
+			name="explicit unique index search">
+			<description>ToDos: here!</description>
+			<documents>
+				<document idDocument="1" 
+					name="openning an existing project" 
+					description="">
+					<document>
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/014.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/015.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/016.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+					</document>
+				</document>
+				<document idDocument="2" 
+					name="defining an explicit unique index search" 
+					description="">
+					<document>
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/017.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/018.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/019.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/030.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/031.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+					</document>
+				</document>
+				<document idDocument="3" 
+					name="generating" 
+					description="">
+					<document>
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/010.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/011.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/012.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+					</document>
+				</document>
+				<document idDocument="4" 
+					name="tweaking an explicit unique index search" 
+					description="">
+					<document>
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/032.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/033.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+					</document>
+				</document>
+				<document idDocument="5" 
+					name="using an explicit unique index search" 
+					description="">
+					<document>&lt;br&gt;ToDos: here!:&lt;br&gt;${code::8}</document>
+				</document>
+			</documents>
+		</subject>
+		<subject idSubject="32" idSubject_parent="22" 
+			name="update based on a search">
+			<description>ToDos: here!</description>
+			<documents>
+				<document idDocument="1" 
+					name="openning an existing project" 
+					description="ToDos: here!">
+					<document>
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/014.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/015.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/016.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+					</document>
+				</document>
+				<document idDocument="2" 
+					name="defining an update based on a search" 
+					description="ToDos: here!">
+					<document>
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/034.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/035.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/036.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/037.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/038.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/039.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+					</document>
+				</document>
+				<document idDocument="3" 
+					name="generating" 
+					description="">
+					<document>
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/010.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/011.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/012.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+					</document>
+				</document>
+				<document idDocument="4" 
+					name="using an update based on a search" 
+					description="ToDos: here!">
+					<document>&lt;br&gt;ToDos: here!:&lt;br&gt;${code::9}</document>
+				</document>
+			</documents>
+		</subject>
+		<subject idSubject="33" idSubject_parent="20" 
+			name="views">
+			<description>using views</description>
+			<documents>
+				<document idDocument="1" 
+					name="creating a View" 
+					description="ToDos: here!">
+					<document>
+						&lt;br&gt;
+
+						&lt;a href='resource_files/vUserGroup.sql'&gt;
+							Here&lt;/a&gt;
+						is a copy of the script used.
+						&lt;br&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/040.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+					</document>
+				</document>
+				<document idDocument="2" 
+					name="openning an existing project" 
+					description="ToDos: here!">
+					<document>
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/014.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/015.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/016.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+					</document>
+				</document>
+				<document idDocument="3" 
+					name="defining a View" 
+					description="ToDos: here!">
+					<document>
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/041.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/042.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/043.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/044.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+					</document>
+				</document>
+				<document idDocument="4" 
+					name="generating" 
+					description="">
+					<document>
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/010.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/011.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+
+						&lt;div align='center'&gt;
+							&lt;img src='resource_files/012.png' /&gt;
+							&lt;br&gt;
+							ToDos: here!
+						&lt;/div&gt;
+						&lt;br&gt;
+					</document>
+				</document>
+				<document idDocument="5" 
+					name="using a View" 
+					description="ToDos: here!">
+					<document>&lt;br&gt;ToDos: here!:&lt;br&gt;${code::10}</document>
+				</document>
+				<document idDocument="6" 
+					name="why Views and when should we use them rather than using Searches" 
+					description="ToDos: here!">
+					<document>
+ToDos: here!&lt;br&gt;
+ToDos: here!&lt;br&gt;
+...
+					</document>
+				</document>
+			</documents>
+		</subject>
+		<subject idSubject="34" idSubject_parent="20" 
+			name="updates">
+			<description>ToDos: here!</description>
+			<documents>
+				<document idDocument="1" 
+					name="defining an update" 
+					description="ToDos: here!">
+					<document>
+ToDos: here!&lt;br&gt;
+ToDos: here!&lt;br&gt;
+...
+					</document>
+				</document>
+				<document idDocument="2" 
+					name="using an update" 
+					description="ToDos: here!">
+					<document>
+ToDos: here!&lt;br&gt;
+ToDos: here!&lt;br&gt;
+...
+					</document>
+				</document>
+			</documents>
+		</subject>
+		<subject idSubject="35" idSubject_parent="20" 
+			name="reflection">
+			<description>using reflection over data objects to retrieve db metadatas</description>
+			<documents>
+				<document idDocument="1" 
+					name="using reflection on a DataObject to retrieve specific property Attributes" 
+					description="ToDos: here!">
+					<document>&lt;br&gt;ToDos: here!:&lt;br&gt;${code::11}</document>
+				</document>
+				<document idDocument="2" 
+					name="using reflection on a DataObject to retrieve all properties Attributes and manipulate it's properties" 
+					description="ToDos: here!">
+					<document>&lt;br&gt;ToDos: here!:&lt;br&gt;${code::12}</document>
+				</document>
+				<document idDocument="3" 
+					name="using reflection on an Assembly to retrieve all DataObject properties Attributes" 
+					description="ToDos: here!">
+					<document>&lt;br&gt;ToDos: here!:&lt;br&gt;${code::13}</document>
+				</document>
+			</documents>
+		</subject>
+		<subject idSubject="36" idSubject_parent="20" 
+			name="using DBConnection">
+			<description>ToDos: here!</description>
+			<documents>
+				<document idDocument="1" 
+					name="executing and retrieving data from an sql query" 
+					description="ToDos: here!">
+					<document>&lt;br&gt;ToDos: here!:&lt;br&gt;${code::14}</document>
+				</document>
+				<document idDocument="2" 
+					name="executing and retrieving data from an sql function or stored procedure" 
+					description="ToDos: here!">
+					<document>&lt;br&gt;ToDos: here!:&lt;br&gt;${code::15}</document>
+				</document>
+				<document idDocument="3" 
+					name="using transactions" 
+					description="ToDos: here!">
+					<document>
+ToDos: here!&lt;br&gt;
+ToDos: here!&lt;br&gt;
+...
+					</document>
+				</document>
+				<document idDocument="4" 
+					name="using transactions on dataobjects" 
+					description="ToDos: here!">
+					<document>
+ToDos: here!&lt;br&gt;
+ToDos: here!&lt;br&gt;
+...
+					</document>
+				</document>
+				<document idDocument="4" 
+					name="other examples *.cs" 
+					description="">
+					<document>
+&lt;ol type=&quot;circle&quot;&gt;
+	&lt;li&gt;
+		&lt;a href=&quot;http://svn.berlios.de/svnroot/repos/ogen/trunk/OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_List_DataObjects.cs&quot;&gt;
+			using reflection to list dataobjects&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;a href=&quot;http://svn.berlios.de/svnroot/repos/ogen/trunk/OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_Read_DataObject_Property_Attributes.cs&quot;&gt;
+			using reflection to read from dataobject property attributes&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;a href=&quot;http://svn.berlios.de/svnroot/repos/ogen/trunk/OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_Read_and_Write_to_DataObject_Properties.cs&quot;&gt;
+			using reflection to read from and write to dataobject properties&lt;/a&gt;
+	&lt;/li&gt;
+
+	&lt;li&gt;
+		&lt;a href=&quot;http://svn.berlios.de/svnroot/repos/ogen/trunk/OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_Execute_SQLQuery.cs&quot;&gt;
+			executing sql query&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;a href=&quot;http://svn.berlios.de/svnroot/repos/ogen/trunk/OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_Execute_SQLQuery_returnDataTable.cs&quot;&gt;
+			executing sql query and return datatable&lt;/a&gt;
+	&lt;/li&gt;
+
+	&lt;li&gt;
+		&lt;a href=&quot;http://svn.berlios.de/svnroot/repos/ogen/trunk/OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_Execute_SQLFunction.cs&quot;&gt;
+			executing sql function&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;a href=&quot;http://svn.berlios.de/svnroot/repos/ogen/trunk/OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_Execute_SQLFunction_returnDataTable.cs&quot;&gt;
+			executing sql function and return datatable&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;a href=&quot;http://svn.berlios.de/svnroot/repos/ogen/trunk/OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_Execute_SQLFunction_returnSomevalue.cs&quot;&gt;
+			executing sql function and return some value&lt;/a&gt;
+	&lt;/li&gt;
+
+
+	&lt;li&gt;
+		&lt;a href=&quot;http://svn.berlios.de/svnroot/repos/ogen/trunk/OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_UseTransactions.cs&quot;&gt;
+			using transactions&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;a href=&quot;http://svn.berlios.de/svnroot/repos/ogen/trunk/OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_UseTransactions_inDOs.cs&quot;&gt;
+			using transactions in DOs&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;a href=&quot;http://svn.berlios.de/svnroot/repos/ogen/trunk/OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_UseTransactions_betweenDOs_operations.cs&quot;&gt;
+			using transactions between DOs operations&lt;/a&gt;
+	&lt;/li&gt;
+
+	&lt;li&gt;
+		&lt;a href=&quot;http://svn.berlios.de/svnroot/repos/ogen/trunk/OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_List_DBs.cs&quot;&gt;
+			list dbs (information schema)&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;a href=&quot;http://svn.berlios.de/svnroot/repos/ogen/trunk/OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_List_DB_Tables.cs&quot;&gt;
+			list db tables (information schema)&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;a href=&quot;http://svn.berlios.de/svnroot/repos/ogen/trunk/OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_List_DB_TableFields.cs&quot;&gt;
+			list db table fields (information schema)&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ol&gt;
+					</document>
+				</document>
+			</documents>
+		</subject>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ToDos: here!
+		<subject idSubject="40" idSubject_parent="0" 
+			name="advanced help">
+			<description>extensive and detailed documentation</description>
+			<documents>
+				<document idDocument="1" 
+					name="ToDos: here!" 
+					description="ToDos: here!">
+					<document>
+ToDos: here!&lt;br&gt;
+ToDos: here!&lt;br&gt;
+...
+					</document>
+				</document>
+			</documents>
+		</subject>
+
+
+		<subject idSubject="3" idSubject_parent="0" 
+			name="considerations">
+			<description>final considerations</description>
+			<documents>
+				<document idDocument="1" 
+					name="ToDos: here!" 
+					description="ToDos: here!">
+					<document>
+ToDos: here!&lt;br&gt;
+ToDos: here!&lt;br&gt;
+...
+					</document>
+				</document>
+			</documents>
+		</subject>
+
+
+		<subject idSubject="4" idSubject_parent="0" 
+			name="reference">
+			<description>reference documentation</description>
+			<documents>
+				<document idDocument="1" 
+					name="ToDos: here!" 
+					description="ToDos: here!">
+					<document>
+ToDos: here!&lt;br&gt;
+ToDos: here!&lt;br&gt;
+...
+					</document>
+				</document>
+			</documents>
+		</subject>
+-->
+	</subjects>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<authors>
+		<author idAuthor="1" name="Francisco Monteiro" copyrightText="Copyright (C) 2002 Francisco Monteiro" feedbackEmailAddress="fmonteiro@users.berlios.de" />
+<!--
+		<author idAuthor="2" name="Francisco Monteiro" copyrightText="Copyright (C) 2002 Francisco Monteiro" feedbackEmailAddress="fmonteiro@users.berlios.de" />
+-->
+	</authors>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<codeSamples>
+		<codeSample idCodeSample="1">
+			<code>DO_User _user;
+long IDUser = 0L;
+
+_user = new DO_User();
+_user.Login = &quot;fmonteiro&quot;;
+_user.Password = &quot;password&quot;;
+_user.insObject(true); // assigning selectIdentity parameter to true retrieves Sequence for IDUser
+Console.WriteLine(
+  &quot;user inserted, at:\nIDUser = {0}&quot;, 
+  IDUser = _user.IDUser
+);
+_user.Dispose(); _user = null;</code>
+		</codeSample>
+		<codeSample idCodeSample="2">
+<code>_user = new DO_User();
+if (
+  _user.getObject(IDUser) // based on it's PK
+) {
+  Console.WriteLine(
+    &quot;successully read Fields for User: {0}\n\tlogin: {1}&quot;, 
+    _user.IDUser, 
+    _user.Login
+  );
+} else {
+  Console.WriteLine(
+    &quot;couldn't read Fields for User: {0}&quot;
+    _user.IDUser
+  );
+}</code>
+		</codeSample>
+		<codeSample idCodeSample="3">
+<code>//_user.getObject(IDUser); // comment, no need if you've done it already
+_user.Login = &quot;francisco&quot;;
+_user.updObject(false); // assigning forceUpdate parameter to false Updates only if changes have been made</code>
+		</codeSample>
+		<codeSample idCodeSample="4">
+<code>_user.delObject(IDUser); // based on it's PK
+_user.Dispose(); _user = null;</code>
+		</codeSample>
+		<codeSample idCodeSample="5">
+<code>DO_User _user = new DO_User();
+if (_user.getObject_byLogin(
+  &quot;fmonteiro&quot;, 
+  &quot;password&quot;
+)) {
+  Console.WriteLine(
+    &quot;user {0} successfully retrieved&quot;, 
+    _user.IDUser
+  );
+} else {
+  Console.WriteLine(&quot;couldn't retrieved User&quot;);
+}</code>
+		</codeSample>
+		<codeSample idCodeSample="6">
+<code>_user.delObject_byLogin(
+  &quot;fmonteiro&quot;, 
+  &quot;password&quot;
+);
+_user.Dispose(); _user = null;</code>
+		</codeSample>
+		<codeSample idCodeSample="7">
+<code>long IDGroup;
+long IDUser;
+
+
+// Finding IDUser for Login 'fmonteiro':
+DO_User _user = new DO_User();
+_user.getObject_byLogin(&quot;fmonteiro&quot;, &quot;password&quot;); // ToDos: here!
+IDUser = _user.IDUser;
+
+
+// Inserting 'administrators' Group:
+DO_Group _group = new DO_Group();
+_group.Name = &quot;administrators&quot;;
+_group.insObject(true); // retrieve Sequence for IDGroup
+IDGroup = _group.IDGroup;
+_group.Dispose(); _group = null;
+
+
+// Inserting Relation User - Group:
+DO_UserGroup _usergroup = new DO_UserGroup();
+_usergroup.IDUser = IDUser;
+_usergroup.IDGroup = IDGroup;
+_usergroup.setObject(false); // Updates if exists, Inserts if not
+_usergroup.Dispose(); _usergroup = null;
+
+
+// Listing Users in Group:
+_user.Record.Open_byGroup(
+  IDGroup, 
+  true
+);
+Console.WriteLine(
+  &quot;List of Users in Group: {0}&quot;, 
+  IDGroup
+);
+while (_user.Record.Read()) {
+  Console.WriteLine(&quot;\t{0}&quot;, _user.Login);
+}
+_user.Record.Close();
+_user.Dispose(); _user = null;</code>
+		</codeSample>
+		<codeSample idCodeSample="8">
+			<code>// ...</code>
+		</codeSample>
+		<codeSample idCodeSample="9">
+			<code>// ...</code>
+		</codeSample>
+		<codeSample idCodeSample="10">
+			<code>// ...</code>
+		</codeSample>
+		<codeSample idCodeSample="11">
+<code>using System;
+using System.Reflection;
+using OGenTest.lib.datalayer;
+using Francisco.lib.datalayer;
+
+namespace test {
+  class MainClass {
+    [STAThread]
+    static void Main(string[] args) {
+      DOPropertyAttribute att = (DOPropertyAttribute)Attribute.GetCustomAttribute(
+        typeof(DO_User).GetProperty(&quot;IDUser&quot;), 
+        typeof(DOPropertyAttribute), 
+        true
+      );
+      Console.WriteLine(
+        &quot;{0}:{1}:{2}:{3}&quot;, 
+        att.Name, 
+        att.isPK, 
+        att.isIdentity, 
+        att.DefaultValue
+      );
+    }
+  }
+}</code>
+		</codeSample>
+		<codeSample idCodeSample="12">
+<code>using System;
+using System.Reflection;
+using OGenTest.lib.datalayer;
+using Francisco.lib.datalayer;
+
+namespace test {
+  class MainClass {
+    [STAThread]
+    static void Main(string[] args) {
+      DO_User user = new DO_User();
+      user.IDUser = 123;
+      user.Login = &quot;123&quot;;
+
+      PropertyInfo[] properties = typeof(DO_User).GetProperties(
+        BindingFlags.Public | 
+        BindingFlags.Instance
+      );
+      for (int p = 0; p &lt; properties.Length; p++) {
+        if (Attribute.IsDefined(
+          properties[p], 
+          typeof(DOPropertyAttribute)
+        )) {
+          Console.Write(
+            &quot;{0} - &quot;, 
+            properties[p].Name
+          );
+          Attribute[] atts = Attribute.GetCustomAttributes(
+            properties[p]
+          );
+          for (int a = 0; a &lt; atts.Length; a++) {
+            DOPropertyAttribute att = (DOPropertyAttribute)atts[a];
+            Console.Write(
+              &quot;{0}:{1}:{2}:{3}&quot;, 
+              att.Name, 
+              att.isPK, 
+              att.isIdentity, 
+              att.DefaultValue
+            );
+          }
+          Console.Write(
+            &quot; - {0} - &quot;, 
+            properties[p].GetValue(user, null)
+          );
+          properties[p].SetValue(
+            user, 
+            Convert.ChangeType(
+              456, 
+              properties[p].PropertyType
+            ), 
+            null
+          );
+          Console.WriteLine(
+            properties[p].GetValue(user, null)
+          );
+        }
+      }
+    }
+  }
+}</code>
+		</codeSample>
+		<codeSample idCodeSample="13">
+<code>using System;
+using System.Reflection;
+using OGenTest.lib.datalayer;
+using Francisco.lib.datalayer;
+
+namespace test {
+  class MainClass {
+    [STAThread]
+    static void Main(string[] args) {
+      Assembly ass = Assembly.Load(&quot;OGenTest.lib.datalayer&quot;);
+      if (ass != null) {
+        Type[] types = ass.GetTypes();
+        for (int t = 0; t &lt; types.Length; t++) {
+          Type t2 = (Type)types[t];
+
+          object[] atts2 = t2.GetCustomAttributes(
+            typeof(DOClassAttribute), 
+            true//false
+          );
+          if (
+            (atts2.Length &gt; 0)
+            &amp;&amp;
+            (t2.Name.IndexOf(&quot;DO0_&quot;) != 0)
+          ) {
+            Console.WriteLine(&quot;{0}...&quot;, t2.Name);
+            for (int a = 0; a &lt; atts2.Length; a++) {
+              DOClassAttribute att2 = (DOClassAttribute)atts2[a];
+              Console.WriteLine(
+                &quot;{0}:{1}:{2}&quot;, 
+                att2.Name, 
+                att2.isVirtualTable, 
+                att2.isConfig
+              );
+
+              PropertyInfo[] properties2 = t2.GetProperties(
+                BindingFlags.Public | 
+                BindingFlags.Instance
+              );
+              for (int p = 0; p &lt; properties2.Length; p++) {
+                if (Attribute.IsDefined(
+                  properties2[p], 
+                  typeof(DOPropertyAttribute)
+                )) {
+                  Console.Write(
+                    &quot;{0} - &quot;, 
+                    properties2[p].Name
+                  );
+                  Attribute[] atts = Attribute.GetCustomAttributes(
+                    properties2[p]
+                  );
+                  //Console.WriteLine(&quot;Name \t isPK \t isIdentity \t DefaultValue \t \t \t \t isBool&quot;);
+                  for (int a3 = 0; a3 &lt; atts.Length; a3++) {
+                    DOPropertyAttribute att3 = (DOPropertyAttribute)atts[a3];
+                    Console.Write(
+                      &quot;{0}:{1}:{2}:{3}&quot;, //:{4}:{5}:{6}:{7}&quot;, 
+                      att3.Name, 
+                      att3.isPK, 
+                      att3.isIdentity, 
+                      //att3.DefaultValue,
+                      //att3.isConfig_Name, 
+                      //att3.isConfig_Config, 
+                      //att3.isConfig_Datatype, 
+                      att3.isText
+                    );
+                  }
+//                    Console.Write(
+//                      &quot; - {0}&gt;&quot;, 
+//                      properties2[p].GetValue(user, null)
+//                    );
+//                    properties[p].SetValue(
+//                      user, 
+//                      Convert.ChangeType(
+//                        456, 
+//                        properties2[p].PropertyType
+//                      ), 
+//                      null
+//                    );
+//                    Console.WriteLine(
+//                      properties2[p].GetValue(user, null)
+//                    );
+Console.WriteLine();
+                }
+              }
+Console.WriteLine();
+            }
+          }
+        }
+      }
+    }
+  }
+}</code>
+		</codeSample>
+		<codeSample idCodeSample="14">
+<code>using System;
+using OGen.lib.datalayer;
+using System.Data;
+
+namespace test {
+  class MainClass {
+    [STAThread]
+    static void Main(string[] args) {
+      cDBConnection _con = new cDBConnection(
+        eDBServerTypes.PostgreSQL, 
+        &quot;Server=localhost;Port=5432;User ID=postgres;Password=password;Database=OGenTest;&quot;
+      );
+
+      DataTable _dtemp = _con.Execute_sqlQuery_returnDataTable(
+        &quot;select * from \&quot;User\&quot;&quot;
+      );
+      for (int r = 0; r &lt; _dtemp.Rows.Count; r++) {
+        for (int c = 0; c &lt; _dtemp.Columns.Count; c++) {
+          Console.Write(
+            &quot;{0}\t&quot;, 
+            _dtemp.Rows[r][c]
+          );
+        }
+        Console.WriteLine();
+      }
+
+      _con.Dispose(); _con = null;
+    }
+  }
+}</code>
+		</codeSample>
+		<codeSample idCodeSample="15">
+<code>using System;
+using OGen.lib.datalayer;
+using System.Data;
+
+namespace test {
+  class MainClass {
+    [STAThread]
+    static void Main(string[] args) {
+      long _iduser = 1L;
+      string _login;
+      string _password;
+
+      cDBConnection _con = new cDBConnection(
+        eDBServerTypes.PostgreSQL, 
+        &quot;Server=localhost;Port=5432;User ID=postgres;Password=password;Database=OGenTest;&quot;
+      );
+
+      IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
+        _con.newDBDataParameter(&quot;IDUser_&quot;, DbType.Int64, ParameterDirection.InputOutput, _iduser, 0), 
+        _con.newDBDataParameter(&quot;Login_&quot;, DbType.String, ParameterDirection.Output, null, 0), 
+        _con.newDBDataParameter(&quot;Password_&quot;, DbType.String, ParameterDirection.Output, null, 0)
+      };
+      _con.Execute_sqlFunction(&quot;sp0_User_getObject&quot;, _dataparameters);
+      if (_dataparameters[0].Value != DBNull.Value) {
+        _login = (_dataparameters[1].Value == System.DBNull.Value) ? string.Empty : (string)_dataparameters[1].Value;
+        _password = (_dataparameters[2].Value == System.DBNull.Value) ? string.Empty : (string)_dataparameters[2].Value;
+        Console.WriteLine(
+          &quot;{0}:{1}:{2}&quot;, 
+          _iduser, 
+          _login, 
+          _password
+        ) else {
+          Console.WriteLine(&quot;empty&quot;);
+        };
+      }
+
+      _con.Dispose(); _con = null;
+    }
+  }
+}</code>
+		</codeSample>
+	</codeSamples>
+	<links>
+		<link idLink="1" name="OGen" description="OGen - open generation" url="http://www.ogen-project.org" />
+	</links>
+	<faqSubjects>
+		<faqSubject idFAQSubject="0" idFAQSubject_parent="" 
+
+name="FAQs" 
+description="frequently asqued questions on OGen" />
+
+		<faqSubject idFAQSubject="1" idFAQSubject_parent="0" name="1" description="one">
+			<faq idFAQ="1" question="A Question?">
+				<answer>
+					An Answer
+				</answer>
+			</faq>
+			<faq idFAQ="2" question="Another Question?">
+				<answer>
+					Another Answer
+				</answer>
+			</faq>
+		</faqSubject>
+		<faqSubject idFAQSubject="2" idFAQSubject_parent="1" name="1.1" description="one.one">
+			<faq idFAQ="3" question="A Question?">
+				<answer>
+					An Answer
+				</answer>
+			</faq>
+			<faq idFAQ="4" question="Another Question?">
+				<answer>
+					An Answer
+				</answer>
+			</faq>
+		</faqSubject>
+		<faqSubject idFAQSubject="3" idFAQSubject_parent="1" name="1.2" description="one.two">
+		</faqSubject>
+		<faqSubject idFAQSubject="4" idFAQSubject_parent="0" name="2" description="two">
+			<faq idFAQ="5" question="A Question?">
+				<answer>
+					An Answer
+				</answer>
+			</faq>
+			<faq idFAQ="6" question="Another Question?">
+				<answer>
+					An Answer
+				</answer>
+			</faq>
+		</faqSubject>
+		<faqSubject idFAQSubject="5" idFAQSubject_parent="2" name="1.1.1" description="two.one">
+		</faqSubject>
+		<faqSubject idFAQSubject="6" idFAQSubject_parent="2" name="1.1.2" description="two.two">
+		</faqSubject>
+	</faqSubjects>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!--tables>
+		<table idTable="1" hasHeader="true" hasFooter="true" numItemsPerRow="2" htmlOptions="cellspacing='0' cellpadding='0'">
+			<item 
+
+name="&lt;table cellspacing='0' cellpadding='0'&gt;
+	&lt;tr&gt;
+		&lt;td width='50%'&gt;&lt;hr&gt;&lt;/td&gt;
+		&lt;td&gt;Name&lt;/td&gt;
+		&lt;td width='50%'&gt;&lt;hr&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;" />
+
+			<item 
+
+name="&lt;table cellspacing='0' cellpadding='0'&gt;
+	&lt;tr&gt;
+		&lt;td width='50%'&gt;&lt;hr&gt;&lt;/td&gt;
+		&lt;td&gt;Description&lt;/td&gt;
+		&lt;td width='50%'&gt;&lt;hr&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;" />
+
+			<item name="1" htmlOptions="align='right' valign='center'"/>
+			<item name="um" htmlOptions="align='center' valign='center'"/>
+
+			<item name="..." />
+			<item name="..." />
+
+			<item name="n" />
+			<item name="n finito" />
+
+			<item name="&lt;hr&gt;" />
+			<item name="&lt;hr&gt;" />
+		</table>
+	</tables-->
+</documentation>

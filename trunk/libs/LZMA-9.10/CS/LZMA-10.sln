@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LZMA-10", "7zip\LZMA-10.csproj", "{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

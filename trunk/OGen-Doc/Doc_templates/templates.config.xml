@@ -1,0 +1,114 @@
+<!--
+
+OGen
+Copyright (c) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->
+<templates>
+	<template id="doc.css"
+			name="doc.css" 
+			parserType="none"
+			iterationType="ROOT.documentation[n]">
+		<arguments />
+		<conditions />
+		<dependencies />
+		<outputs>
+			<output to="${CONFIG.outputPath}/_include/doc.css"
+				type="File" mode="Replace" />
+		</outputs>
+	</template>
+	<template id="lib_doc.js"
+			name="lib_doc.js" 
+			parserType="none"
+			iterationType="ROOT.documentation[n]">
+		<arguments />
+		<conditions />
+		<dependencies />
+		<outputs>
+			<output to="${CONFIG.outputPath}/_include/lib_doc.js"
+				type="File" mode="Replace" />
+		</outputs>
+	</template>
+	<template id="index.html.aspx?allChapters=false"
+			name="index.html.aspx"
+			parserType="aspx"
+			iterationType="ROOT.documentation[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-Doc-metadatas/MD_${ROOT.documentation[n].documentationName}.OGenDoc-metadata.xml" />
+			<argument name="DocumentationName" value="${ROOT.documentation[n].documentationName}" />
+			<argument name="all" value="false" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.documentation[n].documentationName}-index.html"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="index.html.aspx?allChapters=true"
+			name="index.html.aspx"
+			parserType="aspx"
+			iterationType="ROOT.documentation[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-Doc-metadatas/MD_${ROOT.documentation[n].documentationName}.OGenDoc-metadata.xml" />
+			<argument name="DocumentationName" value="${ROOT.documentation[n].documentationName}" />
+			<argument name="all" value="true" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.documentation[n].documentationName}-index-all.html"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="chapter.html.aspx?allChapters=false"
+			name="chapter.html.aspx"
+			parserType="aspx"
+			iterationType="ROOT.documentation[n].chapters.chapter[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-Doc-metadatas/MD_${ROOT.documentation[n].documentationName}.OGenDoc-metadata.xml" />
+			<argument name="DocumentationName" value="${ROOT.documentation[n].documentationName}" />
+			<argument name="ChapterTitle" value="${ROOT.documentation[n].chapters.chapter[n].title}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.documentation[n].documentationName}-chapter-${ROOT.documentation[n].chapters.chapter[n].number}-${ROOT.documentation[n].chapters.chapter[n].fileName}.html"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="chapter.html.aspx?allChapters=true"
+			name="chapter.html.aspx"
+			parserType="aspx"
+			iterationType="ROOT.documentation[n]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-Doc-metadatas/MD_${ROOT.documentation[n].documentationName}.OGenDoc-metadata.xml" />
+			<argument name="DocumentationName" value="${ROOT.documentation[n].documentationName}" />
+			<argument name="ChapterTitle" value="" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.outputPath}/${ROOT.documentation[n].documentationName}-allchapters.html"
+				type="File" mode="Replace" />
+		</outputs>
+		<dependencies />
+	</template>
+	<template id="emptyfile.txt"
+			name="emptyfile.txt"
+			parserType="none"
+			iterationType="ROOT.documentation[n].chapters.chapter[n].items.item[n].attachments.attachment[n]">
+		<arguments />
+		<conditions />
+		<outputs>
+			<output to="${CONFIG.metadatasPath}/${ROOT.documentation[n].chapters.chapter[n].items.item[n].attachments.attachment[n].source}"
+				type="File" mode="Create_doNotReplace" />
+		</outputs>
+		<dependencies />
+	</template>
+</templates>

@@ -1,0 +1,195 @@
+/*
+
+OGen
+Copyright (C) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+--<document>
+SELECT
+--	_columns.table_catalog,
+
+
+	_columns.table_name,
+
+	_columns.column_name,
+
+	CASE
+		WHEN ((_tables.table_type = 'VIEW') OR (_columns.is_nullable = 'No')) THEN
+			CAST(0 AS INT)
+		ELSE
+			CAST(1 AS INT)
+	END
+	AS is_nullable,
+
+	_columns.data_type,
+
+
+
+
+	_columns.character_maximum_length,
+
+	CASE
+		WHEN (_tables.table_type = 'VIEW') THEN
+			CAST(0 AS INT)
+		WHEN (_columns.column_name = _key_column_usage_PKs.column_name) THEN
+			CAST(1 AS INT)
+		ELSE
+			CAST(0 AS INT)
+	END
+	AS is_pk,
+
+	CASE
+		WHEN (_tables.table_type = 'VIEW') THEN
+			CAST(0 AS INT)
+		ELSE
+			CAST(COLUMNPROPERTY(OBJECT_ID(_columns.table_name), _columns.column_name, 'IsIdentity') AS INT)
+
+
+
+
+
+	END
+	AS is_identity,
+
+	_fk.fk_table_name,
+
+	_fk.fk_column_name,
+
+	_columns.column_default,
+
+	_columns.collation_name,
+
+	_columns.numeric_precision,
+
+	_columns.numeric_scale, 
+
+	_prop.value AS column_description
+
+FROM information_schema.columns AS _columns
+
+	LEFT JOIN sys.extended_properties _prop ON (
+		(_prop.major_id = Object_id(_field.table_name))
+		and
+		(_prop.minor_id = _field.ordinal_position)
+		and 
+		(_prop.name = 'MS_Description')
+	)
+
+	LEFT JOIN information_schema.tables AS _tables ON (
+		(_tables.table_catalog = _columns.table_catalog)
+		AND
+		(_tables.table_schema = _columns.table_schema)
+		AND
+		(_tables.table_name = _columns.table_name)
+	)
+
+	LEFT JOIN (
+		SELECT
+			_key_column_usage.table_name,
+			_key_column_usage.column_name,
+			_key_column_usage.table_catalog,
+			_key_column_usage.table_schema
+		FROM information_schema.table_constraints AS _table_constraints
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage ON
+			(_key_column_usage.constraint_catalog = _table_constraints.constraint_catalog)
+			AND
+			(_key_column_usage.constraint_schema = _table_constraints.constraint_schema)
+			AND
+			(_key_column_usage.constraint_name = _table_constraints.constraint_name)
+			AND
+			(_table_constraints.constraint_type = 'PRIMARY KEY')
+	) AS _key_column_usage_PKs ON
+		(_key_column_usage_PKs.table_catalog = _columns.table_catalog)
+		AND
+		(_key_column_usage_PKs.table_schema = _columns.table_schema)
+		AND
+		(_key_column_usage_PKs.table_name = _columns.table_name)
+		AND
+		(_key_column_usage_PKs.column_name = _columns.column_name)
+
+	LEFT JOIN (
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		SELECT
+			_key_column_usage_PKs.table_name AS fk_table_name,
+			_key_column_usage_PKs.column_name AS fk_column_name,
+
+			_key_column_usage_FKs.table_name,
+			_key_column_usage_FKs.column_name,
+			_key_column_usage_FKs.table_catalog,
+			_key_column_usage_FKs.table_schema
+		FROM information_schema.referential_constraints AS _referential_constraints
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage_FKs ON
+			(_key_column_usage_FKs.constraint_catalog = _referential_constraints.constraint_catalog)
+			AND
+			(_key_column_usage_FKs.constraint_schema = _referential_constraints.constraint_schema)
+			AND
+			(_key_column_usage_FKs.constraint_name = _referential_constraints.constraint_name)
+		INNER JOIN information_schema.key_column_usage AS _key_column_usage_PKs ON
+			(_key_column_usage_PKs.constraint_catalog = _referential_constraints.constraint_catalog)
+			AND
+			(_key_column_usage_PKs.constraint_schema = _referential_constraints.constraint_schema)
+			AND
+			(_key_column_usage_PKs.constraint_name = _referential_constraints.unique_constraint_name)
+	) AS _fk ON
+		(_fk.table_catalog = _columns.table_catalog)
+		AND
+		(_fk.table_schema = _columns.table_schema)
+		AND
+		(_fk.table_name = _columns.table_name)
+		AND
+		(_fk.column_name = _columns.column_name)
+
+WHERE
+	(_columns.table_name NOT IN (
+		'sysconstraints', 
+		'syssegments', 
+		'dtproperties', 
+		'sysdiagrams'
+	))
+	AND
+--	(_columns.table_catalog = '{0}')
+--	AND
+--	(
+--		('' = '{1}')
+--		OR
+--		(_columns.table_name = '{1}')
+--	)
+--	AND
+	(_columns.table_name = 'UserGroup') OR (_columns.table_name = 'User') OR (_columns.table_name = 'Group')
+
+ORDER BY
+	_columns.table_name,
+--	_columns.column_name,
+	_columns.ordinal_position
+--</document>

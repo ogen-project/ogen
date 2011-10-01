@@ -1,0 +1,102 @@
+﻿<%@ Master 
+	Language="C#" 
+	AutoEventWireup="true" 
+	CodeBehind="_base.master.cs" 
+	Inherits="OGen.NTier.Kick.presentationlayer.weblayer._base" %>
+<%@ Register 
+	TagPrefix="anthem" 
+	Namespace="Anthem" 
+	Assembly="Anthem" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head runat="server">
+		<title><asp:ContentPlaceHolder ID="cph_Title" runat="server" /></title>
+
+		<asp:ContentPlaceHolder ID="cph_Head" runat="server" />
+
+		<link href="~/include/style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<form id="form1" runat="server">
+			<div id="div_main">
+				<table border="0" cellpadding="0" cellspacing="0" style="width: 100%; height: 100%;">
+					<tr>
+						<td style="width: 50%;"></td>
+						<td>
+
+							<table 
+								border="0" cellspacing="0" cellpadding="4" 
+								style="width: 788px; height: 100%;"
+								class="">
+								<tr>
+									<td class="label_small">
+										<table border="0" cellpadding="0" cellspacing="0" width="100%">
+											<tr>
+												<td align="left">
+													welcome 
+													<asp:LinkButton
+														ID="lbt_Registration" runat="server" />!
+												</td>
+												<td align="right">
+													<asp:Label 
+														ID="lbl_EMail" runat="server" 
+														CssClass="label_small"
+														Text="EMail: " />
+													<asp:TextBox 
+														ID="txt_EMail" runat="server" 
+														CssClass="textbox_dim1" />
+													<asp:Label 
+														ID="lbl_Password" runat="server" 
+														CssClass="label_small"
+														Text="Password: " />
+													<asp:TextBox 
+														ID="txt_Password" runat="server" 
+														CssClass="textbox_dim1"
+														TextMode="Password" />
+													<asp:Button
+														ID="btn_Login" runat="server"
+														Text="  login  "
+														CssClass="button"
+														OnClick="btn_Login_Click" />
+
+													<asp:Button
+														ID="btn_Logout" runat="server"
+														Text="  logout  "
+														CssClass="button"
+														OnClick="btn_Logout_Click" />
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<asp:ContentPlaceHolder ID="cph_Menu" runat="server" />
+									</td>
+								</tr>
+								<tr>
+									<td style="height: 100%;" valign="top" align="center">
+										<asp:ContentPlaceHolder ID="cph_Body" runat="server" />
+									</td>
+								</tr>
+								<tr>
+									<td class="label_small" align="right">
+										OGen<br />
+										Copyright (c) 2002 Francisco Monteiro
+									</td>
+								</tr>
+							</table>
+
+						</td>
+						<td style="width: 50%;"></td>
+					</tr>
+				</table>
+			</div>
+		</form>
+
+		<script language="javascript" type="text/javascript">
+			<asp:Literal
+				ID="lit_ClientScript" runat="server" />
+		</script>
+	</body>
+</html>

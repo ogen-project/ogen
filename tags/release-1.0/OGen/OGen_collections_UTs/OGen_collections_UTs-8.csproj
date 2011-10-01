@@ -1,0 +1,203 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{67566F92-0B16-47AF-912E-22FED2ECA819}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>OGen.lib.collections.UTs-2.0</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>OGen.lib.collections.UTs</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE;NET_2_0</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;NET_2_0</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework">
+      <Name>nunit.framework</Name>
+      <HintPath>..\..\..\..\..\..\..\Program Files\NUnit 2.2\bin\nunit.framework.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\nunit.framework</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\OGen_collections\OGen_collections-8.csproj">
+      <Name>OGen_collections</Name>
+      <Project>{A6E837F8-780F-4D05-B3ED-2FF1906B5766}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="COPYING.MIT" />
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSSe_aggregate\cFields_e_aggregate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSSe_aggregate\cField_e_aggregate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSSe_aggregate\cTables_e_aggregate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSSe_aggregate\cTable_e_aggregate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSSe_inherit\cFields_e_inherit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSSe_inherit\cField_e_inherit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSSe_inherit\cTables_e_inherit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSSe_inherit\cTable_e_inherit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSS_noR_aggregate\cFields_noR_aggregate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSS_noR_aggregate\cField_noR_aggregate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSS_noR_aggregate\cTables_noR_aggregate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSS_noR_aggregate\cTable_noR_aggregate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSS_noR_inherit\cFields_noR_inherit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSS_noR_inherit\cField_noR_inherit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSS_noR_inherit\cTables_noR_inherit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSS_noR_inherit\cTable_noR_inherit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSS_R_aggregate\cFields_R_aggregate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSS_R_aggregate\cField_R_aggregate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSS_R_aggregate\cTables_R_aggregate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSS_R_aggregate\cTable_R_aggregate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSS_R_inherit\cFields_R_inherit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSS_R_inherit\cField_R_inherit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSS_R_inherit\cTables_R_inherit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\ClaSS_R_inherit\cTable_R_inherit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\_interfaces\iField.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\_interfaces\iFields.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\_interfaces\iTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\metadatas\_interfaces\iTables.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_ClaSS\UT_ClaSS.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UT_SHashtable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Content Include="LICENSE.MIT.txt" />
+    <Content Include="LICENSE.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

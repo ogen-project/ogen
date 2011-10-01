@@ -1,0 +1,141 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_collections-7.1", "OGen_collections\OGen_collections-7.1.csproj", "{A6E837F8-780F-4D05-B3ED-2FF1906B5766}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_collections_UTs-7.1", "OGen_collections_UTs\OGen_collections_UTs-7.1.csproj", "{67566F92-0B16-47AF-912E-22FED2ECA819}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer_UTs-7.1", "OGen_datalayer_UTs\OGen_datalayer_UTs-7.1.csproj", "{46D90ABA-A5C9-4730-A585-8D91EFC7B398}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_webforms-7.1", "OGen_webforms\OGen_webforms-7.1.csproj", "{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_generator-7.1", "OGen_generator\OGen_generator-7.1.csproj", "{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_winforms-7.1", "OGen_winforms\OGen_winforms-7.1.csproj", "{B3835B3F-C899-416F-BA94-625A4B32A4AC}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_parser-7.1", "OGen_parser\OGen_parser-7.1.csproj", "{981BC7DE-D93C-446E-861E-60A20E4E3391}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_webforms_UTs-7.1", "OGen_webforms_UTs\OGen_webforms_UTs-7.1.csproj", "{73D08732-CC2D-432D-BF9D-AA669059446A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_winforms_UTs-7.1", "OGen_winforms_UTs\OGen_winforms_UTs-7.1.csproj", "{78AF375C-E64E-49D0-AD35-24447821F7CD}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_parser_UTs-7.1", "OGen_parser_UTs\OGen_parser_UTs-7.1.csproj", "{41D123D7-BA39-4661-8285-8FE17E89AB33}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-test-7.1", "OGen-test\OGen-test-7.1.csproj", "{FA715753-49D2-4F13-B21B-37F0F9B61487}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer__base-7.1", "OGen_datalayer__base\OGen_datalayer__base-7.1.csproj", "{0BE6274C-5536-4690-9597-8FCD8459C2A3}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer_PostgreSQL-7.1", "OGen_datalayer_PostgreSQL\OGen_datalayer_PostgreSQL-7.1.csproj", "{2BBB8F6D-B85C-4939-B781-5768DE287455}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer_SQLServer-7.1", "OGen_datalayer_SQLServer\OGen_datalayer_SQLServer-7.1.csproj", "{1B07A59E-56C1-49C5-B3A5-C6B5EED72F5D}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer_MySQL-7.1", "OGen_datalayer_MySQL\OGen_datalayer_MySQL-7.1.csproj", "{CD40001B-B19B-44CA-9F8A-8FB4F75DB1F9}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayersupport-7.1", "OGen_datalayersupport\OGen_datalayersupport-7.1.csproj", "{C982B439-F21D-469A-8077-F01D29B6C003}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{A6E837F8-780F-4D05-B3ED-2FF1906B5766}.Debug.ActiveCfg = Debug|.NET
+		{A6E837F8-780F-4D05-B3ED-2FF1906B5766}.Debug.Build.0 = Debug|.NET
+		{A6E837F8-780F-4D05-B3ED-2FF1906B5766}.Release.ActiveCfg = Release|.NET
+		{A6E837F8-780F-4D05-B3ED-2FF1906B5766}.Release.Build.0 = Release|.NET
+		{67566F92-0B16-47AF-912E-22FED2ECA819}.Debug.ActiveCfg = Debug|.NET
+		{67566F92-0B16-47AF-912E-22FED2ECA819}.Debug.Build.0 = Debug|.NET
+		{67566F92-0B16-47AF-912E-22FED2ECA819}.Release.ActiveCfg = Release|.NET
+		{67566F92-0B16-47AF-912E-22FED2ECA819}.Release.Build.0 = Release|.NET
+		{46D90ABA-A5C9-4730-A585-8D91EFC7B398}.Debug.ActiveCfg = Debug|.NET
+		{46D90ABA-A5C9-4730-A585-8D91EFC7B398}.Debug.Build.0 = Debug|.NET
+		{46D90ABA-A5C9-4730-A585-8D91EFC7B398}.Release.ActiveCfg = Release|.NET
+		{46D90ABA-A5C9-4730-A585-8D91EFC7B398}.Release.Build.0 = Release|.NET
+		{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}.Debug.ActiveCfg = Debug|.NET
+		{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}.Debug.Build.0 = Debug|.NET
+		{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}.Release.ActiveCfg = Release|.NET
+		{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}.Release.Build.0 = Release|.NET
+		{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}.Debug.ActiveCfg = Debug|.NET
+		{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}.Debug.Build.0 = Debug|.NET
+		{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}.Release.ActiveCfg = Release|.NET
+		{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}.Release.Build.0 = Release|.NET
+		{B3835B3F-C899-416F-BA94-625A4B32A4AC}.Debug.ActiveCfg = Debug|.NET
+		{B3835B3F-C899-416F-BA94-625A4B32A4AC}.Debug.Build.0 = Debug|.NET
+		{B3835B3F-C899-416F-BA94-625A4B32A4AC}.Release.ActiveCfg = Release|.NET
+		{B3835B3F-C899-416F-BA94-625A4B32A4AC}.Release.Build.0 = Release|.NET
+		{981BC7DE-D93C-446E-861E-60A20E4E3391}.Debug.ActiveCfg = Debug|.NET
+		{981BC7DE-D93C-446E-861E-60A20E4E3391}.Debug.Build.0 = Debug|.NET
+		{981BC7DE-D93C-446E-861E-60A20E4E3391}.Release.ActiveCfg = Release|.NET
+		{981BC7DE-D93C-446E-861E-60A20E4E3391}.Release.Build.0 = Release|.NET
+		{73D08732-CC2D-432D-BF9D-AA669059446A}.Debug.ActiveCfg = Debug|.NET
+		{73D08732-CC2D-432D-BF9D-AA669059446A}.Debug.Build.0 = Debug|.NET
+		{73D08732-CC2D-432D-BF9D-AA669059446A}.Release.ActiveCfg = Release|.NET
+		{73D08732-CC2D-432D-BF9D-AA669059446A}.Release.Build.0 = Release|.NET
+		{78AF375C-E64E-49D0-AD35-24447821F7CD}.Debug.ActiveCfg = Debug|.NET
+		{78AF375C-E64E-49D0-AD35-24447821F7CD}.Debug.Build.0 = Debug|.NET
+		{78AF375C-E64E-49D0-AD35-24447821F7CD}.Release.ActiveCfg = Release|.NET
+		{78AF375C-E64E-49D0-AD35-24447821F7CD}.Release.Build.0 = Release|.NET
+		{41D123D7-BA39-4661-8285-8FE17E89AB33}.Debug.ActiveCfg = Debug|.NET
+		{41D123D7-BA39-4661-8285-8FE17E89AB33}.Debug.Build.0 = Debug|.NET
+		{41D123D7-BA39-4661-8285-8FE17E89AB33}.Release.ActiveCfg = Release|.NET
+		{41D123D7-BA39-4661-8285-8FE17E89AB33}.Release.Build.0 = Release|.NET
+		{FA715753-49D2-4F13-B21B-37F0F9B61487}.Debug.ActiveCfg = Debug|.NET
+		{FA715753-49D2-4F13-B21B-37F0F9B61487}.Debug.Build.0 = Debug|.NET
+		{FA715753-49D2-4F13-B21B-37F0F9B61487}.Release.ActiveCfg = Release|.NET
+		{FA715753-49D2-4F13-B21B-37F0F9B61487}.Release.Build.0 = Release|.NET
+		{0BE6274C-5536-4690-9597-8FCD8459C2A3}.Debug.ActiveCfg = Debug|.NET
+		{0BE6274C-5536-4690-9597-8FCD8459C2A3}.Debug.Build.0 = Debug|.NET
+		{0BE6274C-5536-4690-9597-8FCD8459C2A3}.Release.ActiveCfg = Release|.NET
+		{0BE6274C-5536-4690-9597-8FCD8459C2A3}.Release.Build.0 = Release|.NET
+		{2BBB8F6D-B85C-4939-B781-5768DE287455}.Debug.ActiveCfg = Debug|.NET
+		{2BBB8F6D-B85C-4939-B781-5768DE287455}.Debug.Build.0 = Debug|.NET
+		{2BBB8F6D-B85C-4939-B781-5768DE287455}.Release.ActiveCfg = Release|.NET
+		{2BBB8F6D-B85C-4939-B781-5768DE287455}.Release.Build.0 = Release|.NET
+		{1B07A59E-56C1-49C5-B3A5-C6B5EED72F5D}.Debug.ActiveCfg = Debug|.NET
+		{1B07A59E-56C1-49C5-B3A5-C6B5EED72F5D}.Debug.Build.0 = Debug|.NET
+		{1B07A59E-56C1-49C5-B3A5-C6B5EED72F5D}.Release.ActiveCfg = Release|.NET
+		{1B07A59E-56C1-49C5-B3A5-C6B5EED72F5D}.Release.Build.0 = Release|.NET
+		{CD40001B-B19B-44CA-9F8A-8FB4F75DB1F9}.Debug.ActiveCfg = Debug|.NET
+		{CD40001B-B19B-44CA-9F8A-8FB4F75DB1F9}.Debug.Build.0 = Debug|.NET
+		{CD40001B-B19B-44CA-9F8A-8FB4F75DB1F9}.Release.ActiveCfg = Release|.NET
+		{CD40001B-B19B-44CA-9F8A-8FB4F75DB1F9}.Release.Build.0 = Release|.NET
+		{C982B439-F21D-469A-8077-F01D29B6C003}.Debug.ActiveCfg = Debug|.NET
+		{C982B439-F21D-469A-8077-F01D29B6C003}.Debug.Build.0 = Debug|.NET
+		{C982B439-F21D-469A-8077-F01D29B6C003}.Release.ActiveCfg = Release|.NET
+		{C982B439-F21D-469A-8077-F01D29B6C003}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

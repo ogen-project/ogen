@@ -1,0 +1,186 @@
+/*
+
+OGen
+Copyright (c) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+A:hover {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 14px;
+	FONT-FAMILY: Arial;
+	TEXT-ALIGN: justify;
+	COLOR: #0000FF;
+	TEXT-DECORATION: none;
+}
+A:link {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 14px;
+	FONT-FAMILY: Arial;
+	TEXT-ALIGN: justify;
+	COLOR: #0000FF;
+	TEXT-DECORATION: none;
+}
+A:visited {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 14px;
+	FONT-FAMILY: Arial;
+	TEXT-ALIGN: justify;
+	COLOR: #6000B0;
+	TEXT-DECORATION: none;
+}
+UL {
+	page-break-inside: avoid;
+	page-break-after: avoid;
+	page-break-before: avoid;
+}
+OL {
+	page-break-inside:avoid;
+	page-break-after:avoid;
+	page-break-before:avoid;
+}
+LI {
+	page-break-inside: avoid;
+	page-break-after: avoid;
+	page-break-before: avoid;
+}
+
+
+
+.menu {
+	COLOR: #000000;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 14px;
+	FONT-FAMILY: Arial;
+	TEXT-ALIGN: justify;
+	TEXT-DECORATION: none
+}
+.title {
+	color: #5588BB;
+	font-weight: bold;
+	font-size: 24px;
+	font-family: Arial;
+	white-space: normal;
+	text-decoration: none;
+}
+.subtitle {
+	color: #5588BB;
+	font-weight: bold;
+	font-size: 14px;
+	font-family: Arial;
+	white-space: normal;
+	text-decoration: none;
+}
+.subsubtitle {
+	color: #383838;
+	font-weight: bold;
+	font-size: 14px;
+	font-family: Arial;
+	white-space: normal;
+	text-decoration: none;
+}
+.text {
+	color: #404040;
+	font-weight: normal;
+	font-size: 14px;
+	font-family: Arial;
+	white-space: normal;
+	text-decoration: none;
+}
+.code {
+	/*
+	border-color:Black;
+	border-width:thin;
+	border:1px;
+	border-bottom-width:thin;
+	border-left-width:thin;
+	border-right-width:thin;
+	border-top-width:thin;
+	border-bottom:1px;
+	*/
+
+	border:1px;
+	border-color:#808080;
+	border-style:solid;
+	border-width:1px;
+	page-break-inside:avoid;
+	page-break-after:avoid;
+	page-break-before:avoid;
+	margin:0px;
+	padding:8px;
+
+	color: #000000;
+	background-color: #d5d5d5;
+	font-weight: normal;
+	font-size: 14px;
+	font-family: 'Courier New';
+	/*
+	white-space: normal;
+	*/
+	word-wrap: break-word;		/* Internet Explorer 5.5+ */
+	white-space: pre-wrap;		/* css-3 */
+	/*
+	white-space: -moz-pre-wrap;  // Mozilla, since 1999
+	white-space: -pre-wrap;      // Opera 4-6
+	white-space: -o-pre-wrap;    // Opera 7
+	*/
+	text-decoration: none;
+	/*
+	text-indent: 10px;
+	*/
+}
+.anex {
+	border:1px;
+	border-color:#808080;
+	border-style:solid;
+	border-width:1px;
+	page-break-inside:avoid;
+	page-break-after:avoid;
+	page-break-before:avoid;
+	margin:0px;
+	padding:1px;
+
+	color: #000000;
+	background-color: #d5d5d5;
+	text-align: center;
+}
+.comment {
+	color: #009900;
+	font-weight: bold;
+}
+.tip {
+	color: #FFCC00;
+	font-weight: bold;
+}
+.warning {
+	color:Red; 
+	font-weight:bold;
+}
+.error {
+	color: #FF0000;
+	font-weight: normal;
+	font-size: 14px;
+	font-family: Arial;
+	white-space: normal;
+	text-decoration: none;
+}
+/*
+.button {
+	color: #000000;
+	font-weight: normal;
+	font-family: Arial;
+}
+.link {
+	COLOR: #000000;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 12px;
+	FONT-FAMILY: Arial;
+	TEXT-ALIGN: justify;
+	TEXT-DECORATION: none;
+}
+*/

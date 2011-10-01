@@ -1,0 +1,1496 @@
+<?xml version="1.0"?>
+<!--
+
+OGen
+Copyright (c) 2002 Francisco Monteiro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->
+<documentation
+	documentationName="OGen"
+	documentationTitle="OGen User's Guide"
+	projectURL="http://ogen.berlios.de"
+	copyrightText="Copyright (C) 2002 Francisco Monteiro"
+	feedbackEmailAddress="fmonteiro@users.berlios.de"
+	version="OGen 2.0"
+	date="2008">
+
+<!-- sourceContentTypeEnumeration: html, code, image, table, comment, tip, warning -->
+
+	<chapters>
+		<chapter
+			title="OGen"
+			fileName="ogen"
+			subtitle="open generation"
+
+			isIntroduction="false"
+			isAppendix="false">
+
+			<items>
+				<item
+					title="introduction"
+					subTitle=""
+					isIntroduction="true"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="What is OGen"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00100-ogen/it00100-introduction/pag00100-what_is_ogen.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="Audience"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00100-ogen/it00100-introduction/pag00200-audience.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="License"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+					</attachments>
+				</item>
+				<item
+					title="key features"
+					subTitle=""
+					isIntroduction="false"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="easily create your own generator"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00100-ogen/it00200-key_features/pag00100-create_generator.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="easily add or change existing generator templates"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00100-ogen/it00200-key_features/pag00200-add_templates.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+					</attachments>
+				</item>
+				<item
+					title="summary"
+					subTitle=""
+					isIntroduction="false"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="why"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00100-ogen/it00300-summary/pag00100-why.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+					</attachments>
+				</item>
+
+
+<!-- TESTINGS -->
+<item
+	title="TESTINGS"
+	subTitle=""
+	isIntroduction="false"
+	isSummary="false">
+
+	<attachments>
+		<!--attachment
+			title="TESTINGS"
+			showTitle="true"
+			incrementLevel="true"
+			source="..."
+			sourceType="file"
+			sourceContentType="html"
+			description="" /-->
+
+		<attachment
+			title="code"
+			showTitle="true"
+			incrementLevel="true"
+			source=""
+			sourceType="file"
+			sourceContentType="html"
+			description="" />
+		<attachment
+			title="code - no desc"
+			showTitle="true"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/test-code.cs"
+			sourceType="file"
+			sourceContentType="code"
+			description="" />
+		<attachment
+			title="code - with desc"
+			showTitle="true"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/test-code.cs"
+			sourceType="file"
+			sourceContentType="code"
+			description="some code" />
+		<attachment
+			title="code - no title"
+			showTitle="false"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/test-code.cs"
+			sourceType="file"
+			sourceContentType="code"
+			description="some code" />
+
+		<attachment
+			title="table"
+			showTitle="true"
+			incrementLevel="true"
+			source=""
+			sourceType="file"
+			sourceContentType="html"
+			description="" />
+		<attachment
+			title="table - no desc"
+			showTitle="true"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/test-table.html"
+			sourceType="file"
+			sourceContentType="table"
+			description="" />
+		<attachment
+			title="table - with desc"
+			showTitle="true"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/test-table.html"
+			sourceType="file"
+			sourceContentType="table"
+			description="some table" />
+		<attachment
+			title="table - no title"
+			showTitle="false"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/test-table.html"
+			sourceType="file"
+			sourceContentType="table"
+			description="some table" />
+
+		<attachment
+			title="image"
+			showTitle="true"
+			incrementLevel="true"
+			source=""
+			sourceType="file"
+			sourceContentType="html"
+			description="" />
+		<attachment
+			title="image - no desc"
+			showTitle="true"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/img00200-audience.png"
+			sourceType="file"
+			sourceContentType="image"
+			description="" />
+		<attachment
+			title="image - with desc"
+			showTitle="true"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/img00200-audience.png"
+			sourceType="file"
+			sourceContentType="image"
+			description="some image" />
+		<attachment
+			title="image - no title"
+			showTitle="false"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/img00200-audience.png"
+			sourceType="file"
+			sourceContentType="image"
+			description="some image" />
+
+		<attachment
+			title="comments"
+			showTitle="true"
+			incrementLevel="true"
+			source=""
+			sourceType="file"
+			sourceContentType="html"
+			description="" />
+		<attachment
+			title="some comment"
+			showTitle="true"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+			sourceType="file"
+			sourceContentType="comment"
+			description="" />
+		<attachment
+			title="some warning"
+			showTitle="false"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+			sourceType="file"
+			sourceContentType="warning"
+			description="" />
+		<attachment
+			title="some tip"
+			showTitle="true"
+			incrementLevel="false"
+			source="ch00100-ogen/it00100-introduction/pag00300-license.html"
+			sourceType="file"
+			sourceContentType="tip"
+			description="" />
+	</attachments>
+</item>
+<!-- /TESTINGS -->
+
+
+			</items>
+		</chapter>
+		<chapter
+			title="OGen - code generation framework"
+			fileName="ogen-code-generation-framework"
+			subtitle=""
+
+			isIntroduction="false"
+			isAppendix="false">
+
+			<items>
+				<item
+					title="introduction"
+					subTitle=""
+					isIntroduction="true"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="introduction"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00200-ogen-code-generation-framework/it00100-introduction/pag00100-introduction.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+					</attachments>
+				</item>
+				<item
+					title="installing ogen"
+					subTitle=""
+					isIntroduction="false"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="dependencies and pre-requisites"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00200-ogen-code-generation-framework/it00200-installing_ogen/pag00100-dependencies_and_pre-requisites.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="installing OGen under windows"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00200-ogen-code-generation-framework/it00200-installing_ogen/pag00200-installing_OGen.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="installing OGen under linux with the Mono .net framework"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00200-ogen-code-generation-framework/it00200-installing_ogen/pag00300-installing_OGen-mono.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+					</attachments>
+				</item>
+				<item
+					title="creating your own generator"
+					subTitle=""
+					isIntroduction="false"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="..."
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00200-ogen-code-generation-framework/it00300-creating_your_own_generator"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+					</attachments>
+				</item>
+			</items>
+		</chapter>
+		<chapter
+			title="C# classes generator to interact with XML"
+			fileName="ogen-xsd"
+			subtitle=""
+
+			isIntroduction="false"
+			isAppendix="false">
+
+			<items>
+				<item
+					title="introduction"
+					subTitle=""
+					isIntroduction="true"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="What is OGen"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00300-ogen-xsd/it00100-introduction"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00100-what_is_ogen.html -->
+
+						<attachment
+							title="Audience"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00300-ogen-xsd/it00100-introduction"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00200-audience.html -->
+
+						<attachment
+							title="License"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00300-ogen-xsd/it00100-introduction"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00300-license.html -->
+					</attachments>
+				</item>
+			</items>
+		</chapter>
+		<chapter
+			title="NTier application generator"
+			fileName="ogen-ntier"
+			subtitle=""
+
+			isIntroduction="false"
+			isAppendix="false">
+
+			<items>
+				<item
+					title="introduction"
+					subTitle=""
+					isIntroduction="true"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="NTier Application"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00100-introduction/pag00100-ntier_application.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="Data Layer"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00100-introduction/pag00200-data_layer.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="Business Layer"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00100-introduction/pag00300-business_layer.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="Distributed Layer"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00100-introduction/pag00400-distributed_layer.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="Presentation Layer"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00100-introduction/pag00500-presentation_layer.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+					</attachments>
+				</item>
+
+				<item
+					title="using Data Objects"
+					subTitle=""
+					isIntroduction="false"
+					isSummary="false">
+
+					<attachments>
+<!-- creating a sample database for the project -->
+						<attachment
+							title="creating a sample database for the project"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag00100-project_db.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="db structure"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag00200-db_structure.html"
+							sourceType="file"
+							sourceContentType="code"
+							description="" />
+						<attachment
+							title="brief explanation"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag00300-brief_explanation.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="PostgreSQL"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag00400-postgresql.html"
+							sourceType="file"
+							sourceContentType="code"
+							description="" />
+						<attachment
+							title="SQL Server"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag00500-sqlserver.html"
+							sourceType="file"
+							sourceContentType="code"
+							description="" />
+						<attachment
+							title="MySQL"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag00600-mysql.html"
+							sourceType="file"
+							sourceContentType="code"
+							description="" />
+<!-- /creating a sample database for the project -->
+<!-- generating a new project -->
+						<attachment
+							title="generating a new project"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag00700-new_project.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="..."
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00800- ... .html -->
+						<attachment
+							title="consuming db metatadas"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag00900-consuming_db_metatadas.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="adding metadatas"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag01000-adding_metadatas.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="..."
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag01100- ... .html -->
+<!-- /generating a new project -->
+<!-- the basics -->
+						<attachment
+							title="the basics - the four basic operations over a db table and more"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag01200-the_basics.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="Insert / insObject"
+							showTitle="true"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_insObject.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="" />
+						<attachment
+							title="Select / getObject"
+							showTitle="true"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_getobject.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="" />
+						<attachment
+							title="Update / updObject"
+							showTitle="true"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_updobject.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="" />
+						<attachment
+							title="Delete / delObject"
+							showTitle="true"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_delobject.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="" />
+						<attachment
+							title="Insert (if not exists) or Update (if exists) / setObject"
+							showTitle="true"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_setobject.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="" />
+<!-- /the basics -->
+<!-- using DBConnection -->
+						<attachment
+							title="using DBConnection"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag01800-using_dbconnection.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="why and other considerations"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag01900-why_considerations.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="executing an sql query"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag02000-executing_sql.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_Execute_SQLQuery.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="executing an sql query" />
+
+						<attachment
+							title="executing and retrieving data table from an sql query"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag02100-executing_retrieving_sql.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_Execute_SQLQuery_returnDataTable.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="executing and retrieving data table from an sql query" />
+
+						<attachment
+							title="executing an sql function or stored procedure"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag02200-executing_sql_function.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_Execute_SQLFunction.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="executing an sql function or stored procedure" />
+
+						<attachment
+							title="executing and retrieving data values from an sql function"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag02300-executing_retrieving_sql_function.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_Execute_SQLFunction_returnSomevalue.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="executing and retrieving data values from an sql function" />
+
+						<attachment
+							title="executing and retrieving data tables from an sql function or stored procedure"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag02400-executing_retrieving_datatables_sql_function.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_Execute_SQLFunction_returnDataTable.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="executing and retrieving data tables from an sql function or stored procedure" />
+
+						<attachment
+							title="information schema"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag02500-information_schema.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="list dbs"
+							showTitle="true"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_List_DBs.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="list dbs" />
+						<attachment
+							title="list db tables"
+							showTitle="true"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_List_DB_Tables.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="list db tables" />
+						<attachment
+							title="list db table fields"
+							showTitle="true"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_List_DB_TableFields.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="list db table fields" />
+
+						<attachment
+							title="using transactions"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag02600-using_transactions.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_UseTransactions.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="using transactions" />
+
+						<attachment
+							title="using transactions on dataobjects"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag02700-using_transactions_on_dataobjects.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_UseTransactions_inDOs.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="using transactions on dataobjects" />
+
+						<attachment
+							title="using transactions between dataobjects"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag02800-using_transactions_between_dataobjects.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_UseTransactions_betweenDOs_operations.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="using transactions between dataobjects" />
+<!-- /using DBConnection -->
+<!-- Reflecting Data Objects -->
+						<attachment
+							title="Reflecting Data Objects"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag02900-reflecting_data_objects.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="using reflection to list dataobjects"
+							showTitle="true"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_List_DataObjects.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="using reflection to list dataobjects" />
+						<attachment
+							title="using reflection to read from dataobject property attributes"
+							showTitle="true"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_Read_DataObject_Property_Attributes.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="using reflection to read from dataobject property attributes" />
+						<attachment
+							title="using reflection to read from and write to dataobject properties"
+							showTitle="true"
+							incrementLevel="false"
+							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_Read_and_Write_to_DataObject_Properties.cs"
+							sourceType="file"
+							sourceContentType="code"
+							description="using reflection to read from and write to dataobject properties" />
+<!-- /Reflecting Data Objects -->
+<!-- searches -->
+						<attachment
+							title="searches"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag03000-searches.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="defining a search"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag03100-defining_a_search.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="explicit unique index search"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag03200-explicit_unique_index_search.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="tweaking a search"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag03300-tweaking_a_search.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="using a search"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag03400-using_a_search.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag03500-to_retrieve_data.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="to retrieve data" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag03600-to_delete_data.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="to delete data" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag03700-to_update_data.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="to update data" />
+<!-- /searches -->
+<!-- range searches -->
+						<attachment
+							title="range searches"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag03800-range_searches.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="defining a range search"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag03900-defining_a_range_search.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="tweaking a range search"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag04000-tweaking_a_range_search.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag04100-tweaking_the_search_query.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="tweaking the search query" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag04200-tweaking_the_search_order_query.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="tweaking the search order query (development on the way to support multiple orders)" />
+
+						<attachment
+							title="using a range search"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag04300-using_a_range_search.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag04400-range_search_to_retrieve_data.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="to retrieve data" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag04500-range_search_to_retrieve_data_count.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="to retrieve data count (one scalar return value query only, usefull for pagging)" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag04600-range_search_to_page_retrieved_data.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="to page retrieved data" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag04700-range_search_to_delete_data.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="to delete data" />
+						<attachment
+							title=""
+							showTitle="false"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag04800-range_search_to_update_data.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="to update data" />
+<!-- /range searches -->
+<!-- views -->
+						<attachment
+							title="views"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag04900-views.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="considerations (just like a table, but read-only)"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag05000-views_considerations.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="why Views and when should we use them rather than using Searches"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag05100-views_why_and_when.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="creating a view"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag05200-creating_a_view.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="creating a view"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag05300-creating_a_view.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="defining PKs for the view (so that searches can be made)"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag05400-defining_pks_for_the_view.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="defining a range search over a view"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag05500-defining_a_range_search_over_a_view.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="using a view"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00200-dataobjects/pag05600-using_a_view.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+<!-- /views -->
+<!-- updates -->
+						<!-- ... -->
+<!-- /updates -->
+					</attachments>
+				</item>
+				<item
+					title="using Business Objects"
+					subTitle=""
+					isIntroduction="false"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="..."
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00300-businessobjects"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00100- ... .html -->
+					</attachments>
+				</item>
+				<item
+					title="using Distributed Objects"
+					subTitle=""
+					isIntroduction="false"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="..."
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00400-distributedobjects"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00100- ... .html -->
+						<attachment
+							title="remoting objects"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00400-distributedobjects"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00200- ... .html -->
+						<attachment
+							title="web services"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00400-distributedobjects"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00300- ... .html -->
+						<attachment
+							title="..."
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00400-distributedobjects"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00400- ... .html -->
+					</attachments>
+				</item>
+				<item
+					title="using Presentation Objects"
+					subTitle=""
+					isIntroduction="false"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="..."
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00500-presentationobjects"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00100- ... .html -->
+
+						<attachment
+							title="configuring business objects source"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00500-presentationobjects/pag00200-configuring_business_objects_source.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="reference directly assembly / GAC"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00500-presentationobjects/pag00300-configuring_business_objects_source_assembly.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="Remoting"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00500-presentationobjects/pag00400-configuring_business_objects_source_remoting.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="WebServices"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00500-presentationobjects/pag00500-configuring_business_objects_source_webservices.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="consuming business objects"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00500-presentationobjects"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00600- ... .html -->
+
+						<attachment
+							title="winforms"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00500-presentationobjects/pag00700-winforms.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="webforms"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00500-presentationobjects/pag00800-webforms.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="..."
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00500-presentationobjects"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00900- ... .html -->
+					</attachments>
+				</item>
+				<item
+					title="modules"
+					subTitle="available with NTier generator"
+					isIntroduction="false"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="config"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00600-modules/pag00100-config.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="cache"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00600-modules/pag00200-cache.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="authentication (users and permitions)"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00600-modules/pag00300-authentication.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="listings and reference data (reflecting through data and business layers)"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00600-modules/pag00400-reference_data.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="Concurrent Updates Timestamp"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00600-modules/pag00500-concurrent_updates_timestamp.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="log"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00600-modules"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00600- ... .html -->
+
+						<attachment
+							title="dictionary"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00600-modules/pag00700-dictionary.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="..."
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00600-modules"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00800- ... .html -->
+					</attachments>
+				</item>
+
+
+				<item
+					title="summary"
+					subTitle=""
+					isIntroduction="false"
+					isSummary="true">
+
+					<attachments>
+						<attachment
+							title="don't like it? doesn't suit you needs?"
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00700-summary/pag00100-suiting_everyones_needs.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="you can either build your own code generator using OGen framework, as seen in &quot;creating your own generator&quot; chapter"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00700-summary/pag00200-build_your_own_code_generator.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="or you can use part of what's been done so far and create your own templates project, and point configuration file to it"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00700-summary/pag00300-create_your_own_templates_project.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="you can add more items to xml metadatas files (to suit your specific needs), and re-generate C# classes dealing with xml metadata files"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00700-summary/pag00400-add_more_items_to_xml_metadatas_files.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+						<attachment
+							title="please share your ideas, help me make it better or even get involved in the project"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00400-ogen-ntier/it00700-summary/pag00500-share_ideas.html"
+							sourceType="file"
+							sourceContentType="html"
+							description="" />
+
+						<attachment
+							title="..."
+							showTitle="true"
+							incrementLevel="true"
+							source="ch00400-ogen-ntier/it00700-summary"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00600- ... .html -->
+					</attachments>
+				</item>
+			</items>
+		</chapter>
+		<chapter
+			title="Documentation generator"
+			fileName="ogen-doc"
+			subtitle="what ever"
+
+			isIntroduction="false"
+			isAppendix="false">
+
+			<items>
+				<item
+					title="introduction"
+					subTitle=""
+					isIntroduction="true"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="What is OGen"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00500-ogen-doc/it00100-introduction"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00100-what_is_ogen.html -->
+
+						<attachment
+							title="Audience"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00500-ogen-doc/it00100-introduction"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00200-audience.html -->
+
+						<attachment
+							title="License"
+							showTitle="true"
+							incrementLevel="false"
+							source="ch00500-ogen-doc/it00100-introduction"
+							sourceType="file"
+							sourceContentType="html"
+							description="" /><!-- /pag00300-license.html -->
+					</attachments>
+				</item>
+			</items>
+		</chapter>
+		<chapter
+			title="Appendix"
+			fileName="ogen-appendix"
+			subtitle=""
+
+			isIntroduction="false"
+			isAppendix="true">
+
+			<items>
+				<item
+					title="sql data base - information schema"
+					subTitle=""
+					isIntroduction="false"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="getting table names (generic)"
+							showTitle="true"
+							incrementLevel="false"
+							source="Appendix/OGen__Docs__Contrib_Appendix_INFORMATION_SCHEMA_tables.txt"
+							sourceType="file"
+							sourceContentType="code"
+							description="getting table names (generic)" />
+						<attachment
+							title="getting table names (MySQL)"
+							showTitle="true"
+							incrementLevel="false"
+							source="Appendix/OGen__Docs__Contrib_Appendix_INFORMATION_SCHEMA_tables-MySQL.txt"
+							sourceType="file"
+							sourceContentType="code"
+							description="getting table names (MySQL)" />
+						<attachment
+							title="getting table field properties (PostgreSQL)"
+							showTitle="true"
+							incrementLevel="false"
+							source="Appendix/OGen__Docs__Contrib_Appendix_INFORMATION_SCHEMA_tableFields-PostgreSQL.txt"
+							sourceType="file"
+							sourceContentType="code"
+							description="getting table field properties (PostgreSQL)" />
+						<attachment
+							title="getting table field properties (SQL Sever)"
+							showTitle="true"
+							incrementLevel="false"
+							source="Appendix/OGen__Docs__Contrib_Appendix_INFORMATION_SCHEMA_tableFields-SQLServer.txt"
+							sourceType="file"
+							sourceContentType="code"
+							description="getting table field properties (SQL Sever)" />
+						<attachment
+							title="getting table field properties (MySQL)"
+							showTitle="true"
+							incrementLevel="false"
+							source="Appendix/OGen__Docs__Contrib_Appendix_INFORMATION_SCHEMA_tableFields-MySQL.txt"
+							sourceType="file"
+							sourceContentType="code"
+							description="getting table field properties (MySQL)" />
+					</attachments>
+				</item>
+				<item
+					title="Installing PostgreSQL"
+					subTitle=""
+					isIntroduction="false"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="how to install PostgreSQL on Linux"
+							showTitle="true"
+							incrementLevel="false"
+							source="Appendix/OGen__Docs__Develop_HowTo-Install-PostgreSQL_on_Linux.txt"
+							sourceType="file"
+							sourceContentType="code"
+							description="how to install PostgreSQL on Linux" />
+						<attachment
+							title="how to install pgAdminIII on Linux"
+							showTitle="true"
+							incrementLevel="false"
+							source="Appendix/OGen__Docs__Develop_HowTo-Install-PostgreSQL_pgAdminIII_on_Linux.txt"
+							sourceType="file"
+							sourceContentType="code"
+							description="how to install pgAdminIII on Linux" />
+					</attachments>
+				</item>
+				<item
+					title="data base - specific information"
+					subTitle=""
+					isIntroduction="false"
+					isSummary="false">
+
+					<attachments>
+						<attachment
+							title="PostgreSQL"
+							showTitle="true"
+							incrementLevel="false"
+							source="Appendix/OGen__Docs__Contrib_Appendix_PostgreSQL-DbType.txt"
+							sourceType="file"
+							sourceContentType="code"
+							description="PostgreSQL" />
+						<attachment
+							title="MySQL"
+							showTitle="true"
+							incrementLevel="false"
+							source="Appendix/OGen__Docs__Contrib_Appendix_MySql-DbType.txt"
+							sourceType="file"
+							sourceContentType="code"
+							description="MySQL" />
+					</attachments>
+				</item>
+			</items>
+		</chapter>
+	</chapters>
+</documentation>

@@ -1,0 +1,24 @@
+=== C# Coding Style:
+
+  - exceptions:                   PascalCasingException
+  - interfaces:                   IPascalCasing
+  - enums:                     (e)PascalCasing
+  - classes:                   (c)PascalCasing
+  - struct:                    (s)PascalCasing
+
+  - parameters:                   camelCasing(_in)
+  - public properties:            PascalCasing
+  - private properties:           camelCasing_ / lowercasing_
+  - private properties*:          camelCasing__ / lowercasing__
+    * access should'nt be made directly
+  - public methods:               PascalCasing
+  - private methods:              camelCasing / lowercasing
+
+  ?
+  - aux variables:      (_)lowercasing
+  - out variables:      camelCasing/PascalCasing_out  / lowercasing
+
+=== Other considerations:
+- in case a private field is related with some property, it goes along with such property, otherwise is goes into private fields region.
+- in case private method is related with some method, it goes along with such method, otherwise is goes into private methods region.
+

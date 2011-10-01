@@ -1,0 +1,9 @@
+ALTER TABLE "NWS_ContentProfile"
+  ADD CONSTRAINT "NWS_ContentProfile_IFContent_fkey" FOREIGN KEY ("IFContent")
+    REFERENCES "NWS_Content" ("IDContent") MATCH SIMPLE
+    ON UPDATE NO ACTION ON DELETE NO ACTION,
+  ADD CONSTRAINT "NWS_ContentProfile_IFProfile_fkey" FOREIGN KEY ("IFProfile")
+    REFERENCES "NWS_Profile" ("IFProfile") MATCH SIMPLE
+    ON UPDATE NO ACTION ON DELETE NO ACTION
+;
+

@@ -1,0 +1,364 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{37C5F3D1-D158-4E05-BB2D-CD32553FB993}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>OGen.NTier.presentationlayer.winforms-2.0</AssemblyName>
+    <AssemblyOriginatorKeyFile>..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>OGen.NTier.presentationlayer.winforms</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE;NET_2_0</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;NET_2_0</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Npgsql" />
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\..\OGen\OGen_collections\OGen_collections-8.csproj">
+      <Name>OGen_collections-8</Name>
+      <Project>{A6E837F8-780F-4D05-B3ED-2FF1906B5766}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_generator\OGen_generator-8.csproj">
+      <Name>OGen_generator-8</Name>
+      <Project>{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_parser\OGen_parser-8.csproj">
+      <Name>OGen_parser-8</Name>
+      <Project>{981BC7DE-D93C-446E-861E-60A20E4E3391}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_webforms\OGen_webforms-8.csproj">
+      <Name>OGen_webforms-8</Name>
+      <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_winforms\OGen_winforms-8.csproj">
+      <Name>OGen_winforms-8</Name>
+      <Project>{B3835B3F-C899-416F-BA94-625A4B32A4AC}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\NTier_generator\NTier_generator-8.csproj">
+      <Name>NTier_generator-8</Name>
+      <Project>{BC9835E7-8878-479D-BC0F-909FA77344DD}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\NTier_metadata\NTier_metadata-8.csproj">
+      <Name>NTier_metadata-8</Name>
+      <Project>{0E77A4DB-AF8B-4290-BB33-F9EC97655433}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="COPYING.MIT" />
+    <Content Include="App.ico" />
+    <Content Include="LICENSE.MIT.txt" />
+    <Content Include="LICENSE.txt" />
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FlowForms\cGenerator_Generate_s000.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FlowForms\cManage_ConfigTables_s000.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FlowForms\cManage_ConfigTables_s010.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FlowForms\cManage_ConfigTables_s020.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FlowForms\cManage_Configuration_Project_s000.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FlowForms\cManage_Views_PK_s000.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FlowForms\cManage_Views_PK_s010.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FlowForms\cManage_Views_PK_s020.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FlowForms\Forms-generic\frmManage_Configuration_Project_s000.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FlowForms\Forms\frmGenerator_Generate_s000.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FlowForms\Forms\frmManage_ConfigTables_s000.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FlowForms\Forms\frmManage_ConfigTables_s010.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FlowForms\Forms\frmManage_ConfigTables_s020.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FlowForms\Forms\frmManage_Views_PK_s000.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FlowForms\Forms\frmManage_Views_PK_s010.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FlowForms\Forms\frmManage_Views_PK_s020.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FlowForms\Forms\_frmMODEL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FlowForms\Processes\PO_ConfigTables.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FlowForms\Processes\PO_Manage_Views_PK.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FlowForms\Processes\_PO_MODEL.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FlowForms\_cMODEL_s000.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FlowForms\_cMODEL_s010.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Forms.old\frmManage_Searches.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms.old\frmManage_Searches_Create_step010.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms.old\frmManage_Searches_Create_step020.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms.old\frmManage_Searches_Create_step030.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms.old\frmManage_Updates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms.old\frmManage_Updates_Create_step010.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms.old\frmManage_Updates_Create_step020.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms.old\frmManage_Updates_Create_step030.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms.old\frmManage_Updates_Create_step040.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmConnectionstring.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_about.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucPick_DBType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucPick_Fields.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucPick_Fields_forCriteria.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucPick_Searches.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucPick_Tables.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_utils\eInsUpdDel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="FlowForms\Forms-generic\frmManage_Configuration_Project_s000.resx">
+      <DependentUpon>frmManage_Configuration_Project_s000.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FlowForms\Forms\frmGenerator_Generate_s000.resx">
+      <DependentUpon>frmGenerator_Generate_s000.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FlowForms\Forms\frmManage_ConfigTables_s000.resx">
+      <DependentUpon>frmManage_ConfigTables_s000.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FlowForms\Forms\frmManage_ConfigTables_s010.resx">
+      <DependentUpon>frmManage_ConfigTables_s010.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FlowForms\Forms\frmManage_ConfigTables_s020.resx">
+      <DependentUpon>frmManage_ConfigTables_s020.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FlowForms\Forms\frmManage_Views_PK_s000.resx">
+      <DependentUpon>frmManage_Views_PK_s000.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FlowForms\Forms\frmManage_Views_PK_s010.resx">
+      <DependentUpon>frmManage_Views_PK_s010.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FlowForms\Forms\frmManage_Views_PK_s020.resx">
+      <DependentUpon>frmManage_Views_PK_s020.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FlowForms\Forms\_frmMODEL.resx">
+      <DependentUpon>_frmMODEL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms.old\frmManage_Searches.resx">
+      <DependentUpon>frmManage_Searches.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms.old\frmManage_Searches_Create_step010.resx">
+      <DependentUpon>frmManage_Searches_Create_step010.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms.old\frmManage_Searches_Create_step020.resx">
+      <DependentUpon>frmManage_Searches_Create_step020.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms.old\frmManage_Searches_Create_step030.resx">
+      <DependentUpon>frmManage_Searches_Create_step030.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms.old\frmManage_Updates.resx">
+      <DependentUpon>frmManage_Updates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms.old\frmManage_Updates_Create_step010.resx">
+      <DependentUpon>frmManage_Updates_Create_step010.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms.old\frmManage_Updates_Create_step020.resx">
+      <DependentUpon>frmManage_Updates_Create_step020.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms.old\frmManage_Updates_Create_step030.resx">
+      <DependentUpon>frmManage_Updates_Create_step030.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms.old\frmManage_Updates_Create_step040.resx">
+      <DependentUpon>frmManage_Updates_Create_step040.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmConnectionstring.resx">
+      <DependentUpon>frmConnectionstring.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_about.resx">
+      <DependentUpon>frm_about.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Main.resx">
+      <DependentUpon>frm_Main.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucPick_DBType.resx">
+      <DependentUpon>ucPick_DBType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucPick_Fields.resx">
+      <DependentUpon>ucPick_Fields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucPick_Fields_forCriteria.resx">
+      <DependentUpon>ucPick_Fields_forCriteria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucPick_Searches.resx">
+      <DependentUpon>ucPick_Searches.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucPick_Tables.resx">
+      <DependentUpon>ucPick_Tables.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OGen\OGen_datalayersupport\OGen_datalayersupport-8.csproj">
+      <Project>{88D87481-CC3F-49C7-A013-758387F3452E}</Project>
+      <Name>OGen_datalayersupport-8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_datalayer_PostgreSQL\OGen_datalayer_PostgreSQL-8.csproj">
+      <Project>{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}</Project>
+      <Name>OGen_datalayer_PostgreSQL-8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_datalayer_SQLServer\OGen_datalayer_SQLServer-8.csproj">
+      <Project>{F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7}</Project>
+      <Name>OGen_datalayer_SQLServer-8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_datalayer__base\OGen_datalayer__base-8.csproj">
+      <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
+      <Name>OGen_datalayer__base-8</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

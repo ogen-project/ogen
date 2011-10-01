@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0E77A4DB-AF8B-4290-BB33-F9EC97655433}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>OGen.NTier.lib.metadata-2.0</AssemblyName>
+    <AssemblyOriginatorKeyFile>..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>OGen.NTier.lib.metadata</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;DEBUG;PostgreSQL;NET_2_0</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;NET_2_0;PostgreSQL</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Npgsql" />
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\..\OGen\OGen_collections\OGen_collections-10.csproj">
+      <Name>OGen_collections-10</Name>
+      <Project>{A6E837F8-780F-4D05-B3ED-2FF1906B5766}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="metadataBusiness\XS_classesType.cs" />
+    <Compile Include="metadataBusiness\XS_classesTypeCollection.cs" />
+    <Compile Include="metadataBusiness\XS_classType.cs" />
+    <Compile Include="metadataBusiness\XS_classTypeCollection.cs" />
+    <Compile Include="metadataBusiness\XS_metadataBusinessType.cs" />
+    <Compile Include="metadataBusiness\XS_metadataBusinessTypeCollection.cs" />
+    <Compile Include="metadataBusiness\XS_methodsType.cs" />
+    <Compile Include="metadataBusiness\XS_methodsTypeCollection.cs" />
+    <Compile Include="metadataBusiness\XS_methodType.cs" />
+    <Compile Include="metadataBusiness\XS_methodTypeCollection.cs" />
+    <Compile Include="metadataBusiness\XS_parametersType.cs" />
+    <Compile Include="metadataBusiness\XS_parametersTypeCollection.cs" />
+    <Compile Include="metadataBusiness\XS_parameterType.cs" />
+    <Compile Include="metadataBusiness\XS_parameterTypeCollection.cs" />
+    <Compile Include="metadataBusiness\XS__metadataBusiness.cs" />
+    <Compile Include="metadataBusiness\XS__metadataBusinessCollection.cs" />
+    <Compile Include="metadataBusiness\_base\XS0_boEnumeration.cs" />
+    <Compile Include="metadataBusiness\_base\XS0_classesType.cs" />
+    <Compile Include="metadataBusiness\_base\XS0_classesTypeCollection.cs" />
+    <Compile Include="metadataBusiness\_base\XS0_classType.cs" />
+    <Compile Include="metadataBusiness\_base\XS0_classTypeCollection.cs" />
+    <Compile Include="metadataBusiness\_base\XS0_metadataBusinessType.cs" />
+    <Compile Include="metadataBusiness\_base\XS0_metadataBusinessTypeCollection.cs" />
+    <Compile Include="metadataBusiness\_base\XS0_methodsType.cs" />
+    <Compile Include="metadataBusiness\_base\XS0_methodsTypeCollection.cs" />
+    <Compile Include="metadataBusiness\_base\XS0_methodType.cs" />
+    <Compile Include="metadataBusiness\_base\XS0_methodTypeCollection.cs" />
+    <Compile Include="metadataBusiness\_base\XS0_parametersType.cs" />
+    <Compile Include="metadataBusiness\_base\XS0_parametersTypeCollection.cs" />
+    <Compile Include="metadataBusiness\_base\XS0_parameterType.cs" />
+    <Compile Include="metadataBusiness\_base\XS0_parameterTypeCollection.cs" />
+    <Compile Include="metadataBusiness\_base\XS0__metadataBusiness.cs" />
+    <Compile Include="metadataBusiness\_base\XS0__metadataBusinessCollection.cs" />
+    <Compile Include="metadataDB\XS_metadataDBType.cs" />
+    <Compile Include="metadataDB\XS_metadataDBTypeCollection.cs" />
+    <Compile Include="metadataDB\XS_tableDBsType.cs" />
+    <Compile Include="metadataDB\XS_tableDBsTypeCollection.cs" />
+    <Compile Include="metadataDB\XS_tableDBType.cs" />
+    <Compile Include="metadataDB\XS_tableDBTypeCollection.cs" />
+    <Compile Include="metadataDB\XS_tableFieldDBsType.cs" />
+    <Compile Include="metadataDB\XS_tableFieldDBsTypeCollection.cs" />
+    <Compile Include="metadataDB\XS_tableFieldDBType.cs" />
+    <Compile Include="metadataDB\XS_tableFieldDBTypeCollection.cs" />
+    <Compile Include="metadataDB\XS_tableFieldsType.cs" />
+    <Compile Include="metadataDB\XS_tableFieldsTypeCollection.cs" />
+    <Compile Include="metadataDB\XS_tableFieldType.cs" />
+    <Compile Include="metadataDB\XS_tableFieldTypeCollection.cs" />
+    <Compile Include="metadataDB\XS_tablesType.cs" />
+    <Compile Include="metadataDB\XS_tablesTypeCollection.cs" />
+    <Compile Include="metadataDB\XS_tableType.cs" />
+    <Compile Include="metadataDB\XS_tableTypeCollection.cs" />
+    <Compile Include="metadataDB\XS__metadataDB.cs" />
+    <Compile Include="metadataDB\XS__metadataDBCollection.cs" />
+    <Compile Include="metadataDB\_base\XS0_metadataDBType.cs" />
+    <Compile Include="metadataDB\_base\XS0_metadataDBTypeCollection.cs" />
+    <Compile Include="metadataDB\_base\XS0_tableDBsType.cs" />
+    <Compile Include="metadataDB\_base\XS0_tableDBsTypeCollection.cs" />
+    <Compile Include="metadataDB\_base\XS0_tableDBType.cs" />
+    <Compile Include="metadataDB\_base\XS0_tableDBTypeCollection.cs" />
+    <Compile Include="metadataDB\_base\XS0_tableFieldDBsType.cs" />
+    <Compile Include="metadataDB\_base\XS0_tableFieldDBsTypeCollection.cs" />
+    <Compile Include="metadataDB\_base\XS0_tableFieldDBType.cs" />
+    <Compile Include="metadataDB\_base\XS0_tableFieldDBTypeCollection.cs" />
+    <Compile Include="metadataDB\_base\XS0_tableFieldsType.cs" />
+    <Compile Include="metadataDB\_base\XS0_tableFieldsTypeCollection.cs" />
+    <Compile Include="metadataDB\_base\XS0_tableFieldType.cs" />
+    <Compile Include="metadataDB\_base\XS0_tableFieldTypeCollection.cs" />
+    <Compile Include="metadataDB\_base\XS0_tablesType.cs" />
+    <Compile Include="metadataDB\_base\XS0_tablesTypeCollection.cs" />
+    <Compile Include="metadataDB\_base\XS0_tableType.cs" />
+    <Compile Include="metadataDB\_base\XS0_tableTypeCollection.cs" />
+    <Compile Include="metadataDB\_base\XS0__metadataDB.cs" />
+    <Compile Include="metadataDB\_base\XS0__metadataDBCollection.cs" />
+    <Compile Include="metadataExtended\XS_dbConnectionsType.cs" />
+    <Compile Include="metadataExtended\XS_dbConnectionsTypeCollection.cs" />
+    <Compile Include="metadataExtended\XS_dbConnectionType.cs" />
+    <Compile Include="metadataExtended\XS_dbConnectionTypeCollection.cs" />
+    <Compile Include="metadataExtended\XS_dbsType.cs" />
+    <Compile Include="metadataExtended\XS_dbsTypeCollection.cs" />
+    <Compile Include="metadataExtended\XS_dbType.cs" />
+    <Compile Include="metadataExtended\XS_dbTypeCollection.cs" />
+    <Compile Include="metadataExtended\XS_metadataExtendedType.cs" />
+    <Compile Include="metadataExtended\XS_metadataExtendedTypeCollection.cs" />
+    <Compile Include="metadataExtended\XS_tableFieldRefType.cs" />
+    <Compile Include="metadataExtended\XS_tableFieldRefTypeCollection.cs" />
+    <Compile Include="metadataExtended\XS_tableFieldsType.cs" />
+    <Compile Include="metadataExtended\XS_tableFieldsTypeCollection.cs" />
+    <Compile Include="metadataExtended\XS_tableFieldType.cs" />
+    <Compile Include="metadataExtended\XS_tableFieldTypeCollection.cs" />
+    <Compile Include="metadataExtended\XS_tableSearchesType.cs" />
+    <Compile Include="metadataExtended\XS_tableSearchesTypeCollection.cs" />
+    <Compile Include="metadataExtended\XS_tableSearchParametersType.cs" />
+    <Compile Include="metadataExtended\XS_tableSearchParametersTypeCollection.cs" />
+    <Compile Include="metadataExtended\XS_tableSearchType.cs" />
+    <Compile Include="metadataExtended\XS_tableSearchTypeCollection.cs" />
+    <Compile Include="metadataExtended\XS_tableSearchUpdateParametersType.cs" />
+    <Compile Include="metadataExtended\XS_tableSearchUpdateParametersTypeCollection.cs" />
+    <Compile Include="metadataExtended\XS_tableSearchUpdatesType.cs" />
+    <Compile Include="metadataExtended\XS_tableSearchUpdatesTypeCollection.cs" />
+    <Compile Include="metadataExtended\XS_tableSearchUpdateType.cs" />
+    <Compile Include="metadataExtended\XS_tableSearchUpdateTypeCollection.cs" />
+    <Compile Include="metadataExtended\XS_tablesType.cs" />
+    <Compile Include="metadataExtended\XS_tablesTypeCollection.cs" />
+    <Compile Include="metadataExtended\XS_tableType.cs" />
+    <Compile Include="metadataExtended\XS_tableTypeCollection.cs" />
+    <Compile Include="metadataExtended\XS_tableUpdateParametersType.cs" />
+    <Compile Include="metadataExtended\XS_tableUpdateParametersTypeCollection.cs" />
+    <Compile Include="metadataExtended\XS_tableUpdatesType.cs" />
+    <Compile Include="metadataExtended\XS_tableUpdatesTypeCollection.cs" />
+    <Compile Include="metadataExtended\XS_tableUpdateType.cs" />
+    <Compile Include="metadataExtended\XS_tableUpdateTypeCollection.cs" />
+    <Compile Include="metadataExtended\XS__metadataExtended.cs" />
+    <Compile Include="metadataExtended\XS__metadataExtendedCollection.cs" />
+    <Compile Include="metadataExtended\_base\XS0_dbConnectionsType.cs" />
+    <Compile Include="metadataExtended\_base\XS0_dbConnectionsTypeCollection.cs" />
+    <Compile Include="metadataExtended\_base\XS0_dbConnectionType.cs" />
+    <Compile Include="metadataExtended\_base\XS0_dbConnectionTypeCollection.cs" />
+    <Compile Include="metadataExtended\_base\XS0_dbsType.cs" />
+    <Compile Include="metadataExtended\_base\XS0_dbsTypeCollection.cs" />
+    <Compile Include="metadataExtended\_base\XS0_dbType.cs" />
+    <Compile Include="metadataExtended\_base\XS0_dbTypeCollection.cs" />
+    <Compile Include="metadataExtended\_base\XS0_metadataExtendedType.cs" />
+    <Compile Include="metadataExtended\_base\XS0_metadataExtendedTypeCollection.cs" />
+    <Compile Include="metadataExtended\_base\XS0_sqlScriptOptionEnumeration.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableFieldRefType.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableFieldRefTypeCollection.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableFieldsType.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableFieldsTypeCollection.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableFieldType.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableFieldTypeCollection.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableSearchesType.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableSearchesTypeCollection.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableSearchParametersType.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableSearchParametersTypeCollection.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableSearchType.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableSearchTypeCollection.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableSearchUpdateParametersType.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableSearchUpdateParametersTypeCollection.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableSearchUpdatesType.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableSearchUpdatesTypeCollection.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableSearchUpdateType.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableSearchUpdateTypeCollection.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tablesType.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tablesTypeCollection.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableType.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableTypeCollection.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableUpdateParametersType.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableUpdateParametersTypeCollection.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableUpdatesType.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableUpdatesTypeCollection.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableUpdateType.cs" />
+    <Compile Include="metadataExtended\_base\XS0_tableUpdateTypeCollection.cs" />
+    <Compile Include="metadataExtended\_base\XS0__metadataExtended.cs" />
+    <Compile Include="metadataExtended\_base\XS0__metadataExtendedCollection.cs" />
+    <Compile Include="XS__RootMetadata.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_base\XS0__RootMetadata.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="COPYING.MIT" />
+    <None Include="OGenXSD-metadatas\COPYING.MIT" />
+    <None Include="OGenXSD-metadatas\MD_NTier_metadataDB.OGenXSD-metadata.xsd" />
+    <None Include="OGenXSD-metadatas\MD_NTier_metadataExtended.OGenXSD-metadata.xsd" />
+    <None Include="OGenXSD-metadatas\_old-stuff\MD_NTier_metadata.OGenXSD-metadata.xsd" />
+    <None Include="OGenXSD-metadatas\_old-stuff\MD_NTier_someTest.OGenXSD-metadata.xsd" />
+    <Content Include="LICENSE.MIT.txt" />
+    <Content Include="LICENSE.txt" />
+    <Content Include="OGenXSD-metadatas\LICENSE.MIT.txt" />
+    <Content Include="OGenXSD-metadatas\LICENSE.txt" />
+    <Content Include="OGenXSD-metadatas\MD_NTier_metadata.OGenXSD-metadata.xml" />
+    <Content Include="OGenXSD-metadatas\MD_NTier_metadataApplication.OGenXSD-metadata.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OGen\OGen_datalayersupport\OGen_datalayersupport-10.csproj">
+      <Project>{88D87481-CC3F-49C7-A013-758387F3452E}</Project>
+      <Name>OGen_datalayersupport-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_datalayer_PostgreSQL\OGen_datalayer_PostgreSQL-10.csproj">
+      <Project>{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}</Project>
+      <Name>OGen_datalayer_PostgreSQL-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_datalayer_SQLServer\OGen_datalayer_SQLServer-10.csproj">
+      <Project>{F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7}</Project>
+      <Name>OGen_datalayer_SQLServer-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_datalayer__base\OGen_datalayer__base-10.csproj">
+      <Project>{D66D0E69-852C-4695-9D63-C9AB1A959E0B}</Project>
+      <Name>OGen_datalayer__base-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_generator\OGen_generator-10.csproj">
+      <Project>{668ACF34-6104-4DD9-BB8A-65D9D94B0BB6}</Project>
+      <Name>OGen_generator-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_parser\OGen_parser-10.csproj">
+      <Project>{981BC7DE-D93C-446E-861E-60A20E4E3391}</Project>
+      <Name>OGen_parser-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OGen\OGen_webforms\OGen_webforms-10.csproj">
+      <Project>{196FD9A0-3C2F-4B84-BDFF-0DADC2A03791}</Project>
+      <Name>OGen_webforms-10</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NTier_businesslayer\NTier_businesslayer-10.csproj">
+      <Project>{8AEBEA64-6FC4-430C-922C-B88D105AE91C}</Project>
+      <Name>NTier_businesslayer-10</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
