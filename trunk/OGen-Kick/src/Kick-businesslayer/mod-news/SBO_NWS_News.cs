@@ -106,7 +106,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 		#endregion
 		#region public static SO_vNWS_Content getObject(...);
-		[BOMethodAttribute("getObject", true)]
+		[BOMethodAttribute("getObject", true, false, 1)]
 		public static SO_vNWS_Content getObject(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -138,7 +138,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 		#endregion
 		#region public static SO_vNWS_Content[] getRecord_byContent(...);
-		[BOMethodAttribute("getRecord_byContent", true)]
+		[BOMethodAttribute("getRecord_byContent", true, false, 1)]
 		public static SO_vNWS_Content[] getRecord_byContent(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -160,7 +160,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#endregion
 
 		#region public static void updObject_Approve(...);
-		[BOMethodAttribute("updObject_Approve", true)]
+		[BOMethodAttribute("updObject_Approve", true, false, 1)]
 		public static void updObject_Approve(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -410,7 +410,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 		} 
 		#endregion
 //		#region public static long insObject(...);
-		[BOMethodAttribute("insObject", true)]
+		[BOMethodAttribute("insObject", true, false, 1)]
 		public static long insObject(
 			#region params...
 			string sessionGuid_in,
@@ -913,7 +913,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 		}
 //		#endregion
 		#region public static void updObject(...);
-		[BOMethodAttribute("updObject", true)]
+		[BOMethodAttribute("updObject", true, false, 1)]
 		public static void updObject(
 			#region params...
 			string sessionGuid_in,
@@ -969,7 +969,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 		} 
 		#endregion
 		#region public static void updObject_Content(...);
-		[BOMethodAttribute("updObject_Content", true)]
+		[BOMethodAttribute("updObject_Content", true, false, 1)]
 		public static void updObject_Content(
 			#region params...
 			string sessionGuid_in,
@@ -1019,7 +1019,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 		} 
 		#endregion
 		#region public static void updObject_Tags(...);
-		[BOMethodAttribute("updObject_Tags", true)]
+		[BOMethodAttribute("updObject_Tags", true, false, 1)]
 		public static void updObject_Tags(
 			#region params...
 			string sessionGuid_in,
@@ -1085,7 +1085,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 		} 
 		#endregion
 		#region public static void updObject_Authors(...);
-		[BOMethodAttribute("updObject_Authors", true)]
+		[BOMethodAttribute("updObject_Authors", true, false, 1)]
 		public static void updObject_Authors(
 			#region params...
 			string sessionGuid_in,
@@ -1151,7 +1151,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 		} 
 		#endregion
 		#region public static void updObject_Sources(...);
-		[BOMethodAttribute("updObject_Sources", true)]
+		[BOMethodAttribute("updObject_Sources", true, false, 1)]
 		public static void updObject_Sources(
 			#region params...
 			string sessionGuid_in,
@@ -1217,7 +1217,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 		} 
 		#endregion
 		#region public static void updObject_Profiles(...);
-		[BOMethodAttribute("updObject_Profiles", true)]
+		[BOMethodAttribute("updObject_Profiles", true, false, 1)]
 		public static void updObject_Profiles(
 			#region params...
 			string sessionGuid_in,
@@ -1283,7 +1283,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 		} 
 		#endregion
 		#region public static void updObject_Highlights(...);
-		[BOMethodAttribute("updObject_Highlights", true)]
+		[BOMethodAttribute("updObject_Highlights", true, false, 1)]
 		public static void updObject_Highlights(
 			#region params...
 			string sessionGuid_in,
@@ -1383,7 +1383,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 		//#endregion
 
 		#region public static void delObject(...);
-		[BOMethodAttribute("delObject", true)]
+		[BOMethodAttribute("delObject", true, false, 1)]
 		public static void delObject(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -1640,7 +1640,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 
 
 		#region public static SO_vNWS_Content[] getRecord_generic(...);
-		[BOMethodAttribute("getRecord_generic", true)]
+		[BOMethodAttribute("getRecord_generic", true, false, 1)]
 		public static SO_vNWS_Content[] getRecord_generic(
 			#region params...
 			string sessionGuid_in,

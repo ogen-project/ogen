@@ -29,7 +29,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 	public static class SBO_NWS_Tag {
 
 		#region public static SO_NWS_Tag getObject(...);
-		[BOMethodAttribute("getObject", true)]
+		[BOMethodAttribute("getObject", true, false, 1)]
 		public static SO_NWS_Tag getObject(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -81,7 +81,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 		#endregion
 		#region public static SO_vNWS_Tag getObject_byTag_andLanguage(...);
-		[BOMethodAttribute("getObject_byTag_andLanguage", true)]
+		[BOMethodAttribute("getObject_byTag_andLanguage", true, false, 1)]
 		public static SO_vNWS_Tag getObject_byTag_andLanguage(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -135,7 +135,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 		#endregion
 		#region public static SO_vNWS_Tag[] getRecord_byTag(...);
-		[BOMethodAttribute("getRecord_byTag", true)]
+		[BOMethodAttribute("getRecord_byTag", true, false, 1)]
 		public static SO_vNWS_Tag[] getRecord_byTag(
 			#region params...
 			string sessionGuid_in,
@@ -278,7 +278,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		} 
 		#endregion
 		#region public static int insObject(...);
-		[BOMethodAttribute("insObject", true)]
+		[BOMethodAttribute("insObject", true, false, 1)]
 		public static long insObject(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -405,7 +405,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		} 
 		#endregion
 		#region public static void updObject(...);
-		[BOMethodAttribute("updObject", true)]
+		[BOMethodAttribute("updObject", true, false, 1)]
 		public static void updObject(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -557,7 +557,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#endregion
 
 		#region public static void updObject_Approve(...);
-		[BOMethodAttribute("updObject_Approve", true)]
+		[BOMethodAttribute("updObject_Approve", true, false, 1)]
 		public static void updObject_Approve(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -630,7 +630,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#region public static void delObject(...);
 		private static DateTime datetime_minvalue_ = new DateTime(1900, 1, 1);
 
-		[BOMethodAttribute("delObject", true)]
+		[BOMethodAttribute("delObject", true, false, 1)]
 		public static void delObject(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -802,7 +802,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#endregion
 
 		#region public static SO_vNWS_Tag[] getRecord_Approved_byLang(...);
-		[BOMethodAttribute("getRecord_Approved_byLang", true)]
+		[BOMethodAttribute("getRecord_Approved_byLang", true, false, 1)]
 		public static SO_vNWS_Tag[] getRecord_Approved_byLang(
 			#region params...
 			string sessionGuid_in,
@@ -864,7 +864,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 		#endregion
 		#region public static SO_vNWS_Tag[] getRecord_byLang(...);
-		[BOMethodAttribute("getRecord_byLang", true)]
+		[BOMethodAttribute("getRecord_byLang", true, false, 1)]
 		public static SO_vNWS_Tag[] getRecord_byLang(
 			#region params...
 			string sessionGuid_in,
@@ -927,7 +927,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#endregion
 
 		#region public static SO_NWS_ContentTag[] getRecord_byContent(...);
-		[BOMethodAttribute("getRecord_byContent", true)]
+		[BOMethodAttribute("getRecord_byContent", true, false, 1)]
 		public static SO_NWS_ContentTag[] getRecord_byContent(
 			#region params...
 			string sessionGuid_in,

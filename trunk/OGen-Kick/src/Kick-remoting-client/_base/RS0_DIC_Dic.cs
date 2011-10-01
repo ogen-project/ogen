@@ -35,5 +35,15 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
 		#endregion
+		#region public void insLanguage(...);
+		public void insLanguage(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			out System.Int32[] errors_out, 
+			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] languageName_in
+		) {
+			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
+		}
+		#endregion
 	}
 }

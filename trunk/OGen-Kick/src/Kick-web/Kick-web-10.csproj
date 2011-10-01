@@ -48,6 +48,8 @@
     <Content Include="admin\CRD-Profile-list.aspx" />
     <Content Include="admin\CRD-Profile.aspx" />
     <Content Include="admin\Default.aspx" />
+    <Content Include="admin\DIC-Language-list.aspx" />
+    <Content Include="admin\DIC-Language.aspx" />
     <Content Include="admin\LOG-Log.aspx" />
     <Content Include="admin\NWS-News-list.aspx" />
     <Content Include="admin\NWS-News.aspx" />
@@ -120,6 +122,20 @@
     </Compile>
     <Compile Include="admin\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\DIC-Language-list.aspx.cs">
+      <DependentUpon>DIC-Language-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\DIC-Language-list.aspx.designer.cs">
+      <DependentUpon>DIC-Language-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\DIC-Language.aspx.cs">
+      <DependentUpon>DIC-Language.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\DIC-Language.aspx.designer.cs">
+      <DependentUpon>DIC-Language.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\LOG-Log.aspx.cs">
       <DependentUpon>LOG-Log.aspx</DependentUpon>

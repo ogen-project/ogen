@@ -356,6 +356,11 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			items_.Add(authentication__guid_not_yours, new ErrorItem("authentication - guid not yours", true));
 			items_.Add(authentication__no_such_user, new ErrorItem("authentication - no such user", true));
 			items_.Add(authentication__expired_guid, new ErrorItem("authentication - expired guid", true));
+			items_.Add(language__lack_of_permitions_to_write, new ErrorItem("language - lack of permitions to write", true));
+			items_.Add(language__lack_of_permitions_to_delete, new ErrorItem("language - lack of permitions to delete", true));
+			items_.Add(language__successfully_created__WARNING, new ErrorItem("language - successfully created", false));
+			items_.Add(language__successfully_updated__WARNING, new ErrorItem("language - successfully updated", false));
+			items_.Add(language__successfully_deleted__WARNING, new ErrorItem("language - successfully deleted", false));
 
 		}
 
@@ -515,5 +520,12 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 		public const int encryption__failled_to_encrypt = 122;
 		public const int encryption__failled_to_decrypt = 123;
 		public const int encryption__failled_to_decrypt__expired = 124;
+
+		public const int language__lack_of_permitions_to_write = 135;
+		public const int language__lack_of_permitions_to_delete = 136;
+		public const int language__successfully_created__WARNING = 137;
+		public const int language__successfully_updated__WARNING = 138;
+		public const int language__successfully_deleted__WARNING = 139;
+
 	}
 }

@@ -29,7 +29,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 	public static class SBO_NWS_Attachment {
 
 		#region public static SO_NWS_Attachment getObject(...);
-		[BOMethodAttribute("getObject", true)]
+		[BOMethodAttribute("getObject", true, false, 1)]
 		public static SO_NWS_Attachment getObject(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -126,7 +126,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		} 
 		#endregion
 		#region public static long insObject(...);
-		[BOMethodAttribute("insObject", true)]
+		[BOMethodAttribute("insObject", true, false, 1)]
 		public static long insObject(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -308,7 +308,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		} 
 		#endregion
 		#region public static void updObject(...);
-		[BOMethodAttribute("updObject", true)]
+		[BOMethodAttribute("updObject", true, false, 1)]
 		public static void updObject(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -474,7 +474,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#region public static void delObject(...);
 		private static DateTime datetime_minvalue_ = new DateTime(1900, 1, 1);
 
-		[BOMethodAttribute("delObject", true)]
+		[BOMethodAttribute("delObject", true, false, 1)]
 		public static void delObject(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -636,7 +636,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#endregion
 
 		#region public static SO_vNWS_Attachment[] getRecord_byContent_andLanguage(...);
-		[BOMethodAttribute("getRecord_byContent_andLanguage", true)]
+		[BOMethodAttribute("getRecord_byContent_andLanguage", true, false, 1)]
 		public static SO_vNWS_Attachment[] getRecord_byContent_andLanguage(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -693,7 +693,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 		#endregion
 		#region public static SO_vNWS_Attachment[] getRecord_byContent(...);
-		[BOMethodAttribute("getRecord_byContent", true)]
+		[BOMethodAttribute("getRecord_byContent", true, false, 1)]
 		public static SO_vNWS_Attachment[] getRecord_byContent(
 			#region params...
 			string sessionGuid_in,

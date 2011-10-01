@@ -79,6 +79,9 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			items_.Add(Forum__Thread__insert, new PseudoEnumItem("Forum - Thread - insert"));
 			items_.Add(Forum__Reply__insert, new PseudoEnumItem("Forum - Reply - insert"));
 			items_.Add(Forum__Forum__insert, new PseudoEnumItem("Forum - Forum - insert"));
+			items_.Add(Language__insert, new PseudoEnumItem("Language - insert"));
+			items_.Add(Language__update, new PseudoEnumItem("Language - update"));
+			items_.Add(Language__delete, new PseudoEnumItem("Language - delete"));
 
 		}
 
@@ -150,5 +153,8 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 		public const int Forum__Reply__insert = 56;
 		public const int Forum__Forum__insert = 57;
 
+		public const int Language__insert = 58;
+		public const int Language__update = 59;
+		public const int Language__delete = 60;
 	}
 }

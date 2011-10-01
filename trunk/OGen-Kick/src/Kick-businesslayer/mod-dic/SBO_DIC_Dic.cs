@@ -28,6 +28,156 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 	[BOClassAttribute("BO_DIC_Dic", "")]
 	public static class SBO_DIC_Dic {
 
+		#region public static void insLanguage(...);
+		[BOMethodAttribute("insLanguage", true, false, 1)]
+		public static void insLanguage(
+			string sessionGuid_in,
+			string ip_forLogPurposes_in,
+
+			out int[] errors_out,
+
+			params SO_DIC__TextLanguage[] languageName_in
+		) {
+			List<int> _errorlist;
+			Guid _sessionguid;
+			Sessionuser _sessionuser;
+
+			#region check...
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in,
+				ip_forLogPurposes_in,
+				out _sessionguid,
+				out _sessionuser,
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
+
+				return;
+			}
+			#endregion
+			#region check permitions...
+			if (!_sessionuser.hasPermition(PermitionType.Language__insert)) {
+				_errorlist.Add(ErrorType.language__lack_of_permitions_to_write);
+				errors_out = _errorlist.ToArray();
+				return;
+			}
+			#endregion
+
+
+			Exception _exception = null;
+			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
+			DBConnection _con = DO__utils.DBConnection_createInstance(
+				DO__utils.DBServerType,
+				DO__utils.DBConnectionstring,
+				DO__utils.DBLogfile
+			);
+			#endregion
+			try {
+				_con.Open();
+				_con.Transaction.Begin();
+
+
+				#region long _idtext = DO_DIC_Text.insObject(...);
+				#region SO_DIC_Text _text = ...;
+				SO_DIC_Text _text = new SO_DIC_Text(
+					-1L, 
+					-1, 
+					-1
+				);
+				_text.IFApplication_isNull = true;
+				_text.SourceTableField_ref_isNull = true;
+				#endregion
+
+				long _idtext = DO_DIC_Text.insObject(
+					_text,
+					true,
+					_con
+				);
+				#endregion
+				#region int _idlanguage = DO_DIC_Language.insObject(...);
+				int _idlanguage = DO_DIC_Language.insObject(
+					new SO_DIC_Language(
+						-1,
+						_idtext
+					),
+					true,
+					_con
+				);
+				#endregion
+				for (int i = 0; i < languageName_in.Length; i++) {
+					if (languageName_in[i].IFLanguage > 0) {
+						updObject(
+							_con, 
+							_idtext,
+							(languageName_in[i].IFLanguage > 0) 
+
+								// name of the new language on existing languages
+								? languageName_in[i]
+
+								// name of the new language (on new language)
+								: new SO_DIC__TextLanguage(
+									_idlanguage, 
+									languageName_in[i].Text
+								)
+
+						);
+					}
+				}
+
+				#region _con.Transaction.Commit();
+				if (_con.Transaction.inTransaction) {
+					_con.Transaction.Commit();
+				}
+				#endregion
+				_errorlist.Add(ErrorType.language__successfully_created__WARNING);
+			} catch (Exception _ex) {
+				#region _con.Transaction.Rollback();
+				if (
+					_con.isOpen
+					&&
+					_con.Transaction.inTransaction
+				) {
+					_con.Transaction.Rollback();
+				}
+				#endregion
+
+				_exception = _ex;
+			} finally {
+				#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
+				if (_con.isOpen) {
+					if (_con.Transaction.inTransaction) {
+						_con.Transaction.Terminate();
+					}
+					_con.Close();
+				}
+
+				_con.Dispose();
+				#endregion
+			}
+			if (_exception != null) {
+				#region SBO_LOG_Log.log(ErrorType.data);
+				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+					_sessionuser,
+					LogType.error,
+					ErrorType.data,
+					-1L,
+					_sessionuser.IDApplication,
+					"{0}",
+					new string[] {
+						_exception.Message
+					}
+				);
+				#endregion
+				_errorlist.Add(ErrorType.data);
+			}
+
+
+			errors_out = _errorlist.ToArray();
+		}
+		#endregion
+
 		#region public static long insObject(...);
 		public static long insObject(
 			DBConnection dbConnection_in, 
@@ -143,7 +293,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 //		#endregion
 
 		#region public static SO_vDIC_ApplicationLanguage[] getRecord_byApplication(...);
-		[BOMethodAttribute("getRecord_byApplication", true)]
+		[BOMethodAttribute("getRecord_byApplication", true, false, 1)]
 		public static SO_vDIC_ApplicationLanguage[] getRecord_byApplication(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 

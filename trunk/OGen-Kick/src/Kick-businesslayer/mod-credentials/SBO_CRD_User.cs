@@ -187,7 +187,7 @@ password_in,
 		}
 		#endregion
 
-		[BOMethodAttribute("insObject_Registration", true)]
+		[BOMethodAttribute("insObject_Registration", true, false, -1)]
 		public static void insObject_Registration(
 			string login_in, 
 			string password_in, 

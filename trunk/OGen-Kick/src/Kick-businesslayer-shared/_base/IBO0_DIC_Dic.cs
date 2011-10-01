@@ -23,5 +23,11 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string ip_forLogPurposes_in, 
 			out System.Int32[] errors_out
 		);
+		void insLanguage(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			out System.Int32[] errors_out, 
+			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] languageName_in
+		);
 	}
 }

@@ -329,7 +329,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 		#endregion
 		#region public static void Logout(...);
-		[BOMethodAttribute("Logout", true)]
+		[BOMethodAttribute("Logout", true, false, -1)]
 		public static void Logout(
 			string sessionGuid_in
 		) {
@@ -414,7 +414,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 		#endregion
 		#region public static bool CheckCredentials(...);
-		[BOMethodAttribute("CheckCredentials", true)]
+		[BOMethodAttribute("CheckCredentials", true, false, 1)]
 		public static bool CheckCredentials(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in,

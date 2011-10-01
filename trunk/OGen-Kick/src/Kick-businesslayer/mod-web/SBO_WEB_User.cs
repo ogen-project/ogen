@@ -1032,7 +1032,7 @@ A equipa {2}
 		////#endregion
 
 		#region public static void LostPassword_Recover(...);
-		[BOMethodAttribute("LostPassword_Recover", true)]
+		[BOMethodAttribute("LostPassword_Recover", true, false, -1)]
 		public static void LostPassword_Recover(
 			//string credentials_in,
 
@@ -1153,7 +1153,7 @@ A equipa {2}",
 		}
 		#endregion
 
-		[BOMethodAttribute("insObject_Registration", true)]
+		[BOMethodAttribute("insObject_Registration", true, false, -1)]
 		public static void insObject_Registration(
 			string login_in, 
 			string email_in,

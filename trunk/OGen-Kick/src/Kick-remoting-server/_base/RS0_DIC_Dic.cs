@@ -35,8 +35,27 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_DIC_Dic.getRecord_byApplication(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP)
+					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
+					: ip_forLogPurposes_in, 
 				out errors_out
+			);
+		}
+		#endregion
+		#region public void insLanguage(...);
+		public void insLanguage(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			out System.Int32[] errors_out, 
+			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] languageName_in
+		) {
+			OGen.NTier.Kick.lib.businesslayer.SBO_DIC_Dic.insLanguage(
+				sessionGuid_in, 
+				(utils.ResetClientIP)
+					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
+					: ip_forLogPurposes_in, 
+				out errors_out, 
+				languageName_in
 			);
 		}
 		#endregion

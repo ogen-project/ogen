@@ -29,7 +29,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 	public static class SBO_NWS_Highlight {
 
 		#region public static SO_NWS_Highlight getObject(...);
-		[BOMethodAttribute("getObject", true)]
+		[BOMethodAttribute("getObject", true, false, 1)]
 		public static SO_NWS_Highlight getObject(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -151,7 +151,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		} 
 		#endregion
 		#region public static int insObject(...);
-		[BOMethodAttribute("insObject", true)]
+		[BOMethodAttribute("insObject", true, false, 1)]
 		public static long insObject(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -204,7 +204,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		} 
 		#endregion
 		#region public static void updObject(...);
-		[BOMethodAttribute("updObject", true)]
+		[BOMethodAttribute("updObject", true, false, 1)]
 		public static void updObject(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -280,7 +280,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#endregion
 
 		#region public static void updObject_Approve(...);
-		[BOMethodAttribute("updObject_Approve", true)]
+		[BOMethodAttribute("updObject_Approve", true, false, 1)]
 		public static void updObject_Approve(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -353,7 +353,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#region public static void delObject(...);
 		private static DateTime datetime_minvalue_ = new DateTime(1900, 1, 1);
 
-		[BOMethodAttribute("delObject", true)]
+		[BOMethodAttribute("delObject", true, false, 1)]
 		public static void delObject(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
@@ -518,7 +518,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#endregion
 
 		#region public static SO_NWS_ContentHighlight[] getRecord_byContent(...);
-		[BOMethodAttribute("getRecord_byContent", true)]
+		[BOMethodAttribute("getRecord_byContent", true, false, 1)]
 		public static SO_NWS_ContentHighlight[] getRecord_byContent(
 			#region params...
 			string sessionGuid_in,
@@ -582,7 +582,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#endregion
 
 		#region public static SO_vNWS_Highlight[] getRecord_Approved(...);
-		[BOMethodAttribute("getRecord_Approved", true)]
+		[BOMethodAttribute("getRecord_Approved", true, false, 1)]
 		public static SO_vNWS_Highlight[] getRecord_Approved(
 			#region params...
 			string sessionGuid_in,
@@ -641,7 +641,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 		#endregion
 		#region public static SO_vNWS_Highlight[] getRecord_all(...);
-		[BOMethodAttribute("getRecord_all", true)]
+		[BOMethodAttribute("getRecord_all", true, false, 1)]
 		public static SO_vNWS_Highlight[] getRecord_all(
 			#region params...
 			string sessionGuid_in,
