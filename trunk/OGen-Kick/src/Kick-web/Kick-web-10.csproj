@@ -50,6 +50,7 @@
     <Content Include="admin\Default.aspx" />
     <Content Include="admin\DIC-Language-list.aspx" />
     <Content Include="admin\DIC-Language.aspx" />
+    <Content Include="admin\DIC-SupportedLanguages.aspx" />
     <Content Include="admin\LOG-Log.aspx" />
     <Content Include="admin\NWS-News-list.aspx" />
     <Content Include="admin\NWS-News.aspx" />
@@ -136,6 +137,13 @@
     </Compile>
     <Compile Include="admin\DIC-Language.aspx.designer.cs">
       <DependentUpon>DIC-Language.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\DIC-SupportedLanguages.aspx.cs">
+      <DependentUpon>DIC-SupportedLanguages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\DIC-SupportedLanguages.aspx.designer.cs">
+      <DependentUpon>DIC-SupportedLanguages.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\LOG-Log.aspx.cs">
       <DependentUpon>LOG-Log.aspx</DependentUpon>

@@ -82,6 +82,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			items_.Add(Language__insert, new PseudoEnumItem("Language - insert"));
 			items_.Add(Language__update, new PseudoEnumItem("Language - update"));
 			items_.Add(Language__delete, new PseudoEnumItem("Language - delete"));
+			items_.Add(Language__set_supported, new PseudoEnumItem("Language - set supported"));
 
 		}
 
@@ -156,5 +157,6 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 		public const int Language__insert = 58;
 		public const int Language__update = 59;
 		public const int Language__delete = 60;
+		public const int Language__set_supported = 61;
 	}
 }

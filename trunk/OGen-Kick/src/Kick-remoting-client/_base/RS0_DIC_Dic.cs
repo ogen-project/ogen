@@ -75,6 +75,16 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
 		#endregion
+		#region public void setSupportedLanguages(...);
+		public void setSupportedLanguages(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			System.Int32[] idLanguages_in, 
+			out System.Int32[] errors_out
+		) {
+			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
+		}
+		#endregion
 		#region public void updLanguage(...);
 		public void updLanguage(
 			string sessionGuid_in, 

@@ -47,6 +47,12 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] languageName_in, 
 			out System.Int32[] errors_out
 		);
+		void setSupportedLanguages(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			System.Int32[] idLanguages_in, 
+			out System.Int32[] errors_out
+		);
 		void updLanguage(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 

@@ -25,7 +25,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_vDIC_ApplicationLanguage : 
-		SO__ListItem<int, int> 
+		SO__ListItem<int, string> 
 	{
 		#region public SO_vDIC_ApplicationLanguage();
 		public SO_vDIC_ApplicationLanguage(
@@ -79,14 +79,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public override int ListItem_Value { get; }
 		public override int ListItem_Value {
 			get {
-				return ifapplication_;
+				return idlanguage_;
 			}
 		}
 		#endregion
-		#region public override int ListItem_Text { get; }
-		public override int ListItem_Text {
+		#region public override string ListItem_Text { get; }
+		public override string ListItem_Text {
 			get {
-				return idlanguage_;
+				return Language;
 			}
 		} 
 		#endregion
@@ -120,7 +120,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			true, 
 			false, 
 			false, 
-			true, 
+			false, 
 			false, 
 			0, 
 			""
@@ -168,8 +168,8 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			true, 
 			false, 
 			false, 
-			false, 
 			true, 
+			false, 
 			0, 
 			""
 		)]
@@ -217,7 +217,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			false, 
 			true, 
 			false, 
-			false, 
+			true, 
 			0, 
 			""
 		)]

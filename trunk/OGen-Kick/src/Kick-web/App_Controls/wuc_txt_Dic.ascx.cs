@@ -150,10 +150,18 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			// 3rd: finally, bind contents, if any
 			if (texts_ == null) return;
 
+			bool _showLanguage = (utils.Dic.Languages_get().Length > 1);
+			Label _lbl_Language;
 			TextBox _txt_field;
 			HiddenField _hfi_idlanguage;
 			foreach (RepeaterItem _item in rep_Field.Items) {
 				_hfi_idlanguage = (HiddenField)_item.FindControl("hfi_IDLanguage");
+
+				if (!_showLanguage) {
+					_lbl_Language = (Label)_item.FindControl("lbl_Language");
+					_lbl_Language.Visible = false;
+				}
+
 				foreach (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage _text in texts_) {
 					if (
 						_hfi_idlanguage.Value == _text.IFLanguage.ToString()

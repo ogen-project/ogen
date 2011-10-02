@@ -361,6 +361,8 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			items_.Add(language__successfully_created__WARNING, new ErrorItem("language - successfully created", false));
 			items_.Add(language__successfully_updated__WARNING, new ErrorItem("language - successfully updated", false));
 			items_.Add(language__successfully_deleted__WARNING, new ErrorItem("language - successfully deleted", false));
+			items_.Add(language__lack_of_permitions_to_set, new ErrorItem("language - lack of permitions to set", true));
+			items_.Add(language__successfully_set__WARNING, new ErrorItem("language - successfully set", false));
 
 		}
 
@@ -526,6 +528,8 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 		public const int language__successfully_created__WARNING = 137;
 		public const int language__successfully_updated__WARNING = 138;
 		public const int language__successfully_deleted__WARNING = 139;
+		public const int language__lack_of_permitions_to_set = 140;
+		public const int language__successfully_set__WARNING = 141;
 
 	}
 }

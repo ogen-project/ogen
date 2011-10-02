@@ -44,7 +44,7 @@
 				border="0" align="center" cellpadding="2" cellspacing="1" width="100%"
 				class="table_alternating">
 				<tr>
-					<td colspan="4" align="center" class="label_subtitle alternating_item">
+					<td colspan="2" align="center" class="label_subtitle alternating_item">
 						Search Results
 					</td>
 				</tr>

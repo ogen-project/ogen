@@ -35,8 +35,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 		internal static Dictionary<Guid, Sessionuser> UserSession
 			= new Dictionary<Guid, Sessionuser>();
-		#region public static bool isSessionGuid_valid(...);
-		public static bool isSessionGuid_valid(
+		#region internal static bool isSessionGuid_valid(...);
+		internal static bool isSessionGuid_valid(
 			string sessionGuid_in,
 
 			out Guid sessionGuid_out,

@@ -117,6 +117,24 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			);
 		}
 		#endregion
+		#region public void setSupportedLanguages(...);
+		[WebMethod]
+		public void setSupportedLanguages(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			System.Int32[] idLanguages_in, 
+			out System.Int32[] errors_out
+		) {
+			OGen.NTier.Kick.lib.businesslayer.SBO_DIC_Dic.setSupportedLanguages(
+				sessionGuid_in, 
+				(utils.ResetClientIP) 
+					? HttpContext.Current.Request.UserHostAddress 
+					: ip_forLogPurposes_in, 
+				idLanguages_in, 
+				out errors_out
+			);
+		}
+		#endregion
 		#region public void updLanguage(...);
 		[WebMethod]
 		public void updLanguage(

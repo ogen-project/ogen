@@ -417,6 +417,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<tableFieldRef tableName="DIC_LanguageApplication" tableFieldName="IFLanguage" paramName="IDLanguage" />
 					</tableSearchParameters>
 				</tableSearch>
+				<tableSearch name="byApplication" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="DIC_LanguageApplication" tableFieldName="IFApplication" paramName="IDApplication" />
+					</tableSearchParameters>
+				</tableSearch>
 <!--
 				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
@@ -1499,9 +1504,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</table>
 		<table name="vDIC_ApplicationLanguage" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
-				<tableField name="IFApplication" isViewPK="true" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="true" isListItemText="false" />
-				<tableField name="IDLanguage" isViewPK="true" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="true" />
-				<tableField name="Language" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IFApplication" isViewPK="true" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IDLanguage" isViewPK="true" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="true" isListItemText="false" />
+				<tableField name="Language" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="true" />
 			</tableFields>
 			<tableSearches>
 				<tableSearch name="byApplication" isRange="true" isExplicitUniqueIndex="false">
@@ -1538,9 +1543,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</table>
 		<table name="vDIC_Language" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
-				<tableField name="IDLanguage" isViewPK="true" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IDLanguage" isViewPK="true" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="true" isListItemText="false" />
 				<tableField name="IDLanguage_translation" isViewPK="true" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Language" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="Language" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="true" />
 			</tableFields>
 			<tableSearches>
 				<tableSearch name="byLanguage" isRange="true" isExplicitUniqueIndex="false">

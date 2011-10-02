@@ -58,6 +58,7 @@
 							<li><a runat="server" href="~/admin/WEB-Defaultprofile.aspx">Default Profiles</a></li>
 							<li><a runat="server" href="~/admin/DIC-Language-list.aspx">Languages</a></li>
 							<li><a runat="server" href="~/admin/DIC-Language.aspx">Language create</a></li>
+							<li><a runat="server" href="~/admin/DIC-SupportedLanguages.aspx">Supported Languages</a></li>
 							<li><a runat="server" href="~/admin/LOG-Log.aspx">Log</a></li>
 						</ul>
 					</li>

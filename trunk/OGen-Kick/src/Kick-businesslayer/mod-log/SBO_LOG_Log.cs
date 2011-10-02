@@ -28,10 +28,10 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 	[BOClassAttribute("BO_LOG_Log", "")]
 	public static class SBO_LOG_Log {
 
-		#region public static int MessageSize { get; }
+		#region internal static int MessageSize { get; }
 		private static int messagesize__ = -2;
 
-		public static int MessageSize {
+		internal static int MessageSize {
 			get {
 				if (messagesize__ == -2) {
 					OGen.NTier.lib.datalayer.DOPropertyAttribute _att = (OGen.NTier.lib.datalayer.DOPropertyAttribute)Attribute.GetCustomAttribute(

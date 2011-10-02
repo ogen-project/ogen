@@ -412,8 +412,136 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 		#endregion
 
-		#region public static long insObject(...);
-		public static long insObject(
+		#region public static void setSupportedLanguages(...);
+		[BOMethodAttribute("setSupportedLanguages", true, false, 1)]
+		public static void setSupportedLanguages(
+			string sessionGuid_in,
+			string ip_forLogPurposes_in,
+
+			int[] idLanguages_in,
+
+			out int[] errors_out
+		) {
+			List<int> _errorlist;
+			Guid _sessionguid;
+			Sessionuser _sessionuser;
+			#region check...
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in,
+				ip_forLogPurposes_in,
+				out _sessionguid,
+				out _sessionuser,
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
+
+				return;
+			}
+			#endregion
+			#region check permitions...
+			if (!_sessionuser.hasPermition(PermitionType.Language__set_supported)) {
+				_errorlist.Add(ErrorType.language__lack_of_permitions_to_set);
+				errors_out = _errorlist.ToArray();
+				return;
+			}
+			#endregion
+
+			Exception _exception = null;
+			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
+			DBConnection _con = DO__utils.DBConnection_createInstance(
+				DO__utils.DBServerType,
+				DO__utils.DBConnectionstring,
+				DO__utils.DBLogfile
+			);
+			#endregion
+			try {
+				if (
+					(idLanguages_in != null)
+					&&
+					(idLanguages_in.Length > 0)
+				) {
+					_con.Open();
+					_con.Transaction.Begin();
+				}
+
+				DO_DIC_LanguageApplication.delRecord_byApplication(
+					_sessionuser.IDApplication,
+
+					_con
+				);
+				if (
+					(idLanguages_in != null)
+					&&
+					(idLanguages_in.Length > 0)
+				) {
+					for (int i = 0; i < idLanguages_in.Length; i++) {
+						DO_DIC_LanguageApplication.setObject(
+							new SO_DIC_LanguageApplication(
+								idLanguages_in[i],
+								_sessionuser.IDApplication
+							),
+							true,
+							_con
+						);
+					}
+				}
+
+
+				#region _con.Transaction.Commit();
+				if (_con.Transaction.inTransaction) {
+					_con.Transaction.Commit();
+				}
+				#endregion
+				_errorlist.Add(ErrorType.language__successfully_set__WARNING);
+			} catch (Exception _ex) {
+				#region _con.Transaction.Rollback();
+				if (
+					_con.isOpen
+					&&
+					_con.Transaction.inTransaction
+				) {
+					_con.Transaction.Rollback();
+				}
+				#endregion
+
+				_exception = _ex;
+			} finally {
+				#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
+				if (_con.isOpen) {
+					if (_con.Transaction.inTransaction) {
+						_con.Transaction.Terminate();
+					}
+					_con.Close();
+				}
+
+				_con.Dispose();
+				#endregion
+			}
+			if (_exception != null) {
+				#region SBO_LOG_Log.log(ErrorType.data);
+				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+					_sessionuser,
+					LogType.error,
+					ErrorType.data,
+					-1L,
+					_sessionuser.IDApplication,
+					"{0}",
+					new string[] {
+						_exception.Message
+					}
+				);
+				#endregion
+				_errorlist.Add(ErrorType.data);
+			}
+
+			errors_out = _errorlist.ToArray();
+		}
+		#endregion
+
+		#region internal static long insObject(...);
+		internal static long insObject(
 			DBConnection dbConnection_in, 
 
 			int idApplication_in,
@@ -454,8 +582,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			return _idtext;
 		}
 		#endregion
-		#region public static void updObject(...);
-		public static void updObject(
+		#region internal static void updObject(...);
+		internal static void updObject(
 			DBConnection dbConnection_in,
 
 			long idText_in,
@@ -489,8 +617,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 		}
 		#endregion
-//		#region public static void delObject(...);
-		public static void delObject(
+//		#region internal static void delObject(...);
+		internal static void delObject(
 			DBConnection dbConnection_in,
 
 			long idText_in

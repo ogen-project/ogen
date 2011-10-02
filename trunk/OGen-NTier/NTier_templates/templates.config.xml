@@ -3518,9 +3518,9 @@ XXX:TO_DOS -->
 
 
 
-
-	<template id="PRJ---xxx.cs.aspx"
-			name="PRJ---xxx.cs.aspx"
+<!--
+	<template id="PRJ- - -xxx.cs.aspx"
+			name="PRJ- - -xxx.cs.aspx"
 			templateType=""
 			parserType="aspx"
 			iterationType="ROOT.metadataBusiness[0]">
@@ -3535,4 +3535,5 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
+-->
 </templates>

@@ -212,6 +212,14 @@
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
+        <method name="setSupportedLanguages" outputType="void" distribute="true" isSearch="false" ipParamNum="1">
+          <parameters>
+            <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idLanguages_in" type="System.Int32[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
+          </parameters>
+        </method>
         <method name="updLanguage" outputType="void" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />

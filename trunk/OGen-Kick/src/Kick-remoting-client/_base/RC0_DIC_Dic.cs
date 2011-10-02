@@ -115,6 +115,21 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			);
 		}
 		#endregion
+		#region public void setSupportedLanguages(...);
+		public void setSupportedLanguages(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			System.Int32[] idLanguages_in, 
+			out System.Int32[] errors_out
+		) {
+			bo_.setSupportedLanguages(
+				sessionGuid_in, 
+				ip_forLogPurposes_in, 
+				idLanguages_in, 
+				out errors_out
+			);
+		}
+		#endregion
 		#region public void updLanguage(...);
 		public void updLanguage(
 			string sessionGuid_in, 
