@@ -70,11 +70,11 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
 					IDLanguage,
-					dic_Name.Texts,
+					dic_LanguageNameIn.Texts, 
 					out _errors
 				);
 			} else {
-				SO_DIC__TextLanguage[] _texts = dic_Name.Texts;
+				SO_DIC__TextLanguage[] _texts = dic_LanguageNameIn.Texts;
 				SO_DIC__TextLanguage[] _texts_withnew = new SO_DIC__TextLanguage[_texts.Length + 1];
 				for (int i = 0; i < _texts.Length; i++) {
 					_texts_withnew[i] = _texts[i];
@@ -88,6 +88,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
 					_texts_withnew,
+					dic_LanguagesInNewLanguage.Texts,
 					out _errors
 				);
 			}
@@ -117,7 +118,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					&&
 					(_language.Length > 0)
 				) {
-					#region dic_Name.Texts = ...;
+					#region dic_LanguageNameIn.Texts = ...;
 					List<OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage> _languagename
 						= new List<OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage>(
 							_language.Length
@@ -129,16 +130,27 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							_language[i].Language
 						));
 					}
-					dic_Name.Texts = _languagename.ToArray();
+					dic_LanguageNameIn.Texts = _languagename.ToArray();
 					#endregion
 					tbl_NewLanguage.Visible = false;
+					dic_LanguagesInNewLanguage.Visible = false;
+					tr_new1.Visible = false;
+					tr_new2.Visible = false;
+					tr_new3.Visible = false;
 
 					_isNew = false;
 				}
 			}
 
 			if (_isNew) {
-				dic_Name.Texts = null;
+				dic_LanguageNameIn.Texts = null;
+				dic_LanguagesInNewLanguage.Texts = null;
+
+				tr_new1.Visible = true;
+				tr_new2.Visible = true;
+				tr_new3.Visible = true;
+
+				dic_LanguagesInNewLanguage.Visible = true;
 				tbl_NewLanguage.Visible = true;
 			}
 		} 

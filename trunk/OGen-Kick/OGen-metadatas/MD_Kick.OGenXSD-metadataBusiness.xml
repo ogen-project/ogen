@@ -209,6 +209,7 @@
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="languageName_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="existingLanguagesInNewLanguage_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>

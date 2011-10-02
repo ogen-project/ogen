@@ -31,13 +31,49 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         protected global::System.Web.UI.WebControls.TextBox txt_Name;
         
         /// <summary>
-        /// dic_Name control.
+        /// dic_LanguageNameIn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic dic_Name;
+        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic dic_LanguageNameIn;
+        
+        /// <summary>
+        /// tr_new1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_new1;
+        
+        /// <summary>
+        /// tr_new2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_new2;
+        
+        /// <summary>
+        /// dic_LanguagesInNewLanguage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic dic_LanguagesInNewLanguage;
+        
+        /// <summary>
+        /// tr_new3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_new3;
         
         /// <summary>
         /// btn_Save control.

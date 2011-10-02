@@ -27,14 +27,14 @@ using OGen.NTier.Kick.lib.businesslayer.shared;
 namespace OGen.NTier.Kick.lib.businesslayer {
 	[BOClassAttribute("BO_DIC_Dic", "")]
 	public static class SBO_DIC_Dic {
-
 		#region public static void insLanguage(...);
 		[BOMethodAttribute("insLanguage", true, false, 1)]
 		public static void insLanguage(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in,
 
-			SO_DIC__TextLanguage[] languageName_in, 
+			SO_DIC__TextLanguage[] languageName_in,
+			SO_DIC__TextLanguage[] existingLanguagesInNewLanguage_in, 
 
 			out int[] errors_out
 		) {
@@ -107,23 +107,45 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				);
 				#endregion
 				for (int i = 0; i < languageName_in.Length; i++) {
-					if (languageName_in[i].IFLanguage > 0) {
-						updObject(
-							_con, 
-							_idtext,
-							(languageName_in[i].IFLanguage > 0) 
+					updObject(
+						_con, 
+						_idtext,
+						(languageName_in[i].IFLanguage > 0) 
 
-								// name of the new language on existing languages
-								? languageName_in[i]
+							// name of the new language on existing languages
+							? languageName_in[i]
 
-								// name of the new language (on new language)
-								: new SO_DIC__TextLanguage(
-									_idlanguage, 
-									languageName_in[i].Text
-								)
+							// name of the new language (on new language)
+							: new SO_DIC__TextLanguage(
+								_idlanguage, 
+								languageName_in[i].Text
+							)
 
-						);
+					);
+				}
+				SO_DIC_TextLanguage _textlanguage;
+				for (int i = 0; i < existingLanguagesInNewLanguage_in.Length; i++) {
+
+					
+
+					_textlanguage = new SO_DIC_TextLanguage();
+					_textlanguage.IFText = DO_DIC_Language.getObject(
+						existingLanguagesInNewLanguage_in[i].IFLanguage
+					).TX_Name;
+					_textlanguage.IFLanguage = _idlanguage;
+					if (existingLanguagesInNewLanguage_in[i].Text.Length > 8000) {
+						_textlanguage.Text = existingLanguagesInNewLanguage_in[i].Text;
+						_textlanguage.CharVar8000_isNull = true;
+					} else {
+						_textlanguage.Text_isNull = true;
+						_textlanguage.CharVar8000 = existingLanguagesInNewLanguage_in[i].Text;
 					}
+
+					DO_DIC_TextLanguage.setObject(
+						_textlanguage,
+						true,
+						_con
+					);
 				}
 
 				#region _con.Transaction.Commit();
@@ -352,13 +374,27 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					idLanguage_in,
 					_con
 				);
+				DO_DIC_TextLanguage.delRecord_byText(
+					_language.TX_Name,
+
+					_con
+				);
+
+				// ONLY language name translations (short), NOT all translations (all)
+				DO_DIC_TextLanguage.delRecord_byLanguage_short(
+					idLanguage_in,
+
+					_con
+				);
+
 				DO_DIC_Language.delObject(
 					idLanguage_in,
 					_con
 				);
-				delObject(
-					_con,
-					_language.TX_Name
+				DO_DIC_Text.delObject(
+					_language.TX_Name,
+
+					_con
 				);
 			
 				#region _con.Transaction.Commit();

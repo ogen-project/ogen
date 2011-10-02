@@ -105,6 +105,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] languageName_in, 
+			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] existingLanguagesInNewLanguage_in, 
 			out System.Int32[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_DIC_Dic.insLanguage(
@@ -113,6 +114,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				languageName_in, 
+				existingLanguagesInNewLanguage_in, 
 				out errors_out
 			);
 		}

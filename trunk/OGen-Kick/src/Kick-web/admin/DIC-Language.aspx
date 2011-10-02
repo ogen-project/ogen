@@ -47,7 +47,7 @@
 
 					<tr>
 						<td align="right" class="label_small nowrap">
-							Name:&nbsp;
+							Language Name in:&nbsp;
 						</td>
 						<td>
 							<table 
@@ -57,7 +57,7 @@
 									<td>
 										<asp:TextBox
 											ID="txt_Name" runat="server"
-											CssClass="textbox_dim4" />
+											CssClass="textbox_dim15" />
 									</td>
 									<td>&nbsp;</td>
 									<td class="label_small nowrap">
@@ -67,12 +67,28 @@
 							</table>
 
 							<asol:wuc_Dic
-								ID="dic_Name" runat="server"
-								Text_CssClass="textbox_dim4"
+								ID="dic_LanguageNameIn" runat="server"
+								Text_CssClass="textbox_dim15"
 								Label_CssClass="label_small"
 								Rows="1" />
 						</td>
 					</tr>
+
+					<tr id="tr_new1" runat="server" visible="false"><td colspan="2">&nbsp;</td></tr>
+					<tr id="tr_new2" runat="server" visible="false">
+						<td align="right" class="label_small nowrap">
+							existing Language Names&nbsp;<br />
+							in new language:&nbsp;
+						</td>
+						<td>
+							<asol:wuc_Dic
+								ID="dic_LanguagesInNewLanguage" runat="server"
+								Text_CssClass="textbox_dim15"
+								Label_CssClass="label_small"
+								Rows="1" />
+						</td>
+					</tr>
+					<tr id="tr_new3" runat="server" visible="false"><td colspan="2">&nbsp;</td></tr>
 
 					<tr>
 						<td></td>
@@ -90,6 +106,7 @@
 								Text="Save" />
 						</td>
 					</tr>
+
 				</table>
 			</td>
 			<td style="width: 50%"></td>

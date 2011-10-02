@@ -496,6 +496,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="IFText" paramName="IFText" />
 					</tableSearchParameters>
 				</tableSearch>
+				<tableSearch name="byLanguage_short" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="IFLanguage" paramName="IDLanguage" />
+					</tableSearchParameters>
+				</tableSearch>
+				<tableSearch name="byLanguage_all" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="IFLanguage" paramName="IDLanguage" />
+					</tableSearchParameters>
+				</tableSearch>
 <!--
 				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
