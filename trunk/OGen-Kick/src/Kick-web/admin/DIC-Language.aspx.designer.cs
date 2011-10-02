@@ -11,5 +11,41 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     
     
     public partial class DIC_Language {
+        
+        /// <summary>
+        /// tbl_NewLanguage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable tbl_NewLanguage;
+        
+        /// <summary>
+        /// txt_Name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_Name;
+        
+        /// <summary>
+        /// dic_Name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic dic_Name;
+        
+        /// <summary>
+        /// btn_Save control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Save;
     }
 }

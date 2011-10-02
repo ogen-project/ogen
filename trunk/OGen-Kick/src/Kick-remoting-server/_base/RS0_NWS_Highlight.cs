@@ -36,7 +36,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.delObject(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP)
+					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
+					: ip_forLogPurposes_in, 
 				idHighlight_in, 
 				out errors_out
 			);
@@ -51,7 +53,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.getObject(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP)
+					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
+					: ip_forLogPurposes_in, 
 				idHighlight_in, 
 				out errors_out
 			);
@@ -67,7 +71,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.getRecord_all(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP)
+					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
+					: ip_forLogPurposes_in, 
 				page_in, 
 				page_numRecords_in, 
 				out errors_out
@@ -84,7 +90,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.getRecord_Approved(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP)
+					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
+					: ip_forLogPurposes_in, 
 				page_in, 
 				page_numRecords_in, 
 				out errors_out
@@ -102,7 +110,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.getRecord_byContent(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP)
+					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
+					: ip_forLogPurposes_in, 
 				idContent_search_in, 
 				page_in, 
 				page_numRecords_in, 
@@ -120,7 +130,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.insObject(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP)
+					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
+					: ip_forLogPurposes_in, 
 				highlight_in, 
 				selectIdentity_in, 
 				out errors_out
@@ -136,7 +148,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.updObject(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP)
+					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
+					: ip_forLogPurposes_in, 
 				highlight_in, 
 				out errors_out
 			);
@@ -151,7 +165,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.updObject_Approve(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP)
+					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
+					: ip_forLogPurposes_in, 
 				idHighlight_in, 
 				out errors_out
 			);

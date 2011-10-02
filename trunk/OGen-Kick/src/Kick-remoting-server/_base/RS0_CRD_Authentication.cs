@@ -54,7 +54,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.CheckCredentials(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP)
+					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
+					: ip_forLogPurposes_in, 
 				out errors_out
 			);
 		}

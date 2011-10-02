@@ -192,7 +192,6 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						_tags.Length
 					);
 
-				SO_DIC__TextLanguage[] _texts = new SO_DIC__TextLanguage[_tags.Length];
 				foreach (SO_vNWS_Tag _tag in _tags) {
 					_name.Add(new SO_DIC__TextLanguage(
 						_tag.IDLanguage,

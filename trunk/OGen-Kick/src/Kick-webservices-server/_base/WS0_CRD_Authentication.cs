@@ -58,7 +58,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.CheckCredentials(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP) 
+					? HttpContext.Current.Request.UserHostAddress 
+					: ip_forLogPurposes_in, 
 				out errors_out
 			);
 		}

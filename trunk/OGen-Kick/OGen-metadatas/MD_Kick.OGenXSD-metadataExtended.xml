@@ -420,6 +420,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				<tableField name="IFApplication" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
 			<tableSearches>
+				<tableSearch name="byLanguage" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="DIC_LanguageApplication" tableFieldName="IFLanguage" paramName="IDLanguage" />
+					</tableSearchParameters>
+				</tableSearch>
 <!--
 				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
@@ -1550,6 +1555,50 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				<tableUpdate name="SomeUpdateTest">
 					<tableUpdateParameters>
 						<tableFieldRef tableName="vDIC_ApplicationLanguage" tableFieldName="IFApplication" paramName="IFApplication" />
+					</tableUpdateParameters>
+				</tableUpdate>
+-->
+			</tableUpdates>
+		</table>
+		<table name="vDIC_Language" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
+			<tableFields>
+				<tableField name="IDLanguage" isViewPK="true" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IDLanguage_translation" isViewPK="true" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="Language" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+			</tableFields>
+			<tableSearches>
+				<tableSearch name="byLanguage" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="vDIC_Language" tableFieldName="IDLanguage_translation" paramName="IDLanguage_translation" />
+					</tableSearchParameters>
+				</tableSearch>
+				<tableSearch name="Language" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="vDIC_Language" tableFieldName="IDLanguage" paramName="IDLanguage" />
+					</tableSearchParameters>
+				</tableSearch>
+<!--
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="vDIC_Language" tableFieldName="IDLanguage" paramName="IDLanguage" />
+						<tableFieldRef tableName="vDIC_Language" tableFieldName="IDLanguage" paramName="IDLanguage" />
+					</tableSearchParameters>
+					<tableSearchUpdates>
+						<tableSearchUpdate name="SomeUpdateTest">
+							<tableSearchUpdateParameters>
+								<tableFieldRef tableName="vDIC_Language" tableFieldName="IDLanguage" paramName="IDLanguage" />
+								<tableFieldRef tableName="vDIC_Language" tableFieldName="IDLanguage" paramName="IDLanguage" />
+							</tableSearchUpdateParameters>
+						</tableSearchUpdate>
+					</tableSearchUpdates>
+				</tableSearch>
+-->
+			</tableSearches>
+			<tableUpdates>
+<!--
+				<tableUpdate name="SomeUpdateTest">
+					<tableUpdateParameters>
+						<tableFieldRef tableName="vDIC_Language" tableFieldName="IDLanguage" paramName="IDLanguage" />
 					</tableUpdateParameters>
 				</tableUpdate>
 -->

@@ -26,6 +26,16 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		MarshalByRefObject, 
 		IBO_DIC_Dic 
 	{
+		#region public void delLanguage(...);
+		public void delLanguage(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			int idLanguage_in, 
+			out System.Int32[] errors_out
+		) {
+			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
+		}
+		#endregion
 		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(...);
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(
 			string sessionGuid_in, 
@@ -35,12 +45,43 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
 		#endregion
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_byLanguage(...);
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_byLanguage(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			int idLanguage_in, 
+			out System.Int32[] errors_out
+		) {
+			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
+		}
+		#endregion
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_Language(...);
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_Language(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			int idLanguage_in, 
+			out System.Int32[] errors_out
+		) {
+			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
+		}
+		#endregion
 		#region public void insLanguage(...);
 		public void insLanguage(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			out System.Int32[] errors_out, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] languageName_in
+			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] languageName_in, 
+			out System.Int32[] errors_out
+		) {
+			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
+		}
+		#endregion
+		#region public void updLanguage(...);
+		public void updLanguage(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			int idLanguage_in, 
+			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] textLanguage_in, 
+			out System.Int32[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}

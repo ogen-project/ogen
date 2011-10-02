@@ -54,6 +54,31 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		}
 		#endregion
 
+		#region public void delLanguage(...);
+		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
+			"http://OGen.NTier.Kick.distributedlayer.webservices.server/delLanguage",
+			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			Use = System.Web.Services.Description.SoapBindingUse.Literal,
+			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
+		)]
+		public void delLanguage(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			int idLanguage_in, 
+			out System.Int32[] errors_out
+		) {
+			object[] results = this.Invoke(
+				"delLanguage", 
+				new object[] {
+					sessionGuid_in,
+					ip_forLogPurposes_in,
+					idLanguage_in
+				}
+			);
+			errors_out = (System.Int32[])results[0];
+		}
+		#endregion
 		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
 			"http://OGen.NTier.Kick.distributedlayer.webservices.server/getRecord_byApplication",
@@ -78,6 +103,58 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[])results[0];
 		}
 		#endregion
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_byLanguage(...);
+		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
+			"http://OGen.NTier.Kick.distributedlayer.webservices.server/getRecord_byLanguage",
+			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			Use = System.Web.Services.Description.SoapBindingUse.Literal,
+			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
+		)]
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_byLanguage(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			int idLanguage_in, 
+			out System.Int32[] errors_out
+		) {
+			object[] results = this.Invoke(
+				"getRecord_byLanguage", 
+				new object[] {
+					sessionGuid_in,
+					ip_forLogPurposes_in,
+					idLanguage_in
+				}
+			);
+			errors_out = (System.Int32[])results[1];
+			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[])results[0];
+		}
+		#endregion
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_Language(...);
+		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
+			"http://OGen.NTier.Kick.distributedlayer.webservices.server/getRecord_Language",
+			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			Use = System.Web.Services.Description.SoapBindingUse.Literal,
+			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
+		)]
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_Language(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			int idLanguage_in, 
+			out System.Int32[] errors_out
+		) {
+			object[] results = this.Invoke(
+				"getRecord_Language", 
+				new object[] {
+					sessionGuid_in,
+					ip_forLogPurposes_in,
+					idLanguage_in
+				}
+			);
+			errors_out = (System.Int32[])results[1];
+			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[])results[0];
+		}
+		#endregion
 		#region public void insLanguage(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
 			"http://OGen.NTier.Kick.distributedlayer.webservices.server/insLanguage",
@@ -89,8 +166,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		public void insLanguage(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			out System.Int32[] errors_out, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] languageName_in
+			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] languageName_in, 
+			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"insLanguage", 
@@ -98,6 +175,33 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
 					languageName_in
+				}
+			);
+			errors_out = (System.Int32[])results[0];
+		}
+		#endregion
+		#region public void updLanguage(...);
+		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
+			"http://OGen.NTier.Kick.distributedlayer.webservices.server/updLanguage",
+			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			Use = System.Web.Services.Description.SoapBindingUse.Literal,
+			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
+		)]
+		public void updLanguage(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			int idLanguage_in, 
+			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] textLanguage_in, 
+			out System.Int32[] errors_out
+		) {
+			object[] results = this.Invoke(
+				"updLanguage", 
+				new object[] {
+					sessionGuid_in,
+					ip_forLogPurposes_in,
+					idLanguage_in,
+					textLanguage_in
 				}
 			);
 			errors_out = (System.Int32[])results[0];

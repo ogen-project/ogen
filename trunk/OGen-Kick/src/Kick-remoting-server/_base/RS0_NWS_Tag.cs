@@ -36,7 +36,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.delObject(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP)
+					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
+					: ip_forLogPurposes_in, 
 				idTag_in, 
 				out errors_out
 			);
@@ -51,7 +53,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.getObject(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP)
+					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
+					: ip_forLogPurposes_in, 
 				idTag_in, 
 				out errors_out
 			);
@@ -67,7 +71,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.getObject_byTag_andLanguage(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP)
+					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
+					: ip_forLogPurposes_in, 
 				idTag_in, 
 				idLanguage_in, 
 				out errors_out
@@ -85,7 +91,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.getRecord_Approved_byLang(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP)
+					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
+					: ip_forLogPurposes_in, 
 				idLanguage_search_in, 
 				page_in, 
 				page_numRecords_in, 
@@ -104,7 +112,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.getRecord_byContent(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP)
+					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
+					: ip_forLogPurposes_in, 
 				idContent_search_in, 
 				page_in, 
 				page_numRecords_in, 
@@ -123,7 +133,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.getRecord_byLang(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP)
+					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
+					: ip_forLogPurposes_in, 
 				idLanguage_search_in, 
 				page_in, 
 				page_numRecords_in, 
@@ -142,7 +154,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.getRecord_byTag(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP)
+					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
+					: ip_forLogPurposes_in, 
 				idTag_in, 
 				page_in, 
 				page_numRecords_in, 
@@ -161,7 +175,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.insObject(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP)
+					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
+					: ip_forLogPurposes_in, 
 				tag_in, 
 				tx_Name_in, 
 				selectIdentity_in, 
@@ -179,7 +195,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.updObject(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP)
+					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
+					: ip_forLogPurposes_in, 
 				tag_in, 
 				tx_Name_in, 
 				out errors_out
@@ -195,7 +213,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.updObject_Approve(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP)
+					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
+					: ip_forLogPurposes_in, 
 				idTag_in, 
 				out errors_out
 			);

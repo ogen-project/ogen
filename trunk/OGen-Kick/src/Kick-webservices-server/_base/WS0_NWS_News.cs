@@ -39,7 +39,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.delObject(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP) 
+					? HttpContext.Current.Request.UserHostAddress 
+					: ip_forLogPurposes_in, 
 				idContent_in, 
 				out errors_out
 			);
@@ -56,7 +58,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.getObject(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP) 
+					? HttpContext.Current.Request.UserHostAddress 
+					: ip_forLogPurposes_in, 
 				idContent_in, 
 				idLanguage_in, 
 				out errors_out
@@ -73,7 +77,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.getRecord_byContent(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP) 
+					? HttpContext.Current.Request.UserHostAddress 
+					: ip_forLogPurposes_in, 
 				idContent_in, 
 				out errors_out
 			);
@@ -102,7 +108,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.getRecord_generic(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP) 
+					? HttpContext.Current.Request.UserHostAddress 
+					: ip_forLogPurposes_in, 
 				IDUser__Publisher_search_in, 
 				IDUser__Aproved_search_in, 
 				Begin_date_search_in, 
@@ -140,7 +148,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.insObject(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP) 
+					? HttpContext.Current.Request.UserHostAddress 
+					: ip_forLogPurposes_in, 
 				content_in, 
 				tx_Title_in, 
 				tx_Content_in, 
@@ -174,7 +184,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.updObject(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP) 
+					? HttpContext.Current.Request.UserHostAddress 
+					: ip_forLogPurposes_in, 
 				content_in, 
 				tx_Title_in, 
 				tx_Content_in, 
@@ -199,7 +211,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.updObject_Approve(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP) 
+					? HttpContext.Current.Request.UserHostAddress 
+					: ip_forLogPurposes_in, 
 				idContent_in, 
 				out errors_out
 			);
@@ -216,7 +230,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.updObject_Authors(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP) 
+					? HttpContext.Current.Request.UserHostAddress 
+					: ip_forLogPurposes_in, 
 				idContent_in, 
 				idAuthors_in, 
 				out errors_out
@@ -237,7 +253,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.updObject_Content(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP) 
+					? HttpContext.Current.Request.UserHostAddress 
+					: ip_forLogPurposes_in, 
 				content_in, 
 				tx_Title_in, 
 				tx_Content_in, 
@@ -258,7 +276,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.updObject_Highlights(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP) 
+					? HttpContext.Current.Request.UserHostAddress 
+					: ip_forLogPurposes_in, 
 				idContent_in, 
 				idHighlights_in, 
 				out errors_out
@@ -276,7 +296,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.updObject_Profiles(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP) 
+					? HttpContext.Current.Request.UserHostAddress 
+					: ip_forLogPurposes_in, 
 				idContent_in, 
 				idProfiles_in, 
 				out errors_out
@@ -294,7 +316,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.updObject_Sources(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP) 
+					? HttpContext.Current.Request.UserHostAddress 
+					: ip_forLogPurposes_in, 
 				idContent_in, 
 				idSources_in, 
 				out errors_out
@@ -312,7 +336,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.updObject_Tags(
 				sessionGuid_in, 
-				ip_forLogPurposes_in, 
+				(utils.ResetClientIP) 
+					? HttpContext.Current.Request.UserHostAddress 
+					: ip_forLogPurposes_in, 
 				idContent_in, 
 				idTags_in, 
 				out errors_out

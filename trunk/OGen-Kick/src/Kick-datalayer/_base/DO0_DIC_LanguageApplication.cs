@@ -306,6 +306,221 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		}
 		#endregion
 
+		#region ???_byLanguage...
+		#region public static SO_DIC_LanguageApplication[] getRecord_byLanguage(...);
+		/// <summary>
+		/// Gets Record, based on 'byLanguage' search. It selects DIC_LanguageApplication values from Database based on the 'byLanguage' search.
+		/// </summary>
+		/// <param name="IDLanguage_search_in">IDLanguage search condition</param>
+		/// <param name="page_in">page number</param>
+		/// <param name="page_numRecords_in">number of records per page</param>
+		public static SO_DIC_LanguageApplication[] getRecord_byLanguage(
+			int IDLanguage_search_in, 
+			int page_in, 
+			int page_numRecords_in
+		) {
+			return getRecord_byLanguage(
+				IDLanguage_search_in, 
+				page_in, 
+				page_numRecords_in, 
+				null
+			);
+		}
+
+		/// <summary>
+		/// Gets Record, based on 'byLanguage' search. It selects DIC_LanguageApplication values from Database based on the 'byLanguage' search.
+		/// </summary>
+		/// <param name="IDLanguage_search_in">IDLanguage search condition</param>
+		/// <param name="page_in">page number</param>
+		/// <param name="page_numRecords_in">number of records per page</param>
+		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
+		public static SO_DIC_LanguageApplication[] getRecord_byLanguage(
+			int IDLanguage_search_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			DBConnection dbConnection_in
+		) {
+			SO_DIC_LanguageApplication[] _output;
+
+			DBConnection _connection = (dbConnection_in == null)
+				? DO__utils.DBConnection_createInstance(
+					DO__utils.DBServerType,
+					DO__utils.DBConnectionstring,
+					DO__utils.DBLogfile
+				) 
+				: dbConnection_in;
+			IDbDataParameter[] _dataparameters = 
+				((page_in > 0) && (page_numRecords_in > 0))
+					? new IDbDataParameter[] {
+						_connection.newDBDataParameter("IDLanguage_search_", DbType.Int32, ParameterDirection.Input, IDLanguage_search_in, 0), 
+						_connection.newDBDataParameter("page_", DbType.Int32, ParameterDirection.Input, page_in, 0), 
+						_connection.newDBDataParameter("page_numRecords_", DbType.Int32, ParameterDirection.Input, page_numRecords_in, 0)
+					}
+					: new IDbDataParameter[] {
+						_connection.newDBDataParameter("IDLanguage_search_", DbType.Int32, ParameterDirection.Input, IDLanguage_search_in, 0)
+					}
+				;
+			_output = getRecord(
+				_connection.Execute_SQLFunction_returnDataTable(
+					((page_in > 0) && (page_numRecords_in > 0))
+						? "sp0_DIC_LanguageApplication_Record_open_byLanguage_page_fullmode"
+						: "sp0_DIC_LanguageApplication_Record_open_byLanguage_fullmode", 
+					_dataparameters
+				)
+			);
+			if (dbConnection_in == null) { _connection.Dispose(); }
+
+			return _output;			
+		}
+		#endregion
+		#region public static bool isObject_inRecord_byLanguage(...);
+		/// <summary>
+		/// It selects DIC_LanguageApplication values from Database based on the 'byLanguage' search and checks to see if DIC_LanguageApplication Keys(passed as parameters) are met.
+		/// </summary>
+		/// <param name="IFLanguage_in">DIC_LanguageApplication's IFLanguage Key used for checking</param>
+		/// <param name="IFApplication_in">DIC_LanguageApplication's IFApplication Key used for checking</param>
+		/// <param name="IDLanguage_search_in">IDLanguage search condition</param>
+		/// <returns>True if DIC_LanguageApplication Keys are met in the 'byLanguage' search, False if not</returns>
+		public static bool isObject_inRecord_byLanguage(
+			int IFLanguage_in, 
+			int IFApplication_in, 
+			int IDLanguage_search_in
+		) {
+			return isObject_inRecord_byLanguage(
+				IFLanguage_in, 
+				IFApplication_in, IDLanguage_search_in, 
+				null
+			);
+		}
+
+		/// <summary>
+		/// It selects DIC_LanguageApplication values from Database based on the 'byLanguage' search and checks to see if DIC_LanguageApplication Keys(passed as parameters) are met.
+		/// </summary>
+		/// <param name="IFLanguage_in">DIC_LanguageApplication's IFLanguage Key used for checking</param>
+		/// <param name="IFApplication_in">DIC_LanguageApplication's IFApplication Key used for checking</param>
+		/// <param name="IDLanguage_search_in">IDLanguage search condition</param>
+		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
+		/// <returns>True if DIC_LanguageApplication Keys are met in the 'byLanguage' search, False if not</returns>
+		public static bool isObject_inRecord_byLanguage(
+			int IFLanguage_in, 
+			int IFApplication_in, 
+			int IDLanguage_search_in, 
+			DBConnection dbConnection_in
+		) {
+			bool _output;
+
+			DBConnection _connection = (dbConnection_in == null)
+				? DO__utils.DBConnection_createInstance(
+					DO__utils.DBServerType,
+					DO__utils.DBConnectionstring,
+					DO__utils.DBLogfile
+				) 
+				: dbConnection_in;
+			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
+				_connection.newDBDataParameter("IFLanguage_", DbType.Int32, ParameterDirection.Input, IFLanguage_in, 0), 
+				_connection.newDBDataParameter("IFApplication_", DbType.Int32, ParameterDirection.Input, IFApplication_in, 0), 
+				_connection.newDBDataParameter("IDLanguage_search_", DbType.Int32, ParameterDirection.Input, IDLanguage_search_in, 0)
+			};
+			_output = (bool)_connection.Execute_SQLFunction(
+				"fnc0_DIC_LanguageApplication_Record_hasObject_byLanguage", 
+				_dataparameters, 
+				DbType.Boolean,
+				0
+			);
+			if (dbConnection_in == null) { _connection.Dispose(); }
+
+			return _output;
+		}
+		#endregion
+		#region public static long getCount_inRecord_byLanguage(...);
+		/// <summary>
+		/// Count's number of search results from DIC_LanguageApplication at Database based on the 'byLanguage' search.
+		/// </summary>
+		/// <param name="IDLanguage_search_in">IDLanguage search condition</param>
+		/// <returns>number of existing Records for the 'byLanguage' search</returns>
+		public static long getCount_inRecord_byLanguage(
+			int IDLanguage_search_in
+		) {
+			return getCount_inRecord_byLanguage(
+				IDLanguage_search_in, 
+				null
+			);
+		}
+
+		/// <summary>
+		/// Count's number of search results from DIC_LanguageApplication at Database based on the 'byLanguage' search.
+		/// </summary>
+		/// <param name="IDLanguage_search_in">IDLanguage search condition</param>
+		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
+		/// <returns>number of existing Records for the 'byLanguage' search</returns>
+		public static long getCount_inRecord_byLanguage(
+			int IDLanguage_search_in, 
+			DBConnection dbConnection_in
+		) {
+			long _output;
+
+			DBConnection _connection = (dbConnection_in == null)
+				? DO__utils.DBConnection_createInstance(
+					DO__utils.DBServerType,
+					DO__utils.DBConnectionstring,
+					DO__utils.DBLogfile
+				) 
+				: dbConnection_in;
+			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
+				_connection.newDBDataParameter("IDLanguage_search_", DbType.Int32, ParameterDirection.Input, IDLanguage_search_in, 0)
+			};
+			_output = (long)_connection.Execute_SQLFunction(
+				"fnc0_DIC_LanguageApplication_Record_count_byLanguage", 
+				_dataparameters, 
+				DbType.Int64,
+				0
+			);
+			if (dbConnection_in == null) { _connection.Dispose(); }
+
+			return _output;
+		}
+		#endregion
+		#region public static void delRecord_byLanguage(...);
+		/// <summary>
+		/// Deletes DIC_LanguageApplication values from Database based on the 'byLanguage' search.
+		/// </summary>
+		/// <param name="IDLanguage_search_in">IDLanguage search condition</param>
+		public static void delRecord_byLanguage(
+			int IDLanguage_search_in
+		) {
+			delRecord_byLanguage(
+				IDLanguage_search_in, 
+				null
+			);
+		}
+
+		/// <summary>
+		/// Deletes DIC_LanguageApplication values from Database based on the 'byLanguage' search.
+		/// </summary>
+		/// <param name="IDLanguage_search_in">IDLanguage search condition</param>
+		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
+		public static void delRecord_byLanguage(
+			int IDLanguage_search_in, 
+			DBConnection dbConnection_in
+		) {
+			DBConnection _connection = (dbConnection_in == null)
+				? DO__utils.DBConnection_createInstance(
+					DO__utils.DBServerType,
+					DO__utils.DBConnectionstring,
+					DO__utils.DBLogfile
+				) 
+				: dbConnection_in;
+			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
+				_connection.newDBDataParameter("IDLanguage_search_", DbType.Int32, ParameterDirection.Input, IDLanguage_search_in, 0)
+			};
+			_connection.Execute_SQLFunction(
+				"sp0_DIC_LanguageApplication_Record_delete_byLanguage", 
+				_dataparameters
+			);
+			if (dbConnection_in == null) { _connection.Dispose(); }
+		}
+		#endregion
+		#endregion
 		#endregion
 	}
 }

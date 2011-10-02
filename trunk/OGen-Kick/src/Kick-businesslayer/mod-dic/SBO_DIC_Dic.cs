@@ -34,9 +34,9 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in,
 			string ip_forLogPurposes_in,
 
-			out int[] errors_out,
+			SO_DIC__TextLanguage[] languageName_in, 
 
-			params SO_DIC__TextLanguage[] languageName_in
+			out int[] errors_out
 		) {
 			List<int> _errorlist;
 			Guid _sessionguid;
@@ -173,6 +173,240 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				_errorlist.Add(ErrorType.data);
 			}
 
+
+			errors_out = _errorlist.ToArray();
+		}
+		#endregion
+		#region public static void updLanguage(...);
+		[BOMethodAttribute("updLanguage", true, false, 1)]
+		public static void updLanguage(
+			string sessionGuid_in,
+			string ip_forLogPurposes_in,
+
+			int idLanguage_in,
+			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] textLanguage_in, 
+
+			out int[] errors_out
+		) {
+			List<int> _errorlist;
+			Guid _sessionguid;
+			Sessionuser _sessionuser;
+			#region check...
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in,
+				ip_forLogPurposes_in,
+				out _sessionguid,
+				out _sessionuser,
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
+
+				return;
+			}
+			#endregion
+			#region check permitions...
+			if (!_sessionuser.hasPermition(PermitionType.Language__update)) {
+				_errorlist.Add(ErrorType.language__lack_of_permitions_to_write);
+				errors_out = _errorlist.ToArray();
+				return;
+			}
+			#endregion
+			#region check existence... SO_DIC_Language _language = ...;
+			SO_DIC_Language _language = DO_DIC_Language.getObject(idLanguage_in);
+
+			if (_language == null) {
+				_errorlist.Add(ErrorType.data__not_found);
+				errors_out = _errorlist.ToArray();
+				return;
+			}
+			#endregion
+
+			Exception _exception = null;
+			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
+			DBConnection _con = DO__utils.DBConnection_createInstance(
+				DO__utils.DBServerType,
+				DO__utils.DBConnectionstring,
+				DO__utils.DBLogfile
+			);
+			#endregion
+			try {
+				_con.Open();
+				_con.Transaction.Begin();
+			
+				updObject(
+					_con,
+					_language.TX_Name,
+					textLanguage_in
+				);
+			
+				#region _con.Transaction.Commit();
+				if (_con.Transaction.inTransaction) {
+					_con.Transaction.Commit();
+				}
+				#endregion
+				_errorlist.Add(ErrorType.language__successfully_updated__WARNING);
+			} catch (Exception _ex) {
+				#region _con.Transaction.Rollback();
+				if (
+					_con.isOpen
+					&&
+					_con.Transaction.inTransaction
+				) {
+					_con.Transaction.Rollback();
+				}
+				#endregion
+
+				_exception = _ex;
+			} finally {
+				#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
+				if (_con.isOpen) {
+					if (_con.Transaction.inTransaction) {
+						_con.Transaction.Terminate();
+					}
+					_con.Close();
+				}
+
+				_con.Dispose();
+				#endregion
+			}
+			if (_exception != null) {
+				#region SBO_LOG_Log.log(ErrorType.data);
+				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+					_sessionuser,
+					LogType.error,
+					ErrorType.data,
+					-1L,
+					_sessionuser.IDApplication,
+					"{0}",
+					new string[] {
+						_exception.Message
+					}
+				);
+				#endregion
+				_errorlist.Add(ErrorType.data);
+			}
+
+			errors_out = _errorlist.ToArray();
+		}
+		#endregion
+		#region public static void delLanguage(...);
+		[BOMethodAttribute("delLanguage", true, false, 1)]
+		public static void delLanguage(
+			string sessionGuid_in,
+			string ip_forLogPurposes_in,
+
+			int idLanguage_in,
+
+			out int[] errors_out
+		) {
+			List<int> _errorlist;
+			Guid _sessionguid;
+			Sessionuser _sessionuser;
+			#region check...
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in,
+				ip_forLogPurposes_in,
+				out _sessionguid,
+				out _sessionuser,
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
+
+				return;
+			}
+			#endregion
+			#region check permitions...
+			if (!_sessionuser.hasPermition(PermitionType.Language__delete)) {
+				_errorlist.Add(ErrorType.language__lack_of_permitions_to_delete);
+				errors_out = _errorlist.ToArray();
+				return;
+			}
+			#endregion
+			#region check existence... SO_DIC_Language _language = ...;
+			SO_DIC_Language _language = DO_DIC_Language.getObject(idLanguage_in);
+
+			if (_language == null) {
+				_errorlist.Add(ErrorType.data__not_found);
+				errors_out = _errorlist.ToArray();
+				return;
+			}
+			#endregion
+
+			Exception _exception = null;
+			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
+			DBConnection _con = DO__utils.DBConnection_createInstance(
+				DO__utils.DBServerType,
+				DO__utils.DBConnectionstring,
+				DO__utils.DBLogfile
+			);
+			#endregion
+			try {
+				_con.Open();
+				_con.Transaction.Begin();
+
+				DO_DIC_LanguageApplication.delRecord_byLanguage(
+					idLanguage_in,
+					_con
+				);
+				DO_DIC_Language.delObject(
+					idLanguage_in,
+					_con
+				);
+				delObject(
+					_con,
+					_language.TX_Name
+				);
+			
+				#region _con.Transaction.Commit();
+				if (_con.Transaction.inTransaction) {
+					_con.Transaction.Commit();
+				}
+				#endregion
+				_errorlist.Add(ErrorType.language__successfully_deleted__WARNING);
+			} catch (Exception _ex) {
+				#region _con.Transaction.Rollback();
+				if (
+					_con.isOpen
+					&&
+					_con.Transaction.inTransaction
+				) {
+					_con.Transaction.Rollback();
+				}
+				#endregion
+
+				_exception = _ex;
+			} finally {
+				#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
+				if (_con.isOpen) {
+					if (_con.Transaction.inTransaction) {
+						_con.Transaction.Terminate();
+					}
+					_con.Close();
+				}
+
+				_con.Dispose();
+				#endregion
+			}
+			if (_exception != null) {
+				#region SBO_LOG_Log.log(ErrorType.data);
+				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+					_sessionuser,
+					LogType.error,
+					ErrorType.data,
+					-1L,
+					_sessionuser.IDApplication,
+					"{0}",
+					new string[] {
+						_exception.Message
+					}
+				);
+				#endregion
+				_errorlist.Add(ErrorType.data);
+			}
 
 			errors_out = _errorlist.ToArray();
 		}
@@ -323,6 +557,89 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			return DO_vDIC_ApplicationLanguage.getRecord_byApplication(
 				_sessionuser.IDApplication,
+				0,
+				0,
+				null
+			);
+		}
+		#endregion
+
+		#region public static SO_vDIC_Language[] getRecord_byLanguage(...);
+		[BOMethodAttribute("getRecord_byLanguage", true, false, 1)]
+		public static SO_vDIC_Language[] getRecord_byLanguage(
+			string sessionGuid_in,
+			string ip_forLogPurposes_in,
+
+			int idLanguage_in, 
+
+			out int[] errors_out
+		) {
+			SO_vDIC_Language[] _output = null;
+
+			List<int> _errorlist;
+			Guid _sessionguid;
+			Sessionuser _sessionuser;
+			#region check...
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in,
+				ip_forLogPurposes_in,
+				out _sessionguid,
+				out _sessionuser,
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
+
+				return _output;
+			}
+			#endregion
+
+			// ToDos: here! check permitions... not very important
+
+			return DO_vDIC_Language.getRecord_byLanguage(
+				idLanguage_in, 
+				0,
+				0,
+				null
+			);
+		}
+		#endregion
+		#region public static SO_vDIC_Language[] getRecord_Language(...);
+		[BOMethodAttribute("getRecord_Language", true, false, 1)]
+		public static SO_vDIC_Language[] getRecord_Language(
+			string sessionGuid_in,
+			string ip_forLogPurposes_in,
+
+			int idLanguage_in, 
+
+			out int[] errors_out
+		) {
+			SO_vDIC_Language[] _output = null;
+
+			List<int> _errorlist;
+			Guid _sessionguid;
+			Sessionuser _sessionuser;
+			#region check...
+			if (!SBO_CRD_Authentication.isSessionGuid_valid(
+				sessionGuid_in,
+				ip_forLogPurposes_in,
+				out _sessionguid,
+				out _sessionuser,
+				out _errorlist,
+				out errors_out
+			)) {
+				//// no need!
+				//errors_out = _errors.ToArray();
+
+				return _output;
+			}
+			#endregion
+
+			// ToDos: here! check permitions... not very important
+
+			return DO_vDIC_Language.getRecord_Language(
+				idLanguage_in, 
 				0,
 				0,
 				null

@@ -11,5 +11,14 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     
     
     public partial class DIC_Language_list {
+        
+        /// <summary>
+        /// rep_Languages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Anthem.Repeater rep_Languages;
     }
 }

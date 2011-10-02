@@ -22,7 +22,7 @@ using OGen.NTier.Kick.lib.datalayer.shared;
 using OGen.NTier.Kick.lib.datalayer.shared.structures;
 using OGen.NTier.Kick.lib.businesslayer.shared;
 using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+//using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
 using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
@@ -141,7 +141,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 //Response.Write("</table>");
 
 			// 1st: bind languages
-			rep_Field.DataSource = utils.Dic.Languages;
+			rep_Field.DataSource = utils.Dic.Languages_get();
 			rep_Field.DataBind();
 
 			// 2nd: assign properties to each language control

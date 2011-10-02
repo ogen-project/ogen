@@ -24,7 +24,7 @@ namespace OGen.NTier.lib.businesslayer {
 		/// <param name="name_in">Name</param>
 		/// <param name="distribute_in">Distribute</param>
 		/// <param name="isSearch_in">isSearch</param>
-		/// <param name="ipParamNum_in">ipParamNum</param>
+		/// <param name="ipParamNum_in">ipParamNum (indexed to 0)</param>
 		public BOMethodAttribute(
 			string name_in,
 			bool distribute_in, 

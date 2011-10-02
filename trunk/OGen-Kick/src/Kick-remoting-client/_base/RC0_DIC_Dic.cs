@@ -42,6 +42,21 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 		}
 		#endregion
 
+		#region public void delLanguage(...);
+		public void delLanguage(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			int idLanguage_in, 
+			out System.Int32[] errors_out
+		) {
+			bo_.delLanguage(
+				sessionGuid_in, 
+				ip_forLogPurposes_in, 
+				idLanguage_in, 
+				out errors_out
+			);
+		}
+		#endregion
 		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(...);
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(
 			string sessionGuid_in, 
@@ -55,18 +70,65 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			);
 		}
 		#endregion
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_byLanguage(...);
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_byLanguage(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			int idLanguage_in, 
+			out System.Int32[] errors_out
+		) {
+			return bo_.getRecord_byLanguage(
+				sessionGuid_in, 
+				ip_forLogPurposes_in, 
+				idLanguage_in, 
+				out errors_out
+			);
+		}
+		#endregion
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_Language(...);
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_Language(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			int idLanguage_in, 
+			out System.Int32[] errors_out
+		) {
+			return bo_.getRecord_Language(
+				sessionGuid_in, 
+				ip_forLogPurposes_in, 
+				idLanguage_in, 
+				out errors_out
+			);
+		}
+		#endregion
 		#region public void insLanguage(...);
 		public void insLanguage(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			out System.Int32[] errors_out, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] languageName_in
+			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] languageName_in, 
+			out System.Int32[] errors_out
 		) {
 			bo_.insLanguage(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
-				out errors_out, 
-				languageName_in
+				languageName_in, 
+				out errors_out
+			);
+		}
+		#endregion
+		#region public void updLanguage(...);
+		public void updLanguage(
+			string sessionGuid_in, 
+			string ip_forLogPurposes_in, 
+			int idLanguage_in, 
+			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] textLanguage_in, 
+			out System.Int32[] errors_out
+		) {
+			bo_.updLanguage(
+				sessionGuid_in, 
+				ip_forLogPurposes_in, 
+				idLanguage_in, 
+				textLanguage_in, 
+				out errors_out
 			);
 		}
 		#endregion
