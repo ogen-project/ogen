@@ -1,22 +1,22 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LZMA-10", "X:\ogen.dev-2.0\libs\LZMA-9.10\CS\7zip\LZMA-10.csproj", "{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LZMA-10", "..\..\libs\LZMA-9.10\CS\7zip\LZMA-10.csproj", "{BB3E30AF-6B90-47EB-A6C4-83AFEE74904E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting-10", "X:\ogen.dev-2.0\OGen-NTier\NTier_distributedlayer_remoting\NTier_distributedlayer_remoting-10.csproj", "{504D4214-DA98-4CA2-8849-70796D05F41B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting-10", "..\..\OGen-NTier\NTier_distributedlayer_remoting\NTier_distributedlayer_remoting-10.csproj", "{504D4214-DA98-4CA2-8849-70796D05F41B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting_client-10", "X:\ogen.dev-2.0\OGen-NTier\NTier_distributedlayer_remoting_client\NTier_distributedlayer_remoting_client-10.csproj", "{A1711840-2FC2-457D-BA6B-0E36B54E395F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting_client-10", "..\..\OGen-NTier\NTier_distributedlayer_remoting_client\NTier_distributedlayer_remoting_client-10.csproj", "{A1711840-2FC2-457D-BA6B-0E36B54E395F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting_server-10", "X:\ogen.dev-2.0\OGen-NTier\NTier_distributedlayer_remoting_server\NTier_distributedlayer_remoting_server-10.csproj", "{29413A02-D0EB-4BFF-8EB6-A65AB1166FF3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_distributedlayer_remoting_server-10", "..\..\OGen-NTier\NTier_distributedlayer_remoting_server\NTier_distributedlayer_remoting_server-10.csproj", "{29413A02-D0EB-4BFF-8EB6-A65AB1166FF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer__base-10", "X:\ogen.dev-2.0\OGen\OGen_datalayer__base\OGen_datalayer__base-10.csproj", "{D66D0E69-852C-4695-9D63-C9AB1A959E0B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer__base-10", "..\..\OGen\OGen_datalayer__base\OGen_datalayer__base-10.csproj", "{D66D0E69-852C-4695-9D63-C9AB1A959E0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_datalayer-10", "X:\ogen.dev-2.0\OGen-NTier\NTier_datalayer\NTier_datalayer-10.csproj", "{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_datalayer-10", "..\..\OGen-NTier\NTier_datalayer\NTier_datalayer-10.csproj", "{38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer_PostgreSQL-10", "X:\ogen.dev-2.0\OGen\OGen_datalayer_PostgreSQL\OGen_datalayer_PostgreSQL-10.csproj", "{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayer_PostgreSQL-10", "..\..\OGen\OGen_datalayer_PostgreSQL\OGen_datalayer_PostgreSQL-10.csproj", "{07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_datalayer_proxy-10", "X:\ogen.dev-2.0\OGen-NTier\NTier_datalayer_proxy\NTier_datalayer_proxy-10.csproj", "{F17F7FA0-920E-4AE1-908F-2798D0124996}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_datalayer_proxy-10", "..\..\OGen-NTier\NTier_datalayer_proxy\NTier_datalayer_proxy-10.csproj", "{F17F7FA0-920E-4AE1-908F-2798D0124996}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_businesslayer-10", "X:\ogen.dev-2.0\OGen-NTier\NTier_businesslayer\NTier_businesslayer-10.csproj", "{8AEBEA64-6FC4-430C-922C-B88D105AE91C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_businesslayer-10", "..\..\OGen-NTier\NTier_businesslayer\NTier_businesslayer-10.csproj", "{8AEBEA64-6FC4-430C-922C-B88D105AE91C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kick--test-10-no-gac", "Kick--test\Kick--test-10-no-gac.csproj", "{5D0280A7-2A09-422F-87BA-683ACE9AA187}"
 EndProject
