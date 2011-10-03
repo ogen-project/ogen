@@ -215,7 +215,7 @@ namespace OGen.lib.datalayer.SQLServer {
 			} catch (Exception _ex) {
 				throw new Exception(
 					string.Format(
-						"Stored Procedure: {0}\nConnectionString: {1}|{2}\nexception: {3}\ninner-exception: {4}\n",
+						"Stored Procedure: {0}({5})\nConnectionString: {1}|{2}\nexception: {3}\ninner-exception: {4}\n",
 						function_in,
 						DBServerType, 
 #if DEBUG
@@ -223,8 +223,10 @@ namespace OGen.lib.datalayer.SQLServer {
 #else
 						"- not available -", 
 #endif
-						_ex.Message, 
-						_ex.InnerException
+						_ex.Message,
+						_ex.InnerException,
+
+						DBUtils.IDbDataParameter2String(dataParameters_in)
 					)
 				);
 			}
