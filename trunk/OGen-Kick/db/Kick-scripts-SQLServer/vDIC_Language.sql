@@ -1,4 +1,4 @@
-﻿create view "dbo"."vDIC_Language" 
+﻿alter view "dbo"."vDIC_Language" 
 as
 	select
 		"DIC_Language"."IDLanguage", 

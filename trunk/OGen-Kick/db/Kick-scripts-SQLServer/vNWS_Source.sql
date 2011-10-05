@@ -13,10 +13,10 @@ as
 			"NWS_Source"."IDSource"
 		) as "Name", 
 		"NWS_Source"."IFApplication", 
-		"NWS_User"."Name" as "ManagerName"
+		"NET_User"."Name" as "ManagerName"
 	from "NWS_Source"
-	left join "NWS_User" on (
-		"NWS_User"."IFUser" = "NWS_Source"."IFUser__Approved"
+	left join "NET_User" on (
+		"NET_User"."IFUser" = "NWS_Source"."IFUser__Approved"
 	)
 go
 

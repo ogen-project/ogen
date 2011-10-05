@@ -278,7 +278,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			true, 
 			false, 
 			false, 
-			0, 
+			2147483647, 
 			""
 		)]
 		public string Text {

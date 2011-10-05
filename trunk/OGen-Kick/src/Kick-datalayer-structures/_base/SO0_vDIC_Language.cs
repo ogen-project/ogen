@@ -108,7 +108,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			true, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -156,7 +156,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			true, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -218,7 +218,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			true, 
 			false, 
 			true, 
-			0, 
+			2147483647, 
 			""
 		)]
 		public string Language {

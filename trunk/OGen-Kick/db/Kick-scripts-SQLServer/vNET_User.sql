@@ -1,5 +1,5 @@
 --create view "vNET_User"
-create view "dbo"."vNET_User"
+alter view "dbo"."vNET_User"
 as
 	select 
 		c1."IDUser", 

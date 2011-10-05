@@ -86,12 +86,12 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output[r].idlanguage_ = (int)dataTable_in.Rows[r][_dc_idlanguage];
 				}
 				if (dataTable_in.Rows[r][_dc_ifcontent] == System.DBNull.Value) {
-					_output[r].IFContent_isNull = true;
+					_output[r].ifcontent_ = 0L;
 				} else {
 					_output[r].ifcontent_ = (long)dataTable_in.Rows[r][_dc_ifcontent];
 				}
 				if (dataTable_in.Rows[r][_dc_guid] == System.DBNull.Value) {
-					_output[r].GUID_isNull = true;
+					_output[r].guid_ = string.Empty;
 				} else {
 					_output[r].guid_ = (string)dataTable_in.Rows[r][_dc_guid];
 				}
@@ -101,7 +101,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output[r].ordernum_ = (long)dataTable_in.Rows[r][_dc_ordernum];
 				}
 				if (dataTable_in.Rows[r][_dc_isimage] == System.DBNull.Value) {
-					_output[r].isImage_isNull = true;
+					_output[r].isimage_ = false;
 				} else {
 					_output[r].isimage_ = (bool)dataTable_in.Rows[r][_dc_isimage];
 				}
@@ -116,7 +116,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output[r].description_ = (string)dataTable_in.Rows[r][_dc_description];
 				}
 				if (dataTable_in.Rows[r][_dc_filename] == System.DBNull.Value) {
-					_output[r].FileName_isNull = true;
+					_output[r].filename_ = string.Empty;
 				} else {
 					_output[r].filename_ = (string)dataTable_in.Rows[r][_dc_filename];
 				}
@@ -137,7 +137,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="page_in">page number</param>
 		/// <param name="page_numRecords_in">number of records per page</param>
 		public static SO_vNWS_Attachment[] getRecord_byContent(
-			object IDContent_search_in, 
+			long IDContent_search_in, 
 			int page_in, 
 			int page_numRecords_in
 		) {
@@ -157,7 +157,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="page_numRecords_in">number of records per page</param>
 		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
 		public static SO_vNWS_Attachment[] getRecord_byContent(
-			object IDContent_search_in, 
+			long IDContent_search_in, 
 			int page_in, 
 			int page_numRecords_in, 
 			DBConnection dbConnection_in
@@ -206,7 +206,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		public static bool isObject_inRecord_byContent(
 			long IDAttachment_in, 
 			int IDLanguage_in, 
-			object IDContent_search_in
+			long IDContent_search_in
 		) {
 			return isObject_inRecord_byContent(
 				IDAttachment_in, 
@@ -226,7 +226,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		public static bool isObject_inRecord_byContent(
 			long IDAttachment_in, 
 			int IDLanguage_in, 
-			object IDContent_search_in, 
+			long IDContent_search_in, 
 			DBConnection dbConnection_in
 		) {
 			bool _output;
@@ -261,7 +261,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="IDContent_search_in">IDContent search condition</param>
 		/// <returns>number of existing Records for the 'byContent' search</returns>
 		public static long getCount_inRecord_byContent(
-			object IDContent_search_in
+			long IDContent_search_in
 		) {
 			return getCount_inRecord_byContent(
 				IDContent_search_in, 
@@ -276,7 +276,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
 		/// <returns>number of existing Records for the 'byContent' search</returns>
 		public static long getCount_inRecord_byContent(
-			object IDContent_search_in, 
+			long IDContent_search_in, 
 			DBConnection dbConnection_in
 		) {
 			long _output;
@@ -313,7 +313,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="page_in">page number</param>
 		/// <param name="page_numRecords_in">number of records per page</param>
 		public static SO_vNWS_Attachment[] getRecord_byContent_andL(
-			object IDContent_search_in, 
+			long IDContent_search_in, 
 			int IDLanguage_search_in, 
 			int page_in, 
 			int page_numRecords_in
@@ -336,7 +336,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="page_numRecords_in">number of records per page</param>
 		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
 		public static SO_vNWS_Attachment[] getRecord_byContent_andL(
-			object IDContent_search_in, 
+			long IDContent_search_in, 
 			int IDLanguage_search_in, 
 			int page_in, 
 			int page_numRecords_in, 
@@ -389,7 +389,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		public static bool isObject_inRecord_byContent_andL(
 			long IDAttachment_in, 
 			int IDLanguage_in, 
-			object IDContent_search_in, 
+			long IDContent_search_in, 
 			int IDLanguage_search_in
 		) {
 			return isObject_inRecord_byContent_andL(
@@ -411,7 +411,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		public static bool isObject_inRecord_byContent_andL(
 			long IDAttachment_in, 
 			int IDLanguage_in, 
-			object IDContent_search_in, 
+			long IDContent_search_in, 
 			int IDLanguage_search_in, 
 			DBConnection dbConnection_in
 		) {
@@ -449,7 +449,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="IDLanguage_search_in">IDLanguage search condition</param>
 		/// <returns>number of existing Records for the 'byContent_andL' search</returns>
 		public static long getCount_inRecord_byContent_andL(
-			object IDContent_search_in, 
+			long IDContent_search_in, 
 			int IDLanguage_search_in
 		) {
 			return getCount_inRecord_byContent_andL(
@@ -467,7 +467,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
 		/// <returns>number of existing Records for the 'byContent_andL' search</returns>
 		public static long getCount_inRecord_byContent_andL(
-			object IDContent_search_in, 
+			long IDContent_search_in, 
 			int IDLanguage_search_in, 
 			DBConnection dbConnection_in
 		) {

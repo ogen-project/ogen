@@ -1,4 +1,4 @@
-create view "dbo"."vDIC_ApplicationLanguage" 
+alter view "dbo"."vDIC_ApplicationLanguage" 
 as
 	select 
 		"DIC_LanguageApplication"."IFApplication", 

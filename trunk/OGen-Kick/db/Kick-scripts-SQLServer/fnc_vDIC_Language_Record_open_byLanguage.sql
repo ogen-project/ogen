@@ -1,4 +1,4 @@
-﻿ALTER FUNCTION [dbo].[fnc_vDIC_Language_Record_open_byLanguage](
+﻿alter FUNCTION [dbo].[fnc_vDIC_Language_Record_open_byLanguage](
 	@IDLanguage_translation_search_ int
 )
 RETURNS TABLE

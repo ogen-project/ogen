@@ -67,21 +67,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 
 			idcontent_ = (long)info_in.GetValue("IDContent", typeof(long));
 			idlanguage_ = (int)info_in.GetValue("IDLanguage", typeof(int));
-			ifuser__publisher_ 
-				= (info_in.GetValue("IFUser__Publisher", typeof(long)) == null)
-					? 0L
-					: (long)info_in.GetValue("IFUser__Publisher", typeof(long));
-			IFUser__Publisher_isNull = (bool)info_in.GetValue("IFUser__Publisher_isNull", typeof(bool));
+			ifuser__publisher_ = (long)info_in.GetValue("IFUser__Publisher", typeof(long));
 			publishername_ 
 				= (info_in.GetValue("PublisherName", typeof(string)) == null)
 					? string.Empty
 					: (string)info_in.GetValue("PublisherName", typeof(string));
 			PublisherName_isNull = (bool)info_in.GetValue("PublisherName_isNull", typeof(bool));
-			publish_date_ 
-				= (info_in.GetValue("Publish_date", typeof(DateTime)) == null)
-					? new DateTime(1900, 1, 1)
-					: (DateTime)info_in.GetValue("Publish_date", typeof(DateTime));
-			Publish_date_isNull = (bool)info_in.GetValue("Publish_date_isNull", typeof(bool));
+			publish_date_ = (DateTime)info_in.GetValue("Publish_date", typeof(DateTime));
 			ifuser__aproved_ 
 				= (info_in.GetValue("IFUser__Aproved", typeof(long)) == null)
 					? 0L
@@ -149,7 +141,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			true, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -232,7 +224,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object ifuser__publisher_;// = 0L;
+		public long ifuser__publisher_;// = 0L;
 		
 		/// <summary>
 		/// vNWS_Content's IFUser__Publisher.
@@ -245,7 +237,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			false, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -264,31 +256,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFUser__Publisher {
 			get {
-				return (long)((ifuser__publisher_ == null) ? 0L : ifuser__publisher_);
+				return ifuser__publisher_;
 			}
 			set {
 				if (
 					(!value.Equals(ifuser__publisher_))
 				) {
 					ifuser__publisher_ = value;
-					haschanges_ = true;
-				}
-			}
-		}
-		#endregion
-		#region public bool IFUser__Publisher_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at vNWS_Content's IFUser__Publisher.
-		/// </summary>
-		[XmlElement("IFUser__Publisher_isNull")]
-		[SoapElement("IFUser__Publisher_isNull")]
-		public bool IFUser__Publisher_isNull {
-			get { return (ifuser__publisher_ == null); }
-			set {
-				//if (value) ifuser__publisher_ = null;
-
-				if ((value) && (ifuser__publisher_ != null)) {
-					ifuser__publisher_ = null;
 					haschanges_ = true;
 				}
 			}
@@ -366,7 +340,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object publish_date_;// = new DateTime(1900, 1, 1);
+		public DateTime publish_date_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>
 		/// vNWS_Content's Publish_date.
@@ -379,7 +353,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			false, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -398,31 +372,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public DateTime Publish_date {
 			get {
-				return (DateTime)((publish_date_ == null) ? new DateTime(1900, 1, 1) : publish_date_);
+				return publish_date_;
 			}
 			set {
 				if (
 					(!value.Equals(publish_date_))
 				) {
 					publish_date_ = value;
-					haschanges_ = true;
-				}
-			}
-		}
-		#endregion
-		#region public bool Publish_date_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at vNWS_Content's Publish_date.
-		/// </summary>
-		[XmlElement("Publish_date_isNull")]
-		[SoapElement("Publish_date_isNull")]
-		public bool Publish_date_isNull {
-			get { return (publish_date_ == null); }
-			set {
-				//if (value) publish_date_ = null;
-
-				if ((value) && (publish_date_ != null)) {
-					publish_date_ = null;
 					haschanges_ = true;
 				}
 			}
@@ -591,7 +547,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			true, 
 			false, 
 			false, 
-			0, 
+			2147483647, 
 			""
 		)]
 		public string Title {
@@ -659,7 +615,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			true, 
 			false, 
 			false, 
-			0, 
+			2147483647, 
 			""
 		)]
 		public string Content {
@@ -727,7 +683,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			true, 
 			false, 
 			false, 
-			0, 
+			2147483647, 
 			""
 		)]
 		public string subtitle {
@@ -795,7 +751,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			true, 
 			false, 
 			false, 
-			0, 
+			2147483647, 
 			""
 		)]
 		public string summary {
@@ -908,11 +864,9 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			info_in.AddValue("IDContent", idcontent_);
 			info_in.AddValue("IDLanguage", idlanguage_);
 			info_in.AddValue("IFUser__Publisher", ifuser__publisher_);
-			info_in.AddValue("IFUser__Publisher_isNull", IFUser__Publisher_isNull);
 			info_in.AddValue("PublisherName", publishername_);
 			info_in.AddValue("PublisherName_isNull", PublisherName_isNull);
 			info_in.AddValue("Publish_date", publish_date_);
-			info_in.AddValue("Publish_date_isNull", Publish_date_isNull);
 			info_in.AddValue("IFUser__Aproved", ifuser__aproved_);
 			info_in.AddValue("IFUser__Aproved_isNull", IFUser__Aproved_isNull);
 			info_in.AddValue("Aproved_date", aproved_date_);

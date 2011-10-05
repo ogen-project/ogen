@@ -140,7 +140,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			true, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -400,7 +400,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			true, 
 			false, 
 			true, 
-			0, 
+			8000, 
 			""
 		)]
 		public string Name {

@@ -15,7 +15,7 @@ as
 			"DIC_Language"."IDLanguage"
 		) as "Name", 
 		"NWS_Tag"."IFApplication", 
-		"NWS_User"."Name" as "ManagerName", 
+		"NET_User"."Name" as "ManagerName", 
 
 		case 
 			when not _tx_name."CharVar8000" is null 
@@ -32,8 +32,8 @@ as
 		and
 		("NWS_Tag"."TX_Name" = _tx_name."IFText")
 	)
-	left join "NWS_User" on (
-		"NWS_User"."IFUser" = "NWS_Tag"."IFUser__Approved"
+	left join "NET_User" on (
+		"NET_User"."IFUser" = "NWS_Tag"."IFUser__Approved"
 	)
 go
 

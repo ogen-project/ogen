@@ -2,7 +2,7 @@
 --	DROP VIEW [dbo].[vCRD_ProfilePermition]
 --GO
 
-create view "dbo"."vCRD_ProfilePermition" 
+alter view "dbo"."vCRD_ProfilePermition" 
 as
 	select
 		p1."IDPermition", 

@@ -150,7 +150,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			true, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -458,7 +458,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			true, 
 			false, 
 			true, 
-			0, 
+			8000, 
 			""
 		)]
 		public string Name {
@@ -660,7 +660,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			true, 
 			false, 
 			false, 
-			0, 
+			2147483647, 
 			""
 		)]
 		public string ShortName {

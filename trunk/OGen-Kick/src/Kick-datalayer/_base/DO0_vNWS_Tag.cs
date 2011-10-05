@@ -87,7 +87,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				_connection.newDBDataParameter("IFTag__parent", DbType.Int64, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("IFUser__Approved", DbType.Int64, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("Approved_date", DbType.DateTime, ParameterDirection.Output, null, 0), 
-				_connection.newDBDataParameter("Name", DbType.AnsiString, ParameterDirection.Output, null, 0), 
+				_connection.newDBDataParameter("Name", DbType.AnsiString, ParameterDirection.Output, null, 8000), 
 				_connection.newDBDataParameter("IFApplication", DbType.Int32, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("ManagerName", DbType.AnsiString, ParameterDirection.Output, null, 255), 
 				_connection.newDBDataParameter("ShortName", DbType.AnsiString, ParameterDirection.Output, null, 0)

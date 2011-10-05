@@ -78,11 +78,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 					? false
 					: (bool)info_in.GetValue("isThread", typeof(bool));
 			isThread_isNull = (bool)info_in.GetValue("isThread_isNull", typeof(bool));
-			issticky_ 
-				= (info_in.GetValue("isSticky", typeof(bool)) == null)
-					? false
-					: (bool)info_in.GetValue("isSticky", typeof(bool));
-			isSticky_isNull = (bool)info_in.GetValue("isSticky_isNull", typeof(bool));
+			issticky_ = (bool)info_in.GetValue("isSticky", typeof(bool));
 			subject_ 
 				= (info_in.GetValue("Subject", typeof(string)) == null)
 					? string.Empty
@@ -108,21 +104,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 					? string.Empty
 					: (string)info_in.GetValue("Name", typeof(string));
 			Name_isNull = (bool)info_in.GetValue("Name_isNull", typeof(bool));
-			publish_date_ 
-				= (info_in.GetValue("Publish_date", typeof(DateTime)) == null)
-					? new DateTime(1900, 1, 1)
-					: (DateTime)info_in.GetValue("Publish_date", typeof(DateTime));
-			Publish_date_isNull = (bool)info_in.GetValue("Publish_date_isNull", typeof(bool));
+			publish_date_ = (DateTime)info_in.GetValue("Publish_date", typeof(DateTime));
 			ifapplication_ 
 				= (info_in.GetValue("IFApplication", typeof(int)) == null)
 					? 0
 					: (int)info_in.GetValue("IFApplication", typeof(int));
 			IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
-			login_ 
-				= (info_in.GetValue("Login", typeof(string)) == null)
-					? string.Empty
-					: (string)info_in.GetValue("Login", typeof(string));
-			Login_isNull = (bool)info_in.GetValue("Login_isNull", typeof(bool));
+			login_ = (string)info_in.GetValue("Login", typeof(string));
 		}
 		#endregion
 
@@ -175,7 +163,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			true, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -342,7 +330,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object issticky_;// = false;
+		public bool issticky_;// = false;
 		
 		/// <summary>
 		/// vFOR_Message's isSticky.
@@ -355,7 +343,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			false, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -374,31 +362,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public bool isSticky {
 			get {
-				return (bool)((issticky_ == null) ? false : issticky_);
+				return issticky_;
 			}
 			set {
 				if (
 					(!value.Equals(issticky_))
 				) {
 					issticky_ = value;
-					haschanges_ = true;
-				}
-			}
-		}
-		#endregion
-		#region public bool isSticky_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at vFOR_Message's isSticky.
-		/// </summary>
-		[XmlElement("isSticky_isNull")]
-		[SoapElement("isSticky_isNull")]
-		public bool isSticky_isNull {
-			get { return (issticky_ == null); }
-			set {
-				//if (value) issticky_ = null;
-
-				if ((value) && (issticky_ != null)) {
-					issticky_ = null;
 					haschanges_ = true;
 				}
 			}
@@ -571,7 +541,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			true, 
 			false, 
 			false, 
-			0, 
+			2147483647, 
 			""
 		)]
 		public string Message__text {
@@ -746,7 +716,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object publish_date_;// = new DateTime(1900, 1, 1);
+		public DateTime publish_date_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>
 		/// vFOR_Message's Publish_date.
@@ -759,7 +729,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			false, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -778,31 +748,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public DateTime Publish_date {
 			get {
-				return (DateTime)((publish_date_ == null) ? new DateTime(1900, 1, 1) : publish_date_);
+				return publish_date_;
 			}
 			set {
 				if (
 					(!value.Equals(publish_date_))
 				) {
 					publish_date_ = value;
-					haschanges_ = true;
-				}
-			}
-		}
-		#endregion
-		#region public bool Publish_date_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at vFOR_Message's Publish_date.
-		/// </summary>
-		[XmlElement("Publish_date_isNull")]
-		[SoapElement("Publish_date_isNull")]
-		public bool Publish_date_isNull {
-			get { return (publish_date_ == null); }
-			set {
-				//if (value) publish_date_ = null;
-
-				if ((value) && (publish_date_ != null)) {
-					publish_date_ = null;
 					haschanges_ = true;
 				}
 			}
@@ -878,7 +830,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object login_;// = string.Empty;
+		public string login_;// = string.Empty;
 		
 		/// <summary>
 		/// vFOR_Message's Login.
@@ -891,7 +843,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			false, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -910,7 +862,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string Login {
 			get {
-				return (string)((login_ == null) ? string.Empty : login_);
+				return login_;
 			}
 			set {
 				if (
@@ -919,24 +871,6 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 					(!value.Equals(login_))
 				) {
 					login_ = value;
-					haschanges_ = true;
-				}
-			}
-		}
-		#endregion
-		#region public bool Login_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at vFOR_Message's Login.
-		/// </summary>
-		[XmlElement("Login_isNull")]
-		[SoapElement("Login_isNull")]
-		public bool Login_isNull {
-			get { return (login_ == null); }
-			set {
-				//if (value) login_ = null;
-
-				if ((value) && (login_ != null)) {
-					login_ = null;
 					haschanges_ = true;
 				}
 			}
@@ -1025,7 +959,6 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			info_in.AddValue("isThread", isthread_);
 			info_in.AddValue("isThread_isNull", isThread_isNull);
 			info_in.AddValue("isSticky", issticky_);
-			info_in.AddValue("isSticky_isNull", isSticky_isNull);
 			info_in.AddValue("Subject", subject_);
 			info_in.AddValue("Subject_isNull", Subject_isNull);
 			info_in.AddValue("Message__charvar8000", message__charvar8000_);
@@ -1037,11 +970,9 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			info_in.AddValue("Name", name_);
 			info_in.AddValue("Name_isNull", Name_isNull);
 			info_in.AddValue("Publish_date", publish_date_);
-			info_in.AddValue("Publish_date_isNull", Publish_date_isNull);
 			info_in.AddValue("IFApplication", ifapplication_);
 			info_in.AddValue("IFApplication_isNull", IFApplication_isNull);
 			info_in.AddValue("Login", login_);
-			info_in.AddValue("Login_isNull", Login_isNull);
 		}
 		#endregion
 		#endregion

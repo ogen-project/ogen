@@ -74,6 +74,10 @@
     <Content Include="include\htmlDatePicker.js" />
     <Content Include="include\style.css" />
     <Content Include="include\tabber.js" />
+    <Content Include="keys-Authentication-client\e1c47959-7b10-4196-8c6b-29e4a8e98b2d.private.xml" />
+    <Content Include="keys-Authentication-client\e1c47959-7b10-4196-8c6b-29e4a8e98b2d.public.xml" />
+    <Content Include="keys-Authentication-server\d0a2cc8f-63b6-4c7a-94b9-5b583e6b15e3.private.xml" />
+    <Content Include="keys-Authentication-server\d0a2cc8f-63b6-4c7a-94b9-5b583e6b15e3.public.xml" />
     <Content Include="News-list.aspx" />
     <Content Include="News.aspx" />
     <Content Include="Registration-changePassword.aspx" />

@@ -52,11 +52,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			haschanges_ = false;
 
 			idpermition_ = (long)info_in.GetValue("IDPermition", typeof(long));
-			permitionname_ 
-				= (info_in.GetValue("PermitionName", typeof(string)) == null)
-					? string.Empty
-					: (string)info_in.GetValue("PermitionName", typeof(string));
-			PermitionName_isNull = (bool)info_in.GetValue("PermitionName_isNull", typeof(bool));
+			permitionname_ = (string)info_in.GetValue("PermitionName", typeof(string));
 			idprofile_ = (long)info_in.GetValue("IDProfile", typeof(long));
 			haspermition_ 
 				= (info_in.GetValue("hasPermition", typeof(bool)) == null)
@@ -93,7 +89,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public override string ListItem_Text { get; }
 		public override string ListItem_Text {
 			get {
-				return PermitionName;
+				return permitionname_;
 			}
 		} 
 		#endregion
@@ -115,7 +111,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			true, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -150,7 +146,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object permitionname_;// = string.Empty;
+		public string permitionname_;// = string.Empty;
 		
 		/// <summary>
 		/// vCRD_ProfilePermition's PermitionName.
@@ -163,7 +159,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			false, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -182,7 +178,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string PermitionName {
 			get {
-				return (string)((permitionname_ == null) ? string.Empty : permitionname_);
+				return permitionname_;
 			}
 			set {
 				if (
@@ -191,24 +187,6 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 					(!value.Equals(permitionname_))
 				) {
 					permitionname_ = value;
-					haschanges_ = true;
-				}
-			}
-		}
-		#endregion
-		#region public bool PermitionName_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at vCRD_ProfilePermition's PermitionName.
-		/// </summary>
-		[XmlElement("PermitionName_isNull")]
-		[SoapElement("PermitionName_isNull")]
-		public bool PermitionName_isNull {
-			get { return (permitionname_ == null); }
-			set {
-				//if (value) permitionname_ = null;
-
-				if ((value) && (permitionname_ != null)) {
-					permitionname_ = null;
 					haschanges_ = true;
 				}
 			}
@@ -231,7 +209,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			true, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -375,7 +353,6 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
 			info_in.AddValue("IDPermition", idpermition_);
 			info_in.AddValue("PermitionName", permitionname_);
-			info_in.AddValue("PermitionName_isNull", PermitionName_isNull);
 			info_in.AddValue("IDProfile", idprofile_);
 			info_in.AddValue("hasPermition", haspermition_);
 			info_in.AddValue("hasPermition_isNull", hasPermition_isNull);

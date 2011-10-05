@@ -12,7 +12,7 @@ as
 --		"NWS_Content"."IFContenttype", 
 
 		"NWS_Content"."IFUser__Publisher", 
-		"NWS_User"."Name" as "PublisherName", 
+		"NET_User"."Name" as "PublisherName", 
 		"NWS_Content"."Publish_date", 
 		"NWS_Content"."IFUser__Aproved", 
 		"NWS_Content"."Aproved_date", 
@@ -114,8 +114,8 @@ as
 
 
 
-	inner join "NWS_User" on (
-		"NWS_User"."IFUser" = "NWS_Content"."IFUser__Publisher"
+	inner join "NET_User" on (
+		"NET_User"."IFUser" = "NWS_Content"."IFUser__Publisher"
 	)
 
 	left join "DIC_TextLanguage" as _tx_title on (

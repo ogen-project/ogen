@@ -2,7 +2,7 @@
 --	DROP VIEW [dbo].[vCRD_UserProfile]
 --GO
 
-create view "dbo"."vCRD_UserProfile" 
+alter view "dbo"."vCRD_UserProfile" 
 as
 	select
 		p1."IDProfile", 

@@ -52,11 +52,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			haschanges_ = false;
 
 			idprofile_ = (long)info_in.GetValue("IDProfile", typeof(long));
-			profilename_ 
-				= (info_in.GetValue("ProfileName", typeof(string)) == null)
-					? string.Empty
-					: (string)info_in.GetValue("ProfileName", typeof(string));
-			ProfileName_isNull = (bool)info_in.GetValue("ProfileName_isNull", typeof(bool));
+			profilename_ = (string)info_in.GetValue("ProfileName", typeof(string));
 			iduser_ = (long)info_in.GetValue("IDUser", typeof(long));
 			hasprofile_ 
 				= (info_in.GetValue("hasProfile", typeof(bool)) == null)
@@ -93,7 +89,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public override string ListItem_Text { get; }
 		public override string ListItem_Text {
 			get {
-				return ProfileName;
+				return profilename_;
 			}
 		} 
 		#endregion
@@ -115,7 +111,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			true, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -150,7 +146,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object profilename_;// = string.Empty;
+		public string profilename_;// = string.Empty;
 		
 		/// <summary>
 		/// vCRD_UserProfile's ProfileName.
@@ -163,7 +159,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			false, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -182,7 +178,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string ProfileName {
 			get {
-				return (string)((profilename_ == null) ? string.Empty : profilename_);
+				return profilename_;
 			}
 			set {
 				if (
@@ -191,24 +187,6 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 					(!value.Equals(profilename_))
 				) {
 					profilename_ = value;
-					haschanges_ = true;
-				}
-			}
-		}
-		#endregion
-		#region public bool ProfileName_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at vCRD_UserProfile's ProfileName.
-		/// </summary>
-		[XmlElement("ProfileName_isNull")]
-		[SoapElement("ProfileName_isNull")]
-		public bool ProfileName_isNull {
-			get { return (profilename_ == null); }
-			set {
-				//if (value) profilename_ = null;
-
-				if ((value) && (profilename_ != null)) {
-					profilename_ = null;
 					haschanges_ = true;
 				}
 			}
@@ -231,7 +209,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			true, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -375,7 +353,6 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
 			info_in.AddValue("IDProfile", idprofile_);
 			info_in.AddValue("ProfileName", profilename_);
-			info_in.AddValue("ProfileName_isNull", ProfileName_isNull);
 			info_in.AddValue("IDUser", iduser_);
 			info_in.AddValue("hasProfile", hasprofile_);
 			info_in.AddValue("hasProfile_isNull", hasProfile_isNull);

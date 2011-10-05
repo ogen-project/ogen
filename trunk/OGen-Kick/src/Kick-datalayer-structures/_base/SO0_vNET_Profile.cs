@@ -52,11 +52,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			haschanges_ = false;
 
 			idprofile_ = (long)info_in.GetValue("IDProfile", typeof(long));
-			name_ 
-				= (info_in.GetValue("Name", typeof(string)) == null)
-					? string.Empty
-					: (string)info_in.GetValue("Name", typeof(string));
-			Name_isNull = (bool)info_in.GetValue("Name_isNull", typeof(bool));
+			name_ = (string)info_in.GetValue("Name", typeof(string));
 			ifapplication_ 
 				= (info_in.GetValue("IFApplication", typeof(int)) == null)
 					? 0
@@ -97,7 +93,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public override string ListItem_Text { get; }
 		public override string ListItem_Text {
 			get {
-				return Name;
+				return name_;
 			}
 		} 
 		#endregion
@@ -119,7 +115,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			true, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -154,7 +150,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object name_;// = string.Empty;
+		public string name_;// = string.Empty;
 		
 		/// <summary>
 		/// vNET_Profile's Name.
@@ -167,7 +163,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			false, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -186,7 +182,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string Name {
 			get {
-				return (string)((name_ == null) ? string.Empty : name_);
+				return name_;
 			}
 			set {
 				if (
@@ -195,24 +191,6 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 					(!value.Equals(name_))
 				) {
 					name_ = value;
-					haschanges_ = true;
-				}
-			}
-		}
-		#endregion
-		#region public bool Name_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at vNET_Profile's Name.
-		/// </summary>
-		[XmlElement("Name_isNull")]
-		[SoapElement("Name_isNull")]
-		public bool Name_isNull {
-			get { return (name_ == null); }
-			set {
-				//if (value) name_ = null;
-
-				if ((value) && (name_ != null)) {
-					name_ = null;
 					haschanges_ = true;
 				}
 			}
@@ -397,7 +375,6 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
 			info_in.AddValue("IDProfile", idprofile_);
 			info_in.AddValue("Name", name_);
-			info_in.AddValue("Name_isNull", Name_isNull);
 			info_in.AddValue("IFApplication", ifapplication_);
 			info_in.AddValue("IFApplication_isNull", IFApplication_isNull);
 			info_in.AddValue("isDefaultprofile", isdefaultprofile_);

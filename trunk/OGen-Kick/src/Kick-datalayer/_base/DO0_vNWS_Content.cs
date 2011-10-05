@@ -90,7 +90,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output[r].idlanguage_ = (int)dataTable_in.Rows[r][_dc_idlanguage];
 				}
 				if (dataTable_in.Rows[r][_dc_ifuser__publisher] == System.DBNull.Value) {
-					_output[r].IFUser__Publisher_isNull = true;
+					_output[r].ifuser__publisher_ = 0L;
 				} else {
 					_output[r].ifuser__publisher_ = (long)dataTable_in.Rows[r][_dc_ifuser__publisher];
 				}
@@ -100,7 +100,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output[r].publishername_ = (string)dataTable_in.Rows[r][_dc_publishername];
 				}
 				if (dataTable_in.Rows[r][_dc_publish_date] == System.DBNull.Value) {
-					_output[r].Publish_date_isNull = true;
+					_output[r].publish_date_ = new DateTime(1900, 1, 1);
 				} else {
 					_output[r].publish_date_ = (DateTime)dataTable_in.Rows[r][_dc_publish_date];
 				}

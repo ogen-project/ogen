@@ -71,7 +71,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output[r].idpermition_ = (long)dataTable_in.Rows[r][_dc_idpermition];
 				}
 				if (dataTable_in.Rows[r][_dc_permitionname] == System.DBNull.Value) {
-					_output[r].PermitionName_isNull = true;
+					_output[r].permitionname_ = string.Empty;
 				} else {
 					_output[r].permitionname_ = (string)dataTable_in.Rows[r][_dc_permitionname];
 				}

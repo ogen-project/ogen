@@ -61,11 +61,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 					? 0
 					: (int)info_in.GetValue("IDApplication", typeof(int));
 			IDApplication_isNull = (bool)info_in.GetValue("IDApplication_isNull", typeof(bool));
-			name_ 
-				= (info_in.GetValue("Name", typeof(string)) == null)
-					? string.Empty
-					: (string)info_in.GetValue("Name", typeof(string));
-			Name_isNull = (bool)info_in.GetValue("Name_isNull", typeof(bool));
+			name_ = (string)info_in.GetValue("Name", typeof(string));
 			ifuser__approved_ 
 				= (info_in.GetValue("IFUser__Approved", typeof(long)) == null)
 					? 0L
@@ -111,7 +107,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public override string ListItem_Text { get; }
 		public override string ListItem_Text {
 			get {
-				return Name;
+				return name_;
 			}
 		} 
 		#endregion
@@ -133,7 +129,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			true, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -234,7 +230,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object name_;// = string.Empty;
+		public string name_;// = string.Empty;
 		
 		/// <summary>
 		/// vNWS_Author's Name.
@@ -247,7 +243,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			false, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -266,7 +262,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string Name {
 			get {
-				return (string)((name_ == null) ? string.Empty : name_);
+				return name_;
 			}
 			set {
 				if (
@@ -275,24 +271,6 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 					(!value.Equals(name_))
 				) {
 					name_ = value;
-					haschanges_ = true;
-				}
-			}
-		}
-		#endregion
-		#region public bool Name_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at vNWS_Author's Name.
-		/// </summary>
-		[XmlElement("Name_isNull")]
-		[SoapElement("Name_isNull")]
-		public bool Name_isNull {
-			get { return (name_ == null); }
-			set {
-				//if (value) name_ = null;
-
-				if ((value) && (name_ != null)) {
-					name_ = null;
 					haschanges_ = true;
 				}
 			}
@@ -555,7 +533,6 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			info_in.AddValue("IDApplication", idapplication_);
 			info_in.AddValue("IDApplication_isNull", IDApplication_isNull);
 			info_in.AddValue("Name", name_);
-			info_in.AddValue("Name_isNull", Name_isNull);
 			info_in.AddValue("IFUser__Approved", ifuser__approved_);
 			info_in.AddValue("IFUser__Approved_isNull", IFUser__Approved_isNull);
 			info_in.AddValue("ManagerName", managername_);

@@ -63,26 +63,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 
 			idattachment_ = (long)info_in.GetValue("IDAttachment", typeof(long));
 			idlanguage_ = (int)info_in.GetValue("IDLanguage", typeof(int));
-			ifcontent_ 
-				= (info_in.GetValue("IFContent", typeof(long)) == null)
-					? 0L
-					: (long)info_in.GetValue("IFContent", typeof(long));
-			IFContent_isNull = (bool)info_in.GetValue("IFContent_isNull", typeof(bool));
-			guid_ 
-				= (info_in.GetValue("GUID", typeof(string)) == null)
-					? string.Empty
-					: (string)info_in.GetValue("GUID", typeof(string));
-			GUID_isNull = (bool)info_in.GetValue("GUID_isNull", typeof(bool));
+			ifcontent_ = (long)info_in.GetValue("IFContent", typeof(long));
+			guid_ = (string)info_in.GetValue("GUID", typeof(string));
 			ordernum_ 
 				= (info_in.GetValue("OrderNum", typeof(long)) == null)
 					? 0L
 					: (long)info_in.GetValue("OrderNum", typeof(long));
 			OrderNum_isNull = (bool)info_in.GetValue("OrderNum_isNull", typeof(bool));
-			isimage_ 
-				= (info_in.GetValue("isImage", typeof(bool)) == null)
-					? false
-					: (bool)info_in.GetValue("isImage", typeof(bool));
-			isImage_isNull = (bool)info_in.GetValue("isImage_isNull", typeof(bool));
+			isimage_ = (bool)info_in.GetValue("isImage", typeof(bool));
 			name_ 
 				= (info_in.GetValue("Name", typeof(string)) == null)
 					? string.Empty
@@ -93,11 +81,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 					? string.Empty
 					: (string)info_in.GetValue("Description", typeof(string));
 			Description_isNull = (bool)info_in.GetValue("Description_isNull", typeof(bool));
-			filename_ 
-				= (info_in.GetValue("FileName", typeof(string)) == null)
-					? string.Empty
-					: (string)info_in.GetValue("FileName", typeof(string));
-			FileName_isNull = (bool)info_in.GetValue("FileName_isNull", typeof(bool));
+			filename_ = (string)info_in.GetValue("FileName", typeof(string));
 		}
 		#endregion
 
@@ -135,7 +119,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			true, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -218,7 +202,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object ifcontent_;// = 0L;
+		public long ifcontent_;// = 0L;
 		
 		/// <summary>
 		/// vNWS_Attachment's IFContent.
@@ -231,7 +215,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			false, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -250,7 +234,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFContent {
 			get {
-				return (long)((ifcontent_ == null) ? 0L : ifcontent_);
+				return ifcontent_;
 			}
 			set {
 				if (
@@ -262,29 +246,11 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			}
 		}
 		#endregion
-		#region public bool IFContent_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at vNWS_Attachment's IFContent.
-		/// </summary>
-		[XmlElement("IFContent_isNull")]
-		[SoapElement("IFContent_isNull")]
-		public bool IFContent_isNull {
-			get { return (ifcontent_ == null); }
-			set {
-				//if (value) ifcontent_ = null;
-
-				if ((value) && (ifcontent_ != null)) {
-					ifcontent_ = null;
-					haschanges_ = true;
-				}
-			}
-		}
-		#endregion
 		#region public string GUID { get; set; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object guid_;// = string.Empty;
+		public string guid_;// = string.Empty;
 		
 		/// <summary>
 		/// vNWS_Attachment's GUID.
@@ -297,7 +263,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			false, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -316,7 +282,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string GUID {
 			get {
-				return (string)((guid_ == null) ? string.Empty : guid_);
+				return guid_;
 			}
 			set {
 				if (
@@ -325,24 +291,6 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 					(!value.Equals(guid_))
 				) {
 					guid_ = value;
-					haschanges_ = true;
-				}
-			}
-		}
-		#endregion
-		#region public bool GUID_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at vNWS_Attachment's GUID.
-		/// </summary>
-		[XmlElement("GUID_isNull")]
-		[SoapElement("GUID_isNull")]
-		public bool GUID_isNull {
-			get { return (guid_ == null); }
-			set {
-				//if (value) guid_ = null;
-
-				if ((value) && (guid_ != null)) {
-					guid_ = null;
 					haschanges_ = true;
 				}
 			}
@@ -418,7 +366,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object isimage_;// = false;
+		public bool isimage_;// = false;
 		
 		/// <summary>
 		/// vNWS_Attachment's isImage.
@@ -431,7 +379,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			false, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -450,31 +398,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public bool isImage {
 			get {
-				return (bool)((isimage_ == null) ? false : isimage_);
+				return isimage_;
 			}
 			set {
 				if (
 					(!value.Equals(isimage_))
 				) {
 					isimage_ = value;
-					haschanges_ = true;
-				}
-			}
-		}
-		#endregion
-		#region public bool isImage_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at vNWS_Attachment's isImage.
-		/// </summary>
-		[XmlElement("isImage_isNull")]
-		[SoapElement("isImage_isNull")]
-		public bool isImage_isNull {
-			get { return (isimage_ == null); }
-			set {
-				//if (value) isimage_ = null;
-
-				if ((value) && (isimage_ != null)) {
-					isimage_ = null;
 					haschanges_ = true;
 				}
 			}
@@ -511,7 +441,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			true, 
 			false, 
 			false, 
-			0, 
+			2147483647, 
 			""
 		)]
 		public string Name {
@@ -579,7 +509,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			true, 
 			false, 
 			false, 
-			0, 
+			2147483647, 
 			""
 		)]
 		public string Description {
@@ -620,7 +550,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object filename_;// = string.Empty;
+		public string filename_;// = string.Empty;
 		
 		/// <summary>
 		/// vNWS_Attachment's FileName.
@@ -633,7 +563,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			false, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -652,7 +582,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string FileName {
 			get {
-				return (string)((filename_ == null) ? string.Empty : filename_);
+				return filename_;
 			}
 			set {
 				if (
@@ -661,24 +591,6 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 					(!value.Equals(filename_))
 				) {
 					filename_ = value;
-					haschanges_ = true;
-				}
-			}
-		}
-		#endregion
-		#region public bool FileName_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at vNWS_Attachment's FileName.
-		/// </summary>
-		[XmlElement("FileName_isNull")]
-		[SoapElement("FileName_isNull")]
-		public bool FileName_isNull {
-			get { return (filename_ == null); }
-			set {
-				//if (value) filename_ = null;
-
-				if ((value) && (filename_ != null)) {
-					filename_ = null;
 					haschanges_ = true;
 				}
 			}
@@ -752,19 +664,15 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			info_in.AddValue("IDAttachment", idattachment_);
 			info_in.AddValue("IDLanguage", idlanguage_);
 			info_in.AddValue("IFContent", ifcontent_);
-			info_in.AddValue("IFContent_isNull", IFContent_isNull);
 			info_in.AddValue("GUID", guid_);
-			info_in.AddValue("GUID_isNull", GUID_isNull);
 			info_in.AddValue("OrderNum", ordernum_);
 			info_in.AddValue("OrderNum_isNull", OrderNum_isNull);
 			info_in.AddValue("isImage", isimage_);
-			info_in.AddValue("isImage_isNull", isImage_isNull);
 			info_in.AddValue("Name", name_);
 			info_in.AddValue("Name_isNull", Name_isNull);
 			info_in.AddValue("Description", description_);
 			info_in.AddValue("Description_isNull", Description_isNull);
 			info_in.AddValue("FileName", filename_);
-			info_in.AddValue("FileName_isNull", FileName_isNull);
 		}
 		#endregion
 		#endregion

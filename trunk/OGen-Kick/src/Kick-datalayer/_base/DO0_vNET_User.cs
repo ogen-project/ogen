@@ -101,7 +101,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.IFApplication = (int)_dataparameters[2].Value;
 				}
 				if (_dataparameters[3].Value == System.DBNull.Value) {
-					_output.Login_isNull = true;
+					_output.Login = string.Empty;
 				} else {
 					_output.Login = (string)_dataparameters[3].Value;
 				}
@@ -208,7 +208,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output[r].ifapplication_ = (int)dataTable_in.Rows[r][_dc_ifapplication];
 				}
 				if (dataTable_in.Rows[r][_dc_login] == System.DBNull.Value) {
-					_output[r].Login_isNull = true;
+					_output[r].login_ = string.Empty;
 				} else {
 					_output[r].login_ = (string)dataTable_in.Rows[r][_dc_login];
 				}
@@ -244,7 +244,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="page_in">page number</param>
 		/// <param name="page_numRecords_in">number of records per page</param>
 		public static SO_vNET_User[] getRecord_generic(
-			object Login_search_in, 
+			string Login_search_in, 
 			object Name_search_in, 
 			object EMail_search_in, 
 			object IFApplication_search_in, 
@@ -279,7 +279,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="page_numRecords_in">number of records per page</param>
 		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
 		public static SO_vNET_User[] getRecord_generic(
-			object Login_search_in, 
+			string Login_search_in, 
 			object Name_search_in, 
 			object EMail_search_in, 
 			object IFApplication_search_in, 
@@ -346,7 +346,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <returns>True if vNET_User Keys are met in the 'generic' search, False if not</returns>
 		public static bool isObject_inRecord_generic(
 			long IDUser_in, 
-			object Login_search_in, 
+			string Login_search_in, 
 			object Name_search_in, 
 			object EMail_search_in, 
 			object IFApplication_search_in, 
@@ -373,7 +373,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <returns>True if vNET_User Keys are met in the 'generic' search, False if not</returns>
 		public static bool isObject_inRecord_generic(
 			long IDUser_in, 
-			object Login_search_in, 
+			string Login_search_in, 
 			object Name_search_in, 
 			object EMail_search_in, 
 			object IFApplication_search_in, 
@@ -422,7 +422,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="IDProfile__out_search_in">IDProfile__out search condition</param>
 		/// <returns>number of existing Records for the 'generic' search</returns>
 		public static long getCount_inRecord_generic(
-			object Login_search_in, 
+			string Login_search_in, 
 			object Name_search_in, 
 			object EMail_search_in, 
 			object IFApplication_search_in, 
@@ -452,7 +452,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
 		/// <returns>number of existing Records for the 'generic' search</returns>
 		public static long getCount_inRecord_generic(
-			object Login_search_in, 
+			string Login_search_in, 
 			object Name_search_in, 
 			object EMail_search_in, 
 			object IFApplication_search_in, 

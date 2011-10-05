@@ -1,9 +1,12 @@
 --create view "vNET_Profile"
-create view "dbo"."vNET_Profile"
+alter view "dbo"."vNET_Profile"
 as
 	select 
 		"CRD_Profile".*, 
-		not "NET_Defaultprofile"."IFProfile" is null as "isDefaultprofile"
+		case 
+			when ("NET_Defaultprofile"."IFProfile" is null) then cast(0 as bit)
+			else cast(1 as bit)
+		end as "isDefaultprofile"
 	from "CRD_Profile"
 	left join "NET_Defaultprofile" on (
 		"NET_Defaultprofile"."IFProfile" = "CRD_Profile"."IDProfile"

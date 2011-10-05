@@ -97,7 +97,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.IDProfile = (long)_dataparameters[1].Value;
 				}
 				if (_dataparameters[2].Value == System.DBNull.Value) {
-					_output.Name_isNull = true;
+					_output.Name = string.Empty;
 				} else {
 					_output.Name = (string)_dataparameters[2].Value;
 				}
@@ -211,7 +211,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output[r].idprofile_ = (long)dataTable_in.Rows[r][_dc_idprofile];
 				}
 				if (dataTable_in.Rows[r][_dc_name] == System.DBNull.Value) {
-					_output[r].Name_isNull = true;
+					_output[r].name_ = string.Empty;
 				} else {
 					_output[r].name_ = (string)dataTable_in.Rows[r][_dc_name];
 				}

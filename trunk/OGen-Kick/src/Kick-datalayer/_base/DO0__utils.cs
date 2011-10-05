@@ -19,6 +19,10 @@ using OGen.lib.datalayer;
 using OGen.lib.datalayer.PostgreSQL;
 #endif
 
+#if SQLServer
+using OGen.lib.datalayer.SQLServer;
+#endif
+
 using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer {
@@ -118,6 +122,13 @@ namespace OGen.NTier.Kick.lib.datalayer {
 #if PostgreSQL
 				case "PostgreSQL":
 					return new DBConnection_PostgreSQL(
+						connectionstring_in, 
+						logfile_in
+					);
+#endif
+#if SQLServer
+				case "SQLServer":
+					return new DBConnection_SQLServer(
 						connectionstring_in, 
 						logfile_in
 					);

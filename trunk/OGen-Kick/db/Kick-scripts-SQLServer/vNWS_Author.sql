@@ -5,11 +5,11 @@ as
 		"NWS_Author"."IFApplication" as "IDApplication", 
 		"NWS_Author"."Name", 
 		"NWS_Author"."IFUser__Approved", 
-		"NWS_User"."Name" as "ManagerName", 
+		"NET_User"."Name" as "ManagerName", 
 		"NWS_Author"."Approved_date"
 	from "NWS_Author"
-	left join "NWS_User" on (
-		"NWS_Author"."IFUser__Approved" = "NWS_User"."IFUser"
+	left join "NET_User" on (
+		"NWS_Author"."IFUser__Approved" = "NET_User"."IFUser"
 	)
 go
 

@@ -71,7 +71,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output[r].idprofile_ = (long)dataTable_in.Rows[r][_dc_idprofile];
 				}
 				if (dataTable_in.Rows[r][_dc_profilename] == System.DBNull.Value) {
-					_output[r].ProfileName_isNull = true;
+					_output[r].profilename_ = string.Empty;
 				} else {
 					_output[r].profilename_ = (string)dataTable_in.Rows[r][_dc_profilename];
 				}

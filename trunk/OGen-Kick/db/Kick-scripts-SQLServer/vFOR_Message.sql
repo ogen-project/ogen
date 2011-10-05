@@ -1,4 +1,4 @@
-create view "dbo"."vFOR_Message"
+alter view "dbo"."vFOR_Message"
 as
 	select
 		m3."IDMessage", 

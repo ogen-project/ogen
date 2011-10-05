@@ -2,7 +2,7 @@
 go
 
 create */
-alter view "dbo"."vNWS_Highlight"
+alter  view "dbo"."vNWS_Highlight"
 as
 	select 
 		"NWS_Highlight"."IDHighlight", 
@@ -13,10 +13,10 @@ as
 			"NWS_Highlight"."IDHighlight"
 		) as "Name", 
 		"NWS_Highlight"."IFApplication", 
-		"NWS_User"."Name" as "ManagerName"
+		"NET_User"."Name" as "ManagerName"
 	from "NWS_Highlight"
-	left join "NWS_User" on (
-		"NWS_Highlight"."IFUser__Approved" = "NWS_User"."IFUser"
+	left join "NET_User" on (
+		"NWS_Highlight"."IFUser__Approved" = "NET_User"."IFUser"
 	)
 go
 

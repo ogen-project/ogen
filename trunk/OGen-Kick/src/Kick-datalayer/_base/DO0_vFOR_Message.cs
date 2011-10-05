@@ -113,7 +113,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.isThread = (bool)_dataparameters[3].Value;
 				}
 				if (_dataparameters[4].Value == System.DBNull.Value) {
-					_output.isSticky_isNull = true;
+					_output.isSticky = false;
 				} else {
 					_output.isSticky = (bool)_dataparameters[4].Value;
 				}
@@ -143,7 +143,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.Name = (string)_dataparameters[9].Value;
 				}
 				if (_dataparameters[10].Value == System.DBNull.Value) {
-					_output.Publish_date_isNull = true;
+					_output.Publish_date = new DateTime(1900, 1, 1);
 				} else {
 					_output.Publish_date = (DateTime)_dataparameters[10].Value;
 				}
@@ -153,7 +153,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.IFApplication = (int)_dataparameters[11].Value;
 				}
 				if (_dataparameters[12].Value == System.DBNull.Value) {
-					_output.Login_isNull = true;
+					_output.Login = string.Empty;
 				} else {
 					_output.Login = (string)_dataparameters[12].Value;
 				}
@@ -269,7 +269,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output[r].isthread_ = (bool)dataTable_in.Rows[r][_dc_isthread];
 				}
 				if (dataTable_in.Rows[r][_dc_issticky] == System.DBNull.Value) {
-					_output[r].isSticky_isNull = true;
+					_output[r].issticky_ = false;
 				} else {
 					_output[r].issticky_ = (bool)dataTable_in.Rows[r][_dc_issticky];
 				}
@@ -299,7 +299,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output[r].name_ = (string)dataTable_in.Rows[r][_dc_name];
 				}
 				if (dataTable_in.Rows[r][_dc_publish_date] == System.DBNull.Value) {
-					_output[r].Publish_date_isNull = true;
+					_output[r].publish_date_ = new DateTime(1900, 1, 1);
 				} else {
 					_output[r].publish_date_ = (DateTime)dataTable_in.Rows[r][_dc_publish_date];
 				}
@@ -309,7 +309,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output[r].ifapplication_ = (int)dataTable_in.Rows[r][_dc_ifapplication];
 				}
 				if (dataTable_in.Rows[r][_dc_login] == System.DBNull.Value) {
-					_output[r].Login_isNull = true;
+					_output[r].login_ = string.Empty;
 				} else {
 					_output[r].login_ = (string)dataTable_in.Rows[r][_dc_login];
 				}

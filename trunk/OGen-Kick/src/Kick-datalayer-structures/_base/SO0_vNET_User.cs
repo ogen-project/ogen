@@ -59,11 +59,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 					? 0
 					: (int)info_in.GetValue("IFApplication", typeof(int));
 			IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
-			login_ 
-				= (info_in.GetValue("Login", typeof(string)) == null)
-					? string.Empty
-					: (string)info_in.GetValue("Login", typeof(string));
-			Login_isNull = (bool)info_in.GetValue("Login_isNull", typeof(bool));
+			login_ = (string)info_in.GetValue("Login", typeof(string));
 			name_ 
 				= (info_in.GetValue("Name", typeof(string)) == null)
 					? string.Empty
@@ -104,7 +100,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public override string ListItem_Text { get; }
 		public override string ListItem_Text {
 			get {
-				return Login;
+				return login_;
 			}
 		} 
 		#endregion
@@ -126,7 +122,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			true, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -227,7 +223,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object login_;// = string.Empty;
+		public string login_;// = string.Empty;
 		
 		/// <summary>
 		/// vNET_User's Login.
@@ -240,7 +236,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			"", 
 			false, 
 			false, 
-			true, 
+			false, 
 			"", 
 			"", 
 			"", 
@@ -259,7 +255,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string Login {
 			get {
-				return (string)((login_ == null) ? string.Empty : login_);
+				return login_;
 			}
 			set {
 				if (
@@ -268,24 +264,6 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 					(!value.Equals(login_))
 				) {
 					login_ = value;
-					haschanges_ = true;
-				}
-			}
-		}
-		#endregion
-		#region public bool Login_isNull { get; set; }
-		/// <summary>
-		/// Allows assignement of null and check if null at vNET_User's Login.
-		/// </summary>
-		[XmlElement("Login_isNull")]
-		[SoapElement("Login_isNull")]
-		public bool Login_isNull {
-			get { return (login_ == null); }
-			set {
-				//if (value) login_ = null;
-
-				if ((value) && (login_ != null)) {
-					login_ = null;
 					haschanges_ = true;
 				}
 			}
@@ -480,7 +458,6 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			info_in.AddValue("IFApplication", ifapplication_);
 			info_in.AddValue("IFApplication_isNull", IFApplication_isNull);
 			info_in.AddValue("Login", login_);
-			info_in.AddValue("Login_isNull", Login_isNull);
 			info_in.AddValue("Name", name_);
 			info_in.AddValue("Name_isNull", Name_isNull);
 			info_in.AddValue("EMail", email_);
