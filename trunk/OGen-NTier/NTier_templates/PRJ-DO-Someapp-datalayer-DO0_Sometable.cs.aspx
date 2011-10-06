@@ -1017,8 +1017,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 		/// <param name="<%=_aux_xx_field_name%>_search_in"><%=_aux_xx_field_name%> search condition</param><%
 		}%>
+		/// <param name="page_orderBy_in">page order by</param>
 		/// <param name="page_in">page number</param>
 		/// <param name="page_numRecords_in">number of records per page</param>
+		/// <param name="page_itemsCount_out">number of total items</param>
 		public static SO_<%=_aux_db_table.Name%>[] getRecord_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
 			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
 				_aux_ex_field = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
@@ -1026,8 +1028,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 				_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 			<%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in, <%
 			}%>
+			int page_orderBy_in, 
 			int page_in, 
-			int page_numRecords_in
+			int page_numRecords_in, 
+			out int page_itemsCount_out
 		) {
 			return getRecord_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
 				for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
@@ -1036,8 +1040,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 					_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 				<%=_aux_xx_field_name%>_search_in, <%
 				}%>
+				page_orderBy_in, 
 				page_in, 
 				page_numRecords_in, 
+				out page_itemsCount_out, 
 				null
 			);
 		}
@@ -1051,8 +1057,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 			_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 		/// <param name="<%=_aux_xx_field_name%>_search_in"><%=_aux_xx_field_name%> search condition</param><%
 		}%>
+		/// <param name="page_orderBy_in">page order by</param>
 		/// <param name="page_in">page number</param>
 		/// <param name="page_numRecords_in">number of records per page</param>
+		/// <param name="page_itemsCount_out">number of total items</param>
 		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
 		public static SO_<%=_aux_db_table.Name%>[] getRecord_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>(<%
 			for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
