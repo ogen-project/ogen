@@ -155,6 +155,25 @@
     <Content Include="app0.config.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-MySQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-sp_SomeTable_Record_open_bySomeCriteria_page-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp_SomeTable_Record_open_bySomeCriteria_page-PostgreSQL.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="DO-DB-sp_SomeTable_Record_open_bySomeCriteria_page-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="PRJ-RS-Someapp-remoting-server-utils0.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
@@ -291,6 +310,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-MySQL.sql.aspx">
       <SubType>ASPXCodeBehind</SubType>
@@ -363,6 +383,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_insObject-MySQL.sql.aspx">
       <SubType>ASPXCodeBehind</SubType>
@@ -371,40 +392,12 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_insObject-SQLServer.sql.aspx">
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-MySQL.sql.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-PostgreSQL.sql.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-SQLServer.sql.aspx">
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-MySQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-SQLServer.sql.aspx">
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-MySQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-SQLServer.sql.aspx">
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-MySQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-SQLServer.sql.aspx">
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-MySQL.sql.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-PostgreSQL.sql.aspx">
@@ -438,14 +431,6 @@
     </Content>
     <Content Include="DO-DB-sp0_SomeTable_updObject_SomeUpdate-SQLServer.sql.aspx">
       <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx">
     </Content>
     <Content Include="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx">
       <SubType>ASPXCodeBehind</SubType>
