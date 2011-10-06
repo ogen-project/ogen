@@ -93,9 +93,9 @@ BEGIN
 	}%>);
 
 	SELECT<%
-	for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-		_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-		t1.`<%=_aux_db_field.Name%>`<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
+		t1.`<%=_aux_db_field.Name%>`<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%>
 	FROM `<%=_aux_db_table.Name%>` t1
 		INNER JOIN `#Table_temp` t2 ON<%
@@ -106,10 +106,7 @@ BEGIN
 
 	-- CHANGE where CONDITION IN: `fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>`
 	-- NOT HERE!
-	WHERE (t2.`ID_range` BETWEEN `ID_range_begin` AND `ID_range_end`)
-
-	-- CHANGE order by IN: `sp_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>`
-	-- NOT HERE!
+	WHERE (t2.`ID_range` BETWEEN `ID_range_begin` AND `ID_range_end`);
 
 	DROP TABLE `#Table_temp`;
 

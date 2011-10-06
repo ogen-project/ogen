@@ -45,31 +45,34 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 
 string _aux_xx_field_name;
 
+bool _aux_bool;
 #endregion
 //-----------------------------------------------------------------------------------------
-%>CREATE OR REPLACE FUNCTION "sp0_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>_page"(<%
+%>CREATE OR REPLACE FUNCTION "sp_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>_page"(<%
 	for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
 		_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 		_aux_db_field = _aux_ex_field.parallel_ref;
 		_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
 	"<%=_aux_xx_field_name%>_search_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>, <%
 	}%>
+	"orderBy_" Int, 
 	"page_" Int,
-	"page_numRecords_" Int
+	"page_numRecords_" Int, 
+	"count_out_" Int
 )
-RETURNS SETOF "v0_<%=_aux_db_table.Name%>__onlyKeys"
+RETURNS SETOF "<%=_aux_db_table.Name%>"
 AS $BODY$
 	DECLARE
-		_Output "v0_<%=_aux_db_table.Name%>__onlyKeys";
+		_Output "<%=_aux_db_table.Name%>";
 	BEGIN
 		FOR _Output IN
 			SELECT<%
-			for (int k = 0; k < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; k++) {
-				_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[k];%>
-				t1."<%=_aux_db_field.Name%>"<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
+				t1."<%=_aux_db_field.Name%>"<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 			}%>
 			FROM "<%=_aux_db_table.Name%>" t1
-			INNER JOIN "sp_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>"(<%
+			INNER JOIN "fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>"(<%
 			for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
 				_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 				_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
@@ -81,17 +84,36 @@ AS $BODY$
 				(t2."<%=_aux_db_field.Name%>" = t1."<%=_aux_db_field.Name%>")<%=(k != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? " AND" : ""%><%
 			}%>
 			)
+			ORDER BY<%
+			_aux_bool = false;     	
+			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
+				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
+				if (!(
+					_aux_db_field.isBool ||
+					(_aux_db_field.isText && (_aux_db_field.Size > 0) && (_aux_db_field.Size <= 100)) || 
+					_aux_db_field.isInt || 
+					_aux_db_field.isDecimal ||
+					_aux_db_field.isDateTime
+				)) continue;%><%=(_aux_bool) ? "," : ""%>
+				CASE WHEN ("orderBy_" = <%=f + 1%>) THEN "<%=_aux_db_field.Name%>" END ASC<%
+				_aux_bool = true;
+			}%>
 
 			-- change where condition in: "fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>"
-			-- NOT HERE!
-
-			-- change order by in: "sp_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>"
 			-- NOT HERE!
 
 			LIMIT "page_numRecords_" OFFSET "page_numRecords_" * ("page_" - 1)
 		LOOP
 			RETURN NEXT _Output;
 		END LOOP;
+
+		SELECT COUNT(1) INTO "count_out_" FROM "fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>"(<%
+		for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
+			_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+			_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
+			"<%=_aux_xx_field_name%>_search_"<%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+		}%>
+		);
 
 		RETURN;
 	END;

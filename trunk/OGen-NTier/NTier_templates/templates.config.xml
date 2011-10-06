@@ -1223,8 +1223,8 @@ XXX:TO_DOS -->
 		</outputs>
 		<dependencies />
 	</template>
-	<template id="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx"
-			name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" 
 			templateType="data"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
@@ -1245,15 +1245,15 @@ XXX:TO_DOS -->
 			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
-				type="MySQL_StoredProcedure" mode="Create_doNotReplace" />
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="MySQL_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
 			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
 		</dependencies>
 	</template>
-	<template id="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx"
-			name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" 
 			templateType="data"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
@@ -1274,8 +1274,8 @@ XXX:TO_DOS -->
 			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
-				type="PostgreSQL_Function" mode="Create_doNotReplace" />
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="PostgreSQL_Function" mode="Replace" />
 		</outputs>
 		<dependencies>
 			<dependency templateID="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" />
@@ -1283,8 +1283,8 @@ XXX:TO_DOS -->
 			<dependency templateID="emptyfile.txt?PostgreSQL" />
 		</dependencies>
 	</template>
-	<template id="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx"
-			name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" 
+	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx"
+			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" 
 			templateType="data"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
@@ -1305,8 +1305,8 @@ XXX:TO_DOS -->
 			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
-				type="SQLServer_StoredProcedure" mode="Create_doNotReplace" />
+			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" 
+				type="SQLServer_StoredProcedure" mode="Replace" />
 		</outputs>
 		<dependencies>
 			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
@@ -1477,96 +1477,8 @@ XXX:TO_DOS -->
 			<dependency templateID="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" />
 		</dependencies>
 	</template>
-	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-MySQL.sql.aspx"
-			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-MySQL.sql.aspx" 
-			templateType="data"
-			parserType="aspx" 
-			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
-		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
-		</arguments>
-		<conditions>
-<!-- XXX:NO_NEED
-			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
--->
-			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
-		</conditions>
-		<outputs>
-<!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
-				type="File" mode="Append" />
-XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_fullmode" 
-				type="MySQL_StoredProcedure" mode="Replace" />
-		</outputs>
-		<dependencies>
-			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
-		</dependencies>
-	</template>
-	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-PostgreSQL.sql.aspx"
-			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-PostgreSQL.sql.aspx" 
-			templateType="data"
-			parserType="aspx" 
-			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
-		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
-		</arguments>
-		<conditions>
-<!-- XXX:NO_NEED
-			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
--->
-			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
-		</conditions>
-		<outputs>
-<!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
-				type="File" mode="Append" />
-XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_fullmode" 
-				type="PostgreSQL_Function" mode="Replace" />
-		</outputs>
-		<dependencies>
-			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
-			<dependency templateID="emptyfile.txt?PostgreSQL" />
-		</dependencies>
-	</template>
-	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-SQLServer.sql.aspx"
-			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_fullmode-SQLServer.sql.aspx" 
-			templateType="data"
-			parserType="aspx" 
-			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
-		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
-		</arguments>
-		<conditions>
-<!-- XXX:NO_NEED
-			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
--->
-			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
-		</conditions>
-		<outputs>
-<!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
-				type="File" mode="Append" />
-XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_fullmode" 
-				type="SQLServer_StoredProcedure" mode="Replace" />
-		</outputs>
-		<dependencies>
-			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
-		</dependencies>
-	</template>
-	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-MySQL.sql.aspx"
-			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-MySQL.sql.aspx" 
+	<template id="DO-DB-sp_SomeTable_Record_open_bySomeCriteria_page-MySQL.sql.aspx"
+			name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria_page-MySQL.sql.aspx" 
 			templateType="data"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
@@ -1587,15 +1499,15 @@ XXX:TO_DOS -->
 			<output to="${CONFIG.outputPath}/${ROOT.metadataExtended[0].applicationName}-MySQL/sql0-${ROOT.metadataExtended[0].applicationName}.MySQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_page" 
-				type="MySQL_StoredProcedure" mode="Replace" />
+			<output to="sp_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_page" 
+				type="MySQL_StoredProcedure" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies>
-			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
 		</dependencies>
 	</template>
-	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-PostgreSQL.sql.aspx"
-			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-PostgreSQL.sql.aspx" 
+	<template id="DO-DB-sp_SomeTable_Record_open_bySomeCriteria_page-PostgreSQL.sql.aspx"
+			name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria_page-PostgreSQL.sql.aspx" 
 			templateType="data"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
@@ -1616,17 +1528,16 @@ XXX:TO_DOS -->
 			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_page" 
-				type="PostgreSQL_Function" mode="Replace" />
+			<output to="sp_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_page" 
+				type="PostgreSQL_Function" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies>
-			<dependency templateID="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" />
-			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
 			<dependency templateID="emptyfile.txt?PostgreSQL" />
 		</dependencies>
 	</template>
-	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-SQLServer.sql.aspx"
-			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page-SQLServer.sql.aspx" 
+	<template id="DO-DB-sp_SomeTable_Record_open_bySomeCriteria_page-SQLServer.sql.aspx"
+			name="DO-DB-sp_SomeTable_Record_open_bySomeCriteria_page-SQLServer.sql.aspx" 
 			templateType="data"
 			parserType="aspx" 
 			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
@@ -1647,99 +1558,11 @@ XXX:TO_DOS -->
 			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
 				type="File" mode="Append" />
 XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_page" 
-				type="SQLServer_StoredProcedure" mode="Replace" />
+			<output to="sp_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_page" 
+				type="SQLServer_StoredProcedure" mode="Create_doNotReplace" />
 		</outputs>
 		<dependencies>
-			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
-		</dependencies>
-	</template>
-	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-MySQL.sql.aspx"
-			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-MySQL.sql.aspx" 
-			templateType="data"
-			parserType="aspx" 
-			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
-		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
-		</arguments>
-		<conditions>
-<!-- XXX:NO_NEED
-			<condition eval="ROOT.metadataExtended[0].dbs.supports_MySQL" to="True" />
--->
-			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
-		</conditions>
-		<outputs>
-<!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-MySQL/sql0-${ROOT.metadataDB[0].applicationName}.MySQL.backup.sql"
-				type="File" mode="Append" />
-XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_page_fullmode" 
-				type="MySQL_StoredProcedure" mode="Replace" />
-		</outputs>
-		<dependencies>
-			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
-		</dependencies>
-	</template>
-	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-PostgreSQL.sql.aspx"
-			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-PostgreSQL.sql.aspx" 
-			templateType="data"
-			parserType="aspx" 
-			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
-		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
-		</arguments>
-		<conditions>
-<!-- XXX:NO_NEED
-			<condition eval="ROOT.metadataExtended[0].dbs.supports_PostgreSQL" to="True" />
--->
-			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
-		</conditions>
-		<outputs>
-<!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-PostgreSQL/sql0-${ROOT.metadataDB[0].applicationName}.PostgreSQL.backup.sql"
-				type="File" mode="Append" />
-XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_page_fullmode" 
-				type="PostgreSQL_Function" mode="Replace" />
-		</outputs>
-		<dependencies>
-			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
-			<dependency templateID="emptyfile.txt?PostgreSQL" />
-		</dependencies>
-	</template>
-	<template id="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-SQLServer.sql.aspx"
-			name="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria_page_fullmode-SQLServer.sql.aspx" 
-			templateType="data"
-			parserType="aspx" 
-			iterationType="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]">
-		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
-			<argument name="TableName" value="${ROOT.metadataExtended[0].tables.table[n].name}" />
-			<argument name="SearchName" value="${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}" />
-		</arguments>
-		<conditions>
-<!-- XXX:NO_NEED
-			<condition eval="ROOT.metadataExtended[0].dbs.supports_SQLServer" to="True" />
--->
-			<condition eval="ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].isRange" to="True" />
-			<condition eval="ROOT.metadataExtended[0].tables.table[n].hasPK" to="True" />
-		</conditions>
-		<outputs>
-<!-- XXX:TO_DOS
-			<output to="${CONFIG.outputPath}/db/${ROOT.metadataDB[0].applicationName}-scripts-SQLServer/sql0-${ROOT.metadataDB[0].applicationName}.SQLServer.backup.sql"
-				type="File" mode="Append" />
-XXX:TO_DOS -->
-			<output to="sp0_${ROOT.metadataExtended[0].tables.table[n].name}_Record_open_${ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].name}_page_fullmode" 
-				type="SQLServer_StoredProcedure" mode="Replace" />
-		</outputs>
-		<dependencies>
-			<dependency templateID="DO-DB-sp_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
+			<dependency templateID="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
 		</dependencies>
 	</template>
 	<template id="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-MySQL.sql.aspx"
