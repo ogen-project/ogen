@@ -95,7 +95,7 @@ AS $BODY$
 					_aux_db_field.isDecimal ||
 					_aux_db_field.isDateTime
 				)) continue;%><%=(_aux_bool) ? "," : ""%>
-				CASE WHEN ("page_orderBy_" = <%=f + 1%>) THEN "<%=_aux_db_field.Name%>" END ASC<%
+				CASE WHEN ("page_orderBy_" = <%=f + 1%>) THEN t1."<%=_aux_db_field.Name%>" END ASC<%
 				_aux_bool = true;
 			}%>
 
