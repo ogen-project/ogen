@@ -393,17 +393,23 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// Gets Record, based on 'byParent' search. It selects NWS_Source values from Database based on the 'byParent' search.
 		/// </summary>
 		/// <param name="IDSource__parent_search_in">IDSource__parent search condition</param>
+		/// <param name="page_orderBy_in">page order by</param>
 		/// <param name="page_in">page number</param>
 		/// <param name="page_numRecords_in">number of records per page</param>
+		/// <param name="page_itemsCount_out">total number of items</param>
 		public static SO_NWS_Source[] getRecord_byParent(
 			object IDSource__parent_search_in, 
+			int page_orderBy_in, 
 			int page_in, 
-			int page_numRecords_in
+			int page_numRecords_in, 
+			out int page_itemsCount_out
 		) {
 			return getRecord_byParent(
 				IDSource__parent_search_in, 
+				page_orderBy_in, 
 				page_in, 
 				page_numRecords_in, 
+				out page_itemsCount_out, 
 				null
 			);
 		}
@@ -412,13 +418,17 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// Gets Record, based on 'byParent' search. It selects NWS_Source values from Database based on the 'byParent' search.
 		/// </summary>
 		/// <param name="IDSource__parent_search_in">IDSource__parent search condition</param>
+		/// <param name="page_orderBy_in">page order by</param>
 		/// <param name="page_in">page number</param>
 		/// <param name="page_numRecords_in">number of records per page</param>
+		/// <param name="page_itemsCount_out">total number of items</param>
 		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
 		public static SO_NWS_Source[] getRecord_byParent(
 			object IDSource__parent_search_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			DBConnection dbConnection_in
 		) {
 			SO_NWS_Source[] _output;
@@ -434,8 +444,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				((page_in > 0) && (page_numRecords_in > 0))
 					? new IDbDataParameter[] {
 						_connection.newDBDataParameter("IDSource__parent_search_", DbType.Int64, ParameterDirection.Input, IDSource__parent_search_in, 0), 
+						_connection.newDBDataParameter("page_orderBy_", DbType.Int32, ParameterDirection.Input, page_orderBy_in, 0), 
 						_connection.newDBDataParameter("page_", DbType.Int32, ParameterDirection.Input, page_in, 0), 
-						_connection.newDBDataParameter("page_numRecords_", DbType.Int32, ParameterDirection.Input, page_numRecords_in, 0)
+						_connection.newDBDataParameter("page_numRecords_", DbType.Int32, ParameterDirection.Input, page_numRecords_in, 0), 
+						_connection.newDBDataParameter("page_itemsCount_", DbType.Int32, ParameterDirection.Output, null, 0), 
 					}
 					: new IDbDataParameter[] {
 						_connection.newDBDataParameter("IDSource__parent_search_", DbType.Int64, ParameterDirection.Input, IDSource__parent_search_in, 0)
@@ -444,12 +456,18 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			_output = getRecord(
 				_connection.Execute_SQLFunction_returnDataTable(
 					((page_in > 0) && (page_numRecords_in > 0))
-						? "sp0_NWS_Source_Record_open_byParent_page_fullmode"
-						: "sp0_NWS_Source_Record_open_byParent_fullmode", 
+						? "sp_NWS_Source_Record_open_byParent_page"
+						: "sp0_NWS_Source_Record_open_byParent", 
 					_dataparameters
 				)
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
+
+			if ((page_in > 0) && (page_numRecords_in > 0) && (_dataparameters[_dataparameters.Length - 1].Value != DBNull.Value)) {
+				page_itemsCount_out = (int)_dataparameters[_dataparameters.Length - 1].Value;
+			} else {
+				page_itemsCount_out = 0;
+			}
 
 			return _output;			
 		}

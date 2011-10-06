@@ -241,8 +241,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="IFApplication_search_in">IFApplication search condition</param>
 		/// <param name="IDProfile__in_search_in">IDProfile__in search condition</param>
 		/// <param name="IDProfile__out_search_in">IDProfile__out search condition</param>
+		/// <param name="page_orderBy_in">page order by</param>
 		/// <param name="page_in">page number</param>
 		/// <param name="page_numRecords_in">number of records per page</param>
+		/// <param name="page_itemsCount_out">total number of items</param>
 		public static SO_vNET_User[] getRecord_generic(
 			string Login_search_in, 
 			object Name_search_in, 
@@ -250,8 +252,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			object IFApplication_search_in, 
 			long IDProfile__in_search_in, 
 			long IDProfile__out_search_in, 
+			int page_orderBy_in, 
 			int page_in, 
-			int page_numRecords_in
+			int page_numRecords_in, 
+			out int page_itemsCount_out
 		) {
 			return getRecord_generic(
 				Login_search_in, 
@@ -260,8 +264,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				IFApplication_search_in, 
 				IDProfile__in_search_in, 
 				IDProfile__out_search_in, 
+				page_orderBy_in, 
 				page_in, 
 				page_numRecords_in, 
+				out page_itemsCount_out, 
 				null
 			);
 		}
@@ -275,8 +281,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="IFApplication_search_in">IFApplication search condition</param>
 		/// <param name="IDProfile__in_search_in">IDProfile__in search condition</param>
 		/// <param name="IDProfile__out_search_in">IDProfile__out search condition</param>
+		/// <param name="page_orderBy_in">page order by</param>
 		/// <param name="page_in">page number</param>
 		/// <param name="page_numRecords_in">number of records per page</param>
+		/// <param name="page_itemsCount_out">total number of items</param>
 		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
 		public static SO_vNET_User[] getRecord_generic(
 			string Login_search_in, 
@@ -285,8 +293,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			object IFApplication_search_in, 
 			long IDProfile__in_search_in, 
 			long IDProfile__out_search_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			DBConnection dbConnection_in
 		) {
 			SO_vNET_User[] _output;
@@ -307,8 +317,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 						_connection.newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, IFApplication_search_in, 0), 
 						_connection.newDBDataParameter("IDProfile__in_search_", DbType.Int64, ParameterDirection.Input, IDProfile__in_search_in, 0), 
 						_connection.newDBDataParameter("IDProfile__out_search_", DbType.Int64, ParameterDirection.Input, IDProfile__out_search_in, 0), 
+						_connection.newDBDataParameter("page_orderBy_", DbType.Int32, ParameterDirection.Input, page_orderBy_in, 0), 
 						_connection.newDBDataParameter("page_", DbType.Int32, ParameterDirection.Input, page_in, 0), 
-						_connection.newDBDataParameter("page_numRecords_", DbType.Int32, ParameterDirection.Input, page_numRecords_in, 0)
+						_connection.newDBDataParameter("page_numRecords_", DbType.Int32, ParameterDirection.Input, page_numRecords_in, 0), 
+						_connection.newDBDataParameter("page_itemsCount_", DbType.Int32, ParameterDirection.Output, null, 0), 
 					}
 					: new IDbDataParameter[] {
 						_connection.newDBDataParameter("Login_search_", DbType.AnsiString, ParameterDirection.Input, Login_search_in, 255), 
@@ -322,12 +334,18 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			_output = getRecord(
 				_connection.Execute_SQLFunction_returnDataTable(
 					((page_in > 0) && (page_numRecords_in > 0))
-						? "sp0_vNET_User_Record_open_generic_page_fullmode"
-						: "sp0_vNET_User_Record_open_generic_fullmode", 
+						? "sp_vNET_User_Record_open_generic_page"
+						: "sp0_vNET_User_Record_open_generic", 
 					_dataparameters
 				)
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
+
+			if ((page_in > 0) && (page_numRecords_in > 0) && (_dataparameters[_dataparameters.Length - 1].Value != DBNull.Value)) {
+				page_itemsCount_out = (int)_dataparameters[_dataparameters.Length - 1].Value;
+			} else {
+				page_itemsCount_out = 0;
+			}
 
 			return _output;			
 		}

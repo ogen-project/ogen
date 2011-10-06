@@ -474,8 +474,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="Stamp_end_search_in">Stamp_end search condition</param>
 		/// <param name="Read_search_in">Read search condition</param>
 		/// <param name="IFApplication_search_in">IFApplication search condition</param>
+		/// <param name="page_orderBy_in">page order by</param>
 		/// <param name="page_in">page number</param>
 		/// <param name="page_numRecords_in">number of records per page</param>
+		/// <param name="page_itemsCount_out">total number of items</param>
 		public static SO_LOG_Log[] getRecord_generic(
 			int IDLogtype_search_in, 
 			object IDUser_search_in, 
@@ -484,8 +486,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			DateTime Stamp_end_search_in, 
 			object Read_search_in, 
 			object IFApplication_search_in, 
+			int page_orderBy_in, 
 			int page_in, 
-			int page_numRecords_in
+			int page_numRecords_in, 
+			out int page_itemsCount_out
 		) {
 			return getRecord_generic(
 				IDLogtype_search_in, 
@@ -495,8 +499,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				Stamp_end_search_in, 
 				Read_search_in, 
 				IFApplication_search_in, 
+				page_orderBy_in, 
 				page_in, 
 				page_numRecords_in, 
+				out page_itemsCount_out, 
 				null
 			);
 		}
@@ -511,8 +517,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="Stamp_end_search_in">Stamp_end search condition</param>
 		/// <param name="Read_search_in">Read search condition</param>
 		/// <param name="IFApplication_search_in">IFApplication search condition</param>
+		/// <param name="page_orderBy_in">page order by</param>
 		/// <param name="page_in">page number</param>
 		/// <param name="page_numRecords_in">number of records per page</param>
+		/// <param name="page_itemsCount_out">total number of items</param>
 		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
 		public static SO_LOG_Log[] getRecord_generic(
 			int IDLogtype_search_in, 
@@ -522,8 +530,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			DateTime Stamp_end_search_in, 
 			object Read_search_in, 
 			object IFApplication_search_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			DBConnection dbConnection_in
 		) {
 			SO_LOG_Log[] _output;
@@ -545,8 +555,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 						_connection.newDBDataParameter("Stamp_end_search_", DbType.DateTime, ParameterDirection.Input, Stamp_end_search_in, 0), 
 						_connection.newDBDataParameter("Read_search_", DbType.Boolean, ParameterDirection.Input, Read_search_in, 0), 
 						_connection.newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, IFApplication_search_in, 0), 
+						_connection.newDBDataParameter("page_orderBy_", DbType.Int32, ParameterDirection.Input, page_orderBy_in, 0), 
 						_connection.newDBDataParameter("page_", DbType.Int32, ParameterDirection.Input, page_in, 0), 
-						_connection.newDBDataParameter("page_numRecords_", DbType.Int32, ParameterDirection.Input, page_numRecords_in, 0)
+						_connection.newDBDataParameter("page_numRecords_", DbType.Int32, ParameterDirection.Input, page_numRecords_in, 0), 
+						_connection.newDBDataParameter("page_itemsCount_", DbType.Int32, ParameterDirection.Output, null, 0), 
 					}
 					: new IDbDataParameter[] {
 						_connection.newDBDataParameter("IDLogtype_search_", DbType.Int32, ParameterDirection.Input, IDLogtype_search_in, 0), 
@@ -561,12 +573,18 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			_output = getRecord(
 				_connection.Execute_SQLFunction_returnDataTable(
 					((page_in > 0) && (page_numRecords_in > 0))
-						? "sp0_LOG_Log_Record_open_generic_page_fullmode"
-						: "sp0_LOG_Log_Record_open_generic_fullmode", 
+						? "sp_LOG_Log_Record_open_generic_page"
+						: "sp0_LOG_Log_Record_open_generic", 
 					_dataparameters
 				)
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
+
+			if ((page_in > 0) && (page_numRecords_in > 0) && (_dataparameters[_dataparameters.Length - 1].Value != DBNull.Value)) {
+				page_itemsCount_out = (int)_dataparameters[_dataparameters.Length - 1].Value;
+			} else {
+				page_itemsCount_out = 0;
+			}
 
 			return _output;			
 		}

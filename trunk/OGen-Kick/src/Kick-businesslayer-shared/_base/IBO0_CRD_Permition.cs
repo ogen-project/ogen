@@ -22,8 +22,10 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			bool allProfiles_notJustApplication_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		);
 	}

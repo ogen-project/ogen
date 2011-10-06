@@ -145,8 +145,10 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLanguage_search_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -155,11 +157,13 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
 					idLanguage_search_in,
+					page_orderBy_in,
 					page_in,
 					page_numRecords_in
 				}
 			);
-			errors_out = (System.Int32[])results[1];
+			page_itemsCount_out = (int)results[1];
+			errors_out = (System.Int32[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[])results[0];
 		}
 		#endregion
@@ -175,8 +179,10 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_search_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -185,11 +191,13 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
 					idContent_search_in,
+					page_orderBy_in,
 					page_in,
 					page_numRecords_in
 				}
 			);
-			errors_out = (System.Int32[])results[1];
+			page_itemsCount_out = (int)results[1];
+			errors_out = (System.Int32[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentTag[])results[0];
 		}
 		#endregion
@@ -205,8 +213,10 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLanguage_search_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -215,11 +225,13 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
 					idLanguage_search_in,
+					page_orderBy_in,
 					page_in,
 					page_numRecords_in
 				}
 			);
-			errors_out = (System.Int32[])results[1];
+			page_itemsCount_out = (int)results[1];
+			errors_out = (System.Int32[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[])results[0];
 		}
 		#endregion
@@ -235,8 +247,10 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idTag_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -245,11 +259,13 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
 					idTag_in,
+					page_orderBy_in,
 					page_in,
 					page_numRecords_in
 				}
 			);
-			errors_out = (System.Int32[])results[1];
+			page_itemsCount_out = (int)results[1];
+			errors_out = (System.Int32[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[])results[0];
 		}
 		#endregion

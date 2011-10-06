@@ -90,16 +90,24 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
+			int page_orderBy_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getRecord_byApplication", 
 				new object[] {
 					sessionGuid_in,
-					ip_forLogPurposes_in
+					ip_forLogPurposes_in,
+					page_orderBy_in,
+					page_in,
+					page_numRecords_in
 				}
 			);
-			errors_out = (System.Int32[])results[1];
+			page_itemsCount_out = (int)results[1];
+			errors_out = (System.Int32[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[])results[0];
 		}
 		#endregion
@@ -115,6 +123,10 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLanguage_in, 
+			int page_orderBy_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -122,10 +134,14 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				new object[] {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
-					idLanguage_in
+					idLanguage_in,
+					page_orderBy_in,
+					page_in,
+					page_numRecords_in
 				}
 			);
-			errors_out = (System.Int32[])results[1];
+			page_itemsCount_out = (int)results[1];
+			errors_out = (System.Int32[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[])results[0];
 		}
 		#endregion
@@ -141,6 +157,10 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLanguage_in, 
+			int page_orderBy_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -148,10 +168,14 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				new object[] {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
-					idLanguage_in
+					idLanguage_in,
+					page_orderBy_in,
+					page_in,
+					page_numRecords_in
 				}
 			);
-			errors_out = (System.Int32[])results[1];
+			page_itemsCount_out = (int)results[1];
+			errors_out = (System.Int32[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[])results[0];
 		}
 		#endregion

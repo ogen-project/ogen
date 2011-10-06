@@ -76,15 +76,19 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			return bo_.getRecord_all(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
+				page_orderBy_in, 
 				page_in, 
 				page_numRecords_in, 
+				out page_itemsCount_out, 
 				out errors_out
 			);
 		}
@@ -93,15 +97,19 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile[] getRecord_Approved(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			return bo_.getRecord_Approved(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
+				page_orderBy_in, 
 				page_in, 
 				page_numRecords_in, 
+				out page_itemsCount_out, 
 				out errors_out
 			);
 		}
@@ -111,16 +119,20 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_search_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			return bo_.getRecord_byContent(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idContent_search_in, 
+				page_orderBy_in, 
 				page_in, 
 				page_numRecords_in, 
+				out page_itemsCount_out, 
 				out errors_out
 			);
 		}

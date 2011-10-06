@@ -55,8 +55,10 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			bool Read_search_isNull_in, 
 			int idApplication_in, 
 			bool idApplication_isNull_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			return bo_.getRecord_generic(
@@ -71,8 +73,10 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 				Read_search_isNull_in, 
 				idApplication_in, 
 				idApplication_isNull_in, 
+				page_orderBy_in, 
 				page_in, 
 				page_numRecords_in, 
+				out page_itemsCount_out, 
 				out errors_out
 			);
 		}

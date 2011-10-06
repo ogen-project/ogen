@@ -40,11 +40,19 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
+			int page_orderBy_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_DIC_Dic.getRecord_byApplication(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
+				page_orderBy_in, 
+				page_in, 
+				page_numRecords_in, 
+				out page_itemsCount_out, 
 				out errors_out
 			);
 		}
@@ -54,12 +62,20 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLanguage_in, 
+			int page_orderBy_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_DIC_Dic.getRecord_byLanguage(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idLanguage_in, 
+				page_orderBy_in, 
+				page_in, 
+				page_numRecords_in, 
+				out page_itemsCount_out, 
 				out errors_out
 			);
 		}
@@ -69,12 +85,20 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLanguage_in, 
+			int page_orderBy_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_DIC_Dic.getRecord_Language(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idLanguage_in, 
+				page_orderBy_in, 
+				page_in, 
+				page_numRecords_in, 
+				out page_itemsCount_out, 
 				out errors_out
 			);
 		}

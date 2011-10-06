@@ -30,8 +30,10 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			bool Read_search_isNull_in, 
 			int idApplication_in, 
 			bool idApplication_isNull_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		);
 		void Log(

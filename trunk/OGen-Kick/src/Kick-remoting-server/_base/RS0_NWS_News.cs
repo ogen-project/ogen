@@ -68,6 +68,10 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
+			int page_orderBy_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.getRecord_byContent(
@@ -76,6 +80,10 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				idContent_in, 
+				page_orderBy_in, 
+				page_in, 
+				page_numRecords_in, 
+				out page_itemsCount_out, 
 				out errors_out
 			);
 		}
@@ -96,8 +104,10 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string charVar8000_search_in, 
 			int IDLanguage_search_in, 
 			bool isAND_notOR_search_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.getRecord_generic(
@@ -117,8 +127,10 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 				charVar8000_search_in, 
 				IDLanguage_search_in, 
 				isAND_notOR_search_in, 
+				page_orderBy_in, 
 				page_in, 
 				page_numRecords_in, 
+				out page_itemsCount_out, 
 				out errors_out
 			);
 		}

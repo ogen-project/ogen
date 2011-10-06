@@ -55,15 +55,19 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Highlight[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.getRecord_all(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
+				page_orderBy_in, 
 				page_in, 
 				page_numRecords_in, 
+				out page_itemsCount_out, 
 				out errors_out
 			);
 		}
@@ -72,15 +76,19 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Highlight[] getRecord_Approved(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.getRecord_Approved(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
+				page_orderBy_in, 
 				page_in, 
 				page_numRecords_in, 
+				out page_itemsCount_out, 
 				out errors_out
 			);
 		}
@@ -90,16 +98,20 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_search_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.getRecord_byContent(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idContent_search_in, 
+				page_orderBy_in, 
 				page_in, 
 				page_numRecords_in, 
+				out page_itemsCount_out, 
 				out errors_out
 			);
 		}

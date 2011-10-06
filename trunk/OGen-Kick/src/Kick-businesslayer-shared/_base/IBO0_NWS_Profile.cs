@@ -33,23 +33,29 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile[] getRecord_Approved(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentProfile[] getRecord_byContent(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_search_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		);
 		long insObject(

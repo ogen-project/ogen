@@ -39,8 +39,10 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			bool Read_search_isNull_in, 
 			int idApplication_in, 
 			bool idApplication_isNull_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");

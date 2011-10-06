@@ -74,8 +74,10 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			bool Read_search_isNull_in, 
 			int idApplication_in, 
 			bool idApplication_isNull_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -92,11 +94,13 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					Read_search_isNull_in,
 					idApplication_in,
 					idApplication_isNull_in,
+					page_orderBy_in,
 					page_in,
 					page_numRecords_in
 				}
 			);
-			errors_out = (System.Int32[])results[1];
+			page_itemsCount_out = (int)results[1];
+			errors_out = (System.Int32[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_LOG_Log[])results[0];
 		}
 		#endregion

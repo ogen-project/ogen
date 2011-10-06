@@ -66,8 +66,10 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_search_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Attachment.getRecord_byContent(
@@ -76,8 +78,10 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				idContent_search_in, 
+				page_orderBy_in, 
 				page_in, 
 				page_numRecords_in, 
+				out page_itemsCount_out, 
 				out errors_out
 			);
 		}
@@ -88,6 +92,10 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string ip_forLogPurposes_in, 
 			long IDContent_search_in, 
 			int IDLanguage_search_in, 
+			int page_orderBy_in, 
+			int page_in, 
+			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Attachment.getRecord_byContent_andLanguage(
@@ -97,6 +105,10 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 					: ip_forLogPurposes_in, 
 				IDContent_search_in, 
 				IDLanguage_search_in, 
+				page_orderBy_in, 
+				page_in, 
+				page_numRecords_in, 
+				out page_itemsCount_out, 
 				out errors_out
 			);
 		}

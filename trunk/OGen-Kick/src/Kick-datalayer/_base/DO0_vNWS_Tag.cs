@@ -300,17 +300,23 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// Gets Record, based on 'byTag' search. It selects vNWS_Tag values from Database based on the 'byTag' search.
 		/// </summary>
 		/// <param name="IDTag_search_in">IDTag search condition</param>
+		/// <param name="page_orderBy_in">page order by</param>
 		/// <param name="page_in">page number</param>
 		/// <param name="page_numRecords_in">number of records per page</param>
+		/// <param name="page_itemsCount_out">total number of items</param>
 		public static SO_vNWS_Tag[] getRecord_byTag(
 			long IDTag_search_in, 
+			int page_orderBy_in, 
 			int page_in, 
-			int page_numRecords_in
+			int page_numRecords_in, 
+			out int page_itemsCount_out
 		) {
 			return getRecord_byTag(
 				IDTag_search_in, 
+				page_orderBy_in, 
 				page_in, 
 				page_numRecords_in, 
+				out page_itemsCount_out, 
 				null
 			);
 		}
@@ -319,13 +325,17 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// Gets Record, based on 'byTag' search. It selects vNWS_Tag values from Database based on the 'byTag' search.
 		/// </summary>
 		/// <param name="IDTag_search_in">IDTag search condition</param>
+		/// <param name="page_orderBy_in">page order by</param>
 		/// <param name="page_in">page number</param>
 		/// <param name="page_numRecords_in">number of records per page</param>
+		/// <param name="page_itemsCount_out">total number of items</param>
 		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
 		public static SO_vNWS_Tag[] getRecord_byTag(
 			long IDTag_search_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			DBConnection dbConnection_in
 		) {
 			SO_vNWS_Tag[] _output;
@@ -341,8 +351,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				((page_in > 0) && (page_numRecords_in > 0))
 					? new IDbDataParameter[] {
 						_connection.newDBDataParameter("IDTag_search_", DbType.Int64, ParameterDirection.Input, IDTag_search_in, 0), 
+						_connection.newDBDataParameter("page_orderBy_", DbType.Int32, ParameterDirection.Input, page_orderBy_in, 0), 
 						_connection.newDBDataParameter("page_", DbType.Int32, ParameterDirection.Input, page_in, 0), 
-						_connection.newDBDataParameter("page_numRecords_", DbType.Int32, ParameterDirection.Input, page_numRecords_in, 0)
+						_connection.newDBDataParameter("page_numRecords_", DbType.Int32, ParameterDirection.Input, page_numRecords_in, 0), 
+						_connection.newDBDataParameter("page_itemsCount_", DbType.Int32, ParameterDirection.Output, null, 0), 
 					}
 					: new IDbDataParameter[] {
 						_connection.newDBDataParameter("IDTag_search_", DbType.Int64, ParameterDirection.Input, IDTag_search_in, 0)
@@ -351,12 +363,18 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			_output = getRecord(
 				_connection.Execute_SQLFunction_returnDataTable(
 					((page_in > 0) && (page_numRecords_in > 0))
-						? "sp0_vNWS_Tag_Record_open_byTag_page_fullmode"
-						: "sp0_vNWS_Tag_Record_open_byTag_fullmode", 
+						? "sp_vNWS_Tag_Record_open_byTag_page"
+						: "sp0_vNWS_Tag_Record_open_byTag", 
 					_dataparameters
 				)
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
+
+			if ((page_in > 0) && (page_numRecords_in > 0) && (_dataparameters[_dataparameters.Length - 1].Value != DBNull.Value)) {
+				page_itemsCount_out = (int)_dataparameters[_dataparameters.Length - 1].Value;
+			} else {
+				page_itemsCount_out = 0;
+			}
 
 			return _output;			
 		}
@@ -476,19 +494,25 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// </summary>
 		/// <param name="IDApplication_search_in">IDApplication search condition</param>
 		/// <param name="IDLanguage_search_in">IDLanguage search condition</param>
+		/// <param name="page_orderBy_in">page order by</param>
 		/// <param name="page_in">page number</param>
 		/// <param name="page_numRecords_in">number of records per page</param>
+		/// <param name="page_itemsCount_out">total number of items</param>
 		public static SO_vNWS_Tag[] getRecord_byLang(
 			object IDApplication_search_in, 
 			int IDLanguage_search_in, 
+			int page_orderBy_in, 
 			int page_in, 
-			int page_numRecords_in
+			int page_numRecords_in, 
+			out int page_itemsCount_out
 		) {
 			return getRecord_byLang(
 				IDApplication_search_in, 
 				IDLanguage_search_in, 
+				page_orderBy_in, 
 				page_in, 
 				page_numRecords_in, 
+				out page_itemsCount_out, 
 				null
 			);
 		}
@@ -498,14 +522,18 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// </summary>
 		/// <param name="IDApplication_search_in">IDApplication search condition</param>
 		/// <param name="IDLanguage_search_in">IDLanguage search condition</param>
+		/// <param name="page_orderBy_in">page order by</param>
 		/// <param name="page_in">page number</param>
 		/// <param name="page_numRecords_in">number of records per page</param>
+		/// <param name="page_itemsCount_out">total number of items</param>
 		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
 		public static SO_vNWS_Tag[] getRecord_byLang(
 			object IDApplication_search_in, 
 			int IDLanguage_search_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			DBConnection dbConnection_in
 		) {
 			SO_vNWS_Tag[] _output;
@@ -522,8 +550,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					? new IDbDataParameter[] {
 						_connection.newDBDataParameter("IDApplication_search_", DbType.Int32, ParameterDirection.Input, IDApplication_search_in, 0), 
 						_connection.newDBDataParameter("IDLanguage_search_", DbType.Int32, ParameterDirection.Input, IDLanguage_search_in, 0), 
+						_connection.newDBDataParameter("page_orderBy_", DbType.Int32, ParameterDirection.Input, page_orderBy_in, 0), 
 						_connection.newDBDataParameter("page_", DbType.Int32, ParameterDirection.Input, page_in, 0), 
-						_connection.newDBDataParameter("page_numRecords_", DbType.Int32, ParameterDirection.Input, page_numRecords_in, 0)
+						_connection.newDBDataParameter("page_numRecords_", DbType.Int32, ParameterDirection.Input, page_numRecords_in, 0), 
+						_connection.newDBDataParameter("page_itemsCount_", DbType.Int32, ParameterDirection.Output, null, 0), 
 					}
 					: new IDbDataParameter[] {
 						_connection.newDBDataParameter("IDApplication_search_", DbType.Int32, ParameterDirection.Input, IDApplication_search_in, 0), 
@@ -533,12 +563,18 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			_output = getRecord(
 				_connection.Execute_SQLFunction_returnDataTable(
 					((page_in > 0) && (page_numRecords_in > 0))
-						? "sp0_vNWS_Tag_Record_open_byLang_page_fullmode"
-						: "sp0_vNWS_Tag_Record_open_byLang_fullmode", 
+						? "sp_vNWS_Tag_Record_open_byLang_page"
+						: "sp0_vNWS_Tag_Record_open_byLang", 
 					_dataparameters
 				)
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
+
+			if ((page_in > 0) && (page_numRecords_in > 0) && (_dataparameters[_dataparameters.Length - 1].Value != DBNull.Value)) {
+				page_itemsCount_out = (int)_dataparameters[_dataparameters.Length - 1].Value;
+			} else {
+				page_itemsCount_out = 0;
+			}
 
 			return _output;			
 		}
@@ -669,19 +705,25 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// </summary>
 		/// <param name="IDApplication_search_in">IDApplication search condition</param>
 		/// <param name="IDLanguage_search_in">IDLanguage search condition</param>
+		/// <param name="page_orderBy_in">page order by</param>
 		/// <param name="page_in">page number</param>
 		/// <param name="page_numRecords_in">number of records per page</param>
+		/// <param name="page_itemsCount_out">total number of items</param>
 		public static SO_vNWS_Tag[] getRecord_Approved_byLang(
 			object IDApplication_search_in, 
 			int IDLanguage_search_in, 
+			int page_orderBy_in, 
 			int page_in, 
-			int page_numRecords_in
+			int page_numRecords_in, 
+			out int page_itemsCount_out
 		) {
 			return getRecord_Approved_byLang(
 				IDApplication_search_in, 
 				IDLanguage_search_in, 
+				page_orderBy_in, 
 				page_in, 
 				page_numRecords_in, 
+				out page_itemsCount_out, 
 				null
 			);
 		}
@@ -691,14 +733,18 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// </summary>
 		/// <param name="IDApplication_search_in">IDApplication search condition</param>
 		/// <param name="IDLanguage_search_in">IDLanguage search condition</param>
+		/// <param name="page_orderBy_in">page order by</param>
 		/// <param name="page_in">page number</param>
 		/// <param name="page_numRecords_in">number of records per page</param>
+		/// <param name="page_itemsCount_out">total number of items</param>
 		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
 		public static SO_vNWS_Tag[] getRecord_Approved_byLang(
 			object IDApplication_search_in, 
 			int IDLanguage_search_in, 
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			DBConnection dbConnection_in
 		) {
 			SO_vNWS_Tag[] _output;
@@ -715,8 +761,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					? new IDbDataParameter[] {
 						_connection.newDBDataParameter("IDApplication_search_", DbType.Int32, ParameterDirection.Input, IDApplication_search_in, 0), 
 						_connection.newDBDataParameter("IDLanguage_search_", DbType.Int32, ParameterDirection.Input, IDLanguage_search_in, 0), 
+						_connection.newDBDataParameter("page_orderBy_", DbType.Int32, ParameterDirection.Input, page_orderBy_in, 0), 
 						_connection.newDBDataParameter("page_", DbType.Int32, ParameterDirection.Input, page_in, 0), 
-						_connection.newDBDataParameter("page_numRecords_", DbType.Int32, ParameterDirection.Input, page_numRecords_in, 0)
+						_connection.newDBDataParameter("page_numRecords_", DbType.Int32, ParameterDirection.Input, page_numRecords_in, 0), 
+						_connection.newDBDataParameter("page_itemsCount_", DbType.Int32, ParameterDirection.Output, null, 0), 
 					}
 					: new IDbDataParameter[] {
 						_connection.newDBDataParameter("IDApplication_search_", DbType.Int32, ParameterDirection.Input, IDApplication_search_in, 0), 
@@ -726,12 +774,18 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			_output = getRecord(
 				_connection.Execute_SQLFunction_returnDataTable(
 					((page_in > 0) && (page_numRecords_in > 0))
-						? "sp0_vNWS_Tag_Record_open_Approved_byLang_page_fullmode"
-						: "sp0_vNWS_Tag_Record_open_Approved_byLang_fullmode", 
+						? "sp_vNWS_Tag_Record_open_Approved_byLang_page"
+						: "sp0_vNWS_Tag_Record_open_Approved_byLang", 
 					_dataparameters
 				)
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
+
+			if ((page_in > 0) && (page_numRecords_in > 0) && (_dataparameters[_dataparameters.Length - 1].Value != DBNull.Value)) {
+				page_itemsCount_out = (int)_dataparameters[_dataparameters.Length - 1].Value;
+			} else {
+				page_itemsCount_out = 0;
+			}
 
 			return _output;			
 		}
