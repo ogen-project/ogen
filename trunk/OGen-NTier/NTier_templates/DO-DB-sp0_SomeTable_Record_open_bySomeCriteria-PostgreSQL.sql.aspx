@@ -47,15 +47,13 @@ string _aux_xx_field_name;
 
 #endregion
 //-----------------------------------------------------------------------------------------
-%>CREATE OR REPLACE FUNCTION "sp0_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>_page_fullmode"(<%
+%>CREATE OR REPLACE FUNCTION "sp0_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>"(<%
 	for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
 		_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 		_aux_db_field = _aux_ex_field.parallel_ref;
 		_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-	"<%=_aux_xx_field_name%>_search_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>, <%
+	"<%=_aux_xx_field_name%>_search_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 	}%>
-	"page_" Int,
-	"page_numRecords_" Int
 )
 RETURNS SETOF "<%=_aux_db_table.Name%>"
 AS $BODY$
@@ -69,10 +67,10 @@ AS $BODY$
 				t1."<%=_aux_db_field.Name%>"<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 			}%>
 			FROM "<%=_aux_db_table.Name%>" t1
-			INNER JOIN "sp_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>"(<%
+			INNER JOIN "fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>"(<%
 			for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
-				_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
-				_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
+					_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
+					_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
 				"<%=_aux_xx_field_name%>_search_"<%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 			}%>
 			) t2 ON (<%
@@ -85,10 +83,6 @@ AS $BODY$
 			-- change where condition in: "fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>"
 			-- NOT HERE!
 
-			-- change order by in: "sp_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>"
-			-- NOT HERE!
-
-			LIMIT "page_numRecords_" OFFSET "page_numRecords_" * ("page_" - 1)
 		LOOP
 			RETURN NEXT _Output;
 		END LOOP;
