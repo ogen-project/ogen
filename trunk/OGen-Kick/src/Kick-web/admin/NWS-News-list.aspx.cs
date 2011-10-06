@@ -53,6 +53,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				#endregion
 
 				int[] _errors;
+				int _count;
 
 				#region Tags . . .
 				SO_vNWS_Tag[] _so_tags
@@ -60,7 +61,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
 						utils.IDLanguage__default,
-						0, 0,
+						0, 0, 0, out _count, 
 						out _errors
 					);
 				if (!Master__base.Error_add(_errors)) {
@@ -84,7 +85,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					= BusinessInstances.NWS_Source.InstanceClient.getRecord_all(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						0, 0,
+						0, 0, 0, out _count, 
 						out _errors
 					);
 				if (!Master__base.Error_add(_errors)) {
@@ -108,7 +109,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					= BusinessInstances.NWS_Author.InstanceClient.getRecord_all(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						0, 0,
+						0, 0, 0, out _count, 
 						out _errors
 					);
 				if (!Master__base.Error_add(_errors)) {
@@ -132,7 +133,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					= BusinessInstances.NWS_Highlight.InstanceClient.getRecord_all(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						0, 0,
+						0, 0, 0, out _count, 
 						out _errors
 					);
 				if (!Master__base.Error_add(_errors)) {
@@ -156,7 +157,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					= BusinessInstances.NWS_Profile.InstanceClient.getRecord_all(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						0, 0,
+						0, 0, 0, out _count, 
 						out _errors
 					);
 				if (!Master__base.Error_add(_errors)) {
@@ -255,6 +256,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		//}
 		public void Bind() {
 			int[] _errors;
+			int _count;
 			#region SO_vNWS_Content[] _contents = ...(..., out out _errors);
 			DateTime _begin_date;
 			DateTime _end_date;
@@ -315,7 +317,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				txt_Text.Text,
 				utils.IDLanguage__default,
 				true,
-				0, 0,
+				0, 0, 0, out _count, 
 
 				out _errors
 			);

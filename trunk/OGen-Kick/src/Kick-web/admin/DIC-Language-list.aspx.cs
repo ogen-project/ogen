@@ -56,12 +56,14 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region public void Bind();
 		public void Bind() {
 			int[] _errors;
+			int _count;
 
 			SO_vDIC_Language[] _languages
 				= BusinessInstances.DIC_Dic.InstanceClient.getRecord_byLanguage(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
 					utils.IDLanguage__default,
+					0, 0, 0, out _count, 
 					out _errors
 				);
 			if (!Master__base.Error_add(_errors)) {

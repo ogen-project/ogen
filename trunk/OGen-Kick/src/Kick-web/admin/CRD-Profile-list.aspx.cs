@@ -55,12 +55,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region public void Bind();
 		public void Bind() {
 			int[] _errors;
+			int _count;
 			SO_CRD_Profile[] _authors
 				= BusinessInstances.CRD_Profile.InstanceClient.getRecord_all(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
 					false,
-					0, 0,
+					0, 0, 0, out _count, 
 					out _errors
 				);
 			if (!Master__base.Error_add(_errors)) {

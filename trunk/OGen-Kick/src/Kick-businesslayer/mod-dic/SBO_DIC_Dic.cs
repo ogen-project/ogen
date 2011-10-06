@@ -694,11 +694,17 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		[BOMethodAttribute("getRecord_byApplication", true, false, 1)]
 		public static SO_vDIC_ApplicationLanguage[] getRecord_byApplication(
 			string sessionGuid_in,
-			string ip_forLogPurposes_in, 
+			string ip_forLogPurposes_in,
+
+			int page_orderBy_in,
+			int page_in,
+			int page_numRecords_in,
+			out int page_itemsCount_out,
 
 			out int[] errors_out
 		) {
-			SO_vDIC_ApplicationLanguage[]  _output = null;
+			page_itemsCount_out = -1;
+			SO_vDIC_ApplicationLanguage[] _output = null;
 
 			List<int> _errorlist;
 			Guid _sessionguid;
@@ -721,8 +727,12 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			return DO_vDIC_ApplicationLanguage.getRecord_byApplication(
 				_sessionuser.IDApplication,
-				0,
-				0,
+
+				page_orderBy_in,
+				page_in,
+				page_numRecords_in,
+				out page_itemsCount_out,
+
 				null
 			);
 		}
@@ -734,10 +744,16 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in,
 			string ip_forLogPurposes_in,
 
-			int idLanguage_in, 
+			int idLanguage_in,
+
+			int page_orderBy_in,
+			int page_in,
+			int page_numRecords_in,
+			out int page_itemsCount_out,
 
 			out int[] errors_out
 		) {
+			page_itemsCount_out = -1;
 			SO_vDIC_Language[] _output = null;
 
 			List<int> _errorlist;
@@ -762,9 +778,13 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			// ToDos: here! check permitions... not very important
 
 			return DO_vDIC_Language.getRecord_byLanguage(
-				idLanguage_in, 
-				0,
-				0,
+				idLanguage_in,
+
+				page_orderBy_in,
+				page_in,
+				page_numRecords_in,
+				out page_itemsCount_out,
+
 				null
 			);
 		}
@@ -775,10 +795,16 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in,
 			string ip_forLogPurposes_in,
 
-			int idLanguage_in, 
+			int idLanguage_in,
+
+			int page_orderBy_in,
+			int page_in,
+			int page_numRecords_in,
+			out int page_itemsCount_out,
 
 			out int[] errors_out
 		) {
+			page_itemsCount_out = -1;
 			SO_vDIC_Language[] _output = null;
 
 			List<int> _errorlist;
@@ -803,9 +829,13 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			// ToDos: here! check permitions... not very important
 
 			return DO_vDIC_Language.getRecord_Language(
-				idLanguage_in, 
-				0,
-				0,
+				idLanguage_in,
+
+				page_orderBy_in,
+				page_in,
+				page_numRecords_in,
+				out page_itemsCount_out,
+
 				null
 			);
 		}

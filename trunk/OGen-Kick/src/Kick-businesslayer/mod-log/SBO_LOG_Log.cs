@@ -27,7 +27,6 @@ using OGen.NTier.Kick.lib.businesslayer.shared;
 namespace OGen.NTier.Kick.lib.businesslayer {
 	[BOClassAttribute("BO_LOG_Log", "")]
 	public static class SBO_LOG_Log {
-
 		#region internal static int MessageSize { get; }
 		private static int messagesize__ = -2;
 
@@ -370,13 +369,16 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			bool Read_search_isNull_in,
 
 			int idApplication_in,
-			bool idApplication_isNull_in, 
+			bool idApplication_isNull_in,
 
+			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
+			out int page_itemsCount_out,
 
 			out int[] errors_out
 		) {
+			page_itemsCount_out = -1;
 			List<int> _errorlist;
 			Guid _sessionguid;
 			Sessionuser _sessionuser;
@@ -417,10 +419,13 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					: (object)Read_search_in,
 				idApplication_isNull_in 
 					? null 
-					: (object)idApplication_in, 
+					: (object)idApplication_in,
 
+
+				page_orderBy_in,
 				page_in,
 				page_numRecords_in,
+				out page_itemsCount_out,
 
 				null
 			);

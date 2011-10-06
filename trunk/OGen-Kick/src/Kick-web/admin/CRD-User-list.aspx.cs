@@ -32,12 +32,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		protected void Page_Load(object sender, EventArgs e) {
 			if (!Page.IsPostBack) {
 				int[] _errors;
+				int _count;
 				SO_CRD_Profile[] _profiles
 					= BusinessInstances.CRD_Profile.InstanceClient.getRecord_all(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
 						false,
-						0, 0,
+						0, 0, 0, out _count, 
 						out _errors
 					);
 				if (!Master__base.Error_add(_errors)) {
@@ -83,6 +84,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region public void Bind();
 		public void Bind() {
 			int[] _errors;
+			int _count;
 			SO_vNET_User[] _users
 				= BusinessInstances.WEB_User.InstanceClient.getRecord_generic(
 					utils.User.SessionGuid,
@@ -92,7 +94,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					txt_Name.Text.Trim(),
 					(ddl_Profile__in.SelectedValue == "") ? 0L : long.Parse(ddl_Profile__in.SelectedValue),
 					(ddl_Profile__out.SelectedValue == "") ? 0L : long.Parse(ddl_Profile__out.SelectedValue),
-					0, 0,
+
+					0, 0, 0, out _count, 
 
 					out _errors
 				);

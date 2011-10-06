@@ -104,6 +104,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		public void Bind() {
 			bool _isNew = true;
 			int[] _errors;
+			int _count;
 			SO_vDIC_Language[] _language;
 
 			if (IDLanguage > 0) {
@@ -111,6 +112,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
 					IDLanguage,
+					0, 0, 0, out _count, 
 					out _errors
 				);
 				if (

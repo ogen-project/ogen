@@ -27,7 +27,6 @@ using OGen.NTier.Kick.lib.businesslayer.shared;
 namespace OGen.NTier.Kick.lib.businesslayer {
 	[BOClassAttribute("BO_NWS_Author", "")]
 	public static class SBO_NWS_Author {
-
 		#region public static SO_NWS_Author getObject(...);
 		[BOMethodAttribute("getObject", true, false, 1)]
 		public static SO_NWS_Author getObject(
@@ -509,16 +508,17 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#region public static SO_vNWS_Author[] getRecord_Approved(...);
 		[BOMethodAttribute("getRecord_Approved", true, false, 1)]
 		public static SO_vNWS_Author[] getRecord_Approved(
-			#region params...
 			string sessionGuid_in,
-			string ip_forLogPurposes_in, 
+			string ip_forLogPurposes_in,
 
+			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
+			out int page_itemsCount_out, 
 
 			out int[] errors_out
-			#endregion
 		) {
+			page_itemsCount_out = -1;
 			SO_vNWS_Author[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
@@ -555,8 +555,10 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				= DO_vNWS_Author.getRecord_Approved(
 					_sessionuser.IDApplication,
 
+					page_orderBy_in, 
 					page_in, 
 					page_numRecords_in,
+					out page_itemsCount_out, 
 
 					null
 				);
@@ -570,14 +572,17 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		public static SO_vNWS_Author[] getRecord_all(
 			#region params...
 			string sessionGuid_in,
-			string ip_forLogPurposes_in, 
+			string ip_forLogPurposes_in,
 
+			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
+			out int page_itemsCount_out, 
 
 			out int[] errors_out
 			#endregion
 		) {
+			page_itemsCount_out = -1;
 			SO_vNWS_Author[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
@@ -614,8 +619,10 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				= DO_vNWS_Author.getRecord_all(
 					_sessionuser.IDApplication,
 
+					page_orderBy_in, 
 					page_in, 
 					page_numRecords_in,
+					out page_itemsCount_out, 
 
 					null
 				);
@@ -634,12 +641,15 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			long idContent_search_in,
 
+			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
+			out int page_itemsCount_out, 
 
 			out int[] errors_out
 			#endregion
 		) {
+			page_itemsCount_out = -1;
 			SO_NWS_ContentAuthor[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
@@ -678,8 +688,10 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				= DO_NWS_ContentAuthor.getRecord_byContent(
 					idContent_search_in,
 
+					page_orderBy_in, 
 					page_in,
 					page_numRecords_in,
+					out page_numRecords_in, 
 
 					null
 				);

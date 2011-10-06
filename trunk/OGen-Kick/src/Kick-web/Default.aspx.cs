@@ -37,6 +37,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		public void Bind() {
 			int[] _errors;
+			int _count;
 
 			//if (!Master_Site.Master__base.Creds.hasPermition(
 			//    true,
@@ -103,7 +104,7 @@ new long[] { }, // ToDos: here!
 					"",
 					utils.IDLanguage__default,
 					true,
-					0, 0,
+					0, 0, 0, out _count, 
 					out _errors
 				);
 			if (
@@ -139,7 +140,7 @@ new long[] { }, // ToDos: here!
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
 						utils.IDLanguage__default,
-						0, 0,
+						0, 0, 0, out _count, 
 						out _errors
 					);
 				if (!Master__base.Error_add(_errors)) {
@@ -162,7 +163,7 @@ new long[] { }, // ToDos: here!
 					= BusinessInstances.NWS_Source.InstanceClient.getRecord_Approved(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						0, 0,
+						0, 0, 0, out _count, 
 						out _errors
 					);
 				Master__base.Error_add(_errors);
@@ -182,7 +183,7 @@ new long[] { }, // ToDos: here!
 							utils.User.SessionGuid,
 							utils.ClientIPAddress,
 							_news[n].IDContent,
-							0, 0,
+							0, 0, 0, out _count, 
 							out _errors
 						);
 					if (
@@ -216,7 +217,7 @@ new long[] { }, // ToDos: here!
 							utils.User.SessionGuid,
 							utils.ClientIPAddress,
 							_news[n].IDContent,
-							0, 0,
+							0, 0, 0, out _count, 
 							out _errors
 						);
 					if (
@@ -253,6 +254,7 @@ new long[] { }, // ToDos: here!
 							utils.ClientIPAddress,
 							_news[n].IDContent,
 							utils.IDLanguage__default,
+							0, 0, 0, out _count, 
 							out _errors
 						);
 					#endregion

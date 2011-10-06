@@ -32,7 +32,6 @@ using OGen.NTier.Kick.lib.businesslayer.shared;
 namespace OGen.NTier.Kick.lib.businesslayer {
 	[BOClassAttribute("BO_CRD_Authentication", "")]
 	public static class SBO_CRD_Authentication {
-
 		internal static Dictionary<Guid, Sessionuser> UserSession
 			= new Dictionary<Guid, Sessionuser>();
 		#region internal static bool isSessionGuid_valid(...);
@@ -204,11 +203,12 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 				#region login...
 				#region idPermitions_out = ...;
+				int _count;
 				SO_CRD_Permition[] _so_permitions
 					= DO_CRD_Permition.getRecord_byUser(
 						user_in.IDUser,
-						-1,
-						-1
+						-1, -1, -1, out _count, 
+						null
 					);
 
 				idPermitions_out = new long[_so_permitions.Length];

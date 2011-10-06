@@ -72,6 +72,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 			bool _showDetails = false;
 			int[] _errors;
+			int _count;
 
 			SO_vNWS_Source[] _sources;
 			SO_NWS_ContentSource[] _contentsources;
@@ -97,6 +98,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						utils.ClientIPAddress,
 						IDNews,
 						utils.IDLanguage__default,
+						0, 0, 0, out _count, 
 						out _errors
 					);
 					if (
@@ -194,7 +196,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
 						IDNews,
-						0, 0,
+						0, 0, 0, out _count, 
 						out _errors
 					);
 					if (
@@ -208,7 +210,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							= BusinessInstances.NWS_Source.InstanceClient.getRecord_Approved(
 								utils.User.SessionGuid,
 								utils.ClientIPAddress,
-								0, 0,
+								0, 0, 0, out _count, 
 								out _errors
 							);
 						if (!Master__base.Error_add(_errors)) {
@@ -235,7 +237,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
 						IDNews,
-						0, 0,
+						0, 0, 0, out _count, 
 						out _errors
 					);
 					if (
@@ -250,7 +252,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 								utils.User.SessionGuid,
 								utils.ClientIPAddress,
 								utils.IDLanguage__default,
-								0, 0,
+								0, 0, 0, out _count, 
 								out _errors
 							);
 						if (!Master__base.Error_add(_errors)) {

@@ -32,7 +32,6 @@ using OGen.NTier.Kick.lib.businesslayer.shared;
 namespace OGen.NTier.Kick.lib.businesslayer {
 	[BOClassAttribute("BO_CRD_User", "")]
 	public static class SBO_CRD_User {
-
 		#region public static void insObject_CreateUser(string credentials_in, string login_in, ...);
 		#region internal static long insObject_CreateUser(ServerCredentials credentials_in, string login_in, ...);
 		internal static long insObject_CreateUser(

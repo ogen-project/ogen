@@ -722,11 +722,14 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			bool allProfiles_notJustApplication_in,
 
+			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
+			out int page_itemsCount_out, 
 
 			out int[] errors_out
 		) {
+			page_itemsCount_out = -1;
 			SO_CRD_Profile[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
@@ -762,8 +765,12 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					(allProfiles_notJustApplication_in)
 						? null
 						: (object)_sessionuser.IDApplication, 
+
+					page_orderBy_in,
 					page_in,
-					page_numRecords_in, 
+					page_numRecords_in,
+					out page_itemsCount_out, 
+
 					null
 				);
 
@@ -779,11 +786,14 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			long idProfile_in, 
 
+			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
+			out int page_itemsCount_out,
 
 			out int[] errors_out
 		) {
+			page_itemsCount_out = -1;
 			SO_CRD_ProfileProfile[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
@@ -816,9 +826,13 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			_output
 				= DO_CRD_ProfileProfile.getRecord_byProfile(
-					idProfile_in, 
+					idProfile_in,
+
+					page_orderBy_in,
 					page_in,
 					page_numRecords_in,
+					out page_itemsCount_out,
+
 					null
 				);
 
@@ -952,11 +966,15 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string ip_forLogPurposes_in, 
 
 			long IDUser_search_in,
+
+			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
+			out int page_itemsCount_out,
 
 			out int[] errors_out
 		) {
+			page_itemsCount_out = -1;
 			SO_vCRD_UserProfile[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
@@ -992,8 +1010,13 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			_output
 				= DO_vCRD_UserProfile.getRecord_byUser(
 					IDUser_search_in,
+
+					page_orderBy_in,
 					page_in,
-					page_numRecords_in
+					page_numRecords_in,
+					out page_itemsCount_out, 
+
+					null
 				);
 
 			errors_out = _errorlist.ToArray();
@@ -1007,11 +1030,15 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string ip_forLogPurposes_in, 
 
 			long IDProfile_search_in,
+
+			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
+			out int page_itemsCount_out,
 
 			out int[] errors_out
 		) {
+			page_itemsCount_out = -1;
 			SO_vCRD_ProfilePermition[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
@@ -1045,8 +1072,13 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			_output
 				= DO_vCRD_ProfilePermition.getRecord_byProfile(
 					IDProfile_search_in,
+
+					page_orderBy_in,
 					page_in,
-					page_numRecords_in
+					page_numRecords_in,
+					out page_itemsCount_out,
+
+					null
 				);
 
 			errors_out = _errorlist.ToArray();

@@ -208,6 +208,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		private void Bind() {
 			int[] _error;
+			int _count;
 			SO_LOG_Log[] _logs 
 				= BusinessInstances.LOG_Log.InstanceClient.getRecord_generic(
 					utils.User.SessionGuid,
@@ -222,9 +223,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 cbx_Read.Checked, 
 false, 
 					utils.IDApplication,
-					(utils.IDApplication <= 0), 
-					1,
-					50,
+					(utils.IDApplication <= 0),
+
+					0, 0, 0, out _count, 
 
 					out _error
 				);

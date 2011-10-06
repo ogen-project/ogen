@@ -31,6 +31,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
 			int[] _errors;
+			int _count;
 
 			if (!Page.IsPostBack) {
 				SO_vDIC_Language[] _languages
@@ -38,6 +39,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
 						utils.IDLanguage__default,
+						0, 0, 0, out _count, 
 						out _errors
 					);
 				if (!Master__base.Error_add(_errors)) {
@@ -93,11 +95,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region public void Bind();
 		public void Bind() {
 			int[] _errors;
+			int _count;
 
 			SO_vDIC_ApplicationLanguage[] _languages
 				= BusinessInstances.DIC_Dic.InstanceClient.getRecord_byApplication(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
+					0, 0, 0, out _count, 
 					out _errors
 				);
 			if (!Master__base.Error_add(_errors)) {

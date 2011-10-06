@@ -27,17 +27,22 @@ using OGen.NTier.Kick.lib.businesslayer.shared;
 namespace OGen.NTier.Kick.lib.businesslayer {
 	[BOClassAttribute("BO_NWS_News", "")]
 	public static class SBO_NWS_News {
-
 		#region private static SO_vNWS_Content[] getrecord_bycontent_andlanguage(...);
 		private static SO_vNWS_Content[] getrecord_bycontent_andlanguage(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
 			long idContent_in, 
-			int idLanguage_in, 
+			int idLanguage_in,
+
+			int page_orderBy_in,
+			int page_in,
+			int page_numRecords_in,
+			out int page_itemsCount_out,
 
 			out int[] errors_out
 		) {
+			page_itemsCount_out = -1;
 			SO_vNWS_Content[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
@@ -77,10 +82,12 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			if (idLanguage_in > 0) {
 				_output = DO_vNWS_Content.getRecord_byContent_andL(
 					idContent_in, 
-					idLanguage_in, 
+					idLanguage_in,
 
-					0,
-					0,
+					page_orderBy_in,
+					page_in,
+					page_numRecords_in,
+					out page_itemsCount_out, 
 
 					null
 				);
@@ -88,8 +95,10 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				_output = DO_vNWS_Content.getRecord_byContent(
 					idContent_in,
 
-					0,
-					0,
+					page_orderBy_in,
+					page_in,
+					page_numRecords_in,
+					out page_itemsCount_out, 
 
 					null
 				);
@@ -116,12 +125,15 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			out int[] errors_out
 		) {
+			int _count;
 			SO_vNWS_Content[] _output = getrecord_bycontent_andlanguage(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 
 				idContent_in, 
 				idLanguage_in, 
+
+				-1, -1, -1, out _count, 
 
 				out errors_out
 			);
@@ -145,6 +157,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			long idContent_in,
 
+			int page_orderBy_in,
+			int page_in,
+			int page_numRecords_in,
+			out int page_itemsCount_out,
+
 			out int[] errors_out
 		) {
 			return getrecord_bycontent_andlanguage(
@@ -153,6 +170,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 				idContent_in,
 				-1,
+
+				page_orderBy_in,
+				page_in,
+				page_numRecords_in,
+				out page_itemsCount_out, 
 
 				out errors_out
 			);
@@ -1456,9 +1478,10 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			}
 			#endregion
 			#region check References . . .
+			int _count;
 			SO_NWS_Attachment[] _attachments = DO_NWS_Attachment.getRecord_byContent(
 				idContent_in,
-				0, 0
+				-1, 0, 0, out _count
 			);
 			if (
 				(DO_NWS_ContentHighlight.getCount_inRecord_byContent(idContent_in) > 0)
@@ -1642,7 +1665,6 @@ errors_out.Add(ErrorType.profile__invalid_name);
 		#region public static SO_vNWS_Content[] getRecord_generic(...);
 		[BOMethodAttribute("getRecord_generic", true, false, 1)]
 		public static SO_vNWS_Content[] getRecord_generic(
-			#region params...
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
@@ -1663,12 +1685,14 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			int IDLanguage_search_in,
 			bool isAND_notOR_search_in,
 
+			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
+			out int page_itemsCount_out,
 
 			out int[] errors_out
-			#endregion
 		) {
+			page_itemsCount_out = -1;
 			SO_vNWS_Content[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
@@ -1717,10 +1741,12 @@ errors_out.Add(ErrorType.profile__invalid_name);
 					(idProfiles_search_in == null) ? "" : OGen.lib.utils.Array_Join<long>(",", idProfiles_search_in), 
 					charVar8000_search_in, 
 					IDLanguage_search_in, 
-					isAND_notOR_search_in, 
+					isAND_notOR_search_in,
 
+					page_orderBy_in,
 					page_in,
 					page_numRecords_in,
+					out page_itemsCount_out, 
 
 					null
 				);

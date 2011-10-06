@@ -79,6 +79,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region public void Bind(...);
 		public void Bind() {
 			int[] _errors;
+			int _count;
 
 			SO_vNET_User _user 
 				= BusinessInstances.WEB_User.InstanceClient.getObject_details(
@@ -107,7 +108,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
 					IDUser,
-					0, 0,
+					0, 0, 0, out _count, 
 					out _errors
 				);
 			if (!Master__base.Error_add(_errors)) {

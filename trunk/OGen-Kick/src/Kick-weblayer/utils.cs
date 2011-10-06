@@ -609,10 +609,13 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 			public static SO_vDIC_ApplicationLanguage[] Languages_get() {
 				if (languages__ == null) {
 					int[] _errors;
+					int _count;
 					SO_vDIC_ApplicationLanguage[] _languages 
 						= BusinessInstances.DIC_Dic.InstanceClient.getRecord_byApplication(
 							utils.User.SessionGuid,
 							utils.ClientIPAddress,
+
+							-1, 0, 0, out _count, 
 
 							out _errors
 						);

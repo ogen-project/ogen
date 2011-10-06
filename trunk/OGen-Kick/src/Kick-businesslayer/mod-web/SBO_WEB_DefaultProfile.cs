@@ -217,11 +217,14 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			//bool allProfiles_notJustApplication_in,
 
+			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
+			out int page_itemsCount_out, 
 
 			out int[] errors_out
 		) {
+			page_itemsCount_out = -1;
 			SO_vNET_Profile[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
@@ -258,8 +261,10 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					//	? null
 					//	: (object)_sessionuser.IDApplication,
 					_sessionuser.IDApplication, 
+					page_orderBy_in, 
 					page_in,
 					page_numRecords_in,
+					out page_itemsCount_out, 
 					null
 				);
 

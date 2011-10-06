@@ -107,6 +107,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region public void Bind();
 		public void Bind() {
 			int[] _errors;
+			int _count;
 			tbl_News.Visible = false;
 
 			#region rep_News.DataSource = ...; rep_News.DataBind();
@@ -129,7 +130,7 @@ new long[] { },
 					"",
 					utils.IDLanguage__default,
 					true,
-					0, 0,
+					0, 0, 0, out _count, 
 					out _errors
 				);
 			if (
@@ -173,7 +174,7 @@ new long[] { },
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
 					utils.IDLanguage__default,
-					0, 0,
+					0, 0, 0, out _count, 
 					out _errors
 				);
 			if (
@@ -203,7 +204,7 @@ new long[] { },
 				= BusinessInstances.NWS_Source.InstanceClient.getRecord_Approved(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
-					0, 0,
+					0, 0, 0, out _count, 
 					out _errors
 				);
 
@@ -226,7 +227,7 @@ new long[] { },
 							utils.User.SessionGuid,
 							utils.ClientIPAddress,
 							_news[n].IDContent,
-							0, 0,
+							0, 0, 0, out _count, 
 							out _errors
 						);
 					if (
@@ -263,7 +264,7 @@ new long[] { },
 							utils.User.SessionGuid,
 							utils.ClientIPAddress,
 							_news[n].IDContent,
-							0, 0,
+							0, 0, 0, out _count, 
 							out _errors
 						);
 					if (
@@ -300,6 +301,7 @@ new long[] { },
 						utils.ClientIPAddress,
 						_news[n].IDContent,
 						utils.IDLanguage__default,
+						0, 0, 0, out _count, 
 						out _errors
 					);
 				if (

@@ -55,11 +55,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		protected void Page_Load(object sender, EventArgs e) {
 			if (!Page.IsPostBack) {
 				int[] _errors;
+				int _count;
 				SO_vNWS_Source[] _sources
 					= BusinessInstances.NWS_Source.InstanceClient.getRecord_all(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						0, 0,
+						0, 0, 0, out _count, 
 						out _errors
 					);
 				if (!Master__base.Error_add(_errors)) {

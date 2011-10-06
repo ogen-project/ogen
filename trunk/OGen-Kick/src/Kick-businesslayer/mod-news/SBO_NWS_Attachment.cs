@@ -27,7 +27,6 @@ using OGen.NTier.Kick.lib.businesslayer.shared;
 namespace OGen.NTier.Kick.lib.businesslayer {
 	[BOClassAttribute("BO_NWS_Attachment", "")]
 	public static class SBO_NWS_Attachment {
-
 		#region public static SO_NWS_Attachment getObject(...);
 		[BOMethodAttribute("getObject", true, false, 1)]
 		public static SO_NWS_Attachment getObject(
@@ -642,10 +641,16 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string ip_forLogPurposes_in, 
 
 			long IDContent_search_in,
-			int IDLanguage_search_in, 
+			int IDLanguage_search_in,
+
+			int page_orderBy_in,
+			int page_in,
+			int page_numRecords_in,
+			out int page_itemsCount_out,
 
 			out int[] errors_out
 		) {
+			page_itemsCount_out = -1;
 			SO_vNWS_Attachment[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
@@ -682,9 +687,14 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			_output = DO_vNWS_Attachment.getRecord_byContent_andL(
 				IDContent_search_in, 
-				IDLanguage_search_in, 
+				IDLanguage_search_in,
 
-				0, 0, 
+
+				page_orderBy_in,
+				page_in,
+				page_numRecords_in,
+				out page_itemsCount_out,
+
 				null
 			);
 
@@ -695,18 +705,19 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#region public static SO_vNWS_Attachment[] getRecord_byContent(...);
 		[BOMethodAttribute("getRecord_byContent", true, false, 1)]
 		public static SO_vNWS_Attachment[] getRecord_byContent(
-			#region params...
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
 			long idContent_search_in,
 
+			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
+			out int page_itemsCount_out,
 
 			out int[] errors_out
-			#endregion
 		) {
+			page_itemsCount_out = -1;
 			SO_vNWS_Attachment[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
@@ -745,8 +756,10 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				= DO_vNWS_Attachment.getRecord_byContent(
 					idContent_search_in,
 
-					page_in, 
+					page_orderBy_in,
+					page_in,
 					page_numRecords_in,
+					out page_itemsCount_out,
 
 					null
 				);

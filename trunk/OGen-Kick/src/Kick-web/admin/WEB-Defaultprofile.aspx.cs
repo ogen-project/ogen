@@ -32,12 +32,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			if (!Page.IsPostBack) {
 				#region cbl_Profile.Kick.Bind__arrayOf<long, string>(...);
 				int[] _errors;
+				int _count;
 				SO_CRD_Profile[] _profiles
 					= BusinessInstances.CRD_Profile.InstanceClient.getRecord_all(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
 						false,
-						0, 0,
+						0, 0, 0, out _count, 
 						out _errors
 					);
 				if (!Master__base.Error_add(_errors)) {
@@ -79,11 +80,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region public void Bind(...);
 		public void Bind() {
 			int[] _errors;
+			int _count;
 
 			SO_vNET_Profile[] _profiles = BusinessInstances.WEB_DefaultProfile.InstanceClient.getRecord_all(
 				utils.User.SessionGuid,
 				utils.ClientIPAddress,
-				0, 0,
+				0, 0, 0, out _count, 
 				out _errors
 			);
 			if (!Master__base.Error_add(_errors)) {

@@ -27,7 +27,6 @@ using OGen.NTier.Kick.lib.businesslayer.shared;
 namespace OGen.NTier.Kick.lib.businesslayer {
 	[BOClassAttribute("BO_NWS_Tag", "")]
 	public static class SBO_NWS_Tag {
-
 		#region public static SO_NWS_Tag getObject(...);
 		[BOMethodAttribute("getObject", true, false, 1)]
 		public static SO_NWS_Tag getObject(
@@ -137,18 +136,19 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#region public static SO_vNWS_Tag[] getRecord_byTag(...);
 		[BOMethodAttribute("getRecord_byTag", true, false, 1)]
 		public static SO_vNWS_Tag[] getRecord_byTag(
-			#region params...
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
 			long idTag_in,
 
+			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
+			out int page_itemsCount_out,
 
 			out int[] errors_out
-			#endregion
 		) {
+			page_itemsCount_out = -1;
 			SO_vNWS_Tag[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
@@ -183,10 +183,12 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			_output 
 				= DO_vNWS_Tag.getRecord_byTag(
-					idTag_in, 
+					idTag_in,
 
-					page_in, 
+					page_orderBy_in,
+					page_in,
 					page_numRecords_in,
+					out page_itemsCount_out, 
 
 					null
 				);
@@ -804,18 +806,19 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#region public static SO_vNWS_Tag[] getRecord_Approved_byLang(...);
 		[BOMethodAttribute("getRecord_Approved_byLang", true, false, 1)]
 		public static SO_vNWS_Tag[] getRecord_Approved_byLang(
-			#region params...
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
-			int idLanguage_search_in, 
+			int idLanguage_search_in,
 
+			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
+			out int page_itemsCount_out,
 
 			out int[] errors_out
-			#endregion
 		) {
+			page_itemsCount_out = -1;
 			SO_vNWS_Tag[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
@@ -851,10 +854,12 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			_output 
 				= DO_vNWS_Tag.getRecord_Approved_byLang(
 					_sessionuser.IDApplication, 
-					idLanguage_search_in, 
+					idLanguage_search_in,
 
-					page_in, 
+					page_orderBy_in,
+					page_in,
 					page_numRecords_in,
+					out page_itemsCount_out, 
 
 					null
 				);
@@ -866,18 +871,19 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#region public static SO_vNWS_Tag[] getRecord_byLang(...);
 		[BOMethodAttribute("getRecord_byLang", true, false, 1)]
 		public static SO_vNWS_Tag[] getRecord_byLang(
-			#region params...
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
-			int idLanguage_search_in, 
+			int idLanguage_search_in,
 
+			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
+			out int page_itemsCount_out,
 
 			out int[] errors_out
-			#endregion
 		) {
+			page_itemsCount_out = -1;
 			SO_vNWS_Tag[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
@@ -913,10 +919,12 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			_output 
 				= DO_vNWS_Tag.getRecord_byLang(
 					_sessionuser.IDApplication, 
-					idLanguage_search_in, 
+					idLanguage_search_in,
 
-					page_in, 
+					page_orderBy_in,
+					page_in,
 					page_numRecords_in,
+					out page_itemsCount_out,
 
 					null
 				);
@@ -929,18 +937,19 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#region public static SO_NWS_ContentTag[] getRecord_byContent(...);
 		[BOMethodAttribute("getRecord_byContent", true, false, 1)]
 		public static SO_NWS_ContentTag[] getRecord_byContent(
-			#region params...
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
 			long idContent_search_in,
 
+			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
+			out int page_itemsCount_out,
 
 			out int[] errors_out
-			#endregion
 		) {
+			page_itemsCount_out = -1;
 			SO_NWS_ContentTag[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
@@ -979,8 +988,10 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				= DO_NWS_ContentTag.getRecord_byContent(
 					idContent_search_in,
 
+					page_orderBy_in,
 					page_in,
 					page_numRecords_in,
+					out page_itemsCount_out,
 
 					null
 				);

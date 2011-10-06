@@ -32,7 +32,6 @@ using OGen.NTier.Kick.lib.businesslayer.shared;
 namespace OGen.NTier.Kick.lib.businesslayer {
 	[BOClassAttribute("BO_WEB_User", "")]
 	public static class SBO_WEB_User {
-
 		#region public static void Login(...);
 		[BOMethodAttribute("Login", true, false, 3)]
 		public static void Login(
@@ -319,7 +318,6 @@ A equipa {2}
 		#region public static SO_vNET_User[] getRecord_generic(...);
 		[BOMethodAttribute("getRecord_generic", true, false, 1)]
 		public static SO_vNET_User[] getRecord_generic(
-			#region params...
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
@@ -327,14 +325,16 @@ A equipa {2}
 			string email_in, 
 			string name_in, 
 			long idProfile__in_in, 
-			long idProfile__out_in, 
+			long idProfile__out_in,
 
+			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
+			out int page_itemsCount_out,
 
 			out int[] errors_out
-			#endregion
 		) {
+			page_itemsCount_out = -1;
 			List<int> _errorlist;
 			Guid _sessionguid;
 			Sessionuser _sessionuser;
@@ -373,10 +373,12 @@ A equipa {2}
 					email_in,
 					_sessionuser.IDApplication, 
 					idProfile__in_in, 
-					idProfile__out_in, 
+					idProfile__out_in,
 
-					page_in, 
-					page_numRecords_in, 
+					page_orderBy_in,
+					page_in,
+					page_numRecords_in,
+					out page_itemsCount_out,
 
 					null
 				);
@@ -1280,10 +1282,11 @@ A equipa {2}",
 						_commit = false;
 					} else {
 						#region // STEP 3: DO_CRD_UserProfile.setObject(...);
+						int _count;
 						SO_NET_Defaultprofile[] _profiles
 							= DO_NET_Defaultprofile.getRecord_all(
 								idApplication_in,
-								0, 0,
+								0, 0, 0, out _count, 
 								_con
 							);
 						for (int p = 0; p < _profiles.Length; p++) {
