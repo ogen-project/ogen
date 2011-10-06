@@ -55,10 +55,10 @@ bool _aux_bool;
 		_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
 	"<%=_aux_xx_field_name%>_search_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>, <%
 	}%>
-	"orderBy_" Int, 
+	"page_orderBy_" Int, 
 	"page_" Int,
 	"page_numRecords_" Int, 
-	"count_out_" Int
+	"page_itemsCount_" Int
 )
 RETURNS SETOF "<%=_aux_db_table.Name%>"
 AS $BODY$
@@ -95,7 +95,7 @@ AS $BODY$
 					_aux_db_field.isDecimal ||
 					_aux_db_field.isDateTime
 				)) continue;%><%=(_aux_bool) ? "," : ""%>
-				CASE WHEN ("orderBy_" = <%=f + 1%>) THEN "<%=_aux_db_field.Name%>" END ASC<%
+				CASE WHEN ("page_orderBy_" = <%=f + 1%>) THEN "<%=_aux_db_field.Name%>" END ASC<%
 				_aux_bool = true;
 			}%>
 
@@ -107,7 +107,7 @@ AS $BODY$
 			RETURN NEXT _Output;
 		END LOOP;
 
-		SELECT COUNT(1) INTO "count_out_" FROM "fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>"(<%
+		SELECT COUNT(1) INTO "page_itemsCount_" FROM "fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>"(<%
 		for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
 			_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 			_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
