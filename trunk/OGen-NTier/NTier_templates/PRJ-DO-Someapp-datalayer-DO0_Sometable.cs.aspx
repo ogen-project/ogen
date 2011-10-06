@@ -1061,8 +1061,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 				_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 			<%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_xx_field_name%>_search_in, <%
 			}%>
+			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
+			out int page_itemsCount_out, 
 			DBConnection dbConnection_in
 		) {
 			SO_<%=_aux_db_table.Name%>[] _output;
@@ -1083,8 +1085,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 							_aux_xx_field_name = _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection[f].ParamName;%><%=""%>
 						_connection.newDBDataParameter("<%=_aux_xx_field_name%>_search_", DbType.<%=_aux_db_field.DBType_generic.Value.ToString()%>, ParameterDirection.Input, <%=_aux_xx_field_name%>_search_in, <%=(_aux_db_field.isText && (_aux_db_field.Size > 8000)) ? 0 : _aux_db_field.Size%><%=(_aux_db_field.isDecimal) ? ", " + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale : ""%>), <%
 						}%>
+						_connection.newDBDataParameter("orderBy_", DbType.Int32, ParameterDirection.Input, orderBy_in, 0), 
 						_connection.newDBDataParameter("page_", DbType.Int32, ParameterDirection.Input, page_in, 0), 
-						_connection.newDBDataParameter("page_numRecords_", DbType.Int32, ParameterDirection.Input, page_numRecords_in, 0)
+						_connection.newDBDataParameter("page_numRecords_", DbType.Int32, ParameterDirection.Input, page_numRecords_in, 0), 
+						_connection.newDBDataParameter("count_", DbType.Int32, ParameterDirection.Output, count_out, 0), 
 					}
 					: new IDbDataParameter[] {<%
 						for (int f = 0; f < _aux_ex_table.TableSearches.TableSearchCollection[s].TableSearchParameters.TableFieldRefCollection.Count; f++) {
@@ -1098,12 +1102,18 @@ if (!_aux_db_table.isVirtualTable) {%>
 			_output = getRecord(
 				_connection.Execute_SQLFunction_returnDataTable(
 					((page_in > 0) && (page_numRecords_in > 0))
-						? "sp0_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>_page_fullmode"
-						: "sp0_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>_fullmode", 
+						? "sp_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>_page"
+						: "sp0_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_table.TableSearches.TableSearchCollection[s].Name%>", 
 					_dataparameters
 				)
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
+
+			if ((page_in > 0) && (page_numRecords_in > 0) && (_dataparameters[_dataparameters.length - 1].Value != DBNull.Value)) {
+				page_itemsCount_out = (int)_dataparameters[_dataparameters.length - 1].Value;
+			} else {
+				page_itemsCount_out = 0;
+			}
 
 			return _output;			
 		}
