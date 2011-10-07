@@ -37,7 +37,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		public void Bind() {
 			int[] _errors;
-			int _count;
+			long _count;
 
 			//if (!Master_Site.Master__base.Creds.hasPermition(
 			//    true,

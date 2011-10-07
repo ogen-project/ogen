@@ -79,7 +79,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region public void Bind(...);
 		public void Bind() {
 			int[] _errors;
-			int _count;
+			long _count;
 
 			SO_vNET_User _user 
 				= BusinessInstances.WEB_User.InstanceClient.getObject_details(

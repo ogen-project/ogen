@@ -38,11 +38,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
-			out int page_itemsCount_out,
+			out long page_itemsCount_out,
 
 			out int[] errors_out
 		) {
-			page_itemsCount_out = -1;
+			page_itemsCount_out = -1L;
 			SO_vNWS_Content[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
@@ -125,7 +125,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			out int[] errors_out
 		) {
-			int _count;
+			long _count;
 			SO_vNWS_Content[] _output = getrecord_bycontent_andlanguage(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
@@ -160,7 +160,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
-			out int page_itemsCount_out,
+			out long page_itemsCount_out,
 
 			out int[] errors_out
 		) {
@@ -1478,7 +1478,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			}
 			#endregion
 			#region check References . . .
-			int _count;
+			long _count;
 			SO_NWS_Attachment[] _attachments = DO_NWS_Attachment.getRecord_byContent(
 				idContent_in,
 				-1, 0, 0, out _count
@@ -1688,11 +1688,11 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
-			out int page_itemsCount_out,
+			out long page_itemsCount_out,
 
 			out int[] errors_out
 		) {
-			page_itemsCount_out = -1;
+			page_itemsCount_out = -1L;
 			SO_vNWS_Content[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;

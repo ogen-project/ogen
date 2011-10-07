@@ -81,6 +81,40 @@ style="height: 100%;">
 				</anthem:Repeater>
 			</td>
 			<td valign="top" style="width: 100%;">
+
+				<table width="100%" border="0" cellpadding="4" cellspacing="0" class="table_thin">
+					<tr>
+						<td align="right">
+							<a 
+								id="a_page_1" runat="server"
+								visible="false" class="label_small">1</a>
+
+							<asp:Label
+								ID="lbl_page_left" runat="server" 
+								CssClass="label_small" Text="&nbsp;&nbsp;..." />
+
+							<a 
+								id="a_page_2" runat="server"
+								visible="false" class="label_small" />
+							<a 
+								id="a_page_3" runat="server"
+								visible="false" class="label_small" />
+							<a 
+								id="a_page_4" runat="server"
+								visible="false" class="label_small" />
+
+							<asp:Label
+								ID="lbl_page_right" runat="server" 
+								CssClass="label_small" Text="&nbsp;&nbsp;..." />
+
+							<a 
+								id="a_page_5" runat="server"
+								visible="false" class="label_small" />
+						</td>
+					</tr>
+				</table>
+				<br />
+
 				<anthem:Repeater
 					ID="rep_News" runat="server"
 					AutoUpdateAfterCallBack="true">

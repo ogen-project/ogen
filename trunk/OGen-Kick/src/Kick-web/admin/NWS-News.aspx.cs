@@ -68,7 +68,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		protected void Page_Load(object sender, EventArgs e) {
 			if (!Page.IsPostBack) {
 				int[] _errors;
-				int _count;
+				long _count;
 
 				#region Tags . . .
 				SO_vNWS_Tag[] _so_tags
@@ -499,7 +499,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		public void Bind(
 		) {
 			int[] _errors;
-			int _count;
+			long _count;
 
 			if (IDContent > 0) {
 				SO_vNWS_Content[] _contents 

@@ -55,7 +55,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		protected void Page_Load(object sender, EventArgs e) {
 			if (!Page.IsPostBack) {
 				int[] _errors;
-				int _count;
+				long _count;
 				SO_vNWS_Tag[] _tags
 					= BusinessInstances.NWS_Tag.InstanceClient.getRecord_byLang(
 						utils.User.SessionGuid,
@@ -165,7 +165,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region public void Bind();
 		public void Bind() {
 			int[] _errors;
-			int _count;
+			long _count;
 			SO_vNWS_Tag[] _tags;
 			if (
 				#region ((_tags = ...) != null)

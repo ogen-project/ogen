@@ -55,7 +55,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		protected void Page_Load(object sender, EventArgs e) {
 			if (!Page.IsPostBack) {
 				int[] _errors;
-				int _count;
+				long _count;
 				SO_vNWS_Highlight[] _highlights
 					= BusinessInstances.NWS_Highlight.InstanceClient.getRecord_all(
 						utils.User.SessionGuid,

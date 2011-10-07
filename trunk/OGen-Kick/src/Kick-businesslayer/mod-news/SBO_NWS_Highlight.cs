@@ -527,11 +527,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
-			out int page_itemsCount_out,
+			out long page_itemsCount_out,
 
 			out int[] errors_out
 		) {
-			page_itemsCount_out = -1;
+			page_itemsCount_out = -1L;
 			SO_NWS_ContentHighlight[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
@@ -593,12 +593,12 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
-			out int page_itemsCount_out, 
+			out long page_itemsCount_out, 
 
 			out int[] errors_out
 			#endregion
 		) {
-			page_itemsCount_out = -1;
+			page_itemsCount_out = -1L;
 			SO_vNWS_Highlight[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
@@ -638,7 +638,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					page_orderBy_in,
 					page_in,
 					page_numRecords_in,
-					out page_numRecords_in, 
+					out page_itemsCount_out, 
 
 					null
 				);
@@ -657,12 +657,12 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
-			out int page_itemsCount_out, 
+			out long page_itemsCount_out, 
 
 			out int[] errors_out
 			#endregion
 		) {
-			page_itemsCount_out = -1;
+			page_itemsCount_out = -1L;
 			SO_vNWS_Highlight[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
@@ -702,7 +702,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					page_orderBy_in,
 					page_in,
 					page_numRecords_in,
-					out page_numRecords_in, 
+					out page_itemsCount_out, 
 
 					null
 				);

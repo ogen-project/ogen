@@ -70,7 +70,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region public void Bind();
 		public void Bind() {
 			int[] _errors;
-			int _count;
+			long _count;
 			SO_vNWS_Tag[] _tags
 				= BusinessInstances.NWS_Tag.InstanceClient.getRecord_byLang(
 					utils.User.SessionGuid,

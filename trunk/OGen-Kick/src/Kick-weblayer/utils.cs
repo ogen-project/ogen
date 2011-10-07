@@ -609,7 +609,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 			public static SO_vDIC_ApplicationLanguage[] Languages_get() {
 				if (languages__ == null) {
 					int[] _errors;
-					int _count;
+					long _count;
 					SO_vDIC_ApplicationLanguage[] _languages 
 						= BusinessInstances.DIC_Dic.InstanceClient.getRecord_byApplication(
 							utils.User.SessionGuid,

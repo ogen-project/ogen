@@ -53,7 +53,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				#endregion
 
 				int[] _errors;
-				int _count;
+				long _count;
 
 				#region Tags . . .
 				SO_vNWS_Tag[] _so_tags
@@ -256,7 +256,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		//}
 		public void Bind() {
 			int[] _errors;
-			int _count;
+			long _count;
 			#region SO_vNWS_Content[] _contents = ...(..., out out _errors);
 			DateTime _begin_date;
 			DateTime _end_date;

@@ -220,11 +220,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
-			out int page_itemsCount_out, 
+			out long page_itemsCount_out, 
 
 			out int[] errors_out
 		) {
-			page_itemsCount_out = -1;
+			page_itemsCount_out = -1L;
 			SO_vNET_Profile[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;

@@ -104,7 +104,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		public void Bind() {
 			bool _isNew = true;
 			int[] _errors;
-			int _count;
+			long _count;
 			SO_vDIC_Language[] _language;
 
 			if (IDLanguage > 0) {

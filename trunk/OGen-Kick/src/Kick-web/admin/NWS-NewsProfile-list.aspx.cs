@@ -70,7 +70,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region public void Bind();
 		public void Bind() {
 			int[] _errors;
-			int _count;
+			long _count;
 			SO_vNWS_Profile[] _profiles
 				= BusinessInstances.NWS_Profile.InstanceClient.getRecord_all(
 					utils.User.SessionGuid,

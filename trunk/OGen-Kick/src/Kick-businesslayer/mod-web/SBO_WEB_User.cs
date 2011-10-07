@@ -330,11 +330,11 @@ A equipa {2}
 			int page_orderBy_in,
 			int page_in,
 			int page_numRecords_in,
-			out int page_itemsCount_out,
+			out long page_itemsCount_out,
 
 			out int[] errors_out
 		) {
-			page_itemsCount_out = -1;
+			page_itemsCount_out = -1L;
 			List<int> _errorlist;
 			Guid _sessionguid;
 			Sessionuser _sessionuser;
@@ -1282,7 +1282,7 @@ A equipa {2}",
 						_commit = false;
 					} else {
 						#region // STEP 3: DO_CRD_UserProfile.setObject(...);
-						int _count;
+						long _count;
 						SO_NET_Defaultprofile[] _profiles
 							= DO_NET_Defaultprofile.getRecord_all(
 								idApplication_in,

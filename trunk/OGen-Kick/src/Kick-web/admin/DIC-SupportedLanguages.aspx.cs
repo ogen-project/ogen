@@ -31,7 +31,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
 			int[] _errors;
-			int _count;
+			long _count;
 
 			if (!Page.IsPostBack) {
 				SO_vDIC_Language[] _languages
@@ -95,7 +95,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region public void Bind();
 		public void Bind() {
 			int[] _errors;
-			int _count;
+			long _count;
 
 			SO_vDIC_ApplicationLanguage[] _languages
 				= BusinessInstances.DIC_Dic.InstanceClient.getRecord_byApplication(

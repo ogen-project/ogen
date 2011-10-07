@@ -72,7 +72,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 			bool _showDetails = false;
 			int[] _errors;
-			int _count;
+			long _count;
 
 			SO_vNWS_Source[] _sources;
 			SO_NWS_ContentSource[] _contentsources;

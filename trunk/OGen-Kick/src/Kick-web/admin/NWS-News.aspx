@@ -258,7 +258,7 @@
 											ID="btn_Tags" runat="server"
 
 											CssClass="button"
-											Text="Submeter"
+											Text="Save"
 
 											OnClick="btn_Tags_Click" 
 											EnableCallBack="true" 
@@ -290,7 +290,7 @@
 											ID="btn_Authors" runat="server"
 
 											CssClass="button"
-											Text="Submeter" 
+											Text="Save" 
 
 											OnClick="btn_Authors_Click" 
 											EnableCallBack="true" 
@@ -322,7 +322,7 @@
 											ID="btn_Sources" runat="server"
 
 											CssClass="button"
-											Text="Submeter" 
+											Text="Save" 
 
 											OnClick="btn_Sources_Click"
 											EnableCallBack="true" 
@@ -359,7 +359,7 @@
 											ID="btn_Highlights" runat="server"
 
 											CssClass="button"
-											Text="Submeter" 
+											Text="Save" 
 											OnClick="btn_Highlights_Click" />
 									</td>
 								</tr>
@@ -388,7 +388,7 @@
 											ID="btn_Profiles" runat="server"
 
 											CssClass="button"
-											Text="Submeter" 
+											Text="Save" 
 
 											OnClick="btn_Profiles_Click"
 											EnableCallBack="true" 

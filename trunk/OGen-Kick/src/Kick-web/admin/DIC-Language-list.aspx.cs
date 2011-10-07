@@ -56,7 +56,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region public void Bind();
 		public void Bind() {
 			int[] _errors;
-			int _count;
+			long _count;
 
 			SO_vDIC_Language[] _languages
 				= BusinessInstances.DIC_Dic.InstanceClient.getRecord_byLanguage(

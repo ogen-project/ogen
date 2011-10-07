@@ -203,7 +203,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 				#region login...
 				#region idPermitions_out = ...;
-				int _count;
+				long _count;
 				SO_CRD_Permition[] _so_permitions
 					= DO_CRD_Permition.getRecord_byUser(
 						user_in.IDUser,

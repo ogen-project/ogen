@@ -55,7 +55,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		protected void Page_Load(object sender, EventArgs e) {
 			if (!Page.IsPostBack) {
 				int[] _errors;
-				int _count;
+				long _count;
 
 				#region cbl_Permitions.Kick.Bind__arrayOf<long, string>(...);
 				SO_CRD_Permition[] _permitions
@@ -178,7 +178,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region public void Bind();
 		public void Bind() {
 			int[] _errors;
-			int _count;
+			long _count;
 			SO_CRD_Profile _profile;
 			if (
 				#region ((_profile = ...) != null)

@@ -208,7 +208,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		private void Bind() {
 			int[] _error;
-			int _count;
+			long _count;
 			SO_LOG_Log[] _logs 
 				= BusinessInstances.LOG_Log.InstanceClient.getRecord_generic(
 					utils.User.SessionGuid,
