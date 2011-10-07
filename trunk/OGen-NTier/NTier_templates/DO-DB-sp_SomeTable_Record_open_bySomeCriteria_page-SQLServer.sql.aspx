@@ -58,8 +58,10 @@ bool _aux_bool;
 	}%>
 	@page_orderBy_ Int, 
 	@page_ Int,
-	@page_numRecords_ Int, 
-	@page_itemsCount_ Int
+	@page_numRecords_ Int
+
+	-- , @page_itemsCount_ Int
+
 AS
 	DECLARE @ID_range_begin BigInt
 	DECLARE @ID_range_end BigInt
@@ -115,13 +117,13 @@ AS
 	-- CHANGE WHERE CONDITION IN: [dbo].[fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>]
 	-- NOT HERE!
 
-	SELECT @page_itemsCount_ = COUNT(1) FROM [dbo].[fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>](<%
+	--SELECT @page_itemsCount_ = COUNT(1) FROM [dbo].[fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>](<%
 		for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count; f++) {
 			_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 			_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-			@<%=_aux_xx_field_name%>_search_<%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+	--		@<%=_aux_xx_field_name%>_search_<%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 		}%>
-		)
+	--)
 --GO
 
 
