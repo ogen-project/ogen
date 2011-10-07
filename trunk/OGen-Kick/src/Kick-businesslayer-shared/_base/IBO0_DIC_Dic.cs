@@ -30,7 +30,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			out int page_itemsCount_out, 
+			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_byLanguage(
@@ -40,7 +40,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			out int page_itemsCount_out, 
+			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_Language(
@@ -50,7 +50,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			out int page_itemsCount_out, 
+			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		);
 		void insLanguage(

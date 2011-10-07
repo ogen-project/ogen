@@ -37,7 +37,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			out int page_itemsCount_out, 
+			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_ProfileProfile[] getRecord_byProfile(
@@ -47,7 +47,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			out int page_itemsCount_out, 
+			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(
@@ -57,7 +57,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			out int page_itemsCount_out, 
+			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_UserProfile[] getRecord_ofUserProfile_byUser(
@@ -67,7 +67,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			out int page_itemsCount_out, 
+			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		);
 		long insObject(

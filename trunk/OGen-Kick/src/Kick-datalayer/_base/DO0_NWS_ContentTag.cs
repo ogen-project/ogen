@@ -321,7 +321,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			out int page_itemsCount_out
+			out long page_itemsCount_out
 		) {
 			return getRecord_byContent(
 				IDContent_search_in, 
@@ -347,7 +347,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			out int page_itemsCount_out, 
+			out long page_itemsCount_out, 
 			DBConnection dbConnection_in
 		) {
 			SO_NWS_ContentTag[] _output;
@@ -366,7 +366,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 						_connection.newDBDataParameter("page_orderBy_", DbType.Int32, ParameterDirection.Input, page_orderBy_in, 0), 
 						_connection.newDBDataParameter("page_", DbType.Int32, ParameterDirection.Input, page_in, 0), 
 						_connection.newDBDataParameter("page_numRecords_", DbType.Int32, ParameterDirection.Input, page_numRecords_in, 0), 
-						_connection.newDBDataParameter("page_itemsCount_", DbType.Int32, ParameterDirection.Output, null, 0), 
+
+						//_connection.newDBDataParameter("page_itemsCount_", DbType.Int32, ParameterDirection.Output, null, 0), 
+
 					}
 					: new IDbDataParameter[] {
 						_connection.newDBDataParameter("IDContent_search_", DbType.Int64, ParameterDirection.Input, IDContent_search_in, 0)
@@ -380,13 +382,17 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_dataparameters
 				)
 			);
-			if (dbConnection_in == null) { _connection.Dispose(); }
-
 			if ((page_in > 0) && (page_numRecords_in > 0) && (_dataparameters[_dataparameters.Length - 1].Value != DBNull.Value)) {
-				page_itemsCount_out = (int)_dataparameters[_dataparameters.Length - 1].Value;
+				//page_itemsCount_out = (int)_dataparameters[_dataparameters.Length - 1].Value;
+
+				page_itemsCount_out = getCount_inRecord_byContent(
+					IDContent_search_in, 
+					dbConnection_in
+				);
 			} else {
 				page_itemsCount_out = 0;
 			}
+			if (dbConnection_in == null) { _connection.Dispose(); }
 
 			return _output;			
 		}
@@ -554,7 +560,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			out int page_itemsCount_out
+			out long page_itemsCount_out
 		) {
 			return getRecord_byTag(
 				IDTag_search_in, 
@@ -580,7 +586,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			out int page_itemsCount_out, 
+			out long page_itemsCount_out, 
 			DBConnection dbConnection_in
 		) {
 			SO_NWS_ContentTag[] _output;
@@ -599,7 +605,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 						_connection.newDBDataParameter("page_orderBy_", DbType.Int32, ParameterDirection.Input, page_orderBy_in, 0), 
 						_connection.newDBDataParameter("page_", DbType.Int32, ParameterDirection.Input, page_in, 0), 
 						_connection.newDBDataParameter("page_numRecords_", DbType.Int32, ParameterDirection.Input, page_numRecords_in, 0), 
-						_connection.newDBDataParameter("page_itemsCount_", DbType.Int32, ParameterDirection.Output, null, 0), 
+
+						//_connection.newDBDataParameter("page_itemsCount_", DbType.Int32, ParameterDirection.Output, null, 0), 
+
 					}
 					: new IDbDataParameter[] {
 						_connection.newDBDataParameter("IDTag_search_", DbType.Int64, ParameterDirection.Input, IDTag_search_in, 0)
@@ -613,13 +621,17 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_dataparameters
 				)
 			);
-			if (dbConnection_in == null) { _connection.Dispose(); }
-
 			if ((page_in > 0) && (page_numRecords_in > 0) && (_dataparameters[_dataparameters.Length - 1].Value != DBNull.Value)) {
-				page_itemsCount_out = (int)_dataparameters[_dataparameters.Length - 1].Value;
+				//page_itemsCount_out = (int)_dataparameters[_dataparameters.Length - 1].Value;
+
+				page_itemsCount_out = getCount_inRecord_byTag(
+					IDTag_search_in, 
+					dbConnection_in
+				);
 			} else {
 				page_itemsCount_out = 0;
 			}
+			if (dbConnection_in == null) { _connection.Dispose(); }
 
 			return _output;			
 		}

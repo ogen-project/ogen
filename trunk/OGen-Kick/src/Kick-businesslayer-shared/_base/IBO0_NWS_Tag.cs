@@ -44,7 +44,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			out int page_itemsCount_out, 
+			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentTag[] getRecord_byContent(
@@ -54,7 +54,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			out int page_itemsCount_out, 
+			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[] getRecord_byLang(
@@ -64,7 +64,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			out int page_itemsCount_out, 
+			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[] getRecord_byTag(
@@ -74,7 +74,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			out int page_itemsCount_out, 
+			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		);
 		long insObject(

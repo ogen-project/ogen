@@ -71,7 +71,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			out int page_itemsCount_out, 
+			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.getRecord_byContent(
@@ -107,7 +107,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			out int page_itemsCount_out, 
+			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_News.getRecord_generic(

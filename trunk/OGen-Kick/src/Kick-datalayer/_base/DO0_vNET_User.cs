@@ -255,7 +255,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			out int page_itemsCount_out
+			out long page_itemsCount_out
 		) {
 			return getRecord_generic(
 				Login_search_in, 
@@ -296,7 +296,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			int page_orderBy_in, 
 			int page_in, 
 			int page_numRecords_in, 
-			out int page_itemsCount_out, 
+			out long page_itemsCount_out, 
 			DBConnection dbConnection_in
 		) {
 			SO_vNET_User[] _output;
@@ -320,7 +320,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 						_connection.newDBDataParameter("page_orderBy_", DbType.Int32, ParameterDirection.Input, page_orderBy_in, 0), 
 						_connection.newDBDataParameter("page_", DbType.Int32, ParameterDirection.Input, page_in, 0), 
 						_connection.newDBDataParameter("page_numRecords_", DbType.Int32, ParameterDirection.Input, page_numRecords_in, 0), 
-						_connection.newDBDataParameter("page_itemsCount_", DbType.Int32, ParameterDirection.Output, null, 0), 
+
+						//_connection.newDBDataParameter("page_itemsCount_", DbType.Int32, ParameterDirection.Output, null, 0), 
+
 					}
 					: new IDbDataParameter[] {
 						_connection.newDBDataParameter("Login_search_", DbType.AnsiString, ParameterDirection.Input, Login_search_in, 255), 
@@ -339,13 +341,22 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_dataparameters
 				)
 			);
-			if (dbConnection_in == null) { _connection.Dispose(); }
-
 			if ((page_in > 0) && (page_numRecords_in > 0) && (_dataparameters[_dataparameters.Length - 1].Value != DBNull.Value)) {
-				page_itemsCount_out = (int)_dataparameters[_dataparameters.Length - 1].Value;
+				//page_itemsCount_out = (int)_dataparameters[_dataparameters.Length - 1].Value;
+
+				page_itemsCount_out = getCount_inRecord_generic(
+					Login_search_in, 
+					Name_search_in, 
+					EMail_search_in, 
+					IFApplication_search_in, 
+					IDProfile__in_search_in, 
+					IDProfile__out_search_in, 
+					dbConnection_in
+				);
 			} else {
 				page_itemsCount_out = 0;
 			}
+			if (dbConnection_in == null) { _connection.Dispose(); }
 
 			return _output;			
 		}
