@@ -77,12 +77,10 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		public int PageNum {
 			get {
-				if (
-					(pagenum__ == -2)
-					||
-					!int.TryParse(Request.QueryString["page"], out pagenum__)
-				) {
-					pagenum__ = 1;
+				if (pagenum__ == -2) {
+					if (!int.TryParse(Request.QueryString["page"], out pagenum__)) {
+						pagenum__ = 1;
+					}
 				}
 
 				return pagenum__;
@@ -122,6 +120,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		}
 		#endregion
 
+		const int PAGE_ITEMSPER = 2;
+
 		#region public void Bind();
 		public void Bind() {
 			int[] _errors;
@@ -149,9 +149,9 @@ new long[] { },
 					utils.IDLanguage__default,
 					true,
 
--1, 
-					PageNum, 
-					10, 
+1, 
+					PageNum,
+					PAGE_ITEMSPER, 
 					out _count, 
 
 					out _errors
@@ -167,16 +167,6 @@ new long[] { },
 					return;
 				}
 
-Array.Sort(
-	_news,
-	delegate(
-		SO_vNWS_Content arg1_in,
-		SO_vNWS_Content arg2_in
-	) {
-		return arg2_in.Publish_date.CompareTo(arg1_in.Publish_date);
-	}
-);
-
 				foreach (SO_vNWS_Content _content in _news) {
 					_content.summary = OGen.lib.presentationlayer.webforms.utils.Replace_RN_BR(_content.summary);
 					_content.Content = OGen.lib.presentationlayer.webforms.utils.Replace_RN_BR(_content.Content);
@@ -188,102 +178,255 @@ Array.Sort(
 				tbl_News.Visible = true;
 
 
-				switch (_count) {
+				a_page_1.Visible = false;
+				lbl_page_left.Visible = false;
+				lbl_page_2.Visible = false;
+				lbl_page_3.Visible = false;
+				lbl_page_4.Visible = false;
+				lbl_page_right.Visible = false;
+				lbl_page_5.Visible = false;
+
+				int _pagetotal = ((int)_count / PAGE_ITEMSPER) + ((_count % PAGE_ITEMSPER > 0) ? 1 : 0);
+				switch (_pagetotal) {
 					case 0:
-						a_page_1.Visible = false;
-						lbl_page_left.Visible = false;
-						a_page_2.Visible = false;
-						a_page_3.Visible = false;
-						a_page_4.Visible = false;
-						lbl_page_right.Visible = false;
-						a_page_5.Visible = false;
 						break;
 					case 1:
-						a_page_1.Visible = true;
-						lbl_page_left.Visible = false;
-						a_page_2.Visible = false;
-						a_page_3.Visible = false;
-						a_page_4.Visible = false;
-						lbl_page_right.Visible = false;
-						a_page_5.Visible = false;
+						lbl_page_3.Visible = true;
+						a_page_3.InnerText = "1";
+						a_page_3.HRef = "?page=1";
 						break;
 					case 2:
-						a_page_1.Visible = true;
-						lbl_page_left.Visible = false;
-						a_page_2.Visible = true;
-						a_page_3.Visible = false;
-						a_page_4.Visible = false;
-						lbl_page_right.Visible = false;
-						a_page_5.Visible = false;
+						switch (PageNum) {
+							case 1:
+								lbl_page_3.Visible = true;
+								a_page_3.InnerText = "1";
+								a_page_3.HRef = "?page=1";
+								lbl_page_4.Visible = true;
+								a_page_4.InnerText = "2";
+								a_page_4.HRef = "?page=2";
+								break;
+							case 2:
+								lbl_page_2.Visible = true;
+								lbl_page_3.Visible = true;
 
-						a_page_2.InnerText = "2";
-						a_page_2.HRef = "?page=2";
+								a_page_2.InnerText = "1";
+								a_page_2.HRef = "?page=1";
+								a_page_3.InnerText = "2";
+								a_page_3.HRef = "?page=2";
+								break;
+						}
+
 						break;
 					case 3:
-						a_page_1.Visible = true;
-						lbl_page_left.Visible = false;
-						a_page_2.Visible = true;
-						a_page_3.Visible = true;
-						a_page_4.Visible = false;
-						lbl_page_right.Visible = false;
-						a_page_5.Visible = false;
-
-						a_page_2.InnerText = "2";
-						a_page_2.HRef = "?page=2";
-						a_page_3.InnerText = "3";
-						a_page_3.HRef = "?page=3";
+						switch (PageNum) {
+							case 1:
+								lbl_page_3.Visible = true;
+								a_page_3.InnerText = "1";
+								a_page_3.HRef = "?page=1";
+								lbl_page_4.Visible = true;
+								a_page_4.InnerText = "2";
+								a_page_4.HRef = "?page=2";
+								lbl_page_5.Visible = true;
+								a_page_5.InnerText = "3";
+								a_page_5.HRef = "?page=3";
+								break;
+							case 2:
+								lbl_page_2.Visible = true;
+								a_page_2.InnerText = "1";
+								a_page_2.HRef = "?page=1";
+								lbl_page_3.Visible = true;
+								a_page_3.InnerText = "2";
+								a_page_3.HRef = "?page=2";
+								lbl_page_4.Visible = true;
+								a_page_4.InnerText = "3";
+								a_page_4.HRef = "?page=3";
+								break;
+							case 3:
+								a_page_1.Visible = true;
+								a_page_1.InnerText = "1";
+								a_page_1.HRef = "?page=1";
+								lbl_page_2.Visible = true;
+								a_page_2.InnerText = "2";
+								a_page_2.HRef = "?page=2";
+								lbl_page_3.Visible = true;
+								a_page_3.InnerText = "3";
+								a_page_3.HRef = "?page=3";
+								break;
+						}
 						break;
 					case 4:
-						a_page_1.Visible = true;
-						lbl_page_left.Visible = false;
-						a_page_2.Visible = true;
-						a_page_3.Visible = true;
-						a_page_4.Visible = true;
-						lbl_page_right.Visible = false;
-						a_page_5.Visible = false;
-
-						a_page_2.InnerText = "2";
-						a_page_2.HRef = "?page=2";
-						a_page_3.InnerText = "3";
-						a_page_3.HRef = "?page=3";
-						a_page_4.InnerText = "4";
-						a_page_4.HRef = "?page=4";
+						switch (PageNum) {
+							case 1:
+								lbl_page_3.Visible = true;
+								a_page_3.InnerText = "1";
+								a_page_3.HRef = "?page=1";
+								lbl_page_4.Visible = true;
+								a_page_4.InnerText = "2";
+								a_page_4.HRef = "?page=2";
+								lbl_page_right.Visible = true;
+								lbl_page_5.Visible = true;
+								a_page_5.InnerText = "4";
+								a_page_5.HRef = "?page=4";
+								break;
+							case 2:
+								lbl_page_2.Visible = true;
+								a_page_2.InnerText = "1";
+								a_page_2.HRef = "?page=1";
+								lbl_page_3.Visible = true;
+								a_page_3.InnerText = "2";
+								a_page_3.HRef = "?page=2";
+								lbl_page_4.Visible = true;
+								a_page_4.InnerText = "3";
+								a_page_4.HRef = "?page=3";
+								lbl_page_5.Visible = true;
+								a_page_5.InnerText = "4";
+								a_page_5.HRef = "?page=4";
+								break;
+							case 3:
+								a_page_1.Visible = true;
+								a_page_1.InnerText = "1";
+								a_page_1.HRef = "?page=1";
+								lbl_page_2.Visible = true;
+								a_page_2.InnerText = "2";
+								a_page_2.HRef = "?page=2";
+								lbl_page_3.Visible = true;
+								a_page_3.InnerText = "3";
+								a_page_3.HRef = "?page=3";
+								lbl_page_4.Visible = true;
+								a_page_4.InnerText = "4";
+								a_page_4.HRef = "?page=4";
+								break;
+							case 4:
+								a_page_1.Visible = true;
+								a_page_1.InnerText = "1";
+								a_page_1.HRef = "?page=1";
+								lbl_page_left.Visible = true;
+								lbl_page_2.Visible = true;
+								a_page_2.InnerText = "3";
+								a_page_2.HRef = "?page=3";
+								lbl_page_3.Visible = true;
+								a_page_3.InnerText = "4";
+								a_page_3.HRef = "?page=4";
+								break;
+						}
 						break;
 					case 5:
-						a_page_1.Visible = true;
-						lbl_page_left.Visible = false;
-						a_page_2.Visible = true;
-						a_page_3.Visible = true;
-						a_page_4.Visible = true;
-						lbl_page_right.Visible = false;
-						a_page_5.Visible = false;
-
-						a_page_2.InnerText = "2";
-						a_page_2.HRef = "?page=2";
-						a_page_3.InnerText = "3";
-						a_page_3.HRef = "?page=3";
-						a_page_4.InnerText = "4";
-						a_page_4.HRef = "?page=4";
-						a_page_5.InnerText = "5";
-						a_page_5.HRef = "?page=5";
+						switch (PageNum) {
+							case 1:
+								lbl_page_3.Visible = true;
+								a_page_3.InnerText = "1";
+								a_page_3.HRef = "?page=1";
+								lbl_page_4.Visible = true;
+								a_page_4.InnerText = "2";
+								a_page_4.HRef = "?page=2";
+								lbl_page_right.Visible = true;
+								lbl_page_5.Visible = true;
+								a_page_5.InnerText = "5";
+								a_page_5.HRef = "?page=5";
+								break;
+							case 2:
+								lbl_page_2.Visible = true;
+								a_page_2.InnerText = "1";
+								a_page_2.HRef = "?page=1";
+								lbl_page_3.Visible = true;
+								a_page_3.InnerText = "2";
+								a_page_3.HRef = "?page=2";
+								lbl_page_4.Visible = true;
+								a_page_4.InnerText = "3";
+								a_page_4.HRef = "?page=3";
+								lbl_page_right.Visible = true;
+								lbl_page_5.Visible = true;
+								a_page_5.InnerText = "5";
+								a_page_5.HRef = "?page=5";
+								break;
+							case 3:
+								a_page_1.Visible = true;
+								a_page_1.InnerText = "1";
+								a_page_1.HRef = "?page=1";
+								lbl_page_2.Visible = true;
+								a_page_2.InnerText = "2";
+								a_page_2.HRef = "?page=2";
+								lbl_page_3.Visible = true;
+								a_page_3.InnerText = "3";
+								a_page_3.HRef = "?page=3";
+								lbl_page_4.Visible = true;
+								a_page_4.InnerText = "4";
+								a_page_4.HRef = "?page=4";
+								lbl_page_5.Visible = true;
+								a_page_5.InnerText = "5";
+								a_page_5.HRef = "?page=5";
+								break;
+							case 4:
+								a_page_1.Visible = true;
+								a_page_1.InnerText = "1";
+								a_page_1.HRef = "?page=1";
+								lbl_page_left.Visible = true;
+								lbl_page_2.Visible = true;
+								a_page_2.InnerText = "3";
+								a_page_2.HRef = "?page=3";
+								lbl_page_3.Visible = true;
+								a_page_3.InnerText = "4";
+								a_page_3.HRef = "?page=4";
+								lbl_page_4.Visible = true;
+								a_page_4.InnerText = "5";
+								a_page_4.HRef = "?page=5";
+								break;
+							case 5:
+								a_page_1.Visible = true;
+								a_page_1.InnerText = "1";
+								a_page_1.HRef = "?page=1";
+								lbl_page_left.Visible = true;
+								lbl_page_2.Visible = true;
+								a_page_2.InnerText = "4";
+								a_page_2.HRef = "?page=4";
+								lbl_page_3.Visible = true;
+								a_page_3.InnerText = "5";
+								a_page_3.HRef = "?page=5";
+								break;
+						}
 						break;
 					default:
 						a_page_1.Visible = true;
 						lbl_page_left.Visible = true;
-						a_page_2.Visible = true;
-						a_page_3.Visible = true;
-						a_page_4.Visible = true;
+						lbl_page_2.Visible = true;
+						lbl_page_3.Visible = true;
+						lbl_page_4.Visible = true;
 						lbl_page_right.Visible = true;
-						a_page_5.Visible = true;
+						lbl_page_5.Visible = true;
 
-						a_page_2.InnerText = (PageNum - 1).ToString();
+						switch (PageNum) {
+							case 1:
+								a_page_1.Visible = false;
+								lbl_page_left.Visible = false;
+								lbl_page_2.Visible = false;
+								break;
+							case 2:
+								a_page_1.Visible = false;
+								lbl_page_left.Visible = false;
+								break;
+							case 3:
+								a_page_1.Visible = true;
+								lbl_page_left.Visible = false;
+								break;
+						}
+						if (PageNum == _pagetotal -2) {
+							lbl_page_right.Visible = false;
+						} else if (PageNum == _pagetotal -1) {
+							lbl_page_right.Visible = false;
+							lbl_page_5.Visible = false;
+						} else if (PageNum == _pagetotal) {
+							lbl_page_4.Visible = false;
+							lbl_page_right.Visible = false;
+							lbl_page_5.Visible = false;
+						}
+
+						a_page_2.InnerText = string.Format("{0}", PageNum - 1);
 						a_page_2.HRef = "?page=" + a_page_2.InnerText;
-						a_page_3.InnerText = PageNum.ToString();
+						a_page_3.InnerText = string.Format("{0}", PageNum);
 						a_page_3.HRef = "?page=" + a_page_3.InnerText;	
-						a_page_4.InnerText = (PageNum + 1).ToString();;
+						a_page_4.InnerText = string.Format("{0}", PageNum + 1);
 						a_page_4.HRef = "?page=" + a_page_4.InnerText;
-
-						a_page_5.InnerText = _count.ToString();;
+						a_page_5.InnerText = string.Format("{0}", _pagetotal);
 						a_page_5.HRef = "?page=" + a_page_5.InnerText;
 						break;
 				}

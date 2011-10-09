@@ -67,6 +67,15 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         protected global::System.Web.UI.WebControls.Label lbl_page_left;
         
         /// <summary>
+        /// lbl_page_2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_page_2;
+        
+        /// <summary>
         /// a_page_2 control.
         /// </summary>
         /// <remarks>
@@ -76,6 +85,15 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor a_page_2;
         
         /// <summary>
+        /// lbl_page_3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_page_3;
+        
+        /// <summary>
         /// a_page_3 control.
         /// </summary>
         /// <remarks>
@@ -83,6 +101,15 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor a_page_3;
+        
+        /// <summary>
+        /// lbl_page_4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_page_4;
         
         /// <summary>
         /// a_page_4 control.
@@ -101,6 +128,15 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_page_right;
+        
+        /// <summary>
+        /// lbl_page_5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_page_5;
         
         /// <summary>
         /// a_page_5 control.
