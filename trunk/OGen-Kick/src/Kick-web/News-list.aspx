@@ -90,28 +90,28 @@ style="height: 100%;">
 								class="label_small" />
 
 							<asp:Label
-								ID="lbl_page_left" runat="server" 
+								ID="lbl_pageSeparator_left" runat="server" 
 								CssClass="label_small" />
 
 							<asp:Label
-								ID="lbl_page_2" runat="server" /><a 
+								ID="lbl_pageSeparator_2" runat="server" /><a 
 								id="a_page_2" runat="server"
 								class="label_small" />
 							<asp:Label
-								ID="lbl_page_3" runat="server" /><a 
+								ID="lbl_pageSeparator_3" runat="server" /><a 
 								id="a_page_3" runat="server"
 								class="label_small label_bold" />
 							<asp:Label
-								ID="lbl_page_4" runat="server" /><a 
+								ID="lbl_pageSeparator_4" runat="server" /><a 
 								id="a_page_4" runat="server"
 								class="label_small" />
 
 							<asp:Label
-								ID="lbl_page_right" runat="server" 
+								ID="lbl_pageSeparator_right" runat="server" 
 								CssClass="label_small" />
 
 							<asp:Label
-								ID="lbl_page_5" runat="server"/><a 
+								ID="lbl_pageSeparator_5" runat="server"/><a 
 								id="a_page_5" runat="server"
 								class="label_small" />
 						</td>

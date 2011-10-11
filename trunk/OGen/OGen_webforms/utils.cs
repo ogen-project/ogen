@@ -173,12 +173,12 @@ namespace OGen.lib.presentationlayer.webforms {
 			public static void Bind(
 				long totalItems_in,
 
-				System.Web.UI.WebControls.Label lbl_page_left_in,
-				System.Web.UI.WebControls.Label lbl_page_2_in,
-				System.Web.UI.WebControls.Label lbl_page_3_in,
-				System.Web.UI.WebControls.Label lbl_page_4_in,
-				System.Web.UI.WebControls.Label lbl_page_right_in,
-				System.Web.UI.WebControls.Label lbl_page_5_in,
+				System.Web.UI.WebControls.Label lbl_pageSeparator_left_in,
+				System.Web.UI.WebControls.Label lbl_pageSeparator_2_in,
+				System.Web.UI.WebControls.Label lbl_pageSeparator_3_in,
+				System.Web.UI.WebControls.Label lbl_pageSeparator_4_in,
+				System.Web.UI.WebControls.Label lbl_pageSeparator_right_in,
+				System.Web.UI.WebControls.Label lbl_pageSeparator_5_in,
 
 				System.Web.UI.HtmlControls.HtmlAnchor a_page_1_in,
 				System.Web.UI.HtmlControls.HtmlAnchor a_page_2_in,
@@ -190,12 +190,12 @@ namespace OGen.lib.presentationlayer.webforms {
 					totalItems_in,
 					ITEMSPERPAGE_DEFAULT, 
 
-					lbl_page_left_in,
-					lbl_page_2_in,
-					lbl_page_3_in,
-					lbl_page_4_in,
-					lbl_page_right_in,
-					lbl_page_5_in,
+					lbl_pageSeparator_left_in,
+					lbl_pageSeparator_2_in,
+					lbl_pageSeparator_3_in,
+					lbl_pageSeparator_4_in,
+					lbl_pageSeparator_right_in,
+					lbl_pageSeparator_5_in,
 
 					a_page_1_in,
 					a_page_2_in,
@@ -208,13 +208,13 @@ namespace OGen.lib.presentationlayer.webforms {
 				long totalItems_in,
 				int itemsPerPage_in, 
 
-				//System.Web.UI.WebControls.Label lbl_page_1_in, 
-				System.Web.UI.WebControls.Label lbl_page_left_in,
-				System.Web.UI.WebControls.Label lbl_page_2_in,
-				System.Web.UI.WebControls.Label lbl_page_3_in,
-				System.Web.UI.WebControls.Label lbl_page_4_in,
-				System.Web.UI.WebControls.Label lbl_page_right_in,
-				System.Web.UI.WebControls.Label lbl_page_5_in,
+				//System.Web.UI.WebControls.Label lbl_pageSeparator_1_in, 
+				System.Web.UI.WebControls.Label lbl_pageSeparator_left_in,
+				System.Web.UI.WebControls.Label lbl_pageSeparator_2_in,
+				System.Web.UI.WebControls.Label lbl_pageSeparator_3_in,
+				System.Web.UI.WebControls.Label lbl_pageSeparator_4_in,
+				System.Web.UI.WebControls.Label lbl_pageSeparator_right_in,
+				System.Web.UI.WebControls.Label lbl_pageSeparator_5_in,
 
 				System.Web.UI.HtmlControls.HtmlAnchor a_page_1_in,
 				System.Web.UI.HtmlControls.HtmlAnchor a_page_2_in,
@@ -228,22 +228,22 @@ namespace OGen.lib.presentationlayer.webforms {
 				a_page_4_in.Visible = false;
 				a_page_5_in.Visible = false;
 
-				lbl_page_left_in.Visible = false;
-				lbl_page_2_in.Visible = false;
-				lbl_page_3_in.Visible = false;
-				lbl_page_4_in.Visible = false;
-				lbl_page_right_in.Visible = false;
-				lbl_page_5_in.Visible = false;
+				lbl_pageSeparator_left_in.Visible = false;
+				lbl_pageSeparator_2_in.Visible = false;
+				lbl_pageSeparator_3_in.Visible = false;
+				lbl_pageSeparator_4_in.Visible = false;
+				lbl_pageSeparator_right_in.Visible = false;
+				lbl_pageSeparator_5_in.Visible = false;
 
 				a_page_1_in.HRef = "?page=1";
 				a_page_1_in.InnerText = "1";
 
-				lbl_page_left_in.Text = "&nbsp;&nbsp;...";
-				lbl_page_2_in.Text = "&nbsp;&nbsp;";
-				lbl_page_3_in.Text = "&nbsp;&nbsp;";
-				lbl_page_4_in.Text = "&nbsp;&nbsp;";
-				lbl_page_right_in.Text = "&nbsp;&nbsp;...";
-				lbl_page_5_in.Text = "&nbsp;&nbsp;";
+				lbl_pageSeparator_left_in.Text = "&nbsp;&nbsp;...";
+				lbl_pageSeparator_2_in.Text = "&nbsp;&nbsp;";
+				lbl_pageSeparator_3_in.Text = "&nbsp;&nbsp;";
+				lbl_pageSeparator_4_in.Text = "&nbsp;&nbsp;";
+				lbl_pageSeparator_right_in.Text = "&nbsp;&nbsp;...";
+				lbl_pageSeparator_5_in.Text = "&nbsp;&nbsp;";
 
 
 				int _pagetotal = ((int)totalItems_in / itemsPerPage_in) + ((totalItems_in % itemsPerPage_in > 0) ? 1 : 0);
@@ -251,17 +251,17 @@ namespace OGen.lib.presentationlayer.webforms {
 					case 0:
 					//	break;
 					case 1:
-					//	link_set(lbl_page_3_in, a_page_3_in, 1);
+					//	link_set(lbl_pageSeparator_3_in, a_page_3_in, 1);
 						break;
 					case 2:
 						switch (PageNum) {
 							case 1:
-								link_set(lbl_page_3_in, a_page_3_in, 1);
-								link_set(lbl_page_4_in, a_page_4_in, 2);
+								link_set(lbl_pageSeparator_3_in, a_page_3_in, 1);
+								link_set(lbl_pageSeparator_4_in, a_page_4_in, 2);
 								break;
 							case 2:
-								link_set(lbl_page_2_in, a_page_2_in, 1);
-								link_set(lbl_page_3_in, a_page_3_in, 2);
+								link_set(lbl_pageSeparator_2_in, a_page_2_in, 1);
+								link_set(lbl_pageSeparator_3_in, a_page_3_in, 2);
 								break;
 						}
 
@@ -269,143 +269,143 @@ namespace OGen.lib.presentationlayer.webforms {
 					case 3:
 						switch (PageNum) {
 							case 1:
-								link_set(lbl_page_3_in, a_page_3_in, 1);
-								link_set(lbl_page_4_in, a_page_4_in, 2);
-								link_set(lbl_page_5_in, a_page_5_in, 3);
+								link_set(lbl_pageSeparator_3_in, a_page_3_in, 1);
+								link_set(lbl_pageSeparator_4_in, a_page_4_in, 2);
+								link_set(lbl_pageSeparator_5_in, a_page_5_in, 3);
 								break;
 							case 2:
-								link_set(lbl_page_2_in, a_page_2_in, 1);
-								link_set(lbl_page_3_in, a_page_3_in, 2);
-								link_set(lbl_page_4_in, a_page_4_in, 3);
+								link_set(lbl_pageSeparator_2_in, a_page_2_in, 1);
+								link_set(lbl_pageSeparator_3_in, a_page_3_in, 2);
+								link_set(lbl_pageSeparator_4_in, a_page_4_in, 3);
 								break;
 							case 3:
 								link_set(a_page_1_in, 1);
-								link_set(lbl_page_2_in, a_page_2_in, 2);
-								link_set(lbl_page_3_in, a_page_3_in, 3);
+								link_set(lbl_pageSeparator_2_in, a_page_2_in, 2);
+								link_set(lbl_pageSeparator_3_in, a_page_3_in, 3);
 								break;
 						}
 						break;
 					case 4:
 						switch (PageNum) {
 							case 1:
-								link_set(lbl_page_3_in, a_page_3_in, 1);
-								link_set(lbl_page_4_in, a_page_4_in, 2);
+								link_set(lbl_pageSeparator_3_in, a_page_3_in, 1);
+								link_set(lbl_pageSeparator_4_in, a_page_4_in, 2);
 
-								lbl_page_right_in.Visible = true;
+								lbl_pageSeparator_right_in.Visible = true;
 
-								link_set(lbl_page_5_in, a_page_5_in, 4);
+								link_set(lbl_pageSeparator_5_in, a_page_5_in, 4);
 								break;
 							case 2:
-								link_set(lbl_page_2_in, a_page_2_in, 1);
-								link_set(lbl_page_3_in, a_page_3_in, 2);
-								link_set(lbl_page_4_in, a_page_4_in, 3);
-								link_set(lbl_page_5_in, a_page_5_in, 4);
+								link_set(lbl_pageSeparator_2_in, a_page_2_in, 1);
+								link_set(lbl_pageSeparator_3_in, a_page_3_in, 2);
+								link_set(lbl_pageSeparator_4_in, a_page_4_in, 3);
+								link_set(lbl_pageSeparator_5_in, a_page_5_in, 4);
 								break;
 							case 3:
 								link_set(a_page_1_in, 1);
-								link_set(lbl_page_2_in, a_page_2_in, 2);
-								link_set(lbl_page_3_in, a_page_3_in, 3);
-								link_set(lbl_page_4_in, a_page_4_in, 4);
+								link_set(lbl_pageSeparator_2_in, a_page_2_in, 2);
+								link_set(lbl_pageSeparator_3_in, a_page_3_in, 3);
+								link_set(lbl_pageSeparator_4_in, a_page_4_in, 4);
 								break;
 							case 4:
 								link_set(a_page_1_in, 1);
 
-								lbl_page_left_in.Visible = true;
+								lbl_pageSeparator_left_in.Visible = true;
 
-								link_set(lbl_page_2_in, a_page_2_in, 3);
-								link_set(lbl_page_3_in, a_page_3_in, 4);
+								link_set(lbl_pageSeparator_2_in, a_page_2_in, 3);
+								link_set(lbl_pageSeparator_3_in, a_page_3_in, 4);
 								break;
 						}
 						break;
 					case 5:
 						switch (PageNum) {
 							case 1:
-								link_set(lbl_page_3_in, a_page_3_in, 1);
-								link_set(lbl_page_4_in, a_page_4_in, 2);
+								link_set(lbl_pageSeparator_3_in, a_page_3_in, 1);
+								link_set(lbl_pageSeparator_4_in, a_page_4_in, 2);
 
-								lbl_page_right_in.Visible = true;
+								lbl_pageSeparator_right_in.Visible = true;
 
-								link_set(lbl_page_5_in, a_page_5_in, 5);
+								link_set(lbl_pageSeparator_5_in, a_page_5_in, 5);
 								break;
 							case 2:
-								link_set(lbl_page_2_in, a_page_2_in, 1);
-								link_set(lbl_page_3_in, a_page_3_in, 2);
-								link_set(lbl_page_4_in, a_page_4_in, 3);
+								link_set(lbl_pageSeparator_2_in, a_page_2_in, 1);
+								link_set(lbl_pageSeparator_3_in, a_page_3_in, 2);
+								link_set(lbl_pageSeparator_4_in, a_page_4_in, 3);
 
-								lbl_page_right_in.Visible = true;
+								lbl_pageSeparator_right_in.Visible = true;
 
-								link_set(lbl_page_5_in, a_page_5_in, 5);
+								link_set(lbl_pageSeparator_5_in, a_page_5_in, 5);
 								break;
 							case 3:
 								link_set(a_page_1_in, 1);
-								link_set(lbl_page_2_in, a_page_2_in, 2);
-								link_set(lbl_page_3_in, a_page_3_in, 3);
-								link_set(lbl_page_4_in, a_page_4_in, 4);
-								link_set(lbl_page_5_in, a_page_5_in, 5);
+								link_set(lbl_pageSeparator_2_in, a_page_2_in, 2);
+								link_set(lbl_pageSeparator_3_in, a_page_3_in, 3);
+								link_set(lbl_pageSeparator_4_in, a_page_4_in, 4);
+								link_set(lbl_pageSeparator_5_in, a_page_5_in, 5);
 								break;
 							case 4:
 								link_set(a_page_1_in, 1);
 
-								lbl_page_left_in.Visible = true;
+								lbl_pageSeparator_left_in.Visible = true;
 
-								link_set(lbl_page_2_in, a_page_2_in, 3);
-								link_set(lbl_page_3_in, a_page_3_in, 4);
-								link_set(lbl_page_4_in, a_page_4_in, 5);
+								link_set(lbl_pageSeparator_2_in, a_page_2_in, 3);
+								link_set(lbl_pageSeparator_3_in, a_page_3_in, 4);
+								link_set(lbl_pageSeparator_4_in, a_page_4_in, 5);
 								break;
 							case 5:
 								link_set(a_page_1_in, 1);
 
-								lbl_page_left_in.Visible = true;
+								lbl_pageSeparator_left_in.Visible = true;
 
-								link_set(lbl_page_2_in, a_page_2_in, 4);
-								link_set(lbl_page_3_in, a_page_3_in, 5);
+								link_set(lbl_pageSeparator_2_in, a_page_2_in, 4);
+								link_set(lbl_pageSeparator_3_in, a_page_3_in, 5);
 								break;
 						}
 						break;
 					default:
-						link_set(lbl_page_2_in, a_page_2_in, PageNum - 1);
-						link_set(lbl_page_3_in, a_page_3_in, PageNum);
-						link_set(lbl_page_4_in, a_page_4_in, PageNum + 1);
-						link_set(lbl_page_5_in, a_page_5_in, _pagetotal);
+						link_set(lbl_pageSeparator_2_in, a_page_2_in, PageNum - 1);
+						link_set(lbl_pageSeparator_3_in, a_page_3_in, PageNum);
+						link_set(lbl_pageSeparator_4_in, a_page_4_in, PageNum + 1);
+						link_set(lbl_pageSeparator_5_in, a_page_5_in, _pagetotal);
 
 						
-						lbl_page_left_in.Visible = true;
-						lbl_page_right_in.Visible = true;
+						lbl_pageSeparator_left_in.Visible = true;
+						lbl_pageSeparator_right_in.Visible = true;
 
 						switch (PageNum) {
 							case 1:
 								a_page_1_in.Visible = false;
-								lbl_page_left_in.Visible = false;
+								lbl_pageSeparator_left_in.Visible = false;
 
 								a_page_2_in.Visible = false;
-								lbl_page_2_in.Visible = false;
+								lbl_pageSeparator_2_in.Visible = false;
 								break;
 							case 2:
 								a_page_1_in.Visible = false;
-								lbl_page_left_in.Visible = false;
+								lbl_pageSeparator_left_in.Visible = false;
 								break;
 							case 3:
 								a_page_1_in.Visible = true;
-								lbl_page_left_in.Visible = false;
+								lbl_pageSeparator_left_in.Visible = false;
 								break;
 							default:
 								a_page_1_in.Visible = true;
 								break;
 						}
 						if (PageNum == _pagetotal - 2) {
-							lbl_page_right_in.Visible = false;
+							lbl_pageSeparator_right_in.Visible = false;
 						} else if (PageNum == _pagetotal - 1) {
-							lbl_page_right_in.Visible = false;
+							lbl_pageSeparator_right_in.Visible = false;
 
-							lbl_page_5_in.Visible = false;
+							lbl_pageSeparator_5_in.Visible = false;
 							a_page_5_in.Visible = false;
 						} else if (PageNum == _pagetotal) {
-							lbl_page_4_in.Visible = false;
+							lbl_pageSeparator_4_in.Visible = false;
 							a_page_4_in.Visible = false;
 
-							lbl_page_right_in.Visible = false;
+							lbl_pageSeparator_right_in.Visible = false;
 
-							lbl_page_5_in.Visible = false;
+							lbl_pageSeparator_5_in.Visible = false;
 							a_page_5_in.Visible = false;
 						}
 						break;

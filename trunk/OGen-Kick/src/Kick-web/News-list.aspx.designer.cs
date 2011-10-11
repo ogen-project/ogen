@@ -58,22 +58,22 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor a_page_1;
         
         /// <summary>
-        /// lbl_page_left control.
+        /// lbl_pageSeparator_left control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_page_left;
+        protected global::System.Web.UI.WebControls.Label lbl_pageSeparator_left;
         
         /// <summary>
-        /// lbl_page_2 control.
+        /// lbl_pageSeparator_2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_page_2;
+        protected global::System.Web.UI.WebControls.Label lbl_pageSeparator_2;
         
         /// <summary>
         /// a_page_2 control.
@@ -85,13 +85,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor a_page_2;
         
         /// <summary>
-        /// lbl_page_3 control.
+        /// lbl_pageSeparator_3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_page_3;
+        protected global::System.Web.UI.WebControls.Label lbl_pageSeparator_3;
         
         /// <summary>
         /// a_page_3 control.
@@ -103,13 +103,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor a_page_3;
         
         /// <summary>
-        /// lbl_page_4 control.
+        /// lbl_pageSeparator_4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_page_4;
+        protected global::System.Web.UI.WebControls.Label lbl_pageSeparator_4;
         
         /// <summary>
         /// a_page_4 control.
@@ -121,22 +121,22 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor a_page_4;
         
         /// <summary>
-        /// lbl_page_right control.
+        /// lbl_pageSeparator_right control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_page_right;
+        protected global::System.Web.UI.WebControls.Label lbl_pageSeparator_right;
         
         /// <summary>
-        /// lbl_page_5 control.
+        /// lbl_pageSeparator_5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_page_5;
+        protected global::System.Web.UI.WebControls.Label lbl_pageSeparator_5;
         
         /// <summary>
         /// a_page_5 control.
