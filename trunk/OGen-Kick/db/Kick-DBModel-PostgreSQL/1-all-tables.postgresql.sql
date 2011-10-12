@@ -1,12 +1,3 @@
-CREATE TABLE "APP_Application" (
-	"IDApplication" serial NOT NULL,
-	"Name" character varying(20) NOT NULL
-)
-WITH (OIDS=FALSE);
-COMMENT ON TABLE "APP_Application" IS NULL;
-	COMMENT ON COLUMN "APP_Application"."IDApplication" IS 'psql:serial;sqlserver:int;identity:True;';
-	COMMENT ON COLUMN "APP_Application"."Name" IS 'length:20;psql:character varying;sqlserver:varchar;';
-
 CREATE TABLE "CRD_User" (
 	"IDUser" bigserial NOT NULL,
 	"Login" character varying(255) NOT NULL,
@@ -424,6 +415,24 @@ WITH (OIDS=FALSE);
 COMMENT ON TABLE "CRD_UserProfile" IS NULL;
 	COMMENT ON COLUMN "CRD_UserProfile"."IFUser" IS 'psql:bigint;sqlserver:bigint;';
 	COMMENT ON COLUMN "CRD_UserProfile"."IFProfile" IS 'psql:bigint;sqlserver:bigint;';
+
+CREATE TABLE "DIC_User" (
+	"IFUser" bigint NOT NULL,
+	"IFLanguage" integer NOT NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "DIC_User" IS NULL;
+	COMMENT ON COLUMN "DIC_User"."IFUser" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "DIC_User"."IFLanguage" IS 'psql:integer;sqlserver:int;';
+
+CREATE TABLE "APP_Application" (
+	"IDApplication" serial NOT NULL,
+	"Name" character varying(20) NOT NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "APP_Application" IS NULL;
+	COMMENT ON COLUMN "APP_Application"."IDApplication" IS 'psql:serial;sqlserver:int;identity:True;';
+	COMMENT ON COLUMN "APP_Application"."Name" IS 'length:20;psql:character varying;sqlserver:varchar;';
 
 CREATE TABLE "NET_User" (
 	"IFUser" bigint NOT NULL,

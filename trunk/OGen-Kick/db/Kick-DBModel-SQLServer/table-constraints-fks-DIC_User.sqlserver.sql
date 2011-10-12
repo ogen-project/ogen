@@ -1,0 +1,20 @@
+ALTER TABLE "DIC_User" WITH CHECK 
+	ADD CONSTRAINT "DIC_User_IFUser_fkey" FOREIGN KEY (
+		"IFUser"
+	) REFERENCES "CRD_User" (
+		"IDUser"
+	)
+GO
+ALTER TABLE "DIC_User" CHECK CONSTRAINT "DIC_User_IFUser_fkey"
+GO
+
+ALTER TABLE "DIC_User" WITH CHECK 
+	ADD CONSTRAINT "DIC_User_IFLanguage_fkey" FOREIGN KEY (
+		"IFLanguage"
+	) REFERENCES "DIC_Language" (
+		"IDLanguage"
+	)
+GO
+ALTER TABLE "DIC_User" CHECK CONSTRAINT "DIC_User_IFLanguage_fkey"
+GO
+

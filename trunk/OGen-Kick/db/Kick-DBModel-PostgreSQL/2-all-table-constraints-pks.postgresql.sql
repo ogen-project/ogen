@@ -1,9 +1,3 @@
-ALTER TABLE "APP_Application"
-  ADD CONSTRAINT "APP_Application_pkey" PRIMARY KEY (
-    "IDApplication"
-  )
-;
-
 ALTER TABLE "CRD_User"
   ADD CONSTRAINT "CRD_User_pkey" PRIMARY KEY (
     "IDUser"
@@ -193,6 +187,18 @@ ALTER TABLE "CRD_UserProfile"
   ADD CONSTRAINT "CRD_UserProfile_pkey" PRIMARY KEY (
     "IFUser",
     "IFProfile"
+  )
+;
+
+ALTER TABLE "DIC_User"
+  ADD CONSTRAINT "DIC_User_pkey" PRIMARY KEY (
+    "IFUser"
+  )
+;
+
+ALTER TABLE "APP_Application"
+  ADD CONSTRAINT "APP_Application_pkey" PRIMARY KEY (
+    "IDApplication"
   )
 ;
 
