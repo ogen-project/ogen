@@ -71,10 +71,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DO_CRD_ProfileProfile.cs" />
+    <Compile Include="DO_DIC_User.cs" />
     <Compile Include="DO_vDIC_Language.cs" />
     <Compile Include="DO_vNET_Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_base\DO0_CRD_ProfileProfile.cs" />
+    <Compile Include="_base\DO0_DIC_User.cs" />
     <Compile Include="_base\DO0_vDIC_Language.cs" />
     <Compile Include="_base\DO0_vNET_Profile.cs" />
     <Compile Include="_base\DO0__utils.cs" />
