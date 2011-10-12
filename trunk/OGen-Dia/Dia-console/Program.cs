@@ -49,8 +49,6 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 				long _begin_ticks = DateTime.Now.Ticks;
 
 				DoIt(
-					//@"\\127.0.0.1\OGen_source$\OGen-NTier\OGen-NTier-Doc\OGenDoc-metadatas\MD_OGen-NTier.OGenDoc-metadata.xml"
-
 					System.IO.Path.Combine(
 						#if !NET_1_1
 						System.Configuration.ConfigurationManager.AppSettings
@@ -58,8 +56,7 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 						System.Configuration.ConfigurationSettings.AppSettings
 						#endif
 							["ogenPath"],
-
-						@"X:\test\modeloDados.dia"
+						@"..\..\OGen-Kick\db\Kick-DBModel.dia"
 					)
 				);
 
