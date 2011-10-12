@@ -263,6 +263,26 @@
         </tableField>
       </tableFields>
     </table>
+    <table name="DIC_User" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="DIC_User" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="DIC_User" dbDescription="" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFUser" isPK="true" isIdentity="false" fkTableName="CRD_User" fkFieldName="IDUser" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFLanguage" isPK="false" isIdentity="false" fkTableName="DIC_Language" fkFieldName="IDLanguage" isNullable="false" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="IFLanguage" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="" dbDefaultValue="" dbCollationName="" dbFieldName="IFLanguage" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
     <table name="FOR_Message" isVirtualTable="false">
       <tableDBs>
         <tableDB dbServerType="PostgreSQL" dbTableName="FOR_Message" dbDescription="" />

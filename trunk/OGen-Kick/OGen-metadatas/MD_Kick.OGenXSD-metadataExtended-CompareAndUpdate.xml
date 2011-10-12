@@ -539,6 +539,39 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 -->
 			</tableUpdates>
 		</table>
+		<table name="DIC_User" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
+			<tableFields>
+				<tableField name="IFUser" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IFLanguage" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+			</tableFields>
+			<tableSearches>
+<!--
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="DIC_User" tableFieldName="IFUser" paramName="IFUser" />
+						<tableFieldRef tableName="DIC_User" tableFieldName="IFUser" paramName="IFUser" />
+					</tableSearchParameters>
+					<tableSearchUpdates>
+						<tableSearchUpdate name="SomeUpdateTest">
+							<tableSearchUpdateParameters>
+								<tableFieldRef tableName="DIC_User" tableFieldName="IFUser" paramName="IFUser" />
+								<tableFieldRef tableName="DIC_User" tableFieldName="IFUser" paramName="IFUser" />
+							</tableSearchUpdateParameters>
+						</tableSearchUpdate>
+					</tableSearchUpdates>
+				</tableSearch>
+-->
+			</tableSearches>
+			<tableUpdates>
+<!--
+				<tableUpdate name="SomeUpdateTest">
+					<tableUpdateParameters>
+						<tableFieldRef tableName="DIC_User" tableFieldName="IFUser" paramName="IFUser" />
+					</tableUpdateParameters>
+				</tableUpdate>
+-->
+			</tableUpdates>
+		</table>
 		<table name="FOR_Message" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
 				<tableField name="IDMessage" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
