@@ -82,6 +82,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Compile Include="_base\SO0_DIC_LanguageApplication.cs" />
     <Compile Include="_base\SO0_DIC_Text.cs" />
     <Compile Include="_base\SO0_DIC_TextLanguage.cs" />
+    <Compile Include="_base\SO0_DIC_User.cs" />
     <Compile Include="_base\SO0_FOR_Message.cs" />
     <Compile Include="_base\SO0_LOG_Errortype.cs" />
     <Compile Include="_base\SO0_LOG_Log.cs" />
