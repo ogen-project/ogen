@@ -46,8 +46,8 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="allProfiles_notJustApplication_in" type="bool" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -78,8 +78,8 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="allProfiles_notJustApplication_in" type="bool" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -90,8 +90,8 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idProfile_in" type="long" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -102,8 +102,8 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="IDProfile_search_in" type="long" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -114,8 +114,8 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="IDUser_search_in" type="long" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -196,8 +196,8 @@
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -208,8 +208,8 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idLanguage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -220,8 +220,8 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idLanguage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -270,8 +270,8 @@
             <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="idApplication_isNull_in" type="bool" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -322,8 +322,8 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idContent_search_in" type="long" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -335,8 +335,8 @@
             <parameter name="IDContent_search_in" type="long" isParams="false" isOut="false" isRef="false" />
             <parameter name="IDLanguage_search_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -388,8 +388,8 @@
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -399,8 +399,8 @@
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -411,8 +411,8 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idContent_search_in" type="long" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -467,8 +467,8 @@
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -478,8 +478,8 @@
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -490,8 +490,8 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idContent_search_in" type="long" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -548,8 +548,8 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idContent_in" type="long" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -571,8 +571,8 @@
             <parameter name="IDLanguage_search_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="isAND_notOR_search_in" type="bool" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -701,8 +701,8 @@
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -712,8 +712,8 @@
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -724,8 +724,8 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idContent_search_in" type="long" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -779,8 +779,8 @@
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -790,8 +790,8 @@
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -802,8 +802,8 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idContent_search_in" type="long" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -868,8 +868,8 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idLanguage_search_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -880,8 +880,8 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idContent_search_in" type="long" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -892,8 +892,8 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idLanguage_search_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -904,8 +904,8 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idTag_in" type="long" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -946,8 +946,8 @@
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -990,8 +990,8 @@
             <parameter name="idProfile__in_in" type="long" isParams="false" isOut="false" isRef="false" />
             <parameter name="idProfile__out_in" type="long" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="page_numRecords_in" type="int" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="page_itemsPerPage_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_itemsCount_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="System.Int32[]" isParams="false" isOut="true" isRef="false" />
           </parameters>

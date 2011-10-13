@@ -91,8 +91,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int page_orderBy_in, 
-			int page_in, 
-			int page_numRecords_in, 
+			long page_in, 
+			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
@@ -103,7 +103,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					ip_forLogPurposes_in,
 					page_orderBy_in,
 					page_in,
-					page_numRecords_in
+					page_itemsPerPage_in
 				}
 			);
 			page_itemsCount_out = (long)results[1];
@@ -124,8 +124,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string ip_forLogPurposes_in, 
 			int idLanguage_in, 
 			int page_orderBy_in, 
-			int page_in, 
-			int page_numRecords_in, 
+			long page_in, 
+			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
@@ -137,7 +137,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idLanguage_in,
 					page_orderBy_in,
 					page_in,
-					page_numRecords_in
+					page_itemsPerPage_in
 				}
 			);
 			page_itemsCount_out = (long)results[1];
@@ -158,8 +158,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string ip_forLogPurposes_in, 
 			int idLanguage_in, 
 			int page_orderBy_in, 
-			int page_in, 
-			int page_numRecords_in, 
+			long page_in, 
+			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
@@ -171,7 +171,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idLanguage_in,
 					page_orderBy_in,
 					page_in,
-					page_numRecords_in
+					page_itemsPerPage_in
 				}
 			);
 			page_itemsCount_out = (long)results[1];

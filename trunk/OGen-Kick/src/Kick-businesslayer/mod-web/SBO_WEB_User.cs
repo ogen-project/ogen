@@ -328,8 +328,8 @@ A equipa {2}
 			long idProfile__out_in,
 
 			int page_orderBy_in,
-			int page_in,
-			int page_numRecords_in,
+			long page_in,
+			int page_itemsPerPage_in,
 			out long page_itemsCount_out,
 
 			out int[] errors_out
@@ -377,7 +377,7 @@ A equipa {2}
 
 					page_orderBy_in,
 					page_in,
-					page_numRecords_in,
+					page_itemsPerPage_in,
 					out page_itemsCount_out,
 
 					null

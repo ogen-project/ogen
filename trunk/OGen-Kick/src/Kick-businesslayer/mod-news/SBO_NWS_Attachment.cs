@@ -644,8 +644,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			int IDLanguage_search_in,
 
 			int page_orderBy_in,
-			int page_in,
-			int page_numRecords_in,
+			long page_in,
+			int page_itemsPerPage_in,
 			out long page_itemsCount_out,
 
 			out int[] errors_out
@@ -692,7 +692,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 				page_orderBy_in,
 				page_in,
-				page_numRecords_in,
+				page_itemsPerPage_in,
 				out page_itemsCount_out,
 
 				null
@@ -711,8 +711,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			long idContent_search_in,
 
 			int page_orderBy_in,
-			int page_in,
-			int page_numRecords_in,
+			long page_in,
+			int page_itemsPerPage_in,
 			out long page_itemsCount_out,
 
 			out int[] errors_out
@@ -758,7 +758,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 					page_orderBy_in,
 					page_in,
-					page_numRecords_in,
+					page_itemsPerPage_in,
 					out page_itemsCount_out,
 
 					null

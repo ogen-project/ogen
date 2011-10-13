@@ -41,8 +41,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			bool allProfiles_notJustApplication_in,
 
 			int page_orderBy_in, 
-			int page_in,
-			int page_numRecords_in,
+			long page_in,
+			int page_itemsPerPage_in,
 			out long page_itemsCount_out, 
 
 			out int[] errors_out
@@ -85,7 +85,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 						: null, 
 					page_orderBy_in, 
 					page_in,
-					page_numRecords_in,
+					page_itemsPerPage_in,
 					out page_itemsCount_out, 
 					null
 				);
@@ -221,8 +221,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		//    string ip_forLogPurposes_in, 
 
 		//    long IDProfile_search_in,
-		//    int page_in,
-		//    int page_numRecords_in,
+		//    long page_in,
+		//    int page_itemsPerPage_in,
 
 		//    out int[] errors_out
 		//) {
@@ -260,7 +260,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		//        = DO_vCRD_ProfilePermition.getRecord_byProfile(
 		//            IDProfile_search_in,
 		//            page_in,
-		//            page_numRecords_in
+		//            page_itemsPerPage_in
 		//        );
 
 		//    errors_out = _errorlist.ToArray();

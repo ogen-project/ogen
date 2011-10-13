@@ -318,8 +318,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		//    Logtype Logtype_search_in,
 		//    object IDUser_search_in,
 
-		//    int page_in,
-		//    int page_numRecords_in,
+		//    long page_in,
+		//    int page_itemsPerPage_in,
 
 		//    out int error_out
 		//) {
@@ -343,7 +343,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		//            null,
 
 		//            page_in,
-		//            page_numRecords_in
+		//            page_itemsPerPage_in
 		//        );
 
 		//    } else {
@@ -372,8 +372,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			bool idApplication_isNull_in,
 
 			int page_orderBy_in,
-			int page_in,
-			int page_numRecords_in,
+			long page_in,
+			int page_itemsPerPage_in,
 			out long page_itemsCount_out,
 
 			out int[] errors_out
@@ -424,7 +424,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 				page_orderBy_in,
 				page_in,
-				page_numRecords_in,
+				page_itemsPerPage_in,
 				out page_itemsCount_out,
 
 				null

@@ -57,8 +57,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string ip_forLogPurposes_in, 
 			bool allProfiles_notJustApplication_in, 
 			int page_orderBy_in, 
-			int page_in, 
-			int page_numRecords_in, 
+			long page_in, 
+			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
@@ -68,7 +68,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				allProfiles_notJustApplication_in, 
 				page_orderBy_in, 
 				page_in, 
-				page_numRecords_in, 
+				page_itemsPerPage_in, 
 				out page_itemsCount_out, 
 				out errors_out
 			);
@@ -80,8 +80,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
 			int page_orderBy_in, 
-			int page_in, 
-			int page_numRecords_in, 
+			long page_in, 
+			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
@@ -91,7 +91,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				idProfile_in, 
 				page_orderBy_in, 
 				page_in, 
-				page_numRecords_in, 
+				page_itemsPerPage_in, 
 				out page_itemsCount_out, 
 				out errors_out
 			);
@@ -103,8 +103,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string ip_forLogPurposes_in, 
 			long IDProfile_search_in, 
 			int page_orderBy_in, 
-			int page_in, 
-			int page_numRecords_in, 
+			long page_in, 
+			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
@@ -114,7 +114,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				IDProfile_search_in, 
 				page_orderBy_in, 
 				page_in, 
-				page_numRecords_in, 
+				page_itemsPerPage_in, 
 				out page_itemsCount_out, 
 				out errors_out
 			);
@@ -126,8 +126,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string ip_forLogPurposes_in, 
 			long IDUser_search_in, 
 			int page_orderBy_in, 
-			int page_in, 
-			int page_numRecords_in, 
+			long page_in, 
+			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
@@ -137,7 +137,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				IDUser_search_in, 
 				page_orderBy_in, 
 				page_in, 
-				page_numRecords_in, 
+				page_itemsPerPage_in, 
 				out page_itemsCount_out, 
 				out errors_out
 			);

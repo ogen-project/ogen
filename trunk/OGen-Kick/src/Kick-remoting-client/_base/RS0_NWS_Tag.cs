@@ -63,8 +63,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string ip_forLogPurposes_in, 
 			int idLanguage_search_in, 
 			int page_orderBy_in, 
-			int page_in, 
-			int page_numRecords_in, 
+			long page_in, 
+			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
@@ -77,8 +77,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string ip_forLogPurposes_in, 
 			long idContent_search_in, 
 			int page_orderBy_in, 
-			int page_in, 
-			int page_numRecords_in, 
+			long page_in, 
+			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
@@ -91,8 +91,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string ip_forLogPurposes_in, 
 			int idLanguage_search_in, 
 			int page_orderBy_in, 
-			int page_in, 
-			int page_numRecords_in, 
+			long page_in, 
+			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
@@ -105,8 +105,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string ip_forLogPurposes_in, 
 			long idTag_in, 
 			int page_orderBy_in, 
-			int page_in, 
-			int page_numRecords_in, 
+			long page_in, 
+			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
 			out System.Int32[] errors_out
 		) {
