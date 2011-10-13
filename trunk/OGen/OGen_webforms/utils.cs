@@ -134,12 +134,12 @@ namespace OGen.lib.presentationlayer.webforms {
 		public class Pager {
 			public const int ITEMSPERPAGE_DEFAULT = 10;
 
-			#region public int PageNum { get; }
-			public static int PageNum {
+			#region public long PageNum { get; }
+			public static long PageNum {
 				get {
-					int _output;
-					if (!int.TryParse(System.Web.HttpContext.Current.Request.QueryString["page"], out _output)) {
-						_output = 1;
+					long _output;
+					if (!long.TryParse(System.Web.HttpContext.Current.Request.QueryString["page"], out _output)) {
+						_output = 1L;
 					}
 
 					return _output;
