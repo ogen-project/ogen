@@ -56,17 +56,17 @@ bool _aux_bool;
 		_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
 	@<%=_aux_xx_field_name%>_search_ <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.isText && (_aux_db_field.Size <= 8000)) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%>, <%
 	}%>
-	@page_orderBy_ Int, 
-	@page_ Int,
-	@page_numRecords_ Int
+	@page_orderBy_ INT, 
+	@page_ BIGINT,
+	@page_itemsPerPage_ INT
 
-	-- , @page_itemsCount_ Int
+	-- , @page_itemsCount_ INT
 
 AS
-	DECLARE @ID_range_begin BigInt
-	DECLARE @ID_range_end BigInt
-	SET @ID_range_begin = ((@page_ - 1) * @page_numRecords_ + 1)
-	SET @ID_range_end = (@page_ * @page_numRecords_)
+	DECLARE @ID_range_begin BIGINT
+	DECLARE @ID_range_end BIGINT
+	SET @ID_range_begin = ((@page_ - 1) * @page_itemsPerPage_ + 1)
+	SET @ID_range_end = (@page_ * @page_itemsPerPage_)
 
 	SELECT<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {

@@ -55,11 +55,11 @@ bool _aux_bool;
 		_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
 	"<%=_aux_xx_field_name%>_search_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>, <%
 	}%>
-	"page_orderBy_" Int, 
-	"page_" Int,
-	"page_numRecords_" Int
+	"page_orderBy_" INT, 
+	"page_" BIGINT,
+	"page_itemsPerPage_" INT
 
-	-- , "page_itemsCount_" Int
+	-- , "page_itemsCount_" INT
 
 )
 RETURNS SETOF "<%=_aux_db_table.Name%>"
@@ -104,7 +104,7 @@ AS $BODY$
 			-- change where condition in: "fnc_<%=_aux_db_table.Name%>_Record_open_<%=_aux_ex_search.Name%>"
 			-- NOT HERE!
 
-			LIMIT "page_numRecords_" OFFSET "page_numRecords_" * ("page_" - 1)
+			LIMIT "page_itemsPerPage_" OFFSET "page_itemsPerPage_" * ("page_" - 1)
 		LOOP
 			RETURN NEXT _Output;
 		END LOOP;

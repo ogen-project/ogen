@@ -55,8 +55,8 @@ string _aux_xx_field_name;
 		_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
 	IN `<%=_aux_xx_field_name%>_search_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%>, <%
 	}%>
-	IN `page_` Int,
-	IN `page_numRecords_` Int
+	IN `page_` BigInt,
+	IN `page_itemsPerPage_` Int
 )
 	NOT DETERMINISTIC
 	SQL SECURITY DEFINER
@@ -64,8 +64,8 @@ string _aux_xx_field_name;
 BEGIN
 	DECLARE `ID_range_begin` BigInt;
 	DECLARE `ID_range_end` BigInt;
-	SET `ID_range_begin` = ((`page_` - 1) * `page_numRecords_` + 1);
-	SET `ID_range_end` = (`page_` * `page_numRecords_`);
+	SET `ID_range_begin` = ((`page_` - 1) * `page_itemsPerPage_` + 1);
+	SET `ID_range_end` = (`page_` * `page_itemsPerPage_`);
 
 	SET NOCOUNT ON;
 
