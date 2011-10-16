@@ -27,6 +27,7 @@ namespace OGen.lib.datalayer {
 		private DBUtilssupport() {}
 
 		#region public static DBUtils GetInstance(...);
+#if PostgreSQL
 		#region private static DBUtils_PostgreSQL dbUtils_PostgreSQL { get; }
 		private static DBUtils_PostgreSQL dbutils_postgresql__;
 		private static DBUtils_PostgreSQL dbUtils_PostgreSQL {
@@ -39,6 +40,7 @@ namespace OGen.lib.datalayer {
 			}
 		}
 		#endregion
+#endif
 		#region private static DBUtils_SQLServer dbUtils_SQLServer { get; }
 		private static DBUtils_SQLServer dbutils_sqlserver__;
 		private static DBUtils_SQLServer dbUtils_SQLServer {

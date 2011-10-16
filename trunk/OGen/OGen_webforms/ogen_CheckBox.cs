@@ -32,7 +32,7 @@ namespace OGen.lib.presentationlayer.webforms {
 			}
 		}
 
-		[Category("AddSolutions")]
+		[Category("OGen")]
 		[DefaultValue("")]
 		public string CommandName {
 			get {
