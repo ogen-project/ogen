@@ -69,18 +69,18 @@ namespace OGen.lib.worker {
 				bool _othersstillworking = true;
 				_item = null;
 				for (int i = 0; i < workItems_in.Count; i++) {
-					if (workItems_in[i].State == WorkItemState.Waiting) {
-						if (!workItems_in[i].IsReadyToWork) { // ask again
-							workItems_in[i].IsReadyToWork = isReadyToWork_in(
-								workItems_in[i].Item
-							);
-						}
-						
-						if (workItems_in[i].IsReadyToWork) {
-							_item = workItems_in[i];
-							_othersstillworking = false;
-							break;
-						}
+					if (
+						(workItems_in[i].State == WorkItemState.Waiting)
+						&&
+						isReadyToWork_in(workItems_in[i].Item) // ask again
+					) {
+						workItems_in[i].State = WorkItemState.Ready;
+					}
+
+					if (workItems_in[i].State == WorkItemState.Ready) {
+						_item = workItems_in[i];
+						_othersstillworking = false;
+						break;
 					} else if (workItems_in[i].State == WorkItemState.Doing) {
 						_othersstillworking = false;
 					}

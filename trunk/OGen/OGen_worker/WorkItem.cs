@@ -28,15 +28,12 @@ namespace OGen.lib.worker {
 		/// </summary>
 		/// <param name="item_in">work item</param>
 		/// <param name="state_in">work item state</param>
-		/// <param name="isReadyToWork_in">set to false if work item list has priorities</param>
 		public WorkItem(
 			T item_in,
-			WorkItemState state_in,
-			bool isReadyToWork_in = true
+			WorkItemState state_in
 		) {
 			this.Item = item_in;
 			this.State = state_in;
-			this.IsReadyToWork = isReadyToWork_in;
 		}
 
 		/// <summary>
@@ -48,10 +45,5 @@ namespace OGen.lib.worker {
 		/// work item state
 		/// </summary>
 		public WorkItemState State;
-
-		/// <summary>
-		/// set to false if work item list has priorities
-		/// </summary>
-		public bool IsReadyToWork;
 	}
 }

@@ -22,18 +22,23 @@ namespace OGen.lib.worker {
 	public enum WorkItemState : uint {
 
 		/// <summary>
-		/// item on queue (work on item has not started yet)
+		/// item on queue, must check if ready before start working
 		/// </summary>
 		Waiting = 0,
 
 		/// <summary>
+		/// item on queue, ready to start work
+		/// </summary>
+		Ready = 1,
+
+		/// <summary>
 		/// work on item has started (but it is not done yet)
 		/// </summary>
-		Doing = 1,
+		Doing = 2,
 
 		/// <summary>
 		/// work on item has been done (finished)
 		/// </summary>
-		Done = 2
+		Done = 3
 	}
 }
