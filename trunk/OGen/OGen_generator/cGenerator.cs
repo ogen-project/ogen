@@ -39,19 +39,18 @@ namespace OGen.lib.generator {
 		/// ToDos: here! (use if you're generating code on a DataBase)
 		/// </summary>
 /// <param name="xmlTemplatesFile_in">ToDos: here!</param>
-		/// <param name="connectionType_in">DataBase Server Type (use if you're generating code on a DataBase)</param>
-		/// <param name="connectionString_in">DataBase Connectionstring (use if you're generating code on a DataBase)</param>
+		/// <param name="dbConnectionStrings_in">DataBase Connectionstring (use if you're generating code on a DataBase)</param>
 /// <param name="outputDir_in">ToDos: here!</param>
 /// <param name="metaFiles_in">ToDos: here!</param>
 		public cGenerator(
 			string xmlTemplatesFile_in, 
-			DBConnectionstrings dbconnectionstrings_in, 
+			DBConnectionstrings dbConnectionStrings_in, 
 			string outputDir_in, 
 			params MetaFile[] metaFiles_in
 		) {
 			//---
 			xmltemplatesfileuri_ = new Uri(xmlTemplatesFile_in);
-			dbconnectionstrings_ = dbconnectionstrings_in;
+			dbconnectionstrings_ = dbConnectionStrings_in;
 			outputdir_ = outputDir_in;
 			metafiles_ = metaFiles_in;
 			//---
@@ -814,13 +813,14 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 							lock (_threadIterarionLocker) {
 								_threaditerarion = (int)_threadIterarionLocker;
 
-								// ignore warning!
+#pragma warning disable 728
 								_threadIterarionLocker = ++_threaditerarion;
+#pragma warning restore 728
 							}
 
 							notifyback_(
 								string.Format(
-									"#{0}/{1} - {2} {3}\t\t({4})",
+									"thread {4}: #{0}/{1} - {2} {3}",
 									_threaditerarion,
 									templates_.TemplateCollection.Count,
 #if NET_1_1
@@ -837,7 +837,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 						}
 					);
 				});
-				_thread.Name = string.Format("thread{0}", t);
+				_thread.Name = string.Format("{0}", t + 1);
 				_thread.IsBackground = true;
 				_thread.Start();
 				_workthreads[t] = new WorkerThread(
