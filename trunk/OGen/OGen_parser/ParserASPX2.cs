@@ -60,23 +60,28 @@ namespace OGen.lib.parser {
 			Hashtable parameters_in,
 			ref TextWriter textwriter_out
 		) {
-			// --- performance hack! keeping host static, 
-			// instantiating only one host per Physical/Application Path
-			if (!myhost_.Contains(appPath_in)) {
-				string _appId = "ParserASPX_" + Guid.NewGuid().GetHashCode().ToString("x");
-				string _virtualPath = "/";
 
-				myhost_.Add(
-					appPath_in,
-					ApplicationManager.GetApplicationManager().CreateObject(
-						_appId,
-						typeof(MyHost),
-						_virtualPath,
+			lock (myhost_) { // thread safer!
+
+				// --- performance hack! keeping host static, 
+				// instantiating only one host per Physical/Application Path
+				if (!myhost_.Contains(appPath_in)) {
+					string _appId = "ParserASPX_" + Guid.NewGuid().GetHashCode().ToString("x");
+					string _virtualPath = "/";
+
+					myhost_.Add(
 						appPath_in,
-						false//true
-					)
-				);
+						ApplicationManager.GetApplicationManager().CreateObject(
+							_appId,
+							typeof(MyHost),
+							_virtualPath,
+							appPath_in,
+							false//true
+						)
+					);
+				}
 			}
+
 			((MyHost)myhost_[appPath_in]).RunRequest(
 				aspxFile_in, 
 				OGen.lib.presentationlayer.webforms.utils.ConcatenateURLParams(parameters_in),
