@@ -63,7 +63,6 @@ namespace OGen.lib.generator {
 		private string xmltemplatesdir_;
 		private MetadataInterface metadata_;
 		private XS__templates templates_;
-		private int template_;
 		private dBuild notifyback_;
 		#endregion
 		#region public Fields/Properties...
@@ -203,48 +202,50 @@ case "CONFIG.metadatasPath":
 //		#region private void notifyme(string message_in);
 		private static Exception notifyme_Exception = new Exception("ToDos: here!");
 		private void notifyme(
-			string message_in
+			string message_in,
+			XS_templateType template_in,
+			DBConnectionstrings dbConnectionStrings_in
 		) {
 			// ToDos: here!
 //			cDBConnection _con = null;
 
 			#region int _verifiedConditions = ...;
 			int _verifiedConditions = 0;
-			for (int c = 0; c < templates_.TemplateCollection[template_].Conditions.ConditionCollection.Count; c++) {
+			for (int c = 0; c < template_in.Conditions.ConditionCollection.Count; c++) {
 				if (
 					translate(
-						templates_.TemplateCollection[template_].Conditions.ConditionCollection[c].Eval, 
+						template_in.Conditions.ConditionCollection[c].Eval, 
 						message_in
 					)
 					==
-					templates_.TemplateCollection[template_].Conditions.ConditionCollection[c].To
+					template_in.Conditions.ConditionCollection[c].To
 				) _verifiedConditions++;
 			}
 			#endregion
-			if (_verifiedConditions == templates_.TemplateCollection[template_].Conditions.ConditionCollection.Count) {
+			if (_verifiedConditions == template_in.Conditions.ConditionCollection.Count) {
 				#region Hashtable _args = ...;
-				Hashtable _args = new Hashtable(templates_.TemplateCollection[template_].Arguments.ArgumentCollection.Count);
-				for (int a = 0; a < templates_.TemplateCollection[template_].Arguments.ArgumentCollection.Count; a++) {
+				Hashtable _args = new Hashtable(template_in.Arguments.ArgumentCollection.Count);
+				for (int a = 0; a < template_in.Arguments.ArgumentCollection.Count; a++) {
 					_args.Add(
-						templates_.TemplateCollection[template_].Arguments.ArgumentCollection[a].Name, 
+						template_in.Arguments.ArgumentCollection[a].Name, 
 						//System.Web.HttpUtility.UrlEncode(
 							translateFully(
-								templates_.TemplateCollection[template_].Arguments.ArgumentCollection[a].Value, 
+								template_in.Arguments.ArgumentCollection[a].Value, 
 								message_in
 							)
 						//)
 					);
 				}
 				#endregion
-				for (int o = 0; o < templates_.TemplateCollection[template_].Outputs.OutputCollection.Count; o++) {
-					#region if (!dbconnectionstrings_.Contains(DBServerTypes. ...)) continue;
-					switch (templates_.TemplateCollection[template_].Outputs.OutputCollection[o].Type) {
+				for (int o = 0; o < template_in.Outputs.OutputCollection.Count; o++) {
+					#region if (!dbConnectionStrings_in.Contains(DBServerTypes. ...)) continue;
+					switch (template_in.Outputs.OutputCollection[o].Type) {
 						#region case XS_OutputEnumeration.someDBServer_whatever: ... break;
 #if PostgreSQL
 						case XS_OutputEnumeration.PostgreSQL_Function: 
 						case XS_OutputEnumeration.PostgreSQL_StoredProcedure: 
 						case XS_OutputEnumeration.PostgreSQL_View: {
-							if (!dbconnectionstrings_.Contains_disableIfNot(DBServerTypes.PostgreSQL)) continue;
+							if (!dbConnectionStrings_in.Contains_disableIfNot(DBServerTypes.PostgreSQL)) continue;
 //							_con = (cDBConnection)connection_[DBServerTypes.PostgreSQL];
 							break;
 						}
@@ -259,7 +260,7 @@ case "CONFIG.metadatasPath":
 						case XS_OutputEnumeration.MySQL_Function: 
 						case XS_OutputEnumeration.MySQL_StoredProcedure: 
 						case XS_OutputEnumeration.MySQL_View: {
-							if (!dbconnectionstrings_.Contains_disableIfNot(DBServerTypes.MySQL)) continue;
+							if (!dbConnectionStrings_in.Contains_disableIfNot(DBServerTypes.MySQL)) continue;
 //							_con = (cDBConnection)connection_[DBServerTypes.MySQL];
 							break;
 						}
@@ -273,7 +274,7 @@ case "CONFIG.metadatasPath":
 						case XS_OutputEnumeration.SQLServer_Function: 
 						case XS_OutputEnumeration.SQLServer_StoredProcedure: 
 						case XS_OutputEnumeration.SQLServer_View: {
-							if (!dbconnectionstrings_.Contains_disableIfNot(DBServerTypes.SQLServer)) continue;
+							if (!dbConnectionStrings_in.Contains_disableIfNot(DBServerTypes.SQLServer)) continue;
 //							_con = (cDBConnection)connection_[DBServerTypes.SQLServer];
 							break;
 						}
@@ -281,15 +282,15 @@ case "CONFIG.metadatasPath":
 					}
 					#endregion
 					string _ouputTo = translateFully(
-						templates_.TemplateCollection[template_].Outputs.OutputCollection[o].To, 
+						template_in.Outputs.OutputCollection[o].To, 
 						message_in
 					);
 //					#region bool _exists = ...;
 bool _exists_aux = false;
-for (int d = 0; d < dbconnectionstrings_.Count; d++) {
-	dbconnectionstrings_[d].exists_aux__ = false;
+for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
+	dbConnectionStrings_in[d].exists_aux__ = false;
 }
-					switch (templates_.TemplateCollection[template_].Outputs.OutputCollection[o].Type) {
+					switch (template_in.Outputs.OutputCollection[o].Type) {
 						case XS_OutputEnumeration.File: {
 							_exists_aux = File.Exists(_ouputTo);
 							break;
@@ -300,13 +301,13 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 						case XS_OutputEnumeration.PostgreSQL_Function:
 						case XS_OutputEnumeration.SQLServer_Function: {
 //_exists = _con.SQLFunction_exists(_ouputTo);
-for (int d = 0; d < dbconnectionstrings_.Count; d++) {
-	if (!dbconnectionstrings_[d].enabled_aux__) continue;
+for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
+	if (!dbConnectionStrings_in[d].enabled_aux__) continue;
 
-	dbconnectionstrings_[d].exists_aux__ 
-		= dbconnectionstrings_[d].Connection.SQLFunction_exists(_ouputTo);
+	dbConnectionStrings_in[d].exists_aux__ 
+		= dbConnectionStrings_in[d].Connection.SQLFunction_exists(_ouputTo);
 
-	if (!_exists_aux && dbconnectionstrings_[d].exists_aux__) _exists_aux = true;
+	if (!_exists_aux && dbConnectionStrings_in[d].exists_aux__) _exists_aux = true;
 }
 							break;
 						}
@@ -315,13 +316,13 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 						case XS_OutputEnumeration.PostgreSQL_StoredProcedure: 
 						case XS_OutputEnumeration.SQLServer_StoredProcedure: {
 //_exists = _con.SQLStoredProcedure_exists(_ouputTo);
-for (int d = 0; d < dbconnectionstrings_.Count; d++) {
-	if (!dbconnectionstrings_[d].enabled_aux__) continue;
+for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
+	if (!dbConnectionStrings_in[d].enabled_aux__) continue;
 
-	dbconnectionstrings_[d].exists_aux__ 
-		= dbconnectionstrings_[d].Connection.SQLStoredProcedure_exists(_ouputTo);
+	dbConnectionStrings_in[d].exists_aux__ 
+		= dbConnectionStrings_in[d].Connection.SQLStoredProcedure_exists(_ouputTo);
 
-	if (!_exists_aux && dbconnectionstrings_[d].exists_aux__) _exists_aux = true;
+	if (!_exists_aux && dbConnectionStrings_in[d].exists_aux__) _exists_aux = true;
 }
 							break;
 						}
@@ -329,13 +330,13 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 						case XS_OutputEnumeration.PostgreSQL_View: 
 						case XS_OutputEnumeration.SQLServer_View: {
 //_exists = _con.SQLView_exists(_ouputTo);
-for (int d = 0; d < dbconnectionstrings_.Count; d++) {
-	if (!dbconnectionstrings_[d].enabled_aux__) continue;
+for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
+	if (!dbConnectionStrings_in[d].enabled_aux__) continue;
 
-	dbconnectionstrings_[d].exists_aux__ 
-		= dbconnectionstrings_[d].Connection.SQLView_exists(_ouputTo);
+	dbConnectionStrings_in[d].exists_aux__ 
+		= dbConnectionStrings_in[d].Connection.SQLView_exists(_ouputTo);
 
-	if (!_exists_aux && dbconnectionstrings_[d].exists_aux__) _exists_aux = true;
+	if (!_exists_aux && dbConnectionStrings_in[d].exists_aux__) _exists_aux = true;
 }
 							break;
 						}
@@ -350,13 +351,13 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 					if (
 						!_exists_aux 
 						|| 
-						(templates_.TemplateCollection[template_].Outputs.OutputCollection[o].Mode == XS_OutputModeEnumeration.Replace)
+						(template_in.Outputs.OutputCollection[o].Mode == XS_OutputModeEnumeration.Replace)
 						||
-						(templates_.TemplateCollection[template_].Outputs.OutputCollection[o].Mode == XS_OutputModeEnumeration.Append)
+						(template_in.Outputs.OutputCollection[o].Mode == XS_OutputModeEnumeration.Append)
 					) {
 						#region string _parsedOutput = ...;
 						string _parsedOutput;
-						if (templates_.TemplateCollection[template_].ParserType == XS_ParserEnumeration.xslt) {
+						if (template_in.ParserType == XS_ParserEnumeration.xslt) {
 							System.Text.StringBuilder _stringbuilder = new System.Text.StringBuilder();
 							StringWriter _stringwriter = new StringWriter(_stringbuilder);
 
@@ -365,7 +366,7 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 								+ (xmltemplatesfileuri_.IsFile
 									? Path.DirectorySeparatorChar.ToString() 
 									: "/")
-								+ templates_.TemplateCollection[template_].Name;
+								+ template_in.Name;
 							ParserXSLT.Parse(
 //xmlmetadatafile_, 
 metafiles_[
@@ -382,11 +383,11 @@ metafiles_[
 							_parsedOutput = _stringbuilder.ToString();
 						} else {
 							if (xmltemplatesfileuri_.IsFile) {
-								switch (templates_.TemplateCollection[template_].ParserType) {
+								switch (template_in.ParserType) {
 									case XS_ParserEnumeration.aspx: {
 										ParserASPX.Parse(
 											xmltemplatesdir_, 
-											templates_.TemplateCollection[template_].Name, 
+											template_in.Name, 
 											_args, 
 											out _parsedOutput
 										);
@@ -394,14 +395,14 @@ metafiles_[
 									}
 									case XS_ParserEnumeration.none: {
 
-if (templates_.TemplateCollection[template_].Outputs.OutputCollection[o].Type == XS_OutputEnumeration.File) {
+if (template_in.Outputs.OutputCollection[o].Type == XS_OutputEnumeration.File) {
 	_parsedOutput = null; // will be copied
 } else {
 	// needs to be read
 	_parsedOutput = new StreamReader(
 		Path.Combine(
 			xmltemplatesdir_,
-			templates_.TemplateCollection[template_].Name
+			template_in.Name
 		)
 	).ReadToEnd();
 }
@@ -414,11 +415,11 @@ if (templates_.TemplateCollection[template_].Outputs.OutputCollection[o].Type ==
 									}
 								}
 							} else {
-								switch (templates_.TemplateCollection[template_].ParserType) {
+								switch (template_in.ParserType) {
 									case XS_ParserEnumeration.aspx:
 									case XS_ParserEnumeration.none: {
 										_parsedOutput = OGen.lib.presentationlayer.webforms.utils.ReadURL_ToString(
-											xmltemplatesdir_ + "/" + templates_.TemplateCollection[template_].Name, 
+											xmltemplatesdir_ + "/" + template_in.Name, 
 											_args
 										);
 										break;
@@ -432,7 +433,7 @@ if (templates_.TemplateCollection[template_].Outputs.OutputCollection[o].Type ==
 						}
 						#endregion
 
-						switch (templates_.TemplateCollection[template_].Outputs.OutputCollection[o].Type) {
+						switch (template_in.Outputs.OutputCollection[o].Type) {
 							case XS_OutputEnumeration.File: {
 if (
 	(_ouputTo == string.Empty)
@@ -450,30 +451,30 @@ if (
 								}
 								#endregion
 								if (
-									(templates_.TemplateCollection[template_].ParserType == XS_ParserEnumeration.none)
+									(template_in.ParserType == XS_ParserEnumeration.none)
 									&&
 									(xmltemplatesfileuri_.IsFile)
 								) {
 //									#region File.Copy(...);
 // ToDos: here!
 if (
-	(templates_.TemplateCollection[template_].Outputs.OutputCollection[o].Mode == XS_OutputModeEnumeration.Append)
+	(template_in.Outputs.OutputCollection[o].Mode == XS_OutputModeEnumeration.Append)
 )
-	throw new Exception(string.Format("not implemented (at template: {0})", templates_.TemplateCollection[template_].Name));
+	throw new Exception(string.Format("not implemented (at template: {0})", template_in.Name));
 									File.Copy(
 										Path.Combine(
 											xmltemplatesdir_, 
-											templates_.TemplateCollection[template_].Name
+											template_in.Name
 										), 
 										_ouputTo, 
-										true // (!_exists || templates_.TemplateCollection[template_].Outputs.OutputCollection[o].Replace)
+										true // (!_exists || template_in.Outputs.OutputCollection[o].Replace)
 									);
 //									#endregion
 								} else {
 									#region new StreamWriter(_ouputTo).Write(_parsedOutput);
 									StreamWriter _writer = new StreamWriter(
 										_ouputTo,
-										(templates_.TemplateCollection[template_].Outputs.OutputCollection[o].Mode == XS_OutputModeEnumeration.Append)
+										(template_in.Outputs.OutputCollection[o].Mode == XS_OutputModeEnumeration.Append)
 									);
 									_writer.Write(_parsedOutput);
 									_writer.Close();
@@ -491,25 +492,25 @@ if (
 							case XS_OutputEnumeration.SQLServer_Function: 
 							case XS_OutputEnumeration.SQLServer_StoredProcedure: 
 							case XS_OutputEnumeration.SQLServer_View: {
-								if (templates_.TemplateCollection[template_].Outputs.OutputCollection[o].Mode == XS_OutputModeEnumeration.Append)
+								if (template_in.Outputs.OutputCollection[o].Mode == XS_OutputModeEnumeration.Append)
 									throw new Exception("can't handle append over a db function");
 
 //								#region if (_exists_aux) connection_.Function_delete(_ouputTo);
 								if (_exists_aux) {
-									switch (templates_.TemplateCollection[template_].Outputs.OutputCollection[o].Type) {
+									switch (template_in.Outputs.OutputCollection[o].Type) {
 										case XS_OutputEnumeration.MySQL_Function:
 										case XS_OutputEnumeration.SQLServer_Function: {
 //_con.SQLFunction_delete(_ouputTo);
-for (int d = 0; d < dbconnectionstrings_.Count; d++) {
-	if (!dbconnectionstrings_[d].enabled_aux__) continue;
+for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
+	if (!dbConnectionStrings_in[d].enabled_aux__) continue;
 
-	switch (dbconnectionstrings_[d].DBServerType) {
+	switch (dbConnectionStrings_in[d].DBServerType) {
 #if MySQL
 		case DBServerTypes.MySQL:
 #endif
 		case DBServerTypes.SQLServer: {
-			if (dbconnectionstrings_[d].exists_aux__) 
-				dbconnectionstrings_[d].Connection.SQLFunction_delete(_ouputTo);
+			if (dbConnectionStrings_in[d].exists_aux__) 
+				dbConnectionStrings_in[d].Connection.SQLFunction_delete(_ouputTo);
 			break;
 		}
 	}
@@ -519,16 +520,16 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 										case XS_OutputEnumeration.MySQL_StoredProcedure: 
 										case XS_OutputEnumeration.SQLServer_StoredProcedure: {
 //_con.SQLStoredProcedure_delete(_ouputTo);
-for (int d = 0; d < dbconnectionstrings_.Count; d++) {
-	if (!dbconnectionstrings_[d].enabled_aux__) continue;
+for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
+	if (!dbConnectionStrings_in[d].enabled_aux__) continue;
 
-	switch (dbconnectionstrings_[d].DBServerType) {
+	switch (dbConnectionStrings_in[d].DBServerType) {
 #if MySQL
 		case DBServerTypes.MySQL:
 #endif
 		case DBServerTypes.SQLServer: {
-			if (dbconnectionstrings_[d].exists_aux__) 
-				dbconnectionstrings_[d].Connection.SQLStoredProcedure_delete(_ouputTo);
+			if (dbConnectionStrings_in[d].exists_aux__) 
+				dbConnectionStrings_in[d].Connection.SQLStoredProcedure_delete(_ouputTo);
 			break;
 		}
 	}
@@ -538,16 +539,16 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 										case XS_OutputEnumeration.MySQL_View: 
 										case XS_OutputEnumeration.SQLServer_View: {
 //_con.SQLView_delete(_ouputTo);
-for (int d = 0; d < dbconnectionstrings_.Count; d++) {
-	if (!dbconnectionstrings_[d].enabled_aux__) continue;
+for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
+	if (!dbConnectionStrings_in[d].enabled_aux__) continue;
 
-	switch (dbconnectionstrings_[d].DBServerType) {
+	switch (dbConnectionStrings_in[d].DBServerType) {
 #if MySQL
 		case DBServerTypes.MySQL:
 #endif
 		case DBServerTypes.SQLServer: {
-			if (dbconnectionstrings_[d].exists_aux__) 
-				dbconnectionstrings_[d].Connection.SQLView_delete(_ouputTo);
+			if (dbConnectionStrings_in[d].exists_aux__) 
+				dbConnectionStrings_in[d].Connection.SQLView_delete(_ouputTo);
 			break;
 		}
 	}
@@ -568,26 +569,26 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 								}
 //								#endregion
 //_con.Execute_SQLQuery(_parsedOutput);
-for (int d = 0; d < dbconnectionstrings_.Count; d++) {
-	if (!dbconnectionstrings_[d].enabled_aux__) continue;
+for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
+	if (!dbConnectionStrings_in[d].enabled_aux__) continue;
 	try {
-		dbconnectionstrings_[d].Connection.Execute_SQLQuery(_parsedOutput);
+		dbConnectionStrings_in[d].Connection.Execute_SQLQuery(_parsedOutput);
 	} catch (Exception _ex) {
 		System.Text.StringBuilder _sb = new System.Text.StringBuilder();
-		for (int a = 0; a < templates_.TemplateCollection[template_].Arguments.ArgumentCollection.Count; a++) {
+		for (int a = 0; a < template_in.Arguments.ArgumentCollection.Count; a++) {
 			_sb.Append(string.Format(
 				"{0}:\n\t{1}\n\t{2}\n",
-				templates_.TemplateCollection[template_].Arguments.ArgumentCollection[a].Name,
-				templates_.TemplateCollection[template_].Arguments.ArgumentCollection[a].Value,
-				_args[templates_.TemplateCollection[template_].Arguments.ArgumentCollection[a].Name]
+				template_in.Arguments.ArgumentCollection[a].Name,
+				template_in.Arguments.ArgumentCollection[a].Value,
+				_args[template_in.Arguments.ArgumentCollection[a].Name]
 			));
 		}
 
 		throw new Exception(string.Format(
 			"---\nTEMPLATE: {0}\n---\nARGUMENTS:\n\n{5}\n---\nDBServerType:\n\n{2}\n---\nQUERY:\n\n{1}\n---\nEXCEPTION:\n\n{3}\n---\nINNER-EXCEPTION:\n\n{4}\n---\n",
-			templates_.TemplateCollection[template_].Name,
+			template_in.Name,
 			_parsedOutput, 
-			dbconnectionstrings_[d].DBServerType.ToString(), 
+			dbConnectionStrings_in[d].DBServerType.ToString(), 
 			_ex.Message,
 			_ex.InnerException,
 			_sb.ToString()
@@ -611,6 +612,21 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 		#region public void Build();
 		public delegate void dBuild(string message_in, bool onANewLine_in);
 		#region private void Build(...);
+		#region private class WorkerThread { ... }
+		private class WorkerThread {
+			public WorkerThread(
+				System.Threading.Thread thread_int,
+				DBConnectionstrings dbConnectionstrings_in
+			) {
+				this.Thread = thread_int;
+				this.DBConnectionstrings = dbConnectionstrings_in;
+			}
+
+			public System.Threading.Thread Thread;
+			public DBConnectionstrings DBConnectionstrings;
+		}
+		#endregion
+
 		private void build(
 			dBuild notifyBack_in, 
 //			bool loadMetadata_in, 
@@ -631,12 +647,6 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 				);
 			}
 
-			#region dbconnectionstrings_[0..n].Connection_createInstance();
-			for (int d = 0; d < dbconnectionstrings_.Count; d++) {
-				dbconnectionstrings_[d].Connection_createInstance();
-			}
-			#endregion
-
 			//metadata_ = new cDBMetadata(xmlmetadatafile_, xmlmetadataroot_);
 			metadata_ = metadata_in;
 //            if (loadMetadata_in) {
@@ -656,129 +666,194 @@ for (int d = 0; d < dbconnectionstrings_.Count; d++) {
 				: XS__templates.Load_fromURI(xmltemplatesfileuri_)[0]
 			;
 
-			bool _finished;
-			ArrayList _finishedTemplates = new ArrayList(templates_.TemplateCollection.Count);
-			do {
-				_finished = true;
-				for (template_ = 0; template_ < templates_.TemplateCollection.Count; template_++) {
-					#region if (_finishedPreviously = ...) continue;
-					bool _finishedPreviously = false;
-					for (int f = 0; f < _finishedTemplates.Count; f++) {
-						if (
-							templates_.TemplateCollection[template_].ID
-							==
-							(string)_finishedTemplates[f]
+#if NET_1_1
+			OGen.lib.worker.WorkItem[] _templatesState
+				= new worker.WorkItem[templates_.TemplateCollection.Count];
+#else
+			OGen.lib.worker.WorkItem<XS_templateType>[] _templatesState
+				= new worker.WorkItem<XS_templateType>[templates_.TemplateCollection.Count];
+#endif
+			for (int i = 0; i < templates_.TemplateCollection.Count; i++) {
+
+				// must check priorities, hence Waiting, otherwise Ready
+				#region WorkItemState _state = (skipping) ? WorkItemState.Done : WorkItemState.Waiting;
+				OGen.lib.worker.WorkItemState _state
+					= OGen.lib.worker.WorkItemState.Waiting;
+				if (
+					(templateTypes_in != null)
+					&&
+					(templateTypes_in.Length > 0)
+					&&
+					(templates_.TemplateCollection[i].TemplateType != "")
+					&&
+					!utils.StringArrayContains(
+						templateTypes_in,
+						templates_.TemplateCollection[i].TemplateType
+					)
+				) {
+
+					int todos_here = 0; // ToDos: here!
+
+					notifyback_(
+						string.Format(
+							"#{0}/{1} - {2} ",
+							todos_here + 1,
+							templates_.TemplateCollection.Count,
+							templates_.TemplateCollection[i].ID
+						),
+						false
+					);
+
+					notifyback_("... skipping!", true);
+
+					_state = OGen.lib.worker.WorkItemState.Done;
+				}
+				#endregion
+
+#if NET_1_1
+				_templatesState[i] = new OGen.lib.worker.WorkItem(
+#else
+				_templatesState[i] = new OGen.lib.worker.WorkItem<XS_templateType>(
+#endif
+					templates_.TemplateCollection[i],
+					_state
+				);
+			}
+
+			OGen.lib.worker.Worker _worker = new worker.Worker();
+			object _threadIterarionLocker = 0;
+			int _numthreads = 4;
+			WorkerThread[] _workthreads = new WorkerThread[_numthreads];
+			for (int t = 0; t < _workthreads.Length; t++) {
+				#region DBConnectionstrings _dbconnectionstrings = ...;
+				DBConnectionstrings _dbconnectionstrings = new DBConnectionstrings();
+				for (int d = 0; d < dbconnectionstrings_.Count; d++) {
+					_dbconnectionstrings.Add(
+						dbconnectionstrings_[d].DBServerType,
+						dbconnectionstrings_[d].Connectionstring
+					);
+				}
+				for (int d = 0; d < _dbconnectionstrings.Count; d++) {
+					_dbconnectionstrings[d].Connection_createInstance();
+				}
+				#endregion
+
+				System.Threading.Thread _thread = new System.Threading.Thread(delegate() {
+#if NET_1_1
+					_worker.DoWork(
+#else
+					_worker.DoWork<XS_templateType>(
+#endif
+						_templatesState,
+						delegate(
+#if NET_1_1
+							object template_in
+#else
+							XS_templateType template_in
+#endif
 						) {
-							_finishedPreviously = true;
-							break;
-						}
-					}
-					if (_finishedPreviously) continue;
-					#endregion
-					#region if (!utils.StringArrayContains(templateTypes_in, templates_.TemplateCollection[template_].TemplateType)) continue;
-					if (
-						(templateTypes_in != null)
-						&&
-						(templateTypes_in.Length > 0)
-						&&
-						(templates_.TemplateCollection[template_].TemplateType != "")
-						&&
-						!utils.StringArrayContains(
-							templateTypes_in,
-							templates_.TemplateCollection[template_].TemplateType
-						)
-					) {
-						notifyback_(
-							string.Format(
-								"#{0}/{1} - {2} ",
-								_finishedTemplates.Count + 1,
-								templates_.TemplateCollection.Count,
-								templates_.TemplateCollection[template_].ID
-							),
-							false
-						);
+#if NET_1_1
+							XS_templateType _template = (XS_templateType)template_in;
+#else
+							XS_templateType _template = template_in;
+#endif
 
-						_finishedTemplates.Add(templates_.TemplateCollection[template_].ID);
-						_finished = false;
-
-						notifyback_("... skipping!", true);
-
-						continue;
-					}
-					#endregion
-					#region if ((_finishedDependencies = ...) == templates_[template_].Dependencies.Count) { _finishedTemplates.Add(templates_[template_].ID); _finished = false; }
-					#region int _finishedDependencies = ...;
-					int _finishedDependencies = 0;
-					for (int d = 0; d < templates_.TemplateCollection[template_].Dependencies.DependencyCollection.Count; d++) {
-						for (int f = 0; f < _finishedTemplates.Count; f++) {
-							if (
-								templates_.TemplateCollection[template_].Dependencies.DependencyCollection[d].TemplateID
-								==
-								(string)_finishedTemplates[f]
-							) {
-								_finishedDependencies++;
-								break;
+							#region int _finishedDependencies = ...;
+							int _finishedDependencies = 0;
+							for (int d = 0; d < _template.Dependencies.DependencyCollection.Count; d++) {
+								for (int f = 0; f < _templatesState.Length; f++) {
+									if (
+										_template.Dependencies.DependencyCollection[d].TemplateID
+										==
+#if NET_1_1
+										((XS_templateType)_templatesState[f].Item).ID
+#else
+										_templatesState[f].Item.ID
+#endif
+									) {
+										_finishedDependencies++;
+										break;
+									}
+								}
 							}
+							#endregion
+							return (_finishedDependencies == _template.Dependencies.DependencyCollection.Count);
+						},
+						delegate(
+#if NET_1_1
+							object template_in
+#else
+							XS_templateType template_in
+#endif
+						) {
+#if NET_1_1
+							XS_templateType _template = (XS_templateType)template_in;
+#else
+							XS_templateType _template = template_in;
+#endif
+
+							#region RUNNING: templates_[template_] ...
+
+							bool _valuehasbeenfound_out = false;
+							metadata_.IterateThrough_fromRoot(
+								_template.IterationType,
+								new utils.IterationFoundDelegate(
+									delegate(string message_in) {
+										notifyme(
+											message_in,
+											_template,
+											_dbconnectionstrings
+										);
+									}
+								),
+								ref _valuehasbeenfound_out
+							);
+							#endregion
+
+							int _threaditerarion;
+							lock (_threadIterarionLocker) {
+								_threaditerarion = (int)_threadIterarionLocker;
+
+								// ignore warning!
+								_threadIterarionLocker = ++_threaditerarion;
+							}
+
+							notifyback_(
+								string.Format(
+									"#{0}/{1} - {2} {3}\t\t({4})",
+									_threaditerarion,
+									templates_.TemplateCollection.Count,
+#if NET_1_1
+									((XS_templateType)template_in).ID,
+#else
+									template_in.ID,
+#endif
+									(_valuehasbeenfound_out ? "... DONE!" : "NOT doing!"),
+									System.Threading.Thread.CurrentThread.Name
+								),
+								true
+							);
+
 						}
-					}
-					#endregion
-					if (_finishedDependencies == templates_.TemplateCollection[template_].Dependencies.DependencyCollection.Count) {
-						#region RUNNING: templates_[template_] ...
-
-						notifyback_(
-							string.Format(
-								"#{0}/{1} - {2} ",
-								_finishedTemplates.Count + 1,
-								templates_.TemplateCollection.Count,
-								templates_.TemplateCollection[template_].ID
-							),
-							false
-						);
-
-						bool _valuehasbeenfound_out = false;
-						metadata_.IterateThrough_fromRoot(
-							templates_.TemplateCollection[template_].IterationType,
-							new utils.IterationFoundDelegate(notifyme),
-							ref _valuehasbeenfound_out
-						);
-						#endregion
-
-						// adding template to finished list of templates
-						_finishedTemplates.Add(templates_.TemplateCollection[template_].ID);
-						_finished = false;
-
-						notifyback_((_valuehasbeenfound_out ? "... DONE!" : "NOT doing!"), true);
-					}
-					#endregion
-				}
-			} while (!_finished);
-			#region if (templates_.Count != _finishedTemplates.Count) throw new Exception("unsolved dependencies");
-			if (templates_.TemplateCollection.Count != _finishedTemplates.Count) {
-				string _error = "list of Templates with unsolved dependencies:\n";
-				for (int t = 0; t < templates_.TemplateCollection.Count; t++) {
-					_finished = false;
-					for (int f = 0; f < _finishedTemplates.Count; f++) {
-						if ((string)_finishedTemplates[f] == templates_.TemplateCollection[template_].ID) {
-							_finished = true;
-							break;
-						}
-					}
-					if (!_finished) {
-						_error += string.Format(
-							"\t{0}\n", 
-							templates_.TemplateCollection[template_].ID
-						);
-					}
-				}
-				throw new Exception(_error);
+					);
+				});
+				_thread.Name = string.Format("thread{0}", t);
+				_thread.IsBackground = true;
+				_thread.Start();
+				_workthreads[t] = new WorkerThread(
+					_thread,
+					_dbconnectionstrings
+				);
 			}
-			#endregion
 
-			#region dbconnectionstrings_[0..n].Connection_clearInstance();
-			for (int d = 0; d < dbconnectionstrings_.Count; d++) {
-				dbconnectionstrings_[d].Connection_clearInstance();
+			for (int t = 0; t < _workthreads.Length; t++) {
+				_workthreads[t].Thread.Join();
+				#region _workthreads[t].DBConnectionstrings[0..n].Connection_createInstance();
+				for (int d = 0; d < _workthreads[t].DBConnectionstrings.Count; d++) {
+					_workthreads[t].DBConnectionstrings[d].Connection_clearInstance();
+				}
+				#endregion
 			}
-			#endregion
 		}
 		#endregion
 //		public void Build(

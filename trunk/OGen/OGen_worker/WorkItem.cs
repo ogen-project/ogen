@@ -13,7 +13,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
-using System.Collections.Generic;
 using System.Text;
 
 namespace OGen.lib.worker {
@@ -21,15 +20,23 @@ namespace OGen.lib.worker {
 	/// <summary>
 	/// Work Item
 	/// </summary>
+#if NET_1_1
+	public class WorkItem {
+#else
 	/// <typeparam name="T">type of work item</typeparam>
 	public class WorkItem<T> {
+#endif
 		/// <summary>
 		/// WorkItem's class constructor
 		/// </summary>
 		/// <param name="item_in">work item</param>
 		/// <param name="state_in">work item state</param>
 		public WorkItem(
+#if NET_1_1
+			object item_in,
+#else
 			T item_in,
+#endif
 			WorkItemState state_in
 		) {
 			this.Item = item_in;
@@ -39,7 +46,11 @@ namespace OGen.lib.worker {
 		/// <summary>
 		/// work item
 		/// </summary>
+#if NET_1_1
+		public object Item;
+#else
 		public T Item;
+#endif
 
 		/// <summary>
 		/// work item state
