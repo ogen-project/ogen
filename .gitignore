@@ -331,3 +331,5 @@
 /trunk/OGen-PureFTPd/db/PureFTPd.dia~
 /trunk/OGen-Kick/db/Kick-scripts-Postgresql/sql0-Kick.PostgreSQL.backup.sql
 /trunk/OGen-Kick/db/Kick-scripts-SQLServer/sql0-Kick.SQLServer.backup.sql
+/trunk/OGen/OGen_worker/bin
+/trunk/OGen/OGen_worker/obj

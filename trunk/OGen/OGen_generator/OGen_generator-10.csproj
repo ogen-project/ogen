@@ -93,6 +93,10 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OGen_worker\OGen_worker-10.csproj">
+      <Project>{210F2BDA-5508-4587-9E39-E4C9C8752B05}</Project>
+      <Name>OGen_worker-10</Name>
+    </ProjectReference>
     <Reference Include="Npgsql" />
     <Reference Include="System">
       <Name>System</Name>
