@@ -15,6 +15,7 @@ OGen, OGen_winforms_UTs, OGen.lib.presentationlayer.winforms.UTs, f, f, f, MIT, 
 OGen, OGen_parser, OGen.lib.parser, t, f, f, MIT, f, t
 OGen, OGen_parser_UTs, OGen.lib.parser.UTs, f, f, f, MIT, f, f
 OGen, OGen_generator, OGen.lib.generator, t, f, f, MIT, f, t
+OGen, OGen_worker, OGen.lib.worker, t, f, f, MIT, f, t
 OGen, OGen-test, OGen.test, f, f, t, MIT, f, f
 OGen, OGen-Doc, OGen-Doc, f, f, f, GNU_FDL, t, f
 OGen-NTier, NTier_metadata, OGen.NTier.lib.metadata, t, f, f, MIT, f, t

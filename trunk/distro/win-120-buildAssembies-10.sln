@@ -75,6 +75,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpreadsheetXML_metadata-10"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpreadsheetXML-Console-10", "..\OGen-SpreadsheetXML\SpreadsheetXML-Console\SpreadsheetXML-Console-10.csproj", "{0B245CBE-7DF0-424A-A7A7-6BD904262F11}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_worker-10", "..\OGen\OGen_worker\OGen_worker-10.csproj", "{210F2BDA-5508-4587-9E39-E4C9C8752B05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -307,6 +309,12 @@ Global
 		{0B245CBE-7DF0-424A-A7A7-6BD904262F11}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0B245CBE-7DF0-424A-A7A7-6BD904262F11}.Release|x86.ActiveCfg = Release|x86
 		{0B245CBE-7DF0-424A-A7A7-6BD904262F11}.Release|x86.Build.0 = Release|x86
+		{210F2BDA-5508-4587-9E39-E4C9C8752B05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{210F2BDA-5508-4587-9E39-E4C9C8752B05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{210F2BDA-5508-4587-9E39-E4C9C8752B05}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{210F2BDA-5508-4587-9E39-E4C9C8752B05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{210F2BDA-5508-4587-9E39-E4C9C8752B05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{210F2BDA-5508-4587-9E39-E4C9C8752B05}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
