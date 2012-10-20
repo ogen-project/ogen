@@ -25,7 +25,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 	#endif
 
 		#region public string CaseTranslate(string word_in);
-		private Hashtable casetranslate_cache_;
+		private Hashtable casetranslate_cache_ = new Hashtable();
 
 		public string CaseTranslate(
 			string word_in, 
@@ -33,66 +33,65 @@ namespace OGen.XSD.lib.metadata.metadata {
 		) {
 			string _key = word_in + "|" + schemaName_in;
 
-			if (casetranslate_cache_ == null) {
-				casetranslate_cache_ = new Hashtable();
-			}
-			if (casetranslate_cache_.Contains(_key)) {
-				return (string)casetranslate_cache_[_key];
-			} else {
-				#region XS_specificCaseType _case = ...;
-				int _index = -1;
-				XS_specificCaseType _case;
-				if (
-					// (no schema provided)
-					(schemaName_in == string.Empty)
-					||
-					(
-						// (can't find specific schema)
-						(_index = MetadataIndexCollection.Search(schemaName_in))
-						==
-						-1
-					)
-					||
-					(
-						// (not found at specific schema)
-						(_case = MetadataIndexCollection[_index].SpecificCaseCollection[word_in])
-						==
-						null
-					)
-				) {
-					// look in generic
-					_case = SpecificCaseCollection[word_in];
-				}
-				#endregion
-
-				string _output = (_case == null) 
-					? string.Empty 
-					: _case.Translation;
-				if (_output != string.Empty) {
-					casetranslate_cache_.Add(_key, _output);
-					return _output;
+			lock (casetranslate_cache_) {
+				if (casetranslate_cache_.Contains(_key)) {
+					return (string)casetranslate_cache_[_key];
 				} else {
-					switch (CaseType) {
-						case XS_CaseTypeEnumeration.PascalCase:
-							if (word_in.Length > 0) {
-								_output
-									= word_in[0].ToString().ToUpper()
-									+ word_in.Substring(1);
-							} else {
-								_output = word_in;
-							}
-							casetranslate_cache_.Add(_key, _output);
-							return _output;
-						case XS_CaseTypeEnumeration.camelCase:
-						case XS_CaseTypeEnumeration.lowercase:
-						case XS_CaseTypeEnumeration.UPPERCASE:
-						case XS_CaseTypeEnumeration._invalid_:
-							// ToDos: later!
-							throw new Exception("not implemented!");
-						case XS_CaseTypeEnumeration.none:
-						default:
-							casetranslate_cache_.Add(_key, word_in);
-							return word_in;
+					#region XS_specificCaseType _case = ...;
+					int _index = -1;
+					XS_specificCaseType _case;
+					if (
+						// (no schema provided)
+						(schemaName_in == string.Empty)
+						||
+						(
+						// (can't find specific schema)
+							(_index = MetadataIndexCollection.Search(schemaName_in))
+							==
+							-1
+						)
+						||
+						(
+						// (not found at specific schema)
+							(_case = MetadataIndexCollection[_index].SpecificCaseCollection[word_in])
+							==
+							null
+						)
+					) {
+						// look in generic
+						_case = SpecificCaseCollection[word_in];
+					}
+					#endregion
+
+					string _output = (_case == null)
+						? string.Empty
+						: _case.Translation;
+					if (_output != string.Empty) {
+						casetranslate_cache_.Add(_key, _output);
+						return _output;
+					} else {
+						switch (CaseType) {
+							case XS_CaseTypeEnumeration.PascalCase:
+								if (word_in.Length > 0) {
+									_output
+										= word_in[0].ToString().ToUpper()
+										+ word_in.Substring(1);
+								} else {
+									_output = word_in;
+								}
+								casetranslate_cache_.Add(_key, _output);
+								return _output;
+							case XS_CaseTypeEnumeration.camelCase:
+							case XS_CaseTypeEnumeration.lowercase:
+							case XS_CaseTypeEnumeration.UPPERCASE:
+							case XS_CaseTypeEnumeration._invalid_:
+								// ToDos: later!
+								throw new Exception("not implemented!");
+							case XS_CaseTypeEnumeration.none:
+							default:
+								casetranslate_cache_.Add(_key, word_in);
+								return word_in;
+						}
 					}
 				}
 			}
