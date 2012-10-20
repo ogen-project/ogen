@@ -120,14 +120,11 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 		#endregion
 
 		#region public static Hashtable Metacache { get; }
-		private static Hashtable metacache__;
+		private static Hashtable metacache_ = new Hashtable();
 
 		public static Hashtable Metacache {
 			get {
-				if (metacache__ == null) {
-					metacache__ = new Hashtable();
-				}
-				return metacache__;
+				return metacache_;
 			}
 		}
 		#endregion
@@ -136,26 +133,25 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 			string metadataFilepath_in, 
 			bool useMetacache_in
 		) {
-			string _key = metadataFilepath_in;
-			if (
-				useMetacache_in
-				&&
-				(metacache__ != null)
-				&&
-				Metacache.Contains(_key)
-			) {
-				return (<%=XS__%>RootMetadata)<%=XS__%>RootMetadata.Metacache[_key];
-			} else {
-				<%=XS__%>RootMetadata _rootmetadata = new <%=XS__%>RootMetadata(
-					metadataFilepath_in
-				);
-				if (useMetacache_in) {
-					<%=XS__%>RootMetadata.Metacache.Add(
-						_key, 
-						_rootmetadata
+			lock (metacache_) {
+				if (
+					useMetacache_in
+					&&
+					Metacache.Contains(metadataFilepath_in)
+				) {
+					return (<%=XS__%>RootMetadata)<%=XS__%>RootMetadata.Metacache[metadataFilepath_in];
+				} else {
+					<%=XS__%>RootMetadata _rootmetadata = new <%=XS__%>RootMetadata(
+						metadataFilepath_in
 					);
+					if (useMetacache_in) {
+						<%=XS__%>RootMetadata.Metacache.Add(
+							metadataFilepath_in, 
+							_rootmetadata
+						);
+					}
+					return _rootmetadata;
 				}
-				return _rootmetadata;
 			}
 		}
 		#endregion

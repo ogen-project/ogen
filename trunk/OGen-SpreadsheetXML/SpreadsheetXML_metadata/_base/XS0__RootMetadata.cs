@@ -77,14 +77,11 @@ namespace OGen.SpreadsheetXML.lib.metadata {
 		#endregion
 
 		#region public static Hashtable Metacache { get; }
-		private static Hashtable metacache__;
+		private static Hashtable metacache_ = new Hashtable();
 
 		public static Hashtable Metacache {
 			get {
-				if (metacache__ == null) {
-					metacache__ = new Hashtable();
-				}
-				return metacache__;
+				return metacache_;
 			}
 		}
 		#endregion
@@ -93,26 +90,25 @@ namespace OGen.SpreadsheetXML.lib.metadata {
 			string metadataFilepath_in, 
 			bool useMetacache_in
 		) {
-			string _key = metadataFilepath_in;
-			if (
-				useMetacache_in
-				&&
-				(metacache__ != null)
-				&&
-				Metacache.Contains(_key)
-			) {
-				return (XS__RootMetadata)XS__RootMetadata.Metacache[_key];
-			} else {
-				XS__RootMetadata _rootmetadata = new XS__RootMetadata(
-					metadataFilepath_in
-				);
-				if (useMetacache_in) {
-					XS__RootMetadata.Metacache.Add(
-						_key, 
-						_rootmetadata
+			lock (metacache_) {
+				if (
+					useMetacache_in
+					&&
+					Metacache.Contains(metadataFilepath_in)
+				) {
+					return (XS__RootMetadata)XS__RootMetadata.Metacache[metadataFilepath_in];
+				} else {
+					XS__RootMetadata _rootmetadata = new XS__RootMetadata(
+						metadataFilepath_in
 					);
+					if (useMetacache_in) {
+						XS__RootMetadata.Metacache.Add(
+							metadataFilepath_in, 
+							_rootmetadata
+						);
+					}
+					return _rootmetadata;
 				}
-				return _rootmetadata;
 			}
 		}
 		#endregion
