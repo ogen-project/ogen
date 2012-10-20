@@ -31,11 +31,13 @@ namespace OGen.XSD.lib.metadata.metadata {
 			string word_in, 
 			string schemaName_in
 		) {
+			string _output;
 			string _key = word_in + "|" + schemaName_in;
 
 			lock (casetranslate_cache_) {
 				if (casetranslate_cache_.Contains(_key)) {
-					return (string)casetranslate_cache_[_key];
+					_output = (string)casetranslate_cache_[_key];
+					return _output;
 				} else {
 					#region XS_specificCaseType _case = ...;
 					int _index = -1;
@@ -63,7 +65,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 					}
 					#endregion
 
-					string _output = (_case == null)
+					_output = (_case == null)
 						? string.Empty
 						: _case.Translation;
 					if (_output != string.Empty) {

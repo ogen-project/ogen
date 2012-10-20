@@ -108,14 +108,14 @@ namespace OGen.lib.templates {
 
 			int j = col_in.Length - 1;
 			if (j >= 0) {
+				#if NET_1_1
+				returnIndex_out = cols_.Add(col_in[j]);
+				#else
 				lock (cols_) {
-					#if NET_1_1
-					returnIndex_out = cols_.Add(col_in[j]);
-					#else
 					cols_.Add(col_in[j]);
 					returnIndex_out = cols_.Count - 1;
-					#endif
 				}
+				#endif
 			}
 		}
 		#endregion

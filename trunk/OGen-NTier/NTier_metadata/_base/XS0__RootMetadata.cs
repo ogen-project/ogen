@@ -134,24 +134,26 @@ namespace OGen.NTier.lib.metadata {
 			string metadataFilepath_in, 
 			bool useMetacache_in
 		) {
+			XS__RootMetadata _output;
 			lock (metacache_) {
 				if (
 					useMetacache_in
 					&&
 					Metacache.Contains(metadataFilepath_in)
 				) {
-					return (XS__RootMetadata)XS__RootMetadata.Metacache[metadataFilepath_in];
+					_output = (XS__RootMetadata)XS__RootMetadata.Metacache[metadataFilepath_in];
+					return _output;
 				} else {
-					XS__RootMetadata _rootmetadata = new XS__RootMetadata(
+					_output = new XS__RootMetadata(
 						metadataFilepath_in
 					);
 					if (useMetacache_in) {
 						XS__RootMetadata.Metacache.Add(
 							metadataFilepath_in, 
-							_rootmetadata
+							_output
 						);
 					}
-					return _rootmetadata;
+					return _output;
 				}
 			}
 		}

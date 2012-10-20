@@ -133,24 +133,26 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 			string metadataFilepath_in, 
 			bool useMetacache_in
 		) {
+			<%=XS__%>RootMetadata _output;
 			lock (metacache_) {
 				if (
 					useMetacache_in
 					&&
 					Metacache.Contains(metadataFilepath_in)
 				) {
-					return (<%=XS__%>RootMetadata)<%=XS__%>RootMetadata.Metacache[metadataFilepath_in];
+					_output = (<%=XS__%>RootMetadata)<%=XS__%>RootMetadata.Metacache[metadataFilepath_in];
+					return _output;
 				} else {
-					<%=XS__%>RootMetadata _rootmetadata = new <%=XS__%>RootMetadata(
+					_output = new <%=XS__%>RootMetadata(
 						metadataFilepath_in
 					);
 					if (useMetacache_in) {
 						<%=XS__%>RootMetadata.Metacache.Add(
 							metadataFilepath_in, 
-							_rootmetadata
+							_output
 						);
 					}
-					return _rootmetadata;
+					return _output;
 				}
 			}
 		}
