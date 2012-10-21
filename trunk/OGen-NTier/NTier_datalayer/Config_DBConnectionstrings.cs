@@ -143,7 +143,7 @@ namespace OGen.NTier.lib.datalayer {
 		}
 		#endregion
 		#region public static string[] ConfigModes(string application_in);
-		private static Hashtable configmodes__ = new Hashtable();;
+		private static Hashtable configmodes__ = new Hashtable();
 
 		/// <summary>
 		/// Supported Config Modes (i.e. DEBUG, !DEBUG, etc.) for a specific application.
