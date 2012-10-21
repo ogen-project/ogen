@@ -90,13 +90,25 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		#endregion
 		#region public XS_tableDBsType TableDBs { get; set; }
 		internal XS_tableDBsType tabledbs__;
+		internal object tabledbs__locker = new object();
 
 		[XmlIgnore()]
 		public XS_tableDBsType TableDBs {
 			get {
+
+				// check before lock
 				if (tabledbs__ == null) {
-					tabledbs__ = new XS_tableDBsType();
+
+					lock (tabledbs__locker) {
+
+						// double check, thread safer!
+						if (tabledbs__ == null) {
+
+							tabledbs__ = new XS_tableDBsType();
+						}
+					}
 				}
+
 				return tabledbs__;
 			}
 			set {
@@ -112,13 +124,25 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		#endregion
 		#region public XS_tableFieldsType TableFields { get; set; }
 		internal XS_tableFieldsType tablefields__;
+		internal object tablefields__locker = new object();
 
 		[XmlIgnore()]
 		public XS_tableFieldsType TableFields {
 			get {
+
+				// check before lock
 				if (tablefields__ == null) {
-					tablefields__ = new XS_tableFieldsType();
+
+					lock (tablefields__locker) {
+
+						// double check, thread safer!
+						if (tablefields__ == null) {
+
+							tablefields__ = new XS_tableFieldsType();
+						}
+					}
 				}
+
 				return tablefields__;
 			}
 			set {

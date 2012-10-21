@@ -196,13 +196,25 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 				} else {%>
 		#region public <%=XS_%><%=_aux_elements[e].Type%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_elements[e].Name, _arg_SchemaName)%> { get; set; }
 		internal <%=XS_%><%=_aux_elements[e].Type%> <%=_aux_elements[e].Name.ToLower()%>__;
+		internal object <%=_aux_elements[e].Name.ToLower()%>__locker = new object();
 
 		[XmlIgnore()]
 		public <%=XS_%><%=_aux_elements[e].Type%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_elements[e].Name, _arg_SchemaName)%> {
 			get {
+
+				// check before lock
 				if (<%=_aux_elements[e].Name.ToLower()%>__ == null) {
-					<%=_aux_elements[e].Name.ToLower()%>__ = new <%=XS_%><%=_aux_elements[e].Type%>();
+
+					lock (<%=_aux_elements[e].Name.ToLower()%>__locker) {
+
+						// double check, thread safer!
+						if (<%=_aux_elements[e].Name.ToLower()%>__ == null) {
+
+							<%=_aux_elements[e].Name.ToLower()%>__ = new <%=XS_%><%=_aux_elements[e].Type%>();
+						}
+					}
 				}
+
 				return <%=_aux_elements[e].Name.ToLower()%>__;
 			}
 			set {

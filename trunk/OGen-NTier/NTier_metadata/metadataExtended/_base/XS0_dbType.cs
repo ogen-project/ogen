@@ -62,13 +62,25 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		#endregion
 		#region public XS_dbConnectionsType DBConnections { get; set; }
 		internal XS_dbConnectionsType dbconnections__;
+		internal object dbconnections__locker = new object();
 
 		[XmlIgnore()]
 		public XS_dbConnectionsType DBConnections {
 			get {
+
+				// check before lock
 				if (dbconnections__ == null) {
-					dbconnections__ = new XS_dbConnectionsType();
+
+					lock (dbconnections__locker) {
+
+						// double check, thread safer!
+						if (dbconnections__ == null) {
+
+							dbconnections__ = new XS_dbConnectionsType();
+						}
+					}
 				}
+
 				return dbconnections__;
 			}
 			set {

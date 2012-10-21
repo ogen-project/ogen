@@ -62,13 +62,25 @@ namespace OGen.XSD.lib.metadata.schema {
 		#endregion
 		#region public XS_restrictionType Restriction { get; set; }
 		internal XS_restrictionType restriction__;
+		internal object restriction__locker = new object();
 
 		[XmlIgnore()]
 		public XS_restrictionType Restriction {
 			get {
+
+				// check before lock
 				if (restriction__ == null) {
-					restriction__ = new XS_restrictionType();
+
+					lock (restriction__locker) {
+
+						// double check, thread safer!
+						if (restriction__ == null) {
+
+							restriction__ = new XS_restrictionType();
+						}
+					}
 				}
+
 				return restriction__;
 			}
 			set {

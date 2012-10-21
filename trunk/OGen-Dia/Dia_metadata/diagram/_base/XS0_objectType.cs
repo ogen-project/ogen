@@ -105,13 +105,25 @@ namespace OGen.Dia.lib.metadata.diagram {
 		#endregion
 		#region public XS_connectionsType Connections { get; set; }
 		internal XS_connectionsType connections__;
+		internal object connections__locker = new object();
 
 		[XmlIgnore()]
 		public XS_connectionsType Connections {
 			get {
+
+				// check before lock
 				if (connections__ == null) {
-					connections__ = new XS_connectionsType();
+
+					lock (connections__locker) {
+
+						// double check, thread safer!
+						if (connections__ == null) {
+
+							connections__ = new XS_connectionsType();
+						}
+					}
 				}
+
 				return connections__;
 			}
 			set {

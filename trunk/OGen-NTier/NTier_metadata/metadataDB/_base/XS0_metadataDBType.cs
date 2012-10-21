@@ -62,13 +62,25 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		#endregion
 		#region public XS_tablesType Tables { get; set; }
 		internal XS_tablesType tables__;
+		internal object tables__locker = new object();
 
 		[XmlIgnore()]
 		public XS_tablesType Tables {
 			get {
+
+				// check before lock
 				if (tables__ == null) {
-					tables__ = new XS_tablesType();
+
+					lock (tables__locker) {
+
+						// double check, thread safer!
+						if (tables__ == null) {
+
+							tables__ = new XS_tablesType();
+						}
+					}
 				}
+
 				return tables__;
 			}
 			set {

@@ -205,11 +205,21 @@ namespace OGen.lib.datalayer {
 
 		public string Connectionstring_DBName {
 			get {
+
+				// check before lock
 				if (connectionstring_dbname__ == string.Empty) {
-					connectionstring_dbname__ = utils.ConnectionString.ParseParameter(
-						Connectionstring,
-						DBUtils_connectionString.eParameter.DBName
-					);
+
+					lock (connectionstring_dbname__) {
+
+						// double check, thread safer!
+						if (connectionstring_dbname__ == string.Empty) {
+
+							connectionstring_dbname__ = utils.ConnectionString.ParseParameter(
+								Connectionstring,
+								DBUtils_connectionString.eParameter.DBName
+							);
+						}
+					}
 				}
 
 				return connectionstring_dbname__;

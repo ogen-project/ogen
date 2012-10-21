@@ -114,13 +114,25 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		#endregion
 		#region public XS_parametersType Parameters { get; set; }
 		internal XS_parametersType parameters__;
+		internal object parameters__locker = new object();
 
 		[XmlIgnore()]
 		public XS_parametersType Parameters {
 			get {
+
+				// check before lock
 				if (parameters__ == null) {
-					parameters__ = new XS_parametersType();
+
+					lock (parameters__locker) {
+
+						// double check, thread safer!
+						if (parameters__ == null) {
+
+							parameters__ = new XS_parametersType();
+						}
+					}
 				}
+
 				return parameters__;
 			}
 			set {

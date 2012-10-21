@@ -147,10 +147,12 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 				return _output;
 			}
 			set {
-				cols_.Clear();
-				if (value != null) {
-					for (int i = 0; i < value.Length; i++) {
-						cols_.Add(value[i]);
+				lock (cols_) {
+					cols_.Clear();
+					if (value != null) {
+						for (int i = 0; i < value.Length; i++) {
+							cols_.Add(value[i]);
+						}
 					}
 				}
 			}

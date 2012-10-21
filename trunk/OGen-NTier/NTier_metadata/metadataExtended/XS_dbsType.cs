@@ -87,19 +87,30 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 		#region public XS_dbType DBConnection_FirstDefaultAvailable { get; }
 		private XS_dbConnectionType dbconnection_firstdefaultavailable__ = null;
+		private object dbconnection_firstdefaultavailable__locker = new object();
 
 		public XS_dbConnectionType DBConnection_FirstDefaultAvailable {
 			get {
-				if (dbconnection_firstdefaultavailable__ == null) {
-					for (int d = 0; d < DBCollection.Count; d++) {
-						for (int dd = 0; dd < DBCollection[d].DBConnections.DBConnectionCollection.Count; dd++) {
-							if (DBCollection[d].DBConnections.DBConnectionCollection[dd].isDefault) {
-								db_firstdefaultavailable__ 
-									= DBCollection[d];
-								dbconnection_firstdefaultavailable__ 
-									= DBCollection[d].DBConnections.DBConnectionCollection[dd];
 
-								return dbconnection_firstdefaultavailable__;
+				// check before lock
+				if (dbconnection_firstdefaultavailable__ == null) {
+
+					lock (dbconnection_firstdefaultavailable__locker) {
+
+						// double check, thread safer!
+						if (dbconnection_firstdefaultavailable__ == null) {
+
+							for (int d = 0; d < DBCollection.Count; d++) {
+								for (int dd = 0; dd < DBCollection[d].DBConnections.DBConnectionCollection.Count; dd++) {
+									if (DBCollection[d].DBConnections.DBConnectionCollection[dd].isDefault) {
+										db_firstdefaultavailable__
+											= DBCollection[d];
+										dbconnection_firstdefaultavailable__
+											= DBCollection[d].DBConnections.DBConnectionCollection[dd];
+
+										return dbconnection_firstdefaultavailable__;
+									}
+								}
 							}
 						}
 					}

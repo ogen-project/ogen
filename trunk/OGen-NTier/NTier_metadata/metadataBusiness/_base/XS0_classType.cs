@@ -88,13 +88,25 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		#endregion
 		#region public XS_methodsType Methods { get; set; }
 		internal XS_methodsType methods__;
+		internal object methods__locker = new object();
 
 		[XmlIgnore()]
 		public XS_methodsType Methods {
 			get {
+
+				// check before lock
 				if (methods__ == null) {
-					methods__ = new XS_methodsType();
+
+					lock (methods__locker) {
+
+						// double check, thread safer!
+						if (methods__ == null) {
+
+							methods__ = new XS_methodsType();
+						}
+					}
 				}
+
 				return methods__;
 			}
 			set {

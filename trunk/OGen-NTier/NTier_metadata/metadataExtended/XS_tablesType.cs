@@ -25,27 +25,37 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		#region public bool hasVirtualTable_withUndefinedKeys { get; }
 		private bool hasvirtualtable_withundefinedkeys_DONE__ = false;
 		private bool hasvirtualtable_withundefinedkeys__;
+		private object hasvirtualtable_withundefinedkeys__locker = new object();
 
 		public bool hasVirtualTable_withUndefinedKeys {
 			get {
-				// this isn't very safe, there's no way to assure that PKs won't be
-				// added or removed, but by the time this method is called
+				// caching isn't safe, there's no way to assure that items won't be
+				// added or removed, however by the time this method is called
 				// there won't be any more adding or removing
 
+				// check before lock
 				if (!hasvirtualtable_withundefinedkeys_DONE__) {
-					hasvirtualtable_withundefinedkeys__ = false;
-					for (int t = 0; t < TableCollection.Count; t++)
-						if (TableCollection[t].isVirtualTable)
-							if (
-								TableCollection[t].parallel_ref
-									.TableFields_onlyPK.TableFieldCollection
-										.Count == 0
-							) {
-								hasvirtualtable_withundefinedkeys__ = true;
-								break;
-							}
 
-					hasvirtualtable_withundefinedkeys_DONE__ = true;
+					lock (hasvirtualtable_withundefinedkeys__locker) {
+
+						// double check, thread safer!
+						if (!hasvirtualtable_withundefinedkeys_DONE__) {
+
+							hasvirtualtable_withundefinedkeys__ = false;
+							for (int t = 0; t < TableCollection.Count; t++)
+								if (TableCollection[t].isVirtualTable)
+									if (
+										TableCollection[t].parallel_ref
+											.TableFields_onlyPK.TableFieldCollection
+												.Count == 0
+									) {
+										hasvirtualtable_withundefinedkeys__ = true;
+										break;
+									}
+
+							hasvirtualtable_withundefinedkeys_DONE__ = true;
+						}
+					}
 				}
 
 				return hasvirtualtable_withundefinedkeys__;
@@ -55,22 +65,32 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		#region public bool hasConfigTable { get; }
 		private bool hasconfigtable__;
 		private bool hasconfigtable_DONE__ = false;
+		private object hasconfigtable__locker = new object();
 
 		public bool hasConfigTable {
 			get {
-				// this isn't very safe, there's no way to assure that PKs won't be
-				// added or removed, but by the time this method is called
+				// caching isn't safe, there's no way to assure that items won't be
+				// added or removed, however by the time this method is called
 				// there won't be any more adding or removing
 
+				// check before lock
 				if (!hasconfigtable_DONE__) {
-					hasconfigtable__ = false;
-					for (int t = 0; t < TableCollection.Count; t++)
-						if (TableCollection[t].isConfig) {
-							hasconfigtable__ = true;
-							break;
-						}
 
-					hasconfigtable_DONE__ = true;
+					lock (hasconfigtable__locker) {
+
+						// double check, thread safer!
+						if (!hasconfigtable_DONE__) {
+
+							hasconfigtable__ = false;
+							for (int t = 0; t < TableCollection.Count; t++)
+								if (TableCollection[t].isConfig) {
+									hasconfigtable__ = true;
+									break;
+								}
+
+							hasconfigtable_DONE__ = true;
+						}
+					}
 				}
 
 				return hasconfigtable__;

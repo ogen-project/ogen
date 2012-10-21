@@ -79,13 +79,25 @@ namespace OGen.XSD.lib.metadata.schema {
 		#endregion
 		#region public XS_sequenceType Sequence { get; set; }
 		internal XS_sequenceType sequence__;
+		internal object sequence__locker = new object();
 
 		[XmlIgnore()]
 		public XS_sequenceType Sequence {
 			get {
+
+				// check before lock
 				if (sequence__ == null) {
-					sequence__ = new XS_sequenceType();
+
+					lock (sequence__locker) {
+
+						// double check, thread safer!
+						if (sequence__ == null) {
+
+							sequence__ = new XS_sequenceType();
+						}
+					}
 				}
+
 				return sequence__;
 			}
 			set {

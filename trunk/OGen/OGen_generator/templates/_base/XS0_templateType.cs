@@ -89,13 +89,25 @@ namespace OGen.lib.templates {
 		#endregion
 		#region public XS_argumentsType Arguments { get; set; }
 		internal XS_argumentsType arguments__;
+		internal object arguments__locker = new object();
 
 		[XmlIgnore()]
 		public XS_argumentsType Arguments {
 			get {
+
+				// check before lock
 				if (arguments__ == null) {
-					arguments__ = new XS_argumentsType();
+
+					lock (arguments__locker) {
+
+						// double check, thread safer!
+						if (arguments__ == null) {
+
+							arguments__ = new XS_argumentsType();
+						}
+					}
 				}
+
 				return arguments__;
 			}
 			set {
@@ -111,13 +123,25 @@ namespace OGen.lib.templates {
 		#endregion
 		#region public XS_conditionsType Conditions { get; set; }
 		internal XS_conditionsType conditions__;
+		internal object conditions__locker = new object();
 
 		[XmlIgnore()]
 		public XS_conditionsType Conditions {
 			get {
+
+				// check before lock
 				if (conditions__ == null) {
-					conditions__ = new XS_conditionsType();
+
+					lock (conditions__locker) {
+
+						// double check, thread safer!
+						if (conditions__ == null) {
+
+							conditions__ = new XS_conditionsType();
+						}
+					}
 				}
+
 				return conditions__;
 			}
 			set {
@@ -133,13 +157,25 @@ namespace OGen.lib.templates {
 		#endregion
 		#region public XS_outputsType Outputs { get; set; }
 		internal XS_outputsType outputs__;
+		internal object outputs__locker = new object();
 
 		[XmlIgnore()]
 		public XS_outputsType Outputs {
 			get {
+
+				// check before lock
 				if (outputs__ == null) {
-					outputs__ = new XS_outputsType();
+
+					lock (outputs__locker) {
+
+						// double check, thread safer!
+						if (outputs__ == null) {
+
+							outputs__ = new XS_outputsType();
+						}
+					}
 				}
+
 				return outputs__;
 			}
 			set {
@@ -155,13 +191,25 @@ namespace OGen.lib.templates {
 		#endregion
 		#region public XS_dependenciesType Dependencies { get; set; }
 		internal XS_dependenciesType dependencies__;
+		internal object dependencies__locker = new object();
 
 		[XmlIgnore()]
 		public XS_dependenciesType Dependencies {
 			get {
+
+				// check before lock
 				if (dependencies__ == null) {
-					dependencies__ = new XS_dependenciesType();
+
+					lock (dependencies__locker) {
+
+						// double check, thread safer!
+						if (dependencies__ == null) {
+
+							dependencies__ = new XS_dependenciesType();
+						}
+					}
 				}
+
 				return dependencies__;
 			}
 			set {

@@ -68,30 +68,46 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		#region public metadataDB.XS_tableType parallel_ref { get; }
 		private bool parallel_ref__exists = true;
 		private OGen.NTier.lib.metadata.metadataDB.XS_tableType parallel_ref__ = null;
+		private object parallel_ref__locker = new object();
 
 		[XmlIgnore()]
 //		[XmlElement("parallel_ref")]
 		public OGen.NTier.lib.metadata.metadataDB.XS_tableType parallel_ref {
 			get {
+
+				// check before lock
 				if (
 					parallel_ref__exists
 					&&
 					(parallel_ref__ == null)
 				) {
-					int t
-						= root_ref.MetadataDBCollection[0].Tables.TableCollection.Search(
-							Name
-						);
-					if (t < 0) {
-						parallel_ref__exists = false;
-						return null;
-					}
 
-					parallel_ref__
-						= root_ref.MetadataDBCollection[0].Tables.TableCollection[
-							t
-						];
+					lock (parallel_ref__locker) {
+
+						// double check, thread safer!
+						if (
+							parallel_ref__exists
+							&&
+							(parallel_ref__ == null)
+						) {
+
+							int t
+								= root_ref.MetadataDBCollection[0].Tables.TableCollection.Search(
+									Name
+								);
+							if (t < 0) {
+								parallel_ref__exists = false;
+								return null;
+							}
+
+							parallel_ref__
+								= root_ref.MetadataDBCollection[0].Tables.TableCollection[
+									t
+								];
+						}
+					}
 				}
+
 				return parallel_ref__;
 			}
 		}

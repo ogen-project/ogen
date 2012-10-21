@@ -114,13 +114,25 @@ namespace OGen.Doc.lib.metadata.documentation {
 		#endregion
 		#region public XS_itemsType Items { get; set; }
 		internal XS_itemsType items__;
+		internal object items__locker = new object();
 
 		[XmlIgnore()]
 		public XS_itemsType Items {
 			get {
+
+				// check before lock
 				if (items__ == null) {
-					items__ = new XS_itemsType();
+
+					lock (items__locker) {
+
+						// double check, thread safer!
+						if (items__ == null) {
+
+							items__ = new XS_itemsType();
+						}
+					}
 				}
+
 				return items__;
 			}
 			set {

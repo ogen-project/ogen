@@ -103,10 +103,12 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 				return _output;
 			}
 			set {
-				cols_.Clear();
-				if (value != null) {
-					for (int i = 0; i < value.Length; i++) {
-						cols_.Add(value[i]);
+				lock (cols_) {
+					cols_.Clear();
+					if (value != null) {
+						for (int i = 0; i < value.Length; i++) {
+							cols_.Add(value[i]);
+						}
 					}
 				}
 			}

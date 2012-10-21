@@ -90,13 +90,25 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		#endregion
 		#region public XS_tableSearchParametersType TableSearchParameters { get; set; }
 		internal XS_tableSearchParametersType tablesearchparameters__;
+		internal object tablesearchparameters__locker = new object();
 
 		[XmlIgnore()]
 		public XS_tableSearchParametersType TableSearchParameters {
 			get {
+
+				// check before lock
 				if (tablesearchparameters__ == null) {
-					tablesearchparameters__ = new XS_tableSearchParametersType();
+
+					lock (tablesearchparameters__locker) {
+
+						// double check, thread safer!
+						if (tablesearchparameters__ == null) {
+
+							tablesearchparameters__ = new XS_tableSearchParametersType();
+						}
+					}
 				}
+
 				return tablesearchparameters__;
 			}
 			set {
@@ -112,13 +124,25 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		#endregion
 		#region public XS_tableSearchUpdatesType TableSearchUpdates { get; set; }
 		internal XS_tableSearchUpdatesType tablesearchupdates__;
+		internal object tablesearchupdates__locker = new object();
 
 		[XmlIgnore()]
 		public XS_tableSearchUpdatesType TableSearchUpdates {
 			get {
+
+				// check before lock
 				if (tablesearchupdates__ == null) {
-					tablesearchupdates__ = new XS_tableSearchUpdatesType();
+
+					lock (tablesearchupdates__locker) {
+
+						// double check, thread safer!
+						if (tablesearchupdates__ == null) {
+
+							tablesearchupdates__ = new XS_tableSearchUpdatesType();
+						}
+					}
 				}
+
 				return tablesearchupdates__;
 			}
 			set {

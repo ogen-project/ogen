@@ -32,27 +32,38 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 		#region public XS_tableType Table_ref { get; }
 		private XS_tableType table_ref__ = null;
+		private object table_ref__locker = new object();
 
 		public XS_tableType Table_ref {
 			get {
-				if (table_ref__ == null) {
-					#region Checking...
-					if (
-						(TableName == null)
-						||
-						(TableName == string.Empty)
-					)
-						throw new Exception(string.Format(
-							"{0}.{1}.TableIndex(): - no ref present", 
-							this.GetType().Namespace, 
-							this.GetType().Name
-						));
-					#endregion
 
-					table_ref__ 
-						= root_ref.MetadataExtendedCollection[0].Tables.TableCollection[
-							TableName
-						];
+				// check before lock
+				if (table_ref__ == null) {
+
+					lock (table_ref__locker) {
+
+						// double check, thread safer!
+						if (table_ref__ == null) {
+
+							#region Checking...
+							if (
+								(TableName == null)
+								||
+								(TableName == string.Empty)
+							)
+								throw new Exception(string.Format(
+									"{0}.{1}.TableIndex(): - no ref present",
+									this.GetType().Namespace,
+									this.GetType().Name
+								));
+							#endregion
+
+							table_ref__
+								= root_ref.MetadataExtendedCollection[0].Tables.TableCollection[
+									TableName
+								];
+						}
+					}
 				}
 
 				return table_ref__;
@@ -61,31 +72,42 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		#endregion
 		#region public XS_tableFieldType TableField_ref { get; }
 		private XS_tableFieldType tablefield_ref__ = null;
+		private object tablefield_ref__locker = new object();
 
 		public XS_tableFieldType TableField_ref {
 			get {
-				if (tablefield_ref__ == null) {
-					#region Checking...
-					if (
-						(TableName == null)
-						||
-						(TableName == string.Empty)
-						||
-						(TableFieldName == null)
-						||
-						(TableFieldName == string.Empty)
-					)
-						throw new Exception(string.Format(
-							"{0}.{1}.FieldIndex(): - no ref present", 
-							this.GetType().Namespace, 
-							this.GetType().Name
-						));
-					#endregion
 
-					tablefield_ref__ 
-						= Table_ref.TableFields.TableFieldCollection[
-							TableFieldName
-						];
+				// check before lock
+				if (tablefield_ref__ == null) {
+
+					lock (tablefield_ref__locker) {
+
+						// double check, thread safer!
+						if (tablefield_ref__ == null) {
+
+							#region Checking...
+							if (
+								(TableName == null)
+								||
+								(TableName == string.Empty)
+								||
+								(TableFieldName == null)
+								||
+								(TableFieldName == string.Empty)
+							)
+								throw new Exception(string.Format(
+									"{0}.{1}.FieldIndex(): - no ref present",
+									this.GetType().Namespace,
+									this.GetType().Name
+								));
+							#endregion
+
+							tablefield_ref__
+								= Table_ref.TableFields.TableFieldCollection[
+									TableFieldName
+								];
+						}
+					}
 				}
 
 				return tablefield_ref__;

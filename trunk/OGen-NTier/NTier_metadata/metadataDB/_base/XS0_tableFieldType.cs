@@ -179,13 +179,25 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		#endregion
 		#region public XS_tableFieldDBsType TableFieldDBs { get; set; }
 		internal XS_tableFieldDBsType tablefielddbs__;
+		internal object tablefielddbs__locker = new object();
 
 		[XmlIgnore()]
 		public XS_tableFieldDBsType TableFieldDBs {
 			get {
+
+				// check before lock
 				if (tablefielddbs__ == null) {
-					tablefielddbs__ = new XS_tableFieldDBsType();
+
+					lock (tablefielddbs__locker) {
+
+						// double check, thread safer!
+						if (tablefielddbs__ == null) {
+
+							tablefielddbs__ = new XS_tableFieldDBsType();
+						}
+					}
 				}
+
 				return tablefielddbs__;
 			}
 			set {

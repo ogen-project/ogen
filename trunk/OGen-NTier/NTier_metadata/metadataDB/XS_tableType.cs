@@ -33,6 +33,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		#region public metadataExtended.XS_tableType parallel_ref { get; }
 		private bool parallel_ref__exists = true;
 		private OGen.NTier.lib.metadata.metadataExtended.XS_tableType parallel_ref__ = null;
+		private object parallel_ref__locker = new object();
 
 		[XmlIgnore()]
 //		[XmlElement("parallel_ref")]
@@ -46,7 +47,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 					(parallel_ref__ == null)
 				) {
 
-					lock (parallel_ref__) {
+					lock (parallel_ref__locker) {
 
 						// double check, thread safer!
 						if (
@@ -79,17 +80,18 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 
 		#region public XS_tableFieldsType TableFields_onlyPK { get; }
 		private XS_tableFieldsType tablefields_onlypk__ = null;
+		private object tablefields_onlypk__locker = new object();
 
 		public XS_tableFieldsType TableFields_onlyPK {
 			get {
-				// this isn't very safe, there's no way to assure that PKs won't be
+				// caching isn't safe, there's no way to assure that items won't be
 				// added or removed, however by the time this method is called
-				// there won't be any more adding or removing ... not an easy decision
+				// there won't be any more adding or removing
 
 				// check before lock
 				if (tablefields_onlypk__ == null) {
 
-					lock (tablefields_onlypk__) {
+					lock (tablefields_onlypk__locker) {
 
 						// double check, thread safer!
 						if (tablefields_onlypk__ == null) {
@@ -113,17 +115,18 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		#endregion
 		#region public XS_tableFieldsType TableFields_noPK { get; }
 		private XS_tableFieldsType tablefields_nopk__ = null;
+		private object tablefields_nopk__locker = new object();
 
 		public XS_tableFieldsType TableFields_nopk {
 			get {
-				// this isn't very safe, there's no way to assure that PKs won't be
+				// caching isn't safe, there's no way to assure that items won't be
 				// added or removed, however by the time this method is called
-				// there won't be any more adding or removing ... not an easy decision
+				// there won't be any more adding or removing
 
 				// check before lock
 				if (tablefields_nopk__ == null) {
 
-					lock (tablefields_onlypk__) {
+					lock (tablefields_nopk__locker) {
 
 						// double check, thread safer!
 						if (tablefields_nopk__ == null) {
@@ -154,9 +157,9 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("hasPK")]
 		public bool hasPK {
 			get {
-				// this isn't very safe, there's no way to assure that PKs won't be
+				// caching isn't safe, there's no way to assure that items won't be
 				// added or removed, however by the time this method is called
-				// there won't be any more adding or removing ... not an easy decision
+				// there won't be any more adding or removing
 
 				// check before lock
 				if (!haspk__beenread) {
@@ -191,14 +194,14 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("hasIdentityKey")]
 		public bool hasIdentityKey {
 			get {
-				// this isn't very safe, there's no way to assure that PKs won't be
+				// caching isn't safe, there's no way to assure that items won't be
 				// added or removed, however by the time this method is called
-				// there won't be any more adding or removing ... not an easy decision
+				// there won't be any more adding or removing
 
 				// check before lock
 				if (!hasidentitykey__beenread) {
 
-					lock(hasidentitykey__locker) {
+					lock (hasidentitykey__locker) {
 
 						// double check, thread safer!
 						if (!hasidentitykey__beenread) {
@@ -227,9 +230,9 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 //		[XmlAttribute("identityKey")]
 		public int IdentityKey {
 			get {
-				// this isn't very safe, there's no way to assure that PKs won't be
+				// caching isn't safe, there's no way to assure that items won't be
 				// added or removed, however by the time this method is called
-				// there won't be any more adding or removing ... not an easy decision
+				// there won't be any more adding or removing
 
 				// check before lock
 				if (identitykey__ == -2) {
@@ -259,9 +262,9 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 
 		public int firstKey {
 			get {
-				// this isn't very safe, there's no way to assure that PKs won't be
+				// caching isn't safe, there's no way to assure that items won't be
 				// added or removed, however by the time this method is called
-				// there won't be any more adding or removing ... not an easy decision
+				// there won't be any more adding or removing
 
 				// check before lock
 				if (firstkey__ == -2) {
@@ -297,9 +300,9 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 
 		public bool canBeConfig {
 			get {
-				// this isn't very safe, there's no way to assure that PKs won't be
+				// caching isn't safe, there's no way to assure that items won't be
 				// added or removed, however by the time this method is called
-				// there won't be any more adding or removing ... not an easy decision
+				// there won't be any more adding or removing
 
 				// check before lock
 				if (!canbeconfig__beenread) {

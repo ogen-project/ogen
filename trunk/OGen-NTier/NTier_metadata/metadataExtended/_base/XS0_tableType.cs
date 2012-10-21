@@ -170,13 +170,25 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		#endregion
 		#region public XS_tableFieldsType TableFields { get; set; }
 		internal XS_tableFieldsType tablefields__;
+		internal object tablefields__locker = new object();
 
 		[XmlIgnore()]
 		public XS_tableFieldsType TableFields {
 			get {
+
+				// check before lock
 				if (tablefields__ == null) {
-					tablefields__ = new XS_tableFieldsType();
+
+					lock (tablefields__locker) {
+
+						// double check, thread safer!
+						if (tablefields__ == null) {
+
+							tablefields__ = new XS_tableFieldsType();
+						}
+					}
 				}
+
 				return tablefields__;
 			}
 			set {
@@ -192,13 +204,25 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		#endregion
 		#region public XS_tableSearchesType TableSearches { get; set; }
 		internal XS_tableSearchesType tablesearches__;
+		internal object tablesearches__locker = new object();
 
 		[XmlIgnore()]
 		public XS_tableSearchesType TableSearches {
 			get {
+
+				// check before lock
 				if (tablesearches__ == null) {
-					tablesearches__ = new XS_tableSearchesType();
+
+					lock (tablesearches__locker) {
+
+						// double check, thread safer!
+						if (tablesearches__ == null) {
+
+							tablesearches__ = new XS_tableSearchesType();
+						}
+					}
 				}
+
 				return tablesearches__;
 			}
 			set {
@@ -214,13 +238,25 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		#endregion
 		#region public XS_tableUpdatesType TableUpdates { get; set; }
 		internal XS_tableUpdatesType tableupdates__;
+		internal object tableupdates__locker = new object();
 
 		[XmlIgnore()]
 		public XS_tableUpdatesType TableUpdates {
 			get {
+
+				// check before lock
 				if (tableupdates__ == null) {
-					tableupdates__ = new XS_tableUpdatesType();
+
+					lock (tableupdates__locker) {
+
+						// double check, thread safer!
+						if (tableupdates__ == null) {
+
+							tableupdates__ = new XS_tableUpdatesType();
+						}
+					}
 				}
+
 				return tableupdates__;
 			}
 			set {

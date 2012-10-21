@@ -135,13 +135,25 @@ namespace OGen.XSD.lib.metadata.schema {
 		#endregion
 		#region public XS_elementType Element { get; set; }
 		internal XS_elementType element__;
+		internal object element__locker = new object();
 
 		[XmlIgnore()]
 		public XS_elementType Element {
 			get {
+
+				// check before lock
 				if (element__ == null) {
-					element__ = new XS_elementType();
+
+					lock (element__locker) {
+
+						// double check, thread safer!
+						if (element__ == null) {
+
+							element__ = new XS_elementType();
+						}
+					}
 				}
+
 				return element__;
 			}
 			set {

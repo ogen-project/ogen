@@ -28,16 +28,27 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 
 		#region public int Count_onlyPK { get; }
 		private int count_onlypk__ = -2;
+		private object count_onlypk__locker = new object();
 
 		public int Count_onlyPK {
 			get {
-				if (count_onlypk__ == -2) {
-					int _count = 0;
-					for (int f = 0; f < this.Count; f++) {
-						if (this[f].isPK) _count++;
-					}
 
-					count_onlypk__ = _count;
+				// check before lock
+				if (count_onlypk__ == -2) {
+
+					lock (count_onlypk__locker) {
+
+						// double check, thread safer!
+						if (count_onlypk__ == -2) {
+
+							int _count = 0;
+							for (int f = 0; f < this.Count; f++) {
+								if (this[f].isPK) _count++;
+							}
+
+							count_onlypk__ = _count;
+						}
+					}
 				}
 
 				return count_onlypk__;

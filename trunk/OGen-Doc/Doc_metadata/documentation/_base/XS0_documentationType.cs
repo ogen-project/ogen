@@ -140,13 +140,25 @@ namespace OGen.Doc.lib.metadata.documentation {
 		#endregion
 		#region public XS_chaptersType Chapters { get; set; }
 		internal XS_chaptersType chapters__;
+		internal object chapters__locker = new object();
 
 		[XmlIgnore()]
 		public XS_chaptersType Chapters {
 			get {
+
+				// check before lock
 				if (chapters__ == null) {
-					chapters__ = new XS_chaptersType();
+
+					lock (chapters__locker) {
+
+						// double check, thread safer!
+						if (chapters__ == null) {
+
+							chapters__ = new XS_chaptersType();
+						}
+					}
 				}
+
 				return chapters__;
 			}
 			set {

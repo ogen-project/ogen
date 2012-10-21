@@ -101,13 +101,25 @@ namespace OGen.Doc.lib.metadata.documentation {
 		#endregion
 		#region public XS_attachmentsType Attachments { get; set; }
 		internal XS_attachmentsType attachments__;
+		internal object attachments__locker = new object();
 
 		[XmlIgnore()]
 		public XS_attachmentsType Attachments {
 			get {
+
+				// check before lock
 				if (attachments__ == null) {
-					attachments__ = new XS_attachmentsType();
+
+					lock (attachments__locker) {
+
+						// double check, thread safer!
+						if (attachments__ == null) {
+
+							attachments__ = new XS_attachmentsType();
+						}
+					}
 				}
+
 				return attachments__;
 			}
 			set {

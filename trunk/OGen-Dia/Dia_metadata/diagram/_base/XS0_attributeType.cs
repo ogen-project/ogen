@@ -95,13 +95,25 @@ namespace OGen.Dia.lib.metadata.diagram {
 		#endregion
 		#region public XS_booleanType Boolean { get; set; }
 		internal XS_booleanType boolean__;
+		internal object boolean__locker = new object();
 
 		[XmlIgnore()]
 		public XS_booleanType Boolean {
 			get {
+
+				// check before lock
 				if (boolean__ == null) {
-					boolean__ = new XS_booleanType();
+
+					lock (boolean__locker) {
+
+						// double check, thread safer!
+						if (boolean__ == null) {
+
+							boolean__ = new XS_booleanType();
+						}
+					}
 				}
+
 				return boolean__;
 			}
 			set {
@@ -117,13 +129,25 @@ namespace OGen.Dia.lib.metadata.diagram {
 		#endregion
 		#region public XS_enumType Enum { get; set; }
 		internal XS_enumType enum__;
+		internal object enum__locker = new object();
 
 		[XmlIgnore()]
 		public XS_enumType Enum {
 			get {
+
+				// check before lock
 				if (enum__ == null) {
-					enum__ = new XS_enumType();
+
+					lock (enum__locker) {
+
+						// double check, thread safer!
+						if (enum__ == null) {
+
+							enum__ = new XS_enumType();
+						}
+					}
 				}
+
 				return enum__;
 			}
 			set {

@@ -62,13 +62,25 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		#endregion
 		#region public XS_classesType Classes { get; set; }
 		internal XS_classesType classes__;
+		internal object classes__locker = new object();
 
 		[XmlIgnore()]
 		public XS_classesType Classes {
 			get {
+
+				// check before lock
 				if (classes__ == null) {
-					classes__ = new XS_classesType();
+
+					lock (classes__locker) {
+
+						// double check, thread safer!
+						if (classes__ == null) {
+
+							classes__ = new XS_classesType();
+						}
+					}
 				}
+
 				return classes__;
 			}
 			set {

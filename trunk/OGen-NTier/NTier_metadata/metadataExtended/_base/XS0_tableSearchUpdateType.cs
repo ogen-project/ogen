@@ -62,13 +62,25 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		#endregion
 		#region public XS_tableSearchUpdateParametersType TableSearchUpdateParameters { get; set; }
 		internal XS_tableSearchUpdateParametersType tablesearchupdateparameters__;
+		internal object tablesearchupdateparameters__locker = new object();
 
 		[XmlIgnore()]
 		public XS_tableSearchUpdateParametersType TableSearchUpdateParameters {
 			get {
+
+				// check before lock
 				if (tablesearchupdateparameters__ == null) {
-					tablesearchupdateparameters__ = new XS_tableSearchUpdateParametersType();
+
+					lock (tablesearchupdateparameters__locker) {
+
+						// double check, thread safer!
+						if (tablesearchupdateparameters__ == null) {
+
+							tablesearchupdateparameters__ = new XS_tableSearchUpdateParametersType();
+						}
+					}
 				}
+
 				return tablesearchupdateparameters__;
 			}
 			set {
