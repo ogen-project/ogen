@@ -19,14 +19,15 @@ using System.IO;
 using System.Collections;
 
 namespace OGen.lib.parser {
-	public class ParserASPX { private ParserASPX() {}
+	public static class ParserASPX {
+
 		#region static ParserASPX();
 		static ParserASPX() {
-			myhost_ = new Hashtable();
+			myhost_ = new System.Collections.Generic.Dictionary<string, MyHost>();
 		}
 		#endregion
 
-		private static Hashtable myhost_;
+		private static System.Collections.Generic.Dictionary<string, MyHost> myhost_;
 
 		private class MyHost : MarshalByRefObject, IRegisteredObject {
 			public override Object InitializeLifetimeService() {
@@ -62,21 +63,22 @@ namespace OGen.lib.parser {
 		) {
 
 			// check before lock
-			if (!myhost_.Contains(appPath_in)) {
+			if (!myhost_.ContainsKey(appPath_in)) {
 
-				lock (myhost_) { // thread safer!
+				lock (myhost_) {
 
 					// --- performance hack! keeping host static, 
 					// instantiating only one host per Physical/Application Path
 
 					// double check, thread safer!
-					if (!myhost_.Contains(appPath_in)) {
+					if (!myhost_.ContainsKey(appPath_in)) {
 						string _appId = "ParserASPX_" + Guid.NewGuid().GetHashCode().ToString("x");
+
 						string _virtualPath = "/";
 
 						myhost_.Add(
 							appPath_in,
-							ApplicationManager.GetApplicationManager().CreateObject(
+							(MyHost)ApplicationManager.GetApplicationManager().CreateObject(
 								_appId,
 								typeof(MyHost),
 								_virtualPath,
@@ -88,8 +90,8 @@ namespace OGen.lib.parser {
 				}
 			}
 
-			((MyHost)myhost_[appPath_in]).RunRequest(
-				aspxFile_in, 
+			myhost_[appPath_in].RunRequest(
+				aspxFile_in,
 				OGen.lib.presentationlayer.webforms.utils.ConcatenateURLParams(parameters_in),
 				ref textwriter_out
 			);
