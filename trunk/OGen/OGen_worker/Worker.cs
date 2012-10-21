@@ -50,9 +50,8 @@ namespace OGen.lib.worker {
 		/// <summary>
 		/// fired when current thread finishes work (other threads may still be doing work)
 		/// </summary>
-		/// <param name="othersStillWorking_in">true if all threads finished work, false some still doing work</param>
-		/// <returns></returns>
-		public delegate bool ThreadFinished(bool othersStillWorking_in);
+		/// <param name="othersStillWorking_in">true if some threads still doing work, false if all threads finished work</param>
+		public delegate void ThreadFinished(bool othersStillWorking_in);
 
 		/// <summary>
 		/// method to be invoked when thread begins executing
@@ -61,7 +60,7 @@ namespace OGen.lib.worker {
 		/// <param name="isReadyToWork_in">used to verify that work item is ready to work (check any priority rule)</param>
 		/// <param name="makeItWork_in">fired when work item is ready to do work</param>
 		/// <param name="threadFinished_in">optional, fired when current thread finishes work (other threads may still be doing work)</param>
-		/// <returns></returns>
+		/// <returns>true if some threads still doing work, false if all threads finished work</returns>
 #if NET_1_1
 		public bool DoWork(
 			WorkItem[] workItems_in,
@@ -78,55 +77,54 @@ namespace OGen.lib.worker {
 			ThreadFinished threadFinished_in = null
 		) {
 #if NET_1_1
-			WorkItem _item = null;
+			WorkItem _item;
 #else
-			WorkItem<T> _item = null;
+			WorkItem<T> _item;
 #endif
-			lock (WorkLocker) {
+			bool _itemsonqueue;
+			bool _othersstillworking;
+			do {
 
-				bool _othersstillworking = true;
-				_item = null;
-				for (int i = 0; i < workItems_in.Length; i++) {
-					if (
-						(workItems_in[i].State == WorkItemState.Waiting)
-						&&
-						isReadyToWork_in(workItems_in[i].Item) // ask again
-					) {
-						workItems_in[i].State = WorkItemState.Ready;
+				lock (WorkLocker) {
+					_item = null;
+					_itemsonqueue = false;
+					_othersstillworking = false;
+					for (int i = 0; i < workItems_in.Length; i++) {
+						if (
+							(workItems_in[i].State == WorkItemState.Waiting)
+							&&
+							isReadyToWork_in(workItems_in[i].Item) // ask again
+						) {
+							workItems_in[i].State = WorkItemState.Ready;
+						}
+
+						if (workItems_in[i].State == WorkItemState.Waiting) {
+							_itemsonqueue = true;
+						} else if (workItems_in[i].State == WorkItemState.Ready) {
+							_item = workItems_in[i];
+							break;
+						} else if (workItems_in[i].State == WorkItemState.Doing) {
+							_othersstillworking = true;
+						}
 					}
 
-					if (workItems_in[i].State == WorkItemState.Ready) {
-						_item = workItems_in[i];
-						_othersstillworking = false;
-						break;
-					} else if (workItems_in[i].State == WorkItemState.Doing) {
-						_othersstillworking = false;
+					if (_item != null) {
+						_item.State = WorkItemState.Doing;
+					} else if (!_itemsonqueue) {
+						if (threadFinished_in != null) {
+							threadFinished_in(_othersstillworking);
+						}
+
+						return _othersstillworking;
 					}
 				}
 
-				if (_item == null) {
-					if (threadFinished_in != null) {
-						threadFinished_in(_othersstillworking);
-					}
-
-					return _othersstillworking;
+				if (_item != null) {
+					makeItWork_in(_item.Item);
+					_item.State = WorkItemState.Done;
 				}
 
-				_item.State = WorkItemState.Doing;
-			}
-
-			makeItWork_in(_item.Item);
-			_item.State = WorkItemState.Done;
-
-#if NET_1_1
-			return DoWork(
-#else
-			return DoWork<T>(
-#endif
-				workItems_in,
-				isReadyToWork_in,
-				makeItWork_in
-			);
+			} while (true);
 		}
 	}
 }

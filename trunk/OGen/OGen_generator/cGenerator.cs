@@ -623,6 +623,9 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 
 			public System.Threading.Thread Thread;
 			public DBConnectionstrings DBConnectionstrings;
+#if DEBUG
+			public long TotalTicks = 0L;
+#endif
 		}
 		#endregion
 
@@ -737,6 +740,9 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 				}
 				#endregion
 
+#if DEBUG
+				int T = t;
+#endif
 				System.Threading.Thread _thread = new System.Threading.Thread(delegate() {
 #if NET_1_1
 					_worker.DoWork(
@@ -770,7 +776,9 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 										_templatesState[f].Item.ID
 #endif
 									) {
-										_finishedDependencies++;
+										if (_templatesState[f].State == worker.WorkItemState.Done) {
+											_finishedDependencies++;
+										}
 										break;
 									}
 								}
@@ -791,7 +799,11 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 							XS_templateType _template = template_in;
 #endif
 
-							#region RUNNING: templates_[template_] ...
+#if DEBUG
+							long _begin = DateTime.Now.Ticks;
+#endif
+
+							#region RUNNING: _template ...
 
 							bool _valuehasbeenfound_out = false;
 							metadata_.IterateThrough_fromRoot(
@@ -818,9 +830,17 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 #pragma warning restore 728
 							}
 
+#if DEBUG
+							_workthreads[T].TotalTicks += DateTime.Now.Ticks - _begin;
+							TimeSpan _end = new TimeSpan(DateTime.Now.Ticks - _begin);
+#endif
 							notifyback_(
 								string.Format(
+#if DEBUG
+									"thread {4}: #{0}/{1} - {2} {3}\t\t{5}s {6}m",
+#else
 									"thread {4}: #{0}/{1} - {2} {3}",
+#endif
 									_threaditerarion,
 									templates_.TemplateCollection.Count,
 #if NET_1_1
@@ -830,6 +850,11 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 #endif
 									(_valuehasbeenfound_out ? "... DONE!" : "NOT doing!"),
 									System.Threading.Thread.CurrentThread.Name
+#if DEBUG
+									,
+									Convert.ToInt32(_end.TotalSeconds),
+									_end.Milliseconds
+#endif
 								),
 								true
 							);
@@ -839,11 +864,11 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 				});
 				_thread.Name = string.Format("{0}", t + 1);
 				_thread.IsBackground = true;
-				_thread.Start();
 				_workthreads[t] = new WorkerThread(
 					_thread,
 					_dbconnectionstrings
 				);
+				_thread.Start();
 			}
 
 			for (int t = 0; t < _workthreads.Length; t++) {
@@ -854,6 +879,18 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 				}
 				#endregion
 			}
+
+#if DEBUG
+			for (int t = 0; t < _workthreads.Length; t++) {
+				TimeSpan _span = new TimeSpan(_workthreads[t].TotalTicks);
+				Console.WriteLine(
+					"thread {0}: work span: {1}s {2}m",
+					_workthreads[t].Thread.Name,
+					Convert.ToInt32(_span.TotalSeconds),
+					_span.Milliseconds
+				);
+			}
+#endif
 		}
 		#endregion
 //		public void Build(
