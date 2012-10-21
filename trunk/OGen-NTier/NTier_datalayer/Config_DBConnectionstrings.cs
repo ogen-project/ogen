@@ -82,19 +82,32 @@ namespace OGen.NTier.lib.datalayer {
 		#region public static Properties...
 		#region public static string[] Applications { get; }
 		private static string[] applications__;
+		private static object applications__locker = new object();
+
 		public static string[] Applications {
 			get {
+
+				// check before lock
 				if (applications__ == null) {
-					applications__ = 
-						#if !NET_1_1
-						System.Configuration.ConfigurationManager.AppSettings
-						#else
-						System.Configuration.ConfigurationSettings.AppSettings
-						#endif
-							[
-								"applications"
-							].Split(':');
+
+					lock (applications__locker) {
+
+						// double check, thread safer!
+						if (applications__ == null) {
+
+							applications__ = 
+								#if !NET_1_1
+								System.Configuration.ConfigurationManager.AppSettings
+								#else
+								System.Configuration.ConfigurationSettings.AppSettings
+								#endif
+									[
+										"applications"
+									].Split(':');
+						}
+					}
 				}
+
 				return applications__;
 			}
 		}
@@ -130,44 +143,54 @@ namespace OGen.NTier.lib.datalayer {
 		}
 		#endregion
 		#region public static string[] ConfigModes(string application_in);
-		private static Hashtable configmodes__;
+		private static Hashtable configmodes__ = new Hashtable();;
+
 		/// <summary>
 		/// Supported Config Modes (i.e. DEBUG, !DEBUG, etc.) for a specific application.
 		/// </summary>
 		/// <param name="application_in">name of the application</param>
 		/// <returns></returns>
 		public static string[] ConfigModes(string application_in) {
-			if (configmodes__ == null) configmodes__ = new Hashtable();
+
+			// check before lock
 			if (!configmodes__.Contains(application_in)) {
-				configmodes__.Add(
-					application_in, 
-					#if !NET_1_1
-					System.Configuration.ConfigurationManager.AppSettings
-					#else
-					System.Configuration.ConfigurationSettings.AppSettings
-					#endif
-						[
-							string.Format(
-								"{0}:ConfigModes", 
-//								ApplicationName
-								application_in
-							)
-						].Split(':')
-				);
+
+				lock (configmodes__) {
+
+					// double check, thread safer!
+					if (!configmodes__.Contains(application_in)) {
+
+						configmodes__.Add(
+							application_in, 
+							#if !NET_1_1
+							System.Configuration.ConfigurationManager.AppSettings
+							#else
+							System.Configuration.ConfigurationSettings.AppSettings
+							#endif
+								[
+									string.Format(
+										"{0}:ConfigModes", 
+//										ApplicationName
+										application_in
+									)
+								].Split(':')
+						);
+					}
+				}
 			}
+
 			return (string[])configmodes__[application_in];
 		}
 		#endregion
 		#region public static string[] DBServerTypes(string application_in);
-		private static Hashtable dbservertypes__;
+		private static Hashtable dbservertypes__ = new Hashtable();
+
 		/// <summary>
 		/// Supported DB Server Types.
 		/// </summary>
 		public static string[] DBServerTypes(
 			string application_in
 		) {
-			if (dbservertypes__ == null) 
-				dbservertypes__ = new Hashtable();
 
 			// check before lock
 			if (!dbservertypes__.Contains(application_in)) {
@@ -208,12 +231,10 @@ namespace OGen.NTier.lib.datalayer {
 		}
 		#endregion
 		#region public static Config_DBConnectionstrings DBConnectionstrings(string application_in);
-		private static Hashtable dbconnectionstrings__;
+		private static Hashtable dbconnectionstrings__ = new Hashtable();
 		public static Config_DBConnectionstrings DBConnectionstrings(
 			string application_in
 		) {
-			if (dbconnectionstrings__ == null) 
-				dbconnectionstrings__ = new Hashtable();
 
 			// check before lock
 			if (!dbconnectionstrings__.Contains(application_in)) {

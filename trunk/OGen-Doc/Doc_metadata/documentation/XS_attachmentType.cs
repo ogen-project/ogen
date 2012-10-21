@@ -41,11 +41,22 @@ namespace OGen.Doc.lib.metadata.documentation {
 
 		#region public int ImageNumber { get; }
 		private int imagenumber__ = -2;
+		private object imagenumber__locker = new object();
 
 		public int ImageNumber {
 			get {
+
+				// check before lock
 				if (imagenumber__ == -2) {
-					imagenumber__ = NumberOf(XS_SourceContentTypeEnumeration.image);
+
+					lock (imagenumber__locker) {
+
+						// double check, thread safer!
+						if (imagenumber__ == -2) {
+
+							imagenumber__ = NumberOf(XS_SourceContentTypeEnumeration.image);
+						}
+					}
 				}
 				return imagenumber__;
 			}
@@ -53,23 +64,46 @@ namespace OGen.Doc.lib.metadata.documentation {
 		#endregion
 		#region public int TableNumber { get; }
 		private int tablenumber__ = -2;
+		private object tablenumber__locker = new object();
 
 		public int TableNumber {
 			get {
+
+				// check before lock
 				if (tablenumber__ == -2) {
-					tablenumber__ = NumberOf(XS_SourceContentTypeEnumeration.table);
+
+					lock (tablenumber__locker) {
+
+						// double check, thread safer!
+						if (tablenumber__ == -2) {
+
+							tablenumber__ = NumberOf(XS_SourceContentTypeEnumeration.table);
+						}
+					}
 				}
+
 				return tablenumber__;
 			}
 		}
 		#endregion
 		#region public int CodeNumber { get; }
 		private int codenumber__ = -2;
+		private object codenumber__locker = new object();
 
 		public int CodeNumber {
 			get {
+
+				// check before lock
 				if (codenumber__ == -2) {
-					codenumber__ = NumberOf(XS_SourceContentTypeEnumeration.code);
+
+					lock (codenumber__locker) {
+
+						// double check, thread safer!
+						if (codenumber__ == -2) {
+
+							codenumber__ = NumberOf(XS_SourceContentTypeEnumeration.code);
+						}
+					}
 				}
 				return codenumber__;
 			}

@@ -103,35 +103,51 @@ namespace OGen.NTier.lib.datalayer {
 
 		private bool connection_insideinstance_;
 		private DBConnection connection__;
+		private object connection__locker = new object();
 
 		/// <summary>
 		/// DB Connection.
 		/// </summary>
 		public DBConnection Connection {
 			get {
+
+				// check before lock
 				if (
 					connection_insideinstance_
 					&&
 					(connection__ == null)
 				) {
-					// instantiating for the first time and
-					// only because it became needed, otherwise
-					// never instantiated...
 
-					if (logenabled_) {
-						connection__ =  DBConnection_createInstance(
-							connection_dbservertype_,
-							connection_connectionstring_,
-							logfile_
-						);
-					} else {
-						connection__ = DBConnection_createInstance(
-							connection_dbservertype_,
-							connection_connectionstring_, 
-							null
-						);
+					lock (connection__locker) {
+
+						// double check, thread safer!
+						if (
+							connection_insideinstance_
+							&&
+							(connection__ == null)
+						) {
+
+							// instantiating for the first time and
+							// only because it became needed, otherwise
+							// never instantiated...
+
+							if (logenabled_) {
+								connection__ = DBConnection_createInstance(
+									connection_dbservertype_,
+									connection_connectionstring_,
+									logfile_
+								);
+							} else {
+								connection__ = DBConnection_createInstance(
+									connection_dbservertype_,
+									connection_connectionstring_, 
+									null
+								);
+							}
+						}
 					}
 				}
+
 				return connection__;
 			}
 		}

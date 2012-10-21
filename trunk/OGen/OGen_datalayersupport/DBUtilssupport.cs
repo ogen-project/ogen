@@ -30,10 +30,22 @@ namespace OGen.lib.datalayer {
 #if PostgreSQL
 		#region private static DBUtils_PostgreSQL dbUtils_PostgreSQL { get; }
 		private static DBUtils_PostgreSQL dbutils_postgresql__;
+		private static object dbutils_postgresql__locker = new object();
+
 		private static DBUtils_PostgreSQL dbUtils_PostgreSQL {
 			get{
+
+				// check before lock
 				if (dbutils_postgresql__ == null) {
-					dbutils_postgresql__ = new DBUtils_PostgreSQL();
+
+					lock (dbutils_postgresql__locker) {
+
+						// double check, thread safer!
+						if (dbutils_postgresql__ == null) {
+
+							dbutils_postgresql__ = new DBUtils_PostgreSQL();
+						}
+					}
 				}
 
 				return dbutils_postgresql__;
@@ -43,10 +55,22 @@ namespace OGen.lib.datalayer {
 #endif
 		#region private static DBUtils_SQLServer dbUtils_SQLServer { get; }
 		private static DBUtils_SQLServer dbutils_sqlserver__;
+		private static object dbutils_sqlserver__locker = new object();
+
 		private static DBUtils_SQLServer dbUtils_SQLServer {
 			get{
+
+				// check before lock
 				if (dbutils_sqlserver__ == null) {
-					dbutils_sqlserver__ = new DBUtils_SQLServer();
+
+					lock (dbutils_sqlserver__locker) {
+
+						// double check, thread safer!
+						if (dbutils_sqlserver__ == null) {
+
+							dbutils_sqlserver__ = new DBUtils_SQLServer();
+						}
+					}
 				}
 
 				return dbutils_sqlserver__;
@@ -56,10 +80,22 @@ namespace OGen.lib.datalayer {
 #if MySQL
 		#region private static DBUtils_MySQL dbUtils_MySQL { get; }
 		private static DBUtils_MySQL dbutils_mysql__;
+		private static object dbutils_mysql__locker = new object();
+
 		private static DBUtils_MySQL dbUtils_MySQL {
 			get{
+
+				// check before lock
 				if (dbutils_mysql__ == null) {
-					dbutils_mysql__ = new DBUtils_MySQL();
+
+					lock (dbutils_mysql__locker) {
+
+						// double check, thread safer!
+						if (dbutils_mysql__ == null) {
+
+							dbutils_mysql__ = new DBUtils_MySQL();
+						}
+					}
 				}
 
 				return dbutils_mysql__;
