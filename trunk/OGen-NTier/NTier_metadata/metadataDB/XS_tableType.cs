@@ -38,25 +38,40 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 //		[XmlElement("parallel_ref")]
 		public OGen.NTier.lib.metadata.metadataExtended.XS_tableType parallel_ref {
 			get {
+
+				// check before lock
 				if (
 					parallel_ref__exists
 					&&
 					(parallel_ref__ == null)
 				) {
-					int t
-						= root_ref.MetadataExtendedCollection[0].Tables.TableCollection.Search(
-							Name
-						);
-					if (t < 0) {
-						parallel_ref__exists = false;
-						return null;
-					}
 
-					parallel_ref__ 
-						= root_ref.MetadataExtendedCollection[0].Tables.TableCollection[
-							t
-						];
+					lock (parallel_ref__) {
+
+						// double check, thread safer!
+						if (
+							parallel_ref__exists
+							&&
+							(parallel_ref__ == null)
+						) {
+
+							int t
+								= root_ref.MetadataExtendedCollection[0].Tables.TableCollection.Search(
+									Name
+								);
+							if (t < 0) {
+								parallel_ref__exists = false;
+								return null;
+							}
+
+							parallel_ref__
+								= root_ref.MetadataExtendedCollection[0].Tables.TableCollection[
+									t
+								];
+						}
+					}
 				}
+
 				return parallel_ref__;
 			}
 		}
@@ -68,20 +83,30 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		public XS_tableFieldsType TableFields_onlyPK {
 			get {
 				// this isn't very safe, there's no way to assure that PKs won't be
-				// added or removed, but by the time this method is called
-				// there won't be any more adding or removing
+				// added or removed, however by the time this method is called
+				// there won't be any more adding or removing ... not an easy decision
 
+				// check before lock
 				if (tablefields_onlypk__ == null) {
-					tablefields_onlypk__ = new XS_tableFieldsType();
-					tablefields_onlypk__.parent_ref = this;
-					tablefields_onlypk__.root_ref = root_ref;
 
-					for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
-						if (TableFields.TableFieldCollection[f].isPK)
-							tablefields_onlypk__.TableFieldCollection.Add(
-								TableFields.TableFieldCollection[f]
-							);
+					lock (tablefields_onlypk__) {
+
+						// double check, thread safer!
+						if (tablefields_onlypk__ == null) {
+
+							tablefields_onlypk__ = new XS_tableFieldsType();
+							tablefields_onlypk__.parent_ref = this;
+							tablefields_onlypk__.root_ref = root_ref;
+
+							for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
+								if (TableFields.TableFieldCollection[f].isPK)
+									tablefields_onlypk__.TableFieldCollection.Add(
+										TableFields.TableFieldCollection[f]
+									);
+						}
+					}
 				}
+
 				return tablefields_onlypk__;
 			}
 		}
@@ -92,26 +117,37 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		public XS_tableFieldsType TableFields_nopk {
 			get {
 				// this isn't very safe, there's no way to assure that PKs won't be
-				// added or removed, but by the time this method is called
-				// there won't be any more adding or removing
+				// added or removed, however by the time this method is called
+				// there won't be any more adding or removing ... not an easy decision
 
+				// check before lock
 				if (tablefields_nopk__ == null) {
-					tablefields_nopk__ = new XS_tableFieldsType();
-					tablefields_nopk__.parent_ref = this;
-					tablefields_nopk__.root_ref = root_ref;
 
-					for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
-						if (!TableFields.TableFieldCollection[f].isPK)
-							tablefields_nopk__.TableFieldCollection.Add(
-								TableFields.TableFieldCollection[f]
-							);
+					lock (tablefields_onlypk__) {
+
+						// double check, thread safer!
+						if (tablefields_nopk__ == null) {
+
+							tablefields_nopk__ = new XS_tableFieldsType();
+							tablefields_nopk__.parent_ref = this;
+							tablefields_nopk__.root_ref = root_ref;
+
+							for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
+								if (!TableFields.TableFieldCollection[f].isPK)
+									tablefields_nopk__.TableFieldCollection.Add(
+										TableFields.TableFieldCollection[f]
+									);
+						}
+					}
 				}
+
 				return tablefields_nopk__;
 			}
 		}
 		#endregion
 		#region public bool hasPK { get; }
 		private bool haspk__beenread = false;
+		private object haspk__locker = new object();
 		private bool haspk__;
 
 		[XmlIgnore()]
@@ -119,23 +155,36 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		public bool hasPK {
 			get {
 				// this isn't very safe, there's no way to assure that PKs won't be
-				// added or removed, but by the time this method is called
-				// there won't be any more adding or removing
+				// added or removed, however by the time this method is called
+				// there won't be any more adding or removing ... not an easy decision
 
+				// check before lock
 				if (!haspk__beenread) {
-					haspk__ = false;
-					for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
-						if (TableFields.TableFieldCollection[f].isPK) {
-							haspk__ = true;
-							break;
+
+					lock (haspk__locker) {
+
+						// double check, thread safer!
+						if (!haspk__beenread) {
+
+							haspk__ = false;
+							for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
+								if (TableFields.TableFieldCollection[f].isPK) {
+									haspk__ = true;
+									break;
+								}
+
+							haspk__beenread = true;
 						}
+					}
 				}
+
 				return haspk__;
 			}
 		}
 		#endregion
 		#region public bool hasIdentityKey { get; }
 		private bool hasidentitykey__beenread = false;
+		private object hasidentitykey__locker = new object();
 		private bool hasidentitykey__;
 
 		[XmlIgnore()]
@@ -143,22 +192,35 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		public bool hasIdentityKey {
 			get {
 				// this isn't very safe, there's no way to assure that PKs won't be
-				// added or removed, but by the time this method is called
-				// there won't be any more adding or removing
+				// added or removed, however by the time this method is called
+				// there won't be any more adding or removing ... not an easy decision
 
+				// check before lock
 				if (!hasidentitykey__beenread) {
-					hasidentitykey__ = false;
-					for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
-						if (TableFields.TableFieldCollection[f].isIdentity) {
-							hasidentitykey__ = true;
-							break;
+
+					lock(hasidentitykey__locker) {
+
+						// double check, thread safer!
+						if (!hasidentitykey__beenread) {
+
+							hasidentitykey__ = false;
+							for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
+								if (TableFields.TableFieldCollection[f].isIdentity) {
+									hasidentitykey__ = true;
+									break;
+								}
+
+							hasidentitykey__beenread = true;
 						}
+					}
 				}
+
 				return hasidentitykey__;
 			}
 		}
 		#endregion
 		#region public int IdentityKey { get; }
+		private object identitykey__locker = new object();
 		private int identitykey__ = -2;
 
 //		[XmlIgnore()]
@@ -166,87 +228,118 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		public int IdentityKey {
 			get {
 				// this isn't very safe, there's no way to assure that PKs won't be
-				// added or removed, but by the time this method is called
-				// there won't be any more adding or removing
+				// added or removed, however by the time this method is called
+				// there won't be any more adding or removing ... not an easy decision
 
+				// check before lock
 				if (identitykey__ == -2) {
-					identitykey__ = -1;
-					for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
-						if (TableFields.TableFieldCollection[f].isIdentity) {
-							identitykey__ = f;
-							break;
+
+					lock (identitykey__locker) {
+
+						// double check, thread safer!
+						if (identitykey__ == -2) {
+
+							identitykey__ = -1;
+							for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
+								if (TableFields.TableFieldCollection[f].isIdentity) {
+									identitykey__ = f;
+									break;
+								}
 						}
+					}
 				}
+
 				return identitykey__;
 			}
 		}
 		#endregion
 		#region public int firstKey { get; }
+		private object firstkey__locker = new object();
 		private int firstkey__ = -2;
 
 		public int firstKey {
 			get {
 				// this isn't very safe, there's no way to assure that PKs won't be
-				// added or removed, but by the time this method is called
-				// there won't be any more adding or removing
+				// added or removed, however by the time this method is called
+				// there won't be any more adding or removing ... not an easy decision
 
+				// check before lock
 				if (firstkey__ == -2) {
-					firstkey__ = -1;
-					for (int f = 0; f < TableFields.TableFieldCollection.Count; f++) {
-						if (
-							(TableFields.TableFieldCollection[f].isPK)
-							//||
-							//(TableFields.TableFieldCollection[f].isIdentity)
-						) {
-							firstkey__ = f;
-							break;
+
+					lock (firstkey__locker) {
+
+						// double check, thread safer!
+						if (firstkey__ == -2) {
+
+							firstkey__ = -1;
+							for (int f = 0; f < TableFields.TableFieldCollection.Count; f++) {
+								if (
+									(TableFields.TableFieldCollection[f].isPK)
+									//||
+									//(TableFields.TableFieldCollection[f].isIdentity)
+								) {
+									firstkey__ = f;
+									break;
+								}
+							}
 						}
 					}
 				}
+
 				return firstkey__;
 			}
 		}
 		#endregion
 		#region public bool canBeConfig { get; }
-		private bool canbeconfig_DONE__ = false;
+		private bool canbeconfig__beenread = false;
+		private object canbeconfig__locker = new object();
 		private bool canbeconfig__;
 
 		public bool canBeConfig {
 			get {
 				// this isn't very safe, there's no way to assure that PKs won't be
-				// added or removed, but by the time this method is called
-				// there won't be any more adding or removing
+				// added or removed, however by the time this method is called
+				// there won't be any more adding or removing ... not an easy decision
 
-				if (!canbeconfig_DONE__) {
-					if (
-						canbeconfig__ = (
-							!parallel_ref.isConfig
-							&&
-							!hasIdentityKey
-							&&
-							(TableFields_onlyPK.TableFieldCollection.Count == 1)
-							&&
-							(TableFields.TableFieldCollection.Count >= 3)
-						)
-					) {
-						int _numFields_thatCanBeName = 0;
-						int _numFields_thatCanBeConfig = 0;
-						int _numFields_thatCanBeType = 0;
-						for (int f = 0; f < TableFields.TableFieldCollection.Count; f++) {
-							if (TableFields.TableFieldCollection[f].canBeConfig_Name) _numFields_thatCanBeName++;
-							if (TableFields.TableFieldCollection[f].canBeConfig_Config) _numFields_thatCanBeConfig++;
-							if (TableFields.TableFieldCollection[f].canBeConfig_Type) _numFields_thatCanBeType++;
+				// check before lock
+				if (!canbeconfig__beenread) {
+
+					lock (canbeconfig__locker) {
+
+						// double check, thread safer!
+						if (!canbeconfig__beenread) {
+
+							if (
+								canbeconfig__ = (
+									!parallel_ref.isConfig
+									&&
+									!hasIdentityKey
+									&&
+									(TableFields_onlyPK.TableFieldCollection.Count == 1)
+									&&
+									(TableFields.TableFieldCollection.Count >= 3)
+								)
+							) {
+								int _numFields_thatCanBeName = 0;
+								int _numFields_thatCanBeConfig = 0;
+								int _numFields_thatCanBeType = 0;
+								for (int f = 0; f < TableFields.TableFieldCollection.Count; f++) {
+									if (TableFields.TableFieldCollection[f].canBeConfig_Name) _numFields_thatCanBeName++;
+									if (TableFields.TableFieldCollection[f].canBeConfig_Config) _numFields_thatCanBeConfig++;
+									if (TableFields.TableFieldCollection[f].canBeConfig_Type) _numFields_thatCanBeType++;
+								}
+								canbeconfig__ = (
+									(_numFields_thatCanBeName == 1)
+									&&
+									(_numFields_thatCanBeConfig >= 1)
+									&&
+									(_numFields_thatCanBeType >= 1)
+								);
+							}
+
+							canbeconfig__beenread = true;
 						}
-						canbeconfig__ = (
-							(_numFields_thatCanBeName == 1)
-							&&
-							(_numFields_thatCanBeConfig >= 1)
-							&&
-							(_numFields_thatCanBeType >= 1)
-						);
 					}
-
-					canbeconfig_DONE__ = true;
 				}
 
 				return canbeconfig__;
