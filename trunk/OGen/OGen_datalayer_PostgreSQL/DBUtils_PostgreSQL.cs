@@ -20,11 +20,22 @@ namespace OGen.lib.datalayer.PostgreSQL {
 	public sealed class DBUtils_PostgreSQL : DBUtils {
 		#region public override DBUtils_convert Convert { get; }
 		private static DBUtils_convert_Postgresql convert__;
+		private static object convert__locker = new object();
 
 		public override DBUtils_convert Convert {
 			get {
+
+				// check before lock
 				if (convert__ == null) {
-					convert__ = new DBUtils_convert_Postgresql();
+
+					lock (convert__locker) {
+
+						// double check, thread safer!
+						if (convert__ == null) {
+
+							convert__ = new DBUtils_convert_Postgresql();
+						}
+					}
 				}
 
 				return convert__;
@@ -33,11 +44,22 @@ namespace OGen.lib.datalayer.PostgreSQL {
 		#endregion
 		#region public override DBUtils_connectionString ConnectionString { get; }
 		private static DBUtils_connectionString_PostgreSQL connectionstring__;
+		private static object connectionstring__locker = new object();
 
 		public override DBUtils_connectionString ConnectionString {
 			get {
+
+				// check before lock
 				if (connectionstring__ == null) {
-					connectionstring__ = new DBUtils_connectionString_PostgreSQL();
+
+					lock (connectionstring__locker) {
+
+						// double check, thread safer!
+						if (connectionstring__ == null) {
+
+							connectionstring__ = new DBUtils_connectionString_PostgreSQL();
+						}
+					}
 				}
 
 				return connectionstring__;

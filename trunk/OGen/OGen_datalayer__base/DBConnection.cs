@@ -273,18 +273,30 @@ namespace OGen.lib.datalayer {
 		/// </note>
 		/// </summary>
 		protected DBTransaction transaction__;
+		protected object transaction__locker = new object();
 
 		/// <summary>
 		/// DataBase Connection's Transaction access.
 		/// </summary>
 		public DBTransaction Transaction {
 			get {
+
+				// check before lock
 				if (transaction__ == null) {
-					// instantiating for the first time and
-					// only because it became needed, otherwise
-					// never instantiated...
-					transaction__ = new DBTransaction(this);
+
+					lock (transaction__locker) {
+
+						// double check, thread safer!
+						if (transaction__ == null) {
+
+							// instantiating for the first time and
+							// only because it became needed, otherwise
+							// never instantiated...
+							transaction__ = new DBTransaction(this);
+						}
+					}
 				}
+
 				return transaction__;
 			}
 		}

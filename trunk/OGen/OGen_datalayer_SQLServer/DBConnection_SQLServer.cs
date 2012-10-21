@@ -42,11 +42,22 @@ namespace OGen.lib.datalayer.SQLServer {
 		//#region public static properties...
 		#region public static DBUtils Utils { get; }
 		private static DBUtils utils__ = null;
+		private static object utils__locker = new object();
 
 		public static DBUtils Utils {
 			get {
+
+				// check before lock
 				if (utils__ == null) {
-					utils__ = new DBUtils_SQLServer();
+
+					lock (utils__locker) {
+
+						// double check, thread safer!
+						if (utils__ == null) {
+
+							utils__ = new DBUtils_SQLServer();
+						}
+					}
 				}
 				return utils__;
 			}
@@ -71,10 +82,23 @@ namespace OGen.lib.datalayer.SQLServer {
 		}
 		#endregion
 		#region public override IDbConnection exposeConnection { get; }
+
+		public object exposeConnection_locker = new object();
+
 		public override IDbConnection exposeConnection {
 			get {
+
+				// check before lock
 				if (connection__ == null) {
-					connection__ = new SqlConnection(Connectionstring);
+
+					lock (exposeConnection_locker) {
+
+						// double check, thread safer!
+						if (connection__ == null) {
+
+							connection__ = new SqlConnection(Connectionstring);
+						}
+					}
 				}
 
 				return connection__;
@@ -355,13 +379,14 @@ SELECT
 			CAST(0 AS INT)
 	END
 	AS is_view, 
-	_prop.value AS table_description 
+	--_prop.value AS table_description 
+	'' AS table_description 
 FROM information_schema.tables _table
-LEFT JOIN sys.extended_properties _prop ON (
-	(_prop.major_id = object_id(_table.table_name))
-	AND 
-	(_prop.name = 'MS_Description')
-)
+--LEFT JOIN sys.extended_properties _prop ON (
+--	(_prop.major_id = object_id(_table.table_name))
+--	AND 
+--	(_prop.name = 'MS_Description')
+--)
 WHERE
 	(
 		(_table.table_type = 'BASE TABLE')
@@ -481,17 +506,18 @@ SELECT
 
 	_field.numeric_scale, 
 
-	_prop.value AS column_description
+	--_prop.value AS column_description
+	'' AS column_description
 
 FROM information_schema.columns AS _field
 
-	LEFT JOIN sys.extended_properties _prop ON (
-		(_prop.major_id = Object_id(_field.table_name))
-		and
-		(_prop.minor_id = _field.ordinal_position)
-		and 
-		(_prop.name = 'MS_Description')
-	)
+--	LEFT JOIN sys.extended_properties _prop ON (
+--		(_prop.major_id = Object_id(_field.table_name))
+--		and
+--		(_prop.minor_id = _field.ordinal_position)
+--		and 
+--		(_prop.name = 'MS_Description')
+--	)
 
 	LEFT JOIN information_schema.tables _table ON (
 		(_table.table_catalog = _field.table_catalog)

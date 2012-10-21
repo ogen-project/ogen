@@ -20,11 +20,22 @@ namespace OGen.lib.datalayer.SQLServer {
 	public sealed class DBUtils_SQLServer : DBUtils {
 		#region public override DBUtils_convert Convert { get; }
 		private static DBUtils_convert_SQLServer convert__;
+		private static object convert__locker = new object();
 
 		public override DBUtils_convert Convert {
 			get {
+
+				// check before lock
 				if (convert__ == null) {
-					convert__ = new DBUtils_convert_SQLServer();
+
+					lock (convert__locker) {
+
+						// double check, thread safer!
+						if (convert__ == null) {
+
+							convert__ = new DBUtils_convert_SQLServer();
+						}
+					}
 				}
 
 				return convert__;
@@ -33,11 +44,22 @@ namespace OGen.lib.datalayer.SQLServer {
 		#endregion
 		#region public override DBUtils_connectionString ConnectionString { get; }
 		private static DBUtils_connectionString_SQLServer connectionstring__;
+		private static object connectionstring__locker = new object();
 
 		public override DBUtils_connectionString ConnectionString {
 			get {
+
+				// check before lock
 				if (connectionstring__ == null) {
-					connectionstring__ = new DBUtils_connectionString_SQLServer();
+
+					lock (connectionstring__locker) {
+
+						// double check, thread safer!
+						if (connectionstring__ == null) {
+
+							connectionstring__ = new DBUtils_connectionString_SQLServer();
+						}
+					}
 				}
 
 				return connectionstring__;

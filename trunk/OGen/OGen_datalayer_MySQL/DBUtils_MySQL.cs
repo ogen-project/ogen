@@ -20,11 +20,22 @@ namespace OGen.lib.datalayer.MySQL {
 	public sealed class DBUtils_MySQL : DBUtils {
 		#region public override DBUtils_convert Convert { get; }
 		private static DBUtils_convert_MySQL convert__;
+		private static object convert__locker = new object();
 
 		public override DBUtils_convert Convert {
 			get {
+
+				// check before lock
 				if (convert__ == null) {
-					convert__ = new DBUtils_convert_MySQL();
+
+					lock (convert__locker) {
+
+						// double check, thread safer!
+						if (convert__ == null) {
+
+							convert__ = new DBUtils_convert_MySQL();
+						}
+					}
 				}
 
 				return convert__;
@@ -33,11 +44,22 @@ namespace OGen.lib.datalayer.MySQL {
 		#endregion
 		#region public override DBUtils_connectionString ConnectionString { get; }
 		private static DBUtils_connectionString_MySQL connectionstring__;
+		private static object connectionstring__locker = new object();
 
 		public override DBUtils_connectionString ConnectionString {
 			get {
+
+				// check before lock
 				if (connectionstring__ == null) {
-					connectionstring__ = new DBUtils_connectionString_MySQL();
+
+					lock (connectionstring__locker) {
+
+						// double check, thread safer!
+						if (connectionstring__ == null) {
+
+							connectionstring__ = new DBUtils_connectionString_MySQL();
+						}
+					}
 				}
 
 				return connectionstring__;

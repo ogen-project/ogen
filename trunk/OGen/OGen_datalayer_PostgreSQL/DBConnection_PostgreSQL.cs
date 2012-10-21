@@ -42,12 +42,24 @@ namespace OGen.lib.datalayer.PostgreSQL {
 		//#region public static properties...
 #region public static DBUtils Utils { get; }
 		private static DBUtils utils__ = null;
+		private static object utils__locker = new object();
 
 		public static DBUtils Utils {
 			get {
+
+				// check before lock
 				if (utils__ == null) {
-					utils__ = new DBUtils_PostgreSQL();
+
+					lock (utils__locker) {
+
+						// double check, thread safer!
+						if (utils__ == null) {
+
+							utils__ = new DBUtils_PostgreSQL();
+						}
+					}
 				}
+
 				return utils__;
 			}
 		}
@@ -71,10 +83,23 @@ namespace OGen.lib.datalayer.PostgreSQL {
 		}
 		#endregion
 #region public override IDbConnection exposeConnection { get; }
+
+		public object exposeConnection_locker = new object();
+
 		public override IDbConnection exposeConnection {
 			get {
+
+				// check before lock
 				if (connection__ == null) {
-					connection__ = new NpgsqlConnection(Connectionstring);
+
+					lock (exposeConnection_locker) {
+
+						// double check, thread safer!
+						if (connection__ == null) {
+
+							connection__ = new NpgsqlConnection(Connectionstring);
+						}
+					}
 				}
 
 				return connection__;
