@@ -61,24 +61,30 @@ namespace OGen.lib.parser {
 			ref TextWriter textwriter_out
 		) {
 
-			lock (myhost_) { // thread safer!
+			// check before lock
+			if (!myhost_.Contains(appPath_in)) {
 
-				// --- performance hack! keeping host static, 
-				// instantiating only one host per Physical/Application Path
-				if (!myhost_.Contains(appPath_in)) {
-					string _appId = "ParserASPX_" + Guid.NewGuid().GetHashCode().ToString("x");
-					string _virtualPath = "/";
+				lock (myhost_) { // thread safer!
 
-					myhost_.Add(
-						appPath_in,
-						ApplicationManager.GetApplicationManager().CreateObject(
-							_appId,
-							typeof(MyHost),
-							_virtualPath,
+					// --- performance hack! keeping host static, 
+					// instantiating only one host per Physical/Application Path
+
+					// double check, thread safer!
+					if (!myhost_.Contains(appPath_in)) {
+						string _appId = "ParserASPX_" + Guid.NewGuid().GetHashCode().ToString("x");
+						string _virtualPath = "/";
+
+						myhost_.Add(
 							appPath_in,
-							false//true
-						)
-					);
+							ApplicationManager.GetApplicationManager().CreateObject(
+								_appId,
+								typeof(MyHost),
+								_virtualPath,
+								appPath_in,
+								false//true
+							)
+						);
+					}
 				}
 			}
 

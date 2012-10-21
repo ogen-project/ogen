@@ -91,26 +91,33 @@ namespace OGen.Doc.lib.metadata {
 			bool useMetacache_in
 		) {
 			XS__RootMetadata _output;
-			lock (metacache_) {
-				if (
-					useMetacache_in
-					&&
-					Metacache.Contains(metadataFilepath_in)
-				) {
-					_output = (XS__RootMetadata)XS__RootMetadata.Metacache[metadataFilepath_in];
-					return _output;
-				} else {
-					_output = new XS__RootMetadata(
-						metadataFilepath_in
-					);
-					if (useMetacache_in) {
-						XS__RootMetadata.Metacache.Add(
-							metadataFilepath_in, 
-							_output
-						);
+			if (useMetacache_in) {
+
+				// check before lock
+				if (!Metacache.Contains(metadataFilepath_in)) {
+
+					lock (metacache_) {
+
+						// double check, thread safer!
+						if (!Metacache.Contains(metadataFilepath_in)) {
+
+							XS__RootMetadata.Metacache.Add(
+								metadataFilepath_in,
+								new XS__RootMetadata(
+									metadataFilepath_in
+								)
+							);
+						}
 					}
-					return _output;
 				}
+
+				_output = (XS__RootMetadata)XS__RootMetadata.Metacache[metadataFilepath_in];
+				return _output;
+			} else {
+				_output = new XS__RootMetadata(
+					metadataFilepath_in
+				);
+				return _output;
 			}
 		}
 		#endregion

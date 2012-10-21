@@ -169,31 +169,38 @@ namespace OGen.NTier.lib.datalayer {
 			if (dbservertypes__ == null) 
 				dbservertypes__ = new Hashtable();
 
-			lock (dbservertypes__) {
-				if (!dbservertypes__.Contains(application_in)) {
-					string[] _supporteddbservertypes =
-						#if !NET_1_1
-						System.Configuration.ConfigurationManager.AppSettings
-						#else
-						System.Configuration.ConfigurationSettings.AppSettings
-						#endif
-							[
-								string.Format(
-									"{0}:DBServerTypes", 
-//									ApplicationName
-									application_in
-								)
-							].Split(':');
+			// check before lock
+			if (!dbservertypes__.Contains(application_in)) {
 
-					string[] _dbservertypes = new string[_supporteddbservertypes.Length];
-					for (int i = 0; i < _supporteddbservertypes.Length; i++) {
-						_dbservertypes[i] = _supporteddbservertypes[i];
+				lock (dbservertypes__) {
+
+					// double check, thread safer!
+					if (!dbservertypes__.Contains(application_in)) {
+
+						string[] _supporteddbservertypes =
+							#if !NET_1_1
+							System.Configuration.ConfigurationManager.AppSettings
+							#else
+							System.Configuration.ConfigurationSettings.AppSettings
+							#endif
+								[
+									string.Format(
+										"{0}:DBServerTypes", 
+//										ApplicationName
+										application_in
+									)
+								].Split(':');
+
+						string[] _dbservertypes = new string[_supporteddbservertypes.Length];
+						for (int i = 0; i < _supporteddbservertypes.Length; i++) {
+							_dbservertypes[i] = _supporteddbservertypes[i];
+						}
+
+						dbservertypes__.Add(
+							application_in, 
+							_dbservertypes
+						);
 					}
-
-					dbservertypes__.Add(
-						application_in, 
-						_dbservertypes
-					);
 				}
 			}
 
@@ -208,12 +215,19 @@ namespace OGen.NTier.lib.datalayer {
 			if (dbconnectionstrings__ == null) 
 				dbconnectionstrings__ = new Hashtable();
 
-			lock (dbconnectionstrings__) {
-				if (!dbconnectionstrings__.Contains(application_in)) {
-					dbconnectionstrings__.Add(
-						application_in, 
-						new Config_DBConnectionstrings(application_in)
-					);
+			// check before lock
+			if (!dbconnectionstrings__.Contains(application_in)) {
+
+				lock (dbconnectionstrings__) {
+
+					// double check, thread safer!
+					if (!dbconnectionstrings__.Contains(application_in)) {
+
+						dbconnectionstrings__.Add(
+							application_in, 
+							new Config_DBConnectionstrings(application_in)
+						);
+					}
 				}
 			}
 
