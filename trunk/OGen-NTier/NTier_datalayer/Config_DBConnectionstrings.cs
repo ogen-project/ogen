@@ -95,6 +95,8 @@ namespace OGen.NTier.lib.datalayer {
 						// double check, thread safer!
 						if (applications__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							applications__ = 
 								#if !NET_1_1
 								System.Configuration.ConfigurationManager.AppSettings
@@ -160,6 +162,8 @@ namespace OGen.NTier.lib.datalayer {
 					// double check, thread safer!
 					if (!configmodes__.Contains(application_in)) {
 
+						// initialization...
+						// ...attribution (last thing before unlock)
 						configmodes__.Add(
 							application_in, 
 							#if !NET_1_1
@@ -200,6 +204,7 @@ namespace OGen.NTier.lib.datalayer {
 					// double check, thread safer!
 					if (!dbservertypes__.Contains(application_in)) {
 
+						// initialization...
 						string[] _supporteddbservertypes =
 							#if !NET_1_1
 							System.Configuration.ConfigurationManager.AppSettings
@@ -219,6 +224,7 @@ namespace OGen.NTier.lib.datalayer {
 							_dbservertypes[i] = _supporteddbservertypes[i];
 						}
 
+						// ...attribution (last thing before unlock)
 						dbservertypes__.Add(
 							application_in, 
 							_dbservertypes
@@ -244,6 +250,8 @@ namespace OGen.NTier.lib.datalayer {
 					// double check, thread safer!
 					if (!dbconnectionstrings__.Contains(application_in)) {
 
+						// initialization...
+						// ...attribution (last thing before unlock)
 						dbconnectionstrings__.Add(
 							application_in, 
 							new Config_DBConnectionstrings(application_in)

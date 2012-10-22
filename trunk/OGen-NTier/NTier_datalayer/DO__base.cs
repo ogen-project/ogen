@@ -132,12 +132,16 @@ namespace OGen.NTier.lib.datalayer {
 							// never instantiated...
 
 							if (logenabled_) {
+								// initialization...
+								// ...attribution (last thing before unlock)
 								connection__ = DBConnection_createInstance(
 									connection_dbservertype_,
 									connection_connectionstring_,
 									logfile_
 								);
 							} else {
+								// initialization...
+								// ...attribution (last thing before unlock)
 								connection__ = DBConnection_createInstance(
 									connection_dbservertype_,
 									connection_connectionstring_, 
