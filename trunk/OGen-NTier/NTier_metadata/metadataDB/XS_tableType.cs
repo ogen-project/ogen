@@ -56,6 +56,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 							(parallel_ref__ == null)
 						) {
 
+							// initialization...
 							int t
 								= root_ref.MetadataExtendedCollection[0].Tables.TableCollection.Search(
 									Name
@@ -65,6 +66,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 								return null;
 							}
 
+							// ...attribution (last thing before unlock)
 							parallel_ref__
 								= root_ref.MetadataExtendedCollection[0].Tables.TableCollection[
 									t
@@ -96,15 +98,19 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 						// double check, thread safer!
 						if (tablefields_onlypk__ == null) {
 
-							tablefields_onlypk__ = new XS_tableFieldsType();
-							tablefields_onlypk__.parent_ref = this;
-							tablefields_onlypk__.root_ref = root_ref;
+							// initialization...
+							XS_tableFieldsType _aux = new XS_tableFieldsType();
+							_aux.parent_ref = this;
+							_aux.root_ref = root_ref;
 
 							for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
 								if (TableFields.TableFieldCollection[f].isPK)
-									tablefields_onlypk__.TableFieldCollection.Add(
+									_aux.TableFieldCollection.Add(
 										TableFields.TableFieldCollection[f]
 									);
+
+							// ...attribution (last thing before unlock)
+							tablefields_onlypk__ = _aux;
 						}
 					}
 				}
@@ -131,15 +137,19 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 						// double check, thread safer!
 						if (tablefields_nopk__ == null) {
 
-							tablefields_nopk__ = new XS_tableFieldsType();
-							tablefields_nopk__.parent_ref = this;
-							tablefields_nopk__.root_ref = root_ref;
+							// initialization...
+							XS_tableFieldsType _aux = new XS_tableFieldsType();
+							_aux.parent_ref = this;
+							_aux.root_ref = root_ref;
 
 							for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
 								if (!TableFields.TableFieldCollection[f].isPK)
-									tablefields_nopk__.TableFieldCollection.Add(
+									_aux.TableFieldCollection.Add(
 										TableFields.TableFieldCollection[f]
 									);
+
+							// ...attribution (last thing before unlock)
+							tablefields_nopk__ = _aux;
 						}
 					}
 				}
@@ -169,6 +179,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 						// double check, thread safer!
 						if (!haspk__beenread) {
 
+							// initialization...
 							haspk__ = false;
 							for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
 								if (TableFields.TableFieldCollection[f].isPK) {
@@ -176,6 +187,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 									break;
 								}
 
+							// ...attribution (last thing before unlock)
 							haspk__beenread = true;
 						}
 					}
@@ -206,6 +218,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 						// double check, thread safer!
 						if (!hasidentitykey__beenread) {
 
+							// initialization...
 							hasidentitykey__ = false;
 							for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
 								if (TableFields.TableFieldCollection[f].isIdentity) {
@@ -213,6 +226,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 									break;
 								}
 
+							// ...attribution (last thing before unlock)
 							hasidentitykey__beenread = true;
 						}
 					}
@@ -242,12 +256,16 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 						// double check, thread safer!
 						if (identitykey__ == -2) {
 
-							identitykey__ = -1;
+							// initialization...
+							int _aux = -1;
 							for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
 								if (TableFields.TableFieldCollection[f].isIdentity) {
-									identitykey__ = f;
+									_aux = f;
 									break;
 								}
+
+							// ...attribution (last thing before unlock)
+							identitykey__ = _aux;
 						}
 					}
 				}
@@ -274,17 +292,21 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 						// double check, thread safer!
 						if (firstkey__ == -2) {
 
-							firstkey__ = -1;
+							// initialization...
+							int _aux = -1;
 							for (int f = 0; f < TableFields.TableFieldCollection.Count; f++) {
 								if (
 									(TableFields.TableFieldCollection[f].isPK)
 									//||
 									//(TableFields.TableFieldCollection[f].isIdentity)
 								) {
-									firstkey__ = f;
+									_aux = f;
 									break;
 								}
 							}
+
+							// ...attribution (last thing before unlock)
+							firstkey__ = _aux;
 						}
 					}
 				}
@@ -312,6 +334,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 						// double check, thread safer!
 						if (!canbeconfig__beenread) {
 
+							// initialization...
 							if (
 								canbeconfig__ = (
 									!parallel_ref.isConfig
@@ -340,6 +363,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 								);
 							}
 
+							// ...attribution (last thing before unlock)
 							canbeconfig__beenread = true;
 						}
 					}
