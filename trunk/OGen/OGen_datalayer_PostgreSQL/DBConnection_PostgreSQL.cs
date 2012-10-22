@@ -77,15 +77,14 @@ namespace OGen.lib.datalayer.PostgreSQL {
 			}
 		}
 		#endregion
-#region public override DBUtils utils { get; }
+		#region public override DBUtils utils { get; }
 		public override DBUtils utils {
 			get {
 				return Utils;
 			}
 		}
 		#endregion
-#region public override IDbConnection exposeConnection { get; }
-
+		#region public override IDbConnection exposeConnection { get; }
 		public object exposeConnection_locker = new object();
 
 		public override IDbConnection exposeConnection {

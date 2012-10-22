@@ -120,21 +120,15 @@ namespace OGen.lib.datalayer {
 		/// </exception>
 		/// <param name="isolationLevel_in">One of the System.Data.IsolationLevel values</param>
 		public void Begin(IsolationLevel isolationLevel_in) {
-			//lock (intransaction_) {
-			//	lock (parent_.isOpen) {
-					if (intransaction_) {
-						throw BeginException_alreadyInitiated;
-					} else if (!parent_.isOpen) {
-						throw BeginException_closedConnection;
-					} else {
-			//			lock (parent_.Connection) {
-							transaction_ = parent_.exposeConnection.BeginTransaction(isolationLevel_in);
+			if (intransaction_) {
+				throw BeginException_alreadyInitiated;
+			} else if (!parent_.isOpen) {
+				throw BeginException_closedConnection;
+			} else {
+				transaction_ = parent_.exposeConnection.BeginTransaction(isolationLevel_in);
 
-							intransaction_ = true;
-			//			}
-					}
-			//	}
-			//}
+				intransaction_ = true;
+			}
 		}
 		#endregion
 		#region public void Commit(...);
@@ -145,13 +139,11 @@ namespace OGen.lib.datalayer {
 		/// Thrown when the Transaction is not initiated
 		/// </exception>
 		public void Commit() {
-			//lock (intransaction_) {
-				if (!intransaction_) {
-					throw InvalidTransactionStateException_uninitiated;
-				}
+			if (!intransaction_) {
+				throw InvalidTransactionStateException_uninitiated;
+			}
 
-				transaction_.Commit();
-			//}
+			transaction_.Commit();
 		}
 		#endregion
 		#region public void Rollback(...);
@@ -162,13 +154,11 @@ namespace OGen.lib.datalayer {
 		/// Thrown when the Transaction is not initiated
 		/// </exception>
 		public void Rollback() {
-			//lock (intransaction_) {
-				if (!intransaction_) {
-					throw InvalidTransactionStateException_uninitiated;
-				}
+			if (!intransaction_) {
+				throw InvalidTransactionStateException_uninitiated;
+			}
 
-				transaction_.Rollback();
-			//}
+			transaction_.Rollback();
 		}
 		#endregion
 		#region public void Terminate(...);
@@ -179,14 +169,12 @@ namespace OGen.lib.datalayer {
 		/// Thrown when the Transaction is not initiated
 		/// </exception>
 		public void Terminate() {
-			//lock (intransaction_) {
-				if (!intransaction_) {
-					throw InvalidTransactionStateException_uninitiated;
-				}
+			if (!intransaction_) {
+				throw InvalidTransactionStateException_uninitiated;
+			}
 
-				transaction_.Dispose(); transaction_ = null;
-				intransaction_ = false;
-			//}
+			transaction_.Dispose(); transaction_ = null;
+			intransaction_ = false;
 		}
 		#endregion
 
