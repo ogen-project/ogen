@@ -100,6 +100,7 @@ namespace OGen.XSD.lib.metadata {
 
 		#region public static Hashtable Metacache { get; }
 		private static Hashtable metacache_ = new Hashtable();
+		private static object metacache_locker = new object();
 
 		public static Hashtable Metacache {
 			get {
@@ -118,7 +119,7 @@ namespace OGen.XSD.lib.metadata {
 				// check before lock
 				if (!Metacache.Contains(metadataFilepath_in)) {
 
-					lock (metacache_) {
+					lock (metacache_locker) {
 
 						// double check, thread safer!
 						if (!Metacache.Contains(metadataFilepath_in)) {
@@ -172,7 +173,36 @@ namespace OGen.XSD.lib.metadata {
 		private const string ROOT_SCHEMA = XS__schema.ROOT + "." + XS__schema.SCHEMA + "[";
 
 		#region public string Read_fromRoot(...);
+#if NET_1_1
+		private Hashtable Read_fromRoot_cache 
+			= new Hashtable();
+#else
+		private System.Collections.Generic.Dictionary<string, string> Read_fromRoot_cache 
+			= new System.Collections.Generic.Dictionary<string, string>();
+#endif
+		private object Read_fromRoot_locker = new object();
+
 		public string Read_fromRoot(string what_in) {
+			return Read_fromRoot(
+				what_in,
+				true
+			);
+		}
+		public string Read_fromRoot(
+			string what_in,
+			bool useCache_in
+		) {
+
+			if (useCache_in && Read_fromRoot_cache.ContainsKey(what_in)) {
+#if NET_1_1
+				return (string)Read_fromRoot_cache[what_in];
+#else
+				return Read_fromRoot_cache[what_in];
+#endif
+			}
+
+			bool _didit = false;
+			string _output = null;
 			string _begin;
 			string _indexstring;
 			string _end;
@@ -189,12 +219,15 @@ namespace OGen.XSD.lib.metadata {
 						what_in.Substring(0, metadatacollection_[i].Root_Metadata.Length)
 							== metadatacollection_[i].Root_Metadata
 					) {
-						return metadatacollection_[i].Read_fromRoot(string.Format(
+						_output = metadatacollection_[i].Read_fromRoot(string.Format(
 							"{0}{1}{2}",
 							_begin,
 							i,
 							_end
 						));
+
+						_didit = true;
+						break;
 					}
 				}
 			} else if (OGen.lib.generator.utils.rootExpression_TryParse(
@@ -209,34 +242,110 @@ namespace OGen.XSD.lib.metadata {
 						what_in.Substring(0, schemacollection_[i].Root_Schema.Length)
 							== schemacollection_[i].Root_Schema
 					) {
-						return schemacollection_[i].Read_fromRoot(string.Format(
+						_output = schemacollection_[i].Read_fromRoot(string.Format(
 							"{0}{1}{2}",
 							_begin,
 							i,
 							_end
 						));
+
+						_didit = true;
+						break;
 					}
 				}
 			}
-			throw new Exception(string.Format(
-				"\n---\n{0}.{1}.Read_fromRoot(string what_in): can't handle: {2}\n---",
-				typeof(XS__RootMetadata).Namespace,
-				typeof(XS__RootMetadata).Name,
-				what_in
-			));
+
+			if (_didit) {
+
+				// check before lock
+				if (useCache_in && !Read_fromRoot_cache.ContainsKey(what_in)) {
+
+					lock (Read_fromRoot_locker) {
+
+						// double check, thread safer!
+						if (!Read_fromRoot_cache.ContainsKey(what_in)) {
+
+							// initialization...
+							// ...attribution (last thing before unlock)
+							Read_fromRoot_cache.Add(what_in, _output);
+						}
+					}
+				}
+
+				return _output;
+			} else {
+				throw new Exception(string.Format(
+					"\n---\n{0}.{1}.Read_fromRoot(string what_in): can't handle: {2}\n---",
+					typeof(XS__RootMetadata).Namespace,
+					typeof(XS__RootMetadata).Name,
+					what_in
+				));
+			}
 		}
 		#endregion
 		#region public void IterateThrough_fromRoot(...);
+#if NET_1_1
+		private Hashtable IterateThrough_fromRoot_cache
+			= new Hashtable();
+#else
+		private System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> IterateThrough_fromRoot_cache 
+			= new System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>>();
+#endif
+		private object IterateThrough_fromRoot_locker = new object();
+
 		public void IterateThrough_fromRoot(
-			string iteration_in, 
+			string iteration_in,
 			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in,
 			ref bool valueHasBeenFound_out
 		) {
+			IterateThrough_fromRoot(
+				iteration_in,
+				iteration_found_in,
+				ref valueHasBeenFound_out,
+				true
+			);
+		}
+		public void IterateThrough_fromRoot(
+			string iteration_in, 
+			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in,
+			ref bool valueHasBeenFound_out,
+			bool useCache_in
+		) {
+#if NET_1_1
+			ArrayList _aux;
+#else
+			System.Collections.Generic.List<string> _aux;
+#endif
+
+			if (useCache_in && IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
+#if NET_1_1
+				_aux = (ArrayList)IterateThrough_fromRoot_cache[iteration_in];
+#else
+				_aux = IterateThrough_fromRoot_cache[iteration_in];
+#endif
+				for (int i = 0; i < _aux.Count; i++) {
+#if NET_1_1
+					iteration_found_in((string)_aux[i]);
+#else
+					iteration_found_in(_aux[i]);
+#endif
+				}
+				valueHasBeenFound_out = _aux.Count > 0;
+
+				return;
+			}
+
+#if NET_1_1
+			_aux = new ArrayList();
+#else
+			_aux = new System.Collections.Generic.List<string>();
+#endif
 			valueHasBeenFound_out = false;
 			bool _didit = false;
 			string _begin;
 			string _indexstring;
 			string _end;
+			
 			if (OGen.lib.generator.utils.rootExpression_TryParse(
 				iteration_in,
 				ROOT_METADATA,
@@ -253,7 +362,11 @@ namespace OGen.XSD.lib.metadata {
 								i,
 								_end
 							), 
-							iteration_found_in, 
+							useCache_in
+								? delegate(string message_in) {
+									_aux.Add(message_in);
+								} 
+								: iteration_found_in,
 							ref valueHasBeenFound_out
 						);
 					}
@@ -269,14 +382,17 @@ namespace OGen.XSD.lib.metadata {
 							_indexint,
 							_end
 						),
-						iteration_found_in, 
+						useCache_in
+							? delegate(string message_in) {
+								_aux.Add(message_in);
+							} 
+							: iteration_found_in,
 						ref valueHasBeenFound_out
 					);
 
 					_didit = true;
 				}
-			}
-			if (OGen.lib.generator.utils.rootExpression_TryParse(
+			} else if (OGen.lib.generator.utils.rootExpression_TryParse(
 				iteration_in,
 				ROOT_SCHEMA,
 				out _begin, 
@@ -292,7 +408,11 @@ namespace OGen.XSD.lib.metadata {
 								i,
 								_end
 							), 
-							iteration_found_in, 
+							useCache_in
+								? delegate(string message_in) {
+									_aux.Add(message_in);
+								} 
+								: iteration_found_in,
 							ref valueHasBeenFound_out
 						);
 					}
@@ -308,14 +428,48 @@ namespace OGen.XSD.lib.metadata {
 							_indexint,
 							_end
 						),
-						iteration_found_in, 
+						useCache_in
+							? delegate(string message_in) {
+								_aux.Add(message_in);
+							} 
+							: iteration_found_in,
 						ref valueHasBeenFound_out
 					);
 
 					_didit = true;
 				}
 			}
-			if (!_didit) {
+
+			if (_didit) {
+				if (useCache_in) {
+					for (int i = 0; i < _aux.Count; i++) {
+#if NET_1_1
+						iteration_found_in((string)_aux[i]);
+#else
+						iteration_found_in(_aux[i]);
+#endif
+					}
+					valueHasBeenFound_out = _aux.Count > 0;
+
+					// check before lock
+					if (!IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
+
+						lock (IterateThrough_fromRoot_locker) {
+
+							// double check, thread safer!
+							if (!IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
+
+								// initialization...
+								// ...attribution (last thing before unlock)
+								IterateThrough_fromRoot_cache.Add(
+									iteration_in,
+									_aux
+								);
+							}
+						}
+					}
+				}
+			} else {
 				throw new Exception(string.Format(
 					"\n---\n{0}.{1}.IterateThrough_fromRoot(...): can't handle: {2}\n---",
 					typeof(XS__RootMetadata).Namespace,
