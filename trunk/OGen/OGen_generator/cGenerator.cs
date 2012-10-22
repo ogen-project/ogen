@@ -825,9 +825,9 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 							lock (_threadIterarionLocker) {
 								_threaditerarion = (int)_threadIterarionLocker;
 
-#pragma warning disable 728
+								#pragma warning disable 728
 								_threadIterarionLocker = ++_threaditerarion;
-#pragma warning restore 728
+								#pragma warning restore 728
 							}
 
 #if DEBUG

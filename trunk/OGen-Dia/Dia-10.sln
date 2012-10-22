@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dia_templates-10", "Dia_tem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_lib-10", "..\OGen\OGen_lib\OGen_lib-10.csproj", "{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_worker-10", "..\OGen\OGen_worker\OGen_worker-10.csproj", "{210F2BDA-5508-4587-9E39-E4C9C8752B05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,10 @@ Global
 		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{210F2BDA-5508-4587-9E39-E4C9C8752B05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{210F2BDA-5508-4587-9E39-E4C9C8752B05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{210F2BDA-5508-4587-9E39-E4C9C8752B05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{210F2BDA-5508-4587-9E39-E4C9C8752B05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

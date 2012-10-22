@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_datalayersupport-10", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doc-test-10", "Doc-test\Doc-test-10.csproj", "{D3537355-C003-41A9-8B12-ED4F3D67B99B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_worker-10", "..\OGen\OGen_worker\OGen_worker-10.csproj", "{210F2BDA-5508-4587-9E39-E4C9C8752B05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,10 @@ Global
 		{D3537355-C003-41A9-8B12-ED4F3D67B99B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3537355-C003-41A9-8B12-ED4F3D67B99B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3537355-C003-41A9-8B12-ED4F3D67B99B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{210F2BDA-5508-4587-9E39-E4C9C8752B05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{210F2BDA-5508-4587-9E39-E4C9C8752B05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{210F2BDA-5508-4587-9E39-E4C9C8752B05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{210F2BDA-5508-4587-9E39-E4C9C8752B05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
