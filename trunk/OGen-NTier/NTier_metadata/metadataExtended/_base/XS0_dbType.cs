@@ -76,6 +76,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 						// double check, thread safer!
 						if (dbconnections__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							dbconnections__ = new XS_dbConnectionsType();
 						}
 					}

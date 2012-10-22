@@ -115,6 +115,8 @@ namespace OGen.Doc.lib.metadata.documentation {
 						// double check, thread safer!
 						if (attachments__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							attachments__ = new XS_attachmentsType();
 						}
 					}

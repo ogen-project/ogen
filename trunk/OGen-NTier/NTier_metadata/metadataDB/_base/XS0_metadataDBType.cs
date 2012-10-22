@@ -76,6 +76,8 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 						// double check, thread safer!
 						if (tables__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							tables__ = new XS_tablesType();
 						}
 					}

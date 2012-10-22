@@ -210,6 +210,8 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 						// double check, thread safer!
 						if (<%=_aux_elements[e].Name.ToLower()%>__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							<%=_aux_elements[e].Name.ToLower()%>__ = new <%=XS_%><%=_aux_elements[e].Type%>();
 						}
 					}

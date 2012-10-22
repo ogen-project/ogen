@@ -102,6 +102,8 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 						// double check, thread safer!
 						if (methods__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							methods__ = new XS_methodsType();
 						}
 					}

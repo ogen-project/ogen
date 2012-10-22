@@ -109,6 +109,8 @@ namespace OGen.Dia.lib.metadata.diagram {
 						// double check, thread safer!
 						if (boolean__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							boolean__ = new XS_booleanType();
 						}
 					}
@@ -143,6 +145,8 @@ namespace OGen.Dia.lib.metadata.diagram {
 						// double check, thread safer!
 						if (enum__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							enum__ = new XS_enumType();
 						}
 					}

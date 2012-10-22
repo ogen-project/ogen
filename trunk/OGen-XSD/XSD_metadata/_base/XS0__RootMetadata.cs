@@ -123,6 +123,8 @@ namespace OGen.XSD.lib.metadata {
 						// double check, thread safer!
 						if (!Metacache.Contains(metadataFilepath_in)) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							XS__RootMetadata.Metacache.Add(
 								metadataFilepath_in,
 								new XS__RootMetadata(

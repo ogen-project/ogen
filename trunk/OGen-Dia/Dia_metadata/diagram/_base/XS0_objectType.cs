@@ -119,6 +119,8 @@ namespace OGen.Dia.lib.metadata.diagram {
 						// double check, thread safer!
 						if (connections__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							connections__ = new XS_connectionsType();
 						}
 					}

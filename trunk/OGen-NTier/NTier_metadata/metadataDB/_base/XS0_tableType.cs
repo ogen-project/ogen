@@ -104,6 +104,8 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 						// double check, thread safer!
 						if (tabledbs__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							tabledbs__ = new XS_tableDBsType();
 						}
 					}
@@ -138,6 +140,8 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 						// double check, thread safer!
 						if (tablefields__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							tablefields__ = new XS_tableFieldsType();
 						}
 					}

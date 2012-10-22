@@ -76,6 +76,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 						// double check, thread safer!
 						if (tablesearchupdateparameters__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							tablesearchupdateparameters__ = new XS_tableSearchUpdateParametersType();
 						}
 					}

@@ -184,6 +184,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 						// double check, thread safer!
 						if (tablefields__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							tablefields__ = new XS_tableFieldsType();
 						}
 					}
@@ -218,6 +220,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 						// double check, thread safer!
 						if (tablesearches__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							tablesearches__ = new XS_tableSearchesType();
 						}
 					}
@@ -252,6 +256,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 						// double check, thread safer!
 						if (tableupdates__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							tableupdates__ = new XS_tableUpdatesType();
 						}
 					}

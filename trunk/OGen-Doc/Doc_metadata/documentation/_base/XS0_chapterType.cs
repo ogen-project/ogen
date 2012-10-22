@@ -128,6 +128,8 @@ namespace OGen.Doc.lib.metadata.documentation {
 						// double check, thread safer!
 						if (items__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							items__ = new XS_itemsType();
 						}
 					}

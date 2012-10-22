@@ -193,6 +193,8 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 						// double check, thread safer!
 						if (tablefielddbs__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							tablefielddbs__ = new XS_tableFieldDBsType();
 						}
 					}

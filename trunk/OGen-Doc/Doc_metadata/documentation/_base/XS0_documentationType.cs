@@ -154,6 +154,8 @@ namespace OGen.Doc.lib.metadata.documentation {
 						// double check, thread safer!
 						if (chapters__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							chapters__ = new XS_chaptersType();
 						}
 					}

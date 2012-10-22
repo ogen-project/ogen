@@ -144,6 +144,8 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 						// double check, thread safer!
 						if (!Metacache.Contains(metadataFilepath_in)) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							<%=XS__%>RootMetadata.Metacache.Add(
 								metadataFilepath_in,
 								new <%=XS__%>RootMetadata(

@@ -93,6 +93,8 @@ namespace OGen.XSD.lib.metadata.schema {
 						// double check, thread safer!
 						if (sequence__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							sequence__ = new XS_sequenceType();
 						}
 					}

@@ -128,6 +128,8 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 						// double check, thread safer!
 						if (parameters__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							parameters__ = new XS_parametersType();
 						}
 					}

@@ -599,6 +599,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 						// double check, thread safer!
 						if (dbs__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							dbs__ = new XS_dbsType();
 						}
 					}
@@ -633,6 +635,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 						// double check, thread safer!
 						if (tables__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							tables__ = new XS_tablesType();
 						}
 					}

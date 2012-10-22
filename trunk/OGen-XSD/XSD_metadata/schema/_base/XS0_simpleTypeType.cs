@@ -76,6 +76,8 @@ namespace OGen.XSD.lib.metadata.schema {
 						// double check, thread safer!
 						if (restriction__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							restriction__ = new XS_restrictionType();
 						}
 					}

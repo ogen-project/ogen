@@ -103,6 +103,8 @@ namespace OGen.lib.templates {
 						// double check, thread safer!
 						if (arguments__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							arguments__ = new XS_argumentsType();
 						}
 					}
@@ -137,6 +139,8 @@ namespace OGen.lib.templates {
 						// double check, thread safer!
 						if (conditions__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							conditions__ = new XS_conditionsType();
 						}
 					}
@@ -171,6 +175,8 @@ namespace OGen.lib.templates {
 						// double check, thread safer!
 						if (outputs__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							outputs__ = new XS_outputsType();
 						}
 					}
@@ -205,6 +211,8 @@ namespace OGen.lib.templates {
 						// double check, thread safer!
 						if (dependencies__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							dependencies__ = new XS_dependenciesType();
 						}
 					}

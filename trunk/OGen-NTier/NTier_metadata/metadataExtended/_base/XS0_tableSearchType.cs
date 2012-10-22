@@ -104,6 +104,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 						// double check, thread safer!
 						if (tablesearchparameters__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							tablesearchparameters__ = new XS_tableSearchParametersType();
 						}
 					}
@@ -138,6 +140,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 						// double check, thread safer!
 						if (tablesearchupdates__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							tablesearchupdates__ = new XS_tableSearchUpdatesType();
 						}
 					}

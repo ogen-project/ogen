@@ -76,6 +76,8 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 						// double check, thread safer!
 						if (classes__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							classes__ = new XS_classesType();
 						}
 					}

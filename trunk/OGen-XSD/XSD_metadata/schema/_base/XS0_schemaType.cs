@@ -149,6 +149,8 @@ namespace OGen.XSD.lib.metadata.schema {
 						// double check, thread safer!
 						if (element__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							element__ = new XS_elementType();
 						}
 					}
