@@ -100,11 +100,14 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 						// double check, thread safer!
 						if (dbconnection_firstdefaultavailable__ == null) {
 
+							// initialization...
 							for (int d = 0; d < DBCollection.Count; d++) {
 								for (int dd = 0; dd < DBCollection[d].DBConnections.DBConnectionCollection.Count; dd++) {
 									if (DBCollection[d].DBConnections.DBConnectionCollection[dd].isDefault) {
 										db_firstdefaultavailable__
 											= DBCollection[d];
+
+										// ...attribution (last thing before unlock)
 										dbconnection_firstdefaultavailable__
 											= DBCollection[d].DBConnections.DBConnectionCollection[dd];
 

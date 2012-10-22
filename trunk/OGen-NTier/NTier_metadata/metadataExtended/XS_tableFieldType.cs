@@ -45,6 +45,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 						// double check, thread safer!
 						if (parent_table_ref__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							parent_table_ref__
 								= (XS_tableType)(
 									(XS_tableFieldsType)(
@@ -85,11 +87,13 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 							(parallel_ref__ == null)
 						) {
 
+							// initialization...
 							int t
 								= root_ref.MetadataDBCollection[0].Tables.TableCollection.Search(
 									parent_table_ref.Name
 								);
 							if (t < 0) {
+								// ...attribution (last thing before unlock)
 								parallel_ref__exists = false;
 								return null;
 							}
@@ -99,10 +103,12 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 									Name
 								);
 							if (f < 0) {
+								// ...attribution (last thing before unlock)
 								parallel_ref__exists = false;
 								return null;
 							}
 
+							// ...attribution (last thing before unlock)
 							parallel_ref__
 								= root_ref.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[
 									f

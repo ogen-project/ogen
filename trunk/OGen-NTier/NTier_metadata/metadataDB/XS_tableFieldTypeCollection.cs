@@ -41,11 +41,13 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 						// double check, thread safer!
 						if (count_onlypk__ == -2) {
 
+							// initialization...
 							int _count = 0;
 							for (int f = 0; f < this.Count; f++) {
 								if (this[f].isPK) _count++;
 							}
 
+							// ...attribution (last thing before unlock)
 							count_onlypk__ = _count;
 						}
 					}

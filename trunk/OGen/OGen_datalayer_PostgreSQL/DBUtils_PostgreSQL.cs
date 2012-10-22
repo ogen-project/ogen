@@ -33,6 +33,8 @@ namespace OGen.lib.datalayer.PostgreSQL {
 						// double check, thread safer!
 						if (convert__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							convert__ = new DBUtils_convert_Postgresql();
 						}
 					}
@@ -57,6 +59,8 @@ namespace OGen.lib.datalayer.PostgreSQL {
 						// double check, thread safer!
 						if (connectionstring__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							connectionstring__ = new DBUtils_connectionString_PostgreSQL();
 						}
 					}

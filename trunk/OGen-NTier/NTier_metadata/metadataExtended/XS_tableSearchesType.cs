@@ -41,6 +41,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 						// double check, thread safer!
 						if (!hasexplicituniqueindex_DONE__) {
 
+							// initialization...
 							hasexplicituniqueindex__ = false;
 							for (int s = 0; s < TableSearchCollection.Count; s++) {
 								if (TableSearchCollection[s].isExplicitUniqueIndex) {
@@ -49,6 +50,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 								}
 							}
 
+							// ...attribution (last thing before unlock)
 							hasexplicituniqueindex_DONE__ = true;
 						}
 					}

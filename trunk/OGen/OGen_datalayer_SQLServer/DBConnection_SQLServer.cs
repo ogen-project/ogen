@@ -55,6 +55,8 @@ namespace OGen.lib.datalayer.SQLServer {
 						// double check, thread safer!
 						if (utils__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							utils__ = new DBUtils_SQLServer();
 						}
 					}
@@ -96,6 +98,8 @@ namespace OGen.lib.datalayer.SQLServer {
 						// double check, thread safer!
 						if (connection__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							connection__ = new SqlConnection(Connectionstring);
 						}
 					}

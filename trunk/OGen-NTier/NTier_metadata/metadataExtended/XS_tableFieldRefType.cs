@@ -45,6 +45,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 						// double check, thread safer!
 						if (table_ref__ == null) {
 
+							// initialization...
 							#region Checking...
 							if (
 								(TableName == null)
@@ -58,6 +59,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 								));
 							#endregion
 
+							// ...attribution (last thing before unlock)
 							table_ref__
 								= root_ref.MetadataExtendedCollection[0].Tables.TableCollection[
 									TableName
@@ -85,6 +87,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 						// double check, thread safer!
 						if (tablefield_ref__ == null) {
 
+							// initialization...
 							#region Checking...
 							if (
 								(TableName == null)
@@ -102,6 +105,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 								));
 							#endregion
 
+							// ...attribution (last thing before unlock)
 							tablefield_ref__
 								= Table_ref.TableFields.TableFieldCollection[
 									TableFieldName

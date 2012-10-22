@@ -43,6 +43,8 @@ namespace OGen.lib.datalayer {
 						// double check, thread safer!
 						if (dbutils_postgresql__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							dbutils_postgresql__ = new DBUtils_PostgreSQL();
 						}
 					}
@@ -68,6 +70,8 @@ namespace OGen.lib.datalayer {
 						// double check, thread safer!
 						if (dbutils_sqlserver__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							dbutils_sqlserver__ = new DBUtils_SQLServer();
 						}
 					}
@@ -93,6 +97,8 @@ namespace OGen.lib.datalayer {
 						// double check, thread safer!
 						if (dbutils_mysql__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							dbutils_mysql__ = new DBUtils_MySQL();
 						}
 					}

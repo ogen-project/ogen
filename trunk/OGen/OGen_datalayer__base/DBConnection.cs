@@ -214,6 +214,8 @@ namespace OGen.lib.datalayer {
 						// double check, thread safer!
 						if (connectionstring_dbname__ == string.Empty) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							connectionstring_dbname__ = utils.ConnectionString.ParseParameter(
 								Connectionstring,
 								DBUtils_connectionString.eParameter.DBName
@@ -292,6 +294,9 @@ namespace OGen.lib.datalayer {
 							// instantiating for the first time and
 							// only because it became needed, otherwise
 							// never instantiated...
+
+							// initialization...
+							// ...attribution (last thing before unlock)
 							transaction__ = new DBTransaction(this);
 						}
 					}

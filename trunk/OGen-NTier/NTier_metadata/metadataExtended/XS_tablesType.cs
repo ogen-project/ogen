@@ -41,6 +41,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 						// double check, thread safer!
 						if (!hasvirtualtable_withundefinedkeys_DONE__) {
 
+							// initialization...
 							hasvirtualtable_withundefinedkeys__ = false;
 							for (int t = 0; t < TableCollection.Count; t++)
 								if (TableCollection[t].isVirtualTable)
@@ -53,6 +54,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 										break;
 									}
 
+							// ...attribution (last thing before unlock)
 							hasvirtualtable_withundefinedkeys_DONE__ = true;
 						}
 					}
@@ -81,6 +83,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 						// double check, thread safer!
 						if (!hasconfigtable_DONE__) {
 
+							// initialization...
 							hasconfigtable__ = false;
 							for (int t = 0; t < TableCollection.Count; t++)
 								if (TableCollection[t].isConfig) {
@@ -88,6 +91,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 									break;
 								}
 
+							// ...attribution (last thing before unlock)
 							hasconfigtable_DONE__ = true;
 						}
 					}

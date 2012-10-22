@@ -55,6 +55,8 @@ namespace OGen.lib.datalayer.PostgreSQL {
 						// double check, thread safer!
 						if (utils__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							utils__ = new DBUtils_PostgreSQL();
 						}
 					}
@@ -97,6 +99,8 @@ namespace OGen.lib.datalayer.PostgreSQL {
 						// double check, thread safer!
 						if (connection__ == null) {
 
+							// initialization...
+							// ...attribution (last thing before unlock)
 							connection__ = new NpgsqlConnection(Connectionstring);
 						}
 					}

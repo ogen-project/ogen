@@ -91,15 +91,18 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 							(parallel_ref__ == null)
 						) {
 
+							// initialization...
 							int t
 								= root_ref.MetadataDBCollection[0].Tables.TableCollection.Search(
 									Name
 								);
 							if (t < 0) {
+								// ...attribution (last thing before unlock)
 								parallel_ref__exists = false;
 								return null;
 							}
 
+							// ...attribution (last thing before unlock)
 							parallel_ref__
 								= root_ref.MetadataDBCollection[0].Tables.TableCollection[
 									t

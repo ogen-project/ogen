@@ -72,10 +72,12 @@ namespace OGen.lib.parser {
 
 					// double check, thread safer!
 					if (!myhost_.ContainsKey(appPath_in)) {
-						string _appId = "ParserASPX_" + Guid.NewGuid().GetHashCode().ToString("x");
 
+						// initialization...
+						string _appId = "ParserASPX_" + Guid.NewGuid().GetHashCode().ToString("x");
 						string _virtualPath = "/";
 
+						// ...attribution (last thing before unlock)
 						myhost_.Add(
 							appPath_in,
 							(MyHost)ApplicationManager.GetApplicationManager().CreateObject(
