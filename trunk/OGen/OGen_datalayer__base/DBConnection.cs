@@ -199,6 +199,7 @@ namespace OGen.lib.datalayer {
 		#endregion
 		#region public string Connectionstring_DBName { get; }
 		private string connectionstring_dbname__ = string.Empty;
+		private object connectionstring_dbname__locker = new object();
 
 		public string Connectionstring_DBName {
 			get {
@@ -206,7 +207,7 @@ namespace OGen.lib.datalayer {
 				// check before lock
 				if (connectionstring_dbname__ == string.Empty) {
 
-					lock (connectionstring_dbname__) {
+					lock (connectionstring_dbname__locker) {
 
 						// double check, thread safer!
 						if (connectionstring_dbname__ == string.Empty) {

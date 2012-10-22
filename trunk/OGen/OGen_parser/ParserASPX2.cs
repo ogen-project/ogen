@@ -28,6 +28,7 @@ namespace OGen.lib.parser {
 		#endregion
 
 		private static System.Collections.Generic.Dictionary<string, MyHost> myhost_;
+		private static object myhost_locker = new object();
 
 		private class MyHost : MarshalByRefObject, IRegisteredObject {
 			public override Object InitializeLifetimeService() {
@@ -65,7 +66,7 @@ namespace OGen.lib.parser {
 			// check before lock
 			if (!myhost_.ContainsKey(appPath_in)) {
 
-				lock (myhost_) {
+				lock (myhost_locker) {
 
 					// --- performance hack! keeping host static, 
 					// instantiating only one host per Physical/Application Path

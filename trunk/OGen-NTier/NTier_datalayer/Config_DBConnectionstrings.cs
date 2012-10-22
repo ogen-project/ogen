@@ -146,6 +146,7 @@ namespace OGen.NTier.lib.datalayer {
 		#endregion
 		#region public static string[] ConfigModes(string application_in);
 		private static Hashtable configmodes__ = new Hashtable();
+		private static object configmodes__locker = new object();
 
 		/// <summary>
 		/// Supported Config Modes (i.e. DEBUG, !DEBUG, etc.) for a specific application.
@@ -157,7 +158,7 @@ namespace OGen.NTier.lib.datalayer {
 			// check before lock
 			if (!configmodes__.Contains(application_in)) {
 
-				lock (configmodes__) {
+				lock (configmodes__locker) {
 
 					// double check, thread safer!
 					if (!configmodes__.Contains(application_in)) {
@@ -188,6 +189,7 @@ namespace OGen.NTier.lib.datalayer {
 		#endregion
 		#region public static string[] DBServerTypes(string application_in);
 		private static Hashtable dbservertypes__ = new Hashtable();
+		private static object dbservertypes__locker = new object();
 
 		/// <summary>
 		/// Supported DB Server Types.
@@ -199,7 +201,7 @@ namespace OGen.NTier.lib.datalayer {
 			// check before lock
 			if (!dbservertypes__.Contains(application_in)) {
 
-				lock (dbservertypes__) {
+				lock (dbservertypes__locker) {
 
 					// double check, thread safer!
 					if (!dbservertypes__.Contains(application_in)) {
@@ -238,6 +240,8 @@ namespace OGen.NTier.lib.datalayer {
 		#endregion
 		#region public static Config_DBConnectionstrings DBConnectionstrings(string application_in);
 		private static Hashtable dbconnectionstrings__ = new Hashtable();
+		private static object dbconnectionstrings__locker = new object();
+
 		public static Config_DBConnectionstrings DBConnectionstrings(
 			string application_in
 		) {
@@ -245,7 +249,7 @@ namespace OGen.NTier.lib.datalayer {
 			// check before lock
 			if (!dbconnectionstrings__.Contains(application_in)) {
 
-				lock (dbconnectionstrings__) {
+				lock (dbconnectionstrings__locker) {
 
 					// double check, thread safer!
 					if (!dbconnectionstrings__.Contains(application_in)) {
