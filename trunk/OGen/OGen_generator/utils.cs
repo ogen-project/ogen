@@ -132,10 +132,99 @@ namespace OGen.lib.generator {
 				pathTranslated_in,
 				returnValue_in,
 				anyAttribute_notJustXml,
-				ref _valueHasBeenFound
+				ref _valueHasBeenFound,
+				true
+			);
+		}
+		public static string ReflectThrough(
+			object someClass_in,
+			string path_in,
+			IterationFoundDelegate iteration_found_in,
+			string iteration_in,
+			string pathTranslated_in,
+			bool returnValue_in,
+			bool anyAttribute_notJustXml,
+			ref bool valueHasBeenFound_out
+		) {
+			return ReflectThrough(
+				someClass_in,
+				path_in,
+				iteration_found_in,
+				iteration_in,
+				pathTranslated_in,
+				returnValue_in,
+				anyAttribute_notJustXml,
+				ref valueHasBeenFound_out,
+				true
 			);
 		}
 		#endregion
+
+		private class CacheItem {
+			public CacheItem(
+				string translation_in,
+				System.Collections.Generic.List<string> iterarions_in
+			) {
+				this.Translation = translation_in;
+				this.Iterations = iterarions_in;
+			}
+
+			public string Translation;
+			public System.Collections.Generic.List<string> Iterations;
+		}
+		private static System.Collections.Generic.Dictionary<string, CacheItem> reflectthrough_cache
+			= new System.Collections.Generic.Dictionary<string, CacheItem>();
+		private static object reflectthrough_locker = new object();
+
+		private static string ReflectThroughRunAndCache(
+			IterationFoundDelegate iteration_found_in,
+			System.Collections.Generic.List<string> iterations_in,
+			string what_in,
+			string translation_in,
+			bool useCache_in
+		) {
+			if (
+				(iteration_found_in != null)
+				&&
+				(iterations_in != null)
+			) {
+				for (int m = 0; m < iterations_in.Count; m++) {
+					iteration_found_in(iterations_in[m]);
+				}
+			}
+
+			if (useCache_in) {
+
+				// check before lock
+				if (!reflectthrough_cache.ContainsKey(what_in)) {
+
+					lock (reflectthrough_locker) {
+
+						// double check, thread safer!
+						if (!reflectthrough_cache.ContainsKey(what_in)) {
+
+							// initialization...
+							// ...attribution (last thing before unlock)
+							reflectthrough_cache.Add(
+								what_in, 
+								(
+									(translation_in == null)
+									&&
+									(iterations_in == null)
+								)
+									? null
+									: new CacheItem(
+										translation_in,
+										iterations_in
+									)
+							);
+						}
+					}
+				}
+			}
+
+			return translation_in;
+		}
 
 		public static string ReflectThrough(
 			object someClass_in, 
@@ -145,36 +234,45 @@ namespace OGen.lib.generator {
 			string pathTranslated_in, 
 			bool returnValue_in, 
 			bool anyAttribute_notJustXml, 
-			ref bool valueHasBeenFound_out
+			ref bool valueHasBeenFound_out,
+			bool useCache_in
 		) {
+			string _cacheKey = iteration_in;
+
+			CacheItem _cacheitem;
+			if (
+				useCache_in
+				&&
+				reflectthrough_cache.ContainsKey(_cacheKey)
+			) {
+				_cacheitem = reflectthrough_cache[_cacheKey];
+
+				if (_cacheitem == null) return null;
+
+				for (int i = 0; i < _cacheitem.Iterations.Count; i++) {
+					iteration_found_in(_cacheitem.Iterations[i]);
+				}
+				valueHasBeenFound_out = _cacheitem.Iterations.Count > 0;
+
+				return _cacheitem.Translation;
+			}
+
+
+
+			System.Collections.Generic.List<string> _iteration_found_out = new System.Collections.Generic.List<string>();
 			string _output = null;
 
 #if DEBUG
-const bool _usePerformance1 = true;
 const bool _usePerformance2 = false;
 const bool _usePerformance3 = true;
 const bool _usePerformance5 = false;
-//Console.WriteLine(
-//    "class: {0}\npath: {1}\niteration: {2}\npathTranslated: {3}\nreturnValue: {4}\nanyAttribute_notJustXml: {5}\n",
-//    someClass_in.GetType().ToString(),
-//    path_in,
-//    iteration_in,
-//    pathTranslated_in,
-//    returnValue_in,
-//    anyAttribute_notJustXml
-//);
-//Console.ReadKey();
 #else
-const bool _usePerformance1 = true;
 const bool _usePerformance2 = false;
 const bool _usePerformance3 = true;
 const bool _usePerformance5 = false;
 #endif
 
 			if (
-//#if DEBUG
-_usePerformance1 && (
-//#endif
 				(
 					returnValue_in
 					&&
@@ -194,33 +292,23 @@ _usePerformance1 && (
 						(pathTranslated_in != iteration_in.Substring(0, pathTranslated_in.Length))
 					)
 				)
-//#if DEBUG
-)
-//#endif
 			) {
-				// performance tweak, compares path to avoid looking in the wrong direction 
-				return null;
+				// performance tweak, compares path to avoid looking in the wrong direction
+
+				return ReflectThroughRunAndCache(
+					iteration_found_in,
+					null,
+					_cacheKey,
+					null,
+					useCache_in
+				);
 			}
 
 			if (iteration_in == pathTranslated_in) {
 				valueHasBeenFound_out = true;
-				if (iteration_found_in != null) iteration_found_in(path_in);
-			}
 
-//#if DEBUG
-//Console.WriteLine(
-//    "\n\t---\n\t{0}.{1}.ReflectThrough:{7}(\n\t\tsomeClass_in:\"{2}.{3}\",\n\t\tpath_in:\"{4}\",\n\t\titeration_in:\"{5}\",\n\t\tpathTranslated_in:\"{6}\"\n\t)\n\t---",
-//    typeof(utils).Namespace,
-//    typeof(utils).Name,
-//    someClass_in.GetType().Namespace,
-//    someClass_in.GetType().Name,
-//    path_in,
-//    iteration_in,
-//    pathTranslated_in,
-//    returnValue_in ? "READ" : "ITERATE"
-//);
-//Console.Write("{{{0}}}", path_in.ToUpper());
-//#endif
+				if (iteration_found_in != null) _iteration_found_out.Add(path_in);
+			}
 
 			PropertyInfo[] _properties;
 			System.Xml.Serialization.XmlElementAttribute _elementAttribute;
@@ -362,7 +450,9 @@ _usePerformance5 &&
 									_elementAttribute.ElementName, 
 									i
 								), 
-								iteration_found_in, 
+								delegate(string message_in) {
+									if (iteration_found_in != null) _iteration_found_out.Add(message_in);
+								},
 								iteration_in, 
 								string.Format(
 									"{0}.{1}[n]", 
@@ -371,10 +461,19 @@ _usePerformance5 &&
 								), 
 								returnValue_in, 
 								anyAttribute_notJustXml,
-								ref valueHasBeenFound_out
+								ref valueHasBeenFound_out,
+								false
 							);
-							if (returnValue_in && valueHasBeenFound_out)
-								return _output;
+							if (returnValue_in && valueHasBeenFound_out) {
+
+								return ReflectThroughRunAndCache(
+									iteration_found_in,
+									_iteration_found_out,
+									_cacheKey,
+									_output,
+									useCache_in
+								);
+							}
 						}
 					} else {
 						_output = ReflectThrough(
@@ -384,7 +483,9 @@ _usePerformance5 &&
 								path_in, 
 								_elementAttribute.ElementName
 							), 
-							iteration_found_in, 
+							delegate(string message_in) {
+								if (iteration_found_in != null) _iteration_found_out.Add(message_in);
+							},
 							iteration_in, 
 							string.Format(
 								"{0}.{1}", 
@@ -393,10 +494,19 @@ _usePerformance5 &&
 							), 
 							returnValue_in, 
 							anyAttribute_notJustXml,
-							ref valueHasBeenFound_out
+							ref valueHasBeenFound_out,
+							false
 						);
-						if (returnValue_in && valueHasBeenFound_out)
-							return _output;
+						if (returnValue_in && valueHasBeenFound_out) {
+
+							return ReflectThroughRunAndCache(
+								iteration_found_in,
+								_iteration_found_out,
+								_cacheKey,
+								_output,
+								useCache_in
+							);
+						}
 					}
 					#endregion
 				} else if (
@@ -465,7 +575,15 @@ Console.WriteLine(_ex_message);
 
 					if (string.Format("{0}.{1}", path_in, _attributename) == iteration_in) {
 						valueHasBeenFound_out = true;
-						return _value.ToString();
+						_output = _value.ToString();
+
+						return ReflectThroughRunAndCache(
+							iteration_found_in,
+							_iteration_found_out,
+							_cacheKey,
+							_output,
+							useCache_in
+						);
 					}
 					#endregion
 				} 
@@ -482,7 +600,13 @@ Console.WriteLine(_ex_message);
 				//}
 			}
 
-			return _output;
+			return ReflectThroughRunAndCache(
+				iteration_found_in,
+				_iteration_found_out,
+				_cacheKey,
+				_output,
+				useCache_in
+			);
 		}
 //		#endregion
 	}
