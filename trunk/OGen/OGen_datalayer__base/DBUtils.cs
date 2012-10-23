@@ -129,7 +129,13 @@ namespace OGen.lib.datalayer {
 				_sb.Append(string.Format(
 					"\n\t{1}{2}\t\t--{0}",
 					dataParameters_in[i].ParameterName,
-					dataParameters_in[i].Value,
+					(
+						(dataParameters_in[i].Value == null) 
+						|| 
+						(dataParameters_in[i].Value == DBNull.Value)
+					)
+						? "NULL"
+						: dataParameters_in[i].Value,
 					(i == dataParameters_in.Length - 1) ? "\n" : ","
 				));
 			}
