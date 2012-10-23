@@ -104,7 +104,7 @@
         <dia:point val="15,2.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="6.23429,1.65;15,3.25"/>
+        <dia:rectangle val="6.23429,1.6;15,3.2"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -175,7 +175,7 @@
         <dia:point val="15,3.2"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="9.935,2.45;15.75,6.25"/>
+        <dia:rectangle val="9.935,2.4;15.75,6.2"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -246,7 +246,7 @@
         <dia:point val="32,5.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="21.255,4.6;32.75,6.25"/>
+        <dia:rectangle val="21.255,4.6;32.75,6.2"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -317,7 +317,7 @@
         <dia:point val="32,6.2"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="26.165,5.45;32.75,9.25"/>
+        <dia:rectangle val="26.165,5.4;32.75,9.2"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -388,7 +388,7 @@
         <dia:point val="4.72875,5.3"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="3.92875,5.25;37.75,27.85"/>
+        <dia:rectangle val="3.92875,5.25;37.75,27.8"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -457,7 +457,7 @@
         <dia:point val="37,27.8"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="2.3525,5.25;37.75,28.65"/>
+        <dia:rectangle val="2.3525,5.25;37.75,28.6"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -526,7 +526,7 @@
         <dia:point val="38.305,8.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="38.255,7.6;49.525,32.65"/>
+        <dia:rectangle val="38.255,7.6;49.525,32.6"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -597,7 +597,7 @@
         <dia:point val="8.52226,43.9754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="5.84726,43.1754;12.9873,53.0254"/>
+        <dia:rectangle val="5.84726,43.1754;12.9873,52.9754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -668,7 +668,7 @@
         <dia:point val="-18.151,13.3001"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-18.951,13.2501;0.657258,40.0254"/>
+        <dia:rectangle val="-18.951,13.2501;0.657258,39.9754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -737,7 +737,7 @@
         <dia:point val="-18.151,13.3001"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-18.951,13.2501;15.6573,56.0254"/>
+        <dia:rectangle val="-18.951,13.2501;15.6573,55.9754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -806,7 +806,7 @@
         <dia:point val="3,11.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-0.31,10.6;16.6673,40.8254"/>
+        <dia:rectangle val="-0.31,10.6;16.6673,40.7754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -881,7 +881,7 @@
         <dia:point val="22.3673,55.9754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="17.8373,55.2254;28.9723,60.4754"/>
+        <dia:rectangle val="17.8373,55.1754;28.9723,60.4754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -954,7 +954,7 @@
         <dia:point val="-13.4222,11.0501"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-13.4722,4.05;0.75,11.9001"/>
+        <dia:rectangle val="-13.4722,4;0.75,11.8501"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -1025,7 +1025,7 @@
         <dia:point val="-13.4222,11.0501"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-13.4722,6.25;15.75,11.9001"/>
+        <dia:rectangle val="-13.4722,6.2;15.75,11.8501"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -1096,7 +1096,7 @@
         <dia:point val="-13.4222,11.0501"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-13.4722,9.25;32.75,11.9001"/>
+        <dia:rectangle val="-13.4722,9.2;32.75,11.8501"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -1167,7 +1167,7 @@
         <dia:point val="-14.9985,13.3001"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-15.7984,13.2501;37.75,33.45"/>
+        <dia:rectangle val="-15.7984,13.2501;37.75,33.4"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -1236,7 +1236,7 @@
         <dia:point val="-14.9985,13.3001"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-15.7984,13.2501;47.75,25.65"/>
+        <dia:rectangle val="-15.7984,13.2501;47.75,25.6"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -1305,7 +1305,7 @@
         <dia:point val="-14.9985,13.3001"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-15.7984,13.2501;51.75,33.65"/>
+        <dia:rectangle val="-15.7984,13.2501;51.75,33.6"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -1374,7 +1374,7 @@
         <dia:point val="3,10.45"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-0.91,5.25;4.43625,11.3"/>
+        <dia:rectangle val="-0.91,5.25;4.43625,11.25"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -1443,7 +1443,7 @@
         <dia:point val="8.52226,49.2754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="8.47226,48.4754;15.6573,50.2254"/>
+        <dia:rectangle val="8.47226,48.4754;15.6573,50.1754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -1514,7 +1514,7 @@
         <dia:point val="14.9073,50.1754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="11.3823,49.4254;15.6573,54.2754"/>
+        <dia:rectangle val="11.3823,49.3754;15.6573,54.2254"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -1585,7 +1585,7 @@
         <dia:point val="9.305,11.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="9.255,10.6;24.6573,42.2254"/>
+        <dia:rectangle val="9.255,10.6;24.6573,42.1754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -1656,7 +1656,7 @@
         <dia:point val="23.9073,42.1754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="11.9823,41.4254;24.6573,55.2254"/>
+        <dia:rectangle val="11.9823,41.3754;24.6573,55.1754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -1727,7 +1727,7 @@
         <dia:point val="8.52226,49.2754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="8.47226,48.4754;55.6573,50.2254"/>
+        <dia:rectangle val="8.47226,48.4754;55.6573,50.1754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -1798,7 +1798,7 @@
         <dia:point val="62.3673,54.3754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="15.7763,7.45;67.4323,55.2254"/>
+        <dia:rectangle val="15.7763,7.45;67.4323,55.1754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -1871,16 +1871,16 @@
         <dia:point val="-40,23.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-48.41,22.6;-39.95,28.05"/>
+        <dia:rectangle val="-48.835,22.6;-39.95,28"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
         <dia:point val="-40,23.4"/>
-        <dia:point val="-43.83,23.4"/>
-        <dia:point val="-43.83,27.2"/>
-        <dia:point val="-47.66,27.2"/>
+        <dia:point val="-44.0425,23.4"/>
+        <dia:point val="-44.0425,27.2"/>
+        <dia:point val="-48.085,27.2"/>
       </dia:attribute>
       <dia:attribute name="orth_orient">
         <dia:enum val="0"/>
@@ -1942,7 +1942,7 @@
         <dia:point val="-55.031,36.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-58.341,25.65;-53.25,37.25"/>
+        <dia:rectangle val="-58.341,25.6;-53.25,37.2"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -2013,16 +2013,16 @@
         <dia:point val="-34.85,23.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-34.9,22.6;-26.03,28.25"/>
+        <dia:rectangle val="-34.9,22.6;-26.7175,28.2"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
         <dia:point val="-34.85,23.4"/>
-        <dia:point val="-30.48,23.4"/>
-        <dia:point val="-30.48,27.4"/>
-        <dia:point val="-31.48,27.4"/>
+        <dia:point val="-31.1675,23.4"/>
+        <dia:point val="-31.1675,27.4"/>
+        <dia:point val="-32.1675,27.4"/>
       </dia:attribute>
       <dia:attribute name="orth_orient">
         <dia:enum val="0"/>
@@ -2081,18 +2081,18 @@
         <dia:boolean val="true"/>
       </dia:attribute>
       <dia:attribute name="obj_pos">
-        <dia:point val="-31.48,28.2"/>
+        <dia:point val="-32.1675,28.2"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-32.23,11.2001;-19.6772,29.05"/>
+        <dia:rectangle val="-32.9175,11.2001;-19.6772,29"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
-        <dia:point val="-31.48,28.2"/>
-        <dia:point val="-25.6036,28.2"/>
-        <dia:point val="-25.6036,12.0001"/>
+        <dia:point val="-32.1675,28.2"/>
+        <dia:point val="-25.9474,28.2"/>
+        <dia:point val="-25.9474,12.0001"/>
         <dia:point val="-19.7272,12.0001"/>
       </dia:attribute>
       <dia:attribute name="orth_orient">
@@ -2155,7 +2155,7 @@
         <dia:point val="-46.031,36.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-46.081,23.45;-39.25,37.25"/>
+        <dia:rectangle val="-46.081,23.4;-39.25,37.2"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -2226,7 +2226,7 @@
         <dia:point val="-52.781,38.5"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-53.581,38.45;0.657258,57.0254"/>
+        <dia:rectangle val="-53.581,38.45;0.657258,56.9754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -2295,7 +2295,7 @@
         <dia:point val="-52.781,38.5"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-53.581,38.45;0.657258,56.2254"/>
+        <dia:rectangle val="-53.581,38.45;0.657258,56.1754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -2364,7 +2364,7 @@
         <dia:point val="-52.781,38.5"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-53.581,38.45;15.6573,57.6254"/>
+        <dia:rectangle val="-53.581,38.45;15.6573,57.5754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -2433,7 +2433,7 @@
         <dia:point val="-52.781,38.5"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-53.581,38.45;0.657258,48.0254"/>
+        <dia:rectangle val="-53.581,38.45;0.657258,47.9754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -2502,7 +2502,7 @@
         <dia:point val="-52.781,38.5"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-53.581,38.45;0.657258,47.2254"/>
+        <dia:rectangle val="-53.581,38.45;0.657258,47.1754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -2571,7 +2571,7 @@
         <dia:point val="-52.781,38.5"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-53.581,38.45;0.657258,46.4254"/>
+        <dia:rectangle val="-53.581,38.45;0.657258,46.3754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -2640,7 +2640,7 @@
         <dia:point val="-52.781,38.5"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-53.581,38.45;0.657258,45.6254"/>
+        <dia:rectangle val="-53.581,38.45;0.657258,45.5754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -2709,7 +2709,7 @@
         <dia:point val="3,12.2"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-0.31,11.4;15.8973,42.4254"/>
+        <dia:rectangle val="-0.31,11.4;15.8973,42.3754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -2784,7 +2784,7 @@
         <dia:point val="-19.7272,12.0001"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-46.781,11.2001;-19.6772,38.05"/>
+        <dia:rectangle val="-46.781,11.2001;-19.6772,38"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -2855,7 +2855,7 @@
         <dia:point val="8.52226,49.2754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="8.47226,48.4754;25.6573,50.2254"/>
+        <dia:rectangle val="8.47226,48.4754;25.6573,50.1754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -2926,7 +2926,7 @@
         <dia:point val="8.52226,49.2754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="8.47226,48.4754;35.6573,50.2254"/>
+        <dia:rectangle val="8.47226,48.4754;35.6573,50.1754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -2997,7 +2997,7 @@
         <dia:point val="8.52226,49.2754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="8.47226,48.4754;46.6573,50.2254"/>
+        <dia:rectangle val="8.47226,48.4754;46.6573,50.1754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -3068,7 +3068,7 @@
         <dia:point val="24.9073,50.1754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="20.2273,49.4254;25.6573,55.2254"/>
+        <dia:rectangle val="20.2273,49.3754;25.6573,55.1754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -3139,7 +3139,7 @@
         <dia:point val="34.9073,50.1754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="29.0723,49.4254;35.6573,55.2254"/>
+        <dia:rectangle val="29.0723,49.3754;35.6573,55.1754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -3210,7 +3210,7 @@
         <dia:point val="45.9073,50.1754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="41.2273,49.4254;46.6573,55.2254"/>
+        <dia:rectangle val="41.2273,49.3754;46.6573,55.1754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -3281,7 +3281,7 @@
         <dia:point val="-18.151,13.3001"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-18.951,13.2501;25.6573,56.0254"/>
+        <dia:rectangle val="-18.951,13.2501;25.6573,55.9754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -3350,7 +3350,7 @@
         <dia:point val="-18.151,13.3001"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-18.951,13.2501;46.6573,56.0254"/>
+        <dia:rectangle val="-18.951,13.2501;46.6573,55.9754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -3419,7 +3419,7 @@
         <dia:point val="-18.151,13.3001"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-18.951,13.2501;35.6573,56.0254"/>
+        <dia:rectangle val="-18.951,13.2501;35.6573,55.9754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -3488,7 +3488,7 @@
         <dia:point val="32.3673,55.9754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="27.8373,55.2254;40.1273,60.4754"/>
+        <dia:rectangle val="27.8373,55.1754;40.1273,60.4754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -3561,7 +3561,7 @@
         <dia:point val="43.5223,55.9754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="38.4148,55.2254;52.4373,60.4754"/>
+        <dia:rectangle val="38.4148,55.1754;52.4373,60.4754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -3634,7 +3634,7 @@
         <dia:point val="-21.6963,36.5576"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-24.7463,32.6076;-13.5513,37.4076"/>
+        <dia:rectangle val="-24.7463,32.5576;-13.5513,37.3576"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -3707,7 +3707,7 @@
         <dia:point val="9.305,11.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="9.255,10.6;30.1273,58.4254"/>
+        <dia:rectangle val="9.255,10.6;30.1273,58.3754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -3778,7 +3778,7 @@
         <dia:point val="9.305,11.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="9.255,10.6;61.1273,57.6254"/>
+        <dia:rectangle val="9.255,10.6;61.1273,57.5754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -3849,7 +3849,7 @@
         <dia:point val="9.305,11.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="9.255,10.6;40.1273,58.4254"/>
+        <dia:rectangle val="9.255,10.6;40.1273,58.3754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -3920,7 +3920,7 @@
         <dia:point val="9.305,11.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="9.255,10.6;51.2823,58.4254"/>
+        <dia:rectangle val="9.255,10.6;51.2823,58.3754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -3991,7 +3991,7 @@
         <dia:point val="54.9073,50.1754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="49.8423,49.4254;55.6573,55.2254"/>
+        <dia:rectangle val="49.8423,49.3754;55.6573,55.1754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -4026,7 +4026,7 @@
         <dia:point val="23.9073,38.9754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="23.9073,38.3804;27.3673,39.9254"/>
+        <dia:rectangle val="23.9073,38.3354;26.9148,39.9079"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
@@ -4096,7 +4096,7 @@ Newsletter#</dia:string>
         <dia:point val="9.305,11.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="9.255,10.6;70.1273,56.0254"/>
+        <dia:rectangle val="9.255,10.6;70.1273,55.9754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -4167,7 +4167,7 @@ Newsletter#</dia:string>
         <dia:point val="47,22.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="42.535,21.6;48.755,27.05"/>
+        <dia:rectangle val="42.535,21.6;48.755,27"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -4238,7 +4238,7 @@ Newsletter#</dia:string>
         <dia:point val="52.595,21"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="51.845,19.25;59.305,23.25"/>
+        <dia:rectangle val="51.845,19.2;59.305,23.2"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -4311,7 +4311,7 @@ Newsletter#</dia:string>
         <dia:point val="51,30.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="42.94,27.85;51.05,31.25"/>
+        <dia:rectangle val="42.94,27.8;51.05,31.2"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -4382,7 +4382,7 @@ Newsletter#</dia:string>
         <dia:point val="3,11.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-22.4463,10.6;3.05,41.4076"/>
+        <dia:rectangle val="-22.4463,10.6;3.05,41.3576"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -4453,7 +4453,7 @@ Newsletter#</dia:string>
         <dia:point val="-18.151,13.3001"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-22.4463,13.2501;-12.596,43.0076"/>
+        <dia:rectangle val="-22.4463,13.2501;-12.596,42.9576"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -4522,7 +4522,7 @@ Newsletter#</dia:string>
         <dia:point val="-13.4222,11.0501"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-13.4722,10.2501;3.75,15.45"/>
+        <dia:rectangle val="-13.4722,10.2501;3.75,15.4"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -4557,7 +4557,7 @@ Newsletter#</dia:string>
         <dia:point val="3,16"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="3,15.405;12.9175,18.55"/>
+        <dia:rectangle val="3,15.36;11.77,18.5325"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
@@ -4635,7 +4635,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="14,14.2"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="8.935,4.6;15.05,15.05"/>
+        <dia:rectangle val="8.935,4.6;15.05,15"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -4703,17 +4703,17 @@ EMail - IFApplication#</dia:string>
         <dia:boolean val="true"/>
       </dia:attribute>
       <dia:attribute name="obj_pos">
-        <dia:point val="9.0475,21.4"/>
+        <dia:point val="8.585,21.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="9.0475,20.65;14.1125,22.25"/>
+        <dia:rectangle val="8.585,20.6;14.0707,22.2"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
-        <dia:point val="9.0475,21.4"/>
-        <dia:point val="9.0475,21.4"/>
+        <dia:point val="8.585,21.4"/>
+        <dia:point val="8.585,21.4"/>
         <dia:point val="14,21.4"/>
         <dia:point val="14,21.4"/>
       </dia:attribute>
@@ -4777,7 +4777,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="3,11.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-0.91,10.6;3.75,23.05"/>
+        <dia:rectangle val="-0.91,10.6;3.75,23"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -4848,7 +4848,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="32,2.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="21.255,1.65;32.75,6.25"/>
+        <dia:rectangle val="21.255,1.6;32.75,6.2"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -4919,7 +4919,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="32,3.2"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="21.255,2.45;32.75,6.25"/>
+        <dia:rectangle val="21.255,2.4;32.75,6.2"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -5104,7 +5104,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="32,4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="32,4;39.245,6.7"/>
+        <dia:rectangle val="32,4;38.66,6.7"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -5113,7 +5113,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="32,4"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="7.2450000000000001"/>
+        <dia:real val="6.6600000000000001"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="2.7000000000000002"/>
@@ -5454,7 +5454,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="-54,25"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-54,25;-47.66,29.3"/>
+        <dia:rectangle val="-54,25;-48.085,29.3"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -5463,7 +5463,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="-54,25"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="6.3399999999999999"/>
+        <dia:real val="5.915"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="4.3000000000000007"/>
@@ -5604,7 +5604,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="-40,26"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-40,26;-31.48,28.7"/>
+        <dia:rectangle val="-40,26;-32.1675,28.7"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -5613,7 +5613,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="-40,26"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="8.5199999999999996"/>
+        <dia:real val="7.8325000000000005"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="2.7000000000000002"/>
@@ -5944,7 +5944,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="14.9073,47.9754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="14.9073,47.9754;20.8398,50.6754"/>
+        <dia:rectangle val="14.9073,47.9754;20.3898,50.6754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -5953,7 +5953,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="14.9073,47.9754"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="5.9325000000000001"/>
+        <dia:real val="5.4824999999999999"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="2.7000000000000002"/>
@@ -6054,7 +6054,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="24.9073,47.9754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="24.9073,47.9754;31.8523,50.6754"/>
+        <dia:rectangle val="24.9073,47.9754;31.2873,50.6754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -6063,7 +6063,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="24.9073,47.9754"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="6.9450000000000003"/>
+        <dia:real val="6.3799999999999999"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="2.7000000000000002"/>
@@ -6164,7 +6164,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="34.9073,47.9754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="34.9073,47.9754;42.5873,52.2754"/>
+        <dia:rectangle val="34.9073,47.9754;41.9498,52.2754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -6173,7 +6173,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="34.9073,47.9754"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="7.6799999999999997"/>
+        <dia:real val="7.0424999999999995"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="4.3000000000000007"/>
@@ -6314,7 +6314,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="45.9073,47.9754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="45.9073,47.9754;52.8348,50.6754"/>
+        <dia:rectangle val="45.9073,47.9754;52.2773,50.6754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -6323,7 +6323,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="45.9073,47.9754"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="6.9275000000000002"/>
+        <dia:real val="6.3700000000000001"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="2.7000000000000002"/>
@@ -7764,7 +7764,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="54.9073,47.9754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="54.9073,47.9754;61.7573,50.6754"/>
+        <dia:rectangle val="54.9073,47.9754;61.2023,50.6754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -7773,7 +7773,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="54.9073,47.9754"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="6.8499999999999996"/>
+        <dia:real val="6.2949999999999999"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="2.7000000000000002"/>
@@ -8004,7 +8004,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="23.9073,39.9754"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="23.9073,39.9754;28.7773,42.6754"/>
+        <dia:rectangle val="23.9073,39.9754;28.4323,42.6754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -8013,7 +8013,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="23.9073,39.9754"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="4.8700000000000001"/>
+        <dia:real val="4.5250000000000004"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="2.7000000000000002"/>
@@ -9274,7 +9274,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="3,20"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="3,20;9.0475,22.7"/>
+        <dia:rectangle val="3,20;8.585,22.7"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -9283,7 +9283,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="3,20"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="6.0475000000000003"/>
+        <dia:real val="5.585"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="2.7000000000000002"/>
@@ -9624,7 +9624,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="15,1"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="15,1;20.605,3.7"/>
+        <dia:rectangle val="15,1;20.1825,3.7"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -9633,7 +9633,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="15,1"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="5.6049999999999995"/>
+        <dia:real val="5.1825000000000001"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="2.7000000000000002"/>
@@ -9880,7 +9880,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="-34.85,19.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-35.6,1.6;0.05,20.25"/>
+        <dia:rectangle val="-35.6,1.6;0.05,20.2"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -9951,7 +9951,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="-34.85,23.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-35.6,19.45;-29.4,24.25"/>
+        <dia:rectangle val="-35.6,19.4;-29.4,24.2"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -10259,6 +10259,48 @@ EMail - IFApplication#</dia:string>
             <dia:boolean val="false"/>
           </dia:attribute>
         </dia:composite>
+      </dia:attribute>
+    </dia:object>
+    <dia:object type="Standard - Text" version="1" id="O105">
+      <dia:attribute name="obj_pos">
+        <dia:point val="14.15,15.55"/>
+      </dia:attribute>
+      <dia:attribute name="obj_bb">
+        <dia:rectangle val="14.15,14.91;23.9775,18.0825"/>
+      </dia:attribute>
+      <dia:attribute name="text">
+        <dia:composite type="text">
+          <dia:attribute name="string">
+            <dia:string>#uppon registration, new users will 
+be associated with default profiles,
+this table should contain profiles 
+suitable for new registered users#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="font">
+            <dia:font family="sans" style="0" name="Helvetica"/>
+          </dia:attribute>
+          <dia:attribute name="height">
+            <dia:real val="0.80000000000000004"/>
+          </dia:attribute>
+          <dia:attribute name="pos">
+            <dia:point val="14.15,15.55"/>
+          </dia:attribute>
+          <dia:attribute name="color">
+            <dia:color val="#000000"/>
+          </dia:attribute>
+          <dia:attribute name="alignment">
+            <dia:enum val="0"/>
+          </dia:attribute>
+        </dia:composite>
+      </dia:attribute>
+      <dia:attribute name="valign">
+        <dia:enum val="3"/>
+      </dia:attribute>
+      <dia:attribute name="fill_color">
+        <dia:color val="#ffffff"/>
+      </dia:attribute>
+      <dia:attribute name="show_background">
+        <dia:boolean val="true"/>
       </dia:attribute>
     </dia:object>
   </dia:layer>
