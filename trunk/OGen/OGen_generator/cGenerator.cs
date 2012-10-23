@@ -668,6 +668,15 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 				: XS__templates.Load_fromURI(xmltemplatesfileuri_)[0]
 			;
 
+			#region int _templateName_MaxLength = ...;
+			int _templateName_MaxLength = 0;
+			for (int i = 0; i < templates_.TemplateCollection.Count; i++) {
+				if (templates_.TemplateCollection[i].ID.Length > _templateName_MaxLength) {
+					_templateName_MaxLength = templates_.TemplateCollection[i].ID.Length;
+				}
+			}
+			#endregion
+
 #if NET_1_1
 			OGen.lib.worker.WorkItem[] _templatesState
 				= new worker.WorkItem[templates_.TemplateCollection.Count];
@@ -675,6 +684,8 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 			OGen.lib.worker.WorkItem<XS_templateType>[] _templatesState
 				= new worker.WorkItem<XS_templateType>[templates_.TemplateCollection.Count];
 #endif
+			int _threadIterarionCounter = 0;
+			object _threadIterarionCounterLocker = new object();
 			for (int i = 0; i < templates_.TemplateCollection.Count; i++) {
 
 				// must check priorities, hence Waiting, otherwise Ready
@@ -693,20 +704,20 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 						templates_.TemplateCollection[i].TemplateType
 					)
 				) {
-
-					int todos_here = 0; // ToDos: here!
-
+					string _stepNum = (++_threadIterarionCounter).ToString();
+					string _stepOf = templates_.TemplateCollection.Count.ToString();
 					notifyback_(
 						string.Format(
-							"#{0}/{1} - {2} ",
-							todos_here + 1,
-							templates_.TemplateCollection.Count,
-							templates_.TemplateCollection[i].ID
-						),
-						false
-					);
+							"thread 0: {0}#{1}/{2} - {3} {4} skipping!",
+							"".PadLeft(_stepOf.Length - _stepNum.Length, ' '),
+							_stepNum,
+							_stepOf,
+							templates_.TemplateCollection[i].ID,
 
-					notifyback_("... skipping!", true);
+							"".PadLeft(_templateName_MaxLength - templates_.TemplateCollection[i].ID.Length + 3, '.')
+						),
+						true
+					);
 
 					_state = OGen.lib.worker.WorkItemState.Done;
 				}
@@ -723,7 +734,6 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 			}
 
 			OGen.lib.worker.Worker _worker = new worker.Worker();
-			object _threadIterarionLocker = 0;
 			int _numthreads = 4;
 			WorkerThread[] _workthreads = new WorkerThread[_numthreads];
 			for (int t = 0; t < _workthreads.Length; t++) {
@@ -822,12 +832,10 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 							#endregion
 
 							int _threaditerarion;
-							lock (_threadIterarionLocker) {
-								_threaditerarion = (int)_threadIterarionLocker;
+							lock (_threadIterarionCounterLocker) {
+								_threaditerarion = _threadIterarionCounter;
 
-								#pragma warning disable 728
-								_threadIterarionLocker = ++_threaditerarion;
-								#pragma warning restore 728
+								_threadIterarionCounter = ++_threaditerarion;
 							}
 
 #if DEBUG
@@ -839,9 +847,9 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 							notifyback_(
 								string.Format(
 #if DEBUG
-									"thread {5}: {0}#{1}/{2} - {3} {4}\t\t{6}s {7}m",
+									"thread {6}: {0}#{1}/{2} - {3} {4} {5} ({7}s {8}m)",
 #else
-									"thread {5}: {0}#{1}/{2} - {3} {4}",
+									"thread {6}: {0}#{1}/{2} - {3} {4} {5}",
 #endif
 									"".PadLeft(_stepOf.Length - _stepNum.Length, ' '),
 									_stepNum,
@@ -851,7 +859,8 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 #else
 									template_in.ID,
 #endif
-									(_valuehasbeenfound_out ? "... DONE!" : "NOT doing!"),
+									"".PadLeft(_templateName_MaxLength - template_in.ID.Length + 3, '.'),
+									(_valuehasbeenfound_out ? "DONE!" : "NOT doing!"),
 									System.Threading.Thread.CurrentThread.Name
 #if DEBUG
 									,
