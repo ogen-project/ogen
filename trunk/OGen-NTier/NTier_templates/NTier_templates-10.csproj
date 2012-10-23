@@ -155,6 +155,9 @@
     <Content Include="app0.config.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="ResetCache.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-MySQL.sql.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>

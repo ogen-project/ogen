@@ -57,6 +57,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anthem-2010", "..\libs\anth
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_worker-10", "..\OGen\OGen_worker\OGen_worker-10.csproj", "{210F2BDA-5508-4587-9E39-E4C9C8752B05}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_webtemplates-10", "NTier_templates\NTier_webtemplates-10.csproj", "{3F749CB6-79D3-4AF9-A5FB-7E22433A92C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -175,6 +177,10 @@ Global
 		{210F2BDA-5508-4587-9E39-E4C9C8752B05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{210F2BDA-5508-4587-9E39-E4C9C8752B05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{210F2BDA-5508-4587-9E39-E4C9C8752B05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F749CB6-79D3-4AF9-A5FB-7E22433A92C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F749CB6-79D3-4AF9-A5FB-7E22433A92C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F749CB6-79D3-4AF9-A5FB-7E22433A92C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F749CB6-79D3-4AF9-A5FB-7E22433A92C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

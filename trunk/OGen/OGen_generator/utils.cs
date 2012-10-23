@@ -176,6 +176,12 @@ namespace OGen.lib.generator {
 			= new System.Collections.Generic.Dictionary<string, CacheItem>();
 		private static object reflectthrough_locker = new object();
 
+		public static void ReflectThrough_Cache_Clear() {
+			lock (reflectthrough_locker) {
+				reflectthrough_cache.Clear();
+			}
+		}
+
 		private static string ReflectThroughRunAndCache(
 			IterationFoundDelegate iteration_found_in,
 			System.Collections.Generic.List<string> iterations_in,
