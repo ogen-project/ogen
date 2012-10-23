@@ -139,9 +139,9 @@ namespace OGen.NTier.lib.datalayer {
 		public static void Reset() {
 //			applicationname__ = null;
 			applications__ = null;
-			configmodes__ = null;
-			dbservertypes__ = null;
-			dbconnectionstrings__ = null;
+			configmodes__.Clear();
+			dbservertypes__.Clear();
+			dbconnectionstrings__.Clear();
 		}
 		#endregion
 		#region public static string[] ConfigModes(string application_in);
