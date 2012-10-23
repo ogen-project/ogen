@@ -834,15 +834,18 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 							_workthreads[T].TotalTicks += DateTime.Now.Ticks - _begin;
 							TimeSpan _end = new TimeSpan(DateTime.Now.Ticks - _begin);
 #endif
+							string _stepNum = _threaditerarion.ToString();
+							string _stepOf = templates_.TemplateCollection.Count.ToString();
 							notifyback_(
 								string.Format(
 #if DEBUG
-									"thread {4}: #{0}/{1} - {2} {3}\t\t{5}s {6}m",
+									"thread {5}: {0}#{1}/{2} - {3} {4}\t\t{6}s {7}m",
 #else
-									"thread {4}: #{0}/{1} - {2} {3}",
+									"thread {5}: {0}#{1}/{2} - {3} {4}",
 #endif
-									_threaditerarion,
-									templates_.TemplateCollection.Count,
+									"".PadLeft(_stepOf.Length - _stepNum.Length, ' '),
+									_stepNum,
+									_stepOf,
 #if NET_1_1
 									((XS_templateType)template_in).ID,
 #else
