@@ -140,6 +140,7 @@
     <Compile Include="metadatas\Metadata.cs" />
     <Compile Include="metadatas\MetadataCollection.cs" />
     <Compile Include="metadatas\Metadatas.cs" />
+    <Compile Include="Statistics.cs" />
     <Compile Include="templates\XS_argumentsType.cs" />
     <Compile Include="templates\XS_argumentsTypeCollection.cs" />
     <Compile Include="templates\XS_argumentType.cs" />

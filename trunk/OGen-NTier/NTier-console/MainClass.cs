@@ -48,6 +48,7 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 					#endregion
 					DoIt(
 						args_in[0],
+						null,
 						_templateTypes
 					);
 				} else {
@@ -57,6 +58,12 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 				#if DEBUG
 					try {
 						long _begin_ticks = DateTime.Now.Ticks;
+						Statistics _statistics 
+							= new Statistics(
+								true, 
+								true,
+								true
+							);
 						DoIt(
 							System.IO.Path.Combine(
 								#if !NET_1_1
@@ -68,10 +75,20 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 
 								//@"..\..\OGen-NTier_UTs\OGen-metadatas\MD_OGen-NTier_UTs.OGen-metadata.xml"
 								//@"..\..\OGen-NTier_UTs-newTest\OGen-metadatas\MD_OGen-NTier_UTs.OGenXSD-metadata.xml"
-								@"..\..\OGen-NTier_UTs\OGen-metadatas\MD_OGen-NTier_UTs.OGenXSD-metadata.xml"
-							)
+								//@"..\..\OGen-NTier_UTs\OGen-metadatas\MD_OGen-NTier_UTs.OGenXSD-metadata.xml"
+								@"..\..\OGen-Kick\OGen-metadatas\MD_Kick.OGenXSD-metadata.xml"
+							),
+							_statistics
 						);
 						Console.WriteLine("time: {0}", new DateTime(DateTime.Now.Ticks - _begin_ticks).ToString("HH'H' mm'm' ss's' fff"));
+
+						Console.WriteLine(
+							"lines: {0}\nbytes: {1}  ~ {2}",
+							_statistics.Lines,
+							_statistics.Bytes_ToString(false),
+							_statistics.Bytes_ToString(true)
+						);
+
 					} catch (Exception _ex) {
 						Console.WriteLine(_ex.ToString());
 					}
@@ -90,6 +107,7 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 
 		static void DoIt(
 			string filePath_in,
+			Statistics statistics_in,
 			params string[] templateTypes_in
 		) {
 			cFGenerator _generator = new cFGenerator();
@@ -102,6 +120,7 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 			);
 			_generator.Build(
 				new cGenerator.dBuild(Notify),
+				statistics_in,
 				templateTypes_in
 			);
 

@@ -203,7 +203,8 @@ case "CONFIG.metadatasPath":
 		private void notifyme(
 			string message_in,
 			XS_templateType template_in,
-			DBConnectionstrings dbConnectionStrings_in
+			DBConnectionstrings dbConnectionStrings_in,
+			Statistics statistics_in
 		) {
 			// ToDos: here!
 //			cDBConnection _con = null;
@@ -390,6 +391,12 @@ metafiles_[
 											_args, 
 											out _parsedOutput
 										);
+
+										if (statistics_in != null) {
+											statistics_in.Lines_Add(_parsedOutput);
+											statistics_in.Bytes_Add(_parsedOutput);
+										}
+
 										break;
 									}
 									case XS_ParserEnumeration.none: {
@@ -421,6 +428,12 @@ if (template_in.Outputs.OutputCollection[o].Type == XS_OutputEnumeration.File) {
 											xmltemplatesdir_ + "/" + template_in.Name, 
 											_args
 										);
+
+										if (statistics_in != null) {
+											statistics_in.Lines_Add(_parsedOutput);
+											statistics_in.Bytes_Add(_parsedOutput);
+										}
+
 										break;
 									}
 									default: {
@@ -633,6 +646,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 			dBuild notifyBack_in, 
 //			bool loadMetadata_in, 
 			MetadataInterface metadata_in,
+			Statistics statistics_in,
 			params string[] templateTypes_in
 		) {
 			notifyback_ = notifyBack_in;
@@ -823,7 +837,8 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 										notifyme(
 											message_in,
 											_template,
-											_dbconnectionstrings
+											_dbconnectionstrings,
+											statistics_in
 										);
 									}
 								),
@@ -862,11 +877,13 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 									"".PadLeft(_templateName_MaxLength - template_in.ID.Length + 3, '.'),
 									(_valuehasbeenfound_out ? "DONE!" : "NOT doing!"),
 									System.Threading.Thread.CurrentThread.Name
+
 #if DEBUG
 									,
 									Convert.ToInt32(_end.TotalSeconds),
 									_end.Milliseconds
 #endif
+
 								),
 								true
 							);
@@ -938,10 +955,24 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 			MetadataInterface metadata_in,
 			params string[] templateTypes_in
 		) {
+			Build(
+				notifyBack_in,
+				metadata_in,
+				null,
+				templateTypes_in
+			);
+		}
+		public void Build(
+			dBuild notifyBack_in,
+			MetadataInterface metadata_in,
+			Statistics statistics_in,
+			params string[] templateTypes_in
+		) {
 			build(
 				notifyBack_in, 
 //				false, 
 				metadata_in,
+				statistics_in,
 				templateTypes_in
 			);
 		}

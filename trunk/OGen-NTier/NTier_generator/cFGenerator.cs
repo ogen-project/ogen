@@ -381,6 +381,17 @@ throw new Exception("// ToDos: not implemented!");
 			cGenerator.dBuild notifyBase_in,
 			params string[] templateTypes_in
 		) {
+			Build(
+				notifyBase_in,
+				null,
+				templateTypes_in
+			);
+		}
+		public void Build(
+			cGenerator.dBuild notifyBase_in,
+			Statistics statistics_in,
+			params string[] templateTypes_in
+		) {
 			#region string _outputDir = ...;
 			string _outputDir = ParentDirectoryname;
 			#endregion
@@ -412,6 +423,7 @@ throw new Exception("// ToDos: not implemented!");
 			).Build(
 				notifyBase_in, 
 				metadata_,
+				statistics_in,
 				templateTypes_in
 			);
 			if (notifyBase_in != null) notifyBase_in("...finished", true);
