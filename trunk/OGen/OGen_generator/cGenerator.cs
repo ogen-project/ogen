@@ -871,10 +871,11 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 									_stepOf,
 #if NET_1_1
 									((XS_templateType)template_in).ID,
+									"".PadLeft(_templateName_MaxLength - ((XS_templateType)template_in).ID.Length + 3, '.'),
 #else
 									template_in.ID,
-#endif
 									"".PadLeft(_templateName_MaxLength - template_in.ID.Length + 3, '.'),
+#endif
 									(_valuehasbeenfound_out ? "DONE!" : "NOT doing!"),
 									System.Threading.Thread.CurrentThread.Name
 
