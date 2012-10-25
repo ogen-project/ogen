@@ -23,7 +23,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 	public partial class XS__spreadsheetCollection {
 	#endif
 		#if NET_1_1
-		public XS0__spreadsheetCollection(
+		public XS__spreadsheetCollection(
 			XS__spreadsheet[] spreadsheetcollection_in
 		) : base (
 			spreadsheetcollection_in

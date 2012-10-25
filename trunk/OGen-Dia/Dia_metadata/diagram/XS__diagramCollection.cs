@@ -23,7 +23,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 	public partial class XS__diagramCollection {
 	#endif
 		#if NET_1_1
-		public XS0__diagramCollection(
+		public XS__diagramCollection(
 			XS__diagram[] diagramcollection_in
 		) : base (
 			diagramcollection_in
