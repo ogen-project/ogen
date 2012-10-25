@@ -77,6 +77,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpreadsheetXML-Console-10",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_worker-10", "..\OGen\OGen_worker\OGen_worker-10.csproj", "{210F2BDA-5508-4587-9E39-E4C9C8752B05}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anthem-2010", "..\libs\anthem-1.5.3\Anthem-2010\Anthem-2010.csproj", "{804C7DD0-0124-4A0B-AFA8-E90F403387AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug .Net 1.1|Any CPU = Debug .Net 1.1|Any CPU
@@ -783,6 +785,24 @@ Global
 		{210F2BDA-5508-4587-9E39-E4C9C8752B05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{210F2BDA-5508-4587-9E39-E4C9C8752B05}.Release|Any CPU.Build.0 = Release|Any CPU
 		{210F2BDA-5508-4587-9E39-E4C9C8752B05}.Release|x86.ActiveCfg = Release|Any CPU
+		{804C7DD0-0124-4A0B-AFA8-E90F403387AB}.Debug .Net 1.1|Any CPU.ActiveCfg = Debug .Net 1.1|Any CPU
+		{804C7DD0-0124-4A0B-AFA8-E90F403387AB}.Debug .Net 1.1|Any CPU.Build.0 = Debug .Net 1.1|Any CPU
+		{804C7DD0-0124-4A0B-AFA8-E90F403387AB}.Debug .Net 1.1|x86.ActiveCfg = Debug .Net 1.1|Any CPU
+		{804C7DD0-0124-4A0B-AFA8-E90F403387AB}.Debug .Net 2.0|Any CPU.ActiveCfg = Debug .Net 2.0|Any CPU
+		{804C7DD0-0124-4A0B-AFA8-E90F403387AB}.Debug .Net 2.0|Any CPU.Build.0 = Debug .Net 2.0|Any CPU
+		{804C7DD0-0124-4A0B-AFA8-E90F403387AB}.Debug .Net 2.0|x86.ActiveCfg = Debug .Net 2.0|Any CPU
+		{804C7DD0-0124-4A0B-AFA8-E90F403387AB}.Debug .Net 3.5|Any CPU.ActiveCfg = Debug .Net 3.5|Any CPU
+		{804C7DD0-0124-4A0B-AFA8-E90F403387AB}.Debug .Net 3.5|Any CPU.Build.0 = Debug .Net 3.5|Any CPU
+		{804C7DD0-0124-4A0B-AFA8-E90F403387AB}.Debug .Net 3.5|x86.ActiveCfg = Debug .Net 3.5|Any CPU
+		{804C7DD0-0124-4A0B-AFA8-E90F403387AB}.Debug .Net 4.0|Any CPU.ActiveCfg = Debug .Net 4.0|Any CPU
+		{804C7DD0-0124-4A0B-AFA8-E90F403387AB}.Debug .Net 4.0|Any CPU.Build.0 = Debug .Net 4.0|Any CPU
+		{804C7DD0-0124-4A0B-AFA8-E90F403387AB}.Debug .Net 4.0|x86.ActiveCfg = Debug .Net 4.0|Any CPU
+		{804C7DD0-0124-4A0B-AFA8-E90F403387AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{804C7DD0-0124-4A0B-AFA8-E90F403387AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{804C7DD0-0124-4A0B-AFA8-E90F403387AB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{804C7DD0-0124-4A0B-AFA8-E90F403387AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{804C7DD0-0124-4A0B-AFA8-E90F403387AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{804C7DD0-0124-4A0B-AFA8-E90F403387AB}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

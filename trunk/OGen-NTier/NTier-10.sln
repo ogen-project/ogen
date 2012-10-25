@@ -59,6 +59,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_worker-10", "..\OGen\O
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_webtemplates-10", "NTier_templates\NTier_webtemplates-10.csproj", "{3F749CB6-79D3-4AF9-A5FB-7E22433A92C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_lib-10", "..\OGen\OGen_lib\OGen_lib-10.csproj", "{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug .Net 1.1|Any CPU = Debug .Net 1.1|Any CPU
@@ -417,6 +419,18 @@ Global
 		{3F749CB6-79D3-4AF9-A5FB-7E22433A92C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F749CB6-79D3-4AF9-A5FB-7E22433A92C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F749CB6-79D3-4AF9-A5FB-7E22433A92C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Debug .Net 1.1|Any CPU.ActiveCfg = Debug .Net 1.1|Any CPU
+		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Debug .Net 1.1|Any CPU.Build.0 = Debug .Net 1.1|Any CPU
+		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Debug .Net 2.0|Any CPU.ActiveCfg = Debug .Net 2.0|Any CPU
+		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Debug .Net 2.0|Any CPU.Build.0 = Debug .Net 2.0|Any CPU
+		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Debug .Net 3.5|Any CPU.ActiveCfg = Debug .Net 3.5|Any CPU
+		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Debug .Net 3.5|Any CPU.Build.0 = Debug .Net 3.5|Any CPU
+		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Debug .Net 4.0|Any CPU.ActiveCfg = Debug .Net 4.0|Any CPU
+		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Debug .Net 4.0|Any CPU.Build.0 = Debug .Net 4.0|Any CPU
+		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
