@@ -109,6 +109,10 @@
     <DefineConstants>TRACE;DEBUG;NET_4_0;PostgreSQL</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OGen_lib\OGen_lib-10.csproj">
+      <Project>{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}</Project>
+      <Name>OGen_lib-10</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OGen_worker\OGen_worker-10.csproj">
       <Project>{210F2BDA-5508-4587-9E39-E4C9C8752B05}</Project>
       <Name>OGen_worker-10</Name>

@@ -713,7 +713,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 					&&
 					(templates_.TemplateCollection[i].TemplateType != "")
 					&&
-					!utils.StringArrayContains(
+					!OGen.lib.utils.StringArrayContains(
 						templateTypes_in,
 						templates_.TemplateCollection[i].TemplateType
 					)

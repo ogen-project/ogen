@@ -116,23 +116,11 @@ namespace OGen.lib.generator {
 		}
 		#endregion
 		#region public string Bytes_ToString();
-		static readonly string[] BytesUnits = { "B", "KB", "MB", "GB", "TB", "PB" };
-		const int BytesMultiples = 1024;
-
 		public string Bytes_ToString(bool readableBytes_in) {
-			int _bytes = this.bytes_;
-
-			if (readableBytes_in) {
-				double _units = Math.Floor(Math.Log(_bytes, BytesMultiples));
-
-				return string.Concat(
-					Math.Round(_bytes / Math.Pow(BytesMultiples, _units), 1),
-					BytesUnits[(int)_units]
-				);
-			} else {
-				return _bytes.ToString("##,#");
-			}
-
+			return OGen.lib.utils.Bytes_ToString(
+				this.bytes_,
+				readableBytes_in
+			);
 		}
 		#endregion
 	}

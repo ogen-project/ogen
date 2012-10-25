@@ -15,7 +15,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 
 namespace OGen.lib {
+#if NET_1_1
+	public class utils { private utils() {}
+#else
 	public static class utils {
+#endif
 
 		#region public static string[] ParamvalueList_Split(...);
 		public static string[] ParamvalueList_Split(
@@ -93,6 +97,54 @@ namespace OGen.lib {
 				}
 
 				return _sb.ToString();
+			}
+		}
+		#endregion
+
+		#region public static bool StringArrayContains(...);
+		public static bool StringArrayContains(
+			string[] array_in,
+			string value_in
+		) {
+			return StringArrayContains(
+				array_in, 
+				value_in,
+				true
+			);
+		}
+		public static bool StringArrayContains(
+			string[] array_in, 
+			string value_in,
+			bool ignoreCase_in
+		) {
+			string _value = ignoreCase_in ? value_in.ToLower() : value_in;
+			for (int i = 0; i < array_in.Length; i++) {
+				if ((ignoreCase_in ? array_in[i].ToLower() : array_in[i]) == _value) {
+					return true;
+				}
+			}
+
+			return false;
+		}
+		#endregion
+
+		#region public static string Bytes_ToString(...);
+		static readonly string[] BytesUnits = { "B", "KB", "MB", "GB", "TB", "PB" };
+		const int BytesMultiples = 1024;
+
+		public static string Bytes_ToString(
+			int value_in,
+			bool readableBytes_in
+		) {
+			if (readableBytes_in) {
+				double _units = Math.Floor(Math.Log(value_in, BytesMultiples));
+
+				return string.Concat(
+					Math.Round(value_in / Math.Pow(BytesMultiples, _units), 1),
+					BytesUnits[(int)_units]
+				);
+			} else {
+				return value_in.ToString("##,#");
 			}
 		}
 		#endregion

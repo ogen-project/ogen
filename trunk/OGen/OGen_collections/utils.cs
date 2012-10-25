@@ -15,7 +15,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 
 namespace OGen.lib.collections {
+#if NET_1_1
 	public class utils { private utils() {}
+#else
+	public static class utils {
+#endif
+
 		//public class convert { private convert() {}
 		//
 		//	// ...
