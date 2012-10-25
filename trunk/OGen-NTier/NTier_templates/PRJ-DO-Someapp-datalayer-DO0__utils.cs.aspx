@@ -151,7 +151,13 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 					) {
 						dblogfile__ = null;
 					} else {
-						dblogfile__ = System.Configuration.ConfigurationSettings.AppSettings["DBLogfile"];
+						dblogfile__ = 
+#if !NET_1_1
+							System.Configuration.ConfigurationManager.AppSettings
+#else
+							System.Configuration.ConfigurationSettings.AppSettings
+#endif
+								["DBLogfile"];
 					}
 					
 				}
