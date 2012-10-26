@@ -409,9 +409,9 @@ if (!_aux_db_table.isVirtualTable) {%>
 									// ToDos: here! .net fw 2.0 specific
 									(DBServerTypes)Enum.Parse(
 										typeof(DBServerTypes), 
-										_aux_ex_metadata.DBs.DB_FirstDefaultAvailable.DBServerType
+										_aux_ex_metadata.DBs.DBCollection[0].DBServerType
 									), 
-									_aux_ex_metadata.DBs.DBConnection_FirstDefaultAvailable.Connectionstring
+									_aux_ex_metadata.DBs.DBCollection[0].ConnectionString
 								);
 								ConfigTable = connection.Execute_SQLQuery_returnDataTable(
 									string.Format(

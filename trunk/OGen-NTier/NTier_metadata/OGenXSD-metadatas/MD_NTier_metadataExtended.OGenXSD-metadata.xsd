@@ -26,15 +26,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			nameCase_defaultProvider="PostgreSQL"
 			description_defaultProvider="PostgreSQL">
 
-			<db dbServerType="PostgreSQL">
-				<dbConnections>
-					<dbConnection configMode="DEBUG" isDefault="True" generateSQL="True" isIndexed_andReadOnly="False" 
-						connectionstring="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;" />
-
-					<dbConnection configMode="!DEBUG" isDefault="True" generateSQL="False" isIndexed_andReadOnly="False" 
-						connectionstring="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;" />
-				</dbConnections>
-			</db>
+			<db dbServerType="PostgreSQL" generateSQL="true" connectionstring="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=Kick;" />
+			<db dbServerType="SQLServer" generateSQL="true" connectionstring="server=127.0.0.1\SQLExpress;uid=sa;pwd=passpub;database=Kick;" />
 
 			<db ... />
 		</dbs>
@@ -97,38 +90,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	</xs:simpleType>
 
 	<!--
-		<dbConnection configMode="DEBUG" isDefault="True" generateSQL="True" isIndexed_andReadOnly="False" connectionstring="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;" />
-		<dbConnection configMode="!DEBUG" isDefault="True" generateSQL="False" isIndexed_andReadOnly="False" connectionstring="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;" />
-	-->
-	<xs:complexType name="dbConnectionType">
-		<xs:attribute name="configMode" type="xs:string" />
-		<xs:attribute name="isDefault" type="xs:boolean" />
-		<xs:attribute name="generateSQL" type="xs:boolean" />
-		<xs:attribute name="isIndexed_andReadOnly" type="xs:boolean" />
-		<xs:attribute name="connectionstring" type="xs:string" />
-	</xs:complexType>
-	<!--
-		<dbConnections>
-			<dbConnection ... />
-			<dbConnection ... />
-		</dbConnections>
-	-->
-	<xs:complexType name="dbConnectionsType">
-		<xs:sequence>
-			<xs:element name="dbConnection" type="dbConnectionType" maxOccurs="unbounded" />
-		</xs:sequence>
-	</xs:complexType>
-
-	<!--
-		<db dbServerType="PostgreSQL">
-			<dbConnections ... />
-		</db>
+		<db dbServerType="PostgreSQL" ... />
 	-->
 	<xs:complexType name="dbType">
 		<xs:attribute name="dbServerType" type="xs:string" />
-		<xs:sequence>
-			<xs:element name="dbConnections" type="dbConnectionsType" />
-		</xs:sequence>
+		<xs:attribute name="generateSQL" type="xs:boolean" />
+		<xs:attribute name="connectionString" type="xs:string" />
 	</xs:complexType>
 	<!--
 		<dbs 

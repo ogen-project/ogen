@@ -384,7 +384,6 @@ namespace OGen.NTier.presentationlayer.winforms {
 			ArrayList _dbservertypes;
 			DBServerTypes _dbservertype;
 			int _dbindex;
-			int _justadded = -1;
 
 			_dbservertypes = new ArrayList();
 			for (int i = 0; i < lvwConnections.Items.Count; i++) {
@@ -445,29 +444,17 @@ namespace OGen.NTier.presentationlayer.winforms {
 						].Text
 					);
 				_dbindex = _dbservertypes.IndexOf(_dbservertype);
-				DBConnections_out[_dbindex].DBConnections.DBConnectionCollection.Add(
-					out _justadded, 
-					true, 
-					new OGen.NTier.lib.metadata.metadataExtended.XS_dbConnectionType(
-						lvwConnections.Items[i].SubItems[
-							(int)eConnectionColumns.DBMode
-						].Text
-					)
-				);
+				DBConnections_out[_dbindex].DBServerType = lvwConnections.Items[i].SubItems[
+					(int)eConnectionColumns.DBServerType
+				].Text;
 
 // ToDos: here!
-DBConnections_out[_dbindex].DBConnections.DBConnectionCollection[_justadded].generateSQL = true;
+//DBConnections_out[_dbindex].DBConnections.DBConnectionCollection[_justadded].generateSQL = true;
+DBConnections_out[_dbindex].GenerateSQL = true;
 
-				DBConnections_out[_dbindex].DBConnections.DBConnectionCollection[_justadded].Connectionstring
-					= lvwConnections.Items[i].SubItems[
-						(int)eConnectionColumns.DBConnectionstring
-					].Text;
-
-				DBConnections_out[_dbindex].DBConnections.DBConnectionCollection[_justadded].isDefault = (
-					lvwConnections.Items[i].SubItems[(int)eConnectionColumns.Default].Text
-					!=
-					string.Empty
-				);
+				DBConnections_out[_dbindex].ConnectionString = lvwConnections.Items[i].SubItems[
+					(int)eConnectionColumns.DBConnectionstring
+				].Text;
 			}
 
 			return DBConnections_out;
@@ -484,23 +471,25 @@ DBConnections_out[_dbindex].DBConnections.DBConnectionCollection[_justadded].gen
 		) {
 			lvwConnections.Items.Clear();
 			for (int _db = 0; _db < dbMetadata_DB_in.Length; _db++) {
-				for (int _con = 0; _con < dbMetadata_DB_in[_db].DBConnections.DBConnectionCollection.Count; _con++) {
-					lvwConnections.Items.Add(
-						new ListViewItem(
-							new string[] {
-								//(
-								//    (default_DBServerType_in == dbMetadata_DB_in[_db].DBServerType)
-								//    &&
-								//    (default_Mode_in == dbMetadata_DB_in[_db].Connections[_con].ConfigMode)
-								//) ? "*" : string.Empty, 
-								string.Empty, 
-								dbMetadata_DB_in[_db].DBServerType.ToString(), 
-								dbMetadata_DB_in[_db].DBConnections.DBConnectionCollection[_con].ConfigMode,
-								dbMetadata_DB_in[_db].DBConnections.DBConnectionCollection[_con].Connectionstring
-							}
-						)
-					);
-				}
+				lvwConnections.Items.Add(
+					new ListViewItem(
+						new string[] {
+							//(
+							//    (default_DBServerType_in == dbMetadata_DB_in[_db].DBServerType)
+							//    &&
+							//    (default_Mode_in == dbMetadata_DB_in[_db].Connections[_con].ConfigMode)
+							//) ? "*" : string.Empty, 
+							string.Empty, 
+							dbMetadata_DB_in[_db].DBServerType.ToString(), 
+
+							//dbMetadata_DB_in[_db].DBConnections.DBConnectionCollection[_con].ConfigMode,
+							// ToDos: here! no longer used
+
+							//dbMetadata_DB_in[_db].DBConnections.DBConnectionCollection[_con].Connectionstring
+							dbMetadata_DB_in[_db].ConnectionString
+						}
+					)
+				);
 			}
 		}
 		#endregion

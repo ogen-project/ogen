@@ -461,16 +461,14 @@ throw new Exception("// ToDos: not implemented!");
 
 			DBConnectionstrings _output = new DBConnectionstrings();
 			for (int d = 0; d < metadata_.MetadataExtendedCollection[0].DBs.DBCollection.Count; d++) {
-				for (int c = 0; c < metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].DBConnections.DBConnectionCollection.Count; c++) {
-					if (metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].DBConnections.DBConnectionCollection[c].generateSQL) {
-						_output.Add(
-							(DBServerTypes)Enum.Parse(
-								typeof(DBServerTypes), 
-								metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].DBServerType
-							), 
-							metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].DBConnections.DBConnectionCollection[c].Connectionstring
-						);
-					}
+				if (metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].GenerateSQL) {
+					_output.Add(
+						(DBServerTypes)Enum.Parse(
+							typeof(DBServerTypes), 
+							metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].DBServerType
+						), 
+						metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].ConnectionString
+					);
 				}
 			}
 

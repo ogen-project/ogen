@@ -79,6 +79,11 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 								@"..\..\OGen-Kick\OGen-metadatas\MD_Kick.OGenXSD-metadata.xml"
 							),
 							_statistics
+							//,
+							//new string[] { 
+							//	"business", 
+							//	"data"
+							//}
 						);
 						Console.WriteLine("time: {0}", new DateTime(DateTime.Now.Ticks - _begin_ticks).ToString("HH'H' mm'm' ss's' fff"));
 

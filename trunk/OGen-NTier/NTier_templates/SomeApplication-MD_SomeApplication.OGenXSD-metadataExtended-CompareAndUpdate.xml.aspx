@@ -32,8 +32,6 @@ OGen.NTier.lib.metadata.metadataExtended.XS_tableType _aux_ex_table;
 OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType _aux_db_field;
 OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldType _aux_ex_field;
 
-XS_dbConnectionType _aux_db_connection;
-
 XS_tableSearchType _aux_ex_search;
 XS_tableSearchUpdateType _aux_ex_search_update;
 XS_tableUpdateType _aux_ex_update;
@@ -103,18 +101,7 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 		nameCase_defaultProvider="<%=_aux_ex_metadata.DBs.NameCase_defaultProvider%>"
 		description_defaultProvider="<%=_aux_ex_metadata.DBs.Description_defaultProvider%>"><%
 	for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {%>
-		<db dbServerType="<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType%>">
-			<dbConnections><%
-		for (int c = 0; c < _aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection.Count; c++) {
-			_aux_db_connection = _aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection[c];%>
-				<dbConnection configMode="<%=_aux_db_connection.ConfigMode
-					%>" isDefault="<%=_aux_db_connection.isDefault.ToString().ToLower()
-					%>" generateSQL="<%=_aux_db_connection.generateSQL.ToString().ToLower()
-					%>" isIndexed_andReadOnly="<%=_aux_db_connection.isIndexed_andReadOnly.ToString().ToLower()
-					%>" connectionstring="<%=_aux_db_connection.Connectionstring%>" /><%
-		}%>
-			</dbConnections>
-		</db><%
+		<db dbServerType="<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType%>" generateSQL="<%=_aux_ex_metadata.DBs.DBCollection[d].GenerateSQL%>" connectionString="<%=_aux_ex_metadata.DBs.DBCollection[d].ConnectionString%>" /><%
 	}%>
 	</dbs>
 	<tables>

@@ -204,10 +204,6 @@
     <Compile Include="metadataDB\_base\XS0_tableTypeCollection.cs" />
     <Compile Include="metadataDB\_base\XS0__metadataDB.cs" />
     <Compile Include="metadataDB\_base\XS0__metadataDBCollection.cs" />
-    <Compile Include="metadataExtended\XS_dbConnectionsType.cs" />
-    <Compile Include="metadataExtended\XS_dbConnectionsTypeCollection.cs" />
-    <Compile Include="metadataExtended\XS_dbConnectionType.cs" />
-    <Compile Include="metadataExtended\XS_dbConnectionTypeCollection.cs" />
     <Compile Include="metadataExtended\XS_dbsType.cs" />
     <Compile Include="metadataExtended\XS_dbsTypeCollection.cs" />
     <Compile Include="metadataExtended\XS_dbType.cs" />
@@ -244,10 +240,6 @@
     <Compile Include="metadataExtended\XS_tableUpdateTypeCollection.cs" />
     <Compile Include="metadataExtended\XS__metadataExtended.cs" />
     <Compile Include="metadataExtended\XS__metadataExtendedCollection.cs" />
-    <Compile Include="metadataExtended\_base\XS0_dbConnectionsType.cs" />
-    <Compile Include="metadataExtended\_base\XS0_dbConnectionsTypeCollection.cs" />
-    <Compile Include="metadataExtended\_base\XS0_dbConnectionType.cs" />
-    <Compile Include="metadataExtended\_base\XS0_dbConnectionTypeCollection.cs" />
     <Compile Include="metadataExtended\_base\XS0_dbsType.cs" />
     <Compile Include="metadataExtended\_base\XS0_dbsTypeCollection.cs" />
     <Compile Include="metadataExtended\_base\XS0_dbType.cs" />

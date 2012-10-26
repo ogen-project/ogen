@@ -30,7 +30,6 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public object parent_ref {
 			set {
 				parent_ref_ = value;
-				if (dbconnections__ != null) dbconnections__.parent_ref = this;
 			}
 			get { return parent_ref_; }
 		}
@@ -42,7 +41,6 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public XS__RootMetadata root_ref {
 			set {
 				root_ref_ = value;
-				if (dbconnections__ != null) dbconnections__.root_ref = value;
 			}
 			get { return root_ref_; }
 		}
@@ -60,49 +58,38 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			}
 		}
 		#endregion
-		#region public XS_dbConnectionsType DBConnections { get; set; }
-		internal XS_dbConnectionsType dbconnections__;
-		internal object dbconnections__locker = new object();
+		#region public bool GenerateSQL { get; set; }
+		internal bool generatesql_;
 
-		[XmlIgnore()]
-		public XS_dbConnectionsType DBConnections {
+		[XmlAttribute("generateSQL")]
+		public bool GenerateSQL {
 			get {
-
-				// check before lock
-				if (dbconnections__ == null) {
-
-					lock (dbconnections__locker) {
-
-						// double check, thread safer!
-						if (dbconnections__ == null) {
-
-							// initialization...
-							// ...attribution (last thing before unlock)
-							dbconnections__ = new XS_dbConnectionsType();
-						}
-					}
-				}
-
-				return dbconnections__;
+				return generatesql_;
 			}
 			set {
-				dbconnections__ = value;
+				generatesql_ = value;
 			}
 		}
+		#endregion
+		#region public string ConnectionString { get; set; }
+		internal string connectionstring_;
 
-		[XmlElement("dbConnections")]
-		public XS_dbConnectionsType dbconnections__xml {
-			get { return dbconnections__; }
-			set { dbconnections__ = value; }
+		[XmlAttribute("connectionString")]
+		public string ConnectionString {
+			get {
+				return connectionstring_;
+			}
+			set {
+				connectionstring_ = value;
+			}
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_dbType dbType_in) {
-			int _index = -1;
-
 			dbservertype_ = dbType_in.dbservertype_;
-			if (dbType_in.dbconnections__ != null) dbconnections__.CopyFrom(dbType_in.dbconnections__);
+			generatesql_ = dbType_in.generatesql_;
+			connectionstring_ = dbType_in.connectionstring_;
 		}
 		#endregion
 	}

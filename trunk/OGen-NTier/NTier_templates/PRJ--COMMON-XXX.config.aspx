@@ -30,8 +30,6 @@ XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusinessCollection[0];
 
-string[] _aux_configmodes = _aux_ex_metadata.DBs.ConfigModes();
-
 OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
 #endregion
 //-----------------------------------------------------------------------------------------
@@ -64,26 +62,22 @@ if (_arg_where != "test") {%>
 
 		<add key="applications" value="<%=_aux_ex_metadata.ApplicationName%>" />
 
-		<add key="<%=_aux_ex_metadata.ApplicationName%>:ConfigModes" value="<%
-		for (int _cm = 0; _cm < _aux_configmodes.Length; _cm++) {
-			%><%=_aux_configmodes[_cm]%><%=(_cm == _aux_configmodes.Length - 1) ? "" : ":"%><%
-		}%>" />
 		<add key="<%=_aux_ex_metadata.ApplicationName%>:DBServerTypes" value="<%
 		for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
-			%><%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%><%=(d == _aux_ex_metadata.DBs.DBCollection.Count - 1) ? "" : ":"%><%
-		}%>" />
-
-		<!-- IsDefault::GeneratedSQL::IsIndexed_andReadOnly::Connectionstring --><%
-		//<add key="OGen-NTier_UTs:DBServerType_default" value="< %=_aux_ex_metadata.DBs.DBCollection.FirstDefaultAvailable_DBServerType().ToString()% >" />
-		for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
-			for (int c = 0; c < _aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection.Count; c++) {%>
-		<add key="<%=_aux_ex_metadata.ApplicationName%>:DBConnection:<%=_aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection[c].ConfigMode%>:<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%>" value="<%=_aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection[c].isDefault%>::<%=_aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection[c].generateSQL%>::<%=_aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection[c].isIndexed_andReadOnly%>::<%=_aux_ex_metadata.DBs.DBCollection[d].DBConnections.DBConnectionCollection[c].Connectionstring%>"/><%
-			}
-		}
+			%><%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%><%=(d == _aux_ex_metadata.DBs.DBCollection.Count - 1) ? "" : "|"%><%
+		}%>" /><%
 }%>
 
 		<add key="Some_UT_config" value="tweak it here" />
-	</appSettings>
+	</appSettings><%
+
+if (_arg_where != "test") {%>
+	<connectionStrings><%
+		for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {%>
+		<add name="<%=_aux_ex_metadata.ApplicationName%>:<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType%>" connectionString="<%=_aux_ex_metadata.DBs.DBCollection[d].Connectionstring%>" /><%
+		}%>
+	</connectionStrings><%
+}%>
 	<system.runtime.remoting>
 		<application><%
 if (_arg_where == "test") {%>
@@ -143,7 +137,6 @@ if (_arg_where == "test") {%>
 	</system.runtime.remoting><%
 
 if (_arg_where == "webservices-server") {%>
-	<connectionStrings/>
 	<system.web>
 		<!-- 
 			Set compilation debug="true" to insert debugging 

@@ -176,22 +176,13 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 			string[] _dbservertypes = Config_DBConnectionstrings.DBServerTypes(ApplicationName);
 			Config_DBConnectionstrings _dbconnectionstrings = Config_DBConnectionstrings.DBConnectionstrings(ApplicationName);
-			Config_DBConnectionstring _con;
-			for (int _db = 0; _db < _dbservertypes.Length; _db++) {
-				_con = _dbconnectionstrings[
-					_dbservertypes[_db],
-#if DEBUG
-					"DEBUG"
-#elif !DEBUG
-					"!DEBUG"
-#endif
-				];
-				if (_con.isDefault) {
-					dbservertype__ = _dbservertypes[_db];
-					dbconnectionstring__ = _con.Connectionstring;
-					return;
-				}
-			}
+
+			// first db server type is the Default db server type!
+			Config_DBConnectionstring _con = _dbconnectionstrings[
+				_dbservertypes[0]
+			];
+			dbservertype__ = _dbservertypes[0];
+			dbconnectionstring__ = _con.Connectionstring;
 		}
 		#endregion
 		#endregion

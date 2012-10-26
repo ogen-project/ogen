@@ -42,7 +42,6 @@ string _aux_xx_field_name;
 
 OGen.NTier.lib.metadata.metadataExtended.XS_tableUpdateType _aux_ex_update;
 
-string[] _aux_configmodes = _aux_ex_metadata.DBs.ConfigModes();
 string[] _aux_supportedDBServerTypes = _aux_ex_metadata.DBs.SupportedDBServerTypes();
 
 #endregion
@@ -224,22 +223,13 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 
 			string[] _dbservertypes = Config_DBConnectionstrings.DBServerTypes(ApplicationName);
 			Config_DBConnectionstrings _dbconnectionstrings = Config_DBConnectionstrings.DBConnectionstrings(ApplicationName);
-			Config_DBConnectionstring _con;
-			for (int _db = 0; _db < _dbservertypes.Length; _db++) {
-				_con = _dbconnectionstrings[
-					_dbservertypes[_db],<%
-					for (int cm = 0; cm < _aux_configmodes.Length; cm++) {%>
-#<%=(cm == 0) ? "" : "el"%>if <%=_aux_configmodes[cm]%>
-					"<%=_aux_configmodes[cm]%>"<%
-					}%>
-#endif
-				];
-				if (_con.isDefault) {
-					dbservertype__ = _dbservertypes[_db];
-					dbconnectionstring__ = _con.Connectionstring;
-					return;
-				}
-			}
+
+			// first db server type is the Default db server type!
+			Config_DBConnectionstring _con = _dbconnectionstrings[
+				_dbservertypes[0]
+			];
+			dbservertype__ = _dbservertypes[0];
+			dbconnectionstring__ = _con.Connectionstring;
 		}
 		#endregion
 		#endregion<%
@@ -275,8 +265,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 					}
 					DBConnection connection = DBConnectionsupport.CreateInstance(
 						// ToDos: here! .net fw 2.0 specific
-						(DBServerTypes)Enum.Parse(typeof(DBServerTypes), _aux_ex_metadata.DBs.DB_FirstDefaultAvailable.DBServerType), 
-						_aux_ex_metadata.DBs.DBConnection_FirstDefaultAvailable.Connectionstring
+						(DBServerTypes)Enum.Parse(typeof(DBServerTypes), _aux_ex_metadata.DBs.DBCollection[0].DBServerType), 
+						_aux_ex_metadata.DBs.DBCollection[0].ConnectionString
 					);
 					ConfigTable = connection.Execute_SQLQuery_returnDataTable(
 						string.Format(
