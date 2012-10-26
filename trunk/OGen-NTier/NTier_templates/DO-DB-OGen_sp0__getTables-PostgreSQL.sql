@@ -95,16 +95,7 @@ RETURNS SETOF "v0__getTables" AS $BODY$
 					'pg_catalog'
 				))
 				-- </PostgreSQL>
-			
-				-- <SQLServer>
-				AND
-				(_table.table_name NOT IN (
-					'sysconstraints', 
-					'syssegments', 
-					'dtproperties'
-				))
-				-- </SQLServer>
-			
+
 				AND
 				(_table.table_catalog = "dbName_")
 			ORDER BY _table.table_name

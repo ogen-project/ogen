@@ -59,27 +59,6 @@ WHERE
 		(_table.table_type = 'VIEW')
 	)
 
-	-- <PostgreSQL>
-	AND
-	(
-		(_table.table_type != 'VIEW')
-		OR
-		(
-			(_table.table_type = 'VIEW')
-			AND
-			(_table.table_name NOT LIKE 'v0_%')
-		)
-	)
-	-- </PostgreSQL>
-
-	-- <PostgreSQL>
-	AND
-	(_table.table_schema NOT IN (
-		'information_schema', 
-		'pg_catalog'
-	))
-	-- </PostgreSQL>
-
 	-- <SQLServer>
 	AND
 	(_table.table_name NOT IN (
