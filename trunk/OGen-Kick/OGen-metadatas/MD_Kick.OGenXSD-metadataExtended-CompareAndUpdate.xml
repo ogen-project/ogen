@@ -71,8 +71,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	<dbs
 		nameCase_defaultProvider="PostgreSQL"
 		description_defaultProvider="PostgreSQL">
-		<db dbServerType="PostgreSQL" generateSQL="True" connectionString="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=Kick;" />
-		<db dbServerType="SQLServer" generateSQL="True" connectionString="server=127.0.0.1\SQLExpress;uid=sa;pwd=passpub;database=Kick;" />
+		<db dbServerType="PostgreSQL" generateSQL="true" connectionString="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=Kick;" />
+		<db dbServerType="SQLServer" generateSQL="true" connectionString="server=.\SQLExpress;uid=sa;pwd=passpub;database=Kick;" />
 	</dbs>
 	<tables>
 <!--
