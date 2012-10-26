@@ -61,8 +61,6 @@ namespace OGen.XSD.lib.metadata.schema {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_enumerationType enumerationType_in) {
-			int _index = -1;
-
 			value_ = enumerationType_in.value_;
 		}
 		#endregion

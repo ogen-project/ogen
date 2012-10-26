@@ -87,8 +87,6 @@ namespace OGen.Dia.lib.metadata.diagram {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_connectionType connectionType_in) {
-			int _index = -1;
-
 			handle_ = connectionType_in.handle_;
 			to_ = connectionType_in.to_;
 			connection_ = connectionType_in.connection_;

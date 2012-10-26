@@ -151,8 +151,6 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_methodType methodType_in) {
-			int _index = -1;
-
 			name_ = methodType_in.name_;
 			outputtype_ = methodType_in.outputtype_;
 			distribute_ = methodType_in.distribute_;

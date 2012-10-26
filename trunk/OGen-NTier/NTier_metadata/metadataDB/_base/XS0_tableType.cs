@@ -163,8 +163,6 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_tableType tableType_in) {
-			int _index = -1;
-
 			name_ = tableType_in.name_;
 			isvirtualtable_ = tableType_in.isvirtualtable_;
 			description_ = tableType_in.description_;

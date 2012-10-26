@@ -279,8 +279,6 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_tableType tableType_in) {
-			int _index = -1;
-
 			name_ = tableType_in.name_;
 			friendlyname_ = tableType_in.friendlyname_;
 			dbdescription_ = tableType_in.dbdescription_;

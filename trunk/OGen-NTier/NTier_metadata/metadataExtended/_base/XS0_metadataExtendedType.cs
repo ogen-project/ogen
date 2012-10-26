@@ -658,8 +658,6 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_metadataExtendedType metadataExtendedType_in) {
-			int _index = -1;
-
 			applicationname_ = metadataExtendedType_in.applicationname_;
 			applicationnamespace_ = metadataExtendedType_in.applicationnamespace_;
 			subappname_ = metadataExtendedType_in.subappname_;

@@ -87,8 +87,6 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_tableDBType tableDBType_in) {
-			int _index = -1;
-
 			dbservertype_ = tableDBType_in.dbservertype_;
 			dbtablename_ = tableDBType_in.dbtablename_;
 			dbdescription_ = tableDBType_in.dbdescription_;

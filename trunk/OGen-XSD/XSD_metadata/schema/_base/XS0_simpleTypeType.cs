@@ -99,8 +99,6 @@ namespace OGen.XSD.lib.metadata.schema {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_simpleTypeType simpleTypeType_in) {
-			int _index = -1;
-
 			name_ = simpleTypeType_in.name_;
 			if (simpleTypeType_in.restriction__ != null) restriction__.CopyFrom(simpleTypeType_in.restriction__);
 		}

@@ -61,8 +61,6 @@ namespace OGen.Dia.lib.metadata.diagram {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_enumType enumType_in) {
-			int _index = -1;
-
 			val_ = enumType_in.val_;
 		}
 		#endregion

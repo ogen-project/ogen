@@ -235,9 +235,14 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 		}%>
 
 		#region public void CopyFrom(...);
-		public void CopyFrom(<%=XS_%><%=_aux_complextype.Name%> <%=_aux_complextype.Name%>_in) {
+		public void CopyFrom(<%=XS_%><%=_aux_complextype.Name%> <%=_aux_complextype.Name%>_in) {<%
+		for (int e = 0; e < _aux_elements.Count; e++) {
+			if (_aux_elements[e].MaxOccurs == XS_MaxOccursType.unbounded) {%>
 			int _index = -1;
 <%
+				break;
+			}
+		}
 		for (int a = 0; a < _aux_complextype.AttributeCollection.Count; a++) {%><%=""%>
 			<%=_aux_complextype.AttributeCollection[a].Name.ToLower()%>_ = <%=_aux_complextype.Name%>_in.<%=_aux_complextype.AttributeCollection[a].Name.ToLower()%>_;<%
 		}

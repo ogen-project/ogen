@@ -163,8 +163,6 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_tableSearchType tableSearchType_in) {
-			int _index = -1;
-
 			name_ = tableSearchType_in.name_;
 			isrange_ = tableSearchType_in.isrange_;
 			isexplicituniqueindex_ = tableSearchType_in.isexplicituniqueindex_;

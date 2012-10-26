@@ -74,8 +74,6 @@ namespace OGen.XSD.lib.metadata.metadata {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_complexTypeKeyType complexTypeKeyType_in) {
-			int _index = -1;
-
 			name_ = complexTypeKeyType_in.name_;
 			casesensitive_ = complexTypeKeyType_in.casesensitive_;
 		}

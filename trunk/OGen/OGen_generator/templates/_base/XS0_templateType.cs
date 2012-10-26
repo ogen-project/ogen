@@ -234,8 +234,6 @@ namespace OGen.lib.templates {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_templateType templateType_in) {
-			int _index = -1;
-
 			id_ = templateType_in.id_;
 			name_ = templateType_in.name_;
 			templatetype_ = templateType_in.templatetype_;

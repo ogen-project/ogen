@@ -74,8 +74,6 @@ namespace OGen.XSD.lib.metadata.schema {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_attributeType attributeType_in) {
-			int _index = -1;
-
 			name_ = attributeType_in.name_;
 			type_ = attributeType_in.type_;
 		}

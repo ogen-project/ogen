@@ -216,8 +216,6 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_tableFieldType tableFieldType_in) {
-			int _index = -1;
-
 			name_ = tableFieldType_in.name_;
 			ispk_ = tableFieldType_in.ispk_;
 			isidentity_ = tableFieldType_in.isidentity_;

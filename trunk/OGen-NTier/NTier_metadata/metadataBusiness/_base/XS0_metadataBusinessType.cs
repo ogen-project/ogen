@@ -99,8 +99,6 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_metadataBusinessType metadataBusinessType_in) {
-			int _index = -1;
-
 			applicationname_ = metadataBusinessType_in.applicationname_;
 			if (metadataBusinessType_in.classes__ != null) classes__.CopyFrom(metadataBusinessType_in.classes__);
 		}

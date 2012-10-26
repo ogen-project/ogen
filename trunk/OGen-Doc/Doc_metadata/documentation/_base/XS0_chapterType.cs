@@ -151,8 +151,6 @@ namespace OGen.Doc.lib.metadata.documentation {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_chapterType chapterType_in) {
-			int _index = -1;
-
 			title_ = chapterType_in.title_;
 			filename_ = chapterType_in.filename_;
 			subtitle_ = chapterType_in.subtitle_;

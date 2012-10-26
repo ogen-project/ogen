@@ -177,8 +177,6 @@ namespace OGen.Doc.lib.metadata.documentation {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_documentationType documentationType_in) {
-			int _index = -1;
-
 			documentationname_ = documentationType_in.documentationname_;
 			documentationtitle_ = documentationType_in.documentationtitle_;
 			projecturl_ = documentationType_in.projecturl_;

@@ -138,8 +138,6 @@ namespace OGen.Doc.lib.metadata.documentation {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_itemType itemType_in) {
-			int _index = -1;
-
 			title_ = itemType_in.title_;
 			subtitle_ = itemType_in.subtitle_;
 			isintroduction_ = itemType_in.isintroduction_;

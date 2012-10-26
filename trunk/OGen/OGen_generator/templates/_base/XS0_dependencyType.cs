@@ -38,8 +38,6 @@ namespace OGen.lib.templates {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_dependencyType dependencyType_in) {
-			int _index = -1;
-
 			templateid_ = dependencyType_in.templateid_;
 		}
 		#endregion

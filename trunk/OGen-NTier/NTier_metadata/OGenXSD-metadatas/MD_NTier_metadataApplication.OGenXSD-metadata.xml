@@ -150,7 +150,7 @@ shared
 		<specificCase word="copyrightText" translation="CopyrightText" />
 		<specificCase word="copyrightTextLong" translation="CopyrightTextLong" />
 
-		<specificCase word="generateSQL" translation="generateSQL" />
+		<specificCase word="generateSQL" translation="GenerateSQL" />
 		<specificCase word="isConfig" translation="isConfig" />
 		<specificCase word="isConfig_Config" translation="isConfig_Config" />
 		<specificCase word="isConfig_Datatype" translation="isConfig_Datatype" />

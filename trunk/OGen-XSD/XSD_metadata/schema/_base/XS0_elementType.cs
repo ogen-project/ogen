@@ -87,8 +87,6 @@ namespace OGen.XSD.lib.metadata.schema {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_elementType elementType_in) {
-			int _index = -1;
-
 			name_ = elementType_in.name_;
 			type_ = elementType_in.type_;
 			maxoccurs_ = elementType_in.maxoccurs_;

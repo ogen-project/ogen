@@ -126,8 +126,6 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_tableFieldDBType tableFieldDBType_in) {
-			int _index = -1;
-
 			dbservertype_ = tableFieldDBType_in.dbservertype_;
 			dbtype_ = tableFieldDBType_in.dbtype_;
 			dbdescription_ = tableFieldDBType_in.dbdescription_;

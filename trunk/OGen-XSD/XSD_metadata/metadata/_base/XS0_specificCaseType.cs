@@ -74,8 +74,6 @@ namespace OGen.XSD.lib.metadata.metadata {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_specificCaseType specificCaseType_in) {
-			int _index = -1;
-
 			word_ = specificCaseType_in.word_;
 			translation_ = specificCaseType_in.translation_;
 		}

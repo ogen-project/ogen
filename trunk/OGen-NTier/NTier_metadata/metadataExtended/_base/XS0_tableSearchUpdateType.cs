@@ -99,8 +99,6 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_tableSearchUpdateType tableSearchUpdateType_in) {
-			int _index = -1;
-
 			name_ = tableSearchUpdateType_in.name_;
 			if (tableSearchUpdateType_in.tablesearchupdateparameters__ != null) tablesearchupdateparameters__.CopyFrom(tableSearchUpdateType_in.tablesearchupdateparameters__);
 		}

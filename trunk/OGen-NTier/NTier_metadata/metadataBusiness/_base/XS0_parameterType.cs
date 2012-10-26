@@ -113,8 +113,6 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_parameterType parameterType_in) {
-			int _index = -1;
-
 			name_ = parameterType_in.name_;
 			type_ = parameterType_in.type_;
 			isparams_ = parameterType_in.isparams_;

@@ -61,8 +61,6 @@ namespace OGen.Dia.lib.metadata.diagram {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_booleanType booleanType_in) {
-			int _index = -1;
-
 			val_ = booleanType_in.val_;
 		}
 		#endregion

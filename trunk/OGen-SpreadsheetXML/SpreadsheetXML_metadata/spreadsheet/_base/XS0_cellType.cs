@@ -74,8 +74,6 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_cellType cellType_in) {
-			int _index = -1;
-
 			data_ = cellType_in.data_;
 			isnull_ = cellType_in.isnull_;
 		}

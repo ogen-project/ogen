@@ -139,8 +139,6 @@ namespace OGen.Doc.lib.metadata.documentation {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_attachmentType attachmentType_in) {
-			int _index = -1;
-
 			title_ = attachmentType_in.title_;
 			showtitle_ = attachmentType_in.showtitle_;
 			incrementlevel_ = attachmentType_in.incrementlevel_;

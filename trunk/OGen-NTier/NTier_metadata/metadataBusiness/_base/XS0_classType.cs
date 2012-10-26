@@ -125,8 +125,6 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_classType classType_in) {
-			int _index = -1;
-
 			name_ = classType_in.name_;
 			type_ = classType_in.type_;
 			namespace_ = classType_in.namespace_;

@@ -139,8 +139,6 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_tableFieldType tableFieldType_in) {
-			int _index = -1;
-
 			name_ = tableFieldType_in.name_;
 			isviewpk_ = tableFieldType_in.isviewpk_;
 			defaultvalue_ = tableFieldType_in.defaultvalue_;
