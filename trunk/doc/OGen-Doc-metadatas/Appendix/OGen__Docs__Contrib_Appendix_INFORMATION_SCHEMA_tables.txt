@@ -42,29 +42,63 @@ SELECT
 */
 FROM information_schema.tables _table
 /*
--- <PostgreSQL>
-INNER JOIN "OGen_fnc0__Split"(
-	string_to_array("subApp_", '|')
-) ON (
-	(_table.table_name LIKE "OGen_fnc0__Split")
-)
--- </PostgreSQL>
-
 -- <SQLServer>
 LEFT JOIN sys.extended_properties _prop ON (
 	(_prop.major_id = object_id(_table.table_name))
 	AND 
 	(_prop.name = 'MS_Description')
 )
-INNER JOIN [dbo].[OGen_fnc0__Split](
-	@subApp_, 
-	'|'
-) t2 ON (
-	(_table.table_name LIKE t2.[OutputValue])
-)
 -- </SQLServer>
 */
 WHERE
+/*
+-- <PostgreSQL>
+	(
+		("subApp_" = '')
+		OR
+		("subApp_" IS NULL)
+		OR
+		(
+			_table.table_name in (
+				SELECT
+					_tablelike.table_name
+				FROM information_schema.tables _tablelike
+				INNER JOIN "OGen_fnc0__Split"(
+					string_to_array("subApp_", '|')
+				) ON (
+					(_tablelike.table_catalog = "dbName_")
+					AND
+					(_tablelike.table_name LIKE "OGen_fnc0__Split")
+				)
+			)
+		)
+	)
+	AND
+-- </PostgreSQL>
+
+-- <SQLServer>
+	(
+		(@subApp_ = '')
+		OR
+		(@subApp_ IS NULL)
+		OR
+		(
+			_table.table_name in (
+				SELECT
+					_tablelike.table_name
+				FROM information_schema.tables _tablelike
+				INNER JOIN [dbo].[OGen_fnc0__Split](
+					@subApp_, 
+					'|'
+				) t2 ON (
+					(_tablelike.table_name LIKE t2.[OutputValue])
+				)
+			)
+		)
+	)
+	AND
+-- </SQLServer>
+*/
 	(
 		(_table.table_type = 'BASE TABLE')
 		OR

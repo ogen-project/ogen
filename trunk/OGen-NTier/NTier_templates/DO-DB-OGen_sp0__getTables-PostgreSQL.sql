@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION "OGen_sp0__getTables"(
+﻿CREATE OR REPLACE FUNCTION "OGen_sp0__getTables"(
 	"dbName_" character varying,
 	"subApp_" character varying
 )
@@ -47,12 +47,28 @@ RETURNS SETOF "v0__getTables" AS $BODY$
 					'pg_class'
 				) AS table_description 
 			FROM information_schema.tables _table
-			INNER JOIN "OGen_fnc0__Split"(
-				string_to_array("subApp_", '|')
-			) ON (
-				(_table.table_name LIKE "OGen_fnc0__Split")
-			)
 			WHERE
+				(
+					("subApp_" = '')
+					OR
+					("subApp_" IS NULL)
+					OR
+					(
+						_table.table_name in (
+							SELECT
+								_tablelike.table_name
+							FROM information_schema.tables _tablelike
+							INNER JOIN "OGen_fnc0__Split"(
+								string_to_array("subApp_", '|')
+							) ON (
+								(_tablelike.table_catalog = "dbName_")
+								AND
+								(_tablelike.table_name LIKE "OGen_fnc0__Split")
+							)
+						)
+					)
+				)
+				AND
 				(
 					(_table.table_type = 'BASE TABLE')
 					OR

@@ -32,13 +32,27 @@ LEFT JOIN sys.extended_properties _prop ON (
 	AND 
 	(_prop.name = 'MS_Description')
 )
-INNER JOIN [dbo].[OGen_fnc0__Split](
-	@subApp_, 
-	'|'
-) t2 ON (
-	(_table.table_name LIKE t2.[OutputValue])
-)
 WHERE
+	(
+		(@subApp_ = '')
+		OR
+		(@subApp_ IS NULL)
+		OR
+		(
+			_table.table_name in (
+				SELECT
+					_tablelike.table_name
+				FROM information_schema.tables _tablelike
+				INNER JOIN [dbo].[OGen_fnc0__Split](
+					@subApp_, 
+					'|'
+				) t2 ON (
+					(_tablelike.table_name LIKE t2.[OutputValue])
+				)
+			)
+		)
+	)
+	AND
 	(
 		(_table.table_type = 'BASE TABLE')
 		OR
