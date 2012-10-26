@@ -20,8 +20,9 @@ string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryStr
 
 #region varaux...
 XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
-	_arg_MetadataFilepath, 
-	true
+	_arg_MetadataFilepath,
+	true,
+	false
 );
 XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
@@ -101,7 +102,7 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 		nameCase_defaultProvider="<%=_aux_ex_metadata.DBs.NameCase_defaultProvider%>"
 		description_defaultProvider="<%=_aux_ex_metadata.DBs.Description_defaultProvider%>"><%
 	for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {%>
-		<db dbServerType="<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType%>" generateSQL="<%=_aux_ex_metadata.DBs.DBCollection[d].GenerateSQL%>" connectionString="<%=_aux_ex_metadata.DBs.DBCollection[d].ConnectionString%>" /><%
+		<db dbServerType="<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType%>" generateSQL="<%=_aux_ex_metadata.DBs.DBCollection[d].GenerateSQL.ToString().ToLower()%>" connectionString="<%=_aux_ex_metadata.DBs.DBCollection[d].ConnectionString%>" /><%
 	}%>
 	</dbs>
 	<tables>

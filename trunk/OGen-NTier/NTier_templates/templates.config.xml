@@ -32,12 +32,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			templateType=""
 			parserType="aspx"
 			iterationType="ROOT.metadataDB[0]">
-		<arguments />
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+		</arguments>
 		<conditions />
 		<outputs>
 
 			<!-- force run! -->
-			<output to="${CONFIG.outputPath}/ogen.log"
+			<output to="/dev/null"
 				type="File" mode="Replace" />
 
 		</outputs>

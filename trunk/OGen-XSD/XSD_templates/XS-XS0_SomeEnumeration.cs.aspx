@@ -23,7 +23,8 @@ string _arg_SimpleTypeName = System.Web.HttpUtility.UrlDecode(Request.QueryStrin
 #region varaux...
 XS__RootMetadata _aux_rootmetadata = XS__RootMetadata.Load_fromFile(
 	_arg_MetadataFilepath,
-	true
+	true,
+	false
 );
 XS_schemaType _aux_schema = _aux_rootmetadata.SchemaCollection[_arg_SchemaName];
 

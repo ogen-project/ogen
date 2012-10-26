@@ -57,6 +57,8 @@ namespace OGen.lib.generator {
 		}
 		#endregion
 
+		public const string DEVNULL = "/dev/null";
+
 		#region private Fields/Properties...
 		private Uri xmltemplatesfileuri_;
 		private string xmltemplatesdir_;
@@ -292,7 +294,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 }
 					switch (template_in.Outputs.OutputCollection[o].Type) {
 						case XS_OutputEnumeration.File: {
-							_exists_aux = File.Exists(_ouputTo);
+							_exists_aux = (_ouputTo == DEVNULL) ? true : File.Exists(_ouputTo);
 							break;
 						}
 
@@ -449,6 +451,8 @@ if (template_in.Outputs.OutputCollection[o].Type == XS_OutputEnumeration.File) {
 							case XS_OutputEnumeration.File: {
 if (
 	(_ouputTo == string.Empty)
+	||
+	(_ouputTo == DEVNULL)
 	||
 	(Directory.Exists(_ouputTo))
 )

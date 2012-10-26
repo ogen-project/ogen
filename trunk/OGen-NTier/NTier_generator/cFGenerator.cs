@@ -200,7 +200,8 @@ throw new Exception("// ToDos: not implemented!");
 			if (notifyBack_in != null) notifyBack_in("- reading configuration from xml file", true);
 			metadata_ = XS__RootMetadata.Load_fromFile(
 				Filename,
-				false
+				false,
+				true
 			);
 
 			#region - reading metadata from business assembly
@@ -340,7 +341,8 @@ throw new Exception("// ToDos: not implemented!");
 			if (notifyBack_in != null) notifyBack_in("- re-reading configuration from xml file", true);
 			metadata_ = XS__RootMetadata.Load_fromFile(
 				Filename,
-				false
+				false,
+				true
 			);
 
 			if (notifyBack_in != null) notifyBack_in("... finished", true);

@@ -23,8 +23,9 @@ string _arg_TableName = System.Web.HttpUtility.UrlDecode(Request.QueryString["Ta
 DBServerTypes _aux_dbservertype = DBServerTypes.SQLServer;
 
 XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
-	_arg_MetadataFilepath, 
-	true
+	_arg_MetadataFilepath,
+	true,
+	false
 );
 XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];

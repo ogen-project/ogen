@@ -117,7 +117,8 @@ namespace OGen.XSD.lib.generator {
 
 			rootmetadata_ = XS__RootMetadata.Load_fromFile(
 				filenameextendedmetadata_,
-				false
+				false,
+				true
 			);
 
 			if (notifyBack_in != null) notifyBack_in("... finished", true);

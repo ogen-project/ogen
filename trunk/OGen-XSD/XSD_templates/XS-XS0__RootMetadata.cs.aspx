@@ -22,7 +22,8 @@ string _arg_SchemaName = System.Web.HttpUtility.UrlDecode(Request.QueryString["S
 #region varaux...
 XS__RootMetadata _aux_rootmetadata = XS__RootMetadata.Load_fromFile(
 	_arg_MetadataFilepath,
-	true
+	true,
+	false
 );
 
 string XS0_ = _aux_rootmetadata.MetadataCollection[0].PrefixGenerated;
@@ -132,9 +133,16 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 		#region public static <%=XS__%>RootMetadata Load_fromFile(...);
 		public static <%=XS__%>RootMetadata Load_fromFile(
 			string metadataFilepath_in, 
-			bool useMetacache_in
+			bool useMetacache_in,
+			bool reinitializeCache_in
 		) {
 			<%=XS__%>RootMetadata _output;
+
+			if (!useMetacache_in || reinitializeCache_in) {
+				XS__RootMetadata.Metacache.Clear();
+				OGen.lib.generator.utils.ReflectThrough_Cache_Clear();
+			}
+
 			if (useMetacache_in) {
 
 				// check before lock

@@ -89,9 +89,16 @@ namespace OGen.Doc.lib.metadata {
 		#region public static XS__RootMetadata Load_fromFile(...);
 		public static XS__RootMetadata Load_fromFile(
 			string metadataFilepath_in, 
-			bool useMetacache_in
+			bool useMetacache_in,
+			bool reinitializeCache_in
 		) {
 			XS__RootMetadata _output;
+
+			if (!useMetacache_in || reinitializeCache_in) {
+				XS__RootMetadata.Metacache.Clear();
+				OGen.lib.generator.utils.ReflectThrough_Cache_Clear();
+			}
+
 			if (useMetacache_in) {
 
 				// check before lock

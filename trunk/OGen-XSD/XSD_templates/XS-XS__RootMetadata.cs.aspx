@@ -21,7 +21,8 @@ string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryStr
 #region varaux...
 XS__RootMetadata _aux_rootmetadata = XS__RootMetadata.Load_fromFile(
 	_arg_MetadataFilepath,
-	true
+	true,
+	false
 );
 
 string XS0_ = _aux_rootmetadata.MetadataCollection[0].PrefixGenerated;
