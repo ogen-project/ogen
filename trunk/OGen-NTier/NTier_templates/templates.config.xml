@@ -3057,6 +3057,43 @@ XXX:TO_DOS -->
 			<output
 				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-simpleserver/App.config"
 				type="File" mode="Create_doNotReplace" />
+			<!--
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-simpleserver/App.CompareAndUpdate.config"
+				type="File" mode="Replace" />
+			-->
+		</outputs>
+		<dependencies>
+			<dependency templateID="ResetCache.aspx" />
+		</dependencies>
+	</template>
+	<template id="PRJ--COMMON-XXX.config.aspx?where=remoting-simpleserver&amp;transform=true"
+			name="PRJ--COMMON-XXX.config.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="remoting-simpleserver" />
+			<argument name="transform" value="true" />
+			<argument name="outputPath" value="${CONFIG.outputPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-simpleserver/App.Debug.config"
+				type="File" mode="Create_doNotReplace" />
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-simpleserver/App.Release.config"
+				type="File" mode="Create_doNotReplace" />
+			<!--
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-simpleserver/App.Debug.CompareAndUpdate.config"
+				type="File" mode="Replace" />
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-remoting-simpleserver/App.Release.CompareAndUpdate.config"
+				type="File" mode="Replace" />
+			-->
 		</outputs>
 		<dependencies>
 			<dependency templateID="ResetCache.aspx" />
@@ -3277,6 +3314,43 @@ XXX:TO_DOS -->
 			<output
 				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/Web.config"
 				type="File" mode="Create_doNotReplace" />
+			<!--
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/Web.CompareAndUpdate.config"
+				type="File" mode="Replace" />
+			-->
+		</outputs>
+		<dependencies>
+			<dependency templateID="ResetCache.aspx" />
+		</dependencies>
+	</template>
+	<template id="PRJ--COMMON-XXX.config.aspx?where=webservices-server&amp;transform=true"
+			name="PRJ--COMMON-XXX.config.aspx"
+			templateType="business"
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="webservices-server" />
+			<argument name="transform" value="true" />
+			<argument name="outputPath" value="${CONFIG.outputPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/Web.Debug.config"
+				type="File" mode="Create_doNotReplace" />
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/Web.Release.config"
+				type="File" mode="Create_doNotReplace" />
+			<!--
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/Web.Debug.CompareAndUpdate.config"
+				type="File" mode="Replace" />
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-webservices-server/Web.Release.CompareAndUpdate.config"
+				type="File" mode="Replace" />
+			-->
 		</outputs>
 		<dependencies>
 			<dependency templateID="ResetCache.aspx" />
@@ -3555,6 +3629,43 @@ XXX:TO_DOS -->
 			<output
 				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}--test/App.config"
 				type="File" mode="Create_doNotReplace" />
+			<!--
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-               -test/App.CompareAndUpdate.config"
+				type="File" mode="Replace" />
+			-->
+		</outputs>
+		<dependencies>
+			<dependency templateID="ResetCache.aspx" />
+		</dependencies>
+	</template>
+	<template id="PRJ--COMMON-XXX.config.aspx?where=test&amp;transform=true"
+			name="PRJ--COMMON-XXX.config.aspx"
+			templateType=""
+			parserType="aspx"
+			iterationType="ROOT.metadataBusiness[0]">
+		<arguments>
+			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-metadatas/MD_${ROOT.metadataDB[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="where" value="test" />
+			<argument name="transform" value="true" />
+			<argument name="outputPath" value="${CONFIG.outputPath}" />
+		</arguments>
+		<conditions />
+		<outputs>
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}--test/App.Debug.config"
+				type="File" mode="Create_doNotReplace" />
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}--test/App.Release.config"
+				type="File" mode="Create_doNotReplace" />
+			<!--
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-               -test/App.Debug.CompareAndUpdate.config"
+				type="File" mode="Replace" />
+			<output
+				to="${CONFIG.outputPath}/src/${ROOT.metadataDB[0].applicationName}-               -test/App.Release.CompareAndUpdate.config"
+				type="File" mode="Replace" />
+			-->
 		</outputs>
 		<dependencies>
 			<dependency templateID="ResetCache.aspx" />

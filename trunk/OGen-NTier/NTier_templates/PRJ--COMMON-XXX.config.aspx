@@ -19,6 +19,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 string _arg_where = System.Web.HttpUtility.UrlDecode(Request.QueryString["where"]);
 string _aux_outputPath = System.Web.HttpUtility.UrlDecode(Request.QueryString["outputPath"]);
+bool _aux_transform;
+if (!bool.TryParse(System.Web.HttpUtility.UrlDecode(Request.QueryString["transform"]), out _aux_transform)) {
+	_aux_transform = false;
+};
 #endregion
 
 #region varaux...
@@ -48,34 +52,34 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
 
 --><%
 }%>
-<configuration>
+<configuration<%=(_aux_transform) ? " xmlns:xdt=\"http://schemas.microsoft.com/XML-Document-Transform\"" : ""%>>
 	<appSettings><%--
-		<add key="RemotingServer_ServerURI" value="<%=_aux_ex_metadata.RemotingServer_ServerURI%>" />
-		<add key="RemotingServer_ServerPort" value="<%=_aux_ex_metadata.RemotingServer_ServerPort%>" />--%>
+		<add key="RemotingServer_ServerURI" value="<%=_aux_ex_metadata.RemotingServer_ServerURI%>" <%=(_aux_transform) ? "xdt:Transform=\"SetAttributes\" xdt:Locator=\"Match(key)\" " : ""%>/>
+		<add key="RemotingServer_ServerPort" value="<%=_aux_ex_metadata.RemotingServer_ServerPort%>" <%=(_aux_transform) ? "xdt:Transform=\"SetAttributes\" xdt:Locator=\"Match(key)\" " : ""%>/>--%>
 
-		<add key="Webservices_ServerURI" value="<%=_aux_ex_metadata.Webservices_ServerURI%>" />
-		<add key="Webservices_ServerPort" value="<%=_aux_ex_metadata.Webservices_ServerPort%>" />
-		<add key="Webservices_ResetClientIP" value="True" />
+		<add key="Webservices_ServerURI" value="<%=_aux_ex_metadata.Webservices_ServerURI%>" <%=(_aux_transform) ? "xdt:Transform=\"SetAttributes\" xdt:Locator=\"Match(key)\" " : ""%>/>
+		<add key="Webservices_ServerPort" value="<%=_aux_ex_metadata.Webservices_ServerPort%>" <%=(_aux_transform) ? "xdt:Transform=\"SetAttributes\" xdt:Locator=\"Match(key)\" " : ""%>/>
+		<add key="Webservices_ResetClientIP" value="True" <%=(_aux_transform) ? "xdt:Transform=\"SetAttributes\" xdt:Locator=\"Match(key)\" " : ""%>/>
 
-		<add key="Remoting_ResetClientIP" value="True" /><%
+		<add key="Remoting_ResetClientIP" value="True" <%=(_aux_transform) ? "xdt:Transform=\"SetAttributes\" xdt:Locator=\"Match(key)\" " : ""%>/><%
 
 if (_arg_where != "test") {%>
 
-		<add key="applications" value="<%=_aux_ex_metadata.ApplicationName%>" />
+		<add key="applications" value="<%=_aux_ex_metadata.ApplicationName%>" <%=(_aux_transform) ? "xdt:Transform=\"SetAttributes\" xdt:Locator=\"Match(key)\" " : ""%>/>
 
 		<add key="<%=_aux_ex_metadata.ApplicationName%>:DBServerTypes" value="<%
 		for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
 			%><%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString()%><%=(d == _aux_ex_metadata.DBs.DBCollection.Count - 1) ? "" : "|"%><%
-		}%>" /><%
+		}%>" <%=(_aux_transform) ? "xdt:Transform=\"SetAttributes\" xdt:Locator=\"Match(key)\" " : ""%>/><%
 }%>
 
-		<add key="Some_UT_config" value="tweak it here" />
+		<add key="Some_UT_config" value="tweak it here" <%=(_aux_transform) ? "xdt:Transform=\"SetAttributes\" xdt:Locator=\"Match(key)\" " : ""%>/>
 	</appSettings><%
 
 if (_arg_where != "test") {%>
 	<connectionStrings><%
 		for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {%>
-		<add name="<%=_aux_ex_metadata.ApplicationName%>:<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType%>" connectionString="<%=_aux_ex_metadata.DBs.DBCollection[d].Connectionstring%>" /><%
+		<add name="<%=_aux_ex_metadata.ApplicationName%>:<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType%>" connectionString="<%=_aux_ex_metadata.DBs.DBCollection[d].ConnectionString%>" <%=(_aux_transform) ? "xdt:Transform=\"SetAttributes\" xdt:Locator=\"Match(name)\" " : ""%>/><%
 		}%>
 	</connectionStrings><%
 }%>

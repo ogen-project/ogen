@@ -77,6 +77,7 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
     <RootNamespace><%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server</RootNamespace>
     <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+	<ProjectConfigFileName>App.config</ProjectConfigFileName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -114,6 +115,14 @@ if (_arg_gac) {%>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Default.aspx" /><%
 for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {
 	_aux_class = _aux_business_metadata.Classes.ClassCollection[i];%>
