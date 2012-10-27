@@ -37,14 +37,12 @@ namespace OGen.NTier.presentationlayer.winforms {
 		private System.Windows.Forms.TextBox txtConnectionString;
 		private System.Windows.Forms.RadioButton rbtConnectionstring;
 		private System.Windows.Forms.RadioButton rbtTweak;
-		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Label lblConnectionstring;
 		private System.Windows.Forms.Label lblDatabase;
 		private System.Windows.Forms.Label lblPassword;
 		private System.Windows.Forms.Label lblUserName;
 		private System.Windows.Forms.Label lblServer;
 		private OGen.NTier.presentationlayer.winforms.UserControls.ucPick_DBType Pick_DBType;
-		private System.Windows.Forms.TextBox txtMode;
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -79,8 +77,6 @@ namespace OGen.NTier.presentationlayer.winforms {
 			this.btnOK = new System.Windows.Forms.Button();
 			this.rbtConnectionstring = new System.Windows.Forms.RadioButton();
 			this.rbtTweak = new System.Windows.Forms.RadioButton();
-			this.label8 = new System.Windows.Forms.Label();
-			this.txtMode = new System.Windows.Forms.TextBox();
 			this.Pick_DBType = new OGen.NTier.presentationlayer.winforms.UserControls.ucPick_DBType();
 			this.SuspendLayout();
 			// 
@@ -97,7 +93,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 			// lblConnectionstring
 			// 
 			this.lblConnectionstring.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.lblConnectionstring.Location = new System.Drawing.Point(8, 72);
+			this.lblConnectionstring.Location = new System.Drawing.Point(8, 38);
 			this.lblConnectionstring.Name = "lblConnectionstring";
 			this.lblConnectionstring.Size = new System.Drawing.Size(96, 23);
 			this.lblConnectionstring.TabIndex = 6;
@@ -107,27 +103,25 @@ namespace OGen.NTier.presentationlayer.winforms {
 			// txtConnectionString
 			// 
 			this.txtConnectionString.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.txtConnectionString.Location = new System.Drawing.Point(104, 72);
+			this.txtConnectionString.Location = new System.Drawing.Point(104, 38);
 			this.txtConnectionString.Name = "txtConnectionString";
 			this.txtConnectionString.Size = new System.Drawing.Size(256, 20);
 			this.txtConnectionString.TabIndex = 7;
-			this.txtConnectionString.Text = "";
 			// 
 			// txtDatabase
 			// 
 			this.txtDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtDatabase.Enabled = false;
-			this.txtDatabase.Location = new System.Drawing.Point(104, 208);
+			this.txtDatabase.Location = new System.Drawing.Point(104, 174);
 			this.txtDatabase.Name = "txtDatabase";
 			this.txtDatabase.Size = new System.Drawing.Size(256, 20);
 			this.txtDatabase.TabIndex = 16;
-			this.txtDatabase.Text = "";
 			// 
 			// lblDatabase
 			// 
 			this.lblDatabase.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.lblDatabase.Enabled = false;
-			this.lblDatabase.Location = new System.Drawing.Point(8, 208);
+			this.lblDatabase.Location = new System.Drawing.Point(8, 174);
 			this.lblDatabase.Name = "lblDatabase";
 			this.lblDatabase.Size = new System.Drawing.Size(96, 23);
 			this.lblDatabase.TabIndex = 15;
@@ -138,38 +132,35 @@ namespace OGen.NTier.presentationlayer.winforms {
 			// 
 			this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtPassword.Enabled = false;
-			this.txtPassword.Location = new System.Drawing.Point(104, 184);
+			this.txtPassword.Location = new System.Drawing.Point(104, 150);
 			this.txtPassword.Name = "txtPassword";
 			this.txtPassword.PasswordChar = '*';
 			this.txtPassword.Size = new System.Drawing.Size(256, 20);
 			this.txtPassword.TabIndex = 14;
-			this.txtPassword.Text = "";
 			// 
 			// txtUserName
 			// 
 			this.txtUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtUserName.Enabled = false;
-			this.txtUserName.Location = new System.Drawing.Point(104, 160);
+			this.txtUserName.Location = new System.Drawing.Point(104, 126);
 			this.txtUserName.Name = "txtUserName";
 			this.txtUserName.Size = new System.Drawing.Size(256, 20);
 			this.txtUserName.TabIndex = 12;
-			this.txtUserName.Text = "";
 			// 
 			// txtServer
 			// 
 			this.txtServer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtServer.Enabled = false;
-			this.txtServer.Location = new System.Drawing.Point(104, 136);
+			this.txtServer.Location = new System.Drawing.Point(104, 102);
 			this.txtServer.Name = "txtServer";
 			this.txtServer.Size = new System.Drawing.Size(256, 20);
 			this.txtServer.TabIndex = 10;
-			this.txtServer.Text = "";
 			// 
 			// lblPassword
 			// 
 			this.lblPassword.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.lblPassword.Enabled = false;
-			this.lblPassword.Location = new System.Drawing.Point(8, 184);
+			this.lblPassword.Location = new System.Drawing.Point(8, 150);
 			this.lblPassword.Name = "lblPassword";
 			this.lblPassword.Size = new System.Drawing.Size(96, 23);
 			this.lblPassword.TabIndex = 13;
@@ -180,7 +171,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 			// 
 			this.lblUserName.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.lblUserName.Enabled = false;
-			this.lblUserName.Location = new System.Drawing.Point(8, 160);
+			this.lblUserName.Location = new System.Drawing.Point(8, 126);
 			this.lblUserName.Name = "lblUserName";
 			this.lblUserName.Size = new System.Drawing.Size(96, 23);
 			this.lblUserName.TabIndex = 11;
@@ -191,7 +182,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 			// 
 			this.lblServer.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.lblServer.Enabled = false;
-			this.lblServer.Location = new System.Drawing.Point(8, 136);
+			this.lblServer.Location = new System.Drawing.Point(8, 102);
 			this.lblServer.Name = "lblServer";
 			this.lblServer.Size = new System.Drawing.Size(96, 23);
 			this.lblServer.TabIndex = 9;
@@ -201,16 +192,18 @@ namespace OGen.NTier.presentationlayer.winforms {
 			// btnCancel
 			// 
 			this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnCancel.Location = new System.Drawing.Point(280, 272);
+			this.btnCancel.Location = new System.Drawing.Point(280, 238);
 			this.btnCancel.Name = "btnCancel";
+			this.btnCancel.Size = new System.Drawing.Size(75, 23);
 			this.btnCancel.TabIndex = 19;
 			this.btnCancel.Text = "Cancel";
 			// 
 			// btnOK
 			// 
 			this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnOK.Location = new System.Drawing.Point(200, 272);
+			this.btnOK.Location = new System.Drawing.Point(200, 238);
 			this.btnOK.Name = "btnOK";
+			this.btnOK.Size = new System.Drawing.Size(75, 23);
 			this.btnOK.TabIndex = 18;
 			this.btnOK.Text = "&OK";
 			// 
@@ -218,7 +211,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 			// 
 			this.rbtConnectionstring.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.rbtConnectionstring.Checked = true;
-			this.rbtConnectionstring.Location = new System.Drawing.Point(8, 96);
+			this.rbtConnectionstring.Location = new System.Drawing.Point(8, 62);
 			this.rbtConnectionstring.Name = "rbtConnectionstring";
 			this.rbtConnectionstring.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.rbtConnectionstring.Size = new System.Drawing.Size(352, 24);
@@ -229,31 +222,12 @@ namespace OGen.NTier.presentationlayer.winforms {
 			// rbtTweak
 			// 
 			this.rbtTweak.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.rbtTweak.Location = new System.Drawing.Point(8, 232);
+			this.rbtTweak.Location = new System.Drawing.Point(8, 198);
 			this.rbtTweak.Name = "rbtTweak";
 			this.rbtTweak.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.rbtTweak.Size = new System.Drawing.Size(352, 24);
 			this.rbtTweak.TabIndex = 17;
 			this.rbtTweak.Text = "Tweak";
-			// 
-			// label8
-			// 
-			this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label8.Location = new System.Drawing.Point(8, 32);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(96, 23);
-			this.label8.TabIndex = 4;
-			this.label8.Text = "Mode: ";
-			this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// txtMode
-			// 
-			this.txtMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.txtMode.Location = new System.Drawing.Point(104, 32);
-			this.txtMode.Name = "txtMode";
-			this.txtMode.Size = new System.Drawing.Size(256, 20);
-			this.txtMode.TabIndex = 5;
-			this.txtMode.Text = "";
 			// 
 			// Pick_DBType
 			// 
@@ -269,8 +243,6 @@ namespace OGen.NTier.presentationlayer.winforms {
 			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
 			this.ClientSize = new System.Drawing.Size(368, 301);
 			this.Controls.Add(this.Pick_DBType);
-			this.Controls.Add(this.label8);
-			this.Controls.Add(this.txtMode);
 			this.Controls.Add(this.txtDatabase);
 			this.Controls.Add(this.txtPassword);
 			this.Controls.Add(this.txtUserName);
@@ -291,6 +263,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "DBConnection";
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 		#endregion
@@ -322,12 +295,6 @@ namespace OGen.NTier.presentationlayer.winforms {
 		public OGen.lib.datalayer.DBServerTypes DBServerType {
 			get { return Pick_DBType.DBServerType; }
 			set { Pick_DBType.DBServerType = value; }
-		}
-		#endregion
-		#region public string DBMode { get; set; }
-		public string DBMode {
-			get { return txtMode.Text; }
-			set { txtMode.Text = value; }
 		}
 		#endregion
 		#region public string DBConnectionstring { get; set; }
@@ -384,16 +351,6 @@ namespace OGen.NTier.presentationlayer.winforms {
 					System.Windows.Forms.MessageBoxIcon.Warning
 				);
 				Pick_DBType.Focus();
-				return;
-			}
-			if (DBMode.Trim() == string.Empty) {
-				System.Windows.Forms.MessageBox.Show(
-					"a valid 'Mode' must be provided",
-					"Warning",
-					System.Windows.Forms.MessageBoxButtons.OK,
-					System.Windows.Forms.MessageBoxIcon.Warning
-				);
-				txtMode.Focus();
 				return;
 			}
 			if (rbtConnectionstring.Checked) {

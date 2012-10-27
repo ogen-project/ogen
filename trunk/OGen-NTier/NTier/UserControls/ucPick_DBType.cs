@@ -89,10 +89,18 @@ namespace OGen.NTier.presentationlayer.winforms.UserControls {
 
 		public DBServerTypes DBServerType {
 			get {
-				return (DBServerTypes)Enum.Parse(
-					typeof(DBServerTypes),
-					(string)cbxDBTypes.SelectedItem
-				);
+				return (
+					(cbxDBTypes.SelectedItem == null)
+					||
+					(cbxDBTypes.SelectedItem.GetType() != typeof(string))
+					||
+					string.IsNullOrEmpty((string)cbxDBTypes.SelectedItem)
+				)
+					? DBServerTypes.invalid 
+					: (DBServerTypes)Enum.Parse(
+						typeof(DBServerTypes),
+						(string)cbxDBTypes.SelectedItem
+					);
 			}
 			set {
 				cbxDBTypes.SelectedItem = value.ToString();

@@ -24,11 +24,9 @@ using OGen.NTier.lib.generator;
 
 namespace OGen.NTier.presentationlayer.winforms {
 	public class frm_Main : System.Windows.Forms.Form {
+		private IContainer components;
 		#region Required designer variable
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.Container components = null;
+
 		private System.Windows.Forms.MenuItem miHelp;
 		private System.Windows.Forms.MenuItem miHelp_About;
 		private System.Windows.Forms.MenuItem miProject_Exit;
@@ -84,7 +82,8 @@ namespace OGen.NTier.presentationlayer.winforms {
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			this.mm_Main = new System.Windows.Forms.MainMenu();
+			this.components = new System.ComponentModel.Container();
+			this.mm_Main = new System.Windows.Forms.MainMenu(this.components);
 			this.miProject = new System.Windows.Forms.MenuItem();
 			this.miProject_New = new System.Windows.Forms.MenuItem();
 			this.miProject_Open = new System.Windows.Forms.MenuItem();
@@ -99,6 +98,8 @@ namespace OGen.NTier.presentationlayer.winforms {
 			this.miManage = new System.Windows.Forms.MenuItem();
 			this.miManage_DL = new System.Windows.Forms.MenuItem();
 			this.miManage_DL_Search = new System.Windows.Forms.MenuItem();
+			this.miManage_DL_Search_Search = new System.Windows.Forms.MenuItem();
+			this.miManage_DL_Search_Update = new System.Windows.Forms.MenuItem();
 			this.miManage_DL_Update = new System.Windows.Forms.MenuItem();
 			this.miManage_DL_ViewsPK = new System.Windows.Forms.MenuItem();
 			this.miManage_DL_TablesListItems = new System.Windows.Forms.MenuItem();
@@ -118,32 +119,31 @@ namespace OGen.NTier.presentationlayer.winforms {
 			this.menuItem3 = new System.Windows.Forms.MenuItem();
 			this.miHelp = new System.Windows.Forms.MenuItem();
 			this.miHelp_About = new System.Windows.Forms.MenuItem();
-			this.miManage_DL_Search_Search = new System.Windows.Forms.MenuItem();
-			this.miManage_DL_Search_Update = new System.Windows.Forms.MenuItem();
+			this.SuspendLayout();
 			// 
 			// mm_Main
 			// 
 			this.mm_Main.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																					this.miProject,
-																					this.miManage,
-																					this.miGenerator,
-																					this.miWindow,
-																					this.miHelp});
+            this.miProject,
+            this.miManage,
+            this.miGenerator,
+            this.miWindow,
+            this.miHelp});
 			// 
 			// miProject
 			// 
 			this.miProject.Index = 0;
 			this.miProject.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																					  this.miProject_New,
-																					  this.miProject_Open,
-																					  this.miProject_Close,
-																					  this.menuItem1,
-																					  this.menuItem8,
-																					  this.miProject_Save,
-																					  this.menuItem2,
-																					  this.menuItem6,
-																					  this.menuItem7,
-																					  this.miProject_Exit});
+            this.miProject_New,
+            this.miProject_Open,
+            this.miProject_Close,
+            this.menuItem1,
+            this.menuItem8,
+            this.miProject_Save,
+            this.menuItem2,
+            this.menuItem6,
+            this.menuItem7,
+            this.miProject_Exit});
 			this.miProject.Text = "&Project";
 			// 
 			// miProject_New
@@ -173,6 +173,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 			// 
 			this.menuItem8.Index = 4;
 			this.menuItem8.Text = "&Edit";
+			this.menuItem8.Visible = false;
 			// 
 			// miProject_Save
 			// 
@@ -207,30 +208,42 @@ namespace OGen.NTier.presentationlayer.winforms {
 			// 
 			this.miManage.Index = 1;
 			this.miManage.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																					 this.miManage_DL,
-																					 this.miManage_BL,
-																					 this.miManage_Configuration});
+            this.miManage_DL,
+            this.miManage_BL,
+            this.miManage_Configuration});
 			this.miManage.Text = "&NextStep";
 			// 
 			// miManage_DL
 			// 
 			this.miManage_DL.Index = 0;
 			this.miManage_DL.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																						this.miManage_DL_Search,
-																						this.miManage_DL_Update,
-																						this.miManage_DL_ViewsPK,
-																						this.miManage_DL_TablesListItems,
-																						this.miManage_DL_ConfigTable});
+            this.miManage_DL_Search,
+            this.miManage_DL_Update,
+            this.miManage_DL_ViewsPK,
+            this.miManage_DL_TablesListItems,
+            this.miManage_DL_ConfigTable});
 			this.miManage_DL.Text = "on &DataLayer";
 			// 
 			// miManage_DL_Search
 			// 
 			this.miManage_DL_Search.Index = 0;
 			this.miManage_DL_Search.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																							   this.miManage_DL_Search_Search,
-																							   this.miManage_DL_Search_Update});
+            this.miManage_DL_Search_Search,
+            this.miManage_DL_Search_Update});
 			this.miManage_DL_Search.Text = "&Searches";
 			this.miManage_DL_Search.Click += new System.EventHandler(this.miManage_DL_Search_Click);
+			// 
+			// miManage_DL_Search_Search
+			// 
+			this.miManage_DL_Search_Search.Index = 0;
+			this.miManage_DL_Search_Search.Text = "Searches";
+			this.miManage_DL_Search_Search.Click += new System.EventHandler(this.miManage_DL_Search_Search_Click);
+			// 
+			// miManage_DL_Search_Update
+			// 
+			this.miManage_DL_Search_Update.Index = 1;
+			this.miManage_DL_Search_Update.Text = "Updates";
+			this.miManage_DL_Search_Update.Click += new System.EventHandler(this.miManage_DL_Search_Update_Click);
 			// 
 			// miManage_DL_Update
 			// 
@@ -265,8 +278,8 @@ namespace OGen.NTier.presentationlayer.winforms {
 			// 
 			this.miManage_Configuration.Index = 2;
 			this.miManage_Configuration.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																								   this.miManage_Configuration_Project,
-																								   this.miManage_Configuration_Generator});
+            this.miManage_Configuration_Project,
+            this.miManage_Configuration_Generator});
 			this.miManage_Configuration.Text = "&Configurations";
 			// 
 			// miManage_Configuration_Project
@@ -286,7 +299,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 			// 
 			this.miGenerator.Index = 2;
 			this.miGenerator.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																						this.miGenerator_Generate});
+            this.miGenerator_Generate});
 			this.miGenerator.Text = "&Generator";
 			// 
 			// miGenerator_Generate
@@ -299,12 +312,12 @@ namespace OGen.NTier.presentationlayer.winforms {
 			// 
 			this.miWindow.Index = 3;
 			this.miWindow.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																					 this.menuItem5,
-																					 this.miWindow_DataLayer,
-																					 this.miWindow_BusinessLayer,
-																					 this.menuItem4,
-																					 this.miWindow_Templates,
-																					 this.menuItem3});
+            this.menuItem5,
+            this.miWindow_DataLayer,
+            this.miWindow_BusinessLayer,
+            this.menuItem4,
+            this.miWindow_Templates,
+            this.menuItem3});
 			this.miWindow.Text = "&Window";
 			this.miWindow.Visible = false;
 			// 
@@ -342,7 +355,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 			// 
 			this.miHelp.Index = 4;
 			this.miHelp.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																				   this.miHelp_About});
+            this.miHelp_About});
 			this.miHelp.Text = "&Help";
 			// 
 			// miHelp_About
@@ -350,18 +363,6 @@ namespace OGen.NTier.presentationlayer.winforms {
 			this.miHelp_About.Index = 0;
 			this.miHelp_About.Text = "&About";
 			this.miHelp_About.Click += new System.EventHandler(this.miHelp_About_Click);
-			// 
-			// miManage_DL_Search_Search
-			// 
-			this.miManage_DL_Search_Search.Index = 0;
-			this.miManage_DL_Search_Search.Text = "Searches";
-			this.miManage_DL_Search_Search.Click += new System.EventHandler(this.miManage_DL_Search_Search_Click);
-			// 
-			// miManage_DL_Search_Update
-			// 
-			this.miManage_DL_Search_Update.Index = 1;
-			this.miManage_DL_Search_Update.Text = "Updates";
-			this.miManage_DL_Search_Update.Click += new System.EventHandler(this.miManage_DL_Search_Update_Click);
 			// 
 			// frm_Main
 			// 
@@ -371,6 +372,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 			this.Menu = this.mm_Main;
 			this.Name = "frm_Main";
 			this.Text = "OGen";
+			this.ResumeLayout(false);
 
 		}
 		#endregion

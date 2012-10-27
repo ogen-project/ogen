@@ -36,7 +36,6 @@ namespace OGen.NTier.presentationlayer.winforms {
 		private System.Windows.Forms.Button btnDefault;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.ListView lvwConnections;
-		private System.Windows.Forms.ColumnHeader colMode;
 		private System.Windows.Forms.ColumnHeader colConnectionstring;
 		private System.Windows.Forms.ColumnHeader colDBServertype;
 		private System.Windows.Forms.Button btnRemove;
@@ -77,10 +76,9 @@ namespace OGen.NTier.presentationlayer.winforms {
 			this.txtPath = new System.Windows.Forms.TextBox();
 			this.btnNew = new System.Windows.Forms.Button();
 			this.lvwConnections = new System.Windows.Forms.ListView();
-			this.colDefault = new System.Windows.Forms.ColumnHeader();
-			this.colDBServertype = new System.Windows.Forms.ColumnHeader();
-			this.colMode = new System.Windows.Forms.ColumnHeader();
-			this.colConnectionstring = new System.Windows.Forms.ColumnHeader();
+			this.colDefault = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.colDBServertype = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.colConnectionstring = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.btnEdit = new System.Windows.Forms.Button();
 			this.btnDefault = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
@@ -105,7 +103,6 @@ namespace OGen.NTier.presentationlayer.winforms {
 			this.txtNamespace.Name = "txtNamespace";
 			this.txtNamespace.Size = new System.Drawing.Size(328, 20);
 			this.txtNamespace.TabIndex = 6;
-			this.txtNamespace.Text = "";
 			// 
 			// label3
 			// 
@@ -124,7 +121,6 @@ namespace OGen.NTier.presentationlayer.winforms {
 			this.txtApplicationName.Name = "txtApplicationName";
 			this.txtApplicationName.Size = new System.Drawing.Size(328, 20);
 			this.txtApplicationName.TabIndex = 4;
-			this.txtApplicationName.Text = "";
 			// 
 			// label4
 			// 
@@ -179,7 +175,6 @@ namespace OGen.NTier.presentationlayer.winforms {
 			this.txtPath.Name = "txtPath";
 			this.txtPath.Size = new System.Drawing.Size(304, 20);
 			this.txtPath.TabIndex = 1;
-			this.txtPath.Text = "";
 			// 
 			// btnNew
 			// 
@@ -196,10 +191,9 @@ namespace OGen.NTier.presentationlayer.winforms {
 				| System.Windows.Forms.AnchorStyles.Left) 
 				| System.Windows.Forms.AnchorStyles.Right)));
 			this.lvwConnections.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-																							 this.colDefault,
-																							 this.colDBServertype,
-																							 this.colMode,
-																							 this.colConnectionstring});
+			this.colDefault,
+			this.colDBServertype,
+			this.colConnectionstring});
 			this.lvwConnections.FullRowSelect = true;
 			this.lvwConnections.HideSelection = false;
 			this.lvwConnections.Location = new System.Drawing.Point(104, 104);
@@ -207,6 +201,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 			this.lvwConnections.Name = "lvwConnections";
 			this.lvwConnections.Size = new System.Drawing.Size(264, 136);
 			this.lvwConnections.TabIndex = 2;
+			this.lvwConnections.UseCompatibleStateImageBehavior = false;
 			this.lvwConnections.View = System.Windows.Forms.View.Details;
 			// 
 			// colDefault
@@ -218,10 +213,6 @@ namespace OGen.NTier.presentationlayer.winforms {
 			// 
 			this.colDBServertype.Text = "Server Type";
 			this.colDBServertype.Width = 70;
-			// 
-			// colMode
-			// 
-			this.colMode.Text = "Mode";
 			// 
 			// colConnectionstring
 			// 
@@ -281,6 +272,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Project - Configuration";
 			this.Application.ResumeLayout(false);
+			this.Application.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -317,8 +309,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 		private enum eConnectionColumns {
 			Default = 0,
 			DBServerType = 1,
-			DBMode = 2,
-			DBConnectionstring = 3
+			DBConnectionstring = 2,
 		}
 		#endregion
 
@@ -499,15 +490,12 @@ DBConnections_out[_dbindex].GenerateSQL = true;
 		#region private void btnNew_Click(object sender, System.EventArgs e);
 		private void btnNew_Click(object sender, System.EventArgs e) {
 			frmConnectionstring connection = new frmConnectionstring();
-			connection.DBMode = "DEBUG";
 			switch (connection.ShowDialog()) {
 				case DialogResult.OK: {
 					bool _thecombinationexists = false;
 					for (int i = 0; i < lvwConnections.Items.Count; i++) {
 						if (
 							(lvwConnections.Items[i].SubItems[(int)eConnectionColumns.DBServerType].Text == connection.DBServerType.ToString())
-							&&
-							(lvwConnections.Items[i].SubItems[(int)eConnectionColumns.DBMode].Text == connection.DBMode)
 						) {
 							if (
 								System.Windows.Forms.MessageBox.Show(
@@ -519,7 +507,6 @@ DBConnections_out[_dbindex].GenerateSQL = true;
 							) {
 								lvwConnections.Items[i].SubItems[(int)eConnectionColumns.Default].Text = string.Empty;
 								lvwConnections.Items[i].SubItems[(int)eConnectionColumns.DBServerType].Text = connection.DBServerType.ToString();
-								lvwConnections.Items[i].SubItems[(int)eConnectionColumns.DBMode].Text = connection.DBMode;
 								lvwConnections.Items[i].SubItems[(int)eConnectionColumns.DBConnectionstring].Text = connection.DBConnectionstring;
 							}
 							_thecombinationexists = true;
@@ -532,7 +519,6 @@ DBConnections_out[_dbindex].GenerateSQL = true;
 								new string[] {
 									(lvwConnections.Items.Count == 0) ? "*" : string.Empty, 
 									connection.DBServerType.ToString(), 
-									connection.DBMode,
 									connection.DBConnectionstring
 								}
 							)
@@ -554,7 +540,6 @@ DBConnections_out[_dbindex].GenerateSQL = true;
 					typeof(DBServerTypes),
 					lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.DBServerType].Text
 				);
-				connection.DBMode = lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.DBMode].Text;
 				connection.DBConnectionstring = lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.DBConnectionstring].Text;
 				switch (connection.ShowDialog()) {
 					case DialogResult.OK: {
@@ -562,8 +547,6 @@ DBConnections_out[_dbindex].GenerateSQL = true;
 						for (int i = 0; i < lvwConnections.Items.Count; i++) {
 							if (
 								(lvwConnections.Items[i].SubItems[(int)eConnectionColumns.DBServerType].Text == connection.DBServerType.ToString())
-								&&
-								(lvwConnections.Items[i].SubItems[(int)eConnectionColumns.DBMode].Text == connection.DBMode)
 
 								&&
 								(i != lvwConnections.SelectedItems[0].Index)
@@ -582,7 +565,6 @@ DBConnections_out[_dbindex].GenerateSQL = true;
 
 									// update other properties:
 									lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.DBServerType].Text = connection.DBServerType.ToString();
-									lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.DBMode].Text = connection.DBMode;
 									lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.DBConnectionstring].Text = connection.DBConnectionstring;
 
 									lvwConnections.Items.RemoveAt(i);
@@ -597,7 +579,6 @@ DBConnections_out[_dbindex].GenerateSQL = true;
 
 							// update other properties:
 							lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.DBServerType].Text = connection.DBServerType.ToString();
-							lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.DBMode].Text = connection.DBMode;
 							lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.DBConnectionstring].Text = connection.DBConnectionstring;
 						}
 						break;
