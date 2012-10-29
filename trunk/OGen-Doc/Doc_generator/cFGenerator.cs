@@ -43,7 +43,7 @@ namespace OGen.Doc.lib.generator {
 		#endregion
 		#region public bool isOpened { get; }
 		public bool isOpened {
-			get { return (filename_ != string.Empty); }
+			get { return !string.IsNullOrEmpty(filename_); }
 		}
 		#endregion
 		#region public XS__RootMetadata RootMetadata { get ; }

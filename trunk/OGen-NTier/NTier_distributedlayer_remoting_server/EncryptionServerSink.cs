@@ -50,8 +50,8 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 		#endregion
 
 
-		#region private bool isHeaderEncrypted(ITransportHeaders headers_in);
-		private bool isHeaderEncrypted(ITransportHeaders headers_in) {
+		#region private static bool isHeaderEncrypted(ITransportHeaders headers_in);
+		private static bool isHeaderEncrypted(ITransportHeaders headers_in) {
 			return (
 				(headers_in[EncryptionHelper.X_ENCRYPT] != null)
 				&&

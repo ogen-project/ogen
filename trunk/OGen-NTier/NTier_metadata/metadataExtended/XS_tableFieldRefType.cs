@@ -47,11 +47,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 							// initialization...
 							#region Checking...
-							if (
-								(TableName == null)
-								||
-								(TableName == string.Empty)
-							)
+							if (string.IsNullOrEmpty(TableName))
 								throw new Exception(string.Format(
 									"{0}.{1}.TableIndex(): - no ref present",
 									this.GetType().Namespace,
@@ -90,13 +86,9 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 							// initialization...
 							#region Checking...
 							if (
-								(TableName == null)
+								string.IsNullOrEmpty(TableName)
 								||
-								(TableName == string.Empty)
-								||
-								(TableFieldName == null)
-								||
-								(TableFieldName == string.Empty)
+								string.IsNullOrEmpty(TableFieldName)
 							)
 								throw new Exception(string.Format(
 									"{0}.{1}.FieldIndex(): - no ref present",

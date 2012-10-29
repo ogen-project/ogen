@@ -12,6 +12,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
+#if !NET_1_1
 using System;
 using System.Web;
 using System.Web.Hosting;
@@ -155,3 +156,4 @@ namespace OGen.lib.parser {
 		#endregion
 	}
 }
+#endif

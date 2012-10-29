@@ -614,11 +614,7 @@ namespace OGen.lib.datalayer {
 		/// </exception>
 		public void Execute_SQLQuery(string query_in) {
 			#region Checking...
-			if (
-				(query_in == null)
-				||
-				(query_in.Trim() == string.Empty)
-			)
+			if (string.IsNullOrEmpty(query_in))
 				throw new InvalidSQLQueryException_empty();
 			#endregion
 
@@ -1259,11 +1255,7 @@ namespace OGen.lib.datalayer {
 
 			#region DataTable _dtemp = ...;
 			DataTable _dtemp;
-			if (
-				(sqlFuncion_in == null)
-				||
-				(sqlFuncion_in == string.Empty)
-			) {
+			if (string.IsNullOrEmpty(sqlFuncion_in)) {
 				_dtemp = Execute_SQLQuery_returnDataTable(
 					getTableFields_query(
 						tableName_in

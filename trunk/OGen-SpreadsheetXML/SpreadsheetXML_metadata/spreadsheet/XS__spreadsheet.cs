@@ -72,11 +72,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 				;
 			}
 
-			if (
-				(_connectionString == null)
-				||
-				(_connectionString == "")
-			) {
+			if (string.IsNullOrEmpty(_connectionString)) {
 				Console.WriteLine("invalid file type; {0}", ssFilePath_in);
 				return null;
 			}

@@ -41,11 +41,11 @@ namespace OGen.NTier.lib.generator {
 			set {
 				filename__ = value;
 				directoryname__ 
-					= (value == string.Empty) 
+					= (string.IsNullOrEmpty(value)) 
 						? string.Empty 
 						: Path.GetDirectoryName(value);
 				parentdirectoryname__
-					= (value == string.Empty)
+					= (string.IsNullOrEmpty(value))
 						? string.Empty
 						: Directory.GetParent(directoryname__).FullName;
 			}
@@ -88,7 +88,7 @@ namespace OGen.NTier.lib.generator {
 		//#endregion
 
 		#region private Methods...
-		private string businessAssembly(
+		private static string businessAssembly(
 			string applicationName_in, 
 			string applicationNamespace_in, 
 			bool isRelease_notDebug_in

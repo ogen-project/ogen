@@ -43,7 +43,7 @@ namespace OGen.Dia.lib.generator {
 		#endregion
 		#region public bool isOpened { get; }
 		public bool isOpened {
-			get { return (filename_ != string.Empty); }
+			get { return !string.IsNullOrEmpty(filename_); }
 		}
 		#endregion
 		#region public XS__diagram Diagram { get ; }
@@ -160,11 +160,7 @@ namespace OGen.Dia.lib.generator {
 
 					#region _isUsingPostgreSQL = ...; _isUsingSQLServer = ...;
 					for (int f = 0; f < _dbtablefields.Length; f++) {
-						if (
-							(_dbtablefields[f].PostgreSQLTypeName != null)
-							&&
-							(_dbtablefields[f].PostgreSQLTypeName.Trim() != "")
-						) {
+						if (!string.IsNullOrEmpty(_dbtablefields[f].PostgreSQLTypeName)) {
 							_isUsingPostgreSQL = true;
 						}
 						if (

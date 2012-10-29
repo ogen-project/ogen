@@ -34,13 +34,16 @@ namespace OGen.NTier.lib.datalayer {
 						#if !NET_1_1
 						System.Configuration.ConfigurationManager.ConnectionStrings
 						#else
-						System.Configuration.ConfigurationSettings.ConnectionStringss
+						System.Configuration.ConfigurationSettings.AppSettings
 						#endif
 							[string.Format(
 								"{0}:{1}",
 								application_in, 
 								DBServerTypes(application_in)[_db].ToString()
-							)].ConnectionString
+							)]
+						#if !NET_1_1
+								.ConnectionString
+						#endif
 					)
 				);
 			}

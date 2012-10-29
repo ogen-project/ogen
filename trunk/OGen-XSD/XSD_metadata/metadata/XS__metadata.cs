@@ -44,7 +44,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 					XS_specificCaseType _case;
 					if (
 						// (no schema provided)
-						(schemaName_in == string.Empty)
+						(string.IsNullOrEmpty(schemaName_in))
 						||
 						(
 						// (can't find specific schema)

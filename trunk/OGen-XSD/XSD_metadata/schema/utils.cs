@@ -18,8 +18,9 @@ using System;
 namespace OGen.XSD.lib.metadata.schema {
 #if NET_1_1
 	public class utils { private utils() { }
-#endif
+#else
 	public static class utils {
+#endif
 
 		#region public static string Convert_NType(...);
 		public static string Convert_NType(

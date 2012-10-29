@@ -71,8 +71,8 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			}
 			#endregion
 
-			bool _isBO = false;
-			bool _isBDO = false;
+			//bool _isBO = false;
+			//bool _isBDO = false;
 			int _class_index;
 			int _method_index;
 			int _property_index;
@@ -103,8 +103,8 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 					(_type.Name.IndexOf("SBO_") == 0)
 				) {
 					for (int ca = 0; ca < _classattributes.Length; ca++) {
-						BOClassAttribute _attribute 
-							= (BOClassAttribute)_classattributes[ca];
+//						BOClassAttribute _attribute 
+//							= (BOClassAttribute)_classattributes[ca];
 
 _output.Classes.ClassCollection.Add(
 	out _class_index, 

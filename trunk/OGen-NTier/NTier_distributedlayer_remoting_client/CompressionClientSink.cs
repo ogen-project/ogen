@@ -42,8 +42,8 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 		#endregion
 
 
-		#region private bool isHeaderCompressed_(ITransportHeaders headers_in);
-		private bool isHeaderCompressed_(ITransportHeaders headers_in) {
+		#region private static bool isHeaderCompressed_(ITransportHeaders headers_in);
+		private static bool isHeaderCompressed_(ITransportHeaders headers_in) {
 			return (
 				(headers_in[CompressionHelper.X_COMPRESS] != null)
 				&&
