@@ -47,7 +47,7 @@ namespace OGen.XSD.lib.generator {
 		#endregion
 		#region public bool isOpened { get; }
 		public bool isOpened {
-			get { return (filenameextendedmetadata_ != string.Empty); }
+			get { return !string.IsNullOrEmpty(filenameextendedmetadata_); }
 		}
 		#endregion
 		#region public XS__RootMetadata RootMetadata { get ; }

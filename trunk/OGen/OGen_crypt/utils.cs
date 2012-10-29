@@ -42,9 +42,7 @@ namespace OGen.lib.crypt {
 				}
 
 				if (
-					(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Server_Public"] != null)
-					&&
-					(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Server_Public"] != "")
+					!string.IsNullOrEmpty(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Server_Public"])
 					//&&
 					//File.Exists(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Server_Public"])
 				) {
@@ -295,9 +293,7 @@ namespace OGen.lib.crypt {
 #endif
 
 				if (
-					(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Client_Public"] != null)
-					&&
-					(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Client_Public"] != "")
+					!string.IsNullOrEmpty(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Client_Public"])
 					//&&
 					//File.Exists(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Client_Public"])
 				) {

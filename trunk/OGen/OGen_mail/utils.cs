@@ -56,7 +56,7 @@ namespace OGen.lib.mail {
 		#endregion
 		#region public static MailAddress[] ParseMailAddress(string mailAddress_in);
 		public static MailAddress[] ParseMailAddress(string mailAddress_in) {
-			if (mailAddress_in == "") return null;
+			if (string.IsNullOrEmpty(mailAddress_in)) return null;
 
 			string[] _mailaddress = mailAddress_in.Split(',');
 

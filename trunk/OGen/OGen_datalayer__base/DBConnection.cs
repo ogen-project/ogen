@@ -296,7 +296,7 @@ namespace OGen.lib.datalayer {
 			get {
 
 				// check before lock
-				if (connectionstring_dbname__ == string.Empty) {
+				if (string.IsNullOrEmpty(connectionstring_dbname__)) {
 
 					lock (connectionstring_dbname__locker) {
 
@@ -1174,11 +1174,7 @@ namespace OGen.lib.datalayer {
 
 			#region DataTable _dtemp = base.Execute_SQLQuery_returnDataTable(gettables(subAppName_in));
 			DataTable _dtemp;
-			if (
-				(sqlFuncion_in == null)
-				||
-				(sqlFuncion_in == string.Empty)
-			) {
+			if (string.IsNullOrEmpty(sqlFuncion_in)) {
 				_dtemp = Execute_SQLQuery_returnDataTable(
 					getTables_query(
 						Connectionstring_DBName, 

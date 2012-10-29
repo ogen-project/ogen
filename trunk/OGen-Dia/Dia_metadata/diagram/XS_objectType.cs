@@ -105,22 +105,22 @@ namespace OGen.Dia.lib.metadata.diagram {
 													"type", // _______________ 6
 													"unique" // ______________ 7
 												);
-												if (_comment[0] != "")
+												if (!string.IsNullOrEmpty(_comment[0]))
 													_tableField.isIdentity = bool.Parse(_comment[0]);
-												if (_comment[1] != "")
+												if (!string.IsNullOrEmpty(_comment[1]))
 													_tableField.Size = int.Parse(_comment[1]);
 
 												// sql server
-												if (_comment[2] != "")
+												if (!string.IsNullOrEmpty(_comment[2]))
 													_tableField.SQLServerTypeName = _comment[2];
 
 												// postgresql
-												if (_comment[3] != "")
+												if (!string.IsNullOrEmpty(_comment[3]))
 													_tableField.PostgreSQLTypeName = _comment[3];
 
-												if (_comment[4] != "")
+												if (!string.IsNullOrEmpty(_comment[4]))
 													_tableField.Numeric_Precision = int.Parse(_comment[4]);
-												if (_comment[5] != "")
+												if (!string.IsNullOrEmpty(_comment[5]))
 													_tableField.Numeric_Scale = int.Parse(_comment[5]);
 
 												break;

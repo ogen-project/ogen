@@ -197,11 +197,7 @@ namespace OGen.Dia.lib.generator {
 						if (
 							_isUsingPostgreSQL
 						) {
-							if (
-								(_dbtablefields[f].PostgreSQLTypeName == null)
-								||
-								(_dbtablefields[f].PostgreSQLTypeName.Trim() == "")
-							) {
+							if (string.IsNullOrEmpty(_dbtablefields[f].PostgreSQLTypeName)) {
 								throw new Exception(string.Format(
 									"invalid table field type - empty postgresql type: {0}.{1}",
 									_dbtablefields[f].TableName,
@@ -223,11 +219,7 @@ namespace OGen.Dia.lib.generator {
 						if (
 							_isUsingSQLServer
 						) {
-							if (
-								(_dbtablefields[f].SQLServerTypeName == null)
-								||
-								(_dbtablefields[f].SQLServerTypeName.Trim() == "")
-							) {
+							if (string.IsNullOrEmpty(_dbtablefields[f].SQLServerTypeName)) {
 								throw new Exception(string.Format(
 									"invalid table field type - empty sql server type: {0}.{1}",
 									_dbtablefields[f].TableName,

@@ -62,7 +62,7 @@ namespace OGen.lib.presentationlayer.webforms {
 		public void SelectedValue__set(
 			string selectedValue_in
 		) {
-			if (selectedValue_in == "") {
+			if (string.IsNullOrEmpty(selectedValue_in)) {
 				for (int i = 0; i < listitemcollection_ref_.Count; i++) {
 					listitemcollection_ref_[i].Selected = false;
 				}

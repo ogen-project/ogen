@@ -75,7 +75,7 @@ namespace OGen.NTier.lib.generator {
 		#endregion
 		#region public bool isOpened { get; }
 		public bool isOpened {
-			get { return (Filename != string.Empty); }
+			get { return !string.IsNullOrEmpty(Filename); }
 		}
 		#endregion
 		#region public XS__RootMetadata Metadata { get ; }

@@ -450,7 +450,7 @@ if (template_in.Outputs.OutputCollection[o].Type == XS_OutputEnumeration.File) {
 						switch (template_in.Outputs.OutputCollection[o].Type) {
 							case XS_OutputEnumeration.File: {
 if (
-	(_ouputTo == string.Empty)
+	string.IsNullOrEmpty(_ouputTo)
 	||
 	(_ouputTo == DEVNULL)
 	||
@@ -715,7 +715,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 					&&
 					(templateTypes_in.Length > 0)
 					&&
-					(templates_.TemplateCollection[i].TemplateType != "")
+					!string.IsNullOrEmpty(templates_.TemplateCollection[i].TemplateType)
 					&&
 					!OGen.lib.utils.StringArrayContains(
 						templateTypes_in,
