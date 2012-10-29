@@ -163,11 +163,7 @@ namespace OGen.Dia.lib.generator {
 						if (!string.IsNullOrEmpty(_dbtablefields[f].PostgreSQLTypeName)) {
 							_isUsingPostgreSQL = true;
 						}
-						if (
-							(_dbtablefields[f].SQLServerTypeName != null)
-							&&
-							(_dbtablefields[f].SQLServerTypeName.Trim() != "")
-						) {
+						if (!string.IsNullOrEmpty(_dbtablefields[f].SQLServerTypeName)) {
 							_isUsingSQLServer = true;
 						}
 						if (

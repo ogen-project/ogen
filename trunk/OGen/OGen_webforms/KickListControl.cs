@@ -382,7 +382,7 @@ namespace OGen.lib.presentationlayer.webforms {
 			}
 
 			for (int i = 0; i < from_in.Items.Count; i++) {
-				if (from_in.Items[i].Value == "") continue;
+				if (string.IsNullOrEmpty(from_in.Items[i].Value)) continue;
 
 				listitemcollection_ref_.Add(
 //// already present at source, hence comment:

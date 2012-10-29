@@ -30,9 +30,7 @@ namespace OGen.lib.crypt {
 				RSAParameters _rsaparameters;
 
 				if (
-					(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Server_Private"] != null)
-					&&
-					(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Server_Private"] != "")
+					!string.IsNullOrEmpty(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Server_Private"])
 					//&&
 					//File.Exists(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Server_Private"])
 				) {
@@ -275,9 +273,7 @@ namespace OGen.lib.crypt {
 				RSAParameters _rsaparameters;
 
 				if (
-					(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Client_Private"] != null)
-					&&
-					(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Client_Private"] != "")
+					!string.IsNullOrEmpty(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Client_Private"])
 					//&&
 					//File.Exists(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Client_Private"])
 				) {

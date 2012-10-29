@@ -82,11 +82,7 @@ namespace OGen.NTier.lib.distributedlayer.webservices.client {
 #endif
 		#region protected bool IsLocalFileSystemWebService(string url);
 		protected bool IsLocalFileSystemWebService(string url) {
-			if (
-				(url == null)
-				||
-				(url == string.Empty)
-			) {
+			if (string.IsNullOrEmpty(url)) {
 				return false;
 			}
 			System.Uri wsUri = new System.Uri(url);

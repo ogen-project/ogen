@@ -68,7 +68,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 					_output = (_case == null)
 						? string.Empty
 						: _case.Translation;
-					if (_output != string.Empty) {
+					if (!string.IsNullOrEmpty(_output)) {
 						casetranslate_cache_.Add(_key, _output);
 						return _output;
 					} else {

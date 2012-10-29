@@ -52,7 +52,7 @@ namespace OGen.Doc.lib.metadata {
 			} else {
 				_output = "<span class='error'>ERROR: TODOS - FILE DOESN'T EXIST</span><br /><br />";
 			}
-			return (_output == string.Empty)
+			return (string.IsNullOrEmpty(_output))
 				? "<span class='error'>ERROR: TODOS - FILE IS EMPTY</span><br /><br />"
 				: _output;
 		}
