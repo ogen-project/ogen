@@ -24,21 +24,25 @@ namespace OGen.lib.datalayer {
 	#endregion
 	public sealed class DBTransaction : IDisposable {
 		#region internal DBTransaction(...);
+		/// <summary>
+		/// Initializes a new instance of <see cref="DBConnection">DBTransaction</see>
+		/// </summary>
+		/// <param name="parent_in">parent reference</param>
 		internal DBTransaction(DBConnection parent_in) {
 			parent_ = parent_in;
 			intransaction_ = false;
 		}
 
 		~DBTransaction() {
-			cleanUp();
+			Dispose(false);
 		}
 
 		#region public void Dispose();
 		public void Dispose() {
-			cleanUp();
+			Dispose(true);
 			System.GC.SuppressFinalize(this);
 		}
-		private void cleanUp() {
+		private void Dispose(bool disposing_in) {
 			if (intransaction_) Terminate();
 			if (transaction_ != null) {
 				transaction_.Dispose(); transaction_ = null;
@@ -57,8 +61,23 @@ namespace OGen.lib.datalayer {
 		/// Invalid Transaction state Exception (uninitiated).
 		/// </summary>
 		public class InvalidTransactionStateException_uninitiated : Exception {
-			public InvalidTransactionStateException_uninitiated() : base (
+			public InvalidTransactionStateException_uninitiated(
+			) : base (
 				"invalid transaction state (uninitiated)"
+			) {
+			}
+			public InvalidTransactionStateException_uninitiated(
+				string message
+			) : base (
+				message
+			) {
+			}
+			public InvalidTransactionStateException_uninitiated(
+				string message,
+				Exception innerException
+			) : base (
+				message,
+				innerException
 			) {
 			}
 		}
@@ -68,8 +87,23 @@ namespace OGen.lib.datalayer {
 		/// Can't Begin Transaction Exception, Transaction already initiated.
 		/// </summary>
 		public class BeginException_alreadyInitiated : Exception {
-			public BeginException_alreadyInitiated() : base (
+			public BeginException_alreadyInitiated(
+			) : base (
 				"can't begin, transaction already initiated"
+			) {
+			}
+			public BeginException_alreadyInitiated(
+				string message
+			) : base (
+				message
+			) {
+			}
+			public BeginException_alreadyInitiated(
+				string message,
+				Exception innerException
+			) : base (
+				message,
+				innerException
 			) {
 			}
 		}
@@ -79,8 +113,23 @@ namespace OGen.lib.datalayer {
 		/// Can't Begin Transaction Exception, Connection is closed.
 		/// </summary>
 		public class BeginException_closedConnection : Exception {
-			public BeginException_closedConnection() : base (
+			public BeginException_closedConnection(
+			) : base (
 				"can't begin, Connection is closed"
+			) {
+			}
+			public BeginException_closedConnection(
+				string message
+			) : base (
+				message
+			) {
+			}
+			public BeginException_closedConnection(
+				string message,
+				Exception innerException
+			) : base (
+				message,
+				innerException
 			) {
 			}
 		}

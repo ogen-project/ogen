@@ -90,6 +90,9 @@ namespace OGen.lib.datalayer {
 	#endregion
 	public abstract class DBConnection : IDisposable {
 		//#region public DBConnection(...);
+		/// <summary>
+		/// Initializes a new instance of <see cref="DBConnection">DBConnection</see>
+		/// </summary>
 		/// <param name="connectionstring_in">Connection String</param>
 		protected DBConnection(
 			string connectionstring_in
@@ -99,6 +102,9 @@ namespace OGen.lib.datalayer {
 		) {
 		}
 
+		/// <summary>
+		/// Initializes a new instance of <see cref="DBConnection">DBConnection</see>
+		/// </summary>
 		/// <param name="connectionstring_in">Connection String</param>
 		/// <param name="logfile_in">Log File (null or empty string disables log)</param>
 		protected DBConnection(
@@ -123,17 +129,17 @@ namespace OGen.lib.datalayer {
 			isopen_ = false;
 		}
 		~DBConnection() {
-			cleanUp();
+			Dispose(false);
 		}
 
 		#region public void Dispose();
 		public void Dispose() {
-			cleanUp();
+			Dispose(true);
 			System.GC.SuppressFinalize(this);
 		}
 		#endregion
-		#region private void cleanUp();
-		private void cleanUp() {
+		#region private void Dispose(bool disposing_in);
+		private void Dispose(bool disposing_in) {
 			if (transaction__ != null) {
 				transaction__.Dispose(); transaction__ = null;
 			}
@@ -152,8 +158,23 @@ namespace OGen.lib.datalayer {
 		/// Invalid Connection String Exception (empty).
 		/// </summary>
 		public class InvalidConnectionstringException_empty : Exception {
-			public InvalidConnectionstringException_empty() : base(
+			public InvalidConnectionstringException_empty(
+			) : base(
 				"invalid connection string (empty)"
+			) {
+			}
+			public InvalidConnectionstringException_empty(
+				string message
+			) : base(
+				message
+			) {
+			}
+			public InvalidConnectionstringException_empty(
+				string message,
+				Exception innerException
+			) : base(
+				message,
+				innerException
 			) {
 			}
 		}
@@ -163,8 +184,23 @@ namespace OGen.lib.datalayer {
 		/// Invalid SQL Query Exception (empty).
 		/// </summary>
 		public class InvalidSQLQueryException_empty : Exception {
-			public InvalidSQLQueryException_empty() : base (
+			public InvalidSQLQueryException_empty(
+			) : base (
 				"invalid sql query (empty)"
+			) {
+			}
+			public InvalidSQLQueryException_empty(
+				string message
+			) : base (
+				message
+			) {
+			}
+			public InvalidSQLQueryException_empty(
+				string message,
+				Exception innerException
+			) : base (
+				message,
+				innerException
 			) {
 			}
 		}
@@ -174,8 +210,23 @@ namespace OGen.lib.datalayer {
 		/// Can't Open Connection Exception, Connection already opened.
 		/// </summary>
 		public class OpenException_alreadyOpened : Exception {
-			public OpenException_alreadyOpened() : base (
+			public OpenException_alreadyOpened(
+			) : base (
 				"can't open, connection already opened"
+			) {
+			}
+			public OpenException_alreadyOpened(
+				string message
+			) : base (
+				message
+			) {
+			}
+			public OpenException_alreadyOpened(
+				string message,
+				Exception innerException
+			) : base (
+				message,
+				innerException
 			) {
 			}
 		}
@@ -185,8 +236,23 @@ namespace OGen.lib.datalayer {
 		/// Can't Close Connection Exception, Connection already Closed.
 		/// </summary>
 		public class CloseException_alreadyClosed : Exception {
-			public CloseException_alreadyClosed() : base (
+			public CloseException_alreadyClosed(
+			) : base (
 				"can't close, connection already closed"
+			) {
+			}
+			public CloseException_alreadyClosed(
+				string message
+			) : base (
+				message
+			) {
+			}
+			public CloseException_alreadyClosed(
+				string message,
+				Exception innerException
+			) : base (
+				message,
+				innerException
 			) {
 			}
 		}
@@ -196,8 +262,15 @@ namespace OGen.lib.datalayer {
 		/// Can't Close Connection Exception, unterminated Transaction initiated.
 		/// </summary>
 		public class CloseException_unterminatedTransaction : Exception {
-			public CloseException_unterminatedTransaction() : base (
+			public CloseException_unterminatedTransaction(
+			) : base (
 				"can't close, unterminated transaction initiated"
+			) {
+			}
+			public CloseException_unterminatedTransaction(
+				string message
+			) : base (
+				message
 			) {
 			}
 		}
