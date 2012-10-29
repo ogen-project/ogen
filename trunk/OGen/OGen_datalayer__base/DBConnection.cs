@@ -157,6 +157,7 @@ namespace OGen.lib.datalayer {
 		/// <summary>
 		/// Invalid Connection String Exception (empty).
 		/// </summary>
+		[Serializable()]
 		public class InvalidConnectionstringException_empty : Exception {
 			public InvalidConnectionstringException_empty(
 			) : base(
@@ -183,6 +184,7 @@ namespace OGen.lib.datalayer {
 		/// <summary>
 		/// Invalid SQL Query Exception (empty).
 		/// </summary>
+		[Serializable()]
 		public class InvalidSQLQueryException_empty : Exception {
 			public InvalidSQLQueryException_empty(
 			) : base (
@@ -209,6 +211,7 @@ namespace OGen.lib.datalayer {
 		/// <summary>
 		/// Can't Open Connection Exception, Connection already opened.
 		/// </summary>
+		[Serializable()]
 		public class OpenException_alreadyOpened : Exception {
 			public OpenException_alreadyOpened(
 			) : base (
@@ -235,6 +238,7 @@ namespace OGen.lib.datalayer {
 		/// <summary>
 		/// Can't Close Connection Exception, Connection already Closed.
 		/// </summary>
+		[Serializable()]
 		public class CloseException_alreadyClosed : Exception {
 			public CloseException_alreadyClosed(
 			) : base (
@@ -261,6 +265,7 @@ namespace OGen.lib.datalayer {
 		/// <summary>
 		/// Can't Close Connection Exception, unterminated Transaction initiated.
 		/// </summary>
+		[Serializable()]
 		public class CloseException_unterminatedTransaction : Exception {
 			public CloseException_unterminatedTransaction(
 			) : base (

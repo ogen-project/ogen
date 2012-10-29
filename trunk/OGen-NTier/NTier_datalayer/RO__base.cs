@@ -36,6 +36,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// <summary>
 		/// Invalid Record State Exception, Record already opened.
 		/// </summary>
+		[Serializable()]
 		public class InvalidRecordStateException_alreadyOpened : Exception {
 			public InvalidRecordStateException_alreadyOpened(
 			) : base (
@@ -48,6 +49,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// <summary>
 		/// Invalid Record State Exception, Record closed.
 		/// </summary>
+		[Serializable()]
 		public class InvalidRecordStateException_Closed : Exception {
 			public InvalidRecordStateException_Closed(
 			) : base (

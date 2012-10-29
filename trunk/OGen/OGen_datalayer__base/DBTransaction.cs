@@ -60,6 +60,7 @@ namespace OGen.lib.datalayer {
 		/// <summary>
 		/// Invalid Transaction state Exception (uninitiated).
 		/// </summary>
+		[Serializable()]
 		public class InvalidTransactionStateException_uninitiated : Exception {
 			public InvalidTransactionStateException_uninitiated(
 			) : base (
@@ -86,6 +87,7 @@ namespace OGen.lib.datalayer {
 		/// <summary>
 		/// Can't Begin Transaction Exception, Transaction already initiated.
 		/// </summary>
+		[Serializable()]
 		public class BeginException_alreadyInitiated : Exception {
 			public BeginException_alreadyInitiated(
 			) : base (
@@ -112,6 +114,7 @@ namespace OGen.lib.datalayer {
 		/// <summary>
 		/// Can't Begin Transaction Exception, Connection is closed.
 		/// </summary>
+		[Serializable()]
 		public class BeginException_closedConnection : Exception {
 			public BeginException_closedConnection(
 			) : base (

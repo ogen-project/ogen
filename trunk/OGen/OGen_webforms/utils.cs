@@ -76,7 +76,7 @@ namespace OGen.lib.presentationlayer.webforms {
 		public static System.IO.Stream ReadURL(
 			string url_in
 		) {
-			WebRequest webrequest = System.Net.HttpWebRequest.Create(url_in);
+			WebRequest webrequest = System.Net.HttpWebRequest.Create(new Uri(url_in));
 			WebResponse webresponse;
 			try {
 				webresponse = webrequest.GetResponse();
