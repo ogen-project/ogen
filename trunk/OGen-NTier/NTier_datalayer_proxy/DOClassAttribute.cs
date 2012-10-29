@@ -19,7 +19,7 @@ namespace OGen.NTier.lib.datalayer {
 	/// DataObject Class Attribute.
 	/// </summary>
 	[AttributeUsage(AttributeTargets.Class)]
-	public class DOClassAttribute : System.Attribute {
+	public sealed class DOClassAttribute : System.Attribute {
 		#region public DOClassAttribute(...);
 		/// <param name="name_in">Name</param>
 		/// <param name="friendlyName_in">Friendly name</param>

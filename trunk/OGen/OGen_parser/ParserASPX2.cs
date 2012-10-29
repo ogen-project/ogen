@@ -21,13 +21,7 @@ using System.Collections;
 namespace OGen.lib.parser {
 	public static class ParserASPX {
 
-		#region static ParserASPX();
-		static ParserASPX() {
-			myhost_ = new System.Collections.Generic.Dictionary<string, MyHost>();
-		}
-		#endregion
-
-		private static System.Collections.Generic.Dictionary<string, MyHost> myhost_;
+		private static System.Collections.Generic.Dictionary<string, MyHost> myhost_ = new System.Collections.Generic.Dictionary<string, MyHost>();
 		private static object myhost_locker = new object();
 
 		private class MyHost : MarshalByRefObject, IRegisteredObject {

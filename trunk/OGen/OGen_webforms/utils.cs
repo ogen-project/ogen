@@ -19,13 +19,10 @@ using System.Net;
 using System.Collections;
 
 namespace OGen.lib.presentationlayer.webforms {
-	public
-#if !NET_1_1
-		static
-#endif
-		class utils { 
 #if NET_1_1
-		private utils() {}
+	public class utils { private utils() { }
+#else
+	public static class utils {
 #endif
 
 		#region public static string ConcatenateURLParams(Hashtable parameters_in);
@@ -131,10 +128,15 @@ namespace OGen.lib.presentationlayer.webforms {
 		#endregion
 
 		#region public class Pager { ... }
-		public class Pager {
+#if NET_1_1
+		public class Pager { private Pager() { }
+#else
+		public static class Pager {
+#endif
+
 			public const int ITEMSPERPAGE_DEFAULT = 10;
 
-			#region public long PageNum { get; }
+			#region public static long PageNum { get; }
 			public static long PageNum {
 				get {
 					long _output;

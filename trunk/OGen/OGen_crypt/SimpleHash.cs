@@ -35,7 +35,11 @@ namespace OGen.lib.crypt {
 	/// also opt to keep results as byte arrays instead of converting them into
 	/// base64-encoded strings.
 	/// </summary>
-	public class SimpleHash {
+#if NET_1_1
+	public class SimpleHash { private SimpleHash() { }
+#else
+	public static class SimpleHash {
+#endif
 
 		public enum HashAlgotithm {
 			SHA1, 

@@ -18,13 +18,15 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 
 namespace OGen.NTier.lib.distributedlayer.remoting {
-	public class EncryptionHelper {
-		static EncryptionHelper() {
-			client_rsakeys = new Dictionary<string, RSACryptoServiceProvider[]>();
-		}
+#if NET_1_1
+	public class EncryptionHelper { private EncryptionHelper() { }
+#else
+	public static class EncryptionHelper {
+#endif
+
 		private static RSACryptoServiceProvider serverprivate_rsa;
 		private static RSACryptoServiceProvider serverpublic_rsa;
-		private static Dictionary<string, RSACryptoServiceProvider[]> client_rsakeys;
+		private static Dictionary<string, RSACryptoServiceProvider[]> client_rsakeys = new Dictionary<string, RSACryptoServiceProvider[]>();
 
 		public const string X_ENCRYPT = "X-Encrypt";
 		public const string X_CLIENTID = "X-ClientID";

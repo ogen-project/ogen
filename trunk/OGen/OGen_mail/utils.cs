@@ -20,8 +20,6 @@ using System.Net.Mail;
 
 namespace OGen.lib.mail {
 	public static class utils {
-		static utils() {
-		}
 
 		#region	public static bool isEMail_valid(...);
 		#region private static Regex regex { get; }

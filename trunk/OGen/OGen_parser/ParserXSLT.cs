@@ -20,7 +20,12 @@ using System.Xml.Xsl;
 using System.Xml.XPath;
 
 namespace OGen.lib.parser {
+#if NET_1_1
 	public class ParserXSLT { private ParserXSLT() {}
+#else
+	public static class ParserXSLT {
+#endif
+
 		public static void Parse(
 			string			xmlMetadataPath_in, 
 			string			xsltTemplateURL_in, 

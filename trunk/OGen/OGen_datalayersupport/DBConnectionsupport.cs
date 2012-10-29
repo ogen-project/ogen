@@ -23,8 +23,11 @@ using OGen.lib.datalayer.MySQL;
 using OGen.lib.datalayer.SQLServer;
 
 namespace OGen.lib.datalayer {
-	public class DBConnectionsupport {
-		private DBConnectionsupport() {}
+#if NET_1_1
+	public class DBConnectionsupport { private DBConnectionsupport() {}
+#else
+	public static class DBConnectionsupport {
+#endif
 
 		#region public static DBConnection CreateInstance();
 		public static DBConnection CreateInstance(

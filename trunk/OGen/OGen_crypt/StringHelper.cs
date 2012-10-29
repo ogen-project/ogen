@@ -20,7 +20,12 @@ using System.Security.Cryptography;
 using System.IO;
 
 namespace OGen.lib.crypt {
-	public class StringHelper {
+#if NET_1_1
+	public class StringHelper { private StringHelper() {}
+#else
+	public static class StringHelper {
+#endif
+
 		public static byte[] HexStringToBytes(string hex_in) {
 			if (hex_in.Length == 0) {
 				return new byte[] { 0 };

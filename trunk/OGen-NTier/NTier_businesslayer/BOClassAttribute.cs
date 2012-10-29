@@ -19,7 +19,7 @@ namespace OGen.NTier.lib.businesslayer {
 	/// BusinessObject Class Attribute.
 	/// </summary>
 	[AttributeUsage(AttributeTargets.Class)]
-	public class BOClassAttribute : System.Attribute {
+	public sealed class BOClassAttribute : System.Attribute {
 		#region public BOClassAttribute(...);
 		/// <param name="name_in">Name</param>
 		public BOClassAttribute(

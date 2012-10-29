@@ -16,8 +16,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 
 namespace OGen.XSD.lib.metadata.schema {
-	public class utils {
-		private utils() { }
+#if NET_1_1
+	public class utils { private utils() { }
+#endif
+	public static class utils {
 
 		#region public static string Convert_NType(...);
 		public static string Convert_NType(

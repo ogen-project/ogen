@@ -19,7 +19,7 @@ namespace OGen.NTier.lib.businesslayer {
 	/// BusinessObject Method Attribute.
 	/// </summary>
 	[AttributeUsage(AttributeTargets.Method)]
-	public class BOMethodAttribute : System.Attribute {
+	public sealed class BOMethodAttribute : System.Attribute {
 		#region public BOMethodAttribute(...);
 		/// <param name="name_in">Name</param>
 		/// <param name="distribute_in">Distribute</param>

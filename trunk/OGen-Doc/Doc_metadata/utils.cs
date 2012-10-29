@@ -18,7 +18,11 @@ using System.IO;
 using OGen.Doc.lib.metadata.documentation;
 
 namespace OGen.Doc.lib.metadata {
+#if NET_1_1
 	public class utils { private utils() {}
+#else
+	public static class utils {
+#endif
 
 		#region public static string ReadFile(...);
 		public static string ReadFile(
