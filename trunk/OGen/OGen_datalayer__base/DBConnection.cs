@@ -106,7 +106,7 @@ namespace OGen.lib.datalayer {
 			string logfile_in
 		) {
 			if (string.IsNullOrEmpty(connectionstring_in))
-				throw InvalidConnectionstringException_empty;
+				throw new InvalidConnectionstringException_empty();
 
 			connectionstring_ = connectionstring_in;
 
@@ -151,36 +151,56 @@ namespace OGen.lib.datalayer {
 		/// <summary>
 		/// Invalid Connection String Exception (empty).
 		/// </summary>
-		public static readonly Exception InvalidConnectionstringException_empty
-			= new Exception("invalid connection string (empty)");
+		public class InvalidConnectionstringException_empty : Exception {
+			public InvalidConnectionstringException_empty() : base(
+				"invalid connection string (empty)"
+			) {
+			}
+		}
 		#endregion
 		#region public static readonly Exception InvalidSQLQueryException_empty;
 		/// <summary>
 		/// Invalid SQL Query Exception (empty).
 		/// </summary>
-		public static readonly Exception InvalidSQLQueryException_empty
-			= new Exception("invalid sql query (empty)");
+		public class InvalidSQLQueryException_empty : Exception {
+			public InvalidSQLQueryException_empty() : base (
+				"invalid sql query (empty)"
+			) {
+			}
+		}
 		#endregion
 		#region public static readonly Exception OpenException_alreadyOpened;
 		/// <summary>
 		/// Can't Open Connection Exception, Connection already opened.
 		/// </summary>
-		public static readonly Exception OpenException_alreadyOpened
-			= new Exception("can't open, connection already opened");
+		public class OpenException_alreadyOpened : Exception {
+			public OpenException_alreadyOpened() : base (
+				"can't open, connection already opened"
+			) {
+			}
+		}
 		#endregion
 		#region public static readonly Exception CloseException_alreadyClosed;
 		/// <summary>
 		/// Can't Close Connection Exception, Connection already Closed.
 		/// </summary>
-		public static readonly Exception CloseException_alreadyClosed 
-			= new Exception("can't close, connection already closed");
+		public class CloseException_alreadyClosed : Exception {
+			public CloseException_alreadyClosed() : base (
+				"can't close, connection already closed"
+			) {
+			}
+		}
 		#endregion
 		#region public static readonly Exception CloseException_unterminatedTransaction;
 		/// <summary>
 		/// Can't Close Connection Exception, unterminated Transaction initiated.
 		/// </summary>
-		public static readonly Exception CloseException_unterminatedTransaction 
-			= new Exception("can't close, unterminated transaction initiated");
+		public class CloseException_unterminatedTransaction : Exception {
+			public CloseException_unterminatedTransaction() : base (
+				"can't close, unterminated transaction initiated"
+			) {
+			}
+		}
 		#endregion
 		#endregion
 
@@ -378,7 +398,7 @@ namespace OGen.lib.datalayer {
 		/// </remarks>
 		public void Open() {
 			if (isopen_) {
-				throw OpenException_alreadyOpened;
+				throw new OpenException_alreadyOpened();
 			} else {
 				exposeConnection.Open();
 
@@ -398,9 +418,9 @@ namespace OGen.lib.datalayer {
 		/// </exception>
 		public void Close() {
 			if (!isopen_) {
-				throw CloseException_alreadyClosed;
+				throw new CloseException_alreadyClosed();
 			} else if ((transaction__ != null) && transaction__.inTransaction) {
-				throw CloseException_unterminatedTransaction;
+				throw new CloseException_unterminatedTransaction();
 			} else {
 				exposeConnection.Close();
 
@@ -526,7 +546,7 @@ namespace OGen.lib.datalayer {
 				||
 				(query_in.Trim() == string.Empty)
 			)
-				throw InvalidSQLQueryException_empty;
+				throw new InvalidSQLQueryException_empty();
 			#endregion
 
 			if (isopen_) {
@@ -611,7 +631,7 @@ namespace OGen.lib.datalayer {
 				||
 				(query_in.Trim() == string.Empty)
 			)
-				throw InvalidSQLQueryException_empty;
+				throw new InvalidSQLQueryException_empty();
 			#endregion
 
 			if (isopen_) {

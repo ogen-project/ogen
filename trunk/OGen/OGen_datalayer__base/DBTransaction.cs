@@ -56,22 +56,34 @@ namespace OGen.lib.datalayer {
 		/// <summary>
 		/// Invalid Transaction state Exception (uninitiated).
 		/// </summary>
-		public static readonly Exception InvalidTransactionStateException_uninitiated
-			= new Exception("invalid transaction state (uninitiated)");
+		public class InvalidTransactionStateException_uninitiated : Exception {
+			public InvalidTransactionStateException_uninitiated() : base (
+				"invalid transaction state (uninitiated)"
+			) {
+			}
+		}
 		#endregion
 		#region public static readonly Exception BeginException_alreadyInitiated;
 		/// <summary>
 		/// Can't Begin Transaction Exception, Transaction already initiated.
 		/// </summary>
-		public static readonly Exception BeginException_alreadyInitiated
-			= new Exception("can't begin, transaction already initiated");
+		public class BeginException_alreadyInitiated : Exception {
+			public BeginException_alreadyInitiated() : base (
+				"can't begin, transaction already initiated"
+			) {
+			}
+		}
 		#endregion
 		#region public static readonly Exception BeginException_closedConnection;
 		/// <summary>
 		/// Can't Begin Transaction Exception, Connection is closed.
 		/// </summary>
-		public static readonly Exception BeginException_closedConnection
-			= new Exception("can't begin, Connection is closed");
+		public class BeginException_closedConnection : Exception {
+			public BeginException_closedConnection() : base (
+				"can't begin, Connection is closed"
+			) {
+			}
+		}
 		#endregion
 		#endregion
 
@@ -121,9 +133,9 @@ namespace OGen.lib.datalayer {
 		/// <param name="isolationLevel_in">One of the System.Data.IsolationLevel values</param>
 		public void Begin(IsolationLevel isolationLevel_in) {
 			if (intransaction_) {
-				throw BeginException_alreadyInitiated;
+				throw new BeginException_alreadyInitiated();
 			} else if (!parent_.isOpen) {
-				throw BeginException_closedConnection;
+				throw new BeginException_closedConnection();
 			} else {
 				transaction_ = parent_.exposeConnection.BeginTransaction(isolationLevel_in);
 
@@ -140,7 +152,7 @@ namespace OGen.lib.datalayer {
 		/// </exception>
 		public void Commit() {
 			if (!intransaction_) {
-				throw InvalidTransactionStateException_uninitiated;
+				throw new InvalidTransactionStateException_uninitiated();
 			}
 
 			transaction_.Commit();
@@ -155,7 +167,7 @@ namespace OGen.lib.datalayer {
 		/// </exception>
 		public void Rollback() {
 			if (!intransaction_) {
-				throw InvalidTransactionStateException_uninitiated;
+				throw new InvalidTransactionStateException_uninitiated();
 			}
 
 			transaction_.Rollback();
@@ -170,7 +182,7 @@ namespace OGen.lib.datalayer {
 		/// </exception>
 		public void Terminate() {
 			if (!intransaction_) {
-				throw InvalidTransactionStateException_uninitiated;
+				throw new InvalidTransactionStateException_uninitiated();
 			}
 
 			transaction_.Dispose(); transaction_ = null;
