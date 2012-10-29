@@ -29,16 +29,16 @@ namespace OGen.lib.generator {
 			connection_ = null;
 		}
 		~DBConnectionstring() {
-			cleanUp();
+			Dispose(false);
 		}
 		/// <summary>
 		/// Closes Connection if it was left open.
 		/// </summary>
 		public void Dispose() {
+			Dispose(true);
 			System.GC.SuppressFinalize(this);
-			cleanUp();
 		}
-		private void cleanUp() {
+		private void Dispose(bool disposing_in) {
 			Connection_clearInstance();
 		}
 		#endregion

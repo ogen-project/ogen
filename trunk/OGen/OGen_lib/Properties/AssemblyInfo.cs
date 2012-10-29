@@ -16,6 +16,9 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
+[assembly: System.CLSCompliant(true)]
+[assembly: System.Runtime.InteropServices.ComVisible(false)]
+
 // Information about this assembly is defined by the following
 // attributes.
 //
@@ -30,8 +33,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright (C) 2002 Francisco Monteiro")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-
-[assembly: ComVisible(false)]
 
 // The assembly version has following format :
 //

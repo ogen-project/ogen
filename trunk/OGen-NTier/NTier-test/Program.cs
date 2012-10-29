@@ -15,6 +15,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics;
 
 //using Npgsql;
 //using Npgsql.Design;
@@ -55,11 +56,22 @@ namespace OGen.NTier.presentationlayer.test {
 		//}
 		#endregion
 
-		public static void notifyme(string message_in) {
-			Console.WriteLine(message_in);
-		}
-
 		static void Main(string[] args) {
+			
+			var i = 0;
+			Console.WriteLine(
+				System.Reflection.Assembly.GetExecutingAssembly().ImageRuntimeVersion
+			);
+			Console.ReadLine();
+			return;
+
+			Debug.Listeners.Add(new TextWriterTraceListener(System.Console.Out));
+
+			//int x = 0;
+			//Debug.WriteLine(x++);
+			//Console.WriteLine(x);
+			//return;
+
 			bool _found = false;
 			string _file1 = 
 			    System.IO.Path.Combine(
@@ -77,22 +89,61 @@ namespace OGen.NTier.presentationlayer.test {
 				_file1
 			);
 
+			string _aux;
 			Console.WriteLine(
-				"null? '{0}'", 
-				(_root.Read_fromRoot(
+				"null? {0} \t\t '{1}'",
+				((_aux = _root.Read_fromRoot(
 					"ROOT.metadataExtended[0].tables.table[0].tableSearches.tableSearch[0].name"
-				) == null)
+				)) == null),
+				_aux
 			);
+			Console.WriteLine("-------------------------------------------------------------");
+
+			_root.IterateThrough_fromRoot(
+				"ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n].tableSearchUpdates.tableSearchUpdate[n]",
+				delegate(string message_in) {
+					Console.WriteLine("'{0}'", message_in);
+				},
+				ref _found
+			);
+			Console.WriteLine("-------------------------------------------------------------");
 
 			_root.IterateThrough_fromRoot(
 				"ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearch[n].tableSearchUpdates.tableSearchUpdate[n]",
-				new OGen.lib.generator.utils.IterationFoundDelegate(notifyme), 
+				delegate(string message_in) {
+					Console.WriteLine("'{0}'", message_in);
+				},
 				ref _found
 			);
 			Console.WriteLine(
 				"found? '{0}'",
 				_found
 			);
+			Console.WriteLine("-------------------------------------------------------------");
+
+			_root.IterateThrough_fromRoot(
+				"ROOT.metadataExtended[0].tables.table[n]",
+				delegate(string message_in) {
+					Console.WriteLine(
+						"{0}.name: '{1}'", 
+						message_in, 
+						_root.Read_fromRoot(
+							message_in + ".name"
+						)
+					);
+				},
+				ref _found
+			);
+			Console.WriteLine("-------------------------------------------------------------");
+
+			_root.IterateThrough_fromRoot(
+				"ROOT.metadataExtended[0].tables.table[n].tableSearches.tableSearch[n]",
+				delegate(string message_in) {
+					Console.WriteLine("'{0}'", message_in);
+				},
+				ref _found
+			);
+			Console.WriteLine("-------------------------------------------------------------");
 			return;
 
 
@@ -113,7 +164,9 @@ namespace OGen.NTier.presentationlayer.test {
 			);
 			_root.IterateThrough_fromRoot(
 				"ROOT.metadataExtended[n].tables.table[n]",
-				new OGen.lib.generator.utils.IterationFoundDelegate(notifyme),
+				delegate(string message_in) {
+					Console.WriteLine(message_in);
+				},
 				ref _found
 			);
 			Console.WriteLine((_found) ? "done!\n" : "nothing to do\n");
@@ -124,7 +177,9 @@ namespace OGen.NTier.presentationlayer.test {
 			);
 			_root.IterateThrough_fromRoot(
 				"ROOT.metadataExtended[n].tables.table[n].tableSearches.tableSearch[n]",
-				new OGen.lib.generator.utils.IterationFoundDelegate(notifyme),
+				delegate(string message_in) {
+					Console.WriteLine(message_in);
+				},
 				ref _found
 			);
 			Console.WriteLine((_found) ? "done!\n" : "nothing to do\n");

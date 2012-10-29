@@ -23,8 +23,11 @@ namespace OGen.NTier.lib.datalayer {
 	/// </summary>
 	public abstract class DO__base : IDisposable {
 //		#region public DO__base(...);
+		/// <summary>
+		/// Initializes a new instance of <see cref="DO__base">DO__base</see>
+		/// </summary>
 		/// <param name="connection_in">DB Connection</param>
-		public DO__base(
+		protected DO__base(
 			DBConnection connection_in
 		) : this (
 			connection_in, 
@@ -35,7 +38,7 @@ namespace OGen.NTier.lib.datalayer {
 		) {}
 		/// <param name="dbServerType_in">DB Server Type</param>
 		/// <param name="connectionstring_in">Connection String</param>
-		public DO__base(
+		protected DO__base(
 			string dbServerType_in, 
 			string connectionstring_in
 		) : this (
@@ -45,7 +48,7 @@ namespace OGen.NTier.lib.datalayer {
 			true, // connection_insideInstance_in
 			null
 		) {}
-		public DO__base(
+		protected DO__base(
 			string dbServerType_in, 
 			string connectionstring_in, 
 			string logfile_in
@@ -78,16 +81,16 @@ namespace OGen.NTier.lib.datalayer {
 		}
 		///
 		~DO__base() {
-			cleanUp();
+			Dispose(false);
 		}
 		/// <summary>
 		/// Disposes any instantiated Connection.
 		/// </summary>
 		public void Dispose() {
-			cleanUp();
+			Dispose(true);
 			System.GC.SuppressFinalize(this);
 		}
-		private void cleanUp() {
+		private void Dispose(bool disposing_in) {
 			if (connection_insideinstance_ && (connection__ != null)) {
 				connection__.Dispose(); connection__ = null;
 			}

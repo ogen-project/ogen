@@ -12,5 +12,6 @@ using System.Web.UI;
 [assembly: AssemblyFileVersion("1.5.2.0")]
 [assembly: TagPrefix("Anthem", "anthem")]
 
-[assembly: ComVisible(false)]
+[assembly: System.Runtime.InteropServices.ComVisible(false)]
 [assembly: System.CLSCompliant(true)]
+

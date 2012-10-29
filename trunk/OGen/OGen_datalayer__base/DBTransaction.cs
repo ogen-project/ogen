@@ -25,7 +25,7 @@ namespace OGen.lib.datalayer {
 	public sealed class DBTransaction : IDisposable {
 		#region internal DBTransaction(...);
 		/// <summary>
-		/// Initializes a new instance of <see cref="DBConnection">DBTransaction</see>
+		/// Initializes a new instance of <see cref="DBTransaction">DBTransaction</see>
 		/// </summary>
 		/// <param name="parent_in">parent reference</param>
 		internal DBTransaction(DBConnection parent_in) {

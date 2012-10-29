@@ -20,8 +20,11 @@ namespace OGen.NTier.lib.datalayer {
 	/// base implementation class for RecordObject classes.
 	/// </summary>
 	public abstract class RO__base : IRecordObject {
+		/// <summary>
+		/// Initializes a new instance of <see cref="RO__base">RO__base</see>
+		/// </summary>
 		/// <param name="dataObject_in">a Reference to the DataObject (the one that's aggregating this RecordObject)</param>
-		public RO__base(
+		protected RO__base(
 			DO__base dataObject_in
 		) {
 			dataobject_ = dataObject_in;
@@ -33,15 +36,25 @@ namespace OGen.NTier.lib.datalayer {
 		/// <summary>
 		/// Invalid Record State Exception, Record already opened.
 		/// </summary>
-		public static readonly Exception InvalidRecordStateException_alreadyOpened 
-			= new Exception("invalid Record state, Record already opened");
+		public class InvalidRecordStateException_alreadyOpened : Exception {
+			public InvalidRecordStateException_alreadyOpened(
+			) : base (
+				"invalid Record state, Record already opened"
+			) {
+			}
+		}
 		#endregion
 		#region public static readonly Exception InvalidRecordStateException_Closed;
 		/// <summary>
 		/// Invalid Record State Exception, Record closed.
 		/// </summary>
-		public static readonly Exception InvalidRecordStateException_Closed 
-			= new Exception("invalid Record state, Record closed");
+		public class InvalidRecordStateException_Closed : Exception {
+			public InvalidRecordStateException_Closed(
+			) : base (
+				"invalid Record state, Record closed"
+			) {
+			}
+		}
 		#endregion
 		#endregion
 
@@ -63,7 +76,7 @@ namespace OGen.NTier.lib.datalayer {
 			get {
 				#region Checking...
 				if (!isopened_)
-					throw InvalidRecordStateException_Closed;
+					throw new InvalidRecordStateException_Closed();
 				#endregion
 
 				return current__;
@@ -71,7 +84,7 @@ namespace OGen.NTier.lib.datalayer {
 			set {
 				#region Checking...
 				if (!isopened_)
-					throw InvalidRecordStateException_Closed;
+					throw new InvalidRecordStateException_Closed();
 				#endregion
 
 				current__ = value;
@@ -109,7 +122,7 @@ namespace OGen.NTier.lib.datalayer {
 			get {
 				#region Checking...
 				if (!isopened_)
-					throw InvalidRecordStateException_Closed;
+					throw new InvalidRecordStateException_Closed();
 				#endregion
 
 				return record__;
@@ -134,7 +147,7 @@ namespace OGen.NTier.lib.datalayer {
 		public virtual void Open(DataTable dataTable_in) {
 			#region Checking...
 			if (isopened_)
-				throw InvalidRecordStateException_alreadyOpened;
+				throw new InvalidRecordStateException_alreadyOpened();
 			#endregion
 
 			record__ = dataTable_in;
@@ -149,7 +162,7 @@ namespace OGen.NTier.lib.datalayer {
 		) {
 			#region Checking...
 			if (isopened_)
-				throw InvalidRecordStateException_alreadyOpened;
+				throw new InvalidRecordStateException_alreadyOpened();
 			#endregion
 
 			#region DataTable _datatable[0..n] = dataTable_in[(page_in - 1) * page_numRecords_in .. page_in * page_numRecords_in];
@@ -191,7 +204,7 @@ namespace OGen.NTier.lib.datalayer {
 		public virtual void Open(string query_in) {
 			#region Checking...
 			if (isopened_)
-				throw InvalidRecordStateException_alreadyOpened;
+				throw new InvalidRecordStateException_alreadyOpened();
 			#endregion
 
 			record__ = dataobject_.Connection.Execute_SQLQuery_returnDataTable(query_in);
@@ -210,7 +223,7 @@ namespace OGen.NTier.lib.datalayer {
 		public virtual void Open(string function_in, IDbDataParameter[] dataParameters_in) {
 			#region Checking...
 			if (isopened_)
-				throw InvalidRecordStateException_alreadyOpened;
+				throw new InvalidRecordStateException_alreadyOpened();
 			#endregion
 
 			record__ = dataobject_.Connection.Execute_SQLFunction_returnDataTable(function_in, dataParameters_in);
@@ -235,7 +248,7 @@ namespace OGen.NTier.lib.datalayer {
 		protected bool read() {
 			#region Checking...
 			if (!isopened_)
-				throw InvalidRecordStateException_Closed;
+				throw new InvalidRecordStateException_Closed();
 			#endregion
 
 			if (EOR())
@@ -266,7 +279,7 @@ namespace OGen.NTier.lib.datalayer {
 		public virtual bool EOR() {
 			#region Checking...
 			if (!isopened_)
-				throw InvalidRecordStateException_Closed;
+				throw new InvalidRecordStateException_Closed();
 			#endregion
 
 			return (current__ == record__.Rows.Count -1);
@@ -282,7 +295,7 @@ namespace OGen.NTier.lib.datalayer {
 		public virtual void Close() {
 			#region Checking...
 			if (!isopened_)
-				throw InvalidRecordStateException_Closed;
+				throw new InvalidRecordStateException_Closed();
 			#endregion
 
 			record__.Dispose(); record__ = null;

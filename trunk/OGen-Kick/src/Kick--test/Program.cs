@@ -23,6 +23,19 @@ namespace OGen.NTier.Kick.presentationlayer.console {
 	class Program {
 		static void Main(string[] args) {
 
+			Console.WriteLine(
+				System.Configuration.ConfigurationManager.AppSettings["Some_UT_config"]
+			);
+			return;
+
+			Console.WriteLine(
+				OGen.lib.crypt.SimpleHash.ComputeHash(
+					"passpub",
+					 OGen.lib.crypt.SimpleHash.HashAlgotithm.SHA256,
+					null
+				)
+			);
+
 			// ...
 
 		}

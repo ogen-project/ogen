@@ -16,6 +16,9 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
+[assembly: System.CLSCompliant(true)]
+[assembly: System.Runtime.InteropServices.ComVisible(false)]
+
 // Information about this assembly is defined by the following
 // attributes.
 //
@@ -30,11 +33,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright (C) 2002 Francisco Monteiro")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-
-// Setting ComVisible to false makes the types in this assembly not visible 
-// to COM components.  If you need to access a type in this assembly from 
-// COM, set the ComVisible attribute to true on that type.
-[assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("d537bb72-a3f4-47cc-a0ff-61cab7fbaaf3")]

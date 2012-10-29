@@ -18,8 +18,8 @@ using System.Web.Services.Protocols;
 
 namespace OGen.NTier.lib.distributedlayer.webservices.client {
 	public abstract class WC__base : SoapHttpClientProtocol {
-		#region public WC__base(...);
-		public WC__base(
+		#region protected WC__base(...);
+		protected WC__base(
 			string url_in
 		) {
 			this.Url = url_in;
