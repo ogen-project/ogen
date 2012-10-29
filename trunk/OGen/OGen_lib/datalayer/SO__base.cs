@@ -16,6 +16,7 @@ using System;
 using System.Runtime.Serialization;
 
 namespace OGen.NTier.lib.datalayer {
+	[Serializable()]
 	public abstract class SO__base : ISerializable {
 		/// <summary>
 		/// Indicates if changes have been made to SerializableObject's properties since last time getObject method was run.

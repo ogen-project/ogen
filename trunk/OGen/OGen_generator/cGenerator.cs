@@ -36,10 +36,10 @@ namespace OGen.lib.generator {
 		) {}
 
 		/// <summary>
-		/// ToDos: here! (use if you're generating code on a DataBase)
+		/// ToDos: here! (use if you're generating code on a Database)
 		/// </summary>
 /// <param name="xmlTemplatesFile_in">ToDos: here!</param>
-		/// <param name="dbConnectionStrings_in">DataBase Connectionstring (use if you're generating code on a DataBase)</param>
+		/// <param name="dbConnectionStrings_in">Database Connectionstring (use if you're generating code on a Database)</param>
 /// <param name="outputDir_in">ToDos: here!</param>
 /// <param name="metaFiles_in">ToDos: here!</param>
 		public cGenerator(

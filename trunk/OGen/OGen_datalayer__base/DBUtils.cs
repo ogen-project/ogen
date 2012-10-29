@@ -481,13 +481,13 @@ namespace OGen.lib.datalayer {
 		/// <param name="serverName_in">database server name/ip</param>
 		/// <param name="userName_in">database user</param>
 		/// <param name="userPassword_in">database user password</param>
-		/// <param name="dataBaseName_in">database name</param>
+		/// <param name="databaseName_in">database name</param>
 		/// <returns>connection string</returns>
 		public abstract string Build(
 			string serverName_in, 
 			string userName_in, 
 			string userPassword_in, 
-			string dataBaseName_in
+			string databaseName_in
 		);
 		#endregion
 	}

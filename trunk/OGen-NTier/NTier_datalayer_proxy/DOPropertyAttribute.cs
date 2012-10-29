@@ -21,7 +21,7 @@ namespace OGen.NTier.lib.datalayer {
 	[AttributeUsage(AttributeTargets.Property)]
 	public class DOPropertyAttribute : System.Attribute {
 //		#region public DOPropertyAttribute(...);
-//		/// <param name="dbDescription_in">Description at DataBase</param>
+//		/// <param name="dbDescription_in">Description at Database</param>
 		/// <param name="name_in">Name</param>
 		/// <param name="friendlyName_in">Friendly name</param>
 		/// <param name="extendedDescription_in">Extended description</param>
@@ -112,7 +112,7 @@ namespace OGen.NTier.lib.datalayer {
 //        private string dbdescription_;
 //
 //        /// <summary>
-//        /// Description at DataBase
+//        /// Description at Database
 //        /// </summary>
 //        public string DBDescription {
 //            get { return dbdescription_; }

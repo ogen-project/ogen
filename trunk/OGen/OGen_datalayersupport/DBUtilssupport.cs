@@ -23,8 +23,12 @@ using OGen.lib.datalayer.MySQL;
 using OGen.lib.datalayer.SQLServer;
 
 namespace OGen.lib.datalayer {
+#if NET_1_1
 	public class DBUtilssupport {
 		private DBUtilssupport() {}
+#else
+	public static class DBUtilssupport {
+#endif
 
 		#region public static DBUtils GetInstance(...);
 #if PostgreSQL

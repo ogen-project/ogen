@@ -136,7 +136,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		private static string dblogfile__;
 
 		/// <summary>
-		/// DataBase Operation's Log File
+		/// Database Operation's Log File
 		/// </summary>
 		public static string DBLogfile {
 			get {
@@ -195,7 +195,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		}
 		#region public static void DBConnectionstring_reset();
 		/// <summary>
-		/// Forces DataBase's ConnectionString to be re-read from config file.
+		/// Forces Database's ConnectionString to be re-read from config file.
 		/// </summary>
 		public static void DBConnectionstring_reset() {
 			Config_DBConnectionstrings.Reset();
@@ -208,7 +208,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 		#endregion
 		#region public static void DBServerType_reset();
 		/// <summary>
-		/// Forces DataBase's Server Type to be re-read from config file.
+		/// Forces Database's Server Type to be re-read from config file.
 		/// </summary>
 		public static void DBServerType_reset() {
 			Config_DBConnectionstrings.Reset();

@@ -292,14 +292,14 @@ namespace OGen.lib.datalayer.PostgreSQL {
 			string serverName_in, 
 			string userName_in, 
 			string userPassword_in, 
-			string dataBaseName_in
+			string databaseName_in
 		) {
 			return string.Format(
 				"Server={0};User ID={1};Password={2};Database={3};", 
 				serverName_in, 
 				userName_in, 
 				userPassword_in, 
-				dataBaseName_in
+				databaseName_in
 			);
 		}
 		#endregion

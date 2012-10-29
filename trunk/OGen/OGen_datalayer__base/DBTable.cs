@@ -16,7 +16,7 @@ using System;
 
 namespace OGen.lib.datalayer {
 	/// <summary>
-	/// Provides a mean of storing the DataBase INFORMATION_SCHEMA for some Table.
+	/// Provides a mean of storing the Database INFORMATION_SCHEMA for some Table.
 	/// </summary>
 	public class DBTable {
 		/// <param name="name_in">Table Name</param>

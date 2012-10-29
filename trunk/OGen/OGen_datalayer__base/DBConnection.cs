@@ -20,7 +20,7 @@ using System.IO;
 namespace OGen.lib.datalayer {
 	#region /// <summary>...</summary>
 	/// <summary>
-	///	Provides access to supported DataBases like PostgreSQL and SQL Server, allowing the execution of SQL Queries and Functions retrieving their existing data if any. It also supports Transactions.
+	///	Provides access to supported Databases like PostgreSQL and SQL Server, allowing the execution of SQL Queries and Functions retrieving their existing data if any. It also supports Transactions.
 	/// </summary>
 	/// <threadsafety static="true" instance="false"/>
 	/// <remarks>
@@ -91,7 +91,7 @@ namespace OGen.lib.datalayer {
 	public abstract class DBConnection : IDisposable {
 		//#region public DBConnection(...);
 		/// <param name="connectionstring_in">Connection String</param>
-		public DBConnection(
+		protected DBConnection(
 			string connectionstring_in
 		) : this (
 			connectionstring_in,
@@ -101,11 +101,11 @@ namespace OGen.lib.datalayer {
 
 		/// <param name="connectionstring_in">Connection String</param>
 		/// <param name="logfile_in">Log File (null or empty string disables log)</param>
-		public DBConnection(
+		protected DBConnection(
 			string connectionstring_in, 
 			string logfile_in
 		) {
-			if (connectionstring_in.Trim() == string.Empty)
+			if (string.IsNullOrEmpty(connectionstring_in))
 				throw InvalidConnectionstringException_empty;
 
 			connectionstring_ = connectionstring_in;
@@ -114,9 +114,7 @@ namespace OGen.lib.datalayer {
 				? logfile_in
 				: string.Empty;
 			logenabled_ = 
-				(logfile_in != null) 
-				&& 
-				(logfile_in != string.Empty) 
+				!string.IsNullOrEmpty(logfile_in)
 
 				//// prefer to let exception be raised and let user know 
 				//// he has to revise his config file, hence comment:
@@ -245,7 +243,7 @@ namespace OGen.lib.datalayer {
 		protected bool isopen_;
 
 		/// <summary>
-		/// Indicates DataBase Connection state, True if oppened, False if closed.
+		/// Indicates Database Connection state, True if oppened, False if closed.
 		/// </summary>
 		public bool isOpen {
 			get { return isopen_; }
@@ -253,7 +251,7 @@ namespace OGen.lib.datalayer {
 		#endregion
 		#region public abstract IDbConnection exposeConnection { get; }
 		/// <summary>
-		/// DataBase Connection's access.
+		/// Database Connection's access.
 		/// <note type="caution">
 		/// IMPORTANT! access should be made via exposeConnection instead
 		/// </note>
@@ -261,13 +259,13 @@ namespace OGen.lib.datalayer {
 		protected IDbConnection connection__ = null;
 
 		/// <summary>
-		/// Exposing real DataBase Connection as read only, should it be needed.
+		/// Exposing real Database Connection as read only, should it be needed.
 		/// </summary>
 		public abstract IDbConnection exposeConnection { get; }
 		#endregion
 		#region public DBTransaction Transaction { get; }
 		/// <summary>
-		/// DataBase Connection's Transaction access.
+		/// Database Connection's Transaction access.
 		/// <note type="caution">
 		/// IMPORTANT! access should be made via Transaction instead
 		/// </note>
@@ -276,7 +274,7 @@ namespace OGen.lib.datalayer {
 		protected object transaction__locker = new object();
 
 		/// <summary>
-		/// DataBase Connection's Transaction access.
+		/// Database Connection's Transaction access.
 		/// </summary>
 		public DBTransaction Transaction {
 			get {
@@ -370,7 +368,7 @@ namespace OGen.lib.datalayer {
 		//#region public Methods...
 		#region public void Open();
 		/// <summary>
-		/// Opens DataBase Connection.
+		/// Opens Database Connection.
 		/// </summary>
 		/// <exception cref="OpenException_alreadyOpened">
 		/// Thrown when the Connection is already opened
@@ -390,7 +388,7 @@ namespace OGen.lib.datalayer {
 		#endregion
 		#region public void Close();
 		/// <summary>
-		/// Closes DataBase Connection.
+		/// Closes Database Connection.
 		/// </summary>
 		/// <exception cref="CloseException_alreadyClosed">
 		/// Thrown when the Connection is already closed
@@ -413,7 +411,7 @@ namespace OGen.lib.datalayer {
 		//---
 		#region public abstract IDbDataParameter newDBDataParameter(...);
 		/// <summary>
-		/// Instantiates a new IDbDataParameter for the Connection's taking in consideration the appropriate DataBase Server Type.
+		/// Instantiates a new IDbDataParameter for the Connection's taking in consideration the appropriate Database Server Type.
 		/// </summary>
 		/// <param name="name_in">Parameter's Name</param>
 		/// <param name="dbType_in">Parameter's DbType</param>
@@ -438,13 +436,13 @@ namespace OGen.lib.datalayer {
 		}
 
 		/// <summary>
-		/// Instantiates a new IDbDataParameter for the Connection's taking in consideration the appropriate DataBase Server Type.
+		/// Instantiates a new IDbDataParameter for the Connection's taking in consideration the appropriate Database Server Type.
 		/// </summary>
 		/// <param name="name_in">Parameter's Name</param>
 		/// <param name="dbType_in">Parameter's DbType</param>
 		/// <param name="parameterDirection_in">Parameter's Direction</param>
 		/// <param name="value_in">Parameter's Value</param>
-		/// <param name="size_in">Parameter's Size (the actual DataBase Parameter Size representation, if such exists for the Parameter)</param>
+		/// <param name="size_in">Parameter's Size (the actual Database Parameter Size representation, if such exists for the Parameter)</param>
 		/// <returns>new IDbDataParameter</returns>
 		public IDbDataParameter newDBDataParameter(
 			string name_in, 
@@ -465,13 +463,13 @@ namespace OGen.lib.datalayer {
 		}
 
 		/// <summary>
-		/// Instantiates a new IDbDataParameter for the Connection's taking in consideration the appropriate DataBase Server Type.
+		/// Instantiates a new IDbDataParameter for the Connection's taking in consideration the appropriate Database Server Type.
 		/// </summary>
 		/// <param name="name_in">Parameter's Name</param>
 		/// <param name="dbType_in">Parameter's DbType</param>
 		/// <param name="parameterDirection_in">Parameter's Direction</param>
 		/// <param name="value_in">Parameter's Value</param>
-		/// <param name="size_in">Parameter's Size (the actual DataBase Parameter Size representation, if such exists for the Parameter)</param>
+		/// <param name="size_in">Parameter's Size (the actual Database Parameter Size representation, if such exists for the Parameter)</param>
 		/// <param name="precision_in">Parameter's Precision</param>
 		/// <param name="scale_in">Parameter's Scale</param>
 		/// <returns>new IDbDataParameter</returns>
@@ -515,7 +513,7 @@ namespace OGen.lib.datalayer {
 
 		#region public void Execute_SQLQuery(string query_in);
 		/// <summary>
-		/// Executes an SQL Query on DataBase.
+		/// Executes an SQL Query on Database.
 		/// </summary>
 		/// <param name="query_in">SQL Query</param>
 		/// <exception cref="InvalidSQLQueryException_empty">
@@ -597,7 +595,7 @@ namespace OGen.lib.datalayer {
 
 		#region public DataSet Execute_SQLQuery_returnDataSet(string query_in);
 		/// <summary>
-		/// Executes an SQL Query on DataBase.
+		/// Executes an SQL Query on Database.
 		/// </summary>
 		/// <exception cref="InvalidSQLQueryException_empty">
 		/// Thrown when an empty SQL Query has been supplied
@@ -644,7 +642,7 @@ namespace OGen.lib.datalayer {
 		#endregion
 		#region public DataTable Execute_SQLQuery_returnDataTable(...);
 		/// <summary>
-		/// Executes an SQL Query on DataBase.
+		/// Executes an SQL Query on Database.
 		/// </summary>
 		/// <param name="query_in">SQL Query</param>
 		/// <returns>populated DataTable with SQL Query's Output</returns>
@@ -673,7 +671,7 @@ namespace OGen.lib.datalayer {
 		#endregion
 		#region public object Execute_SQLFunction(string function_in);
 		/// <summary>
-		/// Executes an SQL Function on DataBase.
+		/// Executes an SQL Function on Database.
 		/// </summary>
 		/// <param name="function_in">SQL Function name</param>
 		/// <returns>populated Object with SQL Function's Output</returns>
@@ -688,11 +686,11 @@ namespace OGen.lib.datalayer {
 		#endregion
 		#region public object Execute_SQLFunction(string function_in, DbType returnValue_DbType_in, int returnValue_Size_in);
 		/// <summary>
-		/// Executes an SQL Function on DataBase.
+		/// Executes an SQL Function on Database.
 		/// </summary>
 		/// <param name="function_in">SQL Function name</param>
 		/// <param name="returnValue_DbType_in">DbType for return value</param>
-		/// <param name="returnValue_Size_in">Size for return value (the actual DataBase return value Size representation, if such exists)</param>
+		/// <param name="returnValue_Size_in">Size for return value (the actual Database return value Size representation, if such exists)</param>
 		/// <returns>populated Object with SQL Function's Output</returns>
 		public object Execute_SQLFunction(
 			string function_in, 
@@ -709,7 +707,7 @@ namespace OGen.lib.datalayer {
 		#endregion
 		#region public object Execute_SQLFunction(string function_in, IDbDataParameter[] dataParameters_in);
 		/// <summary>
-		/// Executes an SQL Function on DataBase.
+		/// Executes an SQL Function on Database.
 		/// </summary>
 		/// <param name="function_in">SQL Function name</param>
 		/// <param name="dataParameters_in">SQL Function parameters</param>
@@ -728,12 +726,12 @@ namespace OGen.lib.datalayer {
 		#endregion
 		#region public object Execute_SQLFunction(string function_in, IDbDataParameter[] dataParameters_in, DbType returnValue_DbType_in, int returnValue_Size_in);
 		/// <summary>
-		/// Executes an SQL Function on DataBase.
+		/// Executes an SQL Function on Database.
 		/// </summary>
 		/// <param name="function_in">SQL Function name</param>
 		/// <param name="dataParameters_in">SQL Function parameters</param>
 		/// <param name="returnValue_DbType_in">DbType for return value</param>
-		/// <param name="returnValue_Size_in">Size for return value (the actual DataBase return value Size representation, if such exists)</param>
+		/// <param name="returnValue_Size_in">Size for return value (the actual Database return value Size representation, if such exists)</param>
 		/// <returns>populated Object with SQL Function's Output</returns>
 		public object Execute_SQLFunction(
 			string function_in,
@@ -832,7 +830,7 @@ namespace OGen.lib.datalayer {
 		#endregion
 		#region public DataSet Execute_SQLFunction_returnDataSet(string function_in);
 		/// <summary>
-		/// Executes an SQL Function on DataBase.
+		/// Executes an SQL Function on Database.
 		/// </summary>
 		/// <param name="function_in">SQL Function name</param>
 		/// <returns>populated DataSet with SQL Function's Output</returns>
@@ -845,7 +843,7 @@ namespace OGen.lib.datalayer {
 		#endregion
 		#region public DataSet Execute_SQLFunction_returnDataSet(string function_in, IDbDataParameter[] dataParameters_in);
 		/// <summary>
-		/// Executes an SQL Function on DataBase.
+		/// Executes an SQL Function on Database.
 		/// </summary>
 		/// <param name="function_in">SQL Function name</param>
 		/// <param name="dataParameters_in">SQL Function parameters</param>
@@ -887,7 +885,7 @@ namespace OGen.lib.datalayer {
 		#region public DataTable Execute_SQLFunction_returnDataTable(...);
 		#region public DataTable Execute_SQLFunction_returnDataTable(string function_in);
 		/// <summary>
-		/// Executes an SQL Function on DataBase.
+		/// Executes an SQL Function on Database.
 		/// </summary>
 		/// <param name="function_in">SQL Function name</param>
 		/// <returns>populated DataTable with SQL Function's Output</returns>
@@ -900,7 +898,7 @@ namespace OGen.lib.datalayer {
 		#endregion
 		#region public DataTable Execute_SQLFunction_returnDataTable(string function_in, IDbDataParameter[] dataParameters_in);
 		/// <summary>
-		/// Executes an SQL Function on DataBase.
+		/// Executes an SQL Function on Database.
 		/// </summary>
 		/// <param name="function_in">SQL Function name</param>
 		/// <param name="dataParameters_in">SQL Function parameters</param>
@@ -930,7 +928,7 @@ namespace OGen.lib.datalayer {
 		public abstract string SQLFunction_exists_query(string name_in);
 
 		/// <summary>
-		/// Makes use of the DataBase INFORMATION_SCHEMA to determine if an SQL Function exists on DataBase, based on it's name.
+		/// Makes use of the Database INFORMATION_SCHEMA to determine if an SQL Function exists on Database, based on it's name.
 		/// </summary>
 		/// <param name="name_in">SQL Function Name</param>
 		/// <returns>True if SQL Function exists, False if not</returns>
@@ -944,7 +942,7 @@ namespace OGen.lib.datalayer {
 		public abstract string SQLFunction_delete_query(string name_in);
 
 		/// <summary>
-		/// Deletes a specific SQL Function on DataBase, based on it's name.
+		/// Deletes a specific SQL Function on Database, based on it's name.
 		/// </summary>
 		/// <param name="name_in">SQL Function Name</param>
 		/// <returns>True if SQL Function existed and was deleted, False if not</returns>
@@ -961,7 +959,7 @@ namespace OGen.lib.datalayer {
 		public abstract string SQLStoredProcedure_exists_query(string name_in);
 
 		/// <summary>
-		/// Makes use of the DataBase INFORMATION_SCHEMA to determine if an SQL Stored Procedure exists on DataBase, based on it's name.
+		/// Makes use of the Database INFORMATION_SCHEMA to determine if an SQL Stored Procedure exists on Database, based on it's name.
 		/// </summary>
 		/// <param name="name_in">SQL Stored Procedure Name</param>
 		/// <returns>True if SQL Stored Procedure exists, False if not</returns>
@@ -975,7 +973,7 @@ namespace OGen.lib.datalayer {
 		public abstract string SQLStoredProcedure_delete_query(string name_in);
 
 		/// <summary>
-		/// Deletes a specific SQL Stored Procedure on DataBase, based on it's name.
+		/// Deletes a specific SQL Stored Procedure on Database, based on it's name.
 		/// </summary>
 		/// <param name="name_in">SQL Stored Procedure Name</param>
 		/// <returns>True if SQL Stored Procedure existed and was deleted, False if not</returns>
@@ -992,7 +990,7 @@ namespace OGen.lib.datalayer {
 		public abstract string SQLView_exists_query(string name_in);
 
 		/// <summary>
-		/// Makes use of the DataBase INFORMATION_SCHEMA to determine if an SQL View exists on DataBase, based on it's name.
+		/// Makes use of the Database INFORMATION_SCHEMA to determine if an SQL View exists on Database, based on it's name.
 		/// </summary>
 		/// <param name="name_in">SQL View Name</param>
 		/// <returns>True if SQL View exists, False if not</returns>
@@ -1006,7 +1004,7 @@ namespace OGen.lib.datalayer {
 		public abstract string SQLView_delete_query(string name_in);
 
 		/// <summary>
-		/// Deletes a specific SQL View on DataBase, based on it's name.
+		/// Deletes a specific SQL View on Database, based on it's name.
 		/// </summary>
 		/// <param name="name_in">SQL View Name</param>
 		/// <returns>True if SQL View existed and was deleted, False if not</returns>
@@ -1024,9 +1022,9 @@ namespace OGen.lib.datalayer {
 		public abstract string getDBs_query();
 
 		/// <summary>
-		/// Makes use of the DataBase INFORMATION_SCHEMA to get a list of available DataBase names.
+		/// Makes use of the Database INFORMATION_SCHEMA to get a list of available Database names.
 		/// </summary>
-		/// <returns>String array, representing a list of available DataBase names</returns>
+		/// <returns>String array, representing a list of available Database names</returns>
 		public string[] getDBs() {
 			DataTable _datatable = Execute_SQLQuery_returnDataTable(getDBs_query());
 
@@ -1050,7 +1048,7 @@ namespace OGen.lib.datalayer {
 		);
 
 		/// <summary>
-		/// Makes use of the DataBase INFORMATION_SCHEMA to get a list of Table names for the current DataBase Connection.
+		/// Makes use of the Database INFORMATION_SCHEMA to get a list of Table names for the current Database Connection.
 		/// </summary>
 		/// <returns>String array, representing a list of Table names</returns>
 		public DBTable[] getTables(
@@ -1061,9 +1059,9 @@ namespace OGen.lib.datalayer {
 		}
 
 		/// <summary>
-		/// Makes use of the DataBase INFORMATION_SCHEMA to get a list of Table names for the current DataBase Connection.
+		/// Makes use of the Database INFORMATION_SCHEMA to get a list of Table names for the current Database Connection.
 		/// </summary>
-		/// <param name="subAppName_in">Table Filter. If your Application is to be hosted at some ASP, which provides you with one DataBase only, and you're using that DataBase for more than one Application. I assume you're using some convention for Table naming like: AP1_Table1, AP1_Table2, AP2_Table1, ... . Or even if you have several modules sharing same data base. If so, you can use this parameter to filter Table names for some specific Application, like: AP1 or AP2</param>
+		/// <param name="subAppName_in">Table Filter. If your Application is to be hosted at some ASP, which provides you with one Database only, and you're using that Database for more than one Application. I assume you're using some convention for Table naming like: AP1_Table1, AP1_Table2, AP2_Table1, ... . Or even if you have several modules sharing same data base. If so, you can use this parameter to filter Table names for some specific Application, like: AP1 or AP2</param>
 		/// <returns>String array, representing a list of Table names</returns>
 		public DBTable[] getTables(
 			string subAppName_in
@@ -1075,9 +1073,9 @@ namespace OGen.lib.datalayer {
 		}
 
 		/// <summary>
-		/// Makes use of the DataBase INFORMATION_SCHEMA to get a list of Table names for the current DataBase Connection.
+		/// Makes use of the Database INFORMATION_SCHEMA to get a list of Table names for the current Database Connection.
 		/// </summary>
-		/// <param name="subAppName_in">Table Filter. If your Application is to be hosted at some ASP, which provides you with one DataBase only, and you're using that DataBase for more than one Application. I assume you're using some convention for Table naming like: AP1_Table1, AP1_Table2, AP2_Table1, ... . Or even if you have several modules sharing same data base. If so, you can use this parameter to filter Table names for some specific Application, like: AP1 or AP2</param>
+		/// <param name="subAppName_in">Table Filter. If your Application is to be hosted at some ASP, which provides you with one Database only, and you're using that Database for more than one Application. I assume you're using some convention for Table naming like: AP1_Table1, AP1_Table2, AP2_Table1, ... . Or even if you have several modules sharing same data base. If so, you can use this parameter to filter Table names for some specific Application, like: AP1 or AP2</param>
 		/// <returns>String array, representing a list of Table names</returns>
 		public DBTable[] getTables(
 			string subAppName_in, 
@@ -1142,7 +1140,7 @@ namespace OGen.lib.datalayer {
 		);
 
 		/// <summary>
-		/// Makes use of the DataBase INFORMATION_SCHEMA to get a list of Field names for some specific Table.
+		/// Makes use of the Database INFORMATION_SCHEMA to get a list of Field names for some specific Table.
 		/// </summary>
 		/// <param name="tableName_in">Table name for which Field names are to be retrieved</param>
 		/// <returns>String array, representing a list of Field names</returns>
@@ -1156,7 +1154,7 @@ namespace OGen.lib.datalayer {
 		}
 
 		/// <summary>
-		/// Makes use of the DataBase INFORMATION_SCHEMA to get a list of Field names for some specific Table.
+		/// Makes use of the Database INFORMATION_SCHEMA to get a list of Field names for some specific Table.
 		/// </summary>
 		/// <param name="tableName_in">Table name for which Field names are to be retrieved</param>
 		/// <returns>String array, representing a list of Field names</returns>

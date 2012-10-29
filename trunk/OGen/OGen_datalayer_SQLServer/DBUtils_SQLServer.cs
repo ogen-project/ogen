@@ -278,14 +278,14 @@ namespace OGen.lib.datalayer.SQLServer {
 			string serverName_in, 
 			string userName_in, 
 			string userPassword_in, 
-			string dataBaseName_in
+			string databaseName_in
 		) {
 			return string.Format(
 				"server={0};uid={1};pwd={2};database={3};", 
 				serverName_in, 
 				userName_in, 
 				userPassword_in, 
-				dataBaseName_in
+				databaseName_in
 			);
 		}
 		#endregion

@@ -90,7 +90,7 @@ namespace OGen.lib.datalayer {
 		private IDbTransaction transaction_;
 
 		/// <summary>
-		/// Exposing real DataBase Transaction as read only, should it be needed.
+		/// Exposing real Database Transaction as read only, should it be needed.
 		/// </summary>
 		public IDbTransaction exposeTransaction {
 			get {

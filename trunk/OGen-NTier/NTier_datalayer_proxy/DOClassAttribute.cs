@@ -23,7 +23,7 @@ namespace OGen.NTier.lib.datalayer {
 		#region public DOClassAttribute(...);
 		/// <param name="name_in">Name</param>
 		/// <param name="friendlyName_in">Friendly name</param>
-		/// <param name="dbDescription_in">Description at DataBase</param>
+		/// <param name="dbDescription_in">Description at Database</param>
 		/// <param name="extendedDescription_in">Extended description</param>
 		/// <param name="isVirtualTable_in">True if it is a View, False if it is a Table</param>
 		/// <param name="isConfig_in">True if it is a Config Table, False if not</param>
@@ -68,7 +68,7 @@ namespace OGen.NTier.lib.datalayer {
 		private string dbdescription_;
 
 		/// <summary>
-		/// Description at DataBase
+		/// Description at Database
 		/// </summary>
 		public string DBDescription {
 			get { return dbdescription_; }
