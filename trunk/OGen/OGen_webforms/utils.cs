@@ -43,7 +43,7 @@ namespace OGen.lib.presentationlayer.webforms {
 			while (_denum.MoveNext()) {
 				ConcatenateURLParams_out += string.Format(
 					"{0}{1}={2}", 
-					/*00*/(ConcatenateURLParams_out == "") ? _separator : "&", 
+					/*00*/(string.IsNullOrEmpty(ConcatenateURLParams_out)) ? _separator : "&", 
 					/*01*/_denum.Key.ToString(), 
 					/*02*/System.Web.HttpUtility.UrlEncode(
 						_denum.Value.ToString()

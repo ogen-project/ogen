@@ -54,7 +54,7 @@ namespace OGen.XSD.lib.metadata.schema {
 
 						#region _complextype = ...;
 						#region _index = ...;
-						if (schemaName_in != string.Empty)
+						if (!string.IsNullOrEmpty(schemaName_in))
 							_index = root_ref_.MetadataCollection[0].MetadataIndexCollection.Search(schemaName_in);
 						else
 							_index = -1;

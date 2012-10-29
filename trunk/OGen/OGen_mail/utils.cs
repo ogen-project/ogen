@@ -237,7 +237,7 @@ namespace OGen.lib.mail {
 				));
 			}
 
-			if (ics_in != "") {
+			if (!string.IsNullOrEmpty(ics_in)) {
 				#region // ...
 				//System.Net.Mime.ContentType _ct = new System.Net.Mime.ContentType("text/calendar");
 				//AlternateView _av = AlternateView.CreateAlternateViewFromString(

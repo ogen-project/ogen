@@ -301,7 +301,7 @@ namespace OGen.lib.datalayer {
 					lock (connectionstring_dbname__locker) {
 
 						// double check, thread safer!
-						if (connectionstring_dbname__ == string.Empty) {
+						if (string.IsNullOrEmpty(connectionstring_dbname__)) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
@@ -695,11 +695,7 @@ namespace OGen.lib.datalayer {
 			DataSet Execute_SQLQuery_returnDataSet_out;
 
 			#region Checking...
-			if (
-				(query_in == null)
-				||
-				(query_in.Trim() == string.Empty)
-			)
+			if (string.IsNullOrEmpty(query_in))
 				throw new InvalidSQLQueryException_empty();
 			#endregion
 
