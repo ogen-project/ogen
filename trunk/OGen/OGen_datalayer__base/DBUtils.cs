@@ -403,6 +403,7 @@ namespace OGen.lib.datalayer {
 			return DbType_Parse(value_in, true);
 		}
 		public DbType DbType_Parse(string value_in, bool caseSensitive_in) {
+#if NET_1_1
 			string _value = (caseSensitive_in) ? value_in : value_in.ToLower();
 			for (int i = 0; ((DbType)i).ToString() != i.ToString(); i++) {
 				if (
@@ -422,6 +423,9 @@ namespace OGen.lib.datalayer {
 				}
 			}
 			throw new Exception(string.Format("invalid db type: {0}", value_in));
+#else
+			return (DbType)Enum.Parse(typeof(DbType), value_in, !caseSensitive_in);
+#endif
 		}
 		#endregion
 		#region public abstract int XDbType_Parse(string value_in, bool caseSensitive_in);
