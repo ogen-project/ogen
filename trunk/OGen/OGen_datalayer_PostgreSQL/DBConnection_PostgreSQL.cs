@@ -435,7 +435,7 @@ WHERE
 				dbName_in
 			));
 			#endregion
-			if (!string.IsEmptyOrNull(subAppName_in)) {
+			if (!string.IsNullOrEmpty(subAppName_in)) {
 				_query.Append("AND (");
 				string[] _subAppNames = subAppName_in.Split('|');
 				for (int i = 0; i < _subAppNames.Length; i++) {

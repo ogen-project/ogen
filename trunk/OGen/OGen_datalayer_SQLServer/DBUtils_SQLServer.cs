@@ -87,7 +87,7 @@ namespace OGen.lib.datalayer.SQLServer {
 					case "System.DateTime":
 						DateTime _datetime = ((DateTime)object_in);
 						if (DateTime.Compare(_datetime, DateTime.MinValue) == 0) {
-							return object2SQLobject(null);
+							return this.object2SQLobject(null);
 						} else {
 							return string.Format("CONVERT(DATETIME, \'{0}\', 120)", _datetime.ToString("yyyy-MM-dd HH:mm:ss"));
 						}
@@ -107,7 +107,7 @@ namespace OGen.lib.datalayer.SQLServer {
 						return object_in.ToString().Replace(",", ".");
 
 					case "System.DBNull": {
-						return object2SQLobject(null);
+						return this.object2SQLobject(null);
 					}
 				}
 			}
@@ -251,13 +251,13 @@ namespace OGen.lib.datalayer.SQLServer {
 		) {
 			switch (parameter_in) {
 				case eParameter.DBName:
-					return ParseParameter(connectionstring_in, "database");
+					return DBUtils_connectionString.ParseParameter(connectionstring_in, "database");
 
 				case eParameter.Server:
-					return ParseParameter(connectionstring_in, "server");
+					return DBUtils_connectionString.ParseParameter(connectionstring_in, "server");
 
 				case eParameter.User:
-					return ParseParameter(connectionstring_in, "uid");
+					return DBUtils_connectionString.ParseParameter(connectionstring_in, "uid");
 			}
 			throw new Exception(
 				string.Format(

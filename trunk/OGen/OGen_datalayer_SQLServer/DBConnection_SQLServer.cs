@@ -91,21 +91,21 @@ namespace OGen.lib.datalayer.SQLServer {
 			get {
 
 				// check before lock
-				if (connection__ == null) {
+				if (this.connection__ == null) {
 
-					lock (exposeConnection_locker) {
+					lock (this.exposeConnection_locker) {
 
 						// double check, thread safer!
-						if (connection__ == null) {
+						if (this.connection__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							connection__ = new SqlConnection(Connectionstring);
+							this.connection__ = new SqlConnection(this.Connectionstring);
 						}
 					}
 				}
 
-				return connection__;
+				return this.connection__;
 			}
 		}
 		#endregion
@@ -114,39 +114,39 @@ namespace OGen.lib.datalayer.SQLServer {
 		//#region private Methods...
 		#region protected override IDbCommand newDBCommand(string command_in, IDbConnection connection_in);
 		protected override IDbCommand newDBCommand(string command_in, IDbConnection connection_in) {
-			IDbCommand _newdbcommand_out;
+			IDbCommand _output;
 
-			if ((transaction__ != null) && (transaction__.inTransaction)) {
-			    _newdbcommand_out = new SqlCommand(
+			if ((this.transaction__ != null) && (this.transaction__.inTransaction)) {
+			    _output = new SqlCommand(
 			        command_in, 
-			        (SqlConnection)connection_in, 
-			        (SqlTransaction)Transaction.exposeTransaction
+			        (SqlConnection)connection_in,
+					(SqlTransaction)this.Transaction.exposeTransaction
 			    );
 			} else {
-				_newdbcommand_out = new SqlCommand(
+				_output = new SqlCommand(
 					command_in, 
 					(SqlConnection)connection_in
 				);
 			}
 
-			_newdbcommand_out.CommandTimeout = connection_in.ConnectionTimeout;
+			_output.CommandTimeout = connection_in.ConnectionTimeout;
 
-			return _newdbcommand_out;
+			return _output;
 		}
 		#endregion
 		#region protected override IDbDataAdapter newDBDataAdapter(string query_in, IDbConnection connection_in, bool isQuery_notProcedure_in);
 		protected override IDbDataAdapter newDBDataAdapter(string query_in, IDbConnection connection_in, bool isQuery_notProcedure_in) {
-			IDbDataAdapter _newdbdataadapter_out = new SqlDataAdapter(
+			IDbDataAdapter _output = new SqlDataAdapter(
 				query_in,
 				(SqlConnection)connection_in
 			);
 
-			if ((transaction__ != null) && (transaction__.inTransaction)) {
-				_newdbdataadapter_out.SelectCommand.Transaction 
-					= (SqlTransaction)transaction__.exposeTransaction;
+			if ((this.transaction__ != null) && (this.transaction__.inTransaction)) {
+				_output.SelectCommand.Transaction
+					= (SqlTransaction)this.transaction__.exposeTransaction;
 			}
 
-			return _newdbdataadapter_out;
+			return _output;
 		}
 		#endregion
 		//#endregion
@@ -206,8 +206,8 @@ namespace OGen.lib.datalayer.SQLServer {
 			DbType returnValue_DbType_in, 
 			int returnValue_Size_in
 		) {
-			if (Logenabled) {
-				Log("sql function", function_in, dataParameters_in);
+			if (this.Logenabled) {
+				this.Log("sql function", function_in, dataParameters_in);
 			}
 
 			object Execute_SQLFunction_out = null;
@@ -223,7 +223,7 @@ namespace OGen.lib.datalayer.SQLServer {
 			try {
 				if (returnValue_Size_in >= 0) {
 					command_in.Parameters.Add(
-						newDBDataParameter(
+						this.newDBDataParameter(
 							"SomeOutput",
 							(DbType)returnValue_DbType_in,
 							ParameterDirection.ReturnValue,
@@ -245,7 +245,7 @@ namespace OGen.lib.datalayer.SQLServer {
 					string.Format(
 						"Stored Procedure: {0}({5})\nConnectionString: {1}|{2}\nexception: {3}\ninner-exception: {4}\n",
 						function_in,
-						DBServerType, 
+						this.DBServerType, 
 #if DEBUG
 						connectionstring_, 
 #else
@@ -606,7 +606,7 @@ ORDER BY
 --	_field.column_name,
 	_field.ordinal_position
 ",
-				Connectionstring_DBName, 
+				this.Connectionstring_DBName, 
 				tableName_in
 			);
 			#endregion
