@@ -51,7 +51,7 @@ namespace OGen.lib.crypt {
 			StringBuilder _hexString = new StringBuilder(64);
 
 			for (int i = 0; i < input_in.Length; i++) {
-				_hexString.Append(String.Format("{0:X2}", input_in[i]));
+				_hexString.Append(string.Format("{0:X2}", input_in[i]));
 			}
 			return _hexString.ToString();
 		}
@@ -60,7 +60,7 @@ namespace OGen.lib.crypt {
 			StringBuilder _decString = new StringBuilder(64);
 
 			for (int i = 0; i < input_in.Length; i++) {
-				_decString.Append(String.Format(i == 0 ? "{0:D3}" : "-{0:D3}", input_in[i]));
+				_decString.Append(string.Format(i == 0 ? "{0:D3}" : "-{0:D3}", input_in[i]));
 			}
 			return _decString.ToString();
 		}

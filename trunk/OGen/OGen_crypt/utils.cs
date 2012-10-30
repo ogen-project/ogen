@@ -34,11 +34,11 @@ namespace OGen.lib.crypt {
 					//&&
 					//File.Exists(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Server_Private"])
 				) {
-					RSA_Server_private = OGen.lib.crypt.utils.LoadRSAFile(
+					rsa_server_private_ = OGen.lib.crypt.utils.LoadRSAFile(
 						System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Server_Private"]
 					);
 				} else {
-					RSA_Server_private = null;
+					rsa_server_private_ = null;
 				}
 
 				if (
@@ -46,39 +46,39 @@ namespace OGen.lib.crypt {
 					//&&
 					//File.Exists(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Server_Public"])
 				) {
-					RSA_Server_public = OGen.lib.crypt.utils.LoadRSAFile(
+					rsa_server_public_ = OGen.lib.crypt.utils.LoadRSAFile(
 						System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Server_Public"]
 					);
 				} else {
-					RSA_Server_public = null;
+					rsa_server_public_ = null;
 				}
 
 				if (
-					(RSA_Server_private == null)
+					(rsa_server_private_ == null)
 					||
-					(RSA_Server_public == null)
+					(rsa_server_public_ == null)
 				) {
 					return;
 				}
 
-				_rsaparameters = RSA_Server_public.ExportParameters(false);
+				_rsaparameters = rsa_server_public_.ExportParameters(false);
 				rsa_server_public_parameters_exponent_ = StringHelper.BytesToHexString(_rsaparameters.Exponent);
 				rsa_server_public_parameters_modulus_ = StringHelper.BytesToHexString(_rsaparameters.Modulus);
 			} 
 			#endregion
 
-			private static RSACryptoServiceProvider RSA_Server_private;
+			private static RSACryptoServiceProvider rsa_server_private_;
 
-			private static RSACryptoServiceProvider RSA_Server_public;
+			private static RSACryptoServiceProvider rsa_server_public_;
 
 			#region public static string RSA_Server_public_parameters_exponent { get; }
 			private static string rsa_server_public_parameters_exponent_;
 			public static string RSA_Server_public_parameters_exponent {
 				get {
 					if (
-						(RSA_Server_private == null)
+						(rsa_server_private_ == null)
 						||
-						(RSA_Server_public == null)
+						(rsa_server_public_ == null)
 					) {
 						Server__setup();
 					}
@@ -92,9 +92,9 @@ namespace OGen.lib.crypt {
 			public static string RSA_Server_public_parameters_modulus {
 				get {
 					if (
-						(RSA_Server_private == null)
+						(rsa_server_private_ == null)
 						||
-						(RSA_Server_public == null)
+						(rsa_server_public_ == null)
 					) {
 						Server__setup();
 					}
@@ -142,14 +142,14 @@ namespace OGen.lib.crypt {
 				byte[] rgb
 			) {
 				if (
-					(RSA_Server_private == null)
+					(rsa_server_private_ == null)
 					||
-					(RSA_Server_public == null)
+					(rsa_server_public_ == null)
 				) {
 					Server__setup();
 				}
 
-				return RSA_Server_private.Decrypt(
+				return rsa_server_private_.Decrypt(
 					rgb,
 					false
 				);
@@ -193,14 +193,14 @@ namespace OGen.lib.crypt {
 				byte[] rgb
 			) {
 				if (
-					(RSA_Server_private == null)
+					(rsa_server_private_ == null)
 					||
-					(RSA_Server_public == null)
+					(rsa_server_public_ == null)
 				) {
 					Server__setup();
 				}
 
-				return RSA_Server_public.Encrypt(
+				return rsa_server_public_.Encrypt(
 					rgb,
 					false
 				);
@@ -221,7 +221,7 @@ namespace OGen.lib.crypt {
 			//public static byte[] RSA_Server_private_Encrypt(
 			//    byte[] rgb
 			//) {
-			//    return RSA_Server_private.Encrypt(
+			//    return rsa_server_private_.Encrypt(
 			//        rgb,
 			//        false
 			//    );
@@ -241,7 +241,7 @@ namespace OGen.lib.crypt {
 			//public static byte[] RSA_Server_public_Decrypt(
 			//    byte[] rgb
 			//) {
-			//    return RSA_Server_public.Decrypt(
+			//    return rsa_server_public_.Decrypt(
 			//        rgb,
 			//        false
 			//    );
@@ -276,20 +276,20 @@ namespace OGen.lib.crypt {
 					//File.Exists(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Client_Private"])
 				) {
 					try {
-						RSA_Client_private = OGen.lib.crypt.utils.LoadRSAFile(
+						rsa_client_private_ = OGen.lib.crypt.utils.LoadRSAFile(
 							System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Client_Private"]
 						);
 					} catch (Exception _ex) {
 #if DEBUG
 						message_out.Add(_ex.Message);
 #endif
-						RSA_Client_private = null;
+						rsa_client_private_ = null;
 					}
 				} else {
-					RSA_Client_private = null;
+					rsa_client_private_ = null;
 				}
 #if DEBUG
-				message_out.Add(((RSA_Client_private == null) ? "null" : "OK") + ":" + System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Client_Private"]);
+				message_out.Add(((rsa_client_private_ == null) ? "null" : "OK") + ":" + System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Client_Private"]);
 #endif
 
 				if (
@@ -298,48 +298,48 @@ namespace OGen.lib.crypt {
 					//File.Exists(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Client_Public"])
 				) {
 					try {
-						RSA_Client_public = OGen.lib.crypt.utils.LoadRSAFile(
+						rsa_client_public_ = OGen.lib.crypt.utils.LoadRSAFile(
 							System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Client_Public"]
 						);
 					} catch (Exception _ex) {
 #if DEBUG
 						message_out.Add(_ex.Message);
 #endif
-						RSA_Client_public = null;
+						rsa_client_public_ = null;
 					}
 				} else {
-					RSA_Client_public = null;
+					rsa_client_public_ = null;
 				}
 #if DEBUG
-				message_out.Add(((RSA_Client_public == null) ? "null" : "OK") + ":" + System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Client_Public"]);
+				message_out.Add(((rsa_client_public_ == null) ? "null" : "OK") + ":" + System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Client_Public"]);
 #endif
 
 				if (
-					(RSA_Client_private == null)
+					(rsa_client_private_ == null)
 					||
-					(RSA_Client_public == null)
+					(rsa_client_public_ == null)
 				) {
 					return;
 				}
 
-				_rsaparameters = RSA_Client_public.ExportParameters(false);
+				_rsaparameters = rsa_client_public_.ExportParameters(false);
 				rsa_client_public_parameters_exponent_ = StringHelper.BytesToHexString(_rsaparameters.Exponent);
 				rsa_client_public_parameters_modulus_ = StringHelper.BytesToHexString(_rsaparameters.Modulus);
 			} 
 			#endregion
 
-			private static RSACryptoServiceProvider RSA_Client_private;
+			private static RSACryptoServiceProvider rsa_client_private_;
 
-			private static RSACryptoServiceProvider RSA_Client_public;
+			private static RSACryptoServiceProvider rsa_client_public_;
 			#region public static string RSA_Client_public_parameters_exponent { get; }
 			private static string rsa_client_public_parameters_exponent_;
 
 			public static string RSA_Client_public_parameters_exponent {
 				get {
 					if (
-						(RSA_Client_private == null)
+						(rsa_client_private_ == null)
 						||
-						(RSA_Client_public == null)
+						(rsa_client_public_ == null)
 					) {
 						Client__setup();
 					}
@@ -354,9 +354,9 @@ namespace OGen.lib.crypt {
 			public static string RSA_Client_public_parameters_modulus {
 				get {
 					if (
-						(RSA_Client_private == null)
+						(rsa_client_private_ == null)
 						||
-						(RSA_Client_public == null)
+						(rsa_client_public_ == null)
 					) {
 						Client__setup();
 					}
@@ -397,14 +397,14 @@ namespace OGen.lib.crypt {
 				byte[] rgb
 			) {
 				if (
-					(RSA_Client_private == null)
+					(rsa_client_private_ == null)
 					||
-					(RSA_Client_public == null)
+					(rsa_client_public_ == null)
 				) {
 					Client__setup();
 				}
 
-				return RSA_Client_private.Decrypt(
+				return rsa_client_private_.Decrypt(
 					rgb,
 					false
 				);
@@ -441,14 +441,14 @@ namespace OGen.lib.crypt {
 				byte[] rgb
 			) {
 				if (
-					(RSA_Client_private == null)
+					(rsa_client_private_ == null)
 					||
-					(RSA_Client_public == null)
+					(rsa_client_public_ == null)
 				) {
 					Client__setup();
 				}
 
-				return RSA_Client_public.Encrypt(
+				return rsa_client_public_.Encrypt(
 					rgb,
 					false
 				);
