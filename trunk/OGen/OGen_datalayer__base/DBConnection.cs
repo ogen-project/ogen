@@ -114,39 +114,39 @@ namespace OGen.lib.datalayer {
 			if (string.IsNullOrEmpty(connectionstring_in))
 				throw new InvalidConnectionstringException_empty();
 
-			connectionstring_ = connectionstring_in;
+			this.connectionstring_ = connectionstring_in;
 
-			logfile_ = (logfile_in != null)
+			this.logfile_ = (logfile_in != null)
 				? logfile_in
 				: string.Empty;
-			logenabled_ = 
+			this.logenabled_ = 
 				!string.IsNullOrEmpty(logfile_in)
 
 				//// prefer to let exception be raised and let user know 
 				//// he has to revise his config file, hence comment:
 				//&& File.Exists(logfile_in)
 			;
-			isopen_ = false;
+			this.isopen_ = false;
 		}
 		~DBConnection() {
-			Dispose(false);
+			this.Dispose(false);
 		}
 
 		#region public void Dispose();
 		public void Dispose() {
-			Dispose(true);
+			this.Dispose(true);
 			System.GC.SuppressFinalize(this);
 		}
 		#endregion
 		#region private void Dispose(bool disposing_in);
 		private void Dispose(bool disposing_in) {
-			if (transaction__ != null) {
-				transaction__.Dispose(); transaction__ = null;
+			if (this.transaction__ != null) {
+				this.transaction__.Dispose(); this.transaction__ = null;
 			}
 
-			if (isopen_) Close();
-			if (connection__ != null) {
-				connection__.Dispose(); connection__ = null;
+			if (this.isopen_) this.Close();
+			if (this.connection__ != null) {
+				this.connection__.Dispose(); this.connection__ = null;
 			}
 		}
 		#endregion
@@ -290,7 +290,7 @@ namespace OGen.lib.datalayer {
 		/// Connection String.
 		/// </summary>
 		public string Connectionstring {
-			get { return connectionstring_; }
+			get { return this.connectionstring_; }
 		}
 		#endregion
 		#region public string Connectionstring_DBName { get; }
@@ -301,24 +301,24 @@ namespace OGen.lib.datalayer {
 			get {
 
 				// check before lock
-				if (string.IsNullOrEmpty(connectionstring_dbname__)) {
+				if (string.IsNullOrEmpty(this.connectionstring_dbname__)) {
 
-					lock (connectionstring_dbname__locker) {
+					lock (this.connectionstring_dbname__locker) {
 
 						// double check, thread safer!
-						if (string.IsNullOrEmpty(connectionstring_dbname__)) {
+						if (string.IsNullOrEmpty(this.connectionstring_dbname__)) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							connectionstring_dbname__ = utils.ConnectionString.ParseParameter(
-								Connectionstring,
+							this.connectionstring_dbname__ = this.utils.ConnectionString.ParseParameter(
+								this.Connectionstring,
 								DBUtils_connectionString.eParameter.DBName
 							);
 						}
 					}
 				}
 
-				return connectionstring_dbname__;
+				return this.connectionstring_dbname__;
 			}
 		}
 		#endregion
@@ -327,14 +327,14 @@ namespace OGen.lib.datalayer {
 		protected string logfile_;
 
 		public string Logfile {
-			get { return logfile_; }
+			get { return this.logfile_; }
 		}
 		#endregion
 		#region public bool Logenabled { get; }
 		protected bool logenabled_;
 
 		public bool Logenabled {
-			get { return logenabled_; }
+			get { return this.logenabled_; }
 		}
 		#endregion
 		#region public bool isOpen { get; }
@@ -344,7 +344,7 @@ namespace OGen.lib.datalayer {
 		/// Indicates Database Connection state, True if oppened, False if closed.
 		/// </summary>
 		public bool isOpen {
-			get { return isopen_; }
+			get { return this.isopen_; }
 		}
 		#endregion
 		#region public abstract IDbConnection exposeConnection { get; }
@@ -378,12 +378,12 @@ namespace OGen.lib.datalayer {
 			get {
 
 				// check before lock
-				if (transaction__ == null) {
+				if (this.transaction__ == null) {
 
-					lock (transaction__locker) {
+					lock (this.transaction__locker) {
 
 						// double check, thread safer!
-						if (transaction__ == null) {
+						if (this.transaction__ == null) {
 
 							// instantiating for the first time and
 							// only because it became needed, otherwise
@@ -391,12 +391,12 @@ namespace OGen.lib.datalayer {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							transaction__ = new DBTransaction(this);
+							this.transaction__ = new DBTransaction(this);
 						}
 					}
 				}
 
-				return transaction__;
+				return this.transaction__;
 			}
 		}
 		#endregion
@@ -411,7 +411,7 @@ namespace OGen.lib.datalayer {
 			string type_in, 
 			string value_in
 		) {
-			Log(type_in, value_in, null);
+			this.Log(type_in, value_in, null);
 		}
 
 		protected void Log(
@@ -440,7 +440,7 @@ namespace OGen.lib.datalayer {
 				_parameters.Append(")");
 			}
 
-			StreamWriter _writer = new StreamWriter(Logfile, true);
+			StreamWriter _writer = new StreamWriter(this.Logfile, true);
 			_writer.WriteLine(string.Format(
 				"{0} - {1}: {2}{3}", 
 				DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), 
@@ -475,12 +475,12 @@ namespace OGen.lib.datalayer {
 		/// There is no need to Open a Connection in order to execute an SQL Query or Function. Open and Close methods are usually used when working with the Transaction
 		/// </remarks>
 		public void Open() {
-			if (isopen_) {
+			if (this.isopen_) {
 				throw new OpenException_alreadyOpened();
 			} else {
-				exposeConnection.Open();
+				this.exposeConnection.Open();
 
-				isopen_ = true;
+				this.isopen_ = true;
 			}
 		}
 		#endregion
@@ -495,14 +495,14 @@ namespace OGen.lib.datalayer {
 		/// Thrown when the Connection has an unterminated Transaction initiated
 		/// </exception>
 		public void Close() {
-			if (!isopen_) {
+			if (!this.isopen_) {
 				throw new CloseException_alreadyClosed();
-			} else if ((transaction__ != null) && transaction__.inTransaction) {
+			} else if ((this.transaction__ != null) && this.transaction__.inTransaction) {
 				throw new CloseException_unterminatedTransaction();
 			} else {
-				exposeConnection.Close();
+				this.exposeConnection.Close();
 
-				isopen_ = false;
+				this.isopen_ = false;
 			}
 		}
 		#endregion
@@ -522,7 +522,7 @@ namespace OGen.lib.datalayer {
 			ParameterDirection parameterDirection_in, 
 			object value_in
 		) {
-			return newDBDataParameter(
+			return this.newDBDataParameter(
 				name_in,
 				dbType_in,
 				parameterDirection_in,
@@ -549,7 +549,7 @@ namespace OGen.lib.datalayer {
 			object value_in, 
 			int size_in
 		) {
-			return newDBDataParameter(
+			return this.newDBDataParameter(
 				name_in, 
 				dbType_in, 
 				parameterDirection_in, 
@@ -585,8 +585,8 @@ namespace OGen.lib.datalayer {
 		#region public void Execute_SQLQuery(...);
 		#region private void Execute_SQLQuery(...);
 		private void Execute_SQLQuery(string query_in, IDbCommand command_in) {
-			if (Logenabled) {
-				Log("sql query", query_in);
+			if (this.Logenabled) {
+				this.Log("sql query", query_in);
 			}
 
 			command_in.CommandType = CommandType.Text;
@@ -598,8 +598,8 @@ namespace OGen.lib.datalayer {
 					string.Format(
 						"--- query:\n{0}\n\n--- ConnectionString:\n{1}|{2}\n\n--- exception:\n{3}\n\n--- inner-exception:\n{4}\n",
 						query_in,
-						DBServerType, 
-						connectionstring_, 
+						this.DBServerType,
+						this.connectionstring_, 
 						_ex.Message, 
 						_ex.InnerException
 					)
@@ -623,27 +623,27 @@ namespace OGen.lib.datalayer {
 				throw new InvalidSQLQueryException_empty();
 			#endregion
 
-			if (isopen_) {
+			if (this.isopen_) {
 				#region Using Opened Connection...
-				IDbCommand _command = newDBCommand(
-					query_in, 
-					exposeConnection
+				IDbCommand _command = this.newDBCommand(
+					query_in,
+					this.exposeConnection
 				);
-				Execute_SQLQuery(query_in, _command);
+				this.Execute_SQLQuery(query_in, _command);
 				_command.Dispose(); _command = null;
 				#endregion
 			} else {
 				#region Opening, Using and Closing Connection...
-				exposeConnection.Open();
+				this.exposeConnection.Open();
 
-				IDbCommand _command = newDBCommand(
-					query_in, 
-					exposeConnection
+				IDbCommand _command = this.newDBCommand(
+					query_in,
+					this.exposeConnection
 				);
-				Execute_SQLQuery(query_in, _command);
+				this.Execute_SQLQuery(query_in, _command);
 				_command.Dispose(); _command = null;
 
-				exposeConnection.Close();
+				this.exposeConnection.Close();
 				#endregion
 			}
 		}
@@ -652,28 +652,28 @@ namespace OGen.lib.datalayer {
 		#region public DataSet Execute_SQLQuery_returnDataSet(...);
 		#region private DataSet Execute_SQLQuery_returnDataSet(...);
 		private DataSet Execute_SQLQuery_returnDataSet(string query_in, IDbConnection connection_in) {
-			DataSet Execute_SQLQuery_returnDataSet_out;
+			DataSet _output;
 
-			if (Logenabled) {
-				Log("sql query", query_in);
+			if (this.Logenabled) {
+				this.Log("sql query", query_in);
 			}
 
-			IDbDataAdapter _dataadapter  = newDBDataAdapter(
+			IDbDataAdapter _dataadapter = this.newDBDataAdapter(
 				query_in, 
 				connection_in, 
 				true
 			);
 			try {
-				Execute_SQLQuery_returnDataSet_out = new DataSet();
-				_dataadapter.Fill(Execute_SQLQuery_returnDataSet_out);
+				_output = new DataSet();
+				_dataadapter.Fill(_output);
 			} catch (Exception _ex) {
 				#region throw new Exception("...");
 				throw new Exception(
 					string.Format(
 						"query: {0}\nConnectionString: {1}|{2}\nexception: {3}\ninner-exception: {4}\n",
 						query_in,
-						DBServerType, 
-						connectionstring_,
+						this.DBServerType,
+						this.connectionstring_,
 						_ex.Message,
 						_ex.InnerException
 					)
@@ -683,7 +683,7 @@ namespace OGen.lib.datalayer {
 			//_dataadapter.Dispose(); // not implemented in IDbDataAdapter
 			_dataadapter = null;
 
-			return Execute_SQLQuery_returnDataSet_out;
+			return _output;
 		}
 		#endregion
 
@@ -697,36 +697,36 @@ namespace OGen.lib.datalayer {
 		/// <param name="query_in">SQL Query</param>
 		/// <returns>populated DataSet with SQL Query's Output</returns>
 		public DataSet Execute_SQLQuery_returnDataSet(string query_in) {
-			DataSet Execute_SQLQuery_returnDataSet_out;
+			DataSet _output;
 
 			#region Checking...
 			if (string.IsNullOrEmpty(query_in))
 				throw new InvalidSQLQueryException_empty();
 			#endregion
 
-			if (isopen_) {
+			if (this.isopen_) {
 				#region Using Opened Connection...
-				Execute_SQLQuery_returnDataSet_out
-					= Execute_SQLQuery_returnDataSet(
+				_output
+					= this.Execute_SQLQuery_returnDataSet(
 						query_in,
-						exposeConnection
+						this.exposeConnection
 					);
 				#endregion
 			} else {
 				#region Opening, Using and Closing Connection...
-				exposeConnection.Open();
+				this.exposeConnection.Open();
 
-				Execute_SQLQuery_returnDataSet_out
-					= Execute_SQLQuery_returnDataSet(
+				_output
+					= this.Execute_SQLQuery_returnDataSet(
 						query_in,
-						exposeConnection
+						this.exposeConnection
 					);
 
-				exposeConnection.Close();
+				this.exposeConnection.Close();
 				#endregion
 			}
 
-			return Execute_SQLQuery_returnDataSet_out;
+			return _output;
 		}
 		#endregion
 		#endregion
@@ -737,15 +737,15 @@ namespace OGen.lib.datalayer {
 		/// <param name="query_in">SQL Query</param>
 		/// <returns>populated DataTable with SQL Query's Output</returns>
 		public DataTable Execute_SQLQuery_returnDataTable(string query_in) {
-			DataTable Execute_SQLQuery_returnDataTable_out;
+			DataTable _output;
 
 			#region Execute_SQLQuery_returnDataTable_out = Execute_SQLQuery_returnDataSet(query_in).Tables[0];
-			DataSet _dataset = Execute_SQLQuery_returnDataSet(query_in);
-			Execute_SQLQuery_returnDataTable_out = _dataset.Tables[0];
+			DataSet _dataset = this.Execute_SQLQuery_returnDataSet(query_in);
+			_output = _dataset.Tables[0];
 			_dataset.Dispose(); _dataset = null;
 			#endregion
 
-			return Execute_SQLQuery_returnDataTable_out;
+			return _output;
 		}
 		#endregion
 		//---
@@ -766,7 +766,7 @@ namespace OGen.lib.datalayer {
 		/// <param name="function_in">SQL Function name</param>
 		/// <returns>populated Object with SQL Function's Output</returns>
 		public object Execute_SQLFunction(string function_in) {
-			return Execute_SQLFunction(
+			return this.Execute_SQLFunction(
 				function_in, 
 				new IDbDataParameter[] { }, 
 				DbType.Boolean, 
@@ -787,7 +787,7 @@ namespace OGen.lib.datalayer {
 			DbType returnValue_DbType_in, 
 			int returnValue_Size_in
 		) {
-			return Execute_SQLFunction(
+			return this.Execute_SQLFunction(
 				function_in, 
 				new IDbDataParameter[] { }, 
 				returnValue_DbType_in, 
@@ -806,7 +806,7 @@ namespace OGen.lib.datalayer {
 			string function_in, 
 			IDbDataParameter[] dataParameters_in
 		) {
-			return Execute_SQLFunction(
+			return this.Execute_SQLFunction(
 				function_in, 
 				dataParameters_in, 
 				DbType.Boolean, 
@@ -829,19 +829,19 @@ namespace OGen.lib.datalayer {
 			DbType returnValue_DbType_in,
 			int returnValue_Size_in
 		) {
-			object Execute_SQLFunction_out;
+			object _output;
 
-			if (isopen_) {
+			if (this.isopen_) {
 				#region Using Opened Connection...
-				IDbCommand _command = newDBCommand(
+				IDbCommand _command = this.newDBCommand(
 					function_in,
-					(IDbConnection)exposeConnection
+					(IDbConnection)this.exposeConnection
 				);
-				if ((transaction__ != null) && transaction__.inTransaction) {
-					_command.Transaction = transaction__.exposeTransaction;
+				if ((this.transaction__ != null) && this.transaction__.inTransaction) {
+					_command.Transaction = this.transaction__.exposeTransaction;
 				}
-				Execute_SQLFunction_out
-					= Execute_SQLFunction(
+				_output
+					= this.Execute_SQLFunction(
 						function_in,
 						dataParameters_in,
 						_command,
@@ -852,39 +852,39 @@ namespace OGen.lib.datalayer {
 				#endregion
 			} else {
 				#region Opening, Using and Closing Connection...
-				IDbCommand _command = newDBCommand(
+				IDbCommand _command = this.newDBCommand(
 					function_in,
-					exposeConnection
+					this.exposeConnection
 				);
 
-				exposeConnection.Open();
-				Execute_SQLFunction_out = Execute_SQLFunction(
+				this.exposeConnection.Open();
+				_output = this.Execute_SQLFunction(
 					function_in,
 					dataParameters_in,
 					_command,
 					returnValue_DbType_in,
 					returnValue_Size_in
 				);
-				exposeConnection.Close();
+				this.exposeConnection.Close();
 
 				_command.Dispose(); _command = null;
 				#endregion
 			}
 
-			return Execute_SQLFunction_out;
+			return _output;
 		}
 		#endregion
 		#endregion
 		#region public DataSet Execute_SQLFunction_returnDataSet(...);
 		#region private DataSet Execute_SQLFunction_returnDataSet(...);
 		private DataSet Execute_SQLFunction_returnDataSet(string function_in, IDbDataParameter[] dataParameters_in, IDbConnection connection_in) {
-			if (Logenabled) {
-				Log("sql function", function_in, dataParameters_in);
+			if (this.Logenabled) {
+				this.Log("sql function", function_in, dataParameters_in);
 			}
 
-			DataSet Execute_SQLFunction_returnDataSet_out;
+			DataSet _output;
 
-			IDbDataAdapter _dataadapter = newDBDataAdapter(
+			IDbDataAdapter _dataadapter = this.newDBDataAdapter(
 				function_in,
 				connection_in,
 				false
@@ -895,16 +895,16 @@ namespace OGen.lib.datalayer {
 				_dataadapter.SelectCommand.Parameters.Add(dataParameters_in[i]);
 			#endregion
 			try {
-				Execute_SQLFunction_returnDataSet_out = new DataSet();
-				_dataadapter.Fill(Execute_SQLFunction_returnDataSet_out);
+				_output = new DataSet();
+				_dataadapter.Fill(_output);
 			} catch (Exception _ex) {
 				throw new Exception(
 					string.Format(
 						"Stored Procedure: {0}({6})\nParameters: {1}\nConnectionString: {2}|{3}\nexception: {4}\ninner-exception: {5}\n",
 						function_in,
 						dataParameters_in,
-						DBServerType, 
-						connectionstring_,
+						this.DBServerType,
+						this.connectionstring_,
 						_ex.Message,
 						_ex.InnerException,
 						DBUtils.IDbDataParameter2String(dataParameters_in)
@@ -915,7 +915,7 @@ namespace OGen.lib.datalayer {
 			//_dataadapter.Dispose(); // not implemented in IDbDataAdapter
 			_dataadapter = null;
 
-			return Execute_SQLFunction_returnDataSet_out;
+			return _output;
 		}
 		#endregion
 		#region public DataSet Execute_SQLFunction_returnDataSet(string function_in);
@@ -925,7 +925,7 @@ namespace OGen.lib.datalayer {
 		/// <param name="function_in">SQL Function name</param>
 		/// <returns>populated DataSet with SQL Function's Output</returns>
 		public DataSet Execute_SQLFunction_returnDataSet(string function_in) {
-			return Execute_SQLFunction_returnDataSet(
+			return this.Execute_SQLFunction_returnDataSet(
 				function_in, 
 				new IDbDataParameter[] { }
 			);
@@ -942,33 +942,33 @@ namespace OGen.lib.datalayer {
 			string function_in, 
 			IDbDataParameter[] dataParameters_in
 		) {
-			DataSet Execute_SQLFunction_returnDataSet_out;
+			DataSet _output;
 
-			if (isopen_) {
+			if (this.isopen_) {
 				#region Using Opened Connection...
-				Execute_SQLFunction_returnDataSet_out
-					= Execute_SQLFunction_returnDataSet(
+				_output
+					= this.Execute_SQLFunction_returnDataSet(
 						function_in,
 						dataParameters_in,
-						exposeConnection
+						this.exposeConnection
 					);
 				#endregion
 			} else {
 				#region Opening, Using and Closing Connection...
-				exposeConnection.Open();
+				this.exposeConnection.Open();
 
-				Execute_SQLFunction_returnDataSet_out
-					= Execute_SQLFunction_returnDataSet(
+				_output
+					= this.Execute_SQLFunction_returnDataSet(
 						function_in,
 						dataParameters_in,
-						exposeConnection
+						this.exposeConnection
 					);
 
-				exposeConnection.Close();
+				this.exposeConnection.Close();
 				#endregion
 			}
 
-			return Execute_SQLFunction_returnDataSet_out;
+			return _output;
 		}
 		#endregion
 		#endregion
@@ -980,7 +980,7 @@ namespace OGen.lib.datalayer {
 		/// <param name="function_in">SQL Function name</param>
 		/// <returns>populated DataTable with SQL Function's Output</returns>
 		public DataTable Execute_SQLFunction_returnDataTable(string function_in) {
-			return Execute_SQLFunction_returnDataTable(
+			return this.Execute_SQLFunction_returnDataTable(
 				function_in, 
 				new IDbDataParameter[] { }
 			);
@@ -997,19 +997,19 @@ namespace OGen.lib.datalayer {
 			string function_in, 
 			IDbDataParameter[] dataParameters_in
 		) {
-			DataTable Execute_SQLFunction_returnDataTable_out;
+			DataTable _output;
 
 			#region Execute_SQLFunction_returnDataTable_out = Execute_SQLFunction_returnDataSet(function_in, dataParameters_in).Tables[0];
 			DataSet _dataset =
-				Execute_SQLFunction_returnDataSet(
+				this.Execute_SQLFunction_returnDataSet(
 					function_in,
 					dataParameters_in
 				);
-			Execute_SQLFunction_returnDataTable_out = _dataset.Tables[0];
+			_output = _dataset.Tables[0];
 			_dataset.Dispose(); _dataset = null;
 			#endregion
 
-			return Execute_SQLFunction_returnDataTable_out;
+			return _output;
 		}
 		#endregion
 		#endregion
@@ -1023,8 +1023,8 @@ namespace OGen.lib.datalayer {
 		/// <param name="name_in">SQL Function Name</param>
 		/// <returns>True if SQL Function exists, False if not</returns>
 		public bool SQLFunction_exists(string name_in) {
-			return (Execute_SQLQuery_returnDataTable(
-				SQLFunction_exists_query(name_in)
+			return (this.Execute_SQLQuery_returnDataTable(
+				this.SQLFunction_exists_query(name_in)
 			).Rows.Count == 1);
 		}
 		#endregion
@@ -1037,8 +1037,8 @@ namespace OGen.lib.datalayer {
 		/// <param name="name_in">SQL Function Name</param>
 		/// <returns>True if SQL Function existed and was deleted, False if not</returns>
 		public bool SQLFunction_delete(string name_in) {
-			if (SQLFunction_exists(name_in)) {
-				Execute_SQLQuery(SQLFunction_delete_query(name_in));
+			if (this.SQLFunction_exists(name_in)) {
+				this.Execute_SQLQuery(this.SQLFunction_delete_query(name_in));
 				return true;
 			} else {
 				return false;
@@ -1054,8 +1054,8 @@ namespace OGen.lib.datalayer {
 		/// <param name="name_in">SQL Stored Procedure Name</param>
 		/// <returns>True if SQL Stored Procedure exists, False if not</returns>
 		public bool SQLStoredProcedure_exists(string name_in) {
-			return (Execute_SQLQuery_returnDataTable(
-				SQLStoredProcedure_exists_query(name_in)
+			return (this.Execute_SQLQuery_returnDataTable(
+				this.SQLStoredProcedure_exists_query(name_in)
 			).Rows.Count == 1);
 		}
 		#endregion
@@ -1068,8 +1068,8 @@ namespace OGen.lib.datalayer {
 		/// <param name="name_in">SQL Stored Procedure Name</param>
 		/// <returns>True if SQL Stored Procedure existed and was deleted, False if not</returns>
 		public bool SQLStoredProcedure_delete(string name_in) {
-			if (SQLStoredProcedure_exists(name_in)) {
-				Execute_SQLQuery(SQLStoredProcedure_delete_query(name_in));
+			if (this.SQLStoredProcedure_exists(name_in)) {
+				this.Execute_SQLQuery(this.SQLStoredProcedure_delete_query(name_in));
 				return true;
 			} else {
 				return false;
@@ -1085,8 +1085,8 @@ namespace OGen.lib.datalayer {
 		/// <param name="name_in">SQL View Name</param>
 		/// <returns>True if SQL View exists, False if not</returns>
 		public bool SQLView_exists(string name_in) {
-			return (Execute_SQLQuery_returnDataTable(
-				SQLView_exists_query(name_in)
+			return (this.Execute_SQLQuery_returnDataTable(
+				this.SQLView_exists_query(name_in)
 			).Rows.Count == 1);
 		}
 		#endregion
@@ -1099,8 +1099,8 @@ namespace OGen.lib.datalayer {
 		/// <param name="name_in">SQL View Name</param>
 		/// <returns>True if SQL View existed and was deleted, False if not</returns>
 		public bool SQLView_delete(string name_in) {
-			if (SQLView_exists(name_in)) {
-				Execute_SQLQuery(SQLView_delete_query(name_in));
+			if (this.SQLView_exists(name_in)) {
+				this.Execute_SQLQuery(this.SQLView_delete_query(name_in));
 				return true;
 			} else {
 				return false;
@@ -1116,15 +1116,15 @@ namespace OGen.lib.datalayer {
 		/// </summary>
 		/// <returns>String array, representing a list of available Database names</returns>
 		public string[] getDBs() {
-			DataTable _datatable = Execute_SQLQuery_returnDataTable(getDBs_query());
+			DataTable _datatable = this.Execute_SQLQuery_returnDataTable(this.getDBs_query());
 
-			string[] _getdbs_out = new string[_datatable.Rows.Count];
+			string[] _output = new string[_datatable.Rows.Count];
 			for (int i = 0; i < _datatable.Rows.Count; i++)
-				_getdbs_out[i] = (string)_datatable.Rows[i][0];
+				_output[i] = (string)_datatable.Rows[i][0];
 
 			_datatable.Dispose(); _datatable = null;
 
-			return _getdbs_out;
+			return _output;
 		}
 		#endregion
 		#region public cDBTable[] getTables(...);
@@ -1143,7 +1143,7 @@ namespace OGen.lib.datalayer {
 		/// <returns>String array, representing a list of Table names</returns>
 		public DBTable[] getTables(
 		) {
-			return getTables(
+			return this.getTables(
 				string.Empty
 			);
 		}
@@ -1156,7 +1156,7 @@ namespace OGen.lib.datalayer {
 		public DBTable[] getTables(
 			string subAppName_in
 		) {
-			return getTables(
+			return this.getTables(
 				subAppName_in, 
 				null
 			);
@@ -1171,30 +1171,30 @@ namespace OGen.lib.datalayer {
 			string subAppName_in, 
 			string sqlFuncion_in
 		) {
-			DBTable[] getTables_out;
+			DBTable[] _output;
 
 			#region DataTable _dtemp = base.Execute_SQLQuery_returnDataTable(gettables(subAppName_in));
 			DataTable _dtemp;
 			if (string.IsNullOrEmpty(sqlFuncion_in)) {
-				_dtemp = Execute_SQLQuery_returnDataTable(
-					getTables_query(
-						Connectionstring_DBName, 
+				_dtemp = this.Execute_SQLQuery_returnDataTable(
+					this.getTables_query(
+						this.Connectionstring_DBName, 
 						subAppName_in
 					)
 				);
 			} else {
-				_dtemp = Execute_SQLFunction_returnDataTable(
+				_dtemp = this.Execute_SQLFunction_returnDataTable(
 					sqlFuncion_in,
 					new IDbDataParameter[] {
-						newDBDataParameter("dbName_", DbType.String, ParameterDirection.Input, Connectionstring_DBName, Connectionstring_DBName.Length), 
-						newDBDataParameter("subApp_", DbType.String, ParameterDirection.Input, subAppName_in, subAppName_in.Length)
+						this.newDBDataParameter("dbName_", DbType.String, ParameterDirection.Input, this.Connectionstring_DBName, this.Connectionstring_DBName.Length), 
+						this.newDBDataParameter("subApp_", DbType.String, ParameterDirection.Input, subAppName_in, subAppName_in.Length)
 					}
 				);
 			}
 			#endregion
-			getTables_out = new DBTable[_dtemp.Rows.Count];
+			_output = new DBTable[_dtemp.Rows.Count];
 			for (int r = 0; r < _dtemp.Rows.Count; r++) {
-				getTables_out[r] = new DBTable(
+				_output[r] = new DBTable(
 					(string)_dtemp.Rows[r][INFORMATION_SCHEMA_TABLES_TABLE_NAME],
 					(1 == (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_TABLES_IS_VIEW], typeof(int))),
 					(_dtemp.Rows[r][INFORMATION_SCHEMA_TABLES_TABLE_DESCRIPTION] == DBNull.Value) ? string.Empty : (string)_dtemp.Rows[r][INFORMATION_SCHEMA_TABLES_TABLE_DESCRIPTION]
@@ -1202,7 +1202,7 @@ namespace OGen.lib.datalayer {
 			}
 			_dtemp.Dispose(); _dtemp = null;
 
-			return getTables_out;
+			return _output;
 		}
 		#endregion
 		#region public cDBTableField[] getTableFields(...);
@@ -1233,7 +1233,7 @@ namespace OGen.lib.datalayer {
 		public DBTableField[] getTableFields(
 			string tableName_in
 		) {
-			return getTableFields(
+			return this.getTableFields(
 				tableName_in,
 				null
 			);
@@ -1248,77 +1248,77 @@ namespace OGen.lib.datalayer {
 			string tableName_in,
 			string sqlFuncion_in
 		) {
-			DBTableField[] getTableFields_out;
+			DBTableField[] _output;
 
 			#region DataTable _dtemp = ...;
 			DataTable _dtemp;
 			if (string.IsNullOrEmpty(sqlFuncion_in)) {
-				_dtemp = Execute_SQLQuery_returnDataTable(
-					getTableFields_query(
+				_dtemp = this.Execute_SQLQuery_returnDataTable(
+					this.getTableFields_query(
 						tableName_in
 					)
 				);
 			} else {
-				_dtemp = Execute_SQLFunction_returnDataTable(
+				_dtemp = this.Execute_SQLFunction_returnDataTable(
 					sqlFuncion_in,
 					new IDbDataParameter[] {
-						newDBDataParameter("dbName_", DbType.String, ParameterDirection.Input, Connectionstring_DBName, Connectionstring_DBName.Length), 
-						newDBDataParameter("tableName_", DbType.String, ParameterDirection.Input, tableName_in, tableName_in.Length)
+						this.newDBDataParameter("dbName_", DbType.String, ParameterDirection.Input, this.Connectionstring_DBName, this.Connectionstring_DBName.Length), 
+						this.newDBDataParameter("tableName_", DbType.String, ParameterDirection.Input, tableName_in, tableName_in.Length)
 					}
 				);
 			}
 			#endregion
 			bool _includetablename = _dtemp.Columns.Contains(INFORMATION_SCHEMA_COLUMNS_TABLE_NAME);
-			getTableFields_out = new DBTableField[_dtemp.Rows.Count];
+			_output = new DBTableField[_dtemp.Rows.Count];
 			for (int r = 0; r < _dtemp.Rows.Count; r++) {
-				getTableFields_out[r] = new DBTableField();
+				_output[r] = new DBTableField();
 
-				getTableFields_out[r].TableName 
+				_output[r].TableName 
 					= _includetablename
 						? (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_TABLE_NAME]
 						: string.Empty;
 
-				getTableFields_out[r].Name = (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLUMN_NAME];
+				_output[r].Name = (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLUMN_NAME];
 
 				// comment: some providers send int, other long, hence using convert change type:
 				//getTableFields_out[r].Size = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_CHARACTER_MAXIMUM_LENGTH] == DBNull.Value) ? 0 : (int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_CHARACTER_MAXIMUM_LENGTH];
-				getTableFields_out[r].Size = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_CHARACTER_MAXIMUM_LENGTH] == DBNull.Value) ? 0 : (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_CHARACTER_MAXIMUM_LENGTH], typeof(int));
+				_output[r].Size = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_CHARACTER_MAXIMUM_LENGTH] == DBNull.Value) ? 0 : (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_CHARACTER_MAXIMUM_LENGTH], typeof(int));
 
 				// comment: some providers send int, other long, hence using convert change type:
 				//getTableFields_out[r].isNullable = ((int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_NULLABLE] == 1);
-				getTableFields_out[r].isNullable = 1 == (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_NULLABLE], typeof(int));
+				_output[r].isNullable = 1 == (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_NULLABLE], typeof(int));
 
-				getTableFields_out[r].FK_TableName = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_FK_COLUMN_NAME] == DBNull.Value) ? string.Empty : (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_FK_TABLE_NAME];
+				_output[r].FK_TableName = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_FK_COLUMN_NAME] == DBNull.Value) ? string.Empty : (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_FK_TABLE_NAME];
 
-				getTableFields_out[r].FK_FieldName = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_FK_COLUMN_NAME] == DBNull.Value) ? string.Empty : (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_FK_COLUMN_NAME];
+				_output[r].FK_FieldName = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_FK_COLUMN_NAME] == DBNull.Value) ? string.Empty : (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_FK_COLUMN_NAME];
 
 				// comment: some providers send int, other long, hence using convert change type:
 				//getTableFields_out[r].isIdentity = ((int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_IDENTITY] == 1);
-				getTableFields_out[r].isIdentity = 1 == (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_IDENTITY], typeof(int));
+				_output[r].isIdentity = 1 == (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_IDENTITY], typeof(int));
 
 				// comment: some providers send int, other long, hence using convert change type:
 				//getTableFields_out[r].isPK = ((int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_PK] == 1);
-				getTableFields_out[r].isPK = 1 == (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_PK], typeof(int));
+				_output[r].isPK = 1 == (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_PK], typeof(int));
 
 				// comment: some providers send int, other long, hence using convert change type:
 				//getTableFields_out[r].Numeric_Precision = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_PRECISION] == DBNull.Value) ? 0 : (int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_PRECISION];
-				getTableFields_out[r].Numeric_Precision = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_PRECISION] == DBNull.Value) ? 0 : (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_PRECISION], typeof(int));
+				_output[r].Numeric_Precision = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_PRECISION] == DBNull.Value) ? 0 : (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_PRECISION], typeof(int));
 
 				// comment: some providers send int, other long, hence using convert change type:
 				//getTableFields_out[r].Numeric_Scale = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_SCALE] == DBNull.Value) ? 0 : (int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_SCALE];
-				getTableFields_out[r].Numeric_Scale = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_SCALE] == DBNull.Value) ? 0 : (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_SCALE], typeof(int));
+				_output[r].Numeric_Scale = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_SCALE] == DBNull.Value) ? 0 : (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_SCALE], typeof(int));
 
-				getTableFields_out[r].DBType_inDB_name = (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_DATA_TYPE];
+				_output[r].DBType_inDB_name = (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_DATA_TYPE];
 
-				getTableFields_out[r].DBDefaultValue = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLUMN_DEFAULT] == DBNull.Value) ? string.Empty : (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLUMN_DEFAULT];
+				_output[r].DBDefaultValue = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLUMN_DEFAULT] == DBNull.Value) ? string.Empty : (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLUMN_DEFAULT];
 
-				getTableFields_out[r].DBCollationName = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLLATION_NAME] == DBNull.Value) ? string.Empty : (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLLATION_NAME];
+				_output[r].DBCollationName = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLLATION_NAME] == DBNull.Value) ? string.Empty : (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLLATION_NAME];
 
-				getTableFields_out[r].DBDescription = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLUMN_DESCRIPTION] == DBNull.Value) ? string.Empty : (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLUMN_DESCRIPTION];
+				_output[r].DBDescription = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLUMN_DESCRIPTION] == DBNull.Value) ? string.Empty : (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLUMN_DESCRIPTION];
 			}
 			_dtemp.Dispose(); _dtemp = null;
 
-			return getTableFields_out;
+			return _output;
 		}
 		#endregion
 		//#endregion

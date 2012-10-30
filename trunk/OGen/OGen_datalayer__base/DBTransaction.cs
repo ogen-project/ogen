@@ -29,23 +29,23 @@ namespace OGen.lib.datalayer {
 		/// </summary>
 		/// <param name="parent_in">parent reference</param>
 		internal DBTransaction(DBConnection parent_in) {
-			parent_ = parent_in;
-			intransaction_ = false;
+			this.parent_ = parent_in;
+			this.intransaction_ = false;
 		}
 
 		~DBTransaction() {
-			Dispose(false);
+			this.Dispose(false);
 		}
 
 		#region public void Dispose();
 		public void Dispose() {
-			Dispose(true);
+			this.Dispose(true);
 			System.GC.SuppressFinalize(this);
 		}
 		private void Dispose(bool disposing_in) {
-			if (intransaction_) Terminate();
-			if (transaction_ != null) {
-				transaction_.Dispose(); transaction_ = null;
+			if (this.intransaction_) this.Terminate();
+			if (this.transaction_ != null) {
+				this.transaction_.Dispose(); this.transaction_ = null;
 			}
 		}
 		#endregion
@@ -147,7 +147,7 @@ namespace OGen.lib.datalayer {
 		/// Indicates the Transaction state, True if initiated, False if uninitiated.
 		/// </summary>
 		public bool inTransaction {
-			get { return intransaction_; }
+			get { return this.intransaction_; }
 		}
 		#endregion
 		#region public IDbTransaction exposeTransaction { get; }
@@ -158,7 +158,7 @@ namespace OGen.lib.datalayer {
 		/// </summary>
 		public IDbTransaction exposeTransaction {
 			get {
-				return transaction_;
+				return this.transaction_;
 			}
 		}
 		#endregion
@@ -170,7 +170,7 @@ namespace OGen.lib.datalayer {
 		/// Initiates Transaction.
 		/// </summary>
 		public void Begin() {
-			Begin(IsolationLevel.Serializable);
+			this.Begin(IsolationLevel.Serializable);
 		}
 
 		/// <summary>
@@ -184,14 +184,14 @@ namespace OGen.lib.datalayer {
 		/// </exception>
 		/// <param name="isolationLevel_in">One of the System.Data.IsolationLevel values</param>
 		public void Begin(IsolationLevel isolationLevel_in) {
-			if (intransaction_) {
+			if (this.intransaction_) {
 				throw new BeginException_alreadyInitiated();
-			} else if (!parent_.isOpen) {
+			} else if (!this.parent_.isOpen) {
 				throw new BeginException_closedConnection();
 			} else {
-				transaction_ = parent_.exposeConnection.BeginTransaction(isolationLevel_in);
+				this.transaction_ = this.parent_.exposeConnection.BeginTransaction(isolationLevel_in);
 
-				intransaction_ = true;
+				this.intransaction_ = true;
 			}
 		}
 		#endregion
@@ -203,11 +203,11 @@ namespace OGen.lib.datalayer {
 		/// Thrown when the Transaction is not initiated
 		/// </exception>
 		public void Commit() {
-			if (!intransaction_) {
+			if (!this.intransaction_) {
 				throw new InvalidTransactionStateException_uninitiated();
 			}
 
-			transaction_.Commit();
+			this.transaction_.Commit();
 		}
 		#endregion
 		#region public void Rollback(...);
@@ -218,11 +218,11 @@ namespace OGen.lib.datalayer {
 		/// Thrown when the Transaction is not initiated
 		/// </exception>
 		public void Rollback() {
-			if (!intransaction_) {
+			if (!this.intransaction_) {
 				throw new InvalidTransactionStateException_uninitiated();
 			}
 
-			transaction_.Rollback();
+			this.transaction_.Rollback();
 		}
 		#endregion
 		#region public void Terminate(...);
@@ -233,12 +233,12 @@ namespace OGen.lib.datalayer {
 		/// Thrown when the Transaction is not initiated
 		/// </exception>
 		public void Terminate() {
-			if (!intransaction_) {
+			if (!this.intransaction_) {
 				throw new InvalidTransactionStateException_uninitiated();
 			}
 
-			transaction_.Dispose(); transaction_ = null;
-			intransaction_ = false;
+			this.transaction_.Dispose(); this.transaction_ = null;
+			this.intransaction_ = false;
 		}
 		#endregion
 
@@ -246,11 +246,11 @@ namespace OGen.lib.datalayer {
 		#region //public void Save(...);
 		//public void Save(string savePointName_in) {
 		//	#region Checking...
-		//	if (!intransaction_)
+		//	if (!this.intransaction_)
 		//		throw InvalidTransactionStateException_uninitiated;
 		//	#endregion
 		//
-		//	transaction_.Save(savePointName_in);
+		//	this.transaction_.Save(savePointName_in);
 		//}
 		#endregion
 //		#region public void Rollback(...);
@@ -258,14 +258,14 @@ namespace OGen.lib.datalayer {
 		#region //public void Rollback(string savePointName_in);
 		//public void Rollback(string savePointName_in) {
 		//	#region Checking...
-		//	if (!intransaction_)
+		//	if (!this.intransaction_)
 		//		throw InvalidTransactionStateException_uninitiated;
 		//	#endregion
 		//
 		//	if (savePointName_in == "")
-		//		transaction_.Rollback();
+		//		this.transaction_.Rollback();
 		//	else
-		//		transaction_.Rollback(savePointName_in);
+		//		this.transaction_.Rollback(savePointName_in);
 		//}
 		#endregion
 		//#endregion

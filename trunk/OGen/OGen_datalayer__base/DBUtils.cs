@@ -173,7 +173,7 @@ namespace OGen.lib.datalayer {
 					return "bool"; //typeof(bool).Name;
 
 				case DbType.Int16:
-					return typeof(Int16).Name;
+					return typeof(short).Name;
 
 				case DbType.Int32:
 					return "int"; //typeof(int).Name;
@@ -182,13 +182,13 @@ namespace OGen.lib.datalayer {
 					return "long"; //typeof(long).Name;
 
 				case DbType.UInt16:
-					return typeof(UInt16).Name;
+					return typeof(ushort).Name;
 
 				case DbType.UInt32:
-					return typeof(UInt32).Name;
+					return typeof(uint).Name;
 
 				case DbType.UInt64:
-					return typeof(UInt64).Name;
+					return typeof(ulong).Name;
 
 				case DbType.String:
 				case DbType.StringFixedLength:
@@ -205,26 +205,26 @@ namespace OGen.lib.datalayer {
 					return typeof(Guid).Name;
 
 				case DbType.Byte:
-					return typeof(Byte).Name;
+					return typeof(byte).Name;
 
 				case DbType.Object:
-					return typeof(Object).Name;
+					return typeof(object).Name;
 
 				case DbType.Single:
 					// ToDos: here! check if appropriate...
-					return typeof(Single).Name;
+					return typeof(float).Name;
 
 				case DbType.Binary:
 					// ToDos: here! check if appropriate...
-					return typeof(Byte[]).Name;
+					return typeof(byte[]).Name;
 
 				case DbType.Decimal:
 					// ToDos: here! check if appropriate...
-					return typeof(Decimal).Name;
+					return typeof(decimal).Name;
 
 				case DbType.Double:
 					// ToDos: here! check if appropriate...
-					return typeof(Double).Name;
+					return typeof(double).Name;
 
 				case DbType.Currency:
 				case DbType.SByte:
@@ -363,7 +363,7 @@ namespace OGen.lib.datalayer {
 				case DbType.DateTime:
 				case DbType.Date:
 				case DbType.Time:
-					return object2SQLobject(
+					return this.object2SQLobject(
 						datetime_minvalue_
 					);
 
@@ -400,7 +400,7 @@ namespace OGen.lib.datalayer {
 
 		#region public DbType DbType_Parse(string value_in);
 		public DbType DbType_Parse(string value_in) {
-			return DbType_Parse(value_in, true);
+			return this.DbType_Parse(value_in, true);
 		}
 		public DbType DbType_Parse(string value_in, bool caseSensitive_in) {
 #if NET_1_1
@@ -430,7 +430,7 @@ namespace OGen.lib.datalayer {
 		#endregion
 		#region public abstract int XDbType_Parse(string value_in, bool caseSensitive_in);
 		public int XDbType_Parse(string value_in) {
-			return XDbType_Parse(value_in, true);
+			return this.XDbType_Parse(value_in, true);
 		}
 		public abstract int XDbType_Parse(string value_in, bool caseSensitive_in);
 		#endregion

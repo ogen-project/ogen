@@ -27,9 +27,9 @@ namespace OGen.lib.datalayer {
 			bool isVirtualTable_in, 
 			string dbDescription_in
 		) {
-			Name = name_in;
-			isVirtualTable = isVirtualTable_in;
-			DBDescription = dbDescription_in;
+			this.Name = name_in;
+			this.isVirtualTable = isVirtualTable_in;
+			this.DBDescription = dbDescription_in;
 		}
 
 		/// <summary>

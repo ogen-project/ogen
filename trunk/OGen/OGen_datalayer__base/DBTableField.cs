@@ -49,8 +49,8 @@ namespace OGen.lib.datalayer {
 		#region public virtual string DBType_inDB_name { get; set; }
 		private string dbtype_indb_name_;
 		public virtual string DBType_inDB_name {
-			get { return dbtype_indb_name_; }
-			set { dbtype_indb_name_ = value; }
+			get { return this.dbtype_indb_name_; }
+			set { this.dbtype_indb_name_ = value; }
 		}
 		#endregion
 
@@ -90,7 +90,7 @@ namespace OGen.lib.datalayer {
 		public int Numeric_Scale;
 
 		public override string ToString() {
-			return Name;
+			return this.Name;
 		}
 	}
 }
