@@ -26,20 +26,20 @@ namespace OGen.lib.generator {
 			dbServerType_in, 
 			connectionstring_in
 		) {
-			connection_ = null;
+			this.connection_ = null;
 		}
 		~DBConnectionstring() {
-			Dispose(false);
+			this.Dispose(false);
 		}
 		/// <summary>
 		/// Closes Connection if it was left open.
 		/// </summary>
 		public void Dispose() {
-			Dispose(true);
+			this.Dispose(true);
 			System.GC.SuppressFinalize(this);
 		}
 		private void Dispose(bool disposing_in) {
-			Connection_clearInstance();
+			this.Connection_clearInstance();
 		}
 		#endregion
 
@@ -47,8 +47,8 @@ namespace OGen.lib.generator {
 		private DBConnection connection_;
 
 		internal DBConnection Connection {
-			get { return connection_; }
-			set { connection_ = value; }
+			get { return this.connection_; }
+			set { this.connection_ = value; }
 		}
 		#endregion
 
@@ -64,16 +64,16 @@ namespace OGen.lib.generator {
 
 		#region internal void Connection_createInstance();
 		internal void Connection_createInstance() {
-			connection_ = DBConnectionsupport.CreateInstance(
-				dbservertype_, 
-				connectionstring_
+			this.connection_ = DBConnectionsupport.CreateInstance(
+				this.dbservertype_,
+				this.connectionstring_
 			);
 		}
 		#endregion
 		#region internal void Connection_clearInstance();
 		internal void Connection_clearInstance() {
-			if (connection_ == null) return;
-			connection_.Dispose(); connection_ = null;
+			if (this.connection_ == null) return;
+			this.connection_.Dispose(); this.connection_ = null;
 		}
 		#endregion
 	}

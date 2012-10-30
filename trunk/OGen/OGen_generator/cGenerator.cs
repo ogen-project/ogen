@@ -12,16 +12,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Collections;
-using System.Web;
-using OGen.lib.collections;
-using OGen.lib.templates;
-using OGen.lib.datalayer;
-using OGen.lib.parser;
 
 namespace OGen.lib.generator {
+	using System;
+	using System.Collections;
+	using System.IO;
+	using System.Web;
+	using OGen.lib.collections;
+	using OGen.lib.datalayer;
+	using OGen.lib.parser;
+	using OGen.lib.templates;
+
 	public class cGenerator {
 		#region public cGenerator(...);
 		public cGenerator(
@@ -49,10 +50,10 @@ namespace OGen.lib.generator {
 			params MetaFile[] metaFiles_in
 		) {
 			//---
-			xmltemplatesfileuri_ = new Uri(xmlTemplatesFile_in);
-			dbconnectionstrings_ = dbConnectionStrings_in;
-			outputdir_ = outputDir_in;
-			metafiles_ = metaFiles_in;
+			this.xmltemplatesfileuri_ = new Uri(xmlTemplatesFile_in);
+			this.dbconnectionstrings_ = dbConnectionStrings_in;
+			this.outputdir_ = outputDir_in;
+			this.metafiles_ = metaFiles_in;
 			//---
 		}
 		#endregion
@@ -71,21 +72,21 @@ namespace OGen.lib.generator {
 		private MetaFile[] metafiles_;
 
 		public MetaFile[] Metafiles {
-			get { return metafiles_; }
+			get { return this.metafiles_; }
 		}
 		#endregion
 		#region DBConnectionstrings DBConnectionstrings { get; }
 		private DBConnectionstrings dbconnectionstrings_;
 
 		public DBConnectionstrings DBConnectionstrings {
-			get { return dbconnectionstrings_; }
+			get { return this.dbconnectionstrings_; }
 		}
 		#endregion
 		#region string OutputDir { get; }
 		private string outputdir_;
 
 		public string OutputDir {
-			get { return outputdir_; }
+			get { return this.outputdir_; }
 		}
 		#endregion
 		#endregion
@@ -113,7 +114,7 @@ namespace OGen.lib.generator {
 							: ""
 					)
 
-					+ translate(
+					+ this.translate(
 						translateFully_out.Substring(
 							_begin + 2, 
 							_end - _begin - 2
@@ -149,12 +150,12 @@ namespace OGen.lib.generator {
 				#endregion
 				#region case "CONFIG.outputPath": translate_out = ...; break;
 				case "CONFIG.outputPath":
-					translate_out = outputdir_;
+					translate_out = this.outputdir_;
 					break;
 				#endregion
 //#region case "CONFIG.outputPath": translate_out = ...; break;
 case "CONFIG.metadatasPath":
-	translate_out = Path.GetDirectoryName(Metafiles[0].Path);
+	translate_out = Path.GetDirectoryName(this.Metafiles[0].Path);
 	break;
 //#endregion
 //				#region default: translate_out = ...; break;
@@ -189,7 +190,7 @@ case "CONFIG.metadatasPath":
 						}
 					}
 
-					translate_out = metadata_.Read_fromRoot(
+					translate_out = this.metadata_.Read_fromRoot(
 						translate_out
 					);
 //					#endregion
@@ -215,7 +216,7 @@ case "CONFIG.metadatasPath":
 			int _verifiedConditions = 0;
 			for (int c = 0; c < template_in.Conditions.ConditionCollection.Count; c++) {
 				if (
-					translate(
+					this.translate(
 						template_in.Conditions.ConditionCollection[c].Eval, 
 						message_in
 					)
@@ -231,7 +232,7 @@ case "CONFIG.metadatasPath":
 					_args.Add(
 						template_in.Arguments.ArgumentCollection[a].Name, 
 						//System.Web.HttpUtility.UrlEncode(
-							translateFully(
+							this.translateFully(
 								template_in.Arguments.ArgumentCollection[a].Value, 
 								message_in
 							)
@@ -283,7 +284,7 @@ case "CONFIG.metadatasPath":
 						#endregion
 					}
 					#endregion
-					string _ouputTo = translateFully(
+					string _ouputTo = this.translateFully(
 						template_in.Outputs.OutputCollection[o].To, 
 						message_in
 					);
@@ -363,17 +364,17 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 							System.Text.StringBuilder _stringbuilder = new System.Text.StringBuilder();
 							StringWriter _stringwriter = new StringWriter(_stringbuilder);
 
-							string _xmltemplatesfile 
-								= xmltemplatesdir_ 
-								+ (xmltemplatesfileuri_.IsFile
+							string _xmltemplatesfile
+								= this.xmltemplatesdir_
+								+ (this.xmltemplatesfileuri_.IsFile
 									? Path.DirectorySeparatorChar.ToString() 
 									: "/")
 								+ template_in.Name;
 							ParserXSLT.Parse(
 //xmlmetadatafile_, 
-metafiles_[
+this.metafiles_[
 	utils.MetaFile_find(
-		metafiles_, 
+		this.metafiles_, 
 		message_in.Split('.')[1]
 	)
 ].Path, 
@@ -384,11 +385,11 @@ metafiles_[
 
 							_parsedOutput = _stringbuilder.ToString();
 						} else {
-							if (xmltemplatesfileuri_.IsFile) {
+							if (this.xmltemplatesfileuri_.IsFile) {
 								switch (template_in.ParserType) {
 									case XS_ParserEnumeration.aspx: {
 										ParserASPX.Parse(
-											xmltemplatesdir_, 
+											this.xmltemplatesdir_, 
 											template_in.Name, 
 											_args, 
 											out _parsedOutput
@@ -409,7 +410,7 @@ if (template_in.Outputs.OutputCollection[o].Type == XS_OutputEnumeration.File) {
 	// needs to be read
 	_parsedOutput = new StreamReader(
 		Path.Combine(
-			xmltemplatesdir_,
+			this.xmltemplatesdir_,
 			template_in.Name
 		)
 	).ReadToEnd();
@@ -427,7 +428,7 @@ if (template_in.Outputs.OutputCollection[o].Type == XS_OutputEnumeration.File) {
 									case XS_ParserEnumeration.aspx:
 									case XS_ParserEnumeration.none: {
 										_parsedOutput = OGen.lib.presentationlayer.webforms.utils.ReadURL_ToString(
-											xmltemplatesdir_ + "/" + template_in.Name, 
+											this.xmltemplatesdir_ + "/" + template_in.Name, 
 											_args
 										);
 
@@ -469,7 +470,7 @@ if (
 								if (
 									(template_in.ParserType == XS_ParserEnumeration.none)
 									&&
-									(xmltemplatesfileuri_.IsFile)
+									(this.xmltemplatesfileuri_.IsFile)
 								) {
 //									#region File.Copy(...);
 // ToDos: here!
@@ -479,7 +480,7 @@ if (
 	throw new Exception(string.Format("not implemented (at template: {0})", template_in.Name));
 									File.Copy(
 										Path.Combine(
-											xmltemplatesdir_, 
+											this.xmltemplatesdir_, 
 											template_in.Name
 										), 
 										_ouputTo, 
@@ -653,44 +654,44 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 			Statistics statistics_in,
 			params string[] templateTypes_in
 		) {
-			notifyback_ = notifyBack_in;
-			//notifyback_("- common items", true);
+			this.notifyback_ = notifyBack_in;
+			//this.notifyback_("- common items", true);
 
-			if (xmltemplatesfileuri_.IsFile) {
-				xmltemplatesdir_ = Path.GetDirectoryName(
-					xmltemplatesfileuri_.LocalPath
+			if (this.xmltemplatesfileuri_.IsFile) {
+				this.xmltemplatesdir_ = Path.GetDirectoryName(
+					this.xmltemplatesfileuri_.LocalPath
 				);
 			} else {
-				xmltemplatesdir_ = xmltemplatesfileuri_.ToString().Substring(
-					0, 
-					xmltemplatesfileuri_.ToString().LastIndexOf("/")
+				this.xmltemplatesdir_ = this.xmltemplatesfileuri_.ToString().Substring(
+					0,
+					this.xmltemplatesfileuri_.ToString().LastIndexOf("/")
 				);
 			}
 
-			//metadata_ = new cDBMetadata(xmlmetadatafile_, xmlmetadataroot_);
-			metadata_ = metadata_in;
+			//this.metadata_ = new cDBMetadata(this.xmlmetadatafile_, this.xmlmetadataroot_);
+			this.metadata_ = metadata_in;
 //            if (loadMetadata_in) {
 //// ToDos: now! index must be sinchronized, not very convenient :(
-//                for (int m = 0; m < metadatas_.Length; m++) {
-//                    metadatas_[m].LoadState_fromFile(
-//                        //xmlmetadatafile_, 
-//                        metafiles_[m].Path, 
-//                        //xmlmetadataroot_
-//                        metafiles_[m].Root
+//                for (int m = 0; m < this.metadatas_.Length; m++) {
+//                    this.metadatas_[m].LoadState_fromFile(
+//                        //this.xmlmetadatafile_, 
+//                        this.metafiles_[m].Path, 
+//                        //this.xmlmetadataroot_
+//                        this.metafiles_[m].Root
 //                    );
 //                }
 //            }
 
-			templates_ = (xmltemplatesfileuri_.IsFile)
-				? XS__templates.Load_fromFile(xmltemplatesfileuri_.LocalPath)[0]
-				: XS__templates.Load_fromURI(xmltemplatesfileuri_)[0]
+			this.templates_ = (this.xmltemplatesfileuri_.IsFile)
+				? XS__templates.Load_fromFile(this.xmltemplatesfileuri_.LocalPath)[0]
+				: XS__templates.Load_fromURI(this.xmltemplatesfileuri_)[0]
 			;
 
 			#region int _templateName_MaxLength = ...;
 			int _templateName_MaxLength = 0;
-			for (int i = 0; i < templates_.TemplateCollection.Count; i++) {
-				if (templates_.TemplateCollection[i].ID.Length > _templateName_MaxLength) {
-					_templateName_MaxLength = templates_.TemplateCollection[i].ID.Length;
+			for (int i = 0; i < this.templates_.TemplateCollection.Count; i++) {
+				if (this.templates_.TemplateCollection[i].ID.Length > _templateName_MaxLength) {
+					_templateName_MaxLength = this.templates_.TemplateCollection[i].ID.Length;
 				}
 			}
 			#endregion
@@ -700,11 +701,11 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 				= new worker.WorkItem[templates_.TemplateCollection.Count];
 #else
 			OGen.lib.worker.WorkItem<XS_templateType>[] _templatesState
-				= new worker.WorkItem<XS_templateType>[templates_.TemplateCollection.Count];
+				= new worker.WorkItem<XS_templateType>[this.templates_.TemplateCollection.Count];
 #endif
 			int _threadIterarionCounter = 0;
 			object _threadIterarionCounterLocker = new object();
-			for (int i = 0; i < templates_.TemplateCollection.Count; i++) {
+			for (int i = 0; i < this.templates_.TemplateCollection.Count; i++) {
 
 				// must check priorities, hence Waiting, otherwise Ready
 				#region WorkItemState _state = (skipping) ? WorkItemState.Done : WorkItemState.Waiting;
@@ -715,24 +716,24 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 					&&
 					(templateTypes_in.Length > 0)
 					&&
-					!string.IsNullOrEmpty(templates_.TemplateCollection[i].TemplateType)
+					!string.IsNullOrEmpty(this.templates_.TemplateCollection[i].TemplateType)
 					&&
 					!OGen.lib.utils.StringArrayContains(
 						templateTypes_in,
-						templates_.TemplateCollection[i].TemplateType
+						this.templates_.TemplateCollection[i].TemplateType
 					)
 				) {
 					string _stepNum = (++_threadIterarionCounter).ToString();
-					string _stepOf = templates_.TemplateCollection.Count.ToString();
-					notifyback_(
+					string _stepOf = this.templates_.TemplateCollection.Count.ToString();
+					this.notifyback_(
 						string.Format(
 							"thread 0: {0}#{1}/{2} - {3} {4} skipping!",
-							"".PadLeft(_stepOf.Length - _stepNum.Length, ' '),
+							string.Empty.PadLeft(_stepOf.Length - _stepNum.Length, ' '),
 							_stepNum,
 							_stepOf,
-							templates_.TemplateCollection[i].ID,
+							this.templates_.TemplateCollection[i].ID,
 
-							"".PadLeft(_templateName_MaxLength - templates_.TemplateCollection[i].ID.Length + 3, '.')
+							string.Empty.PadLeft(_templateName_MaxLength - this.templates_.TemplateCollection[i].ID.Length + 3, '.')
 						),
 						true
 					);
@@ -746,7 +747,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 #else
 				_templatesState[i] = new OGen.lib.worker.WorkItem<XS_templateType>(
 #endif
-					templates_.TemplateCollection[i],
+					this.templates_.TemplateCollection[i],
 					_state
 				);
 			}
@@ -757,10 +758,10 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 			for (int t = 0; t < _workthreads.Length; t++) {
 				#region DBConnectionstrings _dbconnectionstrings = ...;
 				DBConnectionstrings _dbconnectionstrings = new DBConnectionstrings();
-				for (int d = 0; d < dbconnectionstrings_.Count; d++) {
+				for (int d = 0; d < this.dbconnectionstrings_.Count; d++) {
 					_dbconnectionstrings.Add(
-						dbconnectionstrings_[d].DBServerType,
-						dbconnectionstrings_[d].Connectionstring
+						this.dbconnectionstrings_[d].DBServerType,
+						this.dbconnectionstrings_[d].Connectionstring
 					);
 				}
 				for (int d = 0; d < _dbconnectionstrings.Count; d++) {
@@ -834,11 +835,11 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 							#region RUNNING: _template ...
 
 							bool _valuehasbeenfound_out = false;
-							metadata_.IterateThrough_fromRoot(
+							this.metadata_.IterateThrough_fromRoot(
 								_template.IterationType,
 								new utils.IterationFoundDelegate(
 									delegate(string message_in) {
-										notifyme(
+										this.notifyme(
 											message_in,
 											_template,
 											_dbconnectionstrings,
@@ -862,15 +863,15 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 							TimeSpan _end = new TimeSpan(DateTime.Now.Ticks - _begin);
 #endif
 							string _stepNum = _threaditerarion.ToString();
-							string _stepOf = templates_.TemplateCollection.Count.ToString();
-							notifyback_(
+							string _stepOf = this.templates_.TemplateCollection.Count.ToString();
+							this.notifyback_(
 								string.Format(
 #if DEBUG
 									"thread {6}: {0}#{1}/{2} - {3} {4} {5} ({7}s {8}m)",
 #else
 									"thread {6}: {0}#{1}/{2} - {3} {4} {5}",
 #endif
-									"".PadLeft(_stepOf.Length - _stepNum.Length, ' '),
+									string.Empty.PadLeft(_stepOf.Length - _stepNum.Length, ' '),
 									_stepNum,
 									_stepOf,
 #if NET_1_1
@@ -878,7 +879,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 									"".PadLeft(_templateName_MaxLength - ((XS_templateType)template_in).ID.Length + 3, '.'),
 #else
 									template_in.ID,
-									"".PadLeft(_templateName_MaxLength - template_in.ID.Length + 3, '.'),
+									string.Empty.PadLeft(_templateName_MaxLength - template_in.ID.Length + 3, '.'),
 #endif
 									(_valuehasbeenfound_out ? "DONE!" : "NOT doing!"),
 									System.Threading.Thread.CurrentThread.Name
@@ -960,7 +961,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 			MetadataInterface metadata_in,
 			params string[] templateTypes_in
 		) {
-			Build(
+			this.Build(
 				notifyBack_in,
 				metadata_in,
 				null,
@@ -973,7 +974,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 			Statistics statistics_in,
 			params string[] templateTypes_in
 		) {
-			build(
+			this.build(
 				notifyBack_in, 
 //				false, 
 				metadata_in,

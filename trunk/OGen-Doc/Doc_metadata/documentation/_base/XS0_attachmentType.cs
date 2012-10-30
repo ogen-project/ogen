@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.Doc.lib.metadata.documentation {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_attachmentType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 			}
 			get { return parent_ref_; }
 		}
@@ -40,7 +42,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 			}
 			get { return root_ref_; }
 		}
@@ -51,10 +53,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("title")]
 		public string Title {
 			get {
-				return title_;
+				return this.title_;
 			}
 			set {
-				title_ = value;
+				this.title_ = value;
 			}
 		}
 		#endregion
@@ -64,10 +66,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("showTitle")]
 		public bool ShowTitle {
 			get {
-				return showtitle_;
+				return this.showtitle_;
 			}
 			set {
-				showtitle_ = value;
+				this.showtitle_ = value;
 			}
 		}
 		#endregion
@@ -77,10 +79,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("incrementLevel")]
 		public bool IncrementLevel {
 			get {
-				return incrementlevel_;
+				return this.incrementlevel_;
 			}
 			set {
-				incrementlevel_ = value;
+				this.incrementlevel_ = value;
 			}
 		}
 		#endregion
@@ -90,10 +92,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("source")]
 		public string Source {
 			get {
-				return source_;
+				return this.source_;
 			}
 			set {
-				source_ = value;
+				this.source_ = value;
 			}
 		}
 		#endregion
@@ -103,10 +105,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("sourceType")]
 		public XS_SourceTypeEnumeration SourceType {
 			get {
-				return sourcetype_;
+				return this.sourcetype_;
 			}
 			set {
-				sourcetype_ = value;
+				this.sourcetype_ = value;
 			}
 		}
 		#endregion
@@ -116,10 +118,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("sourceContentType")]
 		public XS_SourceContentTypeEnumeration SourceContentType {
 			get {
-				return sourcecontenttype_;
+				return this.sourcecontenttype_;
 			}
 			set {
-				sourcecontenttype_ = value;
+				this.sourcecontenttype_ = value;
 			}
 		}
 		#endregion
@@ -129,23 +131,23 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("description")]
 		public string Description {
 			get {
-				return description_;
+				return this.description_;
 			}
 			set {
-				description_ = value;
+				this.description_ = value;
 			}
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_attachmentType attachmentType_in) {
-			title_ = attachmentType_in.title_;
-			showtitle_ = attachmentType_in.showtitle_;
-			incrementlevel_ = attachmentType_in.incrementlevel_;
-			source_ = attachmentType_in.source_;
-			sourcetype_ = attachmentType_in.sourcetype_;
-			sourcecontenttype_ = attachmentType_in.sourcecontenttype_;
-			description_ = attachmentType_in.description_;
+			this.title_ = attachmentType_in.title_;
+			this.showtitle_ = attachmentType_in.showtitle_;
+			this.incrementlevel_ = attachmentType_in.incrementlevel_;
+			this.source_ = attachmentType_in.source_;
+			this.sourcetype_ = attachmentType_in.sourcetype_;
+			this.sourcecontenttype_ = attachmentType_in.sourcecontenttype_;
+			this.description_ = attachmentType_in.description_;
 		}
 		#endregion
 	}

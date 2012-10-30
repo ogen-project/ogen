@@ -12,13 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Xml.Serialization;
 
-using OGen.lib.generator;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.IO;
+	using System.Xml.Serialization;
+
+	using OGen.lib.generator;
+
 	#if NET_1_1
 	public class XS0__metadataExtended : XS_metadataExtendedType, MetadataInterface {
 	#else
@@ -33,7 +35,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 		[XmlIgnore()]
 		public string Root_MetadataExtended {
-			get { return root_metadataextended_; }
+			get { return this.root_metadataextended_; }
 		}
 		#endregion
 
@@ -164,10 +166,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public string Read_fromRoot(string what_in) {
 			return OGen.lib.generator.utils.ReflectThrough(
 				this, 
-				Root_MetadataExtended, 
+				this.Root_MetadataExtended, 
 				null, 
 				what_in, 
-				Root_MetadataExtended, 
+				this.Root_MetadataExtended, 
 				true, 
 				true
 			);
@@ -181,10 +183,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		) {
 			OGen.lib.generator.utils.ReflectThrough(
 				this, 
-				Root_MetadataExtended, 
+				this.Root_MetadataExtended, 
 				iteration_found_in, 
 				iteration_in, 
-				Root_MetadataExtended, 
+				this.Root_MetadataExtended, 
 				false, 
 				true, 
 				ref valueHasBeenFound_out

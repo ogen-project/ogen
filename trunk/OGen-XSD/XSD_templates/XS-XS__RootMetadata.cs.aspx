@@ -40,15 +40,16 @@ if ((_aux_rootmetadata.MetadataCollection[0].CopyrightText != string.Empty) && (
 */
 #endregion
 <%
-}%>using System;
-using System.Xml.Serialization;
-
-<%
-for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {%>
-using <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>;<%
 }%>
 
 namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
+	using System;
+	using System.Xml.Serialization;
+<%
+	for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {%>
+	using <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>;<%
+	}%>
+
 	#if NET_1_1
 	public class <%=XS__%>RootMetadata : <%=XS0__%>RootMetadata {
 	#else

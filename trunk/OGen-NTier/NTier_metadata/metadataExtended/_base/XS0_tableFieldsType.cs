@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_tableFieldsType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				tablefieldcollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				tablefieldcollection_.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,13 +55,13 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 		[XmlElement("tableField")]
 		public XS_tableFieldType[] tablefieldcollection__xml {
-			get { return tablefieldcollection_.cols__; }
-			set { tablefieldcollection_.cols__ = value; }
+			get { return this.tablefieldcollection_.cols__; }
+			set { this.tablefieldcollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_tableFieldTypeCollection TableFieldCollection {
-			get { return tablefieldcollection_; }
+			get { return this.tablefieldcollection_; }
 		}
 		#endregion
 
@@ -67,13 +69,13 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public void CopyFrom(XS_tableFieldsType tableFieldsType_in) {
 			int _index = -1;
 
-			tablefieldcollection_.Clear();
+			this.tablefieldcollection_.Clear();
 			for (int d = 0; d < tableFieldsType_in.tablefieldcollection_.Count; d++) {
-				tablefieldcollection_.Add(
+				this.tablefieldcollection_.Add(
 					out _index,
 					new XS_tableFieldType()
 				);
-				tablefieldcollection_[_index].CopyFrom(
+				this.tablefieldcollection_[_index].CopyFrom(
 					tableFieldsType_in.tablefieldcollection_[d]
 				);
 			}

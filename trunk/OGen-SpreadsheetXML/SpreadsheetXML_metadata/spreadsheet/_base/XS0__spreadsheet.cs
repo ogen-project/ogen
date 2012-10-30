@@ -12,13 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Xml.Serialization;
 
-using OGen.lib.generator;
 
 namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
+	using System;
+	using System.IO;
+	using System.Xml.Serialization;
+
+	using OGen.lib.generator;
+
 	#if NET_1_1
 	public class XS0__spreadsheet : XS_spreadsheetType, MetadataInterface {
 	#else
@@ -33,7 +35,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 
 		[XmlIgnore()]
 		public string Root_Spreadsheet {
-			get { return root_spreadsheet_; }
+			get { return this.root_spreadsheet_; }
 		}
 		#endregion
 
@@ -164,10 +166,10 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		public string Read_fromRoot(string what_in) {
 			return OGen.lib.generator.utils.ReflectThrough(
 				this, 
-				Root_Spreadsheet, 
+				this.Root_Spreadsheet, 
 				null, 
 				what_in, 
-				Root_Spreadsheet, 
+				this.Root_Spreadsheet, 
 				true, 
 				true
 			);
@@ -181,10 +183,10 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		) {
 			OGen.lib.generator.utils.ReflectThrough(
 				this, 
-				Root_Spreadsheet, 
+				this.Root_Spreadsheet, 
 				iteration_found_in, 
 				iteration_in, 
-				Root_Spreadsheet, 
+				this.Root_Spreadsheet, 
 				false, 
 				true, 
 				ref valueHasBeenFound_out

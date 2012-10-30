@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataBusiness {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_methodsType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				methodcollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				methodcollection_.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,13 +55,13 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 
 		[XmlElement("method")]
 		public XS_methodType[] methodcollection__xml {
-			get { return methodcollection_.cols__; }
-			set { methodcollection_.cols__ = value; }
+			get { return this.methodcollection_.cols__; }
+			set { this.methodcollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_methodTypeCollection MethodCollection {
-			get { return methodcollection_; }
+			get { return this.methodcollection_; }
 		}
 		#endregion
 
@@ -67,13 +69,13 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		public void CopyFrom(XS_methodsType methodsType_in) {
 			int _index = -1;
 
-			methodcollection_.Clear();
+			this.methodcollection_.Clear();
 			for (int d = 0; d < methodsType_in.methodcollection_.Count; d++) {
-				methodcollection_.Add(
+				this.methodcollection_.Add(
 					out _index,
 					new XS_methodType()
 				);
-				methodcollection_[_index].CopyFrom(
+				this.methodcollection_[_index].CopyFrom(
 					methodsType_in.methodcollection_[d]
 				);
 			}

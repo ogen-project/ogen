@@ -12,13 +12,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Security.Cryptography;
-using System.IO;
 
 namespace OGen.lib.crypt {
+	using System;
+	using System.Collections.Generic;
+	using System.IO;
+	using System.Security.Cryptography;
+	using System.Text;
+
 	public static class utils {
 		public static class Server {
 			#region static Server();

@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.lib.templates {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_argumentType {
 	#else
@@ -28,10 +30,10 @@ namespace OGen.lib.templates {
 		[XmlAttribute("name")]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
-				name_ = value;
+				this.name_ = value;
 			}
 		}
 		#endregion
@@ -41,18 +43,18 @@ namespace OGen.lib.templates {
 		[XmlAttribute("value")]
 		public string Value {
 			get {
-				return value_;
+				return this.value_;
 			}
 			set {
-				value_ = value;
+				this.value_ = value;
 			}
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_argumentType argumentType_in) {
-			name_ = argumentType_in.name_;
-			value_ = argumentType_in.value_;
+			this.name_ = argumentType_in.name_;
+			this.value_ = argumentType_in.value_;
 		}
 		#endregion
 	}

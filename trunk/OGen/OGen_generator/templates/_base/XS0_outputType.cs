@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.lib.templates {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_outputType {
 	#else
@@ -28,10 +30,10 @@ namespace OGen.lib.templates {
 		[XmlAttribute("to")]
 		public string To {
 			get {
-				return to_;
+				return this.to_;
 			}
 			set {
-				to_ = value;
+				this.to_ = value;
 			}
 		}
 		#endregion
@@ -41,10 +43,10 @@ namespace OGen.lib.templates {
 		[XmlAttribute("type")]
 		public XS_OutputEnumeration Type {
 			get {
-				return type_;
+				return this.type_;
 			}
 			set {
-				type_ = value;
+				this.type_ = value;
 			}
 		}
 		#endregion
@@ -54,19 +56,19 @@ namespace OGen.lib.templates {
 		[XmlAttribute("mode")]
 		public XS_OutputModeEnumeration Mode {
 			get {
-				return mode_;
+				return this.mode_;
 			}
 			set {
-				mode_ = value;
+				this.mode_ = value;
 			}
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_outputType outputType_in) {
-			to_ = outputType_in.to_;
-			type_ = outputType_in.type_;
-			mode_ = outputType_in.mode_;
+			this.to_ = outputType_in.to_;
+			this.type_ = outputType_in.type_;
+			this.mode_ = outputType_in.mode_;
 		}
 		#endregion
 	}

@@ -18,11 +18,11 @@
 // Francisco Monteiro, OGen
 // 
 
-using System;
-using System.Text;
-using System.Security.Cryptography;
-
 namespace OGen.lib.crypt {
+	using System;
+	using System.Security.Cryptography;
+	using System.Text;
+
 	/// <summary>
 	/// This class generates and compares hashes using MD5, SHA1, SHA256, SHA384, 
 	/// and SHA512 hashing algorithms. Before computing a hash, it appends a

@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataDB {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_metadataDBType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				if (tables__ != null) tables__.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				if (tables__ != null) tables__.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,10 +55,10 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("applicationName")]
 		public string ApplicationName {
 			get {
-				return applicationname_;
+				return this.applicationname_;
 			}
 			set {
-				applicationname_ = value;
+				this.applicationname_ = value;
 			}
 		}
 		#endregion
@@ -69,38 +71,38 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			get {
 
 				// check before lock
-				if (tables__ == null) {
+				if (this.tables__ == null) {
 
-					lock (tables__locker) {
+					lock (this.tables__locker) {
 
 						// double check, thread safer!
-						if (tables__ == null) {
+						if (this.tables__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							tables__ = new XS_tablesType();
+							this.tables__ = new XS_tablesType();
 						}
 					}
 				}
 
-				return tables__;
+				return this.tables__;
 			}
 			set {
-				tables__ = value;
+				this.tables__ = value;
 			}
 		}
 
 		[XmlElement("tables")]
 		public XS_tablesType tables__xml {
-			get { return tables__; }
-			set { tables__ = value; }
+			get { return this.tables__; }
+			set { this.tables__ = value; }
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_metadataDBType metadataDBType_in) {
-			applicationname_ = metadataDBType_in.applicationname_;
-			if (metadataDBType_in.tables__ != null) tables__.CopyFrom(metadataDBType_in.tables__);
+			this.applicationname_ = metadataDBType_in.applicationname_;
+			if (metadataDBType_in.tables__ != null) this.tables__.CopyFrom(metadataDBType_in.tables__);
 		}
 		#endregion
 	}

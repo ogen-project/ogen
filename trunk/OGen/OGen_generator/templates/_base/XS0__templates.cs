@@ -12,13 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Xml.Serialization;
 
-using OGen.lib.generator;
 
 namespace OGen.lib.templates {
+	using System;
+	using System.IO;
+	using System.Xml.Serialization;
+
+	using OGen.lib.generator;
+
 	#if NET_1_1
 	public class XS0__templates : XS_templatesType, MetadataInterface {
 	#else
@@ -33,7 +35,7 @@ namespace OGen.lib.templates {
 
 		[XmlIgnore()]
 		public string Root_Templates {
-			get { return root_templates_; }
+			get { return this.root_templates_; }
 		}
 		#endregion
 
@@ -139,10 +141,10 @@ namespace OGen.lib.templates {
 		public string Read_fromRoot(string what_in) {
 			return OGen.lib.generator.utils.ReflectThrough(
 				this, 
-				Root_Templates, 
+				this.Root_Templates, 
 				null, 
 				what_in, 
-				Root_Templates, 
+				this.Root_Templates, 
 				true, 
 				true
 			);
@@ -156,10 +158,10 @@ namespace OGen.lib.templates {
 		) {
 			OGen.lib.generator.utils.ReflectThrough(
 				this, 
-				Root_Templates, 
+				this.Root_Templates, 
 				iteration_found_in, 
 				iteration_in, 
-				Root_Templates, 
+				this.Root_Templates, 
 				false, 
 				true, 
 				ref valueHasBeenFound_out

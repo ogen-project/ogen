@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.Dia.lib.metadata.diagram {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_connectionsType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				connectioncollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				connectioncollection_.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,13 +55,13 @@ namespace OGen.Dia.lib.metadata.diagram {
 
 		[XmlElement("connection")]
 		public XS_connectionType[] connectioncollection__xml {
-			get { return connectioncollection_.cols__; }
-			set { connectioncollection_.cols__ = value; }
+			get { return this.connectioncollection_.cols__; }
+			set { this.connectioncollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_connectionTypeCollection ConnectionCollection {
-			get { return connectioncollection_; }
+			get { return this.connectioncollection_; }
 		}
 		#endregion
 
@@ -67,13 +69,13 @@ namespace OGen.Dia.lib.metadata.diagram {
 		public void CopyFrom(XS_connectionsType connectionsType_in) {
 			int _index = -1;
 
-			connectioncollection_.Clear();
+			this.connectioncollection_.Clear();
 			for (int d = 0; d < connectionsType_in.connectioncollection_.Count; d++) {
-				connectioncollection_.Add(
+				this.connectioncollection_.Add(
 					out _index,
 					new XS_connectionType()
 				);
-				connectioncollection_[_index].CopyFrom(
+				this.connectioncollection_[_index].CopyFrom(
 					connectionsType_in.connectioncollection_[d]
 				);
 			}

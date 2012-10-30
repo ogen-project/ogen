@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.XSD.lib.metadata.schema {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_restrictionType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				enumerationcollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				enumerationcollection_.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,10 +55,10 @@ namespace OGen.XSD.lib.metadata.schema {
 		[XmlAttribute("base")]
 		public string Base {
 			get {
-				return base_;
+				return this.base_;
 			}
 			set {
-				base_ = value;
+				this.base_ = value;
 			}
 		}
 		#endregion
@@ -66,13 +68,13 @@ namespace OGen.XSD.lib.metadata.schema {
 
 		[XmlElement("enumeration")]
 		public XS_enumerationType[] enumerationcollection__xml {
-			get { return enumerationcollection_.cols__; }
-			set { enumerationcollection_.cols__ = value; }
+			get { return this.enumerationcollection_.cols__; }
+			set { this.enumerationcollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_enumerationTypeCollection EnumerationCollection {
-			get { return enumerationcollection_; }
+			get { return this.enumerationcollection_; }
 		}
 		#endregion
 
@@ -80,14 +82,14 @@ namespace OGen.XSD.lib.metadata.schema {
 		public void CopyFrom(XS_restrictionType restrictionType_in) {
 			int _index = -1;
 
-			base_ = restrictionType_in.base_;
-			enumerationcollection_.Clear();
+			this.base_ = restrictionType_in.base_;
+			this.enumerationcollection_.Clear();
 			for (int d = 0; d < restrictionType_in.enumerationcollection_.Count; d++) {
-				enumerationcollection_.Add(
+				this.enumerationcollection_.Add(
 					out _index,
 					new XS_enumerationType()
 				);
-				enumerationcollection_[_index].CopyFrom(
+				this.enumerationcollection_[_index].CopyFrom(
 					restrictionType_in.enumerationcollection_[d]
 				);
 			}

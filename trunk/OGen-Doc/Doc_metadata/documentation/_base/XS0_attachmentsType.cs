@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.Doc.lib.metadata.documentation {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_attachmentsType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				attachmentcollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				attachmentcollection_.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,13 +55,13 @@ namespace OGen.Doc.lib.metadata.documentation {
 
 		[XmlElement("attachment")]
 		public XS_attachmentType[] attachmentcollection__xml {
-			get { return attachmentcollection_.cols__; }
-			set { attachmentcollection_.cols__ = value; }
+			get { return this.attachmentcollection_.cols__; }
+			set { this.attachmentcollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_attachmentTypeCollection AttachmentCollection {
-			get { return attachmentcollection_; }
+			get { return this.attachmentcollection_; }
 		}
 		#endregion
 
@@ -67,13 +69,13 @@ namespace OGen.Doc.lib.metadata.documentation {
 		public void CopyFrom(XS_attachmentsType attachmentsType_in) {
 			int _index = -1;
 
-			attachmentcollection_.Clear();
+			this.attachmentcollection_.Clear();
 			for (int d = 0; d < attachmentsType_in.attachmentcollection_.Count; d++) {
-				attachmentcollection_.Add(
+				this.attachmentcollection_.Add(
 					out _index,
 					new XS_attachmentType()
 				);
-				attachmentcollection_[_index].CopyFrom(
+				this.attachmentcollection_[_index].CopyFrom(
 					attachmentsType_in.attachmentcollection_[d]
 				);
 			}

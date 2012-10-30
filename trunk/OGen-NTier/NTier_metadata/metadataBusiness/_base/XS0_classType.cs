@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataBusiness {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_classType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				if (methods__ != null) methods__.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				if (methods__ != null) methods__.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,10 +55,10 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlAttribute("name")]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
-				name_ = value;
+				this.name_ = value;
 			}
 		}
 		#endregion
@@ -66,10 +68,10 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlAttribute("type")]
 		public XS_BoEnumeration Type {
 			get {
-				return type_;
+				return this.type_;
 			}
 			set {
-				type_ = value;
+				this.type_ = value;
 			}
 		}
 		#endregion
@@ -79,10 +81,10 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlAttribute("namespace")]
 		public string Namespace {
 			get {
-				return namespace_;
+				return this.namespace_;
 			}
 			set {
-				namespace_ = value;
+				this.namespace_ = value;
 			}
 		}
 		#endregion
@@ -95,40 +97,40 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			get {
 
 				// check before lock
-				if (methods__ == null) {
+				if (this.methods__ == null) {
 
-					lock (methods__locker) {
+					lock (this.methods__locker) {
 
 						// double check, thread safer!
-						if (methods__ == null) {
+						if (this.methods__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							methods__ = new XS_methodsType();
+							this.methods__ = new XS_methodsType();
 						}
 					}
 				}
 
-				return methods__;
+				return this.methods__;
 			}
 			set {
-				methods__ = value;
+				this.methods__ = value;
 			}
 		}
 
 		[XmlElement("methods")]
 		public XS_methodsType methods__xml {
-			get { return methods__; }
-			set { methods__ = value; }
+			get { return this.methods__; }
+			set { this.methods__ = value; }
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_classType classType_in) {
-			name_ = classType_in.name_;
-			type_ = classType_in.type_;
-			namespace_ = classType_in.namespace_;
-			if (classType_in.methods__ != null) methods__.CopyFrom(classType_in.methods__);
+			this.name_ = classType_in.name_;
+			this.type_ = classType_in.type_;
+			this.namespace_ = classType_in.namespace_;
+			if (classType_in.methods__ != null) this.methods__.CopyFrom(classType_in.methods__);
 		}
 		#endregion
 	}

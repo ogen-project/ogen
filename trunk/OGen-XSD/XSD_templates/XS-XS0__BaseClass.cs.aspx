@@ -42,13 +42,15 @@ if ((_aux_rootmetadata.MetadataCollection[0].CopyrightText != string.Empty) && (
 */
 #endregion
 <%
-}%>using System;
-using System.IO;
-using System.Xml.Serialization;
-
-using OGen.lib.generator;
+}%>
 
 namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_schema.Element.Name%> {
+	using System;
+	using System.IO;
+	using System.Xml.Serialization;
+
+	using OGen.lib.generator;
+
 	#if NET_1_1
 	public class <%=XS0__%><%=_aux_schema.Element.Name%> : <%=XS_%><%=_aux_schema.Element.Type%>, MetadataInterface {
 	#else
@@ -63,7 +65,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_schema.
 
 		[XmlIgnore()]
 		public string Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name, _arg_SchemaName)%> {
-			get { return root_<%=_aux_schema.Element.Name.ToLower()%>_; }
+			get { return this.root_<%=_aux_schema.Element.Name.ToLower()%>_; }
 		}
 		#endregion<%--
 
@@ -229,12 +231,12 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 				this, <%--
 				// ROOT_<%=_aux_schema.Element.Name.ToUpper()%>,
 				--%>
-				Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name, _arg_SchemaName)%>, 
+				this.Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name, _arg_SchemaName)%>, 
 				null, 
 				what_in, <%--
 				// ROOT_<%=_aux_schema.Element.Name.ToUpper()%>,
 				--%>
-				Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name, _arg_SchemaName)%>, 
+				this.Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name, _arg_SchemaName)%>, 
 				true, 
 				true
 			);
@@ -250,12 +252,12 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 				this, <%--
 				// ROOT_<%=_aux_schema.Element.Name.ToUpper()%>,
 				--%>
-				Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name, _arg_SchemaName)%>, 
+				this.Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name, _arg_SchemaName)%>, 
 				iteration_found_in, 
 				iteration_in, <%--
 				// ROOT_<%=_aux_schema.Element.Name.ToUpper()%>,
 				--%>
-				Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name, _arg_SchemaName)%>, 
+				this.Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name, _arg_SchemaName)%>, 
 				false, 
 				true, 
 				ref valueHasBeenFound_out

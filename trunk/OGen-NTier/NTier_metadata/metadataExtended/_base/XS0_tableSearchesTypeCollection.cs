@@ -12,14 +12,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
-#if !NET_1_1
-using System.Collections.Generic;
-#endif
+
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.Collections;
+	#if !NET_1_1
+	using System.Collections.Generic;
+	#endif
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_tableSearchesTypeCollection {
 	#else
@@ -30,7 +32,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		#else
 		public XS_tableSearchesTypeCollection() {
 		#endif
-			cols_ = new
+			this.cols_ = new
 				#if NET_1_1
 				ArrayList()
 				#else
@@ -44,15 +46,15 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 		public object parent_ref {
 			get {
-				return parent_ref_;
+				return this.parent_ref_;
 			}
 			set {
-				parent_ref_ = value;
-				for (int i = 0; i < cols_.Count; i++) {
+				this.parent_ref_ = value;
+				for (int i = 0; i < this.cols_.Count; i++) {
 					#if NET_1_1
-					((XS_tableSearchesType)cols_[i])
+					((XS_tableSearchesType)this.cols_[i])
 					#else
-					cols_[i]
+					this.cols_[i]
 					#endif
 						.parent_ref = this;
 				}
@@ -64,15 +66,15 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 		public XS__RootMetadata root_ref {
 			get {
-				return root_ref_;
+				return this.root_ref_;
 			}
 			set {
-				root_ref_ = value;
-				for (int i = 0; i < cols_.Count; i++) {
+				this.root_ref_ = value;
+				for (int i = 0; i < this.cols_.Count; i++) {
 					#if NET_1_1
-					((XS_tableSearchesType)cols_[i])
+					((XS_tableSearchesType)this.cols_[i])
 					#else
-					cols_[i]
+					this.cols_[i]
 					#endif
 						.root_ref = value;
 				}
@@ -98,16 +100,16 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 		internal XS_tableSearchesType[] cols__ {
 			get {
-				XS_tableSearchesType[] _output = new XS_tableSearchesType[cols_.Count];
-				cols_.CopyTo(_output);
+				XS_tableSearchesType[] _output = new XS_tableSearchesType[this.cols_.Count];
+				this.cols_.CopyTo(_output);
 				return _output;
 			}
 			set {
-				lock (cols_) {
-					cols_.Clear();
+				lock (this.cols_) {
+					this.cols_.Clear();
 					if (value != null) {
 						for (int i = 0; i < value.Length; i++) {
-							cols_.Add(value[i]);
+							this.cols_.Add(value[i]);
 						}
 					}
 				}
@@ -118,7 +120,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		#region public int Count { get; }
 		public int Count {
 			get {
-				return cols_.Count;
+				return this.cols_.Count;
 			}
 		}
 		#endregion
@@ -130,42 +132,42 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 					#if NET_1_1
 					(XS_tableSearchesType)
 					#endif
-					cols_[index_in]
+					this.cols_[index_in]
 				;
 			}
 		}
 		#endregion
 		#region public void Clear();
 		public void Clear() {
-			cols_.Clear();
+			this.cols_.Clear();
 		}
 		#endregion
 		#region public void RemoveAt(int index_in);
 		public void RemoveAt(int index_in) {
-			cols_.RemoveAt(index_in);
+			this.cols_.RemoveAt(index_in);
 		}
 		#endregion
 		#region public void Add(...);
 		public void Add(params XS_tableSearchesType[] col_in) {
 			int _index = -1;
-			Add(out _index, col_in);
+			this.Add(out _index, col_in);
 		}
 		public void Add(out int returnIndex_out, params XS_tableSearchesType[] col_in) {
 			refresh_refs(col_in);
 
 			returnIndex_out = -1;
 			for (int i = 0; i < col_in.Length - 1; i++) {
-				cols_.Add(col_in[i]);
+				this.cols_.Add(col_in[i]);
 			}
 
 			int j = col_in.Length - 1;
 			if (j >= 0) {
 				#if NET_1_1
-				returnIndex_out = cols_.Add(col_in[j]);
+				returnIndex_out = this.cols_.Add(col_in[j]);
 				#else
-				lock (cols_) {
-					cols_.Add(col_in[j]);
-					returnIndex_out = cols_.Count - 1;
+				lock (this.cols_) {
+					this.cols_.Add(col_in[j]);
+					returnIndex_out = this.cols_.Count - 1;
 				}
 				#endif
 			}

@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.Doc.lib.metadata.documentation {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_chapterType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				if (items__ != null) items__.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				if (items__ != null) items__.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,10 +55,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("title")]
 		public string Title {
 			get {
-				return title_;
+				return this.title_;
 			}
 			set {
-				title_ = value;
+				this.title_ = value;
 			}
 		}
 		#endregion
@@ -66,10 +68,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("fileName")]
 		public string FileName {
 			get {
-				return filename_;
+				return this.filename_;
 			}
 			set {
-				filename_ = value;
+				this.filename_ = value;
 			}
 		}
 		#endregion
@@ -79,10 +81,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("subtitle")]
 		public string Subtitle {
 			get {
-				return subtitle_;
+				return this.subtitle_;
 			}
 			set {
-				subtitle_ = value;
+				this.subtitle_ = value;
 			}
 		}
 		#endregion
@@ -92,10 +94,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("isIntroduction")]
 		public bool IsIntroduction {
 			get {
-				return isintroduction_;
+				return this.isintroduction_;
 			}
 			set {
-				isintroduction_ = value;
+				this.isintroduction_ = value;
 			}
 		}
 		#endregion
@@ -105,10 +107,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("isAppendix")]
 		public bool IsAppendix {
 			get {
-				return isappendix_;
+				return this.isappendix_;
 			}
 			set {
-				isappendix_ = value;
+				this.isappendix_ = value;
 			}
 		}
 		#endregion
@@ -121,42 +123,42 @@ namespace OGen.Doc.lib.metadata.documentation {
 			get {
 
 				// check before lock
-				if (items__ == null) {
+				if (this.items__ == null) {
 
-					lock (items__locker) {
+					lock (this.items__locker) {
 
 						// double check, thread safer!
-						if (items__ == null) {
+						if (this.items__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							items__ = new XS_itemsType();
+							this.items__ = new XS_itemsType();
 						}
 					}
 				}
 
-				return items__;
+				return this.items__;
 			}
 			set {
-				items__ = value;
+				this.items__ = value;
 			}
 		}
 
 		[XmlElement("items")]
 		public XS_itemsType items__xml {
-			get { return items__; }
-			set { items__ = value; }
+			get { return this.items__; }
+			set { this.items__ = value; }
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_chapterType chapterType_in) {
-			title_ = chapterType_in.title_;
-			filename_ = chapterType_in.filename_;
-			subtitle_ = chapterType_in.subtitle_;
-			isintroduction_ = chapterType_in.isintroduction_;
-			isappendix_ = chapterType_in.isappendix_;
-			if (chapterType_in.items__ != null) items__.CopyFrom(chapterType_in.items__);
+			this.title_ = chapterType_in.title_;
+			this.filename_ = chapterType_in.filename_;
+			this.subtitle_ = chapterType_in.subtitle_;
+			this.isintroduction_ = chapterType_in.isintroduction_;
+			this.isappendix_ = chapterType_in.isappendix_;
+			if (chapterType_in.items__ != null) this.items__.CopyFrom(chapterType_in.items__);
 		}
 		#endregion
 	}

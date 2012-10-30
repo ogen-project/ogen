@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.lib.templates {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_outputsType {
 	#else
@@ -28,13 +30,13 @@ namespace OGen.lib.templates {
 
 		[XmlElement("output")]
 		public XS_outputType[] outputcollection__xml {
-			get { return outputcollection_.cols__; }
-			set { outputcollection_.cols__ = value; }
+			get { return this.outputcollection_.cols__; }
+			set { this.outputcollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_outputTypeCollection OutputCollection {
-			get { return outputcollection_; }
+			get { return this.outputcollection_; }
 		}
 		#endregion
 
@@ -42,13 +44,13 @@ namespace OGen.lib.templates {
 		public void CopyFrom(XS_outputsType outputsType_in) {
 			int _index = -1;
 
-			outputcollection_.Clear();
+			this.outputcollection_.Clear();
 			for (int d = 0; d < outputsType_in.outputcollection_.Count; d++) {
-				outputcollection_.Add(
+				this.outputcollection_.Add(
 					out _index,
 					new XS_outputType()
 				);
-				outputcollection_[_index].CopyFrom(
+				this.outputcollection_[_index].CopyFrom(
 					outputsType_in.outputcollection_[d]
 				);
 			}

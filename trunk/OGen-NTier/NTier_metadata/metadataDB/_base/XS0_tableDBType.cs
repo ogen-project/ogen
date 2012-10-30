@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataDB {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_tableDBType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 			}
 			get { return parent_ref_; }
 		}
@@ -40,7 +42,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 			}
 			get { return root_ref_; }
 		}
@@ -51,10 +53,10 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("dbServerType")]
 		public string DBServerType {
 			get {
-				return dbservertype_;
+				return this.dbservertype_;
 			}
 			set {
-				dbservertype_ = value;
+				this.dbservertype_ = value;
 			}
 		}
 		#endregion
@@ -64,10 +66,10 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("dbTableName")]
 		public string DBTableName {
 			get {
-				return dbtablename_;
+				return this.dbtablename_;
 			}
 			set {
-				dbtablename_ = value;
+				this.dbtablename_ = value;
 			}
 		}
 		#endregion
@@ -77,19 +79,19 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("dbDescription")]
 		public string DBDescription {
 			get {
-				return dbdescription_;
+				return this.dbdescription_;
 			}
 			set {
-				dbdescription_ = value;
+				this.dbdescription_ = value;
 			}
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_tableDBType tableDBType_in) {
-			dbservertype_ = tableDBType_in.dbservertype_;
-			dbtablename_ = tableDBType_in.dbtablename_;
-			dbdescription_ = tableDBType_in.dbdescription_;
+			this.dbservertype_ = tableDBType_in.dbservertype_;
+			this.dbtablename_ = tableDBType_in.dbtablename_;
+			this.dbdescription_ = tableDBType_in.dbdescription_;
 		}
 		#endregion
 	}

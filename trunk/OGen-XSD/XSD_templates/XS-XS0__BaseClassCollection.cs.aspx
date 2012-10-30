@@ -42,11 +42,13 @@ if ((_aux_rootmetadata.MetadataCollection[0].CopyrightText != string.Empty) && (
 */
 #endregion
 <%
-}%>using System;
-using System.IO;
-using System.Xml.Serialization;
+}%>
 
 namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_schema.Element.Name%> {
+	using System;
+	using System.IO;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class <%=XS0__%><%=_aux_schema.Element.Name%>Collection {
 	#else
@@ -59,7 +61,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_schema.
 		#endif
 			<%=XS__%><%=_aux_schema.Element.Name%>[] <%=_aux_schema.Element.Name.ToLower()%>collection_in
 		) {
-			<%=_aux_schema.Element.Name.ToLower()%>collection_ = <%=_aux_schema.Element.Name.ToLower()%>collection_in;
+			this.<%=_aux_schema.Element.Name.ToLower()%>collection_ = <%=_aux_schema.Element.Name.ToLower()%>collection_in;
 		}
 
 		#region public <%=XS__%><%=_aux_schema.Element.Name%> this[...] { get; }
@@ -67,16 +69,16 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_schema.
 
 		public <%=XS__%><%=_aux_schema.Element.Name%> this[int index_in] {
 			get {
-				return <%=_aux_schema.Element.Name.ToLower()%>collection_[index_in];
+				return this.<%=_aux_schema.Element.Name.ToLower()%>collection_[index_in];
 			}
 		}
 		public <%=XS__%><%=_aux_schema.Element.Name%> this[string name_in] {
 			get {
 				// ToDos: later! performance
 
-				for (int i = 0; i < <%=_aux_schema.Element.Name.ToLower()%>collection_.Length; i++) {
-					if (<%=_aux_schema.Element.Name.ToLower()%>collection_[i].<%=_aux_rootmetadata.MetadataCollection[0].MetadataIndexCollection[_aux_schema.Element.Name].Index%> == name_in) {
-						return <%=_aux_schema.Element.Name.ToLower()%>collection_[i];
+				for (int i = 0; i < this.<%=_aux_schema.Element.Name.ToLower()%>collection_.Length; i++) {
+					if (this.<%=_aux_schema.Element.Name.ToLower()%>collection_[i].<%=_aux_rootmetadata.MetadataCollection[0].MetadataIndexCollection[_aux_schema.Element.Name].Index%> == name_in) {
+						return this.<%=_aux_schema.Element.Name.ToLower()%>collection_[i];
 					}
 				}
 				throw new Exception(string.Format(
@@ -89,7 +91,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_schema.
 		}
 		#endregion
 		public int Count { get {
-			return <%=_aux_schema.Element.Name.ToLower()%>collection_.Length;
+			return this.<%=_aux_schema.Element.Name.ToLower()%>collection_.Length;
 		} }
 	}
 }<%

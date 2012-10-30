@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.Dia.lib.metadata.diagram {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_attributeType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				compositecollection_.parent_ref = this;
 				if (boolean__ != null) boolean__.parent_ref = this;
 				if (enum__ != null) enum__.parent_ref = this;
@@ -43,7 +45,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				compositecollection_.root_ref = value;
 				if (boolean__ != null) boolean__.root_ref = value;
 				if (enum__ != null) enum__.root_ref = value;
@@ -57,10 +59,10 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlAttribute("name")]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
-				name_ = value;
+				this.name_ = value;
 			}
 		}
 		#endregion
@@ -70,13 +72,13 @@ namespace OGen.Dia.lib.metadata.diagram {
 
 		[XmlElement("composite")]
 		public XS_compositeType[] compositecollection__xml {
-			get { return compositecollection_.cols__; }
-			set { compositecollection_.cols__ = value; }
+			get { return this.compositecollection_.cols__; }
+			set { this.compositecollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_compositeTypeCollection CompositeCollection {
-			get { return compositecollection_; }
+			get { return this.compositecollection_; }
 		}
 		#endregion
 		#region public string String { get; set; }
@@ -86,11 +88,11 @@ namespace OGen.Dia.lib.metadata.diagram {
 		public string String {
 			get {
 // ToDos: here!
-				return (string_.IndexOf("\r\n") >= 0)
-					? string_
-					: string_.Replace("\n", "\r\n");
+				return (this.string_.IndexOf("\r\n") >= 0)
+					? this.string_
+					: this.string_.Replace("\n", "\r\n");
 			}
-			set { string_ = value; }
+			set { this.string_ = value; }
 		}
 		#endregion
 		#region public XS_booleanType Boolean { get; set; }
@@ -102,31 +104,31 @@ namespace OGen.Dia.lib.metadata.diagram {
 			get {
 
 				// check before lock
-				if (boolean__ == null) {
+				if (this.boolean__ == null) {
 
-					lock (boolean__locker) {
+					lock (this.boolean__locker) {
 
 						// double check, thread safer!
-						if (boolean__ == null) {
+						if (this.boolean__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							boolean__ = new XS_booleanType();
+							this.boolean__ = new XS_booleanType();
 						}
 					}
 				}
 
-				return boolean__;
+				return this.boolean__;
 			}
 			set {
-				boolean__ = value;
+				this.boolean__ = value;
 			}
 		}
 
 		[XmlElement("boolean")]
 		public XS_booleanType boolean__xml {
-			get { return boolean__; }
-			set { boolean__ = value; }
+			get { return this.boolean__; }
+			set { this.boolean__ = value; }
 		}
 		#endregion
 		#region public XS_enumType Enum { get; set; }
@@ -138,31 +140,31 @@ namespace OGen.Dia.lib.metadata.diagram {
 			get {
 
 				// check before lock
-				if (enum__ == null) {
+				if (this.enum__ == null) {
 
-					lock (enum__locker) {
+					lock (this.enum__locker) {
 
 						// double check, thread safer!
-						if (enum__ == null) {
+						if (this.enum__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							enum__ = new XS_enumType();
+							this.enum__ = new XS_enumType();
 						}
 					}
 				}
 
-				return enum__;
+				return this.enum__;
 			}
 			set {
-				enum__ = value;
+				this.enum__ = value;
 			}
 		}
 
 		[XmlElement("enum")]
 		public XS_enumType enum__xml {
-			get { return enum__; }
-			set { enum__ = value; }
+			get { return this.enum__; }
+			set { this.enum__ = value; }
 		}
 		#endregion
 
@@ -170,19 +172,20 @@ namespace OGen.Dia.lib.metadata.diagram {
 		public void CopyFrom(XS_attributeType attributeType_in) {
 			int _index = -1;
 
-			name_ = attributeType_in.name_;
-			compositecollection_.Clear();
+			this.name_ = attributeType_in.name_;
+			this.compositecollection_.Clear();
 			for (int d = 0; d < attributeType_in.compositecollection_.Count; d++) {
-				compositecollection_.Add(
+				this.compositecollection_.Add(
 					out _index,
 					new XS_compositeType()
 				);
-				compositecollection_[_index].CopyFrom(
+				this.compositecollection_[_index].CopyFrom(
 					attributeType_in.compositecollection_[d]
 				);
-			}string_ = attributeType_in.string_;
-			if (attributeType_in.boolean__ != null) boolean__.CopyFrom(attributeType_in.boolean__);
-			if (attributeType_in.enum__ != null) enum__.CopyFrom(attributeType_in.enum__);
+			}
+			this.string_ = attributeType_in.string_;
+			if (attributeType_in.boolean__ != null) this.boolean__.CopyFrom(attributeType_in.boolean__);
+			if (attributeType_in.enum__ != null) this.enum__.CopyFrom(attributeType_in.enum__);
 		}
 		#endregion
 	}

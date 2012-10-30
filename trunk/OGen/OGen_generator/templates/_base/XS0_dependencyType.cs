@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.lib.templates {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_dependencyType {
 	#else
@@ -28,17 +30,17 @@ namespace OGen.lib.templates {
 		[XmlAttribute("templateID")]
 		public string TemplateID {
 			get {
-				return templateid_;
+				return this.templateid_;
 			}
 			set {
-				templateid_ = value;
+				this.templateid_ = value;
 			}
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_dependencyType dependencyType_in) {
-			templateid_ = dependencyType_in.templateid_;
+			this.templateid_ = dependencyType_in.templateid_;
 		}
 		#endregion
 	}

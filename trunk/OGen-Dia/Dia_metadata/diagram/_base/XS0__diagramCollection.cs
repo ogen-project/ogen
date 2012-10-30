@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Xml.Serialization;
+
 
 namespace OGen.Dia.lib.metadata.diagram {
+	using System;
+	using System.IO;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0__diagramCollection {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 		#endif
 			XS__diagram[] diagramcollection_in
 		) {
-			diagramcollection_ = diagramcollection_in;
+			this.diagramcollection_ = diagramcollection_in;
 		}
 
 		#region public XS__diagram this[...] { get; }
@@ -37,16 +39,16 @@ namespace OGen.Dia.lib.metadata.diagram {
 
 		public XS__diagram this[int index_in] {
 			get {
-				return diagramcollection_[index_in];
+				return this.diagramcollection_[index_in];
 			}
 		}
 		public XS__diagram this[string name_in] {
 			get {
 				// ToDos: later! performance
 
-				for (int i = 0; i < diagramcollection_.Length; i++) {
-					if (diagramcollection_[i].Dia == name_in) {
-						return diagramcollection_[i];
+				for (int i = 0; i < this.diagramcollection_.Length; i++) {
+					if (this.diagramcollection_[i].Dia == name_in) {
+						return this.diagramcollection_[i];
 					}
 				}
 				throw new Exception(string.Format(
@@ -59,7 +61,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 		}
 		#endregion
 		public int Count { get {
-			return diagramcollection_.Length;
+			return this.diagramcollection_.Length;
 		} }
 	}
 }

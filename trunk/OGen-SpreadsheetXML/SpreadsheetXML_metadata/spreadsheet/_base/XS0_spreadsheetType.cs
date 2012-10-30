@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_spreadsheetType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				pagecollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				pagecollection_.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,10 +55,10 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		[XmlAttribute("spreadsheet")]
 		public string Spreadsheet {
 			get {
-				return spreadsheet_;
+				return this.spreadsheet_;
 			}
 			set {
-				spreadsheet_ = value;
+				this.spreadsheet_ = value;
 			}
 		}
 		#endregion
@@ -66,13 +68,13 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 
 		[XmlElement("page")]
 		public XS_pageType[] pagecollection__xml {
-			get { return pagecollection_.cols__; }
-			set { pagecollection_.cols__ = value; }
+			get { return this.pagecollection_.cols__; }
+			set { this.pagecollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_pageTypeCollection PageCollection {
-			get { return pagecollection_; }
+			get { return this.pagecollection_; }
 		}
 		#endregion
 
@@ -80,14 +82,14 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		public void CopyFrom(XS_spreadsheetType spreadsheetType_in) {
 			int _index = -1;
 
-			spreadsheet_ = spreadsheetType_in.spreadsheet_;
-			pagecollection_.Clear();
+			this.spreadsheet_ = spreadsheetType_in.spreadsheet_;
+			this.pagecollection_.Clear();
 			for (int d = 0; d < spreadsheetType_in.pagecollection_.Count; d++) {
-				pagecollection_.Add(
+				this.pagecollection_.Add(
 					out _index,
 					new XS_pageType()
 				);
-				pagecollection_[_index].CopyFrom(
+				this.pagecollection_[_index].CopyFrom(
 					spreadsheetType_in.pagecollection_[d]
 				);
 			}

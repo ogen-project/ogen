@@ -12,10 +12,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
+
 
 namespace OGen.XSD.lib.metadata.schema {
+	using System;
+	using System.Xml.Serialization;
+
 	public enum XS_MaxOccursType {
 		_undefined_ = 0, 
 		unbounded = 1, 

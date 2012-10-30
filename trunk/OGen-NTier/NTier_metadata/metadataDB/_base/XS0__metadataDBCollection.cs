@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Xml.Serialization;
+
 
 namespace OGen.NTier.lib.metadata.metadataDB {
+	using System;
+	using System.IO;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0__metadataDBCollection {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		#endif
 			XS__metadataDB[] metadatadbcollection_in
 		) {
-			metadatadbcollection_ = metadatadbcollection_in;
+			this.metadatadbcollection_ = metadatadbcollection_in;
 		}
 
 		#region public XS__metadataDB this[...] { get; }
@@ -37,16 +39,16 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 
 		public XS__metadataDB this[int index_in] {
 			get {
-				return metadatadbcollection_[index_in];
+				return this.metadatadbcollection_[index_in];
 			}
 		}
 		public XS__metadataDB this[string name_in] {
 			get {
 				// ToDos: later! performance
 
-				for (int i = 0; i < metadatadbcollection_.Length; i++) {
-					if (metadatadbcollection_[i].ApplicationName == name_in) {
-						return metadatadbcollection_[i];
+				for (int i = 0; i < this.metadatadbcollection_.Length; i++) {
+					if (this.metadatadbcollection_[i].ApplicationName == name_in) {
+						return this.metadatadbcollection_[i];
 					}
 				}
 				throw new Exception(string.Format(
@@ -59,7 +61,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		}
 		#endregion
 		public int Count { get {
-			return metadatadbcollection_.Length;
+			return this.metadatadbcollection_.Length;
 		} }
 	}
 }

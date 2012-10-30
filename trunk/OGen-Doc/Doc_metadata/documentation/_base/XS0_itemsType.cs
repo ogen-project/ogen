@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.Doc.lib.metadata.documentation {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_itemsType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				itemcollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				itemcollection_.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,13 +55,13 @@ namespace OGen.Doc.lib.metadata.documentation {
 
 		[XmlElement("item")]
 		public XS_itemType[] itemcollection__xml {
-			get { return itemcollection_.cols__; }
-			set { itemcollection_.cols__ = value; }
+			get { return this.itemcollection_.cols__; }
+			set { this.itemcollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_itemTypeCollection ItemCollection {
-			get { return itemcollection_; }
+			get { return this.itemcollection_; }
 		}
 		#endregion
 
@@ -67,13 +69,13 @@ namespace OGen.Doc.lib.metadata.documentation {
 		public void CopyFrom(XS_itemsType itemsType_in) {
 			int _index = -1;
 
-			itemcollection_.Clear();
+			this.itemcollection_.Clear();
 			for (int d = 0; d < itemsType_in.itemcollection_.Count; d++) {
-				itemcollection_.Add(
+				this.itemcollection_.Add(
 					out _index,
 					new XS_itemType()
 				);
-				itemcollection_[_index].CopyFrom(
+				this.itemcollection_[_index].CopyFrom(
 					itemsType_in.itemcollection_[d]
 				);
 			}

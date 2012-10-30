@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Xml.Serialization;
+
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.IO;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0__metadataExtendedCollection {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		#endif
 			XS__metadataExtended[] metadataextendedcollection_in
 		) {
-			metadataextendedcollection_ = metadataextendedcollection_in;
+			this.metadataextendedcollection_ = metadataextendedcollection_in;
 		}
 
 		#region public XS__metadataExtended this[...] { get; }
@@ -37,16 +39,16 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 		public XS__metadataExtended this[int index_in] {
 			get {
-				return metadataextendedcollection_[index_in];
+				return this.metadataextendedcollection_[index_in];
 			}
 		}
 		public XS__metadataExtended this[string name_in] {
 			get {
 				// ToDos: later! performance
 
-				for (int i = 0; i < metadataextendedcollection_.Length; i++) {
-					if (metadataextendedcollection_[i].ApplicationName == name_in) {
-						return metadataextendedcollection_[i];
+				for (int i = 0; i < this.metadataextendedcollection_.Length; i++) {
+					if (this.metadataextendedcollection_[i].ApplicationName == name_in) {
+						return this.metadataextendedcollection_[i];
 					}
 				}
 				throw new Exception(string.Format(
@@ -59,7 +61,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		}
 		#endregion
 		public int Count { get {
-			return metadataextendedcollection_.Length;
+			return this.metadataextendedcollection_.Length;
 		} }
 	}
 }

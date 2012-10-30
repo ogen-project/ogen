@@ -14,9 +14,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 
 using System;
+using System.Collections;
 using System.IO;
 using System.Xml.Serialization;
-using System.Collections;
 
 using OGen.lib.collections;
 using OGen.lib.generator;
@@ -42,8 +42,8 @@ namespace OGen.lib.metadata {
 
 		[XmlElement("metadata")]
 		public Metadata[] metadatafiles__xml {
-			get { return metadatacollection_.cols__; }
-			set { metadatacollection_.cols__ = value; }
+			get { return this.metadatacollection_.cols__; }
+			set { this.metadatacollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
@@ -54,7 +54,7 @@ namespace OGen.lib.metadata {
 			MetadataCollection
 #endif
 		MetadataFiles {
-			get { return metadatacollection_; }
+			get { return this.metadatacollection_; }
 		}
 		#endregion
 

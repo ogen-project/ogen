@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_tableSearchesType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				tablesearchcollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				tablesearchcollection_.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,13 +55,13 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 		[XmlElement("tableSearch")]
 		public XS_tableSearchType[] tablesearchcollection__xml {
-			get { return tablesearchcollection_.cols__; }
-			set { tablesearchcollection_.cols__ = value; }
+			get { return this.tablesearchcollection_.cols__; }
+			set { this.tablesearchcollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_tableSearchTypeCollection TableSearchCollection {
-			get { return tablesearchcollection_; }
+			get { return this.tablesearchcollection_; }
 		}
 		#endregion
 
@@ -67,13 +69,13 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public void CopyFrom(XS_tableSearchesType tableSearchesType_in) {
 			int _index = -1;
 
-			tablesearchcollection_.Clear();
+			this.tablesearchcollection_.Clear();
 			for (int d = 0; d < tableSearchesType_in.tablesearchcollection_.Count; d++) {
-				tablesearchcollection_.Add(
+				this.tablesearchcollection_.Add(
 					out _index,
 					new XS_tableSearchType()
 				);
-				tablesearchcollection_[_index].CopyFrom(
+				this.tablesearchcollection_[_index].CopyFrom(
 					tableSearchesType_in.tablesearchcollection_[d]
 				);
 			}

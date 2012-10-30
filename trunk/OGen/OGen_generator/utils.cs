@@ -25,8 +25,8 @@ namespace OGen.lib.generator {
 			string path_in,
 			string root_in
 		) {
-			Path = path_in;
-			Root = root_in;
+			this.Path = path_in;
+			this.Root = root_in;
 		}
 
 		public string Path;

@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.XSD.lib.metadata.metadata {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_specificCaseType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 			}
 			get { return parent_ref_; }
 		}
@@ -40,7 +42,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 			}
 			get { return root_ref_; }
 		}
@@ -51,10 +53,10 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlAttribute("word")]
 		public string Word {
 			get {
-				return word_;
+				return this.word_;
 			}
 			set {
-				word_ = value;
+				this.word_ = value;
 			}
 		}
 		#endregion
@@ -64,18 +66,18 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlAttribute("translation")]
 		public string Translation {
 			get {
-				return translation_;
+				return this.translation_;
 			}
 			set {
-				translation_ = value;
+				this.translation_ = value;
 			}
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_specificCaseType specificCaseType_in) {
-			word_ = specificCaseType_in.word_;
-			translation_ = specificCaseType_in.translation_;
+			this.word_ = specificCaseType_in.word_;
+			this.translation_ = specificCaseType_in.translation_;
 		}
 		#endregion
 	}

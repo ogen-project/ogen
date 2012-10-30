@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.Dia.lib.metadata.diagram {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_objectType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				attributecollection_.parent_ref = this;
 				if (connections__ != null) connections__.parent_ref = this;
 			}
@@ -42,7 +44,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				attributecollection_.root_ref = value;
 				if (connections__ != null) connections__.root_ref = value;
 			}
@@ -55,10 +57,10 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlAttribute("type")]
 		public string Type {
 			get {
-				return type_;
+				return this.type_;
 			}
 			set {
-				type_ = value;
+				this.type_ = value;
 			}
 		}
 		#endregion
@@ -68,10 +70,10 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlAttribute("version")]
 		public string Version {
 			get {
-				return version_;
+				return this.version_;
 			}
 			set {
-				version_ = value;
+				this.version_ = value;
 			}
 		}
 		#endregion
@@ -81,10 +83,10 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlAttribute("id")]
 		public string Id {
 			get {
-				return id_;
+				return this.id_;
 			}
 			set {
-				id_ = value;
+				this.id_ = value;
 			}
 		}
 		#endregion
@@ -94,13 +96,13 @@ namespace OGen.Dia.lib.metadata.diagram {
 
 		[XmlElement("attribute")]
 		public XS_attributeType[] attributecollection__xml {
-			get { return attributecollection_.cols__; }
-			set { attributecollection_.cols__ = value; }
+			get { return this.attributecollection_.cols__; }
+			set { this.attributecollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_attributeTypeCollection AttributeCollection {
-			get { return attributecollection_; }
+			get { return this.attributecollection_; }
 		}
 		#endregion
 		#region public XS_connectionsType Connections { get; set; }
@@ -112,31 +114,31 @@ namespace OGen.Dia.lib.metadata.diagram {
 			get {
 
 				// check before lock
-				if (connections__ == null) {
+				if (this.connections__ == null) {
 
-					lock (connections__locker) {
+					lock (this.connections__locker) {
 
 						// double check, thread safer!
-						if (connections__ == null) {
+						if (this.connections__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							connections__ = new XS_connectionsType();
+							this.connections__ = new XS_connectionsType();
 						}
 					}
 				}
 
-				return connections__;
+				return this.connections__;
 			}
 			set {
-				connections__ = value;
+				this.connections__ = value;
 			}
 		}
 
 		[XmlElement("connections")]
 		public XS_connectionsType connections__xml {
-			get { return connections__; }
-			set { connections__ = value; }
+			get { return this.connections__; }
+			set { this.connections__ = value; }
 		}
 		#endregion
 
@@ -144,20 +146,20 @@ namespace OGen.Dia.lib.metadata.diagram {
 		public void CopyFrom(XS_objectType objectType_in) {
 			int _index = -1;
 
-			type_ = objectType_in.type_;
-			version_ = objectType_in.version_;
-			id_ = objectType_in.id_;
-			attributecollection_.Clear();
+			this.type_ = objectType_in.type_;
+			this.version_ = objectType_in.version_;
+			this.id_ = objectType_in.id_;
+			this.attributecollection_.Clear();
 			for (int d = 0; d < objectType_in.attributecollection_.Count; d++) {
-				attributecollection_.Add(
+				this.attributecollection_.Add(
 					out _index,
 					new XS_attributeType()
 				);
-				attributecollection_[_index].CopyFrom(
+				this.attributecollection_[_index].CopyFrom(
 					objectType_in.attributecollection_[d]
 				);
 			}
-			if (objectType_in.connections__ != null) connections__.CopyFrom(objectType_in.connections__);
+			if (objectType_in.connections__ != null) this.connections__.CopyFrom(objectType_in.connections__);
 		}
 		#endregion
 	}

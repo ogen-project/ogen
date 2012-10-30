@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.Doc.lib.metadata.documentation {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_documentationType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				if (chapters__ != null) chapters__.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				if (chapters__ != null) chapters__.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,10 +55,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("documentationName")]
 		public string DocumentationName {
 			get {
-				return documentationname_;
+				return this.documentationname_;
 			}
 			set {
-				documentationname_ = value;
+				this.documentationname_ = value;
 			}
 		}
 		#endregion
@@ -66,10 +68,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("documentationTitle")]
 		public string DocumentationTitle {
 			get {
-				return documentationtitle_;
+				return this.documentationtitle_;
 			}
 			set {
-				documentationtitle_ = value;
+				this.documentationtitle_ = value;
 			}
 		}
 		#endregion
@@ -79,10 +81,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("projectURL")]
 		public string ProjectURL {
 			get {
-				return projecturl_;
+				return this.projecturl_;
 			}
 			set {
-				projecturl_ = value;
+				this.projecturl_ = value;
 			}
 		}
 		#endregion
@@ -92,10 +94,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("copyrightText")]
 		public string CopyrightText {
 			get {
-				return copyrighttext_;
+				return this.copyrighttext_;
 			}
 			set {
-				copyrighttext_ = value;
+				this.copyrighttext_ = value;
 			}
 		}
 		#endregion
@@ -105,10 +107,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("feedbackEmailAddress")]
 		public string FeedbackEmailAddress {
 			get {
-				return feedbackemailaddress_;
+				return this.feedbackemailaddress_;
 			}
 			set {
-				feedbackemailaddress_ = value;
+				this.feedbackemailaddress_ = value;
 			}
 		}
 		#endregion
@@ -118,10 +120,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("version")]
 		public string Version {
 			get {
-				return version_;
+				return this.version_;
 			}
 			set {
-				version_ = value;
+				this.version_ = value;
 			}
 		}
 		#endregion
@@ -131,10 +133,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("date")]
 		public string Date {
 			get {
-				return date_;
+				return this.date_;
 			}
 			set {
-				date_ = value;
+				this.date_ = value;
 			}
 		}
 		#endregion
@@ -147,44 +149,44 @@ namespace OGen.Doc.lib.metadata.documentation {
 			get {
 
 				// check before lock
-				if (chapters__ == null) {
+				if (this.chapters__ == null) {
 
-					lock (chapters__locker) {
+					lock (this.chapters__locker) {
 
 						// double check, thread safer!
-						if (chapters__ == null) {
+						if (this.chapters__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							chapters__ = new XS_chaptersType();
+							this.chapters__ = new XS_chaptersType();
 						}
 					}
 				}
 
-				return chapters__;
+				return this.chapters__;
 			}
 			set {
-				chapters__ = value;
+				this.chapters__ = value;
 			}
 		}
 
 		[XmlElement("chapters")]
 		public XS_chaptersType chapters__xml {
-			get { return chapters__; }
-			set { chapters__ = value; }
+			get { return this.chapters__; }
+			set { this.chapters__ = value; }
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_documentationType documentationType_in) {
-			documentationname_ = documentationType_in.documentationname_;
-			documentationtitle_ = documentationType_in.documentationtitle_;
-			projecturl_ = documentationType_in.projecturl_;
-			copyrighttext_ = documentationType_in.copyrighttext_;
-			feedbackemailaddress_ = documentationType_in.feedbackemailaddress_;
-			version_ = documentationType_in.version_;
-			date_ = documentationType_in.date_;
-			if (documentationType_in.chapters__ != null) chapters__.CopyFrom(documentationType_in.chapters__);
+			this.documentationname_ = documentationType_in.documentationname_;
+			this.documentationtitle_ = documentationType_in.documentationtitle_;
+			this.projecturl_ = documentationType_in.projecturl_;
+			this.copyrighttext_ = documentationType_in.copyrighttext_;
+			this.feedbackemailaddress_ = documentationType_in.feedbackemailaddress_;
+			this.version_ = documentationType_in.version_;
+			this.date_ = documentationType_in.date_;
+			if (documentationType_in.chapters__ != null) this.chapters__.CopyFrom(documentationType_in.chapters__);
 		}
 		#endregion
 	}

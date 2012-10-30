@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_tableUpdatesType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				tableupdatecollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				tableupdatecollection_.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,13 +55,13 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 		[XmlElement("tableUpdate")]
 		public XS_tableUpdateType[] tableupdatecollection__xml {
-			get { return tableupdatecollection_.cols__; }
-			set { tableupdatecollection_.cols__ = value; }
+			get { return this.tableupdatecollection_.cols__; }
+			set { this.tableupdatecollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_tableUpdateTypeCollection TableUpdateCollection {
-			get { return tableupdatecollection_; }
+			get { return this.tableupdatecollection_; }
 		}
 		#endregion
 
@@ -67,13 +69,13 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public void CopyFrom(XS_tableUpdatesType tableUpdatesType_in) {
 			int _index = -1;
 
-			tableupdatecollection_.Clear();
+			this.tableupdatecollection_.Clear();
 			for (int d = 0; d < tableUpdatesType_in.tableupdatecollection_.Count; d++) {
-				tableupdatecollection_.Add(
+				this.tableupdatecollection_.Add(
 					out _index,
 					new XS_tableUpdateType()
 				);
-				tableupdatecollection_[_index].CopyFrom(
+				this.tableupdatecollection_[_index].CopyFrom(
 					tableUpdatesType_in.tableupdatecollection_[d]
 				);
 			}

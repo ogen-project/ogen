@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_tableUpdateType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				if (tableupdateparameters__ != null) tableupdateparameters__.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				if (tableupdateparameters__ != null) tableupdateparameters__.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,10 +55,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("name")]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
-				name_ = value;
+				this.name_ = value;
 			}
 		}
 		#endregion
@@ -69,38 +71,38 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			get {
 
 				// check before lock
-				if (tableupdateparameters__ == null) {
+				if (this.tableupdateparameters__ == null) {
 
-					lock (tableupdateparameters__locker) {
+					lock (this.tableupdateparameters__locker) {
 
 						// double check, thread safer!
-						if (tableupdateparameters__ == null) {
+						if (this.tableupdateparameters__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							tableupdateparameters__ = new XS_tableUpdateParametersType();
+							this.tableupdateparameters__ = new XS_tableUpdateParametersType();
 						}
 					}
 				}
 
-				return tableupdateparameters__;
+				return this.tableupdateparameters__;
 			}
 			set {
-				tableupdateparameters__ = value;
+				this.tableupdateparameters__ = value;
 			}
 		}
 
 		[XmlElement("tableUpdateParameters")]
 		public XS_tableUpdateParametersType tableupdateparameters__xml {
-			get { return tableupdateparameters__; }
-			set { tableupdateparameters__ = value; }
+			get { return this.tableupdateparameters__; }
+			set { this.tableupdateparameters__ = value; }
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_tableUpdateType tableUpdateType_in) {
-			name_ = tableUpdateType_in.name_;
-			if (tableUpdateType_in.tableupdateparameters__ != null) tableupdateparameters__.CopyFrom(tableUpdateType_in.tableupdateparameters__);
+			this.name_ = tableUpdateType_in.name_;
+			if (tableUpdateType_in.tableupdateparameters__ != null) this.tableupdateparameters__.CopyFrom(tableUpdateType_in.tableupdateparameters__);
 		}
 		#endregion
 	}

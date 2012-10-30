@@ -14,9 +14,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 
 using System;
+using System.Collections;
 using System.IO;
 using System.Xml.Serialization;
-using System.Collections;
 
 using OGen.lib.collections;
 
@@ -28,10 +28,10 @@ namespace OGen.lib.metadata {
 		[XmlAttribute("xmlFilename")]
 		public string XMLFilename {
 			get {
-				return xmlfilename_;
+				return this.xmlfilename_;
 			}
 			set {
-				xmlfilename_ = value;
+				this.xmlfilename_ = value;
 			}
 		}
 		#endregion
@@ -41,10 +41,10 @@ namespace OGen.lib.metadata {
 		[XmlAttribute("xmlFileType")]
 		public string XMLFileType {
 			get {
-				return xmlfiletype_;
+				return this.xmlfiletype_;
 			}
 			set {
-				xmlfiletype_ = value;
+				this.xmlfiletype_ = value;
 			}
 		}
 		#endregion

@@ -12,13 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Xml.Serialization;
 
-using OGen.lib.generator;
 
 namespace OGen.NTier.lib.metadata.metadataBusiness {
+	using System;
+	using System.IO;
+	using System.Xml.Serialization;
+
+	using OGen.lib.generator;
+
 	#if NET_1_1
 	public class XS0__metadataBusiness : XS_metadataBusinessType, MetadataInterface {
 	#else
@@ -33,7 +35,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 
 		[XmlIgnore()]
 		public string Root_MetadataBusiness {
-			get { return root_metadatabusiness_; }
+			get { return this.root_metadatabusiness_; }
 		}
 		#endregion
 
@@ -164,10 +166,10 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		public string Read_fromRoot(string what_in) {
 			return OGen.lib.generator.utils.ReflectThrough(
 				this, 
-				Root_MetadataBusiness, 
+				this.Root_MetadataBusiness, 
 				null, 
 				what_in, 
-				Root_MetadataBusiness, 
+				this.Root_MetadataBusiness, 
 				true, 
 				true
 			);
@@ -181,10 +183,10 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		) {
 			OGen.lib.generator.utils.ReflectThrough(
 				this, 
-				Root_MetadataBusiness, 
+				this.Root_MetadataBusiness, 
 				iteration_found_in, 
 				iteration_in, 
-				Root_MetadataBusiness, 
+				this.Root_MetadataBusiness, 
 				false, 
 				true, 
 				ref valueHasBeenFound_out

@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Xml.Serialization;
+
 
 namespace OGen.XSD.lib.metadata.metadata {
+	using System;
+	using System.IO;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0__metadataCollection {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 		#endif
 			XS__metadata[] metadatacollection_in
 		) {
-			metadatacollection_ = metadatacollection_in;
+			this.metadatacollection_ = metadatacollection_in;
 		}
 
 		#region public XS__metadata this[...] { get; }
@@ -37,16 +39,16 @@ namespace OGen.XSD.lib.metadata.metadata {
 
 		public XS__metadata this[int index_in] {
 			get {
-				return metadatacollection_[index_in];
+				return this.metadatacollection_[index_in];
 			}
 		}
 		public XS__metadata this[string name_in] {
 			get {
 				// ToDos: later! performance
 
-				for (int i = 0; i < metadatacollection_.Length; i++) {
-					if (metadatacollection_[i].ApplicationName == name_in) {
-						return metadatacollection_[i];
+				for (int i = 0; i < this.metadatacollection_.Length; i++) {
+					if (this.metadatacollection_[i].ApplicationName == name_in) {
+						return this.metadatacollection_[i];
 					}
 				}
 				throw new Exception(string.Format(
@@ -59,7 +61,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 		}
 		#endregion
 		public int Count { get {
-			return metadatacollection_.Length;
+			return this.metadatacollection_.Length;
 		} }
 	}
 }

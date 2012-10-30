@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_tableType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				if (tablefields__ != null) tablefields__.parent_ref = this;
 				if (tablesearches__ != null) tablesearches__.parent_ref = this;
 				if (tableupdates__ != null) tableupdates__.parent_ref = this;
@@ -43,7 +45,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				if (tablefields__ != null) tablefields__.root_ref = value;
 				if (tablesearches__ != null) tablesearches__.root_ref = value;
 				if (tableupdates__ != null) tableupdates__.root_ref = value;
@@ -57,10 +59,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("name")]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
-				name_ = value;
+				this.name_ = value;
 			}
 		}
 		#endregion
@@ -70,10 +72,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("friendlyName")]
 		public string FriendlyName {
 			get {
-				return friendlyname_;
+				return this.friendlyname_;
 			}
 			set {
-				friendlyname_ = value;
+				this.friendlyname_ = value;
 			}
 		}
 		#endregion
@@ -83,10 +85,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("dbDescription")]
 		public string DBDescription {
 			get {
-				return dbdescription_;
+				return this.dbdescription_;
 			}
 			set {
-				dbdescription_ = value;
+				this.dbdescription_ = value;
 			}
 		}
 		#endregion
@@ -96,10 +98,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("extendedDescription")]
 		public string ExtendedDescription {
 			get {
-				return extendeddescription_;
+				return this.extendeddescription_;
 			}
 			set {
-				extendeddescription_ = value;
+				this.extendeddescription_ = value;
 			}
 		}
 		#endregion
@@ -109,10 +111,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("isVirtualTable")]
 		public bool isVirtualTable {
 			get {
-				return isvirtualtable_;
+				return this.isvirtualtable_;
 			}
 			set {
-				isvirtualtable_ = value;
+				this.isvirtualtable_ = value;
 			}
 		}
 		#endregion
@@ -122,10 +124,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("isConfig")]
 		public bool isConfig {
 			get {
-				return isconfig_;
+				return this.isconfig_;
 			}
 			set {
-				isconfig_ = value;
+				this.isconfig_ = value;
 			}
 		}
 		#endregion
@@ -135,10 +137,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("configName")]
 		public string ConfigName {
 			get {
-				return configname_;
+				return this.configname_;
 			}
 			set {
-				configname_ = value;
+				this.configname_ = value;
 			}
 		}
 		#endregion
@@ -148,10 +150,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("configConfig")]
 		public string ConfigConfig {
 			get {
-				return configconfig_;
+				return this.configconfig_;
 			}
 			set {
-				configconfig_ = value;
+				this.configconfig_ = value;
 			}
 		}
 		#endregion
@@ -161,10 +163,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("configDatatype")]
 		public string ConfigDatatype {
 			get {
-				return configdatatype_;
+				return this.configdatatype_;
 			}
 			set {
-				configdatatype_ = value;
+				this.configdatatype_ = value;
 			}
 		}
 		#endregion
@@ -177,31 +179,31 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			get {
 
 				// check before lock
-				if (tablefields__ == null) {
+				if (this.tablefields__ == null) {
 
-					lock (tablefields__locker) {
+					lock (this.tablefields__locker) {
 
 						// double check, thread safer!
-						if (tablefields__ == null) {
+						if (this.tablefields__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							tablefields__ = new XS_tableFieldsType();
+							this.tablefields__ = new XS_tableFieldsType();
 						}
 					}
 				}
 
-				return tablefields__;
+				return this.tablefields__;
 			}
 			set {
-				tablefields__ = value;
+				this.tablefields__ = value;
 			}
 		}
 
 		[XmlElement("tableFields")]
 		public XS_tableFieldsType tablefields__xml {
-			get { return tablefields__; }
-			set { tablefields__ = value; }
+			get { return this.tablefields__; }
+			set { this.tablefields__ = value; }
 		}
 		#endregion
 		#region public XS_tableSearchesType TableSearches { get; set; }
@@ -213,31 +215,31 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			get {
 
 				// check before lock
-				if (tablesearches__ == null) {
+				if (this.tablesearches__ == null) {
 
-					lock (tablesearches__locker) {
+					lock (this.tablesearches__locker) {
 
 						// double check, thread safer!
-						if (tablesearches__ == null) {
+						if (this.tablesearches__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							tablesearches__ = new XS_tableSearchesType();
+							this.tablesearches__ = new XS_tableSearchesType();
 						}
 					}
 				}
 
-				return tablesearches__;
+				return this.tablesearches__;
 			}
 			set {
-				tablesearches__ = value;
+				this.tablesearches__ = value;
 			}
 		}
 
 		[XmlElement("tableSearches")]
 		public XS_tableSearchesType tablesearches__xml {
-			get { return tablesearches__; }
-			set { tablesearches__ = value; }
+			get { return this.tablesearches__; }
+			set { this.tablesearches__ = value; }
 		}
 		#endregion
 		#region public XS_tableUpdatesType TableUpdates { get; set; }
@@ -249,48 +251,48 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			get {
 
 				// check before lock
-				if (tableupdates__ == null) {
+				if (this.tableupdates__ == null) {
 
-					lock (tableupdates__locker) {
+					lock (this.tableupdates__locker) {
 
 						// double check, thread safer!
-						if (tableupdates__ == null) {
+						if (this.tableupdates__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							tableupdates__ = new XS_tableUpdatesType();
+							this.tableupdates__ = new XS_tableUpdatesType();
 						}
 					}
 				}
 
-				return tableupdates__;
+				return this.tableupdates__;
 			}
 			set {
-				tableupdates__ = value;
+				this.tableupdates__ = value;
 			}
 		}
 
 		[XmlElement("tableUpdates")]
 		public XS_tableUpdatesType tableupdates__xml {
-			get { return tableupdates__; }
-			set { tableupdates__ = value; }
+			get { return this.tableupdates__; }
+			set { this.tableupdates__ = value; }
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_tableType tableType_in) {
-			name_ = tableType_in.name_;
-			friendlyname_ = tableType_in.friendlyname_;
-			dbdescription_ = tableType_in.dbdescription_;
-			extendeddescription_ = tableType_in.extendeddescription_;
-			isvirtualtable_ = tableType_in.isvirtualtable_;
-			isconfig_ = tableType_in.isconfig_;
-			configname_ = tableType_in.configname_;
-			configconfig_ = tableType_in.configconfig_;
-			configdatatype_ = tableType_in.configdatatype_;
-			if (tableType_in.tablefields__ != null) tablefields__.CopyFrom(tableType_in.tablefields__);
-			if (tableType_in.tablesearches__ != null) tablesearches__.CopyFrom(tableType_in.tablesearches__);
-			if (tableType_in.tableupdates__ != null) tableupdates__.CopyFrom(tableType_in.tableupdates__);
+			this.name_ = tableType_in.name_;
+			this.friendlyname_ = tableType_in.friendlyname_;
+			this.dbdescription_ = tableType_in.dbdescription_;
+			this.extendeddescription_ = tableType_in.extendeddescription_;
+			this.isvirtualtable_ = tableType_in.isvirtualtable_;
+			this.isconfig_ = tableType_in.isconfig_;
+			this.configname_ = tableType_in.configname_;
+			this.configconfig_ = tableType_in.configconfig_;
+			this.configdatatype_ = tableType_in.configdatatype_;
+			if (tableType_in.tablefields__ != null) this.tablefields__.CopyFrom(tableType_in.tablefields__);
+			if (tableType_in.tablesearches__ != null) this.tablesearches__.CopyFrom(tableType_in.tablesearches__);
+			if (tableType_in.tableupdates__ != null) this.tableupdates__.CopyFrom(tableType_in.tableupdates__);
 		}
 		#endregion
 	}

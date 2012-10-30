@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.lib.templates {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_argumentsType {
 	#else
@@ -28,13 +30,13 @@ namespace OGen.lib.templates {
 
 		[XmlElement("argument")]
 		public XS_argumentType[] argumentcollection__xml {
-			get { return argumentcollection_.cols__; }
-			set { argumentcollection_.cols__ = value; }
+			get { return this.argumentcollection_.cols__; }
+			set { this.argumentcollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_argumentTypeCollection ArgumentCollection {
-			get { return argumentcollection_; }
+			get { return this.argumentcollection_; }
 		}
 		#endregion
 
@@ -42,13 +44,13 @@ namespace OGen.lib.templates {
 		public void CopyFrom(XS_argumentsType argumentsType_in) {
 			int _index = -1;
 
-			argumentcollection_.Clear();
+			this.argumentcollection_.Clear();
 			for (int d = 0; d < argumentsType_in.argumentcollection_.Count; d++) {
-				argumentcollection_.Add(
+				this.argumentcollection_.Add(
 					out _index,
 					new XS_argumentType()
 				);
-				argumentcollection_[_index].CopyFrom(
+				this.argumentcollection_[_index].CopyFrom(
 					argumentsType_in.argumentcollection_[d]
 				);
 			}

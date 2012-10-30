@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.XSD.lib.metadata.schema {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_complexTypeType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				attributecollection_.parent_ref = this;
 				if (sequence__ != null) sequence__.parent_ref = this;
 			}
@@ -42,7 +44,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				attributecollection_.root_ref = value;
 				if (sequence__ != null) sequence__.root_ref = value;
 			}
@@ -55,10 +57,10 @@ namespace OGen.XSD.lib.metadata.schema {
 		[XmlAttribute("name")]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
-				name_ = value;
+				this.name_ = value;
 			}
 		}
 		#endregion
@@ -68,13 +70,13 @@ namespace OGen.XSD.lib.metadata.schema {
 
 		[XmlElement("attribute")]
 		public XS_attributeType[] attributecollection__xml {
-			get { return attributecollection_.cols__; }
-			set { attributecollection_.cols__ = value; }
+			get { return this.attributecollection_.cols__; }
+			set { this.attributecollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_attributeTypeCollection AttributeCollection {
-			get { return attributecollection_; }
+			get { return this.attributecollection_; }
 		}
 		#endregion
 		#region public XS_sequenceType Sequence { get; set; }
@@ -86,31 +88,31 @@ namespace OGen.XSD.lib.metadata.schema {
 			get {
 
 				// check before lock
-				if (sequence__ == null) {
+				if (this.sequence__ == null) {
 
-					lock (sequence__locker) {
+					lock (this.sequence__locker) {
 
 						// double check, thread safer!
-						if (sequence__ == null) {
+						if (this.sequence__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							sequence__ = new XS_sequenceType();
+							this.sequence__ = new XS_sequenceType();
 						}
 					}
 				}
 
-				return sequence__;
+				return this.sequence__;
 			}
 			set {
-				sequence__ = value;
+				this.sequence__ = value;
 			}
 		}
 
 		[XmlElement("sequence")]
 		public XS_sequenceType sequence__xml {
-			get { return sequence__; }
-			set { sequence__ = value; }
+			get { return this.sequence__; }
+			set { this.sequence__ = value; }
 		}
 		#endregion
 
@@ -118,18 +120,18 @@ namespace OGen.XSD.lib.metadata.schema {
 		public void CopyFrom(XS_complexTypeType complexTypeType_in) {
 			int _index = -1;
 
-			name_ = complexTypeType_in.name_;
-			attributecollection_.Clear();
+			this.name_ = complexTypeType_in.name_;
+			this.attributecollection_.Clear();
 			for (int d = 0; d < complexTypeType_in.attributecollection_.Count; d++) {
-				attributecollection_.Add(
+				this.attributecollection_.Add(
 					out _index,
 					new XS_attributeType()
 				);
-				attributecollection_[_index].CopyFrom(
+				this.attributecollection_[_index].CopyFrom(
 					complexTypeType_in.attributecollection_[d]
 				);
 			}
-			if (complexTypeType_in.sequence__ != null) sequence__.CopyFrom(complexTypeType_in.sequence__);
+			if (complexTypeType_in.sequence__ != null) this.sequence__.CopyFrom(complexTypeType_in.sequence__);
 		}
 		#endregion
 	}

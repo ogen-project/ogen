@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataBusiness {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_metadataBusinessType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				if (classes__ != null) classes__.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				if (classes__ != null) classes__.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,10 +55,10 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlAttribute("applicationName")]
 		public string ApplicationName {
 			get {
-				return applicationname_;
+				return this.applicationname_;
 			}
 			set {
-				applicationname_ = value;
+				this.applicationname_ = value;
 			}
 		}
 		#endregion
@@ -69,38 +71,38 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			get {
 
 				// check before lock
-				if (classes__ == null) {
+				if (this.classes__ == null) {
 
-					lock (classes__locker) {
+					lock (this.classes__locker) {
 
 						// double check, thread safer!
-						if (classes__ == null) {
+						if (this.classes__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							classes__ = new XS_classesType();
+							this.classes__ = new XS_classesType();
 						}
 					}
 				}
 
-				return classes__;
+				return this.classes__;
 			}
 			set {
-				classes__ = value;
+				this.classes__ = value;
 			}
 		}
 
 		[XmlElement("classes")]
 		public XS_classesType classes__xml {
-			get { return classes__; }
-			set { classes__ = value; }
+			get { return this.classes__; }
+			set { this.classes__ = value; }
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_metadataBusinessType metadataBusinessType_in) {
-			applicationname_ = metadataBusinessType_in.applicationname_;
-			if (metadataBusinessType_in.classes__ != null) classes__.CopyFrom(metadataBusinessType_in.classes__);
+			this.applicationname_ = metadataBusinessType_in.applicationname_;
+			if (metadataBusinessType_in.classes__ != null) this.classes__.CopyFrom(metadataBusinessType_in.classes__);
 		}
 		#endregion
 	}

@@ -129,8 +129,8 @@ namespace OGen.lib {
 		#endregion
 
 		#region public static string Bytes_ToString(...);
-		static readonly string[] BytesUnits = { "B", "KB", "MB", "GB", "TB", "PB" };
-		const int BytesMultiples = 1024;
+		public static readonly string[] BytesUnits = { "B", "KB", "MB", "GB", "TB", "PB" };
+		public const int BytesMultiples = 1024;
 
 		public static string Bytes_ToString(
 			int value_in,

@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.XSD.lib.metadata.metadata {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_metadataIndexType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				specificcasecollection_.parent_ref = this;
 				complextypecollection_.parent_ref = this;
 			}
@@ -42,7 +44,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				specificcasecollection_.root_ref = value;
 				complextypecollection_.root_ref = value;
 			}
@@ -55,10 +57,10 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlAttribute("metadata")]
 		public string Metadata {
 			get {
-				return metadata_;
+				return this.metadata_;
 			}
 			set {
-				metadata_ = value;
+				this.metadata_ = value;
 			}
 		}
 		#endregion
@@ -68,10 +70,10 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlAttribute("index")]
 		public string Index {
 			get {
-				return index_;
+				return this.index_;
 			}
 			set {
-				index_ = value;
+				this.index_ = value;
 			}
 		}
 		#endregion
@@ -81,13 +83,13 @@ namespace OGen.XSD.lib.metadata.metadata {
 
 		[XmlElement("specificCase")]
 		public XS_specificCaseType[] specificcasecollection__xml {
-			get { return specificcasecollection_.cols__; }
-			set { specificcasecollection_.cols__ = value; }
+			get { return this.specificcasecollection_.cols__; }
+			set { this.specificcasecollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_specificCaseTypeCollection SpecificCaseCollection {
-			get { return specificcasecollection_; }
+			get { return this.specificcasecollection_; }
 		}
 		#endregion
 		#region public XS_complexTypeTypeCollection ComplexTypeCollection { get; }
@@ -96,13 +98,13 @@ namespace OGen.XSD.lib.metadata.metadata {
 
 		[XmlElement("complexType")]
 		public XS_complexTypeType[] complextypecollection__xml {
-			get { return complextypecollection_.cols__; }
-			set { complextypecollection_.cols__ = value; }
+			get { return this.complextypecollection_.cols__; }
+			set { this.complextypecollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_complexTypeTypeCollection ComplexTypeCollection {
-			get { return complextypecollection_; }
+			get { return this.complextypecollection_; }
 		}
 		#endregion
 
@@ -110,25 +112,25 @@ namespace OGen.XSD.lib.metadata.metadata {
 		public void CopyFrom(XS_metadataIndexType metadataIndexType_in) {
 			int _index = -1;
 
-			metadata_ = metadataIndexType_in.metadata_;
-			index_ = metadataIndexType_in.index_;
-			specificcasecollection_.Clear();
+			this.metadata_ = metadataIndexType_in.metadata_;
+			this.index_ = metadataIndexType_in.index_;
+			this.specificcasecollection_.Clear();
 			for (int d = 0; d < metadataIndexType_in.specificcasecollection_.Count; d++) {
-				specificcasecollection_.Add(
+				this.specificcasecollection_.Add(
 					out _index,
 					new XS_specificCaseType()
 				);
-				specificcasecollection_[_index].CopyFrom(
+				this.specificcasecollection_[_index].CopyFrom(
 					metadataIndexType_in.specificcasecollection_[d]
 				);
 			}
-			complextypecollection_.Clear();
+			this.complextypecollection_.Clear();
 			for (int d = 0; d < metadataIndexType_in.complextypecollection_.Count; d++) {
-				complextypecollection_.Add(
+				this.complextypecollection_.Add(
 					out _index,
 					new XS_complexTypeType()
 				);
-				complextypecollection_[_index].CopyFrom(
+				this.complextypecollection_[_index].CopyFrom(
 					metadataIndexType_in.complextypecollection_[d]
 				);
 			}

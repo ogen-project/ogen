@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_tableFieldType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 			}
 			get { return parent_ref_; }
 		}
@@ -40,7 +42,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 			}
 			get { return root_ref_; }
 		}
@@ -51,10 +53,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("name")]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
-				name_ = value;
+				this.name_ = value;
 			}
 		}
 		#endregion
@@ -64,10 +66,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("isViewPK")]
 		public bool isViewPK {
 			get {
-				return isviewpk_;
+				return this.isviewpk_;
 			}
 			set {
-				isviewpk_ = value;
+				this.isviewpk_ = value;
 			}
 		}
 		#endregion
@@ -77,10 +79,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("defaultValue")]
 		public string DefaultValue {
 			get {
-				return defaultvalue_;
+				return this.defaultvalue_;
 			}
 			set {
-				defaultvalue_ = value;
+				this.defaultvalue_ = value;
 			}
 		}
 		#endregion
@@ -90,10 +92,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("friendlyName")]
 		public string FriendlyName {
 			get {
-				return friendlyname_;
+				return this.friendlyname_;
 			}
 			set {
-				friendlyname_ = value;
+				this.friendlyname_ = value;
 			}
 		}
 		#endregion
@@ -103,10 +105,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("extendedDescription")]
 		public string ExtendedDescription {
 			get {
-				return extendeddescription_;
+				return this.extendeddescription_;
 			}
 			set {
-				extendeddescription_ = value;
+				this.extendeddescription_ = value;
 			}
 		}
 		#endregion
@@ -116,10 +118,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("isListItemValue")]
 		public bool isListItemValue {
 			get {
-				return islistitemvalue_;
+				return this.islistitemvalue_;
 			}
 			set {
-				islistitemvalue_ = value;
+				this.islistitemvalue_ = value;
 			}
 		}
 		#endregion
@@ -129,23 +131,23 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("isListItemText")]
 		public bool isListItemText {
 			get {
-				return islistitemtext_;
+				return this.islistitemtext_;
 			}
 			set {
-				islistitemtext_ = value;
+				this.islistitemtext_ = value;
 			}
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_tableFieldType tableFieldType_in) {
-			name_ = tableFieldType_in.name_;
-			isviewpk_ = tableFieldType_in.isviewpk_;
-			defaultvalue_ = tableFieldType_in.defaultvalue_;
-			friendlyname_ = tableFieldType_in.friendlyname_;
-			extendeddescription_ = tableFieldType_in.extendeddescription_;
-			islistitemvalue_ = tableFieldType_in.islistitemvalue_;
-			islistitemtext_ = tableFieldType_in.islistitemtext_;
+			this.name_ = tableFieldType_in.name_;
+			this.isviewpk_ = tableFieldType_in.isviewpk_;
+			this.defaultvalue_ = tableFieldType_in.defaultvalue_;
+			this.friendlyname_ = tableFieldType_in.friendlyname_;
+			this.extendeddescription_ = tableFieldType_in.extendeddescription_;
+			this.islistitemvalue_ = tableFieldType_in.islistitemvalue_;
+			this.islistitemtext_ = tableFieldType_in.islistitemtext_;
 		}
 		#endregion
 	}

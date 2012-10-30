@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_pageType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				rowcollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				rowcollection_.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,10 +55,10 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		[XmlAttribute("name")]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
-				name_ = value;
+				this.name_ = value;
 			}
 		}
 		#endregion
@@ -66,13 +68,13 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 
 		[XmlElement("row")]
 		public XS_rowType[] rowcollection__xml {
-			get { return rowcollection_.cols__; }
-			set { rowcollection_.cols__ = value; }
+			get { return this.rowcollection_.cols__; }
+			set { this.rowcollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_rowTypeCollection RowCollection {
-			get { return rowcollection_; }
+			get { return this.rowcollection_; }
 		}
 		#endregion
 
@@ -80,14 +82,14 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		public void CopyFrom(XS_pageType pageType_in) {
 			int _index = -1;
 
-			name_ = pageType_in.name_;
-			rowcollection_.Clear();
+			this.name_ = pageType_in.name_;
+			this.rowcollection_.Clear();
 			for (int d = 0; d < pageType_in.rowcollection_.Count; d++) {
-				rowcollection_.Add(
+				this.rowcollection_.Add(
 					out _index,
 					new XS_rowType()
 				);
-				rowcollection_[_index].CopyFrom(
+				this.rowcollection_[_index].CopyFrom(
 					pageType_in.rowcollection_[d]
 				);
 			}

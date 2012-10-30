@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.XSD.lib.metadata.metadata {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_complexTypeKeyType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 			}
 			get { return parent_ref_; }
 		}
@@ -40,7 +42,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 			}
 			get { return root_ref_; }
 		}
@@ -51,10 +53,10 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlAttribute("name")]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
-				name_ = value;
+				this.name_ = value;
 			}
 		}
 		#endregion
@@ -64,18 +66,18 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlAttribute("caseSensitive")]
 		public bool caseSensitive {
 			get {
-				return casesensitive_;
+				return this.casesensitive_;
 			}
 			set {
-				casesensitive_ = value;
+				this.casesensitive_ = value;
 			}
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_complexTypeKeyType complexTypeKeyType_in) {
-			name_ = complexTypeKeyType_in.name_;
-			casesensitive_ = complexTypeKeyType_in.casesensitive_;
+			this.name_ = complexTypeKeyType_in.name_;
+			this.casesensitive_ = complexTypeKeyType_in.casesensitive_;
 		}
 		#endregion
 	}

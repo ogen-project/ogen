@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.XSD.lib.metadata.schema {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_enumerationType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 			}
 			get { return parent_ref_; }
 		}
@@ -40,7 +42,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 			}
 			get { return root_ref_; }
 		}
@@ -51,17 +53,17 @@ namespace OGen.XSD.lib.metadata.schema {
 		[XmlAttribute("value")]
 		public string Value {
 			get {
-				return value_;
+				return this.value_;
 			}
 			set {
-				value_ = value;
+				this.value_ = value;
 			}
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_enumerationType enumerationType_in) {
-			value_ = enumerationType_in.value_;
+			this.value_ = enumerationType_in.value_;
 		}
 		#endregion
 	}

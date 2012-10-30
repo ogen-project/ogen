@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_dbsType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				dbcollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				dbcollection_.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,10 +55,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("nameCase_defaultProvider")]
 		public string NameCase_defaultProvider {
 			get {
-				return namecase_defaultprovider_;
+				return this.namecase_defaultprovider_;
 			}
 			set {
-				namecase_defaultprovider_ = value;
+				this.namecase_defaultprovider_ = value;
 			}
 		}
 		#endregion
@@ -66,10 +68,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("description_defaultProvider")]
 		public string Description_defaultProvider {
 			get {
-				return description_defaultprovider_;
+				return this.description_defaultprovider_;
 			}
 			set {
-				description_defaultprovider_ = value;
+				this.description_defaultprovider_ = value;
 			}
 		}
 		#endregion
@@ -79,13 +81,13 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 		[XmlElement("db")]
 		public XS_dbType[] dbcollection__xml {
-			get { return dbcollection_.cols__; }
-			set { dbcollection_.cols__ = value; }
+			get { return this.dbcollection_.cols__; }
+			set { this.dbcollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_dbTypeCollection DBCollection {
-			get { return dbcollection_; }
+			get { return this.dbcollection_; }
 		}
 		#endregion
 
@@ -93,15 +95,15 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public void CopyFrom(XS_dbsType dbsType_in) {
 			int _index = -1;
 
-			namecase_defaultprovider_ = dbsType_in.namecase_defaultprovider_;
-			description_defaultprovider_ = dbsType_in.description_defaultprovider_;
-			dbcollection_.Clear();
+			this.namecase_defaultprovider_ = dbsType_in.namecase_defaultprovider_;
+			this.description_defaultprovider_ = dbsType_in.description_defaultprovider_;
+			this.dbcollection_.Clear();
 			for (int d = 0; d < dbsType_in.dbcollection_.Count; d++) {
-				dbcollection_.Add(
+				this.dbcollection_.Add(
 					out _index,
 					new XS_dbType()
 				);
-				dbcollection_[_index].CopyFrom(
+				this.dbcollection_[_index].CopyFrom(
 					dbsType_in.dbcollection_[d]
 				);
 			}

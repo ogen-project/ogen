@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataDB {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_tableFieldDBType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 			}
 			get { return parent_ref_; }
 		}
@@ -40,7 +42,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 			}
 			get { return root_ref_; }
 		}
@@ -51,10 +53,10 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("dbServerType")]
 		public string DBServerType {
 			get {
-				return dbservertype_;
+				return this.dbservertype_;
 			}
 			set {
-				dbservertype_ = value;
+				this.dbservertype_ = value;
 			}
 		}
 		#endregion
@@ -64,10 +66,10 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("dbType")]
 		public string DBType {
 			get {
-				return dbtype_;
+				return this.dbtype_;
 			}
 			set {
-				dbtype_ = value;
+				this.dbtype_ = value;
 			}
 		}
 		#endregion
@@ -77,10 +79,10 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("dbDescription")]
 		public string DBDescription {
 			get {
-				return dbdescription_;
+				return this.dbdescription_;
 			}
 			set {
-				dbdescription_ = value;
+				this.dbdescription_ = value;
 			}
 		}
 		#endregion
@@ -90,10 +92,10 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("dbDefaultValue")]
 		public string DBDefaultValue {
 			get {
-				return dbdefaultvalue_;
+				return this.dbdefaultvalue_;
 			}
 			set {
-				dbdefaultvalue_ = value;
+				this.dbdefaultvalue_ = value;
 			}
 		}
 		#endregion
@@ -103,10 +105,10 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("dbCollationName")]
 		public string DBCollationName {
 			get {
-				return dbcollationname_;
+				return this.dbcollationname_;
 			}
 			set {
-				dbcollationname_ = value;
+				this.dbcollationname_ = value;
 			}
 		}
 		#endregion
@@ -116,22 +118,22 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("dbFieldName")]
 		public string DBFieldName {
 			get {
-				return dbfieldname_;
+				return this.dbfieldname_;
 			}
 			set {
-				dbfieldname_ = value;
+				this.dbfieldname_ = value;
 			}
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_tableFieldDBType tableFieldDBType_in) {
-			dbservertype_ = tableFieldDBType_in.dbservertype_;
-			dbtype_ = tableFieldDBType_in.dbtype_;
-			dbdescription_ = tableFieldDBType_in.dbdescription_;
-			dbdefaultvalue_ = tableFieldDBType_in.dbdefaultvalue_;
-			dbcollationname_ = tableFieldDBType_in.dbcollationname_;
-			dbfieldname_ = tableFieldDBType_in.dbfieldname_;
+			this.dbservertype_ = tableFieldDBType_in.dbservertype_;
+			this.dbtype_ = tableFieldDBType_in.dbtype_;
+			this.dbdescription_ = tableFieldDBType_in.dbdescription_;
+			this.dbdefaultvalue_ = tableFieldDBType_in.dbdefaultvalue_;
+			this.dbcollationname_ = tableFieldDBType_in.dbcollationname_;
+			this.dbfieldname_ = tableFieldDBType_in.dbfieldname_;
 		}
 		#endregion
 	}

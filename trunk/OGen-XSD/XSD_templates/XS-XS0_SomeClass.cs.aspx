@@ -58,11 +58,13 @@ if ((_aux_rootmetadata.MetadataCollection[0].CopyrightText != string.Empty) && (
 */
 #endregion
 <%
-}%>using System;
-using System.Xml.Serialization;
-using System.Collections;
+}%>
 
 namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_schema.Element.Name%> {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class <%=XS0_%><%=_aux_complextype.Name%> {
 	#else
@@ -76,7 +78,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;<%
+				this.parent_ref_ = value;<%
 
 				for (int e = 0; e < _aux_elements.Count; e++) {
 					if (_aux_elements[e].MaxOccurs == XS_MaxOccursType.unbounded) {%><%=""%>
@@ -104,7 +106,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 		[XmlIgnore()]
 		public <%=XS__%>RootMetadata root_ref {
 			set {
-				root_ref_ = value;<%
+				this.root_ref_ = value;<%
 
 				for (int e = 0; e < _aux_elements.Count; e++) {
 					if (_aux_elements[e].MaxOccurs == XS_MaxOccursType.unbounded) {%><%=""%>
@@ -135,10 +137,10 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 		[XmlAttribute("<%=_aux_complextype.AttributeCollection[a].Name%>")]
 		public <%=_aux_complextype.AttributeCollection[a].NType(_arg_SchemaName)%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_complextype.AttributeCollection[a].Name, _arg_SchemaName)%> {
 			get {
-				return <%=_aux_complextype.AttributeCollection[a].Name.ToLower()%>_;
+				return this.<%=_aux_complextype.AttributeCollection[a].Name.ToLower()%>_;
 			}
 			set {
-				<%=_aux_complextype.AttributeCollection[a].Name.ToLower()%>_ = value;
+				this.<%=_aux_complextype.AttributeCollection[a].Name.ToLower()%>_ = value;
 			}
 		}
 		#endregion<%
@@ -153,13 +155,13 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 
 		[XmlElement("<%=_aux_elements[e].Name%>")]
 		public <%=XS_%><%=_aux_elements[e].Type%>[] <%=_aux_elements[e].Name.ToLower()%>collection__xml {
-			get { return <%=_aux_elements[e].Name.ToLower()%>collection_.cols__; }
-			set { <%=_aux_elements[e].Name.ToLower()%>collection_.cols__ = value; }
+			get { return this.<%=_aux_elements[e].Name.ToLower()%>collection_.cols__; }
+			set { this.<%=_aux_elements[e].Name.ToLower()%>collection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public <%=XS_%><%=_aux_elements[e].Type%>Collection <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_elements[e].Name, _arg_SchemaName)%>Collection {
-			get { return <%=_aux_elements[e].Name.ToLower()%>collection_; }
+			get { return this.<%=_aux_elements[e].Name.ToLower()%>collection_; }
 		}
 		#endregion<%
 
@@ -181,14 +183,14 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 			get {<%
 				if (_aux_ntype == "string") {%>
 // ToDos: here!
-				return (<%=_aux_elements[e].Name.ToLower()%>_.IndexOf("\r\n") >= 0)
-					? <%=_aux_elements[e].Name.ToLower()%>_
-					: <%=_aux_elements[e].Name.ToLower()%>_.Replace("\n", "\r\n");<%
+				return (this.<%=_aux_elements[e].Name.ToLower()%>_.IndexOf("\r\n") >= 0)
+					? this.<%=_aux_elements[e].Name.ToLower()%>_
+					: this.<%=_aux_elements[e].Name.ToLower()%>_.Replace("\n", "\r\n");<%
 				} else {%>
-				return <%=_aux_elements[e].Name.ToLower()%>_;<%
+				return this.<%=_aux_elements[e].Name.ToLower()%>_;<%
 				}%>
 			}
-			set { <%=_aux_elements[e].Name.ToLower()%>_ = value; }
+			set { this.<%=_aux_elements[e].Name.ToLower()%>_ = value; }
 		}
 		#endregion<%
 
@@ -204,31 +206,31 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 			get {
 
 				// check before lock
-				if (<%=_aux_elements[e].Name.ToLower()%>__ == null) {
+				if (this.<%=_aux_elements[e].Name.ToLower()%>__ == null) {
 
-					lock (<%=_aux_elements[e].Name.ToLower()%>__locker) {
+					lock (this.<%=_aux_elements[e].Name.ToLower()%>__locker) {
 
 						// double check, thread safer!
-						if (<%=_aux_elements[e].Name.ToLower()%>__ == null) {
+						if (this.<%=_aux_elements[e].Name.ToLower()%>__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							<%=_aux_elements[e].Name.ToLower()%>__ = new <%=XS_%><%=_aux_elements[e].Type%>();
+							this.<%=_aux_elements[e].Name.ToLower()%>__ = new <%=XS_%><%=_aux_elements[e].Type%>();
 						}
 					}
 				}
 
-				return <%=_aux_elements[e].Name.ToLower()%>__;
+				return this.<%=_aux_elements[e].Name.ToLower()%>__;
 			}
 			set {
-				<%=_aux_elements[e].Name.ToLower()%>__ = value;
+				this.<%=_aux_elements[e].Name.ToLower()%>__ = value;
 			}
 		}
 
 		[XmlElement("<%=_aux_elements[e].Name%>")]
 		public <%=XS_%><%=_aux_elements[e].Type%> <%=_aux_elements[e].Name.ToLower()%>__xml {
-			get { return <%=_aux_elements[e].Name.ToLower()%>__; }
-			set { <%=_aux_elements[e].Name.ToLower()%>__ = value; }
+			get { return this.<%=_aux_elements[e].Name.ToLower()%>__; }
+			set { this.<%=_aux_elements[e].Name.ToLower()%>__ = value; }
 		}
 		#endregion<%
 				}
@@ -245,20 +247,20 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 			}
 		}
 		for (int a = 0; a < _aux_complextype.AttributeCollection.Count; a++) {%><%=""%>
-			<%=_aux_complextype.AttributeCollection[a].Name.ToLower()%>_ = <%=_aux_complextype.Name%>_in.<%=_aux_complextype.AttributeCollection[a].Name.ToLower()%>_;<%
+			this.<%=_aux_complextype.AttributeCollection[a].Name.ToLower()%>_ = <%=_aux_complextype.Name%>_in.<%=_aux_complextype.AttributeCollection[a].Name.ToLower()%>_;<%
 		}
 
 		//////////////////////////////////////////////////////////////
 
 		for (int e = 0; e < _aux_elements.Count; e++) {
 			if (_aux_elements[e].MaxOccurs == XS_MaxOccursType.unbounded) {%><%=""%>
-			<%=_aux_elements[e].Name.ToLower()%>collection_.Clear();
+			this.<%=_aux_elements[e].Name.ToLower()%>collection_.Clear();
 			for (int d = 0; d < <%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower()%>collection_.Count; d++) {
-				<%=_aux_elements[e].Name.ToLower()%>collection_.Add(
+				this.<%=_aux_elements[e].Name.ToLower()%>collection_.Add(
 					out _index,
 					new <%=XS_%><%=_aux_elements[e].Type%>()
 				);
-				<%=_aux_elements[e].Name.ToLower()%>collection_[_index].CopyFrom(
+				this.<%=_aux_elements[e].Name.ToLower()%>collection_[_index].CopyFrom(
 					<%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower()%>collection_[d]
 				);
 			}<%
@@ -273,12 +275,12 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 					out _aux_isstandardntype
 				);
 				if (_aux_isstandardntype) {%>
-			<%=_aux_elements[e].Name.ToLower()%>_ = <%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower()%>_;<%
+			this.<%=_aux_elements[e].Name.ToLower()%>_ = <%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower()%>_;<%
 
 		//////////////////////////////////////////////////////////////
 
 				} else {%>
-			if (<%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower()%>__ != null) <%=_aux_elements[e].Name.ToLower()%>__.CopyFrom(<%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower()%>__);<%
+			if (<%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower()%>__ != null) this.<%=_aux_elements[e].Name.ToLower()%>__.CopyFrom(<%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower()%>__);<%
 				}
 			}
 		}%>

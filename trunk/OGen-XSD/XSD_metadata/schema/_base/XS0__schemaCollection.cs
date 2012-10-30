@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Xml.Serialization;
+
 
 namespace OGen.XSD.lib.metadata.schema {
+	using System;
+	using System.IO;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0__schemaCollection {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		#endif
 			XS__schema[] schemacollection_in
 		) {
-			schemacollection_ = schemacollection_in;
+			this.schemacollection_ = schemacollection_in;
 		}
 
 		#region public XS__schema this[...] { get; }
@@ -37,16 +39,16 @@ namespace OGen.XSD.lib.metadata.schema {
 
 		public XS__schema this[int index_in] {
 			get {
-				return schemacollection_[index_in];
+				return this.schemacollection_[index_in];
 			}
 		}
 		public XS__schema this[string name_in] {
 			get {
 				// ToDos: later! performance
 
-				for (int i = 0; i < schemacollection_.Length; i++) {
-					if (schemacollection_[i].Element.Name == name_in) {
-						return schemacollection_[i];
+				for (int i = 0; i < this.schemacollection_.Length; i++) {
+					if (this.schemacollection_[i].Element.Name == name_in) {
+						return this.schemacollection_[i];
 					}
 				}
 				throw new Exception(string.Format(
@@ -59,7 +61,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		}
 		#endregion
 		public int Count { get {
-			return schemacollection_.Length;
+			return this.schemacollection_.Length;
 		} }
 	}
 }

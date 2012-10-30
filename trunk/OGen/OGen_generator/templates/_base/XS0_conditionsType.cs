@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.lib.templates {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_conditionsType {
 	#else
@@ -28,13 +30,13 @@ namespace OGen.lib.templates {
 
 		[XmlElement("condition")]
 		public XS_conditionType[] conditioncollection__xml {
-			get { return conditioncollection_.cols__; }
-			set { conditioncollection_.cols__ = value; }
+			get { return this.conditioncollection_.cols__; }
+			set { this.conditioncollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_conditionTypeCollection ConditionCollection {
-			get { return conditioncollection_; }
+			get { return this.conditioncollection_; }
 		}
 		#endregion
 
@@ -42,13 +44,13 @@ namespace OGen.lib.templates {
 		public void CopyFrom(XS_conditionsType conditionsType_in) {
 			int _index = -1;
 
-			conditioncollection_.Clear();
+			this.conditioncollection_.Clear();
 			for (int d = 0; d < conditionsType_in.conditioncollection_.Count; d++) {
-				conditioncollection_.Add(
+				this.conditioncollection_.Add(
 					out _index,
 					new XS_conditionType()
 				);
-				conditioncollection_[_index].CopyFrom(
+				this.conditioncollection_[_index].CopyFrom(
 					conditionsType_in.conditioncollection_[d]
 				);
 			}

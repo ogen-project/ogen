@@ -12,14 +12,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
-#if !NET_1_1
-using System.Collections.Generic;
-#endif
+
 
 namespace OGen.lib.templates {
+	using System;
+	using System.Collections;
+	#if !NET_1_1
+	using System.Collections.Generic;
+	#endif
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_templateTypeCollection {
 	#else
@@ -30,7 +32,7 @@ namespace OGen.lib.templates {
 		#else
 		public XS_templateTypeCollection() {
 		#endif
-			cols_ = new
+			this.cols_ = new
 				#if NET_1_1
 				ArrayList()
 				#else
@@ -50,16 +52,16 @@ namespace OGen.lib.templates {
 
 		internal XS_templateType[] cols__ {
 			get {
-				XS_templateType[] _output = new XS_templateType[cols_.Count];
-				cols_.CopyTo(_output);
+				XS_templateType[] _output = new XS_templateType[this.cols_.Count];
+				this.cols_.CopyTo(_output);
 				return _output;
 			}
 			set {
-				lock (cols_) {
-					cols_.Clear();
+				lock (this.cols_) {
+					this.cols_.Clear();
 					if (value != null) {
 						for (int i = 0; i < value.Length; i++) {
-							cols_.Add(value[i]);
+							this.cols_.Add(value[i]);
 						}
 					}
 				}
@@ -70,7 +72,7 @@ namespace OGen.lib.templates {
 		#region public int Count { get; }
 		public int Count {
 			get {
-				return cols_.Count;
+				return this.cols_.Count;
 			}
 		}
 		#endregion
@@ -82,7 +84,7 @@ namespace OGen.lib.templates {
 					#if NET_1_1
 					(XS_templateType)
 					#endif
-					cols_[index_in]
+					this.cols_[index_in]
 				;
 			}
 		}
@@ -92,7 +94,7 @@ namespace OGen.lib.templates {
 			string id_in
 		] {
 			get {
-				int _index = Search(
+				int _index = this.Search(
 					id_in
 				);
 				return (_index == -1)
@@ -101,7 +103,7 @@ namespace OGen.lib.templates {
 						#if NET_1_1
 						(XS_templateType)
 						#endif
-						cols_[_index]
+						this.cols_[_index]
 				;
 			}
 		}
@@ -111,8 +113,8 @@ namespace OGen.lib.templates {
 		public void Remove(
 			string id_in
 		) {
-			RemoveAt(
-				Search(
+			this.RemoveAt(
+				this.Search(
 					id_in
 				)
 			);
@@ -122,7 +124,7 @@ namespace OGen.lib.templates {
 		public int Search(
 			string id_in
 		) {
-			return Search(
+			return this.Search(
 				id_in, 
 				true
 			);
@@ -132,7 +134,7 @@ namespace OGen.lib.templates {
 			string id_in, 
 			bool id_caseSensitive_in
 		) {
-			for (int i = 0; i < cols_.Count; i++) {
+			for (int i = 0; i < this.cols_.Count; i++) {
 				if (
 					(
 						(
@@ -140,9 +142,9 @@ namespace OGen.lib.templates {
 							&&
 							(
 								#if NET_1_1
-								((XS_templateType)cols_[i])
+								((XS_templateType)this.cols_[i])
 								#else
-								cols_[i]
+								this.cols_[i]
 								#endif
 									.ID
 								==
@@ -155,9 +157,9 @@ namespace OGen.lib.templates {
 							&&
 							(
 								#if NET_1_1
-								((XS_templateType)cols_[i])
+								((XS_templateType)this.cols_[i])
 								#else
-								cols_[i]
+								this.cols_[i]
 								#endif
 									.ID.ToLower()
 								==
@@ -173,13 +175,13 @@ namespace OGen.lib.templates {
 			return -1;
 		}
 		public int Search(XS_templateType collectionItem_in) {
-			for (int i = 0; i < cols_.Count; i++) {
+			for (int i = 0; i < this.cols_.Count; i++) {
 				if (
 					(
 						#if NET_1_1
-						((XS_templateType)cols_[i])
+						((XS_templateType)this.cols_[i])
 						#else
-						cols_[i]
+						this.cols_[i]
 						#endif
 							.ID
 						==
@@ -199,16 +201,19 @@ namespace OGen.lib.templates {
 			bool onlyIfNotExists_in,
 			string id_in
 		) {
+
+			// ToDos: here! this is not thread safe!
+
 			if (
 				// even if exists
 				!onlyIfNotExists_in
 				||
 				// doesn't exist
-				(Search(
+				(this.Search(
 					id_in
 				) == -1)
 			) {
-				Add(
+				this.Add(
 					id_in
 				);
 			}
@@ -218,16 +223,19 @@ namespace OGen.lib.templates {
 			bool onlyIfNotExists_in, 
 			string id_in
 		) {
+
+			// ToDos: here! this is not thread safe!
+
 			if (
 				// even if exists
 				!onlyIfNotExists_in
 				||
 				// doesn't exist
-				((returnIndex_out = Search(
+				((returnIndex_out = this.Search(
 					id_in
 				)) == -1)
 			) {
-				Add(
+				this.Add(
 					out returnIndex_out,
 					id_in
 				);
@@ -236,7 +244,7 @@ namespace OGen.lib.templates {
 		public void Add(
 			string id_in
 		) {
-			Add(new XS_templateType(
+			this.Add(new XS_templateType(
 				id_in
 			));
 		}
@@ -244,7 +252,7 @@ namespace OGen.lib.templates {
 			out int returnIndex_out,
 			string id_in
 		) {
-			Add(
+			this.Add(
 				out returnIndex_out, 
 				new XS_templateType(
 					id_in
@@ -252,19 +260,25 @@ namespace OGen.lib.templates {
 			);
 		}
 		public virtual void Add(bool onlyIfNotExists_in, params XS_templateType[] col_in) {
+
+			// ToDos: here! this is not thread safe!
+
 			for (int i = 0; i < col_in.Length; i++) {
 				if (
 					// even if exists
 					!onlyIfNotExists_in
 					||
 					// doesn't exist
-					(Search(col_in[i]) == -1)
+					(this.Search(col_in[i]) == -1)
 				) {
-					Add(col_in[i]);
+					this.Add(col_in[i]);
 				}
 			}
 		}
 		public virtual void Add(out int returnIndex_out, bool onlyIfNotExists_in, params XS_templateType[] col_in) {
+
+			// ToDos: here! this is not thread safe!
+
 			returnIndex_out = -1;
 			for (int i = 0; i < col_in.Length; i++) {
 				if (
@@ -272,42 +286,42 @@ namespace OGen.lib.templates {
 					!onlyIfNotExists_in
 					||
 					// doesn't exist
-					((returnIndex_out = Search(col_in[i])) == -1)
+					((returnIndex_out = this.Search(col_in[i])) == -1)
 				) {
-					Add(out returnIndex_out, col_in[i]);
+					this.Add(out returnIndex_out, col_in[i]);
 				}
 			}
 		}
 		#endregion
 		#region public void Clear();
 		public void Clear() {
-			cols_.Clear();
+			this.cols_.Clear();
 		}
 		#endregion
 		#region public void RemoveAt(int index_in);
 		public void RemoveAt(int index_in) {
-			cols_.RemoveAt(index_in);
+			this.cols_.RemoveAt(index_in);
 		}
 		#endregion
 		#region public void Add(...);
 		public void Add(params XS_templateType[] col_in) {
 			int _index = -1;
-			Add(out _index, col_in);
+			this.Add(out _index, col_in);
 		}
 		public void Add(out int returnIndex_out, params XS_templateType[] col_in) {
 			returnIndex_out = -1;
 			for (int i = 0; i < col_in.Length - 1; i++) {
-				cols_.Add(col_in[i]);
+				this.cols_.Add(col_in[i]);
 			}
 
 			int j = col_in.Length - 1;
 			if (j >= 0) {
 				#if NET_1_1
-				returnIndex_out = cols_.Add(col_in[j]);
+				returnIndex_out = this.cols_.Add(col_in[j]);
 				#else
-				lock (cols_) {
-					cols_.Add(col_in[j]);
-					returnIndex_out = cols_.Count - 1;
+				lock (this.cols_) {
+					this.cols_.Add(col_in[j]);
+					returnIndex_out = this.cols_.Count - 1;
 				}
 				#endif
 			}

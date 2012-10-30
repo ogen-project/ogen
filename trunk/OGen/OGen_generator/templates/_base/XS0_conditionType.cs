@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.lib.templates {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_conditionType {
 	#else
@@ -28,10 +30,10 @@ namespace OGen.lib.templates {
 		[XmlAttribute("eval")]
 		public string Eval {
 			get {
-				return eval_;
+				return this.eval_;
 			}
 			set {
-				eval_ = value;
+				this.eval_ = value;
 			}
 		}
 		#endregion
@@ -41,18 +43,18 @@ namespace OGen.lib.templates {
 		[XmlAttribute("to")]
 		public string To {
 			get {
-				return to_;
+				return this.to_;
 			}
 			set {
-				to_ = value;
+				this.to_ = value;
 			}
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_conditionType conditionType_in) {
-			eval_ = conditionType_in.eval_;
-			to_ = conditionType_in.to_;
+			this.eval_ = conditionType_in.eval_;
+			this.to_ = conditionType_in.to_;
 		}
 		#endregion
 	}

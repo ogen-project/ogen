@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_cellType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 			}
 			get { return parent_ref_; }
 		}
@@ -40,7 +42,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 			}
 			get { return root_ref_; }
 		}
@@ -51,10 +53,10 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		[XmlAttribute("data")]
 		public string Data {
 			get {
-				return data_;
+				return this.data_;
 			}
 			set {
-				data_ = value;
+				this.data_ = value;
 			}
 		}
 		#endregion
@@ -64,18 +66,18 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		[XmlAttribute("isNull")]
 		public bool isNull {
 			get {
-				return isnull_;
+				return this.isnull_;
 			}
 			set {
-				isnull_ = value;
+				this.isnull_ = value;
 			}
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_cellType cellType_in) {
-			data_ = cellType_in.data_;
-			isnull_ = cellType_in.isnull_;
+			this.data_ = cellType_in.data_;
+			this.isnull_ = cellType_in.isnull_;
 		}
 		#endregion
 	}

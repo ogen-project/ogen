@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_tableSearchUpdateParametersType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				tablefieldrefcollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				tablefieldrefcollection_.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,13 +55,13 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 		[XmlElement("tableFieldRef")]
 		public XS_tableFieldRefType[] tablefieldrefcollection__xml {
-			get { return tablefieldrefcollection_.cols__; }
-			set { tablefieldrefcollection_.cols__ = value; }
+			get { return this.tablefieldrefcollection_.cols__; }
+			set { this.tablefieldrefcollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_tableFieldRefTypeCollection TableFieldRefCollection {
-			get { return tablefieldrefcollection_; }
+			get { return this.tablefieldrefcollection_; }
 		}
 		#endregion
 
@@ -67,13 +69,13 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public void CopyFrom(XS_tableSearchUpdateParametersType tableSearchUpdateParametersType_in) {
 			int _index = -1;
 
-			tablefieldrefcollection_.Clear();
+			this.tablefieldrefcollection_.Clear();
 			for (int d = 0; d < tableSearchUpdateParametersType_in.tablefieldrefcollection_.Count; d++) {
-				tablefieldrefcollection_.Add(
+				this.tablefieldrefcollection_.Add(
 					out _index,
 					new XS_tableFieldRefType()
 				);
-				tablefieldrefcollection_[_index].CopyFrom(
+				this.tablefieldrefcollection_[_index].CopyFrom(
 					tableSearchUpdateParametersType_in.tablefieldrefcollection_[d]
 				);
 			}

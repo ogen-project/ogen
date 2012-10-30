@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataBusiness {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_methodType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				if (parameters__ != null) parameters__.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				if (parameters__ != null) parameters__.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,10 +55,10 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlAttribute("name")]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
-				name_ = value;
+				this.name_ = value;
 			}
 		}
 		#endregion
@@ -66,10 +68,10 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlAttribute("outputType")]
 		public string OutputType {
 			get {
-				return outputtype_;
+				return this.outputtype_;
 			}
 			set {
-				outputtype_ = value;
+				this.outputtype_ = value;
 			}
 		}
 		#endregion
@@ -79,10 +81,10 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlAttribute("distribute")]
 		public bool Distribute {
 			get {
-				return distribute_;
+				return this.distribute_;
 			}
 			set {
-				distribute_ = value;
+				this.distribute_ = value;
 			}
 		}
 		#endregion
@@ -92,10 +94,10 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlAttribute("isSearch")]
 		public bool isSearch {
 			get {
-				return issearch_;
+				return this.issearch_;
 			}
 			set {
-				issearch_ = value;
+				this.issearch_ = value;
 			}
 		}
 		#endregion
@@ -105,10 +107,10 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlAttribute("ipParamNum")]
 		public int IPParamNum {
 			get {
-				return ipparamnum_;
+				return this.ipparamnum_;
 			}
 			set {
-				ipparamnum_ = value;
+				this.ipparamnum_ = value;
 			}
 		}
 		#endregion
@@ -121,42 +123,42 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			get {
 
 				// check before lock
-				if (parameters__ == null) {
+				if (this.parameters__ == null) {
 
-					lock (parameters__locker) {
+					lock (this.parameters__locker) {
 
 						// double check, thread safer!
-						if (parameters__ == null) {
+						if (this.parameters__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							parameters__ = new XS_parametersType();
+							this.parameters__ = new XS_parametersType();
 						}
 					}
 				}
 
-				return parameters__;
+				return this.parameters__;
 			}
 			set {
-				parameters__ = value;
+				this.parameters__ = value;
 			}
 		}
 
 		[XmlElement("parameters")]
 		public XS_parametersType parameters__xml {
-			get { return parameters__; }
-			set { parameters__ = value; }
+			get { return this.parameters__; }
+			set { this.parameters__ = value; }
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_methodType methodType_in) {
-			name_ = methodType_in.name_;
-			outputtype_ = methodType_in.outputtype_;
-			distribute_ = methodType_in.distribute_;
-			issearch_ = methodType_in.issearch_;
-			ipparamnum_ = methodType_in.ipparamnum_;
-			if (methodType_in.parameters__ != null) parameters__.CopyFrom(methodType_in.parameters__);
+			this.name_ = methodType_in.name_;
+			this.outputtype_ = methodType_in.outputtype_;
+			this.distribute_ = methodType_in.distribute_;
+			this.issearch_ = methodType_in.issearch_;
+			this.ipparamnum_ = methodType_in.ipparamnum_;
+			if (methodType_in.parameters__ != null) this.parameters__.CopyFrom(methodType_in.parameters__);
 		}
 		#endregion
 	}

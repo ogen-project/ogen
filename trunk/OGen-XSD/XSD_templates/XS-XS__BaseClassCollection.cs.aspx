@@ -42,11 +42,13 @@ if ((_aux_rootmetadata.MetadataCollection[0].CopyrightText != string.Empty) && (
 */
 #endregion
 <%
-}%>using System;
-using System.IO;
-using System.Xml.Serialization;
+}%>
 
 namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_schema.Element.Name%> {
+	using System;
+	using System.IO;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class <%=XS__%><%=_aux_schema.Element.Name%>Collection : <%=XS0__%><%=_aux_schema.Element.Name%>Collection {
 	#else

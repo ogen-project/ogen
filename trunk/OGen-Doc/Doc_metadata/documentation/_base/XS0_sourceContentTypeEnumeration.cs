@@ -12,10 +12,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
+
 
 namespace OGen.Doc.lib.metadata.documentation {
+	using System;
+	using System.Xml.Serialization;
+
 	public enum XS_SourceContentTypeEnumeration {
 		html = 0, 
 		code = 1, 

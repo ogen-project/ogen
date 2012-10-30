@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataDB {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_tableFieldDBsType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				tablefielddbcollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				tablefielddbcollection_.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,13 +55,13 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 
 		[XmlElement("tableFieldDB")]
 		public XS_tableFieldDBType[] tablefielddbcollection__xml {
-			get { return tablefielddbcollection_.cols__; }
-			set { tablefielddbcollection_.cols__ = value; }
+			get { return this.tablefielddbcollection_.cols__; }
+			set { this.tablefielddbcollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_tableFieldDBTypeCollection TableFieldDBCollection {
-			get { return tablefielddbcollection_; }
+			get { return this.tablefielddbcollection_; }
 		}
 		#endregion
 
@@ -67,13 +69,13 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		public void CopyFrom(XS_tableFieldDBsType tableFieldDBsType_in) {
 			int _index = -1;
 
-			tablefielddbcollection_.Clear();
+			this.tablefielddbcollection_.Clear();
 			for (int d = 0; d < tableFieldDBsType_in.tablefielddbcollection_.Count; d++) {
-				tablefielddbcollection_.Add(
+				this.tablefielddbcollection_.Add(
 					out _index,
 					new XS_tableFieldDBType()
 				);
-				tablefielddbcollection_[_index].CopyFrom(
+				this.tablefielddbcollection_[_index].CopyFrom(
 					tableFieldDBsType_in.tablefielddbcollection_[d]
 				);
 			}

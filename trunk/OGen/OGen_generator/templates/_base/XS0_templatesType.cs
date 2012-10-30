@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.lib.templates {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_templatesType {
 	#else
@@ -28,13 +30,13 @@ namespace OGen.lib.templates {
 
 		[XmlElement("template")]
 		public XS_templateType[] templatecollection__xml {
-			get { return templatecollection_.cols__; }
-			set { templatecollection_.cols__ = value; }
+			get { return this.templatecollection_.cols__; }
+			set { this.templatecollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_templateTypeCollection TemplateCollection {
-			get { return templatecollection_; }
+			get { return this.templatecollection_; }
 		}
 		#endregion
 
@@ -42,13 +44,13 @@ namespace OGen.lib.templates {
 		public void CopyFrom(XS_templatesType templatesType_in) {
 			int _index = -1;
 
-			templatecollection_.Clear();
+			this.templatecollection_.Clear();
 			for (int d = 0; d < templatesType_in.templatecollection_.Count; d++) {
-				templatecollection_.Add(
+				this.templatecollection_.Add(
 					out _index,
 					new XS_templateType()
 				);
-				templatecollection_[_index].CopyFrom(
+				this.templatecollection_[_index].CopyFrom(
 					templatesType_in.templatecollection_[d]
 				);
 			}

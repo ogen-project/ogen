@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.XSD.lib.metadata.schema {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_simpleTypeType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				if (restriction__ != null) restriction__.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				if (restriction__ != null) restriction__.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,10 +55,10 @@ namespace OGen.XSD.lib.metadata.schema {
 		[XmlAttribute("name")]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
-				name_ = value;
+				this.name_ = value;
 			}
 		}
 		#endregion
@@ -69,38 +71,38 @@ namespace OGen.XSD.lib.metadata.schema {
 			get {
 
 				// check before lock
-				if (restriction__ == null) {
+				if (this.restriction__ == null) {
 
-					lock (restriction__locker) {
+					lock (this.restriction__locker) {
 
 						// double check, thread safer!
-						if (restriction__ == null) {
+						if (this.restriction__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							restriction__ = new XS_restrictionType();
+							this.restriction__ = new XS_restrictionType();
 						}
 					}
 				}
 
-				return restriction__;
+				return this.restriction__;
 			}
 			set {
-				restriction__ = value;
+				this.restriction__ = value;
 			}
 		}
 
 		[XmlElement("restriction")]
 		public XS_restrictionType restriction__xml {
-			get { return restriction__; }
-			set { restriction__ = value; }
+			get { return this.restriction__; }
+			set { this.restriction__ = value; }
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_simpleTypeType simpleTypeType_in) {
-			name_ = simpleTypeType_in.name_;
-			if (simpleTypeType_in.restriction__ != null) restriction__.CopyFrom(simpleTypeType_in.restriction__);
+			this.name_ = simpleTypeType_in.name_;
+			if (simpleTypeType_in.restriction__ != null) this.restriction__.CopyFrom(simpleTypeType_in.restriction__);
 		}
 		#endregion
 	}

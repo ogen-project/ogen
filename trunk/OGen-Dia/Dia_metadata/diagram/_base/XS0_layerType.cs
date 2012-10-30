@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.Dia.lib.metadata.diagram {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_layerType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				objectcollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				objectcollection_.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,10 +55,10 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlAttribute("name")]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
-				name_ = value;
+				this.name_ = value;
 			}
 		}
 		#endregion
@@ -66,10 +68,10 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlAttribute("visible")]
 		public bool Visible {
 			get {
-				return visible_;
+				return this.visible_;
 			}
 			set {
-				visible_ = value;
+				this.visible_ = value;
 			}
 		}
 		#endregion
@@ -79,10 +81,10 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlAttribute("active")]
 		public bool Active {
 			get {
-				return active_;
+				return this.active_;
 			}
 			set {
-				active_ = value;
+				this.active_ = value;
 			}
 		}
 		#endregion
@@ -92,13 +94,13 @@ namespace OGen.Dia.lib.metadata.diagram {
 
 		[XmlElement("object")]
 		public XS_objectType[] objectcollection__xml {
-			get { return objectcollection_.cols__; }
-			set { objectcollection_.cols__ = value; }
+			get { return this.objectcollection_.cols__; }
+			set { this.objectcollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_objectTypeCollection ObjectCollection {
-			get { return objectcollection_; }
+			get { return this.objectcollection_; }
 		}
 		#endregion
 
@@ -106,16 +108,16 @@ namespace OGen.Dia.lib.metadata.diagram {
 		public void CopyFrom(XS_layerType layerType_in) {
 			int _index = -1;
 
-			name_ = layerType_in.name_;
-			visible_ = layerType_in.visible_;
-			active_ = layerType_in.active_;
-			objectcollection_.Clear();
+			this.name_ = layerType_in.name_;
+			this.visible_ = layerType_in.visible_;
+			this.active_ = layerType_in.active_;
+			this.objectcollection_.Clear();
 			for (int d = 0; d < layerType_in.objectcollection_.Count; d++) {
-				objectcollection_.Add(
+				this.objectcollection_.Add(
 					out _index,
 					new XS_objectType()
 				);
-				objectcollection_[_index].CopyFrom(
+				this.objectcollection_[_index].CopyFrom(
 					layerType_in.objectcollection_[d]
 				);
 			}

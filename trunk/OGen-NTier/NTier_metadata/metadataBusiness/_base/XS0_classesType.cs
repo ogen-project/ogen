@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataBusiness {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_classesType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				classcollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				classcollection_.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,13 +55,13 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 
 		[XmlElement("class")]
 		public XS_classType[] classcollection__xml {
-			get { return classcollection_.cols__; }
-			set { classcollection_.cols__ = value; }
+			get { return this.classcollection_.cols__; }
+			set { this.classcollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_classTypeCollection ClassCollection {
-			get { return classcollection_; }
+			get { return this.classcollection_; }
 		}
 		#endregion
 
@@ -67,13 +69,13 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		public void CopyFrom(XS_classesType classesType_in) {
 			int _index = -1;
 
-			classcollection_.Clear();
+			this.classcollection_.Clear();
 			for (int d = 0; d < classesType_in.classcollection_.Count; d++) {
-				classcollection_.Add(
+				this.classcollection_.Add(
 					out _index,
 					new XS_classType()
 				);
-				classcollection_[_index].CopyFrom(
+				this.classcollection_[_index].CopyFrom(
 					classesType_in.classcollection_[d]
 				);
 			}

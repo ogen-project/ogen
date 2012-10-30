@@ -41,17 +41,19 @@ if ((_aux_rootmetadata.MetadataCollection[0].CopyrightText != string.Empty) && (
 */
 #endregion
 <%
-}%>using System;
-using System.Xml.Serialization;
-using System.Collections;
-
-using OGen.lib.generator;
-using OGen.lib.metadata;<%
-for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {%>
-using <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>;<%
 }%>
 
 namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
+	using OGen.lib.generator;
+	using OGen.lib.metadata;<%
+	for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {%>
+	using <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>;<%
+	}%>
+
 	#if NET_1_1
 	public class <%=XS0__%>RootMetadata : MetadataInterface {
 	#else
@@ -67,7 +69,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 		) {
 			string _metadataPath = System.IO.Path.GetDirectoryName(metadataFilepath_in);
 
-			metadatafiles_ = Metadatas.Load_fromFile(metadataFilepath_in);
+			this.metadatafiles_ = Metadatas.Load_fromFile(metadataFilepath_in);
 
 			#region int _total_xxx = ...;<%
 			for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {%>
@@ -95,13 +97,13 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 			for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {%>
 			_total_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%> = 0;<%
 			}%>
-			for (int f = 0; f < metadatafiles_.MetadataFiles.Count; f++) {
-				switch (metadatafiles_.MetadataFiles[f].XMLFileType) {<%
+			for (int f = 0; f < this.metadatafiles_.MetadataFiles.Count; f++) {
+				switch (this.metadatafiles_.MetadataFiles[f].XMLFileType) {<%
 					for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {%>
 					case <%=XS__%><%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToUpper()%>:
 						_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>Filepath[_total_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>] = System.IO.Path.Combine(
 							_metadataPath,
-							metadatafiles_.MetadataFiles[f].XMLFilename
+							this.metadatafiles_.MetadataFiles[f].XMLFilename
 						);
 						_total_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>++;
 						break;<%
@@ -180,7 +182,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 		private Metadatas metadatafiles_;
 
 		public Metadatas MetadataFiles {
-			get { return metadatafiles_; }
+			get { return this.metadatafiles_; }
 		}
 		#endregion
 <%
@@ -189,7 +191,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 		private <%=XS__%><%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>Collection <%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_;
 
 		public <%=XS__%><%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>Collection <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_rootmetadata.SchemaCollection[s].Element.Name, _arg_SchemaName)%>Collection {
-			get { return <%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_; }
+			get { return this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_; }
 		}
 		#endregion<%
 		}%>
@@ -210,7 +212,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 		private object Read_fromRoot_locker = new object();
 
 		public string Read_fromRoot(string what_in) {
-			return Read_fromRoot(
+			return this.Read_fromRoot(
 				what_in,
 				true
 			);
@@ -220,11 +222,11 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 			bool useCache_in
 		) {
 
-			if (useCache_in && Read_fromRoot_cache.ContainsKey(what_in)) {
+			if (useCache_in && this.Read_fromRoot_cache.ContainsKey(what_in)) {
 #if NET_1_1
-				return (string)Read_fromRoot_cache[what_in];
+				return (string)this.Read_fromRoot_cache[what_in];
 #else
-				return Read_fromRoot_cache[what_in];
+				return this.Read_fromRoot_cache[what_in];
 #endif
 			}
 
@@ -304,7 +306,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in,
 			ref bool valueHasBeenFound_out
 		) {
-			IterateThrough_fromRoot(
+			this.IterateThrough_fromRoot(
 				iteration_in,
 				iteration_found_in,
 				ref valueHasBeenFound_out,

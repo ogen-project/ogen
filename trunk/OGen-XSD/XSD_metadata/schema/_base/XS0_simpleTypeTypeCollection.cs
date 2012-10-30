@@ -12,14 +12,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
-#if !NET_1_1
-using System.Collections.Generic;
-#endif
+
 
 namespace OGen.XSD.lib.metadata.schema {
+	using System;
+	using System.Collections;
+	#if !NET_1_1
+	using System.Collections.Generic;
+	#endif
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_simpleTypeTypeCollection {
 	#else
@@ -30,7 +32,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		#else
 		public XS_simpleTypeTypeCollection() {
 		#endif
-			cols_ = new
+			this.cols_ = new
 				#if NET_1_1
 				ArrayList()
 				#else
@@ -44,15 +46,15 @@ namespace OGen.XSD.lib.metadata.schema {
 
 		public object parent_ref {
 			get {
-				return parent_ref_;
+				return this.parent_ref_;
 			}
 			set {
-				parent_ref_ = value;
-				for (int i = 0; i < cols_.Count; i++) {
+				this.parent_ref_ = value;
+				for (int i = 0; i < this.cols_.Count; i++) {
 					#if NET_1_1
-					((XS_simpleTypeType)cols_[i])
+					((XS_simpleTypeType)this.cols_[i])
 					#else
-					cols_[i]
+					this.cols_[i]
 					#endif
 						.parent_ref = this;
 				}
@@ -64,15 +66,15 @@ namespace OGen.XSD.lib.metadata.schema {
 
 		public XS__RootMetadata root_ref {
 			get {
-				return root_ref_;
+				return this.root_ref_;
 			}
 			set {
-				root_ref_ = value;
-				for (int i = 0; i < cols_.Count; i++) {
+				this.root_ref_ = value;
+				for (int i = 0; i < this.cols_.Count; i++) {
 					#if NET_1_1
-					((XS_simpleTypeType)cols_[i])
+					((XS_simpleTypeType)this.cols_[i])
 					#else
-					cols_[i]
+					this.cols_[i]
 					#endif
 						.root_ref = value;
 				}
@@ -98,16 +100,16 @@ namespace OGen.XSD.lib.metadata.schema {
 
 		internal XS_simpleTypeType[] cols__ {
 			get {
-				XS_simpleTypeType[] _output = new XS_simpleTypeType[cols_.Count];
-				cols_.CopyTo(_output);
+				XS_simpleTypeType[] _output = new XS_simpleTypeType[this.cols_.Count];
+				this.cols_.CopyTo(_output);
 				return _output;
 			}
 			set {
-				lock (cols_) {
-					cols_.Clear();
+				lock (this.cols_) {
+					this.cols_.Clear();
 					if (value != null) {
 						for (int i = 0; i < value.Length; i++) {
-							cols_.Add(value[i]);
+							this.cols_.Add(value[i]);
 						}
 					}
 				}
@@ -118,7 +120,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		#region public int Count { get; }
 		public int Count {
 			get {
-				return cols_.Count;
+				return this.cols_.Count;
 			}
 		}
 		#endregion
@@ -130,7 +132,7 @@ namespace OGen.XSD.lib.metadata.schema {
 					#if NET_1_1
 					(XS_simpleTypeType)
 					#endif
-					cols_[index_in]
+					this.cols_[index_in]
 				;
 			}
 		}
@@ -140,7 +142,7 @@ namespace OGen.XSD.lib.metadata.schema {
 			string name_in
 		] {
 			get {
-				int _index = Search(
+				int _index = this.Search(
 					name_in
 				);
 				return (_index == -1)
@@ -149,7 +151,7 @@ namespace OGen.XSD.lib.metadata.schema {
 						#if NET_1_1
 						(XS_simpleTypeType)
 						#endif
-						cols_[_index]
+						this.cols_[_index]
 				;
 			}
 		}
@@ -159,8 +161,8 @@ namespace OGen.XSD.lib.metadata.schema {
 		public void Remove(
 			string name_in
 		) {
-			RemoveAt(
-				Search(
+			this.RemoveAt(
+				this.Search(
 					name_in
 				)
 			);
@@ -170,7 +172,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		public int Search(
 			string name_in
 		) {
-			return Search(
+			return this.Search(
 				name_in, 
 				true
 			);
@@ -180,7 +182,7 @@ namespace OGen.XSD.lib.metadata.schema {
 			string name_in, 
 			bool name_caseSensitive_in
 		) {
-			for (int i = 0; i < cols_.Count; i++) {
+			for (int i = 0; i < this.cols_.Count; i++) {
 				if (
 					(
 						(
@@ -188,9 +190,9 @@ namespace OGen.XSD.lib.metadata.schema {
 							&&
 							(
 								#if NET_1_1
-								((XS_simpleTypeType)cols_[i])
+								((XS_simpleTypeType)this.cols_[i])
 								#else
-								cols_[i]
+								this.cols_[i]
 								#endif
 									.Name
 								==
@@ -203,9 +205,9 @@ namespace OGen.XSD.lib.metadata.schema {
 							&&
 							(
 								#if NET_1_1
-								((XS_simpleTypeType)cols_[i])
+								((XS_simpleTypeType)this.cols_[i])
 								#else
-								cols_[i]
+								this.cols_[i]
 								#endif
 									.Name.ToLower()
 								==
@@ -221,13 +223,13 @@ namespace OGen.XSD.lib.metadata.schema {
 			return -1;
 		}
 		public int Search(XS_simpleTypeType collectionItem_in) {
-			for (int i = 0; i < cols_.Count; i++) {
+			for (int i = 0; i < this.cols_.Count; i++) {
 				if (
 					(
 						#if NET_1_1
-						((XS_simpleTypeType)cols_[i])
+						((XS_simpleTypeType)this.cols_[i])
 						#else
-						cols_[i]
+						this.cols_[i]
 						#endif
 							.Name
 						==
@@ -247,16 +249,19 @@ namespace OGen.XSD.lib.metadata.schema {
 			bool onlyIfNotExists_in,
 			string name_in
 		) {
+
+			// ToDos: here! this is not thread safe!
+
 			if (
 				// even if exists
 				!onlyIfNotExists_in
 				||
 				// doesn't exist
-				(Search(
+				(this.Search(
 					name_in
 				) == -1)
 			) {
-				Add(
+				this.Add(
 					name_in
 				);
 			}
@@ -266,16 +271,19 @@ namespace OGen.XSD.lib.metadata.schema {
 			bool onlyIfNotExists_in, 
 			string name_in
 		) {
+
+			// ToDos: here! this is not thread safe!
+
 			if (
 				// even if exists
 				!onlyIfNotExists_in
 				||
 				// doesn't exist
-				((returnIndex_out = Search(
+				((returnIndex_out = this.Search(
 					name_in
 				)) == -1)
 			) {
-				Add(
+				this.Add(
 					out returnIndex_out,
 					name_in
 				);
@@ -284,7 +292,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		public void Add(
 			string name_in
 		) {
-			Add(new XS_simpleTypeType(
+			this.Add(new XS_simpleTypeType(
 				name_in
 			));
 		}
@@ -292,7 +300,7 @@ namespace OGen.XSD.lib.metadata.schema {
 			out int returnIndex_out,
 			string name_in
 		) {
-			Add(
+			this.Add(
 				out returnIndex_out, 
 				new XS_simpleTypeType(
 					name_in
@@ -300,19 +308,25 @@ namespace OGen.XSD.lib.metadata.schema {
 			);
 		}
 		public virtual void Add(bool onlyIfNotExists_in, params XS_simpleTypeType[] col_in) {
+
+			// ToDos: here! this is not thread safe!
+
 			for (int i = 0; i < col_in.Length; i++) {
 				if (
 					// even if exists
 					!onlyIfNotExists_in
 					||
 					// doesn't exist
-					(Search(col_in[i]) == -1)
+					(this.Search(col_in[i]) == -1)
 				) {
-					Add(col_in[i]);
+					this.Add(col_in[i]);
 				}
 			}
 		}
 		public virtual void Add(out int returnIndex_out, bool onlyIfNotExists_in, params XS_simpleTypeType[] col_in) {
+
+			// ToDos: here! this is not thread safe!
+
 			returnIndex_out = -1;
 			for (int i = 0; i < col_in.Length; i++) {
 				if (
@@ -320,44 +334,44 @@ namespace OGen.XSD.lib.metadata.schema {
 					!onlyIfNotExists_in
 					||
 					// doesn't exist
-					((returnIndex_out = Search(col_in[i])) == -1)
+					((returnIndex_out = this.Search(col_in[i])) == -1)
 				) {
-					Add(out returnIndex_out, col_in[i]);
+					this.Add(out returnIndex_out, col_in[i]);
 				}
 			}
 		}
 		#endregion
 		#region public void Clear();
 		public void Clear() {
-			cols_.Clear();
+			this.cols_.Clear();
 		}
 		#endregion
 		#region public void RemoveAt(int index_in);
 		public void RemoveAt(int index_in) {
-			cols_.RemoveAt(index_in);
+			this.cols_.RemoveAt(index_in);
 		}
 		#endregion
 		#region public void Add(...);
 		public void Add(params XS_simpleTypeType[] col_in) {
 			int _index = -1;
-			Add(out _index, col_in);
+			this.Add(out _index, col_in);
 		}
 		public void Add(out int returnIndex_out, params XS_simpleTypeType[] col_in) {
 			refresh_refs(col_in);
 
 			returnIndex_out = -1;
 			for (int i = 0; i < col_in.Length - 1; i++) {
-				cols_.Add(col_in[i]);
+				this.cols_.Add(col_in[i]);
 			}
 
 			int j = col_in.Length - 1;
 			if (j >= 0) {
 				#if NET_1_1
-				returnIndex_out = cols_.Add(col_in[j]);
+				returnIndex_out = this.cols_.Add(col_in[j]);
 				#else
-				lock (cols_) {
-					cols_.Add(col_in[j]);
-					returnIndex_out = cols_.Count - 1;
+				lock (this.cols_) {
+					this.cols_.Add(col_in[j]);
+					returnIndex_out = this.cols_.Count - 1;
 				}
 				#endif
 			}

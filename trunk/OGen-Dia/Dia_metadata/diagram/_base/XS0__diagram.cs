@@ -12,13 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Xml.Serialization;
 
-using OGen.lib.generator;
 
 namespace OGen.Dia.lib.metadata.diagram {
+	using System;
+	using System.IO;
+	using System.Xml.Serialization;
+
+	using OGen.lib.generator;
+
 	#if NET_1_1
 	public class XS0__diagram : XS_diagramType, MetadataInterface {
 	#else
@@ -33,7 +35,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 
 		[XmlIgnore()]
 		public string Root_Diagram {
-			get { return root_diagram_; }
+			get { return this.root_diagram_; }
 		}
 		#endregion
 
@@ -164,10 +166,10 @@ namespace OGen.Dia.lib.metadata.diagram {
 		public string Read_fromRoot(string what_in) {
 			return OGen.lib.generator.utils.ReflectThrough(
 				this, 
-				Root_Diagram, 
+				this.Root_Diagram, 
 				null, 
 				what_in, 
-				Root_Diagram, 
+				this.Root_Diagram, 
 				true, 
 				true
 			);
@@ -181,10 +183,10 @@ namespace OGen.Dia.lib.metadata.diagram {
 		) {
 			OGen.lib.generator.utils.ReflectThrough(
 				this, 
-				Root_Diagram, 
+				this.Root_Diagram, 
 				iteration_found_in, 
 				iteration_in, 
-				Root_Diagram, 
+				this.Root_Diagram, 
 				false, 
 				true, 
 				ref valueHasBeenFound_out

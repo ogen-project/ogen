@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.Doc.lib.metadata.documentation {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_chaptersType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				chaptercollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				chaptercollection_.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,13 +55,13 @@ namespace OGen.Doc.lib.metadata.documentation {
 
 		[XmlElement("chapter")]
 		public XS_chapterType[] chaptercollection__xml {
-			get { return chaptercollection_.cols__; }
-			set { chaptercollection_.cols__ = value; }
+			get { return this.chaptercollection_.cols__; }
+			set { this.chaptercollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_chapterTypeCollection ChapterCollection {
-			get { return chaptercollection_; }
+			get { return this.chaptercollection_; }
 		}
 		#endregion
 
@@ -67,13 +69,13 @@ namespace OGen.Doc.lib.metadata.documentation {
 		public void CopyFrom(XS_chaptersType chaptersType_in) {
 			int _index = -1;
 
-			chaptercollection_.Clear();
+			this.chaptercollection_.Clear();
 			for (int d = 0; d < chaptersType_in.chaptercollection_.Count; d++) {
-				chaptercollection_.Add(
+				this.chaptercollection_.Add(
 					out _index,
 					new XS_chapterType()
 				);
-				chaptercollection_[_index].CopyFrom(
+				this.chaptercollection_[_index].CopyFrom(
 					chaptersType_in.chaptercollection_[d]
 				);
 			}

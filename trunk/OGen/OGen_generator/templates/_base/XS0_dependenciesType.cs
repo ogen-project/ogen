@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.lib.templates {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_dependenciesType {
 	#else
@@ -28,13 +30,13 @@ namespace OGen.lib.templates {
 
 		[XmlElement("dependency")]
 		public XS_dependencyType[] dependencycollection__xml {
-			get { return dependencycollection_.cols__; }
-			set { dependencycollection_.cols__ = value; }
+			get { return this.dependencycollection_.cols__; }
+			set { this.dependencycollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_dependencyTypeCollection DependencyCollection {
-			get { return dependencycollection_; }
+			get { return this.dependencycollection_; }
 		}
 		#endregion
 
@@ -42,13 +44,13 @@ namespace OGen.lib.templates {
 		public void CopyFrom(XS_dependenciesType dependenciesType_in) {
 			int _index = -1;
 
-			dependencycollection_.Clear();
+			this.dependencycollection_.Clear();
 			for (int d = 0; d < dependenciesType_in.dependencycollection_.Count; d++) {
-				dependencycollection_.Add(
+				this.dependencycollection_.Add(
 					out _index,
 					new XS_dependencyType()
 				);
-				dependencycollection_[_index].CopyFrom(
+				this.dependencycollection_[_index].CopyFrom(
 					dependenciesType_in.dependencycollection_[d]
 				);
 			}

@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Xml.Serialization;
+
 
 namespace OGen.NTier.lib.metadata.metadataBusiness {
+	using System;
+	using System.IO;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0__metadataBusinessCollection {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		#endif
 			XS__metadataBusiness[] metadatabusinesscollection_in
 		) {
-			metadatabusinesscollection_ = metadatabusinesscollection_in;
+			this.metadatabusinesscollection_ = metadatabusinesscollection_in;
 		}
 
 		#region public XS__metadataBusiness this[...] { get; }
@@ -37,16 +39,16 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 
 		public XS__metadataBusiness this[int index_in] {
 			get {
-				return metadatabusinesscollection_[index_in];
+				return this.metadatabusinesscollection_[index_in];
 			}
 		}
 		public XS__metadataBusiness this[string name_in] {
 			get {
 				// ToDos: later! performance
 
-				for (int i = 0; i < metadatabusinesscollection_.Length; i++) {
-					if (metadatabusinesscollection_[i].ApplicationName == name_in) {
-						return metadatabusinesscollection_[i];
+				for (int i = 0; i < this.metadatabusinesscollection_.Length; i++) {
+					if (this.metadatabusinesscollection_[i].ApplicationName == name_in) {
+						return this.metadatabusinesscollection_[i];
 					}
 				}
 				throw new Exception(string.Format(
@@ -59,7 +61,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		}
 		#endregion
 		public int Count { get {
-			return metadatabusinesscollection_.Length;
+			return this.metadatabusinesscollection_.Length;
 		} }
 	}
 }

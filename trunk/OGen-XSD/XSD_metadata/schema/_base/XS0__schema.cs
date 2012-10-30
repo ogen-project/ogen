@@ -12,13 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Xml.Serialization;
 
-using OGen.lib.generator;
 
 namespace OGen.XSD.lib.metadata.schema {
+	using System;
+	using System.IO;
+	using System.Xml.Serialization;
+
+	using OGen.lib.generator;
+
 	#if NET_1_1
 	public class XS0__schema : XS_schemaType, MetadataInterface {
 	#else
@@ -33,7 +35,7 @@ namespace OGen.XSD.lib.metadata.schema {
 
 		[XmlIgnore()]
 		public string Root_Schema {
-			get { return root_schema_; }
+			get { return this.root_schema_; }
 		}
 		#endregion
 
@@ -164,10 +166,10 @@ namespace OGen.XSD.lib.metadata.schema {
 		public string Read_fromRoot(string what_in) {
 			return OGen.lib.generator.utils.ReflectThrough(
 				this, 
-				Root_Schema, 
+				this.Root_Schema, 
 				null, 
 				what_in, 
-				Root_Schema, 
+				this.Root_Schema, 
 				true, 
 				true
 			);
@@ -181,10 +183,10 @@ namespace OGen.XSD.lib.metadata.schema {
 		) {
 			OGen.lib.generator.utils.ReflectThrough(
 				this, 
-				Root_Schema, 
+				this.Root_Schema, 
 				iteration_found_in, 
 				iteration_in, 
-				Root_Schema, 
+				this.Root_Schema, 
 				false, 
 				true, 
 				ref valueHasBeenFound_out

@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataDB {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_tableType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				if (tabledbs__ != null) tabledbs__.parent_ref = this;
 				if (tablefields__ != null) tablefields__.parent_ref = this;
 			}
@@ -42,7 +44,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				if (tabledbs__ != null) tabledbs__.root_ref = value;
 				if (tablefields__ != null) tablefields__.root_ref = value;
 			}
@@ -55,10 +57,10 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("name")]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
-				name_ = value;
+				this.name_ = value;
 			}
 		}
 		#endregion
@@ -68,10 +70,10 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("isVirtualTable")]
 		public bool isVirtualTable {
 			get {
-				return isvirtualtable_;
+				return this.isvirtualtable_;
 			}
 			set {
-				isvirtualtable_ = value;
+				this.isvirtualtable_ = value;
 			}
 		}
 		#endregion
@@ -81,10 +83,10 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("description")]
 		public string Description {
 			get {
-				return description_;
+				return this.description_;
 			}
 			set {
-				description_ = value;
+				this.description_ = value;
 			}
 		}
 		#endregion
@@ -97,31 +99,31 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			get {
 
 				// check before lock
-				if (tabledbs__ == null) {
+				if (this.tabledbs__ == null) {
 
-					lock (tabledbs__locker) {
+					lock (this.tabledbs__locker) {
 
 						// double check, thread safer!
-						if (tabledbs__ == null) {
+						if (this.tabledbs__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							tabledbs__ = new XS_tableDBsType();
+							this.tabledbs__ = new XS_tableDBsType();
 						}
 					}
 				}
 
-				return tabledbs__;
+				return this.tabledbs__;
 			}
 			set {
-				tabledbs__ = value;
+				this.tabledbs__ = value;
 			}
 		}
 
 		[XmlElement("tableDBs")]
 		public XS_tableDBsType tabledbs__xml {
-			get { return tabledbs__; }
-			set { tabledbs__ = value; }
+			get { return this.tabledbs__; }
+			set { this.tabledbs__ = value; }
 		}
 		#endregion
 		#region public XS_tableFieldsType TableFields { get; set; }
@@ -133,41 +135,41 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			get {
 
 				// check before lock
-				if (tablefields__ == null) {
+				if (this.tablefields__ == null) {
 
-					lock (tablefields__locker) {
+					lock (this.tablefields__locker) {
 
 						// double check, thread safer!
-						if (tablefields__ == null) {
+						if (this.tablefields__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							tablefields__ = new XS_tableFieldsType();
+							this.tablefields__ = new XS_tableFieldsType();
 						}
 					}
 				}
 
-				return tablefields__;
+				return this.tablefields__;
 			}
 			set {
-				tablefields__ = value;
+				this.tablefields__ = value;
 			}
 		}
 
 		[XmlElement("tableFields")]
 		public XS_tableFieldsType tablefields__xml {
-			get { return tablefields__; }
-			set { tablefields__ = value; }
+			get { return this.tablefields__; }
+			set { this.tablefields__ = value; }
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_tableType tableType_in) {
-			name_ = tableType_in.name_;
-			isvirtualtable_ = tableType_in.isvirtualtable_;
-			description_ = tableType_in.description_;
-			if (tableType_in.tabledbs__ != null) tabledbs__.CopyFrom(tableType_in.tabledbs__);
-			if (tableType_in.tablefields__ != null) tablefields__.CopyFrom(tableType_in.tablefields__);
+			this.name_ = tableType_in.name_;
+			this.isvirtualtable_ = tableType_in.isvirtualtable_;
+			this.description_ = tableType_in.description_;
+			if (tableType_in.tabledbs__ != null) this.tabledbs__.CopyFrom(tableType_in.tabledbs__);
+			if (tableType_in.tablefields__ != null) this.tablefields__.CopyFrom(tableType_in.tablefields__);
 		}
 		#endregion
 	}

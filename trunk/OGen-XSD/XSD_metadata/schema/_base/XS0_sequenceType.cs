@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.XSD.lib.metadata.schema {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_sequenceType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				elementcollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				elementcollection_.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,13 +55,13 @@ namespace OGen.XSD.lib.metadata.schema {
 
 		[XmlElement("element")]
 		public XS_elementType[] elementcollection__xml {
-			get { return elementcollection_.cols__; }
-			set { elementcollection_.cols__ = value; }
+			get { return this.elementcollection_.cols__; }
+			set { this.elementcollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_elementTypeCollection ElementCollection {
-			get { return elementcollection_; }
+			get { return this.elementcollection_; }
 		}
 		#endregion
 
@@ -67,13 +69,13 @@ namespace OGen.XSD.lib.metadata.schema {
 		public void CopyFrom(XS_sequenceType sequenceType_in) {
 			int _index = -1;
 
-			elementcollection_.Clear();
+			this.elementcollection_.Clear();
 			for (int d = 0; d < sequenceType_in.elementcollection_.Count; d++) {
-				elementcollection_.Add(
+				this.elementcollection_.Add(
 					out _index,
 					new XS_elementType()
 				);
-				elementcollection_[_index].CopyFrom(
+				this.elementcollection_[_index].CopyFrom(
 					sequenceType_in.elementcollection_[d]
 				);
 			}

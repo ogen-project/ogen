@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_dbType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 			}
 			get { return parent_ref_; }
 		}
@@ -40,7 +42,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 			}
 			get { return root_ref_; }
 		}
@@ -51,10 +53,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("dbServerType")]
 		public string DBServerType {
 			get {
-				return dbservertype_;
+				return this.dbservertype_;
 			}
 			set {
-				dbservertype_ = value;
+				this.dbservertype_ = value;
 			}
 		}
 		#endregion
@@ -64,10 +66,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("generateSQL")]
 		public bool GenerateSQL {
 			get {
-				return generatesql_;
+				return this.generatesql_;
 			}
 			set {
-				generatesql_ = value;
+				this.generatesql_ = value;
 			}
 		}
 		#endregion
@@ -77,19 +79,19 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("connectionString")]
 		public string ConnectionString {
 			get {
-				return connectionstring_;
+				return this.connectionstring_;
 			}
 			set {
-				connectionstring_ = value;
+				this.connectionstring_ = value;
 			}
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_dbType dbType_in) {
-			dbservertype_ = dbType_in.dbservertype_;
-			generatesql_ = dbType_in.generatesql_;
-			connectionstring_ = dbType_in.connectionstring_;
+			this.dbservertype_ = dbType_in.dbservertype_;
+			this.generatesql_ = dbType_in.generatesql_;
+			this.connectionstring_ = dbType_in.connectionstring_;
 		}
 		#endregion
 	}

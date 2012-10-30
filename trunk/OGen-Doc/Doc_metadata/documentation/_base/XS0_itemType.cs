@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.Doc.lib.metadata.documentation {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_itemType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				if (attachments__ != null) attachments__.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				if (attachments__ != null) attachments__.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,10 +55,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("title")]
 		public string Title {
 			get {
-				return title_;
+				return this.title_;
 			}
 			set {
-				title_ = value;
+				this.title_ = value;
 			}
 		}
 		#endregion
@@ -66,10 +68,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("subTitle")]
 		public string SubTitle {
 			get {
-				return subtitle_;
+				return this.subtitle_;
 			}
 			set {
-				subtitle_ = value;
+				this.subtitle_ = value;
 			}
 		}
 		#endregion
@@ -79,10 +81,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("isIntroduction")]
 		public bool IsIntroduction {
 			get {
-				return isintroduction_;
+				return this.isintroduction_;
 			}
 			set {
-				isintroduction_ = value;
+				this.isintroduction_ = value;
 			}
 		}
 		#endregion
@@ -92,10 +94,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("isSummary")]
 		public bool IsSummary {
 			get {
-				return issummary_;
+				return this.issummary_;
 			}
 			set {
-				issummary_ = value;
+				this.issummary_ = value;
 			}
 		}
 		#endregion
@@ -108,41 +110,41 @@ namespace OGen.Doc.lib.metadata.documentation {
 			get {
 
 				// check before lock
-				if (attachments__ == null) {
+				if (this.attachments__ == null) {
 
-					lock (attachments__locker) {
+					lock (this.attachments__locker) {
 
 						// double check, thread safer!
-						if (attachments__ == null) {
+						if (this.attachments__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							attachments__ = new XS_attachmentsType();
+							this.attachments__ = new XS_attachmentsType();
 						}
 					}
 				}
 
-				return attachments__;
+				return this.attachments__;
 			}
 			set {
-				attachments__ = value;
+				this.attachments__ = value;
 			}
 		}
 
 		[XmlElement("attachments")]
 		public XS_attachmentsType attachments__xml {
-			get { return attachments__; }
-			set { attachments__ = value; }
+			get { return this.attachments__; }
+			set { this.attachments__ = value; }
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_itemType itemType_in) {
-			title_ = itemType_in.title_;
-			subtitle_ = itemType_in.subtitle_;
-			isintroduction_ = itemType_in.isintroduction_;
-			issummary_ = itemType_in.issummary_;
-			if (itemType_in.attachments__ != null) attachments__.CopyFrom(itemType_in.attachments__);
+			this.title_ = itemType_in.title_;
+			this.subtitle_ = itemType_in.subtitle_;
+			this.isintroduction_ = itemType_in.isintroduction_;
+			this.issummary_ = itemType_in.issummary_;
+			if (itemType_in.attachments__ != null) this.attachments__.CopyFrom(itemType_in.attachments__);
 		}
 		#endregion
 	}

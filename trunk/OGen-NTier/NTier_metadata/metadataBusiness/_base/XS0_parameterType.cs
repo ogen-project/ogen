@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataBusiness {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_parameterType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 			}
 			get { return parent_ref_; }
 		}
@@ -40,7 +42,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 			}
 			get { return root_ref_; }
 		}
@@ -51,10 +53,10 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlAttribute("name")]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
-				name_ = value;
+				this.name_ = value;
 			}
 		}
 		#endregion
@@ -64,10 +66,10 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlAttribute("type")]
 		public string Type {
 			get {
-				return type_;
+				return this.type_;
 			}
 			set {
-				type_ = value;
+				this.type_ = value;
 			}
 		}
 		#endregion
@@ -77,10 +79,10 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlAttribute("isParams")]
 		public bool isParams {
 			get {
-				return isparams_;
+				return this.isparams_;
 			}
 			set {
-				isparams_ = value;
+				this.isparams_ = value;
 			}
 		}
 		#endregion
@@ -90,10 +92,10 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlAttribute("isOut")]
 		public bool isOut {
 			get {
-				return isout_;
+				return this.isout_;
 			}
 			set {
-				isout_ = value;
+				this.isout_ = value;
 			}
 		}
 		#endregion
@@ -103,21 +105,21 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 		[XmlAttribute("isRef")]
 		public bool isRef {
 			get {
-				return isref_;
+				return this.isref_;
 			}
 			set {
-				isref_ = value;
+				this.isref_ = value;
 			}
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_parameterType parameterType_in) {
-			name_ = parameterType_in.name_;
-			type_ = parameterType_in.type_;
-			isparams_ = parameterType_in.isparams_;
-			isout_ = parameterType_in.isout_;
-			isref_ = parameterType_in.isref_;
+			this.name_ = parameterType_in.name_;
+			this.type_ = parameterType_in.type_;
+			this.isparams_ = parameterType_in.isparams_;
+			this.isout_ = parameterType_in.isout_;
+			this.isref_ = parameterType_in.isref_;
 		}
 		#endregion
 	}

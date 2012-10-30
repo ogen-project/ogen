@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Xml.Serialization;
+
 
 namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
+	using System;
+	using System.IO;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0__spreadsheetCollection {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		#endif
 			XS__spreadsheet[] spreadsheetcollection_in
 		) {
-			spreadsheetcollection_ = spreadsheetcollection_in;
+			this.spreadsheetcollection_ = spreadsheetcollection_in;
 		}
 
 		#region public XS__spreadsheet this[...] { get; }
@@ -37,16 +39,16 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 
 		public XS__spreadsheet this[int index_in] {
 			get {
-				return spreadsheetcollection_[index_in];
+				return this.spreadsheetcollection_[index_in];
 			}
 		}
 		public XS__spreadsheet this[string name_in] {
 			get {
 				// ToDos: later! performance
 
-				for (int i = 0; i < spreadsheetcollection_.Length; i++) {
-					if (spreadsheetcollection_[i].Spreadsheet == name_in) {
-						return spreadsheetcollection_[i];
+				for (int i = 0; i < this.spreadsheetcollection_.Length; i++) {
+					if (this.spreadsheetcollection_[i].Spreadsheet == name_in) {
+						return this.spreadsheetcollection_[i];
 					}
 				}
 				throw new Exception(string.Format(
@@ -59,7 +61,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		}
 		#endregion
 		public int Count { get {
-			return spreadsheetcollection_.Length;
+			return this.spreadsheetcollection_.Length;
 		} }
 	}
 }

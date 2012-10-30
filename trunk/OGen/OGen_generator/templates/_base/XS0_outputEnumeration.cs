@@ -12,10 +12,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
+
 
 namespace OGen.lib.templates {
+	using System;
+	using System.Xml.Serialization;
+
 	public enum XS_OutputEnumeration {
 		File = 0, 
 		PostgreSQL_Function = 1, 

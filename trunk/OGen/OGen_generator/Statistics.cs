@@ -36,7 +36,7 @@ namespace OGen.lib.generator {
 
 		public bool CountLines {
 			get {
-				return countlines_;
+				return this.countlines_;
 			}
 		}
 		#endregion
@@ -45,7 +45,7 @@ namespace OGen.lib.generator {
 
 		public bool CountBytes {
 			get {
-				return countbytes_;
+				return this.countbytes_;
 			}
 		}
 		#endregion
@@ -54,7 +54,7 @@ namespace OGen.lib.generator {
 
 		public bool ThreadSafe {
 			get {
-				return threadsafe_;
+				return this.threadsafe_;
 			}
 		}
 		#endregion
@@ -64,7 +64,7 @@ namespace OGen.lib.generator {
 
 		public int Lines {
 			get {
-				return lines_;
+				return this.lines_;
 			}
 		}
 		#endregion
@@ -74,14 +74,14 @@ namespace OGen.lib.generator {
 
 		public int Bytes {
 			get {
-				return bytes_;
+				return this.bytes_;
 			}
 		}
 		#endregion
 
 		#region public void Lines_Add(string text_in);
 		public void Lines_Add(string text_in) {
-			if (!countlines_)
+			if (!this.countlines_)
 				return;
 
 			int _lines = text_in.Split
@@ -92,26 +92,26 @@ namespace OGen.lib.generator {
 				StringSplitOptions.None
 			).Length;
 
-			if (threadsafe_) {
-				lock (lines_locker) {
-					lines_ += _lines;
+			if (this.threadsafe_) {
+				lock (this.lines_locker) {
+					this.lines_ += _lines;
 				}
 			} else {
-				lines_ += _lines;
+				this.lines_ += _lines;
 			}
 		}
 		#endregion
 		#region public void Bytes_Add(string text_in);
 		public void Bytes_Add(string text_in) {
-			if (!countbytes_)
+			if (!this.countbytes_)
 				return;
 
-			if (threadsafe_) {
-				lock (bytes_locker) {
-					bytes_ += text_in.Length;
+			if (this.threadsafe_) {
+				lock (this.bytes_locker) {
+					this.bytes_ += text_in.Length;
 				}
 			} else {
-				bytes_ += text_in.Length;
+				this.bytes_ += text_in.Length;
 			}
 		}
 		#endregion

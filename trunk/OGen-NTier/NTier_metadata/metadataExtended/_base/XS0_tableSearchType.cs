@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_tableSearchType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				if (tablesearchparameters__ != null) tablesearchparameters__.parent_ref = this;
 				if (tablesearchupdates__ != null) tablesearchupdates__.parent_ref = this;
 			}
@@ -42,7 +44,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				if (tablesearchparameters__ != null) tablesearchparameters__.root_ref = value;
 				if (tablesearchupdates__ != null) tablesearchupdates__.root_ref = value;
 			}
@@ -55,10 +57,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("name")]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
-				name_ = value;
+				this.name_ = value;
 			}
 		}
 		#endregion
@@ -68,10 +70,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("isRange")]
 		public bool isRange {
 			get {
-				return isrange_;
+				return this.isrange_;
 			}
 			set {
-				isrange_ = value;
+				this.isrange_ = value;
 			}
 		}
 		#endregion
@@ -81,10 +83,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("isExplicitUniqueIndex")]
 		public bool isExplicitUniqueIndex {
 			get {
-				return isexplicituniqueindex_;
+				return this.isexplicituniqueindex_;
 			}
 			set {
-				isexplicituniqueindex_ = value;
+				this.isexplicituniqueindex_ = value;
 			}
 		}
 		#endregion
@@ -97,31 +99,31 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			get {
 
 				// check before lock
-				if (tablesearchparameters__ == null) {
+				if (this.tablesearchparameters__ == null) {
 
-					lock (tablesearchparameters__locker) {
+					lock (this.tablesearchparameters__locker) {
 
 						// double check, thread safer!
-						if (tablesearchparameters__ == null) {
+						if (this.tablesearchparameters__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							tablesearchparameters__ = new XS_tableSearchParametersType();
+							this.tablesearchparameters__ = new XS_tableSearchParametersType();
 						}
 					}
 				}
 
-				return tablesearchparameters__;
+				return this.tablesearchparameters__;
 			}
 			set {
-				tablesearchparameters__ = value;
+				this.tablesearchparameters__ = value;
 			}
 		}
 
 		[XmlElement("tableSearchParameters")]
 		public XS_tableSearchParametersType tablesearchparameters__xml {
-			get { return tablesearchparameters__; }
-			set { tablesearchparameters__ = value; }
+			get { return this.tablesearchparameters__; }
+			set { this.tablesearchparameters__ = value; }
 		}
 		#endregion
 		#region public XS_tableSearchUpdatesType TableSearchUpdates { get; set; }
@@ -133,41 +135,41 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			get {
 
 				// check before lock
-				if (tablesearchupdates__ == null) {
+				if (this.tablesearchupdates__ == null) {
 
-					lock (tablesearchupdates__locker) {
+					lock (this.tablesearchupdates__locker) {
 
 						// double check, thread safer!
-						if (tablesearchupdates__ == null) {
+						if (this.tablesearchupdates__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							tablesearchupdates__ = new XS_tableSearchUpdatesType();
+							this.tablesearchupdates__ = new XS_tableSearchUpdatesType();
 						}
 					}
 				}
 
-				return tablesearchupdates__;
+				return this.tablesearchupdates__;
 			}
 			set {
-				tablesearchupdates__ = value;
+				this.tablesearchupdates__ = value;
 			}
 		}
 
 		[XmlElement("tableSearchUpdates")]
 		public XS_tableSearchUpdatesType tablesearchupdates__xml {
-			get { return tablesearchupdates__; }
-			set { tablesearchupdates__ = value; }
+			get { return this.tablesearchupdates__; }
+			set { this.tablesearchupdates__ = value; }
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_tableSearchType tableSearchType_in) {
-			name_ = tableSearchType_in.name_;
-			isrange_ = tableSearchType_in.isrange_;
-			isexplicituniqueindex_ = tableSearchType_in.isexplicituniqueindex_;
-			if (tableSearchType_in.tablesearchparameters__ != null) tablesearchparameters__.CopyFrom(tableSearchType_in.tablesearchparameters__);
-			if (tableSearchType_in.tablesearchupdates__ != null) tablesearchupdates__.CopyFrom(tableSearchType_in.tablesearchupdates__);
+			this.name_ = tableSearchType_in.name_;
+			this.isrange_ = tableSearchType_in.isrange_;
+			this.isexplicituniqueindex_ = tableSearchType_in.isexplicituniqueindex_;
+			if (tableSearchType_in.tablesearchparameters__ != null) this.tablesearchparameters__.CopyFrom(tableSearchType_in.tablesearchparameters__);
+			if (tableSearchType_in.tablesearchupdates__ != null) this.tablesearchupdates__.CopyFrom(tableSearchType_in.tablesearchupdates__);
 		}
 		#endregion
 	}

@@ -27,7 +27,7 @@ namespace OGen.lib.templates {
 		public XS_conditionType (
 			string eval_in
 		) {
-			eval_ = eval_in;
+			this.eval_ = eval_in;
 		}
 	}
 }

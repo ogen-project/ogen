@@ -26,7 +26,7 @@ namespace OGen.lib.parser {
 		private static object myhost_locker = new object();
 
 		private class MyHost : MarshalByRefObject, IRegisteredObject {
-			public override Object InitializeLifetimeService() {
+			public override object InitializeLifetimeService() {
 				return null; // never expires, default is 5 minutes
 			}
 
@@ -34,15 +34,15 @@ namespace OGen.lib.parser {
 				HostingEnvironment.UnregisterObject(this);
 			}
 
-			#region public void RunRequest(string Page, string QueryString, out TextWriter Output);
-			public void RunRequest(string Page, string QueryString, ref TextWriter Output) {
-				Output = new StringWriter();
+			#region public void RunRequest(...);
+			public void RunRequest(string page_in, string queryString_in, ref TextWriter output_ref) {
+				output_ref = new StringWriter();
 
 				HttpRuntime.ProcessRequest(
 					new SimpleWorkerRequest(
-						Page,
-						QueryString,
-						Output
+						page_in,
+						queryString_in,
+						output_ref
 					)
 				);
 			}

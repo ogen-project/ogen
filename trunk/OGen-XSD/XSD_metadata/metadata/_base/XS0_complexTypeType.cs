@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.XSD.lib.metadata.metadata {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_complexTypeType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				complextypekeycollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				complextypekeycollection_.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,10 +55,10 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlAttribute("name")]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
-				name_ = value;
+				this.name_ = value;
 			}
 		}
 		#endregion
@@ -66,13 +68,13 @@ namespace OGen.XSD.lib.metadata.metadata {
 
 		[XmlElement("complexTypeKey")]
 		public XS_complexTypeKeyType[] complextypekeycollection__xml {
-			get { return complextypekeycollection_.cols__; }
-			set { complextypekeycollection_.cols__ = value; }
+			get { return this.complextypekeycollection_.cols__; }
+			set { this.complextypekeycollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_complexTypeKeyTypeCollection ComplexTypeKeyCollection {
-			get { return complextypekeycollection_; }
+			get { return this.complextypekeycollection_; }
 		}
 		#endregion
 
@@ -80,14 +82,14 @@ namespace OGen.XSD.lib.metadata.metadata {
 		public void CopyFrom(XS_complexTypeType complexTypeType_in) {
 			int _index = -1;
 
-			name_ = complexTypeType_in.name_;
-			complextypekeycollection_.Clear();
+			this.name_ = complexTypeType_in.name_;
+			this.complextypekeycollection_.Clear();
 			for (int d = 0; d < complexTypeType_in.complextypekeycollection_.Count; d++) {
-				complextypekeycollection_.Add(
+				this.complextypekeycollection_.Add(
 					out _index,
 					new XS_complexTypeKeyType()
 				);
-				complextypekeycollection_[_index].CopyFrom(
+				this.complextypekeycollection_[_index].CopyFrom(
 					complexTypeType_in.complextypekeycollection_[d]
 				);
 			}

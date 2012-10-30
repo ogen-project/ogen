@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.Dia.lib.metadata.diagram {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_compositeType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				attributecollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				attributecollection_.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,10 +55,10 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlAttribute("type")]
 		public string Type {
 			get {
-				return type_;
+				return this.type_;
 			}
 			set {
-				type_ = value;
+				this.type_ = value;
 			}
 		}
 		#endregion
@@ -66,13 +68,13 @@ namespace OGen.Dia.lib.metadata.diagram {
 
 		[XmlElement("attribute")]
 		public XS_attributeType[] attributecollection__xml {
-			get { return attributecollection_.cols__; }
-			set { attributecollection_.cols__ = value; }
+			get { return this.attributecollection_.cols__; }
+			set { this.attributecollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_attributeTypeCollection AttributeCollection {
-			get { return attributecollection_; }
+			get { return this.attributecollection_; }
 		}
 		#endregion
 
@@ -80,14 +82,14 @@ namespace OGen.Dia.lib.metadata.diagram {
 		public void CopyFrom(XS_compositeType compositeType_in) {
 			int _index = -1;
 
-			type_ = compositeType_in.type_;
-			attributecollection_.Clear();
+			this.type_ = compositeType_in.type_;
+			this.attributecollection_.Clear();
 			for (int d = 0; d < compositeType_in.attributecollection_.Count; d++) {
-				attributecollection_.Add(
+				this.attributecollection_.Add(
 					out _index,
 					new XS_attributeType()
 				);
-				attributecollection_[_index].CopyFrom(
+				this.attributecollection_[_index].CopyFrom(
 					compositeType_in.attributecollection_[d]
 				);
 			}

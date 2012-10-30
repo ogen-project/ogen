@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.Dia.lib.metadata.diagram {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_connectionType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 			}
 			get { return parent_ref_; }
 		}
@@ -40,7 +42,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 			}
 			get { return root_ref_; }
 		}
@@ -51,10 +53,10 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlAttribute("handle")]
 		public string Handle {
 			get {
-				return handle_;
+				return this.handle_;
 			}
 			set {
-				handle_ = value;
+				this.handle_ = value;
 			}
 		}
 		#endregion
@@ -64,10 +66,10 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlAttribute("to")]
 		public string To {
 			get {
-				return to_;
+				return this.to_;
 			}
 			set {
-				to_ = value;
+				this.to_ = value;
 			}
 		}
 		#endregion
@@ -77,19 +79,19 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlAttribute("connection")]
 		public string Connection {
 			get {
-				return connection_;
+				return this.connection_;
 			}
 			set {
-				connection_ = value;
+				this.connection_ = value;
 			}
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_connectionType connectionType_in) {
-			handle_ = connectionType_in.handle_;
-			to_ = connectionType_in.to_;
-			connection_ = connectionType_in.connection_;
+			this.handle_ = connectionType_in.handle_;
+			this.to_ = connectionType_in.to_;
+			this.connection_ = connectionType_in.connection_;
 		}
 		#endregion
 	}

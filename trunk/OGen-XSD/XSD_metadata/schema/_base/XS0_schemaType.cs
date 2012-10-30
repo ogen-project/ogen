@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.XSD.lib.metadata.schema {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_schemaType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				simpletypecollection_.parent_ref = this;
 				complextypecollection_.parent_ref = this;
 				if (element__ != null) element__.parent_ref = this;
@@ -43,7 +45,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				simpletypecollection_.root_ref = value;
 				complextypecollection_.root_ref = value;
 				if (element__ != null) element__.root_ref = value;
@@ -57,10 +59,10 @@ namespace OGen.XSD.lib.metadata.schema {
 		[XmlAttribute("xs")]
 		public string xs {
 			get {
-				return xs_;
+				return this.xs_;
 			}
 			set {
-				xs_ = value;
+				this.xs_ = value;
 			}
 		}
 		#endregion
@@ -70,10 +72,10 @@ namespace OGen.XSD.lib.metadata.schema {
 		[XmlAttribute("targetNamespace")]
 		public string TargetNamespace {
 			get {
-				return targetnamespace_;
+				return this.targetnamespace_;
 			}
 			set {
-				targetnamespace_ = value;
+				this.targetnamespace_ = value;
 			}
 		}
 		#endregion
@@ -83,10 +85,10 @@ namespace OGen.XSD.lib.metadata.schema {
 		[XmlAttribute("xmlns")]
 		public string xmlNS {
 			get {
-				return xmlns_;
+				return this.xmlns_;
 			}
 			set {
-				xmlns_ = value;
+				this.xmlns_ = value;
 			}
 		}
 		#endregion
@@ -96,10 +98,10 @@ namespace OGen.XSD.lib.metadata.schema {
 		[XmlAttribute("elementFormDefault")]
 		public string ElementFormDefault {
 			get {
-				return elementformdefault_;
+				return this.elementformdefault_;
 			}
 			set {
-				elementformdefault_ = value;
+				this.elementformdefault_ = value;
 			}
 		}
 		#endregion
@@ -109,13 +111,13 @@ namespace OGen.XSD.lib.metadata.schema {
 
 		[XmlElement("simpleType")]
 		public XS_simpleTypeType[] simpletypecollection__xml {
-			get { return simpletypecollection_.cols__; }
-			set { simpletypecollection_.cols__ = value; }
+			get { return this.simpletypecollection_.cols__; }
+			set { this.simpletypecollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_simpleTypeTypeCollection SimpleTypeCollection {
-			get { return simpletypecollection_; }
+			get { return this.simpletypecollection_; }
 		}
 		#endregion
 		#region public XS_complexTypeTypeCollection ComplexTypeCollection { get; }
@@ -124,13 +126,13 @@ namespace OGen.XSD.lib.metadata.schema {
 
 		[XmlElement("complexType")]
 		public XS_complexTypeType[] complextypecollection__xml {
-			get { return complextypecollection_.cols__; }
-			set { complextypecollection_.cols__ = value; }
+			get { return this.complextypecollection_.cols__; }
+			set { this.complextypecollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_complexTypeTypeCollection ComplexTypeCollection {
-			get { return complextypecollection_; }
+			get { return this.complextypecollection_; }
 		}
 		#endregion
 		#region public XS_elementType Element { get; set; }
@@ -142,31 +144,31 @@ namespace OGen.XSD.lib.metadata.schema {
 			get {
 
 				// check before lock
-				if (element__ == null) {
+				if (this.element__ == null) {
 
-					lock (element__locker) {
+					lock (this.element__locker) {
 
 						// double check, thread safer!
-						if (element__ == null) {
+						if (this.element__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							element__ = new XS_elementType();
+							this.element__ = new XS_elementType();
 						}
 					}
 				}
 
-				return element__;
+				return this.element__;
 			}
 			set {
-				element__ = value;
+				this.element__ = value;
 			}
 		}
 
 		[XmlElement("element")]
 		public XS_elementType element__xml {
-			get { return element__; }
-			set { element__ = value; }
+			get { return this.element__; }
+			set { this.element__ = value; }
 		}
 		#endregion
 
@@ -174,31 +176,31 @@ namespace OGen.XSD.lib.metadata.schema {
 		public void CopyFrom(XS_schemaType schemaType_in) {
 			int _index = -1;
 
-			xs_ = schemaType_in.xs_;
-			targetnamespace_ = schemaType_in.targetnamespace_;
-			xmlns_ = schemaType_in.xmlns_;
-			elementformdefault_ = schemaType_in.elementformdefault_;
-			simpletypecollection_.Clear();
+			this.xs_ = schemaType_in.xs_;
+			this.targetnamespace_ = schemaType_in.targetnamespace_;
+			this.xmlns_ = schemaType_in.xmlns_;
+			this.elementformdefault_ = schemaType_in.elementformdefault_;
+			this.simpletypecollection_.Clear();
 			for (int d = 0; d < schemaType_in.simpletypecollection_.Count; d++) {
-				simpletypecollection_.Add(
+				this.simpletypecollection_.Add(
 					out _index,
 					new XS_simpleTypeType()
 				);
-				simpletypecollection_[_index].CopyFrom(
+				this.simpletypecollection_[_index].CopyFrom(
 					schemaType_in.simpletypecollection_[d]
 				);
 			}
-			complextypecollection_.Clear();
+			this.complextypecollection_.Clear();
 			for (int d = 0; d < schemaType_in.complextypecollection_.Count; d++) {
-				complextypecollection_.Add(
+				this.complextypecollection_.Add(
 					out _index,
 					new XS_complexTypeType()
 				);
-				complextypecollection_[_index].CopyFrom(
+				this.complextypecollection_[_index].CopyFrom(
 					schemaType_in.complextypecollection_[d]
 				);
 			}
-			if (schemaType_in.element__ != null) element__.CopyFrom(schemaType_in.element__);
+			if (schemaType_in.element__ != null) this.element__.CopyFrom(schemaType_in.element__);
 		}
 		#endregion
 	}

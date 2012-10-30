@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.Dia.lib.metadata.diagram {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_diagramType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				layercollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				layercollection_.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,10 +55,10 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlAttribute("dia")]
 		public string Dia {
 			get {
-				return dia_;
+				return this.dia_;
 			}
 			set {
-				dia_ = value;
+				this.dia_ = value;
 			}
 		}
 		#endregion
@@ -66,13 +68,13 @@ namespace OGen.Dia.lib.metadata.diagram {
 
 		[XmlElement("layer")]
 		public XS_layerType[] layercollection__xml {
-			get { return layercollection_.cols__; }
-			set { layercollection_.cols__ = value; }
+			get { return this.layercollection_.cols__; }
+			set { this.layercollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_layerTypeCollection LayerCollection {
-			get { return layercollection_; }
+			get { return this.layercollection_; }
 		}
 		#endregion
 
@@ -80,14 +82,14 @@ namespace OGen.Dia.lib.metadata.diagram {
 		public void CopyFrom(XS_diagramType diagramType_in) {
 			int _index = -1;
 
-			dia_ = diagramType_in.dia_;
-			layercollection_.Clear();
+			this.dia_ = diagramType_in.dia_;
+			this.layercollection_.Clear();
 			for (int d = 0; d < diagramType_in.layercollection_.Count; d++) {
-				layercollection_.Add(
+				this.layercollection_.Add(
 					out _index,
 					new XS_layerType()
 				);
-				layercollection_[_index].CopyFrom(
+				this.layercollection_[_index].CopyFrom(
 					diagramType_in.layercollection_[d]
 				);
 			}

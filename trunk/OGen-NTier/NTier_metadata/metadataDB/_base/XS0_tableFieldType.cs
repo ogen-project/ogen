@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataDB {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_tableFieldType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				if (tablefielddbs__ != null) tablefielddbs__.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				if (tablefielddbs__ != null) tablefielddbs__.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,10 +55,10 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("name")]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
-				name_ = value;
+				this.name_ = value;
 			}
 		}
 		#endregion
@@ -66,10 +68,10 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("isPK")]
 		public bool isPK {
 			get {
-				return ispk_;
+				return this.ispk_;
 			}
 			set {
-				ispk_ = value;
+				this.ispk_ = value;
 			}
 		}
 		#endregion
@@ -79,10 +81,10 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("isIdentity")]
 		public bool isIdentity {
 			get {
-				return isidentity_;
+				return this.isidentity_;
 			}
 			set {
-				isidentity_ = value;
+				this.isidentity_ = value;
 			}
 		}
 		#endregion
@@ -92,10 +94,10 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("fkTableName")]
 		public string FKTableName {
 			get {
-				return fktablename_;
+				return this.fktablename_;
 			}
 			set {
-				fktablename_ = value;
+				this.fktablename_ = value;
 			}
 		}
 		#endregion
@@ -105,10 +107,10 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("fkFieldName")]
 		public string FKFieldName {
 			get {
-				return fkfieldname_;
+				return this.fkfieldname_;
 			}
 			set {
-				fkfieldname_ = value;
+				this.fkfieldname_ = value;
 			}
 		}
 		#endregion
@@ -118,10 +120,10 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("isNullable")]
 		public bool isNullable {
 			get {
-				return isnullable_;
+				return this.isnullable_;
 			}
 			set {
-				isnullable_ = value;
+				this.isnullable_ = value;
 			}
 		}
 		#endregion
@@ -131,10 +133,10 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("size")]
 		public int Size {
 			get {
-				return size_;
+				return this.size_;
 			}
 			set {
-				size_ = value;
+				this.size_ = value;
 			}
 		}
 		#endregion
@@ -144,10 +146,10 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("numericPrecision")]
 		public int NumericPrecision {
 			get {
-				return numericprecision_;
+				return this.numericprecision_;
 			}
 			set {
-				numericprecision_ = value;
+				this.numericprecision_ = value;
 			}
 		}
 		#endregion
@@ -157,10 +159,10 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("numericScale")]
 		public int NumericScale {
 			get {
-				return numericscale_;
+				return this.numericscale_;
 			}
 			set {
-				numericscale_ = value;
+				this.numericscale_ = value;
 			}
 		}
 		#endregion
@@ -170,10 +172,10 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("description")]
 		public string Description {
 			get {
-				return description_;
+				return this.description_;
 			}
 			set {
-				description_ = value;
+				this.description_ = value;
 			}
 		}
 		#endregion
@@ -186,47 +188,47 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			get {
 
 				// check before lock
-				if (tablefielddbs__ == null) {
+				if (this.tablefielddbs__ == null) {
 
-					lock (tablefielddbs__locker) {
+					lock (this.tablefielddbs__locker) {
 
 						// double check, thread safer!
-						if (tablefielddbs__ == null) {
+						if (this.tablefielddbs__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							tablefielddbs__ = new XS_tableFieldDBsType();
+							this.tablefielddbs__ = new XS_tableFieldDBsType();
 						}
 					}
 				}
 
-				return tablefielddbs__;
+				return this.tablefielddbs__;
 			}
 			set {
-				tablefielddbs__ = value;
+				this.tablefielddbs__ = value;
 			}
 		}
 
 		[XmlElement("tableFieldDBs")]
 		public XS_tableFieldDBsType tablefielddbs__xml {
-			get { return tablefielddbs__; }
-			set { tablefielddbs__ = value; }
+			get { return this.tablefielddbs__; }
+			set { this.tablefielddbs__ = value; }
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_tableFieldType tableFieldType_in) {
-			name_ = tableFieldType_in.name_;
-			ispk_ = tableFieldType_in.ispk_;
-			isidentity_ = tableFieldType_in.isidentity_;
-			fktablename_ = tableFieldType_in.fktablename_;
-			fkfieldname_ = tableFieldType_in.fkfieldname_;
-			isnullable_ = tableFieldType_in.isnullable_;
-			size_ = tableFieldType_in.size_;
-			numericprecision_ = tableFieldType_in.numericprecision_;
-			numericscale_ = tableFieldType_in.numericscale_;
-			description_ = tableFieldType_in.description_;
-			if (tableFieldType_in.tablefielddbs__ != null) tablefielddbs__.CopyFrom(tableFieldType_in.tablefielddbs__);
+			this.name_ = tableFieldType_in.name_;
+			this.ispk_ = tableFieldType_in.ispk_;
+			this.isidentity_ = tableFieldType_in.isidentity_;
+			this.fktablename_ = tableFieldType_in.fktablename_;
+			this.fkfieldname_ = tableFieldType_in.fkfieldname_;
+			this.isnullable_ = tableFieldType_in.isnullable_;
+			this.size_ = tableFieldType_in.size_;
+			this.numericprecision_ = tableFieldType_in.numericprecision_;
+			this.numericscale_ = tableFieldType_in.numericscale_;
+			this.description_ = tableFieldType_in.description_;
+			if (tableFieldType_in.tablefielddbs__ != null) this.tablefielddbs__.CopyFrom(tableFieldType_in.tablefielddbs__);
 		}
 		#endregion
 	}

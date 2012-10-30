@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.XSD.lib.metadata.metadata {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_metadataType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				metadataindexcollection_.parent_ref = this;
 				specificcasecollection_.parent_ref = this;
 				complextypecollection_.parent_ref = this;
@@ -43,7 +45,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				metadataindexcollection_.root_ref = value;
 				specificcasecollection_.root_ref = value;
 				complextypecollection_.root_ref = value;
@@ -57,10 +59,10 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlAttribute("applicationName")]
 		public string ApplicationName {
 			get {
-				return applicationname_;
+				return this.applicationname_;
 			}
 			set {
-				applicationname_ = value;
+				this.applicationname_ = value;
 			}
 		}
 		#endregion
@@ -70,10 +72,10 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlAttribute("namespace")]
 		public string Namespace {
 			get {
-				return namespace_;
+				return this.namespace_;
 			}
 			set {
-				namespace_ = value;
+				this.namespace_ = value;
 			}
 		}
 		#endregion
@@ -83,10 +85,10 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlAttribute("caseType")]
 		public XS_CaseTypeEnumeration CaseType {
 			get {
-				return casetype_;
+				return this.casetype_;
 			}
 			set {
-				casetype_ = value;
+				this.casetype_ = value;
 			}
 		}
 		#endregion
@@ -96,10 +98,10 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlAttribute("allowSettersOnObjects")]
 		public bool AllowSettersOnObjects {
 			get {
-				return allowsettersonobjects_;
+				return this.allowsettersonobjects_;
 			}
 			set {
-				allowsettersonobjects_ = value;
+				this.allowsettersonobjects_ = value;
 			}
 		}
 		#endregion
@@ -109,10 +111,10 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlAttribute("isSimple")]
 		public bool isSimple {
 			get {
-				return issimple_;
+				return this.issimple_;
 			}
 			set {
-				issimple_ = value;
+				this.issimple_ = value;
 			}
 		}
 		#endregion
@@ -122,10 +124,10 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlAttribute("prefix")]
 		public string Prefix {
 			get {
-				return prefix_;
+				return this.prefix_;
 			}
 			set {
-				prefix_ = value;
+				this.prefix_ = value;
 			}
 		}
 		#endregion
@@ -135,10 +137,10 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlAttribute("prefixGenerated")]
 		public string PrefixGenerated {
 			get {
-				return prefixgenerated_;
+				return this.prefixgenerated_;
 			}
 			set {
-				prefixgenerated_ = value;
+				this.prefixgenerated_ = value;
 			}
 		}
 		#endregion
@@ -148,10 +150,10 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlAttribute("prefixBase")]
 		public string PrefixBase {
 			get {
-				return prefixbase_;
+				return this.prefixbase_;
 			}
 			set {
-				prefixbase_ = value;
+				this.prefixbase_ = value;
 			}
 		}
 		#endregion
@@ -161,10 +163,10 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlAttribute("prefixBaseGenerated")]
 		public string PrefixBaseGenerated {
 			get {
-				return prefixbasegenerated_;
+				return this.prefixbasegenerated_;
 			}
 			set {
-				prefixbasegenerated_ = value;
+				this.prefixbasegenerated_ = value;
 			}
 		}
 		#endregion
@@ -174,10 +176,10 @@ namespace OGen.XSD.lib.metadata.metadata {
 		[XmlAttribute("copyrightText")]
 		public string CopyrightText {
 			get {
-				return copyrighttext_;
+				return this.copyrighttext_;
 			}
 			set {
-				copyrighttext_ = value;
+				this.copyrighttext_ = value;
 			}
 		}
 		#endregion
@@ -188,11 +190,11 @@ namespace OGen.XSD.lib.metadata.metadata {
 		public string CopyrightTextLong {
 			get {
 // ToDos: here!
-				return (copyrighttextlong_.IndexOf("\r\n") >= 0)
-					? copyrighttextlong_
-					: copyrighttextlong_.Replace("\n", "\r\n");
+				return (this.copyrighttextlong_.IndexOf("\r\n") >= 0)
+					? this.copyrighttextlong_
+					: this.copyrighttextlong_.Replace("\n", "\r\n");
 			}
-			set { copyrighttextlong_ = value; }
+			set { this.copyrighttextlong_ = value; }
 		}
 		#endregion
 		#region public XS_metadataIndexTypeCollection MetadataIndexCollection { get; }
@@ -201,13 +203,13 @@ namespace OGen.XSD.lib.metadata.metadata {
 
 		[XmlElement("metadataIndex")]
 		public XS_metadataIndexType[] metadataindexcollection__xml {
-			get { return metadataindexcollection_.cols__; }
-			set { metadataindexcollection_.cols__ = value; }
+			get { return this.metadataindexcollection_.cols__; }
+			set { this.metadataindexcollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_metadataIndexTypeCollection MetadataIndexCollection {
-			get { return metadataindexcollection_; }
+			get { return this.metadataindexcollection_; }
 		}
 		#endregion
 		#region public XS_specificCaseTypeCollection SpecificCaseCollection { get; }
@@ -216,13 +218,13 @@ namespace OGen.XSD.lib.metadata.metadata {
 
 		[XmlElement("specificCase")]
 		public XS_specificCaseType[] specificcasecollection__xml {
-			get { return specificcasecollection_.cols__; }
-			set { specificcasecollection_.cols__ = value; }
+			get { return this.specificcasecollection_.cols__; }
+			set { this.specificcasecollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_specificCaseTypeCollection SpecificCaseCollection {
-			get { return specificcasecollection_; }
+			get { return this.specificcasecollection_; }
 		}
 		#endregion
 		#region public XS_complexTypeTypeCollection ComplexTypeCollection { get; }
@@ -231,13 +233,13 @@ namespace OGen.XSD.lib.metadata.metadata {
 
 		[XmlElement("complexType")]
 		public XS_complexTypeType[] complextypecollection__xml {
-			get { return complextypecollection_.cols__; }
-			set { complextypecollection_.cols__ = value; }
+			get { return this.complextypecollection_.cols__; }
+			set { this.complextypecollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_complexTypeTypeCollection ComplexTypeCollection {
-			get { return complextypecollection_; }
+			get { return this.complextypecollection_; }
 		}
 		#endregion
 
@@ -245,43 +247,44 @@ namespace OGen.XSD.lib.metadata.metadata {
 		public void CopyFrom(XS_metadataType metadataType_in) {
 			int _index = -1;
 
-			applicationname_ = metadataType_in.applicationname_;
-			namespace_ = metadataType_in.namespace_;
-			casetype_ = metadataType_in.casetype_;
-			allowsettersonobjects_ = metadataType_in.allowsettersonobjects_;
-			issimple_ = metadataType_in.issimple_;
-			prefix_ = metadataType_in.prefix_;
-			prefixgenerated_ = metadataType_in.prefixgenerated_;
-			prefixbase_ = metadataType_in.prefixbase_;
-			prefixbasegenerated_ = metadataType_in.prefixbasegenerated_;
-			copyrighttext_ = metadataType_in.copyrighttext_;copyrighttextlong_ = metadataType_in.copyrighttextlong_;
-			metadataindexcollection_.Clear();
+			this.applicationname_ = metadataType_in.applicationname_;
+			this.namespace_ = metadataType_in.namespace_;
+			this.casetype_ = metadataType_in.casetype_;
+			this.allowsettersonobjects_ = metadataType_in.allowsettersonobjects_;
+			this.issimple_ = metadataType_in.issimple_;
+			this.prefix_ = metadataType_in.prefix_;
+			this.prefixgenerated_ = metadataType_in.prefixgenerated_;
+			this.prefixbase_ = metadataType_in.prefixbase_;
+			this.prefixbasegenerated_ = metadataType_in.prefixbasegenerated_;
+			this.copyrighttext_ = metadataType_in.copyrighttext_;
+			this.copyrighttextlong_ = metadataType_in.copyrighttextlong_;
+			this.metadataindexcollection_.Clear();
 			for (int d = 0; d < metadataType_in.metadataindexcollection_.Count; d++) {
-				metadataindexcollection_.Add(
+				this.metadataindexcollection_.Add(
 					out _index,
 					new XS_metadataIndexType()
 				);
-				metadataindexcollection_[_index].CopyFrom(
+				this.metadataindexcollection_[_index].CopyFrom(
 					metadataType_in.metadataindexcollection_[d]
 				);
 			}
-			specificcasecollection_.Clear();
+			this.specificcasecollection_.Clear();
 			for (int d = 0; d < metadataType_in.specificcasecollection_.Count; d++) {
-				specificcasecollection_.Add(
+				this.specificcasecollection_.Add(
 					out _index,
 					new XS_specificCaseType()
 				);
-				specificcasecollection_[_index].CopyFrom(
+				this.specificcasecollection_[_index].CopyFrom(
 					metadataType_in.specificcasecollection_[d]
 				);
 			}
-			complextypecollection_.Clear();
+			this.complextypecollection_.Clear();
 			for (int d = 0; d < metadataType_in.complextypecollection_.Count; d++) {
-				complextypecollection_.Add(
+				this.complextypecollection_.Add(
 					out _index,
 					new XS_complexTypeType()
 				);
-				complextypecollection_[_index].CopyFrom(
+				this.complextypecollection_[_index].CopyFrom(
 					metadataType_in.complextypecollection_[d]
 				);
 			}

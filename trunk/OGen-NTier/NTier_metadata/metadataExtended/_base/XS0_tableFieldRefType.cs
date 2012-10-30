@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_tableFieldRefType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 			}
 			get { return parent_ref_; }
 		}
@@ -40,7 +42,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 			}
 			get { return root_ref_; }
 		}
@@ -51,10 +53,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("tableName")]
 		public string TableName {
 			get {
-				return tablename_;
+				return this.tablename_;
 			}
 			set {
-				tablename_ = value;
+				this.tablename_ = value;
 			}
 		}
 		#endregion
@@ -64,10 +66,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("tableFieldName")]
 		public string TableFieldName {
 			get {
-				return tablefieldname_;
+				return this.tablefieldname_;
 			}
 			set {
-				tablefieldname_ = value;
+				this.tablefieldname_ = value;
 			}
 		}
 		#endregion
@@ -77,19 +79,19 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("paramName")]
 		public string ParamName {
 			get {
-				return paramname_;
+				return this.paramname_;
 			}
 			set {
-				paramname_ = value;
+				this.paramname_ = value;
 			}
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_tableFieldRefType tableFieldRefType_in) {
-			tablename_ = tableFieldRefType_in.tablename_;
-			tablefieldname_ = tableFieldRefType_in.tablefieldname_;
-			paramname_ = tableFieldRefType_in.paramname_;
+			this.tablename_ = tableFieldRefType_in.tablename_;
+			this.tablefieldname_ = tableFieldRefType_in.tablefieldname_;
+			this.paramname_ = tableFieldRefType_in.paramname_;
 		}
 		#endregion
 	}

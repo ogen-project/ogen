@@ -13,10 +13,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
-using System.Text.RegularExpressions;
-
 using System.Configuration;
 using System.Net.Mail;
+using System.Text.RegularExpressions;
 
 namespace OGen.lib.mail {
 	public static class utils {

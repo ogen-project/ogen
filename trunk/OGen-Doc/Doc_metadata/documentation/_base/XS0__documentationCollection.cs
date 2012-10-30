@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Xml.Serialization;
+
 
 namespace OGen.Doc.lib.metadata.documentation {
+	using System;
+	using System.IO;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0__documentationCollection {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		#endif
 			XS__documentation[] documentationcollection_in
 		) {
-			documentationcollection_ = documentationcollection_in;
+			this.documentationcollection_ = documentationcollection_in;
 		}
 
 		#region public XS__documentation this[...] { get; }
@@ -37,16 +39,16 @@ namespace OGen.Doc.lib.metadata.documentation {
 
 		public XS__documentation this[int index_in] {
 			get {
-				return documentationcollection_[index_in];
+				return this.documentationcollection_[index_in];
 			}
 		}
 		public XS__documentation this[string name_in] {
 			get {
 				// ToDos: later! performance
 
-				for (int i = 0; i < documentationcollection_.Length; i++) {
-					if (documentationcollection_[i].DocumentationName == name_in) {
-						return documentationcollection_[i];
+				for (int i = 0; i < this.documentationcollection_.Length; i++) {
+					if (this.documentationcollection_[i].DocumentationName == name_in) {
+						return this.documentationcollection_[i];
 					}
 				}
 				throw new Exception(string.Format(
@@ -59,7 +61,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		}
 		#endregion
 		public int Count { get {
-			return documentationcollection_.Length;
+			return this.documentationcollection_.Length;
 		} }
 	}
 }

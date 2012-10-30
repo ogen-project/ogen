@@ -12,15 +12,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
 
-using OGen.lib.generator;
-using OGen.lib.metadata;
-using OGen.SpreadsheetXML.lib.metadata.spreadsheet;
 
 namespace OGen.SpreadsheetXML.lib.metadata {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
+	using OGen.lib.generator;
+	using OGen.lib.metadata;
+	using OGen.SpreadsheetXML.lib.metadata.spreadsheet;
+
 	#if NET_1_1
 	public class XS0__RootMetadata : MetadataInterface {
 	#else
@@ -36,7 +38,7 @@ namespace OGen.SpreadsheetXML.lib.metadata {
 		) {
 			string _metadataPath = System.IO.Path.GetDirectoryName(metadataFilepath_in);
 
-			metadatafiles_ = Metadatas.Load_fromFile(metadataFilepath_in);
+			this.metadatafiles_ = Metadatas.Load_fromFile(metadataFilepath_in);
 
 			#region int _total_xxx = ...;
 			int _total_spreadsheet = 0;
@@ -55,12 +57,12 @@ namespace OGen.SpreadsheetXML.lib.metadata {
 			#endregion
 
 			_total_spreadsheet = 0;
-			for (int f = 0; f < metadatafiles_.MetadataFiles.Count; f++) {
-				switch (metadatafiles_.MetadataFiles[f].XMLFileType) {
+			for (int f = 0; f < this.metadatafiles_.MetadataFiles.Count; f++) {
+				switch (this.metadatafiles_.MetadataFiles[f].XMLFileType) {
 					case XS__spreadsheet.SPREADSHEET:
 						_spreadsheetFilepath[_total_spreadsheet] = System.IO.Path.Combine(
 							_metadataPath,
-							metadatafiles_.MetadataFiles[f].XMLFilename
+							this.metadatafiles_.MetadataFiles[f].XMLFilename
 						);
 						_total_spreadsheet++;
 						break;
@@ -136,7 +138,7 @@ namespace OGen.SpreadsheetXML.lib.metadata {
 		private Metadatas metadatafiles_;
 
 		public Metadatas MetadataFiles {
-			get { return metadatafiles_; }
+			get { return this.metadatafiles_; }
 		}
 		#endregion
 
@@ -144,7 +146,7 @@ namespace OGen.SpreadsheetXML.lib.metadata {
 		private XS__spreadsheetCollection spreadsheetcollection_;
 
 		public XS__spreadsheetCollection SpreadsheetCollection {
-			get { return spreadsheetcollection_; }
+			get { return this.spreadsheetcollection_; }
 		}
 		#endregion
 		private const string ROOT_SPREADSHEET = XS__spreadsheet.ROOT + "." + XS__spreadsheet.SPREADSHEET + "[";
@@ -160,7 +162,7 @@ namespace OGen.SpreadsheetXML.lib.metadata {
 		private object Read_fromRoot_locker = new object();
 
 		public string Read_fromRoot(string what_in) {
-			return Read_fromRoot(
+			return this.Read_fromRoot(
 				what_in,
 				true
 			);
@@ -170,11 +172,11 @@ namespace OGen.SpreadsheetXML.lib.metadata {
 			bool useCache_in
 		) {
 
-			if (useCache_in && Read_fromRoot_cache.ContainsKey(what_in)) {
+			if (useCache_in && this.Read_fromRoot_cache.ContainsKey(what_in)) {
 #if NET_1_1
-				return (string)Read_fromRoot_cache[what_in];
+				return (string)this.Read_fromRoot_cache[what_in];
 #else
-				return Read_fromRoot_cache[what_in];
+				return this.Read_fromRoot_cache[what_in];
 #endif
 			}
 
@@ -252,7 +254,7 @@ namespace OGen.SpreadsheetXML.lib.metadata {
 			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in,
 			ref bool valueHasBeenFound_out
 		) {
-			IterateThrough_fromRoot(
+			this.IterateThrough_fromRoot(
 				iteration_in,
 				iteration_found_in,
 				ref valueHasBeenFound_out,

@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_tableSearchUpdateType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				if (tablesearchupdateparameters__ != null) tablesearchupdateparameters__.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				if (tablesearchupdateparameters__ != null) tablesearchupdateparameters__.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,10 +55,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("name")]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
-				name_ = value;
+				this.name_ = value;
 			}
 		}
 		#endregion
@@ -69,38 +71,38 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			get {
 
 				// check before lock
-				if (tablesearchupdateparameters__ == null) {
+				if (this.tablesearchupdateparameters__ == null) {
 
-					lock (tablesearchupdateparameters__locker) {
+					lock (this.tablesearchupdateparameters__locker) {
 
 						// double check, thread safer!
-						if (tablesearchupdateparameters__ == null) {
+						if (this.tablesearchupdateparameters__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							tablesearchupdateparameters__ = new XS_tableSearchUpdateParametersType();
+							this.tablesearchupdateparameters__ = new XS_tableSearchUpdateParametersType();
 						}
 					}
 				}
 
-				return tablesearchupdateparameters__;
+				return this.tablesearchupdateparameters__;
 			}
 			set {
-				tablesearchupdateparameters__ = value;
+				this.tablesearchupdateparameters__ = value;
 			}
 		}
 
 		[XmlElement("tableSearchUpdateParameters")]
 		public XS_tableSearchUpdateParametersType tablesearchupdateparameters__xml {
-			get { return tablesearchupdateparameters__; }
-			set { tablesearchupdateparameters__ = value; }
+			get { return this.tablesearchupdateparameters__; }
+			set { this.tablesearchupdateparameters__ = value; }
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_tableSearchUpdateType tableSearchUpdateType_in) {
-			name_ = tableSearchUpdateType_in.name_;
-			if (tableSearchUpdateType_in.tablesearchupdateparameters__ != null) tablesearchupdateparameters__.CopyFrom(tableSearchUpdateType_in.tablesearchupdateparameters__);
+			this.name_ = tableSearchUpdateType_in.name_;
+			if (tableSearchUpdateType_in.tablesearchupdateparameters__ != null) this.tablesearchupdateparameters__.CopyFrom(tableSearchUpdateType_in.tablesearchupdateparameters__);
 		}
 		#endregion
 	}

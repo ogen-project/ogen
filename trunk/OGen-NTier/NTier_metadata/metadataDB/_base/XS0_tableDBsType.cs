@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataDB {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_tableDBsType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				tabledbcollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				tabledbcollection_.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,13 +55,13 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 
 		[XmlElement("tableDB")]
 		public XS_tableDBType[] tabledbcollection__xml {
-			get { return tabledbcollection_.cols__; }
-			set { tabledbcollection_.cols__ = value; }
+			get { return this.tabledbcollection_.cols__; }
+			set { this.tabledbcollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_tableDBTypeCollection TableDBCollection {
-			get { return tabledbcollection_; }
+			get { return this.tabledbcollection_; }
 		}
 		#endregion
 
@@ -67,13 +69,13 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		public void CopyFrom(XS_tableDBsType tableDBsType_in) {
 			int _index = -1;
 
-			tabledbcollection_.Clear();
+			this.tabledbcollection_.Clear();
 			for (int d = 0; d < tableDBsType_in.tabledbcollection_.Count; d++) {
-				tabledbcollection_.Add(
+				this.tabledbcollection_.Add(
 					out _index,
 					new XS_tableDBType()
 				);
-				tabledbcollection_[_index].CopyFrom(
+				this.tabledbcollection_[_index].CopyFrom(
 					tableDBsType_in.tabledbcollection_[d]
 				);
 			}

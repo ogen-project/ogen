@@ -27,7 +27,7 @@ namespace OGen.lib.templates {
 		public XS_templateType (
 			string name_in
 		) {
-			name_ = name_in;
+			this.name_ = name_in;
 		}
 	}
 }

@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_tableSearchUpdatesType {
 	#else
@@ -29,7 +31,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public object parent_ref {
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				tablesearchupdatecollection_.parent_ref = this;
 			}
 			get { return parent_ref_; }
@@ -41,7 +43,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public XS__RootMetadata root_ref {
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				tablesearchupdatecollection_.root_ref = value;
 			}
 			get { return root_ref_; }
@@ -53,13 +55,13 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 		[XmlElement("tableSearchUpdate")]
 		public XS_tableSearchUpdateType[] tablesearchupdatecollection__xml {
-			get { return tablesearchupdatecollection_.cols__; }
-			set { tablesearchupdatecollection_.cols__ = value; }
+			get { return this.tablesearchupdatecollection_.cols__; }
+			set { this.tablesearchupdatecollection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public XS_tableSearchUpdateTypeCollection TableSearchUpdateCollection {
-			get { return tablesearchupdatecollection_; }
+			get { return this.tablesearchupdatecollection_; }
 		}
 		#endregion
 
@@ -67,13 +69,13 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public void CopyFrom(XS_tableSearchUpdatesType tableSearchUpdatesType_in) {
 			int _index = -1;
 
-			tablesearchupdatecollection_.Clear();
+			this.tablesearchupdatecollection_.Clear();
 			for (int d = 0; d < tableSearchUpdatesType_in.tablesearchupdatecollection_.Count; d++) {
-				tablesearchupdatecollection_.Add(
+				this.tablesearchupdatecollection_.Add(
 					out _index,
 					new XS_tableSearchUpdateType()
 				);
-				tablesearchupdatecollection_[_index].CopyFrom(
+				this.tablesearchupdatecollection_[_index].CopyFrom(
 					tableSearchUpdatesType_in.tablesearchupdatecollection_[d]
 				);
 			}

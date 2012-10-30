@@ -12,11 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
+
 
 namespace OGen.lib.templates {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS0_templateType {
 	#else
@@ -28,10 +30,10 @@ namespace OGen.lib.templates {
 		[XmlAttribute("id")]
 		public string ID {
 			get {
-				return id_;
+				return this.id_;
 			}
 			set {
-				id_ = value;
+				this.id_ = value;
 			}
 		}
 		#endregion
@@ -41,10 +43,10 @@ namespace OGen.lib.templates {
 		[XmlAttribute("name")]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
-				name_ = value;
+				this.name_ = value;
 			}
 		}
 		#endregion
@@ -54,10 +56,10 @@ namespace OGen.lib.templates {
 		[XmlAttribute("templateType")]
 		public string TemplateType {
 			get {
-				return templatetype_;
+				return this.templatetype_;
 			}
 			set {
-				templatetype_ = value;
+				this.templatetype_ = value;
 			}
 		}
 		#endregion
@@ -67,10 +69,10 @@ namespace OGen.lib.templates {
 		[XmlAttribute("parserType")]
 		public XS_ParserEnumeration ParserType {
 			get {
-				return parsertype_;
+				return this.parsertype_;
 			}
 			set {
-				parsertype_ = value;
+				this.parsertype_ = value;
 			}
 		}
 		#endregion
@@ -80,10 +82,10 @@ namespace OGen.lib.templates {
 		[XmlAttribute("iterationType")]
 		public string IterationType {
 			get {
-				return iterationtype_;
+				return this.iterationtype_;
 			}
 			set {
-				iterationtype_ = value;
+				this.iterationtype_ = value;
 			}
 		}
 		#endregion
@@ -96,31 +98,31 @@ namespace OGen.lib.templates {
 			get {
 
 				// check before lock
-				if (arguments__ == null) {
+				if (this.arguments__ == null) {
 
-					lock (arguments__locker) {
+					lock (this.arguments__locker) {
 
 						// double check, thread safer!
-						if (arguments__ == null) {
+						if (this.arguments__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							arguments__ = new XS_argumentsType();
+							this.arguments__ = new XS_argumentsType();
 						}
 					}
 				}
 
-				return arguments__;
+				return this.arguments__;
 			}
 			set {
-				arguments__ = value;
+				this.arguments__ = value;
 			}
 		}
 
 		[XmlElement("arguments")]
 		public XS_argumentsType arguments__xml {
-			get { return arguments__; }
-			set { arguments__ = value; }
+			get { return this.arguments__; }
+			set { this.arguments__ = value; }
 		}
 		#endregion
 		#region public XS_conditionsType Conditions { get; set; }
@@ -132,31 +134,31 @@ namespace OGen.lib.templates {
 			get {
 
 				// check before lock
-				if (conditions__ == null) {
+				if (this.conditions__ == null) {
 
-					lock (conditions__locker) {
+					lock (this.conditions__locker) {
 
 						// double check, thread safer!
-						if (conditions__ == null) {
+						if (this.conditions__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							conditions__ = new XS_conditionsType();
+							this.conditions__ = new XS_conditionsType();
 						}
 					}
 				}
 
-				return conditions__;
+				return this.conditions__;
 			}
 			set {
-				conditions__ = value;
+				this.conditions__ = value;
 			}
 		}
 
 		[XmlElement("conditions")]
 		public XS_conditionsType conditions__xml {
-			get { return conditions__; }
-			set { conditions__ = value; }
+			get { return this.conditions__; }
+			set { this.conditions__ = value; }
 		}
 		#endregion
 		#region public XS_outputsType Outputs { get; set; }
@@ -168,31 +170,31 @@ namespace OGen.lib.templates {
 			get {
 
 				// check before lock
-				if (outputs__ == null) {
+				if (this.outputs__ == null) {
 
-					lock (outputs__locker) {
+					lock (this.outputs__locker) {
 
 						// double check, thread safer!
-						if (outputs__ == null) {
+						if (this.outputs__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							outputs__ = new XS_outputsType();
+							this.outputs__ = new XS_outputsType();
 						}
 					}
 				}
 
-				return outputs__;
+				return this.outputs__;
 			}
 			set {
-				outputs__ = value;
+				this.outputs__ = value;
 			}
 		}
 
 		[XmlElement("outputs")]
 		public XS_outputsType outputs__xml {
-			get { return outputs__; }
-			set { outputs__ = value; }
+			get { return this.outputs__; }
+			set { this.outputs__ = value; }
 		}
 		#endregion
 		#region public XS_dependenciesType Dependencies { get; set; }
@@ -204,45 +206,45 @@ namespace OGen.lib.templates {
 			get {
 
 				// check before lock
-				if (dependencies__ == null) {
+				if (this.dependencies__ == null) {
 
-					lock (dependencies__locker) {
+					lock (this.dependencies__locker) {
 
 						// double check, thread safer!
-						if (dependencies__ == null) {
+						if (this.dependencies__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							dependencies__ = new XS_dependenciesType();
+							this.dependencies__ = new XS_dependenciesType();
 						}
 					}
 				}
 
-				return dependencies__;
+				return this.dependencies__;
 			}
 			set {
-				dependencies__ = value;
+				this.dependencies__ = value;
 			}
 		}
 
 		[XmlElement("dependencies")]
 		public XS_dependenciesType dependencies__xml {
-			get { return dependencies__; }
-			set { dependencies__ = value; }
+			get { return this.dependencies__; }
+			set { this.dependencies__ = value; }
 		}
 		#endregion
 
 		#region public void CopyFrom(...);
 		public void CopyFrom(XS_templateType templateType_in) {
-			id_ = templateType_in.id_;
-			name_ = templateType_in.name_;
-			templatetype_ = templateType_in.templatetype_;
-			parsertype_ = templateType_in.parsertype_;
-			iterationtype_ = templateType_in.iterationtype_;
-			if (templateType_in.arguments__ != null) arguments__.CopyFrom(templateType_in.arguments__);
-			if (templateType_in.conditions__ != null) conditions__.CopyFrom(templateType_in.conditions__);
-			if (templateType_in.outputs__ != null) outputs__.CopyFrom(templateType_in.outputs__);
-			if (templateType_in.dependencies__ != null) dependencies__.CopyFrom(templateType_in.dependencies__);
+			this.id_ = templateType_in.id_;
+			this.name_ = templateType_in.name_;
+			this.templatetype_ = templateType_in.templatetype_;
+			this.parsertype_ = templateType_in.parsertype_;
+			this.iterationtype_ = templateType_in.iterationtype_;
+			if (templateType_in.arguments__ != null) this.arguments__.CopyFrom(templateType_in.arguments__);
+			if (templateType_in.conditions__ != null) this.conditions__.CopyFrom(templateType_in.conditions__);
+			if (templateType_in.outputs__ != null) this.outputs__.CopyFrom(templateType_in.outputs__);
+			if (templateType_in.dependencies__ != null) this.dependencies__.CopyFrom(templateType_in.dependencies__);
 		}
 		#endregion
 	}

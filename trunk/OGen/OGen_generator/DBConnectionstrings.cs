@@ -20,7 +20,7 @@ namespace OGen.lib.generator {
 	public class DBConnectionstrings {
 		#region public DBConnectionstrings();
 		public DBConnectionstrings() {
-			dbconnectionstrings_ = new ArrayList();
+			this.dbconnectionstrings_ = new ArrayList();
 		}
 		#endregion
 
@@ -28,34 +28,34 @@ namespace OGen.lib.generator {
 
 		#region public DBConnectionstring this[int index_in] { get; }
 		public DBConnectionstring this[int index_in] {
-			get { return (DBConnectionstring)dbconnectionstrings_[index_in]; }
+			get { return (DBConnectionstring)this.dbconnectionstrings_[index_in]; }
 		}
 		#endregion
 		#region public int Count { get; }
 		public int Count {
-			get { return dbconnectionstrings_.Count; }
+			get { return this.dbconnectionstrings_.Count; }
 		}
 		#endregion
 
 		#region internal bool Contains_disableIfNot(DBServerTypes dbServerTypes_in);
 		internal bool Contains_disableIfNot(DBServerTypes dbServerTypes_in) {
-			bool contains_disableifnot_out = false;
-			for (int d = 0; d < dbconnectionstrings_.Count; d++) {
-				if (((DBConnectionstring)dbconnectionstrings_[d]).DBServerType == dbServerTypes_in) {
-					((DBConnectionstring)dbconnectionstrings_[d]).enabled_aux__ = true;
-					contains_disableifnot_out = true;
+			bool _output = false;
+			for (int d = 0; d < this.dbconnectionstrings_.Count; d++) {
+				if (((DBConnectionstring)this.dbconnectionstrings_[d]).DBServerType == dbServerTypes_in) {
+					((DBConnectionstring)this.dbconnectionstrings_[d]).enabled_aux__ = true;
+					_output = true;
 				} else {
-					((DBConnectionstring)dbconnectionstrings_[d]).enabled_aux__ = false;
+					((DBConnectionstring)this.dbconnectionstrings_[d]).enabled_aux__ = false;
 				}
 			}
-			return contains_disableifnot_out;
+			return _output;
 		}
 		#endregion
 
 		#region public bool Contains(DBServerTypes dbServerTypes_in);
 		public bool Contains(DBServerTypes dbServerTypes_in) {
-			for (int d = 0; d < dbconnectionstrings_.Count; d++) {
-				if (((DBConnectionstring)dbconnectionstrings_[d]).DBServerType == dbServerTypes_in) {
+			for (int d = 0; d < this.dbconnectionstrings_.Count; d++) {
+				if (((DBConnectionstring)this.dbconnectionstrings_[d]).DBServerType == dbServerTypes_in) {
 					return true;
 				}
 			}
@@ -64,7 +64,7 @@ namespace OGen.lib.generator {
 		#endregion
 		#region public void Clear();
 		public void Clear() {
-			dbconnectionstrings_.Clear();
+			this.dbconnectionstrings_.Clear();
 		}
 		#endregion
 		#region public int Add(...);
@@ -72,7 +72,7 @@ namespace OGen.lib.generator {
 			DBServerTypes dbServerType_in, 
 			string connectionstring_in
 		) {
-			return dbconnectionstrings_.Add(
+			return this.dbconnectionstrings_.Add(
 				new DBConnectionstring(
 					dbServerType_in, 
 					connectionstring_in
@@ -83,9 +83,9 @@ namespace OGen.lib.generator {
 
 		#region public DBConnectionstring[] Convert_toArray();
 		public DBConnectionstring[] Convert_toArray() {
-			DBConnectionstring[] _output 
-				= new DBConnectionstring[dbconnectionstrings_.Count];
-			dbconnectionstrings_.CopyTo(_output);
+			DBConnectionstring[] _output
+				= new DBConnectionstring[this.dbconnectionstrings_.Count];
+			this.dbconnectionstrings_.CopyTo(_output);
 			return _output;
 		}
 		#endregion
