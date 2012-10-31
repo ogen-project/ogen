@@ -27,7 +27,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 		public XS_metadataIndexType (
 			string metadata_in
 		) {
-			metadata_ = metadata_in;
+			this.metadata_ = metadata_in;
 		}
 	}
 }

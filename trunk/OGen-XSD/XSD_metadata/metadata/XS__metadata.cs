@@ -34,9 +34,9 @@ namespace OGen.XSD.lib.metadata.metadata {
 			string _output;
 			string _key = word_in + "|" + schemaName_in;
 
-			lock (casetranslate_cache_) {
-				if (casetranslate_cache_.Contains(_key)) {
-					_output = (string)casetranslate_cache_[_key];
+			lock (this.casetranslate_cache_) {
+				if (this.casetranslate_cache_.Contains(_key)) {
+					_output = (string)this.casetranslate_cache_[_key];
 					return _output;
 				} else {
 					#region XS_specificCaseType _case = ...;
@@ -69,7 +69,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 						? string.Empty
 						: _case.Translation;
 					if (!string.IsNullOrEmpty(_output)) {
-						casetranslate_cache_.Add(_key, _output);
+						this.casetranslate_cache_.Add(_key, _output);
 						return _output;
 					} else {
 						switch (CaseType) {
@@ -81,7 +81,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 								} else {
 									_output = word_in;
 								}
-								casetranslate_cache_.Add(_key, _output);
+								this.casetranslate_cache_.Add(_key, _output);
 								return _output;
 							case XS_CaseTypeEnumeration.camelCase:
 							case XS_CaseTypeEnumeration.lowercase:
@@ -91,7 +91,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 								throw new Exception("not implemented!");
 							case XS_CaseTypeEnumeration.none:
 							default:
-								casetranslate_cache_.Add(_key, word_in);
+								this.casetranslate_cache_.Add(_key, word_in);
 								return word_in;
 						}
 					}

@@ -82,7 +82,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 
 				for (int e = 0; e < _aux_elements.Count; e++) {
 					if (_aux_elements[e].MaxOccurs == XS_MaxOccursType.unbounded) {%><%=""%>
-				<%=_aux_elements[e].Name.ToLower()%>collection_.parent_ref = this;<%
+				this.<%=_aux_elements[e].Name.ToLower()%>collection_.parent_ref = this;<%
 
 					} else {
 						_aux_ntype = OGen.XSD.lib.metadata.schema.utils.Convert_NType(
@@ -92,12 +92,12 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 							out _aux_isstandardntype
 						);
 						if (!_aux_isstandardntype) {%>
-				if (<%=_aux_elements[e].Name.ToLower()%>__ != null) <%=_aux_elements[e].Name.ToLower()%>__.parent_ref = this;<%
+				if (this.<%=_aux_elements[e].Name.ToLower()%>__ != null) this.<%=_aux_elements[e].Name.ToLower()%>__.parent_ref = this;<%
 						}
 					}
 				}%>
 			}
-			get { return parent_ref_; }
+			get { return this.parent_ref_; }
 		}
 		#endregion
 		#region public <%=XS__%>RootMetadata root_ref { get; }
@@ -110,7 +110,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 
 				for (int e = 0; e < _aux_elements.Count; e++) {
 					if (_aux_elements[e].MaxOccurs == XS_MaxOccursType.unbounded) {%><%=""%>
-				<%=_aux_elements[e].Name.ToLower()%>collection_.root_ref = value;<%
+				this.<%=_aux_elements[e].Name.ToLower()%>collection_.root_ref = value;<%
 
 					} else {
 						_aux_ntype = OGen.XSD.lib.metadata.schema.utils.Convert_NType(
@@ -120,12 +120,12 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 							out _aux_isstandardntype
 						);
 						if (!_aux_isstandardntype) {%>
-				if (<%=_aux_elements[e].Name.ToLower()%>__ != null) <%=_aux_elements[e].Name.ToLower()%>__.root_ref = value;<%
+				if (this.<%=_aux_elements[e].Name.ToLower()%>__ != null) this.<%=_aux_elements[e].Name.ToLower()%>__.root_ref = value;<%
 						}
 					}
 				}%>
 			}
-			get { return root_ref_; }
+			get { return this.root_ref_; }
 		}
 		#endregion<%
 }

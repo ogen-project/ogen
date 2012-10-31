@@ -27,7 +27,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		public XS_simpleTypeType (
 			string name_in
 		) {
-			name_ = name_in;
+			this.name_ = name_in;
 		}
 	}
 }

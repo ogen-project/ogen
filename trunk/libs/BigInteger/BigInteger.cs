@@ -132,7 +132,6 @@
 
 using System;
 
-
 public class BigInteger {
 	// maximum length of the BigInteger in uint (4 bytes)
 	// change this to suit the required level of precision.

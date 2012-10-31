@@ -22,9 +22,9 @@ namespace OGen.XSD.lib.metadata.schema {
 			string nType_in,
 			bool caseSensitive_in
 		) {
-			Name = name_in;
-			NType = nType_in;
-			CaseSensitive = caseSensitive_in;
+			this.Name = name_in;
+			this.NType = nType_in;
+			this.CaseSensitive = caseSensitive_in;
 		}
 
 		public string NType;
@@ -43,7 +43,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		public XS_elementType (
 			string name_in
 		) {
-			name_ = name_in;
+			this.name_ = name_in;
 		}
 
 		#region public bool isCollection(...);

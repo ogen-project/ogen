@@ -33,7 +33,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 			set {
 				this.parent_ref_ = value;
 			}
-			get { return parent_ref_; }
+			get { return this.parent_ref_; }
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
@@ -44,7 +44,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 			set {
 				this.root_ref_ = value;
 			}
-			get { return root_ref_; }
+			get { return this.root_ref_; }
 		}
 		#endregion
 		#region public string Handle { get; set; }

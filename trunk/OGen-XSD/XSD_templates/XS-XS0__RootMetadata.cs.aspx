@@ -76,8 +76,8 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 			int _total_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%> = 0;<%
 			}
 			%>
-			for (int f = 0; f < metadatafiles_.MetadataFiles.Count; f++) {
-				switch (metadatafiles_.MetadataFiles[f].XMLFileType) {<%
+			for (int f = 0; f < this.metadatafiles_.MetadataFiles.Count; f++) {
+				switch (this.metadatafiles_.MetadataFiles[f].XMLFileType) {<%
 					for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {%>
 					case <%=XS__%><%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToUpper()%>:
 						_total_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>++;
@@ -112,7 +112,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 			}
 <%
 			for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {%><%=""%>
-			<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_ = new <%=XS__%><%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>Collection(
+			this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_ = new <%=XS__%><%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>Collection(
 				<%=XS__%><%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>.Load_fromFile(
 					(<%=XS__%>RootMetadata)this, 
 					_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>Filepath
@@ -244,12 +244,12 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 				out _indexstring, 
 				out _end
 			)) {
-				for (int i = 0; i < <%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_.Count; i++) {
+				for (int i = 0; i < this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_.Count; i++) {
 					if (
-						what_in.Substring(0, <%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_[i].Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_rootmetadata.SchemaCollection[s].Element.Name, _arg_SchemaName)%>.Length)
-							== <%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_[i].Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_rootmetadata.SchemaCollection[s].Element.Name, _arg_SchemaName)%>
+						what_in.Substring(0, this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_[i].Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_rootmetadata.SchemaCollection[s].Element.Name, _arg_SchemaName)%>.Length)
+							== this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_[i].Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_rootmetadata.SchemaCollection[s].Element.Name, _arg_SchemaName)%>
 					) {
-						_output = <%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_[i].Read_fromRoot(string.Format(
+						_output = this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_[i].Read_fromRoot(string.Format(
 							"{0}{1}{2}",
 							_begin,
 							i,
@@ -266,16 +266,16 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 			if (_didit) {
 
 				// check before lock
-				if (useCache_in && !Read_fromRoot_cache.ContainsKey(what_in)) {
+				if (useCache_in && !this.Read_fromRoot_cache.ContainsKey(what_in)) {
 
-					lock (Read_fromRoot_locker) {
+					lock (this.Read_fromRoot_locker) {
 
 						// double check, thread safer!
-						if (!Read_fromRoot_cache.ContainsKey(what_in)) {
+						if (!this.Read_fromRoot_cache.ContainsKey(what_in)) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							Read_fromRoot_cache.Add(what_in, _output);
+							this.Read_fromRoot_cache.Add(what_in, _output);
 						}
 					}
 				}
@@ -325,11 +325,11 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 			System.Collections.Generic.List<string> _aux;
 #endif
 
-			if (useCache_in && IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
+			if (useCache_in && this.IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
 #if NET_1_1
-				_aux = (ArrayList)IterateThrough_fromRoot_cache[iteration_in];
+				_aux = (ArrayList)this.IterateThrough_fromRoot_cache[iteration_in];
 #else
-				_aux = IterateThrough_fromRoot_cache[iteration_in];
+				_aux = this.IterateThrough_fromRoot_cache[iteration_in];
 #endif
 				for (int i = 0; i < _aux.Count; i++) {
 #if NET_1_1
@@ -363,8 +363,8 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 				out _end
 			)) {
 				if (_indexstring == "n") {
-					for (int i = 0; i < <%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_.Count; i++) {
-						<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_[i].IterateThrough_fromRoot(
+					for (int i = 0; i < this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_.Count; i++) {
+						this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_[i].IterateThrough_fromRoot(
 							string.Format(
 								"{0}{1}{2}",
 								_begin, 
@@ -382,7 +382,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 					_didit = true;
 				} else {
 					int _indexint = int.Parse(_indexstring);
-					<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_[
+					this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_[
 						_indexint
 					].IterateThrough_fromRoot(
 						string.Format(
@@ -416,16 +416,16 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 					valueHasBeenFound_out = _aux.Count > 0;
 
 					// check before lock
-					if (!IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
+					if (!this.IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
 
-						lock (IterateThrough_fromRoot_locker) {
+						lock (this.IterateThrough_fromRoot_locker) {
 
 							// double check, thread safer!
-							if (!IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
+							if (!this.IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
 
 								// initialization...
 								// ...attribution (last thing before unlock)
-								IterateThrough_fromRoot_cache.Add(
+								this.IterateThrough_fromRoot_cache.Add(
 									iteration_in,
 									_aux
 								);

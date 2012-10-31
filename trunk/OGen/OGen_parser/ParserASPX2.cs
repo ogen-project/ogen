@@ -13,13 +13,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 #if !NET_1_1
-using System;
-using System.Web;
-using System.Web.Hosting;
-using System.IO;
-using System.Collections;
 
 namespace OGen.lib.parser {
+	using System;
+	using System.Web;
+	using System.Web.Hosting;
+	using System.IO;
+	using System.Collections;
+
 	public static class ParserASPX {
 
 		private static System.Collections.Generic.Dictionary<string, MyHost> myhost_ = new System.Collections.Generic.Dictionary<string, MyHost>();

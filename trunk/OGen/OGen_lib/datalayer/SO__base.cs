@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Runtime.Serialization;
 
 namespace OGen.NTier.lib.datalayer {
+	using System;
+	using System.Runtime.Serialization;
+
 	[Serializable()]
 	public abstract class SO__base : ISerializable {
 		/// <summary>

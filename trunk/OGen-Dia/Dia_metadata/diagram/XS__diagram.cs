@@ -35,10 +35,10 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlAttribute("filePath")]
 		public string FilePath {
 			get {
-				return filepath_;
+				return this.filepath_;
 			}
 			set {
-				filepath_ = value;
+				this.filepath_ = value;
 			}
 		}
 		#endregion
@@ -47,7 +47,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlAttribute("fileName")]
 		public string FileName {
 			get {
-				return System.IO.Path.GetFileNameWithoutExtension(filepath_);
+				return System.IO.Path.GetFileNameWithoutExtension(this.filepath_);
 			}
 		}
 		#endregion

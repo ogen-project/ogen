@@ -42,8 +42,8 @@ namespace OGen.Doc.lib.metadata {
 
 			#region int _total_xxx = ...;
 			int _total_documentation = 0;
-			for (int f = 0; f < metadatafiles_.MetadataFiles.Count; f++) {
-				switch (metadatafiles_.MetadataFiles[f].XMLFileType) {
+			for (int f = 0; f < this.metadatafiles_.MetadataFiles.Count; f++) {
+				switch (this.metadatafiles_.MetadataFiles[f].XMLFileType) {
 					case XS__documentation.DOCUMENTATION:
 						_total_documentation++;
 						break;
@@ -69,7 +69,7 @@ namespace OGen.Doc.lib.metadata {
 				}
 			}
 
-			documentationcollection_ = new XS__documentationCollection(
+			this.documentationcollection_ = new XS__documentationCollection(
 				XS__documentation.Load_fromFile(
 					(XS__RootMetadata)this, 
 					_documentationFilepath
@@ -193,12 +193,12 @@ namespace OGen.Doc.lib.metadata {
 				out _indexstring, 
 				out _end
 			)) {
-				for (int i = 0; i < documentationcollection_.Count; i++) {
+				for (int i = 0; i < this.documentationcollection_.Count; i++) {
 					if (
-						what_in.Substring(0, documentationcollection_[i].Root_Documentation.Length)
-							== documentationcollection_[i].Root_Documentation
+						what_in.Substring(0, this.documentationcollection_[i].Root_Documentation.Length)
+							== this.documentationcollection_[i].Root_Documentation
 					) {
-						_output = documentationcollection_[i].Read_fromRoot(string.Format(
+						_output = this.documentationcollection_[i].Read_fromRoot(string.Format(
 							"{0}{1}{2}",
 							_begin,
 							i,
@@ -214,16 +214,16 @@ namespace OGen.Doc.lib.metadata {
 			if (_didit) {
 
 				// check before lock
-				if (useCache_in && !Read_fromRoot_cache.ContainsKey(what_in)) {
+				if (useCache_in && !this.Read_fromRoot_cache.ContainsKey(what_in)) {
 
-					lock (Read_fromRoot_locker) {
+					lock (this.Read_fromRoot_locker) {
 
 						// double check, thread safer!
-						if (!Read_fromRoot_cache.ContainsKey(what_in)) {
+						if (!this.Read_fromRoot_cache.ContainsKey(what_in)) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							Read_fromRoot_cache.Add(what_in, _output);
+							this.Read_fromRoot_cache.Add(what_in, _output);
 						}
 					}
 				}
@@ -273,11 +273,11 @@ namespace OGen.Doc.lib.metadata {
 			System.Collections.Generic.List<string> _aux;
 #endif
 
-			if (useCache_in && IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
+			if (useCache_in && this.IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
 #if NET_1_1
-				_aux = (ArrayList)IterateThrough_fromRoot_cache[iteration_in];
+				_aux = (ArrayList)this.IterateThrough_fromRoot_cache[iteration_in];
 #else
-				_aux = IterateThrough_fromRoot_cache[iteration_in];
+				_aux = this.IterateThrough_fromRoot_cache[iteration_in];
 #endif
 				for (int i = 0; i < _aux.Count; i++) {
 #if NET_1_1
@@ -310,8 +310,8 @@ namespace OGen.Doc.lib.metadata {
 				out _end
 			)) {
 				if (_indexstring == "n") {
-					for (int i = 0; i < documentationcollection_.Count; i++) {
-						documentationcollection_[i].IterateThrough_fromRoot(
+					for (int i = 0; i < this.documentationcollection_.Count; i++) {
+						this.documentationcollection_[i].IterateThrough_fromRoot(
 							string.Format(
 								"{0}{1}{2}",
 								_begin, 
@@ -329,7 +329,7 @@ namespace OGen.Doc.lib.metadata {
 					_didit = true;
 				} else {
 					int _indexint = int.Parse(_indexstring);
-					documentationcollection_[
+					this.documentationcollection_[
 						_indexint
 					].IterateThrough_fromRoot(
 						string.Format(
@@ -362,16 +362,16 @@ namespace OGen.Doc.lib.metadata {
 					valueHasBeenFound_out = _aux.Count > 0;
 
 					// check before lock
-					if (!IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
+					if (!this.IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
 
-						lock (IterateThrough_fromRoot_locker) {
+						lock (this.IterateThrough_fromRoot_locker) {
 
 							// double check, thread safer!
-							if (!IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
+							if (!this.IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
 
 								// initialization...
 								// ...attribution (last thing before unlock)
-								IterateThrough_fromRoot_cache.Add(
+								this.IterateThrough_fromRoot_cache.Add(
 									iteration_in,
 									_aux
 								);

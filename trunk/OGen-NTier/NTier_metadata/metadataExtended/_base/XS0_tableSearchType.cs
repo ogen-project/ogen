@@ -32,10 +32,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public object parent_ref {
 			set {
 				this.parent_ref_ = value;
-				if (tablesearchparameters__ != null) tablesearchparameters__.parent_ref = this;
-				if (tablesearchupdates__ != null) tablesearchupdates__.parent_ref = this;
+				if (this.tablesearchparameters__ != null) this.tablesearchparameters__.parent_ref = this;
+				if (this.tablesearchupdates__ != null) this.tablesearchupdates__.parent_ref = this;
 			}
-			get { return parent_ref_; }
+			get { return this.parent_ref_; }
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
@@ -45,10 +45,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public XS__RootMetadata root_ref {
 			set {
 				this.root_ref_ = value;
-				if (tablesearchparameters__ != null) tablesearchparameters__.root_ref = value;
-				if (tablesearchupdates__ != null) tablesearchupdates__.root_ref = value;
+				if (this.tablesearchparameters__ != null) this.tablesearchparameters__.root_ref = value;
+				if (this.tablesearchupdates__ != null) this.tablesearchupdates__.root_ref = value;
 			}
-			get { return root_ref_; }
+			get { return this.root_ref_; }
 		}
 		#endregion
 		#region public string Name { get; set; }

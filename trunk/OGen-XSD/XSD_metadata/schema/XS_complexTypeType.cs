@@ -27,7 +27,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		public XS_complexTypeType (
 			string name_in
 		) {
-			name_ = name_in;
+			this.name_ = name_in;
 		}
 
 		#region public bool mustImplementCollection(...);
@@ -44,7 +44,7 @@ namespace OGen.XSD.lib.metadata.schema {
 				for (int e = 0; e < _schema.ComplexTypeCollection[c].Sequence.ElementCollection.Count; e++) {
 					if (
 						// if there's an Element pointing this ComplexType
-						(_schema.ComplexTypeCollection[c].Sequence.ElementCollection[e].Type == Name)
+						(_schema.ComplexTypeCollection[c].Sequence.ElementCollection[e].Type == this.Name)
 						&&
 						// and if this Element occurance is unbounded
 						(_schema.ComplexTypeCollection[c].Sequence.ElementCollection[e].MaxOccurs
@@ -64,30 +64,30 @@ namespace OGen.XSD.lib.metadata.schema {
 							// so don't glue this if block with the next
 							// or have this in consideration when you do it
 							_complextype
-								= root_ref_.MetadataCollection[0].MetadataIndexCollection[_index].ComplexTypeCollection[
-									Name
+								= this.root_ref_.MetadataCollection[0].MetadataIndexCollection[_index].ComplexTypeCollection[
+									this.Name
 								];
 						else
 							_complextype = null;
 
 						if (_complextype == null)
 							_complextype
-								= root_ref_.MetadataCollection[0].ComplexTypeCollection[
-									Name
+								= this.root_ref_.MetadataCollection[0].ComplexTypeCollection[
+									this.Name
 								];
 						#endregion
 						if (_complextype != null) {
 							complexTypeCollection_out = new ComplexTypeItem[_complextype.ComplexTypeKeyCollection.Count];
 							for (int k = 0; k < _complextype.ComplexTypeKeyCollection.Count; k++) {
-								for (int a = 0; a < AttributeCollection.Count; a++) {
+								for (int a = 0; a < this.AttributeCollection.Count; a++) {
 									if (
-										AttributeCollection[a].Name 
+										this.AttributeCollection[a].Name 
 										== 
 										_complextype.ComplexTypeKeyCollection[k].Name
 									) {
 										complexTypeCollection_out[k] = new ComplexTypeItem(
-											AttributeCollection[a].Name,
-											AttributeCollection[a].NType(schemaName_in),
+											this.AttributeCollection[a].Name,
+											this.AttributeCollection[a].NType(schemaName_in),
 											_complextype.ComplexTypeKeyCollection[k].caseSensitive
 										);
 										break;

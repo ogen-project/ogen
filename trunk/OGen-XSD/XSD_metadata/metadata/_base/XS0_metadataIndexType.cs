@@ -32,10 +32,10 @@ namespace OGen.XSD.lib.metadata.metadata {
 		public object parent_ref {
 			set {
 				this.parent_ref_ = value;
-				specificcasecollection_.parent_ref = this;
-				complextypecollection_.parent_ref = this;
+				this.specificcasecollection_.parent_ref = this;
+				this.complextypecollection_.parent_ref = this;
 			}
-			get { return parent_ref_; }
+			get { return this.parent_ref_; }
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
@@ -45,10 +45,10 @@ namespace OGen.XSD.lib.metadata.metadata {
 		public XS__RootMetadata root_ref {
 			set {
 				this.root_ref_ = value;
-				specificcasecollection_.root_ref = value;
-				complextypecollection_.root_ref = value;
+				this.specificcasecollection_.root_ref = value;
+				this.complextypecollection_.root_ref = value;
 			}
-			get { return root_ref_; }
+			get { return this.root_ref_; }
 		}
 		#endregion
 		#region public string Metadata { get; set; }

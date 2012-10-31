@@ -32,9 +32,9 @@ namespace OGen.Doc.lib.metadata.documentation {
 		public object parent_ref {
 			set {
 				this.parent_ref_ = value;
-				itemcollection_.parent_ref = this;
+				this.itemcollection_.parent_ref = this;
 			}
-			get { return parent_ref_; }
+			get { return this.parent_ref_; }
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
@@ -44,9 +44,9 @@ namespace OGen.Doc.lib.metadata.documentation {
 		public XS__RootMetadata root_ref {
 			set {
 				this.root_ref_ = value;
-				itemcollection_.root_ref = value;
+				this.itemcollection_.root_ref = value;
 			}
-			get { return root_ref_; }
+			get { return this.root_ref_; }
 		}
 		#endregion
 		#region public XS_itemTypeCollection ItemCollection { get; }

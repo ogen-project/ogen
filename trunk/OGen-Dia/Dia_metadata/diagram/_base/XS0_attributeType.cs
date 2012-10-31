@@ -32,11 +32,11 @@ namespace OGen.Dia.lib.metadata.diagram {
 		public object parent_ref {
 			set {
 				this.parent_ref_ = value;
-				compositecollection_.parent_ref = this;
-				if (boolean__ != null) boolean__.parent_ref = this;
-				if (enum__ != null) enum__.parent_ref = this;
+				this.compositecollection_.parent_ref = this;
+				if (this.boolean__ != null) this.boolean__.parent_ref = this;
+				if (this.enum__ != null) this.enum__.parent_ref = this;
 			}
-			get { return parent_ref_; }
+			get { return this.parent_ref_; }
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
@@ -46,11 +46,11 @@ namespace OGen.Dia.lib.metadata.diagram {
 		public XS__RootMetadata root_ref {
 			set {
 				this.root_ref_ = value;
-				compositecollection_.root_ref = value;
-				if (boolean__ != null) boolean__.root_ref = value;
-				if (enum__ != null) enum__.root_ref = value;
+				this.compositecollection_.root_ref = value;
+				if (this.boolean__ != null) this.boolean__.root_ref = value;
+				if (this.enum__ != null) this.enum__.root_ref = value;
 			}
-			get { return root_ref_; }
+			get { return this.root_ref_; }
 		}
 		#endregion
 		#region public string Name { get; set; }

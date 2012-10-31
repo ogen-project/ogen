@@ -27,7 +27,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 		public XS_complexTypeType (
 			string name_in
 		) {
-			name_ = name_in;
+			this.name_ = name_in;
 		}
 	}
 }

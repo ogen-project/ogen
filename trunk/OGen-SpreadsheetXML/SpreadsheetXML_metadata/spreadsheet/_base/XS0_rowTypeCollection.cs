@@ -85,7 +85,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		private void refresh_refs(params XS_rowType[] col_in) {
 			for (int i = 0; i < col_in.Length; i++) {
 				col_in[i].parent_ref = this;
-				col_in[i].root_ref = root_ref;
+				col_in[i].root_ref = this.root_ref;
 			}
 		}
 		#endregion
@@ -153,7 +153,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 			this.Add(out _index, col_in);
 		}
 		public void Add(out int returnIndex_out, params XS_rowType[] col_in) {
-			refresh_refs(col_in);
+			this.refresh_refs(col_in);
 
 			returnIndex_out = -1;
 			for (int i = 0; i < col_in.Length - 1; i++) {

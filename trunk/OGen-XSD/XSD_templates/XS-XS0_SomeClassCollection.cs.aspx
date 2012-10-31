@@ -129,7 +129,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 		private void refresh_refs(params <%=XS_%><%=_aux_complextype.Name%>[] col_in) {
 			for (int i = 0; i < col_in.Length; i++) {
 				col_in[i].parent_ref = this;
-				col_in[i].root_ref = root_ref;
+				col_in[i].root_ref = this.root_ref;
 			}
 		}
 		#endregion<%
@@ -443,7 +443,7 @@ if (_aux_complextype_keys != null) {%>
 		}
 		public void Add(out int returnIndex_out, params <%=XS_%><%=_aux_complextype.Name%>[] col_in) {<%
 if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
-			refresh_refs(col_in);
+			this.refresh_refs(col_in);
 <%}%>
 			returnIndex_out = -1;
 			for (int i = 0; i < col_in.Length - 1; i++) {

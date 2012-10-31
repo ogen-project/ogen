@@ -42,8 +42,8 @@ namespace OGen.Dia.lib.metadata {
 
 			#region int _total_xxx = ...;
 			int _total_diagram = 0;
-			for (int f = 0; f < metadatafiles_.MetadataFiles.Count; f++) {
-				switch (metadatafiles_.MetadataFiles[f].XMLFileType) {
+			for (int f = 0; f < this.metadatafiles_.MetadataFiles.Count; f++) {
+				switch (this.metadatafiles_.MetadataFiles[f].XMLFileType) {
 					case XS__diagram.DIAGRAM:
 						_total_diagram++;
 						break;
@@ -69,7 +69,7 @@ namespace OGen.Dia.lib.metadata {
 				}
 			}
 
-			diagramcollection_ = new XS__diagramCollection(
+			this.diagramcollection_ = new XS__diagramCollection(
 				XS__diagram.Load_fromFile(
 					(XS__RootMetadata)this, 
 					_diagramFilepath
@@ -193,12 +193,12 @@ namespace OGen.Dia.lib.metadata {
 				out _indexstring, 
 				out _end
 			)) {
-				for (int i = 0; i < diagramcollection_.Count; i++) {
+				for (int i = 0; i < this.diagramcollection_.Count; i++) {
 					if (
-						what_in.Substring(0, diagramcollection_[i].Root_Diagram.Length)
-							== diagramcollection_[i].Root_Diagram
+						what_in.Substring(0, this.diagramcollection_[i].Root_Diagram.Length)
+							== this.diagramcollection_[i].Root_Diagram
 					) {
-						_output = diagramcollection_[i].Read_fromRoot(string.Format(
+						_output = this.diagramcollection_[i].Read_fromRoot(string.Format(
 							"{0}{1}{2}",
 							_begin,
 							i,
@@ -214,16 +214,16 @@ namespace OGen.Dia.lib.metadata {
 			if (_didit) {
 
 				// check before lock
-				if (useCache_in && !Read_fromRoot_cache.ContainsKey(what_in)) {
+				if (useCache_in && !this.Read_fromRoot_cache.ContainsKey(what_in)) {
 
-					lock (Read_fromRoot_locker) {
+					lock (this.Read_fromRoot_locker) {
 
 						// double check, thread safer!
-						if (!Read_fromRoot_cache.ContainsKey(what_in)) {
+						if (!this.Read_fromRoot_cache.ContainsKey(what_in)) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							Read_fromRoot_cache.Add(what_in, _output);
+							this.Read_fromRoot_cache.Add(what_in, _output);
 						}
 					}
 				}
@@ -273,11 +273,11 @@ namespace OGen.Dia.lib.metadata {
 			System.Collections.Generic.List<string> _aux;
 #endif
 
-			if (useCache_in && IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
+			if (useCache_in && this.IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
 #if NET_1_1
-				_aux = (ArrayList)IterateThrough_fromRoot_cache[iteration_in];
+				_aux = (ArrayList)this.IterateThrough_fromRoot_cache[iteration_in];
 #else
-				_aux = IterateThrough_fromRoot_cache[iteration_in];
+				_aux = this.IterateThrough_fromRoot_cache[iteration_in];
 #endif
 				for (int i = 0; i < _aux.Count; i++) {
 #if NET_1_1
@@ -310,8 +310,8 @@ namespace OGen.Dia.lib.metadata {
 				out _end
 			)) {
 				if (_indexstring == "n") {
-					for (int i = 0; i < diagramcollection_.Count; i++) {
-						diagramcollection_[i].IterateThrough_fromRoot(
+					for (int i = 0; i < this.diagramcollection_.Count; i++) {
+						this.diagramcollection_[i].IterateThrough_fromRoot(
 							string.Format(
 								"{0}{1}{2}",
 								_begin, 
@@ -329,7 +329,7 @@ namespace OGen.Dia.lib.metadata {
 					_didit = true;
 				} else {
 					int _indexint = int.Parse(_indexstring);
-					diagramcollection_[
+					this.diagramcollection_[
 						_indexint
 					].IterateThrough_fromRoot(
 						string.Format(
@@ -362,16 +362,16 @@ namespace OGen.Dia.lib.metadata {
 					valueHasBeenFound_out = _aux.Count > 0;
 
 					// check before lock
-					if (!IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
+					if (!this.IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
 
-						lock (IterateThrough_fromRoot_locker) {
+						lock (this.IterateThrough_fromRoot_locker) {
 
 							// double check, thread safer!
-							if (!IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
+							if (!this.IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
 
 								// initialization...
 								// ...attribution (last thing before unlock)
-								IterateThrough_fromRoot_cache.Add(
+								this.IterateThrough_fromRoot_cache.Add(
 									iteration_in,
 									_aux
 								);

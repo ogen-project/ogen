@@ -44,8 +44,8 @@ namespace OGen.XSD.lib.metadata {
 			#region int _total_xxx = ...;
 			int _total_metadata = 0;
 			int _total_schema = 0;
-			for (int f = 0; f < metadatafiles_.MetadataFiles.Count; f++) {
-				switch (metadatafiles_.MetadataFiles[f].XMLFileType) {
+			for (int f = 0; f < this.metadatafiles_.MetadataFiles.Count; f++) {
+				switch (this.metadatafiles_.MetadataFiles[f].XMLFileType) {
 					case XS__metadata.METADATA:
 						_total_metadata++;
 						break;
@@ -85,13 +85,13 @@ namespace OGen.XSD.lib.metadata {
 				}
 			}
 
-			metadatacollection_ = new XS__metadataCollection(
+			this.metadatacollection_ = new XS__metadataCollection(
 				XS__metadata.Load_fromFile(
 					(XS__RootMetadata)this, 
 					_metadataFilepath
 				)
 			);
-			schemacollection_ = new XS__schemaCollection(
+			this.schemacollection_ = new XS__schemaCollection(
 				XS__schema.Load_fromFile(
 					(XS__RootMetadata)this, 
 					_schemaFilepath
@@ -223,12 +223,12 @@ namespace OGen.XSD.lib.metadata {
 				out _indexstring, 
 				out _end
 			)) {
-				for (int i = 0; i < metadatacollection_.Count; i++) {
+				for (int i = 0; i < this.metadatacollection_.Count; i++) {
 					if (
-						what_in.Substring(0, metadatacollection_[i].Root_Metadata.Length)
-							== metadatacollection_[i].Root_Metadata
+						what_in.Substring(0, this.metadatacollection_[i].Root_Metadata.Length)
+							== this.metadatacollection_[i].Root_Metadata
 					) {
-						_output = metadatacollection_[i].Read_fromRoot(string.Format(
+						_output = this.metadatacollection_[i].Read_fromRoot(string.Format(
 							"{0}{1}{2}",
 							_begin,
 							i,
@@ -246,12 +246,12 @@ namespace OGen.XSD.lib.metadata {
 				out _indexstring, 
 				out _end
 			)) {
-				for (int i = 0; i < schemacollection_.Count; i++) {
+				for (int i = 0; i < this.schemacollection_.Count; i++) {
 					if (
-						what_in.Substring(0, schemacollection_[i].Root_Schema.Length)
-							== schemacollection_[i].Root_Schema
+						what_in.Substring(0, this.schemacollection_[i].Root_Schema.Length)
+							== this.schemacollection_[i].Root_Schema
 					) {
-						_output = schemacollection_[i].Read_fromRoot(string.Format(
+						_output = this.schemacollection_[i].Read_fromRoot(string.Format(
 							"{0}{1}{2}",
 							_begin,
 							i,
@@ -267,16 +267,16 @@ namespace OGen.XSD.lib.metadata {
 			if (_didit) {
 
 				// check before lock
-				if (useCache_in && !Read_fromRoot_cache.ContainsKey(what_in)) {
+				if (useCache_in && !this.Read_fromRoot_cache.ContainsKey(what_in)) {
 
-					lock (Read_fromRoot_locker) {
+					lock (this.Read_fromRoot_locker) {
 
 						// double check, thread safer!
-						if (!Read_fromRoot_cache.ContainsKey(what_in)) {
+						if (!this.Read_fromRoot_cache.ContainsKey(what_in)) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							Read_fromRoot_cache.Add(what_in, _output);
+							this.Read_fromRoot_cache.Add(what_in, _output);
 						}
 					}
 				}
@@ -326,11 +326,11 @@ namespace OGen.XSD.lib.metadata {
 			System.Collections.Generic.List<string> _aux;
 #endif
 
-			if (useCache_in && IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
+			if (useCache_in && this.IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
 #if NET_1_1
-				_aux = (ArrayList)IterateThrough_fromRoot_cache[iteration_in];
+				_aux = (ArrayList)this.IterateThrough_fromRoot_cache[iteration_in];
 #else
-				_aux = IterateThrough_fromRoot_cache[iteration_in];
+				_aux = this.IterateThrough_fromRoot_cache[iteration_in];
 #endif
 				for (int i = 0; i < _aux.Count; i++) {
 #if NET_1_1
@@ -363,8 +363,8 @@ namespace OGen.XSD.lib.metadata {
 				out _end
 			)) {
 				if (_indexstring == "n") {
-					for (int i = 0; i < metadatacollection_.Count; i++) {
-						metadatacollection_[i].IterateThrough_fromRoot(
+					for (int i = 0; i < this.metadatacollection_.Count; i++) {
+						this.metadatacollection_[i].IterateThrough_fromRoot(
 							string.Format(
 								"{0}{1}{2}",
 								_begin, 
@@ -382,7 +382,7 @@ namespace OGen.XSD.lib.metadata {
 					_didit = true;
 				} else {
 					int _indexint = int.Parse(_indexstring);
-					metadatacollection_[
+					this.metadatacollection_[
 						_indexint
 					].IterateThrough_fromRoot(
 						string.Format(
@@ -409,8 +409,8 @@ namespace OGen.XSD.lib.metadata {
 				out _end
 			)) {
 				if (_indexstring == "n") {
-					for (int i = 0; i < schemacollection_.Count; i++) {
-						schemacollection_[i].IterateThrough_fromRoot(
+					for (int i = 0; i < this.schemacollection_.Count; i++) {
+						this.schemacollection_[i].IterateThrough_fromRoot(
 							string.Format(
 								"{0}{1}{2}",
 								_begin, 
@@ -428,7 +428,7 @@ namespace OGen.XSD.lib.metadata {
 					_didit = true;
 				} else {
 					int _indexint = int.Parse(_indexstring);
-					schemacollection_[
+					this.schemacollection_[
 						_indexint
 					].IterateThrough_fromRoot(
 						string.Format(
@@ -461,16 +461,16 @@ namespace OGen.XSD.lib.metadata {
 					valueHasBeenFound_out = _aux.Count > 0;
 
 					// check before lock
-					if (!IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
+					if (!this.IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
 
-						lock (IterateThrough_fromRoot_locker) {
+						lock (this.IterateThrough_fromRoot_locker) {
 
 							// double check, thread safer!
-							if (!IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
+							if (!this.IterateThrough_fromRoot_cache.ContainsKey(iteration_in)) {
 
 								// initialization...
 								// ...attribution (last thing before unlock)
-								IterateThrough_fromRoot_cache.Add(
+								this.IterateThrough_fromRoot_cache.Add(
 									iteration_in,
 									_aux
 								);

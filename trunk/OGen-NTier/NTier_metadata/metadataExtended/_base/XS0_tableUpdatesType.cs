@@ -32,9 +32,9 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public object parent_ref {
 			set {
 				this.parent_ref_ = value;
-				tableupdatecollection_.parent_ref = this;
+				this.tableupdatecollection_.parent_ref = this;
 			}
-			get { return parent_ref_; }
+			get { return this.parent_ref_; }
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
@@ -44,9 +44,9 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public XS__RootMetadata root_ref {
 			set {
 				this.root_ref_ = value;
-				tableupdatecollection_.root_ref = value;
+				this.tableupdatecollection_.root_ref = value;
 			}
-			get { return root_ref_; }
+			get { return this.root_ref_; }
 		}
 		#endregion
 		#region public XS_tableUpdateTypeCollection TableUpdateCollection { get; }

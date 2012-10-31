@@ -26,9 +26,9 @@ namespace OGen.Dia.lib.metadata.diagram {
 		private string getAttribute(
 			string name_in
 		) {
-			for (int a = 0; a < AttributeCollection.Count; a++) {
-				if (AttributeCollection[a].Name == name_in) {
-					return AttributeCollection[a].String;
+			for (int a = 0; a < this.AttributeCollection.Count; a++) {
+				if (this.AttributeCollection[a].Name == name_in) {
+					return this.AttributeCollection[a].String;
 				}
 			}
 
@@ -41,7 +41,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlAttribute("tableName")]
 		public string TableName {
 			get {
-				return getAttribute("name").Replace("#", "");
+				return this.getAttribute("name").Replace("#", "");
 			}
 		}
 		#endregion
@@ -50,7 +50,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 		[XmlAttribute("tableComment")]
 		public string TableComment {
 			get {
-				return getAttribute("comment").Replace("#", "");
+				return this.getAttribute("comment").Replace("#", "");
 			}
 		}
 		#endregion
@@ -61,35 +61,35 @@ namespace OGen.Dia.lib.metadata.diagram {
 			System.Collections.Generic.List<DBTableField> _list
 				= new System.Collections.Generic.List<DBTableField>();
 
-			for (int a = 0; a < AttributeCollection.Count; a++) {
-				switch (AttributeCollection[a].Name) {
+			for (int a = 0; a < this.AttributeCollection.Count; a++) {
+				switch (this.AttributeCollection[a].Name) {
 					case "attributes":
 						#region _list.Add( ... );
-						for (int c = 0; c < AttributeCollection[a].CompositeCollection.Count; c++) {
-							switch (AttributeCollection[a].CompositeCollection[c].Type) {
+						for (int c = 0; c < this.AttributeCollection[a].CompositeCollection.Count; c++) {
+							switch (this.AttributeCollection[a].CompositeCollection[c].Type) {
 								case "table_attribute":
 									_list.Add(_tableField = new DBTableField());
 									_tableField.isIdentity = false;
 
-									for (int aa = 0; aa < AttributeCollection[a].CompositeCollection[c].AttributeCollection.Count; aa++) {
-										switch (AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Name) {
+									for (int aa = 0; aa < this.AttributeCollection[a].CompositeCollection[c].AttributeCollection.Count; aa++) {
+										switch (this.AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Name) {
 											case "name":
-												_tableField.Name = AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String.Replace("#", "");
+												_tableField.Name = this.AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String.Replace("#", "");
 												break;
 											case "primary_key":
 												_tableField.isPK
-													= AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Val;
+													= this.AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Val;
 												break;
 											case "unique":
 												_tableField.isUnique
-													= AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Val;
+													= this.AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Val;
 												break;
 											case "nullable":
 												_tableField.isNullable
-													= AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Val;
+													= this.AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Val;
 												break;
 											case "comment":
-												_tableField.DBDescription = AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String.Replace("#", "");
+												_tableField.DBDescription = this.AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String.Replace("#", "");
 												string[] _comment = OGen.lib.utils.ParamvalueList_Split(
 													//AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String.Replace("#", ""),
 													_tableField.DBDescription, 
@@ -149,10 +149,10 @@ namespace OGen.Dia.lib.metadata.diagram {
 				string fk_TableName_in, 
 				string fk_TableFieldName_in
 			) {
-				TableFieldName = tableFieldName_in;
+				this.TableFieldName = tableFieldName_in;
 
-				FK_TableName = fk_TableName_in;
-				FK_TableFieldName = fk_TableFieldName_in;
+				this.FK_TableName = fk_TableName_in;
+				this.FK_TableFieldName = fk_TableFieldName_in;
 			}
 
 			public string TableFieldName;
@@ -166,7 +166,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 			FK[] _output;
 			System.Collections.Generic.Dictionary<string, FK> _output2;
 
-			TableFKs(
+			this.TableFKs(
 				out _output, 
 				out _output2
 			);

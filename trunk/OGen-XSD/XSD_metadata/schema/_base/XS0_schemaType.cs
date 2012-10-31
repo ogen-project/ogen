@@ -32,11 +32,11 @@ namespace OGen.XSD.lib.metadata.schema {
 		public object parent_ref {
 			set {
 				this.parent_ref_ = value;
-				simpletypecollection_.parent_ref = this;
-				complextypecollection_.parent_ref = this;
-				if (element__ != null) element__.parent_ref = this;
+				this.simpletypecollection_.parent_ref = this;
+				this.complextypecollection_.parent_ref = this;
+				if (this.element__ != null) this.element__.parent_ref = this;
 			}
-			get { return parent_ref_; }
+			get { return this.parent_ref_; }
 		}
 		#endregion
 		#region public XS__RootMetadata root_ref { get; }
@@ -46,11 +46,11 @@ namespace OGen.XSD.lib.metadata.schema {
 		public XS__RootMetadata root_ref {
 			set {
 				this.root_ref_ = value;
-				simpletypecollection_.root_ref = value;
-				complextypecollection_.root_ref = value;
-				if (element__ != null) element__.root_ref = value;
+				this.simpletypecollection_.root_ref = value;
+				this.complextypecollection_.root_ref = value;
+				if (this.element__ != null) this.element__.root_ref = value;
 			}
-			get { return root_ref_; }
+			get { return this.root_ref_; }
 		}
 		#endregion
 		#region public string xs { get; set; }

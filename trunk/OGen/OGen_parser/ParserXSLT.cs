@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections;
-using System.IO;
-using System.Xml;
-using System.Xml.XPath;
-using System.Xml.Xsl;
 
 namespace OGen.lib.parser {
+	using System;
+	using System.Collections;
+	using System.IO;
+	using System.Xml;
+	using System.Xml.XPath;
+	using System.Xml.Xsl;
+
 #if NET_1_1
 	public class ParserXSLT { private ParserXSLT() {}
 #else
