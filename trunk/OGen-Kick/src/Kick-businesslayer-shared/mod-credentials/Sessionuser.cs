@@ -22,8 +22,8 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			long idUser_in,
 			long[] idPermitions_in
 		) {
-			IDUser = idUser_in;
-			IDPermitions = idPermitions_in;
+			this.IDUser = idUser_in;
+			this.IDPermitions = idPermitions_in;
 		}
 
 		public long IDUser;
@@ -33,7 +33,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 		public bool hasPermition(
 			long idPermition_in
 		) {
-			return hasPermition(
+			return this.hasPermition(
 				false,
 				idPermition_in
 			);
@@ -45,9 +45,9 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 		) {
 			int _total = 0;
 			for (int j = 0; j < idPermitions_in.Length; j++) {
-				for (int i = 0; i < IDPermitions.Length; i++) {
+				for (int i = 0; i < this.IDPermitions.Length; i++) {
 					if (
-						IDPermitions[i]
+						this.IDPermitions[i]
 						==
 						idPermitions_in[j]
 					) {

@@ -22,7 +22,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 		public PseudoEnumItem(
 			string name_in
 		) {
-			Name = name_in;
+			this.Name = name_in;
 		}
 
 		public string Name;
@@ -36,7 +36,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 		) : base (
 			name_in
 		) {
-			isError_notWarning = isError_notWarning_in;
+			this.isError_notWarning = isError_notWarning_in;
 		}
 
 		public bool isError_notWarning;
