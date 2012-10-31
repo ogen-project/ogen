@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
 
 namespace OGen.XSD.lib.metadata.schema {
+	using System;
+	using System.Xml.Serialization;
+
 	public struct ComplexTypeItem {
 		public ComplexTypeItem(
 			string name_in,
@@ -54,12 +55,12 @@ namespace OGen.XSD.lib.metadata.schema {
 			complexTypeCollection_out = null;
 
 			OGen.XSD.lib.metadata.metadata.XS_complexTypeType _complextype
-				= root_ref.MetadataCollection[0].ComplexTypeCollection[
-					Type
+				= this.root_ref.MetadataCollection[0].ComplexTypeCollection[
+					this.Type
 				];
 
 			if (_complextype != null) {
-				XS__schema _schema = root_ref_.SchemaCollection[schemaName_in];
+				XS__schema _schema = this.root_ref_.SchemaCollection[schemaName_in];
 
 				for (int c = 0; c < _schema.ComplexTypeCollection.Count; c++) {
 					if (

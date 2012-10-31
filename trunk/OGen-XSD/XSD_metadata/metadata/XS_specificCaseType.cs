@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
 
 namespace OGen.XSD.lib.metadata.metadata {
+	using System;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS_specificCaseType : XS0_specificCaseType {
 	#else
@@ -27,7 +28,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 		public XS_specificCaseType (
 			string word_in
 		) {
-			word_ = word_in;
+			this.word_ = word_in;
 		}
 	}
 }

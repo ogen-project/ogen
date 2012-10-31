@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
 
 namespace OGen.XSD.lib.metadata.schema {
+	using System;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS_enumerationType : XS0_enumerationType {
 	#else
@@ -27,7 +28,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		public XS_enumerationType (
 			string value_in
 		) {
-			value_ = value_in;
+			this.value_ = value_in;
 		}
 	}
 }

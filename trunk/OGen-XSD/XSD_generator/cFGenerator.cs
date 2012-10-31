@@ -12,20 +12,21 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-
-using OGen.lib.templates;
-using OGen.lib.generator;
-using OGen.XSD.lib.metadata;
-using OGen.XSD.lib.metadata.schema;
-using OGen.XSD.lib.metadata.metadata;
 
 namespace OGen.XSD.lib.generator {
+	using System;
+	using System.IO;
+
+	using OGen.lib.generator;
+	using OGen.lib.templates;
+	using OGen.XSD.lib.metadata;
+	using OGen.XSD.lib.metadata.metadata;
+	using OGen.XSD.lib.metadata.schema;
+
 	public class cFGenerator {
 		#region	public cFGenerator();
 		public cFGenerator() {
-			filenameextendedmetadata_ = string.Empty;
+			this.filenameextendedmetadata_ = string.Empty;
 		}
 		#endregion
 
@@ -34,27 +35,27 @@ namespace OGen.XSD.lib.generator {
 		private string filenameextendedmetadata_;
 
 		public string FilenameExtendedMetadata {
-			get { return filenameextendedmetadata_; }
+			get { return this.filenameextendedmetadata_; }
 		}
 		#endregion
 		#region public bool hasChanges { get; }
 		private bool haschanges_;
 
 		public bool hasChanges {
-			get { return haschanges_; }
-			set { haschanges_ = value; }
+			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 		#region public bool isOpened { get; }
 		public bool isOpened {
-			get { return !string.IsNullOrEmpty(filenameextendedmetadata_); }
+			get { return !string.IsNullOrEmpty(this.filenameextendedmetadata_); }
 		}
 		#endregion
 		#region public XS__RootMetadata RootMetadata { get ; }
 		private XS__RootMetadata rootmetadata_;
 
 		public XS__RootMetadata RootMetadata {
-			get { return rootmetadata_; }
+			get { return this.rootmetadata_; }
 		}
 		#endregion
 		//#endregion
@@ -110,13 +111,13 @@ namespace OGen.XSD.lib.generator {
 				}
 			}
 			#endregion
-			filenameextendedmetadata_ = filenameextendedmetadata_in;
+			this.filenameextendedmetadata_ = filenameextendedmetadata_in;
 
 			if (notifyBack_in != null) notifyBack_in("opening...", true);
 			if (notifyBack_in != null) notifyBack_in("- reading metadata from xml files", true);
 
-			rootmetadata_ = XS__RootMetadata.Load_fromFile(
-				filenameextendedmetadata_,
+			this.rootmetadata_ = XS__RootMetadata.Load_fromFile(
+				this.filenameextendedmetadata_,
 				false,
 				true
 			);
@@ -133,7 +134,7 @@ namespace OGen.XSD.lib.generator {
 				throw new Exception(string.Format("{0}.{1}.Open(): - must save before open", this.GetType().Namespace, this.GetType().Name));
 			}
 
-			filenameextendedmetadata_ = string.Empty;
+			this.filenameextendedmetadata_ = string.Empty;
 		}
 		#endregion
 //		#region public void Save(...);
@@ -160,21 +161,21 @@ namespace OGen.XSD.lib.generator {
 		public void Build(cGenerator.dBuild notifyBase_in) {
 			#region string _outputDir = ...;
 			string _outputDir = System.IO.Directory.GetParent(
-				Path.GetDirectoryName(filenameextendedmetadata_)
+				Path.GetDirectoryName(this.filenameextendedmetadata_)
 			).FullName;
 			#endregion
 			if (notifyBase_in != null) notifyBase_in("generating...", true);
 
-			MetaFile[] _metafiles = new MetaFile[1 + rootmetadata_.MetadataFiles.MetadataFiles.Count];
+			MetaFile[] _metafiles = new MetaFile[1 + this.rootmetadata_.MetadataFiles.MetadataFiles.Count];
 			_metafiles[0] = new MetaFile(
-				filenameextendedmetadata_,
+				this.filenameextendedmetadata_,
 				XS__metadata.METADATA
 			);
-			for (int i = 0; i < rootmetadata_.MetadataFiles.MetadataFiles.Count; i++) {
+			for (int i = 0; i < this.rootmetadata_.MetadataFiles.MetadataFiles.Count; i++) {
 				_metafiles[1 + i] = new MetaFile(
 					Path.Combine(
-						Path.GetDirectoryName(filenameextendedmetadata_), 
-						rootmetadata_.MetadataFiles.MetadataFiles[i].XMLFilename
+						Path.GetDirectoryName(this.filenameextendedmetadata_),
+						this.rootmetadata_.MetadataFiles.MetadataFiles[i].XMLFilename
 					),
 					XS__schema.SCHEMA
 				);
@@ -189,8 +190,8 @@ namespace OGen.XSD.lib.generator {
 				_outputDir,
 				_metafiles
 			).Build(
-				notifyBase_in, 
-				rootmetadata_
+				notifyBase_in,
+				this.rootmetadata_
 			);
 			if (notifyBase_in != null) notifyBase_in("...finished", true);
 		}

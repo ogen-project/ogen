@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
 
 namespace OGen.XSD.lib.metadata.schema {
+	using System;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS_attributeType : XS0_attributeType {
 	#else
@@ -33,8 +34,8 @@ namespace OGen.XSD.lib.metadata.schema {
 		#region public string NType(...);
 		public string NType(string schemaName_in) {
 			return utils.Convert_NType(
-				root_ref,
-				type_, 
+				this.root_ref,
+				this.type_, 
 				schemaName_in
 			);
 		}

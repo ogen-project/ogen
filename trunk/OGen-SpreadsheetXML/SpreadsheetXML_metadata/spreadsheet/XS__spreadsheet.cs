@@ -12,12 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Data;
-using System.Data.OleDb;
 
 namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
+	using System;
+	using System.Data;
+	using System.Data.OleDb;
+	using System.Xml.Serialization;
+
 	[System.Xml.Serialization.XmlRootAttribute("spreadsheet")]
 	#if NET_1_1
 	public class XS__spreadsheet : XS0__spreadsheet {

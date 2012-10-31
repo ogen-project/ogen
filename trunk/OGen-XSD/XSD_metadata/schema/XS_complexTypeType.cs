@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
 
 namespace OGen.XSD.lib.metadata.schema {
+	using System;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS_complexTypeType : XS0_complexTypeType {
 	#else
@@ -39,7 +40,7 @@ namespace OGen.XSD.lib.metadata.schema {
 			int _index = -1;
 			OGen.XSD.lib.metadata.metadata.XS_complexTypeType _complextype;
 
-			XS__schema _schema = root_ref_.SchemaCollection[schemaName_in];
+			XS__schema _schema = this.root_ref_.SchemaCollection[schemaName_in];
 			for (int c = 0; c < _schema.ComplexTypeCollection.Count; c++) {
 				for (int e = 0; e < _schema.ComplexTypeCollection[c].Sequence.ElementCollection.Count; e++) {
 					if (
@@ -55,7 +56,7 @@ namespace OGen.XSD.lib.metadata.schema {
 						#region _complextype = ...;
 						#region _index = ...;
 						if (!string.IsNullOrEmpty(schemaName_in))
-							_index = root_ref_.MetadataCollection[0].MetadataIndexCollection.Search(schemaName_in);
+							_index = this.root_ref_.MetadataCollection[0].MetadataIndexCollection.Search(schemaName_in);
 						else
 							_index = -1;
 						#endregion
