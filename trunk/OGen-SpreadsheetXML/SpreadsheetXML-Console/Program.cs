@@ -59,6 +59,7 @@ namespace SpreadsheetXML_Console {
 			string _xmlFilePath = System.IO.Path.Combine(
 				System.IO.Path.GetDirectoryName(_ssFilePath),
 				string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"{0}.SpreadsheetXML.xml",
 					System.IO.Path.GetFileNameWithoutExtension(_ssFilePath)
 				)

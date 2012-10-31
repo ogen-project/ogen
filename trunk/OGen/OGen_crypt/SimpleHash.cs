@@ -145,6 +145,7 @@ namespace OGen.lib.crypt {
 
 				default:
 					throw new Exception(string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"invalid encription method: {0}",
 						hashAlgorithm.ToString()
 					));
@@ -233,6 +234,7 @@ namespace OGen.lib.crypt {
 
 				default:
 					throw new Exception(string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"invalid encription method: {0}",
 						hashAlgorithm.ToString()
 					));

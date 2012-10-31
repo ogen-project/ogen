@@ -43,6 +43,7 @@ namespace OGen.lib.presentationlayer.webforms {
 			_denum.Reset();
 			while (_denum.MoveNext()) {
 				ConcatenateURLParams_out += string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"{0}{1}={2}", 
 					/*00*/(string.IsNullOrEmpty(ConcatenateURLParams_out)) ? _separator : "&", 
 					/*01*/_denum.Key.ToString(), 
@@ -83,6 +84,7 @@ namespace OGen.lib.presentationlayer.webforms {
 				webresponse = webrequest.GetResponse();
 			} catch (Exception e) {
 				throw new Exception(string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"\n\n---\n{0}\n{1}\n---\n",
 					//e.StackTrace
 					e.Message,
@@ -167,7 +169,11 @@ namespace OGen.lib.presentationlayer.webforms {
 				long page_in
 			) {
 				anchor_in.InnerText = page_in.ToString();
-				anchor_in.HRef = string.Format("?page={0}", page_in);
+				anchor_in.HRef = string.Format(
+					System.Globalization.CultureInfo.CurrentCulture, 
+					"?page={0}", 
+					page_in
+				);
 				anchor_in.Visible = true;
 			}
 			#endregion

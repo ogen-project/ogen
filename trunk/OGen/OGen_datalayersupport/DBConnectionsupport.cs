@@ -70,6 +70,7 @@ namespace OGen.lib.datalayer {
 			
 			throw new Exception(
 				string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"unsuported db type: {0}", 
 					dbServerType_in.ToString()
 				)
@@ -98,6 +99,7 @@ namespace OGen.lib.datalayer {
 			
 			throw new Exception(
 				string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"unsuported db type: {0}", 
 					connection_in.ToString()
 				)

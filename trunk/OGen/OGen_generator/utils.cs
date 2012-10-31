@@ -65,6 +65,7 @@ namespace OGen.lib.generator {
 			}
 
 			throw new Exception(string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"can't find: {0}",
 				root_in
 			));
@@ -361,6 +362,7 @@ const bool _usePerformance5 = false;
 						)[0];
 
 					_aux1 = string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"{0}.{1}",
 						path_in,
 						_elementAttribute.ElementName
@@ -442,6 +444,7 @@ _usePerformance5 &&
 							_output = ReflectThrough(
 								_array.GetValue(i), 
 								string.Format(
+									System.Globalization.CultureInfo.CurrentCulture,
 									"{0}.{1}[{2}]", 
 									path_in, 
 									_elementAttribute.ElementName, 
@@ -452,6 +455,7 @@ _usePerformance5 &&
 								},
 								iteration_in, 
 								string.Format(
+									System.Globalization.CultureInfo.CurrentCulture,
 									"{0}.{1}[n]", 
 									pathTranslated_in, 
 									_elementAttribute.ElementName
@@ -476,6 +480,7 @@ _usePerformance5 &&
 						_output = ReflectThrough(
 							_value, 
 							string.Format(
+								System.Globalization.CultureInfo.CurrentCulture,
 								"{0}.{1}", 
 								path_in, 
 								_elementAttribute.ElementName
@@ -485,6 +490,7 @@ _usePerformance5 &&
 							},
 							iteration_in, 
 							string.Format(
+								System.Globalization.CultureInfo.CurrentCulture,
 								"{0}.{1}", 
 								pathTranslated_in, 
 								_elementAttribute.ElementName
@@ -530,6 +536,7 @@ _usePerformance5 &&
 						_value = _properties[_prop].GetValue(someClass_in, null);
 					} catch (Exception _ex) {
 						string _ex_message = string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"\n---\n{0}.{1}.ReflectThrough(\n\tsomeClass_in:\"{2}.{3}\",\n\tpath_in:\"{4}\",\n\titeration_in:\"{5}\",\n\tpathTranslated_in:\"{6}\"\n)\n---\n{7}",
 							typeof(utils).Namespace,
 							typeof(utils).Name,
@@ -570,7 +577,14 @@ Console.WriteLine(_ex_message);
 						_attributename = _properties[_prop].Name;
 					}
 
-					if (string.Format("{0}.{1}", path_in, _attributename) == iteration_in) {
+					if (
+						string.Format(
+							System.Globalization.CultureInfo.CurrentCulture, 
+							"{0}.{1}", 
+							path_in, 
+							_attributename
+						) == iteration_in
+					) {
 						valueHasBeenFound_out = true;
 						_output = _value.ToString();
 
@@ -586,6 +600,7 @@ Console.WriteLine(_ex_message);
 				} 
 				//else {
 				//    throw new Exception(string.Format(
+				//        System.Globalization.CultureInfo.CurrentCulture,
 				//        "class: {0}\npath: {1}\niteration: {2}\npathTranslated: {3}\nreturnValue: {4}\nanyAttribute_notJustXml: {5}\n", 
 				//        someClass_in.GetType().ToString(), 
 				//        path_in, 

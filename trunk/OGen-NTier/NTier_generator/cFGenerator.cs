@@ -95,6 +95,7 @@ namespace OGen.NTier.lib.generator {
 			bool isRelease_notDebug_in
 		) {
 			return string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				//"{1}_businesslayer{0}bin{0}{4}{0}{2}.lib.businesslayer-{3}.dll",
 				"src{0}{1}-businesslayer{0}bin{0}{4}{0}{2}.lib.businesslayer-{3}.dll",
 				Path.DirectorySeparatorChar, // __________________ 0
@@ -188,6 +189,7 @@ throw new Exception("// ToDos: not implemented!");
 			if (this.hasChanges) {
 				if (!force_doNOTsave_in) {
 					throw new Exception(string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"{0}.{1}.Open(): - must save before open", 
 						this.GetType().Namespace, 
 						this.GetType().Name
@@ -244,6 +246,7 @@ throw new Exception("// ToDos: not implemented!");
 						);
 				} catch (Exception _ex) {
 					throw new Exception(string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"\n---\nfailed to load assembly: {0}\n---\n{1}\n---\n{2}\n---\n{3}\n---", 
 						_assembly, 
 						_ex.Message, 
@@ -258,6 +261,7 @@ throw new Exception("// ToDos: not implemented!");
 					Path.Combine(
 						this.Directoryname,
 						string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"MD_{0}.OGenXSD-metadataBusiness.xml",
 							this.metadata_.MetadataExtendedCollection[0].ApplicationName
 						)
@@ -356,6 +360,7 @@ throw new Exception("// ToDos: not implemented!");
 				(!force_doNOTsave_in)
 			) {
 				throw new Exception(string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"{0}.{1}.Open(): - must save before open", 
 					this.GetType().Namespace, 
 					this.GetType().Name

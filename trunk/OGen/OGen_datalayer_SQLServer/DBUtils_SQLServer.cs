@@ -83,14 +83,22 @@ namespace OGen.lib.datalayer.SQLServer {
 				switch (object_in.GetType().ToString()) {
 					case "System.Char":
 					case "System.String":
-						return string.Format("\'{0}\'", object_in.ToString ().Replace("\'", "\'\'"));
+						return string.Format(
+							System.Globalization.CultureInfo.CurrentCulture, 
+							"\'{0}\'", 
+							object_in.ToString().Replace("\'", "\'\'")
+						);
 
 					case "System.DateTime":
 						DateTime _datetime = ((DateTime)object_in);
 						if (DateTime.Compare(_datetime, DateTime.MinValue) == 0) {
 							return this.object2SQLobject(null);
 						} else {
-							return string.Format("CONVERT(DATETIME, \'{0}\', 120)", _datetime.ToString("yyyy-MM-dd HH:mm:ss"));
+							return string.Format(
+								System.Globalization.CultureInfo.CurrentCulture, 
+								"CONVERT(DATETIME, \'{0}\', 120)", 
+								_datetime.ToString("yyyy-MM-dd HH:mm:ss")
+							);
 						}
 
 					case "System.Boolean":
@@ -114,6 +122,7 @@ namespace OGen.lib.datalayer.SQLServer {
 			}
 
 			throw new Exception (string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"not implemented for: {0}",
 				object_in.GetType().ToString()
 			));
@@ -174,7 +183,11 @@ namespace OGen.lib.datalayer.SQLServer {
 					break;
 			}
 
-			throw new Exception(string.Format("invalid db type: {0}", value_in));
+			throw new Exception(string.Format(
+				System.Globalization.CultureInfo.CurrentCulture, 
+				"invalid db type: {0}", 
+				value_in
+			));
 		}
 		#endregion
 		#region public override DbType XDbType2DbType(int xDbType_in);
@@ -236,6 +249,7 @@ namespace OGen.lib.datalayer.SQLServer {
 				case SqlDbType.VarBinary:
 				default: {
 					throw new Exception(string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"undefined variable type: {0}",
 						((SqlDbType)xDbType_in).ToString()
 					));
@@ -262,6 +276,7 @@ namespace OGen.lib.datalayer.SQLServer {
 			}
 			throw new Exception(
 				string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"{0}.{1}.ParseParameter(): - error parsing db connectionstring: 'SQLServer|{2}'",
 					typeof(DBUtils_connectionString_SQLServer).Namespace,
 					typeof(DBUtils_connectionString_SQLServer).Name,
@@ -282,6 +297,7 @@ namespace OGen.lib.datalayer.SQLServer {
 			string databaseName_in
 		) {
 			return string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"server={0};uid={1};pwd={2};database={3};", 
 				serverName_in, 
 				userName_in, 

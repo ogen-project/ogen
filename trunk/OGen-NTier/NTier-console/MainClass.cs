@@ -165,6 +165,7 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 //			#endregion
 //			#region string _metadataFilePath = ...;
 //			string _metadataFilePath = string.Format(
+//				System.Globalization.CultureInfo.CurrentCulture,
 //				"{0}{1}OGen-metadatas{1}MD0_{2}-{3}.OGen-metadata.xml", 
 //				/*00*/ _outputDir, 
 //				/*01*/ Path.DirectorySeparatorChar, 

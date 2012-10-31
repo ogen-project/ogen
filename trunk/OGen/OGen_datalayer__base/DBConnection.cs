@@ -427,6 +427,7 @@ namespace OGen.lib.datalayer {
 				for (int i = 0; i < dataParameters_in.Length; i++) {
 					_parameters.Append(
 						string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"{0}:{1}{2}", 
 							dataParameters_in[i].ParameterName, 
 							(dataParameters_in[i].Value == null) ? 
@@ -443,6 +444,7 @@ namespace OGen.lib.datalayer {
 
 			StreamWriter _writer = new StreamWriter(this.Logfile, true);
 			_writer.WriteLine(string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"{0} - {1}: {2}{3}", 
 				DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), 
 				type_in, 
@@ -597,6 +599,7 @@ namespace OGen.lib.datalayer {
 				#region throw new Exception("...");
 				throw new Exception(
 					string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"--- query:\n{0}\n\n--- ConnectionString:\n{1}|{2}\n\n--- exception:\n{3}\n\n--- inner-exception:\n{4}\n",
 						query_in,
 						this.DBServerType,
@@ -671,6 +674,7 @@ namespace OGen.lib.datalayer {
 				#region throw new Exception("...");
 				throw new Exception(
 					string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"query: {0}\nConnectionString: {1}|{2}\nexception: {3}\ninner-exception: {4}\n",
 						query_in,
 						this.DBServerType,
@@ -901,6 +905,7 @@ namespace OGen.lib.datalayer {
 			} catch (Exception _ex) {
 				throw new Exception(
 					string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"Stored Procedure: {0}({6})\nParameters: {1}\nConnectionString: {2}|{3}\nexception: {4}\ninner-exception: {5}\n",
 						function_in,
 						dataParameters_in,

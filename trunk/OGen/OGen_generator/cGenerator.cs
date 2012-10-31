@@ -182,6 +182,7 @@ case "CONFIG.metadatasPath":
 							);
 						} else {
 							throw new Exception(string.Format(
+								System.Globalization.CultureInfo.CurrentCulture,
 								"\n\n---\n{0}.{1}.translate()\n- can't handle: {2}\n---\n", 
 								this.GetType().Namespace, 
 								this.GetType().Name, 
@@ -477,7 +478,11 @@ if (
 if (
 	(template_in.Outputs.OutputCollection[o].Mode == XS_OutputModeEnumeration.Append)
 )
-	throw new Exception(string.Format("not implemented (at template: {0})", template_in.Name));
+	throw new Exception(string.Format(
+		System.Globalization.CultureInfo.CurrentCulture, 
+		"not implemented (at template: {0})", 
+		template_in.Name
+	));
 									File.Copy(
 										Path.Combine(
 											this.xmltemplatesdir_, 
@@ -594,6 +599,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 		System.Text.StringBuilder _sb = new System.Text.StringBuilder();
 		for (int a = 0; a < template_in.Arguments.ArgumentCollection.Count; a++) {
 			_sb.Append(string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"{0}:\n\t{1}\n\t{2}\n",
 				template_in.Arguments.ArgumentCollection[a].Name,
 				template_in.Arguments.ArgumentCollection[a].Value,
@@ -602,6 +608,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 		}
 
 		throw new Exception(string.Format(
+			System.Globalization.CultureInfo.CurrentCulture,
 			"---\nTEMPLATE: {0}\n---\nARGUMENTS:\n\n{5}\n---\nDBServerType:\n\n{2}\n---\nQUERY:\n\n{1}\n---\nEXCEPTION:\n\n{3}\n---\nINNER-EXCEPTION:\n\n{4}\n---\n",
 			template_in.Name,
 			_parsedOutput, 
@@ -727,6 +734,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 					string _stepOf = this.templates_.TemplateCollection.Count.ToString();
 					this.notifyback_(
 						string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"thread 0: {0}#{1}/{2} - {3} {4} skipping!",
 							string.Empty.PadLeft(_stepOf.Length - _stepNum.Length, ' '),
 							_stepNum,
@@ -866,6 +874,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 							string _stepOf = this.templates_.TemplateCollection.Count.ToString();
 							this.notifyback_(
 								string.Format(
+									System.Globalization.CultureInfo.CurrentCulture,
 #if DEBUG
 									"thread {6}: {0}#{1}/{2} - {3} {4} {5} ({7}s {8}m)",
 #else
@@ -897,7 +906,11 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 						}
 					);
 				});
-				_thread.Name = string.Format("{0}", t + 1);
+				_thread.Name = string.Format(
+					System.Globalization.CultureInfo.CurrentCulture, 
+					"{0}", 
+					t + 1
+				);
 				_thread.IsBackground = true;
 				_workthreads[t] = new WorkerThread(
 					_thread,
@@ -944,6 +957,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 //			if (!_found)
 //				throw new Exception(
 //					string.Format(
+//						System.Globalization.CultureInfo.CurrentCulture,
 //						"{0}.{1}.Build(): - invalid type supplied!", 
 //						this.GetType().Namespace, 
 //						this.GetType().Name

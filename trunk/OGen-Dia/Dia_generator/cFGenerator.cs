@@ -75,6 +75,7 @@ namespace OGen.Dia.lib.generator {
 //			if (notifyBack_in != null) notifyBack_in("- generating xml file", true);
 //			#region string _xmlfile = ...;
 //			string _xmlfile = string.Format(
+//              System.Globalization.CultureInfo.CurrentCulture,
 //				"{0}{1}OGenDoc-metadatas{1}MD_{2}.OGenDoc-metadata.xml", 
 //				/*0*/applicationPath_in, 
 //				/*1*/System.IO.Path.DirectorySeparatorChar, 
@@ -103,6 +104,7 @@ namespace OGen.Dia.lib.generator {
 			if (this.hasChanges) {
 				if (!force_doNOTsave_in) {
 					throw new Exception(string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"{0}.{1}.Open(): - must save before open", 
 						this.GetType().Namespace, 
 						this.GetType().Name
@@ -151,6 +153,7 @@ namespace OGen.Dia.lib.generator {
 						_fks.ContainsKey("")
 					) {
 						throw new Exception(string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"invalid foreign key at table: {0}.? -> {1}.?",
 
 							this.diagram_.Table_search(l, o).TableName,
@@ -185,6 +188,7 @@ namespace OGen.Dia.lib.generator {
 							!_isUsingSQLServer
 						) {
 							throw new Exception(string.Format(
+								System.Globalization.CultureInfo.CurrentCulture,
 								"no db type defined (should use at least one of the supported db servers: PostgreSQL or SQLServer)",
 								_dbtablefields[f].TableName,
 								_dbtablefields[f].Name
@@ -200,6 +204,7 @@ namespace OGen.Dia.lib.generator {
 						) {
 							if (string.IsNullOrEmpty(_dbtablefields[f].PostgreSQLTypeName)) {
 								throw new Exception(string.Format(
+									System.Globalization.CultureInfo.CurrentCulture,
 									"invalid table field type - empty postgresql type: {0}.{1}",
 									_dbtablefields[f].TableName,
 									_dbtablefields[f].Name
@@ -222,6 +227,7 @@ namespace OGen.Dia.lib.generator {
 						) {
 							if (string.IsNullOrEmpty(_dbtablefields[f].SQLServerTypeName)) {
 								throw new Exception(string.Format(
+									System.Globalization.CultureInfo.CurrentCulture,
 									"invalid table field type - empty sql server type: {0}.{1}",
 									_dbtablefields[f].TableName,
 									_dbtablefields[f].Name
@@ -255,6 +261,7 @@ namespace OGen.Dia.lib.generator {
 								)
 							) {
 								throw new Exception(string.Format(
+									System.Globalization.CultureInfo.CurrentCulture,
 									"table field types don't match: {0}.{1}",
 									_dbtablefields[f].TableName,
 									_dbtablefields[f].Name
@@ -293,6 +300,7 @@ namespace OGen.Dia.lib.generator {
 						//                            _dbtablefields[f].PostgreSQLTypeName
 						//                        ) {
 						//                            throw new Exception(string.Format(
+						//                                System.Globalization.CultureInfo.CurrentCulture,
 						//                                "foreign key postgresql db type mismatch: {0}.{1}",
 						//                                _dbtablefields[f].FK_TableName,
 						//                                _dbtablefields[f].FK_FieldName
@@ -304,6 +312,7 @@ namespace OGen.Dia.lib.generator {
 						//                            _dbtablefields[f].SQLServerTypeName
 						//                        ) {
 						//                            throw new Exception(string.Format(
+						//                                System.Globalization.CultureInfo.CurrentCulture,
 						//                                "foreign key sql server db type mismatch: {0}.{1}",
 						//                                _dbtablefields[f].FK_TableName,
 						//                                _dbtablefields[f].FK_FieldName
@@ -323,6 +332,7 @@ namespace OGen.Dia.lib.generator {
 
 						//    if (!_foundFKTable) {
 						//        throw new Exception(string.Format(
+						//            System.Globalization.CultureInfo.CurrentCulture,
 						//            "can't find foreign key TABLE: {0}.{1}",
 						//            _dbtablefields[f].FK_TableName,
 						//            _dbtablefields[f].FK_FieldName
@@ -330,6 +340,7 @@ namespace OGen.Dia.lib.generator {
 						//    }
 						//    if (!_foundFKField) {
 						//        throw new Exception(string.Format(
+						//            System.Globalization.CultureInfo.CurrentCulture,
 						//            "can't find foreign key FIELD: {0}.{1}",
 						//            _dbtablefields[f].FK_TableName,
 						//            _dbtablefields[f].FK_FieldName
@@ -403,6 +414,7 @@ namespace OGen.Dia.lib.generator {
 													)
 												) {
 													throw new Exception(string.Format(
+														System.Globalization.CultureInfo.CurrentCulture,
 														"foreign key postgresql db type mismatch: {0}.{1} -> {2}.{3}",
 
 														this.diagram_.Table_search(l, o).TableName,
@@ -426,6 +438,7 @@ namespace OGen.Dia.lib.generator {
 													)
 												) {
 													throw new Exception(string.Format(
+														System.Globalization.CultureInfo.CurrentCulture,
 														"foreign key sql server db type mismatch: {0}.{1} -> {2}.{3}",
 
 														this.diagram_.Table_search(l, o).TableName,
@@ -449,6 +462,7 @@ namespace OGen.Dia.lib.generator {
 
 							if (!_foundFKTable) {
 								throw new Exception(string.Format(
+									System.Globalization.CultureInfo.CurrentCulture,
 									"can't find foreign key TABLE: {0}.{1} -> {2}.{3}",
 
 									this.diagram_.Table_search(l, o).TableName,
@@ -460,6 +474,7 @@ namespace OGen.Dia.lib.generator {
 							}
 							if (!_foundFKField) {
 								throw new Exception(string.Format(
+									System.Globalization.CultureInfo.CurrentCulture,
 									"can't find foreign key FIELD: {0}.{1} -> {2}.{3}",
 
 									this.diagram_.Table_search(l, o).TableName,
@@ -486,6 +501,7 @@ namespace OGen.Dia.lib.generator {
 				(!force_doNOTsave_in)
 			) {
 				throw new Exception(string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"{0}.{1}.Open(): - must save before open", 
 					this.GetType().Namespace, 
 					this.GetType().Name

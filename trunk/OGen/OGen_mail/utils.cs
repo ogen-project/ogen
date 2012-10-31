@@ -249,6 +249,7 @@ namespace OGen.lib.mail {
 				//);
 
 				////_contenttype = new System.Net.Mime.ContentType(string.Format(
+				////    System.Globalization.CultureInfo.CurrentCulture,
 				////    "text/calendar;", // method=REQUEST; name=\"{0}\"",
 				////    System.IO.Path.GetFileName(attachmentpath_in)
 				////));
@@ -297,6 +298,7 @@ namespace OGen.lib.mail {
 #else
 			System.IO.StreamWriter _writer = new System.IO.StreamWriter("c:\\SMTPServer.log", true);
 			_writer.WriteLine(string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"-------------------------------------------------------------------\n" +
 				"FROM: {0}\n" +
 				"TO: {1}\n" +

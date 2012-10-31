@@ -168,7 +168,11 @@ namespace OGen.lib.datalayer.SQLServer {
 			_newdbdataparameter_out.ParameterName =
 				(name_in[0] == '@') ?
 			name_in :
-				string.Format("@{0}", name_in);
+				string.Format(
+					System.Globalization.CultureInfo.CurrentCulture, 
+					"@{0}", 
+					name_in
+				);
 
 			_newdbdataparameter_out.DbType = dbType_in;
 			_newdbdataparameter_out.Direction = parameterDirection_in;
@@ -244,6 +248,7 @@ namespace OGen.lib.datalayer.SQLServer {
 			} catch (Exception _ex) {
 				throw new Exception(
 					string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"Stored Procedure: {0}({5})\nConnectionString: {1}|{2}\nexception: {3}\ninner-exception: {4}\n",
 						function_in,
 						this.DBServerType, 
@@ -271,6 +276,7 @@ namespace OGen.lib.datalayer.SQLServer {
 		#region public override string SQLFunction_exists_query(...);
 		public override string SQLFunction_exists_query(string name_in) {
 			return string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				#region "SELECT ...", 
 @"
 SELECT null
@@ -288,6 +294,7 @@ WHERE
 		#region public override string SQLFunction_delete_query(...);
 		public override string SQLFunction_delete_query(string name_in) {
 			return string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"DROP FUNCTION {0}",
 				name_in
 			);
@@ -296,6 +303,7 @@ WHERE
 		#region public override string SQLStoredProcedure_exists_query(...);
 		public override string SQLStoredProcedure_exists_query(string name_in) {
 			return string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				#region "SELECT ...",
 @"
 SELECT null
@@ -313,6 +321,7 @@ WHERE
 		#region public override string SQLStoredProcedure_delete_query(...);
 		public override string SQLStoredProcedure_delete_query(string name_in) {
 			return string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"DROP PROCEDURE {0}",
 				name_in
 			);
@@ -321,6 +330,7 @@ WHERE
 		#region public override string SQLView_exists_query(...);
 		public override string SQLView_exists_query(string name_in) {
 			return string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				#region "SELECT ...",
 @"
 SELECT null
@@ -338,6 +348,7 @@ WHERE
 		#region public override string SQLView_delete_query(...);
 		public override string SQLView_delete_query(string name_in) {
 			return string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"DROP VIEW {0}",
 				name_in
 			);
@@ -374,6 +385,7 @@ ORDER BY CATALOG_NAME
 			StringBuilder _query = new StringBuilder(string.Empty);
 			#region _query.Append(@"SELECT ...");
 			_query.Append(string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 @"
 SELECT
 	_table.table_name,
@@ -441,6 +453,7 @@ WHERE
 				string[] _subAppNames = subAppName_in.Split('|');
 				for (int i = 0; i < _subAppNames.Length; i++) {
 					_query.Append(string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"(_table.table_name {0} '{1}'){2}",
 						(_subAppNames[i].IndexOf('%') >= 0) ? "LIKE" : "=",
 						_subAppNames[i],
@@ -460,6 +473,7 @@ WHERE
 		) {
 			#region return "SELECT ...";
 			return string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 @"
 SELECT
 	_field.table_name,

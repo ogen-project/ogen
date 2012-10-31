@@ -38,6 +38,7 @@ namespace OGen.NTier.lib.datalayer {
 						System.Configuration.ConfigurationSettings.AppSettings
 						#endif
 							[string.Format(
+								System.Globalization.CultureInfo.CurrentCulture,
 								"{0}:{1}",
 								application_in, 
 								DBServerTypes(application_in)[_db].ToString()
@@ -161,6 +162,7 @@ namespace OGen.NTier.lib.datalayer {
 							#endif
 								[
 									string.Format(
+										System.Globalization.CultureInfo.CurrentCulture,
 										"{0}:DBServerTypes", 
 //										ApplicationName
 										application_in

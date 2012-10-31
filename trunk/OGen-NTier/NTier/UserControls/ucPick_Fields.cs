@@ -135,7 +135,8 @@ namespace OGen.NTier.presentationlayer.winforms {
 					if (_canAdd) {
 						lvwFields.Items.Add(
 							//new ListViewItem(
-								string.Format( 
+								string.Format(
+									System.Globalization.CultureInfo.CurrentCulture,
 									"{0}{1}", 
 									(SpecificTable_ >= 0) ? "" : frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].Name + "\\", 
 									frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].Name

@@ -128,6 +128,7 @@ namespace OGen.lib.datalayer {
 			StringBuilder _sb = new StringBuilder();
 			for (int i = 0; i < dataParameters_in.Length; i++) {
 				_sb.Append(string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"\n\t{1}{2}\t\t--{0}",
 					dataParameters_in[i].ParameterName,
 					(
@@ -239,6 +240,7 @@ namespace OGen.lib.datalayer {
 			}
 
 			throw new Exception(string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"undefined variable type: {0}",
 				dbType_in.GetType().ToString()
 			));
@@ -295,6 +297,7 @@ namespace OGen.lib.datalayer {
 			}
 
 			throw new Exception(string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"undefined variable type: {0}",
 				dbType_in.ToString()
 			));
@@ -349,6 +352,7 @@ namespace OGen.lib.datalayer {
 			}
 
 			throw new Exception(string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"undefined variable type: {0}",
 				dbType_in.GetType().ToString()
 			));
@@ -393,6 +397,7 @@ namespace OGen.lib.datalayer {
 				// ToDos: here!
 			}
 			throw new Exception(string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"undefined variable type: {0}",
 				dbType_in.ToString() // dbType_in.GetType().ToString()
 			));
@@ -423,7 +428,7 @@ namespace OGen.lib.datalayer {
 					return (DbType)i;
 				}
 			}
-			throw new Exception(string.Format("invalid db type: {0}", value_in));
+			throw new Exception(string.Format(System.Globalization.CultureInfo.CurrentCulture, "invalid db type: {0}", value_in));
 #else
 			return (DbType)Enum.Parse(typeof(DbType), value_in, !caseSensitive_in);
 #endif
@@ -456,13 +461,18 @@ namespace OGen.lib.datalayer {
 			string parameter_in
 		) {
 			System.Text.RegularExpressions.Regex fields_reg = new System.Text.RegularExpressions.Regex(
-				string.Format("^(?<before>.*){0}=(?<param>.*);(?<after>.*)", parameter_in),
+				string.Format(
+					System.Globalization.CultureInfo.CurrentCulture, 
+					"^(?<before>.*){0}=(?<param>.*);(?<after>.*)", 
+					parameter_in
+				),
 				System.Text.RegularExpressions.RegexOptions.IgnoreCase
 			);
 			System.Text.RegularExpressions.Match matchingfields = fields_reg.Match(connectionstring_in);
 			if (!matchingfields.Success) {
 				throw new Exception(
 					string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"{0}.{1}.ParseParameter(): - error parsing db connectionstring: '{2}'",
 						typeof(DBUtils_connectionString).Namespace,
 						typeof(DBUtils_connectionString).Name,

@@ -125,6 +125,7 @@ namespace OGen.lib.presentationlayer.webforms {
 				this.listitemcollection_ref_.Add(
 #if DEBUG
 					string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"{0} ({1})",
 						Transform(listitemText_in(_item)),
 						listitemValue_in(_item)
@@ -193,6 +194,7 @@ namespace OGen.lib.presentationlayer.webforms {
 				this.listitemcollection_ref_.Add(
 #if DEBUG
 					string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"{0} ({1})", 
 						Transform(_item.ListItem_Text.ToString()),
 						_item.ListItem_Value.ToString()
@@ -389,6 +391,7 @@ namespace OGen.lib.presentationlayer.webforms {
 //// already present at source, hence comment:
 //#if DEBUG
 //                    string.Format(
+//                        System.Globalization.CultureInfo.CurrentCulture,
 //                        "{0} ({1})", 
 //                        from_in.Items[i].Text,
 //                        from_in.Items[i].Value

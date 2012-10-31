@@ -76,6 +76,7 @@ namespace OGen.lib.metadata {
 				);
 			} catch (Exception _ex) {
 				throw new Exception(string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"\n---\n{0}.{1}.Load_fromFile(): - ERROR READING XML:\n{2}\n---\n{3}",
 					typeof(Metadatas).Namespace, 
 					typeof(Metadatas).Name, 

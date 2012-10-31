@@ -509,6 +509,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 					if (AskForConfirmation_) {
 						switch (MessageBox.Show(
 							string.Format(
+								System.Globalization.CultureInfo.CurrentCulture,
 								"Save Changes to \"{0}\"?", 
 								Path.GetFileName(
 									NTierProject.Filename
@@ -561,10 +562,18 @@ namespace OGen.NTier.presentationlayer.winforms {
 		public void Form_Refresh() {
 			if (frm_Main.NTierProject.isOpened) {
 				if (frm_Main.NTierProject.hasChanges) {
-					this.Text = string.Format("OGen: - {0}*", Path.GetFileName(NTierProject.Filename));
+					this.Text = string.Format(
+						System.Globalization.CultureInfo.CurrentCulture, 
+						"OGen: - {0}*", 
+						Path.GetFileName(NTierProject.Filename)
+					);
 					this.miProject_Save.Enabled = true;
 				} else {
-					this.Text = string.Format("OGen: - {0}", Path.GetFileName(NTierProject.Filename));
+					this.Text = string.Format(
+						System.Globalization.CultureInfo.CurrentCulture, 
+						"OGen: - {0}", 
+						Path.GetFileName(NTierProject.Filename)
+					);
 					this.miProject_Save.Enabled = false;
 				}
 				this.miProject_Close.Enabled = true;

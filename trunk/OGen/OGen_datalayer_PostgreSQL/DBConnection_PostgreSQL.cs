@@ -221,6 +221,7 @@ namespace OGen.lib.datalayer.PostgreSQL {
 			#endregion
 
 			command_in.CommandText = string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"\"{0}\"", 
 				function_in
 			);
@@ -237,6 +238,7 @@ namespace OGen.lib.datalayer.PostgreSQL {
 			} catch (Exception _ex) {
 				throw new Exception(
 					string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"Stored Procedure: {0}({5})\nConnectionString: {1}|{2}\nexception: {3}\ninner-exception: {4}\n",
 						function_in,
 						this.DBServerType, 
@@ -264,6 +266,7 @@ namespace OGen.lib.datalayer.PostgreSQL {
 		#region public override string sqlfunction_exists(...);
 		public override string SQLFunction_exists_query(string name_in) {
 			return string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				#region "SELECT ...", 
 @"
 SELECT null
@@ -294,6 +297,7 @@ WHERE
 		#region public override string SQLStoredProcedure_exists_query(...);
 		public override string SQLStoredProcedure_exists_query(string name_in) {
 			return string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				#region "SELECT ...",
 @"
 SELECT null
@@ -325,6 +329,7 @@ WHERE
 		#region public override string SQLView_exists_query(...);
 		public override string SQLView_exists_query(string name_in) {
 			return string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				#region "SELECT ...",
 @"
 SELECT null
@@ -371,6 +376,7 @@ ORDER BY CATALOG_NAME
 			StringBuilder _query = new StringBuilder(string.Empty);
 			#region _query.Append(@"SELECT ...");
 			_query.Append(string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 @"
 SELECT
 	_table.table_name,
@@ -441,6 +447,7 @@ WHERE
 				string[] _subAppNames = subAppName_in.Split('|');
 				for (int i = 0; i < _subAppNames.Length; i++) {
 					_query.Append(string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"(_table.table_name {0} '{1}'){2}",
 						(_subAppNames[i].IndexOf('%') >= 0) ? "LIKE" : "=", 
 						_subAppNames[i],
@@ -460,6 +467,7 @@ WHERE
 		) {
 			#region return "SELECT ...";
 			return string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 @"
 SELECT
 	_field.table_name,

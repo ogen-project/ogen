@@ -94,6 +94,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 
 				OleDbCommand _command = new OleDbCommand(
 					string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"select * from [{0}]",
 						_table_name
 					),

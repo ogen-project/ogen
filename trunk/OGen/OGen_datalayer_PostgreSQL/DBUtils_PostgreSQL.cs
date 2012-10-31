@@ -95,7 +95,11 @@ namespace OGen.lib.datalayer.PostgreSQL {
 						} else {
 							// ToDos: later! check if changes made are correct (I need test units for this)
 							// return string.Format("timestamp ''{0}''", _datetime.ToString("yyyy-MM-dd HH:mm:ss"));
-							return string.Format("timestamp '{0}'", _datetime.ToString("yyyy-MM-dd HH:mm:ss"));
+							return string.Format(
+								System.Globalization.CultureInfo.CurrentCulture, 
+								"timestamp '{0}'", 
+								_datetime.ToString("yyyy-MM-dd HH:mm:ss")
+							);
 						}
 
 					case "System.Boolean":
@@ -119,6 +123,7 @@ namespace OGen.lib.datalayer.PostgreSQL {
 			}
 
 			throw new Exception (string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"not implemented for: {0}",
 				object_in.GetType().ToString()
 			));
@@ -198,7 +203,11 @@ namespace OGen.lib.datalayer.PostgreSQL {
 				//	return ePgsqlDbType.Serial;
 
 				default:
-					throw new Exception(string.Format("invalid db type: {0}", value_in));
+					throw new Exception(string.Format(
+						System.Globalization.CultureInfo.CurrentCulture, 
+						"invalid db type: {0}", 
+						value_in
+					));
 			}
 		}
 		#endregion
@@ -251,6 +260,7 @@ namespace OGen.lib.datalayer.PostgreSQL {
 
 				default:
 					throw new Exception(string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"undefined variable type: {0}",
 						((NpgsqlDbType)xDbType_in).ToString()
 					));
@@ -276,6 +286,7 @@ namespace OGen.lib.datalayer.PostgreSQL {
 			}
 			throw new Exception(
 				string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"{0}.{1}.ParseParameter(): - error parsing db connectionstring: 'PostgreSQL|{2}'",
 					typeof(DBUtils_connectionString_PostgreSQL).Namespace,
 					typeof(DBUtils_connectionString_PostgreSQL).Name,
@@ -296,6 +307,7 @@ namespace OGen.lib.datalayer.PostgreSQL {
 			string databaseName_in
 		) {
 			return string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"Server={0};User ID={1};Password={2};Database={3};", 
 				serverName_in, 
 				userName_in, 
