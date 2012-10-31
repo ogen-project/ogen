@@ -16,10 +16,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 namespace OGen.lib.parser {
 	using System;
+	using System.Collections;
+	using System.IO;
 	using System.Web;
 	using System.Web.Hosting;
-	using System.IO;
-	using System.Collections;
 
 	public static class ParserASPX {
 

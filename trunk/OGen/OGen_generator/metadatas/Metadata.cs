@@ -13,14 +13,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-using System;
-using System.Collections;
-using System.IO;
-using System.Xml.Serialization;
-
-using OGen.lib.collections;
-
 namespace OGen.lib.metadata {
+	using System;
+	using System.Collections;
+	using System.IO;
+	using System.Xml.Serialization;
+
+	using OGen.lib.collections;
+
 	public class Metadata {
 		#region public string XMLFilename { get; set; }
 		private string xmlfilename_;

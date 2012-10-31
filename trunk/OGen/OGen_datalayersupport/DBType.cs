@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
 
 namespace OGen.lib.datalayer {
+	using System;
+	using System.Data;
+
 	public class cDBType {
 //		#region public cDBType(...);
 		public cDBType(
@@ -33,13 +34,13 @@ namespace OGen.lib.datalayer {
 //		#region public DbType Value;
 		private DbType value_;
 		public DbType Value {
-			get { return value_; }
+			get { return this.value_; }
 			set {
-				value_ = value;
-				fwtype_ = DBUtils_convert.DbType2NSysType(value);
-				fwemptyvalue_ = DBUtils_convert.DBType2NSysEmptyValue(value);
-				fwunittestvalue_ = DBUtils_convert.DBType2NUnitTestValue(value);
-//				dbemptyvalue_ = DBUtils_convert.DBType2DBEmptyValue(value, dbservertype_);
+				this.value_ = value;
+				this.fwtype_ = DBUtils_convert.DbType2NSysType(value);
+				this.fwemptyvalue_ = DBUtils_convert.DBType2NSysEmptyValue(value);
+				this.fwunittestvalue_ = DBUtils_convert.DBType2NUnitTestValue(value);
+//				this.dbemptyvalue_ = DBUtils_convert.DBType2DBEmptyValue(value, dbservertype_);
 			}
 		}
 //		#endregion
@@ -47,19 +48,19 @@ namespace OGen.lib.datalayer {
 		#region public string FWType;
 		private string fwtype_;
 		public string FWType {
-			get { return fwtype_; }
+			get { return this.fwtype_; }
 		}
 		#endregion
 		#region public string FWEmptyValue;
 		private string fwemptyvalue_;
 		public string FWEmptyValue {
-			get { return fwemptyvalue_; }
+			get { return this.fwemptyvalue_; }
 		}
 		#endregion
 		#region public string FWUnitTestValue;
 		private string fwunittestvalue_;
 		public string FWUnitTestValue {
-			get { return fwunittestvalue_; }
+			get { return this.fwunittestvalue_; }
 		}
 		#endregion
 //		#region public string DBEmptyValue;

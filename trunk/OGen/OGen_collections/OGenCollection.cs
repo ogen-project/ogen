@@ -14,10 +14,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 
 #if !NET_1_1
-using System;
-using System.Collections.Generic;
 
 namespace OGen.lib.collections {
+	using System;
+	using System.Collections.Generic;
+
 	public class OGenRootrefCollection<C, R, K> : OGenCollection<C, K>
 		where C : 
 			class,
@@ -31,12 +32,12 @@ namespace OGen.lib.collections {
 
 		public object parent_ref {
 			get {
-				return parent_ref_;
+				return this.parent_ref_;
 			}
 			set {
-				parent_ref_ = value;
+				this.parent_ref_ = value;
 				for (int i = 0; i < cols_.Count; i++) {
-					cols_[i].parent_ref = this;
+					this.cols_[i].parent_ref = this;
 				}
 			}
 		}
@@ -46,10 +47,10 @@ namespace OGen.lib.collections {
 
 		public R root_ref {
 			get {
-				return root_ref_;
+				return this.root_ref_;
 			}
 			set {
-				root_ref_ = value;
+				this.root_ref_ = value;
 				for (int i = 0; i < cols_.Count; i++) {
 					cols_[i].root_ref = value;
 				}
@@ -60,26 +61,26 @@ namespace OGen.lib.collections {
 		private void refresh_refs(params C[] col_in) {
 			for (int i = 0; i < col_in.Length; i++) {
 				col_in[i].parent_ref = this;
-				col_in[i].root_ref = root_ref;
+				col_in[i].root_ref = this.root_ref;
 			}
 		}
 		#endregion
 
 		#region public override void Add(...);
 		public override void Add(bool ifNotExists_in, params C[] col_in) {
-			refresh_refs(col_in);
+			this.refresh_refs(col_in);
 			base.Add(ifNotExists_in, col_in);
 		}
 		public override void Add(out int returnIndex_out, bool ifNotExists_in, params C[] col_in) {
-			refresh_refs(col_in);
+			this.refresh_refs(col_in);
 			base.Add(out returnIndex_out, ifNotExists_in, col_in);
 		}
 		public override void Add(out int returnIndex_out, params C[] col_in) {
-			refresh_refs(col_in);
+			this.refresh_refs(col_in);
 			base.Add(out returnIndex_out, col_in);
 		}
 		public override void Add(params C[] col_in) {
-			refresh_refs(col_in);
+			this.refresh_refs(col_in);
 			base.Add(col_in);
 		}
 		#endregion
@@ -95,12 +96,12 @@ namespace OGen.lib.collections {
 
 		public object parent_ref {
 			get {
-				return parent_ref_;
+				return this.parent_ref_;
 			}
 			set {
-				parent_ref_ = value;
-				for (int i = 0; i < cols_.Count; i++) {
-					((C)cols_[i]).parent_ref = this;
+				this.parent_ref_ = value;
+				for (int i = 0; i < this.cols_.Count; i++) {
+					((C)this.cols_[i]).parent_ref = this;
 				}
 			}
 		}
@@ -110,12 +111,12 @@ namespace OGen.lib.collections {
 
 		public R root_ref {
 			get {
-				return root_ref_;
+				return this.root_ref_;
 			}
 			set {
-				root_ref_ = value;
-				for (int i = 0; i < cols_.Count; i++) {
-					((C)cols_[i]).root_ref = value;
+				this.root_ref_ = value;
+				for (int i = 0; i < this.cols_.Count; i++) {
+					((C)this.cols_[i]).root_ref = value;
 				}
 			}
 		}
@@ -124,18 +125,18 @@ namespace OGen.lib.collections {
 		private void refresh_refs(params C[] col_in) {
 			for (int i = 0; i < col_in.Length; i++) {
 				col_in[i].parent_ref = this;
-				col_in[i].root_ref = root_ref;
+				col_in[i].root_ref = this.root_ref;
 			}
 		}
 		#endregion
 
 		#region public override void Add(...);
 		public override void Add(out int returnIndex_out, params C[] col_in) {
-			refresh_refs(col_in);
+			this.refresh_refs(col_in);
 			base.Add(out returnIndex_out, col_in);
 		}
 		public override void Add(params C[] col_in) {
-			refresh_refs(col_in);
+			this.refresh_refs(col_in);
 			base.Add(col_in);
 		}
 		#endregion
@@ -152,18 +153,18 @@ namespace OGen.lib.collections {
 		#region public C this[...] { get; }
 		public C this[C collectionItem_in] {
 			get {
-				int _index = Search(collectionItem_in);
+				int _index = this.Search(collectionItem_in);
 				return (_index == -1)
 					? null
-					: cols_[_index];
+					: this.cols_[_index];
 			}
 		}
 		public C this[params K[] keys_in] {
 			get {
-				int _index = Search(keys_in);
+				int _index = this.Search(keys_in);
 				return (_index == -1)
 					? null
-					: cols_[_index];
+					: this.cols_[_index];
 			}
 		}
 		#endregion
@@ -192,8 +193,8 @@ namespace OGen.lib.collections {
 		public virtual void Add(bool ifNotExists_in, params C[] col_in) {
 			for (int i = 0; i < col_in.Length; i++) {
 				if (ifNotExists_in) {
-					if (Search(col_in[i]) == -1) {
-						Add(col_in[i]);
+					if (this.Search(col_in[i]) == -1) {
+						this.Add(col_in[i]);
 					}
 				}
 			}
@@ -202,9 +203,9 @@ namespace OGen.lib.collections {
 			returnIndex_out = -1;
 			for (int i = 0; i < col_in.Length; i++) {
 				if (ifNotExists_in) {
-					returnIndex_out = Search(col_in[i]);
+					returnIndex_out = this.Search(col_in[i]);
 					if (returnIndex_out == -1) {
-						Add(out returnIndex_out, col_in[i]);
+						this.Add(out returnIndex_out, col_in[i]);
 					}
 				}
 			}
@@ -212,8 +213,8 @@ namespace OGen.lib.collections {
 		#endregion
 		#region public void Remove(params K[] keys_in);
 		public void Remove(params K[] keys_in) {
-			RemoveAt(
-				Search(keys_in)
+			this.RemoveAt(
+				this.Search(keys_in)
 			);
 		}
 		#endregion
@@ -223,7 +224,7 @@ namespace OGen.lib.collections {
 	{
 		public OGenSimpleCollection(
 		) {
-			cols_ = new List<C>();
+			this.cols_ = new List<C>();
 		}
 
 		#region public C[] cols__ { get; set; }
@@ -231,15 +232,15 @@ namespace OGen.lib.collections {
 
 		public C[] cols__ {
 			get {
-				C[] _output = new C[cols_.Count];
-				cols_.CopyTo(_output);
+				C[] _output = new C[this.cols_.Count];
+				this.cols_.CopyTo(_output);
 				return _output;
 			}
 			set {
-				cols_.Clear();
+				this.cols_.Clear();
 				if (value != null) {
 					for (int i = 0; i < value.Length; i++) {
-						cols_.Add(value[i]);
+						this.cols_.Add(value[i]);
 					}
 				}
 			}
@@ -249,7 +250,7 @@ namespace OGen.lib.collections {
 		#region public int Count { get; }
 		public int Count {
 			get {
-				return cols_.Count;
+				return this.cols_.Count;
 			}
 		}
 		#endregion
@@ -257,14 +258,14 @@ namespace OGen.lib.collections {
 		#region public C this[int index_in] { get; }
 		public C this[int index_in] {
 			get {
-				return cols_[index_in];
+				return this.cols_[index_in];
 			}
 		}
 		#endregion
 
 		#region public void Clear();
 		public void Clear() {
-			cols_.Clear();
+			this.cols_.Clear();
 		}
 		#endregion
 		#region public virtual void Add(...);
@@ -277,14 +278,14 @@ namespace OGen.lib.collections {
 			returnIndex_out = -1;
 
 			for (int i = 0; i < col_in.Length - 1; i++) {
-				cols_.Add(col_in[i]);
+				this.cols_.Add(col_in[i]);
 			}
 
 			int j = col_in.Length - 1;
 			if (j >= 0) {
-				lock (cols_) {
-					cols_.Add(col_in[j]);
-					returnIndex_out = cols_.Count - 1;
+				lock (this.cols_) {
+					this.cols_.Add(col_in[j]);
+					returnIndex_out = this.cols_.Count - 1;
 				}
 			}
 		}
@@ -295,13 +296,13 @@ namespace OGen.lib.collections {
 		/// <param name="col_in">item(s) to be added to the collection</param>
 		public virtual void Add(params C[] col_in) {
 			for (int i = 0; i < col_in.Length; i++) {
-				cols_.Add(col_in[i]);
+				this.cols_.Add(col_in[i]);
 			}
 		}
 		#endregion
 		#region public void RemoveAt(int index_in);
 		public void RemoveAt(int index_in) {
-			cols_.RemoveAt(index_in);
+			this.cols_.RemoveAt(index_in);
 		}
 		#endregion
 	}

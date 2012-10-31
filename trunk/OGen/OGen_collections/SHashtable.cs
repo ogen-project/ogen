@@ -12,18 +12,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections;
 
 namespace OGen.lib.collections {
+	using System;
+	using System.Collections;
+
 	#region public class SHashtableItem;
 	public class SHashtableItem {
 		public SHashtableItem(
 			string name_in,
 			object value_in
 		) {
-			Name = name_in;
-			Value = value_in;
+			this.Name = name_in;
+			this.Value = value_in;
 		}
 		public string Name;
 		public object Value;
@@ -53,8 +54,8 @@ namespace OGen.lib.collections {
 	public class SHashtable /*: ISHashtable*/ {
 		#region public SHashtable(...);
 		public SHashtable() {
-			arraylist_ = new ArrayList();
-			keys_ = new SHashtableKeys(this);
+			this.arraylist_ = new ArrayList();
+			this.keys_ = new SHashtableKeys(this);
 		}
 		#endregion
 
@@ -72,7 +73,7 @@ namespace OGen.lib.collections {
 			#region public SHashtableKeys(...);
 			private SHashtableKeys() {}
 			public SHashtableKeys(SHashtable parent_ref_in) {
-				parent_ref_ = parent_ref_in;
+				this.parent_ref_ = parent_ref_in;
 			}
 			#endregion
 
@@ -80,13 +81,13 @@ namespace OGen.lib.collections {
 
 			#region public int Count { get; }
 			public int Count {
-				get { return parent_ref_.Count; }
+				get { return this.parent_ref_.Count; }
 			}
 			#endregion
 			#region public string this[int index_in] { get; }
 			public string this[int index_in] {
 				get {
-					return ((SHashtableItem)parent_ref_.arraylist_[index_in]).Name;
+					return ((SHashtableItem)this.parent_ref_.arraylist_[index_in]).Name;
 				}
 			}
 			#endregion
@@ -97,35 +98,35 @@ namespace OGen.lib.collections {
 		#region public SHashtableKeys Keys { get; }
 		private SHashtableKeys keys_;
 		public ISHashtableKeys Keys {
-			get { return keys_; }
+			get { return this.keys_; }
 		}
 		#endregion
 		#region public int Count { get; }
 		public int Count {
-			get { return arraylist_.Count; }
+			get { return this.arraylist_.Count; }
 		}
 		#endregion
 		#region public object this[...] { get; }
 		public object this[int index_in] {
 			get {
-				return (index_in >= 0) 
-					? ((SHashtableItem)arraylist_[index_in]).Value 
+				return (index_in >= 0)
+					? ((SHashtableItem)this.arraylist_[index_in]).Value 
 					: null;
 			}
 			set {
-				((SHashtableItem)arraylist_[index_in]).Value = value;
+				((SHashtableItem)this.arraylist_[index_in]).Value = value;
 			}
 		}
 		public object this[string name_in] {
 			get {
-				return this[Search(name_in)];
+				return this[this.Search(name_in)];
 			}
 			set {
-				int _i = Search(name_in);
+				int _i = this.Search(name_in);
 				if (_i >= 0)
-					((SHashtableItem)arraylist_[_i]).Value = value;
+					((SHashtableItem)this.arraylist_[_i]).Value = value;
 				else
-					Add(name_in, value);
+					this.Add(name_in, value);
 			}
 		}
 		#endregion
@@ -134,8 +135,8 @@ namespace OGen.lib.collections {
 		#region public Methods...
 		#region public int Search(...);
 		public int Search(string name_in) {
-			for (int i = 0; i < arraylist_.Count; i++) {
-				if (((SHashtableItem)arraylist_[i]).Name == name_in) {
+			for (int i = 0; i < this.arraylist_.Count; i++) {
+				if (((SHashtableItem)this.arraylist_[i]).Name == name_in) {
 					return i;
 				}
 			}
@@ -144,10 +145,10 @@ namespace OGen.lib.collections {
 		#endregion
 		#region public int Add(...);
 		public int Add(SHashtableItem item_in) {
-			return arraylist_.Add(item_in);
+			return this.arraylist_.Add(item_in);
 		}
 		public int Add(string name_in, object value_in) {
-			return Add(new SHashtableItem(name_in, value_in));
+			return this.Add(new SHashtableItem(name_in, value_in));
 		}
 		#endregion
 		#endregion

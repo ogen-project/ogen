@@ -14,9 +14,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 
 #if !NET_1_1
-using System;
 
 namespace OGen.lib.collections {
+	using System;
+
 	public interface OGenRootrefCollectionInterface<R> {
 		object parent_ref {
 			get;

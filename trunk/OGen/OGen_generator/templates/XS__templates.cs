@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
 
 namespace OGen.lib.templates {
+	using System;
+	using System.Xml.Serialization;
+
 	[System.Xml.Serialization.XmlRootAttribute("templates")]
 	#if NET_1_1
 	public class XS__templates : XS0__templates {

@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
 
 namespace OGen.NTier.lib.datalayer {
+	using System;
+	using System.Collections.Generic;
+
 	[Serializable()]
 	public abstract class SO__ListItem<V, T> : SO__base, ISO__ListItem<V, T> {
 		public abstract V ListItem_Value {

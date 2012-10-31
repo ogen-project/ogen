@@ -12,17 +12,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
 
 namespace OGen.lib.datalayer {
+	using System;
+
 	public class DBSimpleConnectionstring {
 		#region public DBSimpleConnectionstring(...);
 		public DBSimpleConnectionstring(
 			DBServerTypes dbServerType_in, 
 			string connectionstring_in
 		) {
-			dbservertype_ = dbServerType_in;
-			connectionstring_ = connectionstring_in;
+			this.dbservertype_ = dbServerType_in;
+			this.connectionstring_ = connectionstring_in;
 		}
 		#endregion
 
@@ -30,16 +31,16 @@ namespace OGen.lib.datalayer {
 		protected DBServerTypes dbservertype_;
 
 		public DBServerTypes DBServerType {
-			get { return dbservertype_; }
-			set { dbservertype_ = value; }
+			get { return this.dbservertype_; }
+			set { this.dbservertype_ = value; }
 		}
 		#endregion
 		#region public string Connectionstring { get; set; }
 		protected string connectionstring_;
 
 		public string Connectionstring {
-			get { return connectionstring_; }
-			set { connectionstring_ = value; }
+			get { return this.connectionstring_; }
+			set { this.connectionstring_ = value; }
 		}
 		#endregion
 	}

@@ -13,15 +13,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-using System;
-using System.Collections;
-using System.IO;
-using System.Xml.Serialization;
-
-using OGen.lib.collections;
-using OGen.lib.generator;
-
 namespace OGen.lib.metadata {
+	using System;
+	using System.Collections;
+	using System.IO;
+	using System.Xml.Serialization;
+
+	using OGen.lib.collections;
+	using OGen.lib.generator;
+
 	[System.Xml.Serialization.XmlRootAttribute("metadatas")]
 	public class Metadatas : MetadataInterface {
 		//public Metadatas() {

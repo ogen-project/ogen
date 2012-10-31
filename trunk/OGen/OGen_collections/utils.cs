@@ -12,9 +12,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
 
 namespace OGen.lib.collections {
+	using System;
+
 #if NET_1_1
 	public class utils { private utils() {}
 #else

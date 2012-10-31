@@ -12,11 +12,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections;
-using OGen.lib.datalayer;
 
 namespace OGen.lib.generator {
+	using System;
+	using System.Collections;
+	using OGen.lib.datalayer;
+
 	public class DBConnectionstrings {
 		#region public DBConnectionstrings();
 		public DBConnectionstrings() {

@@ -12,11 +12,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace OGen.lib.generator {
+	using System;
+	using System.Collections.Generic;
+	using System.Text;
+
 	public class Statistics {
 		public Statistics(
 			bool countLines_in,
