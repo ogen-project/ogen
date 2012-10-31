@@ -12,13 +12,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Data.OleDb;
-
-using OGen.SpreadsheetXML.lib.metadata.spreadsheet;
 
 namespace SpreadsheetXML_Console {
+	using System;
+	using System.Data;
+	using System.Data.OleDb;
+
+	using OGen.SpreadsheetXML.lib.metadata.spreadsheet;
+
 	class Program {
 		static void Main(string[] args) {
 			#region string _ssFilePath = args[0];

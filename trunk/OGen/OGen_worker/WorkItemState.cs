@@ -12,9 +12,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
 
 namespace OGen.lib.worker {
+	using System;
 
 	/// <summary>
 	/// Work Item Enumeration

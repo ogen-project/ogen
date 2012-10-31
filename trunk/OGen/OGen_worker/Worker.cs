@@ -12,10 +12,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Text;
 
 namespace OGen.lib.worker {
+	using System;
+	using System.Text;
 
 	/// <summary>
 	/// Worker class
@@ -85,7 +85,7 @@ namespace OGen.lib.worker {
 			bool _othersstillworking;
 			do {
 
-				lock (WorkLocker) {
+				lock (this.WorkLocker) {
 					_item = null;
 					_itemsonqueue = false;
 					_othersstillworking = false;

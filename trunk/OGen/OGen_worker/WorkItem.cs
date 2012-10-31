@@ -12,10 +12,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Text;
 
 namespace OGen.lib.worker {
+	using System;
+	using System.Text;
 
 	/// <summary>
 	/// Work Item
