@@ -12,12 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Reflection;
-using OGen.NTier.lib.businesslayer;
 
 namespace OGen.NTier.lib.metadata.metadataBusiness {
+	using System;
+	using System.Reflection;
+	using System.Xml.Serialization;
+	using OGen.NTier.lib.businesslayer;
+
 	[System.Xml.Serialization.XmlRootAttribute("metadataBusiness")]
 	#if NET_1_1
 	public class XS__metadataBusiness : XS0__metadataBusiness {
@@ -26,15 +27,15 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 	#endif
 
 		private static string translate(string what_in) {
-			if (what_in == typeof(System.String).ToString())
+			if (what_in == typeof(string).ToString())
 				return "string";
-			else if (what_in == typeof(System.Int32).ToString())
+			else if (what_in == typeof(int).ToString())
 				return "int";
-			else if (what_in == typeof(System.Int64).ToString())
+			else if (what_in == typeof(long).ToString())
 				return "long";
 			else if (what_in == "System.Void")
 				return "void";
-			else if (what_in == typeof(System.Boolean).ToString())
+			else if (what_in == typeof(bool).ToString())
 				return "bool";
 
 			return what_in;
@@ -62,7 +63,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			//_assembly.GetReferencedAssemblies();
 
 			if (_assembly == null) {
-				throw new Exception(String.Format(
+				throw new Exception(string.Format(
 					"can't load assembly 'assemblyName_in'\n at: {0}.{1}.Load_fromAssembly();",
 					typeof(XS__metadataBusiness).Namespace,
 					typeof(XS__metadataBusiness).Name,

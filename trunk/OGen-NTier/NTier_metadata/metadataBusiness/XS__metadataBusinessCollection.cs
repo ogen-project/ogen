@@ -12,11 +12,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Xml.Serialization;
 
 namespace OGen.NTier.lib.metadata.metadataBusiness {
+	using System;
+	using System.IO;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS__metadataBusinessCollection : XS0__metadataBusinessCollection {
 	#else

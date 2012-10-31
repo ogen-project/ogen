@@ -12,12 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-
-using OGen.lib.datalayer;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
+	using System;
+	using System.Xml.Serialization;
+
+	using OGen.lib.datalayer;
+
 	[System.Xml.Serialization.XmlRootAttribute("metadataDB")]
 	#if NET_1_1
 	public class XS__metadataDB : XS0__metadataDB {

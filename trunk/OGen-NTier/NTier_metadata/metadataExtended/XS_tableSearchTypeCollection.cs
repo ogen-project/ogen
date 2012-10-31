@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
-#if !NET_1_1
-using System.Collections.Generic;
-#endif
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.Collections;
+	#if !NET_1_1
+	using System.Collections.Generic;
+	#endif
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS_tableSearchTypeCollection : XS0_tableSearchTypeCollection {
 	#else

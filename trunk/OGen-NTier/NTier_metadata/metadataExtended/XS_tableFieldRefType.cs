@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS_tableFieldRefType : XS0_tableFieldRefType {
 	#else
@@ -27,7 +28,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public XS_tableFieldRefType (
 			string paramName_in
 		) {
-			paramname_ = paramName_in;
+			this.paramname_ = paramName_in;
 		}
 
 		#region public XS_tableType Table_ref { get; }
@@ -38,16 +39,16 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			get {
 
 				// check before lock
-				if (table_ref__ == null) {
+				if (this.table_ref__ == null) {
 
-					lock (table_ref__locker) {
+					lock (this.table_ref__locker) {
 
 						// double check, thread safer!
-						if (table_ref__ == null) {
+						if (this.table_ref__ == null) {
 
 							// initialization...
 							#region Checking...
-							if (string.IsNullOrEmpty(TableName))
+							if (string.IsNullOrEmpty(this.TableName))
 								throw new Exception(string.Format(
 									"{0}.{1}.TableIndex(): - no ref present",
 									this.GetType().Namespace,
@@ -56,15 +57,15 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 							#endregion
 
 							// ...attribution (last thing before unlock)
-							table_ref__
-								= root_ref.MetadataExtendedCollection[0].Tables.TableCollection[
-									TableName
+							this.table_ref__
+								= this.root_ref.MetadataExtendedCollection[0].Tables.TableCollection[
+									this.TableName
 								];
 						}
 					}
 				}
 
-				return table_ref__;
+				return this.table_ref__;
 			}
 		}
 		#endregion
@@ -76,19 +77,19 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			get {
 
 				// check before lock
-				if (tablefield_ref__ == null) {
+				if (this.tablefield_ref__ == null) {
 
-					lock (tablefield_ref__locker) {
+					lock (this.tablefield_ref__locker) {
 
 						// double check, thread safer!
-						if (tablefield_ref__ == null) {
+						if (this.tablefield_ref__ == null) {
 
 							// initialization...
 							#region Checking...
 							if (
-								string.IsNullOrEmpty(TableName)
+								string.IsNullOrEmpty(this.TableName)
 								||
-								string.IsNullOrEmpty(TableFieldName)
+								string.IsNullOrEmpty(this.TableFieldName)
 							)
 								throw new Exception(string.Format(
 									"{0}.{1}.FieldIndex(): - no ref present",
@@ -98,15 +99,15 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 							#endregion
 
 							// ...attribution (last thing before unlock)
-							tablefield_ref__
-								= Table_ref.TableFields.TableFieldCollection[
-									TableFieldName
+							this.tablefield_ref__
+								= this.Table_ref.TableFields.TableFieldCollection[
+									this.TableFieldName
 								];
 						}
 					}
 				}
 
-				return tablefield_ref__;
+				return this.tablefield_ref__;
 			}
 		}
 		#endregion

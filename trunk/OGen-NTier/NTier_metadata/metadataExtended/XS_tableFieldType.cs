@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS_tableFieldType : XS0_tableFieldType {
 	#else
@@ -27,7 +28,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public XS_tableFieldType (
 			string name_in
 		) {
-			name_ = name_in;
+			this.name_ = name_in;
 		}
 
 		#region public XS_tableType parent_table_ref { get; }
@@ -38,26 +39,26 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 			get {
 
 				// check before lock
-				if (parent_table_ref__ == null) {
+				if (this.parent_table_ref__ == null) {
 
-					lock (parent_table_ref__locker) {
+					lock (this.parent_table_ref__locker) {
 
 						// double check, thread safer!
-						if (parent_table_ref__ == null) {
+						if (this.parent_table_ref__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							parent_table_ref__
+							this.parent_table_ref__
 								= (XS_tableType)(
 									(XS_tableFieldsType)(
-										(XS_tableFieldTypeCollection)parent_ref
+										(XS_tableFieldTypeCollection)this.parent_ref
 									).parent_ref
 								).parent_ref;
 						}
 					}
 				}
 
-				return parent_table_ref__;
+				return this.parent_table_ref__;
 			}
 		}
 		#endregion
@@ -73,51 +74,51 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 				// check before lock
 				if (
-					parallel_ref__exists
+					this.parallel_ref__exists
 					&&
-					(parallel_ref__ == null)
+					(this.parallel_ref__ == null)
 				) {
 
-					lock (parallel_ref__locker) {
+					lock (this.parallel_ref__locker) {
 
 						// double check, thread safer!
 						if (
-							parallel_ref__exists
+							this.parallel_ref__exists
 							&&
-							(parallel_ref__ == null)
+							(this.parallel_ref__ == null)
 						) {
 
 							// initialization...
 							int t
-								= root_ref.MetadataDBCollection[0].Tables.TableCollection.Search(
-									parent_table_ref.Name
+								= this.root_ref.MetadataDBCollection[0].Tables.TableCollection.Search(
+									this.parent_table_ref.Name
 								);
 							if (t < 0) {
 								// ...attribution (last thing before unlock)
-								parallel_ref__exists = false;
+								this.parallel_ref__exists = false;
 								return null;
 							}
 
 							int f
-								= root_ref.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection.Search(
-									Name
+								= this.root_ref.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection.Search(
+									this.Name
 								);
 							if (f < 0) {
 								// ...attribution (last thing before unlock)
-								parallel_ref__exists = false;
+								this.parallel_ref__exists = false;
 								return null;
 							}
 
 							// ...attribution (last thing before unlock)
-							parallel_ref__
-								= root_ref.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[
+							this.parallel_ref__
+								= this.root_ref.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[
 									f
 								];
 						}
 					}
 				}
 
-				return parallel_ref__;
+				return this.parallel_ref__;
 			}
 		}
 		#endregion
@@ -126,7 +127,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public bool isConfig_Name {
 			get {
-				return (parent_table_ref.ConfigName == Name);
+				return (this.parent_table_ref.ConfigName == this.Name);
 			}
 		}
 		#endregion
@@ -134,7 +135,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public bool isConfig_Config {
 			get {
-				return (parent_table_ref.ConfigConfig == Name);
+				return (this.parent_table_ref.ConfigConfig == this.Name);
 			}
 		}
 		#endregion
@@ -142,7 +143,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlIgnore()]
 		public bool isConfig_Datatype {
 			get {
-				return (parent_table_ref.ConfigDatatype == Name);
+				return (this.parent_table_ref.ConfigDatatype == this.Name);
 			}
 		}
 		#endregion

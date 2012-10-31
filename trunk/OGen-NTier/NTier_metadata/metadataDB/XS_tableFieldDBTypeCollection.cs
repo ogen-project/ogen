@@ -12,15 +12,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
-#if !NET_1_1
-using System.Collections.Generic;
-#endif
-using OGen.lib.datalayer;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
+	using System;
+	using System.Collections;
+	#if !NET_1_1
+	using System.Collections.Generic;
+	#endif
+	using System.Xml.Serialization;
+	using OGen.lib.datalayer;
+
 	#if NET_1_1
 	public class XS_tableFieldDBTypeCollection : XS0_tableFieldDBTypeCollection {
 	#else
@@ -32,7 +33,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			DBServerTypes dbServerType_in
 		] {
 			get {
-				int _index = Search(
+				int _index = this.Search(
 					dbServerType_in
 				);
 				return (_index == -1)
@@ -41,7 +42,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 						#if NET_1_1
 						(XS_tableFieldDBType)
 						#endif
-							cols_[_index]
+							this.cols_[_index]
 				;
 			}
 		}
@@ -51,13 +52,13 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		public int Search(
 			DBServerTypes dbServerType_in
 		) {
-			for (int i = 0; i < cols_.Count; i++) {
+			for (int i = 0; i < this.cols_.Count; i++) {
 				if (
 					(
 						#if NET_1_1
 						((XS_tableFieldDBType)cols_[i])
 						#else
-						cols_[i]
+						this.cols_[i]
 						#endif
 							.DBServerType
 						==

@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS_tableType : XS0_tableType {
 	#else
@@ -27,15 +28,15 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public XS_tableType (
 			string name_in
 		) {
-			name_ = name_in;
+			this.name_ = name_in;
 		}
 
 		#region public XS_tableFieldType ListItemValue { get; }
 		public XS_tableFieldType ListItemValue {
 			get {
-				for (int f = 0; f < TableFields.TableFieldCollection.Count; f++) {
-					if (TableFields.TableFieldCollection[f].isListItemValue) {
-						return TableFields.TableFieldCollection[f];
+				for (int f = 0; f < this.TableFields.TableFieldCollection.Count; f++) {
+					if (this.TableFields.TableFieldCollection[f].isListItemValue) {
+						return this.TableFields.TableFieldCollection[f];
 					}
 				}
 				return null;
@@ -45,9 +46,9 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		#region public XS_tableFieldType ListItemText { get; }
 		public XS_tableFieldType ListItemText {
 			get {
-				for (int f = 0; f < TableFields.TableFieldCollection.Count; f++) {
-					if (TableFields.TableFieldCollection[f].isListItemText) {
-						return TableFields.TableFieldCollection[f];
+				for (int f = 0; f < this.TableFields.TableFieldCollection.Count; f++) {
+					if (this.TableFields.TableFieldCollection[f].isListItemText) {
+						return this.TableFields.TableFieldCollection[f];
 					}
 				}
 				return null;
@@ -60,7 +61,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("hasPK")]
 		public bool hasPK {
 			get {
-				return parallel_ref.hasPK;
+				return this.parallel_ref.hasPK;
 			}
 		}
 		#endregion
@@ -77,51 +78,51 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 
 				// check before lock
 				if (
-					parallel_ref__exists
+					this.parallel_ref__exists
 					&&
-					(parallel_ref__ == null)
+					(this.parallel_ref__ == null)
 				) {
 
-					lock (parallel_ref__locker) {
+					lock (this.parallel_ref__locker) {
 
 						// double check, thread safer!
 						if (
-							parallel_ref__exists
+							this.parallel_ref__exists
 							&&
-							(parallel_ref__ == null)
+							(this.parallel_ref__ == null)
 						) {
 
 							// initialization...
 							int t
-								= root_ref.MetadataDBCollection[0].Tables.TableCollection.Search(
-									Name
+								= this.root_ref.MetadataDBCollection[0].Tables.TableCollection.Search(
+									this.Name
 								);
 							if (t < 0) {
 								// ...attribution (last thing before unlock)
-								parallel_ref__exists = false;
+								this.parallel_ref__exists = false;
 								return null;
 							}
 
 							// ...attribution (last thing before unlock)
-							parallel_ref__
-								= root_ref.MetadataDBCollection[0].Tables.TableCollection[
+							this.parallel_ref__
+								= this.root_ref.MetadataDBCollection[0].Tables.TableCollection[
 									t
 								];
 						}
 					}
 				}
 
-				return parallel_ref__;
+				return this.parallel_ref__;
 			}
 		}
 		#endregion
 		#region public bool isListItem(...);
 		public bool isListItem() {
-			for (int f = 0; f < TableFields.TableFieldCollection.Count; f++) {
+			for (int f = 0; f < this.TableFields.TableFieldCollection.Count; f++) {
 				if (
-					(TableFields.TableFieldCollection[f].isListItemText)
+					(this.TableFields.TableFieldCollection[f].isListItemText)
 					||
-					(TableFields.TableFieldCollection[f].isListItemValue)
+					(this.TableFields.TableFieldCollection[f].isListItemValue)
 				) {
 					return true;
 				}

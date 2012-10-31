@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS_dbType : XS0_dbType {
 	#else
@@ -27,7 +28,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public XS_dbType (
 			string dbServerType_in
 		) {
-			dbservertype_ = dbServerType_in;
+			this.dbservertype_ = dbServerType_in;
 		}
 	}
 }

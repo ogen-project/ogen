@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using System.Collections;
-#if !NET_1_1
-using System.Collections.Generic;
-#endif
 
 namespace OGen.NTier.lib.metadata.metadataDB {
+	using System;
+	using System.Collections;
+	#if !NET_1_1
+	using System.Collections.Generic;
+	#endif
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS_tableFieldTypeCollection : XS0_tableFieldTypeCollection {
 	#else
@@ -34,12 +35,12 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			get {
 
 				// check before lock
-				if (count_onlypk__ == -2) {
+				if (this.count_onlypk__ == -2) {
 
-					lock (count_onlypk__locker) {
+					lock (this.count_onlypk__locker) {
 
 						// double check, thread safer!
-						if (count_onlypk__ == -2) {
+						if (this.count_onlypk__ == -2) {
 
 							// initialization...
 							int _count = 0;
@@ -48,12 +49,12 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 							}
 
 							// ...attribution (last thing before unlock)
-							count_onlypk__ = _count;
+							this.count_onlypk__ = _count;
 						}
 					}
 				}
 
-				return count_onlypk__;
+				return this.count_onlypk__;
 			}
 		}
 		#endregion

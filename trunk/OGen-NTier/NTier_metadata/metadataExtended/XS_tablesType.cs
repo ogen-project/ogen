@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS_tablesType : XS0_tablesType {
 	#else
@@ -34,33 +35,33 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 				// there won't be any more adding or removing
 
 				// check before lock
-				if (!hasvirtualtable_withundefinedkeys_DONE__) {
+				if (!this.hasvirtualtable_withundefinedkeys_DONE__) {
 
-					lock (hasvirtualtable_withundefinedkeys__locker) {
+					lock (this.hasvirtualtable_withundefinedkeys__locker) {
 
 						// double check, thread safer!
-						if (!hasvirtualtable_withundefinedkeys_DONE__) {
+						if (!this.hasvirtualtable_withundefinedkeys_DONE__) {
 
 							// initialization...
-							hasvirtualtable_withundefinedkeys__ = false;
-							for (int t = 0; t < TableCollection.Count; t++)
-								if (TableCollection[t].isVirtualTable)
+							this.hasvirtualtable_withundefinedkeys__ = false;
+							for (int t = 0; t < this.TableCollection.Count; t++)
+								if (this.TableCollection[t].isVirtualTable)
 									if (
-										TableCollection[t].parallel_ref
+										this.TableCollection[t].parallel_ref
 											.TableFields_onlyPK.TableFieldCollection
 												.Count == 0
 									) {
-										hasvirtualtable_withundefinedkeys__ = true;
+										this.hasvirtualtable_withundefinedkeys__ = true;
 										break;
 									}
 
 							// ...attribution (last thing before unlock)
-							hasvirtualtable_withundefinedkeys_DONE__ = true;
+							this.hasvirtualtable_withundefinedkeys_DONE__ = true;
 						}
 					}
 				}
 
-				return hasvirtualtable_withundefinedkeys__;
+				return this.hasvirtualtable_withundefinedkeys__;
 			}
 		}
 		#endregion
@@ -76,28 +77,28 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 				// there won't be any more adding or removing
 
 				// check before lock
-				if (!hasconfigtable_DONE__) {
+				if (!this.hasconfigtable_DONE__) {
 
-					lock (hasconfigtable__locker) {
+					lock (this.hasconfigtable__locker) {
 
 						// double check, thread safer!
-						if (!hasconfigtable_DONE__) {
+						if (!this.hasconfigtable_DONE__) {
 
 							// initialization...
-							hasconfigtable__ = false;
-							for (int t = 0; t < TableCollection.Count; t++)
-								if (TableCollection[t].isConfig) {
-									hasconfigtable__ = true;
+							this.hasconfigtable__ = false;
+							for (int t = 0; t < this.TableCollection.Count; t++)
+								if (this.TableCollection[t].isConfig) {
+									this.hasconfigtable__ = true;
 									break;
 								}
 
 							// ...attribution (last thing before unlock)
-							hasconfigtable_DONE__ = true;
+							this.hasconfigtable_DONE__ = true;
 						}
 					}
 				}
 
-				return hasconfigtable__;
+				return this.hasconfigtable__;
 			}
 		}
 		#endregion

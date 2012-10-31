@@ -12,11 +12,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-using OGen.lib.datalayer;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
+	using System;
+	using System.Xml.Serialization;
+	using OGen.lib.datalayer;
+
 	#if NET_1_1
 	public class XS_tableFieldType : XS0_tableFieldType {
 	#else
@@ -28,7 +29,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		public XS_tableFieldType (
 			string name_in
 		) {
-			name_ = name_in;
+			this.name_ = name_in;
 		}
 
 		#region public XS_tableType parent_table_ref { get; }
@@ -41,26 +42,26 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			get {
 
 				// check before lock
-				if (parent_table_ref__ == null) {
+				if (this.parent_table_ref__ == null) {
 
-					lock (parent_table_ref__locker) {
+					lock (this.parent_table_ref__locker) {
 
 						// double check, thread safer!
-						if (parent_table_ref__ == null) {
+						if (this.parent_table_ref__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							parent_table_ref__
+							this.parent_table_ref__
 								= (XS_tableType)(
 									(XS_tableFieldsType)(
-										(XS_tableFieldTypeCollection)parent_ref
+										(XS_tableFieldTypeCollection)this.parent_ref
 									).parent_ref
 								).parent_ref;
 						}
 					}
 				}
 
-				return parent_table_ref__;
+				return this.parent_table_ref__;
 			}
 		}
 		#endregion
@@ -74,51 +75,51 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 
 				// check before lock
 				if (
-					parallel_ref__exists
+					this.parallel_ref__exists
 					&&
-					(parallel_ref__ == null)
+					(this.parallel_ref__ == null)
 				) {
 
-					lock (parallel_ref__locker) {
+					lock (this.parallel_ref__locker) {
 
 						// double check, thread safer!
 						if (
-							parallel_ref__exists
+							this.parallel_ref__exists
 							&&
-							(parallel_ref__ == null)
+							(this.parallel_ref__ == null)
 						) {
 
 							// initialization...
-							int t 
-								= root_ref.MetadataExtendedCollection[0].Tables.TableCollection.Search(
-									parent_table_ref.Name
+							int t
+								= this.root_ref.MetadataExtendedCollection[0].Tables.TableCollection.Search(
+									this.parent_table_ref.Name
 								);
 							if (t < 0) {
 								// ...attribution (last thing before unlock)
-								parallel_ref__exists = false;
+								this.parallel_ref__exists = false;
 								return null;
 							}
 
 							int f
-								= root_ref.MetadataExtendedCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection.Search(
-									Name
+								= this.root_ref.MetadataExtendedCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection.Search(
+									this.Name
 								);
 							if (f < 0) {
 								// ...attribution (last thing before unlock)
-								parallel_ref__exists = false;
+								this.parallel_ref__exists = false;
 								return null;
 							}
 
 							// ...attribution (last thing before unlock)
-							parallel_ref__
-								= root_ref.MetadataExtendedCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[
+							this.parallel_ref__
+								= this.root_ref.MetadataExtendedCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[
 									f
 								];
 						}
 					}
 				}
 
-				return parallel_ref__;
+				return this.parallel_ref__;
 			}
 		}
 		#endregion
@@ -126,16 +127,14 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		#region public bool isBool { get; }
 		[XmlIgnore()]
 		public bool isBool {
-			get {
-				return TableFieldDBs.TableFieldDBCollection[0].isBool;
-			}
+			get { return this.TableFieldDBs.TableFieldDBCollection[0].isBool; }
 		}
 		#endregion
 		#region public bool isDateTime { get; }
 		[XmlIgnore()]
 		public bool isDateTime {
 			get {
-				return TableFieldDBs.TableFieldDBCollection[0].isDateTime;
+				return this.TableFieldDBs.TableFieldDBCollection[0].isDateTime;
 			}
 		}
 		#endregion
@@ -143,7 +142,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlIgnore()]
 		public bool isInt {
 			get {
-				return TableFieldDBs.TableFieldDBCollection[0].isInt;
+				return this.TableFieldDBs.TableFieldDBCollection[0].isInt;
 			}
 		}
 		#endregion
@@ -151,7 +150,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlIgnore()]
 		public bool isDecimal {
 			get {
-				return TableFieldDBs.TableFieldDBCollection[0].isDecimal;
+				return this.TableFieldDBs.TableFieldDBCollection[0].isDecimal;
 			}
 		}
 		#endregion
@@ -159,7 +158,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlIgnore()]
 		public bool isText {
 			get {
-				return TableFieldDBs.TableFieldDBCollection[0].isText;
+				return this.TableFieldDBs.TableFieldDBCollection[0].isText;
 			}
 		}
 		#endregion
@@ -167,7 +166,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		#region public cDBType DBType_generic { get; }
 		public cDBType DBType_generic {
 			get {
-				return TableFieldDBs.TableFieldDBCollection[0].DBType_generic;
+				return this.TableFieldDBs.TableFieldDBCollection[0].DBType_generic;
 			}
 		}
 		#endregion
@@ -175,17 +174,17 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		#region public bool canBeConfig_... { get; }
 		[XmlIgnore()]
 		public bool canBeConfig_Name {
-			get { return isText && isPK; }
+			get { return this.isText && this.isPK; }
 		}
 
 		[XmlIgnore()]
 		public bool canBeConfig_Config {
-			get { return isText && !isPK; }
+			get { return this.isText && !this.isPK; }
 		}
 
 		[XmlIgnore()]
 		public bool canBeConfig_Type {
-			get { return isInt && !isPK; }
+			get { return this.isInt && !this.isPK; }
 		}
 		#endregion
 	}

@@ -12,12 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections;
-using System.Xml.Serialization;
-using OGen.lib.datalayer;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.Collections;
+	using System.Xml.Serialization;
+	using OGen.lib.datalayer;
+
 	#if NET_1_1
 	public class XS_dbsType : XS0_dbsType {
 	#else
@@ -29,8 +30,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		[XmlAttribute("supports_SQLServer")]
 		public bool Supports_SQLServer {
 			get {
-				for (int d = 0; d < DBCollection.Count; d++) {
-					if (DBCollection[d].DBServerType == DBServerTypes.SQLServer.ToString()) {
+				for (int d = 0; d < this.DBCollection.Count; d++) {
+					if (this.DBCollection[d].DBServerType == DBServerTypes.SQLServer.ToString()) {
 						return true;
 					}
 				}
@@ -44,8 +45,8 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		public bool Supports_PostgreSQL {
 			get {
 #if PostgreSQL
-				for (int d = 0; d < DBCollection.Count; d++) {
-					if (DBCollection[d].DBServerType == DBServerTypes.PostgreSQL.ToString()) {
+				for (int d = 0; d < this.DBCollection.Count; d++) {
+					if (this.DBCollection[d].DBServerType == DBServerTypes.PostgreSQL.ToString()) {
 						return true;
 					}
 				}
@@ -74,11 +75,11 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		#region public string[] SupportedDBServerTypes();
 		public string[] SupportedDBServerTypes() {
 			ArrayList _dbservertypes = new ArrayList();
-			for (int d = 0; d < DBCollection.Count; d++) {
+			for (int d = 0; d < this.DBCollection.Count; d++) {
 				if (!_dbservertypes.Contains(
-					DBCollection[d].DBServerType
+					this.DBCollection[d].DBServerType
 				))
-					_dbservertypes.Add(DBCollection[d].DBServerType);
+					_dbservertypes.Add(this.DBCollection[d].DBServerType);
 			}
 
 			return (string[])_dbservertypes.ToArray(typeof(string));

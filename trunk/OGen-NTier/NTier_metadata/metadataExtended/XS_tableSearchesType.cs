@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
 
 namespace OGen.NTier.lib.metadata.metadataExtended {
+	using System;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS_tableSearchesType : XS0_tableSearchesType {
 	#else
@@ -34,29 +35,29 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 				// there won't be any more adding or removing
 
 				// check before lock
-				if (!hasexplicituniqueindex_DONE__) {
+				if (!this.hasexplicituniqueindex_DONE__) {
 
-					lock (hasexplicituniqueindex__locker) {
+					lock (this.hasexplicituniqueindex__locker) {
 
 						// double check, thread safer!
-						if (!hasexplicituniqueindex_DONE__) {
+						if (!this.hasexplicituniqueindex_DONE__) {
 
 							// initialization...
-							hasexplicituniqueindex__ = false;
-							for (int s = 0; s < TableSearchCollection.Count; s++) {
-								if (TableSearchCollection[s].isExplicitUniqueIndex) {
-									hasexplicituniqueindex__ = true;
+							this.hasexplicituniqueindex__ = false;
+							for (int s = 0; s < this.TableSearchCollection.Count; s++) {
+								if (this.TableSearchCollection[s].isExplicitUniqueIndex) {
+									this.hasexplicituniqueindex__ = true;
 									break;
 								}
 							}
 
 							// ...attribution (last thing before unlock)
-							hasexplicituniqueindex_DONE__ = true;
+							this.hasexplicituniqueindex_DONE__ = true;
 						}
 					}
 				}
 
-				return hasexplicituniqueindex__;
+				return this.hasexplicituniqueindex__;
 			}
 		}
 		#endregion

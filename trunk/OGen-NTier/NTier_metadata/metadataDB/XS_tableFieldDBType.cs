@@ -12,12 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
-
-using OGen.lib.datalayer;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
+	using System;
+	using System.Xml.Serialization;
+
+	using OGen.lib.datalayer;
+
 	#if NET_1_1
 	public class XS_tableFieldDBType : XS0_tableFieldDBType {
 	#else
@@ -29,7 +30,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		public XS_tableFieldDBType (
 			string dbServerType_in
 		) {
-			dbservertype_ = dbServerType_in;
+			this.dbservertype_ = dbServerType_in;
 		}
 
 		#region public int DBType_inDB { get; set; }
@@ -37,9 +38,9 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		public int DBType_inDB {
 			get {
 				return DBUtilssupport.GetInstance(
-					(DBServerTypes)Enum.Parse(typeof(DBServerTypes), DBServerType)
+					(DBServerTypes)Enum.Parse(typeof(DBServerTypes), this.DBServerType)
 				).Convert.XDbType_Parse(
-					DBType, 
+					this.DBType, 
 					false
 				);
 			}
@@ -54,9 +55,9 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 				);
 				DBType_generic_out.Value 
 					=  DBUtilssupport.GetInstance(
-						(DBServerTypes)Enum.Parse(typeof(DBServerTypes), DBServerType)
+						(DBServerTypes)Enum.Parse(typeof(DBServerTypes), this.DBServerType)
 					).Convert.XDbType2DbType(
-						DBType_inDB
+						this.DBType_inDB
 					);
 
 				return DBType_generic_out;
@@ -66,31 +67,31 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		#region public bool isBool { get; }
 		[XmlIgnore()]
 		public bool isBool {
-			get { return DBUtils.isBool(DBType_generic.Value); }
+			get { return DBUtils.isBool(this.DBType_generic.Value); }
 		}
 		#endregion
 		#region public bool isDateTime { get; }
 		[XmlIgnore()]
 		public bool isDateTime {
-			get { return DBUtils.isDateTime(DBType_generic.Value); }
+			get { return DBUtils.isDateTime(this.DBType_generic.Value); }
 		}
 		#endregion
 		#region public bool isInt { get; }
 		[XmlIgnore()]
 		public bool isInt {
-			get { return DBUtils.isInt(DBType_generic.Value); }
+			get { return DBUtils.isInt(this.DBType_generic.Value); }
 		}
 		#endregion
 		#region public bool isDecimal { get; }
 		[XmlIgnore()]
 		public bool isDecimal {
-			get { return DBUtils.isDecimal(DBType_generic.Value); }
+			get { return DBUtils.isDecimal(this.DBType_generic.Value); }
 		}
 		#endregion
 		#region public bool isText { get; }
 		[XmlIgnore()]
 		public bool isText {
-			get { return DBUtils.isText(DBType_generic.Value); }
+			get { return DBUtils.isText(this.DBType_generic.Value); }
 		}
 		#endregion
 	}

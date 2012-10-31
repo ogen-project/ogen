@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
 
 namespace OGen.NTier.lib.metadata.metadataBusiness {
+	using System;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS_methodType : XS0_methodType {
 	#else
@@ -23,13 +24,13 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 	#endif
 		public XS_methodType (
 		) {
-			ipparamnum_ = -1;
+			this.ipparamnum_ = -1;
 		}
 		public XS_methodType (
 			string name_in
 		) {
-			name_ = name_in;
-			ipparamnum_ = -1;
+			this.name_ = name_in;
+			this.ipparamnum_ = -1;
 		}
 	}
 }

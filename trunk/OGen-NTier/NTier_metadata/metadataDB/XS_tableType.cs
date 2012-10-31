@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
 
 namespace OGen.NTier.lib.metadata.metadataDB {
+	using System;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS_tableType : XS0_tableType {
 	#else
@@ -27,7 +28,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		public XS_tableType (
 			string name_in
 		) {
-			name_ = name_in;
+			this.name_ = name_in;
 		}
 
 		#region public metadataExtended.XS_tableType parallel_ref { get; }
@@ -42,40 +43,40 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 
 				// check before lock
 				if (
-					parallel_ref__exists
+					this.parallel_ref__exists
 					&&
-					(parallel_ref__ == null)
+					(this.parallel_ref__ == null)
 				) {
 
-					lock (parallel_ref__locker) {
+					lock (this.parallel_ref__locker) {
 
 						// double check, thread safer!
 						if (
-							parallel_ref__exists
+							this.parallel_ref__exists
 							&&
-							(parallel_ref__ == null)
+							(this.parallel_ref__ == null)
 						) {
 
 							// initialization...
 							int t
-								= root_ref.MetadataExtendedCollection[0].Tables.TableCollection.Search(
-									Name
+								= this.root_ref.MetadataExtendedCollection[0].Tables.TableCollection.Search(
+									this.Name
 								);
 							if (t < 0) {
-								parallel_ref__exists = false;
+								this.parallel_ref__exists = false;
 								return null;
 							}
 
 							// ...attribution (last thing before unlock)
-							parallel_ref__
-								= root_ref.MetadataExtendedCollection[0].Tables.TableCollection[
+							this.parallel_ref__
+								= this.root_ref.MetadataExtendedCollection[0].Tables.TableCollection[
 									t
 								];
 						}
 					}
 				}
 
-				return parallel_ref__;
+				return this.parallel_ref__;
 			}
 		}
 		#endregion
@@ -91,31 +92,31 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 				// there won't be any more adding or removing
 
 				// check before lock
-				if (tablefields_onlypk__ == null) {
+				if (this.tablefields_onlypk__ == null) {
 
-					lock (tablefields_onlypk__locker) {
+					lock (this.tablefields_onlypk__locker) {
 
 						// double check, thread safer!
-						if (tablefields_onlypk__ == null) {
+						if (this.tablefields_onlypk__ == null) {
 
 							// initialization...
 							XS_tableFieldsType _aux = new XS_tableFieldsType();
 							_aux.parent_ref = this;
-							_aux.root_ref = root_ref;
+							_aux.root_ref = this.root_ref;
 
-							for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
-								if (TableFields.TableFieldCollection[f].isPK)
+							for (int f = 0; f < this.TableFields.TableFieldCollection.Count; f++)
+								if (this.TableFields.TableFieldCollection[f].isPK)
 									_aux.TableFieldCollection.Add(
-										TableFields.TableFieldCollection[f]
+										this.TableFields.TableFieldCollection[f]
 									);
 
 							// ...attribution (last thing before unlock)
-							tablefields_onlypk__ = _aux;
+							this.tablefields_onlypk__ = _aux;
 						}
 					}
 				}
 
-				return tablefields_onlypk__;
+				return this.tablefields_onlypk__;
 			}
 		}
 		#endregion
@@ -130,31 +131,31 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 				// there won't be any more adding or removing
 
 				// check before lock
-				if (tablefields_nopk__ == null) {
+				if (this.tablefields_nopk__ == null) {
 
-					lock (tablefields_nopk__locker) {
+					lock (this.tablefields_nopk__locker) {
 
 						// double check, thread safer!
-						if (tablefields_nopk__ == null) {
+						if (this.tablefields_nopk__ == null) {
 
 							// initialization...
 							XS_tableFieldsType _aux = new XS_tableFieldsType();
 							_aux.parent_ref = this;
-							_aux.root_ref = root_ref;
+							_aux.root_ref = this.root_ref;
 
-							for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
-								if (!TableFields.TableFieldCollection[f].isPK)
+							for (int f = 0; f < this.TableFields.TableFieldCollection.Count; f++)
+								if (!this.TableFields.TableFieldCollection[f].isPK)
 									_aux.TableFieldCollection.Add(
-										TableFields.TableFieldCollection[f]
+										this.TableFields.TableFieldCollection[f]
 									);
 
 							// ...attribution (last thing before unlock)
-							tablefields_nopk__ = _aux;
+							this.tablefields_nopk__ = _aux;
 						}
 					}
 				}
 
-				return tablefields_nopk__;
+				return this.tablefields_nopk__;
 			}
 		}
 		#endregion
@@ -172,28 +173,28 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 				// there won't be any more adding or removing
 
 				// check before lock
-				if (!haspk__beenread) {
+				if (!this.haspk__beenread) {
 
-					lock (haspk__locker) {
+					lock (this.haspk__locker) {
 
 						// double check, thread safer!
-						if (!haspk__beenread) {
+						if (!this.haspk__beenread) {
 
 							// initialization...
-							haspk__ = false;
-							for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
-								if (TableFields.TableFieldCollection[f].isPK) {
-									haspk__ = true;
+							this.haspk__ = false;
+							for (int f = 0; f < this.TableFields.TableFieldCollection.Count; f++)
+								if (this.TableFields.TableFieldCollection[f].isPK) {
+									this.haspk__ = true;
 									break;
 								}
 
 							// ...attribution (last thing before unlock)
-							haspk__beenread = true;
+							this.haspk__beenread = true;
 						}
 					}
 				}
 
-				return haspk__;
+				return this.haspk__;
 			}
 		}
 		#endregion
@@ -211,28 +212,28 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 				// there won't be any more adding or removing
 
 				// check before lock
-				if (!hasidentitykey__beenread) {
+				if (!this.hasidentitykey__beenread) {
 
-					lock (hasidentitykey__locker) {
+					lock (this.hasidentitykey__locker) {
 
 						// double check, thread safer!
-						if (!hasidentitykey__beenread) {
+						if (!this.hasidentitykey__beenread) {
 
 							// initialization...
-							hasidentitykey__ = false;
-							for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
-								if (TableFields.TableFieldCollection[f].isIdentity) {
-									hasidentitykey__ = true;
+							this.hasidentitykey__ = false;
+							for (int f = 0; f < this.TableFields.TableFieldCollection.Count; f++)
+								if (this.TableFields.TableFieldCollection[f].isIdentity) {
+									this.hasidentitykey__ = true;
 									break;
 								}
 
 							// ...attribution (last thing before unlock)
-							hasidentitykey__beenread = true;
+							this.hasidentitykey__beenread = true;
 						}
 					}
 				}
 
-				return hasidentitykey__;
+				return this.hasidentitykey__;
 			}
 		}
 		#endregion
@@ -249,28 +250,28 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 				// there won't be any more adding or removing
 
 				// check before lock
-				if (identitykey__ == -2) {
+				if (this.identitykey__ == -2) {
 
-					lock (identitykey__locker) {
+					lock (this.identitykey__locker) {
 
 						// double check, thread safer!
-						if (identitykey__ == -2) {
+						if (this.identitykey__ == -2) {
 
 							// initialization...
 							int _aux = -1;
-							for (int f = 0; f < TableFields.TableFieldCollection.Count; f++)
-								if (TableFields.TableFieldCollection[f].isIdentity) {
+							for (int f = 0; f < this.TableFields.TableFieldCollection.Count; f++)
+								if (this.TableFields.TableFieldCollection[f].isIdentity) {
 									_aux = f;
 									break;
 								}
 
 							// ...attribution (last thing before unlock)
-							identitykey__ = _aux;
+							this.identitykey__ = _aux;
 						}
 					}
 				}
 
-				return identitykey__;
+				return this.identitykey__;
 			}
 		}
 		#endregion
@@ -285,20 +286,20 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 				// there won't be any more adding or removing
 
 				// check before lock
-				if (firstkey__ == -2) {
+				if (this.firstkey__ == -2) {
 
-					lock (firstkey__locker) {
+					lock (this.firstkey__locker) {
 
 						// double check, thread safer!
-						if (firstkey__ == -2) {
+						if (this.firstkey__ == -2) {
 
 							// initialization...
 							int _aux = -1;
-							for (int f = 0; f < TableFields.TableFieldCollection.Count; f++) {
+							for (int f = 0; f < this.TableFields.TableFieldCollection.Count; f++) {
 								if (
-									(TableFields.TableFieldCollection[f].isPK)
+									(this.TableFields.TableFieldCollection[f].isPK)
 									//||
-									//(TableFields.TableFieldCollection[f].isIdentity)
+									//(this.TableFields.TableFieldCollection[f].isIdentity)
 								) {
 									_aux = f;
 									break;
@@ -306,12 +307,12 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 							}
 
 							// ...attribution (last thing before unlock)
-							firstkey__ = _aux;
+							this.firstkey__ = _aux;
 						}
 					}
 				}
 
-				return firstkey__;
+				return this.firstkey__;
 			}
 		}
 		#endregion
@@ -327,34 +328,34 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 				// there won't be any more adding or removing
 
 				// check before lock
-				if (!canbeconfig__beenread) {
+				if (!this.canbeconfig__beenread) {
 
-					lock (canbeconfig__locker) {
+					lock (this.canbeconfig__locker) {
 
 						// double check, thread safer!
-						if (!canbeconfig__beenread) {
+						if (!this.canbeconfig__beenread) {
 
 							// initialization...
 							if (
-								canbeconfig__ = (
-									!parallel_ref.isConfig
+								this.canbeconfig__ = (
+									!this.parallel_ref.isConfig
 									&&
-									!hasIdentityKey
+									!this.hasIdentityKey
 									&&
-									(TableFields_onlyPK.TableFieldCollection.Count == 1)
+									(this.TableFields_onlyPK.TableFieldCollection.Count == 1)
 									&&
-									(TableFields.TableFieldCollection.Count >= 3)
+									(this.TableFields.TableFieldCollection.Count >= 3)
 								)
 							) {
 								int _numFields_thatCanBeName = 0;
 								int _numFields_thatCanBeConfig = 0;
 								int _numFields_thatCanBeType = 0;
-								for (int f = 0; f < TableFields.TableFieldCollection.Count; f++) {
-									if (TableFields.TableFieldCollection[f].canBeConfig_Name) _numFields_thatCanBeName++;
-									if (TableFields.TableFieldCollection[f].canBeConfig_Config) _numFields_thatCanBeConfig++;
-									if (TableFields.TableFieldCollection[f].canBeConfig_Type) _numFields_thatCanBeType++;
+								for (int f = 0; f < this.TableFields.TableFieldCollection.Count; f++) {
+									if (this.TableFields.TableFieldCollection[f].canBeConfig_Name) _numFields_thatCanBeName++;
+									if (this.TableFields.TableFieldCollection[f].canBeConfig_Config) _numFields_thatCanBeConfig++;
+									if (this.TableFields.TableFieldCollection[f].canBeConfig_Type) _numFields_thatCanBeType++;
 								}
-								canbeconfig__ = (
+								this.canbeconfig__ = (
 									(_numFields_thatCanBeName == 1)
 									&&
 									(_numFields_thatCanBeConfig >= 1)
@@ -364,12 +365,12 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 							}
 
 							// ...attribution (last thing before unlock)
-							canbeconfig__beenread = true;
+							this.canbeconfig__beenread = true;
 						}
 					}
 				}
 
-				return canbeconfig__;
+				return this.canbeconfig__;
 			}
 		}
 		#endregion
@@ -378,7 +379,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 		[XmlAttribute("tableSearches_hasExplicitUniqueIndex")]
 		public bool tableSearches_hasExplicitUniqueIndex {
 			get {
-				return parallel_ref.TableSearches.hasExplicitUniqueIndex;
+				return this.parallel_ref.TableSearches.hasExplicitUniqueIndex;
 			}
 		}
 		#endregion
