@@ -12,45 +12,46 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Web.UI.WebControls;
 
 namespace OGen.lib.presentationlayer.webforms {
+	using System;
+	using System.Web.UI.WebControls;
+
 	public class Web_XXXListItem : IXXXListItem {
 		public Web_XXXListItem(
 			ListItem listitem_ref_in
 		) {
-			listitem_ref_ = listitem_ref_in;
+			this.listitem_ref_ = listitem_ref_in;
 		}
 		private ListItem listitem_ref_;
 
 		#region public string Text { get; set; }
 		public string Text {
 			get {
-				return listitem_ref_.Text;
+				return this.listitem_ref_.Text;
 			}
 			set {
-				listitem_ref_.Text = value;
+				this.listitem_ref_.Text = value;
 			}
 		}
 		#endregion
 		#region public string Value { get; set; }
 		public string Value {
 			get {
-				return listitem_ref_.Value;
+				return this.listitem_ref_.Value;
 			}
 			set {
-				listitem_ref_.Value = value;
+				this.listitem_ref_.Value = value;
 			}
 		} 
 		#endregion
 		#region public bool Selected { get; set; }
 		public bool Selected {
 			get {
-				return listitem_ref_.Selected;
+				return this.listitem_ref_.Selected;
 			}
 			set {
-				listitem_ref_.Selected = value;
+				this.listitem_ref_.Selected = value;
 			}
 		}
 		#endregion

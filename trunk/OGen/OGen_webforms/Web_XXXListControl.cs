@@ -12,22 +12,23 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Web.UI.WebControls;
 
 namespace OGen.lib.presentationlayer.webforms {
+	using System;
+	using System.Web.UI.WebControls;
+
 	public class Web_XXXListControl : IXXXListControl {
 		public Web_XXXListControl(
 			ListItemCollection listitemcollection_ref_in
 		) {
-			listitemcollection_ref_ = listitemcollection_ref_in;
+			this.listitemcollection_ref_ = listitemcollection_ref_in;
 		}
 		private ListItemCollection listitemcollection_ref_;
 
 		#region public int Count { get; }
 		public int Count {
 			get {
-				return listitemcollection_ref_.Count;
+				return this.listitemcollection_ref_.Count;
 			}
 		}
 		#endregion
@@ -36,14 +37,14 @@ namespace OGen.lib.presentationlayer.webforms {
 			string Key_in,
 			string Value_in
 		) {
-			listitemcollection_ref_.Add(
+			this.listitemcollection_ref_.Add(
 				new ListItem(Key_in, Value_in)
 			);
 		}
 		#endregion
 		#region public void Clear();
 		public void Clear() {
-			listitemcollection_ref_.Clear();
+			this.listitemcollection_ref_.Clear();
 		}
 		#endregion
 
@@ -51,7 +52,7 @@ namespace OGen.lib.presentationlayer.webforms {
 		public IXXXListItem this[int i] {
 			get {
 				return new Web_XXXListItem(
-					listitemcollection_ref_[i]
+					this.listitemcollection_ref_[i]
 				);
 			}
 		} 

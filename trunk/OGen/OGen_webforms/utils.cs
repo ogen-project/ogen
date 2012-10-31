@@ -12,13 +12,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Web;
-using System.IO;
-using System.Net;
-using System.Collections;
 
 namespace OGen.lib.presentationlayer.webforms {
+	using System;
+	using System.Collections;
+	using System.IO;
+	using System.Net;
+	using System.Web;
+
 #if NET_1_1
 	public class utils { private utils() { }
 #else

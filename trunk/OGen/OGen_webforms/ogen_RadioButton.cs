@@ -12,23 +12,24 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.ComponentModel;
 
 namespace OGen.lib.presentationlayer.webforms {
+	using System;
+	using System.ComponentModel;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
 	public class ogen_RadioButton : Anthem.RadioButton {
 		[Category("OGen")]
 		[DefaultValue("")]
 		public string CommandArgument {
 			get {
-				string _text = (string)ViewState["CommandArgument"];
+				string _text = (string)this.ViewState["CommandArgument"];
 				return ((_text == null) ? "" : _text);
 			}
 			set {
-				ViewState["CommandArgument"] = value;
+				this.ViewState["CommandArgument"] = value;
 			}
 		}
 
@@ -36,11 +37,11 @@ namespace OGen.lib.presentationlayer.webforms {
 		[DefaultValue("")]
 		public string CommandName {
 			get {
-				string _text = (string)ViewState["CommandName"];
+				string _text = (string)this.ViewState["CommandName"];
 				return ((_text == null) ? "" : _text);
 			}
 			set {
-				ViewState["CommandName"] = value;
+				this.ViewState["CommandName"] = value;
 			}
 		}
 	}

@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
 
 namespace OGen.lib.datalayer {
+	using System;
+	using System.Data;
+
 	#region /// <summary>...</summary>
 	/// <summary>
 	///	Provides Transaction support to <see cref="DBConnection">DBConnection</see>.

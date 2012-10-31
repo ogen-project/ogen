@@ -12,12 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
 
 namespace OGen.lib.presentationlayer.webforms {
+	using System;
+
 	public class KickCheckBoxList : Anthem.CheckBoxList {
 		public KickCheckBoxList() : base() {
-			kick_ = new KickListControl(
+			this.kick_ = new KickListControl(
 				new Web_XXXListControl(
 					this.Items
 				)
@@ -28,7 +29,7 @@ namespace OGen.lib.presentationlayer.webforms {
 		private KickListControl kick_;
 
 		public KickListControl Kick {
-			get { return kick_; }
+			get { return this.kick_; }
 		}
 		#endregion
 	}

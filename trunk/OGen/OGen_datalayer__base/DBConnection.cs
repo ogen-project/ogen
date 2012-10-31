@@ -12,12 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Text;
-using System.IO;
 
 namespace OGen.lib.datalayer {
+	using System;
+	using System.Data;
+	using System.IO;
+	using System.Text;
+
 	#region /// <summary>...</summary>
 	/// <summary>
 	///	Provides access to supported Databases like PostgreSQL and SQL Server, allowing the execution of SQL Queries and Functions retrieving their existing data if any. It also supports Transactions.

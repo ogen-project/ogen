@@ -12,11 +12,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
 
 
 namespace OGen.lib.datalayer.SQLServer {
+	using System;
+	using System.Data;
+
 	public sealed class DBUtils_SQLServer : DBUtils {
 		#region public override DBUtils_convert Convert { get; }
 		private static DBUtils_convert_SQLServer convert__;

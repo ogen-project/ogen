@@ -12,12 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Data.SqlClient;
-using System.Text;
 
 namespace OGen.lib.datalayer.SQLServer {
+	using System;
+	using System.Data;
+	using System.Data.SqlClient;
+	using System.Text;
+
 	public sealed class DBConnection_SQLServer : DBConnection {
 		//#region public DBConnection_SQLServer(...);
 		public DBConnection_SQLServer(

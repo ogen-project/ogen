@@ -12,11 +12,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Text;
 
 namespace OGen.lib.datalayer {
+	using System;
+	using System.Data;
+	using System.Text;
+
 	/// <summary>
 	/// Provides a number of classes with static auxiliar methods for the OGen.lib.datalayer namespace.
 	/// </summary>

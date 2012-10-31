@@ -12,12 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using Npgsql;
-using System.Text;
 
 namespace OGen.lib.datalayer.PostgreSQL {
+	using System;
+	using System.Data;
+	using System.Text;
+	using Npgsql;
+
 	public sealed class DBConnection_PostgreSQL : DBConnection {
 		//#region public DBConnection_PostgreSQL(...);
 		public DBConnection_PostgreSQL(

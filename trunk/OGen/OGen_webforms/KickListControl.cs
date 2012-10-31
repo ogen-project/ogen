@@ -12,15 +12,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
 
 namespace OGen.lib.presentationlayer.webforms {
+	using System;
+	using System.Collections.Generic;
+
 	public class KickListControl {
 		public KickListControl(
 			IXXXListControl listitemcollection_ref_in
 		) {
-			listitemcollection_ref_ = listitemcollection_ref_in;
+			this.listitemcollection_ref_ = listitemcollection_ref_in;
 		}
 
 		public IXXXListControl listitemcollection_ref_;
@@ -37,9 +38,9 @@ namespace OGen.lib.presentationlayer.webforms {
 		public void bind_pre(
 			bool allowNull_in
 		) {
-			listitemcollection_ref_.Clear();
+			this.listitemcollection_ref_.Clear();
 			if (allowNull_in) {
-				listitemcollection_ref_.Add(UNDEFINED, "");
+				this.listitemcollection_ref_.Add(UNDEFINED, "");
 			}
 		}
 		#endregion
@@ -48,11 +49,11 @@ namespace OGen.lib.presentationlayer.webforms {
 		public void SelectedValue__set(
 			string[] selectedValue_in
 		) {
-			for (int i = 0; i < listitemcollection_ref_.Count; i++) {
-				listitemcollection_ref_[i].Selected = false;
+			for (int i = 0; i < this.listitemcollection_ref_.Count; i++) {
+				this.listitemcollection_ref_[i].Selected = false;
 				for (int j = 0; j < selectedValue_in.Length; j++) {
-					if (listitemcollection_ref_[i].Value == selectedValue_in[j]) {
-						listitemcollection_ref_[i].Selected = true;
+					if (this.listitemcollection_ref_[i].Value == selectedValue_in[j]) {
+						this.listitemcollection_ref_[i].Selected = true;
 						break;
 					}
 				}
@@ -63,14 +64,14 @@ namespace OGen.lib.presentationlayer.webforms {
 			string selectedValue_in
 		) {
 			if (string.IsNullOrEmpty(selectedValue_in)) {
-				for (int i = 0; i < listitemcollection_ref_.Count; i++) {
-					listitemcollection_ref_[i].Selected = false;
+				for (int i = 0; i < this.listitemcollection_ref_.Count; i++) {
+					this.listitemcollection_ref_[i].Selected = false;
 				}
 			} else {
 				string[] _selectedValues
 					= selectedValue_in.Split('|');
 
-				SelectedValue__set(
+				this.SelectedValue__set(
 					_selectedValues
 				);
 			}
@@ -79,12 +80,12 @@ namespace OGen.lib.presentationlayer.webforms {
 		#region public T[] SelectedValue__get<T>(...);
 		public T[] SelectedValue__get<T>(
 		) {
-			List<T> _output = new List<T>(listitemcollection_ref_.Count);
-			for (int i = 0; i < listitemcollection_ref_.Count; i++) {
-				if (listitemcollection_ref_[i].Selected) {
+			List<T> _output = new List<T>(this.listitemcollection_ref_.Count);
+			for (int i = 0; i < this.listitemcollection_ref_.Count; i++) {
+				if (this.listitemcollection_ref_[i].Selected) {
 					_output.Add(
 						(T)Convert.ChangeType(
-							listitemcollection_ref_[i].Value,
+							this.listitemcollection_ref_[i].Value,
 							typeof(T)
 						)
 					);
@@ -108,20 +109,20 @@ namespace OGen.lib.presentationlayer.webforms {
 			ListitemTextDelegate<T> listitemText_in
 		) {
 			if (items_in == null) {
-				listitemcollection_ref_.Clear();
-				listitemcollection_ref_.Add(
+				this.listitemcollection_ref_.Clear();
+				this.listitemcollection_ref_.Add(
 					"",
 					"ERROR!"
 				);
 				return;
 			}
 
-			bind_pre(
+			this.bind_pre(
 				allowNull_in
 			);
 
 			foreach (T _item in items_in) {
-				listitemcollection_ref_.Add(
+				this.listitemcollection_ref_.Add(
 #if DEBUG
 					string.Format(
 						"{0} ({1})",
@@ -135,7 +136,7 @@ namespace OGen.lib.presentationlayer.webforms {
 				);
 			}
 
-			SelectedValue__set(
+			this.SelectedValue__set(
 				selectedValue_in
 			);
 		}
@@ -147,19 +148,19 @@ namespace OGen.lib.presentationlayer.webforms {
 			OGen.NTier.lib.datalayer.SO__ListItem<V, T>[] items_in
 		) {
 			if (items_in == null) {
-				listitemcollection_ref_.Clear();
-				listitemcollection_ref_.Add(
+				this.listitemcollection_ref_.Clear();
+				this.listitemcollection_ref_.Add(
 					"",
 					"ERROR!"
 				);
 				return;
 			}
 
-			bind_pre(
+			this.bind_pre(
 				allowNull_in
 			);
 
-			bind__arrayof<V, T>(
+			this.bind__arrayof<V, T>(
 				selectedValue_in,
 				items_in
 			);
@@ -170,15 +171,15 @@ namespace OGen.lib.presentationlayer.webforms {
 			OGen.NTier.lib.datalayer.SO__ListItem<V, T>[] items_in
 		) {
 			if (items_in == null) {
-				listitemcollection_ref_.Clear();
-				listitemcollection_ref_.Add(
+				this.listitemcollection_ref_.Clear();
+				this.listitemcollection_ref_.Add(
 					"",
 					"ERROR!"
 				);
 				return;
 			}
 
-			bind__arrayof<V, T>(
+			this.bind__arrayof<V, T>(
 				selectedValue_in,
 				items_in
 			);
@@ -189,7 +190,7 @@ namespace OGen.lib.presentationlayer.webforms {
 			OGen.NTier.lib.datalayer.SO__ListItem<V, T>[] items_in
 		) {
 			foreach (OGen.NTier.lib.datalayer.SO__ListItem<V, T> _item in items_in) {
-				listitemcollection_ref_.Add(
+				this.listitemcollection_ref_.Add(
 #if DEBUG
 					string.Format(
 						"{0} ({1})", 
@@ -203,7 +204,7 @@ namespace OGen.lib.presentationlayer.webforms {
 				);
 			}
 
-			SelectedValue__set(
+			this.SelectedValue__set(
 				selectedValue_in
 			);
 		}
@@ -222,7 +223,7 @@ namespace OGen.lib.presentationlayer.webforms {
 				_selection[i] = listitemValue_in(items_in[i]);
 			}
 
-			SelectedValue__set(_selection);
+			this.SelectedValue__set(_selection);
 		}
 
 		//public delegate bool ListitemConditionalSetDelegate<T>(T item_in);
@@ -250,7 +251,7 @@ namespace OGen.lib.presentationlayer.webforms {
 				}
 			}
 
-			SelectedValue__set(_selection);
+			this.SelectedValue__set(_selection);
 		}
 		#endregion
 		#region public void SelectedValues__set_arrayOf<V, T>(...);
@@ -264,7 +265,7 @@ namespace OGen.lib.presentationlayer.webforms {
 				_selection[i] = items_in[i].ListItem_Value.ToString();
 			}
 
-			SelectedValue__set(_selection);
+			this.SelectedValue__set(_selection);
 		}
 
 		public delegate bool ListitemConditionalSetDelegate<I>(
@@ -294,7 +295,7 @@ namespace OGen.lib.presentationlayer.webforms {
 		        }
 		    }
 
-			SelectedValue__set(_selection);
+			this.SelectedValue__set(_selection);
 		}
 		#endregion
 
@@ -308,7 +309,7 @@ namespace OGen.lib.presentationlayer.webforms {
 			string selectedValue_in,
 			bool allowNull_in
 		) {
-			bind_pre(
+			this.bind_pre(
 				allowNull_in
 			);
 
@@ -321,14 +322,14 @@ namespace OGen.lib.presentationlayer.webforms {
 				);
 
 				if (_value >= 0) {
-					listitemcollection_ref_.Add(
+					this.listitemcollection_ref_.Add(
 						Transform(_enumItem),
 						_value.ToString()
 					);
 				}
 			}
 
-			SelectedValue__set(
+			this.SelectedValue__set(
 				selectedValue_in
 			);
 		}
@@ -348,7 +349,7 @@ namespace OGen.lib.presentationlayer.webforms {
 				Array.Sort<string>(_enumItems);
 			}
 
-			bind__enum_post(
+			this.bind__enum_post(
 				_enumItems,
 				enumType_in,
 
@@ -374,17 +375,17 @@ namespace OGen.lib.presentationlayer.webforms {
 				//    (from_in.Items[0].Value == "")
 				//)
 			) {
-				bind_pre(
+				this.bind_pre(
 					allowNull_in
 				);
 			} else {
-				listitemcollection_ref_.Clear();
+				this.listitemcollection_ref_.Clear();
 			}
 
 			for (int i = 0; i < from_in.Items.Count; i++) {
 				if (string.IsNullOrEmpty(from_in.Items[i].Value)) continue;
 
-				listitemcollection_ref_.Add(
+				this.listitemcollection_ref_.Add(
 //// already present at source, hence comment:
 //#if DEBUG
 //                    string.Format(
@@ -399,7 +400,7 @@ namespace OGen.lib.presentationlayer.webforms {
 				);
 			}
 
-			SelectedValue__set(
+			this.SelectedValue__set(
 				selectedValue_in
 			);
 		}
@@ -436,18 +437,18 @@ namespace OGen.lib.presentationlayer.webforms {
 				);
 			}
 
-			bind_pre(
+			this.bind_pre(
 				allowNull_in
 			);
 
 			foreach (KeyValuePair<TKey, TValue> _penum in _penums) {
-				listitemcollection_ref_.Add(
+				this.listitemcollection_ref_.Add(
 					dictionaryText_in(_penum),
 					_penum.Key.ToString()
 				);
 			}
 
-			SelectedValue__set(
+			this.SelectedValue__set(
 				selectedValue_in
 			);
 		}
@@ -455,9 +456,9 @@ namespace OGen.lib.presentationlayer.webforms {
 
 		#region public string Text_get(string value_in);
 		public string Text_get(string value_in) {
-			for (int i = 0; i < listitemcollection_ref_.Count; i++) {
-				if (listitemcollection_ref_[i].Value == value_in) {
-					return listitemcollection_ref_[i].Text;
+			for (int i = 0; i < this.listitemcollection_ref_.Count; i++) {
+				if (this.listitemcollection_ref_[i].Value == value_in) {
+					return this.listitemcollection_ref_[i].Text;
 				}
 			}
 

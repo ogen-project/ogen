@@ -12,9 +12,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
 
 namespace OGen.lib.datalayer {
+	using System;
+
 	/// <summary>
 	/// Provides a mean of storing the Database INFORMATION_SCHEMA for some Table Field.
 	/// </summary>
