@@ -12,11 +12,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Web.Services;
-using System.Web.Services.Protocols;
 
 namespace OGen.NTier.lib.distributedlayer.webservices.client {
+	using System;
+	using System.Web.Services;
+	using System.Web.Services.Protocols;
+
 	public abstract class WC__base : SoapHttpClientProtocol {
 		#region protected WC__base(...);
 		protected WC__base(

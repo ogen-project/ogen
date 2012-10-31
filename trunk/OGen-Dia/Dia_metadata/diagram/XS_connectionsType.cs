@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
 
 namespace OGen.Dia.lib.metadata.diagram {
+	using System;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS_connectionsType : XS0_connectionsType {
 	#else

@@ -70,7 +70,7 @@ namespace OGen.NTier.lib.businesslayer {
 		/// Distribute
 		/// </summary>
 		public bool Distribute {
-			get { return distribute_; }
+			get { return this.distribute_; }
 		}
 		#endregion
 		#region public bool isSearch { get; }
@@ -80,7 +80,7 @@ namespace OGen.NTier.lib.businesslayer {
 		/// isSearch
 		/// </summary>
 		public bool isSearch {
-			get { return issearch_; }
+			get { return this.issearch_; }
 		}
 		#endregion
 		#region public int IPParamNum { get; }
@@ -90,9 +90,7 @@ namespace OGen.NTier.lib.businesslayer {
 		/// IPParamNum
 		/// </summary>
 		public int IPParamNum {
-			get {
-				return ipparamnum_;
-			}
+			get { return this.ipparamnum_; }
 		}
 		#endregion
 	}

@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
 
 namespace OGen.Dia.lib.metadata.diagram {
+	using System;
+	using System.Xml.Serialization;
+
 	[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.lysator.liu.se/~alla/dia/")]
 	[System.Xml.Serialization.XmlRootAttribute(
 		"diagram",

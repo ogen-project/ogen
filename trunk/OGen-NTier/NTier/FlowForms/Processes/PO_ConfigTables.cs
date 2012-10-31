@@ -36,8 +36,8 @@ namespace OGen.NTier.presentationlayer.winforms {
 		#region public eInsUpdDel Choice { get; set; }
 		private eInsUpdDel choice;
 		public eInsUpdDel Choice {
-			get { return choice; }
-			set { choice = value; }
+			get { return this.choice; }
+			set { this.choice = value; }
 		}
 		#endregion
 		#region public string TableName { get; set; }

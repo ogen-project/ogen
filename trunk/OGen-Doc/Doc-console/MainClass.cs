@@ -12,13 +12,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using OGen.lib.generator;
-using OGen.Doc.lib.metadata;
-using OGen.Doc.lib.generator;
 
 namespace OGen.Doc.presentationlayer.console {
+	using System;
+	using System.IO;
+	using OGen.Doc.lib.metadata;
+	using OGen.Doc.lib.generator;
+	using OGen.lib.generator;
+
 	class MainClass {
 		[STAThread]
 		static void Main(string[] args_in) {

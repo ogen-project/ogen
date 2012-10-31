@@ -12,19 +12,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections;
-using System.IO;
-using OGen.lib.templates;
-using OGen.lib.generator;
-using OGen.lib.datalayer;
-using OGen.NTier.lib.metadata;
 
 namespace OGen.NTier.lib.generator {
+	using System;
+	using System.Collections;
+	using System.IO;
+	using OGen.lib.datalayer;
+	using OGen.lib.generator;
+	using OGen.lib.templates;
+	using OGen.NTier.lib.metadata;
+
 	public class cFGenerator {
 		#region	public cFGenerator();
 		public cFGenerator() {
-			Filename = string.Empty;
+			this.Filename = string.Empty;
 		}
 		#endregion
 
@@ -37,17 +38,17 @@ namespace OGen.NTier.lib.generator {
 		private string filename__;
 
 		public string Filename {
-			get { return filename__; }
+			get { return this.filename__; }
 			set {
-				filename__ = value;
-				directoryname__ 
+				this.filename__ = value;
+				this.directoryname__ 
 					= (string.IsNullOrEmpty(value)) 
 						? string.Empty 
 						: Path.GetDirectoryName(value);
-				parentdirectoryname__
+				this.parentdirectoryname__
 					= (string.IsNullOrEmpty(value))
 						? string.Empty
-						: Directory.GetParent(directoryname__).FullName;
+						: Directory.GetParent(this.directoryname__).FullName;
 			}
 		}
 		#endregion
@@ -55,34 +56,34 @@ namespace OGen.NTier.lib.generator {
 		private string directoryname__;
 
 		public string Directoryname {
-			get { return directoryname__; }
+			get { return this.directoryname__; }
 		}
 		#endregion
 		#region public string ParentDirectoryname { get; }
 		private string parentdirectoryname__;
 
 		public string ParentDirectoryname {
-			get { return parentdirectoryname__; }
+			get { return this.parentdirectoryname__; }
 		}
 		#endregion
 		#region public bool hasChanges { get; }
 		private bool haschanges_;
 
 		public bool hasChanges {
-			get { return haschanges_; }
-			set { haschanges_ = value; }
+			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 		#region public bool isOpened { get; }
 		public bool isOpened {
-			get { return !string.IsNullOrEmpty(Filename); }
+			get { return !string.IsNullOrEmpty(this.Filename); }
 		}
 		#endregion
 		#region public XS__RootMetadata Metadata { get ; }
 		private XS__RootMetadata metadata_;
 
 		public XS__RootMetadata Metadata {
-			get { return metadata_; }
+			get { return this.metadata_; }
 		}
 		#endregion
 		//#endregion
@@ -194,30 +195,30 @@ throw new Exception("// ToDos: not implemented!");
 				}
 			}
 			#endregion
-			Filename = filename_in;
+			this.Filename = filename_in;
 
 			if (notifyBack_in != null) notifyBack_in("opening...", true);
 			if (notifyBack_in != null) notifyBack_in("- reading configuration from xml file", true);
-			metadata_ = XS__RootMetadata.Load_fromFile(
-				Filename,
+			this.metadata_ = XS__RootMetadata.Load_fromFile(
+				this.Filename,
 				false,
 				true
 			);
 
 			#region - reading metadata from business assembly
 			string _debug_assembly = Path.Combine(
-				ParentDirectoryname,
+				this.ParentDirectoryname,
 				businessAssembly(
-					metadata_.MetadataExtendedCollection[0].ApplicationName, 
-					metadata_.MetadataExtendedCollection[0].ApplicationNamespace, 
+					this.metadata_.MetadataExtendedCollection[0].ApplicationName,
+					this.metadata_.MetadataExtendedCollection[0].ApplicationNamespace, 
 					false
 				)
 			);
 			string _release_assembly = Path.Combine(
-				ParentDirectoryname,
+				this.ParentDirectoryname,
 				businessAssembly(
-					metadata_.MetadataExtendedCollection[0].ApplicationName,
-					metadata_.MetadataExtendedCollection[0].ApplicationNamespace,
+					this.metadata_.MetadataExtendedCollection[0].ApplicationName,
+					this.metadata_.MetadataExtendedCollection[0].ApplicationNamespace,
 					true
 				)
 			);
@@ -251,14 +252,14 @@ throw new Exception("// ToDos: not implemented!");
 					));
 					//_assembly
 				}
-				_metadatabusiness.ApplicationName = metadata_.MetadataExtendedCollection[0].ApplicationName;
+				_metadatabusiness.ApplicationName = this.metadata_.MetadataExtendedCollection[0].ApplicationName;
 
 				_metadatabusiness.SaveState_toFile(
 					Path.Combine(
-						Directoryname,
+						this.Directoryname,
 						string.Format(
 							"MD_{0}.OGenXSD-metadataBusiness.xml",
-							metadata_.MetadataExtendedCollection[0].ApplicationName
+							this.metadata_.MetadataExtendedCollection[0].ApplicationName
 						)
 					)
 				);
@@ -274,28 +275,28 @@ throw new Exception("// ToDos: not implemented!");
 			OGen.NTier.lib.metadata.metadataDB.XS__metadataDB _metadatadb 
 				= OGen.NTier.lib.metadata.metadataDB.XS__metadataDB.Load_fromDB(
 					null,
-					metadata_.MetadataExtendedCollection[0].SubAppName,
-					metadata_,
+					this.metadata_.MetadataExtendedCollection[0].SubAppName,
+					this.metadata_,
 					0,
-					metadata_dbconnectionstrings().Convert_toArray()
+					this.metadata_dbconnectionstrings().Convert_toArray()
 				);
 
 			// NOTE: this is very important, every parameter / information
 			// that's not comming from the database is empty,
 			// and needs to be filled in order to be serialized to the xml file:
-			_metadatadb.ApplicationName = metadata_.MetadataExtendedCollection[0].ApplicationName;
-			for (int ff, tt, t = 0; t < metadata_.MetadataExtendedCollection[0].Tables.TableCollection.Count; t++) {
-				for (int f = 0; f < metadata_.MetadataExtendedCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection.Count; f++) {
-					if (metadata_.MetadataExtendedCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].isViewPK) {
+			_metadatadb.ApplicationName = this.metadata_.MetadataExtendedCollection[0].ApplicationName;
+			for (int ff, tt, t = 0; t < this.metadata_.MetadataExtendedCollection[0].Tables.TableCollection.Count; t++) {
+				for (int f = 0; f < this.metadata_.MetadataExtendedCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection.Count; f++) {
+					if (this.metadata_.MetadataExtendedCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].isViewPK) {
 						tt = _metadatadb.Tables.TableCollection.Search(
-							metadata_.MetadataExtendedCollection[0].Tables.TableCollection[t].Name,
-							!metadata_.MetadataExtendedCollection[0].DBs.Supports_MySQL
+							this.metadata_.MetadataExtendedCollection[0].Tables.TableCollection[t].Name,
+							!this.metadata_.MetadataExtendedCollection[0].DBs.Supports_MySQL
 						);
 						if (tt < 0) continue;
 
 						ff = _metadatadb.Tables.TableCollection[tt].TableFields.TableFieldCollection.Search(
-							metadata_.MetadataExtendedCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].Name,
-							!metadata_.MetadataExtendedCollection[0].DBs.Supports_MySQL
+							this.metadata_.MetadataExtendedCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].Name,
+							!this.metadata_.MetadataExtendedCollection[0].DBs.Supports_MySQL
 						);
 						if (ff < 0) continue;
 
@@ -310,9 +311,9 @@ throw new Exception("// ToDos: not implemented!");
 			}
 
 
-			for (int i = 0; i < metadata_.MetadataFiles.MetadataFiles.Count; i++) {
+			for (int i = 0; i < this.metadata_.MetadataFiles.MetadataFiles.Count; i++) {
 				if (
-					metadata_.MetadataFiles.MetadataFiles[i].XMLFileType
+					this.metadata_.MetadataFiles.MetadataFiles[i].XMLFileType
 					==
 					OGen.NTier.lib.metadata.metadataDB.XS__metadataDB.METADATADB
 				) {
@@ -329,8 +330,8 @@ throw new Exception("// ToDos: not implemented!");
 					//--- DEBUG: using new db information
 					_metadatadb.SaveState_toFile(
 						Path.Combine(
-							Directoryname,
-							metadata_.MetadataFiles.MetadataFiles[i].XMLFilename
+							this.Directoryname,
+							this.metadata_.MetadataFiles.MetadataFiles[i].XMLFilename
 						)
 					);
 					break;
@@ -339,8 +340,8 @@ throw new Exception("// ToDos: not implemented!");
 			#endregion
 
 			if (notifyBack_in != null) notifyBack_in("- re-reading configuration from xml file", true);
-			metadata_ = XS__RootMetadata.Load_fromFile(
-				Filename,
+			this.metadata_ = XS__RootMetadata.Load_fromFile(
+				this.Filename,
 				false,
 				true
 			);
@@ -361,7 +362,7 @@ throw new Exception("// ToDos: not implemented!");
 				));
 			}
 
-			Filename = string.Empty;
+			this.Filename = string.Empty;
 		}
 		#endregion
 		//#region public void Save(...);
@@ -383,7 +384,7 @@ throw new Exception("// ToDos: not implemented!");
 			cGenerator.dBuild notifyBase_in,
 			params string[] templateTypes_in
 		) {
-			Build(
+			this.Build(
 				notifyBase_in,
 				null,
 				templateTypes_in
@@ -395,20 +396,20 @@ throw new Exception("// ToDos: not implemented!");
 			params string[] templateTypes_in
 		) {
 			#region string _outputDir = ...;
-			string _outputDir = ParentDirectoryname;
+			string _outputDir = this.ParentDirectoryname;
 			#endregion
 			if (notifyBase_in != null) notifyBase_in("generating...", true);
 
 // ToDos: now! need to save MetadataDB to xml file
 
-			MetaFile[] _metafiles = new MetaFile[metadata_.MetadataFiles.MetadataFiles.Count];
-			for (int i = 0; i < metadata_.MetadataFiles.MetadataFiles.Count; i++) {
+			MetaFile[] _metafiles = new MetaFile[this.metadata_.MetadataFiles.MetadataFiles.Count];
+			for (int i = 0; i < this.metadata_.MetadataFiles.MetadataFiles.Count; i++) {
 				_metafiles[i] = new MetaFile(
 					Path.Combine(
-						Directoryname, 
-						metadata_.MetadataFiles.MetadataFiles[i].XMLFilename
+						this.Directoryname,
+						this.metadata_.MetadataFiles.MetadataFiles[i].XMLFilename
 					),
-					metadata_.MetadataFiles.MetadataFiles[i].XMLFileType
+					this.metadata_.MetadataFiles.MetadataFiles[i].XMLFileType
 				);
 			}
 
@@ -419,12 +420,12 @@ throw new Exception("// ToDos: not implemented!");
 				System.Configuration.ConfigurationSettings.AppSettings
 				#endif
 					["Templates"],
-				metadata_dbconnectionstrings(), 
+				this.metadata_dbconnectionstrings(), 
 				_outputDir, 
 				_metafiles
 			).Build(
-				notifyBase_in, 
-				metadata_,
+				notifyBase_in,
+				this.metadata_,
 				statistics_in,
 				templateTypes_in
 			);
@@ -462,14 +463,14 @@ throw new Exception("// ToDos: not implemented!");
 			//return _output;
 
 			DBConnectionstrings _output = new DBConnectionstrings();
-			for (int d = 0; d < metadata_.MetadataExtendedCollection[0].DBs.DBCollection.Count; d++) {
-				if (metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].GenerateSQL) {
+			for (int d = 0; d < this.metadata_.MetadataExtendedCollection[0].DBs.DBCollection.Count; d++) {
+				if (this.metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].GenerateSQL) {
 					_output.Add(
 						(DBServerTypes)Enum.Parse(
-							typeof(DBServerTypes), 
-							metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].DBServerType
-						), 
-						metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].ConnectionString
+							typeof(DBServerTypes),
+							this.metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].DBServerType
+						),
+						this.metadata_.MetadataExtendedCollection[0].DBs.DBCollection[d].ConnectionString
 					);
 				}
 			}

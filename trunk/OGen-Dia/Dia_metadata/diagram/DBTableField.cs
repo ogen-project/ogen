@@ -12,11 +12,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-
-using OGen.lib.datalayer;
 
 namespace OGen.Dia.lib.metadata.diagram {
+	using System;
+
+	using OGen.lib.datalayer;
+
 	public class DBTableField : OGen.lib.datalayer.DBTableField {
 		public bool isUnique;
 
