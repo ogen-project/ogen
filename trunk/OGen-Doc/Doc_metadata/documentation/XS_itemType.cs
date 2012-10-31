@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Xml.Serialization;
 
 namespace OGen.Doc.lib.metadata.documentation {
+	using System;
+	using System.Xml.Serialization;
+
 	#if NET_1_1
 	public class XS_itemType : XS0_itemType {
 	#else
@@ -27,7 +28,7 @@ namespace OGen.Doc.lib.metadata.documentation {
 		public XS_itemType (
 			string title_in
 		) {
-			title_ = title_in;
+			this.title_ = title_in;
 		}
 
 		#region public int Index { get; }
@@ -35,8 +36,8 @@ namespace OGen.Doc.lib.metadata.documentation {
 		[XmlAttribute("number")]
 		public int Number {
 			get {
-				return 1 + ((XS_itemTypeCollection)parent_ref).Search(
-					Title
+				return 1 + ((XS_itemTypeCollection)this.parent_ref).Search(
+					this.Title
 				);
 			}
 		}

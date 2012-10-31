@@ -12,18 +12,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using OGen.lib.templates;
-using OGen.lib.generator;
-using OGen.Doc.lib.metadata;
-using OGen.Doc.lib.metadata.documentation;
 
 namespace OGen.Doc.lib.generator {
+	using System;
+	using System.IO;
+	using OGen.Doc.lib.metadata;
+	using OGen.Doc.lib.metadata.documentation;
+	using OGen.lib.generator;
+	using OGen.lib.templates;
+
 	public class cFGenerator {
 		#region	public cFGenerator();
 		public cFGenerator() {
-			filename_ = string.Empty;
+			this.filename_ = string.Empty;
 		}
 		#endregion
 
@@ -31,25 +32,25 @@ namespace OGen.Doc.lib.generator {
 		#region public string Filename { get; }
 		private string filename_;
 		public string Filename {
-			get { return filename_; }
+			get { return this.filename_; }
 		}
 		#endregion
 		#region public bool hasChanges { get; }
 		private bool haschanges_;
 		public bool hasChanges {
-			get { return haschanges_; }
-			set { haschanges_ = value; }
+			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 		#region public bool isOpened { get; }
 		public bool isOpened {
-			get { return !string.IsNullOrEmpty(filename_); }
+			get { return !string.IsNullOrEmpty(this.filename_); }
 		}
 		#endregion
 		#region public XS__RootMetadata RootMetadata { get ; }
 		private XS__RootMetadata rootmetadata_;
 		public XS__RootMetadata RootMetadata {
-			get { return rootmetadata_; }
+			get { return this.rootmetadata_; }
 		}
 		#endregion
 		//#endregion
@@ -109,13 +110,13 @@ namespace OGen.Doc.lib.generator {
 				}
 			}
 			#endregion
-			filename_ = filename_in;
+			this.filename_ = filename_in;
 
 			if (notifyBack_in != null) notifyBack_in("opening...", true);
 			if (notifyBack_in != null) notifyBack_in("- reading metadata from xml file", true);
 
-			rootmetadata_ = XS__RootMetadata.Load_fromFile(
-				filename_, 
+			this.rootmetadata_ = XS__RootMetadata.Load_fromFile(
+				this.filename_, 
 				false,
 				true
 			);
@@ -136,7 +137,7 @@ namespace OGen.Doc.lib.generator {
 				));
 			}
 
-			filename_ = string.Empty;
+			this.filename_ = string.Empty;
 		}
 		#endregion
 //		#region public void Save(...);
@@ -155,17 +156,17 @@ namespace OGen.Doc.lib.generator {
 		public void Build(cGenerator.dBuild notifyBase_in) {
 			#region string _outputDir = ...;
 			string _outputDir = System.IO.Directory.GetParent(
-				Path.GetDirectoryName(filename_)
+				Path.GetDirectoryName(this.filename_)
 			).FullName;
 			#endregion
 			if (notifyBase_in != null) notifyBase_in("generating...", true);
 
-			MetaFile[] _metafiles = new MetaFile[rootmetadata_.MetadataFiles.MetadataFiles.Count];
-			for (int i = 0; i < rootmetadata_.MetadataFiles.MetadataFiles.Count; i++) {
+			MetaFile[] _metafiles = new MetaFile[this.rootmetadata_.MetadataFiles.MetadataFiles.Count];
+			for (int i = 0; i < this.rootmetadata_.MetadataFiles.MetadataFiles.Count; i++) {
 				_metafiles[i] = new MetaFile(
 					Path.Combine(
-						Path.GetDirectoryName(filename_), 
-						rootmetadata_.MetadataFiles.MetadataFiles[i].XMLFilename
+						Path.GetDirectoryName(this.filename_),
+						this.rootmetadata_.MetadataFiles.MetadataFiles[i].XMLFilename
 					),
 					XS__documentation.DOCUMENTATION
 				);
@@ -180,8 +181,8 @@ namespace OGen.Doc.lib.generator {
 				_outputDir, 
 				_metafiles
 			).Build(
-				notifyBase_in, 
-				rootmetadata_
+				notifyBase_in,
+				this.rootmetadata_
 			);
 			if (notifyBase_in != null) notifyBase_in("...finished", true);
 		}

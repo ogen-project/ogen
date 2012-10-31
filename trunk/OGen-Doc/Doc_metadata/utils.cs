@@ -12,12 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-//using System.Text.RegularExpressions;
-using OGen.Doc.lib.metadata.documentation;
 
 namespace OGen.Doc.lib.metadata {
+	using System;
+	using System.IO;
+	//using System.Text.RegularExpressions;
+	using OGen.Doc.lib.metadata.documentation;
+
 #if NET_1_1
 	public class utils { private utils() {}
 #else

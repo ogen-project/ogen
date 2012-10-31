@@ -25,12 +25,12 @@ namespace OGen.Doc.lib.metadata.documentation {
 		#region private int NumberOf(XS_SourceContentTypeEnumeration sourceContentType_in);
 		private int NumberOf(XS_SourceContentTypeEnumeration sourceContentType_in) {
 			int _counter = 0;
-			XS_attachmentTypeCollection _parent = (XS_attachmentTypeCollection)parent_ref;
+			XS_attachmentTypeCollection _parent = (XS_attachmentTypeCollection)this.parent_ref;
 			for (int a = 0; a < _parent.Count; a++) {
 				if (_parent[a].SourceContentType == sourceContentType_in)
 					_counter++;
 
-				if (_parent[a].Title == Title) {
+				if (_parent[a].Title == this.Title) {
 					return _counter;
 				}
 			}
@@ -47,18 +47,18 @@ namespace OGen.Doc.lib.metadata.documentation {
 			get {
 
 				// check before lock
-				if (imagenumber__ == -2) {
+				if (this.imagenumber__ == -2) {
 
-					lock (imagenumber__locker) {
+					lock (this.imagenumber__locker) {
 
 						// double check, thread safer!
-						if (imagenumber__ == -2) {
+						if (this.imagenumber__ == -2) {
 
-							imagenumber__ = NumberOf(XS_SourceContentTypeEnumeration.image);
+							this.imagenumber__ = this.NumberOf(XS_SourceContentTypeEnumeration.image);
 						}
 					}
 				}
-				return imagenumber__;
+				return this.imagenumber__;
 			}
 		}
 		#endregion
@@ -70,19 +70,19 @@ namespace OGen.Doc.lib.metadata.documentation {
 			get {
 
 				// check before lock
-				if (tablenumber__ == -2) {
+				if (this.tablenumber__ == -2) {
 
-					lock (tablenumber__locker) {
+					lock (this.tablenumber__locker) {
 
 						// double check, thread safer!
-						if (tablenumber__ == -2) {
+						if (this.tablenumber__ == -2) {
 
-							tablenumber__ = NumberOf(XS_SourceContentTypeEnumeration.table);
+							this.tablenumber__ = this.NumberOf(XS_SourceContentTypeEnumeration.table);
 						}
 					}
 				}
 
-				return tablenumber__;
+				return this.tablenumber__;
 			}
 		}
 		#endregion
@@ -94,18 +94,18 @@ namespace OGen.Doc.lib.metadata.documentation {
 			get {
 
 				// check before lock
-				if (codenumber__ == -2) {
+				if (this.codenumber__ == -2) {
 
-					lock (codenumber__locker) {
+					lock (this.codenumber__locker) {
 
 						// double check, thread safer!
-						if (codenumber__ == -2) {
+						if (this.codenumber__ == -2) {
 
-							codenumber__ = NumberOf(XS_SourceContentTypeEnumeration.code);
+							this.codenumber__ = this.NumberOf(XS_SourceContentTypeEnumeration.code);
 						}
 					}
 				}
-				return codenumber__;
+				return this.codenumber__;
 			}
 		}
 		#endregion
