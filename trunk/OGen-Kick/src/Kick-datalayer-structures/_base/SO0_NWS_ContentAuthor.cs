@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// NWS_ContentAuthor SerializableObject which provides fields access at NWS_ContentAuthor table at Database.
 	/// </summary>
@@ -30,25 +31,25 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_NWS_ContentAuthor();
 		public SO_NWS_ContentAuthor(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_NWS_ContentAuthor(
 			long IFContent_in, 
 			long IFAuthor_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifcontent_ = IFContent_in;
-			ifauthor_ = IFAuthor_in;
+			this.ifcontent_ = IFContent_in;
+			this.ifauthor_ = IFAuthor_in;
 		}
 		public SO_NWS_ContentAuthor(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifcontent_ = (long)info_in.GetValue("IFContent", typeof(long));
-			ifauthor_ = (long)info_in.GetValue("IFAuthor", typeof(long));
+			this.ifcontent_ = (long)info_in.GetValue("IFContent", typeof(long));
+			this.ifauthor_ = (long)info_in.GetValue("IFAuthor", typeof(long));
 		}
 		#endregion
 
@@ -65,7 +66,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
@@ -105,14 +106,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFContent {
 			get {
-				return ifcontent_;
+				return this.ifcontent_;
 			}
 			set {
 				if (
-					(!value.Equals(ifcontent_))
+					(!value.Equals(this.ifcontent_))
 				) {
-					ifcontent_ = value;
-					haschanges_ = true;
+					this.ifcontent_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -153,14 +154,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFAuthor {
 			get {
-				return ifauthor_;
+				return this.ifauthor_;
 			}
 			set {
 				if (
-					(!value.Equals(ifauthor_))
+					(!value.Equals(this.ifauthor_))
 				) {
-					ifauthor_ = value;
-					haschanges_ = true;
+					this.ifauthor_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -194,16 +195,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifcontent_ = 0L;
-			ifauthor_ = 0L;
+			this.ifcontent_ = 0L;
+			this.ifauthor_ = 0L;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IFContent", ifcontent_);
-			info_in.AddValue("IFAuthor", ifauthor_);
+			info_in.AddValue("IFContent", this.ifcontent_);
+			info_in.AddValue("IFAuthor", this.ifauthor_);
 		}
 		#endregion
 		#endregion

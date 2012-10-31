@@ -12,12 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
 namespace OGen.NTier.Kick.lib.businesslayer {
+	using System;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+
 	public class BO_WEB_User :
 		IBO_WEB_User
 	{

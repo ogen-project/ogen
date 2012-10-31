@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// vNWS_Content SerializableObject which provides fields access at vNWS_Content view at Database.
 	/// </summary>
@@ -30,7 +31,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_vNWS_Content();
 		public SO_vNWS_Content(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_vNWS_Content(
 			long IDContent_in, 
@@ -45,65 +46,65 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			string subtitle_in, 
 			string summary_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idcontent_ = IDContent_in;
-			idlanguage_ = IDLanguage_in;
-			ifuser__publisher_ = IFUser__Publisher_in;
-			publishername_ = PublisherName_in;
-			publish_date_ = Publish_date_in;
-			ifuser__aproved_ = IFUser__Aproved_in;
-			aproved_date_ = Aproved_date_in;
-			title_ = Title_in;
-			content_ = Content_in;
-			subtitle_ = subtitle_in;
-			summary_ = summary_in;
+			this.idcontent_ = IDContent_in;
+			this.idlanguage_ = IDLanguage_in;
+			this.ifuser__publisher_ = IFUser__Publisher_in;
+			this.publishername_ = PublisherName_in;
+			this.publish_date_ = Publish_date_in;
+			this.ifuser__aproved_ = IFUser__Aproved_in;
+			this.aproved_date_ = Aproved_date_in;
+			this.title_ = Title_in;
+			this.content_ = Content_in;
+			this.subtitle_ = subtitle_in;
+			this.summary_ = summary_in;
 		}
 		public SO_vNWS_Content(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idcontent_ = (long)info_in.GetValue("IDContent", typeof(long));
-			idlanguage_ = (int)info_in.GetValue("IDLanguage", typeof(int));
-			ifuser__publisher_ = (long)info_in.GetValue("IFUser__Publisher", typeof(long));
-			publishername_ 
+			this.idcontent_ = (long)info_in.GetValue("IDContent", typeof(long));
+			this.idlanguage_ = (int)info_in.GetValue("IDLanguage", typeof(int));
+			this.ifuser__publisher_ = (long)info_in.GetValue("IFUser__Publisher", typeof(long));
+			this.publishername_ 
 				= (info_in.GetValue("PublisherName", typeof(string)) == null)
 					? string.Empty
 					: (string)info_in.GetValue("PublisherName", typeof(string));
-			PublisherName_isNull = (bool)info_in.GetValue("PublisherName_isNull", typeof(bool));
-			publish_date_ = (DateTime)info_in.GetValue("Publish_date", typeof(DateTime));
-			ifuser__aproved_ 
+			this.PublisherName_isNull = (bool)info_in.GetValue("PublisherName_isNull", typeof(bool));
+			this.publish_date_ = (DateTime)info_in.GetValue("Publish_date", typeof(DateTime));
+			this.ifuser__aproved_ 
 				= (info_in.GetValue("IFUser__Aproved", typeof(long)) == null)
 					? 0L
 					: (long)info_in.GetValue("IFUser__Aproved", typeof(long));
-			IFUser__Aproved_isNull = (bool)info_in.GetValue("IFUser__Aproved_isNull", typeof(bool));
-			aproved_date_ 
+			this.IFUser__Aproved_isNull = (bool)info_in.GetValue("IFUser__Aproved_isNull", typeof(bool));
+			this.aproved_date_ 
 				= (info_in.GetValue("Aproved_date", typeof(DateTime)) == null)
 					? new DateTime(1900, 1, 1)
 					: (DateTime)info_in.GetValue("Aproved_date", typeof(DateTime));
-			Aproved_date_isNull = (bool)info_in.GetValue("Aproved_date_isNull", typeof(bool));
-			title_ 
+			this.Aproved_date_isNull = (bool)info_in.GetValue("Aproved_date_isNull", typeof(bool));
+			this.title_ 
 				= (info_in.GetValue("Title", typeof(string)) == null)
 					? string.Empty
 					: (string)info_in.GetValue("Title", typeof(string));
-			Title_isNull = (bool)info_in.GetValue("Title_isNull", typeof(bool));
-			content_ 
+			this.Title_isNull = (bool)info_in.GetValue("Title_isNull", typeof(bool));
+			this.content_ 
 				= (info_in.GetValue("Content", typeof(string)) == null)
 					? string.Empty
 					: (string)info_in.GetValue("Content", typeof(string));
-			Content_isNull = (bool)info_in.GetValue("Content_isNull", typeof(bool));
-			subtitle_ 
+			this.Content_isNull = (bool)info_in.GetValue("Content_isNull", typeof(bool));
+			this.subtitle_ 
 				= (info_in.GetValue("subtitle", typeof(string)) == null)
 					? string.Empty
 					: (string)info_in.GetValue("subtitle", typeof(string));
-			subtitle_isNull = (bool)info_in.GetValue("subtitle_isNull", typeof(bool));
-			summary_ 
+			this.subtitle_isNull = (bool)info_in.GetValue("subtitle_isNull", typeof(bool));
+			this.summary_ 
 				= (info_in.GetValue("summary", typeof(string)) == null)
 					? string.Empty
 					: (string)info_in.GetValue("summary", typeof(string));
-			summary_isNull = (bool)info_in.GetValue("summary_isNull", typeof(bool));
+			this.summary_isNull = (bool)info_in.GetValue("summary_isNull", typeof(bool));
 		}
 		#endregion
 
@@ -120,7 +121,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
@@ -160,14 +161,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IDContent {
 			get {
-				return idcontent_;
+				return this.idcontent_;
 			}
 			set {
 				if (
-					(!value.Equals(idcontent_))
+					(!value.Equals(this.idcontent_))
 				) {
-					idcontent_ = value;
-					haschanges_ = true;
+					this.idcontent_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -208,14 +209,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int IDLanguage {
 			get {
-				return idlanguage_;
+				return this.idlanguage_;
 			}
 			set {
 				if (
-					(!value.Equals(idlanguage_))
+					(!value.Equals(this.idlanguage_))
 				) {
-					idlanguage_ = value;
-					haschanges_ = true;
+					this.idlanguage_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -256,14 +257,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFUser__Publisher {
 			get {
-				return ifuser__publisher_;
+				return this.ifuser__publisher_;
 			}
 			set {
 				if (
-					(!value.Equals(ifuser__publisher_))
+					(!value.Equals(this.ifuser__publisher_))
 				) {
-					ifuser__publisher_ = value;
-					haschanges_ = true;
+					this.ifuser__publisher_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -304,16 +305,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string PublisherName {
 			get {
-				return (string)((publishername_ == null) ? string.Empty : publishername_);
+				return (string)((this.publishername_ == null) ? string.Empty : this.publishername_);
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(publishername_))
+					(!value.Equals(this.publishername_))
 				) {
-					publishername_ = value;
-					haschanges_ = true;
+					this.publishername_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -325,13 +326,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("PublisherName_isNull")]
 		[SoapElement("PublisherName_isNull")]
 		public bool PublisherName_isNull {
-			get { return (publishername_ == null); }
+			get { return (this.publishername_ == null); }
 			set {
-				//if (value) publishername_ = null;
+				//if (value) this.publishername_ = null;
 
-				if ((value) && (publishername_ != null)) {
-					publishername_ = null;
-					haschanges_ = true;
+				if ((value) && (this.publishername_ != null)) {
+					this.publishername_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -372,14 +373,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public DateTime Publish_date {
 			get {
-				return publish_date_;
+				return this.publish_date_;
 			}
 			set {
 				if (
-					(!value.Equals(publish_date_))
+					(!value.Equals(this.publish_date_))
 				) {
-					publish_date_ = value;
-					haschanges_ = true;
+					this.publish_date_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -420,14 +421,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFUser__Aproved {
 			get {
-				return (long)((ifuser__aproved_ == null) ? 0L : ifuser__aproved_);
+				return (long)((this.ifuser__aproved_ == null) ? 0L : this.ifuser__aproved_);
 			}
 			set {
 				if (
-					(!value.Equals(ifuser__aproved_))
+					(!value.Equals(this.ifuser__aproved_))
 				) {
-					ifuser__aproved_ = value;
-					haschanges_ = true;
+					this.ifuser__aproved_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -439,13 +440,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFUser__Aproved_isNull")]
 		[SoapElement("IFUser__Aproved_isNull")]
 		public bool IFUser__Aproved_isNull {
-			get { return (ifuser__aproved_ == null); }
+			get { return (this.ifuser__aproved_ == null); }
 			set {
-				//if (value) ifuser__aproved_ = null;
+				//if (value) this.ifuser__aproved_ = null;
 
-				if ((value) && (ifuser__aproved_ != null)) {
-					ifuser__aproved_ = null;
-					haschanges_ = true;
+				if ((value) && (this.ifuser__aproved_ != null)) {
+					this.ifuser__aproved_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -486,14 +487,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public DateTime Aproved_date {
 			get {
-				return (DateTime)((aproved_date_ == null) ? new DateTime(1900, 1, 1) : aproved_date_);
+				return (DateTime)((this.aproved_date_ == null) ? new DateTime(1900, 1, 1) : this.aproved_date_);
 			}
 			set {
 				if (
-					(!value.Equals(aproved_date_))
+					(!value.Equals(this.aproved_date_))
 				) {
-					aproved_date_ = value;
-					haschanges_ = true;
+					this.aproved_date_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -505,13 +506,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("Aproved_date_isNull")]
 		[SoapElement("Aproved_date_isNull")]
 		public bool Aproved_date_isNull {
-			get { return (aproved_date_ == null); }
+			get { return (this.aproved_date_ == null); }
 			set {
-				//if (value) aproved_date_ = null;
+				//if (value) this.aproved_date_ = null;
 
-				if ((value) && (aproved_date_ != null)) {
-					aproved_date_ = null;
-					haschanges_ = true;
+				if ((value) && (this.aproved_date_ != null)) {
+					this.aproved_date_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -552,16 +553,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string Title {
 			get {
-				return (string)((title_ == null) ? string.Empty : title_);
+				return (string)((this.title_ == null) ? string.Empty : this.title_);
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(title_))
+					(!value.Equals(this.title_))
 				) {
-					title_ = value;
-					haschanges_ = true;
+					this.title_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -573,13 +574,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("Title_isNull")]
 		[SoapElement("Title_isNull")]
 		public bool Title_isNull {
-			get { return (title_ == null); }
+			get { return (this.title_ == null); }
 			set {
-				//if (value) title_ = null;
+				//if (value) this.title_ = null;
 
-				if ((value) && (title_ != null)) {
-					title_ = null;
-					haschanges_ = true;
+				if ((value) && (this.title_ != null)) {
+					this.title_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -620,16 +621,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string Content {
 			get {
-				return (string)((content_ == null) ? string.Empty : content_);
+				return (string)((this.content_ == null) ? string.Empty : this.content_);
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(content_))
+					(!value.Equals(this.content_))
 				) {
-					content_ = value;
-					haschanges_ = true;
+					this.content_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -641,13 +642,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("Content_isNull")]
 		[SoapElement("Content_isNull")]
 		public bool Content_isNull {
-			get { return (content_ == null); }
+			get { return (this.content_ == null); }
 			set {
-				//if (value) content_ = null;
+				//if (value) this.content_ = null;
 
-				if ((value) && (content_ != null)) {
-					content_ = null;
-					haschanges_ = true;
+				if ((value) && (this.content_ != null)) {
+					this.content_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -688,16 +689,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string subtitle {
 			get {
-				return (string)((subtitle_ == null) ? string.Empty : subtitle_);
+				return (string)((this.subtitle_ == null) ? string.Empty : this.subtitle_);
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(subtitle_))
+					(!value.Equals(this.subtitle_))
 				) {
-					subtitle_ = value;
-					haschanges_ = true;
+					this.subtitle_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -709,13 +710,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("subtitle_isNull")]
 		[SoapElement("subtitle_isNull")]
 		public bool subtitle_isNull {
-			get { return (subtitle_ == null); }
+			get { return (this.subtitle_ == null); }
 			set {
-				//if (value) subtitle_ = null;
+				//if (value) this.subtitle_ = null;
 
-				if ((value) && (subtitle_ != null)) {
-					subtitle_ = null;
-					haschanges_ = true;
+				if ((value) && (this.subtitle_ != null)) {
+					this.subtitle_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -756,16 +757,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string summary {
 			get {
-				return (string)((summary_ == null) ? string.Empty : summary_);
+				return (string)((this.summary_ == null) ? string.Empty : this.summary_);
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(summary_))
+					(!value.Equals(this.summary_))
 				) {
-					summary_ = value;
-					haschanges_ = true;
+					this.summary_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -777,13 +778,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("summary_isNull")]
 		[SoapElement("summary_isNull")]
 		public bool summary_isNull {
-			get { return (summary_ == null); }
+			get { return (this.summary_ == null); }
 			set {
-				//if (value) summary_ = null;
+				//if (value) this.summary_ = null;
 
-				if ((value) && (summary_ != null)) {
-					summary_ = null;
-					haschanges_ = true;
+				if ((value) && (this.summary_ != null)) {
+					this.summary_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -844,41 +845,41 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idcontent_ = 0L;
-			idlanguage_ = 0;
-			ifuser__publisher_ = 0L;
-			publishername_ = string.Empty;
-			publish_date_ = new DateTime(1900, 1, 1);
-			ifuser__aproved_ = 0L;
-			aproved_date_ = new DateTime(1900, 1, 1);
-			title_ = string.Empty;
-			content_ = string.Empty;
-			subtitle_ = string.Empty;
-			summary_ = string.Empty;
+			this.idcontent_ = 0L;
+			this.idlanguage_ = 0;
+			this.ifuser__publisher_ = 0L;
+			this.publishername_ = string.Empty;
+			this.publish_date_ = new DateTime(1900, 1, 1);
+			this.ifuser__aproved_ = 0L;
+			this.aproved_date_ = new DateTime(1900, 1, 1);
+			this.title_ = string.Empty;
+			this.content_ = string.Empty;
+			this.subtitle_ = string.Empty;
+			this.summary_ = string.Empty;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDContent", idcontent_);
-			info_in.AddValue("IDLanguage", idlanguage_);
-			info_in.AddValue("IFUser__Publisher", ifuser__publisher_);
-			info_in.AddValue("PublisherName", publishername_);
-			info_in.AddValue("PublisherName_isNull", PublisherName_isNull);
-			info_in.AddValue("Publish_date", publish_date_);
-			info_in.AddValue("IFUser__Aproved", ifuser__aproved_);
-			info_in.AddValue("IFUser__Aproved_isNull", IFUser__Aproved_isNull);
-			info_in.AddValue("Aproved_date", aproved_date_);
-			info_in.AddValue("Aproved_date_isNull", Aproved_date_isNull);
-			info_in.AddValue("Title", title_);
-			info_in.AddValue("Title_isNull", Title_isNull);
-			info_in.AddValue("Content", content_);
-			info_in.AddValue("Content_isNull", Content_isNull);
-			info_in.AddValue("subtitle", subtitle_);
-			info_in.AddValue("subtitle_isNull", subtitle_isNull);
-			info_in.AddValue("summary", summary_);
-			info_in.AddValue("summary_isNull", summary_isNull);
+			info_in.AddValue("IDContent", this.idcontent_);
+			info_in.AddValue("IDLanguage", this.idlanguage_);
+			info_in.AddValue("IFUser__Publisher", this.ifuser__publisher_);
+			info_in.AddValue("PublisherName", this.publishername_);
+			info_in.AddValue("PublisherName_isNull", this.PublisherName_isNull);
+			info_in.AddValue("Publish_date", this.publish_date_);
+			info_in.AddValue("IFUser__Aproved", this.ifuser__aproved_);
+			info_in.AddValue("IFUser__Aproved_isNull", this.IFUser__Aproved_isNull);
+			info_in.AddValue("Aproved_date", this.aproved_date_);
+			info_in.AddValue("Aproved_date_isNull", this.Aproved_date_isNull);
+			info_in.AddValue("Title", this.title_);
+			info_in.AddValue("Title_isNull", this.Title_isNull);
+			info_in.AddValue("Content", this.content_);
+			info_in.AddValue("Content_isNull", this.Content_isNull);
+			info_in.AddValue("subtitle", this.subtitle_);
+			info_in.AddValue("subtitle_isNull", this.subtitle_isNull);
+			info_in.AddValue("summary", this.summary_);
+			info_in.AddValue("summary_isNull", this.summary_isNull);
 		}
 		#endregion
 		#endregion

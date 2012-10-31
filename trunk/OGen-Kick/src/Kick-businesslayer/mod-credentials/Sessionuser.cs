@@ -28,8 +28,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			idUser_in,
 			idPermitions_in
 		) {
-			IDApplication = idApplication_in;
-			Sessionstart = sessionstart_in;
+			this.IDApplication = idApplication_in;
+			this.Sessionstart = sessionstart_in;
 		}
 
 		public int IDApplication;

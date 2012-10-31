@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// DIC_Text SerializableObject which provides fields access at DIC_Text table at Database.
 	/// </summary>
@@ -30,36 +31,36 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_DIC_Text();
 		public SO_DIC_Text(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_DIC_Text(
 			long IDText_in, 
 			int IFApplication_in, 
 			int SourceTableField_ref_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idtext_ = IDText_in;
-			ifapplication_ = IFApplication_in;
-			sourcetablefield_ref_ = SourceTableField_ref_in;
+			this.idtext_ = IDText_in;
+			this.ifapplication_ = IFApplication_in;
+			this.sourcetablefield_ref_ = SourceTableField_ref_in;
 		}
 		public SO_DIC_Text(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idtext_ = (long)info_in.GetValue("IDText", typeof(long));
-			ifapplication_ 
+			this.idtext_ = (long)info_in.GetValue("IDText", typeof(long));
+			this.ifapplication_ 
 				= (info_in.GetValue("IFApplication", typeof(int)) == null)
 					? 0
 					: (int)info_in.GetValue("IFApplication", typeof(int));
-			IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
-			sourcetablefield_ref_ 
+			this.IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
+			this.sourcetablefield_ref_ 
 				= (info_in.GetValue("SourceTableField_ref", typeof(int)) == null)
 					? 0
 					: (int)info_in.GetValue("SourceTableField_ref", typeof(int));
-			SourceTableField_ref_isNull = (bool)info_in.GetValue("SourceTableField_ref_isNull", typeof(bool));
+			this.SourceTableField_ref_isNull = (bool)info_in.GetValue("SourceTableField_ref_isNull", typeof(bool));
 		}
 		#endregion
 
@@ -76,7 +77,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
@@ -116,14 +117,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IDText {
 			get {
-				return idtext_;
+				return this.idtext_;
 			}
 			set {
 				if (
-					(!value.Equals(idtext_))
+					(!value.Equals(this.idtext_))
 				) {
-					idtext_ = value;
-					haschanges_ = true;
+					this.idtext_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -164,14 +165,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int IFApplication {
 			get {
-				return (int)((ifapplication_ == null) ? 0 : ifapplication_);
+				return (int)((this.ifapplication_ == null) ? 0 : this.ifapplication_);
 			}
 			set {
 				if (
-					(!value.Equals(ifapplication_))
+					(!value.Equals(this.ifapplication_))
 				) {
-					ifapplication_ = value;
-					haschanges_ = true;
+					this.ifapplication_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -183,13 +184,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFApplication_isNull")]
 		[SoapElement("IFApplication_isNull")]
 		public bool IFApplication_isNull {
-			get { return (ifapplication_ == null); }
+			get { return (this.ifapplication_ == null); }
 			set {
-				//if (value) ifapplication_ = null;
+				//if (value) this.ifapplication_ = null;
 
-				if ((value) && (ifapplication_ != null)) {
-					ifapplication_ = null;
-					haschanges_ = true;
+				if ((value) && (this.ifapplication_ != null)) {
+					this.ifapplication_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -230,14 +231,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int SourceTableField_ref {
 			get {
-				return (int)((sourcetablefield_ref_ == null) ? 0 : sourcetablefield_ref_);
+				return (int)((this.sourcetablefield_ref_ == null) ? 0 : this.sourcetablefield_ref_);
 			}
 			set {
 				if (
-					(!value.Equals(sourcetablefield_ref_))
+					(!value.Equals(this.sourcetablefield_ref_))
 				) {
-					sourcetablefield_ref_ = value;
-					haschanges_ = true;
+					this.sourcetablefield_ref_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -249,13 +250,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("SourceTableField_ref_isNull")]
 		[SoapElement("SourceTableField_ref_isNull")]
 		public bool SourceTableField_ref_isNull {
-			get { return (sourcetablefield_ref_ == null); }
+			get { return (this.sourcetablefield_ref_ == null); }
 			set {
-				//if (value) sourcetablefield_ref_ = null;
+				//if (value) this.sourcetablefield_ref_ = null;
 
-				if ((value) && (sourcetablefield_ref_ != null)) {
-					sourcetablefield_ref_ = null;
-					haschanges_ = true;
+				if ((value) && (this.sourcetablefield_ref_ != null)) {
+					this.sourcetablefield_ref_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -292,20 +293,20 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idtext_ = 0L;
-			ifapplication_ = 0;
-			sourcetablefield_ref_ = 0;
+			this.idtext_ = 0L;
+			this.ifapplication_ = 0;
+			this.sourcetablefield_ref_ = 0;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDText", idtext_);
-			info_in.AddValue("IFApplication", ifapplication_);
-			info_in.AddValue("IFApplication_isNull", IFApplication_isNull);
-			info_in.AddValue("SourceTableField_ref", sourcetablefield_ref_);
-			info_in.AddValue("SourceTableField_ref_isNull", SourceTableField_ref_isNull);
+			info_in.AddValue("IDText", this.idtext_);
+			info_in.AddValue("IFApplication", this.ifapplication_);
+			info_in.AddValue("IFApplication_isNull", this.IFApplication_isNull);
+			info_in.AddValue("SourceTableField_ref", this.sourcetablefield_ref_);
+			info_in.AddValue("SourceTableField_ref_isNull", this.SourceTableField_ref_isNull);
 		}
 		#endregion
 		#endregion

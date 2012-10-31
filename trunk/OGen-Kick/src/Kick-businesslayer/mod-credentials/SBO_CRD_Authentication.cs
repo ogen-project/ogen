@@ -12,24 +12,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Configuration;
-using System.Collections.Generic;
-using System.Text;
-
-using OGen.lib.datalayer;
-using OGen.NTier.lib.businesslayer;
-
-using OGen.lib.crypt;
-
-using OGen.NTier.Kick.lib.datalayer;
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-
-using OGen.NTier.Kick.lib.businesslayer.shared;
-//using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
 namespace OGen.NTier.Kick.lib.businesslayer {
+	using System;
+	using System.Configuration;
+	using System.Collections.Generic;
+	using System.Text;
+
+	using OGen.lib.crypt;
+	using OGen.lib.datalayer;
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	//using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.lib.datalayer;
+	using OGen.NTier.Kick.lib.datalayer.shared;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.lib.businesslayer;
+
 	[BOClassAttribute("BO_CRD_Authentication", "")]
 	public static class SBO_CRD_Authentication {
 		internal static Dictionary<Guid, Sessionuser> UserSession

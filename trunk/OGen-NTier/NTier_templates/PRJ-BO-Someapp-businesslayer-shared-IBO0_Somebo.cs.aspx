@@ -55,11 +55,12 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 #endregion
 <%
 	}
-}%>using System;
-
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.structures;
-
+}%>
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared {
+	using System;
+
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.structures;
+
 	public interface IBO0_<%=_aux_class.Name%> {<%
 		for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
 			_aux_method = _aux_class.Methods.MethodCollection[m];%><%=""%>

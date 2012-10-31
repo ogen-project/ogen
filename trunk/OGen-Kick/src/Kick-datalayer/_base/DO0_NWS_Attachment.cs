@@ -12,15 +12,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-
-using OGen.lib.datalayer;
-using OGen.NTier.lib.datalayer;
-
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
 
 namespace OGen.NTier.Kick.lib.datalayer {
+	using System;
+	using System.Data;
+
+	using OGen.lib.datalayer;
+	using OGen.NTier.lib.datalayer;
+
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+
 	/// <summary>
 	/// NWS_Attachment DataObject which provides access to NWS_Attachment's Database table.
 	/// </summary>

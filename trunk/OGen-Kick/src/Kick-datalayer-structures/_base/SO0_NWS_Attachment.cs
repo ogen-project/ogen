@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// NWS_Attachment SerializableObject which provides fields access at NWS_Attachment table at Database.
 	/// </summary>
@@ -30,7 +31,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_NWS_Attachment();
 		public SO_NWS_Attachment(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_NWS_Attachment(
 			long IDAttachment_in, 
@@ -42,43 +43,43 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			long TX_Description_in, 
 			string FileName_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idattachment_ = IDAttachment_in;
-			ifcontent_ = IFContent_in;
-			guid_ = GUID_in;
-			ordernum_ = OrderNum_in;
-			isimage_ = isImage_in;
-			tx_name_ = TX_Name_in;
-			tx_description_ = TX_Description_in;
-			filename_ = FileName_in;
+			this.idattachment_ = IDAttachment_in;
+			this.ifcontent_ = IFContent_in;
+			this.guid_ = GUID_in;
+			this.ordernum_ = OrderNum_in;
+			this.isimage_ = isImage_in;
+			this.tx_name_ = TX_Name_in;
+			this.tx_description_ = TX_Description_in;
+			this.filename_ = FileName_in;
 		}
 		public SO_NWS_Attachment(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idattachment_ = (long)info_in.GetValue("IDAttachment", typeof(long));
-			ifcontent_ = (long)info_in.GetValue("IFContent", typeof(long));
-			guid_ = (string)info_in.GetValue("GUID", typeof(string));
-			ordernum_ 
+			this.idattachment_ = (long)info_in.GetValue("IDAttachment", typeof(long));
+			this.ifcontent_ = (long)info_in.GetValue("IFContent", typeof(long));
+			this.guid_ = (string)info_in.GetValue("GUID", typeof(string));
+			this.ordernum_ 
 				= (info_in.GetValue("OrderNum", typeof(long)) == null)
 					? 0L
 					: (long)info_in.GetValue("OrderNum", typeof(long));
-			OrderNum_isNull = (bool)info_in.GetValue("OrderNum_isNull", typeof(bool));
-			isimage_ = (bool)info_in.GetValue("isImage", typeof(bool));
-			tx_name_ 
+			this.OrderNum_isNull = (bool)info_in.GetValue("OrderNum_isNull", typeof(bool));
+			this.isimage_ = (bool)info_in.GetValue("isImage", typeof(bool));
+			this.tx_name_ 
 				= (info_in.GetValue("TX_Name", typeof(long)) == null)
 					? 0L
 					: (long)info_in.GetValue("TX_Name", typeof(long));
-			TX_Name_isNull = (bool)info_in.GetValue("TX_Name_isNull", typeof(bool));
-			tx_description_ 
+			this.TX_Name_isNull = (bool)info_in.GetValue("TX_Name_isNull", typeof(bool));
+			this.tx_description_ 
 				= (info_in.GetValue("TX_Description", typeof(long)) == null)
 					? 0L
 					: (long)info_in.GetValue("TX_Description", typeof(long));
-			TX_Description_isNull = (bool)info_in.GetValue("TX_Description_isNull", typeof(bool));
-			filename_ = (string)info_in.GetValue("FileName", typeof(string));
+			this.TX_Description_isNull = (bool)info_in.GetValue("TX_Description_isNull", typeof(bool));
+			this.filename_ = (string)info_in.GetValue("FileName", typeof(string));
 		}
 		#endregion
 
@@ -95,7 +96,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
@@ -135,14 +136,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IDAttachment {
 			get {
-				return idattachment_;
+				return this.idattachment_;
 			}
 			set {
 				if (
-					(!value.Equals(idattachment_))
+					(!value.Equals(this.idattachment_))
 				) {
-					idattachment_ = value;
-					haschanges_ = true;
+					this.idattachment_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -183,14 +184,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFContent {
 			get {
-				return ifcontent_;
+				return this.ifcontent_;
 			}
 			set {
 				if (
-					(!value.Equals(ifcontent_))
+					(!value.Equals(this.ifcontent_))
 				) {
-					ifcontent_ = value;
-					haschanges_ = true;
+					this.ifcontent_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -231,16 +232,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string GUID {
 			get {
-				return guid_;
+				return this.guid_;
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(guid_))
+					(!value.Equals(this.guid_))
 				) {
-					guid_ = value;
-					haschanges_ = true;
+					this.guid_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -281,14 +282,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long OrderNum {
 			get {
-				return (long)((ordernum_ == null) ? 0L : ordernum_);
+				return (long)((this.ordernum_ == null) ? 0L : this.ordernum_);
 			}
 			set {
 				if (
-					(!value.Equals(ordernum_))
+					(!value.Equals(this.ordernum_))
 				) {
-					ordernum_ = value;
-					haschanges_ = true;
+					this.ordernum_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -300,13 +301,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("OrderNum_isNull")]
 		[SoapElement("OrderNum_isNull")]
 		public bool OrderNum_isNull {
-			get { return (ordernum_ == null); }
+			get { return (this.ordernum_ == null); }
 			set {
-				//if (value) ordernum_ = null;
+				//if (value) this.ordernum_ = null;
 
-				if ((value) && (ordernum_ != null)) {
-					ordernum_ = null;
-					haschanges_ = true;
+				if ((value) && (this.ordernum_ != null)) {
+					this.ordernum_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -347,14 +348,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public bool isImage {
 			get {
-				return isimage_;
+				return this.isimage_;
 			}
 			set {
 				if (
-					(!value.Equals(isimage_))
+					(!value.Equals(this.isimage_))
 				) {
-					isimage_ = value;
-					haschanges_ = true;
+					this.isimage_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -395,14 +396,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long TX_Name {
 			get {
-				return (long)((tx_name_ == null) ? 0L : tx_name_);
+				return (long)((this.tx_name_ == null) ? 0L : this.tx_name_);
 			}
 			set {
 				if (
-					(!value.Equals(tx_name_))
+					(!value.Equals(this.tx_name_))
 				) {
-					tx_name_ = value;
-					haschanges_ = true;
+					this.tx_name_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -414,13 +415,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("TX_Name_isNull")]
 		[SoapElement("TX_Name_isNull")]
 		public bool TX_Name_isNull {
-			get { return (tx_name_ == null); }
+			get { return (this.tx_name_ == null); }
 			set {
-				//if (value) tx_name_ = null;
+				//if (value) this.tx_name_ = null;
 
-				if ((value) && (tx_name_ != null)) {
-					tx_name_ = null;
-					haschanges_ = true;
+				if ((value) && (this.tx_name_ != null)) {
+					this.tx_name_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -461,14 +462,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long TX_Description {
 			get {
-				return (long)((tx_description_ == null) ? 0L : tx_description_);
+				return (long)((this.tx_description_ == null) ? 0L : this.tx_description_);
 			}
 			set {
 				if (
-					(!value.Equals(tx_description_))
+					(!value.Equals(this.tx_description_))
 				) {
-					tx_description_ = value;
-					haschanges_ = true;
+					this.tx_description_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -480,13 +481,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("TX_Description_isNull")]
 		[SoapElement("TX_Description_isNull")]
 		public bool TX_Description_isNull {
-			get { return (tx_description_ == null); }
+			get { return (this.tx_description_ == null); }
 			set {
-				//if (value) tx_description_ = null;
+				//if (value) this.tx_description_ = null;
 
-				if ((value) && (tx_description_ != null)) {
-					tx_description_ = null;
-					haschanges_ = true;
+				if ((value) && (this.tx_description_ != null)) {
+					this.tx_description_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -527,16 +528,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string FileName {
 			get {
-				return filename_;
+				return this.filename_;
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(filename_))
+					(!value.Equals(this.filename_))
 				) {
-					filename_ = value;
-					haschanges_ = true;
+					this.filename_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -588,31 +589,31 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idattachment_ = 0L;
-			ifcontent_ = 0L;
-			guid_ = string.Empty;
-			ordernum_ = 0L;
-			isimage_ = false;
-			tx_name_ = 0L;
-			tx_description_ = 0L;
-			filename_ = string.Empty;
+			this.idattachment_ = 0L;
+			this.ifcontent_ = 0L;
+			this.guid_ = string.Empty;
+			this.ordernum_ = 0L;
+			this.isimage_ = false;
+			this.tx_name_ = 0L;
+			this.tx_description_ = 0L;
+			this.filename_ = string.Empty;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDAttachment", idattachment_);
-			info_in.AddValue("IFContent", ifcontent_);
-			info_in.AddValue("GUID", guid_);
-			info_in.AddValue("OrderNum", ordernum_);
-			info_in.AddValue("OrderNum_isNull", OrderNum_isNull);
-			info_in.AddValue("isImage", isimage_);
-			info_in.AddValue("TX_Name", tx_name_);
-			info_in.AddValue("TX_Name_isNull", TX_Name_isNull);
-			info_in.AddValue("TX_Description", tx_description_);
-			info_in.AddValue("TX_Description_isNull", TX_Description_isNull);
-			info_in.AddValue("FileName", filename_);
+			info_in.AddValue("IDAttachment", this.idattachment_);
+			info_in.AddValue("IFContent", this.ifcontent_);
+			info_in.AddValue("GUID", this.guid_);
+			info_in.AddValue("OrderNum", this.ordernum_);
+			info_in.AddValue("OrderNum_isNull", this.OrderNum_isNull);
+			info_in.AddValue("isImage", this.isimage_);
+			info_in.AddValue("TX_Name", this.tx_name_);
+			info_in.AddValue("TX_Name_isNull", this.TX_Name_isNull);
+			info_in.AddValue("TX_Description", this.tx_description_);
+			info_in.AddValue("TX_Description_isNull", this.TX_Description_isNull);
+			info_in.AddValue("FileName", this.filename_);
 		}
 		#endregion
 		#endregion

@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// CRD_UserProfile SerializableObject which provides fields access at CRD_UserProfile table at Database.
 	/// </summary>
@@ -30,25 +31,25 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_CRD_UserProfile();
 		public SO_CRD_UserProfile(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_CRD_UserProfile(
 			long IFUser_in, 
 			long IFProfile_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifuser_ = IFUser_in;
-			ifprofile_ = IFProfile_in;
+			this.ifuser_ = IFUser_in;
+			this.ifprofile_ = IFProfile_in;
 		}
 		public SO_CRD_UserProfile(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifuser_ = (long)info_in.GetValue("IFUser", typeof(long));
-			ifprofile_ = (long)info_in.GetValue("IFProfile", typeof(long));
+			this.ifuser_ = (long)info_in.GetValue("IFUser", typeof(long));
+			this.ifprofile_ = (long)info_in.GetValue("IFProfile", typeof(long));
 		}
 		#endregion
 
@@ -65,7 +66,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
@@ -105,14 +106,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFUser {
 			get {
-				return ifuser_;
+				return this.ifuser_;
 			}
 			set {
 				if (
-					(!value.Equals(ifuser_))
+					(!value.Equals(this.ifuser_))
 				) {
-					ifuser_ = value;
-					haschanges_ = true;
+					this.ifuser_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -153,14 +154,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFProfile {
 			get {
-				return ifprofile_;
+				return this.ifprofile_;
 			}
 			set {
 				if (
-					(!value.Equals(ifprofile_))
+					(!value.Equals(this.ifprofile_))
 				) {
-					ifprofile_ = value;
-					haschanges_ = true;
+					this.ifprofile_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -194,16 +195,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifuser_ = 0L;
-			ifprofile_ = 0L;
+			this.ifuser_ = 0L;
+			this.ifprofile_ = 0L;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IFUser", ifuser_);
-			info_in.AddValue("IFProfile", ifprofile_);
+			info_in.AddValue("IFUser", this.ifuser_);
+			info_in.AddValue("IFProfile", this.ifprofile_);
 		}
 		#endregion
 		#endregion

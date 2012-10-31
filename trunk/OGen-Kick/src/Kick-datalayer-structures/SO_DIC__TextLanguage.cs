@@ -30,29 +30,29 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO__DIC_TextLanguage();
 		public SO_DIC__TextLanguage(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_DIC__TextLanguage(
 			int IFLanguage_in, 
 			string Text_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			iflanguage_ = IFLanguage_in;
-			text_ = Text_in;
+			this.iflanguage_ = IFLanguage_in;
+			this.text_ = Text_in;
 		}
 		public SO_DIC__TextLanguage(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			iflanguage_ = (int)info_in.GetValue("IFLanguage", typeof(int));
-			text_ 
+			this.iflanguage_ = (int)info_in.GetValue("IFLanguage", typeof(int));
+			this.text_ 
 				= (info_in.GetValue("Text", typeof(string)) == null)
 					? string.Empty
 					: (string)info_in.GetValue("Text", typeof(string));
-			Text_isNull = (bool)info_in.GetValue("Text_isNull", typeof(bool));
+			this.Text_isNull = (bool)info_in.GetValue("Text_isNull", typeof(bool));
 		}
 		#endregion
 
@@ -69,7 +69,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
@@ -109,14 +109,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int IFLanguage {
 			get {
-				return iflanguage_;
+				return this.iflanguage_;
 			}
 			set {
 				if (
-					(!value.Equals(iflanguage_))
+					(!value.Equals(this.iflanguage_))
 				) {
-					iflanguage_ = value;
-					haschanges_ = true;
+					this.iflanguage_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -157,16 +157,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string Text {
 			get {
-				return (string)((text_ == null) ? string.Empty : text_);
+				return (string)((this.text_ == null) ? string.Empty : this.text_);
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(text_))
+					(!value.Equals(this.text_))
 				) {
-					text_ = value;
-					haschanges_ = true;
+					this.text_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -178,13 +178,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("Text_isNull")]
 		[SoapElement("Text_isNull")]
 		public bool Text_isNull {
-			get { return (text_ == null); }
+			get { return (this.text_ == null); }
 			set {
-				//if (value) text_ = null;
+				//if (value) this.text_ = null;
 
-				if ((value) && (text_ != null)) {
-					text_ = null;
-					haschanges_ = true;
+				if ((value) && (this.text_ != null)) {
+					this.text_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -218,17 +218,17 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			iflanguage_ = 0;
-			text_ = string.Empty;
+			this.iflanguage_ = 0;
+			this.text_ = string.Empty;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IFLanguage", iflanguage_);
-			info_in.AddValue("Text", text_);
-			info_in.AddValue("Text_isNull", Text_isNull);
+			info_in.AddValue("IFLanguage", this.iflanguage_);
+			info_in.AddValue("Text", this.text_);
+			info_in.AddValue("Text_isNull", this.Text_isNull);
 		}
 		#endregion
 		#endregion

@@ -12,20 +12,21 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-
-using OGen.lib.datalayer;
-#if PostgreSQL
-using OGen.lib.datalayer.PostgreSQL;
-#endif
-
-#if SQLServer
-using OGen.lib.datalayer.SQLServer;
-#endif
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer {
+	using System;
+
+	using OGen.lib.datalayer;
+	#if PostgreSQL
+	using OGen.lib.datalayer.PostgreSQL;
+	#endif
+	
+	#if SQLServer
+	using OGen.lib.datalayer.SQLServer;
+	#endif
+	
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// utils DataObject which works as a repository of useful Properties and Methods for DataObjects at OGen.NTier.Kick.lib.datalayer namespace.
 	/// </summary>
@@ -87,7 +88,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		private static string dblogfile__;
 
 		/// <summary>
-		/// DataBase Operation's Log File
+		/// Database Operation's Log File
 		/// </summary>
 		public static string DBLogfile {
 			get {
@@ -147,7 +148,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		}
 		#region public static void DBConnectionstring_reset();
 		/// <summary>
-		/// Forces DataBase's ConnectionString to be re-read from config file.
+		/// Forces Database's ConnectionString to be re-read from config file.
 		/// </summary>
 		public static void DBConnectionstring_reset() {
 			Config_DBConnectionstrings.Reset();
@@ -160,7 +161,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		#endregion
 		#region public static void DBServerType_reset();
 		/// <summary>
-		/// Forces DataBase's Server Type to be re-read from config file.
+		/// Forces Database's Server Type to be re-read from config file.
 		/// </summary>
 		public static void DBServerType_reset() {
 			Config_DBConnectionstrings.Reset();

@@ -12,13 +12,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Runtime.Remoting;
-using System.Runtime.Remoting.Channels;
-using System.Runtime.Remoting.Channels.Tcp;
-using System.Runtime.Remoting.Channels.Http;
 
 namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
+	using System;
+	using System.Runtime.Remoting;
+	using System.Runtime.Remoting.Channels;
+	using System.Runtime.Remoting.Channels.Http;
+	using System.Runtime.Remoting.Channels.Tcp;
+
 	public class RS__server {
 		private RS__server() { }
 

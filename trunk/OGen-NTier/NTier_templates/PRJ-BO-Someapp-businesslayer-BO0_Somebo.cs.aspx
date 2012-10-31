@@ -54,12 +54,13 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 #endregion
 <%
 	}
-}%>using System;
-
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared;
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.structures;
-
+}%>
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer {
+	using System;
+
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared;
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.structures;
+
 	public class BO_<%=_aux_class.Name%> :
 		IBO_<%=_aux_class.Name%>
 	{<%

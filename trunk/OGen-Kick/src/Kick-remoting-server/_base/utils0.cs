@@ -12,9 +12,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
 
 namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
+	using System;
+
 	public static partial class utils {
 		#region public static bool ResetClientIP { get; }
 		private static bool resetclientip_beenread = false;

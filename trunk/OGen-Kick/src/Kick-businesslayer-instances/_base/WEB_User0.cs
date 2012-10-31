@@ -12,22 +12,23 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-#if BUSINESSOBJECT
-using OGen.NTier.Kick.lib.businesslayer;
-#endif
-using OGen.NTier.Kick.lib.businesslayer.shared;
-#if REMOTINGCLIENT
-using OGen.NTier.Kick.lib.distributedlayer.remoting.client;
-#endif
-#if WEBSERVICESCLIENT
-using OGen.NTier.Kick.lib.distributedlayer.webservices.client;
-#endif
 
 namespace OGen.NTier.Kick.lib.businesslayer.shared.instances {
+	using System;
+	using System.Collections.Generic;
+	using System.Text;
+
+	#if BUSINESSOBJECT
+	using OGen.NTier.Kick.lib.businesslayer;
+	#endif
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	#if REMOTINGCLIENT
+	using OGen.NTier.Kick.lib.distributedlayer.remoting.client;
+	#endif
+	#if WEBSERVICESCLIENT
+	using OGen.NTier.Kick.lib.distributedlayer.webservices.client;
+	#endif
+
 	public class WEB_User {
 		private WEB_User() { }
 

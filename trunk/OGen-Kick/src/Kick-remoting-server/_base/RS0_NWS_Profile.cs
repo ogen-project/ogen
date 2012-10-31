@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
 namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
+	using System;
+
+	using OGen.NTier.Kick.lib.businesslayer;
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+
 	/// <summary>
 	/// NWS_Profile remoting server.
 	/// </summary>

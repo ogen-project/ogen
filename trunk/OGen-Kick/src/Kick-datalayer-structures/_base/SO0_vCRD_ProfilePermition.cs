@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// vCRD_ProfilePermition SerializableObject which provides fields access at vCRD_ProfilePermition view at Database.
 	/// </summary>
@@ -30,7 +31,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_vCRD_ProfilePermition();
 		public SO_vCRD_ProfilePermition(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_vCRD_ProfilePermition(
 			long IDPermition_in, 
@@ -38,27 +39,27 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			long IDProfile_in, 
 			bool hasPermition_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idpermition_ = IDPermition_in;
-			permitionname_ = PermitionName_in;
-			idprofile_ = IDProfile_in;
-			haspermition_ = hasPermition_in;
+			this.idpermition_ = IDPermition_in;
+			this.permitionname_ = PermitionName_in;
+			this.idprofile_ = IDProfile_in;
+			this.haspermition_ = hasPermition_in;
 		}
 		public SO_vCRD_ProfilePermition(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idpermition_ = (long)info_in.GetValue("IDPermition", typeof(long));
-			permitionname_ = (string)info_in.GetValue("PermitionName", typeof(string));
-			idprofile_ = (long)info_in.GetValue("IDProfile", typeof(long));
-			haspermition_ 
+			this.idpermition_ = (long)info_in.GetValue("IDPermition", typeof(long));
+			this.permitionname_ = (string)info_in.GetValue("PermitionName", typeof(string));
+			this.idprofile_ = (long)info_in.GetValue("IDProfile", typeof(long));
+			this.haspermition_ 
 				= (info_in.GetValue("hasPermition", typeof(bool)) == null)
 					? false
 					: (bool)info_in.GetValue("hasPermition", typeof(bool));
-			hasPermition_isNull = (bool)info_in.GetValue("hasPermition_isNull", typeof(bool));
+			this.hasPermition_isNull = (bool)info_in.GetValue("hasPermition_isNull", typeof(bool));
 		}
 		#endregion
 
@@ -75,21 +76,21 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
 		#region public override long ListItem_Value { get; }
 		public override long ListItem_Value {
 			get {
-				return idpermition_;
+				return this.idpermition_;
 			}
 		}
 		#endregion
 		#region public override string ListItem_Text { get; }
 		public override string ListItem_Text {
 			get {
-				return permitionname_;
+				return this.permitionname_;
 			}
 		} 
 		#endregion
@@ -130,14 +131,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IDPermition {
 			get {
-				return idpermition_;
+				return this.idpermition_;
 			}
 			set {
 				if (
-					(!value.Equals(idpermition_))
+					(!value.Equals(this.idpermition_))
 				) {
-					idpermition_ = value;
-					haschanges_ = true;
+					this.idpermition_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -178,16 +179,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string PermitionName {
 			get {
-				return permitionname_;
+				return this.permitionname_;
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(permitionname_))
+					(!value.Equals(this.permitionname_))
 				) {
-					permitionname_ = value;
-					haschanges_ = true;
+					this.permitionname_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -228,14 +229,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IDProfile {
 			get {
-				return idprofile_;
+				return this.idprofile_;
 			}
 			set {
 				if (
-					(!value.Equals(idprofile_))
+					(!value.Equals(this.idprofile_))
 				) {
-					idprofile_ = value;
-					haschanges_ = true;
+					this.idprofile_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -276,14 +277,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public bool hasPermition {
 			get {
-				return (bool)((haspermition_ == null) ? false : haspermition_);
+				return (bool)((this.haspermition_ == null) ? false : this.haspermition_);
 			}
 			set {
 				if (
-					(!value.Equals(haspermition_))
+					(!value.Equals(this.haspermition_))
 				) {
-					haspermition_ = value;
-					haschanges_ = true;
+					this.haspermition_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -295,13 +296,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("hasPermition_isNull")]
 		[SoapElement("hasPermition_isNull")]
 		public bool hasPermition_isNull {
-			get { return (haspermition_ == null); }
+			get { return (this.haspermition_ == null); }
 			set {
-				//if (value) haspermition_ = null;
+				//if (value) this.haspermition_ = null;
 
-				if ((value) && (haspermition_ != null)) {
-					haspermition_ = null;
-					haschanges_ = true;
+				if ((value) && (this.haspermition_ != null)) {
+					this.haspermition_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -341,21 +342,21 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idpermition_ = 0L;
-			permitionname_ = string.Empty;
-			idprofile_ = 0L;
-			haspermition_ = false;
+			this.idpermition_ = 0L;
+			this.permitionname_ = string.Empty;
+			this.idprofile_ = 0L;
+			this.haspermition_ = false;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDPermition", idpermition_);
-			info_in.AddValue("PermitionName", permitionname_);
-			info_in.AddValue("IDProfile", idprofile_);
-			info_in.AddValue("hasPermition", haspermition_);
-			info_in.AddValue("hasPermition_isNull", hasPermition_isNull);
+			info_in.AddValue("IDPermition", this.idpermition_);
+			info_in.AddValue("PermitionName", this.permitionname_);
+			info_in.AddValue("IDProfile", this.idprofile_);
+			info_in.AddValue("hasPermition", this.haspermition_);
+			info_in.AddValue("hasPermition_isNull", this.hasPermition_isNull);
 		}
 		#endregion
 		#endregion

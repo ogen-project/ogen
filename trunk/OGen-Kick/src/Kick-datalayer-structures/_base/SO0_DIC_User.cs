@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// DIC_User SerializableObject which provides fields access at DIC_User table at Database.
 	/// </summary>
@@ -30,25 +31,25 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_DIC_User();
 		public SO_DIC_User(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_DIC_User(
 			long IFUser_in, 
 			int IFLanguage_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifuser_ = IFUser_in;
-			iflanguage_ = IFLanguage_in;
+			this.ifuser_ = IFUser_in;
+			this.iflanguage_ = IFLanguage_in;
 		}
 		public SO_DIC_User(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifuser_ = (long)info_in.GetValue("IFUser", typeof(long));
-			iflanguage_ = (int)info_in.GetValue("IFLanguage", typeof(int));
+			this.ifuser_ = (long)info_in.GetValue("IFUser", typeof(long));
+			this.iflanguage_ = (int)info_in.GetValue("IFLanguage", typeof(int));
 		}
 		#endregion
 
@@ -65,7 +66,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
@@ -105,14 +106,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFUser {
 			get {
-				return ifuser_;
+				return this.ifuser_;
 			}
 			set {
 				if (
-					(!value.Equals(ifuser_))
+					(!value.Equals(this.ifuser_))
 				) {
-					ifuser_ = value;
-					haschanges_ = true;
+					this.ifuser_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -153,14 +154,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int IFLanguage {
 			get {
-				return iflanguage_;
+				return this.iflanguage_;
 			}
 			set {
 				if (
-					(!value.Equals(iflanguage_))
+					(!value.Equals(this.iflanguage_))
 				) {
-					iflanguage_ = value;
-					haschanges_ = true;
+					this.iflanguage_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -194,16 +195,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifuser_ = 0L;
-			iflanguage_ = 0;
+			this.ifuser_ = 0L;
+			this.iflanguage_ = 0;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IFUser", ifuser_);
-			info_in.AddValue("IFLanguage", iflanguage_);
+			info_in.AddValue("IFUser", this.ifuser_);
+			info_in.AddValue("IFLanguage", this.iflanguage_);
 		}
 		#endregion
 		#endregion

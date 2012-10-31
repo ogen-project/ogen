@@ -62,19 +62,20 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 #endregion
 <%
 	}
-}%>using System;
-
-using OGen.lib.datalayer;<%
-for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
-    string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();%>
-#if <%=_dbservertype%>
-using OGen.lib.datalayer.<%=_dbservertype%>;
-#endif
-<%
 }%>
-using OGen.NTier.lib.datalayer;
-
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
+	using System;
+
+	using OGen.lib.datalayer;<%
+	for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
+		string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();%>
+	#if <%=_dbservertype%>
+	using OGen.lib.datalayer.<%=_dbservertype%>;
+	#endif
+	<%
+	}%>
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// utils DataObject which works as a repository of useful Properties and Methods for DataObjects at <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer namespace.
 	/// </summary>

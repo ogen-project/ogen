@@ -55,16 +55,17 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 #endregion
 <%
 	}
-}%>using System;
-
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures;<%
-if (!_arg_Client) {%>
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;<%
 }%>
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared;
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.structures;
-
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server {
+	using System;
+<%
+	if (!_arg_Client) {%>
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;<%
+	}%>
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared;
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.structures;
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures;
+
 	/// <summary>
 	/// <%=_aux_class.Name%> remoting server.
 	/// </summary>

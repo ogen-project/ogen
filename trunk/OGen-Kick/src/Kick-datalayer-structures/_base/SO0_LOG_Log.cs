@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// LOG_Log SerializableObject which provides fields access at LOG_Log table at Database.
 	/// </summary>
@@ -30,7 +31,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_LOG_Log();
 		public SO_LOG_Log(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_LOG_Log(
 			long IDLog_in, 
@@ -45,65 +46,65 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			int IFApplication_in, 
 			long IFBrowser__OPT_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idlog_ = IDLog_in;
-			iflogtype_ = IFLogtype_in;
-			ifuser_ = IFUser_in;
-			ifuser__read_ = IFUser__read_in;
-			iferrortype_ = IFErrortype_in;
-			stamp_ = Stamp_in;
-			stamp__read_ = Stamp__read_in;
-			message_ = Message_in;
-			ifpermition_ = IFPermition_in;
-			ifapplication_ = IFApplication_in;
-			ifbrowser__opt_ = IFBrowser__OPT_in;
+			this.idlog_ = IDLog_in;
+			this.iflogtype_ = IFLogtype_in;
+			this.ifuser_ = IFUser_in;
+			this.ifuser__read_ = IFUser__read_in;
+			this.iferrortype_ = IFErrortype_in;
+			this.stamp_ = Stamp_in;
+			this.stamp__read_ = Stamp__read_in;
+			this.message_ = Message_in;
+			this.ifpermition_ = IFPermition_in;
+			this.ifapplication_ = IFApplication_in;
+			this.ifbrowser__opt_ = IFBrowser__OPT_in;
 		}
 		public SO_LOG_Log(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idlog_ = (long)info_in.GetValue("IDLog", typeof(long));
-			iflogtype_ = (int)info_in.GetValue("IFLogtype", typeof(int));
-			ifuser_ 
+			this.idlog_ = (long)info_in.GetValue("IDLog", typeof(long));
+			this.iflogtype_ = (int)info_in.GetValue("IFLogtype", typeof(int));
+			this.ifuser_ 
 				= (info_in.GetValue("IFUser", typeof(long)) == null)
 					? 0L
 					: (long)info_in.GetValue("IFUser", typeof(long));
-			IFUser_isNull = (bool)info_in.GetValue("IFUser_isNull", typeof(bool));
-			ifuser__read_ 
+			this.IFUser_isNull = (bool)info_in.GetValue("IFUser_isNull", typeof(bool));
+			this.ifuser__read_ 
 				= (info_in.GetValue("IFUser__read", typeof(long)) == null)
 					? 0L
 					: (long)info_in.GetValue("IFUser__read", typeof(long));
-			IFUser__read_isNull = (bool)info_in.GetValue("IFUser__read_isNull", typeof(bool));
-			iferrortype_ 
+			this.IFUser__read_isNull = (bool)info_in.GetValue("IFUser__read_isNull", typeof(bool));
+			this.iferrortype_ 
 				= (info_in.GetValue("IFErrortype", typeof(int)) == null)
 					? 0
 					: (int)info_in.GetValue("IFErrortype", typeof(int));
-			IFErrortype_isNull = (bool)info_in.GetValue("IFErrortype_isNull", typeof(bool));
-			stamp_ = (DateTime)info_in.GetValue("Stamp", typeof(DateTime));
-			stamp__read_ 
+			this.IFErrortype_isNull = (bool)info_in.GetValue("IFErrortype_isNull", typeof(bool));
+			this.stamp_ = (DateTime)info_in.GetValue("Stamp", typeof(DateTime));
+			this.stamp__read_ 
 				= (info_in.GetValue("Stamp__read", typeof(DateTime)) == null)
 					? new DateTime(1900, 1, 1)
 					: (DateTime)info_in.GetValue("Stamp__read", typeof(DateTime));
-			Stamp__read_isNull = (bool)info_in.GetValue("Stamp__read_isNull", typeof(bool));
-			message_ = (string)info_in.GetValue("Message", typeof(string));
-			ifpermition_ 
+			this.Stamp__read_isNull = (bool)info_in.GetValue("Stamp__read_isNull", typeof(bool));
+			this.message_ = (string)info_in.GetValue("Message", typeof(string));
+			this.ifpermition_ 
 				= (info_in.GetValue("IFPermition", typeof(long)) == null)
 					? 0L
 					: (long)info_in.GetValue("IFPermition", typeof(long));
-			IFPermition_isNull = (bool)info_in.GetValue("IFPermition_isNull", typeof(bool));
-			ifapplication_ 
+			this.IFPermition_isNull = (bool)info_in.GetValue("IFPermition_isNull", typeof(bool));
+			this.ifapplication_ 
 				= (info_in.GetValue("IFApplication", typeof(int)) == null)
 					? 0
 					: (int)info_in.GetValue("IFApplication", typeof(int));
-			IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
-			ifbrowser__opt_ 
+			this.IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
+			this.ifbrowser__opt_ 
 				= (info_in.GetValue("IFBrowser__OPT", typeof(long)) == null)
 					? 0L
 					: (long)info_in.GetValue("IFBrowser__OPT", typeof(long));
-			IFBrowser__OPT_isNull = (bool)info_in.GetValue("IFBrowser__OPT_isNull", typeof(bool));
+			this.IFBrowser__OPT_isNull = (bool)info_in.GetValue("IFBrowser__OPT_isNull", typeof(bool));
 		}
 		#endregion
 
@@ -120,7 +121,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
@@ -160,14 +161,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IDLog {
 			get {
-				return idlog_;
+				return this.idlog_;
 			}
 			set {
 				if (
-					(!value.Equals(idlog_))
+					(!value.Equals(this.idlog_))
 				) {
-					idlog_ = value;
-					haschanges_ = true;
+					this.idlog_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -208,14 +209,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int IFLogtype {
 			get {
-				return iflogtype_;
+				return this.iflogtype_;
 			}
 			set {
 				if (
-					(!value.Equals(iflogtype_))
+					(!value.Equals(this.iflogtype_))
 				) {
-					iflogtype_ = value;
-					haschanges_ = true;
+					this.iflogtype_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -256,14 +257,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFUser {
 			get {
-				return (long)((ifuser_ == null) ? 0L : ifuser_);
+				return (long)((this.ifuser_ == null) ? 0L : this.ifuser_);
 			}
 			set {
 				if (
-					(!value.Equals(ifuser_))
+					(!value.Equals(this.ifuser_))
 				) {
-					ifuser_ = value;
-					haschanges_ = true;
+					this.ifuser_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -275,13 +276,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFUser_isNull")]
 		[SoapElement("IFUser_isNull")]
 		public bool IFUser_isNull {
-			get { return (ifuser_ == null); }
+			get { return (this.ifuser_ == null); }
 			set {
-				//if (value) ifuser_ = null;
+				//if (value) this.ifuser_ = null;
 
-				if ((value) && (ifuser_ != null)) {
-					ifuser_ = null;
-					haschanges_ = true;
+				if ((value) && (this.ifuser_ != null)) {
+					this.ifuser_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -322,14 +323,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFUser__read {
 			get {
-				return (long)((ifuser__read_ == null) ? 0L : ifuser__read_);
+				return (long)((this.ifuser__read_ == null) ? 0L : this.ifuser__read_);
 			}
 			set {
 				if (
-					(!value.Equals(ifuser__read_))
+					(!value.Equals(this.ifuser__read_))
 				) {
-					ifuser__read_ = value;
-					haschanges_ = true;
+					this.ifuser__read_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -341,13 +342,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFUser__read_isNull")]
 		[SoapElement("IFUser__read_isNull")]
 		public bool IFUser__read_isNull {
-			get { return (ifuser__read_ == null); }
+			get { return (this.ifuser__read_ == null); }
 			set {
-				//if (value) ifuser__read_ = null;
+				//if (value) this.ifuser__read_ = null;
 
-				if ((value) && (ifuser__read_ != null)) {
-					ifuser__read_ = null;
-					haschanges_ = true;
+				if ((value) && (this.ifuser__read_ != null)) {
+					this.ifuser__read_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -388,14 +389,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int IFErrortype {
 			get {
-				return (int)((iferrortype_ == null) ? 0 : iferrortype_);
+				return (int)((this.iferrortype_ == null) ? 0 : this.iferrortype_);
 			}
 			set {
 				if (
-					(!value.Equals(iferrortype_))
+					(!value.Equals(this.iferrortype_))
 				) {
-					iferrortype_ = value;
-					haschanges_ = true;
+					this.iferrortype_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -407,13 +408,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFErrortype_isNull")]
 		[SoapElement("IFErrortype_isNull")]
 		public bool IFErrortype_isNull {
-			get { return (iferrortype_ == null); }
+			get { return (this.iferrortype_ == null); }
 			set {
-				//if (value) iferrortype_ = null;
+				//if (value) this.iferrortype_ = null;
 
-				if ((value) && (iferrortype_ != null)) {
-					iferrortype_ = null;
-					haschanges_ = true;
+				if ((value) && (this.iferrortype_ != null)) {
+					this.iferrortype_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -454,14 +455,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public DateTime Stamp {
 			get {
-				return stamp_;
+				return this.stamp_;
 			}
 			set {
 				if (
-					(!value.Equals(stamp_))
+					(!value.Equals(this.stamp_))
 				) {
-					stamp_ = value;
-					haschanges_ = true;
+					this.stamp_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -502,14 +503,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public DateTime Stamp__read {
 			get {
-				return (DateTime)((stamp__read_ == null) ? new DateTime(1900, 1, 1) : stamp__read_);
+				return (DateTime)((this.stamp__read_ == null) ? new DateTime(1900, 1, 1) : this.stamp__read_);
 			}
 			set {
 				if (
-					(!value.Equals(stamp__read_))
+					(!value.Equals(this.stamp__read_))
 				) {
-					stamp__read_ = value;
-					haschanges_ = true;
+					this.stamp__read_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -521,13 +522,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("Stamp__read_isNull")]
 		[SoapElement("Stamp__read_isNull")]
 		public bool Stamp__read_isNull {
-			get { return (stamp__read_ == null); }
+			get { return (this.stamp__read_ == null); }
 			set {
-				//if (value) stamp__read_ = null;
+				//if (value) this.stamp__read_ = null;
 
-				if ((value) && (stamp__read_ != null)) {
-					stamp__read_ = null;
-					haschanges_ = true;
+				if ((value) && (this.stamp__read_ != null)) {
+					this.stamp__read_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -568,16 +569,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string Message {
 			get {
-				return message_;
+				return this.message_;
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(message_))
+					(!value.Equals(this.message_))
 				) {
-					message_ = value;
-					haschanges_ = true;
+					this.message_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -618,14 +619,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFPermition {
 			get {
-				return (long)((ifpermition_ == null) ? 0L : ifpermition_);
+				return (long)((this.ifpermition_ == null) ? 0L : this.ifpermition_);
 			}
 			set {
 				if (
-					(!value.Equals(ifpermition_))
+					(!value.Equals(this.ifpermition_))
 				) {
-					ifpermition_ = value;
-					haschanges_ = true;
+					this.ifpermition_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -637,13 +638,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFPermition_isNull")]
 		[SoapElement("IFPermition_isNull")]
 		public bool IFPermition_isNull {
-			get { return (ifpermition_ == null); }
+			get { return (this.ifpermition_ == null); }
 			set {
-				//if (value) ifpermition_ = null;
+				//if (value) this.ifpermition_ = null;
 
-				if ((value) && (ifpermition_ != null)) {
-					ifpermition_ = null;
-					haschanges_ = true;
+				if ((value) && (this.ifpermition_ != null)) {
+					this.ifpermition_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -684,14 +685,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int IFApplication {
 			get {
-				return (int)((ifapplication_ == null) ? 0 : ifapplication_);
+				return (int)((this.ifapplication_ == null) ? 0 : this.ifapplication_);
 			}
 			set {
 				if (
-					(!value.Equals(ifapplication_))
+					(!value.Equals(this.ifapplication_))
 				) {
-					ifapplication_ = value;
-					haschanges_ = true;
+					this.ifapplication_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -703,13 +704,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFApplication_isNull")]
 		[SoapElement("IFApplication_isNull")]
 		public bool IFApplication_isNull {
-			get { return (ifapplication_ == null); }
+			get { return (this.ifapplication_ == null); }
 			set {
-				//if (value) ifapplication_ = null;
+				//if (value) this.ifapplication_ = null;
 
-				if ((value) && (ifapplication_ != null)) {
-					ifapplication_ = null;
-					haschanges_ = true;
+				if ((value) && (this.ifapplication_ != null)) {
+					this.ifapplication_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -750,14 +751,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFBrowser__OPT {
 			get {
-				return (long)((ifbrowser__opt_ == null) ? 0L : ifbrowser__opt_);
+				return (long)((this.ifbrowser__opt_ == null) ? 0L : this.ifbrowser__opt_);
 			}
 			set {
 				if (
-					(!value.Equals(ifbrowser__opt_))
+					(!value.Equals(this.ifbrowser__opt_))
 				) {
-					ifbrowser__opt_ = value;
-					haschanges_ = true;
+					this.ifbrowser__opt_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -769,13 +770,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFBrowser__OPT_isNull")]
 		[SoapElement("IFBrowser__OPT_isNull")]
 		public bool IFBrowser__OPT_isNull {
-			get { return (ifbrowser__opt_ == null); }
+			get { return (this.ifbrowser__opt_ == null); }
 			set {
-				//if (value) ifbrowser__opt_ = null;
+				//if (value) this.ifbrowser__opt_ = null;
 
-				if ((value) && (ifbrowser__opt_ != null)) {
-					ifbrowser__opt_ = null;
-					haschanges_ = true;
+				if ((value) && (this.ifbrowser__opt_ != null)) {
+					this.ifbrowser__opt_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -836,41 +837,41 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idlog_ = 0L;
-			iflogtype_ = 0;
-			ifuser_ = 0L;
-			ifuser__read_ = 0L;
-			iferrortype_ = 0;
-			stamp_ = new DateTime(1900, 1, 1);
-			stamp__read_ = new DateTime(1900, 1, 1);
-			message_ = string.Empty;
-			ifpermition_ = 0L;
-			ifapplication_ = 0;
-			ifbrowser__opt_ = 0L;
+			this.idlog_ = 0L;
+			this.iflogtype_ = 0;
+			this.ifuser_ = 0L;
+			this.ifuser__read_ = 0L;
+			this.iferrortype_ = 0;
+			this.stamp_ = new DateTime(1900, 1, 1);
+			this.stamp__read_ = new DateTime(1900, 1, 1);
+			this.message_ = string.Empty;
+			this.ifpermition_ = 0L;
+			this.ifapplication_ = 0;
+			this.ifbrowser__opt_ = 0L;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDLog", idlog_);
-			info_in.AddValue("IFLogtype", iflogtype_);
-			info_in.AddValue("IFUser", ifuser_);
-			info_in.AddValue("IFUser_isNull", IFUser_isNull);
-			info_in.AddValue("IFUser__read", ifuser__read_);
-			info_in.AddValue("IFUser__read_isNull", IFUser__read_isNull);
-			info_in.AddValue("IFErrortype", iferrortype_);
-			info_in.AddValue("IFErrortype_isNull", IFErrortype_isNull);
-			info_in.AddValue("Stamp", stamp_);
-			info_in.AddValue("Stamp__read", stamp__read_);
-			info_in.AddValue("Stamp__read_isNull", Stamp__read_isNull);
-			info_in.AddValue("Message", message_);
-			info_in.AddValue("IFPermition", ifpermition_);
-			info_in.AddValue("IFPermition_isNull", IFPermition_isNull);
-			info_in.AddValue("IFApplication", ifapplication_);
-			info_in.AddValue("IFApplication_isNull", IFApplication_isNull);
-			info_in.AddValue("IFBrowser__OPT", ifbrowser__opt_);
-			info_in.AddValue("IFBrowser__OPT_isNull", IFBrowser__OPT_isNull);
+			info_in.AddValue("IDLog", this.idlog_);
+			info_in.AddValue("IFLogtype", this.iflogtype_);
+			info_in.AddValue("IFUser", this.ifuser_);
+			info_in.AddValue("IFUser_isNull", this.IFUser_isNull);
+			info_in.AddValue("IFUser__read", this.ifuser__read_);
+			info_in.AddValue("IFUser__read_isNull", this.IFUser__read_isNull);
+			info_in.AddValue("IFErrortype", this.iferrortype_);
+			info_in.AddValue("IFErrortype_isNull", this.IFErrortype_isNull);
+			info_in.AddValue("Stamp", this.stamp_);
+			info_in.AddValue("Stamp__read", this.stamp__read_);
+			info_in.AddValue("Stamp__read_isNull", this.Stamp__read_isNull);
+			info_in.AddValue("Message", this.message_);
+			info_in.AddValue("IFPermition", this.ifpermition_);
+			info_in.AddValue("IFPermition_isNull", this.IFPermition_isNull);
+			info_in.AddValue("IFApplication", this.ifapplication_);
+			info_in.AddValue("IFApplication_isNull", this.IFApplication_isNull);
+			info_in.AddValue("IFBrowser__OPT", this.ifbrowser__opt_);
+			info_in.AddValue("IFBrowser__OPT_isNull", this.IFBrowser__OPT_isNull);
 		}
 		#endregion
 		#endregion

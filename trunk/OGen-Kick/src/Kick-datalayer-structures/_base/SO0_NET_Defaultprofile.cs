@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// NET_Defaultprofile SerializableObject which provides fields access at NET_Defaultprofile table at Database.
 	/// </summary>
@@ -30,25 +31,25 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_NET_Defaultprofile();
 		public SO_NET_Defaultprofile(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_NET_Defaultprofile(
 			long IDDefaultprofile_in, 
 			long IFProfile_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			iddefaultprofile_ = IDDefaultprofile_in;
-			ifprofile_ = IFProfile_in;
+			this.iddefaultprofile_ = IDDefaultprofile_in;
+			this.ifprofile_ = IFProfile_in;
 		}
 		public SO_NET_Defaultprofile(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			iddefaultprofile_ = (long)info_in.GetValue("IDDefaultprofile", typeof(long));
-			ifprofile_ = (long)info_in.GetValue("IFProfile", typeof(long));
+			this.iddefaultprofile_ = (long)info_in.GetValue("IDDefaultprofile", typeof(long));
+			this.ifprofile_ = (long)info_in.GetValue("IFProfile", typeof(long));
 		}
 		#endregion
 
@@ -65,7 +66,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
@@ -105,14 +106,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IDDefaultprofile {
 			get {
-				return iddefaultprofile_;
+				return this.iddefaultprofile_;
 			}
 			set {
 				if (
-					(!value.Equals(iddefaultprofile_))
+					(!value.Equals(this.iddefaultprofile_))
 				) {
-					iddefaultprofile_ = value;
-					haschanges_ = true;
+					this.iddefaultprofile_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -153,14 +154,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFProfile {
 			get {
-				return ifprofile_;
+				return this.ifprofile_;
 			}
 			set {
 				if (
-					(!value.Equals(ifprofile_))
+					(!value.Equals(this.ifprofile_))
 				) {
-					ifprofile_ = value;
-					haschanges_ = true;
+					this.ifprofile_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -194,16 +195,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			iddefaultprofile_ = 0L;
-			ifprofile_ = 0L;
+			this.iddefaultprofile_ = 0L;
+			this.ifprofile_ = 0L;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDDefaultprofile", iddefaultprofile_);
-			info_in.AddValue("IFProfile", ifprofile_);
+			info_in.AddValue("IDDefaultprofile", this.iddefaultprofile_);
+			info_in.AddValue("IFProfile", this.ifprofile_);
 		}
 		#endregion
 		#endregion

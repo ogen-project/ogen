@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// CRD_User SerializableObject which provides fields access at CRD_User table at Database.
 	/// </summary>
@@ -30,7 +31,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_CRD_User();
 		public SO_CRD_User(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_CRD_User(
 			long IDUser_in, 
@@ -38,27 +39,27 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			string Password_in, 
 			int IFApplication_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			iduser_ = IDUser_in;
-			login_ = Login_in;
-			password_ = Password_in;
-			ifapplication_ = IFApplication_in;
+			this.iduser_ = IDUser_in;
+			this.login_ = Login_in;
+			this.password_ = Password_in;
+			this.ifapplication_ = IFApplication_in;
 		}
 		public SO_CRD_User(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			iduser_ = (long)info_in.GetValue("IDUser", typeof(long));
-			login_ = (string)info_in.GetValue("Login", typeof(string));
-			password_ = (string)info_in.GetValue("Password", typeof(string));
-			ifapplication_ 
+			this.iduser_ = (long)info_in.GetValue("IDUser", typeof(long));
+			this.login_ = (string)info_in.GetValue("Login", typeof(string));
+			this.password_ = (string)info_in.GetValue("Password", typeof(string));
+			this.ifapplication_ 
 				= (info_in.GetValue("IFApplication", typeof(int)) == null)
 					? 0
 					: (int)info_in.GetValue("IFApplication", typeof(int));
-			IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
+			this.IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
 		}
 		#endregion
 
@@ -75,21 +76,21 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
 		#region public override long ListItem_Value { get; }
 		public override long ListItem_Value {
 			get {
-				return iduser_;
+				return this.iduser_;
 			}
 		}
 		#endregion
 		#region public override string ListItem_Text { get; }
 		public override string ListItem_Text {
 			get {
-				return login_;
+				return this.login_;
 			}
 		} 
 		#endregion
@@ -130,14 +131,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IDUser {
 			get {
-				return iduser_;
+				return this.iduser_;
 			}
 			set {
 				if (
-					(!value.Equals(iduser_))
+					(!value.Equals(this.iduser_))
 				) {
-					iduser_ = value;
-					haschanges_ = true;
+					this.iduser_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -178,16 +179,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string Login {
 			get {
-				return login_;
+				return this.login_;
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(login_))
+					(!value.Equals(this.login_))
 				) {
-					login_ = value;
-					haschanges_ = true;
+					this.login_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -228,16 +229,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string Password {
 			get {
-				return password_;
+				return this.password_;
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(password_))
+					(!value.Equals(this.password_))
 				) {
-					password_ = value;
-					haschanges_ = true;
+					this.password_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -278,14 +279,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int IFApplication {
 			get {
-				return (int)((ifapplication_ == null) ? 0 : ifapplication_);
+				return (int)((this.ifapplication_ == null) ? 0 : this.ifapplication_);
 			}
 			set {
 				if (
-					(!value.Equals(ifapplication_))
+					(!value.Equals(this.ifapplication_))
 				) {
-					ifapplication_ = value;
-					haschanges_ = true;
+					this.ifapplication_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -297,13 +298,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFApplication_isNull")]
 		[SoapElement("IFApplication_isNull")]
 		public bool IFApplication_isNull {
-			get { return (ifapplication_ == null); }
+			get { return (this.ifapplication_ == null); }
 			set {
-				//if (value) ifapplication_ = null;
+				//if (value) this.ifapplication_ = null;
 
-				if ((value) && (ifapplication_ != null)) {
-					ifapplication_ = null;
-					haschanges_ = true;
+				if ((value) && (this.ifapplication_ != null)) {
+					this.ifapplication_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -343,21 +344,21 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			iduser_ = 0L;
-			login_ = string.Empty;
-			password_ = string.Empty;
-			ifapplication_ = 0;
+			this.iduser_ = 0L;
+			this.login_ = string.Empty;
+			this.password_ = string.Empty;
+			this.ifapplication_ = 0;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDUser", iduser_);
-			info_in.AddValue("Login", login_);
-			info_in.AddValue("Password", password_);
-			info_in.AddValue("IFApplication", ifapplication_);
-			info_in.AddValue("IFApplication_isNull", IFApplication_isNull);
+			info_in.AddValue("IDUser", this.iduser_);
+			info_in.AddValue("Login", this.login_);
+			info_in.AddValue("Password", this.password_);
+			info_in.AddValue("IFApplication", this.ifapplication_);
+			info_in.AddValue("IFApplication_isNull", this.IFApplication_isNull);
 		}
 		#endregion
 		#endregion

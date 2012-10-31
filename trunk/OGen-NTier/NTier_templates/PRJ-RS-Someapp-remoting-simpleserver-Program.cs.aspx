@@ -45,9 +45,10 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 #endregion
 <%
 	}
-}%>using System;
-
+}%>
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.simpleserver {
+	using System;
+
 	class Program {
 		static void Main(string[] args) {
 			<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server.RS__server.Start();

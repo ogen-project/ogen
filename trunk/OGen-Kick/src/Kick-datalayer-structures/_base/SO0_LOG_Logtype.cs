@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// LOG_Logtype SerializableObject which provides fields access at LOG_Logtype table at Database.
 	/// </summary>
@@ -30,7 +31,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_LOG_Logtype();
 		public SO_LOG_Logtype(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_LOG_Logtype(
 			int IDLogtype_in, 
@@ -38,31 +39,31 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			string Name_in, 
 			int IFApplication_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idlogtype_ = IDLogtype_in;
-			iflogtype_parent_ = IFLogtype_parent_in;
-			name_ = Name_in;
-			ifapplication_ = IFApplication_in;
+			this.idlogtype_ = IDLogtype_in;
+			this.iflogtype_parent_ = IFLogtype_parent_in;
+			this.name_ = Name_in;
+			this.ifapplication_ = IFApplication_in;
 		}
 		public SO_LOG_Logtype(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idlogtype_ = (int)info_in.GetValue("IDLogtype", typeof(int));
-			iflogtype_parent_ 
+			this.idlogtype_ = (int)info_in.GetValue("IDLogtype", typeof(int));
+			this.iflogtype_parent_ 
 				= (info_in.GetValue("IFLogtype_parent", typeof(int)) == null)
 					? 0
 					: (int)info_in.GetValue("IFLogtype_parent", typeof(int));
-			IFLogtype_parent_isNull = (bool)info_in.GetValue("IFLogtype_parent_isNull", typeof(bool));
-			name_ = (string)info_in.GetValue("Name", typeof(string));
-			ifapplication_ 
+			this.IFLogtype_parent_isNull = (bool)info_in.GetValue("IFLogtype_parent_isNull", typeof(bool));
+			this.name_ = (string)info_in.GetValue("Name", typeof(string));
+			this.ifapplication_ 
 				= (info_in.GetValue("IFApplication", typeof(int)) == null)
 					? 0
 					: (int)info_in.GetValue("IFApplication", typeof(int));
-			IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
+			this.IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
 		}
 		#endregion
 
@@ -79,21 +80,21 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
 		#region public override int ListItem_Value { get; }
 		public override int ListItem_Value {
 			get {
-				return idlogtype_;
+				return this.idlogtype_;
 			}
 		}
 		#endregion
 		#region public override string ListItem_Text { get; }
 		public override string ListItem_Text {
 			get {
-				return name_;
+				return this.name_;
 			}
 		} 
 		#endregion
@@ -134,14 +135,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int IDLogtype {
 			get {
-				return idlogtype_;
+				return this.idlogtype_;
 			}
 			set {
 				if (
-					(!value.Equals(idlogtype_))
+					(!value.Equals(this.idlogtype_))
 				) {
-					idlogtype_ = value;
-					haschanges_ = true;
+					this.idlogtype_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -182,14 +183,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int IFLogtype_parent {
 			get {
-				return (int)((iflogtype_parent_ == null) ? 0 : iflogtype_parent_);
+				return (int)((this.iflogtype_parent_ == null) ? 0 : this.iflogtype_parent_);
 			}
 			set {
 				if (
-					(!value.Equals(iflogtype_parent_))
+					(!value.Equals(this.iflogtype_parent_))
 				) {
-					iflogtype_parent_ = value;
-					haschanges_ = true;
+					this.iflogtype_parent_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -201,13 +202,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFLogtype_parent_isNull")]
 		[SoapElement("IFLogtype_parent_isNull")]
 		public bool IFLogtype_parent_isNull {
-			get { return (iflogtype_parent_ == null); }
+			get { return (this.iflogtype_parent_ == null); }
 			set {
-				//if (value) iflogtype_parent_ = null;
+				//if (value) this.iflogtype_parent_ = null;
 
-				if ((value) && (iflogtype_parent_ != null)) {
-					iflogtype_parent_ = null;
-					haschanges_ = true;
+				if ((value) && (this.iflogtype_parent_ != null)) {
+					this.iflogtype_parent_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -248,16 +249,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(name_))
+					(!value.Equals(this.name_))
 				) {
-					name_ = value;
-					haschanges_ = true;
+					this.name_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -298,14 +299,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int IFApplication {
 			get {
-				return (int)((ifapplication_ == null) ? 0 : ifapplication_);
+				return (int)((this.ifapplication_ == null) ? 0 : this.ifapplication_);
 			}
 			set {
 				if (
-					(!value.Equals(ifapplication_))
+					(!value.Equals(this.ifapplication_))
 				) {
-					ifapplication_ = value;
-					haschanges_ = true;
+					this.ifapplication_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -317,13 +318,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFApplication_isNull")]
 		[SoapElement("IFApplication_isNull")]
 		public bool IFApplication_isNull {
-			get { return (ifapplication_ == null); }
+			get { return (this.ifapplication_ == null); }
 			set {
-				//if (value) ifapplication_ = null;
+				//if (value) this.ifapplication_ = null;
 
-				if ((value) && (ifapplication_ != null)) {
-					ifapplication_ = null;
-					haschanges_ = true;
+				if ((value) && (this.ifapplication_ != null)) {
+					this.ifapplication_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -363,22 +364,22 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idlogtype_ = 0;
-			iflogtype_parent_ = 0;
-			name_ = string.Empty;
-			ifapplication_ = 0;
+			this.idlogtype_ = 0;
+			this.iflogtype_parent_ = 0;
+			this.name_ = string.Empty;
+			this.ifapplication_ = 0;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDLogtype", idlogtype_);
-			info_in.AddValue("IFLogtype_parent", iflogtype_parent_);
-			info_in.AddValue("IFLogtype_parent_isNull", IFLogtype_parent_isNull);
-			info_in.AddValue("Name", name_);
-			info_in.AddValue("IFApplication", ifapplication_);
-			info_in.AddValue("IFApplication_isNull", IFApplication_isNull);
+			info_in.AddValue("IDLogtype", this.idlogtype_);
+			info_in.AddValue("IFLogtype_parent", this.iflogtype_parent_);
+			info_in.AddValue("IFLogtype_parent_isNull", this.IFLogtype_parent_isNull);
+			info_in.AddValue("Name", this.name_);
+			info_in.AddValue("IFApplication", this.ifapplication_);
+			info_in.AddValue("IFApplication_isNull", this.IFApplication_isNull);
 		}
 		#endregion
 		#endregion

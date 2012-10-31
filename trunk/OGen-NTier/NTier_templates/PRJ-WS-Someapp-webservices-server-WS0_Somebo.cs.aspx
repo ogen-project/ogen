@@ -54,16 +54,17 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 #endregion
 <%
 	}
-}%>using System;
-using System.Web;
-using System.Web.Services;
-
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures;
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared;
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.structures;
-
+}%>
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server {
+	using System;
+	using System.Web;
+	using System.Web.Services;
+
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared;
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.structures;
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures;
+
 	/// <summary>
 	/// <%=_aux_class.Name%> web service.
 	/// </summary>

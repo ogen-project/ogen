@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// CRD_ProfilePermition SerializableObject which provides fields access at CRD_ProfilePermition table at Database.
 	/// </summary>
@@ -30,25 +31,25 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_CRD_ProfilePermition();
 		public SO_CRD_ProfilePermition(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_CRD_ProfilePermition(
 			long IFProfile_in, 
 			long IFPermition_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifprofile_ = IFProfile_in;
-			ifpermition_ = IFPermition_in;
+			this.ifprofile_ = IFProfile_in;
+			this.ifpermition_ = IFPermition_in;
 		}
 		public SO_CRD_ProfilePermition(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifprofile_ = (long)info_in.GetValue("IFProfile", typeof(long));
-			ifpermition_ = (long)info_in.GetValue("IFPermition", typeof(long));
+			this.ifprofile_ = (long)info_in.GetValue("IFProfile", typeof(long));
+			this.ifpermition_ = (long)info_in.GetValue("IFPermition", typeof(long));
 		}
 		#endregion
 
@@ -65,7 +66,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
@@ -105,14 +106,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFProfile {
 			get {
-				return ifprofile_;
+				return this.ifprofile_;
 			}
 			set {
 				if (
-					(!value.Equals(ifprofile_))
+					(!value.Equals(this.ifprofile_))
 				) {
-					ifprofile_ = value;
-					haschanges_ = true;
+					this.ifprofile_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -153,14 +154,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFPermition {
 			get {
-				return ifpermition_;
+				return this.ifpermition_;
 			}
 			set {
 				if (
-					(!value.Equals(ifpermition_))
+					(!value.Equals(this.ifpermition_))
 				) {
-					ifpermition_ = value;
-					haschanges_ = true;
+					this.ifpermition_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -194,16 +195,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifprofile_ = 0L;
-			ifpermition_ = 0L;
+			this.ifprofile_ = 0L;
+			this.ifpermition_ = 0L;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IFProfile", ifprofile_);
-			info_in.AddValue("IFPermition", ifpermition_);
+			info_in.AddValue("IFProfile", this.ifprofile_);
+			info_in.AddValue("IFPermition", this.ifpermition_);
 		}
 		#endregion
 		#endregion

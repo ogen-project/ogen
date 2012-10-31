@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// NWS_Content SerializableObject which provides fields access at NWS_Content table at Database.
 	/// </summary>
@@ -30,7 +31,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_NWS_Content();
 		public SO_NWS_Content(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_NWS_Content(
 			long IDContent_in, 
@@ -48,87 +49,87 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DateTime Newslettersent_date_in, 
 			bool isNews_notForum_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idcontent_ = IDContent_in;
-			ifapplication_ = IFApplication_in;
-			ifuser__publisher_ = IFUser__Publisher_in;
-			publish_date_ = Publish_date_in;
-			ifuser__aproved_ = IFUser__Aproved_in;
-			aproved_date_ = Aproved_date_in;
-			begin_date_ = Begin_date_in;
-			end_date_ = End_date_in;
-			tx_title_ = TX_Title_in;
-			tx_content_ = TX_Content_in;
-			tx_subtitle_ = tx_subtitle_in;
-			tx_summary_ = tx_summary_in;
-			newslettersent_date_ = Newslettersent_date_in;
-			isnews_notforum_ = isNews_notForum_in;
+			this.idcontent_ = IDContent_in;
+			this.ifapplication_ = IFApplication_in;
+			this.ifuser__publisher_ = IFUser__Publisher_in;
+			this.publish_date_ = Publish_date_in;
+			this.ifuser__aproved_ = IFUser__Aproved_in;
+			this.aproved_date_ = Aproved_date_in;
+			this.begin_date_ = Begin_date_in;
+			this.end_date_ = End_date_in;
+			this.tx_title_ = TX_Title_in;
+			this.tx_content_ = TX_Content_in;
+			this.tx_subtitle_ = tx_subtitle_in;
+			this.tx_summary_ = tx_summary_in;
+			this.newslettersent_date_ = Newslettersent_date_in;
+			this.isnews_notforum_ = isNews_notForum_in;
 		}
 		public SO_NWS_Content(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idcontent_ = (long)info_in.GetValue("IDContent", typeof(long));
-			ifapplication_ 
+			this.idcontent_ = (long)info_in.GetValue("IDContent", typeof(long));
+			this.ifapplication_ 
 				= (info_in.GetValue("IFApplication", typeof(int)) == null)
 					? 0
 					: (int)info_in.GetValue("IFApplication", typeof(int));
-			IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
-			ifuser__publisher_ = (long)info_in.GetValue("IFUser__Publisher", typeof(long));
-			publish_date_ = (DateTime)info_in.GetValue("Publish_date", typeof(DateTime));
-			ifuser__aproved_ 
+			this.IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
+			this.ifuser__publisher_ = (long)info_in.GetValue("IFUser__Publisher", typeof(long));
+			this.publish_date_ = (DateTime)info_in.GetValue("Publish_date", typeof(DateTime));
+			this.ifuser__aproved_ 
 				= (info_in.GetValue("IFUser__Aproved", typeof(long)) == null)
 					? 0L
 					: (long)info_in.GetValue("IFUser__Aproved", typeof(long));
-			IFUser__Aproved_isNull = (bool)info_in.GetValue("IFUser__Aproved_isNull", typeof(bool));
-			aproved_date_ 
+			this.IFUser__Aproved_isNull = (bool)info_in.GetValue("IFUser__Aproved_isNull", typeof(bool));
+			this.aproved_date_ 
 				= (info_in.GetValue("Aproved_date", typeof(DateTime)) == null)
 					? new DateTime(1900, 1, 1)
 					: (DateTime)info_in.GetValue("Aproved_date", typeof(DateTime));
-			Aproved_date_isNull = (bool)info_in.GetValue("Aproved_date_isNull", typeof(bool));
-			begin_date_ 
+			this.Aproved_date_isNull = (bool)info_in.GetValue("Aproved_date_isNull", typeof(bool));
+			this.begin_date_ 
 				= (info_in.GetValue("Begin_date", typeof(DateTime)) == null)
 					? new DateTime(1900, 1, 1)
 					: (DateTime)info_in.GetValue("Begin_date", typeof(DateTime));
-			Begin_date_isNull = (bool)info_in.GetValue("Begin_date_isNull", typeof(bool));
-			end_date_ 
+			this.Begin_date_isNull = (bool)info_in.GetValue("Begin_date_isNull", typeof(bool));
+			this.end_date_ 
 				= (info_in.GetValue("End_date", typeof(DateTime)) == null)
 					? new DateTime(1900, 1, 1)
 					: (DateTime)info_in.GetValue("End_date", typeof(DateTime));
-			End_date_isNull = (bool)info_in.GetValue("End_date_isNull", typeof(bool));
-			tx_title_ 
+			this.End_date_isNull = (bool)info_in.GetValue("End_date_isNull", typeof(bool));
+			this.tx_title_ 
 				= (info_in.GetValue("TX_Title", typeof(long)) == null)
 					? 0L
 					: (long)info_in.GetValue("TX_Title", typeof(long));
-			TX_Title_isNull = (bool)info_in.GetValue("TX_Title_isNull", typeof(bool));
-			tx_content_ 
+			this.TX_Title_isNull = (bool)info_in.GetValue("TX_Title_isNull", typeof(bool));
+			this.tx_content_ 
 				= (info_in.GetValue("TX_Content", typeof(long)) == null)
 					? 0L
 					: (long)info_in.GetValue("TX_Content", typeof(long));
-			TX_Content_isNull = (bool)info_in.GetValue("TX_Content_isNull", typeof(bool));
-			tx_subtitle_ 
+			this.TX_Content_isNull = (bool)info_in.GetValue("TX_Content_isNull", typeof(bool));
+			this.tx_subtitle_ 
 				= (info_in.GetValue("tx_subtitle", typeof(long)) == null)
 					? 0L
 					: (long)info_in.GetValue("tx_subtitle", typeof(long));
-			tx_subtitle_isNull = (bool)info_in.GetValue("tx_subtitle_isNull", typeof(bool));
-			tx_summary_ 
+			this.tx_subtitle_isNull = (bool)info_in.GetValue("tx_subtitle_isNull", typeof(bool));
+			this.tx_summary_ 
 				= (info_in.GetValue("tx_summary", typeof(long)) == null)
 					? 0L
 					: (long)info_in.GetValue("tx_summary", typeof(long));
-			tx_summary_isNull = (bool)info_in.GetValue("tx_summary_isNull", typeof(bool));
-			newslettersent_date_ 
+			this.tx_summary_isNull = (bool)info_in.GetValue("tx_summary_isNull", typeof(bool));
+			this.newslettersent_date_ 
 				= (info_in.GetValue("Newslettersent_date", typeof(DateTime)) == null)
 					? new DateTime(1900, 1, 1)
 					: (DateTime)info_in.GetValue("Newslettersent_date", typeof(DateTime));
-			Newslettersent_date_isNull = (bool)info_in.GetValue("Newslettersent_date_isNull", typeof(bool));
-			isnews_notforum_ 
+			this.Newslettersent_date_isNull = (bool)info_in.GetValue("Newslettersent_date_isNull", typeof(bool));
+			this.isnews_notforum_ 
 				= (info_in.GetValue("isNews_notForum", typeof(bool)) == null)
 					? false
 					: (bool)info_in.GetValue("isNews_notForum", typeof(bool));
-			isNews_notForum_isNull = (bool)info_in.GetValue("isNews_notForum_isNull", typeof(bool));
+			this.isNews_notForum_isNull = (bool)info_in.GetValue("isNews_notForum_isNull", typeof(bool));
 		}
 		#endregion
 
@@ -145,7 +146,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
@@ -185,14 +186,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IDContent {
 			get {
-				return idcontent_;
+				return this.idcontent_;
 			}
 			set {
 				if (
-					(!value.Equals(idcontent_))
+					(!value.Equals(this.idcontent_))
 				) {
-					idcontent_ = value;
-					haschanges_ = true;
+					this.idcontent_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -233,14 +234,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int IFApplication {
 			get {
-				return (int)((ifapplication_ == null) ? 0 : ifapplication_);
+				return (int)((this.ifapplication_ == null) ? 0 : this.ifapplication_);
 			}
 			set {
 				if (
-					(!value.Equals(ifapplication_))
+					(!value.Equals(this.ifapplication_))
 				) {
-					ifapplication_ = value;
-					haschanges_ = true;
+					this.ifapplication_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -252,13 +253,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFApplication_isNull")]
 		[SoapElement("IFApplication_isNull")]
 		public bool IFApplication_isNull {
-			get { return (ifapplication_ == null); }
+			get { return (this.ifapplication_ == null); }
 			set {
-				//if (value) ifapplication_ = null;
+				//if (value) this.ifapplication_ = null;
 
-				if ((value) && (ifapplication_ != null)) {
-					ifapplication_ = null;
-					haschanges_ = true;
+				if ((value) && (this.ifapplication_ != null)) {
+					this.ifapplication_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -299,14 +300,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFUser__Publisher {
 			get {
-				return ifuser__publisher_;
+				return this.ifuser__publisher_;
 			}
 			set {
 				if (
-					(!value.Equals(ifuser__publisher_))
+					(!value.Equals(this.ifuser__publisher_))
 				) {
-					ifuser__publisher_ = value;
-					haschanges_ = true;
+					this.ifuser__publisher_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -347,14 +348,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public DateTime Publish_date {
 			get {
-				return publish_date_;
+				return this.publish_date_;
 			}
 			set {
 				if (
-					(!value.Equals(publish_date_))
+					(!value.Equals(this.publish_date_))
 				) {
-					publish_date_ = value;
-					haschanges_ = true;
+					this.publish_date_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -395,14 +396,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFUser__Aproved {
 			get {
-				return (long)((ifuser__aproved_ == null) ? 0L : ifuser__aproved_);
+				return (long)((this.ifuser__aproved_ == null) ? 0L : this.ifuser__aproved_);
 			}
 			set {
 				if (
-					(!value.Equals(ifuser__aproved_))
+					(!value.Equals(this.ifuser__aproved_))
 				) {
-					ifuser__aproved_ = value;
-					haschanges_ = true;
+					this.ifuser__aproved_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -414,13 +415,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFUser__Aproved_isNull")]
 		[SoapElement("IFUser__Aproved_isNull")]
 		public bool IFUser__Aproved_isNull {
-			get { return (ifuser__aproved_ == null); }
+			get { return (this.ifuser__aproved_ == null); }
 			set {
-				//if (value) ifuser__aproved_ = null;
+				//if (value) this.ifuser__aproved_ = null;
 
-				if ((value) && (ifuser__aproved_ != null)) {
-					ifuser__aproved_ = null;
-					haschanges_ = true;
+				if ((value) && (this.ifuser__aproved_ != null)) {
+					this.ifuser__aproved_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -461,14 +462,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public DateTime Aproved_date {
 			get {
-				return (DateTime)((aproved_date_ == null) ? new DateTime(1900, 1, 1) : aproved_date_);
+				return (DateTime)((this.aproved_date_ == null) ? new DateTime(1900, 1, 1) : this.aproved_date_);
 			}
 			set {
 				if (
-					(!value.Equals(aproved_date_))
+					(!value.Equals(this.aproved_date_))
 				) {
-					aproved_date_ = value;
-					haschanges_ = true;
+					this.aproved_date_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -480,13 +481,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("Aproved_date_isNull")]
 		[SoapElement("Aproved_date_isNull")]
 		public bool Aproved_date_isNull {
-			get { return (aproved_date_ == null); }
+			get { return (this.aproved_date_ == null); }
 			set {
-				//if (value) aproved_date_ = null;
+				//if (value) this.aproved_date_ = null;
 
-				if ((value) && (aproved_date_ != null)) {
-					aproved_date_ = null;
-					haschanges_ = true;
+				if ((value) && (this.aproved_date_ != null)) {
+					this.aproved_date_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -527,14 +528,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public DateTime Begin_date {
 			get {
-				return (DateTime)((begin_date_ == null) ? new DateTime(1900, 1, 1) : begin_date_);
+				return (DateTime)((this.begin_date_ == null) ? new DateTime(1900, 1, 1) : this.begin_date_);
 			}
 			set {
 				if (
-					(!value.Equals(begin_date_))
+					(!value.Equals(this.begin_date_))
 				) {
-					begin_date_ = value;
-					haschanges_ = true;
+					this.begin_date_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -546,13 +547,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("Begin_date_isNull")]
 		[SoapElement("Begin_date_isNull")]
 		public bool Begin_date_isNull {
-			get { return (begin_date_ == null); }
+			get { return (this.begin_date_ == null); }
 			set {
-				//if (value) begin_date_ = null;
+				//if (value) this.begin_date_ = null;
 
-				if ((value) && (begin_date_ != null)) {
-					begin_date_ = null;
-					haschanges_ = true;
+				if ((value) && (this.begin_date_ != null)) {
+					this.begin_date_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -593,14 +594,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public DateTime End_date {
 			get {
-				return (DateTime)((end_date_ == null) ? new DateTime(1900, 1, 1) : end_date_);
+				return (DateTime)((this.end_date_ == null) ? new DateTime(1900, 1, 1) : this.end_date_);
 			}
 			set {
 				if (
-					(!value.Equals(end_date_))
+					(!value.Equals(this.end_date_))
 				) {
-					end_date_ = value;
-					haschanges_ = true;
+					this.end_date_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -612,13 +613,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("End_date_isNull")]
 		[SoapElement("End_date_isNull")]
 		public bool End_date_isNull {
-			get { return (end_date_ == null); }
+			get { return (this.end_date_ == null); }
 			set {
-				//if (value) end_date_ = null;
+				//if (value) this.end_date_ = null;
 
-				if ((value) && (end_date_ != null)) {
-					end_date_ = null;
-					haschanges_ = true;
+				if ((value) && (this.end_date_ != null)) {
+					this.end_date_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -659,14 +660,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long TX_Title {
 			get {
-				return (long)((tx_title_ == null) ? 0L : tx_title_);
+				return (long)((this.tx_title_ == null) ? 0L : this.tx_title_);
 			}
 			set {
 				if (
-					(!value.Equals(tx_title_))
+					(!value.Equals(this.tx_title_))
 				) {
-					tx_title_ = value;
-					haschanges_ = true;
+					this.tx_title_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -678,13 +679,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("TX_Title_isNull")]
 		[SoapElement("TX_Title_isNull")]
 		public bool TX_Title_isNull {
-			get { return (tx_title_ == null); }
+			get { return (this.tx_title_ == null); }
 			set {
-				//if (value) tx_title_ = null;
+				//if (value) this.tx_title_ = null;
 
-				if ((value) && (tx_title_ != null)) {
-					tx_title_ = null;
-					haschanges_ = true;
+				if ((value) && (this.tx_title_ != null)) {
+					this.tx_title_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -725,14 +726,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long TX_Content {
 			get {
-				return (long)((tx_content_ == null) ? 0L : tx_content_);
+				return (long)((this.tx_content_ == null) ? 0L : this.tx_content_);
 			}
 			set {
 				if (
-					(!value.Equals(tx_content_))
+					(!value.Equals(this.tx_content_))
 				) {
-					tx_content_ = value;
-					haschanges_ = true;
+					this.tx_content_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -744,13 +745,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("TX_Content_isNull")]
 		[SoapElement("TX_Content_isNull")]
 		public bool TX_Content_isNull {
-			get { return (tx_content_ == null); }
+			get { return (this.tx_content_ == null); }
 			set {
-				//if (value) tx_content_ = null;
+				//if (value) this.tx_content_ = null;
 
-				if ((value) && (tx_content_ != null)) {
-					tx_content_ = null;
-					haschanges_ = true;
+				if ((value) && (this.tx_content_ != null)) {
+					this.tx_content_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -791,14 +792,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long tx_subtitle {
 			get {
-				return (long)((tx_subtitle_ == null) ? 0L : tx_subtitle_);
+				return (long)((this.tx_subtitle_ == null) ? 0L : this.tx_subtitle_);
 			}
 			set {
 				if (
-					(!value.Equals(tx_subtitle_))
+					(!value.Equals(this.tx_subtitle_))
 				) {
-					tx_subtitle_ = value;
-					haschanges_ = true;
+					this.tx_subtitle_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -810,13 +811,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("tx_subtitle_isNull")]
 		[SoapElement("tx_subtitle_isNull")]
 		public bool tx_subtitle_isNull {
-			get { return (tx_subtitle_ == null); }
+			get { return (this.tx_subtitle_ == null); }
 			set {
-				//if (value) tx_subtitle_ = null;
+				//if (value) this.tx_subtitle_ = null;
 
-				if ((value) && (tx_subtitle_ != null)) {
-					tx_subtitle_ = null;
-					haschanges_ = true;
+				if ((value) && (this.tx_subtitle_ != null)) {
+					this.tx_subtitle_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -857,14 +858,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long tx_summary {
 			get {
-				return (long)((tx_summary_ == null) ? 0L : tx_summary_);
+				return (long)((this.tx_summary_ == null) ? 0L : this.tx_summary_);
 			}
 			set {
 				if (
-					(!value.Equals(tx_summary_))
+					(!value.Equals(this.tx_summary_))
 				) {
-					tx_summary_ = value;
-					haschanges_ = true;
+					this.tx_summary_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -876,13 +877,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("tx_summary_isNull")]
 		[SoapElement("tx_summary_isNull")]
 		public bool tx_summary_isNull {
-			get { return (tx_summary_ == null); }
+			get { return (this.tx_summary_ == null); }
 			set {
-				//if (value) tx_summary_ = null;
+				//if (value) this.tx_summary_ = null;
 
-				if ((value) && (tx_summary_ != null)) {
-					tx_summary_ = null;
-					haschanges_ = true;
+				if ((value) && (this.tx_summary_ != null)) {
+					this.tx_summary_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -923,14 +924,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public DateTime Newslettersent_date {
 			get {
-				return (DateTime)((newslettersent_date_ == null) ? new DateTime(1900, 1, 1) : newslettersent_date_);
+				return (DateTime)((this.newslettersent_date_ == null) ? new DateTime(1900, 1, 1) : this.newslettersent_date_);
 			}
 			set {
 				if (
-					(!value.Equals(newslettersent_date_))
+					(!value.Equals(this.newslettersent_date_))
 				) {
-					newslettersent_date_ = value;
-					haschanges_ = true;
+					this.newslettersent_date_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -942,13 +943,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("Newslettersent_date_isNull")]
 		[SoapElement("Newslettersent_date_isNull")]
 		public bool Newslettersent_date_isNull {
-			get { return (newslettersent_date_ == null); }
+			get { return (this.newslettersent_date_ == null); }
 			set {
-				//if (value) newslettersent_date_ = null;
+				//if (value) this.newslettersent_date_ = null;
 
-				if ((value) && (newslettersent_date_ != null)) {
-					newslettersent_date_ = null;
-					haschanges_ = true;
+				if ((value) && (this.newslettersent_date_ != null)) {
+					this.newslettersent_date_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -989,14 +990,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public bool isNews_notForum {
 			get {
-				return (bool)((isnews_notforum_ == null) ? false : isnews_notforum_);
+				return (bool)((this.isnews_notforum_ == null) ? false : this.isnews_notforum_);
 			}
 			set {
 				if (
-					(!value.Equals(isnews_notforum_))
+					(!value.Equals(this.isnews_notforum_))
 				) {
-					isnews_notforum_ = value;
-					haschanges_ = true;
+					this.isnews_notforum_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -1008,13 +1009,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("isNews_notForum_isNull")]
 		[SoapElement("isNews_notForum_isNull")]
 		public bool isNews_notForum_isNull {
-			get { return (isnews_notforum_ == null); }
+			get { return (this.isnews_notforum_ == null); }
 			set {
-				//if (value) isnews_notforum_ = null;
+				//if (value) this.isnews_notforum_ = null;
 
-				if ((value) && (isnews_notforum_ != null)) {
-					isnews_notforum_ = null;
-					haschanges_ = true;
+				if ((value) && (this.isnews_notforum_ != null)) {
+					this.isnews_notforum_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -1084,51 +1085,51 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idcontent_ = 0L;
-			ifapplication_ = 0;
-			ifuser__publisher_ = 0L;
-			publish_date_ = new DateTime(1900, 1, 1);
-			ifuser__aproved_ = 0L;
-			aproved_date_ = new DateTime(1900, 1, 1);
-			begin_date_ = new DateTime(1900, 1, 1);
-			end_date_ = new DateTime(1900, 1, 1);
-			tx_title_ = 0L;
-			tx_content_ = 0L;
-			tx_subtitle_ = 0L;
-			tx_summary_ = 0L;
-			newslettersent_date_ = new DateTime(1900, 1, 1);
-			isnews_notforum_ = false;
+			this.idcontent_ = 0L;
+			this.ifapplication_ = 0;
+			this.ifuser__publisher_ = 0L;
+			this.publish_date_ = new DateTime(1900, 1, 1);
+			this.ifuser__aproved_ = 0L;
+			this.aproved_date_ = new DateTime(1900, 1, 1);
+			this.begin_date_ = new DateTime(1900, 1, 1);
+			this.end_date_ = new DateTime(1900, 1, 1);
+			this.tx_title_ = 0L;
+			this.tx_content_ = 0L;
+			this.tx_subtitle_ = 0L;
+			this.tx_summary_ = 0L;
+			this.newslettersent_date_ = new DateTime(1900, 1, 1);
+			this.isnews_notforum_ = false;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDContent", idcontent_);
-			info_in.AddValue("IFApplication", ifapplication_);
-			info_in.AddValue("IFApplication_isNull", IFApplication_isNull);
-			info_in.AddValue("IFUser__Publisher", ifuser__publisher_);
-			info_in.AddValue("Publish_date", publish_date_);
-			info_in.AddValue("IFUser__Aproved", ifuser__aproved_);
-			info_in.AddValue("IFUser__Aproved_isNull", IFUser__Aproved_isNull);
-			info_in.AddValue("Aproved_date", aproved_date_);
-			info_in.AddValue("Aproved_date_isNull", Aproved_date_isNull);
-			info_in.AddValue("Begin_date", begin_date_);
-			info_in.AddValue("Begin_date_isNull", Begin_date_isNull);
-			info_in.AddValue("End_date", end_date_);
-			info_in.AddValue("End_date_isNull", End_date_isNull);
-			info_in.AddValue("TX_Title", tx_title_);
-			info_in.AddValue("TX_Title_isNull", TX_Title_isNull);
-			info_in.AddValue("TX_Content", tx_content_);
-			info_in.AddValue("TX_Content_isNull", TX_Content_isNull);
-			info_in.AddValue("tx_subtitle", tx_subtitle_);
-			info_in.AddValue("tx_subtitle_isNull", tx_subtitle_isNull);
-			info_in.AddValue("tx_summary", tx_summary_);
-			info_in.AddValue("tx_summary_isNull", tx_summary_isNull);
-			info_in.AddValue("Newslettersent_date", newslettersent_date_);
-			info_in.AddValue("Newslettersent_date_isNull", Newslettersent_date_isNull);
-			info_in.AddValue("isNews_notForum", isnews_notforum_);
-			info_in.AddValue("isNews_notForum_isNull", isNews_notForum_isNull);
+			info_in.AddValue("IDContent", this.idcontent_);
+			info_in.AddValue("IFApplication", this.ifapplication_);
+			info_in.AddValue("IFApplication_isNull", this.IFApplication_isNull);
+			info_in.AddValue("IFUser__Publisher", this.ifuser__publisher_);
+			info_in.AddValue("Publish_date", this.publish_date_);
+			info_in.AddValue("IFUser__Aproved", this.ifuser__aproved_);
+			info_in.AddValue("IFUser__Aproved_isNull", this.IFUser__Aproved_isNull);
+			info_in.AddValue("Aproved_date", this.aproved_date_);
+			info_in.AddValue("Aproved_date_isNull", this.Aproved_date_isNull);
+			info_in.AddValue("Begin_date", this.begin_date_);
+			info_in.AddValue("Begin_date_isNull", this.Begin_date_isNull);
+			info_in.AddValue("End_date", this.end_date_);
+			info_in.AddValue("End_date_isNull", this.End_date_isNull);
+			info_in.AddValue("TX_Title", this.tx_title_);
+			info_in.AddValue("TX_Title_isNull", this.TX_Title_isNull);
+			info_in.AddValue("TX_Content", this.tx_content_);
+			info_in.AddValue("TX_Content_isNull", this.TX_Content_isNull);
+			info_in.AddValue("tx_subtitle", this.tx_subtitle_);
+			info_in.AddValue("tx_subtitle_isNull", this.tx_subtitle_isNull);
+			info_in.AddValue("tx_summary", this.tx_summary_);
+			info_in.AddValue("tx_summary_isNull", this.tx_summary_isNull);
+			info_in.AddValue("Newslettersent_date", this.newslettersent_date_);
+			info_in.AddValue("Newslettersent_date_isNull", this.Newslettersent_date_isNull);
+			info_in.AddValue("isNews_notForum", this.isnews_notforum_);
+			info_in.AddValue("isNews_notForum_isNull", this.isNews_notForum_isNull);
 		}
 		#endregion
 		#endregion

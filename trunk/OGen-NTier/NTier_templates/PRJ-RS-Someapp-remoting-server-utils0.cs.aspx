@@ -45,9 +45,10 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 #endregion
 <%
 	}
-}%>using System;
-
+}%>
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server {
+	using System;
+
 	public static partial class utils {
 		#region public static bool ResetClientIP { get; }
 		private static bool resetclientip_beenread = false;

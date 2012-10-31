@@ -53,13 +53,14 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 #endregion
 <%
 	}
-}%>using System;
-
-using OGen.lib.datalayer;
-
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures;
-
+}%>
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
+	using System;
+
+	using OGen.lib.datalayer;
+
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures;
+
 	/// <summary>
 	/// <%=_aux_db_table.Name%> DataObject which provides access to <%=_aux_db_table.Name%>'s Database table.
 	/// </summary>

@@ -50,10 +50,11 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 #endregion
 <%
 	}
-}%>using System;
-using System.Runtime.Remoting;
-
+}%>
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client.utils {
+	using System;
+	using System.Runtime.Remoting;
+
 	public class Config {
 		private Config() { }
 

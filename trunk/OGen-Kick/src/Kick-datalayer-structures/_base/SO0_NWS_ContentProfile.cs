@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// NWS_ContentProfile SerializableObject which provides fields access at NWS_ContentProfile table at Database.
 	/// </summary>
@@ -30,25 +31,25 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_NWS_ContentProfile();
 		public SO_NWS_ContentProfile(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_NWS_ContentProfile(
 			long IFContent_in, 
 			long IFProfile_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifcontent_ = IFContent_in;
-			ifprofile_ = IFProfile_in;
+			this.ifcontent_ = IFContent_in;
+			this.ifprofile_ = IFProfile_in;
 		}
 		public SO_NWS_ContentProfile(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifcontent_ = (long)info_in.GetValue("IFContent", typeof(long));
-			ifprofile_ = (long)info_in.GetValue("IFProfile", typeof(long));
+			this.ifcontent_ = (long)info_in.GetValue("IFContent", typeof(long));
+			this.ifprofile_ = (long)info_in.GetValue("IFProfile", typeof(long));
 		}
 		#endregion
 
@@ -65,7 +66,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
@@ -105,14 +106,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFContent {
 			get {
-				return ifcontent_;
+				return this.ifcontent_;
 			}
 			set {
 				if (
-					(!value.Equals(ifcontent_))
+					(!value.Equals(this.ifcontent_))
 				) {
-					ifcontent_ = value;
-					haschanges_ = true;
+					this.ifcontent_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -153,14 +154,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFProfile {
 			get {
-				return ifprofile_;
+				return this.ifprofile_;
 			}
 			set {
 				if (
-					(!value.Equals(ifprofile_))
+					(!value.Equals(this.ifprofile_))
 				) {
-					ifprofile_ = value;
-					haschanges_ = true;
+					this.ifprofile_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -194,16 +195,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifcontent_ = 0L;
-			ifprofile_ = 0L;
+			this.ifcontent_ = 0L;
+			this.ifprofile_ = 0L;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IFContent", ifcontent_);
-			info_in.AddValue("IFProfile", ifprofile_);
+			info_in.AddValue("IFContent", this.ifcontent_);
+			info_in.AddValue("IFProfile", this.ifprofile_);
 		}
 		#endregion
 		#endregion

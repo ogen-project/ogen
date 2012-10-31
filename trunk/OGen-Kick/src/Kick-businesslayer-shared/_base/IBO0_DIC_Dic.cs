@@ -12,11 +12,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
 namespace OGen.NTier.Kick.lib.businesslayer.shared {
+	using System;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+
 	public interface IBO0_DIC_Dic {
 		void delLanguage(
 			string sessionGuid_in, 

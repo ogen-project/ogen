@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// NWS_ContentHighlight SerializableObject which provides fields access at NWS_ContentHighlight table at Database.
 	/// </summary>
@@ -30,7 +31,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_NWS_ContentHighlight();
 		public SO_NWS_ContentHighlight(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_NWS_ContentHighlight(
 			long IFContent_in, 
@@ -38,31 +39,31 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DateTime Begin_date_in, 
 			DateTime End_date_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifcontent_ = IFContent_in;
-			ifhighlight_ = IFHighlight_in;
-			begin_date_ = Begin_date_in;
-			end_date_ = End_date_in;
+			this.ifcontent_ = IFContent_in;
+			this.ifhighlight_ = IFHighlight_in;
+			this.begin_date_ = Begin_date_in;
+			this.end_date_ = End_date_in;
 		}
 		public SO_NWS_ContentHighlight(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifcontent_ = (long)info_in.GetValue("IFContent", typeof(long));
-			ifhighlight_ = (long)info_in.GetValue("IFHighlight", typeof(long));
-			begin_date_ 
+			this.ifcontent_ = (long)info_in.GetValue("IFContent", typeof(long));
+			this.ifhighlight_ = (long)info_in.GetValue("IFHighlight", typeof(long));
+			this.begin_date_ 
 				= (info_in.GetValue("Begin_date", typeof(DateTime)) == null)
 					? new DateTime(1900, 1, 1)
 					: (DateTime)info_in.GetValue("Begin_date", typeof(DateTime));
-			Begin_date_isNull = (bool)info_in.GetValue("Begin_date_isNull", typeof(bool));
-			end_date_ 
+			this.Begin_date_isNull = (bool)info_in.GetValue("Begin_date_isNull", typeof(bool));
+			this.end_date_ 
 				= (info_in.GetValue("End_date", typeof(DateTime)) == null)
 					? new DateTime(1900, 1, 1)
 					: (DateTime)info_in.GetValue("End_date", typeof(DateTime));
-			End_date_isNull = (bool)info_in.GetValue("End_date_isNull", typeof(bool));
+			this.End_date_isNull = (bool)info_in.GetValue("End_date_isNull", typeof(bool));
 		}
 		#endregion
 
@@ -79,7 +80,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
@@ -119,14 +120,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFContent {
 			get {
-				return ifcontent_;
+				return this.ifcontent_;
 			}
 			set {
 				if (
-					(!value.Equals(ifcontent_))
+					(!value.Equals(this.ifcontent_))
 				) {
-					ifcontent_ = value;
-					haschanges_ = true;
+					this.ifcontent_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -167,14 +168,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFHighlight {
 			get {
-				return ifhighlight_;
+				return this.ifhighlight_;
 			}
 			set {
 				if (
-					(!value.Equals(ifhighlight_))
+					(!value.Equals(this.ifhighlight_))
 				) {
-					ifhighlight_ = value;
-					haschanges_ = true;
+					this.ifhighlight_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -215,14 +216,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public DateTime Begin_date {
 			get {
-				return (DateTime)((begin_date_ == null) ? new DateTime(1900, 1, 1) : begin_date_);
+				return (DateTime)((this.begin_date_ == null) ? new DateTime(1900, 1, 1) : this.begin_date_);
 			}
 			set {
 				if (
-					(!value.Equals(begin_date_))
+					(!value.Equals(this.begin_date_))
 				) {
-					begin_date_ = value;
-					haschanges_ = true;
+					this.begin_date_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -234,13 +235,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("Begin_date_isNull")]
 		[SoapElement("Begin_date_isNull")]
 		public bool Begin_date_isNull {
-			get { return (begin_date_ == null); }
+			get { return (this.begin_date_ == null); }
 			set {
-				//if (value) begin_date_ = null;
+				//if (value) this.begin_date_ = null;
 
-				if ((value) && (begin_date_ != null)) {
-					begin_date_ = null;
-					haschanges_ = true;
+				if ((value) && (this.begin_date_ != null)) {
+					this.begin_date_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -281,14 +282,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public DateTime End_date {
 			get {
-				return (DateTime)((end_date_ == null) ? new DateTime(1900, 1, 1) : end_date_);
+				return (DateTime)((this.end_date_ == null) ? new DateTime(1900, 1, 1) : this.end_date_);
 			}
 			set {
 				if (
-					(!value.Equals(end_date_))
+					(!value.Equals(this.end_date_))
 				) {
-					end_date_ = value;
-					haschanges_ = true;
+					this.end_date_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -300,13 +301,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("End_date_isNull")]
 		[SoapElement("End_date_isNull")]
 		public bool End_date_isNull {
-			get { return (end_date_ == null); }
+			get { return (this.end_date_ == null); }
 			set {
-				//if (value) end_date_ = null;
+				//if (value) this.end_date_ = null;
 
-				if ((value) && (end_date_ != null)) {
-					end_date_ = null;
-					haschanges_ = true;
+				if ((value) && (this.end_date_ != null)) {
+					this.end_date_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -346,22 +347,22 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifcontent_ = 0L;
-			ifhighlight_ = 0L;
-			begin_date_ = new DateTime(1900, 1, 1);
-			end_date_ = new DateTime(1900, 1, 1);
+			this.ifcontent_ = 0L;
+			this.ifhighlight_ = 0L;
+			this.begin_date_ = new DateTime(1900, 1, 1);
+			this.end_date_ = new DateTime(1900, 1, 1);
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IFContent", ifcontent_);
-			info_in.AddValue("IFHighlight", ifhighlight_);
-			info_in.AddValue("Begin_date", begin_date_);
-			info_in.AddValue("Begin_date_isNull", Begin_date_isNull);
-			info_in.AddValue("End_date", end_date_);
-			info_in.AddValue("End_date_isNull", End_date_isNull);
+			info_in.AddValue("IFContent", this.ifcontent_);
+			info_in.AddValue("IFHighlight", this.ifhighlight_);
+			info_in.AddValue("Begin_date", this.begin_date_);
+			info_in.AddValue("Begin_date_isNull", this.Begin_date_isNull);
+			info_in.AddValue("End_date", this.end_date_);
+			info_in.AddValue("End_date_isNull", this.End_date_isNull);
 		}
 		#endregion
 		#endregion

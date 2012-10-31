@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// vCRD_UserProfile SerializableObject which provides fields access at vCRD_UserProfile view at Database.
 	/// </summary>
@@ -30,7 +31,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_vCRD_UserProfile();
 		public SO_vCRD_UserProfile(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_vCRD_UserProfile(
 			long IDProfile_in, 
@@ -38,27 +39,27 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			long IDUser_in, 
 			bool hasProfile_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idprofile_ = IDProfile_in;
-			profilename_ = ProfileName_in;
-			iduser_ = IDUser_in;
-			hasprofile_ = hasProfile_in;
+			this.idprofile_ = IDProfile_in;
+			this.profilename_ = ProfileName_in;
+			this.iduser_ = IDUser_in;
+			this.hasprofile_ = hasProfile_in;
 		}
 		public SO_vCRD_UserProfile(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idprofile_ = (long)info_in.GetValue("IDProfile", typeof(long));
-			profilename_ = (string)info_in.GetValue("ProfileName", typeof(string));
-			iduser_ = (long)info_in.GetValue("IDUser", typeof(long));
-			hasprofile_ 
+			this.idprofile_ = (long)info_in.GetValue("IDProfile", typeof(long));
+			this.profilename_ = (string)info_in.GetValue("ProfileName", typeof(string));
+			this.iduser_ = (long)info_in.GetValue("IDUser", typeof(long));
+			this.hasprofile_ 
 				= (info_in.GetValue("hasProfile", typeof(bool)) == null)
 					? false
 					: (bool)info_in.GetValue("hasProfile", typeof(bool));
-			hasProfile_isNull = (bool)info_in.GetValue("hasProfile_isNull", typeof(bool));
+			this.hasProfile_isNull = (bool)info_in.GetValue("hasProfile_isNull", typeof(bool));
 		}
 		#endregion
 
@@ -75,21 +76,21 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
 		#region public override long ListItem_Value { get; }
 		public override long ListItem_Value {
 			get {
-				return idprofile_;
+				return this.idprofile_;
 			}
 		}
 		#endregion
 		#region public override string ListItem_Text { get; }
 		public override string ListItem_Text {
 			get {
-				return profilename_;
+				return this.profilename_;
 			}
 		} 
 		#endregion
@@ -130,14 +131,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IDProfile {
 			get {
-				return idprofile_;
+				return this.idprofile_;
 			}
 			set {
 				if (
-					(!value.Equals(idprofile_))
+					(!value.Equals(this.idprofile_))
 				) {
-					idprofile_ = value;
-					haschanges_ = true;
+					this.idprofile_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -178,16 +179,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string ProfileName {
 			get {
-				return profilename_;
+				return this.profilename_;
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(profilename_))
+					(!value.Equals(this.profilename_))
 				) {
-					profilename_ = value;
-					haschanges_ = true;
+					this.profilename_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -228,14 +229,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IDUser {
 			get {
-				return iduser_;
+				return this.iduser_;
 			}
 			set {
 				if (
-					(!value.Equals(iduser_))
+					(!value.Equals(this.iduser_))
 				) {
-					iduser_ = value;
-					haschanges_ = true;
+					this.iduser_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -276,14 +277,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public bool hasProfile {
 			get {
-				return (bool)((hasprofile_ == null) ? false : hasprofile_);
+				return (bool)((this.hasprofile_ == null) ? false : this.hasprofile_);
 			}
 			set {
 				if (
-					(!value.Equals(hasprofile_))
+					(!value.Equals(this.hasprofile_))
 				) {
-					hasprofile_ = value;
-					haschanges_ = true;
+					this.hasprofile_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -295,13 +296,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("hasProfile_isNull")]
 		[SoapElement("hasProfile_isNull")]
 		public bool hasProfile_isNull {
-			get { return (hasprofile_ == null); }
+			get { return (this.hasprofile_ == null); }
 			set {
-				//if (value) hasprofile_ = null;
+				//if (value) this.hasprofile_ = null;
 
-				if ((value) && (hasprofile_ != null)) {
-					hasprofile_ = null;
-					haschanges_ = true;
+				if ((value) && (this.hasprofile_ != null)) {
+					this.hasprofile_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -341,21 +342,21 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idprofile_ = 0L;
-			profilename_ = string.Empty;
-			iduser_ = 0L;
-			hasprofile_ = false;
+			this.idprofile_ = 0L;
+			this.profilename_ = string.Empty;
+			this.iduser_ = 0L;
+			this.hasprofile_ = false;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDProfile", idprofile_);
-			info_in.AddValue("ProfileName", profilename_);
-			info_in.AddValue("IDUser", iduser_);
-			info_in.AddValue("hasProfile", hasprofile_);
-			info_in.AddValue("hasProfile_isNull", hasProfile_isNull);
+			info_in.AddValue("IDProfile", this.idprofile_);
+			info_in.AddValue("ProfileName", this.profilename_);
+			info_in.AddValue("IDUser", this.iduser_);
+			info_in.AddValue("hasProfile", this.hasprofile_);
+			info_in.AddValue("hasProfile_isNull", this.hasProfile_isNull);
 		}
 		#endregion
 		#endregion

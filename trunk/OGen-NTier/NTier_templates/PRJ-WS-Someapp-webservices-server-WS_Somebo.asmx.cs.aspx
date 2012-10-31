@@ -54,11 +54,12 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 #endregion
 <%
 	}
-}%>using System;
-using System.Web;
-using System.Web.Services;
-
+}%>
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server {
+	using System;
+	using System.Web;
+	using System.Web.Services;
+
 	/// <summary>
 	/// <%=_aux_class.Name%> web service.
 	/// </summary>

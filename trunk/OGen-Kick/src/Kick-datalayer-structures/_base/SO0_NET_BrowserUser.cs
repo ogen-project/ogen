@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// NET_BrowserUser SerializableObject which provides fields access at NET_BrowserUser table at Database.
 	/// </summary>
@@ -30,25 +31,25 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_NET_BrowserUser();
 		public SO_NET_BrowserUser(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_NET_BrowserUser(
 			long IFBrowser_in, 
 			long IFUser_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifbrowser_ = IFBrowser_in;
-			ifuser_ = IFUser_in;
+			this.ifbrowser_ = IFBrowser_in;
+			this.ifuser_ = IFUser_in;
 		}
 		public SO_NET_BrowserUser(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifbrowser_ = (long)info_in.GetValue("IFBrowser", typeof(long));
-			ifuser_ = (long)info_in.GetValue("IFUser", typeof(long));
+			this.ifbrowser_ = (long)info_in.GetValue("IFBrowser", typeof(long));
+			this.ifuser_ = (long)info_in.GetValue("IFUser", typeof(long));
 		}
 		#endregion
 
@@ -65,7 +66,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
@@ -105,14 +106,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFBrowser {
 			get {
-				return ifbrowser_;
+				return this.ifbrowser_;
 			}
 			set {
 				if (
-					(!value.Equals(ifbrowser_))
+					(!value.Equals(this.ifbrowser_))
 				) {
-					ifbrowser_ = value;
-					haschanges_ = true;
+					this.ifbrowser_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -153,14 +154,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFUser {
 			get {
-				return ifuser_;
+				return this.ifuser_;
 			}
 			set {
 				if (
-					(!value.Equals(ifuser_))
+					(!value.Equals(this.ifuser_))
 				) {
-					ifuser_ = value;
-					haschanges_ = true;
+					this.ifuser_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -194,16 +195,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifbrowser_ = 0L;
-			ifuser_ = 0L;
+			this.ifbrowser_ = 0L;
+			this.ifuser_ = 0L;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IFBrowser", ifbrowser_);
-			info_in.AddValue("IFUser", ifuser_);
+			info_in.AddValue("IFBrowser", this.ifbrowser_);
+			info_in.AddValue("IFUser", this.ifuser_);
 		}
 		#endregion
 		#endregion

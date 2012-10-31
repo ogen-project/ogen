@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// NWS_UserTag SerializableObject which provides fields access at NWS_UserTag table at Database.
 	/// </summary>
@@ -30,25 +31,25 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_NWS_UserTag();
 		public SO_NWS_UserTag(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_NWS_UserTag(
 			long IFUser_in, 
 			long IFTag_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifuser_ = IFUser_in;
-			iftag_ = IFTag_in;
+			this.ifuser_ = IFUser_in;
+			this.iftag_ = IFTag_in;
 		}
 		public SO_NWS_UserTag(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifuser_ = (long)info_in.GetValue("IFUser", typeof(long));
-			iftag_ = (long)info_in.GetValue("IFTag", typeof(long));
+			this.ifuser_ = (long)info_in.GetValue("IFUser", typeof(long));
+			this.iftag_ = (long)info_in.GetValue("IFTag", typeof(long));
 		}
 		#endregion
 
@@ -65,7 +66,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
@@ -105,14 +106,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFUser {
 			get {
-				return ifuser_;
+				return this.ifuser_;
 			}
 			set {
 				if (
-					(!value.Equals(ifuser_))
+					(!value.Equals(this.ifuser_))
 				) {
-					ifuser_ = value;
-					haschanges_ = true;
+					this.ifuser_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -153,14 +154,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFTag {
 			get {
-				return iftag_;
+				return this.iftag_;
 			}
 			set {
 				if (
-					(!value.Equals(iftag_))
+					(!value.Equals(this.iftag_))
 				) {
-					iftag_ = value;
-					haschanges_ = true;
+					this.iftag_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -194,16 +195,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifuser_ = 0L;
-			iftag_ = 0L;
+			this.ifuser_ = 0L;
+			this.iftag_ = 0L;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IFUser", ifuser_);
-			info_in.AddValue("IFTag", iftag_);
+			info_in.AddValue("IFUser", this.ifuser_);
+			info_in.AddValue("IFTag", this.iftag_);
 		}
 		#endregion
 		#endregion

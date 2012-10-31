@@ -12,15 +12,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Web.Services;
-using System.Web.Services.Protocols;
-
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
 namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
+	using System;
+	using System.Web.Services;
+	using System.Web.Services.Protocols;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+
 	/// <summary>
 	/// NWS_Tag web service client.
 	/// </summary>

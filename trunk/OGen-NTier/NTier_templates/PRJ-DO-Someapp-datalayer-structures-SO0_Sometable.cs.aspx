@@ -66,14 +66,15 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 #endregion
 <%
 	}
-}%>using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
-
+}%>
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// <%=_aux_db_table.Name%> SerializableObject which provides fields access at <%=_aux_db_table.Name%> <%=(_aux_db_table.isVirtualTable) ? "view" : "table"%> at Database.
 	/// </summary>
@@ -84,7 +85,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 		#region public SO_<%=_aux_db_table.Name%>();
 		public SO_<%=_aux_db_table.Name%>(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_<%=_aux_db_table.Name%>(<%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
@@ -92,29 +93,29 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 			<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%>_in<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 		}%>
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 <%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
-			<%=_aux_db_field.Name.ToLower()%>_ = <%=_aux_db_field.Name%>_in;<%
+			this.<%=_aux_db_field.Name.ToLower()%>_ = <%=_aux_db_field.Name%>_in;<%
 			}%>
 		}
 		public SO_<%=_aux_db_table.Name%>(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 <%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 		if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%>
-			<%=_aux_db_field.Name.ToLower()%>_ 
+			this.<%=_aux_db_field.Name.ToLower()%>_ 
 				= (info_in.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>)) == null)
 					? <%=_aux_db_field.DBType_generic.FWEmptyValue%>
 					: (<%=_aux_db_field.DBType_generic.FWType%>)info_in.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>));
-			<%=_aux_db_field.Name%>_isNull = (bool)info_in.GetValue("<%=_aux_db_field.Name%>_isNull", typeof(bool));<%
+			this.<%=_aux_db_field.Name%>_isNull = (bool)info_in.GetValue("<%=_aux_db_field.Name%>_isNull", typeof(bool));<%
 		} else {%><%=""%>
-			<%=_aux_db_field.Name.ToLower()%>_ = (<%=_aux_db_field.DBType_generic.FWType%>)info_in.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>));<%
+			this.<%=_aux_db_field.Name.ToLower()%>_ = (<%=_aux_db_field.DBType_generic.FWType%>)info_in.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>));<%
 		}
 	}%>
 		}
@@ -133,7 +134,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 <%
@@ -142,9 +143,9 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 		public override <%=_aux_ex_table.ListItemValue.parallel_ref.DBType_generic.FWType%> ListItem_Value {
 			get {<%
 				if (_aux_ex_table.ListItemValue.parallel_ref.isNullable && !_aux_ex_table.ListItemValue.parallel_ref.isPK) {%>
-				return <%=_aux_ex_table.ListItemValue.Name%>;<%
+				return this.<%=_aux_ex_table.ListItemValue.Name%>;<%
 				} else {%>
-				return <%=_aux_ex_table.ListItemValue.Name.ToLower()%>_;<%
+				return this.<%=_aux_ex_table.ListItemValue.Name.ToLower()%>_;<%
 				}%>
 			}
 		}
@@ -153,9 +154,9 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 		public override <%=_aux_ex_table.ListItemText.parallel_ref.DBType_generic.FWType%> ListItem_Text {
 			get {<%
 				if (_aux_ex_table.ListItemText.parallel_ref.isNullable && !_aux_ex_table.ListItemText.parallel_ref.isPK) {%>
-				return <%=_aux_ex_table.ListItemText.Name%>;<%
+				return this.<%=_aux_ex_table.ListItemText.Name%>;<%
 				} else {%>
-				return <%=_aux_ex_table.ListItemText.Name.ToLower()%>_;<%
+				return this.<%=_aux_ex_table.ListItemText.Name.ToLower()%>_;<%
 				}%>
 			}
 		} 
@@ -204,9 +205,9 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 		public <%=_aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%> {
 			get {<%
 			if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%>
-				return (<%=_aux_db_field.DBType_generic.FWType%>)((<%=_aux_db_field.Name.ToLower()%>_ == null) ? <%=((_aux_ex_field == null) || (_aux_ex_field.DefaultValue == "")) ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_ex_field.DefaultValue%> : <%=_aux_db_field.Name.ToLower()%>_);<%
+				return (<%=_aux_db_field.DBType_generic.FWType%>)((this.<%=_aux_db_field.Name.ToLower()%>_ == null) ? <%=((_aux_ex_field == null) || (_aux_ex_field.DefaultValue == "")) ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_ex_field.DefaultValue%> : this.<%=_aux_db_field.Name.ToLower()%>_);<%
 			} else {%>
-				return <%=_aux_db_field.Name.ToLower()%>_;<%
+				return this.<%=_aux_db_field.Name.ToLower()%>_;<%
 			}%>
 			}
 			set {
@@ -215,10 +216,10 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 					(value != null)
 					&&<%
 					}%>
-					(!value.Equals(<%=_aux_db_field.Name.ToLower()%>_))
+					(!value.Equals(this.<%=_aux_db_field.Name.ToLower()%>_))
 				) {
-					<%=_aux_db_field.Name.ToLower()%>_ = value;
-					haschanges_ = true;
+					this.<%=_aux_db_field.Name.ToLower()%>_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -231,15 +232,15 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 		[XmlElement("<%=_aux_db_field.Name%>_isNull")]
 		[SoapElement("<%=_aux_db_field.Name%>_isNull")]
 		public bool <%=_aux_db_field.Name%>_isNull {
-			get { return (<%=_aux_db_field.Name.ToLower()%>_ == null); }<%
+			get { return (this.<%=_aux_db_field.Name.ToLower()%>_ == null); }<%
 			// ToDos: here! fmonteiro
 			if (true || !_aux_db_table.isVirtualTable) {%>
 			set {
-				//if (value) <%=_aux_db_field.Name.ToLower()%>_ = null;
+				//if (value) this.<%=_aux_db_field.Name.ToLower()%>_ = null;
 
-				if ((value) && (<%=_aux_db_field.Name.ToLower()%>_ != null)) {
-					<%=_aux_db_field.Name.ToLower()%>_ = null;
-					haschanges_ = true;
+				if ((value) && (this.<%=_aux_db_field.Name.ToLower()%>_ != null)) {
+					this.<%=_aux_db_field.Name.ToLower()%>_ = null;
+					this.haschanges_ = true;
 				}
 			}<%
 			}%>
@@ -279,12 +280,12 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 <%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 			_aux_ex_field = _aux_db_field.parallel_ref;%><%=""%>
-			<%=_aux_db_field.Name.ToLower()%>_ = <%=
+			this.<%=_aux_db_field.Name.ToLower()%>_ = <%=
 				(
 					(_aux_ex_field == null) 
 					|| 
@@ -299,9 +300,9 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {<%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
-			info_in.AddValue("<%=_aux_db_field.Name%>", <%=_aux_db_field.Name.ToLower()%>_);<%
+			info_in.AddValue("<%=_aux_db_field.Name%>", this.<%=_aux_db_field.Name.ToLower()%>_);<%
 			if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%>
-			info_in.AddValue("<%=_aux_db_field.Name%>_isNull", <%=_aux_db_field.Name%>_isNull);<%
+			info_in.AddValue("<%=_aux_db_field.Name%>_isNull", this.<%=_aux_db_field.Name%>_isNull);<%
 			}
 		}%>
 		}

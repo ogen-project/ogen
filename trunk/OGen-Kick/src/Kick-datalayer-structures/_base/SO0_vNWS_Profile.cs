@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// vNWS_Profile SerializableObject which provides fields access at vNWS_Profile view at Database.
 	/// </summary>
@@ -30,7 +31,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_vNWS_Profile();
 		public SO_vNWS_Profile(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_vNWS_Profile(
 			long IDProfile_in, 
@@ -40,43 +41,43 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DateTime Approved_date_in, 
 			string ManagerName_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idprofile_ = IDProfile_in;
-			name_ = Name_in;
-			idapplication_ = IDApplication_in;
-			ifuser__approved_ = IFUser__Approved_in;
-			approved_date_ = Approved_date_in;
-			managername_ = ManagerName_in;
+			this.idprofile_ = IDProfile_in;
+			this.name_ = Name_in;
+			this.idapplication_ = IDApplication_in;
+			this.ifuser__approved_ = IFUser__Approved_in;
+			this.approved_date_ = Approved_date_in;
+			this.managername_ = ManagerName_in;
 		}
 		public SO_vNWS_Profile(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idprofile_ = (long)info_in.GetValue("IDProfile", typeof(long));
-			name_ = (string)info_in.GetValue("Name", typeof(string));
-			idapplication_ 
+			this.idprofile_ = (long)info_in.GetValue("IDProfile", typeof(long));
+			this.name_ = (string)info_in.GetValue("Name", typeof(string));
+			this.idapplication_ 
 				= (info_in.GetValue("IDApplication", typeof(int)) == null)
 					? 0
 					: (int)info_in.GetValue("IDApplication", typeof(int));
-			IDApplication_isNull = (bool)info_in.GetValue("IDApplication_isNull", typeof(bool));
-			ifuser__approved_ 
+			this.IDApplication_isNull = (bool)info_in.GetValue("IDApplication_isNull", typeof(bool));
+			this.ifuser__approved_ 
 				= (info_in.GetValue("IFUser__Approved", typeof(long)) == null)
 					? 0L
 					: (long)info_in.GetValue("IFUser__Approved", typeof(long));
-			IFUser__Approved_isNull = (bool)info_in.GetValue("IFUser__Approved_isNull", typeof(bool));
-			approved_date_ 
+			this.IFUser__Approved_isNull = (bool)info_in.GetValue("IFUser__Approved_isNull", typeof(bool));
+			this.approved_date_ 
 				= (info_in.GetValue("Approved_date", typeof(DateTime)) == null)
 					? new DateTime(1900, 1, 1)
 					: (DateTime)info_in.GetValue("Approved_date", typeof(DateTime));
-			Approved_date_isNull = (bool)info_in.GetValue("Approved_date_isNull", typeof(bool));
-			managername_ 
+			this.Approved_date_isNull = (bool)info_in.GetValue("Approved_date_isNull", typeof(bool));
+			this.managername_ 
 				= (info_in.GetValue("ManagerName", typeof(string)) == null)
 					? string.Empty
 					: (string)info_in.GetValue("ManagerName", typeof(string));
-			ManagerName_isNull = (bool)info_in.GetValue("ManagerName_isNull", typeof(bool));
+			this.ManagerName_isNull = (bool)info_in.GetValue("ManagerName_isNull", typeof(bool));
 		}
 		#endregion
 
@@ -93,21 +94,21 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
 		#region public override long ListItem_Value { get; }
 		public override long ListItem_Value {
 			get {
-				return idprofile_;
+				return this.idprofile_;
 			}
 		}
 		#endregion
 		#region public override string ListItem_Text { get; }
 		public override string ListItem_Text {
 			get {
-				return name_;
+				return this.name_;
 			}
 		} 
 		#endregion
@@ -148,14 +149,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IDProfile {
 			get {
-				return idprofile_;
+				return this.idprofile_;
 			}
 			set {
 				if (
-					(!value.Equals(idprofile_))
+					(!value.Equals(this.idprofile_))
 				) {
-					idprofile_ = value;
-					haschanges_ = true;
+					this.idprofile_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -196,16 +197,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(name_))
+					(!value.Equals(this.name_))
 				) {
-					name_ = value;
-					haschanges_ = true;
+					this.name_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -246,14 +247,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int IDApplication {
 			get {
-				return (int)((idapplication_ == null) ? 0 : idapplication_);
+				return (int)((this.idapplication_ == null) ? 0 : this.idapplication_);
 			}
 			set {
 				if (
-					(!value.Equals(idapplication_))
+					(!value.Equals(this.idapplication_))
 				) {
-					idapplication_ = value;
-					haschanges_ = true;
+					this.idapplication_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -265,13 +266,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IDApplication_isNull")]
 		[SoapElement("IDApplication_isNull")]
 		public bool IDApplication_isNull {
-			get { return (idapplication_ == null); }
+			get { return (this.idapplication_ == null); }
 			set {
-				//if (value) idapplication_ = null;
+				//if (value) this.idapplication_ = null;
 
-				if ((value) && (idapplication_ != null)) {
-					idapplication_ = null;
-					haschanges_ = true;
+				if ((value) && (this.idapplication_ != null)) {
+					this.idapplication_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -312,14 +313,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFUser__Approved {
 			get {
-				return (long)((ifuser__approved_ == null) ? 0L : ifuser__approved_);
+				return (long)((this.ifuser__approved_ == null) ? 0L : this.ifuser__approved_);
 			}
 			set {
 				if (
-					(!value.Equals(ifuser__approved_))
+					(!value.Equals(this.ifuser__approved_))
 				) {
-					ifuser__approved_ = value;
-					haschanges_ = true;
+					this.ifuser__approved_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -331,13 +332,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFUser__Approved_isNull")]
 		[SoapElement("IFUser__Approved_isNull")]
 		public bool IFUser__Approved_isNull {
-			get { return (ifuser__approved_ == null); }
+			get { return (this.ifuser__approved_ == null); }
 			set {
-				//if (value) ifuser__approved_ = null;
+				//if (value) this.ifuser__approved_ = null;
 
-				if ((value) && (ifuser__approved_ != null)) {
-					ifuser__approved_ = null;
-					haschanges_ = true;
+				if ((value) && (this.ifuser__approved_ != null)) {
+					this.ifuser__approved_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -378,14 +379,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public DateTime Approved_date {
 			get {
-				return (DateTime)((approved_date_ == null) ? new DateTime(1900, 1, 1) : approved_date_);
+				return (DateTime)((this.approved_date_ == null) ? new DateTime(1900, 1, 1) : this.approved_date_);
 			}
 			set {
 				if (
-					(!value.Equals(approved_date_))
+					(!value.Equals(this.approved_date_))
 				) {
-					approved_date_ = value;
-					haschanges_ = true;
+					this.approved_date_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -397,13 +398,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("Approved_date_isNull")]
 		[SoapElement("Approved_date_isNull")]
 		public bool Approved_date_isNull {
-			get { return (approved_date_ == null); }
+			get { return (this.approved_date_ == null); }
 			set {
-				//if (value) approved_date_ = null;
+				//if (value) this.approved_date_ = null;
 
-				if ((value) && (approved_date_ != null)) {
-					approved_date_ = null;
-					haschanges_ = true;
+				if ((value) && (this.approved_date_ != null)) {
+					this.approved_date_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -444,16 +445,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string ManagerName {
 			get {
-				return (string)((managername_ == null) ? string.Empty : managername_);
+				return (string)((this.managername_ == null) ? string.Empty : this.managername_);
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(managername_))
+					(!value.Equals(this.managername_))
 				) {
-					managername_ = value;
-					haschanges_ = true;
+					this.managername_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -465,13 +466,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("ManagerName_isNull")]
 		[SoapElement("ManagerName_isNull")]
 		public bool ManagerName_isNull {
-			get { return (managername_ == null); }
+			get { return (this.managername_ == null); }
 			set {
-				//if (value) managername_ = null;
+				//if (value) this.managername_ = null;
 
-				if ((value) && (managername_ != null)) {
-					managername_ = null;
-					haschanges_ = true;
+				if ((value) && (this.managername_ != null)) {
+					this.managername_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -517,28 +518,28 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idprofile_ = 0L;
-			name_ = string.Empty;
-			idapplication_ = 0;
-			ifuser__approved_ = 0L;
-			approved_date_ = new DateTime(1900, 1, 1);
-			managername_ = string.Empty;
+			this.idprofile_ = 0L;
+			this.name_ = string.Empty;
+			this.idapplication_ = 0;
+			this.ifuser__approved_ = 0L;
+			this.approved_date_ = new DateTime(1900, 1, 1);
+			this.managername_ = string.Empty;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDProfile", idprofile_);
-			info_in.AddValue("Name", name_);
-			info_in.AddValue("IDApplication", idapplication_);
-			info_in.AddValue("IDApplication_isNull", IDApplication_isNull);
-			info_in.AddValue("IFUser__Approved", ifuser__approved_);
-			info_in.AddValue("IFUser__Approved_isNull", IFUser__Approved_isNull);
-			info_in.AddValue("Approved_date", approved_date_);
-			info_in.AddValue("Approved_date_isNull", Approved_date_isNull);
-			info_in.AddValue("ManagerName", managername_);
-			info_in.AddValue("ManagerName_isNull", ManagerName_isNull);
+			info_in.AddValue("IDProfile", this.idprofile_);
+			info_in.AddValue("Name", this.name_);
+			info_in.AddValue("IDApplication", this.idapplication_);
+			info_in.AddValue("IDApplication_isNull", this.IDApplication_isNull);
+			info_in.AddValue("IFUser__Approved", this.ifuser__approved_);
+			info_in.AddValue("IFUser__Approved_isNull", this.IFUser__Approved_isNull);
+			info_in.AddValue("Approved_date", this.approved_date_);
+			info_in.AddValue("Approved_date_isNull", this.Approved_date_isNull);
+			info_in.AddValue("ManagerName", this.managername_);
+			info_in.AddValue("ManagerName_isNull", this.ManagerName_isNull);
 		}
 		#endregion
 		#endregion

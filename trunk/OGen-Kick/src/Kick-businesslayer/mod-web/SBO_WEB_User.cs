@@ -175,11 +175,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				EMail_verify_in, 
 				"1" // Verify EMail
 			);
-			if (
-				(_message == null)
-				||
-				(_message == "")
-			) {
+			if (string.IsNullOrEmpty(_message)) {
 				errors_out = _errorlist.ToArray();
 				return;
 			}
@@ -1077,11 +1073,7 @@ A equipa {2}
 				_user.EMail,
 				"0" // NOT Verify EMail
 			);
-			if (
-				(_message == null)
-				||
-				(_message == "")
-			) {
+			if (string.IsNullOrEmpty(_message)) {
 				errors_out = _errors.ToArray();
 				return;
 			}
@@ -1142,7 +1134,7 @@ A equipa {2}",
 
 		private static string randompassword {
 			get {
-				if (randompassword__ == "") {
+				if (string.IsNullOrEmpty(randompassword__)) {
 					randompassword__ = 
 						SimpleHash.ComputeHash(
 						utils.RandomText(20),
@@ -1219,11 +1211,7 @@ A equipa {2}",
 				email_in,
 				"1" // Verify EMail
 			);
-			if (
-				(_message == null)
-				||
-				(_message == "")
-			) {
+			if (string.IsNullOrEmpty(_message)) {
 				errors_out = _errorlist.ToArray();
 				return;
 			}
@@ -1484,11 +1472,7 @@ A equipa {2}",
 			string[] _params;
 			long _ticks;
 
-			if (
-				(enc_message_in == null)
-				||
-				(enc_message_in == "")
-			) {
+			if (string.IsNullOrEmpty(enc_message_in)) {
 				errors_in.Add(ErrorType.encryption__failled_to_decrypt);
 				return _output;
 			}

@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// vDIC_ApplicationLanguage SerializableObject which provides fields access at vDIC_ApplicationLanguage view at Database.
 	/// </summary>
@@ -30,32 +31,32 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_vDIC_ApplicationLanguage();
 		public SO_vDIC_ApplicationLanguage(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_vDIC_ApplicationLanguage(
 			int IFApplication_in, 
 			int IDLanguage_in, 
 			string Language_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifapplication_ = IFApplication_in;
-			idlanguage_ = IDLanguage_in;
-			language_ = Language_in;
+			this.ifapplication_ = IFApplication_in;
+			this.idlanguage_ = IDLanguage_in;
+			this.language_ = Language_in;
 		}
 		public SO_vDIC_ApplicationLanguage(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifapplication_ = (int)info_in.GetValue("IFApplication", typeof(int));
-			idlanguage_ = (int)info_in.GetValue("IDLanguage", typeof(int));
-			language_ 
+			this.ifapplication_ = (int)info_in.GetValue("IFApplication", typeof(int));
+			this.idlanguage_ = (int)info_in.GetValue("IDLanguage", typeof(int));
+			this.language_ 
 				= (info_in.GetValue("Language", typeof(string)) == null)
 					? string.Empty
 					: (string)info_in.GetValue("Language", typeof(string));
-			Language_isNull = (bool)info_in.GetValue("Language_isNull", typeof(bool));
+			this.Language_isNull = (bool)info_in.GetValue("Language_isNull", typeof(bool));
 		}
 		#endregion
 
@@ -72,21 +73,21 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
 		#region public override int ListItem_Value { get; }
 		public override int ListItem_Value {
 			get {
-				return idlanguage_;
+				return this.idlanguage_;
 			}
 		}
 		#endregion
 		#region public override string ListItem_Text { get; }
 		public override string ListItem_Text {
 			get {
-				return Language;
+				return this.Language;
 			}
 		} 
 		#endregion
@@ -127,14 +128,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int IFApplication {
 			get {
-				return ifapplication_;
+				return this.ifapplication_;
 			}
 			set {
 				if (
-					(!value.Equals(ifapplication_))
+					(!value.Equals(this.ifapplication_))
 				) {
-					ifapplication_ = value;
-					haschanges_ = true;
+					this.ifapplication_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -175,14 +176,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int IDLanguage {
 			get {
-				return idlanguage_;
+				return this.idlanguage_;
 			}
 			set {
 				if (
-					(!value.Equals(idlanguage_))
+					(!value.Equals(this.idlanguage_))
 				) {
-					idlanguage_ = value;
-					haschanges_ = true;
+					this.idlanguage_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -223,16 +224,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string Language {
 			get {
-				return (string)((language_ == null) ? string.Empty : language_);
+				return (string)((this.language_ == null) ? string.Empty : this.language_);
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(language_))
+					(!value.Equals(this.language_))
 				) {
-					language_ = value;
-					haschanges_ = true;
+					this.language_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -244,13 +245,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("Language_isNull")]
 		[SoapElement("Language_isNull")]
 		public bool Language_isNull {
-			get { return (language_ == null); }
+			get { return (this.language_ == null); }
 			set {
-				//if (value) language_ = null;
+				//if (value) this.language_ = null;
 
-				if ((value) && (language_ != null)) {
-					language_ = null;
-					haschanges_ = true;
+				if ((value) && (this.language_ != null)) {
+					this.language_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -287,19 +288,19 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifapplication_ = 0;
-			idlanguage_ = 0;
-			language_ = string.Empty;
+			this.ifapplication_ = 0;
+			this.idlanguage_ = 0;
+			this.language_ = string.Empty;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IFApplication", ifapplication_);
-			info_in.AddValue("IDLanguage", idlanguage_);
-			info_in.AddValue("Language", language_);
-			info_in.AddValue("Language_isNull", Language_isNull);
+			info_in.AddValue("IFApplication", this.ifapplication_);
+			info_in.AddValue("IDLanguage", this.idlanguage_);
+			info_in.AddValue("Language", this.language_);
+			info_in.AddValue("Language_isNull", this.Language_isNull);
 		}
 		#endregion
 		#endregion

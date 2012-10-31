@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// LOG_Errortype SerializableObject which provides fields access at LOG_Errortype table at Database.
 	/// </summary>
@@ -30,7 +31,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_LOG_Errortype();
 		public SO_LOG_Errortype(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_LOG_Errortype(
 			int IDErrortype_in, 
@@ -38,31 +39,31 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			string Description_in, 
 			int IFApplication_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			iderrortype_ = IDErrortype_in;
-			name_ = Name_in;
-			description_ = Description_in;
-			ifapplication_ = IFApplication_in;
+			this.iderrortype_ = IDErrortype_in;
+			this.name_ = Name_in;
+			this.description_ = Description_in;
+			this.ifapplication_ = IFApplication_in;
 		}
 		public SO_LOG_Errortype(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			iderrortype_ = (int)info_in.GetValue("IDErrortype", typeof(int));
-			name_ = (string)info_in.GetValue("Name", typeof(string));
-			description_ 
+			this.iderrortype_ = (int)info_in.GetValue("IDErrortype", typeof(int));
+			this.name_ = (string)info_in.GetValue("Name", typeof(string));
+			this.description_ 
 				= (info_in.GetValue("Description", typeof(string)) == null)
 					? string.Empty
 					: (string)info_in.GetValue("Description", typeof(string));
-			Description_isNull = (bool)info_in.GetValue("Description_isNull", typeof(bool));
-			ifapplication_ 
+			this.Description_isNull = (bool)info_in.GetValue("Description_isNull", typeof(bool));
+			this.ifapplication_ 
 				= (info_in.GetValue("IFApplication", typeof(int)) == null)
 					? 0
 					: (int)info_in.GetValue("IFApplication", typeof(int));
-			IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
+			this.IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
 		}
 		#endregion
 
@@ -79,21 +80,21 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
 		#region public override int ListItem_Value { get; }
 		public override int ListItem_Value {
 			get {
-				return iderrortype_;
+				return this.iderrortype_;
 			}
 		}
 		#endregion
 		#region public override string ListItem_Text { get; }
 		public override string ListItem_Text {
 			get {
-				return name_;
+				return this.name_;
 			}
 		} 
 		#endregion
@@ -134,14 +135,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int IDErrortype {
 			get {
-				return iderrortype_;
+				return this.iderrortype_;
 			}
 			set {
 				if (
-					(!value.Equals(iderrortype_))
+					(!value.Equals(this.iderrortype_))
 				) {
-					iderrortype_ = value;
-					haschanges_ = true;
+					this.iderrortype_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -182,16 +183,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(name_))
+					(!value.Equals(this.name_))
 				) {
-					name_ = value;
-					haschanges_ = true;
+					this.name_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -232,16 +233,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string Description {
 			get {
-				return (string)((description_ == null) ? string.Empty : description_);
+				return (string)((this.description_ == null) ? string.Empty : this.description_);
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(description_))
+					(!value.Equals(this.description_))
 				) {
-					description_ = value;
-					haschanges_ = true;
+					this.description_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -253,13 +254,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("Description_isNull")]
 		[SoapElement("Description_isNull")]
 		public bool Description_isNull {
-			get { return (description_ == null); }
+			get { return (this.description_ == null); }
 			set {
-				//if (value) description_ = null;
+				//if (value) this.description_ = null;
 
-				if ((value) && (description_ != null)) {
-					description_ = null;
-					haschanges_ = true;
+				if ((value) && (this.description_ != null)) {
+					this.description_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -300,14 +301,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int IFApplication {
 			get {
-				return (int)((ifapplication_ == null) ? 0 : ifapplication_);
+				return (int)((this.ifapplication_ == null) ? 0 : this.ifapplication_);
 			}
 			set {
 				if (
-					(!value.Equals(ifapplication_))
+					(!value.Equals(this.ifapplication_))
 				) {
-					ifapplication_ = value;
-					haschanges_ = true;
+					this.ifapplication_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -319,13 +320,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFApplication_isNull")]
 		[SoapElement("IFApplication_isNull")]
 		public bool IFApplication_isNull {
-			get { return (ifapplication_ == null); }
+			get { return (this.ifapplication_ == null); }
 			set {
-				//if (value) ifapplication_ = null;
+				//if (value) this.ifapplication_ = null;
 
-				if ((value) && (ifapplication_ != null)) {
-					ifapplication_ = null;
-					haschanges_ = true;
+				if ((value) && (this.ifapplication_ != null)) {
+					this.ifapplication_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -365,22 +366,22 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			iderrortype_ = 0;
-			name_ = string.Empty;
-			description_ = string.Empty;
-			ifapplication_ = 0;
+			this.iderrortype_ = 0;
+			this.name_ = string.Empty;
+			this.description_ = string.Empty;
+			this.ifapplication_ = 0;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDErrortype", iderrortype_);
-			info_in.AddValue("Name", name_);
-			info_in.AddValue("Description", description_);
-			info_in.AddValue("Description_isNull", Description_isNull);
-			info_in.AddValue("IFApplication", ifapplication_);
-			info_in.AddValue("IFApplication_isNull", IFApplication_isNull);
+			info_in.AddValue("IDErrortype", this.iderrortype_);
+			info_in.AddValue("Name", this.name_);
+			info_in.AddValue("Description", this.description_);
+			info_in.AddValue("Description_isNull", this.Description_isNull);
+			info_in.AddValue("IFApplication", this.ifapplication_);
+			info_in.AddValue("IFApplication_isNull", this.IFApplication_isNull);
 		}
 		#endregion
 		#endregion

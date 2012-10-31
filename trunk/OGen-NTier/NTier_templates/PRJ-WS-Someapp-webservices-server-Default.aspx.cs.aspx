@@ -50,13 +50,14 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 #endregion
 <%
 	}
-}%>using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
+}%>
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server {
+	using System;
+	using System.Collections.Generic;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
 	public partial class Default : System.Web.UI.Page {
 		protected void Page_Load(object sender, EventArgs e) {
 

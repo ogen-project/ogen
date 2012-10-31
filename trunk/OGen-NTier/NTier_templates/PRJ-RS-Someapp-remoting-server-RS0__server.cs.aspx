@@ -50,13 +50,14 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 #endregion
 <%
 	}
-}%>using System;
-using System.Runtime.Remoting;
-using System.Runtime.Remoting.Channels;
-using System.Runtime.Remoting.Channels.Tcp;
-using System.Runtime.Remoting.Channels.Http;
-
+}%>
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server {
+	using System;
+	using System.Runtime.Remoting;
+	using System.Runtime.Remoting.Channels;
+	using System.Runtime.Remoting.Channels.Http;
+	using System.Runtime.Remoting.Channels.Tcp;
+
 	public class RS__server {
 		private RS__server() { }
 

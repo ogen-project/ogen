@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// NWS_Tag SerializableObject which provides fields access at NWS_Tag table at Database.
 	/// </summary>
@@ -30,7 +31,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_NWS_Tag();
 		public SO_NWS_Tag(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_NWS_Tag(
 			long IDTag_in, 
@@ -40,43 +41,43 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			long IFUser__Approved_in, 
 			DateTime Approved_date_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idtag_ = IDTag_in;
-			ifapplication_ = IFApplication_in;
-			iftag__parent_ = IFTag__parent_in;
-			tx_name_ = TX_Name_in;
-			ifuser__approved_ = IFUser__Approved_in;
-			approved_date_ = Approved_date_in;
+			this.idtag_ = IDTag_in;
+			this.ifapplication_ = IFApplication_in;
+			this.iftag__parent_ = IFTag__parent_in;
+			this.tx_name_ = TX_Name_in;
+			this.ifuser__approved_ = IFUser__Approved_in;
+			this.approved_date_ = Approved_date_in;
 		}
 		public SO_NWS_Tag(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idtag_ = (long)info_in.GetValue("IDTag", typeof(long));
-			ifapplication_ 
+			this.idtag_ = (long)info_in.GetValue("IDTag", typeof(long));
+			this.ifapplication_ 
 				= (info_in.GetValue("IFApplication", typeof(int)) == null)
 					? 0
 					: (int)info_in.GetValue("IFApplication", typeof(int));
-			IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
-			iftag__parent_ 
+			this.IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
+			this.iftag__parent_ 
 				= (info_in.GetValue("IFTag__parent", typeof(long)) == null)
 					? 0L
 					: (long)info_in.GetValue("IFTag__parent", typeof(long));
-			IFTag__parent_isNull = (bool)info_in.GetValue("IFTag__parent_isNull", typeof(bool));
-			tx_name_ = (long)info_in.GetValue("TX_Name", typeof(long));
-			ifuser__approved_ 
+			this.IFTag__parent_isNull = (bool)info_in.GetValue("IFTag__parent_isNull", typeof(bool));
+			this.tx_name_ = (long)info_in.GetValue("TX_Name", typeof(long));
+			this.ifuser__approved_ 
 				= (info_in.GetValue("IFUser__Approved", typeof(long)) == null)
 					? 0L
 					: (long)info_in.GetValue("IFUser__Approved", typeof(long));
-			IFUser__Approved_isNull = (bool)info_in.GetValue("IFUser__Approved_isNull", typeof(bool));
-			approved_date_ 
+			this.IFUser__Approved_isNull = (bool)info_in.GetValue("IFUser__Approved_isNull", typeof(bool));
+			this.approved_date_ 
 				= (info_in.GetValue("Approved_date", typeof(DateTime)) == null)
 					? new DateTime(1900, 1, 1)
 					: (DateTime)info_in.GetValue("Approved_date", typeof(DateTime));
-			Approved_date_isNull = (bool)info_in.GetValue("Approved_date_isNull", typeof(bool));
+			this.Approved_date_isNull = (bool)info_in.GetValue("Approved_date_isNull", typeof(bool));
 		}
 		#endregion
 
@@ -93,7 +94,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
@@ -133,14 +134,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IDTag {
 			get {
-				return idtag_;
+				return this.idtag_;
 			}
 			set {
 				if (
-					(!value.Equals(idtag_))
+					(!value.Equals(this.idtag_))
 				) {
-					idtag_ = value;
-					haschanges_ = true;
+					this.idtag_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -181,14 +182,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int IFApplication {
 			get {
-				return (int)((ifapplication_ == null) ? 0 : ifapplication_);
+				return (int)((this.ifapplication_ == null) ? 0 : this.ifapplication_);
 			}
 			set {
 				if (
-					(!value.Equals(ifapplication_))
+					(!value.Equals(this.ifapplication_))
 				) {
-					ifapplication_ = value;
-					haschanges_ = true;
+					this.ifapplication_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -200,13 +201,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFApplication_isNull")]
 		[SoapElement("IFApplication_isNull")]
 		public bool IFApplication_isNull {
-			get { return (ifapplication_ == null); }
+			get { return (this.ifapplication_ == null); }
 			set {
-				//if (value) ifapplication_ = null;
+				//if (value) this.ifapplication_ = null;
 
-				if ((value) && (ifapplication_ != null)) {
-					ifapplication_ = null;
-					haschanges_ = true;
+				if ((value) && (this.ifapplication_ != null)) {
+					this.ifapplication_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -247,14 +248,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFTag__parent {
 			get {
-				return (long)((iftag__parent_ == null) ? 0L : iftag__parent_);
+				return (long)((this.iftag__parent_ == null) ? 0L : this.iftag__parent_);
 			}
 			set {
 				if (
-					(!value.Equals(iftag__parent_))
+					(!value.Equals(this.iftag__parent_))
 				) {
-					iftag__parent_ = value;
-					haschanges_ = true;
+					this.iftag__parent_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -266,13 +267,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFTag__parent_isNull")]
 		[SoapElement("IFTag__parent_isNull")]
 		public bool IFTag__parent_isNull {
-			get { return (iftag__parent_ == null); }
+			get { return (this.iftag__parent_ == null); }
 			set {
-				//if (value) iftag__parent_ = null;
+				//if (value) this.iftag__parent_ = null;
 
-				if ((value) && (iftag__parent_ != null)) {
-					iftag__parent_ = null;
-					haschanges_ = true;
+				if ((value) && (this.iftag__parent_ != null)) {
+					this.iftag__parent_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -313,14 +314,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long TX_Name {
 			get {
-				return tx_name_;
+				return this.tx_name_;
 			}
 			set {
 				if (
-					(!value.Equals(tx_name_))
+					(!value.Equals(this.tx_name_))
 				) {
-					tx_name_ = value;
-					haschanges_ = true;
+					this.tx_name_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -361,14 +362,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFUser__Approved {
 			get {
-				return (long)((ifuser__approved_ == null) ? 0L : ifuser__approved_);
+				return (long)((this.ifuser__approved_ == null) ? 0L : this.ifuser__approved_);
 			}
 			set {
 				if (
-					(!value.Equals(ifuser__approved_))
+					(!value.Equals(this.ifuser__approved_))
 				) {
-					ifuser__approved_ = value;
-					haschanges_ = true;
+					this.ifuser__approved_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -380,13 +381,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFUser__Approved_isNull")]
 		[SoapElement("IFUser__Approved_isNull")]
 		public bool IFUser__Approved_isNull {
-			get { return (ifuser__approved_ == null); }
+			get { return (this.ifuser__approved_ == null); }
 			set {
-				//if (value) ifuser__approved_ = null;
+				//if (value) this.ifuser__approved_ = null;
 
-				if ((value) && (ifuser__approved_ != null)) {
-					ifuser__approved_ = null;
-					haschanges_ = true;
+				if ((value) && (this.ifuser__approved_ != null)) {
+					this.ifuser__approved_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -427,14 +428,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public DateTime Approved_date {
 			get {
-				return (DateTime)((approved_date_ == null) ? new DateTime(1900, 1, 1) : approved_date_);
+				return (DateTime)((this.approved_date_ == null) ? new DateTime(1900, 1, 1) : this.approved_date_);
 			}
 			set {
 				if (
-					(!value.Equals(approved_date_))
+					(!value.Equals(this.approved_date_))
 				) {
-					approved_date_ = value;
-					haschanges_ = true;
+					this.approved_date_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -446,13 +447,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("Approved_date_isNull")]
 		[SoapElement("Approved_date_isNull")]
 		public bool Approved_date_isNull {
-			get { return (approved_date_ == null); }
+			get { return (this.approved_date_ == null); }
 			set {
-				//if (value) approved_date_ = null;
+				//if (value) this.approved_date_ = null;
 
-				if ((value) && (approved_date_ != null)) {
-					approved_date_ = null;
-					haschanges_ = true;
+				if ((value) && (this.approved_date_ != null)) {
+					this.approved_date_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -498,28 +499,28 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idtag_ = 0L;
-			ifapplication_ = 0;
-			iftag__parent_ = 0L;
-			tx_name_ = 0L;
-			ifuser__approved_ = 0L;
-			approved_date_ = new DateTime(1900, 1, 1);
+			this.idtag_ = 0L;
+			this.ifapplication_ = 0;
+			this.iftag__parent_ = 0L;
+			this.tx_name_ = 0L;
+			this.ifuser__approved_ = 0L;
+			this.approved_date_ = new DateTime(1900, 1, 1);
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDTag", idtag_);
-			info_in.AddValue("IFApplication", ifapplication_);
-			info_in.AddValue("IFApplication_isNull", IFApplication_isNull);
-			info_in.AddValue("IFTag__parent", iftag__parent_);
-			info_in.AddValue("IFTag__parent_isNull", IFTag__parent_isNull);
-			info_in.AddValue("TX_Name", tx_name_);
-			info_in.AddValue("IFUser__Approved", ifuser__approved_);
-			info_in.AddValue("IFUser__Approved_isNull", IFUser__Approved_isNull);
-			info_in.AddValue("Approved_date", approved_date_);
-			info_in.AddValue("Approved_date_isNull", Approved_date_isNull);
+			info_in.AddValue("IDTag", this.idtag_);
+			info_in.AddValue("IFApplication", this.ifapplication_);
+			info_in.AddValue("IFApplication_isNull", this.IFApplication_isNull);
+			info_in.AddValue("IFTag__parent", this.iftag__parent_);
+			info_in.AddValue("IFTag__parent_isNull", this.IFTag__parent_isNull);
+			info_in.AddValue("TX_Name", this.tx_name_);
+			info_in.AddValue("IFUser__Approved", this.ifuser__approved_);
+			info_in.AddValue("IFUser__Approved_isNull", this.IFUser__Approved_isNull);
+			info_in.AddValue("Approved_date", this.approved_date_);
+			info_in.AddValue("Approved_date_isNull", this.Approved_date_isNull);
 		}
 		#endregion
 		#endregion

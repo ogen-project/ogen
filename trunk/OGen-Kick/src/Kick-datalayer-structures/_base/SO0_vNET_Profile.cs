@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// vNET_Profile SerializableObject which provides fields access at vNET_Profile view at Database.
 	/// </summary>
@@ -30,7 +31,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_vNET_Profile();
 		public SO_vNET_Profile(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_vNET_Profile(
 			long IDProfile_in, 
@@ -38,31 +39,31 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			int IFApplication_in, 
 			bool isDefaultprofile_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idprofile_ = IDProfile_in;
-			name_ = Name_in;
-			ifapplication_ = IFApplication_in;
-			isdefaultprofile_ = isDefaultprofile_in;
+			this.idprofile_ = IDProfile_in;
+			this.name_ = Name_in;
+			this.ifapplication_ = IFApplication_in;
+			this.isdefaultprofile_ = isDefaultprofile_in;
 		}
 		public SO_vNET_Profile(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idprofile_ = (long)info_in.GetValue("IDProfile", typeof(long));
-			name_ = (string)info_in.GetValue("Name", typeof(string));
-			ifapplication_ 
+			this.idprofile_ = (long)info_in.GetValue("IDProfile", typeof(long));
+			this.name_ = (string)info_in.GetValue("Name", typeof(string));
+			this.ifapplication_ 
 				= (info_in.GetValue("IFApplication", typeof(int)) == null)
 					? 0
 					: (int)info_in.GetValue("IFApplication", typeof(int));
-			IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
-			isdefaultprofile_ 
+			this.IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
+			this.isdefaultprofile_ 
 				= (info_in.GetValue("isDefaultprofile", typeof(bool)) == null)
 					? false
 					: (bool)info_in.GetValue("isDefaultprofile", typeof(bool));
-			isDefaultprofile_isNull = (bool)info_in.GetValue("isDefaultprofile_isNull", typeof(bool));
+			this.isDefaultprofile_isNull = (bool)info_in.GetValue("isDefaultprofile_isNull", typeof(bool));
 		}
 		#endregion
 
@@ -79,21 +80,21 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
 		#region public override long ListItem_Value { get; }
 		public override long ListItem_Value {
 			get {
-				return idprofile_;
+				return this.idprofile_;
 			}
 		}
 		#endregion
 		#region public override string ListItem_Text { get; }
 		public override string ListItem_Text {
 			get {
-				return name_;
+				return this.name_;
 			}
 		} 
 		#endregion
@@ -134,14 +135,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IDProfile {
 			get {
-				return idprofile_;
+				return this.idprofile_;
 			}
 			set {
 				if (
-					(!value.Equals(idprofile_))
+					(!value.Equals(this.idprofile_))
 				) {
-					idprofile_ = value;
-					haschanges_ = true;
+					this.idprofile_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -182,16 +183,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(name_))
+					(!value.Equals(this.name_))
 				) {
-					name_ = value;
-					haschanges_ = true;
+					this.name_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -232,14 +233,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int IFApplication {
 			get {
-				return (int)((ifapplication_ == null) ? 0 : ifapplication_);
+				return (int)((this.ifapplication_ == null) ? 0 : this.ifapplication_);
 			}
 			set {
 				if (
-					(!value.Equals(ifapplication_))
+					(!value.Equals(this.ifapplication_))
 				) {
-					ifapplication_ = value;
-					haschanges_ = true;
+					this.ifapplication_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -251,13 +252,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFApplication_isNull")]
 		[SoapElement("IFApplication_isNull")]
 		public bool IFApplication_isNull {
-			get { return (ifapplication_ == null); }
+			get { return (this.ifapplication_ == null); }
 			set {
-				//if (value) ifapplication_ = null;
+				//if (value) this.ifapplication_ = null;
 
-				if ((value) && (ifapplication_ != null)) {
-					ifapplication_ = null;
-					haschanges_ = true;
+				if ((value) && (this.ifapplication_ != null)) {
+					this.ifapplication_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -298,14 +299,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public bool isDefaultprofile {
 			get {
-				return (bool)((isdefaultprofile_ == null) ? false : isdefaultprofile_);
+				return (bool)((this.isdefaultprofile_ == null) ? false : this.isdefaultprofile_);
 			}
 			set {
 				if (
-					(!value.Equals(isdefaultprofile_))
+					(!value.Equals(this.isdefaultprofile_))
 				) {
-					isdefaultprofile_ = value;
-					haschanges_ = true;
+					this.isdefaultprofile_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -317,13 +318,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("isDefaultprofile_isNull")]
 		[SoapElement("isDefaultprofile_isNull")]
 		public bool isDefaultprofile_isNull {
-			get { return (isdefaultprofile_ == null); }
+			get { return (this.isdefaultprofile_ == null); }
 			set {
-				//if (value) isdefaultprofile_ = null;
+				//if (value) this.isdefaultprofile_ = null;
 
-				if ((value) && (isdefaultprofile_ != null)) {
-					isdefaultprofile_ = null;
-					haschanges_ = true;
+				if ((value) && (this.isdefaultprofile_ != null)) {
+					this.isdefaultprofile_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -363,22 +364,22 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idprofile_ = 0L;
-			name_ = string.Empty;
-			ifapplication_ = 0;
-			isdefaultprofile_ = false;
+			this.idprofile_ = 0L;
+			this.name_ = string.Empty;
+			this.ifapplication_ = 0;
+			this.isdefaultprofile_ = false;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDProfile", idprofile_);
-			info_in.AddValue("Name", name_);
-			info_in.AddValue("IFApplication", ifapplication_);
-			info_in.AddValue("IFApplication_isNull", IFApplication_isNull);
-			info_in.AddValue("isDefaultprofile", isdefaultprofile_);
-			info_in.AddValue("isDefaultprofile_isNull", isDefaultprofile_isNull);
+			info_in.AddValue("IDProfile", this.idprofile_);
+			info_in.AddValue("Name", this.name_);
+			info_in.AddValue("IFApplication", this.ifapplication_);
+			info_in.AddValue("IFApplication_isNull", this.IFApplication_isNull);
+			info_in.AddValue("isDefaultprofile", this.isdefaultprofile_);
+			info_in.AddValue("isDefaultprofile_isNull", this.isDefaultprofile_isNull);
 		}
 		#endregion
 		#endregion

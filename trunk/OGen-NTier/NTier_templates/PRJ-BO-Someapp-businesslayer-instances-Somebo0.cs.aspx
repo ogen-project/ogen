@@ -54,22 +54,23 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 #endregion
 <%
 	}
-}%>using System;
-using System.Collections.Generic;
-using System.Text;
-
-#if BUSINESSOBJECT
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;
-#endif
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared;
-#if REMOTINGCLIENT
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client;
-#endif
-#if WEBSERVICESCLIENT
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webservices.client;
-#endif
-
+}%>
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.instances {
+	using System;
+	using System.Collections.Generic;
+	using System.Text;
+
+	#if BUSINESSOBJECT
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;
+	#endif
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared;
+	#if REMOTINGCLIENT
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client;
+	#endif
+	#if WEBSERVICESCLIENT
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webservices.client;
+	#endif
+
 	public class <%=_aux_class.Name%> {
 		private <%=_aux_class.Name%>() { }
 

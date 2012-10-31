@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// NET_User SerializableObject which provides fields access at NET_User table at Database.
 	/// </summary>
@@ -30,7 +31,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_NET_User();
 		public SO_NET_User(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_NET_User(
 			long IFUser_in, 
@@ -39,37 +40,37 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			string EMail_verify_in, 
 			int IFApplication_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifuser_ = IFUser_in;
-			name_ = Name_in;
-			email_ = EMail_in;
-			email_verify_ = EMail_verify_in;
-			ifapplication_ = IFApplication_in;
+			this.ifuser_ = IFUser_in;
+			this.name_ = Name_in;
+			this.email_ = EMail_in;
+			this.email_verify_ = EMail_verify_in;
+			this.ifapplication_ = IFApplication_in;
 		}
 		public SO_NET_User(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifuser_ = (long)info_in.GetValue("IFUser", typeof(long));
-			name_ 
+			this.ifuser_ = (long)info_in.GetValue("IFUser", typeof(long));
+			this.name_ 
 				= (info_in.GetValue("Name", typeof(string)) == null)
 					? string.Empty
 					: (string)info_in.GetValue("Name", typeof(string));
-			Name_isNull = (bool)info_in.GetValue("Name_isNull", typeof(bool));
-			email_ = (string)info_in.GetValue("EMail", typeof(string));
-			email_verify_ 
+			this.Name_isNull = (bool)info_in.GetValue("Name_isNull", typeof(bool));
+			this.email_ = (string)info_in.GetValue("EMail", typeof(string));
+			this.email_verify_ 
 				= (info_in.GetValue("EMail_verify", typeof(string)) == null)
 					? string.Empty
 					: (string)info_in.GetValue("EMail_verify", typeof(string));
-			EMail_verify_isNull = (bool)info_in.GetValue("EMail_verify_isNull", typeof(bool));
-			ifapplication_ 
+			this.EMail_verify_isNull = (bool)info_in.GetValue("EMail_verify_isNull", typeof(bool));
+			this.ifapplication_ 
 				= (info_in.GetValue("IFApplication", typeof(int)) == null)
 					? 0
 					: (int)info_in.GetValue("IFApplication", typeof(int));
-			IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
+			this.IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
 		}
 		#endregion
 
@@ -86,21 +87,21 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
 		#region public override long ListItem_Value { get; }
 		public override long ListItem_Value {
 			get {
-				return ifuser_;
+				return this.ifuser_;
 			}
 		}
 		#endregion
 		#region public override string ListItem_Text { get; }
 		public override string ListItem_Text {
 			get {
-				return Name;
+				return this.Name;
 			}
 		} 
 		#endregion
@@ -141,14 +142,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFUser {
 			get {
-				return ifuser_;
+				return this.ifuser_;
 			}
 			set {
 				if (
-					(!value.Equals(ifuser_))
+					(!value.Equals(this.ifuser_))
 				) {
-					ifuser_ = value;
-					haschanges_ = true;
+					this.ifuser_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -189,16 +190,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string Name {
 			get {
-				return (string)((name_ == null) ? string.Empty : name_);
+				return (string)((this.name_ == null) ? string.Empty : this.name_);
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(name_))
+					(!value.Equals(this.name_))
 				) {
-					name_ = value;
-					haschanges_ = true;
+					this.name_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -210,13 +211,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("Name_isNull")]
 		[SoapElement("Name_isNull")]
 		public bool Name_isNull {
-			get { return (name_ == null); }
+			get { return (this.name_ == null); }
 			set {
-				//if (value) name_ = null;
+				//if (value) this.name_ = null;
 
-				if ((value) && (name_ != null)) {
-					name_ = null;
-					haschanges_ = true;
+				if ((value) && (this.name_ != null)) {
+					this.name_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -257,16 +258,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string EMail {
 			get {
-				return email_;
+				return this.email_;
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(email_))
+					(!value.Equals(this.email_))
 				) {
-					email_ = value;
-					haschanges_ = true;
+					this.email_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -307,16 +308,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string EMail_verify {
 			get {
-				return (string)((email_verify_ == null) ? string.Empty : email_verify_);
+				return (string)((this.email_verify_ == null) ? string.Empty : this.email_verify_);
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(email_verify_))
+					(!value.Equals(this.email_verify_))
 				) {
-					email_verify_ = value;
-					haschanges_ = true;
+					this.email_verify_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -328,13 +329,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("EMail_verify_isNull")]
 		[SoapElement("EMail_verify_isNull")]
 		public bool EMail_verify_isNull {
-			get { return (email_verify_ == null); }
+			get { return (this.email_verify_ == null); }
 			set {
-				//if (value) email_verify_ = null;
+				//if (value) this.email_verify_ = null;
 
-				if ((value) && (email_verify_ != null)) {
-					email_verify_ = null;
-					haschanges_ = true;
+				if ((value) && (this.email_verify_ != null)) {
+					this.email_verify_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -375,14 +376,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int IFApplication {
 			get {
-				return (int)((ifapplication_ == null) ? 0 : ifapplication_);
+				return (int)((this.ifapplication_ == null) ? 0 : this.ifapplication_);
 			}
 			set {
 				if (
-					(!value.Equals(ifapplication_))
+					(!value.Equals(this.ifapplication_))
 				) {
-					ifapplication_ = value;
-					haschanges_ = true;
+					this.ifapplication_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -394,13 +395,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFApplication_isNull")]
 		[SoapElement("IFApplication_isNull")]
 		public bool IFApplication_isNull {
-			get { return (ifapplication_ == null); }
+			get { return (this.ifapplication_ == null); }
 			set {
-				//if (value) ifapplication_ = null;
+				//if (value) this.ifapplication_ = null;
 
-				if ((value) && (ifapplication_ != null)) {
-					ifapplication_ = null;
-					haschanges_ = true;
+				if ((value) && (this.ifapplication_ != null)) {
+					this.ifapplication_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -443,25 +444,25 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifuser_ = 0L;
-			name_ = string.Empty;
-			email_ = string.Empty;
-			email_verify_ = string.Empty;
-			ifapplication_ = 0;
+			this.ifuser_ = 0L;
+			this.name_ = string.Empty;
+			this.email_ = string.Empty;
+			this.email_verify_ = string.Empty;
+			this.ifapplication_ = 0;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IFUser", ifuser_);
-			info_in.AddValue("Name", name_);
-			info_in.AddValue("Name_isNull", Name_isNull);
-			info_in.AddValue("EMail", email_);
-			info_in.AddValue("EMail_verify", email_verify_);
-			info_in.AddValue("EMail_verify_isNull", EMail_verify_isNull);
-			info_in.AddValue("IFApplication", ifapplication_);
-			info_in.AddValue("IFApplication_isNull", IFApplication_isNull);
+			info_in.AddValue("IFUser", this.ifuser_);
+			info_in.AddValue("Name", this.name_);
+			info_in.AddValue("Name_isNull", this.Name_isNull);
+			info_in.AddValue("EMail", this.email_);
+			info_in.AddValue("EMail_verify", this.email_verify_);
+			info_in.AddValue("EMail_verify_isNull", this.EMail_verify_isNull);
+			info_in.AddValue("IFApplication", this.ifapplication_);
+			info_in.AddValue("IFApplication_isNull", this.IFApplication_isNull);
 		}
 		#endregion
 		#endregion

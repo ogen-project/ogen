@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// NWS_ContentSource SerializableObject which provides fields access at NWS_ContentSource table at Database.
 	/// </summary>
@@ -30,25 +31,25 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_NWS_ContentSource();
 		public SO_NWS_ContentSource(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_NWS_ContentSource(
 			long IFContent_in, 
 			long IFSource_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifcontent_ = IFContent_in;
-			ifsource_ = IFSource_in;
+			this.ifcontent_ = IFContent_in;
+			this.ifsource_ = IFSource_in;
 		}
 		public SO_NWS_ContentSource(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifcontent_ = (long)info_in.GetValue("IFContent", typeof(long));
-			ifsource_ = (long)info_in.GetValue("IFSource", typeof(long));
+			this.ifcontent_ = (long)info_in.GetValue("IFContent", typeof(long));
+			this.ifsource_ = (long)info_in.GetValue("IFSource", typeof(long));
 		}
 		#endregion
 
@@ -65,7 +66,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
@@ -105,14 +106,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFContent {
 			get {
-				return ifcontent_;
+				return this.ifcontent_;
 			}
 			set {
 				if (
-					(!value.Equals(ifcontent_))
+					(!value.Equals(this.ifcontent_))
 				) {
-					ifcontent_ = value;
-					haschanges_ = true;
+					this.ifcontent_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -153,14 +154,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFSource {
 			get {
-				return ifsource_;
+				return this.ifsource_;
 			}
 			set {
 				if (
-					(!value.Equals(ifsource_))
+					(!value.Equals(this.ifsource_))
 				) {
-					ifsource_ = value;
-					haschanges_ = true;
+					this.ifsource_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -194,16 +195,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			ifcontent_ = 0L;
-			ifsource_ = 0L;
+			this.ifcontent_ = 0L;
+			this.ifsource_ = 0L;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IFContent", ifcontent_);
-			info_in.AddValue("IFSource", ifsource_);
+			info_in.AddValue("IFContent", this.ifcontent_);
+			info_in.AddValue("IFSource", this.ifsource_);
 		}
 		#endregion
 		#endregion

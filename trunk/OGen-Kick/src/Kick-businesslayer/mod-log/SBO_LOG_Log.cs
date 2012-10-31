@@ -153,7 +153,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			Sessionuser _sessionuser;
 
 			if (
-				(sessionGuid_in != "") 
+				(!string.IsNullOrEmpty(sessionGuid_in)) 
 				&& 
 				SBO_CRD_Authentication.isSessionGuid_valid(
 					sessionGuid_in,

@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// FOR_Message SerializableObject which provides fields access at FOR_Message table at Database.
 	/// </summary>
@@ -30,7 +31,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_FOR_Message();
 		public SO_FOR_Message(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_FOR_Message(
 			long IDMessage_in, 
@@ -43,57 +44,57 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DateTime Publish_date_in, 
 			int IFApplication_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idmessage_ = IDMessage_in;
-			ifmessage__parent_ = IFMessage__parent_in;
-			issticky_ = isSticky_in;
-			subject_ = Subject_in;
-			message__charvar8000_ = Message__charvar8000_in;
-			message__text_ = Message__text_in;
-			ifuser__publisher_ = IFUser__Publisher_in;
-			publish_date_ = Publish_date_in;
-			ifapplication_ = IFApplication_in;
+			this.idmessage_ = IDMessage_in;
+			this.ifmessage__parent_ = IFMessage__parent_in;
+			this.issticky_ = isSticky_in;
+			this.subject_ = Subject_in;
+			this.message__charvar8000_ = Message__charvar8000_in;
+			this.message__text_ = Message__text_in;
+			this.ifuser__publisher_ = IFUser__Publisher_in;
+			this.publish_date_ = Publish_date_in;
+			this.ifapplication_ = IFApplication_in;
 		}
 		public SO_FOR_Message(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idmessage_ = (long)info_in.GetValue("IDMessage", typeof(long));
-			ifmessage__parent_ 
+			this.idmessage_ = (long)info_in.GetValue("IDMessage", typeof(long));
+			this.ifmessage__parent_ 
 				= (info_in.GetValue("IFMessage__parent", typeof(long)) == null)
 					? 0L
 					: (long)info_in.GetValue("IFMessage__parent", typeof(long));
-			IFMessage__parent_isNull = (bool)info_in.GetValue("IFMessage__parent_isNull", typeof(bool));
-			issticky_ = (bool)info_in.GetValue("isSticky", typeof(bool));
-			subject_ 
+			this.IFMessage__parent_isNull = (bool)info_in.GetValue("IFMessage__parent_isNull", typeof(bool));
+			this.issticky_ = (bool)info_in.GetValue("isSticky", typeof(bool));
+			this.subject_ 
 				= (info_in.GetValue("Subject", typeof(string)) == null)
 					? string.Empty
 					: (string)info_in.GetValue("Subject", typeof(string));
-			Subject_isNull = (bool)info_in.GetValue("Subject_isNull", typeof(bool));
-			message__charvar8000_ 
+			this.Subject_isNull = (bool)info_in.GetValue("Subject_isNull", typeof(bool));
+			this.message__charvar8000_ 
 				= (info_in.GetValue("Message__charvar8000", typeof(string)) == null)
 					? string.Empty
 					: (string)info_in.GetValue("Message__charvar8000", typeof(string));
-			Message__charvar8000_isNull = (bool)info_in.GetValue("Message__charvar8000_isNull", typeof(bool));
-			message__text_ 
+			this.Message__charvar8000_isNull = (bool)info_in.GetValue("Message__charvar8000_isNull", typeof(bool));
+			this.message__text_ 
 				= (info_in.GetValue("Message__text", typeof(string)) == null)
 					? string.Empty
 					: (string)info_in.GetValue("Message__text", typeof(string));
-			Message__text_isNull = (bool)info_in.GetValue("Message__text_isNull", typeof(bool));
-			ifuser__publisher_ 
+			this.Message__text_isNull = (bool)info_in.GetValue("Message__text_isNull", typeof(bool));
+			this.ifuser__publisher_ 
 				= (info_in.GetValue("IFUser__Publisher", typeof(long)) == null)
 					? 0L
 					: (long)info_in.GetValue("IFUser__Publisher", typeof(long));
-			IFUser__Publisher_isNull = (bool)info_in.GetValue("IFUser__Publisher_isNull", typeof(bool));
-			publish_date_ = (DateTime)info_in.GetValue("Publish_date", typeof(DateTime));
-			ifapplication_ 
+			this.IFUser__Publisher_isNull = (bool)info_in.GetValue("IFUser__Publisher_isNull", typeof(bool));
+			this.publish_date_ = (DateTime)info_in.GetValue("Publish_date", typeof(DateTime));
+			this.ifapplication_ 
 				= (info_in.GetValue("IFApplication", typeof(int)) == null)
 					? 0
 					: (int)info_in.GetValue("IFApplication", typeof(int));
-			IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
+			this.IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
 		}
 		#endregion
 
@@ -110,7 +111,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
@@ -150,14 +151,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IDMessage {
 			get {
-				return idmessage_;
+				return this.idmessage_;
 			}
 			set {
 				if (
-					(!value.Equals(idmessage_))
+					(!value.Equals(this.idmessage_))
 				) {
-					idmessage_ = value;
-					haschanges_ = true;
+					this.idmessage_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -198,14 +199,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFMessage__parent {
 			get {
-				return (long)((ifmessage__parent_ == null) ? 0L : ifmessage__parent_);
+				return (long)((this.ifmessage__parent_ == null) ? 0L : this.ifmessage__parent_);
 			}
 			set {
 				if (
-					(!value.Equals(ifmessage__parent_))
+					(!value.Equals(this.ifmessage__parent_))
 				) {
-					ifmessage__parent_ = value;
-					haschanges_ = true;
+					this.ifmessage__parent_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -217,13 +218,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFMessage__parent_isNull")]
 		[SoapElement("IFMessage__parent_isNull")]
 		public bool IFMessage__parent_isNull {
-			get { return (ifmessage__parent_ == null); }
+			get { return (this.ifmessage__parent_ == null); }
 			set {
-				//if (value) ifmessage__parent_ = null;
+				//if (value) this.ifmessage__parent_ = null;
 
-				if ((value) && (ifmessage__parent_ != null)) {
-					ifmessage__parent_ = null;
-					haschanges_ = true;
+				if ((value) && (this.ifmessage__parent_ != null)) {
+					this.ifmessage__parent_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -264,14 +265,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public bool isSticky {
 			get {
-				return issticky_;
+				return this.issticky_;
 			}
 			set {
 				if (
-					(!value.Equals(issticky_))
+					(!value.Equals(this.issticky_))
 				) {
-					issticky_ = value;
-					haschanges_ = true;
+					this.issticky_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -312,16 +313,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string Subject {
 			get {
-				return (string)((subject_ == null) ? string.Empty : subject_);
+				return (string)((this.subject_ == null) ? string.Empty : this.subject_);
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(subject_))
+					(!value.Equals(this.subject_))
 				) {
-					subject_ = value;
-					haschanges_ = true;
+					this.subject_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -333,13 +334,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("Subject_isNull")]
 		[SoapElement("Subject_isNull")]
 		public bool Subject_isNull {
-			get { return (subject_ == null); }
+			get { return (this.subject_ == null); }
 			set {
-				//if (value) subject_ = null;
+				//if (value) this.subject_ = null;
 
-				if ((value) && (subject_ != null)) {
-					subject_ = null;
-					haschanges_ = true;
+				if ((value) && (this.subject_ != null)) {
+					this.subject_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -380,16 +381,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string Message__charvar8000 {
 			get {
-				return (string)((message__charvar8000_ == null) ? string.Empty : message__charvar8000_);
+				return (string)((this.message__charvar8000_ == null) ? string.Empty : this.message__charvar8000_);
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(message__charvar8000_))
+					(!value.Equals(this.message__charvar8000_))
 				) {
-					message__charvar8000_ = value;
-					haschanges_ = true;
+					this.message__charvar8000_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -401,13 +402,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("Message__charvar8000_isNull")]
 		[SoapElement("Message__charvar8000_isNull")]
 		public bool Message__charvar8000_isNull {
-			get { return (message__charvar8000_ == null); }
+			get { return (this.message__charvar8000_ == null); }
 			set {
-				//if (value) message__charvar8000_ = null;
+				//if (value) this.message__charvar8000_ = null;
 
-				if ((value) && (message__charvar8000_ != null)) {
-					message__charvar8000_ = null;
-					haschanges_ = true;
+				if ((value) && (this.message__charvar8000_ != null)) {
+					this.message__charvar8000_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -448,16 +449,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string Message__text {
 			get {
-				return (string)((message__text_ == null) ? string.Empty : message__text_);
+				return (string)((this.message__text_ == null) ? string.Empty : this.message__text_);
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(message__text_))
+					(!value.Equals(this.message__text_))
 				) {
-					message__text_ = value;
-					haschanges_ = true;
+					this.message__text_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -469,13 +470,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("Message__text_isNull")]
 		[SoapElement("Message__text_isNull")]
 		public bool Message__text_isNull {
-			get { return (message__text_ == null); }
+			get { return (this.message__text_ == null); }
 			set {
-				//if (value) message__text_ = null;
+				//if (value) this.message__text_ = null;
 
-				if ((value) && (message__text_ != null)) {
-					message__text_ = null;
-					haschanges_ = true;
+				if ((value) && (this.message__text_ != null)) {
+					this.message__text_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -516,14 +517,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public long IFUser__Publisher {
 			get {
-				return (long)((ifuser__publisher_ == null) ? 0L : ifuser__publisher_);
+				return (long)((this.ifuser__publisher_ == null) ? 0L : this.ifuser__publisher_);
 			}
 			set {
 				if (
-					(!value.Equals(ifuser__publisher_))
+					(!value.Equals(this.ifuser__publisher_))
 				) {
-					ifuser__publisher_ = value;
-					haschanges_ = true;
+					this.ifuser__publisher_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -535,13 +536,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFUser__Publisher_isNull")]
 		[SoapElement("IFUser__Publisher_isNull")]
 		public bool IFUser__Publisher_isNull {
-			get { return (ifuser__publisher_ == null); }
+			get { return (this.ifuser__publisher_ == null); }
 			set {
-				//if (value) ifuser__publisher_ = null;
+				//if (value) this.ifuser__publisher_ = null;
 
-				if ((value) && (ifuser__publisher_ != null)) {
-					ifuser__publisher_ = null;
-					haschanges_ = true;
+				if ((value) && (this.ifuser__publisher_ != null)) {
+					this.ifuser__publisher_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -582,14 +583,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public DateTime Publish_date {
 			get {
-				return publish_date_;
+				return this.publish_date_;
 			}
 			set {
 				if (
-					(!value.Equals(publish_date_))
+					(!value.Equals(this.publish_date_))
 				) {
-					publish_date_ = value;
-					haschanges_ = true;
+					this.publish_date_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -630,14 +631,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int IFApplication {
 			get {
-				return (int)((ifapplication_ == null) ? 0 : ifapplication_);
+				return (int)((this.ifapplication_ == null) ? 0 : this.ifapplication_);
 			}
 			set {
 				if (
-					(!value.Equals(ifapplication_))
+					(!value.Equals(this.ifapplication_))
 				) {
-					ifapplication_ = value;
-					haschanges_ = true;
+					this.ifapplication_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -649,13 +650,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlElement("IFApplication_isNull")]
 		[SoapElement("IFApplication_isNull")]
 		public bool IFApplication_isNull {
-			get { return (ifapplication_ == null); }
+			get { return (this.ifapplication_ == null); }
 			set {
-				//if (value) ifapplication_ = null;
+				//if (value) this.ifapplication_ = null;
 
-				if ((value) && (ifapplication_ != null)) {
-					ifapplication_ = null;
-					haschanges_ = true;
+				if ((value) && (this.ifapplication_ != null)) {
+					this.ifapplication_ = null;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -710,36 +711,36 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idmessage_ = 0L;
-			ifmessage__parent_ = 0L;
-			issticky_ = false;
-			subject_ = string.Empty;
-			message__charvar8000_ = string.Empty;
-			message__text_ = string.Empty;
-			ifuser__publisher_ = 0L;
-			publish_date_ = new DateTime(1900, 1, 1);
-			ifapplication_ = 0;
+			this.idmessage_ = 0L;
+			this.ifmessage__parent_ = 0L;
+			this.issticky_ = false;
+			this.subject_ = string.Empty;
+			this.message__charvar8000_ = string.Empty;
+			this.message__text_ = string.Empty;
+			this.ifuser__publisher_ = 0L;
+			this.publish_date_ = new DateTime(1900, 1, 1);
+			this.ifapplication_ = 0;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDMessage", idmessage_);
-			info_in.AddValue("IFMessage__parent", ifmessage__parent_);
-			info_in.AddValue("IFMessage__parent_isNull", IFMessage__parent_isNull);
-			info_in.AddValue("isSticky", issticky_);
-			info_in.AddValue("Subject", subject_);
-			info_in.AddValue("Subject_isNull", Subject_isNull);
-			info_in.AddValue("Message__charvar8000", message__charvar8000_);
-			info_in.AddValue("Message__charvar8000_isNull", Message__charvar8000_isNull);
-			info_in.AddValue("Message__text", message__text_);
-			info_in.AddValue("Message__text_isNull", Message__text_isNull);
-			info_in.AddValue("IFUser__Publisher", ifuser__publisher_);
-			info_in.AddValue("IFUser__Publisher_isNull", IFUser__Publisher_isNull);
-			info_in.AddValue("Publish_date", publish_date_);
-			info_in.AddValue("IFApplication", ifapplication_);
-			info_in.AddValue("IFApplication_isNull", IFApplication_isNull);
+			info_in.AddValue("IDMessage", this.idmessage_);
+			info_in.AddValue("IFMessage__parent", this.ifmessage__parent_);
+			info_in.AddValue("IFMessage__parent_isNull", this.IFMessage__parent_isNull);
+			info_in.AddValue("isSticky", this.issticky_);
+			info_in.AddValue("Subject", this.subject_);
+			info_in.AddValue("Subject_isNull", this.Subject_isNull);
+			info_in.AddValue("Message__charvar8000", this.message__charvar8000_);
+			info_in.AddValue("Message__charvar8000_isNull", this.Message__charvar8000_isNull);
+			info_in.AddValue("Message__text", this.message__text_);
+			info_in.AddValue("Message__text_isNull", this.Message__text_isNull);
+			info_in.AddValue("IFUser__Publisher", this.ifuser__publisher_);
+			info_in.AddValue("IFUser__Publisher_isNull", this.IFUser__Publisher_isNull);
+			info_in.AddValue("Publish_date", this.publish_date_);
+			info_in.AddValue("IFApplication", this.ifapplication_);
+			info_in.AddValue("IFApplication_isNull", this.IFApplication_isNull);
 		}
 		#endregion
 		#endregion

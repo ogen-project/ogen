@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-using OGen.NTier.lib.datalayer;
 
 namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+	using System;
+	using System.Data;
+	using System.Runtime.Serialization;
+	using System.Xml.Serialization;
+
+	using OGen.NTier.lib.datalayer;
+
 	/// <summary>
 	/// APP_Application SerializableObject which provides fields access at APP_Application table at Database.
 	/// </summary>
@@ -30,25 +31,25 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region public SO_APP_Application();
 		public SO_APP_Application(
 		) {
-			Clear();
+			this.Clear();
 		}
 		public SO_APP_Application(
 			int IDApplication_in, 
 			string Name_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idapplication_ = IDApplication_in;
-			name_ = Name_in;
+			this.idapplication_ = IDApplication_in;
+			this.name_ = Name_in;
 		}
 		public SO_APP_Application(
 			SerializationInfo info_in,
 			StreamingContext context_in
 		) {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idapplication_ = (int)info_in.GetValue("IDApplication", typeof(int));
-			name_ = (string)info_in.GetValue("Name", typeof(string));
+			this.idapplication_ = (int)info_in.GetValue("IDApplication", typeof(int));
+			this.name_ = (string)info_in.GetValue("Name", typeof(string));
 		}
 		#endregion
 
@@ -65,7 +66,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[XmlIgnore()]
 		[SoapIgnore()]
 		public override bool hasChanges {
-			get { return haschanges_; }
+			get { return this.haschanges_; }
 		}
 		#endregion
 
@@ -105,14 +106,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public int IDApplication {
 			get {
-				return idapplication_;
+				return this.idapplication_;
 			}
 			set {
 				if (
-					(!value.Equals(idapplication_))
+					(!value.Equals(this.idapplication_))
 				) {
-					idapplication_ = value;
-					haschanges_ = true;
+					this.idapplication_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -153,16 +154,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		)]
 		public string Name {
 			get {
-				return name_;
+				return this.name_;
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(name_))
+					(!value.Equals(this.name_))
 				) {
-					name_ = value;
-					haschanges_ = true;
+					this.name_ = value;
+					this.haschanges_ = true;
 				}
 			}
 		}
@@ -196,16 +197,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#endregion
 		#region public override void Clear();
 		public override void Clear() {
-			haschanges_ = false;
+			this.haschanges_ = false;
 
-			idapplication_ = 0;
-			name_ = string.Empty;
+			this.idapplication_ = 0;
+			this.name_ = string.Empty;
 		}
 		#endregion
 		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDApplication", idapplication_);
-			info_in.AddValue("Name", name_);
+			info_in.AddValue("IDApplication", this.idapplication_);
+			info_in.AddValue("Name", this.name_);
 		}
 		#endregion
 		#endregion
