@@ -130,6 +130,8 @@
     <Compile Include="DO__base.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Exceptions\InvalidRecordStateException_alreadyOpened.cs" />
+    <Compile Include="Exceptions\InvalidRecordStateException_Closed.cs" />
     <Compile Include="RO__base.cs">
       <SubType>Code</SubType>
     </Compile>

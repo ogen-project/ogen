@@ -130,8 +130,8 @@ namespace OGen.lib {
 		#endregion
 
 		#region public static string Bytes_ToString(...);
-		public static readonly string[] BytesUnits = { "B", "KB", "MB", "GB", "TB", "PB" };
-		public const int BytesMultiples = 1024;
+		private static readonly string[] BytesUnits = { "B", "KB", "MB", "GB", "TB", "PB" };
+		private const int BytesMultiples = 1024;
 
 		public static string Bytes_ToString(
 			int value_in,
@@ -145,7 +145,7 @@ namespace OGen.lib {
 					BytesUnits[(int)_units]
 				);
 			} else {
-				return value_in.ToString("##,#");
+				return value_in.ToString("##,#", System.Globalization.CultureInfo.CurrentCulture);
 			}
 		}
 		#endregion

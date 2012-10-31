@@ -32,35 +32,6 @@ namespace OGen.NTier.lib.datalayer {
 			this.isopened_ = false;
 		}
 
-		#region Exceptions...
-		#region public static readonly Exception InvalidRecordStateException_alreadyOpened;
-		/// <summary>
-		/// Invalid Record State Exception, Record already opened.
-		/// </summary>
-		[Serializable()]
-		public class InvalidRecordStateException_alreadyOpened : Exception {
-			public InvalidRecordStateException_alreadyOpened(
-			) : base (
-				"invalid Record state, Record already opened"
-			) {
-			}
-		}
-		#endregion
-		#region public static readonly Exception InvalidRecordStateException_Closed;
-		/// <summary>
-		/// Invalid Record State Exception, Record closed.
-		/// </summary>
-		[Serializable()]
-		public class InvalidRecordStateException_Closed : Exception {
-			public InvalidRecordStateException_Closed(
-			) : base (
-				"invalid Record state, Record closed"
-			) {
-			}
-		}
-		#endregion
-		#endregion
-
 		#region private Properties...
 		private DO__base dataobject_;
 		#endregion
