@@ -97,7 +97,10 @@ namespace OGen.lib.datalayer.SQLServer {
 							return string.Format(
 								System.Globalization.CultureInfo.CurrentCulture, 
 								"CONVERT(DATETIME, \'{0}\', 120)", 
-								_datetime.ToString("yyyy-MM-dd HH:mm:ss")
+								_datetime.ToString(
+									"yyyy-MM-dd HH:mm:ss",
+									System.Globalization.CultureInfo.CurrentCulture
+								)
 							);
 						}
 
@@ -131,7 +134,7 @@ namespace OGen.lib.datalayer.SQLServer {
 
 		#region public override int XDbType_Parse(string value_in, bool caseSensitive_in);
 		public override int XDbType_Parse(string value_in, bool caseSensitive_in) {
-			string _value = (caseSensitive_in) ? value_in : value_in.ToLower();
+			string _value = (caseSensitive_in) ? value_in : value_in.ToLower(System.Globalization.CultureInfo.CurrentCulture);
 
 			switch (_value) {
 				case "numeric":
@@ -153,7 +156,7 @@ namespace OGen.lib.datalayer.SQLServer {
 							(
 								!caseSensitive_in
 								&&
-								(((SqlDbType)i).ToString().ToLower() == _value)
+								(((SqlDbType)i).ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture) == _value)
 							)
 						) {
 							//return (SqlDbType)i;
@@ -173,7 +176,7 @@ namespace OGen.lib.datalayer.SQLServer {
 							(
 								!caseSensitive_in
 								&&
-								(_sqldbtypes[i].ToLower() == _value)
+								(_sqldbtypes[i].ToLower(System.Globalization.CultureInfo.CurrentCulture) == _value)
 							)
 						) {
 							return (int)(SqlDbType)Enum.Parse(typeof(SqlDbType), _sqldbtypes[i]);

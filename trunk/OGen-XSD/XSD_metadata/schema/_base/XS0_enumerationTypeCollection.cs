@@ -209,9 +209,10 @@ namespace OGen.XSD.lib.metadata.schema {
 								#else
 								this.cols_[i]
 								#endif
-									.Value.ToLower()
-								==
-								value_in.ToLower()
+									.Value.Equals(
+										value_in,
+										StringComparison.CurrentCultureIgnoreCase
+									)
 							)
 						)
 					)
@@ -231,9 +232,10 @@ namespace OGen.XSD.lib.metadata.schema {
 						#else
 						this.cols_[i]
 						#endif
-							.Value
-						==
-						collectionItem_in.Value
+							.Value.Equals(
+								collectionItem_in.Value,
+								StringComparison.CurrentCulture
+							)
 					)
 					
 				) {

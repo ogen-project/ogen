@@ -82,7 +82,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 
 				for (int e = 0; e < _aux_elements.Count; e++) {
 					if (_aux_elements[e].MaxOccurs == XS_MaxOccursType.unbounded) {%><%=""%>
-				this.<%=_aux_elements[e].Name.ToLower()%>collection_.parent_ref = this;<%
+				this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_.parent_ref = this;<%
 
 					} else {
 						_aux_ntype = OGen.XSD.lib.metadata.schema.utils.Convert_NType(
@@ -92,7 +92,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 							out _aux_isstandardntype
 						);
 						if (!_aux_isstandardntype) {%>
-				if (this.<%=_aux_elements[e].Name.ToLower()%>__ != null) this.<%=_aux_elements[e].Name.ToLower()%>__.parent_ref = this;<%
+				if (this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__ != null) this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__.parent_ref = this;<%
 						}
 					}
 				}%>
@@ -110,7 +110,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 
 				for (int e = 0; e < _aux_elements.Count; e++) {
 					if (_aux_elements[e].MaxOccurs == XS_MaxOccursType.unbounded) {%><%=""%>
-				this.<%=_aux_elements[e].Name.ToLower()%>collection_.root_ref = value;<%
+				this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_.root_ref = value;<%
 
 					} else {
 						_aux_ntype = OGen.XSD.lib.metadata.schema.utils.Convert_NType(
@@ -120,7 +120,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 							out _aux_isstandardntype
 						);
 						if (!_aux_isstandardntype) {%>
-				if (this.<%=_aux_elements[e].Name.ToLower()%>__ != null) this.<%=_aux_elements[e].Name.ToLower()%>__.root_ref = value;<%
+				if (this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__ != null) this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__.root_ref = value;<%
 						}
 					}
 				}%>
@@ -132,15 +132,15 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 
 		for (int a = 0; a < _aux_complextype.AttributeCollection.Count; a++) {%>
 		#region public <%=_aux_complextype.AttributeCollection[a].NType(_arg_SchemaName)%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_complextype.AttributeCollection[a].Name, _arg_SchemaName)%> { get; set; }
-		internal <%=_aux_complextype.AttributeCollection[a].NType(_arg_SchemaName)%> <%=_aux_complextype.AttributeCollection[a].Name.ToLower()%>_;
+		internal <%=_aux_complextype.AttributeCollection[a].NType(_arg_SchemaName)%> <%=_aux_complextype.AttributeCollection[a].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_;
 
 		[XmlAttribute("<%=_aux_complextype.AttributeCollection[a].Name%>")]
 		public <%=_aux_complextype.AttributeCollection[a].NType(_arg_SchemaName)%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_complextype.AttributeCollection[a].Name, _arg_SchemaName)%> {
 			get {
-				return this.<%=_aux_complextype.AttributeCollection[a].Name.ToLower()%>_;
+				return this.<%=_aux_complextype.AttributeCollection[a].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_;
 			}
 			set {
-				this.<%=_aux_complextype.AttributeCollection[a].Name.ToLower()%>_ = value;
+				this.<%=_aux_complextype.AttributeCollection[a].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = value;
 			}
 		}
 		#endregion<%
@@ -150,18 +150,18 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 		for (int e = 0; e < _aux_elements.Count; e++) {
 			if (_aux_elements[e].MaxOccurs == XS_MaxOccursType.unbounded) {%>
 		#region public <%=XS_%><%=_aux_elements[e].Type%>Collection <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_elements[e].Name, _arg_SchemaName)%>Collection { get; }
-		internal <%=XS_%><%=_aux_elements[e].Type%>Collection <%=_aux_elements[e].Name.ToLower()%>collection_ 
+		internal <%=XS_%><%=_aux_elements[e].Type%>Collection <%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_ 
 			= new <%=XS_%><%=_aux_elements[e].Type%>Collection();
 
 		[XmlElement("<%=_aux_elements[e].Name%>")]
-		public <%=XS_%><%=_aux_elements[e].Type%>[] <%=_aux_elements[e].Name.ToLower()%>collection__xml {
-			get { return this.<%=_aux_elements[e].Name.ToLower()%>collection_.cols__; }
-			set { this.<%=_aux_elements[e].Name.ToLower()%>collection_.cols__ = value; }
+		public <%=XS_%><%=_aux_elements[e].Type%>[] <%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection__xml {
+			get { return this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_.cols__; }
+			set { this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_.cols__ = value; }
 		}
 
 		[XmlIgnore()]
 		public <%=XS_%><%=_aux_elements[e].Type%>Collection <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_elements[e].Name, _arg_SchemaName)%>Collection {
-			get { return this.<%=_aux_elements[e].Name.ToLower()%>collection_; }
+			get { return this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_; }
 		}
 		#endregion<%
 
@@ -176,21 +176,21 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 				);
 				if (_aux_isstandardntype) {%>
 		#region public <%=_aux_ntype%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_elements[e].Name, _arg_SchemaName)%> { get; set; }
-		internal <%=_aux_ntype%> <%=_aux_elements[e].Name.ToLower()%>_;
+		internal <%=_aux_ntype%> <%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_;
 
 		[XmlElement("<%=_aux_elements[e].Name%>")]
 		public <%=_aux_ntype%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_elements[e].Name, _arg_SchemaName)%> {
 			get {<%
 				if (_aux_ntype == "string") {%>
 // ToDos: here!
-				return (this.<%=_aux_elements[e].Name.ToLower()%>_.IndexOf("\r\n") >= 0)
-					? this.<%=_aux_elements[e].Name.ToLower()%>_
-					: this.<%=_aux_elements[e].Name.ToLower()%>_.Replace("\n", "\r\n");<%
+				return (this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_.IndexOf("\r\n") >= 0)
+					? this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_
+					: this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_.Replace("\n", "\r\n");<%
 				} else {%>
-				return this.<%=_aux_elements[e].Name.ToLower()%>_;<%
+				return this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_;<%
 				}%>
 			}
-			set { this.<%=_aux_elements[e].Name.ToLower()%>_ = value; }
+			set { this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = value; }
 		}
 		#endregion<%
 
@@ -198,39 +198,39 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 
 				} else {%>
 		#region public <%=XS_%><%=_aux_elements[e].Type%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_elements[e].Name, _arg_SchemaName)%> { get; set; }
-		internal <%=XS_%><%=_aux_elements[e].Type%> <%=_aux_elements[e].Name.ToLower()%>__;
-		internal object <%=_aux_elements[e].Name.ToLower()%>__locker = new object();
+		internal <%=XS_%><%=_aux_elements[e].Type%> <%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__;
+		internal object <%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__locker = new object();
 
 		[XmlIgnore()]
 		public <%=XS_%><%=_aux_elements[e].Type%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_elements[e].Name, _arg_SchemaName)%> {
 			get {
 
 				// check before lock
-				if (this.<%=_aux_elements[e].Name.ToLower()%>__ == null) {
+				if (this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__ == null) {
 
-					lock (this.<%=_aux_elements[e].Name.ToLower()%>__locker) {
+					lock (this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__locker) {
 
 						// double check, thread safer!
-						if (this.<%=_aux_elements[e].Name.ToLower()%>__ == null) {
+						if (this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							this.<%=_aux_elements[e].Name.ToLower()%>__ = new <%=XS_%><%=_aux_elements[e].Type%>();
+							this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__ = new <%=XS_%><%=_aux_elements[e].Type%>();
 						}
 					}
 				}
 
-				return this.<%=_aux_elements[e].Name.ToLower()%>__;
+				return this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__;
 			}
 			set {
-				this.<%=_aux_elements[e].Name.ToLower()%>__ = value;
+				this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__ = value;
 			}
 		}
 
 		[XmlElement("<%=_aux_elements[e].Name%>")]
-		public <%=XS_%><%=_aux_elements[e].Type%> <%=_aux_elements[e].Name.ToLower()%>__xml {
-			get { return this.<%=_aux_elements[e].Name.ToLower()%>__; }
-			set { this.<%=_aux_elements[e].Name.ToLower()%>__ = value; }
+		public <%=XS_%><%=_aux_elements[e].Type%> <%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__xml {
+			get { return this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__; }
+			set { this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__ = value; }
 		}
 		#endregion<%
 				}
@@ -247,21 +247,21 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 			}
 		}
 		for (int a = 0; a < _aux_complextype.AttributeCollection.Count; a++) {%><%=""%>
-			this.<%=_aux_complextype.AttributeCollection[a].Name.ToLower()%>_ = <%=_aux_complextype.Name%>_in.<%=_aux_complextype.AttributeCollection[a].Name.ToLower()%>_;<%
+			this.<%=_aux_complextype.AttributeCollection[a].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = <%=_aux_complextype.Name%>_in.<%=_aux_complextype.AttributeCollection[a].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_;<%
 		}
 
 		//////////////////////////////////////////////////////////////
 
 		for (int e = 0; e < _aux_elements.Count; e++) {
 			if (_aux_elements[e].MaxOccurs == XS_MaxOccursType.unbounded) {%><%=""%>
-			this.<%=_aux_elements[e].Name.ToLower()%>collection_.Clear();
-			for (int d = 0; d < <%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower()%>collection_.Count; d++) {
-				this.<%=_aux_elements[e].Name.ToLower()%>collection_.Add(
+			this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_.Clear();
+			for (int d = 0; d < <%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_.Count; d++) {
+				this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_.Add(
 					out _index,
 					new <%=XS_%><%=_aux_elements[e].Type%>()
 				);
-				this.<%=_aux_elements[e].Name.ToLower()%>collection_[_index].CopyFrom(
-					<%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower()%>collection_[d]
+				this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_[_index].CopyFrom(
+					<%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_[d]
 				);
 			}<%
 
@@ -275,12 +275,12 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 					out _aux_isstandardntype
 				);
 				if (_aux_isstandardntype) {%>
-			this.<%=_aux_elements[e].Name.ToLower()%>_ = <%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower()%>_;<%
+			this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = <%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_;<%
 
 		//////////////////////////////////////////////////////////////
 
 				} else {%>
-			if (<%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower()%>__ != null) this.<%=_aux_elements[e].Name.ToLower()%>__.CopyFrom(<%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower()%>__);<%
+			if (<%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__ != null) this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__.CopyFrom(<%=_aux_complextype.Name%>_in.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__);<%
 				}
 			}
 		}%>

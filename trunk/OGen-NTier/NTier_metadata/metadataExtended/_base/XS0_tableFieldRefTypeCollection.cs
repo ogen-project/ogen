@@ -209,9 +209,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 								#else
 								this.cols_[i]
 								#endif
-									.ParamName.ToLower()
-								==
-								paramName_in.ToLower()
+									.ParamName.Equals(
+										paramName_in,
+										StringComparison.CurrentCultureIgnoreCase
+									)
 							)
 						)
 					)
@@ -231,9 +232,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 						#else
 						this.cols_[i]
 						#endif
-							.ParamName.ToLower()
-						==
-						collectionItem_in.ParamName.ToLower()
+							.ParamName.Equals(
+								collectionItem_in.ParamName,
+								StringComparison.CurrentCultureIgnoreCase
+							)
 					)
 					
 				) {

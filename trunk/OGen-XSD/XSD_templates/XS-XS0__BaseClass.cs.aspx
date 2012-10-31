@@ -61,34 +61,34 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_schema.
 		public const string ROOT = "ROOT";
 		public const string ROOT_<%=_aux_schema.Element.Name.ToUpper()%> = ROOT + "." + <%=_aux_schema.Element.Name.ToUpper()%>;
 		#region public string Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name, _arg_SchemaName)%> { get; }
-		protected string root_<%=_aux_schema.Element.Name.ToLower()%>_ = null;
+		protected string root_<%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = null;
 
 		[XmlIgnore()]
 		public string Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name, _arg_SchemaName)%> {
-			get { return this.root_<%=_aux_schema.Element.Name.ToLower()%>_; }
+			get { return this.root_<%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_; }
 		}
 		#endregion<%--
 
 		#region //public <%=XS_%><%=_aux_schema.Element.Type%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name, _arg_SchemaName)%> { get; set; }
-//		private <%=XS_%><%=_aux_schema.Element.Type%> <%=_aux_schema.Element.Name.ToLower()%>__;
+//		private <%=XS_%><%=_aux_schema.Element.Type%> <%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__;
 //
 //		[XmlIgnore()]
 //		public <%=XS_%><%=_aux_schema.Element.Type%> <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_schema.Element.Name, _arg_SchemaName)%> {
 //			get {
-//				if (<%=_aux_schema.Element.Name.ToLower()%>__ == null) {
-//					<%=_aux_schema.Element.Name.ToLower()%>__ = new <%=XS_%><%=_aux_schema.Element.Type%>();
+//				if (<%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__ == null) {
+//					<%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__ = new <%=XS_%><%=_aux_schema.Element.Type%>();
 //				}
-//				return <%=_aux_schema.Element.Name.ToLower()%>__;
+//				return <%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__;
 //			}
 //			set {
-//				<%=_aux_schema.Element.Name.ToLower()%>__ = value;
+//				<%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__ = value;
 //			}
 //		}
 //
 //		[XmlElement("<%=_aux_schema.Element.Name%>")]
-//		public <%=XS_%><%=_aux_schema.Element.Type%> <%=_aux_schema.Element.Name.ToLower()%>__xml {
-//			get { return <%=_aux_schema.Element.Name.ToLower()%>__; }
-//			set { <%=_aux_schema.Element.Name.ToLower()%>__ = value; }
+//		public <%=XS_%><%=_aux_schema.Element.Type%> <%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__xml {
+//			get { return <%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__; }
+//			set { <%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>__ = value; }
 //		}
 		#endregion--%>
 
@@ -138,7 +138,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 						_ex.InnerException
 					));
 				}
-				_output[i].root_<%=_aux_schema.Element.Name.ToLower()%>_ = ROOT + "." + <%=_aux_schema.Element.Name.ToUpper()%> + "[" + i + "]";<%
+				_output[i].root_<%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = ROOT + "." + <%=_aux_schema.Element.Name.ToUpper()%> + "[" + i + "]";<%
 if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 
 				_output[i].parent_ref = root_ref_in; // ToDos: now!
@@ -172,7 +172,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 						filePath_in[i].LocalPath
 					)[0];
 					// no need! everything's been taken care at: <%=XS__%><%=_aux_schema.Element.Name%>.Load_fromFile(...)
-					//_output[i].root_<%=_aux_schema.Element.Name.ToLower()%>_ = ROOT + "." + <%=_aux_schema.Element.Name.ToUpper()%> + "[" + i + "]";<%
+					//_output[i].root_<%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = ROOT + "." + <%=_aux_schema.Element.Name.ToUpper()%> + "[" + i + "]";<%
 if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 					//_output[i].parent_ref = root_ref_in; // ToDos: now!
 					//if (root_ref_in != null) _output[i].root_ref = root_ref_in;<%
@@ -197,7 +197,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 							_ex.Message
 						));
 					}
-					_output[i].root_<%=_aux_schema.Element.Name.ToLower()%>_ = ROOT + "." + <%=_aux_schema.Element.Name.ToUpper()%> + "[" + i + "]";<%
+					_output[i].root_<%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = ROOT + "." + <%=_aux_schema.Element.Name.ToUpper()%> + "[" + i + "]";<%
 if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 					_output[i].parent_ref = root_ref_in; // ToDos: now!
 					if (root_ref_in != null) _output[i].root_ref = root_ref_in;<%

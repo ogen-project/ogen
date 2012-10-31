@@ -404,13 +404,13 @@ namespace OGen.lib.datalayer {
 		}
 		#endregion
 
-		#region public DbType DbType_Parse(string value_in);
-		public DbType DbType_Parse(string value_in) {
-			return this.DbType_Parse(value_in, true);
+		#region public static DbType DbType_Parse(string value_in);
+		public static DbType DbType_Parse(string value_in) {
+			return DbType_Parse(value_in, true);
 		}
-		public DbType DbType_Parse(string value_in, bool caseSensitive_in) {
+		public static DbType DbType_Parse(string value_in, bool caseSensitive_in) {
 #if NET_1_1
-			string _value = (caseSensitive_in) ? value_in : value_in.ToLower();
+			string _value = (caseSensitive_in) ? value_in : value_in.ToLower(System.Globalization.CultureInfo.CurrentCulture);
 			for (int i = 0; ((DbType)i).ToString() != i.ToString(); i++) {
 				if (
 					(
@@ -422,7 +422,7 @@ namespace OGen.lib.datalayer {
 					(
 						!caseSensitive_in
 						&&
-						(((DbType)i).ToString().ToLower() == _value)
+						(((DbType)i).ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture) == _value)
 					)
 				) {
 					return (DbType)i;

@@ -366,6 +366,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx">
       <SubType>ASPXCodeBehind</SubType>

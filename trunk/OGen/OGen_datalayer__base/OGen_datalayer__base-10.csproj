@@ -96,6 +96,14 @@
     <Compile Include="DBConnection.cs" />
     <Compile Include="DBTransaction.cs" />
     <Compile Include="DBUtils.cs" />
+    <Compile Include="Exceptions\BeginException_alreadyInitiated.cs" />
+    <Compile Include="Exceptions\BeginException_closedConnection.cs" />
+    <Compile Include="Exceptions\CloseException_alreadyClosed.cs" />
+    <Compile Include="Exceptions\CloseException_unterminatedTransaction.cs" />
+    <Compile Include="Exceptions\InvalidConnectionstringException_empty.cs" />
+    <Compile Include="Exceptions\InvalidSQLQueryException_empty.cs" />
+    <Compile Include="Exceptions\InvalidTransactionStateException_uninitiated.cs" />
+    <Compile Include="Exceptions\OpenException_alreadyOpened.cs" />
     <None Include="COPYING.MIT" />
     <None Include="LICENSE.MIT.txt" />
     <None Include="LICENSE.txt" />

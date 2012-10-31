@@ -270,9 +270,10 @@ if (_aux_complextype_keys != null) {%>
 								#else
 								this.cols_[i]
 								#endif
-									.<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_complextype_keys[k].Name, _arg_SchemaName)%>.ToLower()
-								==
-								<%=_aux_complextype_keys[k].Name%>_in.ToLower()
+									.<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_complextype_keys[k].Name, _arg_SchemaName)%>.Equals(
+										<%=_aux_complextype_keys[k].Name%>_in,
+										StringComparison.CurrentCultureIgnoreCase
+									)
 							)
 						)
 					)<%=(k == _aux_complextype_keys.Length - 1) ? "" : " &&"%><%
@@ -294,9 +295,10 @@ if (_aux_complextype_keys != null) {%>
 						#else
 						this.cols_[i]
 						#endif
-							.<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_complextype_keys[k].Name, _arg_SchemaName)%><%=(_aux_complextype_keys[k].CaseSensitive) ? "" : ".ToLower()"%>
-						==
-						collectionItem_in.<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_complextype_keys[k].Name, _arg_SchemaName)%><%=(_aux_complextype_keys[k].CaseSensitive) ? "" : ".ToLower()"%>
+							.<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_complextype_keys[k].Name, _arg_SchemaName)%>.Equals(
+								collectionItem_in.<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_complextype_keys[k].Name, _arg_SchemaName)%>,
+								StringComparison.CurrentCulture<%=(_aux_complextype_keys[k].CaseSensitive) ? "" : "IgnoreCase"%>
+							)
 					)
 					<%=(k == _aux_complextype_keys.Length - 1) ? "" : "&&"%><%
 				}%>

@@ -209,9 +209,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 								#else
 								this.cols_[i]
 								#endif
-									.Title.ToLower()
-								==
-								title_in.ToLower()
+									.Title.Equals(
+										title_in,
+										StringComparison.CurrentCultureIgnoreCase
+									)
 							)
 						)
 					)
@@ -231,9 +232,10 @@ namespace OGen.Doc.lib.metadata.documentation {
 						#else
 						this.cols_[i]
 						#endif
-							.Title
-						==
-						collectionItem_in.Title
+							.Title.Equals(
+								collectionItem_in.Title,
+								StringComparison.CurrentCulture
+							)
 					)
 					
 				) {

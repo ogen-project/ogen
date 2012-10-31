@@ -59,26 +59,26 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_schema.
 		#else
 		public <%=XS__%><%=_aux_schema.Element.Name%>Collection(
 		#endif
-			<%=XS__%><%=_aux_schema.Element.Name%>[] <%=_aux_schema.Element.Name.ToLower()%>collection_in
+			<%=XS__%><%=_aux_schema.Element.Name%>[] <%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_in
 		) {
-			this.<%=_aux_schema.Element.Name.ToLower()%>collection_ = <%=_aux_schema.Element.Name.ToLower()%>collection_in;
+			this.<%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_ = <%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_in;
 		}
 
 		#region public <%=XS__%><%=_aux_schema.Element.Name%> this[...] { get; }
-		private <%=XS__%><%=_aux_schema.Element.Name%>[] <%=_aux_schema.Element.Name.ToLower()%>collection_;
+		private <%=XS__%><%=_aux_schema.Element.Name%>[] <%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_;
 
 		public <%=XS__%><%=_aux_schema.Element.Name%> this[int index_in] {
 			get {
-				return this.<%=_aux_schema.Element.Name.ToLower()%>collection_[index_in];
+				return this.<%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_[index_in];
 			}
 		}
 		public <%=XS__%><%=_aux_schema.Element.Name%> this[string name_in] {
 			get {
 				// ToDos: later! performance
 
-				for (int i = 0; i < this.<%=_aux_schema.Element.Name.ToLower()%>collection_.Length; i++) {
-					if (this.<%=_aux_schema.Element.Name.ToLower()%>collection_[i].<%=_aux_rootmetadata.MetadataCollection[0].MetadataIndexCollection[_aux_schema.Element.Name].Index%> == name_in) {
-						return this.<%=_aux_schema.Element.Name.ToLower()%>collection_[i];
+				for (int i = 0; i < this.<%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_.Length; i++) {
+					if (this.<%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_[i].<%=_aux_rootmetadata.MetadataCollection[0].MetadataIndexCollection[_aux_schema.Element.Name].Index%> == name_in) {
+						return this.<%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_[i];
 					}
 				}
 				throw new Exception(string.Format(
@@ -92,7 +92,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_schema.
 		}
 		#endregion
 		public int Count { get {
-			return this.<%=_aux_schema.Element.Name.ToLower()%>collection_.Length;
+			return this.<%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_.Length;
 		} }
 	}
 }<%

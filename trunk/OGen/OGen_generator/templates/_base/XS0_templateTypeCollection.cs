@@ -161,9 +161,10 @@ namespace OGen.lib.templates {
 								#else
 								this.cols_[i]
 								#endif
-									.ID.ToLower()
-								==
-								id_in.ToLower()
+									.ID.Equals(
+										id_in,
+										StringComparison.CurrentCultureIgnoreCase
+									)
 							)
 						)
 					)
@@ -183,9 +184,10 @@ namespace OGen.lib.templates {
 						#else
 						this.cols_[i]
 						#endif
-							.ID
-						==
-						collectionItem_in.ID
+							.ID.Equals(
+								collectionItem_in.ID,
+								StringComparison.CurrentCulture
+							)
 					)
 					
 				) {

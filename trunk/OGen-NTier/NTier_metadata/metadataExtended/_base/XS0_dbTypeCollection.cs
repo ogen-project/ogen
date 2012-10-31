@@ -209,9 +209,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 								#else
 								this.cols_[i]
 								#endif
-									.DBServerType.ToLower()
-								==
-								dbServerType_in.ToLower()
+									.DBServerType.Equals(
+										dbServerType_in,
+										StringComparison.CurrentCultureIgnoreCase
+									)
 							)
 						)
 					)
@@ -231,9 +232,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 						#else
 						this.cols_[i]
 						#endif
-							.DBServerType
-						==
-						collectionItem_in.DBServerType
+							.DBServerType.Equals(
+								collectionItem_in.DBServerType,
+								StringComparison.CurrentCulture
+							)
 					)
 					
 				) {

@@ -132,7 +132,7 @@ namespace OGen.lib.datalayer.PostgreSQL {
 
 		#region public override int XDbType_Parse(string value_in, bool caseSensitive_in);
 		public override int XDbType_Parse(string value_in, bool caseSensitive_in) {
-			switch (value_in.ToLower()) {
+			switch (value_in.ToLower(System.Globalization.CultureInfo.CurrentCulture)) {
 				case "timestamp with time zone": 
 				case "timestamptz":
 					return (int)NpgsqlDbType.TimestampTZ;

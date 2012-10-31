@@ -73,14 +73,14 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 
 			#region int _total_xxx = ...;<%
 			for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {%>
-			int _total_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%> = 0;<%
+			int _total_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = 0;<%
 			}
 			%>
 			for (int f = 0; f < this.metadatafiles_.MetadataFiles.Count; f++) {
 				switch (this.metadatafiles_.MetadataFiles[f].XMLFileType) {<%
 					for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {%>
 					case <%=XS__%><%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToUpper()%>:
-						_total_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>++;
+						_total_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>++;
 						break;<%
 					}%>
 				}
@@ -88,34 +88,34 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 			#endregion
 			#region string[] _xxxFilepath = new string[_total_xxx];<%
 			for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {%>
-			string[] _<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>Filepath = new string[
-				_total_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>
+			string[] _<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>Filepath = new string[
+				_total_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>
 			];<%
 			}%>
 			#endregion
 <%
 			for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {%>
-			_total_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%> = 0;<%
+			_total_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = 0;<%
 			}%>
 			for (int f = 0; f < this.metadatafiles_.MetadataFiles.Count; f++) {
 				switch (this.metadatafiles_.MetadataFiles[f].XMLFileType) {<%
 					for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {%>
 					case <%=XS__%><%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToUpper()%>:
-						_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>Filepath[_total_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>] = System.IO.Path.Combine(
+						_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>Filepath[_total_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>] = System.IO.Path.Combine(
 							_metadataPath,
 							this.metadatafiles_.MetadataFiles[f].XMLFilename
 						);
-						_total_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>++;
+						_total_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>++;
 						break;<%
 					}%>
 				}
 			}
 <%
 			for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {%><%=""%>
-			this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_ = new <%=XS__%><%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>Collection(
+			this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_ = new <%=XS__%><%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>Collection(
 				<%=XS__%><%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>.Load_fromFile(
 					(<%=XS__%>RootMetadata)this, 
-					_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>Filepath
+					_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>Filepath
 				)
 			);<%
 			}%>
@@ -188,10 +188,10 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 <%
 		for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {%>
 		#region public <%=XS__%><%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>Collection <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_rootmetadata.SchemaCollection[s].Element.Name, _arg_SchemaName)%>Collection { get; }
-		private <%=XS__%><%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>Collection <%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_;
+		private <%=XS__%><%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>Collection <%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_;
 
 		public <%=XS__%><%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>Collection <%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_rootmetadata.SchemaCollection[s].Element.Name, _arg_SchemaName)%>Collection {
-			get { return this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_; }
+			get { return this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_; }
 		}
 		#endregion<%
 		}%>
@@ -244,12 +244,12 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 				out _indexstring, 
 				out _end
 			)) {
-				for (int i = 0; i < this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_.Count; i++) {
+				for (int i = 0; i < this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_.Count; i++) {
 					if (
-						what_in.Substring(0, this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_[i].Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_rootmetadata.SchemaCollection[s].Element.Name, _arg_SchemaName)%>.Length)
-							== this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_[i].Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_rootmetadata.SchemaCollection[s].Element.Name, _arg_SchemaName)%>
+						what_in.Substring(0, this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_[i].Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_rootmetadata.SchemaCollection[s].Element.Name, _arg_SchemaName)%>.Length)
+							== this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_[i].Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_rootmetadata.SchemaCollection[s].Element.Name, _arg_SchemaName)%>
 					) {
-						_output = this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_[i].Read_fromRoot(string.Format(
+						_output = this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_[i].Read_fromRoot(string.Format(
 							System.Globalization.CultureInfo.CurrentCulture,
 							"{0}{1}{2}",
 							_begin,
@@ -365,8 +365,8 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 				out _end
 			)) {
 				if (_indexstring == "n") {
-					for (int i = 0; i < this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_.Count; i++) {
-						this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_[i].IterateThrough_fromRoot(
+					for (int i = 0; i < this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_.Count; i++) {
+						this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_[i].IterateThrough_fromRoot(
 							string.Format(
 								System.Globalization.CultureInfo.CurrentCulture,
 								"{0}{1}{2}",
@@ -385,7 +385,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 					_didit = true;
 				} else {
 					int _indexint = int.Parse(_indexstring, System.Globalization.CultureInfo.CurrentCulture);
-					this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_[
+					this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_[
 						_indexint
 					].IterateThrough_fromRoot(
 						string.Format(

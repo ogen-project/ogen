@@ -56,9 +56,9 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_schema.
 	#endif
 		#if NET_1_1
 		public <%=XS0__%><%=_aux_schema.Element.Name%>Collection(
-			<%=XS__%><%=_aux_schema.Element.Name%>[] <%=_aux_schema.Element.Name.ToLower()%>collection_in
+			<%=XS__%><%=_aux_schema.Element.Name%>[] <%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_in
 		) : base (
-			<%=_aux_schema.Element.Name.ToLower()%>collection_in
+			<%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_in
 		) {
 		}
 		#endif

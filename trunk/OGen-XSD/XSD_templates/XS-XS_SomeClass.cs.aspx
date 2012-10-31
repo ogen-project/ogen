@@ -73,7 +73,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_schema.
 		}%>
 		) {<%
 		for (int k = 0; k < _aux_complextype_keys.Length; k++) {%><%=""%>
-			<%=_aux_complextype_keys[k].Name.ToLower()%>_ = <%=_aux_complextype_keys[k].Name%>_in;<%
+			<%=_aux_complextype_keys[k].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = <%=_aux_complextype_keys[k].Name%>_in;<%
 		}%>
 		}<%
 		}%>

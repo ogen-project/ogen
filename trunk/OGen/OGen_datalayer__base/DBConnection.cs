@@ -153,136 +153,6 @@ namespace OGen.lib.datalayer {
 		#endregion
 		//#endregion
 
-		#region Exceptions...
-		#region public static readonly Exception InvalidConnectionstringException_empty;
-		/// <summary>
-		/// Invalid Connection String Exception (empty).
-		/// </summary>
-		[Serializable()]
-		public class InvalidConnectionstringException_empty : Exception {
-			public InvalidConnectionstringException_empty(
-			) : base(
-				"invalid connection string (empty)"
-			) {
-			}
-			public InvalidConnectionstringException_empty(
-				string message
-			) : base(
-				message
-			) {
-			}
-			public InvalidConnectionstringException_empty(
-				string message,
-				Exception innerException
-			) : base(
-				message,
-				innerException
-			) {
-			}
-		}
-		#endregion
-		#region public static readonly Exception InvalidSQLQueryException_empty;
-		/// <summary>
-		/// Invalid SQL Query Exception (empty).
-		/// </summary>
-		[Serializable()]
-		public class InvalidSQLQueryException_empty : Exception {
-			public InvalidSQLQueryException_empty(
-			) : base (
-				"invalid sql query (empty)"
-			) {
-			}
-			public InvalidSQLQueryException_empty(
-				string message
-			) : base (
-				message
-			) {
-			}
-			public InvalidSQLQueryException_empty(
-				string message,
-				Exception innerException
-			) : base (
-				message,
-				innerException
-			) {
-			}
-		}
-		#endregion
-		#region public static readonly Exception OpenException_alreadyOpened;
-		/// <summary>
-		/// Can't Open Connection Exception, Connection already opened.
-		/// </summary>
-		[Serializable()]
-		public class OpenException_alreadyOpened : Exception {
-			public OpenException_alreadyOpened(
-			) : base (
-				"can't open, connection already opened"
-			) {
-			}
-			public OpenException_alreadyOpened(
-				string message
-			) : base (
-				message
-			) {
-			}
-			public OpenException_alreadyOpened(
-				string message,
-				Exception innerException
-			) : base (
-				message,
-				innerException
-			) {
-			}
-		}
-		#endregion
-		#region public static readonly Exception CloseException_alreadyClosed;
-		/// <summary>
-		/// Can't Close Connection Exception, Connection already Closed.
-		/// </summary>
-		[Serializable()]
-		public class CloseException_alreadyClosed : Exception {
-			public CloseException_alreadyClosed(
-			) : base (
-				"can't close, connection already closed"
-			) {
-			}
-			public CloseException_alreadyClosed(
-				string message
-			) : base (
-				message
-			) {
-			}
-			public CloseException_alreadyClosed(
-				string message,
-				Exception innerException
-			) : base (
-				message,
-				innerException
-			) {
-			}
-		}
-		#endregion
-		#region public static readonly Exception CloseException_unterminatedTransaction;
-		/// <summary>
-		/// Can't Close Connection Exception, unterminated Transaction initiated.
-		/// </summary>
-		[Serializable()]
-		public class CloseException_unterminatedTransaction : Exception {
-			public CloseException_unterminatedTransaction(
-			) : base (
-				"can't close, unterminated transaction initiated"
-			) {
-			}
-			public CloseException_unterminatedTransaction(
-				string message
-			) : base (
-				message
-			) {
-			}
-		}
-		#endregion
-		#endregion
-
 		#region public properties...
 		#region public string Connectionstring { get; }
 		protected string connectionstring_;
@@ -446,7 +316,10 @@ namespace OGen.lib.datalayer {
 			_writer.WriteLine(string.Format(
 				System.Globalization.CultureInfo.CurrentCulture,
 				"{0} - {1}: {2}{3}", 
-				DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), 
+				DateTime.Now.ToString(
+					"yyyy-MM-dd HH:mm:ss",
+					System.Globalization.CultureInfo.CurrentCulture
+				), 
 				type_in, 
 				value_in, 
 				_parameters.ToString()

@@ -209,9 +209,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 								#else
 								this.cols_[i]
 								#endif
-									.Name.ToLower()
-								==
-								name_in.ToLower()
+									.Name.Equals(
+										name_in,
+										StringComparison.CurrentCultureIgnoreCase
+									)
 							)
 						)
 					)
@@ -231,9 +232,10 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 						#else
 						this.cols_[i]
 						#endif
-							.Name.ToLower()
-						==
-						collectionItem_in.Name.ToLower()
+							.Name.Equals(
+								collectionItem_in.Name,
+								StringComparison.CurrentCultureIgnoreCase
+							)
 					)
 					
 				) {
