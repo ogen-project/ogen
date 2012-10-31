@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-
-using OGen.lib.generator;
-using OGen.Dia.lib.metadata;
-using OGen.Dia.lib.generator;
 
 namespace OGen.Dia.presentationlayer.console {
+	using System;
+	using System.IO;
+
+	using OGen.Dia.lib.generator;
+	using OGen.Dia.lib.metadata;
+	using OGen.lib.generator;
+
 	class Program {
 		static void Main(string[] args_in) {
 			#region Console.WriteLine("Copyright (C) 2002 Francisco Monteiro");

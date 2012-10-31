@@ -12,18 +12,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using OGen.lib.templates;
-using OGen.lib.generator;
-using OGen.Dia.lib.metadata;
-using OGen.Dia.lib.metadata.diagram;
 
 namespace OGen.Dia.lib.generator {
+	using System;
+	using System.IO;
+	using OGen.Dia.lib.metadata;
+	using OGen.Dia.lib.metadata.diagram;
+	using OGen.lib.generator;
+	using OGen.lib.templates;
+
 	public class cFGenerator {
 		#region	public cFGenerator();
 		public cFGenerator() {
-			filename_ = string.Empty;
+			this.filename_ = string.Empty;
 		}
 		#endregion
 
@@ -31,25 +32,25 @@ namespace OGen.Dia.lib.generator {
 		#region public string Filename { get; }
 		private string filename_;
 		public string Filename {
-			get { return filename_; }
+			get { return this.filename_; }
 		}
 		#endregion
 		#region public bool hasChanges { get; }
 		private bool haschanges_;
 		public bool hasChanges {
-			get { return haschanges_; }
-			set { haschanges_ = value; }
+			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 		#region public bool isOpened { get; }
 		public bool isOpened {
-			get { return !string.IsNullOrEmpty(filename_); }
+			get { return !string.IsNullOrEmpty(this.filename_); }
 		}
 		#endregion
 		#region public XS__diagram Diagram { get ; }
 		private XS__diagram diagram_;
 		public XS__diagram Diagram {
-			get { return diagram_; }
+			get { return this.diagram_; }
 		}
 		#endregion
 		//#endregion
@@ -109,15 +110,15 @@ namespace OGen.Dia.lib.generator {
 				}
 			}
 			#endregion
-			filename_ = filename_in;
+			this.filename_ = filename_in;
 
 			if (notifyBack_in != null) notifyBack_in("opening...", true);
 			if (notifyBack_in != null) notifyBack_in("- reading metadata from xml file", true);
 
-			diagram_ = XS__diagram.Load_fromFile(
-				filename_
+			this.diagram_ = XS__diagram.Load_fromFile(
+				this.filename_
 			)[0];
-			diagram_.FilePath = filename_;
+			this.diagram_.FilePath = this.filename_;
 
 			if (notifyBack_in != null) notifyBack_in("... finished", true);
 
@@ -127,8 +128,8 @@ namespace OGen.Dia.lib.generator {
 
 			OGen.lib.datalayer.PostgreSQL.DBUtils_convert_Postgresql _utils_pgsql = new OGen.lib.datalayer.PostgreSQL.DBUtils_convert_Postgresql();
 			OGen.lib.datalayer.SQLServer.DBUtils_convert_SQLServer _utils_sqls = new OGen.lib.datalayer.SQLServer.DBUtils_convert_SQLServer();
-			Nullable<System.Data.DbType> _dbtype_psql;
-			Nullable<System.Data.DbType> _dbtype_sqls;
+			System.Data.DbType? _dbtype_psql;
+			System.Data.DbType? _dbtype_sqls;
 			bool _isUsingPostgreSQL = false;
 			bool _isUsingSQLServer = false;
 			DBTableField[] _dbtablefields;
@@ -137,10 +138,10 @@ namespace OGen.Dia.lib.generator {
 			System.Collections.Generic.Dictionary<string, XS_objectType.FK> _fks;
 			bool _foundFKTable;
 			bool _foundFKField;
-			for (int l = 0; l < diagram_.LayerCollection.Count; l++) {
-				for (int o = 0; o < diagram_.LayerCollection[l].ObjectCollection.Count; o++) {
-					_dbtablefields = diagram_.Table_search(l, o).TableFields();
-					diagram_.Table_search(l, o).TableFKs(
+			for (int l = 0; l < this.diagram_.LayerCollection.Count; l++) {
+				for (int o = 0; o < this.diagram_.LayerCollection[l].ObjectCollection.Count; o++) {
+					_dbtablefields = this.diagram_.Table_search(l, o).TableFields();
+					this.diagram_.Table_search(l, o).TableFKs(
 						out __fks,
 						out _fks
 					);
@@ -152,7 +153,7 @@ namespace OGen.Dia.lib.generator {
 						throw new Exception(string.Format(
 							"invalid foreign key at table: {0}.? -> {1}.?",
 
-							diagram_.Table_search(l, o).TableName,
+							this.diagram_.Table_search(l, o).TableName,
 							_fks[""].FK_TableName
 						));
 					}
@@ -344,14 +345,14 @@ namespace OGen.Dia.lib.generator {
 						) {
 							_foundFKTable = false;
 							_foundFKField = false;
-							for (int l2 = 0; l2 < diagram_.LayerCollection.Count; l2++) {
-							    for (int o2 = 0; o2 < diagram_.LayerCollection[l2].ObjectCollection.Count; o2++) {
+							for (int l2 = 0; l2 < this.diagram_.LayerCollection.Count; l2++) {
+								for (int o2 = 0; o2 < this.diagram_.LayerCollection[l2].ObjectCollection.Count; o2++) {
 									if (
-										diagram_.Table_search(l2, o2).TableName
+										this.diagram_.Table_search(l2, o2).TableName
 										==
 										_fks[_dbtablefields[f].Name].FK_TableName
 									) {
-										_dbtablefields2 = diagram_.Table_search(l2, o2).TableFields();
+										_dbtablefields2 = this.diagram_.Table_search(l2, o2).TableFields();
 
 										for (int f2 = 0; f2 < _dbtablefields2.Length; f2++) {
 											if (
@@ -404,7 +405,7 @@ namespace OGen.Dia.lib.generator {
 													throw new Exception(string.Format(
 														"foreign key postgresql db type mismatch: {0}.{1} -> {2}.{3}",
 
-														diagram_.Table_search(l, o).TableName,
+														this.diagram_.Table_search(l, o).TableName,
 														_dbtablefields[f].Name,
 
 														_fks[_dbtablefields[f].Name].FK_TableName,
@@ -427,7 +428,7 @@ namespace OGen.Dia.lib.generator {
 													throw new Exception(string.Format(
 														"foreign key sql server db type mismatch: {0}.{1} -> {2}.{3}",
 
-														diagram_.Table_search(l, o).TableName,
+														this.diagram_.Table_search(l, o).TableName,
 														_dbtablefields[f].Name,
 
 														_fks[_dbtablefields[f].Name].FK_TableName,
@@ -450,7 +451,7 @@ namespace OGen.Dia.lib.generator {
 								throw new Exception(string.Format(
 									"can't find foreign key TABLE: {0}.{1} -> {2}.{3}",
 
-									diagram_.Table_search(l, o).TableName,
+									this.diagram_.Table_search(l, o).TableName,
 									_dbtablefields[f].Name,
 
 									_fks[_dbtablefields[f].Name].FK_TableName,
@@ -461,7 +462,7 @@ namespace OGen.Dia.lib.generator {
 								throw new Exception(string.Format(
 									"can't find foreign key FIELD: {0}.{1} -> {2}.{3}",
 
-									diagram_.Table_search(l, o).TableName,
+									this.diagram_.Table_search(l, o).TableName,
 									_dbtablefields[f].Name,
 
 									_fks[_dbtablefields[f].Name].FK_TableName,
@@ -491,7 +492,7 @@ namespace OGen.Dia.lib.generator {
 				));
 			}
 
-			filename_ = string.Empty;
+			this.filename_ = string.Empty;
 		}
 		#endregion
 		#region //public void Save(...);
@@ -508,12 +509,12 @@ namespace OGen.Dia.lib.generator {
 		#endregion
 		#region public void Build(cGenerator.dBuild notifyBase_in);
 		public void Build(cGenerator.dBuild notifyBase_in) {
-			string _outputDir = Path.GetDirectoryName(filename_);
+			string _outputDir = Path.GetDirectoryName(this.filename_);
 			if (notifyBase_in != null) notifyBase_in("generating...", true);
 
 			MetaFile[] _metafiles = new MetaFile[1];
 			_metafiles[0] = new MetaFile(
-				filename_,
+				this.filename_,
 				XS__diagram.DIAGRAM
 			);
 			new cGenerator(
@@ -526,8 +527,8 @@ namespace OGen.Dia.lib.generator {
 				_outputDir, 
 				_metafiles
 			).Build(
-				notifyBase_in, 
-				diagram_
+				notifyBase_in,
+				this.diagram_
 			);
 			if (notifyBase_in != null) notifyBase_in("...finished", true);
 		}
