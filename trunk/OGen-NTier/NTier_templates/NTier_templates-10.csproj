@@ -223,6 +223,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="PRJ-BO-Someapp-businesslayer-instances-Somebo0.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
@@ -244,6 +245,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="PRJ-DO-Someapp-datalayer-DO0__utils.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="PRJ-DO-Someapp-datalayer-DO_Sometable.cs.aspx">
     </Content>
