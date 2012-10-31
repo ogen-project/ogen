@@ -50,6 +50,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 							#region Checking...
 							if (string.IsNullOrEmpty(this.TableName))
 								throw new Exception(string.Format(
+									System.Globalization.CultureInfo.CurrentCulture,
 									"{0}.{1}.TableIndex(): - no ref present",
 									this.GetType().Namespace,
 									this.GetType().Name
@@ -92,6 +93,7 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 								string.IsNullOrEmpty(this.TableFieldName)
 							)
 								throw new Exception(string.Format(
+									System.Globalization.CultureInfo.CurrentCulture,
 									"{0}.{1}.FieldIndex(): - no ref present",
 									this.GetType().Namespace,
 									this.GetType().Name

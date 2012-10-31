@@ -52,6 +52,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 					}
 				}
 				throw new Exception(string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"{0}.{1}[string name_in]: can't find: {2}",
 					typeof(XS__metadataBusinessCollection).Namespace, 
 					typeof(XS__metadataBusinessCollection).Name, 

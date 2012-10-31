@@ -83,6 +83,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 				if (notifyBack_in != null) {
 					notifyBack_in(
 						string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"#{0}/{1} - {2}",
 							c + 1,
 							dbConnectionParam_in.Length,

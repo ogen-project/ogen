@@ -417,6 +417,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 								);
 								ConfigTable = connection.Execute_SQLQuery_returnDataTable(
 									string.Format(
+										System.Globalization.CultureInfo.CurrentCulture,
 										"SELECT {4}{0}{4}, {4}{1}{4}, {4}{2}{4} FROM {4}{3}{4} ORDER BY {4}{0}{4}",
 										/*00*/ NameField,
 										/*01*/ ConfigField,

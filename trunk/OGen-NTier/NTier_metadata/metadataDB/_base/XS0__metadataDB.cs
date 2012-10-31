@@ -74,6 +74,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 #endif
 				} catch (Exception _ex) {
 					throw new Exception(string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"\n---\n{0}.{1}.Load_fromFile():\nERROR READING XML:\n{2}\n---\n{3}\n---\n{4}\n---\n",
 						typeof(XS__metadataDB).Namespace, 
 						typeof(XS__metadataDB).Name, 
@@ -124,6 +125,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 						);
 					} catch (Exception _ex) {
 						throw new Exception(string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"\n---\n{0}.{1}.Load_fromURI():\nERROR READING XML:\n{2}\n---\n{3}",
 							typeof(XS__metadataDB).Namespace, 
 							typeof(XS__metadataDB).Name, 

@@ -86,7 +86,8 @@ namespace OGen.lib.presentationlayer.webforms {
 					_output.Add(
 						(T)Convert.ChangeType(
 							this.listitemcollection_ref_[i].Value,
-							typeof(T)
+							typeof(T),
+							System.Globalization.CultureInfo.CurrentCulture
 						)
 					);
 				}
@@ -320,7 +321,8 @@ namespace OGen.lib.presentationlayer.webforms {
 				//_value = (long)Enum.Parse(enumType_in, _enumItem);
 				_value = (long)Convert.ChangeType(
 					Enum.Parse(enumType_in, _enumItem), 
-					typeof(long)
+					typeof(long),
+					System.Globalization.CultureInfo.CurrentCulture
 				);
 
 				if (_value >= 0) {

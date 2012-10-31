@@ -64,6 +64,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 
 			if (_assembly == null) {
 				throw new Exception(string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"can't load assembly 'assemblyName_in'\n at: {0}.{1}.Load_fromAssembly();",
 					typeof(XS__metadataBusiness).Namespace,
 					typeof(XS__metadataBusiness).Name,
@@ -171,6 +172,7 @@ _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[
 	_method_index
 ].OutputType
 	= translate(string.Format(
+		System.Globalization.CultureInfo.CurrentCulture,
 		"{0}.{1}", 
 		_methods[m].ReturnType.Namespace, 
 		_methods[m].ReturnType.Name
@@ -192,6 +194,7 @@ _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_i
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection[
 	_property_index
 ].Type = translate(string.Format(
+	System.Globalization.CultureInfo.CurrentCulture,
 	"{0}.{1}",
 	_parameterinfo[p].ParameterType.Namespace,
 	(_parameterinfo[p].ParameterType.Name.IndexOf('&') >= 0)

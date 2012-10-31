@@ -75,6 +75,7 @@ namespace OGen.Doc.lib.generator {
 //			if (notifyBack_in != null) notifyBack_in("- generating xml file", true);
 //			#region string _xmlfile = ...;
 //			string _xmlfile = string.Format(
+//				System.Globalization.CultureInfo.CurrentCulture,
 //				"{0}{1}OGenDoc-metadatas{1}MD_{2}.OGenDoc-metadata.xml", 
 //				/*0*/applicationPath_in, 
 //				/*1*/System.IO.Path.DirectorySeparatorChar, 
@@ -103,6 +104,7 @@ namespace OGen.Doc.lib.generator {
 			if (this.hasChanges) {
 				if (!force_doNOTsave_in) {
 					throw new Exception(string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"{0}.{1}.Open(): - must save before open", 
 						this.GetType().Namespace, 
 						this.GetType().Name
@@ -131,6 +133,7 @@ namespace OGen.Doc.lib.generator {
 				(!force_doNOTsave_in)
 			) {
 				throw new Exception(string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"{0}.{1}.Open(): - must save before open", 
 					this.GetType().Namespace, 
 					this.GetType().Name

@@ -161,6 +161,7 @@ throw new Exception("// ToDos: not implemented!");
 			//if (notifyBack_in != null) notifyBack_in("- generating xml file", true);
 			//#region string _xmlfile = ...;
 			//string _xmlfile = string.Format(
+			//    System.Globalization.CultureInfo.CurrentCulture,
 			//    //"{0}{1}OGen-metadatas{1}MD_{2}-{3}.OGen-metadata.xml", 
 			//    "{0}{1}OGen-metadatas{1}MD_{2}.OGen-metadata.xml", 
 			//    /*0*/applicationPath_in, 

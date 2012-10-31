@@ -195,6 +195,7 @@ string hostingVirtualPath_in = "/";
 			if (_errorInProcess) {
 				throw new Exception(
 					string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"\n---\n{0}\n{1}?{2}\n---\n{3}", 
 						appPath_in, 
 						aspxFile_in, 

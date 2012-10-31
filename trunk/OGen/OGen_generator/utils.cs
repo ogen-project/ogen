@@ -432,7 +432,8 @@ _usePerformance5 &&
 										iteration_in.Substring(
 											_indexOfSquareBrackets_begin + 1,
 											_indexOfSquareBrackets_end - (_indexOfSquareBrackets_begin + 1)
-										)
+										),
+										System.Globalization.CultureInfo.CurrentCulture
 									)
 								: 
 									0

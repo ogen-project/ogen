@@ -259,6 +259,7 @@ namespace OGen.NTier.lib.metadata {
 							== this.metadataextendedcollection_[i].Root_MetadataExtended
 					) {
 						_output = this.metadataextendedcollection_[i].Read_fromRoot(string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"{0}{1}{2}",
 							_begin,
 							i,
@@ -282,6 +283,7 @@ namespace OGen.NTier.lib.metadata {
 							== this.metadatadbcollection_[i].Root_MetadataDB
 					) {
 						_output = this.metadatadbcollection_[i].Read_fromRoot(string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"{0}{1}{2}",
 							_begin,
 							i,
@@ -305,6 +307,7 @@ namespace OGen.NTier.lib.metadata {
 							== this.metadatabusinesscollection_[i].Root_MetadataBusiness
 					) {
 						_output = this.metadatabusinesscollection_[i].Read_fromRoot(string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"{0}{1}{2}",
 							_begin,
 							i,
@@ -337,6 +340,7 @@ namespace OGen.NTier.lib.metadata {
 				return _output;
 			} else {
 				throw new Exception(string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"\n---\n{0}.{1}.Read_fromRoot(string what_in): can't handle: {2}\n---",
 					typeof(XS__RootMetadata).Namespace,
 					typeof(XS__RootMetadata).Name,
@@ -419,6 +423,7 @@ namespace OGen.NTier.lib.metadata {
 					for (int i = 0; i < this.metadataextendedcollection_.Count; i++) {
 						this.metadataextendedcollection_[i].IterateThrough_fromRoot(
 							string.Format(
+								System.Globalization.CultureInfo.CurrentCulture,
 								"{0}{1}{2}",
 								_begin, 
 								i,
@@ -434,11 +439,12 @@ namespace OGen.NTier.lib.metadata {
 					}
 					_didit = true;
 				} else {
-					int _indexint = int.Parse(_indexstring);
+					int _indexint = int.Parse(_indexstring, System.Globalization.CultureInfo.CurrentCulture);
 					this.metadataextendedcollection_[
 						_indexint
 					].IterateThrough_fromRoot(
 						string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"{0}{1}{2}",
 							_begin,
 							_indexint,
@@ -465,6 +471,7 @@ namespace OGen.NTier.lib.metadata {
 					for (int i = 0; i < this.metadatadbcollection_.Count; i++) {
 						this.metadatadbcollection_[i].IterateThrough_fromRoot(
 							string.Format(
+								System.Globalization.CultureInfo.CurrentCulture,
 								"{0}{1}{2}",
 								_begin, 
 								i,
@@ -480,11 +487,12 @@ namespace OGen.NTier.lib.metadata {
 					}
 					_didit = true;
 				} else {
-					int _indexint = int.Parse(_indexstring);
+					int _indexint = int.Parse(_indexstring, System.Globalization.CultureInfo.CurrentCulture);
 					this.metadatadbcollection_[
 						_indexint
 					].IterateThrough_fromRoot(
 						string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"{0}{1}{2}",
 							_begin,
 							_indexint,
@@ -511,6 +519,7 @@ namespace OGen.NTier.lib.metadata {
 					for (int i = 0; i < this.metadatabusinesscollection_.Count; i++) {
 						this.metadatabusinesscollection_[i].IterateThrough_fromRoot(
 							string.Format(
+								System.Globalization.CultureInfo.CurrentCulture,
 								"{0}{1}{2}",
 								_begin, 
 								i,
@@ -526,11 +535,12 @@ namespace OGen.NTier.lib.metadata {
 					}
 					_didit = true;
 				} else {
-					int _indexint = int.Parse(_indexstring);
+					int _indexint = int.Parse(_indexstring, System.Globalization.CultureInfo.CurrentCulture);
 					this.metadatabusinesscollection_[
 						_indexint
 					].IterateThrough_fromRoot(
 						string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"{0}{1}{2}",
 							_begin,
 							_indexint,
@@ -579,6 +589,7 @@ namespace OGen.NTier.lib.metadata {
 				}
 			} else {
 				throw new Exception(string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"\n---\n{0}.{1}.IterateThrough_fromRoot(...): can't handle: {2}\n---",
 					typeof(XS__RootMetadata).Namespace,
 					typeof(XS__RootMetadata).Name,

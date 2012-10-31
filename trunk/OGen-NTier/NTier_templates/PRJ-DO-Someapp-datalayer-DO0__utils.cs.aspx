@@ -272,6 +272,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 					);
 					ConfigTable = connection.Execute_SQLQuery_returnDataTable(
 						string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"SELECT {4}{0}{4}, {4}{1}{4}, {4}{2}{4} FROM {4}{3}{4} ORDER BY {4}{0}{4}",
 							/*00*/ NameField,
 							/*01*/ ConfigField,
@@ -345,7 +346,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 					#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_db_table.Name%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
 					DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
 					<%=_aux_db_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-					<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = int.Parse(<%=_aux_db_table.Name.ToLower()%>.Fields.<%=ConfigField%>);
+					<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = int.Parse(<%=_aux_db_table.Name.ToLower()%>.Fields.<%=ConfigField%>, System.Globalization.CultureInfo.CurrentCulture);
 					<%=_aux_db_table.Name.ToLower()%>.Dispose(); <%=_aux_db_table.Name.ToLower()%> = null;
 					#endregion
 					// ToDos: here! if second assembly instance, one cache could override data from the other
@@ -447,6 +448,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 				<%=_aux_db_table.Name.ToLower()%>.Fields.<%=ConfigField%> = string.Empty;
 				for (int i = 0; i < value.Length; i++) {
 					<%=_aux_db_table.Name.ToLower()%>.Fields.<%=ConfigField%> += string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"{0}{1}",
 						(i != 0) ? ((char)10).ToString() : string.Empty, 
 						value[i]

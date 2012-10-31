@@ -31,6 +31,7 @@ XS__documentation _aux_doc
 	];
 
 string _aux_documentation_index = string.Format(
+	System.Globalization.CultureInfo.CurrentCulture,
 	"{0}-index{1}.html",
 	_aux_doc.DocumentationName,
 	_arg_all ? "-all" : ""
@@ -65,6 +66,7 @@ XS_chapterType _aux_chapter_next
 string _aux_chapter_link_previous = 
 	(_aux_chapter_previous != null)
 		? string.Format(
+			System.Globalization.CultureInfo.CurrentCulture,
 			"{0}-chapter-{1}-{2}.html", 
 			_aux_doc.DocumentationName, 
 			_aux_chapter_previous.Number, 
@@ -74,6 +76,7 @@ string _aux_chapter_link_previous =
 string _aux_chapter_link_next = 
 	(_aux_chapter_next != null)
 		? string.Format(
+			System.Globalization.CultureInfo.CurrentCulture,
 			"{0}-chapter-{1}-{2}.html",
 			_aux_doc.DocumentationName,
 			_aux_chapter_next.Number, 

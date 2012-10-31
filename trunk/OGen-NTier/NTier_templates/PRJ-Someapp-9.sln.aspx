@@ -62,6 +62,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTier_datalayer-9", "<%=_au
 EndProject<%
 for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
 	_aux_path2 = string.Format(
+		System.Globalization.CultureInfo.CurrentCulture,
 		@"{0}\OGen\OGen_datalayer_{1}\OGen_datalayer_{1}-9.csproj",
 		_aux_path, 
 		_aux_ex_metadata.DBs.DBCollection[d].DBServerType

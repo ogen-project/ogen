@@ -143,7 +143,12 @@ namespace OGen.lib.presentationlayer.webforms {
 			public static long PageNum {
 				get {
 					long _output;
-					if (!long.TryParse(System.Web.HttpContext.Current.Request.QueryString["page"], out _output)) {
+					if (!long.TryParse(
+						System.Web.HttpContext.Current.Request.QueryString["page"],
+						System.Globalization.NumberStyles.Integer,
+						System.Globalization.CultureInfo.CurrentCulture,
+						out _output
+					)) {
 						_output = 1L;
 					}
 

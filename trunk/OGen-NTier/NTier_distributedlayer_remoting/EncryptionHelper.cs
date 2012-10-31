@@ -56,6 +56,7 @@ namespace OGen.NTier.lib.distributedlayer.remoting {
 					= System.IO.Path.Combine(
 						keysPath_in, 
 						string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"ClientRSAKey.{0}.private.xml",
 							clientID_in
 						)
@@ -64,6 +65,7 @@ namespace OGen.NTier.lib.distributedlayer.remoting {
 					= System.IO.Path.Combine(
 						keysPath_in, 
 						string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"ClientRSAKey.{0}.public.xml",
 							clientID_in
 						)
@@ -183,6 +185,7 @@ Console.WriteLine("decrypting...");
 
 				if (_clientprivate_rsa == null) {
 					throw new Exception(string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"can't find keys (key path: {0}; client id: {1}",
 						keysPath_in,
 						clientID_in

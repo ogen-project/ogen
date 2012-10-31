@@ -52,6 +52,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 					}
 				}
 				throw new Exception(string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"{0}.{1}[string name_in]: can't find: {2}",
 					typeof(XS__diagramCollection).Namespace, 
 					typeof(XS__diagramCollection).Name, 

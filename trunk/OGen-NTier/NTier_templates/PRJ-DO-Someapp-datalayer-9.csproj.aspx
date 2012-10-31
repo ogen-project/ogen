@@ -148,6 +148,7 @@ if (!_arg_gac) {%>
     </ProjectReference><%
     for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
 		_aux_path2 = string.Format(
+			System.Globalization.CultureInfo.CurrentCulture,
 			//// Visual Studio 2008 handles absolute project paths badly, hence the fallowing being commented
 			//@"{0}\OGen\OGen_datalayer_{1}\OGen_datalayer_{1}-9.csproj",
 			@"OGen_datalayer_{1}-9.csproj",

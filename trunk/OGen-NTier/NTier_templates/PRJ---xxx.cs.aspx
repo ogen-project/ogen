@@ -335,7 +335,8 @@ _selection[i] = "";
 					_output.Add(
 						(T)Convert.ChangeType(
 							listitemcollection_ref_[i].Value,
-							typeof(T)
+							typeof(T),
+							System.Globalization.CultureInfo.CurrentCulture
 						)
 					);
 				}

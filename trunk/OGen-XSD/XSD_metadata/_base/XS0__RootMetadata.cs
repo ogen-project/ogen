@@ -229,6 +229,7 @@ namespace OGen.XSD.lib.metadata {
 							== this.metadatacollection_[i].Root_Metadata
 					) {
 						_output = this.metadatacollection_[i].Read_fromRoot(string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"{0}{1}{2}",
 							_begin,
 							i,
@@ -252,6 +253,7 @@ namespace OGen.XSD.lib.metadata {
 							== this.schemacollection_[i].Root_Schema
 					) {
 						_output = this.schemacollection_[i].Read_fromRoot(string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"{0}{1}{2}",
 							_begin,
 							i,
@@ -284,6 +286,7 @@ namespace OGen.XSD.lib.metadata {
 				return _output;
 			} else {
 				throw new Exception(string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"\n---\n{0}.{1}.Read_fromRoot(string what_in): can't handle: {2}\n---",
 					typeof(XS__RootMetadata).Namespace,
 					typeof(XS__RootMetadata).Name,
@@ -366,6 +369,7 @@ namespace OGen.XSD.lib.metadata {
 					for (int i = 0; i < this.metadatacollection_.Count; i++) {
 						this.metadatacollection_[i].IterateThrough_fromRoot(
 							string.Format(
+								System.Globalization.CultureInfo.CurrentCulture,
 								"{0}{1}{2}",
 								_begin, 
 								i,
@@ -381,11 +385,12 @@ namespace OGen.XSD.lib.metadata {
 					}
 					_didit = true;
 				} else {
-					int _indexint = int.Parse(_indexstring);
+					int _indexint = int.Parse(_indexstring, System.Globalization.CultureInfo.CurrentCulture);
 					this.metadatacollection_[
 						_indexint
 					].IterateThrough_fromRoot(
 						string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"{0}{1}{2}",
 							_begin,
 							_indexint,
@@ -412,6 +417,7 @@ namespace OGen.XSD.lib.metadata {
 					for (int i = 0; i < this.schemacollection_.Count; i++) {
 						this.schemacollection_[i].IterateThrough_fromRoot(
 							string.Format(
+								System.Globalization.CultureInfo.CurrentCulture,
 								"{0}{1}{2}",
 								_begin, 
 								i,
@@ -427,11 +433,12 @@ namespace OGen.XSD.lib.metadata {
 					}
 					_didit = true;
 				} else {
-					int _indexint = int.Parse(_indexstring);
+					int _indexint = int.Parse(_indexstring, System.Globalization.CultureInfo.CurrentCulture);
 					this.schemacollection_[
 						_indexint
 					].IterateThrough_fromRoot(
 						string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"{0}{1}{2}",
 							_begin,
 							_indexint,
@@ -480,6 +487,7 @@ namespace OGen.XSD.lib.metadata {
 				}
 			} else {
 				throw new Exception(string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"\n---\n{0}.{1}.IterateThrough_fromRoot(...): can't handle: {2}\n---",
 					typeof(XS__RootMetadata).Namespace,
 					typeof(XS__RootMetadata).Name,

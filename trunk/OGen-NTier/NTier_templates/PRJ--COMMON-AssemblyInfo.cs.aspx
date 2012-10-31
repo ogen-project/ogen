@@ -37,51 +37,99 @@ string _aux_assemblycompany = "";
 
 switch (_arg_where) {
 	case "datalayer":
-		_aux_assemblytitle = string.Format("{0}.lib.datalayer", _aux_ex_metadata.ApplicationNamespace);
+		_aux_assemblytitle = string.Format(
+			System.Globalization.CultureInfo.CurrentCulture, 
+			"{0}.lib.datalayer", 
+			_aux_ex_metadata.ApplicationNamespace
+		);
 		_aux_guid = _aux_ex_metadata.GUID_datalayer;
 		break;
 	case "datalayer-structures":
-		_aux_assemblytitle = string.Format("{0}.lib.datalayer.shared.structures", _aux_ex_metadata.ApplicationNamespace);
+		_aux_assemblytitle = string.Format(
+			System.Globalization.CultureInfo.CurrentCulture, 
+			"{0}.lib.datalayer.shared.structures", 
+			_aux_ex_metadata.ApplicationNamespace
+		);
 		_aux_guid = _aux_ex_metadata.GUID_datalayer_structures;
 		break;
 	case "businesslayer":
-		_aux_assemblytitle = string.Format("{0}.lib.businesslayer", _aux_ex_metadata.ApplicationNamespace);
+		_aux_assemblytitle = string.Format(
+			System.Globalization.CultureInfo.CurrentCulture, 
+			"{0}.lib.businesslayer", 
+			_aux_ex_metadata.ApplicationNamespace
+		);
 		_aux_guid = _aux_ex_metadata.GUID_businesslayer;
 		break;
 	case "businesslayer-structures":
-		_aux_assemblytitle = string.Format("{0}.lib.businesslayer.shared.structures", _aux_ex_metadata.ApplicationNamespace);
+		_aux_assemblytitle = string.Format(
+			System.Globalization.CultureInfo.CurrentCulture, 
+			"{0}.lib.businesslayer.shared.structures", 
+			_aux_ex_metadata.ApplicationNamespace
+		);
 		_aux_guid = _aux_ex_metadata.GUID_businesslayer_structures;
 		break;
 	case "businesslayer-shared":
-		_aux_assemblytitle = string.Format("{0}.lib.businesslayer.shared", _aux_ex_metadata.ApplicationNamespace);
+		_aux_assemblytitle = string.Format(
+			System.Globalization.CultureInfo.CurrentCulture, 
+			"{0}.lib.businesslayer.shared", 
+			_aux_ex_metadata.ApplicationNamespace
+		);
 		_aux_guid = _aux_ex_metadata.GUID_businesslayer_shared;
 		break;
 	case "businesslayer-instances":
-		_aux_assemblytitle = string.Format("{0}.lib.businesslayer.shared.instances", _aux_ex_metadata.ApplicationNamespace);
+		_aux_assemblytitle = string.Format(
+			System.Globalization.CultureInfo.CurrentCulture, 
+			"{0}.lib.businesslayer.shared.instances", 
+			_aux_ex_metadata.ApplicationNamespace
+		);
 		_aux_guid = _aux_ex_metadata.GUID_businesslayer_instances;
 		break;
 	case "remoting-server":
-		_aux_assemblytitle = string.Format("{0}.lib.distributedlayer.remoting.server", _aux_ex_metadata.ApplicationNamespace);
+		_aux_assemblytitle = string.Format(
+			System.Globalization.CultureInfo.CurrentCulture, 
+			"{0}.lib.distributedlayer.remoting.server", 
+			_aux_ex_metadata.ApplicationNamespace
+		);
 		_aux_guid = _aux_ex_metadata.GUID_remoting_server;
 		break;
 	case "remoting-simpleserver":
-		_aux_assemblytitle = string.Format("{0}.distributedlayer.remoting.simpleserver", _aux_ex_metadata.ApplicationNamespace);
+		_aux_assemblytitle = string.Format(
+			System.Globalization.CultureInfo.CurrentCulture, 
+			"{0}.distributedlayer.remoting.simpleserver", 
+			_aux_ex_metadata.ApplicationNamespace
+		);
 		_aux_guid = _aux_ex_metadata.GUID_remoting_simpleserver;
 		break;
 	case "remoting-client":
-		_aux_assemblytitle = string.Format("{0}.lib.distributedlayer.remoting.client", _aux_ex_metadata.ApplicationNamespace);
+		_aux_assemblytitle = string.Format(
+			System.Globalization.CultureInfo.CurrentCulture, 
+			"{0}.lib.distributedlayer.remoting.client", 
+			_aux_ex_metadata.ApplicationNamespace
+		);
 		_aux_guid = _aux_ex_metadata.GUID_remoting_client;
 		break;
 	case "webservices-server":
-		_aux_assemblytitle = string.Format("{0}.distributedlayer.webservices.server", _aux_ex_metadata.ApplicationNamespace);
+		_aux_assemblytitle = string.Format(
+			System.Globalization.CultureInfo.CurrentCulture, 
+			"{0}.distributedlayer.webservices.server", 
+			_aux_ex_metadata.ApplicationNamespace
+		);
 		_aux_guid = _aux_ex_metadata.GUID_webservices_server;
 		break;
 	case "webservices-client":
-		_aux_assemblytitle = string.Format("{0}.lib.distributedlayer.webservices.client", _aux_ex_metadata.ApplicationNamespace);
+		_aux_assemblytitle = string.Format(
+			System.Globalization.CultureInfo.CurrentCulture, 
+			"{0}.lib.distributedlayer.webservices.client", 
+			_aux_ex_metadata.ApplicationNamespace
+		);
 		_aux_guid = _aux_ex_metadata.GUID_webservices_client;
 		break;
 	case "test":
-		_aux_assemblytitle = string.Format("{0}.presentationlayer.console", _aux_ex_metadata.ApplicationNamespace);
+		_aux_assemblytitle = string.Format(
+			System.Globalization.CultureInfo.CurrentCulture, 
+			"{0}.presentationlayer.console", 
+			_aux_ex_metadata.ApplicationNamespace
+		);
 		_aux_guid = _aux_ex_metadata.GUID_test;
 		break;
 }

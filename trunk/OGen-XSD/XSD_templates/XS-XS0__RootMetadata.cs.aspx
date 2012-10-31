@@ -250,6 +250,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 							== this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_[i].Root_<%=_aux_rootmetadata.MetadataCollection[0].CaseTranslate(_aux_rootmetadata.SchemaCollection[s].Element.Name, _arg_SchemaName)%>
 					) {
 						_output = this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_[i].Read_fromRoot(string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"{0}{1}{2}",
 							_begin,
 							i,
@@ -283,6 +284,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 				return _output;
 			} else {
 				throw new Exception(string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"\n---\n{0}.{1}.Read_fromRoot(string what_in): can't handle: {2}\n---",
 					typeof(<%=XS__%>RootMetadata).Namespace,
 					typeof(<%=XS__%>RootMetadata).Name,
@@ -366,6 +368,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 					for (int i = 0; i < this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_.Count; i++) {
 						this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_[i].IterateThrough_fromRoot(
 							string.Format(
+								System.Globalization.CultureInfo.CurrentCulture,
 								"{0}{1}{2}",
 								_begin, 
 								i,
@@ -381,11 +384,12 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 					}
 					_didit = true;
 				} else {
-					int _indexint = int.Parse(_indexstring);
+					int _indexint = int.Parse(_indexstring, System.Globalization.CultureInfo.CurrentCulture);
 					this.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower()%>collection_[
 						_indexint
 					].IterateThrough_fromRoot(
 						string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"{0}{1}{2}",
 							_begin,
 							_indexint,
@@ -435,6 +439,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 				}
 			} else {
 				throw new Exception(string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"\n---\n{0}.{1}.IterateThrough_fromRoot(...): can't handle: {2}\n---",
 					typeof(<%=XS__%>RootMetadata).Namespace,
 					typeof(<%=XS__%>RootMetadata).Name,

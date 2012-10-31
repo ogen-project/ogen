@@ -1202,7 +1202,11 @@ namespace OGen.lib.datalayer {
 			for (int r = 0; r < _dtemp.Rows.Count; r++) {
 				_output[r] = new DBTable(
 					(string)_dtemp.Rows[r][INFORMATION_SCHEMA_TABLES_TABLE_NAME],
-					(1 == (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_TABLES_IS_VIEW], typeof(int))),
+					(1 == (int)Convert.ChangeType(
+						_dtemp.Rows[r][INFORMATION_SCHEMA_TABLES_IS_VIEW], 
+						typeof(int),
+						System.Globalization.CultureInfo.CurrentCulture
+					)),
 					(_dtemp.Rows[r][INFORMATION_SCHEMA_TABLES_TABLE_DESCRIPTION] == DBNull.Value) ? string.Empty : (string)_dtemp.Rows[r][INFORMATION_SCHEMA_TABLES_TABLE_DESCRIPTION]
 				);
 			}
@@ -1288,11 +1292,24 @@ namespace OGen.lib.datalayer {
 
 				// comment: some providers send int, other long, hence using convert change type:
 				//getTableFields_out[r].Size = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_CHARACTER_MAXIMUM_LENGTH] == DBNull.Value) ? 0 : (int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_CHARACTER_MAXIMUM_LENGTH];
-				_output[r].Size = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_CHARACTER_MAXIMUM_LENGTH] == DBNull.Value) ? 0 : (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_CHARACTER_MAXIMUM_LENGTH], typeof(int));
+				_output[r].Size 
+					= (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_CHARACTER_MAXIMUM_LENGTH] == DBNull.Value) 
+						? 0 
+						: (int)Convert.ChangeType(
+							_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_CHARACTER_MAXIMUM_LENGTH], 
+							typeof(int),
+							System.Globalization.CultureInfo.CurrentCulture
+						);
 
 				// comment: some providers send int, other long, hence using convert change type:
 				//getTableFields_out[r].isNullable = ((int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_NULLABLE] == 1);
-				_output[r].isNullable = 1 == (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_NULLABLE], typeof(int));
+				_output[r].isNullable = (
+					1 == (int)Convert.ChangeType(
+						_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_NULLABLE], 
+						typeof(int),
+						System.Globalization.CultureInfo.CurrentCulture
+					)
+				);
 
 				_output[r].FK_TableName = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_FK_COLUMN_NAME] == DBNull.Value) ? string.Empty : (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_FK_TABLE_NAME];
 
@@ -1300,19 +1317,45 @@ namespace OGen.lib.datalayer {
 
 				// comment: some providers send int, other long, hence using convert change type:
 				//getTableFields_out[r].isIdentity = ((int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_IDENTITY] == 1);
-				_output[r].isIdentity = 1 == (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_IDENTITY], typeof(int));
+				_output[r].isIdentity = (
+					1 == (int)Convert.ChangeType(
+						_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_IDENTITY], 
+						typeof(int),
+						System.Globalization.CultureInfo.CurrentCulture
+					)
+				);
 
 				// comment: some providers send int, other long, hence using convert change type:
 				//getTableFields_out[r].isPK = ((int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_PK] == 1);
-				_output[r].isPK = 1 == (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_PK], typeof(int));
+				_output[r].isPK = (
+					1 == (int)Convert.ChangeType(
+						_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_PK], 
+						typeof(int),
+						System.Globalization.CultureInfo.CurrentCulture
+					)
+				);
 
 				// comment: some providers send int, other long, hence using convert change type:
 				//getTableFields_out[r].Numeric_Precision = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_PRECISION] == DBNull.Value) ? 0 : (int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_PRECISION];
-				_output[r].Numeric_Precision = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_PRECISION] == DBNull.Value) ? 0 : (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_PRECISION], typeof(int));
+				_output[r].Numeric_Precision 
+					= (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_PRECISION] == DBNull.Value) 
+						? 0 
+						: (int)Convert.ChangeType(
+							_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_PRECISION], 
+							typeof(int),
+							System.Globalization.CultureInfo.CurrentCulture
+						);
 
 				// comment: some providers send int, other long, hence using convert change type:
 				//getTableFields_out[r].Numeric_Scale = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_SCALE] == DBNull.Value) ? 0 : (int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_SCALE];
-				_output[r].Numeric_Scale = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_SCALE] == DBNull.Value) ? 0 : (int)Convert.ChangeType(_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_SCALE], typeof(int));
+				_output[r].Numeric_Scale 
+					= (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_SCALE] == DBNull.Value) 
+						? 0 
+						: (int)Convert.ChangeType(
+							_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_SCALE], 
+							typeof(int),
+							System.Globalization.CultureInfo.CurrentCulture
+						);
 
 				_output[r].DBType_inDB_name = (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_DATA_TYPE];
 

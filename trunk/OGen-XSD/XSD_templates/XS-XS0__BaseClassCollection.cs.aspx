@@ -82,6 +82,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_schema.
 					}
 				}
 				throw new Exception(string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"{0}.{1}[string name_in]: can't find: {2}",
 					typeof(<%=XS__%><%=_aux_schema.Element.Name%>Collection).Namespace, 
 					typeof(<%=XS__%><%=_aux_schema.Element.Name%>Collection).Name, 

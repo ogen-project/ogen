@@ -129,6 +129,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 #endif
 				} catch (Exception _ex) {
 					throw new Exception(string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"\n---\n{0}.{1}.Load_fromFile():\nERROR READING XML:\n{2}\n---\n{3}\n---\n{4}\n---\n",
 						typeof(<%=XS__%><%=_aux_schema.Element.Name%>).Namespace, 
 						typeof(<%=XS__%><%=_aux_schema.Element.Name%>).Name, 
@@ -185,6 +186,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 						);
 					} catch (Exception _ex) {
 						throw new Exception(string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"\n---\n{0}.{1}.Load_fromURI():\nERROR READING XML:\n{2}\n---\n{3}",
 							typeof(<%=XS__%><%=_aux_schema.Element.Name%>).Namespace, 
 							typeof(<%=XS__%><%=_aux_schema.Element.Name%>).Name, 

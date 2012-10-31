@@ -84,8 +84,8 @@ namespace OGen.lib.datalayer.PostgreSQL {
 					case "System.Char":
 					case "System.String":
 						// ToDos: later! check if changes made are correct (I need test units for this)
-						//return string.Format("''{0}''", object_in.ToString ().Replace("'", "''"));
-						//return string.Format("'{0}'", object_in.ToString ().Replace("'", "''"));
+						//return string.Format(System.Globalization.CultureInfo.CurrentCulture, "''{0}''", object_in.ToString ().Replace("'", "''"));
+						//return string.Format(System.Globalization.CultureInfo.CurrentCulture, "'{0}'", object_in.ToString ().Replace("'", "''"));
 						break;
 
 					case "System.DateTime":
@@ -94,7 +94,7 @@ namespace OGen.lib.datalayer.PostgreSQL {
 							return this.object2SQLobject(null);
 						} else {
 							// ToDos: later! check if changes made are correct (I need test units for this)
-							// return string.Format("timestamp ''{0}''", _datetime.ToString("yyyy-MM-dd HH:mm:ss"));
+							// return string.Format(System.Globalization.CultureInfo.CurrentCulture, "timestamp ''{0}''", _datetime.ToString("yyyy-MM-dd HH:mm:ss"));
 							return string.Format(
 								System.Globalization.CultureInfo.CurrentCulture, 
 								"timestamp '{0}'", 

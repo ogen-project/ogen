@@ -60,6 +60,7 @@ namespace OGen.XSD.lib.metadata.schema {
 				default:
 					isStandardNType_out = false;
 					return string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"{0}{1}",
 						root_ref_in.MetadataCollection[0].Prefix,
 						(root_ref_in == null)

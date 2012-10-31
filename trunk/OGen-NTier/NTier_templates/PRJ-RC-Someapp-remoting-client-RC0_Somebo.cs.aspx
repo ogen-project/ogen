@@ -85,6 +85,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoti
 			bo_ = (IBO_<%=_aux_class.Name%>)RemotingServices.Connect(
 				typeof(IBO_<%=_aux_class.Name%>),
 				string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"{0}:{1}/<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server.RS_<%=_aux_class.Name%>.remoting",
 					#if NET_1_1
 					System.Configuration.ConfigurationSettings.AppSettings["RemotingServer_ServerURI"], 

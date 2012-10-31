@@ -80,6 +80,7 @@ namespace OGen.XSD.lib.generator {
 //			if (notifyBack_in != null) notifyBack_in("- generating xml file", true);
 //			#region string _xmlfile = ...;
 //			string _xmlfile = string.Format(
+//				System.Globalization.CultureInfo.CurrentCulture,
 //				"{0}{1}OGenXSD-metadatas{1}MD_{2}.OGenXSD-metadata.xml", 
 //				/*0*/applicationPath_in, 
 //				/*1*/System.IO.Path.DirectorySeparatorChar, 
@@ -107,7 +108,12 @@ namespace OGen.XSD.lib.generator {
 			#region Checking...
 			if (this.hasChanges) {
 				if (!force_doNOTsave_in) {
-					throw new Exception(string.Format("{0}.{1}.Open(): - must save before open", this.GetType().Namespace, this.GetType().Name));
+					throw new Exception(string.Format(
+						System.Globalization.CultureInfo.CurrentCulture, 
+						"{0}.{1}.Open(): - must save before open", 
+						this.GetType().Namespace, 
+						this.GetType().Name
+					));
 				}
 			}
 			#endregion
@@ -131,7 +137,12 @@ namespace OGen.XSD.lib.generator {
 				(this.hasChanges) && 
 				(!force_doNOTsave_in)
 			) {
-				throw new Exception(string.Format("{0}.{1}.Open(): - must save before open", this.GetType().Namespace, this.GetType().Name));
+				throw new Exception(string.Format(
+					System.Globalization.CultureInfo.CurrentCulture, 
+					"{0}.{1}.Open(): - must save before open", 
+					this.GetType().Namespace, 
+					this.GetType().Name
+				));
 			}
 
 			this.filenameextendedmetadata_ = string.Empty;
