@@ -97,7 +97,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 <%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
-			this.<%=_aux_db_field.Name.ToLower()%>_ = <%=_aux_db_field.Name%>_in;<%
+			this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = <%=_aux_db_field.Name%>_in;<%
 			}%>
 		}
 		public SO_<%=_aux_db_table.Name%>(
@@ -109,13 +109,13 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 		if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%>
-			this.<%=_aux_db_field.Name.ToLower()%>_ 
+			this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ 
 				= (info_in.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>)) == null)
 					? <%=_aux_db_field.DBType_generic.FWEmptyValue%>
 					: (<%=_aux_db_field.DBType_generic.FWType%>)info_in.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>));
 			this.<%=_aux_db_field.Name%>_isNull = (bool)info_in.GetValue("<%=_aux_db_field.Name%>_isNull", typeof(bool));<%
 		} else {%><%=""%>
-			this.<%=_aux_db_field.Name.ToLower()%>_ = (<%=_aux_db_field.DBType_generic.FWType%>)info_in.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>));<%
+			this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = (<%=_aux_db_field.DBType_generic.FWType%>)info_in.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>));<%
 		}
 	}%>
 		}
@@ -145,7 +145,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 				if (_aux_ex_table.ListItemValue.parallel_ref.isNullable && !_aux_ex_table.ListItemValue.parallel_ref.isPK) {%>
 				return this.<%=_aux_ex_table.ListItemValue.Name%>;<%
 				} else {%>
-				return this.<%=_aux_ex_table.ListItemValue.Name.ToLower()%>_;<%
+				return this.<%=_aux_ex_table.ListItemValue.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_;<%
 				}%>
 			}
 		}
@@ -156,7 +156,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 				if (_aux_ex_table.ListItemText.parallel_ref.isNullable && !_aux_ex_table.ListItemText.parallel_ref.isPK) {%>
 				return this.<%=_aux_ex_table.ListItemText.Name%>;<%
 				} else {%>
-				return this.<%=_aux_ex_table.ListItemText.Name.ToLower()%>_;<%
+				return this.<%=_aux_ex_table.ListItemText.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_;<%
 				}%>
 			}
 		} 
@@ -170,7 +170,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public <%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name.ToLower()%>_;// = <%=((_aux_ex_field == null) || (_aux_ex_field.DefaultValue == "")) ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_ex_field.DefaultValue%>;
+		public <%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_;// = <%=((_aux_ex_field == null) || (_aux_ex_field.DefaultValue == "")) ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_ex_field.DefaultValue%>;
 		
 		/// <summary>
 		/// <%=_aux_db_table.Name%>'s <%=_aux_db_field.Name%>.
@@ -181,44 +181,44 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 			"<%=_aux_db_field.Name%>", 
 			"<%=(_aux_ex_field == null) ? "" : _aux_ex_field.FriendlyName%>", 
 			"<%=(_aux_ex_field == null) ? "" : _aux_ex_field.ExtendedDescription%>", 
-			<%=_aux_db_field.isPK.ToString().ToLower()%>, 
-			<%=_aux_db_field.isIdentity.ToString().ToLower()%>, 
-			<%=_aux_db_field.isNullable.ToString().ToLower()%>, 
+			<%=_aux_db_field.isPK.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=_aux_db_field.isIdentity.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=_aux_db_field.isNullable.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
 			"<%=(_aux_ex_field == null) ? "" : _aux_ex_field.DefaultValue%>", <%--
 			<%=(_aux_ex_field.DefaultValue == string.Empty) ? "null" : _aux_ex_field.DefaultValue%>,
 			<%=(_aux_ex_field.DefaultValue == string.Empty) ? "\"\"" : _aux_ex_field.DefaultValue%>, --%>
 			"<%=_aux_db_field.FKTableName%>", 
 			"<%=_aux_db_field.FKFieldName%>", 
-			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.isConfig_Name.ToString().ToLower()%>, 
-			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.isConfig_Config.ToString().ToLower()%>, 
-			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.isConfig_Datatype.ToString().ToLower()%>, 
-			<%=_aux_db_field.isBool.ToString().ToLower()%>, 
-			<%=_aux_db_field.isDateTime.ToString().ToLower()%>, 
-			<%=_aux_db_field.isInt.ToString().ToLower()%>, 
-			<%=_aux_db_field.isDecimal.ToString().ToLower()%>, 
-			<%=_aux_db_field.isText.ToString().ToLower()%>, 
-			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.isListItemValue.ToString().ToLower()%>, 
-			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.isListItemText.ToString().ToLower()%>, 
+			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.isConfig_Name.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.isConfig_Config.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.isConfig_Datatype.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=_aux_db_field.isBool.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=_aux_db_field.isDateTime.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=_aux_db_field.isInt.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=_aux_db_field.isDecimal.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=_aux_db_field.isText.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.isListItemValue.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.isListItemText.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
 			<%=_aux_db_field.Size%>, 
 			""
 		)]
 		public <%=_aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%> {
 			get {<%
 			if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%>
-				return (<%=_aux_db_field.DBType_generic.FWType%>)((this.<%=_aux_db_field.Name.ToLower()%>_ == null) ? <%=((_aux_ex_field == null) || (_aux_ex_field.DefaultValue == "")) ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_ex_field.DefaultValue%> : this.<%=_aux_db_field.Name.ToLower()%>_);<%
+				return (<%=_aux_db_field.DBType_generic.FWType%>)((this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ == null) ? <%=((_aux_ex_field == null) || (_aux_ex_field.DefaultValue == "")) ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_ex_field.DefaultValue%> : this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_);<%
 			} else {%>
-				return this.<%=_aux_db_field.Name.ToLower()%>_;<%
+				return this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_;<%
 			}%>
 			}
 			set {
 				if (<%
-					if (_aux_db_field.DBType_generic.FWType.ToLower() == "string") {%>
+					if (_aux_db_field.DBType_generic.FWType.Equals("string", StringComparison.CurrentCultureIgnoreCase)) {%>
 					(value != null)
 					&&<%
 					}%>
-					(!value.Equals(this.<%=_aux_db_field.Name.ToLower()%>_))
+					(!value.Equals(this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_))
 				) {
-					this.<%=_aux_db_field.Name.ToLower()%>_ = value;
+					this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = value;
 					this.haschanges_ = true;
 				}
 			}
@@ -232,14 +232,14 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 		[XmlElement("<%=_aux_db_field.Name%>_isNull")]
 		[SoapElement("<%=_aux_db_field.Name%>_isNull")]
 		public bool <%=_aux_db_field.Name%>_isNull {
-			get { return (this.<%=_aux_db_field.Name.ToLower()%>_ == null); }<%
+			get { return (this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ == null); }<%
 			// ToDos: here! fmonteiro
 			if (true || !_aux_db_table.isVirtualTable) {%>
 			set {
-				//if (value) this.<%=_aux_db_field.Name.ToLower()%>_ = null;
+				//if (value) this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = null;
 
-				if ((value) && (this.<%=_aux_db_field.Name.ToLower()%>_ != null)) {
-					this.<%=_aux_db_field.Name.ToLower()%>_ = null;
+				if ((value) && (this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ != null)) {
+					this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = null;
 					this.haschanges_ = true;
 				}
 			}<%
@@ -260,8 +260,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 <%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
-			DataColumn _dc_<%=_aux_db_field.Name.ToLower()%> = new DataColumn("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>));
-			_output.Columns.Add(_dc_<%=_aux_db_field.Name.ToLower()%>);<%
+			DataColumn _dc_<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = new DataColumn("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>));
+			_output.Columns.Add(_dc_<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>);<%
 			}%>
 
 			foreach (SO_<%=_aux_db_table.Name%> _serializableobject in serializableobjects_in) {
@@ -269,7 +269,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 <%
 				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
-				_dr[_dc_<%=_aux_db_field.Name.ToLower()%>] = _serializableobject.<%=_aux_db_field.Name%>;<%
+				_dr[_dc_<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>] = _serializableobject.<%=_aux_db_field.Name%>;<%
 				}%>
 
 				_output.Rows.Add(_dr);
@@ -285,7 +285,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 			_aux_ex_field = _aux_db_field.parallel_ref;%><%=""%>
-			this.<%=_aux_db_field.Name.ToLower()%>_ = <%=
+			this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = <%=
 				(
 					(_aux_ex_field == null) 
 					|| 
@@ -300,7 +300,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {<%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
-			info_in.AddValue("<%=_aux_db_field.Name%>", this.<%=_aux_db_field.Name.ToLower()%>_);<%
+			info_in.AddValue("<%=_aux_db_field.Name%>", this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_);<%
 			if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%>
 			info_in.AddValue("<%=_aux_db_field.Name%>_isNull", this.<%=_aux_db_field.Name%>_isNull);<%
 			}

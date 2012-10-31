@@ -973,7 +973,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 		) {<%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
-			DataColumn _dc_<%=_aux_db_field.Name.ToLower()%> = null;<%
+			DataColumn _dc_<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = null;<%
 			}%>
 
 			SO_<%=_aux_db_table.Name%>[] _output 
@@ -982,21 +982,21 @@ if (!_aux_db_table.isVirtualTable) {%>
 				if (r == 0) {<%
 					for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 						_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
-					_dc_<%=_aux_db_field.Name.ToLower()%> = dataTable_in.Columns["<%=_aux_db_field.Name%>"];<%
+					_dc_<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = dataTable_in.Columns["<%=_aux_db_field.Name%>"];<%
 					}%>
 				}
 
 				_output[r] = new SO_<%=_aux_db_table.Name%>();<%
 				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
-				if (dataTable_in.Rows[r][_dc_<%=_aux_db_field.Name.ToLower()%>] == System.DBNull.Value) {<%
+				if (dataTable_in.Rows[r][_dc_<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>] == System.DBNull.Value) {<%
 					if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%>
 					_output[r].<%=_aux_db_field.Name%>_isNull = true;<%
 					} else {%><%=""%>
-					_output[r].<%=_aux_db_field.Name.ToLower()%>_ = <%=_aux_db_field.DBType_generic.FWEmptyValue%>;<%
+					_output[r].<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = <%=_aux_db_field.DBType_generic.FWEmptyValue%>;<%
 					}%>
 				} else {
-					_output[r].<%=_aux_db_field.Name.ToLower()%>_ = (<%=_aux_db_field.DBType_generic.FWType%>)dataTable_in.Rows[r][_dc_<%=_aux_db_field.Name.ToLower()%>];
+					_output[r].<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = (<%=_aux_db_field.DBType_generic.FWType%>)dataTable_in.Rows[r][_dc_<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>];
 				}<%
 				}%>
 

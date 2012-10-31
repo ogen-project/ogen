@@ -290,39 +290,39 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 							case 1:
 								%>
 		#region public static bool <%=ConfigTable.Rows[r][NameField]%> { get; }
-		private static bool <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_beenRead = false;
+		private static bool <%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_beenRead = false;
 		/// <summary>
 		/// Forces <%=ConfigTable.Rows[r][NameField]%> config to be re-read from Database.
 		/// </summary>
-		public static void <%=ConfigTable.Rows[r][NameField]%>_reset() { <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_beenRead = false; }
-		private static bool <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_ = true;
+		public static void <%=ConfigTable.Rows[r][NameField]%>_reset() { <%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_beenRead = false; }
+		private static bool <%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = true;
 		/// <summary>
 		/// <%=ConfigTable.Rows[r][NameField]%> config which provides access to table <%=_aux_db_table.Name%> at Database.
 		/// </summary>
 		public static bool <%=ConfigTable.Rows[r][NameField]%> {
 			get {
-				if (!<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_beenRead) {
-					#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_ = DO_<%=_aux_db_table.Name%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-					DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
-					<%=_aux_db_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-					<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_ = bool.Parse(<%=_aux_db_table.Name.ToLower()%>.Fields.<%=ConfigField%>);
-					<%=_aux_db_table.Name.ToLower()%>.Dispose(); <%=_aux_db_table.Name.ToLower()%> = null;
+				if (!<%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_beenRead) {
+					#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = DO_<%=_aux_db_table.Name%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+					DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = new DO_<%=_aux_db_table.Name%>();
+					<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+					<%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = bool.Parse(<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.Fields.<%=ConfigField%>);
+					<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.Dispose(); <%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = null;
 					#endregion
 					// ToDos: here! if second assembly instance, one cache could override data from the other
-					//<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_beenRead = true;
+					//<%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_beenRead = true;
 				}
-				return <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_;
+				return <%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_;
 			}
 			set {
-				#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_db_table.Name%>.<%=ConfigField%> = value;
-				DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
-				<%=_aux_db_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-				<%=_aux_db_table.Name.ToLower()%>.Fields.<%=ConfigField%> = value.ToString();
-				<%=_aux_db_table.Name.ToLower()%>.setObject(false);
-				<%=_aux_db_table.Name.ToLower()%>.Dispose(); <%=_aux_db_table.Name.ToLower()%> = null;
+				#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = DO_<%=_aux_db_table.Name%>.<%=ConfigField%> = value;
+				DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = new DO_<%=_aux_db_table.Name%>();
+				<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+				<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.Fields.<%=ConfigField%> = value.ToString();
+				<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.setObject(false);
+				<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.Dispose(); <%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = null;
 
-				<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_ = value;
-				<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_beenRead = true;
+				<%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = value;
+				<%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_beenRead = true;
 				#endregion
 			}
 		}
@@ -331,39 +331,39 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 							case 4:
 								%>
 		#region public static int <%=ConfigTable.Rows[r][NameField]%> { get; }
-		private static int <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>;
-		private static bool <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_beenRead = false;
+		private static int <%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%>;
+		private static bool <%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_beenRead = false;
 		/// <summary>
 		/// Forces <%=ConfigTable.Rows[r][NameField]%> config to be re-read from Database.
 		/// </summary>
-		public static void <%=ConfigTable.Rows[r][NameField]%>_reset() { <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_beenRead = false; }
+		public static void <%=ConfigTable.Rows[r][NameField]%>_reset() { <%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_beenRead = false; }
 		/// <summary>
 		/// <%=ConfigTable.Rows[r][NameField]%> config which provides access to table <%=_aux_db_table.Name%> at Database.
 		/// </summary>
 		public static int <%=ConfigTable.Rows[r][NameField]%> {
 			get {
-				if (!<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_beenRead) {
-					#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_db_table.Name%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-					DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
-					<%=_aux_db_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-					<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = int.Parse(<%=_aux_db_table.Name.ToLower()%>.Fields.<%=ConfigField%>, System.Globalization.CultureInfo.CurrentCulture);
-					<%=_aux_db_table.Name.ToLower()%>.Dispose(); <%=_aux_db_table.Name.ToLower()%> = null;
+				if (!<%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_beenRead) {
+					#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = DO_<%=_aux_db_table.Name%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+					DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = new DO_<%=_aux_db_table.Name%>();
+					<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+					<%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = int.Parse(<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.Fields.<%=ConfigField%>, System.Globalization.CultureInfo.CurrentCulture);
+					<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.Dispose(); <%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = null;
 					#endregion
 					// ToDos: here! if second assembly instance, one cache could override data from the other
-					//<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_beenRead = true;
+					//<%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_beenRead = true;
 				}
-				return <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>;
+				return <%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%>;
 			}
 			set {
-				#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_db_table.Name%>.<%=ConfigField%> = value;
-				DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
-				<%=_aux_db_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-				<%=_aux_db_table.Name.ToLower()%>.Fields.<%=ConfigField%> = value.ToString();
-				<%=_aux_db_table.Name.ToLower()%>.setObject(false);
-				<%=_aux_db_table.Name.ToLower()%>.Dispose(); <%=_aux_db_table.Name.ToLower()%> = null;
+				#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = DO_<%=_aux_db_table.Name%>.<%=ConfigField%> = value;
+				DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = new DO_<%=_aux_db_table.Name%>();
+				<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+				<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.Fields.<%=ConfigField%> = value.ToString();
+				<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.setObject(false);
+				<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.Dispose(); <%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = null;
 
-				<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = value;
-				<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>_beenRead = true;
+				<%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = value;
+				<%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_beenRead = true;
 				#endregion
 			}
 		}
@@ -372,11 +372,11 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 							case 2:
 								%>
 		#region public static string <%=ConfigTable.Rows[r][NameField]%> { get; }
-		private static string <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = null;
+		private static string <%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = null;
 		/// <summary>
 		/// Forces <%=ConfigTable.Rows[r][NameField]%> config to be re-read from Database.
 		/// </summary>
-		public static void <%=ConfigTable.Rows[r][NameField]%>_reset() { <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = null; }
+		public static void <%=ConfigTable.Rows[r][NameField]%>_reset() { <%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = null; }
 		/// <summary>
 		/// <%=ConfigTable.Rows[r][NameField]%> config which provides access to table <%=_aux_db_table.Name%> at Database.
 		/// </summary>
@@ -386,26 +386,26 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 					// ToDos: here! if second assembly instance, one cache could override data from the other
 					true
 					||
-					(<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> == null)
+					(<%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%> == null)
 				) {
-					#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_db_table.Name%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-					DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
-					<%=_aux_db_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-					<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = <%=_aux_db_table.Name.ToLower()%>.Fields.<%=ConfigField%>;
-					<%=_aux_db_table.Name.ToLower()%>.Dispose(); <%=_aux_db_table.Name.ToLower()%> = null;
+					#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = DO_<%=_aux_db_table.Name%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+					DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = new DO_<%=_aux_db_table.Name%>();
+					<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+					<%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = <%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.Fields.<%=ConfigField%>;
+					<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.Dispose(); <%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = null;
 					#endregion
 				}
-				return <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>;
+				return <%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%>;
 			}
 			set {
-				#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_db_table.Name%>.<%=ConfigField%> = value;
-				DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
-				<%=_aux_db_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-				<%=_aux_db_table.Name.ToLower()%>.Fields.<%=ConfigField%> = value;
-				<%=_aux_db_table.Name.ToLower()%>.setObject(false);
-				<%=_aux_db_table.Name.ToLower()%>.Dispose(); <%=_aux_db_table.Name.ToLower()%> = null;
+				#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = DO_<%=_aux_db_table.Name%>.<%=ConfigField%> = value;
+				DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = new DO_<%=_aux_db_table.Name%>();
+				<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+				<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.Fields.<%=ConfigField%> = value;
+				<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.setObject(false);
+				<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.Dispose(); <%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = null;
 
-				<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = value;
+				<%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = value;
 				#endregion
 			}
 		}
@@ -414,11 +414,11 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 							case 3:
 								%>
 		#region public static string[] <%=ConfigTable.Rows[r][NameField]%> { get; }
-		private static string[] <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = null;
+		private static string[] <%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = null;
 		/// <summary>
 		/// Forces <%=ConfigTable.Rows[r][NameField]%> config to be re-read from Database.
 		/// </summary>
-		public static void <%=ConfigTable.Rows[r][NameField]%>_reset() { <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = null; }
+		public static void <%=ConfigTable.Rows[r][NameField]%>_reset() { <%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = null; }
 		/// <summary>
 		/// <%=ConfigTable.Rows[r][NameField]%> config which provides access to table <%=_aux_db_table.Name%> at Database.
 		/// </summary>
@@ -428,26 +428,26 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 					// ToDos: here! if second assembly instance, one cache could override data from the other
 					true
 					||
-					(<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> == null)
+					(<%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%> == null)
 				) {
-					#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_db_table.Name%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-					DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
-					<%=_aux_db_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
-					<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = <%=_aux_db_table.Name.ToLower()%>.Fields.<%=ConfigField%>.Split((char)10);
-					<%=_aux_db_table.Name.ToLower()%>.Dispose(); <%=_aux_db_table.Name.ToLower()%> = null;
+					#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = DO_<%=_aux_db_table.Name%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+					DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = new DO_<%=_aux_db_table.Name%>();
+					<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+					<%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = <%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.Fields.<%=ConfigField%>.Split((char)10);
+					<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.Dispose(); <%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = null;
 					#endregion
 				}
-				return <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%>;
+				return <%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%>;
 			}
 			set {
-				#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = DO_<%=_aux_db_table.Name%>.<%=ConfigField%> = value;
-				DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower()%> = new DO_<%=_aux_db_table.Name%>();
-				<%=_aux_db_table.Name.ToLower()%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
+				#region <%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = DO_<%=_aux_db_table.Name%>.<%=ConfigField%> = value;
+				DO_<%=_aux_db_table.Name%> <%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = new DO_<%=_aux_db_table.Name%>();
+				<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.getObject("<%=ConfigTable.Rows[r][NameField]%>");
 
 
-				<%=_aux_db_table.Name.ToLower()%>.Fields.<%=ConfigField%> = string.Empty;
+				<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.Fields.<%=ConfigField%> = string.Empty;
 				for (int i = 0; i < value.Length; i++) {
-					<%=_aux_db_table.Name.ToLower()%>.Fields.<%=ConfigField%> += string.Format(
+					<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.Fields.<%=ConfigField%> += string.Format(
 						System.Globalization.CultureInfo.CurrentCulture,
 						"{0}{1}",
 						(i != 0) ? ((char)10).ToString() : string.Empty, 
@@ -456,10 +456,10 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 				}
 
 
-				<%=_aux_db_table.Name.ToLower()%>.setObject(false);
-				<%=_aux_db_table.Name.ToLower()%>.Dispose(); <%=_aux_db_table.Name.ToLower()%> = null;
+				<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.setObject(false);
+				<%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>.Dispose(); <%=_aux_db_table.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = null;
 
-				<%=((string)ConfigTable.Rows[r][NameField]).ToLower()%> = value;
+				<%=((string)ConfigTable.Rows[r][NameField]).ToLower(System.Globalization.CultureInfo.CurrentCulture)%> = value;
 				#endregion
 			}
 		}

@@ -118,9 +118,9 @@ namespace OGen.lib {
 			string value_in,
 			bool ignoreCase_in
 		) {
-			string _value = ignoreCase_in ? value_in.ToLower() : value_in;
+			string _value = ignoreCase_in ? value_in.ToLower(System.Globalization.CultureInfo.CurrentCulture) : value_in;
 			for (int i = 0; i < array_in.Length; i++) {
-				if ((ignoreCase_in ? array_in[i].ToLower() : array_in[i]) == _value) {
+				if ((ignoreCase_in ? array_in[i].ToLower(System.Globalization.CultureInfo.CurrentCulture) : array_in[i]) == _value) {
 					return true;
 				}
 			}

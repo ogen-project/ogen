@@ -102,7 +102,7 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 		nameCase_defaultProvider="<%=_aux_ex_metadata.DBs.NameCase_defaultProvider%>"
 		description_defaultProvider="<%=_aux_ex_metadata.DBs.Description_defaultProvider%>"><%
 	for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {%>
-		<db dbServerType="<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType%>" generateSQL="<%=_aux_ex_metadata.DBs.DBCollection[d].GenerateSQL.ToString().ToLower()%>" connectionString="<%=_aux_ex_metadata.DBs.DBCollection[d].ConnectionString%>" /><%
+		<db dbServerType="<%=_aux_ex_metadata.DBs.DBCollection[d].DBServerType%>" generateSQL="<%=_aux_ex_metadata.DBs.DBCollection[d].GenerateSQL.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>" connectionString="<%=_aux_ex_metadata.DBs.DBCollection[d].ConnectionString%>" /><%
 	}%>
 	</dbs>
 	<tables>
@@ -130,7 +130,7 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 		<table name="<%=_aux_db_table.Name
 			%>" friendlyName="<%=(_aux_ex_table != null) ? _aux_ex_table.FriendlyName : ""
 			%>" extendedDescription="<%=(_aux_ex_table != null) ? _aux_ex_table.ExtendedDescription : ""
-			%>" isConfig="<%=(_aux_ex_table != null) ? _aux_ex_table.isConfig.ToString().ToLower() : "false"
+			%>" isConfig="<%=(_aux_ex_table != null) ? _aux_ex_table.isConfig.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture) : "false"
 			%>" configName="<%=(_aux_ex_table != null) ? _aux_ex_table.ConfigName : ""
 			%>" configConfig="<%=(_aux_ex_table != null) ? _aux_ex_table.ConfigConfig : ""
 			%>" configDatatype="<%=(_aux_ex_table != null) ? _aux_ex_table.ConfigDatatype : ""%>">
@@ -139,12 +139,12 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 				_aux_ex_field = _aux_db_field.parallel_ref;%>
 				<tableField name="<%=_aux_db_field.Name
-					%>" isViewPK="<%=(_aux_ex_field != null) ? (_aux_ex_field.isViewPK.ToString().ToLower()) : "false"
+					%>" isViewPK="<%=(_aux_ex_field != null) ? (_aux_ex_field.isViewPK.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)) : "false"
 					%>" defaultValue="<%=(_aux_ex_field != null) ? _aux_ex_field.DefaultValue : ""
 					%>" friendlyName="<%=(_aux_ex_field != null) ? _aux_ex_field.FriendlyName : ""
 					%>" extendedDescription="<%=(_aux_ex_field != null) ? _aux_ex_field.ExtendedDescription : ""
-					%>" isListItemValue="<%=(_aux_ex_field != null) ? (_aux_ex_field.isListItemValue.ToString().ToLower()) : "false"
-					%>" isListItemText="<%=(_aux_ex_field != null) ? (_aux_ex_field.isListItemText.ToString().ToLower()) : "false"%>" /><%
+					%>" isListItemValue="<%=(_aux_ex_field != null) ? (_aux_ex_field.isListItemValue.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)) : "false"
+					%>" isListItemText="<%=(_aux_ex_field != null) ? (_aux_ex_field.isListItemText.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)) : "false"%>" /><%
 			}%>
 			</tableFields>
 			<tableSearches><%
@@ -152,8 +152,8 @@ if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.Copyri
 				for (int s = 0; s < _aux_ex_table.TableSearches.TableSearchCollection.Count; s++) {
 					_aux_ex_search = _aux_ex_table.TableSearches.TableSearchCollection[s];%>
 				<tableSearch name="<%=_aux_ex_search.Name
-					%>" isRange="<%=_aux_ex_search.isRange.ToString().ToLower()
-					%>" isExplicitUniqueIndex="<%=_aux_ex_search.isExplicitUniqueIndex.ToString().ToLower()%>"<%=
+					%>" isRange="<%=_aux_ex_search.isRange.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)
+					%>" isExplicitUniqueIndex="<%=_aux_ex_search.isExplicitUniqueIndex.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>"<%=
 						(
 							(_aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count != 0)
 							||
