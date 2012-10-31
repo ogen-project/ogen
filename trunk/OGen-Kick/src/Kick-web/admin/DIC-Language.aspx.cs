@@ -54,7 +54,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
 			if (!Page.IsPostBack) {
-				int[] _errors;
+				//int[] _errors;
 
 				Bind();
 			}

@@ -12,14 +12,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-//using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared.instances;
 
 namespace OGen.NTier.Kick.presentationlayer.console {
+	using System;
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	//using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.lib.businesslayer.shared.instances;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+
 	class Program {
 		static void Main(string[] args) {
 
