@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
 
 namespace OGen.NTier.lib.datalayer {
+	using System;
+	using System.Data;
+
 	/// <summary>
 	/// DataObject interface.
 	/// </summary>

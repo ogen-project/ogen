@@ -12,9 +12,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
 
 namespace OGen.NTier.lib.datalayer {
+	using System;
+
 	/// <summary>
 	/// DataObject Class Attribute.
 	/// </summary>
@@ -35,12 +36,12 @@ namespace OGen.NTier.lib.datalayer {
 			bool			isVirtualTable_in, 
 			bool			isConfig_in
 		) {
-			name_					= name_in;
-			friendlyname_			= friendlyName_in;
-			dbdescription_			= dbDescription_in;
-			extendeddescription_	= extendedDescription_in;
-			isvirtualtable_			= isVirtualTable_in;
-			isconfig_				= isConfig_in;
+			this.name_ = name_in;
+			this.friendlyname_ = friendlyName_in;
+			this.dbdescription_ = dbDescription_in;
+			this.extendeddescription_ = extendedDescription_in;
+			this.isvirtualtable_ = isVirtualTable_in;
+			this.isconfig_ = isConfig_in;
 		}
 		#endregion
 
@@ -51,7 +52,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Name
 		/// </summary>
 		public string Name {
-			get { return name_; }
+			get { return this.name_; }
 		}
 		#endregion
 		#region public string FriendlyName { get; }
@@ -61,7 +62,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Friendly name
 		/// </summary>
 		public string FriendlyName {
-			get { return friendlyname_; }
+			get { return this.friendlyname_; }
 		}
 		#endregion
 		#region public string DBDescription { get; }
@@ -71,7 +72,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Description at Database
 		/// </summary>
 		public string DBDescription {
-			get { return dbdescription_; }
+			get { return this.dbdescription_; }
 		}
 		#endregion
 		#region public string ExtendedDescription { get; }
@@ -81,7 +82,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Extended description
 		/// </summary>
 		public string ExtendedDescription {
-			get { return extendeddescription_; }
+			get { return this.extendeddescription_; }
 		}
 		#endregion
 		#region public bool isVirtualTable { get; }
@@ -91,7 +92,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Indicates if it is a View or Table. True if it is a View, False if it is a Table.
 		/// </summary>
 		public bool isVirtualTable {
-			get { return isvirtualtable_; }
+			get { return this.isvirtualtable_; }
 		}
 		#endregion
 		#region public bool isConfig { get; }
@@ -101,7 +102,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Indicates if it is a Config Table.
 		/// </summary>
 		public bool isConfig {
-			get { return isconfig_; }
+			get { return this.isconfig_; }
 		}
 		#endregion
 	}

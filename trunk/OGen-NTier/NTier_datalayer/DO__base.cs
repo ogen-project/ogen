@@ -12,12 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-
-using OGen.lib.datalayer;
 
 namespace OGen.NTier.lib.datalayer {
+	using System;
+	using System.Data;
+
+	using OGen.lib.datalayer;
+
 	/// <summary>
 	/// base implementation class for DataObject classes.
 	/// </summary>
@@ -66,33 +67,33 @@ namespace OGen.NTier.lib.datalayer {
 			bool connection_insideInstance_in,
 			string logfile_in
 		) {
-			connection__ = connection_in;
-			connection_dbservertype_ = dbServerType_in;
-			connection_connectionstring_ = connectionstring_in;
-			connection_insideinstance_ = connection_insideInstance_in;
+			this.connection__ = connection_in;
+			this.connection_dbservertype_ = dbServerType_in;
+			this.connection_connectionstring_ = connectionstring_in;
+			this.connection_insideinstance_ = connection_insideInstance_in;
 
 			if (logfile_in == null) {
-				logenabled_ = false;
-				logfile_ = null;
+				this.logenabled_ = false;
+				this.logfile_ = null;
 			} else {
-				logenabled_ = true;
-				logfile_ = logfile_in;
+				this.logenabled_ = true;
+				this.logfile_ = logfile_in;
 			}
 		}
 		///
 		~DO__base() {
-			Dispose(false);
+			this.Dispose(false);
 		}
 		/// <summary>
 		/// Disposes any instantiated Connection.
 		/// </summary>
 		public void Dispose() {
-			Dispose(true);
+			this.Dispose(true);
 			System.GC.SuppressFinalize(this);
 		}
 		private void Dispose(bool disposing_in) {
-			if (connection_insideinstance_ && (connection__ != null)) {
-				connection__.Dispose(); connection__ = null;
+			if (this.connection_insideinstance_ && (this.connection__ != null)) {
+				this.connection__.Dispose(); this.connection__ = null;
 			}
 		}
 //		#endregion
@@ -116,38 +117,38 @@ namespace OGen.NTier.lib.datalayer {
 
 				// check before lock
 				if (
-					connection_insideinstance_
+					this.connection_insideinstance_
 					&&
-					(connection__ == null)
+					(this.connection__ == null)
 				) {
 
-					lock (connection__locker) {
+					lock (this.connection__locker) {
 
 						// double check, thread safer!
 						if (
-							connection_insideinstance_
+							this.connection_insideinstance_
 							&&
-							(connection__ == null)
+							(this.connection__ == null)
 						) {
 
 							// instantiating for the first time and
 							// only because it became needed, otherwise
 							// never instantiated...
 
-							if (logenabled_) {
+							if (this.logenabled_) {
 								// initialization...
 								// ...attribution (last thing before unlock)
-								connection__ = DBConnection_createInstance(
-									connection_dbservertype_,
-									connection_connectionstring_,
-									logfile_
+								this.connection__ = this.DBConnection_createInstance(
+									this.connection_dbservertype_,
+									this.connection_connectionstring_,
+									this.logfile_
 								);
 							} else {
 								// initialization...
 								// ...attribution (last thing before unlock)
-								connection__ = DBConnection_createInstance(
-									connection_dbservertype_,
-									connection_connectionstring_, 
+								this.connection__ = this.DBConnection_createInstance(
+									this.connection_dbservertype_,
+									this.connection_connectionstring_, 
 									null
 								);
 							}
@@ -155,7 +156,7 @@ namespace OGen.NTier.lib.datalayer {
 					}
 				}
 
-				return connection__;
+				return this.connection__;
 			}
 		}
 //		#endregion

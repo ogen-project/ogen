@@ -12,12 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 
 namespace OGen.NTier.lib.distributedlayer.remoting {
+	using System;
+	using System.Collections.Generic;
+	using System.IO;
+	using System.Security.Cryptography;
+
 #if NET_1_1
 	public class EncryptionHelper { private EncryptionHelper() { }
 #else

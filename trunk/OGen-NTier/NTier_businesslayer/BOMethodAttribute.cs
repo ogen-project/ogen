@@ -12,9 +12,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
 
 namespace OGen.NTier.lib.businesslayer {
+	using System;
+
 	/// <summary>
 	/// BusinessObject Method Attribute.
 	/// </summary>
@@ -31,10 +32,10 @@ namespace OGen.NTier.lib.businesslayer {
 			bool isSearch_in,
 			int ipParamNum_in
 		) {
-			name_ = name_in;
-			distribute_ = distribute_in;
-			issearch_ = isSearch_in;
-			ipparamnum_ = ipParamNum_in;
+			this.name_ = name_in;
+			this.distribute_ = distribute_in;
+			this.issearch_ = isSearch_in;
+			this.ipparamnum_ = ipParamNum_in;
 		}
 
 		/// <param name="name_in">Name</param>
@@ -59,7 +60,7 @@ namespace OGen.NTier.lib.businesslayer {
 		/// Name
 		/// </summary>
 		public string Name {
-			get { return name_; }
+			get { return this.name_; }
 		}
 		#endregion
 		#region public bool Distribute { get; }

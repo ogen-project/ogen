@@ -12,23 +12,24 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections;
-
-using OGen.lib.datalayer;
 
 namespace OGen.NTier.lib.datalayer {
+	using System;
+	using System.Collections;
+
+	using OGen.lib.datalayer;
+
 	public class Config_DBConnectionstrings {
 		#region public Config_DBConnectionstrings();
 		/// <summary>
 		/// Used to store config file connection strings.
 		/// </summary>
 		public Config_DBConnectionstrings(string application_in) {
-			dbconnections_ = new System.Collections.Hashtable(
+			this.dbconnections_ = new System.Collections.Hashtable(
 				DBServerTypes(application_in).Length
 			);
 			for (int _db = 0; _db < DBServerTypes(application_in).Length; _db++) {
-				Add(
+				this.Add(
 					DBServerTypes(application_in)[_db], 
 					Config_DBConnectionstring.newConfig_DBConnectionstring(
 						#if !NET_1_1
@@ -62,14 +63,14 @@ namespace OGen.NTier.lib.datalayer {
 		#region public DBConnection this[string dbServerType_in] { get; }
 		public Config_DBConnectionstring this[string dbServerType_in] {
 			get {
-				return (Config_DBConnectionstring)dbconnections_[dbServerType_in];
+				return (Config_DBConnectionstring)this.dbconnections_[dbServerType_in];
 
 			}
 		}
 		#endregion
 		#region public int Count { get; }
 		public int Count {
-			get { return dbconnections_.Count; }
+			get { return this.dbconnections_.Count; }
 		}
 		#endregion
 		#endregion
@@ -116,7 +117,7 @@ namespace OGen.NTier.lib.datalayer {
 			string dbServerType_in, 
 			Config_DBConnectionstring dbConnection_in
 		) {
-			dbconnections_.Add(
+			this.dbconnections_.Add(
 				dbServerType_in,
 				dbConnection_in
 			);

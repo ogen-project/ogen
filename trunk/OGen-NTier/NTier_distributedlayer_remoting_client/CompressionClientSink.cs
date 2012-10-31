@@ -12,15 +12,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Collections;
-using System.Runtime.Remoting.Channels;
-using System.Runtime.Remoting.Messaging;
-
-using OGen.NTier.lib.distributedlayer.remoting;
 
 namespace OGen.NTier.lib.distributedlayer.remoting.client {
+	using System;
+	using System.Collections;
+	using System.IO;
+	using System.Runtime.Remoting.Channels;
+	using System.Runtime.Remoting.Messaging;
+
+	using OGen.NTier.lib.distributedlayer.remoting;
+
 	public class CompressionClientSink : 
 		BaseChannelSinkWithProperties, 
 		IClientChannelSink
@@ -29,7 +30,7 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 		public CompressionClientSink(
 			IClientChannelSink nextChannelSink_in
 		) {
-			nextchannelsink_ = nextChannelSink_in;
+			this.nextchannelsink_ = nextChannelSink_in;
 		} 
 		#endregion
 
@@ -37,7 +38,7 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 		private IClientChannelSink nextchannelsink_;
 
 		public IClientChannelSink NextChannelSink {
-			get { return nextchannelsink_; }
+			get { return this.nextchannelsink_; }
 		} 
 		#endregion
 
@@ -69,7 +70,7 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 			#endregion
 
 			sinkStack_in.Push(this, null);
-			nextchannelsink_.AsyncProcessRequest(
+			this.nextchannelsink_.AsyncProcessRequest(
 				sinkStack_in,
 				msg_in,
 				headers_in,
@@ -104,7 +105,7 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 			IMessage msg_in,
 			ITransportHeaders headers_in
 		) {
-			return nextchannelsink_.GetRequestStream(
+			return this.nextchannelsink_.GetRequestStream(
 				msg_in,
 				headers_in
 			);
@@ -127,7 +128,7 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 				); 
 			#endregion
 
-			nextchannelsink_.ProcessMessage(
+			this.nextchannelsink_.ProcessMessage(
 				msg_in,
 				requestHeaders_in,
 				requestStream_in,

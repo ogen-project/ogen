@@ -12,13 +12,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Runtime.Remoting.Channels;
-using System.Runtime.Remoting.Messaging;
-using System.Net;
 
 namespace OGen.NTier.lib.distributedlayer.remoting.server {
+	using System;
+	using System.IO;
+	using System.Net;
+	using System.Runtime.Remoting.Channels;
+	using System.Runtime.Remoting.Messaging;
+
 	public class ClientIPAddressServerSink : 
 		BaseChannelObjectWithProperties, 
 		IServerChannelSink, 
@@ -28,7 +29,7 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 		public ClientIPAddressServerSink(
 			IServerChannelSink nextChannelSink_in
 		) {
-			nextchannelsink_ = nextChannelSink_in;
+			this.nextchannelsink_ = nextChannelSink_in;
 		}
 		#endregion
 
@@ -37,7 +38,7 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 
 		public IServerChannelSink NextChannelSink {
 			get {
-				return nextchannelsink_;
+				return this.nextchannelsink_;
 			}
 		}
 		#endregion
@@ -83,12 +84,12 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 			out ITransportHeaders responseHeaders_out,
 			out Stream responseStream_out
 		) {
-			if (nextchannelsink_ != null) {
+			if (this.nextchannelsink_ != null) {
 				CallContext.SetData(
 					"ClientIPAddress", 
 					((IPAddress)requestHeaders_in[CommonTransportKeys.IPAddress]).ToString()
 				);
-				ServerProcessing _serverprocessing = NextChannelSink.ProcessMessage(
+				ServerProcessing _serverprocessing = this.NextChannelSink.ProcessMessage(
 					sinkStack_in,
 					requestMsg_in,
 					requestHeaders_in,

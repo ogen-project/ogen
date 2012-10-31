@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
 
 namespace OGen.NTier.lib.datalayer {
+	using System;
+	using System.Data;
+
 	/// <summary>
 	/// base implementation class for RecordObject classes.
 	/// </summary>
@@ -27,8 +28,8 @@ namespace OGen.NTier.lib.datalayer {
 		protected RO__base(
 			DO__base dataObject_in
 		) {
-			dataobject_ = dataObject_in;
-			isopened_ = false;
+			this.dataobject_ = dataObject_in;
+			this.isopened_ = false;
 		}
 
 		#region Exceptions...
@@ -77,19 +78,19 @@ namespace OGen.NTier.lib.datalayer {
 		public int Current {
 			get {
 				#region Checking...
-				if (!isopened_)
+				if (!this.isopened_)
 					throw new InvalidRecordStateException_Closed();
 				#endregion
 
-				return current__;
+				return this.current__;
 			}
 			set {
 				#region Checking...
-				if (!isopened_)
+				if (!this.isopened_)
 					throw new InvalidRecordStateException_Closed();
 				#endregion
 
-				current__ = value;
+				this.current__ = value;
 			}
 		}
 		#endregion
@@ -100,7 +101,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Indicates if Record is open, True if is open, False if not.
 		/// </summary>
 		public bool isOpened {
-			get { return isopened_; }
+			get { return this.isopened_; }
 		}
 		#endregion
 		#region public int Count { get; }
@@ -108,7 +109,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Represents number of items in the Record.
 		/// </summary>
 		public int Count {
-			get { return Record.Rows.Count; }
+			get { return this.Record.Rows.Count; }
 		}
 		#endregion
 		#region public virtual DataTable Record { get; }
@@ -123,11 +124,11 @@ namespace OGen.NTier.lib.datalayer {
 		public virtual DataTable Record {
 			get {
 				#region Checking...
-				if (!isopened_)
+				if (!this.isopened_)
 					throw new InvalidRecordStateException_Closed();
 				#endregion
 
-				return record__;
+				return this.record__;
 			}
 		}
 		#endregion
@@ -148,13 +149,13 @@ namespace OGen.NTier.lib.datalayer {
 		/// </remarks>
 		public virtual void Open(DataTable dataTable_in) {
 			#region Checking...
-			if (isopened_)
+			if (this.isopened_)
 				throw new InvalidRecordStateException_alreadyOpened();
 			#endregion
 
-			record__ = dataTable_in;
-			current__ = -1;
-			isopened_ = true;
+			this.record__ = dataTable_in;
+			this.current__ = -1;
+			this.isopened_ = true;
 		}
 
 		public virtual void Open(
@@ -163,7 +164,7 @@ namespace OGen.NTier.lib.datalayer {
 			int page_numRecords_in
 		) {
 			#region Checking...
-			if (isopened_)
+			if (this.isopened_)
 				throw new InvalidRecordStateException_alreadyOpened();
 			#endregion
 
@@ -187,9 +188,9 @@ namespace OGen.NTier.lib.datalayer {
 			}
 			#endregion
 
-			record__ = _datatable;
-			current__ = -1;
-			isopened_ = true;
+			this.record__ = _datatable;
+			this.current__ = -1;
+			this.isopened_ = true;
 		}
 
 		//public virtual void Open(string Query_) {
@@ -205,13 +206,13 @@ namespace OGen.NTier.lib.datalayer {
 		/// </exception>
 		public virtual void Open(string query_in) {
 			#region Checking...
-			if (isopened_)
+			if (this.isopened_)
 				throw new InvalidRecordStateException_alreadyOpened();
 			#endregion
 
-			record__ = dataobject_.Connection.Execute_SQLQuery_returnDataTable(query_in);
-			current__ = -1;
-			isopened_ = true;
+			this.record__ = this.dataobject_.Connection.Execute_SQLQuery_returnDataTable(query_in);
+			this.current__ = -1;
+			this.isopened_ = true;
 		}
 
 		/// <summary>
@@ -224,13 +225,13 @@ namespace OGen.NTier.lib.datalayer {
 		/// </exception>
 		public virtual void Open(string function_in, IDbDataParameter[] dataParameters_in) {
 			#region Checking...
-			if (isopened_)
+			if (this.isopened_)
 				throw new InvalidRecordStateException_alreadyOpened();
 			#endregion
 
-			record__ = dataobject_.Connection.Execute_SQLFunction_returnDataTable(function_in, dataParameters_in);
-			current__ = -1;
-			isopened_ = true;
+			this.record__ = this.dataobject_.Connection.Execute_SQLFunction_returnDataTable(function_in, dataParameters_in);
+			this.current__ = -1;
+			this.isopened_ = true;
 		}
 		#endregion
 		#region public virtual bool Read(...);
@@ -249,15 +250,15 @@ namespace OGen.NTier.lib.datalayer {
 		/// </exception>
 		protected bool read() {
 			#region Checking...
-			if (!isopened_)
+			if (!this.isopened_)
 				throw new InvalidRecordStateException_Closed();
 			#endregion
 
-			if (EOR())
+			if (this.EOR())
 				return false;
 			else {
 
-				current__++;
+				this.current__++;
 				return true;
 			}
 		}
@@ -267,7 +268,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Points current iteration to the Beginning of the Record.
 		/// </summary>
 		public virtual void Reset() {
-			current__ = -1;
+			this.current__ = -1;
 		}
 		#endregion
 		#region public virtual bool EOR(...);
@@ -280,11 +281,11 @@ namespace OGen.NTier.lib.datalayer {
 		/// </exception>
 		public virtual bool EOR() {
 			#region Checking...
-			if (!isopened_)
+			if (!this.isopened_)
 				throw new InvalidRecordStateException_Closed();
 			#endregion
 
-			return (current__ == record__.Rows.Count -1);
+			return (this.current__ == this.record__.Rows.Count - 1);
 		}
 		#endregion
 		#region public virtual void Close(...);
@@ -296,12 +297,12 @@ namespace OGen.NTier.lib.datalayer {
 		/// </exception>
 		public virtual void Close() {
 			#region Checking...
-			if (!isopened_)
+			if (!this.isopened_)
 				throw new InvalidRecordStateException_Closed();
 			#endregion
 
-			record__.Dispose(); record__ = null;
-			isopened_ = false;
+			this.record__.Dispose(); this.record__ = null;
+			this.isopened_ = false;
 		}
 		#endregion
 		#endregion

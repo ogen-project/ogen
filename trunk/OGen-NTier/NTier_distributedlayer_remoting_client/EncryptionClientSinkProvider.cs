@@ -12,13 +12,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Collections;
-using System.Runtime.Remoting.Channels;
-using System.Runtime.Remoting.Messaging;
 
 namespace OGen.NTier.lib.distributedlayer.remoting.client {
+	using System;
+	using System.Collections;
+	using System.IO;
+	using System.Runtime.Remoting.Channels;
+	using System.Runtime.Remoting.Messaging;
+
 	public class EncryptionClientSinkProvider :
 		IClientChannelSinkProvider
 	{
@@ -27,8 +28,8 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 			IDictionary properties_in,
 			ICollection providerData_in
 		) {
-			keyspath_ = (string)properties_in["keysPath"];
-			clientid_ = (string)properties_in["clientID"];
+			this.keyspath_ = (string)properties_in["keysPath"];
+			this.clientid_ = (string)properties_in["clientID"];
 		} 
 		#endregion
 
@@ -36,8 +37,8 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 		private IClientChannelSinkProvider next_;
 
 		public IClientChannelSinkProvider Next {
-			get { return next_; }
-			set { next_ = value; }
+			get { return this.next_; }
+			set { this.next_ = value; }
 		} 
 		#endregion
 		private string keyspath_;
@@ -49,16 +50,16 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 			string url_in,
 			object remoteChannelData_in
 		) {
-			IClientChannelSink _next = next_.CreateSink(
+			IClientChannelSink _next = this.next_.CreateSink(
 				channel_in,
 				url_in,
 				remoteChannelData_in
 			);
 
 			return new EncryptionClientSink(
-				_next, 
-				keyspath_, 
-				clientid_
+				_next,
+				this.keyspath_,
+				this.clientid_
 			);
 		} 
 		#endregion

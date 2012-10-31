@@ -12,33 +12,34 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Reflection;
 
 namespace OGen.NTier.lib.datalayer {
+	using System;
+	using System.Reflection;
+
 	public struct DOProperty_andAttribute {
 		#region public DOProperty_andAttribute(...);
 		public DOProperty_andAttribute(
 			PropertyInfo doProperty_in, 
 			DOPropertyAttribute doAttribute_in
 		) {
-			doproperty_ = doProperty_in;
-			doattribute_ = doAttribute_in;
+			this.doproperty_ = doProperty_in;
+			this.doattribute_ = doAttribute_in;
 		}
 		#endregion
 
 		#region public PropertyInfo DOProperty { get; set; }
 		private PropertyInfo doproperty_;
 		public PropertyInfo DOProperty {
-			get { return doproperty_;  }
-			set { doproperty_ = value;  }
+			get { return this.doproperty_;  }
+			set { this.doproperty_ = value;  }
 		}
 		#endregion
 		#region public DOPropertyAttribute DOAttribute { get; set; }
 		private DOPropertyAttribute doattribute_;
 		public DOPropertyAttribute DOAttribute {
-			get { return doattribute_; }
-			set { doattribute_ = value; }
+			get { return this.doattribute_; }
+			set { this.doattribute_ = value; }
 		}
 		#endregion
 

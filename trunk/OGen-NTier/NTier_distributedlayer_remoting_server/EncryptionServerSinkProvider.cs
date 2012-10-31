@@ -12,13 +12,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Collections;
-using System.Runtime.Remoting.Channels;
-using System.Runtime.Remoting.Messaging;
 
 namespace OGen.NTier.lib.distributedlayer.remoting.server {
+	using System;
+	using System.Collections;
+	using System.IO;
+	using System.Runtime.Remoting.Channels;
+	using System.Runtime.Remoting.Messaging;
+
 	public class EncryptionServerSinkProvider :
 		IServerChannelSinkProvider
 	{
@@ -31,8 +32,8 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 			Console.WriteLine("initiating encryption sink provider");
 #endif
 
-			keyspath_ = (string)properties_in["keysPath"];
-			mustdo_ = bool.Parse((string)properties_in["mustDo"]);
+			this.keyspath_ = (string)properties_in["keysPath"];
+			this.mustdo_ = bool.Parse((string)properties_in["mustDo"]);
 		} 
 		#endregion
 
@@ -41,10 +42,10 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 
 		public IServerChannelSinkProvider Next {
 			get {
-				return next_;
+				return this.next_;
 			}
 			set {
-				next_ = value;
+				this.next_ = value;
 			}
 		}
 		#endregion
@@ -55,14 +56,14 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 		public IServerChannelSink CreateSink(
 			IChannelReceiver channel_in
 		) {
-			IServerChannelSink _next = next_.CreateSink(
+			IServerChannelSink _next = this.next_.CreateSink(
 				channel_in
 			);
 
 			return new EncryptionServerSink(
-				_next, 
-				keyspath_, 
-				mustdo_
+				_next,
+				this.keyspath_,
+				this.mustdo_
 			);
 		}
 		#endregion

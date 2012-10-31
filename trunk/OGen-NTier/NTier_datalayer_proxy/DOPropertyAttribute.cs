@@ -12,9 +12,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
 
 namespace OGen.NTier.lib.datalayer {
+	using System;
+
 	/// <summary>
 	/// DataObject Property Attribute.
 	/// </summary>
@@ -63,28 +64,28 @@ namespace OGen.NTier.lib.datalayer {
 			int				size_in, 
 			string			aditionalInfo_in
 		) {
-			name_					= name_in;
-			friendlyname_			= friendlyName_in;
-//			dbdescription_			= dbDescription_in;
-			extendeddescription_	= extendedDescription_in;
-			ispk_					= isPK_in;
-			isidentity_				= isIdentity_in;
-			isnullable_				= isNullable_in;
-			defaultvalue_			= defaultValue_in;
-			fk_tablename_			= fk_TableName_in;
-			fk_fieldname_			= fk_FieldName_in;
-			isconfig_name_			= isConfig_Name_in;
-			isconfig_config_		= isConfig_Config_in;
-			isconfig_datatype_		= isConfig_Datatype_in;
-			isbool_					= isBool_in;
-			isdatetime_				= isDateTime_in;
-			isint_					= isInt_in;
-			isdecimal_				= isDecimal_in;
-			istext_					= isText_in;
-			islistitemvalue_		= isListItemValue_in;
-			islistitemtext_			= isListItemText_in;
-			size_					= size_in;
-			aditionalinfo_			= aditionalInfo_in;
+			this.name_ = name_in;
+			this.friendlyname_ = friendlyName_in;
+//			this.dbdescription_ = dbDescription_in;
+			this.extendeddescription_ = extendedDescription_in;
+			this.ispk_ = isPK_in;
+			this.isidentity_ = isIdentity_in;
+			this.isnullable_ = isNullable_in;
+			this.defaultvalue_ = defaultValue_in;
+			this.fk_tablename_ = fk_TableName_in;
+			this.fk_fieldname_ = fk_FieldName_in;
+			this.isconfig_name_ = isConfig_Name_in;
+			this.isconfig_config_ = isConfig_Config_in;
+			this.isconfig_datatype_ = isConfig_Datatype_in;
+			this.isbool_ = isBool_in;
+			this.isdatetime_ = isDateTime_in;
+			this.isint_ = isInt_in;
+			this.isdecimal_ = isDecimal_in;
+			this.istext_ = isText_in;
+			this.islistitemvalue_ = isListItemValue_in;
+			this.islistitemtext_ = isListItemText_in;
+			this.size_ = size_in;
+			this.aditionalinfo_ = aditionalInfo_in;
 		}
 //		#endregion
 
@@ -95,7 +96,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Name
 		/// </summary>
 		public string Name {
-			get { return name_; }
+			get { return this.name_; }
 		}
 		#endregion
 		#region public string FriendlyName { get; }
@@ -105,7 +106,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Friendly name
 		/// </summary>
 		public string FriendlyName {
-			get { return friendlyname_; }
+			get { return this.friendlyname_; }
 		}
 		#endregion
 //        #region public string DBDescription { get; }
@@ -125,7 +126,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Extended description
 		/// </summary>
 		public string ExtendedDescription {
-			get { return extendeddescription_; }
+			get { return this.extendeddescription_; }
 		}
 		#endregion
 		#region public bool isPK { get; }
@@ -135,7 +136,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Indicates if it is a Primary Key. True if it is a Primary Key, False if not.
 		/// </summary>
 		public bool isPK {
-			get { return ispk_; }
+			get { return this.ispk_; }
 		}
 		#endregion
 		#region public bool isIdentity { get; }
@@ -145,7 +146,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Indicates if it is a Sequence/Identity Seed. True if it is a Sequence/Identity Seed, False if not.
 		/// </summary>
 		public bool isIdentity {
-			get { return isidentity_; }
+			get { return this.isidentity_; }
 		}
 		#endregion
 		#region public bool isNullable { get; }
@@ -155,7 +156,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Indicates if it allows null Values. True if it allows null Values, False if not.
 		/// </summary>
 		public bool isNullable {
-			get { return isnullable_; }
+			get { return this.isnullable_; }
 		}
 		#endregion
 		#region public string DefaultValue { get; }
@@ -165,7 +166,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Default Value.
 		/// </summary>
 		public string DefaultValue {
-			get { return defaultvalue_; }
+			get { return this.defaultvalue_; }
 		}
 		#endregion
 		#region public string FK_TableName { get; }
@@ -175,7 +176,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Foreign Key Table Name
 		/// </summary>
 		public string FK_TableName {
-			get { return fk_tablename_; }
+			get { return this.fk_tablename_; }
 		}
 		#endregion
 		#region public string FK_FieldName { get; }
@@ -185,7 +186,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Foreign Key Field Name
 		/// </summary>
 		public string FK_FieldName {
-			get { return fk_fieldname_; }
+			get { return this.fk_fieldname_; }
 		}
 		#endregion
 		#region public bool isConfig_Name { get; }
@@ -195,7 +196,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Indicates if it represents a Config Name. True if it represents a Config Name, False if not.
 		/// </summary>
 		public bool isConfig_Name {
-			get { return isconfig_name_; }
+			get { return this.isconfig_name_; }
 		}
 		#endregion
 		#region public bool isConfig_Config { get; }
@@ -205,7 +206,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Indicates if it represents a Config Config. True if it represents a Config Config, False if not.
 		/// </summary>
 		public bool isConfig_Config {
-			get { return isconfig_config_; }
+			get { return this.isconfig_config_; }
 		}
 		#endregion
 		#region public bool isConfig_Datatype { get; }
@@ -215,7 +216,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Indicates if it represents a Config DataType. True if it represents a Config DataType, False if not.
 		/// </summary>
 		public bool isConfig_Datatype {
-			get { return isconfig_datatype_; }
+			get { return this.isconfig_datatype_; }
 		}
 		#endregion
 		#region public bool isBool { get; }
@@ -225,7 +226,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Indicates if it is a Boolean Value. True if it is a Boolean Value, False if not.
 		/// </summary>
 		public bool isBool {
-			get { return isbool_; }
+			get { return this.isbool_; }
 		}
 		#endregion
 		#region public bool isDateTime { get; }
@@ -235,7 +236,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Indicates if it is a DateTime Value. True if it is a DateTime Value, False if not.
 		/// </summary>
 		public bool isDateTime {
-			get { return isdatetime_; }
+			get { return this.isdatetime_; }
 		}
 		#endregion
 		#region public bool isInt { get; }
@@ -245,7 +246,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Indicates if it is an Integer Value. True if it is an Integer Value, False if not.
 		/// </summary>
 		public bool isInt {
-			get { return isint_; }
+			get { return this.isint_; }
 		}
 		#endregion
 		#region public bool isDecimal { get; }
@@ -255,7 +256,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// Indicates if it is a Decimal Value. True if it is a Decimal Value, False if not.
 		/// </summary>
 		public bool isDecimal {
-			get { return isdecimal_; }
+			get { return this.isdecimal_; }
 		}
 		#endregion
 		#region public bool isText { get; }
@@ -265,35 +266,35 @@ namespace OGen.NTier.lib.datalayer {
 		/// Indicates if it is a Text Value. True if it is a Text Value, False if not.
 		/// </summary>
 		public bool isText {
-			get { return istext_; }
+			get { return this.istext_; }
 		}
 		#endregion
 //		#region public bool isListItemValue { get; }
 		private bool islistitemvalue_;
 
 		public bool isListItemValue {
-			get { return islistitemvalue_; }
+			get { return this.islistitemvalue_; }
 		}
 //		#endregion
 //		#region public bool isListItemText { get; }
 		private bool islistitemtext_;
 
 		public bool isListItemText {
-			get { return islistitemtext_; }
+			get { return this.islistitemtext_; }
 		}
 //		#endregion
 //		#region public int Size { get; }
 		private int size_;
 
 		public int Size {
-			get { return size_; }
+			get { return this.size_; }
 		}
 //		#endregion
 //		#region public string AditionalInfo { get; }
 		private string aditionalinfo_;
 
 		public string AditionalInfo {
-			get { return aditionalinfo_; }
+			get { return this.aditionalinfo_; }
 		}
 //		#endregion
 	}

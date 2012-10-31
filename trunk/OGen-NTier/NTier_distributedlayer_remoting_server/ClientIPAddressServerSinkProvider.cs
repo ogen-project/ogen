@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Collections;
-using System.Runtime.Remoting.Channels;
-using System.Runtime.Remoting.Messaging;
-using System.Net;
 
 namespace OGen.NTier.lib.distributedlayer.remoting.server {
+	using System;
+	using System.Collections;
+	using System.IO;
+	using System.Net;
+	using System.Runtime.Remoting.Channels;
+	using System.Runtime.Remoting.Messaging;
+
 	public class ClientIPAddressServerSinkProvider : 
 		IServerChannelSinkProvider 
 	{
@@ -39,10 +40,10 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 
 		public IServerChannelSinkProvider Next {
 			get {
-				return next_;
+				return this.next_;
 			}
 			set {
-				next_ = value;
+				this.next_ = value;
 			}
 		}
 		#endregion
@@ -52,7 +53,7 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 			IChannelReceiver channel_in
 		) {
 			return new ClientIPAddressServerSink(
-				next_.CreateSink(
+				this.next_.CreateSink(
 					channel_in
 				)
 			);

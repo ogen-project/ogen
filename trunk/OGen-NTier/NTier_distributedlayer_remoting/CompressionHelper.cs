@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
 
 namespace OGen.NTier.lib.distributedlayer.remoting {
+	using System;
+	using System.IO;
+
 #if NET_1_1
 	public class CompressionHelper { private CompressionHelper() { }
 #else

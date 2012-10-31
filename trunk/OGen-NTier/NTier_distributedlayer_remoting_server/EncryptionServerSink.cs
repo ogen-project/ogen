@@ -12,15 +12,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Collections;
-using System.Runtime.Remoting.Channels;
-using System.Runtime.Remoting.Messaging;
-
-using OGen.NTier.lib.distributedlayer.remoting;
 
 namespace OGen.NTier.lib.distributedlayer.remoting.server {
+	using System;
+	using System.Collections;
+	using System.IO;
+	using System.Runtime.Remoting.Channels;
+	using System.Runtime.Remoting.Messaging;
+
+	using OGen.NTier.lib.distributedlayer.remoting;
+
 	public class EncryptionServerSink : 
 		BaseChannelSinkWithProperties, 
 		IServerChannelSink
@@ -35,9 +36,9 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 			Console.WriteLine("initiating encryption sink");
 #endif
 
-			keyspath_ = keysPath_in;
-			mustdo_ = mustDo_in;
-			nextchannelsink_ = nextChannelSink_in;
+			this.keyspath_ = keysPath_in;
+			this.mustdo_ = mustDo_in;
+			this.nextchannelsink_ = nextChannelSink_in;
 		} 
 		#endregion
 
@@ -45,7 +46,7 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 		private IServerChannelSink nextchannelsink_;
 
 		public IServerChannelSink NextChannelSink {
-			get { return nextchannelsink_; }
+			get { return this.nextchannelsink_; }
 		} 
 		#endregion
 
@@ -65,8 +66,8 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 				bool isEncripted_in,
 				string ClientID_in
 			) {
-				isEncripted = isEncripted_in;
-				ClientID = ClientID_in;
+				this.isEncripted = isEncripted_in;
+				this.ClientID = ClientID_in;
 			}
 
 			public bool isEncripted;
@@ -102,12 +103,12 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 					= EncryptionHelper.Encrypt(
 						stream_in,
 						true,
-						keyspath_,
+						this.keyspath_,
 						((StateStruct)state_in).ClientID
 					); 
 				#endregion
 			} else {
-				if (mustdo_) {
+				if (this.mustdo_) {
 					throw new Exception("\n\n\t\tyour activity is being logged!\n\n\t\tun-encrypted communications not allowed!\n\n");
 				}
 			}
@@ -156,13 +157,13 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 					= EncryptionHelper.Decrypt(
 						requestStream_in,
 						true,
-						keyspath_,
+						this.keyspath_,
 						(string)requestHeaders_in[EncryptionHelper.X_CLIENTID]
 					);
 				_isEncrypted = true; 
 				#endregion
 			} else {
-				if (mustdo_) {
+				if (this.mustdo_) {
 					throw new Exception("\n\n\t\tyour activity is being logged!\n\n\t\tun-encrypted communications not allowed!\n\n");
 				}
 			}
@@ -175,7 +176,7 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 				)
 			);
 
-			ServerProcessing _output = nextchannelsink_.ProcessMessage(
+			ServerProcessing _output = this.nextchannelsink_.ProcessMessage(
 				sinkStack_in,
 				requestMsg_in,
 				requestHeaders_in,
@@ -194,7 +195,7 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 						= EncryptionHelper.Encrypt(
 							responseStream_out,
 							true,
-							keyspath_,
+							this.keyspath_,
 							(string)requestHeaders_in[EncryptionHelper.X_CLIENTID]
 						); 
 					#endregion

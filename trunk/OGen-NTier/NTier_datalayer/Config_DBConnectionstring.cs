@@ -12,9 +12,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
 
 namespace OGen.NTier.lib.datalayer {
+	using System;
+
 	public struct Config_DBConnectionstring {
 		#region public Config_DBConnectionstring(...);
 		/// <summary>
@@ -24,7 +25,7 @@ namespace OGen.NTier.lib.datalayer {
 		public Config_DBConnectionstring(
 			string connectionstring_in
 		) {
-			connectionstring_ = connectionstring_in;
+			this.connectionstring_ = connectionstring_in;
 		}
 		#endregion
 
@@ -35,7 +36,7 @@ namespace OGen.NTier.lib.datalayer {
 		/// The connection's connectionstring.
 		/// </summary>
 		public string Connectionstring {
-			get { return connectionstring_; }
+			get { return this.connectionstring_; }
 		}
 		#endregion
 		#endregion

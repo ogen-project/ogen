@@ -12,9 +12,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
 
 namespace OGen.NTier.lib.businesslayer {
+	using System;
+
 	/// <summary>
 	/// BusinessObject Class Attribute.
 	/// </summary>
@@ -26,8 +27,8 @@ namespace OGen.NTier.lib.businesslayer {
 			string name_in, 
 			string type_in
 		) {
-			name_ = name_in;
-			type_ = type_in;
+			this.name_ = name_in;
+			this.type_ = type_in;
 		}
 		#endregion
 
@@ -38,7 +39,7 @@ namespace OGen.NTier.lib.businesslayer {
 		/// Name
 		/// </summary>
 		public string Name {
-			get { return name_; }
+			get { return this.name_; }
 		}
 		#endregion
 
@@ -49,7 +50,7 @@ namespace OGen.NTier.lib.businesslayer {
 		/// Type
 		/// </summary>
 		public string Type {
-			get { return type_; }
+			get { return this.type_; }
 		}
 		#endregion
 	}

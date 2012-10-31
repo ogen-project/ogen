@@ -12,12 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Runtime.Remoting.Channels;
-using System.Runtime.Remoting.Messaging;
 
 namespace OGen.NTier.lib.distributedlayer.remoting.server {
+	using System;
+	using System.IO;
+	using System.Runtime.Remoting.Channels;
+	using System.Runtime.Remoting.Messaging;
+
 	public class CompressionServerSink : 
 		BaseChannelSinkWithProperties, 
 		IServerChannelSink
@@ -31,8 +32,8 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 			Console.WriteLine("initiating compression sink");
 #endif
 
-			mustdo_ = mustDo_in;
-			nextchannelsink_ = nextChannelSink_in;
+			this.mustdo_ = mustDo_in;
+			this.nextchannelsink_ = nextChannelSink_in;
 		} 
 		#endregion
 
@@ -40,7 +41,7 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 		private IServerChannelSink nextchannelsink_;
 
 		public IServerChannelSink NextChannelSink {
-			get { return nextchannelsink_; }
+			get { return this.nextchannelsink_; }
 		} 
 		#endregion
 
@@ -78,7 +79,7 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 				); 
 				#endregion
 			} else {
-				if (mustdo_) {
+				if (this.mustdo_) {
 					throw new Exception("\n\n\t\tyour activity is being logged!\n\n\t\tun-compressed communications not allowed!\n\n");
 				}
 			}
@@ -128,7 +129,7 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 				_isCompressed = true; 
 				#endregion
 			} else {
-				if (mustdo_) {
+				if (this.mustdo_) {
 					throw new Exception("\n\n\t\tyour activity is being logged!\n\n\t\tun-compressed communications not allowed!\n\n");
 				}
 			}
@@ -138,7 +139,7 @@ namespace OGen.NTier.lib.distributedlayer.remoting.server {
 				_isCompressed
 			);
 
-			ServerProcessing _output = nextchannelsink_.ProcessMessage(
+			ServerProcessing _output = this.nextchannelsink_.ProcessMessage(
 				sinkStack_in,
 				requestMsg_in,
 				requestHeaders_in,

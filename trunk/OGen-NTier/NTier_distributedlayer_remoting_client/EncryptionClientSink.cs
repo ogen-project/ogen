@@ -12,15 +12,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Collections;
-using System.Runtime.Remoting.Channels;
-using System.Runtime.Remoting.Messaging;
-
-using OGen.NTier.lib.distributedlayer.remoting;
 
 namespace OGen.NTier.lib.distributedlayer.remoting.client {
+	using System;
+	using System.Collections;
+	using System.IO;
+	using System.Runtime.Remoting.Channels;
+	using System.Runtime.Remoting.Messaging;
+
+	using OGen.NTier.lib.distributedlayer.remoting;
+
 	public class EncryptionClientSink : 
 		BaseChannelSinkWithProperties, 
 		IClientChannelSink
@@ -31,9 +32,9 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 			string keysPath_in, 
 			string clientID_in
 		) {
-			nextchannelsink_ = nextChannelSink_in;
-			keyspath_ = keysPath_in;
-			clientid_ = clientID_in;
+			this.nextchannelsink_ = nextChannelSink_in;
+			this.keyspath_ = keysPath_in;
+			this.clientid_ = clientID_in;
 		} 
 		#endregion
 
@@ -41,7 +42,7 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 		private IClientChannelSink nextchannelsink_;
 
 		public IClientChannelSink NextChannelSink {
-			get { return nextchannelsink_; }
+			get { return this.nextchannelsink_; }
 		} 
 		#endregion
 
@@ -68,18 +69,18 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 		) {
 			#region encrypt...
 			headers_in[EncryptionHelper.X_ENCRYPT] = "1";
-			headers_in[EncryptionHelper.X_CLIENTID] = clientid_;
+			headers_in[EncryptionHelper.X_CLIENTID] = this.clientid_;
 			stream_in
 				= EncryptionHelper.Encrypt(
 					stream_in,
 					false,
-					keyspath_,
-					clientid_
+					this.keyspath_,
+					this.clientid_
 				); 
 			#endregion
 
 			sinkStack_in.Push(this, null);
-			nextchannelsink_.AsyncProcessRequest(
+			this.nextchannelsink_.AsyncProcessRequest(
 				sinkStack_in,
 				msg_in,
 				headers_in,
@@ -100,8 +101,8 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 					= EncryptionHelper.Decrypt(
 						stream_in,
 						false,
-						keyspath_,
-						clientid_
+						this.keyspath_,
+						this.clientid_
 					);
 			} 
 			#endregion
@@ -117,7 +118,7 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 			IMessage msg_in,
 			ITransportHeaders headers_in
 		) {
-			return nextchannelsink_.GetRequestStream(
+			return this.nextchannelsink_.GetRequestStream(
 				msg_in,
 				headers_in
 			);
@@ -134,17 +135,17 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 		) {
 			#region encrypt...
 			requestHeaders_in[EncryptionHelper.X_ENCRYPT] = "1";
-			requestHeaders_in[EncryptionHelper.X_CLIENTID] = clientid_;
+			requestHeaders_in[EncryptionHelper.X_CLIENTID] = this.clientid_;
 			requestStream_in
 				= EncryptionHelper.Encrypt(
 					requestStream_in,
 					false,
-					keyspath_,
-					clientid_
+					this.keyspath_,
+					this.clientid_
 				); 
 			#endregion
 
-			nextchannelsink_.ProcessMessage(
+			this.nextchannelsink_.ProcessMessage(
 				msg_in,
 				requestHeaders_in,
 				requestStream_in,
@@ -159,8 +160,8 @@ namespace OGen.NTier.lib.distributedlayer.remoting.client {
 					= EncryptionHelper.Decrypt(
 						responseStream_out,
 						false,
-						keyspath_,
-						clientid_
+						this.keyspath_,
+						this.clientid_
 					);
 			} 
 			#endregion
