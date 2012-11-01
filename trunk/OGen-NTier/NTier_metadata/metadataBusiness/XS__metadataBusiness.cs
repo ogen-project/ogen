@@ -55,8 +55,9 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			new TypeAlias(typeof(double), "double"),
 			new TypeAlias(typeof(float), "float"),
 			new TypeAlias(typeof(decimal), "decimal"),
-		};
 
+			new TypeAlias(typeof(void), "void"),
+		};
 		private static string translate(Type what_in) {
 
 			for (int i = 0; i < TranslateTypeAlias.Length; i++) {
@@ -71,9 +72,6 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 				)
 					return string.Concat(TranslateTypeAlias[i].TheAlias, "[]");
 			}
-
-			if (what_in == typeof(void))
-				return "void";
 
 			return (string.Format(
 				System.Globalization.CultureInfo.CurrentCulture,
