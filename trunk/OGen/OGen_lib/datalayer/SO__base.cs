@@ -34,6 +34,10 @@ namespace OGen.NTier.lib.datalayer {
 		/// <summary>
 		/// implementing ISerializable
 		/// </summary>
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
 		public abstract void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
 	}
 }

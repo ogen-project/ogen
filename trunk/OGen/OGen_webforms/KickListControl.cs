@@ -280,6 +280,12 @@ namespace OGen.lib.presentationlayer.webforms {
 		)
 			where I : OGen.NTier.lib.datalayer.ISO__ListItem<V, T>
 		{
+
+			//public void SelectedValues__set_arrayOf<V, T>(
+			//    OGen.NTier.lib.datalayer.ISO__ListItem<V, T>[] items_in,
+			//    ListitemConditionalSetDelegate<OGen.NTier.lib.datalayer.ISO__ListItem<V, T>> setConditionVerifies_in
+			//) {
+
 			if (items_in == null) return;
 
 			string[] _selection;
@@ -328,7 +334,7 @@ namespace OGen.lib.presentationlayer.webforms {
 				if (_value >= 0) {
 					this.listitemcollection_ref_.Add(
 						Transform(_enumItem),
-						_value.ToString()
+						_value.ToString(System.Globalization.CultureInfo.CurrentCulture)
 					);
 				}
 			}
@@ -437,7 +443,12 @@ namespace OGen.lib.presentationlayer.webforms {
 						KeyValuePair<TKey, TValue> arg1,
 						KeyValuePair<TKey, TValue> arg2
 					) {
-						return (dictionaryText_in(arg1).CompareTo(dictionaryText_in(arg2)));
+						return string.Compare(
+							dictionaryText_in(arg1),
+							dictionaryText_in(arg2),
+							false,
+							System.Globalization.CultureInfo.CurrentCulture
+						);
 					}
 				);
 			}

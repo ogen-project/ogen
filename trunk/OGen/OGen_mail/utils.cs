@@ -47,7 +47,7 @@ namespace OGen.lib.mail {
 		public static bool isEMail_valid(
 			string email_in
 		) {
-			if ((email_in = email_in.Trim()) == "") {
+			if ((email_in = email_in.Trim()).Length == 0) {
 				return false;
 			}
 

@@ -173,7 +173,7 @@ namespace OGen.lib.presentationlayer.webforms {
 				System.Web.UI.HtmlControls.HtmlAnchor anchor_in, 
 				long page_in
 			) {
-				anchor_in.InnerText = page_in.ToString();
+				anchor_in.InnerText = page_in.ToString(System.Globalization.CultureInfo.CurrentCulture);
 				anchor_in.HRef = string.Format(
 					System.Globalization.CultureInfo.CurrentCulture, 
 					"?page={0}", 

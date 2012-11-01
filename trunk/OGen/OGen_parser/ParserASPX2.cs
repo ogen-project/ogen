@@ -37,7 +37,7 @@ namespace OGen.lib.parser {
 
 			#region public void RunRequest(...);
 			public void RunRequest(string page_in, string queryString_in, ref TextWriter output_ref) {
-				output_ref = new StringWriter();
+				output_ref = new StringWriter(System.Globalization.CultureInfo.CurrentCulture);
 
 				HttpRuntime.ProcessRequest(
 					new SimpleWorkerRequest(
@@ -71,7 +71,7 @@ namespace OGen.lib.parser {
 					if (!myhost_.ContainsKey(appPath_in)) {
 
 						// initialization...
-						string _appId = "ParserASPX_" + Guid.NewGuid().GetHashCode().ToString("x");
+						string _appId = string.Concat("ParserASPX_", Guid.NewGuid().GetHashCode().ToString("x", System.Globalization.CultureInfo.CurrentCulture));
 						string _virtualPath = "/";
 
 						// ...attribution (last thing before unlock)
@@ -111,7 +111,7 @@ namespace OGen.lib.parser {
 			out string result_out
 		) {
 			#region Parse(appPath_in, aspxFile_in, parameters_in, ref _textwriter); result_out = _textwriter.ToString();
-			TextWriter _textwriter = new StringWriter();
+			TextWriter _textwriter = new StringWriter(System.Globalization.CultureInfo.CurrentCulture);
 			Parse(appPath_in, aspxFile_in, parameters_in, ref _textwriter);
 
 			result_out = _textwriter.ToString();
@@ -137,7 +137,7 @@ namespace OGen.lib.parser {
 			#region Parse(appPath_in, aspxFile_in, parameters_in, ref new StreamWriter(outputfile_in));
 			// ToDos: here! i don't like this...
 
-			TextWriter _stringwriter = new StringWriter();
+			TextWriter _stringwriter = new StringWriter(System.Globalization.CultureInfo.CurrentCulture);
 			Parse(appPath_in, aspxFile_in, parameters_in, ref _stringwriter);
 			_stringwriter.Flush();
 			_stringwriter.Close();

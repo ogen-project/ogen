@@ -52,17 +52,27 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 			#region string _connectionString = ...;
 			string _connectionString = null;
 			if (
-				ssFilePath_in.ToLower().LastIndexOf(XLSX)
+				ssFilePath_in.ToLower(
+					System.Globalization.CultureInfo.CurrentCulture
+				).LastIndexOf(
+					XLSX, 
+					StringComparison.CurrentCulture
+				)
 				==
 				ssFilePath_in.Length - XLSX.Length
 			) {
-				_connectionString =
-					"Provider=Microsoft.ACE.OLEDB.12.0;" +
-					"Data Source=" + ssFilePath_in + ";" +
+				_connectionString = string.Concat(
+					"Provider=Microsoft.ACE.OLEDB.12.0;",
+					"Data Source=", ssFilePath_in, ";",
 					"Extended Properties=\"Excel 12.0;HDR=YES;\""
-				;
+				);
 			} else if (
-				ssFilePath_in.ToLower().LastIndexOf(XLS)
+				ssFilePath_in.ToLower(
+					System.Globalization.CultureInfo.CurrentCulture
+				).LastIndexOf(
+					XLS,
+					StringComparison.CurrentCulture
+				)
 				==
 				ssFilePath_in.Length - XLS.Length
 			) {

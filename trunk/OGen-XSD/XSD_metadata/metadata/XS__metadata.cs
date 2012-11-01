@@ -76,9 +76,14 @@ namespace OGen.XSD.lib.metadata.metadata {
 						switch (CaseType) {
 							case XS_CaseTypeEnumeration.PascalCase:
 								if (word_in.Length > 0) {
-									_output
-										= word_in[0].ToString().ToUpper()
-										+ word_in.Substring(1);
+									_output = string.Concat(
+										word_in[0].ToString(
+											System.Globalization.CultureInfo.CurrentCulture
+										).ToUpper(
+											System.Globalization.CultureInfo.CurrentCulture
+										),
+										word_in.Substring(1)
+									);
 								} else {
 									_output = word_in;
 								}
