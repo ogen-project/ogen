@@ -150,7 +150,7 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="cFGenerator.cs">
+    <Compile Include="DocGenerator.cs">
       <SubType>Code</SubType>
     </Compile>
     <None Include="COPYING.MIT" />

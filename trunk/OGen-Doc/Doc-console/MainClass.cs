@@ -72,15 +72,15 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 		}
 
 		static void DoIt(string filePath_in) {
-			cFGenerator _generator = new cFGenerator();
+			DocGenerator _generator = new DocGenerator();
 			_generator.Open(
 				filePath_in, 
 				true, 
-				new cFGenerator.dNotifyBack(
+				new DocGenerator.dNotifyBack(
 					Notify
 				)
 			);
-			_generator.Build(new cGenerator.dBuild(Notify));
+			_generator.Build(new OGenGenerator.dBuild(Notify));
 
 		}
 		#region private static void Notify(string message_in, bool onANewLine_in);

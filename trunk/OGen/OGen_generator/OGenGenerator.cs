@@ -23,9 +23,9 @@ namespace OGen.lib.generator {
 	using OGen.lib.parser;
 	using OGen.lib.templates;
 
-	public class cGenerator {
-		#region public cGenerator(...);
-		public cGenerator(
+	public class OGenGenerator {
+		#region public OGenGenerator(...);
+		public OGenGenerator(
 			string xmlTemplatesFile_in, 
 			string outputDir_in,
 			params MetaFile[] metaFiles_in
@@ -43,7 +43,7 @@ namespace OGen.lib.generator {
 		/// <param name="dbConnectionStrings_in">Database Connectionstring (use if you're generating code on a Database)</param>
 /// <param name="outputDir_in">ToDos: here!</param>
 /// <param name="metaFiles_in">ToDos: here!</param>
-		public cGenerator(
+		public OGenGenerator(
 			string xmlTemplatesFile_in, 
 			DBConnectionstrings dbConnectionStrings_in, 
 			string outputDir_in, 

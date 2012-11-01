@@ -116,16 +116,16 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 			Statistics statistics_in,
 			params string[] templateTypes_in
 		) {
-			cFGenerator _generator = new cFGenerator();
+			NTierGenerator _generator = new NTierGenerator();
 			_generator.Open(
 				filePath_in, 
-				true, 
-				new cFGenerator.dNotifyBack(
+				true,
+				new NTierGenerator.dNotifyBack(
 					Notify
 				)
 			);
 			_generator.Build(
-				new cGenerator.dBuild(Notify),
+				new OGenGenerator.dBuild(Notify),
 				statistics_in,
 				templateTypes_in
 			);
@@ -180,8 +180,8 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 //			Notify("", true);
 //
 //			Notify("generating...", true);
-//			#region new cGenerator(...).Build(...);
-//			new cGenerator(
+//			#region new OGenGenerator(...).Build(...);
+//			new OGenGenerator(
 //				ConfigurationSettingsBinder.Read("OGen"), 
 //				_metadataFilePath, 
 //				cDBMetadata.root4xml,
@@ -191,7 +191,7 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 //				_metadata_temp.DBs.Default.Connectionstring, 
 //				_outputDir
 //			).Build(
-//				new cGenerator.dBuild(
+//				new OGenGenerator.dBuild(
 //					Notify
 //				), 
 //				_metadata

@@ -187,8 +187,8 @@ namespace OGen.NTier.presentationlayer.winforms {
 							MyForm.ApplicationPath, 
 							MyForm.ApplicationName, 
 							MyForm.Namespace, 
-							_dbs, 
-							new OGen.NTier.lib.generator.cFGenerator.dNotifyBack(
+							_dbs,
+							new OGen.NTier.lib.generator.NTierGenerator.dNotifyBack(
 								_output.DisplayMessage
 							)
 						);

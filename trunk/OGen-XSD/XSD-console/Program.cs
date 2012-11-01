@@ -166,15 +166,15 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 		static void DoIt(
 			string filePathExtendedMetadata_in
 		) {
-			cFGenerator _generator = new cFGenerator();
+			XSDGenerator _generator = new XSDGenerator();
 			_generator.Open(
 				filePathExtendedMetadata_in, 
-				true, 
-				new cFGenerator.dNotifyBack(
+				true,
+				new XSDGenerator.dNotifyBack(
 					Notify
 				)
 			);
-			_generator.Build(new cGenerator.dBuild(Notify));
+			_generator.Build(new OGenGenerator.dBuild(Notify));
 		}
 		#region private static void Notify(string message_in, bool onANewLine_in);
 		private static void Notify(string message_in, bool onANewLine_in) {

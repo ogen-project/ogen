@@ -64,7 +64,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 					frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].SQLScriptOption = MyForm.SQLscriptOptions;
 //					frm_Main.NTierProject.Metadata.PseudoReflectionable = MyForm.pReflection;
 					frm_Main.NTierProject.Build(
-						new OGen.lib.generator.cGenerator.dBuild(
+						new OGen.lib.generator.OGenGenerator.dBuild(
 							output.DisplayMessage
 						)
 					);

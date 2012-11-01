@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="diagram\DBTableField.cs" />
+    <Compile Include="diagram\ForeignKey.cs" />
     <Compile Include="diagram\XS_attributeType.cs" />
     <Compile Include="diagram\XS_attributeTypeCollection.cs" />
     <Compile Include="diagram\XS_booleanType.cs" />

@@ -22,9 +22,9 @@ namespace OGen.NTier.lib.generator {
 	using OGen.lib.templates;
 	using OGen.NTier.lib.metadata;
 
-	public class cFGenerator {
-		#region	public cFGenerator();
-		public cFGenerator() {
+	public class NTierGenerator {
+		#region	public NTierGenerator();
+		public NTierGenerator() {
 			this.Filename = string.Empty;
 		}
 		#endregion
@@ -385,9 +385,9 @@ throw new Exception("// ToDos: not implemented!");
 			//}
 		}
 		//#endregion
-//		#region public void Build(cGenerator.dBuild notifyBase_in);
+//		#region public void Build(OGenGenerator.dBuild notifyBase_in);
 		public void Build(
-			cGenerator.dBuild notifyBase_in,
+			OGenGenerator.dBuild notifyBase_in,
 			params string[] templateTypes_in
 		) {
 			this.Build(
@@ -397,7 +397,7 @@ throw new Exception("// ToDos: not implemented!");
 			);
 		}
 		public void Build(
-			cGenerator.dBuild notifyBase_in,
+			OGenGenerator.dBuild notifyBase_in,
 			Statistics statistics_in,
 			params string[] templateTypes_in
 		) {
@@ -419,7 +419,7 @@ throw new Exception("// ToDos: not implemented!");
 				);
 			}
 
-			new cGenerator(
+			new OGenGenerator(
 				#if !NET_1_1
 				System.Configuration.ConfigurationManager.AppSettings
 				#else

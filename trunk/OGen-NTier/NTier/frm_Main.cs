@@ -391,7 +391,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 			#region Event safeguard...
 			this.Closing += new System.ComponentModel.CancelEventHandler(this.frm_Main_Closing);
 			#endregion
-			ntierproject = new cFGenerator();
+			ntierproject = new NTierGenerator();
 			this.Form_Refresh();
 
 			if (
@@ -411,8 +411,8 @@ namespace OGen.NTier.presentationlayer.winforms {
 		#endregion
 		//#region public Properties...
 		#region public static cNTierProject NTierProject { get; }
-		public static cFGenerator ntierproject;
-		public static cFGenerator NTierProject {
+		public static NTierGenerator ntierproject;
+		public static NTierGenerator NTierProject {
 			get { return ntierproject; }
 		}
 		#endregion
@@ -465,7 +465,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 							frm_Main.NTierProject.Open(
 								openfile.FileName, 
 								false,
-								new OGen.NTier.lib.generator.cFGenerator.dNotifyBack(
+								new OGen.NTier.lib.generator.NTierGenerator.dNotifyBack(
 									output.DisplayMessage
 								)
 							);

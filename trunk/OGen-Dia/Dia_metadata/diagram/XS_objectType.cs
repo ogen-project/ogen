@@ -141,31 +141,10 @@ namespace OGen.Dia.lib.metadata.diagram {
 			return _list.ToArray();
 		}
 		#endregion
-		#region public FK[] TableFKs();
-		#region public struct FK { ... }
-		public struct FK {
-			public FK(
-				string tableFieldName_in, 
-
-				string fk_TableName_in, 
-				string fk_TableFieldName_in
-			) {
-				this.TableFieldName = tableFieldName_in;
-
-				this.FK_TableName = fk_TableName_in;
-				this.FK_TableFieldName = fk_TableFieldName_in;
-			}
-
-			public string TableFieldName;
-
-			public string FK_TableName;
-			public string FK_TableFieldName;
-		}
-		#endregion
-
-		public FK[] TableFKs() {
-			FK[] _output;
-			System.Collections.Generic.Dictionary<string, FK> _output2;
+		#region public OGen.Dia.lib.metadata.diagram.ForeignKey[] TableFKs();
+		public OGen.Dia.lib.metadata.diagram.ForeignKey[] TableFKs() {
+			OGen.Dia.lib.metadata.diagram.ForeignKey[] _output;
+			System.Collections.Generic.Dictionary<string, OGen.Dia.lib.metadata.diagram.ForeignKey> _output2;
 
 			this.TableFKs(
 				out _output, 
@@ -175,13 +154,13 @@ namespace OGen.Dia.lib.metadata.diagram {
 			return _output;
 		}
 		public void TableFKs(
-			out FK[] fks_out,
-			out System.Collections.Generic.Dictionary<string, FK> fks_dic_out
+			out OGen.Dia.lib.metadata.diagram.ForeignKey[] fks_out,
+			out System.Collections.Generic.Dictionary<string, OGen.Dia.lib.metadata.diagram.ForeignKey> fks_dic_out
 		) {
-			System.Collections.Generic.List<FK> _output 
-				= new System.Collections.Generic.List<FK>();
-			System.Collections.Generic.Dictionary<string, FK> _output2
-				= new System.Collections.Generic.Dictionary<string, FK>();
+			System.Collections.Generic.List<OGen.Dia.lib.metadata.diagram.ForeignKey> _output 
+				= new System.Collections.Generic.List<OGen.Dia.lib.metadata.diagram.ForeignKey>();
+			System.Collections.Generic.Dictionary<string, OGen.Dia.lib.metadata.diagram.ForeignKey> _output2
+				= new System.Collections.Generic.Dictionary<string, OGen.Dia.lib.metadata.diagram.ForeignKey>();
 
 			XS_objectType _table_a;
 			string _tableName_a;
@@ -197,7 +176,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 			XS_layerType _layertype = (XS_layerType)_objecttypecollection.parent_ref;
 			XS_layerTypeCollection _layertypecollection = (XS_layerTypeCollection)_layertype.parent_ref;
 			XS__diagram _root_ref = (XS__diagram)_layertypecollection.parent_ref;
-			FK _aux;
+			OGen.Dia.lib.metadata.diagram.ForeignKey _aux;
 
 			for (int l = 0; l < _root_ref.LayerCollection.Count; l++) {
 				for (int o = 0; o < _root_ref.LayerCollection[l].ObjectCollection.Count; o++) {
@@ -245,7 +224,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 							) {
 								_output2.Add(
 									_tableFieldName_a,
-									_aux = new FK(
+									_aux = new OGen.Dia.lib.metadata.diagram.ForeignKey(
 										_tableFieldName_a,
 										_tableName_b,
 										_tableFieldName_b
@@ -260,7 +239,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 							) {
 								_output2.Add(
 									_tableFieldName_b,
-									_aux = new FK(
+									_aux = new OGen.Dia.lib.metadata.diagram.ForeignKey(
 										_tableFieldName_b,
 										_tableName_a,
 										_tableFieldName_a

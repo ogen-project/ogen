@@ -21,9 +21,9 @@ namespace OGen.Dia.lib.generator {
 	using OGen.lib.generator;
 	using OGen.lib.templates;
 
-	public class cFGenerator {
-		#region	public cFGenerator();
-		public cFGenerator() {
+	public class DiaGenerator {
+		#region	public DiaGenerator();
+		public DiaGenerator() {
 			this.filename_ = string.Empty;
 		}
 		#endregion
@@ -136,8 +136,8 @@ namespace OGen.Dia.lib.generator {
 			bool _isUsingSQLServer = false;
 			DBTableField[] _dbtablefields;
 			DBTableField[] _dbtablefields2;
-			XS_objectType.FK[] __fks;
-			System.Collections.Generic.Dictionary<string, XS_objectType.FK> _fks;
+			OGen.Dia.lib.metadata.diagram.ForeignKey[] __fks;
+			System.Collections.Generic.Dictionary<string, OGen.Dia.lib.metadata.diagram.ForeignKey> _fks;
 			bool _foundFKTable;
 			bool _foundFKField;
 			for (int l = 0; l < this.diagram_.LayerCollection.Count; l++) {
@@ -523,8 +523,8 @@ namespace OGen.Dia.lib.generator {
 //			}
 //		}
 		#endregion
-		#region public void Build(cGenerator.dBuild notifyBase_in);
-		public void Build(cGenerator.dBuild notifyBase_in) {
+		#region public void Build(OGenGenerator.dBuild notifyBase_in);
+		public void Build(OGenGenerator.dBuild notifyBase_in) {
 			string _outputDir = Path.GetDirectoryName(this.filename_);
 			if (notifyBase_in != null) notifyBase_in("generating...", true);
 
@@ -533,7 +533,7 @@ namespace OGen.Dia.lib.generator {
 				this.filename_,
 				XS__diagram.DIAGRAM
 			);
-			new cGenerator(
+			new OGenGenerator(
 				#if !NET_1_1
 				System.Configuration.ConfigurationManager.AppSettings
 				#else
