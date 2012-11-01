@@ -48,7 +48,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			bo_.delObject(
 				sessionGuid_in, 
@@ -63,7 +63,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return bo_.getObject(
 				sessionGuid_in, 
@@ -82,7 +82,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return bo_.getRecord_all(
 				sessionGuid_in, 
@@ -105,7 +105,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return bo_.getRecord_byProfile(
 				sessionGuid_in, 
@@ -128,7 +128,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return bo_.getRecord_ofProfilePermition_byProfile(
 				sessionGuid_in, 
@@ -151,7 +151,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return bo_.getRecord_ofUserProfile_byUser(
 				sessionGuid_in, 
@@ -170,9 +170,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
-			System.Int64[] idProfile_parent_in, 
-			System.Int64[] idPermition_in, 
-			out System.Int32[] errors_out
+			long[] idProfile_parent_in, 
+			long[] idPermition_in, 
+			out int[] errors_out
 		) {
 			return bo_.insObject(
 				sessionGuid_in, 
@@ -189,8 +189,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idUser_in, 
-			System.Int64[] idProfiles_in, 
-			out System.Int32[] errors_out
+			long[] idProfiles_in, 
+			out int[] errors_out
 		) {
 			bo_.setUserProfiles(
 				sessionGuid_in, 
@@ -206,9 +206,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
-			System.Int64[] idProfile_parent_in, 
-			System.Int64[] idPermition_in, 
-			out System.Int32[] errors_out
+			long[] idProfile_parent_in, 
+			long[] idPermition_in, 
+			out int[] errors_out
 		) {
 			bo_.updObject(
 				sessionGuid_in, 
@@ -225,9 +225,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
-			System.Int64[] idProfile_parent_in, 
-			System.Int64[] idPermition_in, 
-			out System.Int32[] errors_out
+			long[] idProfile_parent_in, 
+			long[] idPermition_in, 
+			out int[] errors_out
 		) {
 			bo_.updObject_relationsOnly(
 				sessionGuid_in, 

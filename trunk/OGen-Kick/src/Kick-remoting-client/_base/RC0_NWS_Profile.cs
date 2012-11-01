@@ -48,7 +48,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			bo_.delObject(
 				sessionGuid_in, 
@@ -63,7 +63,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return bo_.getObject(
 				sessionGuid_in, 
@@ -81,7 +81,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return bo_.getRecord_all(
 				sessionGuid_in, 
@@ -102,7 +102,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return bo_.getRecord_Approved(
 				sessionGuid_in, 
@@ -124,7 +124,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return bo_.getRecord_byContent(
 				sessionGuid_in, 
@@ -143,7 +143,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile profile_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return bo_.insObject(
 				sessionGuid_in, 
@@ -158,7 +158,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile profile_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			bo_.updObject(
 				sessionGuid_in, 
@@ -173,7 +173,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			bo_.updObject_Approve(
 				sessionGuid_in, 

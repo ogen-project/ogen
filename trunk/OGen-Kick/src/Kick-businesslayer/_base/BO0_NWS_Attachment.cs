@@ -27,7 +27,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idAttachment_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Attachment.delObject(
 				sessionGuid_in, 
@@ -42,7 +42,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idAttachment_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Attachment.getObject(
 				sessionGuid_in, 
@@ -61,7 +61,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Attachment.getRecord_byContent(
 				sessionGuid_in, 
@@ -85,7 +85,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Attachment.getRecord_byContent_andLanguage(
 				sessionGuid_in, 
@@ -109,7 +109,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Description_in, 
 			bool selectIdentity_in, 
 			out string guid_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Attachment.insObject(
 				sessionGuid_in, 
@@ -130,7 +130,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment attachment_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Description_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Attachment.updObject(
 				sessionGuid_in, 

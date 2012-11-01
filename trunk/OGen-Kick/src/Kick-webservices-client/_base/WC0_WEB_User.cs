@@ -43,6 +43,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		#region public void ReConfig();
 		public void ReConfig() {
 			this.Url = string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"{0}:{1}/WS_WEB_User.asmx",
 				#if NET_1_1
 				System.Configuration.ConfigurationSettings.AppSettings["Webservices_ServerURI"], 
@@ -67,7 +68,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idUser_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getObject", 
@@ -77,7 +78,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idUser_in
 				}
 			);
-			errors_out = (System.Int32[])results[1];
+			errors_out = (int[])results[1];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NET_User)results[0];
 		}
 		#endregion
@@ -93,7 +94,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idUser_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getObject_details", 
@@ -103,7 +104,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idUser_in
 				}
 			);
-			errors_out = (System.Int32[])results[1];
+			errors_out = (int[])results[1];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User)results[0];
 		}
 		#endregion
@@ -127,7 +128,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getRecord_generic", 
@@ -145,7 +146,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				}
 			);
 			page_itemsCount_out = (long)results[1];
-			errors_out = (System.Int32[])results[2];
+			errors_out = (int[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User[])results[0];
 		}
 		#endregion
@@ -164,7 +165,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string verifyMailURL_in, 
 			string companyName_in, 
 			int idApplication_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"insObject_Registration", 
@@ -177,7 +178,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idApplication_in
 				}
 			);
-			errors_out = (System.Int32[])results[0];
+			errors_out = (int[])results[0];
 		}
 		#endregion
 		#region public void Login(...);
@@ -196,8 +197,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			int idApplication_in, 
 			out long idUser_out, 
 			out string login_out, 
-			out System.Int64[] idPermitions_out, 
-			out System.Int32[] errors_out
+			out long[] idPermitions_out, 
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"Login", 
@@ -211,8 +212,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			);
 			idUser_out = (long)results[0];
 			login_out = (string)results[1];
-			idPermitions_out = (System.Int64[])results[2];
-			errors_out = (System.Int32[])results[3];
+			idPermitions_out = (long[])results[2];
+			errors_out = (int[])results[3];
 		}
 		#endregion
 		#region public void Login_throughLink(...);
@@ -231,8 +232,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			out long idUser_out, 
 			out string login_out, 
 			out string name_out, 
-			out System.Int64[] idPermitions_out, 
-			out System.Int32[] errors_out
+			out long[] idPermitions_out, 
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"Login_throughLink", 
@@ -246,8 +247,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			idUser_out = (long)results[0];
 			login_out = (string)results[1];
 			name_out = (string)results[2];
-			idPermitions_out = (System.Int64[])results[3];
-			errors_out = (System.Int32[])results[4];
+			idPermitions_out = (long[])results[3];
+			errors_out = (int[])results[4];
 		}
 		#endregion
 		#region public void Login_throughLink_andChangePassword(...);
@@ -267,8 +268,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			out long idUser_out, 
 			out string login_out, 
 			out string name_out, 
-			out System.Int64[] idPermitions_out, 
-			out System.Int32[] errors_out
+			out long[] idPermitions_out, 
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"Login_throughLink_andChangePassword", 
@@ -283,8 +284,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			idUser_out = (long)results[0];
 			login_out = (string)results[1];
 			name_out = (string)results[2];
-			idPermitions_out = (System.Int64[])results[3];
-			errors_out = (System.Int32[])results[4];
+			idPermitions_out = (long[])results[3];
+			errors_out = (int[])results[4];
 		}
 		#endregion
 		#region public void LostPassword_Recover(...);
@@ -300,7 +301,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string companyName_in, 
 			string recoverLostPasswordURL_in, 
 			int idApplication_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"LostPassword_Recover", 
@@ -311,7 +312,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idApplication_in
 				}
 			);
-			errors_out = (System.Int32[])results[0];
+			errors_out = (int[])results[0];
 		}
 		#endregion
 		#region public void setObject(...);
@@ -328,7 +329,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			long idUser_in, 
 			bool updateName_in, 
 			string name_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"setObject", 
@@ -340,7 +341,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					name_in
 				}
 			);
-			errors_out = (System.Int32[])results[0];
+			errors_out = (int[])results[0];
 		}
 		#endregion
 		#region public void updObject_EMail(...);
@@ -357,7 +358,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string EMail_verify_in, 
 			string companyName_in, 
 			string verifyMailURL_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"updObject_EMail", 
@@ -369,7 +370,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					verifyMailURL_in
 				}
 			);
-			errors_out = (System.Int32[])results[0];
+			errors_out = (int[])results[0];
 		}
 		#endregion
 	}

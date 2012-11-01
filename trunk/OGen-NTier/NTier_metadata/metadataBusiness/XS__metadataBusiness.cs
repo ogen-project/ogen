@@ -26,19 +26,66 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 	public partial class XS__metadataBusiness {
 	#endif
 
-		private static string translate(string what_in) {
-			if (what_in == typeof(string).ToString())
-				return "string";
-			else if (what_in == typeof(int).ToString())
-				return "int";
-			else if (what_in == typeof(long).ToString())
-				return "long";
-			else if (what_in == "System.Void")
-				return "void";
-			else if (what_in == typeof(bool).ToString())
-				return "bool";
+		private struct TypeAlias {
+			public TypeAlias(
+				Type theType_in,
+				string theAlias_in 
+			) {
+				this.TheType = theType_in;
+				this.TheAlias = theAlias_in;
+			}
 
-			return what_in;
+			public Type TheType;
+			public string TheAlias; 
+		}
+		private static readonly TypeAlias[] TranslateTypeAlias = new TypeAlias[] {
+			new TypeAlias(typeof(short), "short"),
+			new TypeAlias(typeof(ushort), "ushort"),
+
+			new TypeAlias(typeof(int), "int"),
+			new TypeAlias(typeof(uint), "uint"),
+	
+			new TypeAlias(typeof(long), "long"),
+			new TypeAlias(typeof(ulong), "ulong"),
+
+			new TypeAlias(typeof(bool), "bool"),
+	
+			new TypeAlias(typeof(string), "string"),
+
+			new TypeAlias(typeof(double), "double"),
+			new TypeAlias(typeof(float), "float"),
+			new TypeAlias(typeof(decimal), "decimal"),
+		};
+
+		private static string translate(Type what_in) {
+
+			for (int i = 0; i < TranslateTypeAlias.Length; i++) {
+				if (
+					(what_in == TranslateTypeAlias[i].TheType) || 
+					(what_in == TranslateTypeAlias[i].TheType.MakeByRefType())
+				)
+					return TranslateTypeAlias[i].TheAlias;
+				if (
+					(what_in == TranslateTypeAlias[i].TheType.MakeArrayType()) || 
+					(what_in == TranslateTypeAlias[i].TheType.MakeArrayType().MakeByRefType())
+				)
+					return string.Concat(TranslateTypeAlias[i].TheAlias, "[]");
+			}
+
+			if (what_in == typeof(void))
+				return "void";
+
+			return (string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
+				"{0}.{1}",
+				what_in.Namespace,
+
+				//what_in.Name
+				(what_in.Name.IndexOf('&') >= 0)
+					? what_in.Name.Substring(0, what_in.Name.Length - 1)
+					: what_in.Name
+
+			));
 		}
 
 		public static XS__metadataBusiness Load_fromAssembly(
@@ -181,12 +228,7 @@ _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[
 	_method_index
 ].OutputType
-	= translate(string.Format(
-		System.Globalization.CultureInfo.CurrentCulture,
-		"{0}.{1}", 
-		_methods[m].ReturnType.Namespace, 
-		_methods[m].ReturnType.Name
-	));
+	= translate(_methods[m].ReturnType);
 
 									}
 								}
@@ -203,15 +245,7 @@ _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_i
 ].isOut = _parameterinfo[p].IsOut;
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection[
 	_property_index
-].Type = translate(string.Format(
-	System.Globalization.CultureInfo.CurrentCulture,
-	"{0}.{1}",
-	_parameterinfo[p].ParameterType.Namespace,
-	(_parameterinfo[p].ParameterType.Name.IndexOf('&') >= 0)
-		? _parameterinfo[p].ParameterType.Name.Substring(0, _parameterinfo[p].ParameterType.Name.Length - 1)
-		: _parameterinfo[p].ParameterType.Name
-
-));
+].Type = translate(_parameterinfo[p].ParameterType);
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection[
 	_property_index
 ].isRef = (_parameterinfo[p].ParameterType.IsByRef && !_parameterinfo[p].IsOut);

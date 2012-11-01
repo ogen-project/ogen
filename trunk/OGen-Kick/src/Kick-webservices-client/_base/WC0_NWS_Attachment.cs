@@ -43,6 +43,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		#region public void ReConfig();
 		public void ReConfig() {
 			this.Url = string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"{0}:{1}/WS_NWS_Attachment.asmx",
 				#if NET_1_1
 				System.Configuration.ConfigurationSettings.AppSettings["Webservices_ServerURI"], 
@@ -67,7 +68,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idAttachment_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"delObject", 
@@ -77,7 +78,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idAttachment_in
 				}
 			);
-			errors_out = (System.Int32[])results[0];
+			errors_out = (int[])results[0];
 		}
 		#endregion
 		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment getObject(...);
@@ -92,7 +93,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idAttachment_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getObject", 
@@ -102,7 +103,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idAttachment_in
 				}
 			);
-			errors_out = (System.Int32[])results[1];
+			errors_out = (int[])results[1];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment)results[0];
 		}
 		#endregion
@@ -122,7 +123,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getRecord_byContent", 
@@ -136,7 +137,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				}
 			);
 			page_itemsCount_out = (long)results[1];
-			errors_out = (System.Int32[])results[2];
+			errors_out = (int[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Attachment[])results[0];
 		}
 		#endregion
@@ -157,7 +158,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getRecord_byContent_andLanguage", 
@@ -172,7 +173,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				}
 			);
 			page_itemsCount_out = (long)results[1];
-			errors_out = (System.Int32[])results[2];
+			errors_out = (int[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Attachment[])results[0];
 		}
 		#endregion
@@ -192,7 +193,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Description_in, 
 			bool selectIdentity_in, 
 			out string guid_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"insObject", 
@@ -206,7 +207,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				}
 			);
 			guid_out = (string)results[1];
-			errors_out = (System.Int32[])results[2];
+			errors_out = (int[])results[2];
 			return (long)results[0];
 		}
 		#endregion
@@ -224,7 +225,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment attachment_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Description_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"updObject", 
@@ -236,7 +237,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					tx_Description_in
 				}
 			);
-			errors_out = (System.Int32[])results[0];
+			errors_out = (int[])results[0];
 		}
 		#endregion
 	}

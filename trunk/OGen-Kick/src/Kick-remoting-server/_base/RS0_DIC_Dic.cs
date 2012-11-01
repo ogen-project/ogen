@@ -33,7 +33,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLanguage_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_DIC_Dic.delLanguage(
 				sessionGuid_in, 
@@ -53,7 +53,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_DIC_Dic.getRecord_byApplication(
 				sessionGuid_in, 
@@ -77,7 +77,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_DIC_Dic.getRecord_byLanguage(
 				sessionGuid_in, 
@@ -102,7 +102,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_DIC_Dic.getRecord_Language(
 				sessionGuid_in, 
@@ -124,7 +124,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] languageName_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] existingLanguagesInNewLanguage_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_DIC_Dic.insLanguage(
 				sessionGuid_in, 
@@ -141,8 +141,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		public void setSupportedLanguages(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			System.Int32[] idLanguages_in, 
-			out System.Int32[] errors_out
+			int[] idLanguages_in, 
+			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_DIC_Dic.setSupportedLanguages(
 				sessionGuid_in, 
@@ -160,7 +160,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string ip_forLogPurposes_in, 
 			int idLanguage_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] textLanguage_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_DIC_Dic.updLanguage(
 				sessionGuid_in, 

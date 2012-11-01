@@ -26,13 +26,13 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		void setObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			System.Int64[] idProfile_in, 
-			out System.Int32[] errors_out
+			long[] idProfile_in, 
+			out int[] errors_out
 		);
 	}
 }

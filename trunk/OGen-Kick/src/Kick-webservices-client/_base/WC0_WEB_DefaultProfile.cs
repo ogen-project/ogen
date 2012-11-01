@@ -43,6 +43,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		#region public void ReConfig();
 		public void ReConfig() {
 			this.Url = string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"{0}:{1}/WS_WEB_DefaultProfile.asmx",
 				#if NET_1_1
 				System.Configuration.ConfigurationSettings.AppSettings["Webservices_ServerURI"], 
@@ -70,7 +71,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getRecord_all", 
@@ -83,7 +84,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				}
 			);
 			page_itemsCount_out = (long)results[1];
-			errors_out = (System.Int32[])results[2];
+			errors_out = (int[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[])results[0];
 		}
 		#endregion
@@ -98,8 +99,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		public void setObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			System.Int64[] idProfile_in, 
-			out System.Int32[] errors_out
+			long[] idProfile_in, 
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"setObject", 
@@ -109,7 +110,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idProfile_in
 				}
 			);
-			errors_out = (System.Int32[])results[0];
+			errors_out = (int[])results[0];
 		}
 		#endregion
 	}

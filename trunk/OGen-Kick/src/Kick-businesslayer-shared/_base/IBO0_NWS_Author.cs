@@ -23,13 +23,13 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idAuthor_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Author getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idAuthor_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Author[] getRecord_all(
 			string sessionGuid_in, 
@@ -38,7 +38,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Author[] getRecord_Approved(
 			string sessionGuid_in, 
@@ -47,7 +47,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentAuthor[] getRecord_byContent(
 			string sessionGuid_in, 
@@ -57,26 +57,26 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		long insObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Author author_in, 
 			bool selectIdentity_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		void updObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Author author_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		void updObject_Approve(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idAuthor_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 	}
 }

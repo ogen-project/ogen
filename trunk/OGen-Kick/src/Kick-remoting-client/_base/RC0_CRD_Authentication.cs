@@ -49,7 +49,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string ip_forLogPurposes_in, 
 			string password_old_in, 
 			string password_new_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			bo_.ChangePassword(
 				sessionGuid_in, 
@@ -64,7 +64,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 		public bool CheckCredentials(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return bo_.CheckCredentials(
 				sessionGuid_in, 
@@ -81,8 +81,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string ip_forLogPurposes_in, 
 			int idApplication_in, 
 			out long idUser_out, 
-			out System.Int64[] idPermitions_out, 
-			out System.Int32[] errors_out
+			out long[] idPermitions_out, 
+			out int[] errors_out
 		) {
 			bo_.Login(
 				login_in, 

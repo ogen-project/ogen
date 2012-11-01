@@ -48,7 +48,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			string login_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			bo_.insObject_CreateUser(
 				sessionGuid_in, 
@@ -63,7 +63,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string login_in, 
 			string password_in, 
 			int idApplication_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			bo_.insObject_Registration(
 				login_in, 

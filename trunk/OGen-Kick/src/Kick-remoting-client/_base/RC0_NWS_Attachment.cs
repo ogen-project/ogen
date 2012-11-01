@@ -48,7 +48,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idAttachment_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			bo_.delObject(
 				sessionGuid_in, 
@@ -63,7 +63,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idAttachment_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return bo_.getObject(
 				sessionGuid_in, 
@@ -82,7 +82,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return bo_.getRecord_byContent(
 				sessionGuid_in, 
@@ -106,7 +106,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return bo_.getRecord_byContent_andLanguage(
 				sessionGuid_in, 
@@ -130,7 +130,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Description_in, 
 			bool selectIdentity_in, 
 			out string guid_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return bo_.insObject(
 				sessionGuid_in, 
@@ -151,7 +151,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment attachment_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Description_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			bo_.updObject(
 				sessionGuid_in, 

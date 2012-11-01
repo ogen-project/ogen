@@ -43,6 +43,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		#region public void ReConfig();
 		public void ReConfig() {
 			this.Url = string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"{0}:{1}/WS_LOG_Log.asmx",
 				#if NET_1_1
 				System.Configuration.ConfigurationSettings.AppSettings["Webservices_ServerURI"], 
@@ -79,7 +80,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getRecord_generic", 
@@ -101,7 +102,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				}
 			);
 			page_itemsCount_out = (long)results[1];
-			errors_out = (System.Int32[])results[2];
+			errors_out = (int[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_LOG_Log[])results[0];
 		}
 		#endregion
@@ -121,7 +122,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			long idPermition_in, 
 			int idApplication_in, 
 			string format_in, 
-			System.String[] args_in
+			string[] args_in
 		) {
 			object[] results = this.Invoke(
 				"Log", 
@@ -150,7 +151,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLog_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"MarkRead", 
@@ -160,7 +161,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idLog_in
 				}
 			);
-			errors_out = (System.Int32[])results[0];
+			errors_out = (int[])results[0];
 		}
 		#endregion
 	}

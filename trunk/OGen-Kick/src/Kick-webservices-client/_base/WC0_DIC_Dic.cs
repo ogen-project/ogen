@@ -43,6 +43,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		#region public void ReConfig();
 		public void ReConfig() {
 			this.Url = string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"{0}:{1}/WS_DIC_Dic.asmx",
 				#if NET_1_1
 				System.Configuration.ConfigurationSettings.AppSettings["Webservices_ServerURI"], 
@@ -67,7 +68,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLanguage_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"delLanguage", 
@@ -77,7 +78,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idLanguage_in
 				}
 			);
-			errors_out = (System.Int32[])results[0];
+			errors_out = (int[])results[0];
 		}
 		#endregion
 		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(...);
@@ -95,7 +96,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getRecord_byApplication", 
@@ -108,7 +109,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				}
 			);
 			page_itemsCount_out = (long)results[1];
-			errors_out = (System.Int32[])results[2];
+			errors_out = (int[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[])results[0];
 		}
 		#endregion
@@ -128,7 +129,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getRecord_byLanguage", 
@@ -142,7 +143,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				}
 			);
 			page_itemsCount_out = (long)results[1];
-			errors_out = (System.Int32[])results[2];
+			errors_out = (int[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[])results[0];
 		}
 		#endregion
@@ -162,7 +163,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getRecord_Language", 
@@ -176,7 +177,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				}
 			);
 			page_itemsCount_out = (long)results[1];
-			errors_out = (System.Int32[])results[2];
+			errors_out = (int[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[])results[0];
 		}
 		#endregion
@@ -193,7 +194,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] languageName_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] existingLanguagesInNewLanguage_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"insLanguage", 
@@ -204,7 +205,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					existingLanguagesInNewLanguage_in
 				}
 			);
-			errors_out = (System.Int32[])results[0];
+			errors_out = (int[])results[0];
 		}
 		#endregion
 		#region public void setSupportedLanguages(...);
@@ -218,8 +219,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		public void setSupportedLanguages(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			System.Int32[] idLanguages_in, 
-			out System.Int32[] errors_out
+			int[] idLanguages_in, 
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"setSupportedLanguages", 
@@ -229,7 +230,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idLanguages_in
 				}
 			);
-			errors_out = (System.Int32[])results[0];
+			errors_out = (int[])results[0];
 		}
 		#endregion
 		#region public void updLanguage(...);
@@ -245,7 +246,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string ip_forLogPurposes_in, 
 			int idLanguage_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] textLanguage_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"updLanguage", 
@@ -256,7 +257,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					textLanguage_in
 				}
 			);
-			errors_out = (System.Int32[])results[0];
+			errors_out = (int[])results[0];
 		}
 		#endregion
 	}

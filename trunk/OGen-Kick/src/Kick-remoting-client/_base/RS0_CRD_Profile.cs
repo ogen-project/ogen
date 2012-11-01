@@ -32,7 +32,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
@@ -42,7 +42,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
@@ -56,7 +56,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
@@ -70,7 +70,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
@@ -84,7 +84,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
@@ -98,7 +98,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
@@ -108,9 +108,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
-			System.Int64[] idProfile_parent_in, 
-			System.Int64[] idPermition_in, 
-			out System.Int32[] errors_out
+			long[] idProfile_parent_in, 
+			long[] idPermition_in, 
+			out int[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
@@ -120,8 +120,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idUser_in, 
-			System.Int64[] idProfiles_in, 
-			out System.Int32[] errors_out
+			long[] idProfiles_in, 
+			out int[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
@@ -131,9 +131,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
-			System.Int64[] idProfile_parent_in, 
-			System.Int64[] idPermition_in, 
-			out System.Int32[] errors_out
+			long[] idProfile_parent_in, 
+			long[] idPermition_in, 
+			out int[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
@@ -143,9 +143,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
-			System.Int64[] idProfile_parent_in, 
-			System.Int64[] idPermition_in, 
-			out System.Int32[] errors_out
+			long[] idProfile_parent_in, 
+			long[] idPermition_in, 
+			out int[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}

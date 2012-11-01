@@ -23,7 +23,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLanguage_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(
 			string sessionGuid_in, 
@@ -32,7 +32,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_byLanguage(
 			string sessionGuid_in, 
@@ -42,7 +42,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_Language(
 			string sessionGuid_in, 
@@ -52,27 +52,27 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		void insLanguage(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] languageName_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] existingLanguagesInNewLanguage_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		void setSupportedLanguages(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			System.Int32[] idLanguages_in, 
-			out System.Int32[] errors_out
+			int[] idLanguages_in, 
+			out int[] errors_out
 		);
 		void updLanguage(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLanguage_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] textLanguage_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 	}
 }

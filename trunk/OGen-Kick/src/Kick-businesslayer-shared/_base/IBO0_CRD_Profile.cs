@@ -23,13 +23,13 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile[] getRecord_all(
 			string sessionGuid_in, 
@@ -39,7 +39,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_ProfileProfile[] getRecord_byProfile(
 			string sessionGuid_in, 
@@ -49,7 +49,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(
 			string sessionGuid_in, 
@@ -59,7 +59,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_UserProfile[] getRecord_ofUserProfile_byUser(
 			string sessionGuid_in, 
@@ -69,38 +69,38 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		long insObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
-			System.Int64[] idProfile_parent_in, 
-			System.Int64[] idPermition_in, 
-			out System.Int32[] errors_out
+			long[] idProfile_parent_in, 
+			long[] idPermition_in, 
+			out int[] errors_out
 		);
 		void setUserProfiles(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idUser_in, 
-			System.Int64[] idProfiles_in, 
-			out System.Int32[] errors_out
+			long[] idProfiles_in, 
+			out int[] errors_out
 		);
 		void updObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
-			System.Int64[] idProfile_parent_in, 
-			System.Int64[] idPermition_in, 
-			out System.Int32[] errors_out
+			long[] idProfile_parent_in, 
+			long[] idPermition_in, 
+			out int[] errors_out
 		);
 		void updObject_relationsOnly(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
-			System.Int64[] idProfile_parent_in, 
-			System.Int64[] idPermition_in, 
-			out System.Int32[] errors_out
+			long[] idProfile_parent_in, 
+			long[] idPermition_in, 
+			out int[] errors_out
 		);
 	}
 }

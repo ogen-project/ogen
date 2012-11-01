@@ -33,7 +33,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idHighlight_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.delObject(
 				sessionGuid_in, 
@@ -50,7 +50,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idHighlight_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.getObject(
 				sessionGuid_in, 
@@ -70,7 +70,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.getRecord_all(
 				sessionGuid_in, 
@@ -93,7 +93,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.getRecord_Approved(
 				sessionGuid_in, 
@@ -117,7 +117,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.getRecord_byContent(
 				sessionGuid_in, 
@@ -139,7 +139,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight highlight_in, 
 			bool selectIdentity_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.insObject(
 				sessionGuid_in, 
@@ -157,7 +157,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight highlight_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.updObject(
 				sessionGuid_in, 
@@ -174,7 +174,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idHighlight_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.updObject_Approve(
 				sessionGuid_in, 

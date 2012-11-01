@@ -52,7 +52,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return bo_.getRecord_all(
 				sessionGuid_in, 

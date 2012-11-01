@@ -33,7 +33,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idTag_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.delObject(
 				sessionGuid_in, 
@@ -50,7 +50,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idTag_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.getObject(
 				sessionGuid_in, 
@@ -68,7 +68,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string ip_forLogPurposes_in, 
 			long idTag_in, 
 			int idLanguage_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.getObject_byTag_andLanguage(
 				sessionGuid_in, 
@@ -90,7 +90,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.getRecord_Approved_byLang(
 				sessionGuid_in, 
@@ -115,7 +115,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.getRecord_byContent(
 				sessionGuid_in, 
@@ -140,7 +140,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.getRecord_byLang(
 				sessionGuid_in, 
@@ -165,7 +165,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.getRecord_byTag(
 				sessionGuid_in, 
@@ -188,7 +188,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag tag_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
 			bool selectIdentity_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.insObject(
 				sessionGuid_in, 
@@ -208,7 +208,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag tag_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.updObject(
 				sessionGuid_in, 
@@ -226,7 +226,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idTag_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.updObject_Approve(
 				sessionGuid_in, 

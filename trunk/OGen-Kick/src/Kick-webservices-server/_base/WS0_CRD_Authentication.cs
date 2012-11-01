@@ -37,7 +37,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string ip_forLogPurposes_in, 
 			string password_old_in, 
 			string password_new_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.ChangePassword(
 				sessionGuid_in, 
@@ -55,7 +55,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		public bool CheckCredentials(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.CheckCredentials(
 				sessionGuid_in, 
@@ -75,8 +75,8 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string ip_forLogPurposes_in, 
 			int idApplication_in, 
 			out long idUser_out, 
-			out System.Int64[] idPermitions_out, 
-			out System.Int32[] errors_out
+			out long[] idPermitions_out, 
+			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.Login(
 				login_in, 

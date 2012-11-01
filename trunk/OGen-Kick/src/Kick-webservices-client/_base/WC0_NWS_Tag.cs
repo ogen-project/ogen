@@ -43,6 +43,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		#region public void ReConfig();
 		public void ReConfig() {
 			this.Url = string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"{0}:{1}/WS_NWS_Tag.asmx",
 				#if NET_1_1
 				System.Configuration.ConfigurationSettings.AppSettings["Webservices_ServerURI"], 
@@ -67,7 +68,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idTag_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"delObject", 
@@ -77,7 +78,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idTag_in
 				}
 			);
-			errors_out = (System.Int32[])results[0];
+			errors_out = (int[])results[0];
 		}
 		#endregion
 		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag getObject(...);
@@ -92,7 +93,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idTag_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getObject", 
@@ -102,7 +103,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idTag_in
 				}
 			);
-			errors_out = (System.Int32[])results[1];
+			errors_out = (int[])results[1];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag)results[0];
 		}
 		#endregion
@@ -119,7 +120,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string ip_forLogPurposes_in, 
 			long idTag_in, 
 			int idLanguage_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getObject_byTag_andLanguage", 
@@ -130,7 +131,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idLanguage_in
 				}
 			);
-			errors_out = (System.Int32[])results[1];
+			errors_out = (int[])results[1];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag)results[0];
 		}
 		#endregion
@@ -150,7 +151,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getRecord_Approved_byLang", 
@@ -164,7 +165,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				}
 			);
 			page_itemsCount_out = (long)results[1];
-			errors_out = (System.Int32[])results[2];
+			errors_out = (int[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[])results[0];
 		}
 		#endregion
@@ -184,7 +185,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getRecord_byContent", 
@@ -198,7 +199,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				}
 			);
 			page_itemsCount_out = (long)results[1];
-			errors_out = (System.Int32[])results[2];
+			errors_out = (int[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentTag[])results[0];
 		}
 		#endregion
@@ -218,7 +219,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getRecord_byLang", 
@@ -232,7 +233,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				}
 			);
 			page_itemsCount_out = (long)results[1];
-			errors_out = (System.Int32[])results[2];
+			errors_out = (int[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[])results[0];
 		}
 		#endregion
@@ -252,7 +253,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getRecord_byTag", 
@@ -266,7 +267,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				}
 			);
 			page_itemsCount_out = (long)results[1];
-			errors_out = (System.Int32[])results[2];
+			errors_out = (int[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[])results[0];
 		}
 		#endregion
@@ -284,7 +285,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag tag_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
 			bool selectIdentity_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"insObject", 
@@ -296,7 +297,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					selectIdentity_in
 				}
 			);
-			errors_out = (System.Int32[])results[1];
+			errors_out = (int[])results[1];
 			return (long)results[0];
 		}
 		#endregion
@@ -313,7 +314,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag tag_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"updObject", 
@@ -324,7 +325,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					tx_Name_in
 				}
 			);
-			errors_out = (System.Int32[])results[0];
+			errors_out = (int[])results[0];
 		}
 		#endregion
 		#region public void updObject_Approve(...);
@@ -339,7 +340,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idTag_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"updObject_Approve", 
@@ -349,7 +350,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idTag_in
 				}
 			);
-			errors_out = (System.Int32[])results[0];
+			errors_out = (int[])results[0];
 		}
 		#endregion
 	}

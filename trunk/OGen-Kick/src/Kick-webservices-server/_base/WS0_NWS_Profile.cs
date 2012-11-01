@@ -36,7 +36,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Profile.delObject(
 				sessionGuid_in, 
@@ -54,7 +54,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Profile.getObject(
 				sessionGuid_in, 
@@ -75,7 +75,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Profile.getRecord_all(
 				sessionGuid_in, 
@@ -99,7 +99,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Profile.getRecord_Approved(
 				sessionGuid_in, 
@@ -124,7 +124,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Profile.getRecord_byContent(
 				sessionGuid_in, 
@@ -146,7 +146,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile profile_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Profile.insObject(
 				sessionGuid_in, 
@@ -164,7 +164,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile profile_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Profile.updObject(
 				sessionGuid_in, 
@@ -182,7 +182,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Profile.updObject_Approve(
 				sessionGuid_in, 

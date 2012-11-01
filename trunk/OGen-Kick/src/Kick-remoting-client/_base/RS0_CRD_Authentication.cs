@@ -33,7 +33,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string ip_forLogPurposes_in, 
 			string password_old_in, 
 			string password_new_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
@@ -42,7 +42,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		public bool CheckCredentials(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
@@ -55,8 +55,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string ip_forLogPurposes_in, 
 			int idApplication_in, 
 			out long idUser_out, 
-			out System.Int64[] idPermitions_out, 
-			out System.Int32[] errors_out
+			out long[] idPermitions_out, 
+			out int[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}

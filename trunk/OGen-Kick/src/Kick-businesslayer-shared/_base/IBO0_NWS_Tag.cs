@@ -23,20 +23,20 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idTag_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idTag_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag getObject_byTag_andLanguage(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idTag_in, 
 			int idLanguage_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[] getRecord_Approved_byLang(
 			string sessionGuid_in, 
@@ -46,7 +46,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentTag[] getRecord_byContent(
 			string sessionGuid_in, 
@@ -56,7 +56,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[] getRecord_byLang(
 			string sessionGuid_in, 
@@ -66,7 +66,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[] getRecord_byTag(
 			string sessionGuid_in, 
@@ -76,7 +76,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		long insObject(
 			string sessionGuid_in, 
@@ -84,20 +84,20 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag tag_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
 			bool selectIdentity_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		void updObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag tag_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		void updObject_Approve(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idTag_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 	}
 }

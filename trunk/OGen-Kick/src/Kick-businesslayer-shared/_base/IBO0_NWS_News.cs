@@ -23,14 +23,14 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
 			int idLanguage_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content[] getRecord_byContent(
 			string sessionGuid_in, 
@@ -40,7 +40,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content[] getRecord_generic(
 			string sessionGuid_in, 
@@ -49,11 +49,11 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			long IDUser__Aproved_search_in, 
 			System.DateTime Begin_date_search_in, 
 			System.DateTime End_date_search_in, 
-			System.Int64[] idTags_search_in, 
-			System.Int64[] idAuthors_search_in, 
-			System.Int64[] idSources_search_in, 
-			System.Int64[] idHighlights_search_in, 
-			System.Int64[] idProfiles_search_in, 
+			long[] idTags_search_in, 
+			long[] idAuthors_search_in, 
+			long[] idSources_search_in, 
+			long[] idHighlights_search_in, 
+			long[] idProfiles_search_in, 
 			string charVar8000_search_in, 
 			int IDLanguage_search_in, 
 			bool isAND_notOR_search_in, 
@@ -61,7 +61,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		long insObject(
 			string sessionGuid_in, 
@@ -71,12 +71,12 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_subtitle_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_summary_in, 
-			System.Int64[] idTags_in, 
-			System.Int64[] idAuthors_in, 
-			System.Int64[] idSources_in, 
-			System.Int64[] idHighlights_in, 
-			System.Int64[] idProfiles_in, 
-			out System.Int32[] errors_out
+			long[] idTags_in, 
+			long[] idAuthors_in, 
+			long[] idSources_in, 
+			long[] idHighlights_in, 
+			long[] idProfiles_in, 
+			out int[] errors_out
 		);
 		void updObject(
 			string sessionGuid_in, 
@@ -86,25 +86,25 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_subtitle_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_summary_in, 
-			System.Int64[] idTags_in, 
-			System.Int64[] idAuthors_in, 
-			System.Int64[] idSources_in, 
-			System.Int64[] idHighlights_in, 
-			System.Int64[] idProfiles_in, 
-			out System.Int32[] errors_out
+			long[] idTags_in, 
+			long[] idAuthors_in, 
+			long[] idSources_in, 
+			long[] idHighlights_in, 
+			long[] idProfiles_in, 
+			out int[] errors_out
 		);
 		void updObject_Approve(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		void updObject_Authors(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
-			System.Int64[] idAuthors_in, 
-			out System.Int32[] errors_out
+			long[] idAuthors_in, 
+			out int[] errors_out
 		);
 		void updObject_Content(
 			string sessionGuid_in, 
@@ -114,35 +114,35 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_subtitle_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_summary_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		void updObject_Highlights(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
-			System.Int64[] idHighlights_in, 
-			out System.Int32[] errors_out
+			long[] idHighlights_in, 
+			out int[] errors_out
 		);
 		void updObject_Profiles(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
-			System.Int64[] idProfiles_in, 
-			out System.Int32[] errors_out
+			long[] idProfiles_in, 
+			out int[] errors_out
 		);
 		void updObject_Sources(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
-			System.Int64[] idSources_in, 
-			out System.Int32[] errors_out
+			long[] idSources_in, 
+			out int[] errors_out
 		);
 		void updObject_Tags(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
-			System.Int64[] idTags_in, 
-			out System.Int32[] errors_out
+			long[] idTags_in, 
+			out int[] errors_out
 		);
 	}
 }

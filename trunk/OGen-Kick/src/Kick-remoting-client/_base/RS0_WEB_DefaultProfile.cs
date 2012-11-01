@@ -35,7 +35,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
@@ -44,8 +44,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		public void setObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			System.Int64[] idProfile_in, 
-			out System.Int32[] errors_out
+			long[] idProfile_in, 
+			out int[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}

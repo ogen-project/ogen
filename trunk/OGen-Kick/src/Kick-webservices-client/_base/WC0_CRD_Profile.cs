@@ -43,6 +43,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		#region public void ReConfig();
 		public void ReConfig() {
 			this.Url = string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"{0}:{1}/WS_CRD_Profile.asmx",
 				#if NET_1_1
 				System.Configuration.ConfigurationSettings.AppSettings["Webservices_ServerURI"], 
@@ -67,7 +68,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"delObject", 
@@ -77,7 +78,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idProfile_in
 				}
 			);
-			errors_out = (System.Int32[])results[0];
+			errors_out = (int[])results[0];
 		}
 		#endregion
 		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile getObject(...);
@@ -92,7 +93,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getObject", 
@@ -102,7 +103,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idProfile_in
 				}
 			);
-			errors_out = (System.Int32[])results[1];
+			errors_out = (int[])results[1];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile)results[0];
 		}
 		#endregion
@@ -122,7 +123,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getRecord_all", 
@@ -136,7 +137,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				}
 			);
 			page_itemsCount_out = (long)results[1];
-			errors_out = (System.Int32[])results[2];
+			errors_out = (int[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile[])results[0];
 		}
 		#endregion
@@ -156,7 +157,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getRecord_byProfile", 
@@ -170,7 +171,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				}
 			);
 			page_itemsCount_out = (long)results[1];
-			errors_out = (System.Int32[])results[2];
+			errors_out = (int[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_ProfileProfile[])results[0];
 		}
 		#endregion
@@ -190,7 +191,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getRecord_ofProfilePermition_byProfile", 
@@ -204,7 +205,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				}
 			);
 			page_itemsCount_out = (long)results[1];
-			errors_out = (System.Int32[])results[2];
+			errors_out = (int[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[])results[0];
 		}
 		#endregion
@@ -224,7 +225,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"getRecord_ofUserProfile_byUser", 
@@ -238,7 +239,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				}
 			);
 			page_itemsCount_out = (long)results[1];
-			errors_out = (System.Int32[])results[2];
+			errors_out = (int[])results[2];
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_UserProfile[])results[0];
 		}
 		#endregion
@@ -254,9 +255,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
-			System.Int64[] idProfile_parent_in, 
-			System.Int64[] idPermition_in, 
-			out System.Int32[] errors_out
+			long[] idProfile_parent_in, 
+			long[] idPermition_in, 
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"insObject", 
@@ -268,7 +269,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idPermition_in
 				}
 			);
-			errors_out = (System.Int32[])results[1];
+			errors_out = (int[])results[1];
 			return (long)results[0];
 		}
 		#endregion
@@ -284,8 +285,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idUser_in, 
-			System.Int64[] idProfiles_in, 
-			out System.Int32[] errors_out
+			long[] idProfiles_in, 
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"setUserProfiles", 
@@ -296,7 +297,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idProfiles_in
 				}
 			);
-			errors_out = (System.Int32[])results[0];
+			errors_out = (int[])results[0];
 		}
 		#endregion
 		#region public void updObject(...);
@@ -311,9 +312,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
-			System.Int64[] idProfile_parent_in, 
-			System.Int64[] idPermition_in, 
-			out System.Int32[] errors_out
+			long[] idProfile_parent_in, 
+			long[] idPermition_in, 
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"updObject", 
@@ -325,7 +326,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idPermition_in
 				}
 			);
-			errors_out = (System.Int32[])results[0];
+			errors_out = (int[])results[0];
 		}
 		#endregion
 		#region public void updObject_relationsOnly(...);
@@ -340,9 +341,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
-			System.Int64[] idProfile_parent_in, 
-			System.Int64[] idPermition_in, 
-			out System.Int32[] errors_out
+			long[] idProfile_parent_in, 
+			long[] idPermition_in, 
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"updObject_relationsOnly", 
@@ -354,7 +355,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					idPermition_in
 				}
 			);
-			errors_out = (System.Int32[])results[0];
+			errors_out = (int[])results[0];
 		}
 		#endregion
 	}

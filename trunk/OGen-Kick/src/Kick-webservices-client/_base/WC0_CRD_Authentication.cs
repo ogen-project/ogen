@@ -43,6 +43,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		#region public void ReConfig();
 		public void ReConfig() {
 			this.Url = string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"{0}:{1}/WS_CRD_Authentication.asmx",
 				#if NET_1_1
 				System.Configuration.ConfigurationSettings.AppSettings["Webservices_ServerURI"], 
@@ -68,7 +69,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string ip_forLogPurposes_in, 
 			string password_old_in, 
 			string password_new_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"ChangePassword", 
@@ -79,7 +80,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					password_new_in
 				}
 			);
-			errors_out = (System.Int32[])results[0];
+			errors_out = (int[])results[0];
 		}
 		#endregion
 		#region public bool CheckCredentials(...);
@@ -93,7 +94,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		public bool CheckCredentials(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"CheckCredentials", 
@@ -102,7 +103,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					ip_forLogPurposes_in
 				}
 			);
-			errors_out = (System.Int32[])results[1];
+			errors_out = (int[])results[1];
 			return (bool)results[0];
 		}
 		#endregion
@@ -121,8 +122,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string ip_forLogPurposes_in, 
 			int idApplication_in, 
 			out long idUser_out, 
-			out System.Int64[] idPermitions_out, 
-			out System.Int32[] errors_out
+			out long[] idPermitions_out, 
+			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
 				"Login", 
@@ -135,8 +136,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				}
 			);
 			idUser_out = (long)results[0];
-			idPermitions_out = (System.Int64[])results[1];
-			errors_out = (System.Int32[])results[2];
+			idPermitions_out = (long[])results[1];
+			errors_out = (int[])results[2];
 		}
 		#endregion
 		#region public void Logout(...);

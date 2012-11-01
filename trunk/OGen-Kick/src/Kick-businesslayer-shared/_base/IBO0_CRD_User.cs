@@ -23,13 +23,13 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			string login_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 		void insObject_Registration(
 			string login_in, 
 			string password_in, 
 			int idApplication_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		);
 	}
 }

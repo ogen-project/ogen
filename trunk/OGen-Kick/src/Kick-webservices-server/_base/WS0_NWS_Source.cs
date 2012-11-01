@@ -36,7 +36,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idSource_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Source.delObject(
 				sessionGuid_in, 
@@ -54,7 +54,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idSource_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Source.getObject(
 				sessionGuid_in, 
@@ -75,7 +75,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Source.getRecord_all(
 				sessionGuid_in, 
@@ -99,7 +99,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Source.getRecord_Approved(
 				sessionGuid_in, 
@@ -124,7 +124,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Source.getRecord_byContent(
 				sessionGuid_in, 
@@ -147,7 +147,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Source source_in, 
 			bool selectIdentity_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Source.insObject(
 				sessionGuid_in, 
@@ -166,7 +166,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Source source_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Source.updObject(
 				sessionGuid_in, 
@@ -184,7 +184,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idSource_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Source.updObject_Approve(
 				sessionGuid_in, 

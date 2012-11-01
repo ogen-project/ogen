@@ -48,7 +48,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.getRecord_generic(
 				sessionGuid_in, 
@@ -82,7 +82,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			long idPermition_in, 
 			int idApplication_in, 
 			string format_in, 
-			System.String[] args_in
+			string[] args_in
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
 				sessionGuid_in, 
@@ -104,7 +104,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLog_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.MarkRead(
 				sessionGuid_in, 

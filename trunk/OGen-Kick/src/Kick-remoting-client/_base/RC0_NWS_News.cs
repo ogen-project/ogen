@@ -48,7 +48,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			bo_.delObject(
 				sessionGuid_in, 
@@ -64,7 +64,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
 			int idLanguage_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return bo_.getObject(
 				sessionGuid_in, 
@@ -84,7 +84,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return bo_.getRecord_byContent(
 				sessionGuid_in, 
@@ -106,11 +106,11 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			long IDUser__Aproved_search_in, 
 			System.DateTime Begin_date_search_in, 
 			System.DateTime End_date_search_in, 
-			System.Int64[] idTags_search_in, 
-			System.Int64[] idAuthors_search_in, 
-			System.Int64[] idSources_search_in, 
-			System.Int64[] idHighlights_search_in, 
-			System.Int64[] idProfiles_search_in, 
+			long[] idTags_search_in, 
+			long[] idAuthors_search_in, 
+			long[] idSources_search_in, 
+			long[] idHighlights_search_in, 
+			long[] idProfiles_search_in, 
 			string charVar8000_search_in, 
 			int IDLanguage_search_in, 
 			bool isAND_notOR_search_in, 
@@ -118,7 +118,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return bo_.getRecord_generic(
 				sessionGuid_in, 
@@ -152,12 +152,12 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_subtitle_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_summary_in, 
-			System.Int64[] idTags_in, 
-			System.Int64[] idAuthors_in, 
-			System.Int64[] idSources_in, 
-			System.Int64[] idHighlights_in, 
-			System.Int64[] idProfiles_in, 
-			out System.Int32[] errors_out
+			long[] idTags_in, 
+			long[] idAuthors_in, 
+			long[] idSources_in, 
+			long[] idHighlights_in, 
+			long[] idProfiles_in, 
+			out int[] errors_out
 		) {
 			return bo_.insObject(
 				sessionGuid_in, 
@@ -185,12 +185,12 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_subtitle_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_summary_in, 
-			System.Int64[] idTags_in, 
-			System.Int64[] idAuthors_in, 
-			System.Int64[] idSources_in, 
-			System.Int64[] idHighlights_in, 
-			System.Int64[] idProfiles_in, 
-			out System.Int32[] errors_out
+			long[] idTags_in, 
+			long[] idAuthors_in, 
+			long[] idSources_in, 
+			long[] idHighlights_in, 
+			long[] idProfiles_in, 
+			out int[] errors_out
 		) {
 			bo_.updObject(
 				sessionGuid_in, 
@@ -214,7 +214,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			bo_.updObject_Approve(
 				sessionGuid_in, 
@@ -229,8 +229,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
-			System.Int64[] idAuthors_in, 
-			out System.Int32[] errors_out
+			long[] idAuthors_in, 
+			out int[] errors_out
 		) {
 			bo_.updObject_Authors(
 				sessionGuid_in, 
@@ -250,7 +250,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_subtitle_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_summary_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			bo_.updObject_Content(
 				sessionGuid_in, 
@@ -269,8 +269,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
-			System.Int64[] idHighlights_in, 
-			out System.Int32[] errors_out
+			long[] idHighlights_in, 
+			out int[] errors_out
 		) {
 			bo_.updObject_Highlights(
 				sessionGuid_in, 
@@ -286,8 +286,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
-			System.Int64[] idProfiles_in, 
-			out System.Int32[] errors_out
+			long[] idProfiles_in, 
+			out int[] errors_out
 		) {
 			bo_.updObject_Profiles(
 				sessionGuid_in, 
@@ -303,8 +303,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
-			System.Int64[] idSources_in, 
-			out System.Int32[] errors_out
+			long[] idSources_in, 
+			out int[] errors_out
 		) {
 			bo_.updObject_Sources(
 				sessionGuid_in, 
@@ -320,8 +320,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
-			System.Int64[] idTags_in, 
-			out System.Int32[] errors_out
+			long[] idTags_in, 
+			out int[] errors_out
 		) {
 			bo_.updObject_Tags(
 				sessionGuid_in, 

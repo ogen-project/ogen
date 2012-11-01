@@ -60,7 +60,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			long page_in, 
 			int page_itemsPerPage_in, 
 			out long page_itemsCount_out, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			return bo_.getRecord_generic(
 				sessionGuid_in, 
@@ -91,7 +91,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			long idPermition_in, 
 			int idApplication_in, 
 			string format_in, 
-			System.String[] args_in
+			string[] args_in
 		) {
 			bo_.Log(
 				sessionGuid_in, 
@@ -110,7 +110,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLog_in, 
-			out System.Int32[] errors_out
+			out int[] errors_out
 		) {
 			bo_.MarkRead(
 				sessionGuid_in, 
