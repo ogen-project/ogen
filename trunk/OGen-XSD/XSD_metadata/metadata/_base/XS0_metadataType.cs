@@ -190,7 +190,7 @@ namespace OGen.XSD.lib.metadata.metadata {
 		public string CopyrightTextLong {
 			get {
 // ToDos: here!
-				return (this.copyrighttextlong_.IndexOf("\r\n") >= 0)
+				return (this.copyrighttextlong_.IndexOf("\r\n", StringComparison.CurrentCulture) >= 0)
 					? this.copyrighttextlong_
 					: this.copyrighttextlong_.Replace("\n", "\r\n");
 			}

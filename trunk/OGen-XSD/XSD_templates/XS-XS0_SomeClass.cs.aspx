@@ -183,7 +183,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 			get {<%
 				if (_aux_ntype == "string") {%>
 // ToDos: here!
-				return (this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_.IndexOf("\r\n") >= 0)
+				return (this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_.IndexOf("\r\n", StringComparison.CurrentCulture) >= 0)
 					? this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_
 					: this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_.Replace("\n", "\r\n");<%
 				} else {%>

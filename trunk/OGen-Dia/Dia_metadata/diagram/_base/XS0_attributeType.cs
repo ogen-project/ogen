@@ -88,7 +88,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 		public string String {
 			get {
 // ToDos: here!
-				return (this.string_.IndexOf("\r\n") >= 0)
+				return (this.string_.IndexOf("\r\n", StringComparison.CurrentCulture) >= 0)
 					? this.string_
 					: this.string_.Replace("\n", "\r\n");
 			}

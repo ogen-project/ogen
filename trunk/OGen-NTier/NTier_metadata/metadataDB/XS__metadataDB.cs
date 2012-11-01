@@ -60,7 +60,7 @@ namespace OGen.NTier.lib.metadata.metadataDB {
 			#region XS__metadataDB _output = ...;
 			XS__metadataDB _output = new XS__metadataDB();
 
-			_output.root_metadatadb_ = ROOT + "." + METADATADB + "[" + index_in.ToString() + "]";
+			_output.root_metadatadb_ = string.Concat(ROOT, ".", METADATADB, "[", index_in.ToString(System.Globalization.CultureInfo.CurrentCulture), "]");
 			_output.parent_ref = root_ref_in; // ToDos: now!
 			if (root_ref_in != null) _output.root_ref = root_ref_in;
 			#endregion

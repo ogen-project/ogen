@@ -50,7 +50,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 			#region XS__metadataBusiness _output = ...;
 			XS__metadataBusiness _output = new XS__metadataBusiness();
 
-			_output.root_metadatabusiness_ = ROOT + "." + METADATABUSINESS + "[" + index_in.ToString() + "]";
+			_output.root_metadatabusiness_ = string.Concat(ROOT, ".", METADATABUSINESS, "[", index_in.ToString(System.Globalization.CultureInfo.CurrentCulture), "]");
 			_output.parent_ref = root_ref_in; // ToDos: now!
 			if (root_ref_in != null) _output.root_ref = root_ref_in;
 			#endregion
@@ -87,7 +87,12 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 					Type arg1,
 					Type arg2
 				) {
-					return arg1.Name.CompareTo(arg2.Name);
+					return string.Compare(
+						arg1.Name, 
+						arg2.Name,
+						false,
+						System.Globalization.CultureInfo.CurrentCulture
+					);
 				}
 			);
 #endif
@@ -102,7 +107,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 				if (
 					(_classattributes.Length > 0)
 					&&
-					(_type.Name.IndexOf("SBO_") == 0)
+					(_type.Name.IndexOf("SBO_", StringComparison.CurrentCulture) == 0)
 				) {
 					for (int ca = 0; ca < _classattributes.Length; ca++) {
 //						BOClassAttribute _attribute 
@@ -111,7 +116,7 @@ namespace OGen.NTier.lib.metadata.metadataBusiness {
 _output.Classes.ClassCollection.Add(
 	out _class_index, 
 	//_attribute.Name
-	(_type.Name.IndexOf("SBO_") == 0)
+	(_type.Name.IndexOf("SBO_", StringComparison.CurrentCulture) == 0)
 		? _type.Name.Substring(4)
 		: _type.Name
 );
@@ -133,7 +138,12 @@ _output.Classes.ClassCollection[_class_index].Type
 								MethodInfo arg1,
 								MethodInfo arg2
 							) {
-								return arg1.Name.CompareTo(arg2.Name);
+								return string.Compare(
+									arg1.Name,
+									arg2.Name,
+									false,
+									System.Globalization.CultureInfo.CurrentCulture
+								);
 							}
 						);
 #endif

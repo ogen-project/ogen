@@ -98,7 +98,10 @@ namespace OGen.lib.datalayer.PostgreSQL {
 							return string.Format(
 								System.Globalization.CultureInfo.CurrentCulture, 
 								"timestamp '{0}'", 
-								_datetime.ToString("yyyy-MM-dd HH:mm:ss")
+								_datetime.ToString(
+									"yyyy-MM-dd HH:mm:ss",
+									System.Globalization.CultureInfo.CurrentCulture
+								)
 							);
 						}
 

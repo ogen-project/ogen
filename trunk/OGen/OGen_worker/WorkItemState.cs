@@ -19,7 +19,7 @@ namespace OGen.lib.worker {
 	/// <summary>
 	/// Work Item Enumeration
 	/// </summary>
-	public enum WorkItemState : uint {
+	public enum WorkItemState : int {
 
 		/// <summary>
 		/// item on queue, must check if ready before start working
