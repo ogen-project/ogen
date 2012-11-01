@@ -143,11 +143,11 @@ namespace OGen.lib.presentationlayer.webforms {
 			);
 		}
 		#endregion
-		#region public void Bind__arrayOf<V, T>(...);
-		public void Bind__arrayOf<V, T>(
+		#region public void Bind__arrayOf<TValue, TText>(...);
+		public void Bind__arrayOf<TValue, TText>(
 			string selectedValue_in,
 			bool allowNull_in,
-			OGen.NTier.lib.datalayer.SO__ListItem<V, T>[] items_in
+			OGen.NTier.lib.datalayer.SO__ListItem<TValue, TText>[] items_in
 		) {
 			if (items_in == null) {
 				this.listitemcollection_ref_.Clear();
@@ -162,15 +162,15 @@ namespace OGen.lib.presentationlayer.webforms {
 				allowNull_in
 			);
 
-			this.bind__arrayof<V, T>(
+			this.bind__arrayof<TValue, TText>(
 				selectedValue_in,
 				items_in
 			);
 		}
 
-		public void Bind__arrayOf<V, T>(
+		public void Bind__arrayOf<TValue, TText>(
 			string selectedValue_in,
-			OGen.NTier.lib.datalayer.SO__ListItem<V, T>[] items_in
+			OGen.NTier.lib.datalayer.SO__ListItem<TValue, TText>[] items_in
 		) {
 			if (items_in == null) {
 				this.listitemcollection_ref_.Clear();
@@ -181,17 +181,17 @@ namespace OGen.lib.presentationlayer.webforms {
 				return;
 			}
 
-			this.bind__arrayof<V, T>(
+			this.bind__arrayof<TValue, TText>(
 				selectedValue_in,
 				items_in
 			);
 		}
 
-		private void bind__arrayof<V, T>(
+		private void bind__arrayof<TValue, TText>(
 			string selectedValue_in,
-			OGen.NTier.lib.datalayer.SO__ListItem<V, T>[] items_in
+			OGen.NTier.lib.datalayer.SO__ListItem<TValue, TText>[] items_in
 		) {
-			foreach (OGen.NTier.lib.datalayer.SO__ListItem<V, T> _item in items_in) {
+			foreach (OGen.NTier.lib.datalayer.SO__ListItem<TValue, TText> _item in items_in) {
 				this.listitemcollection_ref_.Add(
 #if DEBUG
 					string.Format(
@@ -257,9 +257,9 @@ namespace OGen.lib.presentationlayer.webforms {
 			this.SelectedValue__set(_selection);
 		}
 		#endregion
-		#region public void SelectedValues__set_arrayOf<V, T>(...);
-		public void SelectedValues__set_arrayOf<V, T>(
-			OGen.NTier.lib.datalayer.ISO__ListItem<V, T>[] items_in
+		#region public void SelectedValues__set_arrayOf<TValue, TText>(...);
+		public void SelectedValues__set_arrayOf<TValue, TText>(
+			OGen.NTier.lib.datalayer.ISO__ListItem<TValue, TText>[] items_in
 		) {
 			if (items_in == null) return;
 
@@ -274,16 +274,16 @@ namespace OGen.lib.presentationlayer.webforms {
 		public delegate bool ListitemConditionalSetDelegate<I>(
 			I item_in
 		);
-		public void SelectedValues__set_arrayOf<V, T, I>(
+		public void SelectedValues__set_arrayOf<TValue, TText, I>(
 			I[] items_in,
 			ListitemConditionalSetDelegate<I> setConditionVerifies_in
 		)
-			where I : OGen.NTier.lib.datalayer.ISO__ListItem<V, T>
+			where I : OGen.NTier.lib.datalayer.ISO__ListItem<TValue, TText>
 		{
 
-			//public void SelectedValues__set_arrayOf<V, T>(
-			//    OGen.NTier.lib.datalayer.ISO__ListItem<V, T>[] items_in,
-			//    ListitemConditionalSetDelegate<OGen.NTier.lib.datalayer.ISO__ListItem<V, T>> setConditionVerifies_in
+			//public void SelectedValues__set_arrayOf<TValue, TText>(
+			//    OGen.NTier.lib.datalayer.ISO__ListItem<TValue, TText>[] items_in,
+			//    ListitemConditionalSetDelegate<OGen.NTier.lib.datalayer.ISO__ListItem<TValue, TText>> setConditionVerifies_in
 			//) {
 
 			if (items_in == null) return;
