@@ -45,6 +45,23 @@
   <Target Name="$(ProjectDir)/OGen-Doc/Doc_metadata/bin/Debug/OGen.Doc.lib.metadata-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
   <Target Name="$(ProjectDir)/OGen-Doc/Doc_templates/bin/OGen.Doc.lib.templates-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
   <Target Name="$(ProjectDir)/OGen-Doc/Doc-console/bin/Debug/OGen.Doc.presentationlayer.console-2.0.exe" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Kick/src/Kick-businesslayer/bin/Debug/OGen.NTier.Kick.lib.businesslayer-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Kick/src/Kick-businesslayer-instances/bin/Debug/OGen.NTier.Kick.lib.businesslayer.shared.instances.businessobject-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Kick/src/Kick-businesslayer-instances/bin/Debug/OGen.NTier.Kick.lib.businesslayer.shared.instances.remotingclient-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Kick/src/Kick-businesslayer-instances/bin/Debug/OGen.NTier.Kick.lib.businesslayer.shared.instances.webservicesclient-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Kick/src/Kick-businesslayer-instances/bin/Debug/OGen.NTier.Kick.lib.businesslayer.shared.instances-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Kick/src/Kick-businesslayer-shared/bin/Debug/OGen.NTier.Kick.lib.businesslayer.shared-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Kick/src/Kick-businesslayer-structures/bin/Debug/OGen.NTier.Kick.lib.businesslayer.shared.structures-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Kick/src/Kick-datalayer/bin/Debug/OGen.NTier.Kick.lib.datalayer-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Kick/src/Kick-datalayer-structures/bin/Debug/OGen.NTier.Kick.lib.datalayer.shared.structures-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Kick/src/Kick-remoting-client/bin/Debug/OGen.NTier.Kick.lib.distributedlayer.remoting.client-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Kick/src/Kick-remoting-server/bin/Debug/OGen.NTier.Kick.lib.distributedlayer.remoting.server-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Kick/src/Kick-remoting-simpleserver/bin/Debug/OGen.NTier.Kick.distributedlayer.remoting.simpleserver-2.0.exe" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Kick/src/Kick--test/bin/Debug/OGen.NTier.Kick.presentationlayer.console-2.0.exe" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Kick/src/Kick-web/bin/OGen.NTier.Kick.presentationlayer.weblayer-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Kick/src/Kick-weblayer/bin/Debug/OGen.NTier.Kick.lib.presentationlayer.weblayer-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Kick/src/Kick-webservices-client/bin/Debug/OGen.NTier.Kick.lib.distributedlayer.webservices.client-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Kick/src/Kick-webservices-server/bin/OGen.NTier.Kick.distributedlayer.webservices.server-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
   <Target Name="$(ProjectDir)/OGen-NTier/NTier/bin/Debug/OGen.NTier.presentationlayer.winforms-2.0.exe" Analyze="True" AnalyzeAllChildren="True" />
   <Target Name="$(ProjectDir)/OGen-NTier/NTier_businesslayer/bin/Debug/OGen.NTier.lib.businesslayer-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
   <Target Name="$(ProjectDir)/OGen-NTier/NTier_datalayer/bin/Debug/OGen.NTier.lib.datalayer-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
