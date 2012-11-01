@@ -12,13 +12,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
-using System.Windows.Forms;
 
 namespace OGen.lib.presentationlayer.winforms.Flowforms {
+	using System;
+	using System.Collections;
+	using System.ComponentModel;
+	using System.Drawing;
+	using System.Windows.Forms;
+
 	public class frmProcessOutput : System.Windows.Forms.Form {
 		#region Required designer variable...
 		/// <summary>
@@ -31,13 +32,13 @@ namespace OGen.lib.presentationlayer.winforms.Flowforms {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		protected override void Dispose( bool disposing ) {
-			if( disposing ) {
-				if(components != null) {
-					components.Dispose();
+		protected override void Dispose(bool disposing_in) {
+			if (disposing_in) {
+				if (this.components != null) {
+					this.components.Dispose();
 				}
 			}
-			base.Dispose( disposing );
+			base.Dispose(disposing_in);
 		}
 
 		#region Windows Form Designer generated code
@@ -89,33 +90,33 @@ namespace OGen.lib.presentationlayer.winforms.Flowforms {
 			string formTitle_in
 		) {
 			#region Required for Windows Form Designer support...
-			InitializeComponent();
+			this.InitializeComponent();
 			#endregion
 			this.Text = formTitle_in;
 
-			FormBorderStyle = FormBorderStyle.FixedDialog;
-			ControlBox = false;
-			MaximizeBox = false;
-			MinimizeBox = false;
-			ShowInTaskbar = false;
-			AcceptButton = btnOK;
-			CancelButton = btnOK;
+			this.FormBorderStyle = FormBorderStyle.FixedDialog;
+			this.ControlBox = false;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
+			this.ShowInTaskbar = false;
+			this.AcceptButton = this.btnOK;
+			this.CancelButton = this.btnOK;
 		}
 
 		public void DisplayMessage(string message_in, bool onANewLine_in) {
 			if (onANewLine_in) {
-				lbxOutput.Items.Add(message_in);
-				lbxOutput.SelectedIndex = lbxOutput.Items.Count - 1;
+				this.lbxOutput.Items.Add(message_in);
+				this.lbxOutput.SelectedIndex = this.lbxOutput.Items.Count - 1;
 			} else {
-				lbxOutput.Items[lbxOutput.Items.Count - 1] += message_in;
-				lbxOutput.SelectedIndex = lbxOutput.Items.Count - 1;
+				this.lbxOutput.Items[this.lbxOutput.Items.Count - 1] += message_in;
+				this.lbxOutput.SelectedIndex = this.lbxOutput.Items.Count - 1;
 			}
 			//this.MdiParent.Refresh();
 			//this.Refresh();
 		}
 		public void DisplayMessage() {
-			btnOK.Enabled = true;
-			btnOK.Focus();
+			this.btnOK.Enabled = true;
+			this.btnOK.Focus();
 		}
 
 		private void btnOK_Click(object sender, System.EventArgs e) {

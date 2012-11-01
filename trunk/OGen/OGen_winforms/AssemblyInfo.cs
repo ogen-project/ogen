@@ -50,3 +50,4 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyDelaySign(false)]
 [assembly: AssemblyKeyFile("..\\..\\..\\..\\distro\\distro-keys\\OGen.snk")]
 #endif
+[assembly: System.Resources.NeutralResourcesLanguageAttribute("en-US")]
