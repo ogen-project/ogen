@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FxCopProject Version="10.0" Name="My FxCop Project">
+ <ProjectOptions>
+  <SharedProject>True</SharedProject>
+  <Stylesheet Apply="False">$(FxCopDir)\Xml\FxCopReport.xsl</Stylesheet>
+  <SaveMessages>
+   <Project Status="Active, Excluded, Good, Noise" NewOnly="False" />
+   <Report Status="Active, Good, Noise" NewOnly="False" />
+  </SaveMessages>
+  <ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="True" />
+  <EnableMultithreadedLoad>True</EnableMultithreadedLoad>
+  <EnableMultithreadedAnalysis>True</EnableMultithreadedAnalysis>
+  <SourceLookup>True</SourceLookup>
+  <AnalysisExceptionsThreshold>10</AnalysisExceptionsThreshold>
+  <RuleExceptionsThreshold>1</RuleExceptionsThreshold>
+  <Spelling Locale="en-US" />
+  <OverrideRuleVisibilities>False</OverrideRuleVisibilities>
+  <CustomDictionaries SearchFxCopDir="True" SearchUserProfile="True" SearchProjectDir="True" />
+  <SearchGlobalAssemblyCache>False</SearchGlobalAssemblyCache>
+  <DeadlockDetectionTimeout>120</DeadlockDetectionTimeout>
+  <IgnoreGeneratedCode>False</IgnoreGeneratedCode>
+ </ProjectOptions>
+ <Targets>
+  <Target Name="$(ProjectDir)/libs/anthem-1.5.3/Anthem-2010/bin/Debug/Anthem.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/libs/LZMA-9.10/CS/7zip/bin/Debug/SevenZip.Compression.LZMA-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen/OGen_collections/bin/Debug/OGen.lib.collections-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen/OGen_crypt/bin/Debug/OGen.lib.crypt-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen/OGen_datalayer__base/bin/Debug/OGen.lib.datalayer-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen/OGen_datalayer_PostgreSQL/bin/Debug/OGen.lib.datalayer.PostgreSQL-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen/OGen_datalayer_SQLServer/bin/Debug/OGen.lib.datalayer.SQLServer-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen/OGen_datalayersupport/bin/Debug/OGen.lib.datalayer.support-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen/OGen_generator/bin/Debug/OGen.lib.generator-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen/OGen_lib/bin/Debug/OGen.lib-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen/OGen_mail/bin/Debug/OGen.lib.mail-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen/OGen_parser/bin/Debug/OGen.lib.parser-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen/OGen_webforms/bin/Debug/OGen.lib.presentationlayer.webforms-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen/OGen_winforms/bin/Debug/OGen.lib.presentationlayer.winforms-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen/OGen_worker/bin/Debug/OGen.lib.worker-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Dia/Dia_generator/bin/Debug/OGen.Dia.lib.generator-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Dia/Dia_metadata/bin/Debug/OGen.Dia.lib.metadata-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Dia/Dia_templates/bin/OGen.Dia.lib.templates-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Dia/Dia-console/bin/Debug/OGen.Dia.presentationlayer.console-2.0.exe" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Dia/Dia-test/bin/Debug/OGen.Dia.presentationlayer.test-2.0.exe" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Doc/Doc_generator/bin/Debug/OGen.Doc.lib.generator-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Doc/Doc_metadata/bin/Debug/OGen.Doc.lib.metadata-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Doc/Doc_templates/bin/OGen.Doc.lib.templates-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-Doc/Doc-console/bin/Debug/OGen.Doc.presentationlayer.console-2.0.exe" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-NTier/NTier/bin/Debug/OGen.NTier.presentationlayer.winforms-2.0.exe" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-NTier/NTier_businesslayer/bin/Debug/OGen.NTier.lib.businesslayer-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-NTier/NTier_datalayer/bin/Debug/OGen.NTier.lib.datalayer-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-NTier/NTier_datalayer_proxy/bin/Debug/OGen.NTier.lib.datalayer.proxy-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-NTier/NTier_distributedlayer_remoting/bin/Debug/OGen.NTier.lib.distributedlayer.remoting-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-NTier/NTier_distributedlayer_remoting_client/bin/Debug/OGen.NTier.lib.distributedlayer.remoting.client-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-NTier/NTier_distributedlayer_remoting_server/bin/Debug/OGen.NTier.lib.distributedlayer.remoting.server-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-NTier/NTier_distributedlayer_webservices_client/bin/Debug/OGen.NTier.lib.distributedlayer.webservices.client-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-NTier/NTier_generator/bin/Debug/OGen.NTier.lib.generator-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-NTier/NTier_metadata/bin/Debug/OGen.NTier.lib.metadata-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-NTier/NTier_templates/bin/OGen.NTier.lib.templates-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-NTier/NTier-console/bin/Debug/OGen.NTier.presentationlayer.console-2.0.exe" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-NTier/NTier-test/bin/Debug/OGen.NTier.presentationlayer.test-2.0.exe" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-SpreadsheetXML/SpreadsheetXML_metadata/bin/Debug/OGen.SpreadsheetXML.lib.metadata-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-SpreadsheetXML/SpreadsheetXML-Console/bin/Debug/OGen.SpreadsheetXML.presentationlayer.console-2.0.exe" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-XSD/XSD_generator/bin/Debug/OGen.XSD.lib.generator-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-XSD/XSD_metadata/bin/Debug/OGen.XSD.lib.metadata-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-XSD/XSD_templates/bin/OGen.XSD.lib.templates-2.0.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-XSD/XSD-console/bin/Debug/OGen.XSD.presentationlayer.console-2.0.exe" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/OGen-XSD/XSD-Test/bin/Debug/OGen.XSD.presentationlayer.test-2.0.exe" Analyze="True" AnalyzeAllChildren="True" />
+ </Targets>
+ <Rules>
+  <RuleFiles>
+   <RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\MobilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityTransparencyRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="True" AllRulesEnabled="True" />
+  </RuleFiles>
+  <Groups />
+  <Settings />
+ </Rules>
+ <FxCopReport Version="10.0" />
+</FxCopProject>
