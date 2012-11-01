@@ -22,6 +22,86 @@ namespace OGen.lib {
 	public static class utils {
 #endif
 
+		#region public static string Type_ToString(Type what_in);
+		private static System.Collections.Generic.Dictionary<Type, string> type_tostring_;
+		private static object type_tostring_locker = new object();
+
+		/// <summary>
+		/// returns the alias for a Type
+		/// </summary>
+		/// <param name="what_in">the Type for which we need the alias</param>
+		/// <returns></returns>
+		public static string Type_ToString(Type what_in) {
+
+			// check before lock
+			if (type_tostring_ == null) {
+
+				lock (type_tostring_locker) {
+
+					// double check, thread safer!
+					if (type_tostring_ == null) {
+
+						// initialization...
+						#region System.Collections.Generic.Dictionary<Type, string> _aux = ...;
+						System.Collections.Generic.Dictionary<Type, string> _aux = new System.Collections.Generic.Dictionary<Type, string>();
+						_aux.Add(typeof(short), "short");
+						_aux.Add(typeof(ushort), "ushort");
+
+						_aux.Add(typeof(int), "int");
+						_aux.Add(typeof(uint), "uint");
+	
+						_aux.Add(typeof(long), "long");
+						_aux.Add(typeof(ulong), "ulong");
+
+						_aux.Add(typeof(bool), "bool");
+	
+						_aux.Add(typeof(string), "string");
+						_aux.Add(typeof(char), "char");
+
+						_aux.Add(typeof(byte), "byte");
+						_aux.Add(typeof(sbyte), "sbyte");
+
+						_aux.Add(typeof(double), "double");
+						_aux.Add(typeof(float), "float");
+						_aux.Add(typeof(decimal), "decimal");
+
+						System.Collections.Generic.Dictionary<Type, string> _aux2 = new System.Collections.Generic.Dictionary<Type, string>();
+						foreach (System.Collections.Generic.KeyValuePair<Type, string> _typestring in _aux) {
+							_aux2.Add(_typestring.Key.MakeByRefType(), _typestring.Value);
+
+							_aux2.Add(_typestring.Key.MakeArrayType(), string.Concat(_typestring.Value, "[]"));
+							_aux2.Add(_typestring.Key.MakeArrayType().MakeByRefType(), string.Concat(_typestring.Value, "[]"));
+						}
+						foreach (System.Collections.Generic.KeyValuePair<Type, string> _typestring in _aux2) {
+							_aux.Add(_typestring.Key, _typestring.Value);
+						}
+
+						_aux.Add(typeof(void), "void");
+						#endregion
+
+						// ...attribution (last thing before unlock)
+						type_tostring_ = _aux;
+					}
+				}
+			}
+
+			if (type_tostring_.ContainsKey(what_in))
+				return type_tostring_[what_in];
+
+			return (string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
+				"{0}.{1}",
+				what_in.Namespace,
+
+				//what_in.Name
+				(what_in.Name.IndexOf('&') >= 0)
+					? what_in.Name.Substring(0, what_in.Name.Length - 1)
+					: what_in.Name
+
+			));
+		}
+		#endregion
+
 		#region public static string[] ParameterNameValuePairList_Split(...);
 		public static string[] ParameterNameValuePairList_Split(
 			string paramvalueList_in, 
