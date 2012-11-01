@@ -100,8 +100,8 @@ namespace OGen.lib.generator {
 			string translateFully_out = this_in;
 
 			int _begin;
-			while ((_begin = translateFully_out.IndexOf("${")) >= 0) {
-				int _end = translateFully_out.IndexOf("}", _begin);
+			while ((_begin = translateFully_out.IndexOf("${", StringComparison.CurrentCulture)) >= 0) {
+				int _end = translateFully_out.IndexOf("}", _begin, StringComparison.CurrentCulture);
 
 				#region translateFully_out = ...;
 				translateFully_out = 
@@ -164,7 +164,7 @@ case "CONFIG.metadatasPath":
 					translate_out = this_in;
 
 					int _indexOfN;
-					while ((_indexOfN = translate_out.IndexOf("[n]", 0)) != -1) {
+					while ((_indexOfN = translate_out.IndexOf("[n]", 0, StringComparison.CurrentCulture)) != -1) {
 
 // ToDos: here! 
 // infinite loop, case baddly formed expression...
@@ -176,9 +176,9 @@ case "CONFIG.metadatasPath":
 						) {
 							translate_out = withThis_in.Substring(
 								0, 
-								withThis_in.IndexOf("]", _indexOfN) + 1
+								withThis_in.IndexOf("]", _indexOfN, StringComparison.CurrentCulture) + 1
 							) + translate_out.Substring(
-								translate_out.IndexOf("]", _indexOfN) + 1
+								translate_out.IndexOf("]", _indexOfN, StringComparison.CurrentCulture) + 1
 							);
 						} else {
 							throw new Exception(string.Format(
@@ -363,7 +363,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 						string _parsedOutput;
 						if (template_in.ParserType == XS_ParserEnumeration.xslt) {
 							System.Text.StringBuilder _stringbuilder = new System.Text.StringBuilder();
-							StringWriter _stringwriter = new StringWriter(_stringbuilder);
+							StringWriter _stringwriter = new StringWriter(_stringbuilder, System.Globalization.CultureInfo.CurrentCulture);
 
 							string _xmltemplatesfile
 								= this.xmltemplatesdir_
@@ -671,7 +671,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 			} else {
 				this.xmltemplatesdir_ = this.xmltemplatesfileuri_.ToString().Substring(
 					0,
-					this.xmltemplatesfileuri_.ToString().LastIndexOf("/")
+					this.xmltemplatesfileuri_.ToString().LastIndexOf("/", StringComparison.CurrentCulture)
 				);
 			}
 
@@ -730,8 +730,8 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 						this.templates_.TemplateCollection[i].TemplateType
 					)
 				) {
-					string _stepNum = (++_threadIterarionCounter).ToString();
-					string _stepOf = this.templates_.TemplateCollection.Count.ToString();
+					string _stepNum = (++_threadIterarionCounter).ToString(System.Globalization.CultureInfo.CurrentCulture);
+					string _stepOf = this.templates_.TemplateCollection.Count.ToString(System.Globalization.CultureInfo.CurrentCulture);
 					this.notifyback_(
 						string.Format(
 							System.Globalization.CultureInfo.CurrentCulture,
@@ -870,8 +870,8 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 							_workthreads[T].TotalTicks += DateTime.Now.Ticks - _begin;
 							TimeSpan _end = new TimeSpan(DateTime.Now.Ticks - _begin);
 #endif
-							string _stepNum = _threaditerarion.ToString();
-							string _stepOf = this.templates_.TemplateCollection.Count.ToString();
+							string _stepNum = _threaditerarion.ToString(System.Globalization.CultureInfo.CurrentCulture);
+							string _stepOf = this.templates_.TemplateCollection.Count.ToString(System.Globalization.CultureInfo.CurrentCulture);
 							this.notifyback_(
 								string.Format(
 									System.Globalization.CultureInfo.CurrentCulture,

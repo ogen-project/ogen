@@ -170,9 +170,18 @@ namespace RSAEncryptionLib {
 			return bnData.getBytes();
 		}
 
+		~RSAEncryption() {
+			this.Dispose(false);
+		}
+
 		// Implementation of IDisposable interface,
 		// allow you to use this class as: using(RSAEncryption rsa = new RSAEncryption()) { ... }
 		public void Dispose() {
+			this.Dispose(true);
+			System.GC.SuppressFinalize(this);
+		}
+
+		private void Dispose(bool disposing_in) {
 			rsa.Clear();
 		}
 	}

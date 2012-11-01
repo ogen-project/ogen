@@ -17,20 +17,6 @@ namespace OGen.lib.collections {
 	using System;
 	using System.Collections;
 
-	#region public class SHashtableItem;
-	public class SHashtableItem {
-		public SHashtableItem(
-			string name_in,
-			object value_in
-		) {
-			this.Name = name_in;
-			this.Value = value_in;
-		}
-		public string Name;
-		public object Value;
-	}
-	#endregion
-
 	/// <summary>
 	/// implements similar Hashtable's interface, it difers in that it keeps it's table sorted
 	/// </summary>

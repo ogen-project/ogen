@@ -148,7 +148,13 @@ namespace OGen.NTier.lib.datalayer {
 				);
 			}
 			DataRow _datarow;
-			for (int r = (page_in - 1) * page_numRecords_in; r < page_in * page_numRecords_in; r++) {
+			int _begin;
+			int _end;
+			checked {
+				_begin = (page_in - 1) * page_numRecords_in;
+				_end = page_in * page_numRecords_in;
+			}
+			for (int r = _begin; r < _end; r++) {
 				if (r == dataTable_in.Rows.Count) break;
 
 				_datarow = _datatable.NewRow();

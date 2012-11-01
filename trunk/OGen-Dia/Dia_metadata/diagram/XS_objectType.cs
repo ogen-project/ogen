@@ -109,7 +109,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 												if (!string.IsNullOrEmpty(_comment[0]))
 													_tableField.isIdentity = bool.Parse(_comment[0]);
 												if (!string.IsNullOrEmpty(_comment[1]))
-													_tableField.Size = int.Parse(_comment[1]);
+													_tableField.Size = int.Parse(_comment[1], System.Globalization.CultureInfo.CurrentCulture);
 
 												// sql server
 												if (!string.IsNullOrEmpty(_comment[2]))
@@ -120,9 +120,9 @@ namespace OGen.Dia.lib.metadata.diagram {
 													_tableField.PostgreSQLTypeName = _comment[3];
 
 												if (!string.IsNullOrEmpty(_comment[4]))
-													_tableField.Numeric_Precision = int.Parse(_comment[4]);
+													_tableField.Numeric_Precision = int.Parse(_comment[4], System.Globalization.CultureInfo.CurrentCulture);
 												if (!string.IsNullOrEmpty(_comment[5]))
-													_tableField.Numeric_Scale = int.Parse(_comment[5]);
+													_tableField.Numeric_Scale = int.Parse(_comment[5], System.Globalization.CultureInfo.CurrentCulture);
 
 												break;
 											default:

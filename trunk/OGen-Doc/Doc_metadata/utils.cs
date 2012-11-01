@@ -66,15 +66,15 @@ namespace OGen.Doc.lib.metadata {
 			int _end;
 			if (
 				(
-					((_begin = allDocument_in.IndexOf("//<document>")) >= 0)
+					((_begin = allDocument_in.IndexOf("//<document>", StringComparison.CurrentCulture)) >= 0)
 					||
-					((_begin = allDocument_in.IndexOf("--<document>")) >= 0)
+					((_begin = allDocument_in.IndexOf("--<document>", StringComparison.CurrentCulture)) >= 0)
 				)
 				&&
 				(
-					((_end = allDocument_in.IndexOf("//</document>")) >= 0)
+					((_end = allDocument_in.IndexOf("//</document>", StringComparison.CurrentCulture)) >= 0)
 					||
-					((_end = allDocument_in.IndexOf("--</document>")) >= 0)
+					((_end = allDocument_in.IndexOf("--</document>", StringComparison.CurrentCulture)) >= 0)
 				)
 			) {
 				return allDocument_in.Substring(

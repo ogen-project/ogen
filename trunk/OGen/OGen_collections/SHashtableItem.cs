@@ -13,18 +13,21 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-#if !NET_1_1
-
 namespace OGen.lib.collections {
 	using System;
+	using System.Collections;
 
-	public interface OGenCollectionInterface<C, K>
-		where K : struct
-	{
-		K[] Keys { get; }
-
-		bool Equals_compareKeysOnly(C collectionItem_in);
-		bool Keys_compare(params K[] keys_in);
+	#region public class SHashtableItem;
+	public class SHashtableItem {
+		public SHashtableItem(
+			string name_in,
+			object value_in
+		) {
+			this.Name = name_in;
+			this.Value = value_in;
+		}
+		public string Name;
+		public object Value;
 	}
+	#endregion
 }
-#endif

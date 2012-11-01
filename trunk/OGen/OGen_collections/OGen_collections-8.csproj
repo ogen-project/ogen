@@ -89,6 +89,11 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SHashtableItem.cs" />
+    <Compile Include="OGenRootrefCollectionInterface.cs" />
+    <Compile Include="OGenRootrefCollection.cs" />
+    <Compile Include="OGenRootrefSimpleCollection.cs" />
+    <Compile Include="OGenSimpleCollection.cs" />
     <Compile Include="SHashtable.cs">
       <SubType>Code</SubType>
     </Compile>
