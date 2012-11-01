@@ -22,8 +22,8 @@ namespace OGen.lib {
 	public static class utils {
 #endif
 
-		#region public static string[] ParamvalueList_Split(...);
-		public static string[] ParamvalueList_Split(
+		#region public static string[] ParameterNameValuePairList_Split(...);
+		public static string[] ParameterNameValuePairList_Split(
 			string paramvalueList_in, 
 
 			string paramSplitter_in, 
@@ -74,10 +74,10 @@ namespace OGen.lib {
 		}
 		#endregion
 
-		#region public static string Array_Join<T>(...);
-		public static string Array_Join<T>(
+		#region public static string Array_Join<TText>(...);
+		public static string Array_Join<TText>(
 			string splitter_in,
-			params T[] arguments_in
+			params TText[] arguments_in
 		) {
 			if (
 				(arguments_in == null)
@@ -88,7 +88,7 @@ namespace OGen.lib {
 			} else {
 				bool _isfirst = true;
 				System.Text.StringBuilder _sb = new System.Text.StringBuilder();
-				foreach (T _argument in arguments_in) {
+				foreach (TText _argument in arguments_in) {
 					if (_isfirst) {
 						_isfirst = false;
 					} else {

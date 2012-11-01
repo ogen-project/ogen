@@ -38,6 +38,6 @@ namespace OGen.NTier.lib.datalayer {
 			System.Security.Permissions.SecurityAction.LinkDemand,
 			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
 		)]
-		public abstract void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
+		public abstract void GetObjectData(SerializationInfo info, StreamingContext context);
 	}
 }

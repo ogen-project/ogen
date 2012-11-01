@@ -17,11 +17,11 @@ namespace OGen.NTier.lib.datalayer {
 	using System;
 	using System.Collections.Generic;
 
-	public interface ISO__ListItem<V, T> {
-		V ListItem_Value {
+	public interface ISO__ListItem<TValue, TText> {
+		TValue ListItem_Value {
 			get;
 		}
-		T ListItem_Text {
+		TText ListItem_Text {
 			get;
 		}
 	}
