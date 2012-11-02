@@ -1,4 +1,4 @@
-#region Copyright (C) 2002 Francisco Monteiro
+﻿#region Copyright (C) 2002 Francisco Monteiro
 /*
 
 OGen
@@ -15,11 +15,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 namespace OGen.NTier.Kick.lib.businesslayer.shared {
 	using System;
+	using System.Collections.Generic;
+	using System.Text;
 
-#if NET_1_1
-	public interface IBO_NWS_Highlight : IBO0_NWS_Highlight {
-#else
-	public partial interface IBO_NWS_Highlight {
-#endif
+	#region public class PseudoEnumItem { ... }
+	public class PseudoEnumItem {
+		public PseudoEnumItem(
+			string name_in
+		) {
+			this.Name = name_in;
+		}
+
+		public string Name;
 	}
+	#endregion
 }

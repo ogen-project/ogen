@@ -18,7 +18,11 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 
 	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
+#if NET_1_1
 	public interface IBO0_WEB_DefaultProfile {
+#else
+	public partial interface IBO_WEB_DefaultProfile {
+#endif
 		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 

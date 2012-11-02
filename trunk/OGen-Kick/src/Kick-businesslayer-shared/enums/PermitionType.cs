@@ -12,13 +12,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace OGen.NTier.Kick.lib.businesslayer.shared {
-	public class PermitionType {
-		protected static readonly Dictionary<int, PseudoEnumItem> items_;
+	using System;
+	using System.Collections.Generic;
+	using System.Text;
+
+	public static class PermitionType {
+		#region public static Dictionary<int, PseudoEnumItem> Items { get; }
+		private static readonly Dictionary<int, PseudoEnumItem> items_;
+
+		public static Dictionary<int, OGen.NTier.Kick.lib.businesslayer.shared.PseudoEnumItem> Items {
+			get {
+				return items_;
+			}
+		}
+		#endregion
 
 		static PermitionType() {
 			items_ = new Dictionary<int, PseudoEnumItem>();

@@ -18,6 +18,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{13DD2252-A8D0-4672-86E4-67AFB821F03D}</ProjectGuid>
+    <AssemblyOriginatorKeyFile>..\..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OGen.NTier.Kick.lib.businesslayer.shared</RootNamespace>
@@ -26,6 +27,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
+    <SignAssembly>True</SignAssembly>
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation />
     <PublishUrl>publish\</PublishUrl>
@@ -69,14 +71,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="enums\PseudoEnumItem.cs" />
+    <Compile Include="enums\ErrorItem.cs" />
     <Compile Include="enums\ErrorType.cs" />
     <Compile Include="enums\Logtype.cs" />
     <Compile Include="enums\PermitionType.cs" />
     <Compile Include="enums\TablefieldSource.cs" />
+    <Compile Include="IBO_CRD_Authentication.cs" />
     <Compile Include="IBO_CRD_Permition.cs" />
     <Compile Include="IBO_CRD_Profile.cs" />
     <Compile Include="IBO_CRD_User.cs" />
     <Compile Include="IBO_DIC_Dic.cs" />
+    <Compile Include="IBO_LOG_Log.cs" />
     <Compile Include="IBO_NWS_Attachment.cs" />
     <Compile Include="IBO_NWS_Author.cs" />
     <Compile Include="IBO_NWS_Highlight.cs" />
@@ -85,16 +91,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Compile Include="IBO_NWS_Source.cs" />
     <Compile Include="IBO_NWS_Tag.cs" />
     <Compile Include="IBO_WEB_DefaultProfile.cs" />
+    <Compile Include="IBO_WEB_User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="mod-credentials\Sessionuser.cs" />
     <Compile Include="_base\IBO0_CRD_Authentication.cs" />
-    <Compile Include="IBO_CRD_Authentication.cs" />
     <Compile Include="_base\IBO0_CRD_Permition.cs" />
     <Compile Include="_base\IBO0_CRD_Profile.cs" />
     <Compile Include="_base\IBO0_CRD_User.cs" />
     <Compile Include="_base\IBO0_DIC_Dic.cs" />
     <Compile Include="_base\IBO0_LOG_Log.cs" />
-    <Compile Include="IBO_LOG_Log.cs" />
     <Compile Include="_base\IBO0_NWS_Attachment.cs" />
     <Compile Include="_base\IBO0_NWS_Author.cs" />
     <Compile Include="_base\IBO0_NWS_Highlight.cs" />
@@ -104,7 +109,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Compile Include="_base\IBO0_NWS_Tag.cs" />
     <Compile Include="_base\IBO0_WEB_DefaultProfile.cs" />
     <Compile Include="_base\IBO0_WEB_User.cs" />
-    <Compile Include="IBO_WEB_User.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\OGen-NTier\NTier_datalayer_proxy\NTier_datalayer_proxy-10.csproj">

@@ -12,9 +12,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
 
 namespace OGen.NTier.Kick.lib.businesslayer.shared {
+	using System;
+
+#if NET_1_1
 	public interface IBO_CRD_User : IBO0_CRD_User {
+#else
+	public partial interface IBO_CRD_User {
+#endif
 	}
 }

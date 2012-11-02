@@ -12,40 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace OGen.NTier.Kick.lib.businesslayer.shared {
-	#region public class PseudoEnumItem { ... }
-	public class PseudoEnumItem {
-		public PseudoEnumItem(
-			string name_in
-		) {
-			this.Name = name_in;
-		}
+	using System;
+	using System.Collections.Generic;
+	using System.Text;
 
-		public string Name;
-	}
-	#endregion
-	#region public class ErrorItem : PseudoEnumItem { ... }
-	public class ErrorItem : PseudoEnumItem {
-		public ErrorItem(
-			string name_in,
-			bool isError_notWarning_in
-		) : base (
-			name_in
-		) {
-			this.isError_notWarning = isError_notWarning_in;
-		}
-
-		public bool isError_notWarning;
-	}
-	#endregion
-
-	public class ErrorType {
+	public static class ErrorType {
 		#region public static Dictionary<int, OGen.NTier.Kick.lib.businesslayer.shared.ErrorItem> Items { get; }
-		protected static readonly Dictionary<int, ErrorItem> items_;
+		private static readonly Dictionary<int, ErrorItem> items_;
 
 		public static Dictionary<int, OGen.NTier.Kick.lib.businesslayer.shared.ErrorItem> Items {
 			get {
@@ -63,6 +38,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 				StringBuilder _sb = new StringBuilder();
 				for (int i = 0; i < error_in.Length; i++) {
 					_sb.Append(string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"{0}{1}",
 						(i == 0) ? "" : splitChar_in,
 						ErrorType.Items[error_in[i]].Name
@@ -122,10 +98,12 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			if (!_erroritem.isError_notWarning) {
 				isError_out = false;
 				return string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"{0}{1}",
 					//_error.Replace(" - WARNING", ""),
 					_erroritem.Name,
-					(aditionalInfo_in == "") ? "" : string.Format(
+					(string.IsNullOrEmpty(aditionalInfo_in)) ? "" : string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						" " + aditionalInfo_in,
 						args_in
 					)
@@ -133,10 +111,12 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			} else {
 				isError_out = true;
 				return string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"{0}{1} [{2}]",
 					//_error,
 					_erroritem.Name,
-					(aditionalInfo_in == "") ? "" : string.Format(
+					(string.IsNullOrEmpty(aditionalInfo_in)) ? "" : string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						" " + aditionalInfo_in,
 						args_in
 					),

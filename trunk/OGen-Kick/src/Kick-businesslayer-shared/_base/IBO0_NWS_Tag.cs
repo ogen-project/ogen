@@ -18,7 +18,11 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 
 	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
+#if NET_1_1
 	public interface IBO0_NWS_Tag {
+#else
+	public partial interface IBO_NWS_Tag {
+#endif
 		void delObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 

@@ -18,7 +18,11 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 
 	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
 
+#if NET_1_1
 	public interface IBO0_CRD_User {
+#else
+	public partial interface IBO_CRD_User {
+#endif
 		void insObject_CreateUser(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 

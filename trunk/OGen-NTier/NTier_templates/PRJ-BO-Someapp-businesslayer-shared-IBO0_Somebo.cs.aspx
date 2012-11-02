@@ -61,7 +61,11 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared {
 
 	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.structures;
 
-	public interface IBO0_<%=_aux_class.Name%> {<%
+#if NET_1_1
+	public interface IBO0_<%=_aux_class.Name%> {
+#else
+	public partial interface IBO_<%=_aux_class.Name%> {
+#endif<%
 		for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
 			_aux_method = _aux_class.Methods.MethodCollection[m];%><%=""%>
 		<%=_aux_method.OutputType%> <%=_aux_method.Name%>(<%

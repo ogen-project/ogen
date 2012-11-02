@@ -235,6 +235,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="PRJ-BO-Someapp-businesslayer-shared-IBO_Somebo.cs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx">
     </Content>

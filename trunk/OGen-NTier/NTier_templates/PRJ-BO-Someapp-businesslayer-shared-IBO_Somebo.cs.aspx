@@ -55,6 +55,10 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared {
 	using System;
 
+#if NET_1_1
 	public interface IBO_<%=_aux_class.Name%> : IBO0_<%=_aux_class.Name%> {
+#else
+	public partial interface IBO_<%=_aux_class.Name%> {
+#endif
 	}
 }
