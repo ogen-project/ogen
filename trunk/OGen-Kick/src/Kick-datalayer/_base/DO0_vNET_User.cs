@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 	[DOClassAttribute("vNET_User", "", "", "", false, false)]
 	public 
 #if !NET_1_1
-		partial 
+		static partial 
 #endif
 		class 
 #if NET_1_1
@@ -230,7 +230,6 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			return _output;
 		}
 		#endregion
-
 		#region ???_generic...
 		#region public static SO_vNET_User[] getRecord_generic(...);
 		/// <summary>

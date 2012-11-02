@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 	[DOClassAttribute("NWS_UserTag", "", "", "", false, false)]
 	public 
 #if !NET_1_1
-		partial 
+		static partial 
 #endif
 		class 
 #if NET_1_1
@@ -273,40 +273,6 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		#endregion
 
 		#region Methods - Record Searches...
-		#region private static SO_NWS_UserTag[] getRecord(DataTable dataTable_in);
-		private static SO_NWS_UserTag[] getRecord(
-			DataTable dataTable_in
-		) {
-			DataColumn _dc_ifuser = null;
-			DataColumn _dc_iftag = null;
-
-			SO_NWS_UserTag[] _output 
-				= new SO_NWS_UserTag[dataTable_in.Rows.Count];
-			for (int r = 0; r < dataTable_in.Rows.Count; r++) {
-				if (r == 0) {
-					_dc_ifuser = dataTable_in.Columns["IFUser"];
-					_dc_iftag = dataTable_in.Columns["IFTag"];
-				}
-
-				_output[r] = new SO_NWS_UserTag();
-				if (dataTable_in.Rows[r][_dc_ifuser] == System.DBNull.Value) {
-					_output[r].IFUser = 0L;
-				} else {
-					_output[r].IFUser = (long)dataTable_in.Rows[r][_dc_ifuser];
-				}
-				if (dataTable_in.Rows[r][_dc_iftag] == System.DBNull.Value) {
-					_output[r].IFTag = 0L;
-				} else {
-					_output[r].IFTag = (long)dataTable_in.Rows[r][_dc_iftag];
-				}
-
-				_output[r].hasChanges = false;
-			}
-
-			return _output;
-		}
-		#endregion
-
 		#endregion
 	}
 }

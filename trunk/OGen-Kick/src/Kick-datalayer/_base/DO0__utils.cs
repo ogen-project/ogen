@@ -37,18 +37,6 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		abstract class DO0__utils 
 #endif
 	{
-		static 
-#if USE_PARTIAL_CLASSES && !NET_1_1
-			DO__utils
-#else
-			DO0__utils
-#endif
-		(
-		) {
-			dbservertype__ = string.Empty;
-			dbconnectionstring__ = null;
-			dblogfile__ = string.Empty;
-		}
 
 		/// <summary>
 		/// Application's Name
@@ -57,13 +45,14 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 		#region public static Properties...
 		#region public static string DBServerType { get; }
-		private static string dbservertype__;
+		private static string dbservertype__ = string.Empty;
+
 		/// <summary>
 		/// DB Server Type.
 		/// </summary>
 		public static string DBServerType {
 			get {
-				if (dbservertype__ == string.Empty) {
+				if (string.IsNullOrEmpty(dbservertype__)) {
 					DBServerType_read(false);
 				}
 				return dbservertype__;
@@ -71,13 +60,14 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		}
 		#endregion
 		#region public static string DBConnectionstring { get; }
-		private static string dbconnectionstring__;
+		private static string dbconnectionstring__ = null;
+
 		/// <summary>
 		/// Connection String.
 		/// </summary>
 		public static string DBConnectionstring {
 			get {
-				if (dbconnectionstring__ == null) {
+				if (string.IsNullOrEmpty(dbconnectionstring__)) {
 					DBConnectionstring_read(false);
 				}
 				return dbconnectionstring__;
@@ -85,14 +75,14 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		}
 		#endregion
 		#region public static string DBLogfile { get; }
-		private static string dblogfile__;
+		private static string dblogfile__ = string.Empty;
 
 		/// <summary>
 		/// Database Operation's Log File
 		/// </summary>
 		public static string DBLogfile {
 			get {
-				if (dblogfile__ == string.Empty) {
+				if (string.IsNullOrEmpty(dblogfile__)) {
 					if (
 						#if !NET_1_1
 						System.Configuration.ConfigurationManager.AppSettings

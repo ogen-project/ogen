@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 	[DOClassAttribute("LOG_Errortype", "", "", "", false, false)]
 	public 
 #if !NET_1_1
-		partial 
+		static partial 
 #endif
 		class 
 #if NET_1_1
@@ -270,54 +270,6 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		#endregion
 
 		#region Methods - Record Searches...
-		#region private static SO_LOG_Errortype[] getRecord(DataTable dataTable_in);
-		private static SO_LOG_Errortype[] getRecord(
-			DataTable dataTable_in
-		) {
-			DataColumn _dc_iderrortype = null;
-			DataColumn _dc_name = null;
-			DataColumn _dc_description = null;
-			DataColumn _dc_ifapplication = null;
-
-			SO_LOG_Errortype[] _output 
-				= new SO_LOG_Errortype[dataTable_in.Rows.Count];
-			for (int r = 0; r < dataTable_in.Rows.Count; r++) {
-				if (r == 0) {
-					_dc_iderrortype = dataTable_in.Columns["IDErrortype"];
-					_dc_name = dataTable_in.Columns["Name"];
-					_dc_description = dataTable_in.Columns["Description"];
-					_dc_ifapplication = dataTable_in.Columns["IFApplication"];
-				}
-
-				_output[r] = new SO_LOG_Errortype();
-				if (dataTable_in.Rows[r][_dc_iderrortype] == System.DBNull.Value) {
-					_output[r].IDErrortype = 0;
-				} else {
-					_output[r].IDErrortype = (int)dataTable_in.Rows[r][_dc_iderrortype];
-				}
-				if (dataTable_in.Rows[r][_dc_name] == System.DBNull.Value) {
-					_output[r].Name = string.Empty;
-				} else {
-					_output[r].Name = (string)dataTable_in.Rows[r][_dc_name];
-				}
-				if (dataTable_in.Rows[r][_dc_description] == System.DBNull.Value) {
-					_output[r].Description_isNull = true;
-				} else {
-					_output[r].Description = (string)dataTable_in.Rows[r][_dc_description];
-				}
-				if (dataTable_in.Rows[r][_dc_ifapplication] == System.DBNull.Value) {
-					_output[r].IFApplication_isNull = true;
-				} else {
-					_output[r].IFApplication = (int)dataTable_in.Rows[r][_dc_ifapplication];
-				}
-
-				_output[r].hasChanges = false;
-			}
-
-			return _output;
-		}
-		#endregion
-
 		#endregion
 	}
 }

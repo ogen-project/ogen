@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 	[DOClassAttribute("NWS_Profile", "", "", "", false, false)]
 	public 
 #if !NET_1_1
-		partial 
+		static partial 
 #endif
 		class 
 #if NET_1_1
@@ -263,47 +263,6 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		#endregion
 
 		#region Methods - Record Searches...
-		#region private static SO_NWS_Profile[] getRecord(DataTable dataTable_in);
-		private static SO_NWS_Profile[] getRecord(
-			DataTable dataTable_in
-		) {
-			DataColumn _dc_ifprofile = null;
-			DataColumn _dc_ifuser__approved = null;
-			DataColumn _dc_approved_date = null;
-
-			SO_NWS_Profile[] _output 
-				= new SO_NWS_Profile[dataTable_in.Rows.Count];
-			for (int r = 0; r < dataTable_in.Rows.Count; r++) {
-				if (r == 0) {
-					_dc_ifprofile = dataTable_in.Columns["IFProfile"];
-					_dc_ifuser__approved = dataTable_in.Columns["IFUser__Approved"];
-					_dc_approved_date = dataTable_in.Columns["Approved_date"];
-				}
-
-				_output[r] = new SO_NWS_Profile();
-				if (dataTable_in.Rows[r][_dc_ifprofile] == System.DBNull.Value) {
-					_output[r].IFProfile = 0L;
-				} else {
-					_output[r].IFProfile = (long)dataTable_in.Rows[r][_dc_ifprofile];
-				}
-				if (dataTable_in.Rows[r][_dc_ifuser__approved] == System.DBNull.Value) {
-					_output[r].IFUser__Approved_isNull = true;
-				} else {
-					_output[r].IFUser__Approved = (long)dataTable_in.Rows[r][_dc_ifuser__approved];
-				}
-				if (dataTable_in.Rows[r][_dc_approved_date] == System.DBNull.Value) {
-					_output[r].Approved_date_isNull = true;
-				} else {
-					_output[r].Approved_date = (DateTime)dataTable_in.Rows[r][_dc_approved_date];
-				}
-
-				_output[r].hasChanges = false;
-			}
-
-			return _output;
-		}
-		#endregion
-
 		#endregion
 	}
 }

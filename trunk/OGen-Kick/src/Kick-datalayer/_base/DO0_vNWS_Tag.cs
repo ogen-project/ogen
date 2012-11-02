@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 	[DOClassAttribute("vNWS_Tag", "", "", "", false, false)]
 	public 
 #if !NET_1_1
-		partial 
+		static partial 
 #endif
 		class 
 #if NET_1_1
@@ -294,7 +294,6 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			return _output;
 		}
 		#endregion
-
 		#region ???_byTag...
 		#region public static SO_vNWS_Tag[] getRecord_byTag(...);
 		/// <summary>

@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 	[DOClassAttribute("vFOR_Message", "", "", "", false, false)]
 	public 
 #if !NET_1_1
-		partial 
+		static partial 
 #endif
 		class 
 #if NET_1_1
@@ -321,7 +321,6 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			return _output;
 		}
 		#endregion
-
 		#region ???_byParent...
 		#region public static SO_vFOR_Message[] getRecord_byParent(...);
 		/// <summary>

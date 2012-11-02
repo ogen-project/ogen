@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 	[DOClassAttribute("vNWS_Author", "", "", "", false, false)]
 	public 
 #if !NET_1_1
-		partial 
+		static partial 
 #endif
 		class 
 #if NET_1_1
@@ -107,7 +107,6 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			return _output;
 		}
 		#endregion
-
 		#region ???_all...
 		#region public static SO_vNWS_Author[] getRecord_all(...);
 		/// <summary>

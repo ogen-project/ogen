@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 	[DOClassAttribute("NET_Defaultprofile", "", "", "", false, false)]
 	public 
 #if !NET_1_1
-		partial 
+		static partial 
 #endif
 		class 
 #if NET_1_1
@@ -482,7 +482,6 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			return _output;
 		}
 		#endregion
-
 		#region ???_all...
 		#region public static SO_NET_Defaultprofile[] getRecord_all(...);
 		/// <summary>

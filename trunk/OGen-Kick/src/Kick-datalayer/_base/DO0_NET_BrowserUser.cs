@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 	[DOClassAttribute("NET_BrowserUser", "", "", "", false, false)]
 	public 
 #if !NET_1_1
-		partial 
+		static partial 
 #endif
 		class 
 #if NET_1_1
@@ -273,40 +273,6 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		#endregion
 
 		#region Methods - Record Searches...
-		#region private static SO_NET_BrowserUser[] getRecord(DataTable dataTable_in);
-		private static SO_NET_BrowserUser[] getRecord(
-			DataTable dataTable_in
-		) {
-			DataColumn _dc_ifbrowser = null;
-			DataColumn _dc_ifuser = null;
-
-			SO_NET_BrowserUser[] _output 
-				= new SO_NET_BrowserUser[dataTable_in.Rows.Count];
-			for (int r = 0; r < dataTable_in.Rows.Count; r++) {
-				if (r == 0) {
-					_dc_ifbrowser = dataTable_in.Columns["IFBrowser"];
-					_dc_ifuser = dataTable_in.Columns["IFUser"];
-				}
-
-				_output[r] = new SO_NET_BrowserUser();
-				if (dataTable_in.Rows[r][_dc_ifbrowser] == System.DBNull.Value) {
-					_output[r].IFBrowser = 0L;
-				} else {
-					_output[r].IFBrowser = (long)dataTable_in.Rows[r][_dc_ifbrowser];
-				}
-				if (dataTable_in.Rows[r][_dc_ifuser] == System.DBNull.Value) {
-					_output[r].IFUser = 0L;
-				} else {
-					_output[r].IFUser = (long)dataTable_in.Rows[r][_dc_ifuser];
-				}
-
-				_output[r].hasChanges = false;
-			}
-
-			return _output;
-		}
-		#endregion
-
 		#endregion
 	}
 }

@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 	[DOClassAttribute("DIC_Text", "", "", "", false, false)]
 	public 
 #if !NET_1_1
-		partial 
+		static partial 
 #endif
 		class 
 #if NET_1_1
@@ -302,47 +302,6 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		#endregion
 
 		#region Methods - Record Searches...
-		#region private static SO_DIC_Text[] getRecord(DataTable dataTable_in);
-		private static SO_DIC_Text[] getRecord(
-			DataTable dataTable_in
-		) {
-			DataColumn _dc_idtext = null;
-			DataColumn _dc_ifapplication = null;
-			DataColumn _dc_sourcetablefield_ref = null;
-
-			SO_DIC_Text[] _output 
-				= new SO_DIC_Text[dataTable_in.Rows.Count];
-			for (int r = 0; r < dataTable_in.Rows.Count; r++) {
-				if (r == 0) {
-					_dc_idtext = dataTable_in.Columns["IDText"];
-					_dc_ifapplication = dataTable_in.Columns["IFApplication"];
-					_dc_sourcetablefield_ref = dataTable_in.Columns["SourceTableField_ref"];
-				}
-
-				_output[r] = new SO_DIC_Text();
-				if (dataTable_in.Rows[r][_dc_idtext] == System.DBNull.Value) {
-					_output[r].IDText = 0L;
-				} else {
-					_output[r].IDText = (long)dataTable_in.Rows[r][_dc_idtext];
-				}
-				if (dataTable_in.Rows[r][_dc_ifapplication] == System.DBNull.Value) {
-					_output[r].IFApplication_isNull = true;
-				} else {
-					_output[r].IFApplication = (int)dataTable_in.Rows[r][_dc_ifapplication];
-				}
-				if (dataTable_in.Rows[r][_dc_sourcetablefield_ref] == System.DBNull.Value) {
-					_output[r].SourceTableField_ref_isNull = true;
-				} else {
-					_output[r].SourceTableField_ref = (int)dataTable_in.Rows[r][_dc_sourcetablefield_ref];
-				}
-
-				_output[r].hasChanges = false;
-			}
-
-			return _output;
-		}
-		#endregion
-
 		#endregion
 	}
 }

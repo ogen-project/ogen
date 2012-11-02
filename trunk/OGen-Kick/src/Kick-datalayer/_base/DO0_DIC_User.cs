@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 	[DOClassAttribute("DIC_User", "", "", "", false, false)]
 	public 
 #if !NET_1_1
-		partial 
+		static partial 
 #endif
 		class 
 #if NET_1_1
@@ -256,40 +256,6 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		#endregion
 
 		#region Methods - Record Searches...
-		#region private static SO_DIC_User[] getRecord(DataTable dataTable_in);
-		private static SO_DIC_User[] getRecord(
-			DataTable dataTable_in
-		) {
-			DataColumn _dc_ifuser = null;
-			DataColumn _dc_iflanguage = null;
-
-			SO_DIC_User[] _output 
-				= new SO_DIC_User[dataTable_in.Rows.Count];
-			for (int r = 0; r < dataTable_in.Rows.Count; r++) {
-				if (r == 0) {
-					_dc_ifuser = dataTable_in.Columns["IFUser"];
-					_dc_iflanguage = dataTable_in.Columns["IFLanguage"];
-				}
-
-				_output[r] = new SO_DIC_User();
-				if (dataTable_in.Rows[r][_dc_ifuser] == System.DBNull.Value) {
-					_output[r].IFUser = 0L;
-				} else {
-					_output[r].IFUser = (long)dataTable_in.Rows[r][_dc_ifuser];
-				}
-				if (dataTable_in.Rows[r][_dc_iflanguage] == System.DBNull.Value) {
-					_output[r].IFLanguage = 0;
-				} else {
-					_output[r].IFLanguage = (int)dataTable_in.Rows[r][_dc_iflanguage];
-				}
-
-				_output[r].hasChanges = false;
-			}
-
-			return _output;
-		}
-		#endregion
-
 		#endregion
 	}
 }

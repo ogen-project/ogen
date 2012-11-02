@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 	[DOClassAttribute("APP_Application", "", "", "", false, false)]
 	public 
 #if !NET_1_1
-		partial 
+		static partial 
 #endif
 		class 
 #if NET_1_1
@@ -294,40 +294,6 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		#endregion
 
 		#region Methods - Record Searches...
-		#region private static SO_APP_Application[] getRecord(DataTable dataTable_in);
-		private static SO_APP_Application[] getRecord(
-			DataTable dataTable_in
-		) {
-			DataColumn _dc_idapplication = null;
-			DataColumn _dc_name = null;
-
-			SO_APP_Application[] _output 
-				= new SO_APP_Application[dataTable_in.Rows.Count];
-			for (int r = 0; r < dataTable_in.Rows.Count; r++) {
-				if (r == 0) {
-					_dc_idapplication = dataTable_in.Columns["IDApplication"];
-					_dc_name = dataTable_in.Columns["Name"];
-				}
-
-				_output[r] = new SO_APP_Application();
-				if (dataTable_in.Rows[r][_dc_idapplication] == System.DBNull.Value) {
-					_output[r].IDApplication = 0;
-				} else {
-					_output[r].IDApplication = (int)dataTable_in.Rows[r][_dc_idapplication];
-				}
-				if (dataTable_in.Rows[r][_dc_name] == System.DBNull.Value) {
-					_output[r].Name = string.Empty;
-				} else {
-					_output[r].Name = (string)dataTable_in.Rows[r][_dc_name];
-				}
-
-				_output[r].hasChanges = false;
-			}
-
-			return _output;
-		}
-		#endregion
-
 		#endregion
 	}
 }

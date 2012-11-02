@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 	[DOClassAttribute("LOG_Logtype", "", "", "", false, false)]
 	public 
 #if !NET_1_1
-		partial 
+		static partial 
 #endif
 		class 
 #if NET_1_1
@@ -270,54 +270,6 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		#endregion
 
 		#region Methods - Record Searches...
-		#region private static SO_LOG_Logtype[] getRecord(DataTable dataTable_in);
-		private static SO_LOG_Logtype[] getRecord(
-			DataTable dataTable_in
-		) {
-			DataColumn _dc_idlogtype = null;
-			DataColumn _dc_iflogtype_parent = null;
-			DataColumn _dc_name = null;
-			DataColumn _dc_ifapplication = null;
-
-			SO_LOG_Logtype[] _output 
-				= new SO_LOG_Logtype[dataTable_in.Rows.Count];
-			for (int r = 0; r < dataTable_in.Rows.Count; r++) {
-				if (r == 0) {
-					_dc_idlogtype = dataTable_in.Columns["IDLogtype"];
-					_dc_iflogtype_parent = dataTable_in.Columns["IFLogtype_parent"];
-					_dc_name = dataTable_in.Columns["Name"];
-					_dc_ifapplication = dataTable_in.Columns["IFApplication"];
-				}
-
-				_output[r] = new SO_LOG_Logtype();
-				if (dataTable_in.Rows[r][_dc_idlogtype] == System.DBNull.Value) {
-					_output[r].IDLogtype = 0;
-				} else {
-					_output[r].IDLogtype = (int)dataTable_in.Rows[r][_dc_idlogtype];
-				}
-				if (dataTable_in.Rows[r][_dc_iflogtype_parent] == System.DBNull.Value) {
-					_output[r].IFLogtype_parent_isNull = true;
-				} else {
-					_output[r].IFLogtype_parent = (int)dataTable_in.Rows[r][_dc_iflogtype_parent];
-				}
-				if (dataTable_in.Rows[r][_dc_name] == System.DBNull.Value) {
-					_output[r].Name = string.Empty;
-				} else {
-					_output[r].Name = (string)dataTable_in.Rows[r][_dc_name];
-				}
-				if (dataTable_in.Rows[r][_dc_ifapplication] == System.DBNull.Value) {
-					_output[r].IFApplication_isNull = true;
-				} else {
-					_output[r].IFApplication = (int)dataTable_in.Rows[r][_dc_ifapplication];
-				}
-
-				_output[r].hasChanges = false;
-			}
-
-			return _output;
-		}
-		#endregion
-
 		#endregion
 	}
 }

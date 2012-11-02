@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 	[DOClassAttribute("NET_Browser", "", "", "", false, false)]
 	public 
 #if !NET_1_1
-		partial 
+		static partial 
 #endif
 		class 
 #if NET_1_1
@@ -382,117 +382,6 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		#endregion
 
 		#region Methods - Record Searches...
-		#region private static SO_NET_Browser[] getRecord(DataTable dataTable_in);
-		private static SO_NET_Browser[] getRecord(
-			DataTable dataTable_in
-		) {
-			DataColumn _dc_idbrowser = null;
-			DataColumn _dc_http_full_signature = null;
-			DataColumn _dc_http_full_signature__crc = null;
-			DataColumn _dc_http_accept = null;
-			DataColumn _dc_http_accept__crc = null;
-			DataColumn _dc_http_accept_charset = null;
-			DataColumn _dc_http_accept_charset__crc = null;
-			DataColumn _dc_http_accept_encoding = null;
-			DataColumn _dc_http_accept_encoding__crc = null;
-			DataColumn _dc_http_accept_language = null;
-			DataColumn _dc_http_accept_language__crc = null;
-			DataColumn _dc_http_user_agent = null;
-			DataColumn _dc_http_user_agent__crc = null;
-
-			SO_NET_Browser[] _output 
-				= new SO_NET_Browser[dataTable_in.Rows.Count];
-			for (int r = 0; r < dataTable_in.Rows.Count; r++) {
-				if (r == 0) {
-					_dc_idbrowser = dataTable_in.Columns["IDBrowser"];
-					_dc_http_full_signature = dataTable_in.Columns["HTTP_FULL_SIGNATURE"];
-					_dc_http_full_signature__crc = dataTable_in.Columns["HTTP_FULL_SIGNATURE__CRC"];
-					_dc_http_accept = dataTable_in.Columns["HTTP_ACCEPT"];
-					_dc_http_accept__crc = dataTable_in.Columns["HTTP_ACCEPT__CRC"];
-					_dc_http_accept_charset = dataTable_in.Columns["HTTP_ACCEPT_CHARSET"];
-					_dc_http_accept_charset__crc = dataTable_in.Columns["HTTP_ACCEPT_CHARSET__CRC"];
-					_dc_http_accept_encoding = dataTable_in.Columns["HTTP_ACCEPT_ENCODING"];
-					_dc_http_accept_encoding__crc = dataTable_in.Columns["HTTP_ACCEPT_ENCODING__CRC"];
-					_dc_http_accept_language = dataTable_in.Columns["HTTP_ACCEPT_LANGUAGE"];
-					_dc_http_accept_language__crc = dataTable_in.Columns["HTTP_ACCEPT_LANGUAGE__CRC"];
-					_dc_http_user_agent = dataTable_in.Columns["HTTP_USER_AGENT"];
-					_dc_http_user_agent__crc = dataTable_in.Columns["HTTP_USER_AGENT__CRC"];
-				}
-
-				_output[r] = new SO_NET_Browser();
-				if (dataTable_in.Rows[r][_dc_idbrowser] == System.DBNull.Value) {
-					_output[r].IDBrowser = 0L;
-				} else {
-					_output[r].IDBrowser = (long)dataTable_in.Rows[r][_dc_idbrowser];
-				}
-				if (dataTable_in.Rows[r][_dc_http_full_signature] == System.DBNull.Value) {
-					_output[r].HTTP_FULL_SIGNATURE = string.Empty;
-				} else {
-					_output[r].HTTP_FULL_SIGNATURE = (string)dataTable_in.Rows[r][_dc_http_full_signature];
-				}
-				if (dataTable_in.Rows[r][_dc_http_full_signature__crc] == System.DBNull.Value) {
-					_output[r].HTTP_FULL_SIGNATURE__CRC = 0L;
-				} else {
-					_output[r].HTTP_FULL_SIGNATURE__CRC = (long)dataTable_in.Rows[r][_dc_http_full_signature__crc];
-				}
-				if (dataTable_in.Rows[r][_dc_http_accept] == System.DBNull.Value) {
-					_output[r].HTTP_ACCEPT = string.Empty;
-				} else {
-					_output[r].HTTP_ACCEPT = (string)dataTable_in.Rows[r][_dc_http_accept];
-				}
-				if (dataTable_in.Rows[r][_dc_http_accept__crc] == System.DBNull.Value) {
-					_output[r].HTTP_ACCEPT__CRC = 0L;
-				} else {
-					_output[r].HTTP_ACCEPT__CRC = (long)dataTable_in.Rows[r][_dc_http_accept__crc];
-				}
-				if (dataTable_in.Rows[r][_dc_http_accept_charset] == System.DBNull.Value) {
-					_output[r].HTTP_ACCEPT_CHARSET = string.Empty;
-				} else {
-					_output[r].HTTP_ACCEPT_CHARSET = (string)dataTable_in.Rows[r][_dc_http_accept_charset];
-				}
-				if (dataTable_in.Rows[r][_dc_http_accept_charset__crc] == System.DBNull.Value) {
-					_output[r].HTTP_ACCEPT_CHARSET__CRC = 0L;
-				} else {
-					_output[r].HTTP_ACCEPT_CHARSET__CRC = (long)dataTable_in.Rows[r][_dc_http_accept_charset__crc];
-				}
-				if (dataTable_in.Rows[r][_dc_http_accept_encoding] == System.DBNull.Value) {
-					_output[r].HTTP_ACCEPT_ENCODING = string.Empty;
-				} else {
-					_output[r].HTTP_ACCEPT_ENCODING = (string)dataTable_in.Rows[r][_dc_http_accept_encoding];
-				}
-				if (dataTable_in.Rows[r][_dc_http_accept_encoding__crc] == System.DBNull.Value) {
-					_output[r].HTTP_ACCEPT_ENCODING__CRC = 0L;
-				} else {
-					_output[r].HTTP_ACCEPT_ENCODING__CRC = (long)dataTable_in.Rows[r][_dc_http_accept_encoding__crc];
-				}
-				if (dataTable_in.Rows[r][_dc_http_accept_language] == System.DBNull.Value) {
-					_output[r].HTTP_ACCEPT_LANGUAGE = string.Empty;
-				} else {
-					_output[r].HTTP_ACCEPT_LANGUAGE = (string)dataTable_in.Rows[r][_dc_http_accept_language];
-				}
-				if (dataTable_in.Rows[r][_dc_http_accept_language__crc] == System.DBNull.Value) {
-					_output[r].HTTP_ACCEPT_LANGUAGE__CRC = 0L;
-				} else {
-					_output[r].HTTP_ACCEPT_LANGUAGE__CRC = (long)dataTable_in.Rows[r][_dc_http_accept_language__crc];
-				}
-				if (dataTable_in.Rows[r][_dc_http_user_agent] == System.DBNull.Value) {
-					_output[r].HTTP_USER_AGENT = string.Empty;
-				} else {
-					_output[r].HTTP_USER_AGENT = (string)dataTable_in.Rows[r][_dc_http_user_agent];
-				}
-				if (dataTable_in.Rows[r][_dc_http_user_agent__crc] == System.DBNull.Value) {
-					_output[r].HTTP_USER_AGENT__CRC = 0L;
-				} else {
-					_output[r].HTTP_USER_AGENT__CRC = (long)dataTable_in.Rows[r][_dc_http_user_agent__crc];
-				}
-
-				_output[r].hasChanges = false;
-			}
-
-			return _output;
-		}
-		#endregion
-
 		#endregion
 	}
 }

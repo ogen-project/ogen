@@ -77,7 +77,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
 	[DOClassAttribute("<%=_aux_db_table.Name%>", "", "", "", false, false)]
 	public 
 #if !NET_1_1
-		partial 
+		static partial 
 #endif
 		class 
 #if NET_1_1
@@ -966,7 +966,8 @@ if (!_aux_db_table.isVirtualTable) {%>
 
 %>
 
-		#region Methods - Record Searches...
+		#region Methods - Record Searches...<%
+		if (_aux_ex_table.TableSearches.TableSearchCollection.Count > 0) {%>
 		#region private static SO_<%=_aux_db_table.Name%>[] getRecord(DataTable dataTable_in);
 		private static SO_<%=_aux_db_table.Name%>[] getRecord(
 			DataTable dataTable_in
@@ -1005,7 +1006,8 @@ if (!_aux_db_table.isVirtualTable) {%>
 
 			return _output;
 		}
-		#endregion
+		#endregion<%
+		}%>
 <%
 		for (int s = 0; s < _aux_ex_table.TableSearches.TableSearchCollection.Count; s++) {
 			if (_aux_ex_table.TableSearches.TableSearchCollection[s].isRange) {%>

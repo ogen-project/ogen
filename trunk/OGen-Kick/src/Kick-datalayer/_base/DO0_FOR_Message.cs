@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 	[DOClassAttribute("FOR_Message", "", "", "", false, false)]
 	public 
 #if !NET_1_1
-		partial 
+		static partial 
 #endif
 		class 
 #if NET_1_1
@@ -350,89 +350,6 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		#endregion
 
 		#region Methods - Record Searches...
-		#region private static SO_FOR_Message[] getRecord(DataTable dataTable_in);
-		private static SO_FOR_Message[] getRecord(
-			DataTable dataTable_in
-		) {
-			DataColumn _dc_idmessage = null;
-			DataColumn _dc_ifmessage__parent = null;
-			DataColumn _dc_issticky = null;
-			DataColumn _dc_subject = null;
-			DataColumn _dc_message__charvar8000 = null;
-			DataColumn _dc_message__text = null;
-			DataColumn _dc_ifuser__publisher = null;
-			DataColumn _dc_publish_date = null;
-			DataColumn _dc_ifapplication = null;
-
-			SO_FOR_Message[] _output 
-				= new SO_FOR_Message[dataTable_in.Rows.Count];
-			for (int r = 0; r < dataTable_in.Rows.Count; r++) {
-				if (r == 0) {
-					_dc_idmessage = dataTable_in.Columns["IDMessage"];
-					_dc_ifmessage__parent = dataTable_in.Columns["IFMessage__parent"];
-					_dc_issticky = dataTable_in.Columns["isSticky"];
-					_dc_subject = dataTable_in.Columns["Subject"];
-					_dc_message__charvar8000 = dataTable_in.Columns["Message__charvar8000"];
-					_dc_message__text = dataTable_in.Columns["Message__text"];
-					_dc_ifuser__publisher = dataTable_in.Columns["IFUser__Publisher"];
-					_dc_publish_date = dataTable_in.Columns["Publish_date"];
-					_dc_ifapplication = dataTable_in.Columns["IFApplication"];
-				}
-
-				_output[r] = new SO_FOR_Message();
-				if (dataTable_in.Rows[r][_dc_idmessage] == System.DBNull.Value) {
-					_output[r].IDMessage = 0L;
-				} else {
-					_output[r].IDMessage = (long)dataTable_in.Rows[r][_dc_idmessage];
-				}
-				if (dataTable_in.Rows[r][_dc_ifmessage__parent] == System.DBNull.Value) {
-					_output[r].IFMessage__parent_isNull = true;
-				} else {
-					_output[r].IFMessage__parent = (long)dataTable_in.Rows[r][_dc_ifmessage__parent];
-				}
-				if (dataTable_in.Rows[r][_dc_issticky] == System.DBNull.Value) {
-					_output[r].isSticky = false;
-				} else {
-					_output[r].isSticky = (bool)dataTable_in.Rows[r][_dc_issticky];
-				}
-				if (dataTable_in.Rows[r][_dc_subject] == System.DBNull.Value) {
-					_output[r].Subject_isNull = true;
-				} else {
-					_output[r].Subject = (string)dataTable_in.Rows[r][_dc_subject];
-				}
-				if (dataTable_in.Rows[r][_dc_message__charvar8000] == System.DBNull.Value) {
-					_output[r].Message__charvar8000_isNull = true;
-				} else {
-					_output[r].Message__charvar8000 = (string)dataTable_in.Rows[r][_dc_message__charvar8000];
-				}
-				if (dataTable_in.Rows[r][_dc_message__text] == System.DBNull.Value) {
-					_output[r].Message__text_isNull = true;
-				} else {
-					_output[r].Message__text = (string)dataTable_in.Rows[r][_dc_message__text];
-				}
-				if (dataTable_in.Rows[r][_dc_ifuser__publisher] == System.DBNull.Value) {
-					_output[r].IFUser__Publisher_isNull = true;
-				} else {
-					_output[r].IFUser__Publisher = (long)dataTable_in.Rows[r][_dc_ifuser__publisher];
-				}
-				if (dataTable_in.Rows[r][_dc_publish_date] == System.DBNull.Value) {
-					_output[r].Publish_date = new DateTime(1900, 1, 1);
-				} else {
-					_output[r].Publish_date = (DateTime)dataTable_in.Rows[r][_dc_publish_date];
-				}
-				if (dataTable_in.Rows[r][_dc_ifapplication] == System.DBNull.Value) {
-					_output[r].IFApplication_isNull = true;
-				} else {
-					_output[r].IFApplication = (int)dataTable_in.Rows[r][_dc_ifapplication];
-				}
-
-				_output[r].hasChanges = false;
-			}
-
-			return _output;
-		}
-		#endregion
-
 		#endregion
 	}
 }
