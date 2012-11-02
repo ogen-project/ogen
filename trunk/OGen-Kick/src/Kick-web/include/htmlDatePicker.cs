@@ -49,6 +49,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						=
 						//value.ToString("dd/MM/yyyy")
 							string.Format(
+								System.Globalization.CultureInfo.CurrentCulture,
 								"{0}/{1}/{2}",
 								value.Day,
 								value.Month,

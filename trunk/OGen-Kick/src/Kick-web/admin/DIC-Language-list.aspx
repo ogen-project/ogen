@@ -64,7 +64,7 @@
 							href='DIC-Language.aspx?IDLanguage=<%# DataBinder.Eval(Container.DataItem, "IDLanguage") %>'
 							class="label_small">
 							<%# 
-								(((string)DataBinder.Eval(Container.DataItem, "Language")).Trim() == "")
+								(((string)DataBinder.Eval(Container.DataItem, "Language")).Trim().Length == 0)
 									? "&lt;empty&gt;"
 									: (string)DataBinder.Eval(Container.DataItem, "Language")
 							%></a>

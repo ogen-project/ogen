@@ -71,7 +71,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							SO_vNWS_Tag arg1_in,
 							SO_vNWS_Tag arg2_in
 						) {
-							return arg1_in.Name.CompareTo(arg2_in.Name);
+							return string.Compare(
+								arg1_in.Name,
+								arg2_in.Name,
+								false,
+								System.Globalization.CultureInfo.CurrentCulture
+							);
 						}
 					);
 					cbl_Tags.Kick.Bind__arrayOf<long, string>(
@@ -95,7 +100,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							SO_vNWS_Source arg1_in,
 							SO_vNWS_Source arg2_in
 						) {
-							return arg1_in.Name.CompareTo(arg2_in.Name);
+							return string.Compare(
+								arg1_in.Name,
+								arg2_in.Name,
+								false,
+								System.Globalization.CultureInfo.CurrentCulture
+							);
 						}
 					);
 					cbl_Source.Kick.Bind__arrayOf<long, string>(
@@ -119,7 +129,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							SO_vNWS_Author arg1_in,
 							SO_vNWS_Author arg2_in
 						) {
-							return arg1_in.Name.CompareTo(arg2_in.Name);
+							return string.Compare(
+								arg1_in.Name,
+								arg2_in.Name,
+								false,
+								System.Globalization.CultureInfo.CurrentCulture
+							);
 						}
 					);
 					cbl_Author.Kick.Bind__arrayOf<long, string>(
@@ -143,7 +158,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							SO_vNWS_Highlight arg1_in,
 							SO_vNWS_Highlight arg2_in
 						) {
-							return arg1_in.Name.CompareTo(arg2_in.Name);
+							return string.Compare(
+								arg1_in.Name,
+								arg2_in.Name,
+								false,
+								System.Globalization.CultureInfo.CurrentCulture
+							);
 						}
 					);
 					cbl_Highlight.Kick.Bind__arrayOf<long, string>(
@@ -167,7 +187,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							SO_vNWS_Profile arg1_in,
 							SO_vNWS_Profile arg2_in
 						) {
-							return arg1_in.Name.CompareTo(arg2_in.Name);
+							return string.Compare(
+								arg1_in.Name,
+								arg2_in.Name,
+								false,
+								System.Globalization.CultureInfo.CurrentCulture
+							);
 						}
 					);
 					cbl_Profile.Kick.Bind__arrayOf<long, string>(
@@ -189,7 +214,11 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#endregion
 		#region protected void btn_Delete_Click(object sender, EventArgs e);
 		protected void btn_Delete_Click(object sender, EventArgs e) {
-			long _idcontent = long.Parse(((Button)sender).CommandArgument);
+			long _idcontent = long.Parse(
+				((Button)sender).CommandArgument,
+				System.Globalization.NumberStyles.Integer,
+				System.Globalization.CultureInfo.CurrentCulture
+			);
 
 			int[] _errors;
 			BusinessInstances.NWS_News.InstanceClient.delObject(
@@ -206,7 +235,11 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#endregion
 		#region protected void btn_Approve_Click(object sender, EventArgs e);
 		protected void btn_Approve_Click(object sender, EventArgs e) {
-			int _idcontent = int.Parse(((Button)sender).CommandArgument);
+			int _idcontent = int.Parse(
+				((Button)sender).CommandArgument,
+				System.Globalization.NumberStyles.Integer,
+				System.Globalization.CultureInfo.CurrentCulture
+			);
 
 			int[] _errors;
 			BusinessInstances.NWS_News.InstanceClient.updObject_Approve(
@@ -268,9 +301,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 -1L,
 
-				(ddl_Approved.SelectedValue == "")
+				(string.IsNullOrEmpty(ddl_Approved.SelectedValue))
 					? -2L
-					: (ddl_Approved.SelectedValue == ((int)ContentstateEnum.approved).ToString())
+					: (ddl_Approved.SelectedValue == ((int)ContentstateEnum.approved).ToString(System.Globalization.CultureInfo.CurrentCulture))
 						? 0L
 						: -1L,
 

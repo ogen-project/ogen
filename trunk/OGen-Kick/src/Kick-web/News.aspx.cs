@@ -149,6 +149,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						#region img_News.ImageUrl = ...;
 						if (_attachment != null) {
 							img_News.ImageUrl = string.Format(
+								System.Globalization.CultureInfo.CurrentCulture,
 								"~/public-uploads/news/{0}/{1}-{2}/{3}",
 								_attachment.IFContent,
 								_attachment.IDAttachment,
@@ -159,16 +160,17 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							if (
 								!_attachment.Name_isNull
 								&&
-								(_attachment.Name != "")
+								(!string.IsNullOrEmpty(_attachment.Name))
 							) {
 								lbl_Image_Name.Text = _attachment.Name;
 							}
 							if (
 								!_attachment.Description_isNull
 								&&
-								(_attachment.Description != "")
+								(!string.IsNullOrEmpty(_attachment.Description))
 							) {
 								lbl_Image_Description.Text = string.Format(
+									System.Globalization.CultureInfo.CurrentCulture,
 									"({0})",
 									_attachment.Description
 								);
@@ -277,12 +279,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					tr_Details.Visible = _showDetails;
 
 					lbl_Publish_date.Text = string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"{0}.{1}.{2} | {3}h{4}",
-						_content.Publish_date.Day.ToString().PadLeft(2, '0'),
-						_content.Publish_date.Month.ToString().PadLeft(2, '0'),
+						_content.Publish_date.Day.ToString(System.Globalization.CultureInfo.CurrentCulture).PadLeft(2, '0'),
+						_content.Publish_date.Month.ToString(System.Globalization.CultureInfo.CurrentCulture).PadLeft(2, '0'),
 						_content.Publish_date.Year,
-						_content.Publish_date.Hour.ToString().PadLeft(2, '0'),
-						_content.Publish_date.Minute.ToString().PadLeft(2, '0')
+						_content.Publish_date.Hour.ToString(System.Globalization.CultureInfo.CurrentCulture).PadLeft(2, '0'),
+						_content.Publish_date.Minute.ToString(System.Globalization.CultureInfo.CurrentCulture).PadLeft(2, '0')
 					);
 					lbl_Title.Text = _content.Title;
 					lbl_Content.Text = OGen.lib.presentationlayer.webforms.utils.Replace_RN_BR(_content.Content);

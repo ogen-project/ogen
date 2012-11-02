@@ -214,16 +214,16 @@
 								(
 									(DataBinder.Eval(Container.DataItem, "Title") == DBNull.Value)
 									||					
-									((string)DataBinder.Eval(Container.DataItem, "Title") == "")
+									string.IsNullOrEmpty((string)DataBinder.Eval(Container.DataItem, "Title"))
 								) ? "&lt;empty&gt;" : (string)DataBinder.Eval(Container.DataItem, "Title")
 							%></a>
 					</td>
 					<td class="label_small nowrap">
 						<a 
-							href='<%# "CRD-User.aspx?IDUser=" + ((long)DataBinder.Eval(Container.DataItem, "IFUser__Publisher")).ToString() %>'>
+							href='<%# "CRD-User.aspx?IDUser=" + ((long)DataBinder.Eval(Container.DataItem, "IFUser__Publisher")).ToString(System.Globalization.CultureInfo.CurrentCulture) %>'>
 							<%# DataBinder.Eval(Container.DataItem, "PublisherName") %></a>
 						<br />
-						<%# ((DateTime)DataBinder.Eval(Container.DataItem, "Publish_date")).ToString("dd-MMM-yyyy HH:mm") %>
+						<%# ((DateTime)DataBinder.Eval(Container.DataItem, "Publish_date")).ToString("dd-MMM-yyyy HH:mm", System.Globalization.CultureInfo.CurrentCulture)%>
 					</td>
 					<td class="label_small nowrap">
 						<%# 
@@ -235,10 +235,10 @@
 								) 
 									? string.Format(
 										//por: {1}, <br />
-										"<a href='CRD-User.aspx?IDUser={0}'>{1}</a>, <br />{2}", 				
-										((long)DataBinder.Eval(Container.DataItem, "IFUser__Aproved")).ToString(), 				
-										OGen.NTier.Kick.presentationlayer.weblayer.NWS_News_list.ContentstateEnum.approved.ToString(), 
-										((DateTime)DataBinder.Eval(Container.DataItem, "Aproved_date")).ToString("dd-MMM-yyyy HH:mm")
+										"<a href='CRD-User.aspx?IDUser={0}'>{1}</a>, <br />{2}",
+										((long)DataBinder.Eval(Container.DataItem, "IFUser__Aproved")).ToString(System.Globalization.CultureInfo.CurrentCulture), 				
+										OGen.NTier.Kick.presentationlayer.weblayer.NWS_News_list.ContentstateEnum.approved.ToString(),
+										((DateTime)DataBinder.Eval(Container.DataItem, "Aproved_date")).ToString("dd-MMM-yyyy HH:mm", System.Globalization.CultureInfo.CurrentCulture)
 									)				
 									: OGen.NTier.Kick.presentationlayer.weblayer.NWS_News_list.ContentstateEnum.pending.ToString().Replace('_', ' ')
 							) %>

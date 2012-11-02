@@ -50,7 +50,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 								SO_vDIC_Language arg1_in,
 								SO_vDIC_Language arg2_in
 							) {
-								return arg1_in.Language.CompareTo(arg2_in.Language);
+								return string.Compare(
+									arg1_in.Language,
+									arg2_in.Language,
+									false,
+									System.Globalization.CultureInfo.CurrentCulture
+								);
 							}
 						);
 
@@ -112,7 +117,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							SO_vDIC_ApplicationLanguage arg1_in,
 							SO_vDIC_ApplicationLanguage arg2_in
 						) {
-							return arg1_in.Language.CompareTo(arg2_in.Language);
+							return string.Compare(
+								arg1_in.Language,
+								arg2_in.Language,
+								false,
+								System.Globalization.CultureInfo.CurrentCulture
+							);
 						}
 					);
 

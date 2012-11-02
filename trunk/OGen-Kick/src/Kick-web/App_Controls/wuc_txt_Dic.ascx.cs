@@ -121,7 +121,11 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 						_output[i] 
 							= new OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage(
-								int.Parse(_hfi_idlanguage.Value), 
+								int.Parse(
+									_hfi_idlanguage.Value,
+									System.Globalization.NumberStyles.Integer,
+									System.Globalization.CultureInfo.CurrentCulture
+								), 
 								_txt_field.Text
 							);
 					}
@@ -137,7 +141,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		) {
 
 //Response.Write("<table border=1>");
-//Response.Write(string.Format("<tr><td>binding</td><td>{0}</td><td>{1}</td></tr>", this.ClientID, this.ID));
+//Response.Write(string.Format(System.Globalization.CultureInfo.CurrentCulture,"<tr><td>binding</td><td>{0}</td><td>{1}</td></tr>", this.ClientID, this.ID));
 //Response.Write("</table>");
 
 			// 1st: bind languages
@@ -164,7 +168,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 				foreach (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage _text in texts_) {
 					if (
-						_hfi_idlanguage.Value == _text.IFLanguage.ToString()
+						_hfi_idlanguage.Value == _text.IFLanguage.ToString(System.Globalization.CultureInfo.CurrentCulture)
 					) {
 						_txt_field = (TextBox)_item.FindControl("txt_Field");
 

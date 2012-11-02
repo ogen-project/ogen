@@ -137,7 +137,7 @@
 				<tr>
 					<td class="label_small wrap">
 						<a 
-							href='<%# "CRD-User.aspx?IDUser=" + ((long)DataBinder.Eval(Container.DataItem, "IDUser")).ToString() %>'>
+							href='<%# "CRD-User.aspx?IDUser=" + ((long)DataBinder.Eval(Container.DataItem, "IDUser")).ToString(System.Globalization.CultureInfo.CurrentCulture) %>'>
 						<%# DataBinder.Eval(Container.DataItem, "Login") %></a>
 					</td>
 					<td class="label_small wrap">

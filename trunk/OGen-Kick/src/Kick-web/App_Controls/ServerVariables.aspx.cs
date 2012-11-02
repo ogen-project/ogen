@@ -14,6 +14,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 			foreach (string _key in Request.ServerVariables.AllKeys) {
 				_sb.Append( string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"--- <b>{0}</b><br />{1}<br /><br />",
 					_key, 
 					Request.ServerVariables[_key]
@@ -22,6 +23,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 			foreach (string _key in Request.Params.AllKeys) {
 				_sb.Append( string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"--- <b>{0}</b><br />{1}<br /><br />",
 					_key,
 					Request.Params[_key]

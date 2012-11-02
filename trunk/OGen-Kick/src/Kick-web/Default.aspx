@@ -30,7 +30,7 @@
 				<tr class="alternating_item">
 					<td colspan="2">
 						<a 
-							href='<%# "News.aspx?IDNews=" + ((long)DataBinder.Eval(Container.DataItem, "IDContent")).ToString() %>'
+							href='<%# "News.aspx?IDNews=" + ((long)DataBinder.Eval(Container.DataItem, "IDContent")).ToString(System.Globalization.CultureInfo.CurrentCulture) %>'
 							style="width: 100%; height: 100%;"
 							class="">
 							<div style="width: 100%; height: 100%;"><%# DataBinder.Eval(Container.DataItem, "Title") %></div></a>

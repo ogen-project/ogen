@@ -124,7 +124,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region protected void btn_MarkRead_Click(object sender, EventArgs e);
 		protected void btn_MarkRead_Click(object sender, EventArgs e) {
 			int _idlog = int.Parse(
-				((Button)sender).CommandArgument
+				((Button)sender).CommandArgument,
+				System.Globalization.NumberStyles.Integer,
+				System.Globalization.CultureInfo.CurrentCulture
 			);
 			int[] _errors;
 			BusinessInstances.LOG_Log.InstanceClient.MarkRead(
@@ -204,7 +206,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		}
 		#endregion
 		#region private void Bind(...);
-		private static DateTime datetime_minvalue_ = new DateTime(1900, 1, 1);
+		//private static DateTime datetime_minvalue_ = new DateTime(1900, 1, 1);
 
 		private void Bind() {
 			int[] _error;
@@ -213,9 +215,21 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				= BusinessInstances.LOG_Log.InstanceClient.getRecord_generic(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
-					(ddl_Logtype.SelectedValue != "") ? int.Parse(ddl_Logtype.SelectedValue) : -1,
-					-1L, // (ddl_Coworker.SelectedValue != "") ? long.Parse(ddl_Coworker.SelectedValue) : -1,
-					(ddl_Errortype.SelectedValue != "") ? int.Parse(ddl_Errortype.SelectedValue) : -1,
+					(string.IsNullOrEmpty(ddl_Logtype.SelectedValue)) 
+						? -1
+						: int.Parse(
+							ddl_Logtype.SelectedValue,
+							System.Globalization.NumberStyles.Integer,
+							System.Globalization.CultureInfo.CurrentCulture
+						),
+					-1L, // (ddl_Coworker.SelectedValue != "") ? long.Parse(ddl_Coworker.SelectedValue, System.Globalization.NumberStyles.Integer, System.Globalization.CultureInfo.CurrentCulture) : -1,
+					(string.IsNullOrEmpty(ddl_Errortype.SelectedValue)) 
+						? -1
+						: int.Parse(
+							ddl_Errortype.SelectedValue,
+							System.Globalization.NumberStyles.Integer,
+							System.Globalization.CultureInfo.CurrentCulture
+						),
 					//(wuc_Date_begin.SelectedDateTime > datetime_minvalue_) ? wuc_Date_begin.SelectedDateTime : datetime_minvalue_,
 					//(wuc_Date_end.SelectedDateTime > datetime_minvalue_) ? wuc_Date_end.SelectedDateTime : datetime_minvalue_,
 					txt_Date_begin.Date,
@@ -262,7 +276,7 @@ false,
 
 						LogType.Items.ContainsKey(_log.IFLogtype) ? LogType.Items[_log.IFLogtype].Name.Replace(" - ", "<br />/") : "---",
 						!ErrorType.Items.ContainsKey(_log.IFErrortype) ? "???" : (_log.IFErrortype_isNull ? "---" : ErrorType.Items[_log.IFErrortype].Name.Replace(" - ", "<br />/")),
-						_log.Stamp.ToString("ddMMMyyyy<br />HH:mm:ss"),
+						_log.Stamp.ToString("ddMMMyyyy<br />HH:mm:ss", System.Globalization.CultureInfo.CurrentCulture),
 						!cbx_Read.Checked
 					));
 				}

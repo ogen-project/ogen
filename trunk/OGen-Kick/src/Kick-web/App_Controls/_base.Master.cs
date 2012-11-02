@@ -73,12 +73,15 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			}
 
 			string _clientscript = string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"alert('{0}{1}');",
 				(errors__ != null) ? string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"--- Errors:\\n{0}\\n",
 					errors__.ToString()
 				) : "", 
 				(warnings__ != null) ? string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"--- Warnings:\\n{0}",
 					warnings__.ToString()
 				) : ""
@@ -98,8 +101,10 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			params object[] args_in
 		) {
 			return string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
 				"- {0}\\n",
 				string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					format_in,
 					args_in
 				)
@@ -180,9 +185,10 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			if (!Error_add(_errors)) {
 				string _query = HttpContext.Current.Request.QueryString.ToString();
 				Response.Redirect(string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"{0}{1}{2}", 
 					HttpContext.Current.Request.Params["PATH_INFO"],
-					(_query != "") ? "?" : "", 
+					(string.IsNullOrEmpty(_query)) ? "" : "?", 
 					_query
 				));
 			}

@@ -71,7 +71,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							SO_vNWS_Tag arg1_in,
 							SO_vNWS_Tag arg2_in
 						) {
-							return arg1_in.Name.CompareTo(arg2_in.Name);
+							return string.Compare(
+								arg1_in.Name,
+								arg2_in.Name,
+								false,
+								System.Globalization.CultureInfo.CurrentCulture
+							);
 						}
 					);
 					ddl_Tag_parent.Kick.Bind__arrayOf<long, string>(
@@ -92,11 +97,15 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			ref SO_NWS_Tag tag_ref
 		) {
 			#region tag_ref.IFTag__parent = long.Parse(ddl_Tag_parent.SelectedValue);
-			if (ddl_Tag_parent.SelectedValue == "") {
+			if (string.IsNullOrEmpty(ddl_Tag_parent.SelectedValue)) {
 				tag_ref.IFTag__parent_isNull = true;
 			} else {
 				//tag_ref.IFTag__parent = ddl_Tag_parent.Kick.SelectedValue__get<long>();
-				tag_ref.IFTag__parent = long.Parse(ddl_Tag_parent.SelectedValue);
+				tag_ref.IFTag__parent = long.Parse(
+					ddl_Tag_parent.SelectedValue, 
+					System.Globalization.NumberStyles.Integer, 
+					System.Globalization.CultureInfo.CurrentCulture
+				);
 			}
 			#endregion
 		}
@@ -206,7 +215,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				if (_tags[0].IFTag__parent_isNull) {
 					ddl_Tag_parent.SelectedValue = "";
 				} else {
-					ddl_Tag_parent.SelectedValue = _tags[0].IFTag__parent.ToString();
+					ddl_Tag_parent.SelectedValue = _tags[0].IFTag__parent.ToString(System.Globalization.CultureInfo.CurrentCulture);
 				}
 				#endregion
 			} else {

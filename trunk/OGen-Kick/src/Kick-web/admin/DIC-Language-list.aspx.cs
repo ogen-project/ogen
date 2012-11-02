@@ -38,7 +38,11 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		#region protected void btn_Delete_Click(object sender, EventArgs e);
 		protected void btn_Delete_Click(object sender, EventArgs e) {
-			int _idLanguage = int.Parse(((IButtonControl)sender).CommandArgument);
+			int _idLanguage = int.Parse(
+				((IButtonControl)sender).CommandArgument,
+				System.Globalization.NumberStyles.Integer,
+				System.Globalization.CultureInfo.CurrentCulture
+			);
 
 			int[] _errors;
 			BusinessInstances.DIC_Dic.InstanceClient.delLanguage(
@@ -74,7 +78,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							SO_vDIC_Language arg1_in,
 							SO_vDIC_Language arg2_in
 						) {
-							return arg1_in.Language.CompareTo(arg2_in.Language);
+							return string.Compare(
+								arg1_in.Language,
+								arg2_in.Language,
+								false,
+								System.Globalization.CultureInfo.CurrentCulture
+							);
 						}
 					);
 					rep_Languages.DataSource = _languages;

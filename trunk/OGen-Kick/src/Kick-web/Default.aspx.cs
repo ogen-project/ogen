@@ -150,7 +150,12 @@ new long[] { }, // ToDos: here!
 							SO_vNWS_Tag arg1_in,
 							SO_vNWS_Tag arg2_in
 						) {
-							return arg1_in.Name.CompareTo(arg2_in.Name);
+							return string.Compare(
+								arg1_in.Name,
+								arg2_in.Name,
+								false,
+								System.Globalization.CultureInfo.CurrentCulture
+							);
 						}
 					);
 
@@ -287,6 +292,7 @@ new long[] { }, // ToDos: here!
 							_img_News = (Anthem.Image)rep_News.Items[n].FindControl("img_News");
 
 							_img_News.ImageUrl = string.Format(
+								System.Globalization.CultureInfo.CurrentCulture,
 								"~/public-uploads/news/{0}/{1}-{2}/{3}",
 								_attachment.IFContent,
 								_attachment.IDAttachment,

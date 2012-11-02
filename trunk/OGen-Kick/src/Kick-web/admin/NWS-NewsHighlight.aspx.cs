@@ -70,7 +70,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							SO_vNWS_Highlight arg1_in,
 							SO_vNWS_Highlight arg2_in
 						) {
-							return arg1_in.Name.CompareTo(arg2_in.Name);
+							return string.Compare(
+								arg1_in.Name,
+								arg2_in.Name,
+								false,
+								System.Globalization.CultureInfo.CurrentCulture
+							);
 						}
 					);
 					ddl_Highlight_parent.Kick.Bind__arrayOf<long, string>(
@@ -92,11 +97,15 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		) {
 			highlight_ref.Name = txt_Name.Text;
 			#region highlight_ref.IFHighlight__parent = long.Parse(ddl_Highlight_parent.SelectedValue);
-			if (ddl_Highlight_parent.SelectedValue == "") {
+			if (string.IsNullOrEmpty(ddl_Highlight_parent.SelectedValue)) {
 				highlight_ref.IFHighlight__parent_isNull = true;
 			} else {
 				//highlight_ref.IFHighlight__parent = ddl_Highlight_parent.Kick.SelectedValue__get<long>();
-				highlight_ref.IFHighlight__parent = long.Parse(ddl_Highlight_parent.SelectedValue);
+				highlight_ref.IFHighlight__parent = long.Parse(
+					ddl_Highlight_parent.SelectedValue,
+					System.Globalization.NumberStyles.Integer,
+					System.Globalization.CultureInfo.CurrentCulture
+				);
 			}
 			#endregion
 		}
@@ -187,7 +196,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				if (_highlight.IFHighlight__parent_isNull) {
 					ddl_Highlight_parent.SelectedValue = "";
 				} else {
-					ddl_Highlight_parent.SelectedValue = _highlight.IFHighlight__parent.ToString();
+					ddl_Highlight_parent.SelectedValue = _highlight.IFHighlight__parent.ToString(System.Globalization.CultureInfo.CurrentCulture);
 				}
 				#endregion
 			} else {

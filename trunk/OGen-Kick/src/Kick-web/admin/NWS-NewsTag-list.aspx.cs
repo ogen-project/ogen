@@ -38,7 +38,11 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		#region protected void btn_Delete_Click(object sender, EventArgs e);
 		protected void btn_Delete_Click(object sender, EventArgs e) {
-			long _idTag = long.Parse(((IButtonControl)sender).CommandArgument);
+			long _idTag = long.Parse(
+				((IButtonControl)sender).CommandArgument, 
+				System.Globalization.NumberStyles.Integer, 
+				System.Globalization.CultureInfo.CurrentCulture
+			);
 			int[] _errors;
 			BusinessInstances.NWS_Tag.InstanceClient.delObject(
 				utils.User.SessionGuid,
@@ -53,7 +57,11 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#endregion
 		#region protected void btn_Approve_Click(object sender, EventArgs e);
 		protected void btn_Approve_Click(object sender, EventArgs e) {
-			long _idTag = long.Parse(((IButtonControl)sender).CommandArgument);
+			long _idTag = long.Parse(
+				((IButtonControl)sender).CommandArgument, 
+				System.Globalization.NumberStyles.Integer, 
+				System.Globalization.CultureInfo.CurrentCulture
+			);
 			int[] _errors;
 			BusinessInstances.NWS_Tag.InstanceClient.updObject_Approve(
 				utils.User.SessionGuid,
@@ -87,7 +95,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							SO_vNWS_Tag arg1_in,
 							SO_vNWS_Tag arg2_in
 						) {
-							return arg1_in.Name.CompareTo(arg2_in.Name);
+							return string.Compare(
+								arg1_in.Name,
+								arg2_in.Name,
+								false,
+								System.Globalization.CultureInfo.CurrentCulture
+							);
 						}
 					);
 					rep_Tags.DataSource = _tags;

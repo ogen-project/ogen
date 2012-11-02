@@ -48,7 +48,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							SO_CRD_Profile arg1_in,
 							SO_CRD_Profile arg2_in
 						) {
-							return arg1_in.Name.CompareTo(arg2_in.Name);
+							return string.Compare(
+								arg1_in.Name,
+								arg2_in.Name,
+								false,
+								System.Globalization.CultureInfo.CurrentCulture
+							);
 						}
 					);
 
@@ -92,8 +97,16 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					txt_Login.Text.Trim(),
 					txt_EMail.Text.Trim(),
 					txt_Name.Text.Trim(),
-					(ddl_Profile__in.SelectedValue == "") ? 0L : long.Parse(ddl_Profile__in.SelectedValue),
-					(ddl_Profile__out.SelectedValue == "") ? 0L : long.Parse(ddl_Profile__out.SelectedValue),
+					(string.IsNullOrEmpty(ddl_Profile__in.SelectedValue)) ? 0L : long.Parse(
+						ddl_Profile__in.SelectedValue,
+						System.Globalization.NumberStyles.Integer,
+						System.Globalization.CultureInfo.CurrentCulture
+					),
+					(string.IsNullOrEmpty(ddl_Profile__out.SelectedValue)) ? 0L : long.Parse(
+						ddl_Profile__out.SelectedValue,
+						System.Globalization.NumberStyles.Integer,
+						System.Globalization.CultureInfo.CurrentCulture
+					),
 
 					0, 0, 0, out _count, 
 

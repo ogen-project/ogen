@@ -82,6 +82,7 @@
 									target="_blank"
 									href='<%# 
 										string.Format(
+											System.Globalization.CultureInfo.CurrentCulture,
 											"~/public-uploads/news/{0}/{1}-{2}/{3}", 
 											DataBinder.Eval(Container.DataItem, "IFContent"), 
 											DataBinder.Eval(Container.DataItem, "IDAttachment"), 
@@ -107,6 +108,7 @@
 						(Container.ItemIndex == 0) ? "" : ", " %>
 						<a 
 							href="<%# string.Format(
+								System.Globalization.CultureInfo.CurrentCulture,
 								"News-list.aspx?IDSource={0}", 
 								DataBinder.Eval(Container.DataItem, "IDSource")
 							)%>"><%# DataBinder.Eval(Container.DataItem, "Name")%></a></ItemTemplate>
@@ -119,6 +121,7 @@
 					<ItemTemplate>
 						#<a 
 							href="<%# string.Format(
+								System.Globalization.CultureInfo.CurrentCulture,
 								"News-list.aspx?IDTag={0}", 
 								DataBinder.Eval(Container.DataItem, "IDTag")
 							)%>"><%# DataBinder.Eval(Container.DataItem, "Name")%></a>&nbsp;&nbsp;

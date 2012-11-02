@@ -72,7 +72,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			#region bool _invalid_name = ...;
 			bool _invalid_name
 				= (
-					((txt_Name.Text = txt_Name.Text.Trim()) == "")
+					((txt_Name.Text = txt_Name.Text.Trim()).Length == 0)
 				);
 			#endregion
 			#region bool _invalid_login = ...;
@@ -127,7 +127,11 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							lbl_Login.Text = "unavailable";
 							break;
 						case OGen.NTier.Kick.lib.businesslayer.shared.ErrorType.user__successfully_created__WARNING:
-							lbl_Error.Text += string.Format("<li>welcome {0}! please check your email</li>", txt_Login.Text);
+							lbl_Error.Text += string.Format(
+								System.Globalization.CultureInfo.CurrentCulture, 
+								"<li>welcome {0}! please check your email</li>", 
+								txt_Login.Text
+							);
 
 							txt_Name.Enabled = false;
 							txt_Name.ReadOnly = true;

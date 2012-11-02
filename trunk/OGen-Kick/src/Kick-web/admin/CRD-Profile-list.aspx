@@ -64,7 +64,7 @@
 							href='CRD-Profile.aspx?IDProfile=<%# DataBinder.Eval(Container.DataItem, "IDProfile") %>'
 							class="label_small">
 							<%# 
-								(((string)DataBinder.Eval(Container.DataItem, "Name")).Trim() == "")
+								(((string)DataBinder.Eval(Container.DataItem, "Name")).Trim().Length == 0)
 									? "&lt;empty&gt;"
 									: (string)DataBinder.Eval(Container.DataItem, "Name")
 							%></a>

@@ -56,7 +56,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		public string SERVER_MAPPATH_PUBLIC_UPLOADS {
 			get {
-				if (server_mappath_public_uploads__ == "") {
+				if (string.IsNullOrEmpty(server_mappath_public_uploads__)) {
 					server_mappath_public_uploads__ = Server.MapPath("~/" + PUBLIC_UPLOADS);
 				}
 				return server_mappath_public_uploads__;
@@ -86,7 +86,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							SO_vNWS_Tag arg1_in,
 							SO_vNWS_Tag arg2_in
 						) {
-							return arg1_in.Name.CompareTo(arg2_in.Name);
+							return string.Compare(
+								arg1_in.Name,
+								arg2_in.Name,
+								false,
+								System.Globalization.CultureInfo.CurrentCulture
+							);
 						}
 					);
 					cbl_Tags.Kick.Bind__arrayOf<long, string>(
@@ -110,7 +115,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							SO_vNWS_Source arg1_in,
 							SO_vNWS_Source arg2_in
 						) {
-							return arg1_in.Name.CompareTo(arg2_in.Name);
+							return string.Compare(
+								arg1_in.Name,
+								arg2_in.Name,
+								false,
+								System.Globalization.CultureInfo.CurrentCulture
+							);
 						}
 					);
 					cbl_Source.Kick.Bind__arrayOf<long, string>(
@@ -134,7 +144,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							SO_vNWS_Author arg1_in,
 							SO_vNWS_Author arg2_in
 						) {
-							return arg1_in.Name.CompareTo(arg2_in.Name);
+							return string.Compare(
+								arg1_in.Name,
+								arg2_in.Name,
+								false,
+								System.Globalization.CultureInfo.CurrentCulture
+							);
 						}
 					);
 					cbl_Author.Kick.Bind__arrayOf<long, string>(
@@ -158,7 +173,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							SO_vNWS_Highlight arg1_in,
 							SO_vNWS_Highlight arg2_in
 						) {
-							return arg1_in.Name.CompareTo(arg2_in.Name);
+							return string.Compare(
+								arg1_in.Name,
+								arg2_in.Name,
+								false,
+								System.Globalization.CultureInfo.CurrentCulture
+							);
 						}
 					);
 					cbl_Highlight.Kick.Bind__arrayOf<long, string>(
@@ -182,7 +202,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							SO_vNWS_Profile arg1_in,
 							SO_vNWS_Profile arg2_in
 						) {
-							return arg1_in.Name.CompareTo(arg2_in.Name);
+							return string.Compare(
+								arg1_in.Name,
+								arg2_in.Name,
+								false,
+								System.Globalization.CultureInfo.CurrentCulture
+							);
 						}
 					);
 					cbl_Profiles.Kick.Bind__arrayOf<long, string>(
@@ -267,6 +292,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 				if (!Master__base.Error_add(_errors)) {
 					Response.Redirect(string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"NWS-News.aspx?IDContent={0}",
 						_idcontent
 					));
@@ -345,7 +371,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			if (fup_Attachment.HasFile) {
 				#region bool _isImage = ...;
 				bool _isImage;
-				switch (fup_Attachment.PostedFile.ContentType.ToLower()) {
+				switch (fup_Attachment.PostedFile.ContentType.ToLower(System.Globalization.CultureInfo.CurrentCulture)) {
 					case "image/png":
 					case "image/jpeg":
 					case "image/gif":
@@ -359,7 +385,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				}
 				#endregion
 
-				SO_NWS_Attachment _attachment = new SO_NWS_Attachment();
+				//SO_NWS_Attachment _attachment = new SO_NWS_Attachment();
 				int[] _errors;
 				string _guid;
 				long _idattachment = BusinessInstances.NWS_Attachment.InstanceClient.insObject(
@@ -390,9 +416,10 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 									SERVER_MAPPATH_PUBLIC_UPLOADS,
 									"news"
 								),
-								IDContent.ToString()
+								IDContent.ToString(System.Globalization.CultureInfo.CurrentCulture)
 							),
 							string.Format(
+								System.Globalization.CultureInfo.CurrentCulture,
 								"{0}-{1}",
 								_idattachment,
 								_guid
@@ -439,7 +466,11 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#endregion
 		#region protected void btn_AttachmentDelete_Click(object sender, EventArgs e);
 		protected void btn_AttachmentDelete_Click(object sender, EventArgs e) {
-			long _idattachment = long.Parse(((IButtonControl)sender).CommandArgument);
+			long _idattachment = long.Parse(
+				((IButtonControl)sender).CommandArgument,
+				System.Globalization.NumberStyles.Integer,
+				System.Globalization.CultureInfo.CurrentCulture
+			);
 			int[] _errors;
 			BusinessInstances.NWS_Attachment.InstanceClient.delObject(
 				utils.User.SessionGuid,
@@ -454,7 +485,11 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#endregion
 		#region protected void btn_AttachmentSave_Click(object sender, EventArgs e);
 		protected void btn_AttachmentSave_Click(object sender, EventArgs e) {
-			long _idattachment = long.Parse(((IButtonControl)sender).CommandArgument);
+			long _idattachment = long.Parse(
+				((IButtonControl)sender).CommandArgument,
+				System.Globalization.NumberStyles.Integer,
+				System.Globalization.CultureInfo.CurrentCulture
+			);
 
 			wuc_txt_Dic _dic_name = null;
 			wuc_txt_Dic _dic_description = null;
@@ -586,7 +621,7 @@ div_Profiles.Visible = true;
 							delegate(
 								SO_NWS_ContentTag arg1_in
 							) {
-								return arg1_in.IFTag.ToString();
+								return arg1_in.IFTag.ToString(System.Globalization.CultureInfo.CurrentCulture);
 							}
 						);
 					} 
@@ -605,7 +640,7 @@ div_Profiles.Visible = true;
 							delegate(
 								SO_NWS_ContentAuthor arg1_in
 							) {
-								return arg1_in.IFAuthor.ToString();
+								return arg1_in.IFAuthor.ToString(System.Globalization.CultureInfo.CurrentCulture);
 							}
 						);
 					}
@@ -624,7 +659,7 @@ div_Profiles.Visible = true;
 							delegate(
 								SO_NWS_ContentSource arg1_in
 							) {
-								return arg1_in.IFSource.ToString();
+								return arg1_in.IFSource.ToString(System.Globalization.CultureInfo.CurrentCulture);
 							}
 						);
 					}
@@ -643,7 +678,7 @@ div_Profiles.Visible = true;
 							delegate(
 								SO_NWS_ContentProfile arg1_in
 							) {
-								return arg1_in.IFProfile.ToString();
+								return arg1_in.IFProfile.ToString(System.Globalization.CultureInfo.CurrentCulture);
 							}
 						);
 					}
@@ -662,7 +697,7 @@ div_Profiles.Visible = true;
 							delegate(
 								SO_NWS_ContentHighlight arg1_in
 							) {
-								return arg1_in.IFHighlight.ToString();
+								return arg1_in.IFHighlight.ToString(System.Globalization.CultureInfo.CurrentCulture);
 							}
 						);
 					}
@@ -694,7 +729,12 @@ div_Profiles.Visible = true;
 								if (
 									arg1_in.OrderNum_isNull || arg2_in.OrderNum_isNull
 								) {
-									return arg1_in.Name.CompareTo(arg2_in.Name);
+									return string.Compare(
+										arg1_in.Name,
+										arg2_in.Name,
+										false,
+										System.Globalization.CultureInfo.CurrentCulture
+									);
 								} else {
 									return arg1_in.OrderNum.CompareTo(arg2_in.OrderNum);
 								}
@@ -744,6 +784,7 @@ div_Profiles.Visible = true;
 							_img_attachment.Src 
 								= _a_attachment.HRef 
 								= string.Format(
+									System.Globalization.CultureInfo.CurrentCulture,
 									"~/{0}/news/{1}/{2}-{3}/{4}",
 									PUBLIC_UPLOADS, 
 									_attachments_only[i].IFContent,

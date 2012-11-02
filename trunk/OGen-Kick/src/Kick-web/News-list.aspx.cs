@@ -46,7 +46,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			}
 			set {
 				idtag__ = value;
-				hfi_IDTag.Value = value.ToString();
+				hfi_IDTag.Value = value.ToString(System.Globalization.CultureInfo.CurrentCulture);
 			}
 		}
 		#endregion
@@ -67,7 +67,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			}
 			set {
 				idsource__ = value;
-				hfi_Source.Value = value.ToString();
+				hfi_Source.Value = value.ToString(System.Globalization.CultureInfo.CurrentCulture);
 			}
 		}
 		#endregion
@@ -82,10 +82,14 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		protected void Tag_Click(object sender, EventArgs e) {
 			#region IDTag = ...;
 			string _idtag = ((LinkButton)sender).CommandArgument;
-			if (_idtag == "") {
+			if (string.IsNullOrEmpty(_idtag)) {
 				IDTag = 0L;
 			} else {
-				IDTag = long.Parse(_idtag);
+				IDTag = long.Parse(
+					_idtag,
+					System.Globalization.NumberStyles.Integer,
+					System.Globalization.CultureInfo.CurrentCulture
+				);
 			}
 			#endregion
 			IDSource = 0L;
@@ -95,10 +99,14 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region protected void Source_Click(object sender, EventArgs e);
 		protected void Source_Click(object sender, EventArgs e) {
 			string _idsource = ((LinkButton)sender).CommandArgument;
-			if (_idsource == "") {
+			if (string.IsNullOrEmpty(_idsource)) {
 				IDSource = 0L;
 			} else {
-				IDSource = long.Parse(_idsource);
+				IDSource = long.Parse(
+					_idsource,
+					System.Globalization.NumberStyles.Integer,
+					System.Globalization.CultureInfo.CurrentCulture
+				);
 			}
 			Bind();
 		}
@@ -202,7 +210,12 @@ new long[] { },
 						SO_vNWS_Tag arg1_in,
 						SO_vNWS_Tag arg2_in
 					) {
-						return arg1_in.Name.CompareTo(arg2_in.Name);
+						return string.Compare(
+							arg1_in.Name,
+							arg2_in.Name,
+							false,
+							System.Globalization.CultureInfo.CurrentCulture
+						);
 					}
 				);
 
@@ -343,6 +356,7 @@ new long[] { },
 //				_tr_ImageNews = (System.Web.UI.HtmlControls.HtmlTableRow)rep_News.Items[n].FindControl("tr_ImageNews");
 				if (_attachment != null) {
 					_img_News.ImageUrl = string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						"~/public-uploads/news/{0}/{1}-{2}/{3}",
 						_attachment.IFContent,
 						_attachment.IDAttachment,

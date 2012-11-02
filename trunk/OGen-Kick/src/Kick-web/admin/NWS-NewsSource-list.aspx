@@ -74,7 +74,7 @@
 							href='NWS-NewsSource.aspx?IDSource=<%# DataBinder.Eval(Container.DataItem, "IDSource") %>'
 							class="label_small">
 							<%# 
-								(((string)DataBinder.Eval(Container.DataItem, "Name")).Trim() == "")
+								(((string)DataBinder.Eval(Container.DataItem, "Name")).Trim().Length == 0)
 									? "&lt;empty&gt;"
 									: (string)DataBinder.Eval(Container.DataItem, "Name")
 							%></a>
@@ -88,7 +88,7 @@
 								(
 									(long)DataBinder.Eval(Container.DataItem, "IFUser__Approved")
 								) <= 0
-							) ? "" : ((DateTime)DataBinder.Eval(Container.DataItem, "Approved_date")).ToString("dd-MMM-yyyy HH:mm")
+							) ? "" : ((DateTime)DataBinder.Eval(Container.DataItem, "Approved_date")).ToString("dd-MMM-yyyy HH:mm", System.Globalization.CultureInfo.CurrentCulture)
 						%>
 					</td>
 					<td class="label_small nowrap" align="center">

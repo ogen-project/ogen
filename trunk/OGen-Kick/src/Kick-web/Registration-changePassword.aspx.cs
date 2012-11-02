@@ -36,7 +36,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 			#region bool _foundErrors = ...;
 			bool _foundErrors = false;
-			if ((txt_PasswordNew.Text = txt_PasswordNew.Text.Trim()) == "") {
+			if ((txt_PasswordNew.Text = txt_PasswordNew.Text.Trim()).Length == 0) {
 				lbl_PasswordNew.Text = "invalid";
 				lbl_PasswordNew.Visible = true;
 

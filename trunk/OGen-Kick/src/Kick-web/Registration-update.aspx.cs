@@ -87,7 +87,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 			txt_Name.Text = txt_Name.Text.Trim();
 
-			if (txt_Name.Text == "") {
+			if (string.IsNullOrEmpty(txt_Name.Text)) {
 				lbl_Name.Text = "invalid";
 				lbl_Name.Visible = true;
 				_foundErrors = true;
@@ -225,13 +225,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		protected void btn_RegistrationPasswordUpdate_Click(object sender, EventArgs e) {
 			#region bool _foundErrors = ...;
 			bool _foundErrors = false;
-			if ((txt_Password.Text = txt_Password.Text.Trim()) == "") {
+			if ((txt_Password.Text = txt_Password.Text.Trim()).Length == 0) {
 				lbl_Password.Text = "invalid";
 				lbl_Password.Visible = true;
 
 				_foundErrors = true;
 			}
-			if ((txt_PasswordNew.Text = txt_PasswordNew.Text.Trim()) == "") {
+			if ((txt_PasswordNew.Text = txt_PasswordNew.Text.Trim()).Length == 0) {
 				lbl_PasswordNew.Text = "invalid";
 				lbl_PasswordNew.Visible = true;
 

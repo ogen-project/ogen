@@ -48,7 +48,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							SO_CRD_Profile arg1_in,
 							SO_CRD_Profile arg2_in
 						) {
-							return arg1_in.Name.CompareTo(arg2_in.Name);
+							return string.Compare(
+								arg1_in.Name,
+								arg2_in.Name,
+								false,
+								System.Globalization.CultureInfo.CurrentCulture
+							);
 						}
 					);
 					cbl_Profile.Kick.Bind__arrayOf<long, string>(

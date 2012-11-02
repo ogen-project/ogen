@@ -115,13 +115,15 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 			) {
 				Logout();
 
-				if (path_in != "") {
+				if (!string.IsNullOrEmpty(path_in)) {
 					HttpContext.Current.Response.Redirect(
 						string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"{0}{1}",
 							path_in,
 							withReturnParams_in 
 								? string.Format(
+									System.Globalization.CultureInfo.CurrentCulture,
 									"?url={0}&args={1}",
 									HttpContext.Current.Server.UrlEncode(HttpContext.Current.Request.Params["PATH_INFO"]),
 									HttpContext.Current.Server.UrlEncode(HttpContext.Current.Request.QueryString.ToString())
@@ -160,7 +162,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 						||
 						(HttpContext.Current.Session[SESSION_GUID] == null)
 						||
-						(((string)HttpContext.Current.Session[SESSION_GUID]).Trim() == "")
+						(((string)HttpContext.Current.Session[SESSION_GUID]).Trim().Length == 0)
 					) {
 						return Anonymous.SessionGuid;
 					} else {
@@ -264,7 +266,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 						||
 						(HttpContext.Current.Session[SESSION_LOGIN] == null)
 						||
-						((string)HttpContext.Current.Session[SESSION_LOGIN] == "")
+						(((string)HttpContext.Current.Session[SESSION_LOGIN]).Length == 0)
 					) {
 						return "";
 					} else {
@@ -272,7 +274,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 					}
 				}
 				set {
-					if (value != "") {
+					if (!string.IsNullOrEmpty(value)) {
 						if (
 							(!HttpContext_Current_Session_Keys_Contains(SESSION_LOGIN))
 							//||
@@ -402,7 +404,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 				if (
 					(_email == null)
 					||
-					((_email = _email.Trim()) == "")
+					((_email = _email.Trim()).Length == 0)
 				) {
 					_errors_out = new int[] {
 						ErrorType.authentication__invalid_email, 
@@ -453,7 +455,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 				if (
 					(_email == null)
 					||
-					((_email = _email.Trim()) == "")
+					((_email = _email.Trim()).Length == 0)
 				) {
 					_errors_out = new int[] {
 						ErrorType.authentication__invalid_email, 
@@ -553,7 +555,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 						int[] _errors;
 
 						if (
-							(sessionguid__ == "")
+							(string.IsNullOrEmpty(sessionguid__))
 							||
 							(DateTime.Now.Ticks >= sessionguid__timeout)
 							||
