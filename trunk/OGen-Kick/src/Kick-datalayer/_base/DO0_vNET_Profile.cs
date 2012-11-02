@@ -67,27 +67,27 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_vNET_Profile();
 				if (dataTable_in.Rows[r][_dc_idprofile] == System.DBNull.Value) {
-					_output[r].idprofile_ = 0L;
+					_output[r].IDProfile = 0L;
 				} else {
-					_output[r].idprofile_ = (long)dataTable_in.Rows[r][_dc_idprofile];
+					_output[r].IDProfile = (long)dataTable_in.Rows[r][_dc_idprofile];
 				}
 				if (dataTable_in.Rows[r][_dc_name] == System.DBNull.Value) {
-					_output[r].name_ = string.Empty;
+					_output[r].Name = string.Empty;
 				} else {
-					_output[r].name_ = (string)dataTable_in.Rows[r][_dc_name];
+					_output[r].Name = (string)dataTable_in.Rows[r][_dc_name];
 				}
 				if (dataTable_in.Rows[r][_dc_ifapplication] == System.DBNull.Value) {
 					_output[r].IFApplication_isNull = true;
 				} else {
-					_output[r].ifapplication_ = (int)dataTable_in.Rows[r][_dc_ifapplication];
+					_output[r].IFApplication = (int)dataTable_in.Rows[r][_dc_ifapplication];
 				}
 				if (dataTable_in.Rows[r][_dc_isdefaultprofile] == System.DBNull.Value) {
 					_output[r].isDefaultprofile_isNull = true;
 				} else {
-					_output[r].isdefaultprofile_ = (bool)dataTable_in.Rows[r][_dc_isdefaultprofile];
+					_output[r].isDefaultprofile = (bool)dataTable_in.Rows[r][_dc_isdefaultprofile];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_vNWS_Tag : 
-		SO__ListItem<long, string> 
+		SO__ListItem<long, string>, ISerializable
 	{
 		#region public SO_vNWS_Tag();
 		public SO_vNWS_Tag(
@@ -44,8 +44,6 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			string ManagerName_in, 
 			string ShortName_in
 		) {
-			this.haschanges_ = false;
-
 			this.idtag_ = IDTag_in;
 			this.idlanguage_ = IDLanguage_in;
 			this.iftag__parent_ = IFTag__parent_in;
@@ -55,67 +53,70 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			this.ifapplication_ = IFApplication_in;
 			this.managername_ = ManagerName_in;
 			this.shortname_ = ShortName_in;
-		}
-		public SO_vNWS_Tag(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.idtag_ = (long)info_in.GetValue("IDTag", typeof(long));
-			this.idlanguage_ = (int)info_in.GetValue("IDLanguage", typeof(int));
+			this.haschanges_ = false;
+		}
+		protected SO_vNWS_Tag(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.idtag_ = (long)info.GetValue("IDTag", typeof(long));
+			this.idlanguage_ = (int)info.GetValue("IDLanguage", typeof(int));
 			this.iftag__parent_ 
-				= (info_in.GetValue("IFTag__parent", typeof(long)) == null)
+				= (info.GetValue("IFTag__parent", typeof(long)) == null)
 					? 0L
-					: (long)info_in.GetValue("IFTag__parent", typeof(long));
-			this.IFTag__parent_isNull = (bool)info_in.GetValue("IFTag__parent_isNull", typeof(bool));
+					: (long)info.GetValue("IFTag__parent", typeof(long));
+			this.IFTag__parent_isNull = (bool)info.GetValue("IFTag__parent_isNull", typeof(bool));
 			this.ifuser__approved_ 
-				= (info_in.GetValue("IFUser__Approved", typeof(long)) == null)
+				= (info.GetValue("IFUser__Approved", typeof(long)) == null)
 					? 0L
-					: (long)info_in.GetValue("IFUser__Approved", typeof(long));
-			this.IFUser__Approved_isNull = (bool)info_in.GetValue("IFUser__Approved_isNull", typeof(bool));
+					: (long)info.GetValue("IFUser__Approved", typeof(long));
+			this.IFUser__Approved_isNull = (bool)info.GetValue("IFUser__Approved_isNull", typeof(bool));
 			this.approved_date_ 
-				= (info_in.GetValue("Approved_date", typeof(DateTime)) == null)
+				= (info.GetValue("Approved_date", typeof(DateTime)) == null)
 					? new DateTime(1900, 1, 1)
-					: (DateTime)info_in.GetValue("Approved_date", typeof(DateTime));
-			this.Approved_date_isNull = (bool)info_in.GetValue("Approved_date_isNull", typeof(bool));
+					: (DateTime)info.GetValue("Approved_date", typeof(DateTime));
+			this.Approved_date_isNull = (bool)info.GetValue("Approved_date_isNull", typeof(bool));
 			this.name_ 
-				= (info_in.GetValue("Name", typeof(string)) == null)
+				= (info.GetValue("Name", typeof(string)) == null)
 					? string.Empty
-					: (string)info_in.GetValue("Name", typeof(string));
-			this.Name_isNull = (bool)info_in.GetValue("Name_isNull", typeof(bool));
+					: (string)info.GetValue("Name", typeof(string));
+			this.Name_isNull = (bool)info.GetValue("Name_isNull", typeof(bool));
 			this.ifapplication_ 
-				= (info_in.GetValue("IFApplication", typeof(int)) == null)
+				= (info.GetValue("IFApplication", typeof(int)) == null)
 					? 0
-					: (int)info_in.GetValue("IFApplication", typeof(int));
-			this.IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
+					: (int)info.GetValue("IFApplication", typeof(int));
+			this.IFApplication_isNull = (bool)info.GetValue("IFApplication_isNull", typeof(bool));
 			this.managername_ 
-				= (info_in.GetValue("ManagerName", typeof(string)) == null)
+				= (info.GetValue("ManagerName", typeof(string)) == null)
 					? string.Empty
-					: (string)info_in.GetValue("ManagerName", typeof(string));
-			this.ManagerName_isNull = (bool)info_in.GetValue("ManagerName_isNull", typeof(bool));
+					: (string)info.GetValue("ManagerName", typeof(string));
+			this.ManagerName_isNull = (bool)info.GetValue("ManagerName_isNull", typeof(bool));
 			this.shortname_ 
-				= (info_in.GetValue("ShortName", typeof(string)) == null)
+				= (info.GetValue("ShortName", typeof(string)) == null)
 					? string.Empty
-					: (string)info_in.GetValue("ShortName", typeof(string));
-			this.ShortName_isNull = (bool)info_in.GetValue("ShortName_isNull", typeof(bool));
+					: (string)info.GetValue("ShortName", typeof(string));
+			this.ShortName_isNull = (bool)info.GetValue("ShortName_isNull", typeof(bool));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_vNWS_Tag properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -138,7 +139,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long idtag_;// = 0L;
+		private long idtag_;// = 0L;
 		
 		/// <summary>
 		/// vNWS_Tag's IDTag.
@@ -186,7 +187,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public int idlanguage_;// = 0;
+		private int idlanguage_;// = 0;
 		
 		/// <summary>
 		/// vNWS_Tag's IDLanguage.
@@ -234,7 +235,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object iftag__parent_;// = 0L;
+		private object iftag__parent_;// = 0L;
 		
 		/// <summary>
 		/// vNWS_Tag's IFTag__parent.
@@ -300,7 +301,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object ifuser__approved_;// = 0L;
+		private object ifuser__approved_;// = 0L;
 		
 		/// <summary>
 		/// vNWS_Tag's IFUser__Approved.
@@ -366,7 +367,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object approved_date_;// = new DateTime(1900, 1, 1);
+		private object approved_date_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>
 		/// vNWS_Tag's Approved_date.
@@ -432,7 +433,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object name_;// = string.Empty;
+		private object name_;// = string.Empty;
 		
 		/// <summary>
 		/// vNWS_Tag's Name.
@@ -500,7 +501,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object ifapplication_;// = 0;
+		private object ifapplication_;// = 0;
 		
 		/// <summary>
 		/// vNWS_Tag's IFApplication.
@@ -566,7 +567,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object managername_;// = string.Empty;
+		private object managername_;// = string.Empty;
 		
 		/// <summary>
 		/// vNWS_Tag's ManagerName.
@@ -634,7 +635,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object shortname_;// = string.Empty;
+		private object shortname_;// = string.Empty;
 		
 		/// <summary>
 		/// vNWS_Tag's ShortName.
@@ -706,6 +707,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_vNWS_Tag[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_idtag = new DataColumn("IDTag", typeof(long));
@@ -746,10 +748,11 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {
 			this.idtag_ = 0L;
 			this.idlanguage_ = 0;
 			this.iftag__parent_ = 0L;
@@ -759,26 +762,32 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			this.ifapplication_ = 0;
 			this.managername_ = string.Empty;
 			this.shortname_ = string.Empty;
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDTag", this.idtag_);
-			info_in.AddValue("IDLanguage", this.idlanguage_);
-			info_in.AddValue("IFTag__parent", this.iftag__parent_);
-			info_in.AddValue("IFTag__parent_isNull", this.IFTag__parent_isNull);
-			info_in.AddValue("IFUser__Approved", this.ifuser__approved_);
-			info_in.AddValue("IFUser__Approved_isNull", this.IFUser__Approved_isNull);
-			info_in.AddValue("Approved_date", this.approved_date_);
-			info_in.AddValue("Approved_date_isNull", this.Approved_date_isNull);
-			info_in.AddValue("Name", this.name_);
-			info_in.AddValue("Name_isNull", this.Name_isNull);
-			info_in.AddValue("IFApplication", this.ifapplication_);
-			info_in.AddValue("IFApplication_isNull", this.IFApplication_isNull);
-			info_in.AddValue("ManagerName", this.managername_);
-			info_in.AddValue("ManagerName_isNull", this.ManagerName_isNull);
-			info_in.AddValue("ShortName", this.shortname_);
-			info_in.AddValue("ShortName_isNull", this.ShortName_isNull);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IDTag", this.idtag_);
+			info.AddValue("IDLanguage", this.idlanguage_);
+			info.AddValue("IFTag__parent", this.iftag__parent_);
+			info.AddValue("IFTag__parent_isNull", this.IFTag__parent_isNull);
+			info.AddValue("IFUser__Approved", this.ifuser__approved_);
+			info.AddValue("IFUser__Approved_isNull", this.IFUser__Approved_isNull);
+			info.AddValue("Approved_date", this.approved_date_);
+			info.AddValue("Approved_date_isNull", this.Approved_date_isNull);
+			info.AddValue("Name", this.name_);
+			info.AddValue("Name_isNull", this.Name_isNull);
+			info.AddValue("IFApplication", this.ifapplication_);
+			info.AddValue("IFApplication_isNull", this.IFApplication_isNull);
+			info.AddValue("ManagerName", this.managername_);
+			info.AddValue("ManagerName_isNull", this.ManagerName_isNull);
+			info.AddValue("ShortName", this.shortname_);
+			info.AddValue("ShortName_isNull", this.ShortName_isNull);
 		}
 		#endregion
 		#endregion

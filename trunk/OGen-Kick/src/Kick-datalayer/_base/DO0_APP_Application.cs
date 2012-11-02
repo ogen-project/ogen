@@ -94,7 +94,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.Name = (string)_dataparameters[1].Value;
 				}
 
-				_output.haschanges_ = false;
+				_output.hasChanges = false;
 				return _output;
 			}
 
@@ -233,7 +233,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
 
-			APP_Application_in.IDApplication = (int)_dataparameters[0].Value;APP_Application_in.haschanges_ = false;
+			APP_Application_in.IDApplication = (int)_dataparameters[0].Value;APP_Application_in.hasChanges = false;
 			
 
 			return APP_Application_in.IDApplication;
@@ -265,7 +265,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			bool forceUpdate_in, 
 			DBConnection dbConnection_in
 		) {
-			if (forceUpdate_in || APP_Application_in.haschanges_) {
+			if (forceUpdate_in || APP_Application_in.hasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__utils.DBConnection_createInstance(
 						DO__utils.DBServerType,
@@ -283,7 +283,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_dataparameters
 				);
 				if (dbConnection_in == null) { _connection.Dispose(); }
-				APP_Application_in.haschanges_ = false;
+				APP_Application_in.hasChanges = false;
 			}
 		}
 		#endregion
@@ -311,17 +311,17 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_APP_Application();
 				if (dataTable_in.Rows[r][_dc_idapplication] == System.DBNull.Value) {
-					_output[r].idapplication_ = 0;
+					_output[r].IDApplication = 0;
 				} else {
-					_output[r].idapplication_ = (int)dataTable_in.Rows[r][_dc_idapplication];
+					_output[r].IDApplication = (int)dataTable_in.Rows[r][_dc_idapplication];
 				}
 				if (dataTable_in.Rows[r][_dc_name] == System.DBNull.Value) {
-					_output[r].name_ = string.Empty;
+					_output[r].Name = string.Empty;
 				} else {
-					_output[r].name_ = (string)dataTable_in.Rows[r][_dc_name];
+					_output[r].Name = (string)dataTable_in.Rows[r][_dc_name];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

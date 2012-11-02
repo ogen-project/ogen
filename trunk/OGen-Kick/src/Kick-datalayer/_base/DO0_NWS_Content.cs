@@ -166,7 +166,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.isNews_notForum = (bool)_dataparameters[13].Value;
 				}
 
-				_output.haschanges_ = false;
+				_output.hasChanges = false;
 				return _output;
 			}
 
@@ -317,7 +317,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
 
-			NWS_Content_in.IDContent = (long)_dataparameters[0].Value;NWS_Content_in.haschanges_ = false;
+			NWS_Content_in.IDContent = (long)_dataparameters[0].Value;NWS_Content_in.hasChanges = false;
 			
 
 			return NWS_Content_in.IDContent;
@@ -349,7 +349,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			bool forceUpdate_in, 
 			DBConnection dbConnection_in
 		) {
-			if (forceUpdate_in || NWS_Content_in.haschanges_) {
+			if (forceUpdate_in || NWS_Content_in.hasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__utils.DBConnection_createInstance(
 						DO__utils.DBServerType,
@@ -379,7 +379,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_dataparameters
 				);
 				if (dbConnection_in == null) { _connection.Dispose(); }
-				NWS_Content_in.haschanges_ = false;
+				NWS_Content_in.hasChanges = false;
 			}
 		}
 		#endregion
@@ -431,77 +431,77 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_NWS_Content();
 				if (dataTable_in.Rows[r][_dc_idcontent] == System.DBNull.Value) {
-					_output[r].idcontent_ = 0L;
+					_output[r].IDContent = 0L;
 				} else {
-					_output[r].idcontent_ = (long)dataTable_in.Rows[r][_dc_idcontent];
+					_output[r].IDContent = (long)dataTable_in.Rows[r][_dc_idcontent];
 				}
 				if (dataTable_in.Rows[r][_dc_ifapplication] == System.DBNull.Value) {
 					_output[r].IFApplication_isNull = true;
 				} else {
-					_output[r].ifapplication_ = (int)dataTable_in.Rows[r][_dc_ifapplication];
+					_output[r].IFApplication = (int)dataTable_in.Rows[r][_dc_ifapplication];
 				}
 				if (dataTable_in.Rows[r][_dc_ifuser__publisher] == System.DBNull.Value) {
-					_output[r].ifuser__publisher_ = 0L;
+					_output[r].IFUser__Publisher = 0L;
 				} else {
-					_output[r].ifuser__publisher_ = (long)dataTable_in.Rows[r][_dc_ifuser__publisher];
+					_output[r].IFUser__Publisher = (long)dataTable_in.Rows[r][_dc_ifuser__publisher];
 				}
 				if (dataTable_in.Rows[r][_dc_publish_date] == System.DBNull.Value) {
-					_output[r].publish_date_ = new DateTime(1900, 1, 1);
+					_output[r].Publish_date = new DateTime(1900, 1, 1);
 				} else {
-					_output[r].publish_date_ = (DateTime)dataTable_in.Rows[r][_dc_publish_date];
+					_output[r].Publish_date = (DateTime)dataTable_in.Rows[r][_dc_publish_date];
 				}
 				if (dataTable_in.Rows[r][_dc_ifuser__aproved] == System.DBNull.Value) {
 					_output[r].IFUser__Aproved_isNull = true;
 				} else {
-					_output[r].ifuser__aproved_ = (long)dataTable_in.Rows[r][_dc_ifuser__aproved];
+					_output[r].IFUser__Aproved = (long)dataTable_in.Rows[r][_dc_ifuser__aproved];
 				}
 				if (dataTable_in.Rows[r][_dc_aproved_date] == System.DBNull.Value) {
 					_output[r].Aproved_date_isNull = true;
 				} else {
-					_output[r].aproved_date_ = (DateTime)dataTable_in.Rows[r][_dc_aproved_date];
+					_output[r].Aproved_date = (DateTime)dataTable_in.Rows[r][_dc_aproved_date];
 				}
 				if (dataTable_in.Rows[r][_dc_begin_date] == System.DBNull.Value) {
 					_output[r].Begin_date_isNull = true;
 				} else {
-					_output[r].begin_date_ = (DateTime)dataTable_in.Rows[r][_dc_begin_date];
+					_output[r].Begin_date = (DateTime)dataTable_in.Rows[r][_dc_begin_date];
 				}
 				if (dataTable_in.Rows[r][_dc_end_date] == System.DBNull.Value) {
 					_output[r].End_date_isNull = true;
 				} else {
-					_output[r].end_date_ = (DateTime)dataTable_in.Rows[r][_dc_end_date];
+					_output[r].End_date = (DateTime)dataTable_in.Rows[r][_dc_end_date];
 				}
 				if (dataTable_in.Rows[r][_dc_tx_title] == System.DBNull.Value) {
 					_output[r].TX_Title_isNull = true;
 				} else {
-					_output[r].tx_title_ = (long)dataTable_in.Rows[r][_dc_tx_title];
+					_output[r].TX_Title = (long)dataTable_in.Rows[r][_dc_tx_title];
 				}
 				if (dataTable_in.Rows[r][_dc_tx_content] == System.DBNull.Value) {
 					_output[r].TX_Content_isNull = true;
 				} else {
-					_output[r].tx_content_ = (long)dataTable_in.Rows[r][_dc_tx_content];
+					_output[r].TX_Content = (long)dataTable_in.Rows[r][_dc_tx_content];
 				}
 				if (dataTable_in.Rows[r][_dc_tx_subtitle] == System.DBNull.Value) {
 					_output[r].tx_subtitle_isNull = true;
 				} else {
-					_output[r].tx_subtitle_ = (long)dataTable_in.Rows[r][_dc_tx_subtitle];
+					_output[r].tx_subtitle = (long)dataTable_in.Rows[r][_dc_tx_subtitle];
 				}
 				if (dataTable_in.Rows[r][_dc_tx_summary] == System.DBNull.Value) {
 					_output[r].tx_summary_isNull = true;
 				} else {
-					_output[r].tx_summary_ = (long)dataTable_in.Rows[r][_dc_tx_summary];
+					_output[r].tx_summary = (long)dataTable_in.Rows[r][_dc_tx_summary];
 				}
 				if (dataTable_in.Rows[r][_dc_newslettersent_date] == System.DBNull.Value) {
 					_output[r].Newslettersent_date_isNull = true;
 				} else {
-					_output[r].newslettersent_date_ = (DateTime)dataTable_in.Rows[r][_dc_newslettersent_date];
+					_output[r].Newslettersent_date = (DateTime)dataTable_in.Rows[r][_dc_newslettersent_date];
 				}
 				if (dataTable_in.Rows[r][_dc_isnews_notforum] == System.DBNull.Value) {
 					_output[r].isNews_notForum_isNull = true;
 				} else {
-					_output[r].isnews_notforum_ = (bool)dataTable_in.Rows[r][_dc_isnews_notforum];
+					_output[r].isNews_notForum = (bool)dataTable_in.Rows[r][_dc_isnews_notforum];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

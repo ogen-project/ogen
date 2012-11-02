@@ -130,7 +130,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.FileName = (string)_dataparameters[7].Value;
 				}
 
-				_output.haschanges_ = false;
+				_output.hasChanges = false;
 				return _output;
 			}
 
@@ -275,7 +275,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
 
-			NWS_Attachment_in.IDAttachment = (long)_dataparameters[0].Value;NWS_Attachment_in.haschanges_ = false;
+			NWS_Attachment_in.IDAttachment = (long)_dataparameters[0].Value;NWS_Attachment_in.hasChanges = false;
 			
 
 			return NWS_Attachment_in.IDAttachment;
@@ -307,7 +307,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			bool forceUpdate_in, 
 			DBConnection dbConnection_in
 		) {
-			if (forceUpdate_in || NWS_Attachment_in.haschanges_) {
+			if (forceUpdate_in || NWS_Attachment_in.hasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__utils.DBConnection_createInstance(
 						DO__utils.DBServerType,
@@ -331,7 +331,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_dataparameters
 				);
 				if (dbConnection_in == null) { _connection.Dispose(); }
-				NWS_Attachment_in.haschanges_ = false;
+				NWS_Attachment_in.hasChanges = false;
 			}
 		}
 		#endregion
@@ -371,47 +371,47 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_NWS_Attachment();
 				if (dataTable_in.Rows[r][_dc_idattachment] == System.DBNull.Value) {
-					_output[r].idattachment_ = 0L;
+					_output[r].IDAttachment = 0L;
 				} else {
-					_output[r].idattachment_ = (long)dataTable_in.Rows[r][_dc_idattachment];
+					_output[r].IDAttachment = (long)dataTable_in.Rows[r][_dc_idattachment];
 				}
 				if (dataTable_in.Rows[r][_dc_ifcontent] == System.DBNull.Value) {
-					_output[r].ifcontent_ = 0L;
+					_output[r].IFContent = 0L;
 				} else {
-					_output[r].ifcontent_ = (long)dataTable_in.Rows[r][_dc_ifcontent];
+					_output[r].IFContent = (long)dataTable_in.Rows[r][_dc_ifcontent];
 				}
 				if (dataTable_in.Rows[r][_dc_guid] == System.DBNull.Value) {
-					_output[r].guid_ = string.Empty;
+					_output[r].GUID = string.Empty;
 				} else {
-					_output[r].guid_ = (string)dataTable_in.Rows[r][_dc_guid];
+					_output[r].GUID = (string)dataTable_in.Rows[r][_dc_guid];
 				}
 				if (dataTable_in.Rows[r][_dc_ordernum] == System.DBNull.Value) {
 					_output[r].OrderNum_isNull = true;
 				} else {
-					_output[r].ordernum_ = (long)dataTable_in.Rows[r][_dc_ordernum];
+					_output[r].OrderNum = (long)dataTable_in.Rows[r][_dc_ordernum];
 				}
 				if (dataTable_in.Rows[r][_dc_isimage] == System.DBNull.Value) {
-					_output[r].isimage_ = false;
+					_output[r].isImage = false;
 				} else {
-					_output[r].isimage_ = (bool)dataTable_in.Rows[r][_dc_isimage];
+					_output[r].isImage = (bool)dataTable_in.Rows[r][_dc_isimage];
 				}
 				if (dataTable_in.Rows[r][_dc_tx_name] == System.DBNull.Value) {
 					_output[r].TX_Name_isNull = true;
 				} else {
-					_output[r].tx_name_ = (long)dataTable_in.Rows[r][_dc_tx_name];
+					_output[r].TX_Name = (long)dataTable_in.Rows[r][_dc_tx_name];
 				}
 				if (dataTable_in.Rows[r][_dc_tx_description] == System.DBNull.Value) {
 					_output[r].TX_Description_isNull = true;
 				} else {
-					_output[r].tx_description_ = (long)dataTable_in.Rows[r][_dc_tx_description];
+					_output[r].TX_Description = (long)dataTable_in.Rows[r][_dc_tx_description];
 				}
 				if (dataTable_in.Rows[r][_dc_filename] == System.DBNull.Value) {
-					_output[r].filename_ = string.Empty;
+					_output[r].FileName = string.Empty;
 				} else {
-					_output[r].filename_ = (string)dataTable_in.Rows[r][_dc_filename];
+					_output[r].FileName = (string)dataTable_in.Rows[r][_dc_filename];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

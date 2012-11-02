@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_APP_Application : 
-		SO__base 
+		ISerializable
 	{
 		#region public SO_APP_Application();
 		public SO_APP_Application(
@@ -37,36 +37,37 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			int IDApplication_in, 
 			string Name_in
 		) {
-			this.haschanges_ = false;
-
 			this.idapplication_ = IDApplication_in;
 			this.name_ = Name_in;
-		}
-		public SO_APP_Application(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.idapplication_ = (int)info_in.GetValue("IDApplication", typeof(int));
-			this.name_ = (string)info_in.GetValue("Name", typeof(string));
+			this.haschanges_ = false;
+		}
+		protected SO_APP_Application(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.idapplication_ = (int)info.GetValue("IDApplication", typeof(int));
+			this.name_ = (string)info.GetValue("Name", typeof(string));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_APP_Application properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -74,7 +75,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public int idapplication_;// = 0;
+		private int idapplication_;// = 0;
 		
 		/// <summary>
 		/// APP_Application's IDApplication.
@@ -122,7 +123,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public string name_;// = string.Empty;
+		private string name_;// = string.Empty;
 		
 		/// <summary>
 		/// APP_Application's Name.
@@ -176,6 +177,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_APP_Application[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_idapplication = new DataColumn("IDApplication", typeof(int));
@@ -195,18 +197,25 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {
 			this.idapplication_ = 0;
 			this.name_ = string.Empty;
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDApplication", this.idapplication_);
-			info_in.AddValue("Name", this.name_);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IDApplication", this.idapplication_);
+			info.AddValue("Name", this.name_);
 		}
 		#endregion
 		#endregion

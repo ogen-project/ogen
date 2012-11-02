@@ -18,7 +18,7 @@ namespace OGen.NTier.lib.datalayer {
 	using System.Collections.Generic;
 
 	[Serializable()]
-	public abstract class SO__ListItem<TValue, TText> : SO__base, ISO__ListItem<TValue, TText> {
+	public abstract class SO__ListItem<TValue, TText> : ISO__ListItem<TValue, TText> {
 		public abstract TValue ListItem_Value {
 			get;
 		}

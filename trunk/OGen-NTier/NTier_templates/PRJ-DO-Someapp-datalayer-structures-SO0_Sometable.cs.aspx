@@ -80,7 +80,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 	/// </summary>
 	[Serializable()]
 	public class SO_<%=_aux_db_table.Name%> : 
-		<%=_aux_isListItem ? "SO__ListItem<" + _aux_ex_table.ListItemValue.parallel_ref.DBType_generic.FWType + ", " + _aux_ex_table.ListItemText.parallel_ref.DBType_generic.FWType + ">" : "SO__base"%> 
+		<%=_aux_isListItem ? "SO__ListItem<" + _aux_ex_table.ListItemValue.parallel_ref.DBType_generic.FWType + ", " + _aux_ex_table.ListItemText.parallel_ref.DBType_generic.FWType + ">, " : ""%>ISerializable
 	{
 		#region public SO_<%=_aux_db_table.Name%>();
 		public SO_<%=_aux_db_table.Name%>(
@@ -92,49 +92,50 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
 			<%=_aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%>_in<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 		}%>
-		) {
-			this.haschanges_ = false;
-<%
+		) {<%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
 			this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = <%=_aux_db_field.Name%>_in;<%
 			}%>
-		}
-		public SO_<%=_aux_db_table.Name%>(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
+
 			this.haschanges_ = false;
-<%
+		}
+		protected SO_<%=_aux_db_table.Name%>(
+			SerializationInfo info,
+			StreamingContext context
+		) {<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 		if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%>
 			this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ 
-				= (info_in.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>)) == null)
+				= (info.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>)) == null)
 					? <%=_aux_db_field.DBType_generic.FWEmptyValue%>
-					: (<%=_aux_db_field.DBType_generic.FWType%>)info_in.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>));
-			this.<%=_aux_db_field.Name%>_isNull = (bool)info_in.GetValue("<%=_aux_db_field.Name%>_isNull", typeof(bool));<%
+					: (<%=_aux_db_field.DBType_generic.FWType%>)info.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>));
+			this.<%=_aux_db_field.Name%>_isNull = (bool)info.GetValue("<%=_aux_db_field.Name%>_isNull", typeof(bool));<%
 		} else {%><%=""%>
-			this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = (<%=_aux_db_field.DBType_generic.FWType%>)info_in.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>));<%
+			this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = (<%=_aux_db_field.DBType_generic.FWType%>)info.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>));<%
 		}
 	}%>
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_<%=_aux_db_table.Name%> properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 <%
@@ -170,7 +171,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public <%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_;// = <%=((_aux_ex_field == null) || (_aux_ex_field.DefaultValue == "")) ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_ex_field.DefaultValue%>;
+		private <%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_;// = <%=((_aux_ex_field == null) || (_aux_ex_field.DefaultValue == "")) ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_ex_field.DefaultValue%>;
 		
 		/// <summary>
 		/// <%=_aux_db_table.Name%>'s <%=_aux_db_field.Name%>.
@@ -256,6 +257,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 			SO_<%=_aux_db_table.Name%>[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 <%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
@@ -278,10 +280,11 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-<%
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {<%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 			_aux_ex_field = _aux_db_field.parallel_ref;%><%=""%>
@@ -294,15 +297,21 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 					? _aux_db_field.DBType_generic.FWEmptyValue 
 					: _aux_ex_field.DefaultValue%>;<%
 		}%>
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {<%
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {<%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
-			info_in.AddValue("<%=_aux_db_field.Name%>", this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_);<%
+			info.AddValue("<%=_aux_db_field.Name%>", this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_);<%
 			if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%>
-			info_in.AddValue("<%=_aux_db_field.Name%>_isNull", this.<%=_aux_db_field.Name%>_isNull);<%
+			info.AddValue("<%=_aux_db_field.Name%>_isNull", this.<%=_aux_db_field.Name%>_isNull);<%
 			}
 		}%>
 		}

@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_vCRD_UserProfile : 
-		SO__ListItem<long, string> 
+		SO__ListItem<long, string>, ISerializable
 	{
 		#region public SO_vCRD_UserProfile();
 		public SO_vCRD_UserProfile(
@@ -39,44 +39,45 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			long IDUser_in, 
 			bool hasProfile_in
 		) {
-			this.haschanges_ = false;
-
 			this.idprofile_ = IDProfile_in;
 			this.profilename_ = ProfileName_in;
 			this.iduser_ = IDUser_in;
 			this.hasprofile_ = hasProfile_in;
-		}
-		public SO_vCRD_UserProfile(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.idprofile_ = (long)info_in.GetValue("IDProfile", typeof(long));
-			this.profilename_ = (string)info_in.GetValue("ProfileName", typeof(string));
-			this.iduser_ = (long)info_in.GetValue("IDUser", typeof(long));
+			this.haschanges_ = false;
+		}
+		protected SO_vCRD_UserProfile(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.idprofile_ = (long)info.GetValue("IDProfile", typeof(long));
+			this.profilename_ = (string)info.GetValue("ProfileName", typeof(string));
+			this.iduser_ = (long)info.GetValue("IDUser", typeof(long));
 			this.hasprofile_ 
-				= (info_in.GetValue("hasProfile", typeof(bool)) == null)
+				= (info.GetValue("hasProfile", typeof(bool)) == null)
 					? false
-					: (bool)info_in.GetValue("hasProfile", typeof(bool));
-			this.hasProfile_isNull = (bool)info_in.GetValue("hasProfile_isNull", typeof(bool));
+					: (bool)info.GetValue("hasProfile", typeof(bool));
+			this.hasProfile_isNull = (bool)info.GetValue("hasProfile_isNull", typeof(bool));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_vCRD_UserProfile properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -99,7 +100,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long idprofile_;// = 0L;
+		private long idprofile_;// = 0L;
 		
 		/// <summary>
 		/// vCRD_UserProfile's IDProfile.
@@ -147,7 +148,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public string profilename_;// = string.Empty;
+		private string profilename_;// = string.Empty;
 		
 		/// <summary>
 		/// vCRD_UserProfile's ProfileName.
@@ -197,7 +198,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long iduser_;// = 0L;
+		private long iduser_;// = 0L;
 		
 		/// <summary>
 		/// vCRD_UserProfile's IDUser.
@@ -245,7 +246,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object hasprofile_;// = false;
+		private object hasprofile_;// = false;
 		
 		/// <summary>
 		/// vCRD_UserProfile's hasProfile.
@@ -315,6 +316,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_vCRD_UserProfile[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_idprofile = new DataColumn("IDProfile", typeof(long));
@@ -340,23 +342,30 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {
 			this.idprofile_ = 0L;
 			this.profilename_ = string.Empty;
 			this.iduser_ = 0L;
 			this.hasprofile_ = false;
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDProfile", this.idprofile_);
-			info_in.AddValue("ProfileName", this.profilename_);
-			info_in.AddValue("IDUser", this.iduser_);
-			info_in.AddValue("hasProfile", this.hasprofile_);
-			info_in.AddValue("hasProfile_isNull", this.hasProfile_isNull);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IDProfile", this.idprofile_);
+			info.AddValue("ProfileName", this.profilename_);
+			info.AddValue("IDUser", this.iduser_);
+			info.AddValue("hasProfile", this.hasprofile_);
+			info.AddValue("hasProfile_isNull", this.hasProfile_isNull);
 		}
 		#endregion
 		#endregion

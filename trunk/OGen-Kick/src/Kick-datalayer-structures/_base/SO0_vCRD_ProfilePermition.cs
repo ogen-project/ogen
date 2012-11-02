@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_vCRD_ProfilePermition : 
-		SO__ListItem<long, string> 
+		SO__ListItem<long, string>, ISerializable
 	{
 		#region public SO_vCRD_ProfilePermition();
 		public SO_vCRD_ProfilePermition(
@@ -39,44 +39,45 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			long IDProfile_in, 
 			bool hasPermition_in
 		) {
-			this.haschanges_ = false;
-
 			this.idpermition_ = IDPermition_in;
 			this.permitionname_ = PermitionName_in;
 			this.idprofile_ = IDProfile_in;
 			this.haspermition_ = hasPermition_in;
-		}
-		public SO_vCRD_ProfilePermition(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.idpermition_ = (long)info_in.GetValue("IDPermition", typeof(long));
-			this.permitionname_ = (string)info_in.GetValue("PermitionName", typeof(string));
-			this.idprofile_ = (long)info_in.GetValue("IDProfile", typeof(long));
+			this.haschanges_ = false;
+		}
+		protected SO_vCRD_ProfilePermition(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.idpermition_ = (long)info.GetValue("IDPermition", typeof(long));
+			this.permitionname_ = (string)info.GetValue("PermitionName", typeof(string));
+			this.idprofile_ = (long)info.GetValue("IDProfile", typeof(long));
 			this.haspermition_ 
-				= (info_in.GetValue("hasPermition", typeof(bool)) == null)
+				= (info.GetValue("hasPermition", typeof(bool)) == null)
 					? false
-					: (bool)info_in.GetValue("hasPermition", typeof(bool));
-			this.hasPermition_isNull = (bool)info_in.GetValue("hasPermition_isNull", typeof(bool));
+					: (bool)info.GetValue("hasPermition", typeof(bool));
+			this.hasPermition_isNull = (bool)info.GetValue("hasPermition_isNull", typeof(bool));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_vCRD_ProfilePermition properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -99,7 +100,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long idpermition_;// = 0L;
+		private long idpermition_;// = 0L;
 		
 		/// <summary>
 		/// vCRD_ProfilePermition's IDPermition.
@@ -147,7 +148,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public string permitionname_;// = string.Empty;
+		private string permitionname_;// = string.Empty;
 		
 		/// <summary>
 		/// vCRD_ProfilePermition's PermitionName.
@@ -197,7 +198,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long idprofile_;// = 0L;
+		private long idprofile_;// = 0L;
 		
 		/// <summary>
 		/// vCRD_ProfilePermition's IDProfile.
@@ -245,7 +246,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object haspermition_;// = false;
+		private object haspermition_;// = false;
 		
 		/// <summary>
 		/// vCRD_ProfilePermition's hasPermition.
@@ -315,6 +316,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_vCRD_ProfilePermition[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_idpermition = new DataColumn("IDPermition", typeof(long));
@@ -340,23 +342,30 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {
 			this.idpermition_ = 0L;
 			this.permitionname_ = string.Empty;
 			this.idprofile_ = 0L;
 			this.haspermition_ = false;
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDPermition", this.idpermition_);
-			info_in.AddValue("PermitionName", this.permitionname_);
-			info_in.AddValue("IDProfile", this.idprofile_);
-			info_in.AddValue("hasPermition", this.haspermition_);
-			info_in.AddValue("hasPermition_isNull", this.hasPermition_isNull);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IDPermition", this.idpermition_);
+			info.AddValue("PermitionName", this.permitionname_);
+			info.AddValue("IDProfile", this.idprofile_);
+			info.AddValue("hasPermition", this.haspermition_);
+			info.AddValue("hasPermition_isNull", this.hasPermition_isNull);
 		}
 		#endregion
 		#endregion

@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_NET_BrowserUser : 
-		SO__base 
+		ISerializable
 	{
 		#region public SO_NET_BrowserUser();
 		public SO_NET_BrowserUser(
@@ -37,36 +37,37 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			long IFBrowser_in, 
 			long IFUser_in
 		) {
-			this.haschanges_ = false;
-
 			this.ifbrowser_ = IFBrowser_in;
 			this.ifuser_ = IFUser_in;
-		}
-		public SO_NET_BrowserUser(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.ifbrowser_ = (long)info_in.GetValue("IFBrowser", typeof(long));
-			this.ifuser_ = (long)info_in.GetValue("IFUser", typeof(long));
+			this.haschanges_ = false;
+		}
+		protected SO_NET_BrowserUser(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.ifbrowser_ = (long)info.GetValue("IFBrowser", typeof(long));
+			this.ifuser_ = (long)info.GetValue("IFUser", typeof(long));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_NET_BrowserUser properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -74,7 +75,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long ifbrowser_;// = 0L;
+		private long ifbrowser_;// = 0L;
 		
 		/// <summary>
 		/// NET_BrowserUser's IFBrowser.
@@ -122,7 +123,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long ifuser_;// = 0L;
+		private long ifuser_;// = 0L;
 		
 		/// <summary>
 		/// NET_BrowserUser's IFUser.
@@ -174,6 +175,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_NET_BrowserUser[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_ifbrowser = new DataColumn("IFBrowser", typeof(long));
@@ -193,18 +195,25 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {
 			this.ifbrowser_ = 0L;
 			this.ifuser_ = 0L;
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IFBrowser", this.ifbrowser_);
-			info_in.AddValue("IFUser", this.ifuser_);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IFBrowser", this.ifbrowser_);
+			info.AddValue("IFUser", this.ifuser_);
 		}
 		#endregion
 		#endregion

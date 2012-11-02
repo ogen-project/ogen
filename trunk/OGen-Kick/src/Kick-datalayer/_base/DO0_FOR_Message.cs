@@ -136,7 +136,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.IFApplication = (int)_dataparameters[8].Value;
 				}
 
-				_output.haschanges_ = false;
+				_output.hasChanges = false;
 				return _output;
 			}
 
@@ -282,7 +282,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
 
-			FOR_Message_in.IDMessage = (long)_dataparameters[0].Value;FOR_Message_in.haschanges_ = false;
+			FOR_Message_in.IDMessage = (long)_dataparameters[0].Value;FOR_Message_in.hasChanges = false;
 			
 
 			return FOR_Message_in.IDMessage;
@@ -314,7 +314,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			bool forceUpdate_in, 
 			DBConnection dbConnection_in
 		) {
-			if (forceUpdate_in || FOR_Message_in.haschanges_) {
+			if (forceUpdate_in || FOR_Message_in.hasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__utils.DBConnection_createInstance(
 						DO__utils.DBServerType,
@@ -339,7 +339,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_dataparameters
 				);
 				if (dbConnection_in == null) { _connection.Dispose(); }
-				FOR_Message_in.haschanges_ = false;
+				FOR_Message_in.hasChanges = false;
 			}
 		}
 		#endregion
@@ -381,52 +381,52 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_FOR_Message();
 				if (dataTable_in.Rows[r][_dc_idmessage] == System.DBNull.Value) {
-					_output[r].idmessage_ = 0L;
+					_output[r].IDMessage = 0L;
 				} else {
-					_output[r].idmessage_ = (long)dataTable_in.Rows[r][_dc_idmessage];
+					_output[r].IDMessage = (long)dataTable_in.Rows[r][_dc_idmessage];
 				}
 				if (dataTable_in.Rows[r][_dc_ifmessage__parent] == System.DBNull.Value) {
 					_output[r].IFMessage__parent_isNull = true;
 				} else {
-					_output[r].ifmessage__parent_ = (long)dataTable_in.Rows[r][_dc_ifmessage__parent];
+					_output[r].IFMessage__parent = (long)dataTable_in.Rows[r][_dc_ifmessage__parent];
 				}
 				if (dataTable_in.Rows[r][_dc_issticky] == System.DBNull.Value) {
-					_output[r].issticky_ = false;
+					_output[r].isSticky = false;
 				} else {
-					_output[r].issticky_ = (bool)dataTable_in.Rows[r][_dc_issticky];
+					_output[r].isSticky = (bool)dataTable_in.Rows[r][_dc_issticky];
 				}
 				if (dataTable_in.Rows[r][_dc_subject] == System.DBNull.Value) {
 					_output[r].Subject_isNull = true;
 				} else {
-					_output[r].subject_ = (string)dataTable_in.Rows[r][_dc_subject];
+					_output[r].Subject = (string)dataTable_in.Rows[r][_dc_subject];
 				}
 				if (dataTable_in.Rows[r][_dc_message__charvar8000] == System.DBNull.Value) {
 					_output[r].Message__charvar8000_isNull = true;
 				} else {
-					_output[r].message__charvar8000_ = (string)dataTable_in.Rows[r][_dc_message__charvar8000];
+					_output[r].Message__charvar8000 = (string)dataTable_in.Rows[r][_dc_message__charvar8000];
 				}
 				if (dataTable_in.Rows[r][_dc_message__text] == System.DBNull.Value) {
 					_output[r].Message__text_isNull = true;
 				} else {
-					_output[r].message__text_ = (string)dataTable_in.Rows[r][_dc_message__text];
+					_output[r].Message__text = (string)dataTable_in.Rows[r][_dc_message__text];
 				}
 				if (dataTable_in.Rows[r][_dc_ifuser__publisher] == System.DBNull.Value) {
 					_output[r].IFUser__Publisher_isNull = true;
 				} else {
-					_output[r].ifuser__publisher_ = (long)dataTable_in.Rows[r][_dc_ifuser__publisher];
+					_output[r].IFUser__Publisher = (long)dataTable_in.Rows[r][_dc_ifuser__publisher];
 				}
 				if (dataTable_in.Rows[r][_dc_publish_date] == System.DBNull.Value) {
-					_output[r].publish_date_ = new DateTime(1900, 1, 1);
+					_output[r].Publish_date = new DateTime(1900, 1, 1);
 				} else {
-					_output[r].publish_date_ = (DateTime)dataTable_in.Rows[r][_dc_publish_date];
+					_output[r].Publish_date = (DateTime)dataTable_in.Rows[r][_dc_publish_date];
 				}
 				if (dataTable_in.Rows[r][_dc_ifapplication] == System.DBNull.Value) {
 					_output[r].IFApplication_isNull = true;
 				} else {
-					_output[r].ifapplication_ = (int)dataTable_in.Rows[r][_dc_ifapplication];
+					_output[r].IFApplication = (int)dataTable_in.Rows[r][_dc_ifapplication];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

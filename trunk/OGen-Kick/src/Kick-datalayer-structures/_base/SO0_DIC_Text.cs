@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_DIC_Text : 
-		SO__base 
+		ISerializable
 	{
 		#region public SO_DIC_Text();
 		public SO_DIC_Text(
@@ -38,46 +38,47 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			int IFApplication_in, 
 			int SourceTableField_ref_in
 		) {
-			this.haschanges_ = false;
-
 			this.idtext_ = IDText_in;
 			this.ifapplication_ = IFApplication_in;
 			this.sourcetablefield_ref_ = SourceTableField_ref_in;
-		}
-		public SO_DIC_Text(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.idtext_ = (long)info_in.GetValue("IDText", typeof(long));
+			this.haschanges_ = false;
+		}
+		protected SO_DIC_Text(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.idtext_ = (long)info.GetValue("IDText", typeof(long));
 			this.ifapplication_ 
-				= (info_in.GetValue("IFApplication", typeof(int)) == null)
+				= (info.GetValue("IFApplication", typeof(int)) == null)
 					? 0
-					: (int)info_in.GetValue("IFApplication", typeof(int));
-			this.IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
+					: (int)info.GetValue("IFApplication", typeof(int));
+			this.IFApplication_isNull = (bool)info.GetValue("IFApplication_isNull", typeof(bool));
 			this.sourcetablefield_ref_ 
-				= (info_in.GetValue("SourceTableField_ref", typeof(int)) == null)
+				= (info.GetValue("SourceTableField_ref", typeof(int)) == null)
 					? 0
-					: (int)info_in.GetValue("SourceTableField_ref", typeof(int));
-			this.SourceTableField_ref_isNull = (bool)info_in.GetValue("SourceTableField_ref_isNull", typeof(bool));
+					: (int)info.GetValue("SourceTableField_ref", typeof(int));
+			this.SourceTableField_ref_isNull = (bool)info.GetValue("SourceTableField_ref_isNull", typeof(bool));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_DIC_Text properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -85,7 +86,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long idtext_;// = 0L;
+		private long idtext_;// = 0L;
 		
 		/// <summary>
 		/// DIC_Text's IDText.
@@ -133,7 +134,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object ifapplication_;// = 0;
+		private object ifapplication_;// = 0;
 		
 		/// <summary>
 		/// DIC_Text's IFApplication.
@@ -199,7 +200,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object sourcetablefield_ref_;// = 0;
+		private object sourcetablefield_ref_;// = 0;
 		
 		/// <summary>
 		/// DIC_Text's SourceTableField_ref.
@@ -269,6 +270,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_DIC_Text[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_idtext = new DataColumn("IDText", typeof(long));
@@ -291,22 +293,29 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {
 			this.idtext_ = 0L;
 			this.ifapplication_ = 0;
 			this.sourcetablefield_ref_ = 0;
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDText", this.idtext_);
-			info_in.AddValue("IFApplication", this.ifapplication_);
-			info_in.AddValue("IFApplication_isNull", this.IFApplication_isNull);
-			info_in.AddValue("SourceTableField_ref", this.sourcetablefield_ref_);
-			info_in.AddValue("SourceTableField_ref_isNull", this.SourceTableField_ref_isNull);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IDText", this.idtext_);
+			info.AddValue("IFApplication", this.ifapplication_);
+			info.AddValue("IFApplication_isNull", this.IFApplication_isNull);
+			info.AddValue("SourceTableField_ref", this.sourcetablefield_ref_);
+			info.AddValue("SourceTableField_ref_isNull", this.SourceTableField_ref_isNull);
 		}
 		#endregion
 		#endregion

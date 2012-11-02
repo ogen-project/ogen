@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_DIC_LanguageApplication : 
-		SO__base 
+		ISerializable
 	{
 		#region public SO_DIC_LanguageApplication();
 		public SO_DIC_LanguageApplication(
@@ -37,36 +37,37 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			int IFLanguage_in, 
 			int IFApplication_in
 		) {
-			this.haschanges_ = false;
-
 			this.iflanguage_ = IFLanguage_in;
 			this.ifapplication_ = IFApplication_in;
-		}
-		public SO_DIC_LanguageApplication(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.iflanguage_ = (int)info_in.GetValue("IFLanguage", typeof(int));
-			this.ifapplication_ = (int)info_in.GetValue("IFApplication", typeof(int));
+			this.haschanges_ = false;
+		}
+		protected SO_DIC_LanguageApplication(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.iflanguage_ = (int)info.GetValue("IFLanguage", typeof(int));
+			this.ifapplication_ = (int)info.GetValue("IFApplication", typeof(int));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_DIC_LanguageApplication properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -74,7 +75,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public int iflanguage_;// = 0;
+		private int iflanguage_;// = 0;
 		
 		/// <summary>
 		/// DIC_LanguageApplication's IFLanguage.
@@ -122,7 +123,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public int ifapplication_;// = 0;
+		private int ifapplication_;// = 0;
 		
 		/// <summary>
 		/// DIC_LanguageApplication's IFApplication.
@@ -174,6 +175,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_DIC_LanguageApplication[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_iflanguage = new DataColumn("IFLanguage", typeof(int));
@@ -193,18 +195,25 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {
 			this.iflanguage_ = 0;
 			this.ifapplication_ = 0;
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IFLanguage", this.iflanguage_);
-			info_in.AddValue("IFApplication", this.ifapplication_);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IFLanguage", this.iflanguage_);
+			info.AddValue("IFApplication", this.ifapplication_);
 		}
 		#endregion
 		#endregion

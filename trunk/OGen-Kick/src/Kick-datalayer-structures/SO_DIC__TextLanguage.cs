@@ -25,8 +25,8 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	// DIC_TextLanguage SerializableObject which provides fields access at DIC_TextLanguage table at Database.
 	// </summary>
 	[Serializable()]
-	public class SO_DIC__TextLanguage : 
-		SO__base 
+	public class SO_DIC__TextLanguage :
+		ISerializable
 	{
 		#region public SO__DIC_TextLanguage();
 		public SO_DIC__TextLanguage(
@@ -37,40 +37,41 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			int IFLanguage_in, 
 			string Text_in
 		) {
-			this.haschanges_ = false;
-
 			this.iflanguage_ = IFLanguage_in;
 			this.text_ = Text_in;
-		}
-		public SO_DIC__TextLanguage(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.iflanguage_ = (int)info_in.GetValue("IFLanguage", typeof(int));
+			this.haschanges_ = false;
+		}
+		protected SO_DIC__TextLanguage(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.iflanguage_ = (int)info.GetValue("IFLanguage", typeof(int));
 			this.text_ 
-				= (info_in.GetValue("Text", typeof(string)) == null)
+				= (info.GetValue("Text", typeof(string)) == null)
 					? string.Empty
-					: (string)info_in.GetValue("Text", typeof(string));
-			this.Text_isNull = (bool)info_in.GetValue("Text_isNull", typeof(bool));
+					: (string)info.GetValue("Text", typeof(string));
+			this.Text_isNull = (bool)info.GetValue("Text_isNull", typeof(bool));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_DIC_TextLanguage properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -78,7 +79,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public int iflanguage_;// = 0;
+		private int iflanguage_;// = 0;
 		
 		/// <summary>
 		/// DIC_TextLanguage's IFLanguage.
@@ -126,7 +127,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object text_;// = string.Empty;
+		private object text_;// = string.Empty;
 		
 		/// <summary>
 		/// DIC_TextLanguage's Text.
@@ -198,6 +199,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_DIC_TextLanguage[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_iflanguage = new DataColumn("IFLanguage", typeof(int));
@@ -218,18 +220,22 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		}
 		#endregion
 		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		public void Clear() {
 			this.iflanguage_ = 0;
 			this.text_ = string.Empty;
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IFLanguage", this.iflanguage_);
-			info_in.AddValue("Text", this.text_);
-			info_in.AddValue("Text_isNull", this.Text_isNull);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IFLanguage", this.iflanguage_);
+			info.AddValue("Text", this.text_);
+			info.AddValue("Text_isNull", this.Text_isNull);
 		}
 		#endregion
 		#endregion

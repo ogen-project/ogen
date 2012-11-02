@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_NWS_Content : 
-		SO__base 
+		ISerializable
 	{
 		#region public SO_NWS_Content();
 		public SO_NWS_Content(
@@ -49,8 +49,6 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DateTime Newslettersent_date_in, 
 			bool isNews_notForum_in
 		) {
-			this.haschanges_ = false;
-
 			this.idcontent_ = IDContent_in;
 			this.ifapplication_ = IFApplication_in;
 			this.ifuser__publisher_ = IFUser__Publisher_in;
@@ -65,88 +63,91 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			this.tx_summary_ = tx_summary_in;
 			this.newslettersent_date_ = Newslettersent_date_in;
 			this.isnews_notforum_ = isNews_notForum_in;
-		}
-		public SO_NWS_Content(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.idcontent_ = (long)info_in.GetValue("IDContent", typeof(long));
+			this.haschanges_ = false;
+		}
+		protected SO_NWS_Content(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.idcontent_ = (long)info.GetValue("IDContent", typeof(long));
 			this.ifapplication_ 
-				= (info_in.GetValue("IFApplication", typeof(int)) == null)
+				= (info.GetValue("IFApplication", typeof(int)) == null)
 					? 0
-					: (int)info_in.GetValue("IFApplication", typeof(int));
-			this.IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
-			this.ifuser__publisher_ = (long)info_in.GetValue("IFUser__Publisher", typeof(long));
-			this.publish_date_ = (DateTime)info_in.GetValue("Publish_date", typeof(DateTime));
+					: (int)info.GetValue("IFApplication", typeof(int));
+			this.IFApplication_isNull = (bool)info.GetValue("IFApplication_isNull", typeof(bool));
+			this.ifuser__publisher_ = (long)info.GetValue("IFUser__Publisher", typeof(long));
+			this.publish_date_ = (DateTime)info.GetValue("Publish_date", typeof(DateTime));
 			this.ifuser__aproved_ 
-				= (info_in.GetValue("IFUser__Aproved", typeof(long)) == null)
+				= (info.GetValue("IFUser__Aproved", typeof(long)) == null)
 					? 0L
-					: (long)info_in.GetValue("IFUser__Aproved", typeof(long));
-			this.IFUser__Aproved_isNull = (bool)info_in.GetValue("IFUser__Aproved_isNull", typeof(bool));
+					: (long)info.GetValue("IFUser__Aproved", typeof(long));
+			this.IFUser__Aproved_isNull = (bool)info.GetValue("IFUser__Aproved_isNull", typeof(bool));
 			this.aproved_date_ 
-				= (info_in.GetValue("Aproved_date", typeof(DateTime)) == null)
+				= (info.GetValue("Aproved_date", typeof(DateTime)) == null)
 					? new DateTime(1900, 1, 1)
-					: (DateTime)info_in.GetValue("Aproved_date", typeof(DateTime));
-			this.Aproved_date_isNull = (bool)info_in.GetValue("Aproved_date_isNull", typeof(bool));
+					: (DateTime)info.GetValue("Aproved_date", typeof(DateTime));
+			this.Aproved_date_isNull = (bool)info.GetValue("Aproved_date_isNull", typeof(bool));
 			this.begin_date_ 
-				= (info_in.GetValue("Begin_date", typeof(DateTime)) == null)
+				= (info.GetValue("Begin_date", typeof(DateTime)) == null)
 					? new DateTime(1900, 1, 1)
-					: (DateTime)info_in.GetValue("Begin_date", typeof(DateTime));
-			this.Begin_date_isNull = (bool)info_in.GetValue("Begin_date_isNull", typeof(bool));
+					: (DateTime)info.GetValue("Begin_date", typeof(DateTime));
+			this.Begin_date_isNull = (bool)info.GetValue("Begin_date_isNull", typeof(bool));
 			this.end_date_ 
-				= (info_in.GetValue("End_date", typeof(DateTime)) == null)
+				= (info.GetValue("End_date", typeof(DateTime)) == null)
 					? new DateTime(1900, 1, 1)
-					: (DateTime)info_in.GetValue("End_date", typeof(DateTime));
-			this.End_date_isNull = (bool)info_in.GetValue("End_date_isNull", typeof(bool));
+					: (DateTime)info.GetValue("End_date", typeof(DateTime));
+			this.End_date_isNull = (bool)info.GetValue("End_date_isNull", typeof(bool));
 			this.tx_title_ 
-				= (info_in.GetValue("TX_Title", typeof(long)) == null)
+				= (info.GetValue("TX_Title", typeof(long)) == null)
 					? 0L
-					: (long)info_in.GetValue("TX_Title", typeof(long));
-			this.TX_Title_isNull = (bool)info_in.GetValue("TX_Title_isNull", typeof(bool));
+					: (long)info.GetValue("TX_Title", typeof(long));
+			this.TX_Title_isNull = (bool)info.GetValue("TX_Title_isNull", typeof(bool));
 			this.tx_content_ 
-				= (info_in.GetValue("TX_Content", typeof(long)) == null)
+				= (info.GetValue("TX_Content", typeof(long)) == null)
 					? 0L
-					: (long)info_in.GetValue("TX_Content", typeof(long));
-			this.TX_Content_isNull = (bool)info_in.GetValue("TX_Content_isNull", typeof(bool));
+					: (long)info.GetValue("TX_Content", typeof(long));
+			this.TX_Content_isNull = (bool)info.GetValue("TX_Content_isNull", typeof(bool));
 			this.tx_subtitle_ 
-				= (info_in.GetValue("tx_subtitle", typeof(long)) == null)
+				= (info.GetValue("tx_subtitle", typeof(long)) == null)
 					? 0L
-					: (long)info_in.GetValue("tx_subtitle", typeof(long));
-			this.tx_subtitle_isNull = (bool)info_in.GetValue("tx_subtitle_isNull", typeof(bool));
+					: (long)info.GetValue("tx_subtitle", typeof(long));
+			this.tx_subtitle_isNull = (bool)info.GetValue("tx_subtitle_isNull", typeof(bool));
 			this.tx_summary_ 
-				= (info_in.GetValue("tx_summary", typeof(long)) == null)
+				= (info.GetValue("tx_summary", typeof(long)) == null)
 					? 0L
-					: (long)info_in.GetValue("tx_summary", typeof(long));
-			this.tx_summary_isNull = (bool)info_in.GetValue("tx_summary_isNull", typeof(bool));
+					: (long)info.GetValue("tx_summary", typeof(long));
+			this.tx_summary_isNull = (bool)info.GetValue("tx_summary_isNull", typeof(bool));
 			this.newslettersent_date_ 
-				= (info_in.GetValue("Newslettersent_date", typeof(DateTime)) == null)
+				= (info.GetValue("Newslettersent_date", typeof(DateTime)) == null)
 					? new DateTime(1900, 1, 1)
-					: (DateTime)info_in.GetValue("Newslettersent_date", typeof(DateTime));
-			this.Newslettersent_date_isNull = (bool)info_in.GetValue("Newslettersent_date_isNull", typeof(bool));
+					: (DateTime)info.GetValue("Newslettersent_date", typeof(DateTime));
+			this.Newslettersent_date_isNull = (bool)info.GetValue("Newslettersent_date_isNull", typeof(bool));
 			this.isnews_notforum_ 
-				= (info_in.GetValue("isNews_notForum", typeof(bool)) == null)
+				= (info.GetValue("isNews_notForum", typeof(bool)) == null)
 					? false
-					: (bool)info_in.GetValue("isNews_notForum", typeof(bool));
-			this.isNews_notForum_isNull = (bool)info_in.GetValue("isNews_notForum_isNull", typeof(bool));
+					: (bool)info.GetValue("isNews_notForum", typeof(bool));
+			this.isNews_notForum_isNull = (bool)info.GetValue("isNews_notForum_isNull", typeof(bool));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_NWS_Content properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -154,7 +155,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long idcontent_;// = 0L;
+		private long idcontent_;// = 0L;
 		
 		/// <summary>
 		/// NWS_Content's IDContent.
@@ -202,7 +203,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object ifapplication_;// = 0;
+		private object ifapplication_;// = 0;
 		
 		/// <summary>
 		/// NWS_Content's IFApplication.
@@ -268,7 +269,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long ifuser__publisher_;// = 0L;
+		private long ifuser__publisher_;// = 0L;
 		
 		/// <summary>
 		/// NWS_Content's IFUser__Publisher.
@@ -316,7 +317,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public DateTime publish_date_;// = new DateTime(1900, 1, 1);
+		private DateTime publish_date_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>
 		/// NWS_Content's Publish_date.
@@ -364,7 +365,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object ifuser__aproved_;// = 0L;
+		private object ifuser__aproved_;// = 0L;
 		
 		/// <summary>
 		/// NWS_Content's IFUser__Aproved.
@@ -430,7 +431,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object aproved_date_;// = new DateTime(1900, 1, 1);
+		private object aproved_date_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>
 		/// NWS_Content's Aproved_date.
@@ -496,7 +497,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object begin_date_;// = new DateTime(1900, 1, 1);
+		private object begin_date_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>
 		/// NWS_Content's Begin_date.
@@ -562,7 +563,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object end_date_;// = new DateTime(1900, 1, 1);
+		private object end_date_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>
 		/// NWS_Content's End_date.
@@ -628,7 +629,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object tx_title_;// = 0L;
+		private object tx_title_;// = 0L;
 		
 		/// <summary>
 		/// NWS_Content's TX_Title.
@@ -694,7 +695,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object tx_content_;// = 0L;
+		private object tx_content_;// = 0L;
 		
 		/// <summary>
 		/// NWS_Content's TX_Content.
@@ -760,7 +761,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object tx_subtitle_;// = 0L;
+		private object tx_subtitle_;// = 0L;
 		
 		/// <summary>
 		/// NWS_Content's tx_subtitle.
@@ -826,7 +827,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object tx_summary_;// = 0L;
+		private object tx_summary_;// = 0L;
 		
 		/// <summary>
 		/// NWS_Content's tx_summary.
@@ -892,7 +893,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object newslettersent_date_;// = new DateTime(1900, 1, 1);
+		private object newslettersent_date_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>
 		/// NWS_Content's Newslettersent_date.
@@ -958,7 +959,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object isnews_notforum_;// = false;
+		private object isnews_notforum_;// = false;
 		
 		/// <summary>
 		/// NWS_Content's isNews_notForum.
@@ -1028,6 +1029,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_NWS_Content[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_idcontent = new DataColumn("IDContent", typeof(long));
@@ -1083,10 +1085,11 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {
 			this.idcontent_ = 0L;
 			this.ifapplication_ = 0;
 			this.ifuser__publisher_ = 0L;
@@ -1101,35 +1104,41 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			this.tx_summary_ = 0L;
 			this.newslettersent_date_ = new DateTime(1900, 1, 1);
 			this.isnews_notforum_ = false;
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDContent", this.idcontent_);
-			info_in.AddValue("IFApplication", this.ifapplication_);
-			info_in.AddValue("IFApplication_isNull", this.IFApplication_isNull);
-			info_in.AddValue("IFUser__Publisher", this.ifuser__publisher_);
-			info_in.AddValue("Publish_date", this.publish_date_);
-			info_in.AddValue("IFUser__Aproved", this.ifuser__aproved_);
-			info_in.AddValue("IFUser__Aproved_isNull", this.IFUser__Aproved_isNull);
-			info_in.AddValue("Aproved_date", this.aproved_date_);
-			info_in.AddValue("Aproved_date_isNull", this.Aproved_date_isNull);
-			info_in.AddValue("Begin_date", this.begin_date_);
-			info_in.AddValue("Begin_date_isNull", this.Begin_date_isNull);
-			info_in.AddValue("End_date", this.end_date_);
-			info_in.AddValue("End_date_isNull", this.End_date_isNull);
-			info_in.AddValue("TX_Title", this.tx_title_);
-			info_in.AddValue("TX_Title_isNull", this.TX_Title_isNull);
-			info_in.AddValue("TX_Content", this.tx_content_);
-			info_in.AddValue("TX_Content_isNull", this.TX_Content_isNull);
-			info_in.AddValue("tx_subtitle", this.tx_subtitle_);
-			info_in.AddValue("tx_subtitle_isNull", this.tx_subtitle_isNull);
-			info_in.AddValue("tx_summary", this.tx_summary_);
-			info_in.AddValue("tx_summary_isNull", this.tx_summary_isNull);
-			info_in.AddValue("Newslettersent_date", this.newslettersent_date_);
-			info_in.AddValue("Newslettersent_date_isNull", this.Newslettersent_date_isNull);
-			info_in.AddValue("isNews_notForum", this.isnews_notforum_);
-			info_in.AddValue("isNews_notForum_isNull", this.isNews_notForum_isNull);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IDContent", this.idcontent_);
+			info.AddValue("IFApplication", this.ifapplication_);
+			info.AddValue("IFApplication_isNull", this.IFApplication_isNull);
+			info.AddValue("IFUser__Publisher", this.ifuser__publisher_);
+			info.AddValue("Publish_date", this.publish_date_);
+			info.AddValue("IFUser__Aproved", this.ifuser__aproved_);
+			info.AddValue("IFUser__Aproved_isNull", this.IFUser__Aproved_isNull);
+			info.AddValue("Aproved_date", this.aproved_date_);
+			info.AddValue("Aproved_date_isNull", this.Aproved_date_isNull);
+			info.AddValue("Begin_date", this.begin_date_);
+			info.AddValue("Begin_date_isNull", this.Begin_date_isNull);
+			info.AddValue("End_date", this.end_date_);
+			info.AddValue("End_date_isNull", this.End_date_isNull);
+			info.AddValue("TX_Title", this.tx_title_);
+			info.AddValue("TX_Title_isNull", this.TX_Title_isNull);
+			info.AddValue("TX_Content", this.tx_content_);
+			info.AddValue("TX_Content_isNull", this.TX_Content_isNull);
+			info.AddValue("tx_subtitle", this.tx_subtitle_);
+			info.AddValue("tx_subtitle_isNull", this.tx_subtitle_isNull);
+			info.AddValue("tx_summary", this.tx_summary_);
+			info.AddValue("tx_summary_isNull", this.tx_summary_isNull);
+			info.AddValue("Newslettersent_date", this.newslettersent_date_);
+			info.AddValue("Newslettersent_date_isNull", this.Newslettersent_date_isNull);
+			info.AddValue("isNews_notForum", this.isnews_notforum_);
+			info.AddValue("isNews_notForum_isNull", this.isNews_notForum_isNull);
 		}
 		#endregion
 		#endregion

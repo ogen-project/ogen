@@ -100,7 +100,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.SourceTableField_ref = (int)_dataparameters[2].Value;
 				}
 
-				_output.haschanges_ = false;
+				_output.hasChanges = false;
 				return _output;
 			}
 
@@ -240,7 +240,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
 
-			DIC_Text_in.IDText = (long)_dataparameters[0].Value;DIC_Text_in.haschanges_ = false;
+			DIC_Text_in.IDText = (long)_dataparameters[0].Value;DIC_Text_in.hasChanges = false;
 			
 
 			return DIC_Text_in.IDText;
@@ -272,7 +272,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			bool forceUpdate_in, 
 			DBConnection dbConnection_in
 		) {
-			if (forceUpdate_in || DIC_Text_in.haschanges_) {
+			if (forceUpdate_in || DIC_Text_in.hasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__utils.DBConnection_createInstance(
 						DO__utils.DBServerType,
@@ -291,7 +291,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_dataparameters
 				);
 				if (dbConnection_in == null) { _connection.Dispose(); }
-				DIC_Text_in.haschanges_ = false;
+				DIC_Text_in.hasChanges = false;
 			}
 		}
 		#endregion
@@ -321,22 +321,22 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_DIC_Text();
 				if (dataTable_in.Rows[r][_dc_idtext] == System.DBNull.Value) {
-					_output[r].idtext_ = 0L;
+					_output[r].IDText = 0L;
 				} else {
-					_output[r].idtext_ = (long)dataTable_in.Rows[r][_dc_idtext];
+					_output[r].IDText = (long)dataTable_in.Rows[r][_dc_idtext];
 				}
 				if (dataTable_in.Rows[r][_dc_ifapplication] == System.DBNull.Value) {
 					_output[r].IFApplication_isNull = true;
 				} else {
-					_output[r].ifapplication_ = (int)dataTable_in.Rows[r][_dc_ifapplication];
+					_output[r].IFApplication = (int)dataTable_in.Rows[r][_dc_ifapplication];
 				}
 				if (dataTable_in.Rows[r][_dc_sourcetablefield_ref] == System.DBNull.Value) {
 					_output[r].SourceTableField_ref_isNull = true;
 				} else {
-					_output[r].sourcetablefield_ref_ = (int)dataTable_in.Rows[r][_dc_sourcetablefield_ref];
+					_output[r].SourceTableField_ref = (int)dataTable_in.Rows[r][_dc_sourcetablefield_ref];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_CRD_User : 
-		SO__ListItem<long, string> 
+		SO__ListItem<long, string>, ISerializable
 	{
 		#region public SO_CRD_User();
 		public SO_CRD_User(
@@ -39,44 +39,45 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			string Password_in, 
 			int IFApplication_in
 		) {
-			this.haschanges_ = false;
-
 			this.iduser_ = IDUser_in;
 			this.login_ = Login_in;
 			this.password_ = Password_in;
 			this.ifapplication_ = IFApplication_in;
-		}
-		public SO_CRD_User(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.iduser_ = (long)info_in.GetValue("IDUser", typeof(long));
-			this.login_ = (string)info_in.GetValue("Login", typeof(string));
-			this.password_ = (string)info_in.GetValue("Password", typeof(string));
+			this.haschanges_ = false;
+		}
+		protected SO_CRD_User(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.iduser_ = (long)info.GetValue("IDUser", typeof(long));
+			this.login_ = (string)info.GetValue("Login", typeof(string));
+			this.password_ = (string)info.GetValue("Password", typeof(string));
 			this.ifapplication_ 
-				= (info_in.GetValue("IFApplication", typeof(int)) == null)
+				= (info.GetValue("IFApplication", typeof(int)) == null)
 					? 0
-					: (int)info_in.GetValue("IFApplication", typeof(int));
-			this.IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
+					: (int)info.GetValue("IFApplication", typeof(int));
+			this.IFApplication_isNull = (bool)info.GetValue("IFApplication_isNull", typeof(bool));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_CRD_User properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -99,7 +100,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long iduser_;// = 0L;
+		private long iduser_;// = 0L;
 		
 		/// <summary>
 		/// CRD_User's IDUser.
@@ -147,7 +148,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public string login_;// = string.Empty;
+		private string login_;// = string.Empty;
 		
 		/// <summary>
 		/// CRD_User's Login.
@@ -197,7 +198,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public string password_;// = string.Empty;
+		private string password_;// = string.Empty;
 		
 		/// <summary>
 		/// CRD_User's Password.
@@ -247,7 +248,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object ifapplication_;// = 0;
+		private object ifapplication_;// = 0;
 		
 		/// <summary>
 		/// CRD_User's IFApplication.
@@ -317,6 +318,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_CRD_User[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_iduser = new DataColumn("IDUser", typeof(long));
@@ -342,23 +344,30 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {
 			this.iduser_ = 0L;
 			this.login_ = string.Empty;
 			this.password_ = string.Empty;
 			this.ifapplication_ = 0;
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDUser", this.iduser_);
-			info_in.AddValue("Login", this.login_);
-			info_in.AddValue("Password", this.password_);
-			info_in.AddValue("IFApplication", this.ifapplication_);
-			info_in.AddValue("IFApplication_isNull", this.IFApplication_isNull);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IDUser", this.iduser_);
+			info.AddValue("Login", this.login_);
+			info.AddValue("Password", this.password_);
+			info.AddValue("IFApplication", this.ifapplication_);
+			info.AddValue("IFApplication_isNull", this.IFApplication_isNull);
 		}
 		#endregion
 		#endregion

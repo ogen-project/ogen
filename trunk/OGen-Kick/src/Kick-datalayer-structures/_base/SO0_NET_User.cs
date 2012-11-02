@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_NET_User : 
-		SO__ListItem<long, string> 
+		SO__ListItem<long, string>, ISerializable
 	{
 		#region public SO_NET_User();
 		public SO_NET_User(
@@ -40,54 +40,55 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			string EMail_verify_in, 
 			int IFApplication_in
 		) {
-			this.haschanges_ = false;
-
 			this.ifuser_ = IFUser_in;
 			this.name_ = Name_in;
 			this.email_ = EMail_in;
 			this.email_verify_ = EMail_verify_in;
 			this.ifapplication_ = IFApplication_in;
-		}
-		public SO_NET_User(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.ifuser_ = (long)info_in.GetValue("IFUser", typeof(long));
+			this.haschanges_ = false;
+		}
+		protected SO_NET_User(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.ifuser_ = (long)info.GetValue("IFUser", typeof(long));
 			this.name_ 
-				= (info_in.GetValue("Name", typeof(string)) == null)
+				= (info.GetValue("Name", typeof(string)) == null)
 					? string.Empty
-					: (string)info_in.GetValue("Name", typeof(string));
-			this.Name_isNull = (bool)info_in.GetValue("Name_isNull", typeof(bool));
-			this.email_ = (string)info_in.GetValue("EMail", typeof(string));
+					: (string)info.GetValue("Name", typeof(string));
+			this.Name_isNull = (bool)info.GetValue("Name_isNull", typeof(bool));
+			this.email_ = (string)info.GetValue("EMail", typeof(string));
 			this.email_verify_ 
-				= (info_in.GetValue("EMail_verify", typeof(string)) == null)
+				= (info.GetValue("EMail_verify", typeof(string)) == null)
 					? string.Empty
-					: (string)info_in.GetValue("EMail_verify", typeof(string));
-			this.EMail_verify_isNull = (bool)info_in.GetValue("EMail_verify_isNull", typeof(bool));
+					: (string)info.GetValue("EMail_verify", typeof(string));
+			this.EMail_verify_isNull = (bool)info.GetValue("EMail_verify_isNull", typeof(bool));
 			this.ifapplication_ 
-				= (info_in.GetValue("IFApplication", typeof(int)) == null)
+				= (info.GetValue("IFApplication", typeof(int)) == null)
 					? 0
-					: (int)info_in.GetValue("IFApplication", typeof(int));
-			this.IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
+					: (int)info.GetValue("IFApplication", typeof(int));
+			this.IFApplication_isNull = (bool)info.GetValue("IFApplication_isNull", typeof(bool));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_NET_User properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -110,7 +111,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long ifuser_;// = 0L;
+		private long ifuser_;// = 0L;
 		
 		/// <summary>
 		/// NET_User's IFUser.
@@ -158,7 +159,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object name_;// = string.Empty;
+		private object name_;// = string.Empty;
 		
 		/// <summary>
 		/// NET_User's Name.
@@ -226,7 +227,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public string email_;// = string.Empty;
+		private string email_;// = string.Empty;
 		
 		/// <summary>
 		/// NET_User's EMail.
@@ -276,7 +277,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object email_verify_;// = string.Empty;
+		private object email_verify_;// = string.Empty;
 		
 		/// <summary>
 		/// NET_User's EMail_verify.
@@ -344,7 +345,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object ifapplication_;// = 0;
+		private object ifapplication_;// = 0;
 		
 		/// <summary>
 		/// NET_User's IFApplication.
@@ -414,6 +415,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_NET_User[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_ifuser = new DataColumn("IFUser", typeof(long));
@@ -442,27 +444,34 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {
 			this.ifuser_ = 0L;
 			this.name_ = string.Empty;
 			this.email_ = string.Empty;
 			this.email_verify_ = string.Empty;
 			this.ifapplication_ = 0;
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IFUser", this.ifuser_);
-			info_in.AddValue("Name", this.name_);
-			info_in.AddValue("Name_isNull", this.Name_isNull);
-			info_in.AddValue("EMail", this.email_);
-			info_in.AddValue("EMail_verify", this.email_verify_);
-			info_in.AddValue("EMail_verify_isNull", this.EMail_verify_isNull);
-			info_in.AddValue("IFApplication", this.ifapplication_);
-			info_in.AddValue("IFApplication_isNull", this.IFApplication_isNull);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IFUser", this.ifuser_);
+			info.AddValue("Name", this.name_);
+			info.AddValue("Name_isNull", this.Name_isNull);
+			info.AddValue("EMail", this.email_);
+			info.AddValue("EMail_verify", this.email_verify_);
+			info.AddValue("EMail_verify_isNull", this.EMail_verify_isNull);
+			info.AddValue("IFApplication", this.ifapplication_);
+			info.AddValue("IFApplication_isNull", this.IFApplication_isNull);
 		}
 		#endregion
 		#endregion

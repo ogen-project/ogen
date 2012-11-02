@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_DIC_TextLanguage : 
-		SO__base 
+		ISerializable
 	{
 		#region public SO_DIC_TextLanguage();
 		public SO_DIC_TextLanguage(
@@ -39,48 +39,49 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			string CharVar8000_in, 
 			string Text_in
 		) {
-			this.haschanges_ = false;
-
 			this.iftext_ = IFText_in;
 			this.iflanguage_ = IFLanguage_in;
 			this.charvar8000_ = CharVar8000_in;
 			this.text_ = Text_in;
-		}
-		public SO_DIC_TextLanguage(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.iftext_ = (long)info_in.GetValue("IFText", typeof(long));
-			this.iflanguage_ = (int)info_in.GetValue("IFLanguage", typeof(int));
+			this.haschanges_ = false;
+		}
+		protected SO_DIC_TextLanguage(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.iftext_ = (long)info.GetValue("IFText", typeof(long));
+			this.iflanguage_ = (int)info.GetValue("IFLanguage", typeof(int));
 			this.charvar8000_ 
-				= (info_in.GetValue("CharVar8000", typeof(string)) == null)
+				= (info.GetValue("CharVar8000", typeof(string)) == null)
 					? string.Empty
-					: (string)info_in.GetValue("CharVar8000", typeof(string));
-			this.CharVar8000_isNull = (bool)info_in.GetValue("CharVar8000_isNull", typeof(bool));
+					: (string)info.GetValue("CharVar8000", typeof(string));
+			this.CharVar8000_isNull = (bool)info.GetValue("CharVar8000_isNull", typeof(bool));
 			this.text_ 
-				= (info_in.GetValue("Text", typeof(string)) == null)
+				= (info.GetValue("Text", typeof(string)) == null)
 					? string.Empty
-					: (string)info_in.GetValue("Text", typeof(string));
-			this.Text_isNull = (bool)info_in.GetValue("Text_isNull", typeof(bool));
+					: (string)info.GetValue("Text", typeof(string));
+			this.Text_isNull = (bool)info.GetValue("Text_isNull", typeof(bool));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_DIC_TextLanguage properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -88,7 +89,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long iftext_;// = 0L;
+		private long iftext_;// = 0L;
 		
 		/// <summary>
 		/// DIC_TextLanguage's IFText.
@@ -136,7 +137,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public int iflanguage_;// = 0;
+		private int iflanguage_;// = 0;
 		
 		/// <summary>
 		/// DIC_TextLanguage's IFLanguage.
@@ -184,7 +185,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object charvar8000_;// = string.Empty;
+		private object charvar8000_;// = string.Empty;
 		
 		/// <summary>
 		/// DIC_TextLanguage's CharVar8000.
@@ -252,7 +253,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object text_;// = string.Empty;
+		private object text_;// = string.Empty;
 		
 		/// <summary>
 		/// DIC_TextLanguage's Text.
@@ -324,6 +325,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_DIC_TextLanguage[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_iftext = new DataColumn("IFText", typeof(long));
@@ -349,24 +351,31 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {
 			this.iftext_ = 0L;
 			this.iflanguage_ = 0;
 			this.charvar8000_ = string.Empty;
 			this.text_ = string.Empty;
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IFText", this.iftext_);
-			info_in.AddValue("IFLanguage", this.iflanguage_);
-			info_in.AddValue("CharVar8000", this.charvar8000_);
-			info_in.AddValue("CharVar8000_isNull", this.CharVar8000_isNull);
-			info_in.AddValue("Text", this.text_);
-			info_in.AddValue("Text_isNull", this.Text_isNull);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IFText", this.iftext_);
+			info.AddValue("IFLanguage", this.iflanguage_);
+			info.AddValue("CharVar8000", this.charvar8000_);
+			info.AddValue("CharVar8000_isNull", this.CharVar8000_isNull);
+			info.AddValue("Text", this.text_);
+			info.AddValue("Text_isNull", this.Text_isNull);
 		}
 		#endregion
 		#endregion

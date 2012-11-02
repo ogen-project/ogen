@@ -13,31 +13,32 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.lib.datalayer {
-	using System;
-	using System.Runtime.Serialization;
+//namespace OGen.NTier.lib.datalayer {
+//    using System;
+//    using System.Runtime.Serialization;
 
-	[Serializable()]
-	public abstract class SO__base : ISerializable {
-		/// <summary>
-		/// Indicates if changes have been made to SerializableObject's properties since last time getObject method was run.
-		/// </summary>
-		public abstract bool hasChanges {
-			get;
-		}
+//    [Serializable()]
+//    public abstract class SO__base : ISerializable {
+//        /// <summary>
+//        /// Indicates if changes have been made to SerializableObject's properties since last time getObject method was run.
+//        /// </summary>
+//        public abstract bool hasChanges {
+//            get;
+//            set;
+//        }
 
-		/// <summary>
-		/// Clears SerializableObject's properties.
-		/// </summary>
-		public abstract void Clear();
+//        /// <summary>
+//        /// Clears SerializableObject's properties.
+//        /// </summary>
+//        public abstract void Clear();
 
-		/// <summary>
-		/// implementing ISerializable
-		/// </summary>
-		[System.Security.Permissions.SecurityPermission(
-			System.Security.Permissions.SecurityAction.LinkDemand,
-			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
-		)]
-		public abstract void GetObjectData(SerializationInfo info, StreamingContext context);
-	}
-}
+//        /// <summary>
+//        /// implementing ISerializable
+//        /// </summary>
+//        [System.Security.Permissions.SecurityPermission(
+//            System.Security.Permissions.SecurityAction.LinkDemand,
+//            Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+//        )]
+//        public abstract void GetObjectData(SerializationInfo info, StreamingContext context);
+//    }
+//}

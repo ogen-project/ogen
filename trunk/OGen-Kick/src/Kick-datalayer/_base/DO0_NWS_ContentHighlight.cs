@@ -111,7 +111,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.End_date = (DateTime)_dataparameters[3].Value;
 				}
 
-				_output.haschanges_ = false;
+				_output.hasChanges = false;
 				return _output;
 			}
 
@@ -244,7 +244,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			DBConnection dbConnection_in
 		) {
 			bool ConstraintExist_out;
-			if (forceUpdate_in || NWS_ContentHighlight_in.haschanges_) {
+			if (forceUpdate_in || NWS_ContentHighlight_in.hasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__utils.DBConnection_createInstance(
 						DO__utils.DBServerType,
@@ -269,7 +269,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				ConstraintExist_out = (((int)_dataparameters[4].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					NWS_ContentHighlight_in.haschanges_ = false;
+					NWS_ContentHighlight_in.hasChanges = false;
 				}
 
 				return (((int)_dataparameters[4].Value & 1) != 1);
@@ -308,27 +308,27 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_NWS_ContentHighlight();
 				if (dataTable_in.Rows[r][_dc_ifcontent] == System.DBNull.Value) {
-					_output[r].ifcontent_ = 0L;
+					_output[r].IFContent = 0L;
 				} else {
-					_output[r].ifcontent_ = (long)dataTable_in.Rows[r][_dc_ifcontent];
+					_output[r].IFContent = (long)dataTable_in.Rows[r][_dc_ifcontent];
 				}
 				if (dataTable_in.Rows[r][_dc_ifhighlight] == System.DBNull.Value) {
-					_output[r].ifhighlight_ = 0L;
+					_output[r].IFHighlight = 0L;
 				} else {
-					_output[r].ifhighlight_ = (long)dataTable_in.Rows[r][_dc_ifhighlight];
+					_output[r].IFHighlight = (long)dataTable_in.Rows[r][_dc_ifhighlight];
 				}
 				if (dataTable_in.Rows[r][_dc_begin_date] == System.DBNull.Value) {
 					_output[r].Begin_date_isNull = true;
 				} else {
-					_output[r].begin_date_ = (DateTime)dataTable_in.Rows[r][_dc_begin_date];
+					_output[r].Begin_date = (DateTime)dataTable_in.Rows[r][_dc_begin_date];
 				}
 				if (dataTable_in.Rows[r][_dc_end_date] == System.DBNull.Value) {
 					_output[r].End_date_isNull = true;
 				} else {
-					_output[r].end_date_ = (DateTime)dataTable_in.Rows[r][_dc_end_date];
+					_output[r].End_date = (DateTime)dataTable_in.Rows[r][_dc_end_date];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

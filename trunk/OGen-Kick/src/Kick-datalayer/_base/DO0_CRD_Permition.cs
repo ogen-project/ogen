@@ -100,7 +100,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.IFApplication = (int)_dataparameters[2].Value;
 				}
 
-				_output.haschanges_ = false;
+				_output.hasChanges = false;
 				return _output;
 			}
 
@@ -221,7 +221,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			DBConnection dbConnection_in
 		) {
 			bool ConstraintExist_out;
-			if (forceUpdate_in || CRD_Permition_in.haschanges_) {
+			if (forceUpdate_in || CRD_Permition_in.hasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__utils.DBConnection_createInstance(
 						DO__utils.DBServerType,
@@ -245,7 +245,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				ConstraintExist_out = (((int)_dataparameters[3].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					CRD_Permition_in.haschanges_ = false;
+					CRD_Permition_in.hasChanges = false;
 				}
 
 				return (((int)_dataparameters[3].Value & 1) != 1);
@@ -282,22 +282,22 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_CRD_Permition();
 				if (dataTable_in.Rows[r][_dc_idpermition] == System.DBNull.Value) {
-					_output[r].idpermition_ = 0L;
+					_output[r].IDPermition = 0L;
 				} else {
-					_output[r].idpermition_ = (long)dataTable_in.Rows[r][_dc_idpermition];
+					_output[r].IDPermition = (long)dataTable_in.Rows[r][_dc_idpermition];
 				}
 				if (dataTable_in.Rows[r][_dc_name] == System.DBNull.Value) {
-					_output[r].name_ = string.Empty;
+					_output[r].Name = string.Empty;
 				} else {
-					_output[r].name_ = (string)dataTable_in.Rows[r][_dc_name];
+					_output[r].Name = (string)dataTable_in.Rows[r][_dc_name];
 				}
 				if (dataTable_in.Rows[r][_dc_ifapplication] == System.DBNull.Value) {
 					_output[r].IFApplication_isNull = true;
 				} else {
-					_output[r].ifapplication_ = (int)dataTable_in.Rows[r][_dc_ifapplication];
+					_output[r].IFApplication = (int)dataTable_in.Rows[r][_dc_ifapplication];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

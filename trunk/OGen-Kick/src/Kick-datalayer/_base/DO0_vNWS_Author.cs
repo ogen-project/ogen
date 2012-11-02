@@ -71,37 +71,37 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_vNWS_Author();
 				if (dataTable_in.Rows[r][_dc_idauthor] == System.DBNull.Value) {
-					_output[r].idauthor_ = 0L;
+					_output[r].IDAuthor = 0L;
 				} else {
-					_output[r].idauthor_ = (long)dataTable_in.Rows[r][_dc_idauthor];
+					_output[r].IDAuthor = (long)dataTable_in.Rows[r][_dc_idauthor];
 				}
 				if (dataTable_in.Rows[r][_dc_idapplication] == System.DBNull.Value) {
 					_output[r].IDApplication_isNull = true;
 				} else {
-					_output[r].idapplication_ = (int)dataTable_in.Rows[r][_dc_idapplication];
+					_output[r].IDApplication = (int)dataTable_in.Rows[r][_dc_idapplication];
 				}
 				if (dataTable_in.Rows[r][_dc_name] == System.DBNull.Value) {
-					_output[r].name_ = string.Empty;
+					_output[r].Name = string.Empty;
 				} else {
-					_output[r].name_ = (string)dataTable_in.Rows[r][_dc_name];
+					_output[r].Name = (string)dataTable_in.Rows[r][_dc_name];
 				}
 				if (dataTable_in.Rows[r][_dc_ifuser__approved] == System.DBNull.Value) {
 					_output[r].IFUser__Approved_isNull = true;
 				} else {
-					_output[r].ifuser__approved_ = (long)dataTable_in.Rows[r][_dc_ifuser__approved];
+					_output[r].IFUser__Approved = (long)dataTable_in.Rows[r][_dc_ifuser__approved];
 				}
 				if (dataTable_in.Rows[r][_dc_managername] == System.DBNull.Value) {
 					_output[r].ManagerName_isNull = true;
 				} else {
-					_output[r].managername_ = (string)dataTable_in.Rows[r][_dc_managername];
+					_output[r].ManagerName = (string)dataTable_in.Rows[r][_dc_managername];
 				}
 				if (dataTable_in.Rows[r][_dc_approved_date] == System.DBNull.Value) {
 					_output[r].Approved_date_isNull = true;
 				} else {
-					_output[r].approved_date_ = (DateTime)dataTable_in.Rows[r][_dc_approved_date];
+					_output[r].Approved_date = (DateTime)dataTable_in.Rows[r][_dc_approved_date];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

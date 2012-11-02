@@ -106,7 +106,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.IFApplication = (int)_dataparameters[3].Value;
 				}
 
-				_output.haschanges_ = false;
+				_output.hasChanges = false;
 				return _output;
 			}
 
@@ -227,7 +227,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			DBConnection dbConnection_in
 		) {
 			bool ConstraintExist_out;
-			if (forceUpdate_in || LOG_Logtype_in.haschanges_) {
+			if (forceUpdate_in || LOG_Logtype_in.hasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__utils.DBConnection_createInstance(
 						DO__utils.DBServerType,
@@ -252,7 +252,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				ConstraintExist_out = (((int)_dataparameters[4].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					LOG_Logtype_in.haschanges_ = false;
+					LOG_Logtype_in.hasChanges = false;
 				}
 
 				return (((int)_dataparameters[4].Value & 1) != 1);
@@ -291,27 +291,27 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_LOG_Logtype();
 				if (dataTable_in.Rows[r][_dc_idlogtype] == System.DBNull.Value) {
-					_output[r].idlogtype_ = 0;
+					_output[r].IDLogtype = 0;
 				} else {
-					_output[r].idlogtype_ = (int)dataTable_in.Rows[r][_dc_idlogtype];
+					_output[r].IDLogtype = (int)dataTable_in.Rows[r][_dc_idlogtype];
 				}
 				if (dataTable_in.Rows[r][_dc_iflogtype_parent] == System.DBNull.Value) {
 					_output[r].IFLogtype_parent_isNull = true;
 				} else {
-					_output[r].iflogtype_parent_ = (int)dataTable_in.Rows[r][_dc_iflogtype_parent];
+					_output[r].IFLogtype_parent = (int)dataTable_in.Rows[r][_dc_iflogtype_parent];
 				}
 				if (dataTable_in.Rows[r][_dc_name] == System.DBNull.Value) {
-					_output[r].name_ = string.Empty;
+					_output[r].Name = string.Empty;
 				} else {
-					_output[r].name_ = (string)dataTable_in.Rows[r][_dc_name];
+					_output[r].Name = (string)dataTable_in.Rows[r][_dc_name];
 				}
 				if (dataTable_in.Rows[r][_dc_ifapplication] == System.DBNull.Value) {
 					_output[r].IFApplication_isNull = true;
 				} else {
-					_output[r].ifapplication_ = (int)dataTable_in.Rows[r][_dc_ifapplication];
+					_output[r].IFApplication = (int)dataTable_in.Rows[r][_dc_ifapplication];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

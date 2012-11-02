@@ -148,7 +148,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.IFBrowser__OPT = (long)_dataparameters[10].Value;
 				}
 
-				_output.haschanges_ = false;
+				_output.hasChanges = false;
 				return _output;
 			}
 
@@ -296,7 +296,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
 
-			LOG_Log_in.IDLog = (long)_dataparameters[0].Value;LOG_Log_in.haschanges_ = false;
+			LOG_Log_in.IDLog = (long)_dataparameters[0].Value;LOG_Log_in.hasChanges = false;
 			
 
 			return LOG_Log_in.IDLog;
@@ -328,7 +328,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			bool forceUpdate_in, 
 			DBConnection dbConnection_in
 		) {
-			if (forceUpdate_in || LOG_Log_in.haschanges_) {
+			if (forceUpdate_in || LOG_Log_in.hasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__utils.DBConnection_createInstance(
 						DO__utils.DBServerType,
@@ -355,7 +355,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_dataparameters
 				);
 				if (dbConnection_in == null) { _connection.Dispose(); }
-				LOG_Log_in.haschanges_ = false;
+				LOG_Log_in.hasChanges = false;
 			}
 		}
 		#endregion
@@ -401,62 +401,62 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_LOG_Log();
 				if (dataTable_in.Rows[r][_dc_idlog] == System.DBNull.Value) {
-					_output[r].idlog_ = 0L;
+					_output[r].IDLog = 0L;
 				} else {
-					_output[r].idlog_ = (long)dataTable_in.Rows[r][_dc_idlog];
+					_output[r].IDLog = (long)dataTable_in.Rows[r][_dc_idlog];
 				}
 				if (dataTable_in.Rows[r][_dc_iflogtype] == System.DBNull.Value) {
-					_output[r].iflogtype_ = 0;
+					_output[r].IFLogtype = 0;
 				} else {
-					_output[r].iflogtype_ = (int)dataTable_in.Rows[r][_dc_iflogtype];
+					_output[r].IFLogtype = (int)dataTable_in.Rows[r][_dc_iflogtype];
 				}
 				if (dataTable_in.Rows[r][_dc_ifuser] == System.DBNull.Value) {
 					_output[r].IFUser_isNull = true;
 				} else {
-					_output[r].ifuser_ = (long)dataTable_in.Rows[r][_dc_ifuser];
+					_output[r].IFUser = (long)dataTable_in.Rows[r][_dc_ifuser];
 				}
 				if (dataTable_in.Rows[r][_dc_ifuser__read] == System.DBNull.Value) {
 					_output[r].IFUser__read_isNull = true;
 				} else {
-					_output[r].ifuser__read_ = (long)dataTable_in.Rows[r][_dc_ifuser__read];
+					_output[r].IFUser__read = (long)dataTable_in.Rows[r][_dc_ifuser__read];
 				}
 				if (dataTable_in.Rows[r][_dc_iferrortype] == System.DBNull.Value) {
 					_output[r].IFErrortype_isNull = true;
 				} else {
-					_output[r].iferrortype_ = (int)dataTable_in.Rows[r][_dc_iferrortype];
+					_output[r].IFErrortype = (int)dataTable_in.Rows[r][_dc_iferrortype];
 				}
 				if (dataTable_in.Rows[r][_dc_stamp] == System.DBNull.Value) {
-					_output[r].stamp_ = new DateTime(1900, 1, 1);
+					_output[r].Stamp = new DateTime(1900, 1, 1);
 				} else {
-					_output[r].stamp_ = (DateTime)dataTable_in.Rows[r][_dc_stamp];
+					_output[r].Stamp = (DateTime)dataTable_in.Rows[r][_dc_stamp];
 				}
 				if (dataTable_in.Rows[r][_dc_stamp__read] == System.DBNull.Value) {
 					_output[r].Stamp__read_isNull = true;
 				} else {
-					_output[r].stamp__read_ = (DateTime)dataTable_in.Rows[r][_dc_stamp__read];
+					_output[r].Stamp__read = (DateTime)dataTable_in.Rows[r][_dc_stamp__read];
 				}
 				if (dataTable_in.Rows[r][_dc_message] == System.DBNull.Value) {
-					_output[r].message_ = string.Empty;
+					_output[r].Message = string.Empty;
 				} else {
-					_output[r].message_ = (string)dataTable_in.Rows[r][_dc_message];
+					_output[r].Message = (string)dataTable_in.Rows[r][_dc_message];
 				}
 				if (dataTable_in.Rows[r][_dc_ifpermition] == System.DBNull.Value) {
 					_output[r].IFPermition_isNull = true;
 				} else {
-					_output[r].ifpermition_ = (long)dataTable_in.Rows[r][_dc_ifpermition];
+					_output[r].IFPermition = (long)dataTable_in.Rows[r][_dc_ifpermition];
 				}
 				if (dataTable_in.Rows[r][_dc_ifapplication] == System.DBNull.Value) {
 					_output[r].IFApplication_isNull = true;
 				} else {
-					_output[r].ifapplication_ = (int)dataTable_in.Rows[r][_dc_ifapplication];
+					_output[r].IFApplication = (int)dataTable_in.Rows[r][_dc_ifapplication];
 				}
 				if (dataTable_in.Rows[r][_dc_ifbrowser__opt] == System.DBNull.Value) {
 					_output[r].IFBrowser__OPT_isNull = true;
 				} else {
-					_output[r].ifbrowser__opt_ = (long)dataTable_in.Rows[r][_dc_ifbrowser__opt];
+					_output[r].IFBrowser__OPT = (long)dataTable_in.Rows[r][_dc_ifbrowser__opt];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

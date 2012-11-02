@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_NWS_ContentHighlight : 
-		SO__base 
+		ISerializable
 	{
 		#region public SO_NWS_ContentHighlight();
 		public SO_NWS_ContentHighlight(
@@ -39,48 +39,49 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DateTime Begin_date_in, 
 			DateTime End_date_in
 		) {
-			this.haschanges_ = false;
-
 			this.ifcontent_ = IFContent_in;
 			this.ifhighlight_ = IFHighlight_in;
 			this.begin_date_ = Begin_date_in;
 			this.end_date_ = End_date_in;
-		}
-		public SO_NWS_ContentHighlight(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.ifcontent_ = (long)info_in.GetValue("IFContent", typeof(long));
-			this.ifhighlight_ = (long)info_in.GetValue("IFHighlight", typeof(long));
+			this.haschanges_ = false;
+		}
+		protected SO_NWS_ContentHighlight(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.ifcontent_ = (long)info.GetValue("IFContent", typeof(long));
+			this.ifhighlight_ = (long)info.GetValue("IFHighlight", typeof(long));
 			this.begin_date_ 
-				= (info_in.GetValue("Begin_date", typeof(DateTime)) == null)
+				= (info.GetValue("Begin_date", typeof(DateTime)) == null)
 					? new DateTime(1900, 1, 1)
-					: (DateTime)info_in.GetValue("Begin_date", typeof(DateTime));
-			this.Begin_date_isNull = (bool)info_in.GetValue("Begin_date_isNull", typeof(bool));
+					: (DateTime)info.GetValue("Begin_date", typeof(DateTime));
+			this.Begin_date_isNull = (bool)info.GetValue("Begin_date_isNull", typeof(bool));
 			this.end_date_ 
-				= (info_in.GetValue("End_date", typeof(DateTime)) == null)
+				= (info.GetValue("End_date", typeof(DateTime)) == null)
 					? new DateTime(1900, 1, 1)
-					: (DateTime)info_in.GetValue("End_date", typeof(DateTime));
-			this.End_date_isNull = (bool)info_in.GetValue("End_date_isNull", typeof(bool));
+					: (DateTime)info.GetValue("End_date", typeof(DateTime));
+			this.End_date_isNull = (bool)info.GetValue("End_date_isNull", typeof(bool));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_NWS_ContentHighlight properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -88,7 +89,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long ifcontent_;// = 0L;
+		private long ifcontent_;// = 0L;
 		
 		/// <summary>
 		/// NWS_ContentHighlight's IFContent.
@@ -136,7 +137,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long ifhighlight_;// = 0L;
+		private long ifhighlight_;// = 0L;
 		
 		/// <summary>
 		/// NWS_ContentHighlight's IFHighlight.
@@ -184,7 +185,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object begin_date_;// = new DateTime(1900, 1, 1);
+		private object begin_date_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>
 		/// NWS_ContentHighlight's Begin_date.
@@ -250,7 +251,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object end_date_;// = new DateTime(1900, 1, 1);
+		private object end_date_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>
 		/// NWS_ContentHighlight's End_date.
@@ -320,6 +321,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_NWS_ContentHighlight[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_ifcontent = new DataColumn("IFContent", typeof(long));
@@ -345,24 +347,31 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {
 			this.ifcontent_ = 0L;
 			this.ifhighlight_ = 0L;
 			this.begin_date_ = new DateTime(1900, 1, 1);
 			this.end_date_ = new DateTime(1900, 1, 1);
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IFContent", this.ifcontent_);
-			info_in.AddValue("IFHighlight", this.ifhighlight_);
-			info_in.AddValue("Begin_date", this.begin_date_);
-			info_in.AddValue("Begin_date_isNull", this.Begin_date_isNull);
-			info_in.AddValue("End_date", this.end_date_);
-			info_in.AddValue("End_date_isNull", this.End_date_isNull);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IFContent", this.ifcontent_);
+			info.AddValue("IFHighlight", this.ifhighlight_);
+			info.AddValue("Begin_date", this.begin_date_);
+			info.AddValue("Begin_date_isNull", this.Begin_date_isNull);
+			info.AddValue("End_date", this.end_date_);
+			info.AddValue("End_date_isNull", this.End_date_isNull);
 		}
 		#endregion
 		#endregion

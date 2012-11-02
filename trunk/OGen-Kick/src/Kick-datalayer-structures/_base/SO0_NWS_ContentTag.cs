@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_NWS_ContentTag : 
-		SO__base 
+		ISerializable
 	{
 		#region public SO_NWS_ContentTag();
 		public SO_NWS_ContentTag(
@@ -37,36 +37,37 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			long IFContent_in, 
 			long IFTag_in
 		) {
-			this.haschanges_ = false;
-
 			this.ifcontent_ = IFContent_in;
 			this.iftag_ = IFTag_in;
-		}
-		public SO_NWS_ContentTag(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.ifcontent_ = (long)info_in.GetValue("IFContent", typeof(long));
-			this.iftag_ = (long)info_in.GetValue("IFTag", typeof(long));
+			this.haschanges_ = false;
+		}
+		protected SO_NWS_ContentTag(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.ifcontent_ = (long)info.GetValue("IFContent", typeof(long));
+			this.iftag_ = (long)info.GetValue("IFTag", typeof(long));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_NWS_ContentTag properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -74,7 +75,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long ifcontent_;// = 0L;
+		private long ifcontent_;// = 0L;
 		
 		/// <summary>
 		/// NWS_ContentTag's IFContent.
@@ -122,7 +123,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long iftag_;// = 0L;
+		private long iftag_;// = 0L;
 		
 		/// <summary>
 		/// NWS_ContentTag's IFTag.
@@ -174,6 +175,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_NWS_ContentTag[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_ifcontent = new DataColumn("IFContent", typeof(long));
@@ -193,18 +195,25 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {
 			this.ifcontent_ = 0L;
 			this.iftag_ = 0L;
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IFContent", this.ifcontent_);
-			info_in.AddValue("IFTag", this.iftag_);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IFContent", this.ifcontent_);
+			info.AddValue("IFTag", this.iftag_);
 		}
 		#endregion
 		#endregion

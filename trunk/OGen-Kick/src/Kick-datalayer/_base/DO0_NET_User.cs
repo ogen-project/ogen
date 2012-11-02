@@ -112,7 +112,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.IFApplication = (int)_dataparameters[4].Value;
 				}
 
-				_output.haschanges_ = false;
+				_output.hasChanges = false;
 				return _output;
 			}
 
@@ -235,7 +235,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			out bool ConstraintExist_out, 
 			DBConnection dbConnection_in
 		) {
-			if (forceUpdate_in || NET_User_in.haschanges_) {
+			if (forceUpdate_in || NET_User_in.hasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__utils.DBConnection_createInstance(
 						DO__utils.DBServerType,
@@ -262,7 +262,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				ConstraintExist_out = (((int)_dataparameters[5].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					NET_User_in.haschanges_ = false;
+					NET_User_in.hasChanges = false;
 				}
 
 				return (((int)_dataparameters[5].Value & 1) != 1);
@@ -685,32 +685,32 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_NET_User();
 				if (dataTable_in.Rows[r][_dc_ifuser] == System.DBNull.Value) {
-					_output[r].ifuser_ = 0L;
+					_output[r].IFUser = 0L;
 				} else {
-					_output[r].ifuser_ = (long)dataTable_in.Rows[r][_dc_ifuser];
+					_output[r].IFUser = (long)dataTable_in.Rows[r][_dc_ifuser];
 				}
 				if (dataTable_in.Rows[r][_dc_name] == System.DBNull.Value) {
 					_output[r].Name_isNull = true;
 				} else {
-					_output[r].name_ = (string)dataTable_in.Rows[r][_dc_name];
+					_output[r].Name = (string)dataTable_in.Rows[r][_dc_name];
 				}
 				if (dataTable_in.Rows[r][_dc_email] == System.DBNull.Value) {
-					_output[r].email_ = string.Empty;
+					_output[r].EMail = string.Empty;
 				} else {
-					_output[r].email_ = (string)dataTable_in.Rows[r][_dc_email];
+					_output[r].EMail = (string)dataTable_in.Rows[r][_dc_email];
 				}
 				if (dataTable_in.Rows[r][_dc_email_verify] == System.DBNull.Value) {
 					_output[r].EMail_verify_isNull = true;
 				} else {
-					_output[r].email_verify_ = (string)dataTable_in.Rows[r][_dc_email_verify];
+					_output[r].EMail_verify = (string)dataTable_in.Rows[r][_dc_email_verify];
 				}
 				if (dataTable_in.Rows[r][_dc_ifapplication] == System.DBNull.Value) {
 					_output[r].IFApplication_isNull = true;
 				} else {
-					_output[r].ifapplication_ = (int)dataTable_in.Rows[r][_dc_ifapplication];
+					_output[r].IFApplication = (int)dataTable_in.Rows[r][_dc_ifapplication];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

@@ -65,22 +65,22 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_vDIC_ApplicationLanguage();
 				if (dataTable_in.Rows[r][_dc_ifapplication] == System.DBNull.Value) {
-					_output[r].ifapplication_ = 0;
+					_output[r].IFApplication = 0;
 				} else {
-					_output[r].ifapplication_ = (int)dataTable_in.Rows[r][_dc_ifapplication];
+					_output[r].IFApplication = (int)dataTable_in.Rows[r][_dc_ifapplication];
 				}
 				if (dataTable_in.Rows[r][_dc_idlanguage] == System.DBNull.Value) {
-					_output[r].idlanguage_ = 0;
+					_output[r].IDLanguage = 0;
 				} else {
-					_output[r].idlanguage_ = (int)dataTable_in.Rows[r][_dc_idlanguage];
+					_output[r].IDLanguage = (int)dataTable_in.Rows[r][_dc_idlanguage];
 				}
 				if (dataTable_in.Rows[r][_dc_language] == System.DBNull.Value) {
 					_output[r].Language_isNull = true;
 				} else {
-					_output[r].language_ = (string)dataTable_in.Rows[r][_dc_language];
+					_output[r].Language = (string)dataTable_in.Rows[r][_dc_language];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

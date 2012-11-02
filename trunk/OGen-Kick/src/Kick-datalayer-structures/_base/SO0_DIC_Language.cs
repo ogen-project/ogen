@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_DIC_Language : 
-		SO__base 
+		ISerializable
 	{
 		#region public SO_DIC_Language();
 		public SO_DIC_Language(
@@ -37,36 +37,37 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			int IDLanguage_in, 
 			long TX_Name_in
 		) {
-			this.haschanges_ = false;
-
 			this.idlanguage_ = IDLanguage_in;
 			this.tx_name_ = TX_Name_in;
-		}
-		public SO_DIC_Language(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.idlanguage_ = (int)info_in.GetValue("IDLanguage", typeof(int));
-			this.tx_name_ = (long)info_in.GetValue("TX_Name", typeof(long));
+			this.haschanges_ = false;
+		}
+		protected SO_DIC_Language(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.idlanguage_ = (int)info.GetValue("IDLanguage", typeof(int));
+			this.tx_name_ = (long)info.GetValue("TX_Name", typeof(long));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_DIC_Language properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -74,7 +75,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public int idlanguage_;// = 0;
+		private int idlanguage_;// = 0;
 		
 		/// <summary>
 		/// DIC_Language's IDLanguage.
@@ -122,7 +123,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long tx_name_;// = 0L;
+		private long tx_name_;// = 0L;
 		
 		/// <summary>
 		/// DIC_Language's TX_Name.
@@ -174,6 +175,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_DIC_Language[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_idlanguage = new DataColumn("IDLanguage", typeof(int));
@@ -193,18 +195,25 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {
 			this.idlanguage_ = 0;
 			this.tx_name_ = 0L;
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDLanguage", this.idlanguage_);
-			info_in.AddValue("TX_Name", this.tx_name_);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IDLanguage", this.idlanguage_);
+			info.AddValue("TX_Name", this.tx_name_);
 		}
 		#endregion
 		#endregion

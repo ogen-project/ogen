@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_NET_Defaultprofile : 
-		SO__base 
+		ISerializable
 	{
 		#region public SO_NET_Defaultprofile();
 		public SO_NET_Defaultprofile(
@@ -37,36 +37,37 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			long IDDefaultprofile_in, 
 			long IFProfile_in
 		) {
-			this.haschanges_ = false;
-
 			this.iddefaultprofile_ = IDDefaultprofile_in;
 			this.ifprofile_ = IFProfile_in;
-		}
-		public SO_NET_Defaultprofile(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.iddefaultprofile_ = (long)info_in.GetValue("IDDefaultprofile", typeof(long));
-			this.ifprofile_ = (long)info_in.GetValue("IFProfile", typeof(long));
+			this.haschanges_ = false;
+		}
+		protected SO_NET_Defaultprofile(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.iddefaultprofile_ = (long)info.GetValue("IDDefaultprofile", typeof(long));
+			this.ifprofile_ = (long)info.GetValue("IFProfile", typeof(long));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_NET_Defaultprofile properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -74,7 +75,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long iddefaultprofile_;// = 0L;
+		private long iddefaultprofile_;// = 0L;
 		
 		/// <summary>
 		/// NET_Defaultprofile's IDDefaultprofile.
@@ -122,7 +123,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long ifprofile_;// = 0L;
+		private long ifprofile_;// = 0L;
 		
 		/// <summary>
 		/// NET_Defaultprofile's IFProfile.
@@ -174,6 +175,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_NET_Defaultprofile[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_iddefaultprofile = new DataColumn("IDDefaultprofile", typeof(long));
@@ -193,18 +195,25 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {
 			this.iddefaultprofile_ = 0L;
 			this.ifprofile_ = 0L;
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDDefaultprofile", this.iddefaultprofile_);
-			info_in.AddValue("IFProfile", this.ifprofile_);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IDDefaultprofile", this.iddefaultprofile_);
+			info.AddValue("IFProfile", this.ifprofile_);
 		}
 		#endregion
 		#endregion

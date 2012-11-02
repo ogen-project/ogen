@@ -67,27 +67,27 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_vCRD_ProfilePermition();
 				if (dataTable_in.Rows[r][_dc_idpermition] == System.DBNull.Value) {
-					_output[r].idpermition_ = 0L;
+					_output[r].IDPermition = 0L;
 				} else {
-					_output[r].idpermition_ = (long)dataTable_in.Rows[r][_dc_idpermition];
+					_output[r].IDPermition = (long)dataTable_in.Rows[r][_dc_idpermition];
 				}
 				if (dataTable_in.Rows[r][_dc_permitionname] == System.DBNull.Value) {
-					_output[r].permitionname_ = string.Empty;
+					_output[r].PermitionName = string.Empty;
 				} else {
-					_output[r].permitionname_ = (string)dataTable_in.Rows[r][_dc_permitionname];
+					_output[r].PermitionName = (string)dataTable_in.Rows[r][_dc_permitionname];
 				}
 				if (dataTable_in.Rows[r][_dc_idprofile] == System.DBNull.Value) {
-					_output[r].idprofile_ = 0L;
+					_output[r].IDProfile = 0L;
 				} else {
-					_output[r].idprofile_ = (long)dataTable_in.Rows[r][_dc_idprofile];
+					_output[r].IDProfile = (long)dataTable_in.Rows[r][_dc_idprofile];
 				}
 				if (dataTable_in.Rows[r][_dc_haspermition] == System.DBNull.Value) {
 					_output[r].hasPermition_isNull = true;
 				} else {
-					_output[r].haspermition_ = (bool)dataTable_in.Rows[r][_dc_haspermition];
+					_output[r].hasPermition = (bool)dataTable_in.Rows[r][_dc_haspermition];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

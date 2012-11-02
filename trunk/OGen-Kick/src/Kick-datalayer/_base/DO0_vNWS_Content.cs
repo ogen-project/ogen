@@ -81,62 +81,62 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_vNWS_Content();
 				if (dataTable_in.Rows[r][_dc_idcontent] == System.DBNull.Value) {
-					_output[r].idcontent_ = 0L;
+					_output[r].IDContent = 0L;
 				} else {
-					_output[r].idcontent_ = (long)dataTable_in.Rows[r][_dc_idcontent];
+					_output[r].IDContent = (long)dataTable_in.Rows[r][_dc_idcontent];
 				}
 				if (dataTable_in.Rows[r][_dc_idlanguage] == System.DBNull.Value) {
-					_output[r].idlanguage_ = 0;
+					_output[r].IDLanguage = 0;
 				} else {
-					_output[r].idlanguage_ = (int)dataTable_in.Rows[r][_dc_idlanguage];
+					_output[r].IDLanguage = (int)dataTable_in.Rows[r][_dc_idlanguage];
 				}
 				if (dataTable_in.Rows[r][_dc_ifuser__publisher] == System.DBNull.Value) {
-					_output[r].ifuser__publisher_ = 0L;
+					_output[r].IFUser__Publisher = 0L;
 				} else {
-					_output[r].ifuser__publisher_ = (long)dataTable_in.Rows[r][_dc_ifuser__publisher];
+					_output[r].IFUser__Publisher = (long)dataTable_in.Rows[r][_dc_ifuser__publisher];
 				}
 				if (dataTable_in.Rows[r][_dc_publishername] == System.DBNull.Value) {
 					_output[r].PublisherName_isNull = true;
 				} else {
-					_output[r].publishername_ = (string)dataTable_in.Rows[r][_dc_publishername];
+					_output[r].PublisherName = (string)dataTable_in.Rows[r][_dc_publishername];
 				}
 				if (dataTable_in.Rows[r][_dc_publish_date] == System.DBNull.Value) {
-					_output[r].publish_date_ = new DateTime(1900, 1, 1);
+					_output[r].Publish_date = new DateTime(1900, 1, 1);
 				} else {
-					_output[r].publish_date_ = (DateTime)dataTable_in.Rows[r][_dc_publish_date];
+					_output[r].Publish_date = (DateTime)dataTable_in.Rows[r][_dc_publish_date];
 				}
 				if (dataTable_in.Rows[r][_dc_ifuser__aproved] == System.DBNull.Value) {
 					_output[r].IFUser__Aproved_isNull = true;
 				} else {
-					_output[r].ifuser__aproved_ = (long)dataTable_in.Rows[r][_dc_ifuser__aproved];
+					_output[r].IFUser__Aproved = (long)dataTable_in.Rows[r][_dc_ifuser__aproved];
 				}
 				if (dataTable_in.Rows[r][_dc_aproved_date] == System.DBNull.Value) {
 					_output[r].Aproved_date_isNull = true;
 				} else {
-					_output[r].aproved_date_ = (DateTime)dataTable_in.Rows[r][_dc_aproved_date];
+					_output[r].Aproved_date = (DateTime)dataTable_in.Rows[r][_dc_aproved_date];
 				}
 				if (dataTable_in.Rows[r][_dc_title] == System.DBNull.Value) {
 					_output[r].Title_isNull = true;
 				} else {
-					_output[r].title_ = (string)dataTable_in.Rows[r][_dc_title];
+					_output[r].Title = (string)dataTable_in.Rows[r][_dc_title];
 				}
 				if (dataTable_in.Rows[r][_dc_content] == System.DBNull.Value) {
 					_output[r].Content_isNull = true;
 				} else {
-					_output[r].content_ = (string)dataTable_in.Rows[r][_dc_content];
+					_output[r].Content = (string)dataTable_in.Rows[r][_dc_content];
 				}
 				if (dataTable_in.Rows[r][_dc_subtitle] == System.DBNull.Value) {
 					_output[r].subtitle_isNull = true;
 				} else {
-					_output[r].subtitle_ = (string)dataTable_in.Rows[r][_dc_subtitle];
+					_output[r].subtitle = (string)dataTable_in.Rows[r][_dc_subtitle];
 				}
 				if (dataTable_in.Rows[r][_dc_summary] == System.DBNull.Value) {
 					_output[r].summary_isNull = true;
 				} else {
-					_output[r].summary_ = (string)dataTable_in.Rows[r][_dc_summary];
+					_output[r].summary = (string)dataTable_in.Rows[r][_dc_summary];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

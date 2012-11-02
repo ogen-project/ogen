@@ -111,7 +111,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.Text = (string)_dataparameters[3].Value;
 				}
 
-				_output.haschanges_ = false;
+				_output.hasChanges = false;
 				return _output;
 			}
 
@@ -244,7 +244,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			DBConnection dbConnection_in
 		) {
 			bool ConstraintExist_out;
-			if (forceUpdate_in || DIC_TextLanguage_in.haschanges_) {
+			if (forceUpdate_in || DIC_TextLanguage_in.hasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__utils.DBConnection_createInstance(
 						DO__utils.DBServerType,
@@ -269,7 +269,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				ConstraintExist_out = (((int)_dataparameters[4].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					DIC_TextLanguage_in.haschanges_ = false;
+					DIC_TextLanguage_in.hasChanges = false;
 				}
 
 				return (((int)_dataparameters[4].Value & 1) != 1);
@@ -308,27 +308,27 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_DIC_TextLanguage();
 				if (dataTable_in.Rows[r][_dc_iftext] == System.DBNull.Value) {
-					_output[r].iftext_ = 0L;
+					_output[r].IFText = 0L;
 				} else {
-					_output[r].iftext_ = (long)dataTable_in.Rows[r][_dc_iftext];
+					_output[r].IFText = (long)dataTable_in.Rows[r][_dc_iftext];
 				}
 				if (dataTable_in.Rows[r][_dc_iflanguage] == System.DBNull.Value) {
-					_output[r].iflanguage_ = 0;
+					_output[r].IFLanguage = 0;
 				} else {
-					_output[r].iflanguage_ = (int)dataTable_in.Rows[r][_dc_iflanguage];
+					_output[r].IFLanguage = (int)dataTable_in.Rows[r][_dc_iflanguage];
 				}
 				if (dataTable_in.Rows[r][_dc_charvar8000] == System.DBNull.Value) {
 					_output[r].CharVar8000_isNull = true;
 				} else {
-					_output[r].charvar8000_ = (string)dataTable_in.Rows[r][_dc_charvar8000];
+					_output[r].CharVar8000 = (string)dataTable_in.Rows[r][_dc_charvar8000];
 				}
 				if (dataTable_in.Rows[r][_dc_text] == System.DBNull.Value) {
 					_output[r].Text_isNull = true;
 				} else {
-					_output[r].text_ = (string)dataTable_in.Rows[r][_dc_text];
+					_output[r].Text = (string)dataTable_in.Rows[r][_dc_text];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

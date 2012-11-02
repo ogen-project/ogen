@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_NET_Browser : 
-		SO__base 
+		ISerializable
 	{
 		#region public SO_NET_Browser();
 		public SO_NET_Browser(
@@ -48,8 +48,6 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			string HTTP_USER_AGENT_in, 
 			long HTTP_USER_AGENT__CRC_in
 		) {
-			this.haschanges_ = false;
-
 			this.idbrowser_ = IDBrowser_in;
 			this.http_full_signature_ = HTTP_FULL_SIGNATURE_in;
 			this.http_full_signature__crc_ = HTTP_FULL_SIGNATURE__CRC_in;
@@ -63,43 +61,46 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			this.http_accept_language__crc_ = HTTP_ACCEPT_LANGUAGE__CRC_in;
 			this.http_user_agent_ = HTTP_USER_AGENT_in;
 			this.http_user_agent__crc_ = HTTP_USER_AGENT__CRC_in;
-		}
-		public SO_NET_Browser(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.idbrowser_ = (long)info_in.GetValue("IDBrowser", typeof(long));
-			this.http_full_signature_ = (string)info_in.GetValue("HTTP_FULL_SIGNATURE", typeof(string));
-			this.http_full_signature__crc_ = (long)info_in.GetValue("HTTP_FULL_SIGNATURE__CRC", typeof(long));
-			this.http_accept_ = (string)info_in.GetValue("HTTP_ACCEPT", typeof(string));
-			this.http_accept__crc_ = (long)info_in.GetValue("HTTP_ACCEPT__CRC", typeof(long));
-			this.http_accept_charset_ = (string)info_in.GetValue("HTTP_ACCEPT_CHARSET", typeof(string));
-			this.http_accept_charset__crc_ = (long)info_in.GetValue("HTTP_ACCEPT_CHARSET__CRC", typeof(long));
-			this.http_accept_encoding_ = (string)info_in.GetValue("HTTP_ACCEPT_ENCODING", typeof(string));
-			this.http_accept_encoding__crc_ = (long)info_in.GetValue("HTTP_ACCEPT_ENCODING__CRC", typeof(long));
-			this.http_accept_language_ = (string)info_in.GetValue("HTTP_ACCEPT_LANGUAGE", typeof(string));
-			this.http_accept_language__crc_ = (long)info_in.GetValue("HTTP_ACCEPT_LANGUAGE__CRC", typeof(long));
-			this.http_user_agent_ = (string)info_in.GetValue("HTTP_USER_AGENT", typeof(string));
-			this.http_user_agent__crc_ = (long)info_in.GetValue("HTTP_USER_AGENT__CRC", typeof(long));
+			this.haschanges_ = false;
+		}
+		protected SO_NET_Browser(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.idbrowser_ = (long)info.GetValue("IDBrowser", typeof(long));
+			this.http_full_signature_ = (string)info.GetValue("HTTP_FULL_SIGNATURE", typeof(string));
+			this.http_full_signature__crc_ = (long)info.GetValue("HTTP_FULL_SIGNATURE__CRC", typeof(long));
+			this.http_accept_ = (string)info.GetValue("HTTP_ACCEPT", typeof(string));
+			this.http_accept__crc_ = (long)info.GetValue("HTTP_ACCEPT__CRC", typeof(long));
+			this.http_accept_charset_ = (string)info.GetValue("HTTP_ACCEPT_CHARSET", typeof(string));
+			this.http_accept_charset__crc_ = (long)info.GetValue("HTTP_ACCEPT_CHARSET__CRC", typeof(long));
+			this.http_accept_encoding_ = (string)info.GetValue("HTTP_ACCEPT_ENCODING", typeof(string));
+			this.http_accept_encoding__crc_ = (long)info.GetValue("HTTP_ACCEPT_ENCODING__CRC", typeof(long));
+			this.http_accept_language_ = (string)info.GetValue("HTTP_ACCEPT_LANGUAGE", typeof(string));
+			this.http_accept_language__crc_ = (long)info.GetValue("HTTP_ACCEPT_LANGUAGE__CRC", typeof(long));
+			this.http_user_agent_ = (string)info.GetValue("HTTP_USER_AGENT", typeof(string));
+			this.http_user_agent__crc_ = (long)info.GetValue("HTTP_USER_AGENT__CRC", typeof(long));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_NET_Browser properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -107,7 +108,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long idbrowser_;// = 0L;
+		private long idbrowser_;// = 0L;
 		
 		/// <summary>
 		/// NET_Browser's IDBrowser.
@@ -155,7 +156,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public string http_full_signature_;// = string.Empty;
+		private string http_full_signature_;// = string.Empty;
 		
 		/// <summary>
 		/// NET_Browser's HTTP_FULL_SIGNATURE.
@@ -205,7 +206,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long http_full_signature__crc_;// = 0L;
+		private long http_full_signature__crc_;// = 0L;
 		
 		/// <summary>
 		/// NET_Browser's HTTP_FULL_SIGNATURE__CRC.
@@ -253,7 +254,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public string http_accept_;// = string.Empty;
+		private string http_accept_;// = string.Empty;
 		
 		/// <summary>
 		/// NET_Browser's HTTP_ACCEPT.
@@ -303,7 +304,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long http_accept__crc_;// = 0L;
+		private long http_accept__crc_;// = 0L;
 		
 		/// <summary>
 		/// NET_Browser's HTTP_ACCEPT__CRC.
@@ -351,7 +352,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public string http_accept_charset_;// = string.Empty;
+		private string http_accept_charset_;// = string.Empty;
 		
 		/// <summary>
 		/// NET_Browser's HTTP_ACCEPT_CHARSET.
@@ -401,7 +402,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long http_accept_charset__crc_;// = 0L;
+		private long http_accept_charset__crc_;// = 0L;
 		
 		/// <summary>
 		/// NET_Browser's HTTP_ACCEPT_CHARSET__CRC.
@@ -449,7 +450,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public string http_accept_encoding_;// = string.Empty;
+		private string http_accept_encoding_;// = string.Empty;
 		
 		/// <summary>
 		/// NET_Browser's HTTP_ACCEPT_ENCODING.
@@ -499,7 +500,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long http_accept_encoding__crc_;// = 0L;
+		private long http_accept_encoding__crc_;// = 0L;
 		
 		/// <summary>
 		/// NET_Browser's HTTP_ACCEPT_ENCODING__CRC.
@@ -547,7 +548,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public string http_accept_language_;// = string.Empty;
+		private string http_accept_language_;// = string.Empty;
 		
 		/// <summary>
 		/// NET_Browser's HTTP_ACCEPT_LANGUAGE.
@@ -597,7 +598,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long http_accept_language__crc_;// = 0L;
+		private long http_accept_language__crc_;// = 0L;
 		
 		/// <summary>
 		/// NET_Browser's HTTP_ACCEPT_LANGUAGE__CRC.
@@ -645,7 +646,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public string http_user_agent_;// = string.Empty;
+		private string http_user_agent_;// = string.Empty;
 		
 		/// <summary>
 		/// NET_Browser's HTTP_USER_AGENT.
@@ -695,7 +696,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long http_user_agent__crc_;// = 0L;
+		private long http_user_agent__crc_;// = 0L;
 		
 		/// <summary>
 		/// NET_Browser's HTTP_USER_AGENT__CRC.
@@ -747,6 +748,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_NET_Browser[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_idbrowser = new DataColumn("IDBrowser", typeof(long));
@@ -799,10 +801,11 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {
 			this.idbrowser_ = 0L;
 			this.http_full_signature_ = string.Empty;
 			this.http_full_signature__crc_ = 0L;
@@ -816,23 +819,29 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			this.http_accept_language__crc_ = 0L;
 			this.http_user_agent_ = string.Empty;
 			this.http_user_agent__crc_ = 0L;
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDBrowser", this.idbrowser_);
-			info_in.AddValue("HTTP_FULL_SIGNATURE", this.http_full_signature_);
-			info_in.AddValue("HTTP_FULL_SIGNATURE__CRC", this.http_full_signature__crc_);
-			info_in.AddValue("HTTP_ACCEPT", this.http_accept_);
-			info_in.AddValue("HTTP_ACCEPT__CRC", this.http_accept__crc_);
-			info_in.AddValue("HTTP_ACCEPT_CHARSET", this.http_accept_charset_);
-			info_in.AddValue("HTTP_ACCEPT_CHARSET__CRC", this.http_accept_charset__crc_);
-			info_in.AddValue("HTTP_ACCEPT_ENCODING", this.http_accept_encoding_);
-			info_in.AddValue("HTTP_ACCEPT_ENCODING__CRC", this.http_accept_encoding__crc_);
-			info_in.AddValue("HTTP_ACCEPT_LANGUAGE", this.http_accept_language_);
-			info_in.AddValue("HTTP_ACCEPT_LANGUAGE__CRC", this.http_accept_language__crc_);
-			info_in.AddValue("HTTP_USER_AGENT", this.http_user_agent_);
-			info_in.AddValue("HTTP_USER_AGENT__CRC", this.http_user_agent__crc_);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IDBrowser", this.idbrowser_);
+			info.AddValue("HTTP_FULL_SIGNATURE", this.http_full_signature_);
+			info.AddValue("HTTP_FULL_SIGNATURE__CRC", this.http_full_signature__crc_);
+			info.AddValue("HTTP_ACCEPT", this.http_accept_);
+			info.AddValue("HTTP_ACCEPT__CRC", this.http_accept__crc_);
+			info.AddValue("HTTP_ACCEPT_CHARSET", this.http_accept_charset_);
+			info.AddValue("HTTP_ACCEPT_CHARSET__CRC", this.http_accept_charset__crc_);
+			info.AddValue("HTTP_ACCEPT_ENCODING", this.http_accept_encoding_);
+			info.AddValue("HTTP_ACCEPT_ENCODING__CRC", this.http_accept_encoding__crc_);
+			info.AddValue("HTTP_ACCEPT_LANGUAGE", this.http_accept_language_);
+			info.AddValue("HTTP_ACCEPT_LANGUAGE__CRC", this.http_accept_language__crc_);
+			info.AddValue("HTTP_USER_AGENT", this.http_user_agent_);
+			info.AddValue("HTTP_USER_AGENT__CRC", this.http_user_agent__crc_);
 		}
 		#endregion
 		#endregion

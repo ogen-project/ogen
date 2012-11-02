@@ -243,52 +243,52 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_vNWS_Tag();
 				if (dataTable_in.Rows[r][_dc_idtag] == System.DBNull.Value) {
-					_output[r].idtag_ = 0L;
+					_output[r].IDTag = 0L;
 				} else {
-					_output[r].idtag_ = (long)dataTable_in.Rows[r][_dc_idtag];
+					_output[r].IDTag = (long)dataTable_in.Rows[r][_dc_idtag];
 				}
 				if (dataTable_in.Rows[r][_dc_idlanguage] == System.DBNull.Value) {
-					_output[r].idlanguage_ = 0;
+					_output[r].IDLanguage = 0;
 				} else {
-					_output[r].idlanguage_ = (int)dataTable_in.Rows[r][_dc_idlanguage];
+					_output[r].IDLanguage = (int)dataTable_in.Rows[r][_dc_idlanguage];
 				}
 				if (dataTable_in.Rows[r][_dc_iftag__parent] == System.DBNull.Value) {
 					_output[r].IFTag__parent_isNull = true;
 				} else {
-					_output[r].iftag__parent_ = (long)dataTable_in.Rows[r][_dc_iftag__parent];
+					_output[r].IFTag__parent = (long)dataTable_in.Rows[r][_dc_iftag__parent];
 				}
 				if (dataTable_in.Rows[r][_dc_ifuser__approved] == System.DBNull.Value) {
 					_output[r].IFUser__Approved_isNull = true;
 				} else {
-					_output[r].ifuser__approved_ = (long)dataTable_in.Rows[r][_dc_ifuser__approved];
+					_output[r].IFUser__Approved = (long)dataTable_in.Rows[r][_dc_ifuser__approved];
 				}
 				if (dataTable_in.Rows[r][_dc_approved_date] == System.DBNull.Value) {
 					_output[r].Approved_date_isNull = true;
 				} else {
-					_output[r].approved_date_ = (DateTime)dataTable_in.Rows[r][_dc_approved_date];
+					_output[r].Approved_date = (DateTime)dataTable_in.Rows[r][_dc_approved_date];
 				}
 				if (dataTable_in.Rows[r][_dc_name] == System.DBNull.Value) {
 					_output[r].Name_isNull = true;
 				} else {
-					_output[r].name_ = (string)dataTable_in.Rows[r][_dc_name];
+					_output[r].Name = (string)dataTable_in.Rows[r][_dc_name];
 				}
 				if (dataTable_in.Rows[r][_dc_ifapplication] == System.DBNull.Value) {
 					_output[r].IFApplication_isNull = true;
 				} else {
-					_output[r].ifapplication_ = (int)dataTable_in.Rows[r][_dc_ifapplication];
+					_output[r].IFApplication = (int)dataTable_in.Rows[r][_dc_ifapplication];
 				}
 				if (dataTable_in.Rows[r][_dc_managername] == System.DBNull.Value) {
 					_output[r].ManagerName_isNull = true;
 				} else {
-					_output[r].managername_ = (string)dataTable_in.Rows[r][_dc_managername];
+					_output[r].ManagerName = (string)dataTable_in.Rows[r][_dc_managername];
 				}
 				if (dataTable_in.Rows[r][_dc_shortname] == System.DBNull.Value) {
 					_output[r].ShortName_isNull = true;
 				} else {
-					_output[r].shortname_ = (string)dataTable_in.Rows[r][_dc_shortname];
+					_output[r].ShortName = (string)dataTable_in.Rows[r][_dc_shortname];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

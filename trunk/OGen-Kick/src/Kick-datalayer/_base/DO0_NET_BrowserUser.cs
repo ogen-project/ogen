@@ -99,7 +99,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.IFUser = (long)_dataparameters[1].Value;
 				}
 
-				_output.haschanges_ = false;
+				_output.hasChanges = false;
 				return _output;
 			}
 
@@ -232,7 +232,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			DBConnection dbConnection_in
 		) {
 			bool ConstraintExist_out;
-			if (forceUpdate_in || NET_BrowserUser_in.haschanges_) {
+			if (forceUpdate_in || NET_BrowserUser_in.hasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__utils.DBConnection_createInstance(
 						DO__utils.DBServerType,
@@ -255,7 +255,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				ConstraintExist_out = (((int)_dataparameters[2].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					NET_BrowserUser_in.haschanges_ = false;
+					NET_BrowserUser_in.hasChanges = false;
 				}
 
 				return (((int)_dataparameters[2].Value & 1) != 1);
@@ -290,17 +290,17 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_NET_BrowserUser();
 				if (dataTable_in.Rows[r][_dc_ifbrowser] == System.DBNull.Value) {
-					_output[r].ifbrowser_ = 0L;
+					_output[r].IFBrowser = 0L;
 				} else {
-					_output[r].ifbrowser_ = (long)dataTable_in.Rows[r][_dc_ifbrowser];
+					_output[r].IFBrowser = (long)dataTable_in.Rows[r][_dc_ifbrowser];
 				}
 				if (dataTable_in.Rows[r][_dc_ifuser] == System.DBNull.Value) {
-					_output[r].ifuser_ = 0L;
+					_output[r].IFUser = 0L;
 				} else {
-					_output[r].ifuser_ = (long)dataTable_in.Rows[r][_dc_ifuser];
+					_output[r].IFUser = (long)dataTable_in.Rows[r][_dc_ifuser];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

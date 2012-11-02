@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_vNWS_Profile : 
-		SO__ListItem<long, string> 
+		SO__ListItem<long, string>, ISerializable
 	{
 		#region public SO_vNWS_Profile();
 		public SO_vNWS_Profile(
@@ -41,60 +41,61 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DateTime Approved_date_in, 
 			string ManagerName_in
 		) {
-			this.haschanges_ = false;
-
 			this.idprofile_ = IDProfile_in;
 			this.name_ = Name_in;
 			this.idapplication_ = IDApplication_in;
 			this.ifuser__approved_ = IFUser__Approved_in;
 			this.approved_date_ = Approved_date_in;
 			this.managername_ = ManagerName_in;
-		}
-		public SO_vNWS_Profile(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.idprofile_ = (long)info_in.GetValue("IDProfile", typeof(long));
-			this.name_ = (string)info_in.GetValue("Name", typeof(string));
+			this.haschanges_ = false;
+		}
+		protected SO_vNWS_Profile(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.idprofile_ = (long)info.GetValue("IDProfile", typeof(long));
+			this.name_ = (string)info.GetValue("Name", typeof(string));
 			this.idapplication_ 
-				= (info_in.GetValue("IDApplication", typeof(int)) == null)
+				= (info.GetValue("IDApplication", typeof(int)) == null)
 					? 0
-					: (int)info_in.GetValue("IDApplication", typeof(int));
-			this.IDApplication_isNull = (bool)info_in.GetValue("IDApplication_isNull", typeof(bool));
+					: (int)info.GetValue("IDApplication", typeof(int));
+			this.IDApplication_isNull = (bool)info.GetValue("IDApplication_isNull", typeof(bool));
 			this.ifuser__approved_ 
-				= (info_in.GetValue("IFUser__Approved", typeof(long)) == null)
+				= (info.GetValue("IFUser__Approved", typeof(long)) == null)
 					? 0L
-					: (long)info_in.GetValue("IFUser__Approved", typeof(long));
-			this.IFUser__Approved_isNull = (bool)info_in.GetValue("IFUser__Approved_isNull", typeof(bool));
+					: (long)info.GetValue("IFUser__Approved", typeof(long));
+			this.IFUser__Approved_isNull = (bool)info.GetValue("IFUser__Approved_isNull", typeof(bool));
 			this.approved_date_ 
-				= (info_in.GetValue("Approved_date", typeof(DateTime)) == null)
+				= (info.GetValue("Approved_date", typeof(DateTime)) == null)
 					? new DateTime(1900, 1, 1)
-					: (DateTime)info_in.GetValue("Approved_date", typeof(DateTime));
-			this.Approved_date_isNull = (bool)info_in.GetValue("Approved_date_isNull", typeof(bool));
+					: (DateTime)info.GetValue("Approved_date", typeof(DateTime));
+			this.Approved_date_isNull = (bool)info.GetValue("Approved_date_isNull", typeof(bool));
 			this.managername_ 
-				= (info_in.GetValue("ManagerName", typeof(string)) == null)
+				= (info.GetValue("ManagerName", typeof(string)) == null)
 					? string.Empty
-					: (string)info_in.GetValue("ManagerName", typeof(string));
-			this.ManagerName_isNull = (bool)info_in.GetValue("ManagerName_isNull", typeof(bool));
+					: (string)info.GetValue("ManagerName", typeof(string));
+			this.ManagerName_isNull = (bool)info.GetValue("ManagerName_isNull", typeof(bool));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_vNWS_Profile properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -117,7 +118,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long idprofile_;// = 0L;
+		private long idprofile_;// = 0L;
 		
 		/// <summary>
 		/// vNWS_Profile's IDProfile.
@@ -165,7 +166,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public string name_;// = string.Empty;
+		private string name_;// = string.Empty;
 		
 		/// <summary>
 		/// vNWS_Profile's Name.
@@ -215,7 +216,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object idapplication_;// = 0;
+		private object idapplication_;// = 0;
 		
 		/// <summary>
 		/// vNWS_Profile's IDApplication.
@@ -281,7 +282,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object ifuser__approved_;// = 0L;
+		private object ifuser__approved_;// = 0L;
 		
 		/// <summary>
 		/// vNWS_Profile's IFUser__Approved.
@@ -347,7 +348,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object approved_date_;// = new DateTime(1900, 1, 1);
+		private object approved_date_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>
 		/// vNWS_Profile's Approved_date.
@@ -413,7 +414,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object managername_;// = string.Empty;
+		private object managername_;// = string.Empty;
 		
 		/// <summary>
 		/// vNWS_Profile's ManagerName.
@@ -485,6 +486,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_vNWS_Profile[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_idprofile = new DataColumn("IDProfile", typeof(long));
@@ -516,30 +518,37 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {
 			this.idprofile_ = 0L;
 			this.name_ = string.Empty;
 			this.idapplication_ = 0;
 			this.ifuser__approved_ = 0L;
 			this.approved_date_ = new DateTime(1900, 1, 1);
 			this.managername_ = string.Empty;
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDProfile", this.idprofile_);
-			info_in.AddValue("Name", this.name_);
-			info_in.AddValue("IDApplication", this.idapplication_);
-			info_in.AddValue("IDApplication_isNull", this.IDApplication_isNull);
-			info_in.AddValue("IFUser__Approved", this.ifuser__approved_);
-			info_in.AddValue("IFUser__Approved_isNull", this.IFUser__Approved_isNull);
-			info_in.AddValue("Approved_date", this.approved_date_);
-			info_in.AddValue("Approved_date_isNull", this.Approved_date_isNull);
-			info_in.AddValue("ManagerName", this.managername_);
-			info_in.AddValue("ManagerName_isNull", this.ManagerName_isNull);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IDProfile", this.idprofile_);
+			info.AddValue("Name", this.name_);
+			info.AddValue("IDApplication", this.idapplication_);
+			info.AddValue("IDApplication_isNull", this.IDApplication_isNull);
+			info.AddValue("IFUser__Approved", this.ifuser__approved_);
+			info.AddValue("IFUser__Approved_isNull", this.IFUser__Approved_isNull);
+			info.AddValue("Approved_date", this.approved_date_);
+			info.AddValue("Approved_date_isNull", this.Approved_date_isNull);
+			info.AddValue("ManagerName", this.managername_);
+			info.AddValue("ManagerName_isNull", this.ManagerName_isNull);
 		}
 		#endregion
 		#endregion

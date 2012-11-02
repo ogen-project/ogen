@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_vDIC_ApplicationLanguage : 
-		SO__ListItem<int, string> 
+		SO__ListItem<int, string>, ISerializable
 	{
 		#region public SO_vDIC_ApplicationLanguage();
 		public SO_vDIC_ApplicationLanguage(
@@ -38,42 +38,43 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			int IDLanguage_in, 
 			string Language_in
 		) {
-			this.haschanges_ = false;
-
 			this.ifapplication_ = IFApplication_in;
 			this.idlanguage_ = IDLanguage_in;
 			this.language_ = Language_in;
-		}
-		public SO_vDIC_ApplicationLanguage(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.ifapplication_ = (int)info_in.GetValue("IFApplication", typeof(int));
-			this.idlanguage_ = (int)info_in.GetValue("IDLanguage", typeof(int));
+			this.haschanges_ = false;
+		}
+		protected SO_vDIC_ApplicationLanguage(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.ifapplication_ = (int)info.GetValue("IFApplication", typeof(int));
+			this.idlanguage_ = (int)info.GetValue("IDLanguage", typeof(int));
 			this.language_ 
-				= (info_in.GetValue("Language", typeof(string)) == null)
+				= (info.GetValue("Language", typeof(string)) == null)
 					? string.Empty
-					: (string)info_in.GetValue("Language", typeof(string));
-			this.Language_isNull = (bool)info_in.GetValue("Language_isNull", typeof(bool));
+					: (string)info.GetValue("Language", typeof(string));
+			this.Language_isNull = (bool)info.GetValue("Language_isNull", typeof(bool));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_vDIC_ApplicationLanguage properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -96,7 +97,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public int ifapplication_;// = 0;
+		private int ifapplication_;// = 0;
 		
 		/// <summary>
 		/// vDIC_ApplicationLanguage's IFApplication.
@@ -144,7 +145,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public int idlanguage_;// = 0;
+		private int idlanguage_;// = 0;
 		
 		/// <summary>
 		/// vDIC_ApplicationLanguage's IDLanguage.
@@ -192,7 +193,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object language_;// = string.Empty;
+		private object language_;// = string.Empty;
 		
 		/// <summary>
 		/// vDIC_ApplicationLanguage's Language.
@@ -264,6 +265,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_vDIC_ApplicationLanguage[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_ifapplication = new DataColumn("IFApplication", typeof(int));
@@ -286,21 +288,28 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {
 			this.ifapplication_ = 0;
 			this.idlanguage_ = 0;
 			this.language_ = string.Empty;
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IFApplication", this.ifapplication_);
-			info_in.AddValue("IDLanguage", this.idlanguage_);
-			info_in.AddValue("Language", this.language_);
-			info_in.AddValue("Language_isNull", this.Language_isNull);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IFApplication", this.ifapplication_);
+			info.AddValue("IDLanguage", this.idlanguage_);
+			info.AddValue("Language", this.language_);
+			info.AddValue("Language_isNull", this.Language_isNull);
 		}
 		#endregion
 		#endregion

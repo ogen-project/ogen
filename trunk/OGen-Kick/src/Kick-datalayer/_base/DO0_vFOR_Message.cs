@@ -255,67 +255,67 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_vFOR_Message();
 				if (dataTable_in.Rows[r][_dc_idmessage] == System.DBNull.Value) {
-					_output[r].idmessage_ = 0L;
+					_output[r].IDMessage = 0L;
 				} else {
-					_output[r].idmessage_ = (long)dataTable_in.Rows[r][_dc_idmessage];
+					_output[r].IDMessage = (long)dataTable_in.Rows[r][_dc_idmessage];
 				}
 				if (dataTable_in.Rows[r][_dc_idmessage__parent] == System.DBNull.Value) {
 					_output[r].IDMessage__parent_isNull = true;
 				} else {
-					_output[r].idmessage__parent_ = (long)dataTable_in.Rows[r][_dc_idmessage__parent];
+					_output[r].IDMessage__parent = (long)dataTable_in.Rows[r][_dc_idmessage__parent];
 				}
 				if (dataTable_in.Rows[r][_dc_isthread] == System.DBNull.Value) {
 					_output[r].isThread_isNull = true;
 				} else {
-					_output[r].isthread_ = (bool)dataTable_in.Rows[r][_dc_isthread];
+					_output[r].isThread = (bool)dataTable_in.Rows[r][_dc_isthread];
 				}
 				if (dataTable_in.Rows[r][_dc_issticky] == System.DBNull.Value) {
-					_output[r].issticky_ = false;
+					_output[r].isSticky = false;
 				} else {
-					_output[r].issticky_ = (bool)dataTable_in.Rows[r][_dc_issticky];
+					_output[r].isSticky = (bool)dataTable_in.Rows[r][_dc_issticky];
 				}
 				if (dataTable_in.Rows[r][_dc_subject] == System.DBNull.Value) {
 					_output[r].Subject_isNull = true;
 				} else {
-					_output[r].subject_ = (string)dataTable_in.Rows[r][_dc_subject];
+					_output[r].Subject = (string)dataTable_in.Rows[r][_dc_subject];
 				}
 				if (dataTable_in.Rows[r][_dc_message__charvar8000] == System.DBNull.Value) {
 					_output[r].Message__charvar8000_isNull = true;
 				} else {
-					_output[r].message__charvar8000_ = (string)dataTable_in.Rows[r][_dc_message__charvar8000];
+					_output[r].Message__charvar8000 = (string)dataTable_in.Rows[r][_dc_message__charvar8000];
 				}
 				if (dataTable_in.Rows[r][_dc_message__text] == System.DBNull.Value) {
 					_output[r].Message__text_isNull = true;
 				} else {
-					_output[r].message__text_ = (string)dataTable_in.Rows[r][_dc_message__text];
+					_output[r].Message__text = (string)dataTable_in.Rows[r][_dc_message__text];
 				}
 				if (dataTable_in.Rows[r][_dc_iduser] == System.DBNull.Value) {
 					_output[r].IDUser_isNull = true;
 				} else {
-					_output[r].iduser_ = (long)dataTable_in.Rows[r][_dc_iduser];
+					_output[r].IDUser = (long)dataTable_in.Rows[r][_dc_iduser];
 				}
 				if (dataTable_in.Rows[r][_dc_name] == System.DBNull.Value) {
 					_output[r].Name_isNull = true;
 				} else {
-					_output[r].name_ = (string)dataTable_in.Rows[r][_dc_name];
+					_output[r].Name = (string)dataTable_in.Rows[r][_dc_name];
 				}
 				if (dataTable_in.Rows[r][_dc_publish_date] == System.DBNull.Value) {
-					_output[r].publish_date_ = new DateTime(1900, 1, 1);
+					_output[r].Publish_date = new DateTime(1900, 1, 1);
 				} else {
-					_output[r].publish_date_ = (DateTime)dataTable_in.Rows[r][_dc_publish_date];
+					_output[r].Publish_date = (DateTime)dataTable_in.Rows[r][_dc_publish_date];
 				}
 				if (dataTable_in.Rows[r][_dc_ifapplication] == System.DBNull.Value) {
 					_output[r].IFApplication_isNull = true;
 				} else {
-					_output[r].ifapplication_ = (int)dataTable_in.Rows[r][_dc_ifapplication];
+					_output[r].IFApplication = (int)dataTable_in.Rows[r][_dc_ifapplication];
 				}
 				if (dataTable_in.Rows[r][_dc_login] == System.DBNull.Value) {
-					_output[r].login_ = string.Empty;
+					_output[r].Login = string.Empty;
 				} else {
-					_output[r].login_ = (string)dataTable_in.Rows[r][_dc_login];
+					_output[r].Login = (string)dataTable_in.Rows[r][_dc_login];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

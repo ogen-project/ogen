@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_CRD_Profile : 
-		SO__ListItem<long, string> 
+		SO__ListItem<long, string>, ISerializable
 	{
 		#region public SO_CRD_Profile();
 		public SO_CRD_Profile(
@@ -38,42 +38,43 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			string Name_in, 
 			int IFApplication_in
 		) {
-			this.haschanges_ = false;
-
 			this.idprofile_ = IDProfile_in;
 			this.name_ = Name_in;
 			this.ifapplication_ = IFApplication_in;
-		}
-		public SO_CRD_Profile(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.idprofile_ = (long)info_in.GetValue("IDProfile", typeof(long));
-			this.name_ = (string)info_in.GetValue("Name", typeof(string));
+			this.haschanges_ = false;
+		}
+		protected SO_CRD_Profile(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.idprofile_ = (long)info.GetValue("IDProfile", typeof(long));
+			this.name_ = (string)info.GetValue("Name", typeof(string));
 			this.ifapplication_ 
-				= (info_in.GetValue("IFApplication", typeof(int)) == null)
+				= (info.GetValue("IFApplication", typeof(int)) == null)
 					? 0
-					: (int)info_in.GetValue("IFApplication", typeof(int));
-			this.IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
+					: (int)info.GetValue("IFApplication", typeof(int));
+			this.IFApplication_isNull = (bool)info.GetValue("IFApplication_isNull", typeof(bool));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_CRD_Profile properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -96,7 +97,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long idprofile_;// = 0L;
+		private long idprofile_;// = 0L;
 		
 		/// <summary>
 		/// CRD_Profile's IDProfile.
@@ -144,7 +145,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public string name_;// = string.Empty;
+		private string name_;// = string.Empty;
 		
 		/// <summary>
 		/// CRD_Profile's Name.
@@ -194,7 +195,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object ifapplication_;// = 0;
+		private object ifapplication_;// = 0;
 		
 		/// <summary>
 		/// CRD_Profile's IFApplication.
@@ -264,6 +265,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_CRD_Profile[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_idprofile = new DataColumn("IDProfile", typeof(long));
@@ -286,21 +288,28 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {
 			this.idprofile_ = 0L;
 			this.name_ = string.Empty;
 			this.ifapplication_ = 0;
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDProfile", this.idprofile_);
-			info_in.AddValue("Name", this.name_);
-			info_in.AddValue("IFApplication", this.ifapplication_);
-			info_in.AddValue("IFApplication_isNull", this.IFApplication_isNull);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IDProfile", this.idprofile_);
+			info.AddValue("Name", this.name_);
+			info.AddValue("IFApplication", this.ifapplication_);
+			info.AddValue("IFApplication_isNull", this.IFApplication_isNull);
 		}
 		#endregion
 		#endregion

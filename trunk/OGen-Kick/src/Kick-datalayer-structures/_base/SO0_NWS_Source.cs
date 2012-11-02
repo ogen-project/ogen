@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_NWS_Source : 
-		SO__base 
+		ISerializable
 	{
 		#region public SO_NWS_Source();
 		public SO_NWS_Source(
@@ -41,60 +41,61 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			long IFUser__Approved_in, 
 			DateTime Approved_date_in
 		) {
-			this.haschanges_ = false;
-
 			this.idsource_ = IDSource_in;
 			this.ifapplication_ = IFApplication_in;
 			this.ifsource__parent_ = IFSource__parent_in;
 			this.name_ = Name_in;
 			this.ifuser__approved_ = IFUser__Approved_in;
 			this.approved_date_ = Approved_date_in;
-		}
-		public SO_NWS_Source(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.idsource_ = (long)info_in.GetValue("IDSource", typeof(long));
+			this.haschanges_ = false;
+		}
+		protected SO_NWS_Source(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.idsource_ = (long)info.GetValue("IDSource", typeof(long));
 			this.ifapplication_ 
-				= (info_in.GetValue("IFApplication", typeof(int)) == null)
+				= (info.GetValue("IFApplication", typeof(int)) == null)
 					? 0
-					: (int)info_in.GetValue("IFApplication", typeof(int));
-			this.IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
+					: (int)info.GetValue("IFApplication", typeof(int));
+			this.IFApplication_isNull = (bool)info.GetValue("IFApplication_isNull", typeof(bool));
 			this.ifsource__parent_ 
-				= (info_in.GetValue("IFSource__parent", typeof(long)) == null)
+				= (info.GetValue("IFSource__parent", typeof(long)) == null)
 					? 0L
-					: (long)info_in.GetValue("IFSource__parent", typeof(long));
-			this.IFSource__parent_isNull = (bool)info_in.GetValue("IFSource__parent_isNull", typeof(bool));
-			this.name_ = (string)info_in.GetValue("Name", typeof(string));
+					: (long)info.GetValue("IFSource__parent", typeof(long));
+			this.IFSource__parent_isNull = (bool)info.GetValue("IFSource__parent_isNull", typeof(bool));
+			this.name_ = (string)info.GetValue("Name", typeof(string));
 			this.ifuser__approved_ 
-				= (info_in.GetValue("IFUser__Approved", typeof(long)) == null)
+				= (info.GetValue("IFUser__Approved", typeof(long)) == null)
 					? 0L
-					: (long)info_in.GetValue("IFUser__Approved", typeof(long));
-			this.IFUser__Approved_isNull = (bool)info_in.GetValue("IFUser__Approved_isNull", typeof(bool));
+					: (long)info.GetValue("IFUser__Approved", typeof(long));
+			this.IFUser__Approved_isNull = (bool)info.GetValue("IFUser__Approved_isNull", typeof(bool));
 			this.approved_date_ 
-				= (info_in.GetValue("Approved_date", typeof(DateTime)) == null)
+				= (info.GetValue("Approved_date", typeof(DateTime)) == null)
 					? new DateTime(1900, 1, 1)
-					: (DateTime)info_in.GetValue("Approved_date", typeof(DateTime));
-			this.Approved_date_isNull = (bool)info_in.GetValue("Approved_date_isNull", typeof(bool));
+					: (DateTime)info.GetValue("Approved_date", typeof(DateTime));
+			this.Approved_date_isNull = (bool)info.GetValue("Approved_date_isNull", typeof(bool));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_NWS_Source properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -102,7 +103,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long idsource_;// = 0L;
+		private long idsource_;// = 0L;
 		
 		/// <summary>
 		/// NWS_Source's IDSource.
@@ -150,7 +151,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object ifapplication_;// = 0;
+		private object ifapplication_;// = 0;
 		
 		/// <summary>
 		/// NWS_Source's IFApplication.
@@ -216,7 +217,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object ifsource__parent_;// = 0L;
+		private object ifsource__parent_;// = 0L;
 		
 		/// <summary>
 		/// NWS_Source's IFSource__parent.
@@ -282,7 +283,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public string name_;// = string.Empty;
+		private string name_;// = string.Empty;
 		
 		/// <summary>
 		/// NWS_Source's Name.
@@ -332,7 +333,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object ifuser__approved_;// = 0L;
+		private object ifuser__approved_;// = 0L;
 		
 		/// <summary>
 		/// NWS_Source's IFUser__Approved.
@@ -398,7 +399,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object approved_date_;// = new DateTime(1900, 1, 1);
+		private object approved_date_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>
 		/// NWS_Source's Approved_date.
@@ -468,6 +469,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_NWS_Source[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_idsource = new DataColumn("IDSource", typeof(long));
@@ -499,30 +501,37 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {
 			this.idsource_ = 0L;
 			this.ifapplication_ = 0;
 			this.ifsource__parent_ = 0L;
 			this.name_ = string.Empty;
 			this.ifuser__approved_ = 0L;
 			this.approved_date_ = new DateTime(1900, 1, 1);
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDSource", this.idsource_);
-			info_in.AddValue("IFApplication", this.ifapplication_);
-			info_in.AddValue("IFApplication_isNull", this.IFApplication_isNull);
-			info_in.AddValue("IFSource__parent", this.ifsource__parent_);
-			info_in.AddValue("IFSource__parent_isNull", this.IFSource__parent_isNull);
-			info_in.AddValue("Name", this.name_);
-			info_in.AddValue("IFUser__Approved", this.ifuser__approved_);
-			info_in.AddValue("IFUser__Approved_isNull", this.IFUser__Approved_isNull);
-			info_in.AddValue("Approved_date", this.approved_date_);
-			info_in.AddValue("Approved_date_isNull", this.Approved_date_isNull);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IDSource", this.idsource_);
+			info.AddValue("IFApplication", this.ifapplication_);
+			info.AddValue("IFApplication_isNull", this.IFApplication_isNull);
+			info.AddValue("IFSource__parent", this.ifsource__parent_);
+			info.AddValue("IFSource__parent_isNull", this.IFSource__parent_isNull);
+			info.AddValue("Name", this.name_);
+			info.AddValue("IFUser__Approved", this.ifuser__approved_);
+			info.AddValue("IFUser__Approved_isNull", this.IFUser__Approved_isNull);
+			info.AddValue("Approved_date", this.approved_date_);
+			info.AddValue("Approved_date_isNull", this.Approved_date_isNull);
 		}
 		#endregion
 		#endregion

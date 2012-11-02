@@ -67,27 +67,27 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_vCRD_UserProfile();
 				if (dataTable_in.Rows[r][_dc_idprofile] == System.DBNull.Value) {
-					_output[r].idprofile_ = 0L;
+					_output[r].IDProfile = 0L;
 				} else {
-					_output[r].idprofile_ = (long)dataTable_in.Rows[r][_dc_idprofile];
+					_output[r].IDProfile = (long)dataTable_in.Rows[r][_dc_idprofile];
 				}
 				if (dataTable_in.Rows[r][_dc_profilename] == System.DBNull.Value) {
-					_output[r].profilename_ = string.Empty;
+					_output[r].ProfileName = string.Empty;
 				} else {
-					_output[r].profilename_ = (string)dataTable_in.Rows[r][_dc_profilename];
+					_output[r].ProfileName = (string)dataTable_in.Rows[r][_dc_profilename];
 				}
 				if (dataTable_in.Rows[r][_dc_iduser] == System.DBNull.Value) {
-					_output[r].iduser_ = 0L;
+					_output[r].IDUser = 0L;
 				} else {
-					_output[r].iduser_ = (long)dataTable_in.Rows[r][_dc_iduser];
+					_output[r].IDUser = (long)dataTable_in.Rows[r][_dc_iduser];
 				}
 				if (dataTable_in.Rows[r][_dc_hasprofile] == System.DBNull.Value) {
 					_output[r].hasProfile_isNull = true;
 				} else {
-					_output[r].hasprofile_ = (bool)dataTable_in.Rows[r][_dc_hasprofile];
+					_output[r].hasProfile = (bool)dataTable_in.Rows[r][_dc_hasprofile];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

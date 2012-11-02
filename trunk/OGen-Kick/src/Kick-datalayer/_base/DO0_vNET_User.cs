@@ -199,32 +199,32 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_vNET_User();
 				if (dataTable_in.Rows[r][_dc_iduser] == System.DBNull.Value) {
-					_output[r].iduser_ = 0L;
+					_output[r].IDUser = 0L;
 				} else {
-					_output[r].iduser_ = (long)dataTable_in.Rows[r][_dc_iduser];
+					_output[r].IDUser = (long)dataTable_in.Rows[r][_dc_iduser];
 				}
 				if (dataTable_in.Rows[r][_dc_ifapplication] == System.DBNull.Value) {
 					_output[r].IFApplication_isNull = true;
 				} else {
-					_output[r].ifapplication_ = (int)dataTable_in.Rows[r][_dc_ifapplication];
+					_output[r].IFApplication = (int)dataTable_in.Rows[r][_dc_ifapplication];
 				}
 				if (dataTable_in.Rows[r][_dc_login] == System.DBNull.Value) {
-					_output[r].login_ = string.Empty;
+					_output[r].Login = string.Empty;
 				} else {
-					_output[r].login_ = (string)dataTable_in.Rows[r][_dc_login];
+					_output[r].Login = (string)dataTable_in.Rows[r][_dc_login];
 				}
 				if (dataTable_in.Rows[r][_dc_name] == System.DBNull.Value) {
 					_output[r].Name_isNull = true;
 				} else {
-					_output[r].name_ = (string)dataTable_in.Rows[r][_dc_name];
+					_output[r].Name = (string)dataTable_in.Rows[r][_dc_name];
 				}
 				if (dataTable_in.Rows[r][_dc_email] == System.DBNull.Value) {
 					_output[r].EMail_isNull = true;
 				} else {
-					_output[r].email_ = (string)dataTable_in.Rows[r][_dc_email];
+					_output[r].EMail = (string)dataTable_in.Rows[r][_dc_email];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

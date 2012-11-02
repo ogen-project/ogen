@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_LOG_Logtype : 
-		SO__ListItem<int, string> 
+		SO__ListItem<int, string>, ISerializable
 	{
 		#region public SO_LOG_Logtype();
 		public SO_LOG_Logtype(
@@ -39,48 +39,49 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			string Name_in, 
 			int IFApplication_in
 		) {
-			this.haschanges_ = false;
-
 			this.idlogtype_ = IDLogtype_in;
 			this.iflogtype_parent_ = IFLogtype_parent_in;
 			this.name_ = Name_in;
 			this.ifapplication_ = IFApplication_in;
-		}
-		public SO_LOG_Logtype(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.idlogtype_ = (int)info_in.GetValue("IDLogtype", typeof(int));
+			this.haschanges_ = false;
+		}
+		protected SO_LOG_Logtype(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.idlogtype_ = (int)info.GetValue("IDLogtype", typeof(int));
 			this.iflogtype_parent_ 
-				= (info_in.GetValue("IFLogtype_parent", typeof(int)) == null)
+				= (info.GetValue("IFLogtype_parent", typeof(int)) == null)
 					? 0
-					: (int)info_in.GetValue("IFLogtype_parent", typeof(int));
-			this.IFLogtype_parent_isNull = (bool)info_in.GetValue("IFLogtype_parent_isNull", typeof(bool));
-			this.name_ = (string)info_in.GetValue("Name", typeof(string));
+					: (int)info.GetValue("IFLogtype_parent", typeof(int));
+			this.IFLogtype_parent_isNull = (bool)info.GetValue("IFLogtype_parent_isNull", typeof(bool));
+			this.name_ = (string)info.GetValue("Name", typeof(string));
 			this.ifapplication_ 
-				= (info_in.GetValue("IFApplication", typeof(int)) == null)
+				= (info.GetValue("IFApplication", typeof(int)) == null)
 					? 0
-					: (int)info_in.GetValue("IFApplication", typeof(int));
-			this.IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
+					: (int)info.GetValue("IFApplication", typeof(int));
+			this.IFApplication_isNull = (bool)info.GetValue("IFApplication_isNull", typeof(bool));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_LOG_Logtype properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -103,7 +104,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public int idlogtype_;// = 0;
+		private int idlogtype_;// = 0;
 		
 		/// <summary>
 		/// LOG_Logtype's IDLogtype.
@@ -151,7 +152,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object iflogtype_parent_;// = 0;
+		private object iflogtype_parent_;// = 0;
 		
 		/// <summary>
 		/// LOG_Logtype's IFLogtype_parent.
@@ -217,7 +218,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public string name_;// = string.Empty;
+		private string name_;// = string.Empty;
 		
 		/// <summary>
 		/// LOG_Logtype's Name.
@@ -267,7 +268,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object ifapplication_;// = 0;
+		private object ifapplication_;// = 0;
 		
 		/// <summary>
 		/// LOG_Logtype's IFApplication.
@@ -337,6 +338,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_LOG_Logtype[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_idlogtype = new DataColumn("IDLogtype", typeof(int));
@@ -362,24 +364,31 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {
 			this.idlogtype_ = 0;
 			this.iflogtype_parent_ = 0;
 			this.name_ = string.Empty;
 			this.ifapplication_ = 0;
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDLogtype", this.idlogtype_);
-			info_in.AddValue("IFLogtype_parent", this.iflogtype_parent_);
-			info_in.AddValue("IFLogtype_parent_isNull", this.IFLogtype_parent_isNull);
-			info_in.AddValue("Name", this.name_);
-			info_in.AddValue("IFApplication", this.ifapplication_);
-			info_in.AddValue("IFApplication_isNull", this.IFApplication_isNull);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IDLogtype", this.idlogtype_);
+			info.AddValue("IFLogtype_parent", this.iflogtype_parent_);
+			info.AddValue("IFLogtype_parent_isNull", this.IFLogtype_parent_isNull);
+			info.AddValue("Name", this.name_);
+			info.AddValue("IFApplication", this.ifapplication_);
+			info.AddValue("IFApplication_isNull", this.IFApplication_isNull);
 		}
 		#endregion
 		#endregion

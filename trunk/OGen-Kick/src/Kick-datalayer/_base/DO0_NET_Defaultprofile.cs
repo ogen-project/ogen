@@ -94,7 +94,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.IFProfile = (long)_dataparameters[1].Value;
 				}
 
-				_output.haschanges_ = false;
+				_output.hasChanges = false;
 				return _output;
 			}
 
@@ -233,7 +233,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
 
-			NET_Defaultprofile_in.IDDefaultprofile = (long)_dataparameters[0].Value;NET_Defaultprofile_in.haschanges_ = false;
+			NET_Defaultprofile_in.IDDefaultprofile = (long)_dataparameters[0].Value;NET_Defaultprofile_in.hasChanges = false;
 			
 
 			return NET_Defaultprofile_in.IDDefaultprofile;
@@ -265,7 +265,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			bool forceUpdate_in, 
 			DBConnection dbConnection_in
 		) {
-			if (forceUpdate_in || NET_Defaultprofile_in.haschanges_) {
+			if (forceUpdate_in || NET_Defaultprofile_in.hasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__utils.DBConnection_createInstance(
 						DO__utils.DBServerType,
@@ -283,7 +283,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_dataparameters
 				);
 				if (dbConnection_in == null) { _connection.Dispose(); }
-				NET_Defaultprofile_in.haschanges_ = false;
+				NET_Defaultprofile_in.hasChanges = false;
 			}
 		}
 		#endregion
@@ -466,17 +466,17 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_NET_Defaultprofile();
 				if (dataTable_in.Rows[r][_dc_iddefaultprofile] == System.DBNull.Value) {
-					_output[r].iddefaultprofile_ = 0L;
+					_output[r].IDDefaultprofile = 0L;
 				} else {
-					_output[r].iddefaultprofile_ = (long)dataTable_in.Rows[r][_dc_iddefaultprofile];
+					_output[r].IDDefaultprofile = (long)dataTable_in.Rows[r][_dc_iddefaultprofile];
 				}
 				if (dataTable_in.Rows[r][_dc_ifprofile] == System.DBNull.Value) {
-					_output[r].ifprofile_ = 0L;
+					_output[r].IFProfile = 0L;
 				} else {
-					_output[r].ifprofile_ = (long)dataTable_in.Rows[r][_dc_ifprofile];
+					_output[r].IFProfile = (long)dataTable_in.Rows[r][_dc_ifprofile];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

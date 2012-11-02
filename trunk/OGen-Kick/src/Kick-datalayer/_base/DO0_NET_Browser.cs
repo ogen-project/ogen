@@ -160,7 +160,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.HTTP_USER_AGENT__CRC = (long)_dataparameters[12].Value;
 				}
 
-				_output.haschanges_ = false;
+				_output.hasChanges = false;
 				return _output;
 			}
 
@@ -310,7 +310,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
 
-			NET_Browser_in.IDBrowser = (long)_dataparameters[0].Value;NET_Browser_in.haschanges_ = false;
+			NET_Browser_in.IDBrowser = (long)_dataparameters[0].Value;NET_Browser_in.hasChanges = false;
 			
 
 			return NET_Browser_in.IDBrowser;
@@ -342,7 +342,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			bool forceUpdate_in, 
 			DBConnection dbConnection_in
 		) {
-			if (forceUpdate_in || NET_Browser_in.haschanges_) {
+			if (forceUpdate_in || NET_Browser_in.hasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__utils.DBConnection_createInstance(
 						DO__utils.DBServerType,
@@ -371,7 +371,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_dataparameters
 				);
 				if (dbConnection_in == null) { _connection.Dispose(); }
-				NET_Browser_in.haschanges_ = false;
+				NET_Browser_in.hasChanges = false;
 			}
 		}
 		#endregion
@@ -421,72 +421,72 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_NET_Browser();
 				if (dataTable_in.Rows[r][_dc_idbrowser] == System.DBNull.Value) {
-					_output[r].idbrowser_ = 0L;
+					_output[r].IDBrowser = 0L;
 				} else {
-					_output[r].idbrowser_ = (long)dataTable_in.Rows[r][_dc_idbrowser];
+					_output[r].IDBrowser = (long)dataTable_in.Rows[r][_dc_idbrowser];
 				}
 				if (dataTable_in.Rows[r][_dc_http_full_signature] == System.DBNull.Value) {
-					_output[r].http_full_signature_ = string.Empty;
+					_output[r].HTTP_FULL_SIGNATURE = string.Empty;
 				} else {
-					_output[r].http_full_signature_ = (string)dataTable_in.Rows[r][_dc_http_full_signature];
+					_output[r].HTTP_FULL_SIGNATURE = (string)dataTable_in.Rows[r][_dc_http_full_signature];
 				}
 				if (dataTable_in.Rows[r][_dc_http_full_signature__crc] == System.DBNull.Value) {
-					_output[r].http_full_signature__crc_ = 0L;
+					_output[r].HTTP_FULL_SIGNATURE__CRC = 0L;
 				} else {
-					_output[r].http_full_signature__crc_ = (long)dataTable_in.Rows[r][_dc_http_full_signature__crc];
+					_output[r].HTTP_FULL_SIGNATURE__CRC = (long)dataTable_in.Rows[r][_dc_http_full_signature__crc];
 				}
 				if (dataTable_in.Rows[r][_dc_http_accept] == System.DBNull.Value) {
-					_output[r].http_accept_ = string.Empty;
+					_output[r].HTTP_ACCEPT = string.Empty;
 				} else {
-					_output[r].http_accept_ = (string)dataTable_in.Rows[r][_dc_http_accept];
+					_output[r].HTTP_ACCEPT = (string)dataTable_in.Rows[r][_dc_http_accept];
 				}
 				if (dataTable_in.Rows[r][_dc_http_accept__crc] == System.DBNull.Value) {
-					_output[r].http_accept__crc_ = 0L;
+					_output[r].HTTP_ACCEPT__CRC = 0L;
 				} else {
-					_output[r].http_accept__crc_ = (long)dataTable_in.Rows[r][_dc_http_accept__crc];
+					_output[r].HTTP_ACCEPT__CRC = (long)dataTable_in.Rows[r][_dc_http_accept__crc];
 				}
 				if (dataTable_in.Rows[r][_dc_http_accept_charset] == System.DBNull.Value) {
-					_output[r].http_accept_charset_ = string.Empty;
+					_output[r].HTTP_ACCEPT_CHARSET = string.Empty;
 				} else {
-					_output[r].http_accept_charset_ = (string)dataTable_in.Rows[r][_dc_http_accept_charset];
+					_output[r].HTTP_ACCEPT_CHARSET = (string)dataTable_in.Rows[r][_dc_http_accept_charset];
 				}
 				if (dataTable_in.Rows[r][_dc_http_accept_charset__crc] == System.DBNull.Value) {
-					_output[r].http_accept_charset__crc_ = 0L;
+					_output[r].HTTP_ACCEPT_CHARSET__CRC = 0L;
 				} else {
-					_output[r].http_accept_charset__crc_ = (long)dataTable_in.Rows[r][_dc_http_accept_charset__crc];
+					_output[r].HTTP_ACCEPT_CHARSET__CRC = (long)dataTable_in.Rows[r][_dc_http_accept_charset__crc];
 				}
 				if (dataTable_in.Rows[r][_dc_http_accept_encoding] == System.DBNull.Value) {
-					_output[r].http_accept_encoding_ = string.Empty;
+					_output[r].HTTP_ACCEPT_ENCODING = string.Empty;
 				} else {
-					_output[r].http_accept_encoding_ = (string)dataTable_in.Rows[r][_dc_http_accept_encoding];
+					_output[r].HTTP_ACCEPT_ENCODING = (string)dataTable_in.Rows[r][_dc_http_accept_encoding];
 				}
 				if (dataTable_in.Rows[r][_dc_http_accept_encoding__crc] == System.DBNull.Value) {
-					_output[r].http_accept_encoding__crc_ = 0L;
+					_output[r].HTTP_ACCEPT_ENCODING__CRC = 0L;
 				} else {
-					_output[r].http_accept_encoding__crc_ = (long)dataTable_in.Rows[r][_dc_http_accept_encoding__crc];
+					_output[r].HTTP_ACCEPT_ENCODING__CRC = (long)dataTable_in.Rows[r][_dc_http_accept_encoding__crc];
 				}
 				if (dataTable_in.Rows[r][_dc_http_accept_language] == System.DBNull.Value) {
-					_output[r].http_accept_language_ = string.Empty;
+					_output[r].HTTP_ACCEPT_LANGUAGE = string.Empty;
 				} else {
-					_output[r].http_accept_language_ = (string)dataTable_in.Rows[r][_dc_http_accept_language];
+					_output[r].HTTP_ACCEPT_LANGUAGE = (string)dataTable_in.Rows[r][_dc_http_accept_language];
 				}
 				if (dataTable_in.Rows[r][_dc_http_accept_language__crc] == System.DBNull.Value) {
-					_output[r].http_accept_language__crc_ = 0L;
+					_output[r].HTTP_ACCEPT_LANGUAGE__CRC = 0L;
 				} else {
-					_output[r].http_accept_language__crc_ = (long)dataTable_in.Rows[r][_dc_http_accept_language__crc];
+					_output[r].HTTP_ACCEPT_LANGUAGE__CRC = (long)dataTable_in.Rows[r][_dc_http_accept_language__crc];
 				}
 				if (dataTable_in.Rows[r][_dc_http_user_agent] == System.DBNull.Value) {
-					_output[r].http_user_agent_ = string.Empty;
+					_output[r].HTTP_USER_AGENT = string.Empty;
 				} else {
-					_output[r].http_user_agent_ = (string)dataTable_in.Rows[r][_dc_http_user_agent];
+					_output[r].HTTP_USER_AGENT = (string)dataTable_in.Rows[r][_dc_http_user_agent];
 				}
 				if (dataTable_in.Rows[r][_dc_http_user_agent__crc] == System.DBNull.Value) {
-					_output[r].http_user_agent__crc_ = 0L;
+					_output[r].HTTP_USER_AGENT__CRC = 0L;
 				} else {
-					_output[r].http_user_agent__crc_ = (long)dataTable_in.Rows[r][_dc_http_user_agent__crc];
+					_output[r].HTTP_USER_AGENT__CRC = (long)dataTable_in.Rows[r][_dc_http_user_agent__crc];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

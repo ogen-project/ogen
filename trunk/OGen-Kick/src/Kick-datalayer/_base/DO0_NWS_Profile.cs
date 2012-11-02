@@ -100,7 +100,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.Approved_date = (DateTime)_dataparameters[2].Value;
 				}
 
-				_output.haschanges_ = false;
+				_output.hasChanges = false;
 				return _output;
 			}
 
@@ -221,7 +221,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			DBConnection dbConnection_in
 		) {
 			bool ConstraintExist_out;
-			if (forceUpdate_in || NWS_Profile_in.haschanges_) {
+			if (forceUpdate_in || NWS_Profile_in.hasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__utils.DBConnection_createInstance(
 						DO__utils.DBServerType,
@@ -245,7 +245,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				ConstraintExist_out = (((int)_dataparameters[3].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					NWS_Profile_in.haschanges_ = false;
+					NWS_Profile_in.hasChanges = false;
 				}
 
 				return (((int)_dataparameters[3].Value & 1) != 1);
@@ -282,22 +282,22 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_NWS_Profile();
 				if (dataTable_in.Rows[r][_dc_ifprofile] == System.DBNull.Value) {
-					_output[r].ifprofile_ = 0L;
+					_output[r].IFProfile = 0L;
 				} else {
-					_output[r].ifprofile_ = (long)dataTable_in.Rows[r][_dc_ifprofile];
+					_output[r].IFProfile = (long)dataTable_in.Rows[r][_dc_ifprofile];
 				}
 				if (dataTable_in.Rows[r][_dc_ifuser__approved] == System.DBNull.Value) {
 					_output[r].IFUser__Approved_isNull = true;
 				} else {
-					_output[r].ifuser__approved_ = (long)dataTable_in.Rows[r][_dc_ifuser__approved];
+					_output[r].IFUser__Approved = (long)dataTable_in.Rows[r][_dc_ifuser__approved];
 				}
 				if (dataTable_in.Rows[r][_dc_approved_date] == System.DBNull.Value) {
 					_output[r].Approved_date_isNull = true;
 				} else {
-					_output[r].approved_date_ = (DateTime)dataTable_in.Rows[r][_dc_approved_date];
+					_output[r].Approved_date = (DateTime)dataTable_in.Rows[r][_dc_approved_date];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

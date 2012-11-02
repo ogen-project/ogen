@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 	/// </summary>
 	[Serializable()]
 	public class SO_LOG_Log : 
-		SO__base 
+		ISerializable
 	{
 		#region public SO_LOG_Log();
 		public SO_LOG_Log(
@@ -46,8 +46,6 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			int IFApplication_in, 
 			long IFBrowser__OPT_in
 		) {
-			this.haschanges_ = false;
-
 			this.idlog_ = IDLog_in;
 			this.iflogtype_ = IFLogtype_in;
 			this.ifuser_ = IFUser_in;
@@ -59,69 +57,72 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			this.ifpermition_ = IFPermition_in;
 			this.ifapplication_ = IFApplication_in;
 			this.ifbrowser__opt_ = IFBrowser__OPT_in;
-		}
-		public SO_LOG_Log(
-			SerializationInfo info_in,
-			StreamingContext context_in
-		) {
-			this.haschanges_ = false;
 
-			this.idlog_ = (long)info_in.GetValue("IDLog", typeof(long));
-			this.iflogtype_ = (int)info_in.GetValue("IFLogtype", typeof(int));
+			this.haschanges_ = false;
+		}
+		protected SO_LOG_Log(
+			SerializationInfo info,
+			StreamingContext context
+		) {
+			this.idlog_ = (long)info.GetValue("IDLog", typeof(long));
+			this.iflogtype_ = (int)info.GetValue("IFLogtype", typeof(int));
 			this.ifuser_ 
-				= (info_in.GetValue("IFUser", typeof(long)) == null)
+				= (info.GetValue("IFUser", typeof(long)) == null)
 					? 0L
-					: (long)info_in.GetValue("IFUser", typeof(long));
-			this.IFUser_isNull = (bool)info_in.GetValue("IFUser_isNull", typeof(bool));
+					: (long)info.GetValue("IFUser", typeof(long));
+			this.IFUser_isNull = (bool)info.GetValue("IFUser_isNull", typeof(bool));
 			this.ifuser__read_ 
-				= (info_in.GetValue("IFUser__read", typeof(long)) == null)
+				= (info.GetValue("IFUser__read", typeof(long)) == null)
 					? 0L
-					: (long)info_in.GetValue("IFUser__read", typeof(long));
-			this.IFUser__read_isNull = (bool)info_in.GetValue("IFUser__read_isNull", typeof(bool));
+					: (long)info.GetValue("IFUser__read", typeof(long));
+			this.IFUser__read_isNull = (bool)info.GetValue("IFUser__read_isNull", typeof(bool));
 			this.iferrortype_ 
-				= (info_in.GetValue("IFErrortype", typeof(int)) == null)
+				= (info.GetValue("IFErrortype", typeof(int)) == null)
 					? 0
-					: (int)info_in.GetValue("IFErrortype", typeof(int));
-			this.IFErrortype_isNull = (bool)info_in.GetValue("IFErrortype_isNull", typeof(bool));
-			this.stamp_ = (DateTime)info_in.GetValue("Stamp", typeof(DateTime));
+					: (int)info.GetValue("IFErrortype", typeof(int));
+			this.IFErrortype_isNull = (bool)info.GetValue("IFErrortype_isNull", typeof(bool));
+			this.stamp_ = (DateTime)info.GetValue("Stamp", typeof(DateTime));
 			this.stamp__read_ 
-				= (info_in.GetValue("Stamp__read", typeof(DateTime)) == null)
+				= (info.GetValue("Stamp__read", typeof(DateTime)) == null)
 					? new DateTime(1900, 1, 1)
-					: (DateTime)info_in.GetValue("Stamp__read", typeof(DateTime));
-			this.Stamp__read_isNull = (bool)info_in.GetValue("Stamp__read_isNull", typeof(bool));
-			this.message_ = (string)info_in.GetValue("Message", typeof(string));
+					: (DateTime)info.GetValue("Stamp__read", typeof(DateTime));
+			this.Stamp__read_isNull = (bool)info.GetValue("Stamp__read_isNull", typeof(bool));
+			this.message_ = (string)info.GetValue("Message", typeof(string));
 			this.ifpermition_ 
-				= (info_in.GetValue("IFPermition", typeof(long)) == null)
+				= (info.GetValue("IFPermition", typeof(long)) == null)
 					? 0L
-					: (long)info_in.GetValue("IFPermition", typeof(long));
-			this.IFPermition_isNull = (bool)info_in.GetValue("IFPermition_isNull", typeof(bool));
+					: (long)info.GetValue("IFPermition", typeof(long));
+			this.IFPermition_isNull = (bool)info.GetValue("IFPermition_isNull", typeof(bool));
 			this.ifapplication_ 
-				= (info_in.GetValue("IFApplication", typeof(int)) == null)
+				= (info.GetValue("IFApplication", typeof(int)) == null)
 					? 0
-					: (int)info_in.GetValue("IFApplication", typeof(int));
-			this.IFApplication_isNull = (bool)info_in.GetValue("IFApplication_isNull", typeof(bool));
+					: (int)info.GetValue("IFApplication", typeof(int));
+			this.IFApplication_isNull = (bool)info.GetValue("IFApplication_isNull", typeof(bool));
 			this.ifbrowser__opt_ 
-				= (info_in.GetValue("IFBrowser__OPT", typeof(long)) == null)
+				= (info.GetValue("IFBrowser__OPT", typeof(long)) == null)
 					? 0L
-					: (long)info_in.GetValue("IFBrowser__OPT", typeof(long));
-			this.IFBrowser__OPT_isNull = (bool)info_in.GetValue("IFBrowser__OPT_isNull", typeof(bool));
+					: (long)info.GetValue("IFBrowser__OPT", typeof(long));
+			this.IFBrowser__OPT_isNull = (bool)info.GetValue("IFBrowser__OPT_isNull", typeof(bool));
+
+			this.haschanges_ = false;
 		}
 		#endregion
 
 		#region Properties...
-		#region public override bool hasChanges { get; }
+		#region public bool hasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool haschanges_;
+		private bool haschanges_;
 
 		/// <summary>
 		/// Indicates if changes have been made to FO0_LOG_Log properties since last time getObject method was run.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public override bool hasChanges {
+		public bool hasChanges {
 			get { return this.haschanges_; }
+			set { this.haschanges_ = value; }
 		}
 		#endregion
 
@@ -129,7 +130,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public long idlog_;// = 0L;
+		private long idlog_;// = 0L;
 		
 		/// <summary>
 		/// LOG_Log's IDLog.
@@ -177,7 +178,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public int iflogtype_;// = 0;
+		private int iflogtype_;// = 0;
 		
 		/// <summary>
 		/// LOG_Log's IFLogtype.
@@ -225,7 +226,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object ifuser_;// = 0L;
+		private object ifuser_;// = 0L;
 		
 		/// <summary>
 		/// LOG_Log's IFUser.
@@ -291,7 +292,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object ifuser__read_;// = 0L;
+		private object ifuser__read_;// = 0L;
 		
 		/// <summary>
 		/// LOG_Log's IFUser__read.
@@ -357,7 +358,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object iferrortype_;// = 0;
+		private object iferrortype_;// = 0;
 		
 		/// <summary>
 		/// LOG_Log's IFErrortype.
@@ -423,7 +424,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public DateTime stamp_;// = new DateTime(1900, 1, 1);
+		private DateTime stamp_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>
 		/// LOG_Log's Stamp.
@@ -471,7 +472,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object stamp__read_;// = new DateTime(1900, 1, 1);
+		private object stamp__read_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>
 		/// LOG_Log's Stamp__read.
@@ -537,7 +538,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public string message_;// = string.Empty;
+		private string message_;// = string.Empty;
 		
 		/// <summary>
 		/// LOG_Log's Message.
@@ -587,7 +588,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object ifpermition_;// = 0L;
+		private object ifpermition_;// = 0L;
 		
 		/// <summary>
 		/// LOG_Log's IFPermition.
@@ -653,7 +654,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object ifapplication_;// = 0;
+		private object ifapplication_;// = 0;
 		
 		/// <summary>
 		/// LOG_Log's IFApplication.
@@ -719,7 +720,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public object ifbrowser__opt_;// = 0L;
+		private object ifbrowser__opt_;// = 0L;
 		
 		/// <summary>
 		/// LOG_Log's IFBrowser__OPT.
@@ -789,6 +790,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			SO_LOG_Log[] serializableobjects_in
 		) {
 			DataTable _output = new DataTable();
+			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 			DataRow _dr;
 
 			DataColumn _dc_idlog = new DataColumn("IDLog", typeof(long));
@@ -835,10 +837,11 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			return _output;
 		}
 		#endregion
-		#region public override void Clear();
-		public override void Clear() {
-			this.haschanges_ = false;
-
+		#region public void Clear();
+		/// <summary>
+		/// Clears SerializableObject's properties.
+		/// </summary>
+		public void Clear() {
 			this.idlog_ = 0L;
 			this.iflogtype_ = 0;
 			this.ifuser_ = 0L;
@@ -850,28 +853,34 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			this.ifpermition_ = 0L;
 			this.ifapplication_ = 0;
 			this.ifbrowser__opt_ = 0L;
+
+			this.haschanges_ = false;
 		}
 		#endregion
-		#region public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in);
-		public override void GetObjectData(SerializationInfo info_in, StreamingContext context_in) {
-			info_in.AddValue("IDLog", this.idlog_);
-			info_in.AddValue("IFLogtype", this.iflogtype_);
-			info_in.AddValue("IFUser", this.ifuser_);
-			info_in.AddValue("IFUser_isNull", this.IFUser_isNull);
-			info_in.AddValue("IFUser__read", this.ifuser__read_);
-			info_in.AddValue("IFUser__read_isNull", this.IFUser__read_isNull);
-			info_in.AddValue("IFErrortype", this.iferrortype_);
-			info_in.AddValue("IFErrortype_isNull", this.IFErrortype_isNull);
-			info_in.AddValue("Stamp", this.stamp_);
-			info_in.AddValue("Stamp__read", this.stamp__read_);
-			info_in.AddValue("Stamp__read_isNull", this.Stamp__read_isNull);
-			info_in.AddValue("Message", this.message_);
-			info_in.AddValue("IFPermition", this.ifpermition_);
-			info_in.AddValue("IFPermition_isNull", this.IFPermition_isNull);
-			info_in.AddValue("IFApplication", this.ifapplication_);
-			info_in.AddValue("IFApplication_isNull", this.IFApplication_isNull);
-			info_in.AddValue("IFBrowser__OPT", this.ifbrowser__opt_);
-			info_in.AddValue("IFBrowser__OPT_isNull", this.IFBrowser__OPT_isNull);
+		#region public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
+		[System.Security.Permissions.SecurityPermission(
+			System.Security.Permissions.SecurityAction.LinkDemand,
+			Flags = System.Security.Permissions.SecurityPermissionFlag.SerializationFormatter
+		)]
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
+			info.AddValue("IDLog", this.idlog_);
+			info.AddValue("IFLogtype", this.iflogtype_);
+			info.AddValue("IFUser", this.ifuser_);
+			info.AddValue("IFUser_isNull", this.IFUser_isNull);
+			info.AddValue("IFUser__read", this.ifuser__read_);
+			info.AddValue("IFUser__read_isNull", this.IFUser__read_isNull);
+			info.AddValue("IFErrortype", this.iferrortype_);
+			info.AddValue("IFErrortype_isNull", this.IFErrortype_isNull);
+			info.AddValue("Stamp", this.stamp_);
+			info.AddValue("Stamp__read", this.stamp__read_);
+			info.AddValue("Stamp__read_isNull", this.Stamp__read_isNull);
+			info.AddValue("Message", this.message_);
+			info.AddValue("IFPermition", this.ifpermition_);
+			info.AddValue("IFPermition_isNull", this.IFPermition_isNull);
+			info.AddValue("IFApplication", this.ifapplication_);
+			info.AddValue("IFApplication_isNull", this.IFApplication_isNull);
+			info.AddValue("IFBrowser__OPT", this.ifbrowser__opt_);
+			info.AddValue("IFBrowser__OPT_isNull", this.IFBrowser__OPT_isNull);
 		}
 		#endregion
 		#endregion

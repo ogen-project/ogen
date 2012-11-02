@@ -168,7 +168,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 				}<%
 				}%>
 
-				_output.haschanges_ = false;
+				_output.hasChanges = false;
 				return _output;
 			}
 
@@ -339,7 +339,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 			<%if (!_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {
 				%>bool ConstraintExist_out;
 			<%}
-			%>if (forceUpdate_in || <%=_aux_db_table.Name%>_in.haschanges_) {
+			%>if (forceUpdate_in || <%=_aux_db_table.Name%>_in.hasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__utils.DBConnection_createInstance(
 						DO__utils.DBServerType,
@@ -374,7 +374,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 
 				ConstraintExist_out = (((int)_dataparameters[<%=_aux_db_table.TableFields.TableFieldCollection.Count%>].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					<%=_aux_db_table.Name%>_in.haschanges_ = false;<%
+					<%=_aux_db_table.Name%>_in.hasChanges = false;<%
 
 
 
@@ -539,10 +539,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 			if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 			constraintExist_out = (<%=_aux_db_table.Name%>_in.<%=_aux_db_field.Name%> == -1L);
 			if (!constraintExist_out) {
-				<%=_aux_db_table.Name%>_in.haschanges_ = false;
+				<%=_aux_db_table.Name%>_in.hasChanges = false;
 			}<%
 			} else {%>
-			<%=_aux_db_table.Name%>_in.haschanges_ = false;
+			<%=_aux_db_table.Name%>_in.hasChanges = false;
 			<%}%>
 
 			return <%=_aux_db_table.Name%>_in.<%=_aux_db_field.Name%>;
@@ -586,7 +586,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 			out bool constraintExist_out, " : ""%>
 			DBConnection dbConnection_in
 		) {
-			if (forceUpdate_in || <%=_aux_db_table.Name%>_in.haschanges_) {
+			if (forceUpdate_in || <%=_aux_db_table.Name%>_in.hasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__utils.DBConnection_createInstance(
 						DO__utils.DBServerType,
@@ -618,10 +618,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 				<%if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 				constraintExist_out = <%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? "(bool)_dataparameters[" + (_aux_db_table.TableFields.TableFieldCollection.Count) + "].Value" : "false"%>;
 				if (!constraintExist_out) {
-					<%=_aux_db_table.Name%>_in.haschanges_ = false;
+					<%=_aux_db_table.Name%>_in.hasChanges = false;
 				}<%
 				} else {
-				%><%=_aux_db_table.Name%>_in.haschanges_ = false;<%
+				%><%=_aux_db_table.Name%>_in.hasChanges = false;<%
 				}%>
 			<%if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 			} else {
@@ -737,7 +737,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 				}<%
 				}%>
 
-				<%--_output.haschanges_ = false;
+				<%--_output.hasChanges = false;
 				--%>return _output;
 			}
 
@@ -921,7 +921,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 			bool forceUpdate_in<%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? @", 
 			out bool constraintExist_out" : ""%>
 		) {
-			if (forceUpdate_in || fields_.haschanges_) {
+			if (forceUpdate_in || fields_.hasChanges) {
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
 					for (int f = 0; f < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; f++) {
 						_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[f];
@@ -945,10 +945,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 				<%if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 				constraintExist_out = <%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? "(bool)_dataparameters[" + (_aux_db_table.TableFields.TableFieldCollection.Count) + "].Value" : "false"%>;
 				if (!constraintExist_out) {
-					fields_.haschanges_ = false;
+					fields_.hasChanges = false;
 				}<%
 				} else {
-				%>fields_.haschanges_ = false;<%
+				%>fields_.hasChanges = false;<%
 				}%>
 			<%if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 			} else {
@@ -993,14 +993,14 @@ if (!_aux_db_table.isVirtualTable) {%>
 					if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%>
 					_output[r].<%=_aux_db_field.Name%>_isNull = true;<%
 					} else {%><%=""%>
-					_output[r].<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = <%=_aux_db_field.DBType_generic.FWEmptyValue%>;<%
+					_output[r].<%=_aux_db_field.Name%> = <%=_aux_db_field.DBType_generic.FWEmptyValue%>;<%
 					}%>
 				} else {
-					_output[r].<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = (<%=_aux_db_field.DBType_generic.FWType%>)dataTable_in.Rows[r][_dc_<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>];
+					_output[r].<%=_aux_db_field.Name%> = (<%=_aux_db_field.DBType_generic.FWType%>)dataTable_in.Rows[r][_dc_<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>];
 				}<%
 				}%>
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

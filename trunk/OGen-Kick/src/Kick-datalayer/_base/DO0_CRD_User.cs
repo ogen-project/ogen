@@ -106,7 +106,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.IFApplication = (int)_dataparameters[3].Value;
 				}
 
-				_output.haschanges_ = false;
+				_output.hasChanges = false;
 				return _output;
 			}
 
@@ -255,7 +255,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			CRD_User_in.IDUser = (long)_dataparameters[0].Value;
 			constraintExist_out = (CRD_User_in.IDUser == -1L);
 			if (!constraintExist_out) {
-				CRD_User_in.haschanges_ = false;
+				CRD_User_in.hasChanges = false;
 			}
 
 			return CRD_User_in.IDUser;
@@ -292,7 +292,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			out bool constraintExist_out, 
 			DBConnection dbConnection_in
 		) {
-			if (forceUpdate_in || CRD_User_in.haschanges_) {
+			if (forceUpdate_in || CRD_User_in.hasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__utils.DBConnection_createInstance(
 						DO__utils.DBServerType,
@@ -317,7 +317,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				
 				constraintExist_out = (bool)_dataparameters[4].Value;
 				if (!constraintExist_out) {
-					CRD_User_in.haschanges_ = false;
+					CRD_User_in.hasChanges = false;
 				}
 			} else {
 				constraintExist_out = false;
@@ -537,27 +537,27 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_CRD_User();
 				if (dataTable_in.Rows[r][_dc_iduser] == System.DBNull.Value) {
-					_output[r].iduser_ = 0L;
+					_output[r].IDUser = 0L;
 				} else {
-					_output[r].iduser_ = (long)dataTable_in.Rows[r][_dc_iduser];
+					_output[r].IDUser = (long)dataTable_in.Rows[r][_dc_iduser];
 				}
 				if (dataTable_in.Rows[r][_dc_login] == System.DBNull.Value) {
-					_output[r].login_ = string.Empty;
+					_output[r].Login = string.Empty;
 				} else {
-					_output[r].login_ = (string)dataTable_in.Rows[r][_dc_login];
+					_output[r].Login = (string)dataTable_in.Rows[r][_dc_login];
 				}
 				if (dataTable_in.Rows[r][_dc_password] == System.DBNull.Value) {
-					_output[r].password_ = string.Empty;
+					_output[r].Password = string.Empty;
 				} else {
-					_output[r].password_ = (string)dataTable_in.Rows[r][_dc_password];
+					_output[r].Password = (string)dataTable_in.Rows[r][_dc_password];
 				}
 				if (dataTable_in.Rows[r][_dc_ifapplication] == System.DBNull.Value) {
 					_output[r].IFApplication_isNull = true;
 				} else {
-					_output[r].ifapplication_ = (int)dataTable_in.Rows[r][_dc_ifapplication];
+					_output[r].IFApplication = (int)dataTable_in.Rows[r][_dc_ifapplication];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;

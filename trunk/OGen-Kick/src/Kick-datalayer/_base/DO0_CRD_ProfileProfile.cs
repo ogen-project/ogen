@@ -99,7 +99,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.IFProfile_parent = (long)_dataparameters[1].Value;
 				}
 
-				_output.haschanges_ = false;
+				_output.hasChanges = false;
 				return _output;
 			}
 
@@ -232,7 +232,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			DBConnection dbConnection_in
 		) {
 			bool ConstraintExist_out;
-			if (forceUpdate_in || CRD_ProfileProfile_in.haschanges_) {
+			if (forceUpdate_in || CRD_ProfileProfile_in.hasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__utils.DBConnection_createInstance(
 						DO__utils.DBServerType,
@@ -255,7 +255,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				ConstraintExist_out = (((int)_dataparameters[2].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					CRD_ProfileProfile_in.haschanges_ = false;
+					CRD_ProfileProfile_in.hasChanges = false;
 				}
 
 				return (((int)_dataparameters[2].Value & 1) != 1);
@@ -290,17 +290,17 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				_output[r] = new SO_CRD_ProfileProfile();
 				if (dataTable_in.Rows[r][_dc_ifprofile] == System.DBNull.Value) {
-					_output[r].ifprofile_ = 0L;
+					_output[r].IFProfile = 0L;
 				} else {
-					_output[r].ifprofile_ = (long)dataTable_in.Rows[r][_dc_ifprofile];
+					_output[r].IFProfile = (long)dataTable_in.Rows[r][_dc_ifprofile];
 				}
 				if (dataTable_in.Rows[r][_dc_ifprofile_parent] == System.DBNull.Value) {
-					_output[r].ifprofile_parent_ = 0L;
+					_output[r].IFProfile_parent = 0L;
 				} else {
-					_output[r].ifprofile_parent_ = (long)dataTable_in.Rows[r][_dc_ifprofile_parent];
+					_output[r].IFProfile_parent = (long)dataTable_in.Rows[r][_dc_ifprofile_parent];
 				}
 
-				_output[r].haschanges_ = false;
+				_output[r].hasChanges = false;
 			}
 
 			return _output;
