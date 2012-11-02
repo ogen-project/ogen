@@ -265,9 +265,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			} else {
 				foreach (SO_DIC__TextLanguage _tx_name in tx_Name_in) {
 					if (
-						(_tx_name.Text = _tx_name.Text.Trim())
-						==
-						""
+						(_tx_name.Text = _tx_name.Text.Trim()).Length == 0
 					) {
 						errorlist_out.Add(ErrorType.tag__invalid_name);
 						return false;
@@ -630,7 +628,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#endregion
 
 		#region public static void delObject(...);
-		private static DateTime datetime_minvalue_ = new DateTime(1900, 1, 1);
+		//private static DateTime datetime_minvalue_ = new DateTime(1900, 1, 1);
 
 		[BOMethodAttribute("delObject", true, false, 1)]
 		public static void delObject(

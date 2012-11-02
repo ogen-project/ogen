@@ -63,7 +63,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			SO_LOG_Log _log = new SO_LOG_Log();
 
 			#region _log.Message = ...;
-			_log.Message = string.Format(format_in, args_in);
+			_log.Message = string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
+				format_in, 
+				args_in
+			);
 			if (_log.Message.Length > MessageSize) {
 				_log.Message = _log.Message.Substring(0, MessageSize);
 			}
@@ -116,16 +120,19 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			Console.WriteLine(
 			    ".--- Log ---\n{0}{1}{2}|message: {3}\n'-----------",
 				LogType.Items.ContainsKey(logtype_in) ? string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"|log type: {0}\n", 
 					LogType.Items[logtype_in].Name
 				) : "", 
 				ErrorType.Items.ContainsKey(errortype_in) ? string.Format(
+					System.Globalization.CultureInfo.CurrentCulture,
 					"|error type: {0}\n", 
 					ErrorType.Items[errortype_in].Name
 				) : "", 
 				!_log.IFUser_isNull ? string.Format(
-					"|user: {0}\n", 
-					_log.IFUser.ToString()
+					System.Globalization.CultureInfo.CurrentCulture,
+					"|user: {0}\n",
+					_log.IFUser.ToString(System.Globalization.CultureInfo.CurrentCulture)
 				) : "", 
 				_log.Message
 			);

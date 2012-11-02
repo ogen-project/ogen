@@ -50,13 +50,17 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 #endregion
 <%
 	}
-}%>using System;
-
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.instances;
-
+}%>
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.instances.utils {
-	public class Config {
-		private Config() { }
+	using System;
+
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.instances;
+
+#if NET_1_1
+	public class Config { private Config() { }
+#else
+	public static class Config {
+#endif
 
 		public static void ReConfig() {<%
 			for (int i = 0; i < _aux_business_metadata.Classes.ClassCollection.Count; i++) {

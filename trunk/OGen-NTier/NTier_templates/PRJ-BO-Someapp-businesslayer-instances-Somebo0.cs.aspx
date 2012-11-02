@@ -71,33 +71,27 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.in
 	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webservices.client;
 	#endif
 
-	public class <%=_aux_class.Name%> {
-		private <%=_aux_class.Name%>() { }
-
-		static <%=_aux_class.Name%>() {
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-			BusinessObject = new BO_<%=_aux_class.Name%>();
-			RemotingClient = new RC_<%=_aux_class.Name%>();
-			WebserviceClient = new WC_<%=_aux_class.Name%>();
+#if NET_1_1
+	public class <%=_aux_class.Name%> { private <%=_aux_class.Name%>() { }
 #else
+	public static class <%=_aux_class.Name%> {
+#endif
+
+#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
+		public static IBO_<%=_aux_class.Name%> BusinessObject = new BO_<%=_aux_class.Name%>();
+		public static IBO_<%=_aux_class.Name%> RemotingClient = new RC_<%=_aux_class.Name%>();
+		public static IBO_<%=_aux_class.Name%> WebserviceClient = new WC_<%=_aux_class.Name%>();
+#else
+		public static IBO_<%=_aux_class.Name%> InstanceClient
 #if BUSINESSOBJECT
-			InstanceClient = new BO_<%=_aux_class.Name%>();
+			= new BO_<%=_aux_class.Name%>();
 #endif
 #if REMOTINGCLIENT
-			InstanceClient = new RC_<%=_aux_class.Name%>();
+			= new RC_<%=_aux_class.Name%>();
 #endif
 #if WEBSERVICESCLIENT
-			InstanceClient = new WC_<%=_aux_class.Name%>();
+			= new WC_<%=_aux_class.Name%>();
 #endif
-#endif
-		}
-
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-		public static IBO_<%=_aux_class.Name%> BusinessObject;
-		public static IBO_<%=_aux_class.Name%> RemotingClient;
-		public static IBO_<%=_aux_class.Name%> WebserviceClient;
-#else
-		public static IBO_<%=_aux_class.Name%> InstanceClient;
 #endif
 
 		public static void ReConfig() {

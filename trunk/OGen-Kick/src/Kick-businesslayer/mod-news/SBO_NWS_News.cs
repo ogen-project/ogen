@@ -305,9 +305,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 //			#region check Content ...
 #if !DEBUG
 			if (
-(profile_ref.Name = profile_ref.Name.Trim())
-==
-""
+(profile_ref.Name = profile_ref.Name.Trim()).Length == 0
 			) {
 errors_out.Add(ErrorType.profile__invalid_name);
 				return false;

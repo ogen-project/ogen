@@ -228,6 +228,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 							null,
 							"Confirmação da Alteração de Contacto",
 							string.Format(
+								System.Globalization.CultureInfo.CurrentCulture,
 								@"
 Para associar à sua conta o novo contacto de email, por favor, clique no link que se segue:
 
@@ -533,9 +534,9 @@ A equipa {2}
 			if (
 				updateName_in
 				&&
-				(name_in 
+				((name_in 
 					= name_in.Trim()
-				) == ""
+				).Length == 0)
 			) {
 				_errorlist.Add(ErrorType.web__user__invalid_name);
 				errors_out = _errorlist.ToArray();
@@ -1092,6 +1093,7 @@ A equipa {2}
 					null,
 					"Recuperar Registo",
 					string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
 						@"
 Para recuperar o seu registo, por favor, clique no link que se segue:
 
@@ -1310,6 +1312,7 @@ A equipa {2}",
 								null,
 								"Confirmação de Registo",
 								string.Format(
+									System.Globalization.CultureInfo.CurrentCulture,
 									@"
 Bem vindo ao {2}
  
@@ -1432,10 +1435,11 @@ A equipa {2}",
 				return System.Web.HttpUtility.UrlEncode(
 					OGen.lib.crypt.utils.Server.RSA_Server_public_Encrypt64(
 						string.Format(
+							System.Globalization.CultureInfo.CurrentCulture,
 							"{0}|{1}",
 
 							// valid for 2 days
-							DateTime.Now.AddDays(2).Ticks.ToString(),
+							DateTime.Now.AddDays(2).Ticks.ToString(System.Globalization.CultureInfo.CurrentCulture),
 							string.Join("|", words_in)
 						)
 					)

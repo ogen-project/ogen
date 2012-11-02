@@ -137,9 +137,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			#region check Highlight ...
 			if (
-				(highlight_ref.Name = highlight_ref.Name.Trim())
-				==
-				""
+				(highlight_ref.Name = highlight_ref.Name.Trim()).Length == 0
 			) {
 				errorlist_out.Add(ErrorType.highlight__invalid_name);
 				return false;
@@ -350,7 +348,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#endregion
 
 		#region public static void delObject(...);
-		private static DateTime datetime_minvalue_ = new DateTime(1900, 1, 1);
+		//private static DateTime datetime_minvalue_ = new DateTime(1900, 1, 1);
 
 		[BOMethodAttribute("delObject", true, false, 1)]
 		public static void delObject(

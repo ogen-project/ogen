@@ -295,7 +295,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return;
 			}
 
-			if (login_in.Trim() == string.Empty) {
+			if (string.IsNullOrEmpty(login_in)) {
 				_errorlist.Add(ErrorType.authentication__invalid_login);
 
 				errors_out = _errorlist.ToArray();
@@ -391,7 +391,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				)
 			) {
 				_errorlist.Add(ErrorType.authentication__change_password__wrong_password);
-			} else if (password_new_in.Trim() == "") {
+			} else if (string.IsNullOrEmpty(password_new_in)) {
 				_errorlist.Add(ErrorType.authentication__change_password__invalid_password);
 			} else {
 				_user.Password

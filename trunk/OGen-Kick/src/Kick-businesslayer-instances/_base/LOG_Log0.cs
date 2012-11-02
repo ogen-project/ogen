@@ -29,33 +29,27 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared.instances {
 	using OGen.NTier.Kick.lib.distributedlayer.webservices.client;
 	#endif
 
-	public class LOG_Log {
-		private LOG_Log() { }
-
-		static LOG_Log() {
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-			BusinessObject = new BO_LOG_Log();
-			RemotingClient = new RC_LOG_Log();
-			WebserviceClient = new WC_LOG_Log();
+#if NET_1_1
+	public class LOG_Log { private LOG_Log() { }
 #else
+	public static class LOG_Log {
+#endif
+
+#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
+		public static IBO_LOG_Log BusinessObject = new BO_LOG_Log();
+		public static IBO_LOG_Log RemotingClient = new RC_LOG_Log();
+		public static IBO_LOG_Log WebserviceClient = new WC_LOG_Log();
+#else
+		public static IBO_LOG_Log InstanceClient
 #if BUSINESSOBJECT
-			InstanceClient = new BO_LOG_Log();
+			= new BO_LOG_Log();
 #endif
 #if REMOTINGCLIENT
-			InstanceClient = new RC_LOG_Log();
+			= new RC_LOG_Log();
 #endif
 #if WEBSERVICESCLIENT
-			InstanceClient = new WC_LOG_Log();
+			= new WC_LOG_Log();
 #endif
-#endif
-		}
-
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-		public static IBO_LOG_Log BusinessObject;
-		public static IBO_LOG_Log RemotingClient;
-		public static IBO_LOG_Log WebserviceClient;
-#else
-		public static IBO_LOG_Log InstanceClient;
 #endif
 
 		public static void ReConfig() {

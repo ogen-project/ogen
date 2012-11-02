@@ -29,33 +29,27 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared.instances {
 	using OGen.NTier.Kick.lib.distributedlayer.webservices.client;
 	#endif
 
-	public class WEB_DefaultProfile {
-		private WEB_DefaultProfile() { }
-
-		static WEB_DefaultProfile() {
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-			BusinessObject = new BO_WEB_DefaultProfile();
-			RemotingClient = new RC_WEB_DefaultProfile();
-			WebserviceClient = new WC_WEB_DefaultProfile();
+#if NET_1_1
+	public class WEB_DefaultProfile { private WEB_DefaultProfile() { }
 #else
+	public static class WEB_DefaultProfile {
+#endif
+
+#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
+		public static IBO_WEB_DefaultProfile BusinessObject = new BO_WEB_DefaultProfile();
+		public static IBO_WEB_DefaultProfile RemotingClient = new RC_WEB_DefaultProfile();
+		public static IBO_WEB_DefaultProfile WebserviceClient = new WC_WEB_DefaultProfile();
+#else
+		public static IBO_WEB_DefaultProfile InstanceClient
 #if BUSINESSOBJECT
-			InstanceClient = new BO_WEB_DefaultProfile();
+			= new BO_WEB_DefaultProfile();
 #endif
 #if REMOTINGCLIENT
-			InstanceClient = new RC_WEB_DefaultProfile();
+			= new RC_WEB_DefaultProfile();
 #endif
 #if WEBSERVICESCLIENT
-			InstanceClient = new WC_WEB_DefaultProfile();
+			= new WC_WEB_DefaultProfile();
 #endif
-#endif
-		}
-
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-		public static IBO_WEB_DefaultProfile BusinessObject;
-		public static IBO_WEB_DefaultProfile RemotingClient;
-		public static IBO_WEB_DefaultProfile WebserviceClient;
-#else
-		public static IBO_WEB_DefaultProfile InstanceClient;
 #endif
 
 		public static void ReConfig() {

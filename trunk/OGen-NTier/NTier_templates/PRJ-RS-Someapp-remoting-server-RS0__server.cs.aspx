@@ -58,8 +58,11 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoti
 	using System.Runtime.Remoting.Channels.Http;
 	using System.Runtime.Remoting.Channels.Tcp;
 
-	public class RS__server {
-		private RS__server() { }
+#if NET_1_1
+	public class Config { private Config() { }
+#else
+	public static class Config {
+#endif
 
 		public static void Start() {
 			RemotingConfiguration.Configure(

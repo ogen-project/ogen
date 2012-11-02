@@ -12,13 +12,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-
-using OGen.NTier.Kick.lib.businesslayer.shared.instances;
 
 namespace OGen.NTier.Kick.lib.businesslayer.shared.instances.utils {
-	public class Config {
-		private Config() { }
+	using System;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared.instances;
+
+#if NET_1_1
+	public class Config { private Config() { }
+#else
+	public static class Config {
+#endif
 
 		public static void ReConfig() {
 			CRD_Authentication.ReConfig();

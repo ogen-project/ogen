@@ -20,8 +20,11 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 	using System.Runtime.Remoting.Channels.Http;
 	using System.Runtime.Remoting.Channels.Tcp;
 
-	public class RS__server {
-		private RS__server() { }
+#if NET_1_1
+	public class RS__server { private RS__server() { }
+#else
+	public static class RS__server {
+#endif
 
 		public static void Start() {
 			RemotingConfiguration.Configure(

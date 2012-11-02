@@ -29,33 +29,27 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared.instances {
 	using OGen.NTier.Kick.lib.distributedlayer.webservices.client;
 	#endif
 
-	public class NWS_News {
-		private NWS_News() { }
-
-		static NWS_News() {
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-			BusinessObject = new BO_NWS_News();
-			RemotingClient = new RC_NWS_News();
-			WebserviceClient = new WC_NWS_News();
+#if NET_1_1
+	public class NWS_News { private NWS_News() { }
 #else
+	public static class NWS_News {
+#endif
+
+#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
+		public static IBO_NWS_News BusinessObject = new BO_NWS_News();
+		public static IBO_NWS_News RemotingClient = new RC_NWS_News();
+		public static IBO_NWS_News WebserviceClient = new WC_NWS_News();
+#else
+		public static IBO_NWS_News InstanceClient
 #if BUSINESSOBJECT
-			InstanceClient = new BO_NWS_News();
+			= new BO_NWS_News();
 #endif
 #if REMOTINGCLIENT
-			InstanceClient = new RC_NWS_News();
+			= new RC_NWS_News();
 #endif
 #if WEBSERVICESCLIENT
-			InstanceClient = new WC_NWS_News();
+			= new WC_NWS_News();
 #endif
-#endif
-		}
-
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-		public static IBO_NWS_News BusinessObject;
-		public static IBO_NWS_News RemotingClient;
-		public static IBO_NWS_News WebserviceClient;
-#else
-		public static IBO_NWS_News InstanceClient;
 #endif
 
 		public static void ReConfig() {

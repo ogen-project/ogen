@@ -29,33 +29,27 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared.instances {
 	using OGen.NTier.Kick.lib.distributedlayer.webservices.client;
 	#endif
 
-	public class WEB_User {
-		private WEB_User() { }
-
-		static WEB_User() {
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-			BusinessObject = new BO_WEB_User();
-			RemotingClient = new RC_WEB_User();
-			WebserviceClient = new WC_WEB_User();
+#if NET_1_1
+	public class WEB_User { private WEB_User() { }
 #else
+	public static class WEB_User {
+#endif
+
+#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
+		public static IBO_WEB_User BusinessObject = new BO_WEB_User();
+		public static IBO_WEB_User RemotingClient = new RC_WEB_User();
+		public static IBO_WEB_User WebserviceClient = new WC_WEB_User();
+#else
+		public static IBO_WEB_User InstanceClient
 #if BUSINESSOBJECT
-			InstanceClient = new BO_WEB_User();
+			= new BO_WEB_User();
 #endif
 #if REMOTINGCLIENT
-			InstanceClient = new RC_WEB_User();
+			= new RC_WEB_User();
 #endif
 #if WEBSERVICESCLIENT
-			InstanceClient = new WC_WEB_User();
+			= new WC_WEB_User();
 #endif
-#endif
-		}
-
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-		public static IBO_WEB_User BusinessObject;
-		public static IBO_WEB_User RemotingClient;
-		public static IBO_WEB_User WebserviceClient;
-#else
-		public static IBO_WEB_User InstanceClient;
 #endif
 
 		public static void ReConfig() {

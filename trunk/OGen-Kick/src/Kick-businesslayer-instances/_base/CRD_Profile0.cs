@@ -29,33 +29,27 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared.instances {
 	using OGen.NTier.Kick.lib.distributedlayer.webservices.client;
 	#endif
 
-	public class CRD_Profile {
-		private CRD_Profile() { }
-
-		static CRD_Profile() {
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-			BusinessObject = new BO_CRD_Profile();
-			RemotingClient = new RC_CRD_Profile();
-			WebserviceClient = new WC_CRD_Profile();
+#if NET_1_1
+	public class CRD_Profile { private CRD_Profile() { }
 #else
+	public static class CRD_Profile {
+#endif
+
+#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
+		public static IBO_CRD_Profile BusinessObject = new BO_CRD_Profile();
+		public static IBO_CRD_Profile RemotingClient = new RC_CRD_Profile();
+		public static IBO_CRD_Profile WebserviceClient = new WC_CRD_Profile();
+#else
+		public static IBO_CRD_Profile InstanceClient
 #if BUSINESSOBJECT
-			InstanceClient = new BO_CRD_Profile();
+			= new BO_CRD_Profile();
 #endif
 #if REMOTINGCLIENT
-			InstanceClient = new RC_CRD_Profile();
+			= new RC_CRD_Profile();
 #endif
 #if WEBSERVICESCLIENT
-			InstanceClient = new WC_CRD_Profile();
+			= new WC_CRD_Profile();
 #endif
-#endif
-		}
-
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-		public static IBO_CRD_Profile BusinessObject;
-		public static IBO_CRD_Profile RemotingClient;
-		public static IBO_CRD_Profile WebserviceClient;
-#else
-		public static IBO_CRD_Profile InstanceClient;
 #endif
 
 		public static void ReConfig() {

@@ -29,33 +29,27 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared.instances {
 	using OGen.NTier.Kick.lib.distributedlayer.webservices.client;
 	#endif
 
-	public class NWS_Attachment {
-		private NWS_Attachment() { }
-
-		static NWS_Attachment() {
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-			BusinessObject = new BO_NWS_Attachment();
-			RemotingClient = new RC_NWS_Attachment();
-			WebserviceClient = new WC_NWS_Attachment();
+#if NET_1_1
+	public class NWS_Attachment { private NWS_Attachment() { }
 #else
+	public static class NWS_Attachment {
+#endif
+
+#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
+		public static IBO_NWS_Attachment BusinessObject = new BO_NWS_Attachment();
+		public static IBO_NWS_Attachment RemotingClient = new RC_NWS_Attachment();
+		public static IBO_NWS_Attachment WebserviceClient = new WC_NWS_Attachment();
+#else
+		public static IBO_NWS_Attachment InstanceClient
 #if BUSINESSOBJECT
-			InstanceClient = new BO_NWS_Attachment();
+			= new BO_NWS_Attachment();
 #endif
 #if REMOTINGCLIENT
-			InstanceClient = new RC_NWS_Attachment();
+			= new RC_NWS_Attachment();
 #endif
 #if WEBSERVICESCLIENT
-			InstanceClient = new WC_NWS_Attachment();
+			= new WC_NWS_Attachment();
 #endif
-#endif
-		}
-
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-		public static IBO_NWS_Attachment BusinessObject;
-		public static IBO_NWS_Attachment RemotingClient;
-		public static IBO_NWS_Attachment WebserviceClient;
-#else
-		public static IBO_NWS_Attachment InstanceClient;
 #endif
 
 		public static void ReConfig() {

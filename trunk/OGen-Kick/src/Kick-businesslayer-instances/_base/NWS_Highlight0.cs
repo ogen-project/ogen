@@ -29,33 +29,27 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared.instances {
 	using OGen.NTier.Kick.lib.distributedlayer.webservices.client;
 	#endif
 
-	public class NWS_Highlight {
-		private NWS_Highlight() { }
-
-		static NWS_Highlight() {
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-			BusinessObject = new BO_NWS_Highlight();
-			RemotingClient = new RC_NWS_Highlight();
-			WebserviceClient = new WC_NWS_Highlight();
+#if NET_1_1
+	public class NWS_Highlight { private NWS_Highlight() { }
 #else
+	public static class NWS_Highlight {
+#endif
+
+#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
+		public static IBO_NWS_Highlight BusinessObject = new BO_NWS_Highlight();
+		public static IBO_NWS_Highlight RemotingClient = new RC_NWS_Highlight();
+		public static IBO_NWS_Highlight WebserviceClient = new WC_NWS_Highlight();
+#else
+		public static IBO_NWS_Highlight InstanceClient
 #if BUSINESSOBJECT
-			InstanceClient = new BO_NWS_Highlight();
+			= new BO_NWS_Highlight();
 #endif
 #if REMOTINGCLIENT
-			InstanceClient = new RC_NWS_Highlight();
+			= new RC_NWS_Highlight();
 #endif
 #if WEBSERVICESCLIENT
-			InstanceClient = new WC_NWS_Highlight();
+			= new WC_NWS_Highlight();
 #endif
-#endif
-		}
-
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-		public static IBO_NWS_Highlight BusinessObject;
-		public static IBO_NWS_Highlight RemotingClient;
-		public static IBO_NWS_Highlight WebserviceClient;
-#else
-		public static IBO_NWS_Highlight InstanceClient;
 #endif
 
 		public static void ReConfig() {

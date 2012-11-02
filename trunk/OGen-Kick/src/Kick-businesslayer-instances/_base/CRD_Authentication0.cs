@@ -29,33 +29,27 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared.instances {
 	using OGen.NTier.Kick.lib.distributedlayer.webservices.client;
 	#endif
 
-	public class CRD_Authentication {
-		private CRD_Authentication() { }
-
-		static CRD_Authentication() {
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-			BusinessObject = new BO_CRD_Authentication();
-			RemotingClient = new RC_CRD_Authentication();
-			WebserviceClient = new WC_CRD_Authentication();
+#if NET_1_1
+	public class CRD_Authentication { private CRD_Authentication() { }
 #else
+	public static class CRD_Authentication {
+#endif
+
+#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
+		public static IBO_CRD_Authentication BusinessObject = new BO_CRD_Authentication();
+		public static IBO_CRD_Authentication RemotingClient = new RC_CRD_Authentication();
+		public static IBO_CRD_Authentication WebserviceClient = new WC_CRD_Authentication();
+#else
+		public static IBO_CRD_Authentication InstanceClient
 #if BUSINESSOBJECT
-			InstanceClient = new BO_CRD_Authentication();
+			= new BO_CRD_Authentication();
 #endif
 #if REMOTINGCLIENT
-			InstanceClient = new RC_CRD_Authentication();
+			= new RC_CRD_Authentication();
 #endif
 #if WEBSERVICESCLIENT
-			InstanceClient = new WC_CRD_Authentication();
+			= new WC_CRD_Authentication();
 #endif
-#endif
-		}
-
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-		public static IBO_CRD_Authentication BusinessObject;
-		public static IBO_CRD_Authentication RemotingClient;
-		public static IBO_CRD_Authentication WebserviceClient;
-#else
-		public static IBO_CRD_Authentication InstanceClient;
 #endif
 
 		public static void ReConfig() {

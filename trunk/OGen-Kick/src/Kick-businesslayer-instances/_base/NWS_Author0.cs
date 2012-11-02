@@ -29,33 +29,27 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared.instances {
 	using OGen.NTier.Kick.lib.distributedlayer.webservices.client;
 	#endif
 
-	public class NWS_Author {
-		private NWS_Author() { }
-
-		static NWS_Author() {
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-			BusinessObject = new BO_NWS_Author();
-			RemotingClient = new RC_NWS_Author();
-			WebserviceClient = new WC_NWS_Author();
+#if NET_1_1
+	public class NWS_Author { private NWS_Author() { }
 #else
+	public static class NWS_Author {
+#endif
+
+#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
+		public static IBO_NWS_Author BusinessObject = new BO_NWS_Author();
+		public static IBO_NWS_Author RemotingClient = new RC_NWS_Author();
+		public static IBO_NWS_Author WebserviceClient = new WC_NWS_Author();
+#else
+		public static IBO_NWS_Author InstanceClient
 #if BUSINESSOBJECT
-			InstanceClient = new BO_NWS_Author();
+			= new BO_NWS_Author();
 #endif
 #if REMOTINGCLIENT
-			InstanceClient = new RC_NWS_Author();
+			= new RC_NWS_Author();
 #endif
 #if WEBSERVICESCLIENT
-			InstanceClient = new WC_NWS_Author();
+			= new WC_NWS_Author();
 #endif
-#endif
-		}
-
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-		public static IBO_NWS_Author BusinessObject;
-		public static IBO_NWS_Author RemotingClient;
-		public static IBO_NWS_Author WebserviceClient;
-#else
-		public static IBO_NWS_Author InstanceClient;
 #endif
 
 		public static void ReConfig() {

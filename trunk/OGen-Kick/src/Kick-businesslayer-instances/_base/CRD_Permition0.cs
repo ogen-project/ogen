@@ -29,33 +29,27 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared.instances {
 	using OGen.NTier.Kick.lib.distributedlayer.webservices.client;
 	#endif
 
-	public class CRD_Permition {
-		private CRD_Permition() { }
-
-		static CRD_Permition() {
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-			BusinessObject = new BO_CRD_Permition();
-			RemotingClient = new RC_CRD_Permition();
-			WebserviceClient = new WC_CRD_Permition();
+#if NET_1_1
+	public class CRD_Permition { private CRD_Permition() { }
 #else
+	public static class CRD_Permition {
+#endif
+
+#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
+		public static IBO_CRD_Permition BusinessObject = new BO_CRD_Permition();
+		public static IBO_CRD_Permition RemotingClient = new RC_CRD_Permition();
+		public static IBO_CRD_Permition WebserviceClient = new WC_CRD_Permition();
+#else
+		public static IBO_CRD_Permition InstanceClient
 #if BUSINESSOBJECT
-			InstanceClient = new BO_CRD_Permition();
+			= new BO_CRD_Permition();
 #endif
 #if REMOTINGCLIENT
-			InstanceClient = new RC_CRD_Permition();
+			= new RC_CRD_Permition();
 #endif
 #if WEBSERVICESCLIENT
-			InstanceClient = new WC_CRD_Permition();
+			= new WC_CRD_Permition();
 #endif
-#endif
-		}
-
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-		public static IBO_CRD_Permition BusinessObject;
-		public static IBO_CRD_Permition RemotingClient;
-		public static IBO_CRD_Permition WebserviceClient;
-#else
-		public static IBO_CRD_Permition InstanceClient;
 #endif
 
 		public static void ReConfig() {

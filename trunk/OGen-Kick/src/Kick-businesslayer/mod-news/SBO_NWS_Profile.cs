@@ -131,9 +131,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			#region check Profile ...
 			if (
-				(profile_ref.Name = profile_ref.Name.Trim())
-				==
-				""
+				(profile_ref.Name = profile_ref.Name.Trim()).Length == 0
 			) {
 				errorlist_out.Add(ErrorType.news__profile__invalid_name);
 				return false;
@@ -535,7 +533,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		#endregion
 
 		#region public static void delObject(...);
-		private static DateTime datetime_minvalue_ = new DateTime(1900, 1, 1);
+		//private static DateTime datetime_minvalue_ = new DateTime(1900, 1, 1);
 
 		[BOMethodAttribute("delObject", true, false, 1)]
 		public static void delObject(

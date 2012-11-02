@@ -29,33 +29,27 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared.instances {
 	using OGen.NTier.Kick.lib.distributedlayer.webservices.client;
 	#endif
 
-	public class DIC_Dic {
-		private DIC_Dic() { }
-
-		static DIC_Dic() {
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-			BusinessObject = new BO_DIC_Dic();
-			RemotingClient = new RC_DIC_Dic();
-			WebserviceClient = new WC_DIC_Dic();
+#if NET_1_1
+	public class DIC_Dic { private DIC_Dic() { }
 #else
+	public static class DIC_Dic {
+#endif
+
+#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
+		public static IBO_DIC_Dic BusinessObject = new BO_DIC_Dic();
+		public static IBO_DIC_Dic RemotingClient = new RC_DIC_Dic();
+		public static IBO_DIC_Dic WebserviceClient = new WC_DIC_Dic();
+#else
+		public static IBO_DIC_Dic InstanceClient
 #if BUSINESSOBJECT
-			InstanceClient = new BO_DIC_Dic();
+			= new BO_DIC_Dic();
 #endif
 #if REMOTINGCLIENT
-			InstanceClient = new RC_DIC_Dic();
+			= new RC_DIC_Dic();
 #endif
 #if WEBSERVICESCLIENT
-			InstanceClient = new WC_DIC_Dic();
+			= new WC_DIC_Dic();
 #endif
-#endif
-		}
-
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-		public static IBO_DIC_Dic BusinessObject;
-		public static IBO_DIC_Dic RemotingClient;
-		public static IBO_DIC_Dic WebserviceClient;
-#else
-		public static IBO_DIC_Dic InstanceClient;
 #endif
 
 		public static void ReConfig() {

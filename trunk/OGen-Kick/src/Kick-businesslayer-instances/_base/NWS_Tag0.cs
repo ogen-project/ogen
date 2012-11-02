@@ -29,33 +29,27 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared.instances {
 	using OGen.NTier.Kick.lib.distributedlayer.webservices.client;
 	#endif
 
-	public class NWS_Tag {
-		private NWS_Tag() { }
-
-		static NWS_Tag() {
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-			BusinessObject = new BO_NWS_Tag();
-			RemotingClient = new RC_NWS_Tag();
-			WebserviceClient = new WC_NWS_Tag();
+#if NET_1_1
+	public class NWS_Tag { private NWS_Tag() { }
 #else
+	public static class NWS_Tag {
+#endif
+
+#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
+		public static IBO_NWS_Tag BusinessObject = new BO_NWS_Tag();
+		public static IBO_NWS_Tag RemotingClient = new RC_NWS_Tag();
+		public static IBO_NWS_Tag WebserviceClient = new WC_NWS_Tag();
+#else
+		public static IBO_NWS_Tag InstanceClient
 #if BUSINESSOBJECT
-			InstanceClient = new BO_NWS_Tag();
+			= new BO_NWS_Tag();
 #endif
 #if REMOTINGCLIENT
-			InstanceClient = new RC_NWS_Tag();
+			= new RC_NWS_Tag();
 #endif
 #if WEBSERVICESCLIENT
-			InstanceClient = new WC_NWS_Tag();
+			= new WC_NWS_Tag();
 #endif
-#endif
-		}
-
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-		public static IBO_NWS_Tag BusinessObject;
-		public static IBO_NWS_Tag RemotingClient;
-		public static IBO_NWS_Tag WebserviceClient;
-#else
-		public static IBO_NWS_Tag InstanceClient;
 #endif
 
 		public static void ReConfig() {

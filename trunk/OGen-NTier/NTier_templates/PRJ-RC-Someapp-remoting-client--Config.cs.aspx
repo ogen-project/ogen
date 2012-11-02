@@ -55,8 +55,11 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoti
 	using System;
 	using System.Runtime.Remoting;
 
-	public class Config {
-		private Config() { }
+#if NET_1_1
+	public class Config { private Config() { }
+#else
+	public static class Config {
+#endif
 
 		private static bool isconfigured_ = false;
 		public static void ReConfig() {

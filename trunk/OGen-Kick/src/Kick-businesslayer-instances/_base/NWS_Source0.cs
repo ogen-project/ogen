@@ -29,33 +29,27 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared.instances {
 	using OGen.NTier.Kick.lib.distributedlayer.webservices.client;
 	#endif
 
-	public class NWS_Source {
-		private NWS_Source() { }
-
-		static NWS_Source() {
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-			BusinessObject = new BO_NWS_Source();
-			RemotingClient = new RC_NWS_Source();
-			WebserviceClient = new WC_NWS_Source();
+#if NET_1_1
+	public class NWS_Source { private NWS_Source() { }
 #else
+	public static class NWS_Source {
+#endif
+
+#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
+		public static IBO_NWS_Source BusinessObject = new BO_NWS_Source();
+		public static IBO_NWS_Source RemotingClient = new RC_NWS_Source();
+		public static IBO_NWS_Source WebserviceClient = new WC_NWS_Source();
+#else
+		public static IBO_NWS_Source InstanceClient
 #if BUSINESSOBJECT
-			InstanceClient = new BO_NWS_Source();
+			= new BO_NWS_Source();
 #endif
 #if REMOTINGCLIENT
-			InstanceClient = new RC_NWS_Source();
+			= new RC_NWS_Source();
 #endif
 #if WEBSERVICESCLIENT
-			InstanceClient = new WC_NWS_Source();
+			= new WC_NWS_Source();
 #endif
-#endif
-		}
-
-#if BUSINESSOBJECT && REMOTINGCLIENT && WEBSERVICESCLIENT
-		public static IBO_NWS_Source BusinessObject;
-		public static IBO_NWS_Source RemotingClient;
-		public static IBO_NWS_Source WebserviceClient;
-#else
-		public static IBO_NWS_Source InstanceClient;
 #endif
 
 		public static void ReConfig() {
