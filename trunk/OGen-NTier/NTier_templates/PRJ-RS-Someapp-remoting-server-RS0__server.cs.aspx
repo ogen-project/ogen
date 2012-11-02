@@ -59,9 +59,9 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoti
 	using System.Runtime.Remoting.Channels.Tcp;
 
 #if NET_1_1
-	public class Config { private Config() { }
+	public class Config { private RS__server() { }
 #else
-	public static class Config {
+	public static class RS__server {
 #endif
 
 		public static void Start() {

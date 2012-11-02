@@ -172,7 +172,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region Methods...
 		#region public static DataTable getDataTable(...);
 		public static DataTable getDataTable(
-			SO_NET_BrowserUser[] serializableobjects_in
+			SO_NET_BrowserUser[] serializableObjects_in
 		) {
 			DataTable _output = new DataTable();
 			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
@@ -183,11 +183,11 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DataColumn _dc_ifuser = new DataColumn("IFUser", typeof(long));
 			_output.Columns.Add(_dc_ifuser);
 
-			foreach (SO_NET_BrowserUser _serializableobject in serializableobjects_in) {
+			foreach (SO_NET_BrowserUser _serializableObject in serializableObjects_in) {
 				_dr = _output.NewRow();
 
-				_dr[_dc_ifbrowser] = _serializableobject.IFBrowser;
-				_dr[_dc_ifuser] = _serializableobject.IFUser;
+				_dr[_dc_ifbrowser] = _serializableObject.IFBrowser;
+				_dr[_dc_ifuser] = _serializableObject.IFUser;
 
 				_output.Rows.Add(_dr);
 			}

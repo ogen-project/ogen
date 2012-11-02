@@ -745,7 +745,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region Methods...
 		#region public static DataTable getDataTable(...);
 		public static DataTable getDataTable(
-			SO_NET_Browser[] serializableobjects_in
+			SO_NET_Browser[] serializableObjects_in
 		) {
 			DataTable _output = new DataTable();
 			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
@@ -778,22 +778,22 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DataColumn _dc_http_user_agent__crc = new DataColumn("HTTP_USER_AGENT__CRC", typeof(long));
 			_output.Columns.Add(_dc_http_user_agent__crc);
 
-			foreach (SO_NET_Browser _serializableobject in serializableobjects_in) {
+			foreach (SO_NET_Browser _serializableObject in serializableObjects_in) {
 				_dr = _output.NewRow();
 
-				_dr[_dc_idbrowser] = _serializableobject.IDBrowser;
-				_dr[_dc_http_full_signature] = _serializableobject.HTTP_FULL_SIGNATURE;
-				_dr[_dc_http_full_signature__crc] = _serializableobject.HTTP_FULL_SIGNATURE__CRC;
-				_dr[_dc_http_accept] = _serializableobject.HTTP_ACCEPT;
-				_dr[_dc_http_accept__crc] = _serializableobject.HTTP_ACCEPT__CRC;
-				_dr[_dc_http_accept_charset] = _serializableobject.HTTP_ACCEPT_CHARSET;
-				_dr[_dc_http_accept_charset__crc] = _serializableobject.HTTP_ACCEPT_CHARSET__CRC;
-				_dr[_dc_http_accept_encoding] = _serializableobject.HTTP_ACCEPT_ENCODING;
-				_dr[_dc_http_accept_encoding__crc] = _serializableobject.HTTP_ACCEPT_ENCODING__CRC;
-				_dr[_dc_http_accept_language] = _serializableobject.HTTP_ACCEPT_LANGUAGE;
-				_dr[_dc_http_accept_language__crc] = _serializableobject.HTTP_ACCEPT_LANGUAGE__CRC;
-				_dr[_dc_http_user_agent] = _serializableobject.HTTP_USER_AGENT;
-				_dr[_dc_http_user_agent__crc] = _serializableobject.HTTP_USER_AGENT__CRC;
+				_dr[_dc_idbrowser] = _serializableObject.IDBrowser;
+				_dr[_dc_http_full_signature] = _serializableObject.HTTP_FULL_SIGNATURE;
+				_dr[_dc_http_full_signature__crc] = _serializableObject.HTTP_FULL_SIGNATURE__CRC;
+				_dr[_dc_http_accept] = _serializableObject.HTTP_ACCEPT;
+				_dr[_dc_http_accept__crc] = _serializableObject.HTTP_ACCEPT__CRC;
+				_dr[_dc_http_accept_charset] = _serializableObject.HTTP_ACCEPT_CHARSET;
+				_dr[_dc_http_accept_charset__crc] = _serializableObject.HTTP_ACCEPT_CHARSET__CRC;
+				_dr[_dc_http_accept_encoding] = _serializableObject.HTTP_ACCEPT_ENCODING;
+				_dr[_dc_http_accept_encoding__crc] = _serializableObject.HTTP_ACCEPT_ENCODING__CRC;
+				_dr[_dc_http_accept_language] = _serializableObject.HTTP_ACCEPT_LANGUAGE;
+				_dr[_dc_http_accept_language__crc] = _serializableObject.HTTP_ACCEPT_LANGUAGE__CRC;
+				_dr[_dc_http_user_agent] = _serializableObject.HTTP_USER_AGENT;
+				_dr[_dc_http_user_agent__crc] = _serializableObject.HTTP_USER_AGENT__CRC;
 
 				_output.Rows.Add(_dr);
 			}

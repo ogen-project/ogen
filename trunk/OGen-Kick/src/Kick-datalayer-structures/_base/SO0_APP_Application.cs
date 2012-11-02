@@ -174,7 +174,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region Methods...
 		#region public static DataTable getDataTable(...);
 		public static DataTable getDataTable(
-			SO_APP_Application[] serializableobjects_in
+			SO_APP_Application[] serializableObjects_in
 		) {
 			DataTable _output = new DataTable();
 			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
@@ -185,11 +185,11 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DataColumn _dc_name = new DataColumn("Name", typeof(string));
 			_output.Columns.Add(_dc_name);
 
-			foreach (SO_APP_Application _serializableobject in serializableobjects_in) {
+			foreach (SO_APP_Application _serializableObject in serializableObjects_in) {
 				_dr = _output.NewRow();
 
-				_dr[_dc_idapplication] = _serializableobject.IDApplication;
-				_dr[_dc_name] = _serializableobject.Name;
+				_dr[_dc_idapplication] = _serializableObject.IDApplication;
+				_dr[_dc_name] = _serializableObject.Name;
 
 				_output.Rows.Add(_dr);
 			}

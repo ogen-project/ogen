@@ -313,7 +313,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region Methods...
 		#region public static DataTable getDataTable(...);
 		public static DataTable getDataTable(
-			SO_vCRD_ProfilePermition[] serializableobjects_in
+			SO_vCRD_ProfilePermition[] serializableObjects_in
 		) {
 			DataTable _output = new DataTable();
 			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
@@ -328,13 +328,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DataColumn _dc_haspermition = new DataColumn("hasPermition", typeof(bool));
 			_output.Columns.Add(_dc_haspermition);
 
-			foreach (SO_vCRD_ProfilePermition _serializableobject in serializableobjects_in) {
+			foreach (SO_vCRD_ProfilePermition _serializableObject in serializableObjects_in) {
 				_dr = _output.NewRow();
 
-				_dr[_dc_idpermition] = _serializableobject.IDPermition;
-				_dr[_dc_permitionname] = _serializableobject.PermitionName;
-				_dr[_dc_idprofile] = _serializableobject.IDProfile;
-				_dr[_dc_haspermition] = _serializableobject.hasPermition;
+				_dr[_dc_idpermition] = _serializableObject.IDPermition;
+				_dr[_dc_permitionname] = _serializableObject.PermitionName;
+				_dr[_dc_idprofile] = _serializableObject.IDProfile;
+				_dr[_dc_haspermition] = _serializableObject.hasPermition;
 
 				_output.Rows.Add(_dr);
 			}

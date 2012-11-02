@@ -172,7 +172,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region Methods...
 		#region public static DataTable getDataTable(...);
 		public static DataTable getDataTable(
-			SO_CRD_ProfilePermition[] serializableobjects_in
+			SO_CRD_ProfilePermition[] serializableObjects_in
 		) {
 			DataTable _output = new DataTable();
 			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
@@ -183,11 +183,11 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DataColumn _dc_ifpermition = new DataColumn("IFPermition", typeof(long));
 			_output.Columns.Add(_dc_ifpermition);
 
-			foreach (SO_CRD_ProfilePermition _serializableobject in serializableobjects_in) {
+			foreach (SO_CRD_ProfilePermition _serializableObject in serializableObjects_in) {
 				_dr = _output.NewRow();
 
-				_dr[_dc_ifprofile] = _serializableobject.IFProfile;
-				_dr[_dc_ifpermition] = _serializableobject.IFPermition;
+				_dr[_dc_ifprofile] = _serializableObject.IFProfile;
+				_dr[_dc_ifpermition] = _serializableObject.IFPermition;
 
 				_output.Rows.Add(_dr);
 			}

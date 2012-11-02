@@ -412,7 +412,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region Methods...
 		#region public static DataTable getDataTable(...);
 		public static DataTable getDataTable(
-			SO_vNET_User[] serializableobjects_in
+			SO_vNET_User[] serializableObjects_in
 		) {
 			DataTable _output = new DataTable();
 			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
@@ -429,14 +429,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DataColumn _dc_email = new DataColumn("EMail", typeof(string));
 			_output.Columns.Add(_dc_email);
 
-			foreach (SO_vNET_User _serializableobject in serializableobjects_in) {
+			foreach (SO_vNET_User _serializableObject in serializableObjects_in) {
 				_dr = _output.NewRow();
 
-				_dr[_dc_iduser] = _serializableobject.IDUser;
-				_dr[_dc_ifapplication] = _serializableobject.IFApplication;
-				_dr[_dc_login] = _serializableobject.Login;
-				_dr[_dc_name] = _serializableobject.Name;
-				_dr[_dc_email] = _serializableobject.EMail;
+				_dr[_dc_iduser] = _serializableObject.IDUser;
+				_dr[_dc_ifapplication] = _serializableObject.IFApplication;
+				_dr[_dc_login] = _serializableObject.Login;
+				_dr[_dc_name] = _serializableObject.Name;
+				_dr[_dc_email] = _serializableObject.EMail;
 
 				_output.Rows.Add(_dr);
 			}

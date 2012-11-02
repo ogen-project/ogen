@@ -1026,7 +1026,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region Methods...
 		#region public static DataTable getDataTable(...);
 		public static DataTable getDataTable(
-			SO_NWS_Content[] serializableobjects_in
+			SO_NWS_Content[] serializableObjects_in
 		) {
 			DataTable _output = new DataTable();
 			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
@@ -1061,23 +1061,23 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DataColumn _dc_isnews_notforum = new DataColumn("isNews_notForum", typeof(bool));
 			_output.Columns.Add(_dc_isnews_notforum);
 
-			foreach (SO_NWS_Content _serializableobject in serializableobjects_in) {
+			foreach (SO_NWS_Content _serializableObject in serializableObjects_in) {
 				_dr = _output.NewRow();
 
-				_dr[_dc_idcontent] = _serializableobject.IDContent;
-				_dr[_dc_ifapplication] = _serializableobject.IFApplication;
-				_dr[_dc_ifuser__publisher] = _serializableobject.IFUser__Publisher;
-				_dr[_dc_publish_date] = _serializableobject.Publish_date;
-				_dr[_dc_ifuser__aproved] = _serializableobject.IFUser__Aproved;
-				_dr[_dc_aproved_date] = _serializableobject.Aproved_date;
-				_dr[_dc_begin_date] = _serializableobject.Begin_date;
-				_dr[_dc_end_date] = _serializableobject.End_date;
-				_dr[_dc_tx_title] = _serializableobject.TX_Title;
-				_dr[_dc_tx_content] = _serializableobject.TX_Content;
-				_dr[_dc_tx_subtitle] = _serializableobject.tx_subtitle;
-				_dr[_dc_tx_summary] = _serializableobject.tx_summary;
-				_dr[_dc_newslettersent_date] = _serializableobject.Newslettersent_date;
-				_dr[_dc_isnews_notforum] = _serializableobject.isNews_notForum;
+				_dr[_dc_idcontent] = _serializableObject.IDContent;
+				_dr[_dc_ifapplication] = _serializableObject.IFApplication;
+				_dr[_dc_ifuser__publisher] = _serializableObject.IFUser__Publisher;
+				_dr[_dc_publish_date] = _serializableObject.Publish_date;
+				_dr[_dc_ifuser__aproved] = _serializableObject.IFUser__Aproved;
+				_dr[_dc_aproved_date] = _serializableObject.Aproved_date;
+				_dr[_dc_begin_date] = _serializableObject.Begin_date;
+				_dr[_dc_end_date] = _serializableObject.End_date;
+				_dr[_dc_tx_title] = _serializableObject.TX_Title;
+				_dr[_dc_tx_content] = _serializableObject.TX_Content;
+				_dr[_dc_tx_subtitle] = _serializableObject.tx_subtitle;
+				_dr[_dc_tx_summary] = _serializableObject.tx_summary;
+				_dr[_dc_newslettersent_date] = _serializableObject.Newslettersent_date;
+				_dr[_dc_isnews_notforum] = _serializableObject.isNews_notForum;
 
 				_output.Rows.Add(_dr);
 			}

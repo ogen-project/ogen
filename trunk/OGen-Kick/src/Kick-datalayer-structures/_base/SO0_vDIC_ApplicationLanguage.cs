@@ -262,7 +262,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region Methods...
 		#region public static DataTable getDataTable(...);
 		public static DataTable getDataTable(
-			SO_vDIC_ApplicationLanguage[] serializableobjects_in
+			SO_vDIC_ApplicationLanguage[] serializableObjects_in
 		) {
 			DataTable _output = new DataTable();
 			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
@@ -275,12 +275,12 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DataColumn _dc_language = new DataColumn("Language", typeof(string));
 			_output.Columns.Add(_dc_language);
 
-			foreach (SO_vDIC_ApplicationLanguage _serializableobject in serializableobjects_in) {
+			foreach (SO_vDIC_ApplicationLanguage _serializableObject in serializableObjects_in) {
 				_dr = _output.NewRow();
 
-				_dr[_dc_ifapplication] = _serializableobject.IFApplication;
-				_dr[_dc_idlanguage] = _serializableobject.IDLanguage;
-				_dr[_dc_language] = _serializableobject.Language;
+				_dr[_dc_ifapplication] = _serializableObject.IFApplication;
+				_dr[_dc_idlanguage] = _serializableObject.IDLanguage;
+				_dr[_dc_language] = _serializableObject.Language;
 
 				_output.Rows.Add(_dr);
 			}

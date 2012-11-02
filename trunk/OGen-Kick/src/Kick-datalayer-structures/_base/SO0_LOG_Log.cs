@@ -787,7 +787,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region Methods...
 		#region public static DataTable getDataTable(...);
 		public static DataTable getDataTable(
-			SO_LOG_Log[] serializableobjects_in
+			SO_LOG_Log[] serializableObjects_in
 		) {
 			DataTable _output = new DataTable();
 			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
@@ -816,20 +816,20 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DataColumn _dc_ifbrowser__opt = new DataColumn("IFBrowser__OPT", typeof(long));
 			_output.Columns.Add(_dc_ifbrowser__opt);
 
-			foreach (SO_LOG_Log _serializableobject in serializableobjects_in) {
+			foreach (SO_LOG_Log _serializableObject in serializableObjects_in) {
 				_dr = _output.NewRow();
 
-				_dr[_dc_idlog] = _serializableobject.IDLog;
-				_dr[_dc_iflogtype] = _serializableobject.IFLogtype;
-				_dr[_dc_ifuser] = _serializableobject.IFUser;
-				_dr[_dc_ifuser__read] = _serializableobject.IFUser__read;
-				_dr[_dc_iferrortype] = _serializableobject.IFErrortype;
-				_dr[_dc_stamp] = _serializableobject.Stamp;
-				_dr[_dc_stamp__read] = _serializableobject.Stamp__read;
-				_dr[_dc_message] = _serializableobject.Message;
-				_dr[_dc_ifpermition] = _serializableobject.IFPermition;
-				_dr[_dc_ifapplication] = _serializableobject.IFApplication;
-				_dr[_dc_ifbrowser__opt] = _serializableobject.IFBrowser__OPT;
+				_dr[_dc_idlog] = _serializableObject.IDLog;
+				_dr[_dc_iflogtype] = _serializableObject.IFLogtype;
+				_dr[_dc_ifuser] = _serializableObject.IFUser;
+				_dr[_dc_ifuser__read] = _serializableObject.IFUser__read;
+				_dr[_dc_iferrortype] = _serializableObject.IFErrortype;
+				_dr[_dc_stamp] = _serializableObject.Stamp;
+				_dr[_dc_stamp__read] = _serializableObject.Stamp__read;
+				_dr[_dc_message] = _serializableObject.Message;
+				_dr[_dc_ifpermition] = _serializableObject.IFPermition;
+				_dr[_dc_ifapplication] = _serializableObject.IFApplication;
+				_dr[_dc_ifbrowser__opt] = _serializableObject.IFBrowser__OPT;
 
 				_output.Rows.Add(_dr);
 			}

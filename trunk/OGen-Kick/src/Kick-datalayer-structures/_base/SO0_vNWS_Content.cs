@@ -795,7 +795,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region Methods...
 		#region public static DataTable getDataTable(...);
 		public static DataTable getDataTable(
-			SO_vNWS_Content[] serializableobjects_in
+			SO_vNWS_Content[] serializableObjects_in
 		) {
 			DataTable _output = new DataTable();
 			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
@@ -824,20 +824,20 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DataColumn _dc_summary = new DataColumn("summary", typeof(string));
 			_output.Columns.Add(_dc_summary);
 
-			foreach (SO_vNWS_Content _serializableobject in serializableobjects_in) {
+			foreach (SO_vNWS_Content _serializableObject in serializableObjects_in) {
 				_dr = _output.NewRow();
 
-				_dr[_dc_idcontent] = _serializableobject.IDContent;
-				_dr[_dc_idlanguage] = _serializableobject.IDLanguage;
-				_dr[_dc_ifuser__publisher] = _serializableobject.IFUser__Publisher;
-				_dr[_dc_publishername] = _serializableobject.PublisherName;
-				_dr[_dc_publish_date] = _serializableobject.Publish_date;
-				_dr[_dc_ifuser__aproved] = _serializableobject.IFUser__Aproved;
-				_dr[_dc_aproved_date] = _serializableobject.Aproved_date;
-				_dr[_dc_title] = _serializableobject.Title;
-				_dr[_dc_content] = _serializableobject.Content;
-				_dr[_dc_subtitle] = _serializableobject.subtitle;
-				_dr[_dc_summary] = _serializableobject.summary;
+				_dr[_dc_idcontent] = _serializableObject.IDContent;
+				_dr[_dc_idlanguage] = _serializableObject.IDLanguage;
+				_dr[_dc_ifuser__publisher] = _serializableObject.IFUser__Publisher;
+				_dr[_dc_publishername] = _serializableObject.PublisherName;
+				_dr[_dc_publish_date] = _serializableObject.Publish_date;
+				_dr[_dc_ifuser__aproved] = _serializableObject.IFUser__Aproved;
+				_dr[_dc_aproved_date] = _serializableObject.Aproved_date;
+				_dr[_dc_title] = _serializableObject.Title;
+				_dr[_dc_content] = _serializableObject.Content;
+				_dr[_dc_subtitle] = _serializableObject.subtitle;
+				_dr[_dc_summary] = _serializableObject.summary;
 
 				_output.Rows.Add(_dr);
 			}

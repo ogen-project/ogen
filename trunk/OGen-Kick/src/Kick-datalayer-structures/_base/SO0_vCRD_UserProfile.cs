@@ -313,7 +313,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region Methods...
 		#region public static DataTable getDataTable(...);
 		public static DataTable getDataTable(
-			SO_vCRD_UserProfile[] serializableobjects_in
+			SO_vCRD_UserProfile[] serializableObjects_in
 		) {
 			DataTable _output = new DataTable();
 			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
@@ -328,13 +328,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DataColumn _dc_hasprofile = new DataColumn("hasProfile", typeof(bool));
 			_output.Columns.Add(_dc_hasprofile);
 
-			foreach (SO_vCRD_UserProfile _serializableobject in serializableobjects_in) {
+			foreach (SO_vCRD_UserProfile _serializableObject in serializableObjects_in) {
 				_dr = _output.NewRow();
 
-				_dr[_dc_idprofile] = _serializableobject.IDProfile;
-				_dr[_dc_profilename] = _serializableobject.ProfileName;
-				_dr[_dc_iduser] = _serializableobject.IDUser;
-				_dr[_dc_hasprofile] = _serializableobject.hasProfile;
+				_dr[_dc_idprofile] = _serializableObject.IDProfile;
+				_dr[_dc_profilename] = _serializableObject.ProfileName;
+				_dr[_dc_iduser] = _serializableObject.IDUser;
+				_dr[_dc_hasprofile] = _serializableObject.hasProfile;
 
 				_output.Rows.Add(_dr);
 			}

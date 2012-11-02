@@ -335,7 +335,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region Methods...
 		#region public static DataTable getDataTable(...);
 		public static DataTable getDataTable(
-			SO_vNET_Profile[] serializableobjects_in
+			SO_vNET_Profile[] serializableObjects_in
 		) {
 			DataTable _output = new DataTable();
 			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
@@ -350,13 +350,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DataColumn _dc_isdefaultprofile = new DataColumn("isDefaultprofile", typeof(bool));
 			_output.Columns.Add(_dc_isdefaultprofile);
 
-			foreach (SO_vNET_Profile _serializableobject in serializableobjects_in) {
+			foreach (SO_vNET_Profile _serializableObject in serializableObjects_in) {
 				_dr = _output.NewRow();
 
-				_dr[_dc_idprofile] = _serializableobject.IDProfile;
-				_dr[_dc_name] = _serializableobject.Name;
-				_dr[_dc_ifapplication] = _serializableobject.IFApplication;
-				_dr[_dc_isdefaultprofile] = _serializableobject.isDefaultprofile;
+				_dr[_dc_idprofile] = _serializableObject.IDProfile;
+				_dr[_dc_name] = _serializableObject.Name;
+				_dr[_dc_ifapplication] = _serializableObject.IFApplication;
+				_dr[_dc_isdefaultprofile] = _serializableObject.isDefaultprofile;
 
 				_output.Rows.Add(_dr);
 			}

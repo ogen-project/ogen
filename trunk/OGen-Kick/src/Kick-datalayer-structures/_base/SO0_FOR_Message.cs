@@ -667,7 +667,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region Methods...
 		#region public static DataTable getDataTable(...);
 		public static DataTable getDataTable(
-			SO_FOR_Message[] serializableobjects_in
+			SO_FOR_Message[] serializableObjects_in
 		) {
 			DataTable _output = new DataTable();
 			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
@@ -692,18 +692,18 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DataColumn _dc_ifapplication = new DataColumn("IFApplication", typeof(int));
 			_output.Columns.Add(_dc_ifapplication);
 
-			foreach (SO_FOR_Message _serializableobject in serializableobjects_in) {
+			foreach (SO_FOR_Message _serializableObject in serializableObjects_in) {
 				_dr = _output.NewRow();
 
-				_dr[_dc_idmessage] = _serializableobject.IDMessage;
-				_dr[_dc_ifmessage__parent] = _serializableobject.IFMessage__parent;
-				_dr[_dc_issticky] = _serializableobject.isSticky;
-				_dr[_dc_subject] = _serializableobject.Subject;
-				_dr[_dc_message__charvar8000] = _serializableobject.Message__charvar8000;
-				_dr[_dc_message__text] = _serializableobject.Message__text;
-				_dr[_dc_ifuser__publisher] = _serializableobject.IFUser__Publisher;
-				_dr[_dc_publish_date] = _serializableobject.Publish_date;
-				_dr[_dc_ifapplication] = _serializableobject.IFApplication;
+				_dr[_dc_idmessage] = _serializableObject.IDMessage;
+				_dr[_dc_ifmessage__parent] = _serializableObject.IFMessage__parent;
+				_dr[_dc_issticky] = _serializableObject.isSticky;
+				_dr[_dc_subject] = _serializableObject.Subject;
+				_dr[_dc_message__charvar8000] = _serializableObject.Message__charvar8000;
+				_dr[_dc_message__text] = _serializableObject.Message__text;
+				_dr[_dc_ifuser__publisher] = _serializableObject.IFUser__Publisher;
+				_dr[_dc_publish_date] = _serializableObject.Publish_date;
+				_dr[_dc_ifapplication] = _serializableObject.IFApplication;
 
 				_output.Rows.Add(_dr);
 			}

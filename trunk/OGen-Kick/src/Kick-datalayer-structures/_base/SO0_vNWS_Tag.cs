@@ -704,7 +704,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region Methods...
 		#region public static DataTable getDataTable(...);
 		public static DataTable getDataTable(
-			SO_vNWS_Tag[] serializableobjects_in
+			SO_vNWS_Tag[] serializableObjects_in
 		) {
 			DataTable _output = new DataTable();
 			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
@@ -729,18 +729,18 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DataColumn _dc_shortname = new DataColumn("ShortName", typeof(string));
 			_output.Columns.Add(_dc_shortname);
 
-			foreach (SO_vNWS_Tag _serializableobject in serializableobjects_in) {
+			foreach (SO_vNWS_Tag _serializableObject in serializableObjects_in) {
 				_dr = _output.NewRow();
 
-				_dr[_dc_idtag] = _serializableobject.IDTag;
-				_dr[_dc_idlanguage] = _serializableobject.IDLanguage;
-				_dr[_dc_iftag__parent] = _serializableobject.IFTag__parent;
-				_dr[_dc_ifuser__approved] = _serializableobject.IFUser__Approved;
-				_dr[_dc_approved_date] = _serializableobject.Approved_date;
-				_dr[_dc_name] = _serializableobject.Name;
-				_dr[_dc_ifapplication] = _serializableobject.IFApplication;
-				_dr[_dc_managername] = _serializableobject.ManagerName;
-				_dr[_dc_shortname] = _serializableobject.ShortName;
+				_dr[_dc_idtag] = _serializableObject.IDTag;
+				_dr[_dc_idlanguage] = _serializableObject.IDLanguage;
+				_dr[_dc_iftag__parent] = _serializableObject.IFTag__parent;
+				_dr[_dc_ifuser__approved] = _serializableObject.IFUser__Approved;
+				_dr[_dc_approved_date] = _serializableObject.Approved_date;
+				_dr[_dc_name] = _serializableObject.Name;
+				_dr[_dc_ifapplication] = _serializableObject.IFApplication;
+				_dr[_dc_managername] = _serializableObject.ManagerName;
+				_dr[_dc_shortname] = _serializableObject.ShortName;
 
 				_output.Rows.Add(_dr);
 			}

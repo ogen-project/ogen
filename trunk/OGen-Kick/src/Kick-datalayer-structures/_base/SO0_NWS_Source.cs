@@ -466,7 +466,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region Methods...
 		#region public static DataTable getDataTable(...);
 		public static DataTable getDataTable(
-			SO_NWS_Source[] serializableobjects_in
+			SO_NWS_Source[] serializableObjects_in
 		) {
 			DataTable _output = new DataTable();
 			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
@@ -485,15 +485,15 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DataColumn _dc_approved_date = new DataColumn("Approved_date", typeof(DateTime));
 			_output.Columns.Add(_dc_approved_date);
 
-			foreach (SO_NWS_Source _serializableobject in serializableobjects_in) {
+			foreach (SO_NWS_Source _serializableObject in serializableObjects_in) {
 				_dr = _output.NewRow();
 
-				_dr[_dc_idsource] = _serializableobject.IDSource;
-				_dr[_dc_ifapplication] = _serializableobject.IFApplication;
-				_dr[_dc_ifsource__parent] = _serializableobject.IFSource__parent;
-				_dr[_dc_name] = _serializableobject.Name;
-				_dr[_dc_ifuser__approved] = _serializableobject.IFUser__Approved;
-				_dr[_dc_approved_date] = _serializableobject.Approved_date;
+				_dr[_dc_idsource] = _serializableObject.IDSource;
+				_dr[_dc_ifapplication] = _serializableObject.IFApplication;
+				_dr[_dc_ifsource__parent] = _serializableObject.IFSource__parent;
+				_dr[_dc_name] = _serializableObject.Name;
+				_dr[_dc_ifuser__approved] = _serializableObject.IFUser__Approved;
+				_dr[_dc_approved_date] = _serializableObject.Approved_date;
 
 				_output.Rows.Add(_dr);
 			}

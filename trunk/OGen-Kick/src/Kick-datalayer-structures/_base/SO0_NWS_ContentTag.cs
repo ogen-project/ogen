@@ -172,7 +172,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region Methods...
 		#region public static DataTable getDataTable(...);
 		public static DataTable getDataTable(
-			SO_NWS_ContentTag[] serializableobjects_in
+			SO_NWS_ContentTag[] serializableObjects_in
 		) {
 			DataTable _output = new DataTable();
 			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
@@ -183,11 +183,11 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DataColumn _dc_iftag = new DataColumn("IFTag", typeof(long));
 			_output.Columns.Add(_dc_iftag);
 
-			foreach (SO_NWS_ContentTag _serializableobject in serializableobjects_in) {
+			foreach (SO_NWS_ContentTag _serializableObject in serializableObjects_in) {
 				_dr = _output.NewRow();
 
-				_dr[_dc_ifcontent] = _serializableobject.IFContent;
-				_dr[_dc_iftag] = _serializableobject.IFTag;
+				_dr[_dc_ifcontent] = _serializableObject.IFContent;
+				_dr[_dc_iftag] = _serializableObject.IFTag;
 
 				_output.Rows.Add(_dr);
 			}

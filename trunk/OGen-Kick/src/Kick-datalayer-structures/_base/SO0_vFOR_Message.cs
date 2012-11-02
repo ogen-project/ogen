@@ -883,7 +883,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region Methods...
 		#region public static DataTable getDataTable(...);
 		public static DataTable getDataTable(
-			SO_vFOR_Message[] serializableobjects_in
+			SO_vFOR_Message[] serializableObjects_in
 		) {
 			DataTable _output = new DataTable();
 			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
@@ -914,21 +914,21 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DataColumn _dc_login = new DataColumn("Login", typeof(string));
 			_output.Columns.Add(_dc_login);
 
-			foreach (SO_vFOR_Message _serializableobject in serializableobjects_in) {
+			foreach (SO_vFOR_Message _serializableObject in serializableObjects_in) {
 				_dr = _output.NewRow();
 
-				_dr[_dc_idmessage] = _serializableobject.IDMessage;
-				_dr[_dc_idmessage__parent] = _serializableobject.IDMessage__parent;
-				_dr[_dc_isthread] = _serializableobject.isThread;
-				_dr[_dc_issticky] = _serializableobject.isSticky;
-				_dr[_dc_subject] = _serializableobject.Subject;
-				_dr[_dc_message__charvar8000] = _serializableobject.Message__charvar8000;
-				_dr[_dc_message__text] = _serializableobject.Message__text;
-				_dr[_dc_iduser] = _serializableobject.IDUser;
-				_dr[_dc_name] = _serializableobject.Name;
-				_dr[_dc_publish_date] = _serializableobject.Publish_date;
-				_dr[_dc_ifapplication] = _serializableobject.IFApplication;
-				_dr[_dc_login] = _serializableobject.Login;
+				_dr[_dc_idmessage] = _serializableObject.IDMessage;
+				_dr[_dc_idmessage__parent] = _serializableObject.IDMessage__parent;
+				_dr[_dc_isthread] = _serializableObject.isThread;
+				_dr[_dc_issticky] = _serializableObject.isSticky;
+				_dr[_dc_subject] = _serializableObject.Subject;
+				_dr[_dc_message__charvar8000] = _serializableObject.Message__charvar8000;
+				_dr[_dc_message__text] = _serializableObject.Message__text;
+				_dr[_dc_iduser] = _serializableObject.IDUser;
+				_dr[_dc_name] = _serializableObject.Name;
+				_dr[_dc_publish_date] = _serializableObject.Publish_date;
+				_dr[_dc_ifapplication] = _serializableObject.IFApplication;
+				_dr[_dc_login] = _serializableObject.Login;
 
 				_output.Rows.Add(_dr);
 			}

@@ -318,7 +318,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region Methods...
 		#region public static DataTable getDataTable(...);
 		public static DataTable getDataTable(
-			SO_NWS_ContentHighlight[] serializableobjects_in
+			SO_NWS_ContentHighlight[] serializableObjects_in
 		) {
 			DataTable _output = new DataTable();
 			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
@@ -333,13 +333,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DataColumn _dc_end_date = new DataColumn("End_date", typeof(DateTime));
 			_output.Columns.Add(_dc_end_date);
 
-			foreach (SO_NWS_ContentHighlight _serializableobject in serializableobjects_in) {
+			foreach (SO_NWS_ContentHighlight _serializableObject in serializableObjects_in) {
 				_dr = _output.NewRow();
 
-				_dr[_dc_ifcontent] = _serializableobject.IFContent;
-				_dr[_dc_ifhighlight] = _serializableobject.IFHighlight;
-				_dr[_dc_begin_date] = _serializableobject.Begin_date;
-				_dr[_dc_end_date] = _serializableobject.End_date;
+				_dr[_dc_ifcontent] = _serializableObject.IFContent;
+				_dr[_dc_ifhighlight] = _serializableObject.IFHighlight;
+				_dr[_dc_begin_date] = _serializableObject.Begin_date;
+				_dr[_dc_end_date] = _serializableObject.End_date;
 
 				_output.Rows.Add(_dr);
 			}

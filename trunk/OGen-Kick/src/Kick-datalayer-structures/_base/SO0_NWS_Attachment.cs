@@ -548,7 +548,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		#region Methods...
 		#region public static DataTable getDataTable(...);
 		public static DataTable getDataTable(
-			SO_NWS_Attachment[] serializableobjects_in
+			SO_NWS_Attachment[] serializableObjects_in
 		) {
 			DataTable _output = new DataTable();
 			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
@@ -571,17 +571,17 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			DataColumn _dc_filename = new DataColumn("FileName", typeof(string));
 			_output.Columns.Add(_dc_filename);
 
-			foreach (SO_NWS_Attachment _serializableobject in serializableobjects_in) {
+			foreach (SO_NWS_Attachment _serializableObject in serializableObjects_in) {
 				_dr = _output.NewRow();
 
-				_dr[_dc_idattachment] = _serializableobject.IDAttachment;
-				_dr[_dc_ifcontent] = _serializableobject.IFContent;
-				_dr[_dc_guid] = _serializableobject.GUID;
-				_dr[_dc_ordernum] = _serializableobject.OrderNum;
-				_dr[_dc_isimage] = _serializableobject.isImage;
-				_dr[_dc_tx_name] = _serializableobject.TX_Name;
-				_dr[_dc_tx_description] = _serializableobject.TX_Description;
-				_dr[_dc_filename] = _serializableobject.FileName;
+				_dr[_dc_idattachment] = _serializableObject.IDAttachment;
+				_dr[_dc_ifcontent] = _serializableObject.IFContent;
+				_dr[_dc_guid] = _serializableObject.GUID;
+				_dr[_dc_ordernum] = _serializableObject.OrderNum;
+				_dr[_dc_isimage] = _serializableObject.isImage;
+				_dr[_dc_tx_name] = _serializableObject.TX_Name;
+				_dr[_dc_tx_description] = _serializableObject.TX_Description;
+				_dr[_dc_filename] = _serializableObject.FileName;
 
 				_output.Rows.Add(_dr);
 			}

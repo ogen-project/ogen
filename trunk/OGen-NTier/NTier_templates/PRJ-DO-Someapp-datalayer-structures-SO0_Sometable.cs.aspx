@@ -254,7 +254,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 		#region Methods...
 		#region public static DataTable getDataTable(...);
 		public static DataTable getDataTable(
-			SO_<%=_aux_db_table.Name%>[] serializableobjects_in
+			SO_<%=_aux_db_table.Name%>[] serializableObjects_in
 		) {
 			DataTable _output = new DataTable();
 			_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
@@ -266,12 +266,12 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.struct
 			_output.Columns.Add(_dc_<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>);<%
 			}%>
 
-			foreach (SO_<%=_aux_db_table.Name%> _serializableobject in serializableobjects_in) {
+			foreach (SO_<%=_aux_db_table.Name%> _serializableObject in serializableObjects_in) {
 				_dr = _output.NewRow();
 <%
 				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
-				_dr[_dc_<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>] = _serializableobject.<%=_aux_db_field.Name%>;<%
+				_dr[_dc_<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>] = _serializableObject.<%=_aux_db_field.Name%>;<%
 				}%>
 
 				_output.Rows.Add(_dr);
