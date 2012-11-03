@@ -13,219 +13,219 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     public partial class NWS_News {
         
         /// <summary>
-        /// dic_Title control.
+        /// DIC_Title control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic dic_Title;
+        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic DIC_Title;
         
         /// <summary>
-        /// dic_subtitle control.
+        /// DIC_Subtitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic dic_subtitle;
+        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic DIC_Subtitle;
         
         /// <summary>
-        /// dic_News control.
+        /// DIC_News control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic dic_News;
+        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic DIC_News;
         
         /// <summary>
-        /// dic_summary control.
+        /// DIC_Summary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic dic_summary;
+        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic DIC_Summary;
         
         /// <summary>
-        /// btn_News control.
+        /// BTN_News control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_News;
+        protected global::System.Web.UI.WebControls.Button BTN_News;
         
         /// <summary>
-        /// div_Attachments control.
+        /// DIV_Attachments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div_Attachments;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DIV_Attachments;
         
         /// <summary>
-        /// rep_Attachments control.
+        /// REP_Attachments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Repeater rep_Attachments;
+        protected global::Anthem.Repeater REP_Attachments;
         
         /// <summary>
-        /// fup_Attachment control.
+        /// FUP_Attachment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fup_Attachment;
+        protected global::System.Web.UI.WebControls.FileUpload FUP_Attachment;
         
         /// <summary>
-        /// btn_AttachmentUpload control.
+        /// BTN_AttachmentUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_AttachmentUpload;
+        protected global::System.Web.UI.WebControls.Button BTN_AttachmentUpload;
         
         /// <summary>
-        /// div_Tags control.
+        /// DIV_Tags control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div_Tags;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DIV_Tags;
         
         /// <summary>
-        /// cbl_Tags control.
+        /// CBL_Tags control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList cbl_Tags;
+        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Tags;
         
         /// <summary>
-        /// btn_Tags control.
+        /// BTN_Tags control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Button btn_Tags;
+        protected global::Anthem.Button BTN_Tags;
         
         /// <summary>
-        /// div_Authors control.
+        /// DIV_Authors control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div_Authors;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DIV_Authors;
         
         /// <summary>
-        /// cbl_Author control.
+        /// CBL_Author control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList cbl_Author;
+        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Author;
         
         /// <summary>
-        /// btn_Authors control.
+        /// BTN_Authors control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Button btn_Authors;
+        protected global::Anthem.Button BTN_Authors;
         
         /// <summary>
-        /// div_Sources control.
+        /// DIV_Sources control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div_Sources;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DIV_Sources;
         
         /// <summary>
-        /// cbl_Source control.
+        /// CBL_Source control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList cbl_Source;
+        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Source;
         
         /// <summary>
-        /// btn_Sources control.
+        /// BTN_Sources control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Button btn_Sources;
+        protected global::Anthem.Button BTN_Sources;
         
         /// <summary>
-        /// div_Highlights control.
+        /// DIV_Highlights control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div_Highlights;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DIV_Highlights;
         
         /// <summary>
-        /// cbl_Highlight control.
+        /// CBL_Highlight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList cbl_Highlight;
+        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Highlight;
         
         /// <summary>
-        /// btn_Highlights control.
+        /// BTN_Highlights control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Button btn_Highlights;
+        protected global::Anthem.Button BTN_Highlights;
         
         /// <summary>
-        /// div_Profiles control.
+        /// DIV_Profiles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div_Profiles;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DIV_Profiles;
         
         /// <summary>
-        /// cbl_Profiles control.
+        /// CBL_Profiles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList cbl_Profiles;
+        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Profiles;
         
         /// <summary>
-        /// btn_Profiles control.
+        /// BTN_Profiles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Button btn_Profiles;
+        protected global::Anthem.Button BTN_Profiles;
     }
 }

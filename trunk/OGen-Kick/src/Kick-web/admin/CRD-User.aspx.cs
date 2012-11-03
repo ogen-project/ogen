@@ -60,15 +60,15 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		}
 		#endregion
 
-		#region protected void btn_Profile_Click(object sender, EventArgs e);
-		protected void btn_Profile_Click(object sender, EventArgs e) {
+		#region protected void BTN_Profile_Click(object sender, EventArgs e);
+		protected void BTN_Profile_Click(object sender, EventArgs e) {
 			int[] _errors;
 
 			BusinessInstances.CRD_Profile.InstanceClient.setUserProfiles(
 				utils.User.SessionGuid,
 				utils.ClientIPAddress,
 				this.IDUser,
-				this.cbl_Profiles.Kick.SelectedValue__get<long>(), 
+				this.CBL_Profiles.Kick.SelectedValue__get<long>(), 
 				out _errors
 			);
 			if (!this.Master__base.Error_add(_errors)) {
@@ -99,9 +99,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					return;
 				}
 
-				this.txt_Name.Text = _user.Name;
-				this.txt_Login.Text = _user.Login;
-				this.txt_Email.Text = _user.EMail;
+				this.TXT_Name.Text = _user.Name;
+				this.TXT_LogOn.Text = _user.Login;
+				this.TXT_Email.Text = _user.EMail;
 			}
 
 			SO_vCRD_UserProfile[] _profiles
@@ -127,13 +127,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						);
 					}
 				);
-				this.cbl_Profiles.Kick.Bind__arrayOf<long, string>(
+				this.CBL_Profiles.Kick.Bind__arrayOf<long, string>(
 					"",
 					false,
 					_profiles
 				);
 
-				this.cbl_Profiles.Kick.SelectedValues__set_arrayOf<long, string, SO_vCRD_UserProfile>(
+				this.CBL_Profiles.Kick.SelectedValues__set_arrayOf<long, string, SO_vCRD_UserProfile>(
 					_profiles, 
 					delegate(
 						SO_vCRD_UserProfile item_in

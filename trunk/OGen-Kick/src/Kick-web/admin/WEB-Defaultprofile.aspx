@@ -13,19 +13,19 @@
 	Namespace="Anthem" 
 	Assembly="Anthem" %>
 <asp:Content
-	id="cnt_Title" runat="server" 
-	ContentPlaceHolderID="cph_Title">
+	id="CNT_Title" runat="server" 
+	ContentPlaceHolderID="CPH_Title">
 
 	- Default Profiles
 </asp:Content>
 <asp:Content
-	id="cnt_Head" runat="server"
-	ContentPlaceHolderID="cph_Head">
+	id="CNT_Head" runat="server"
+	ContentPlaceHolderID="CPH_Head">
 
 </asp:Content>
 <asp:Content
-	id="cnt_Body" runat="server"
-	ContentPlaceHolderID="cph_Body">
+	id="CNT_Body" runat="server"
+	ContentPlaceHolderID="CPH_Body">
 
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tr>
@@ -53,7 +53,7 @@
 						</td>
 						<td>
 							<asol:KickCheckBoxList
-								ID="cbl_Profile" runat="server"
+								ID="CBL_Profile" runat="server"
 								AutoUpdateAfterCallBack="true"
 
 								CssClass="checkboxlist nowrap" />
@@ -63,8 +63,8 @@
 						<td></td>
 						<td align="right">
 							<anthem:Button
-								ID="btn_Save" runat="server"
-								OnClick="btn_Save_Click"
+								ID="BTN_Save" runat="server"
+								OnClick="BTN_Save_Click"
 								AutoUpdateAfterCallBack="true"
 								EnableCallBack="true"
 

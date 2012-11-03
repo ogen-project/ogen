@@ -13,12 +13,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     public partial class NWS_NewsHighlight_list {
         
         /// <summary>
-        /// rep_Highlights control.
+        /// REP_Highlights control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Repeater rep_Highlights;
+        protected global::Anthem.Repeater REP_Highlights;
     }
 }

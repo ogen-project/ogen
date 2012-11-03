@@ -13,19 +13,19 @@
 	Namespace="Anthem" 
 	Assembly="Anthem" %>
 <asp:Content
-	id="cnt_Title" runat="server" 
-	ContentPlaceHolderID="cph_Title">
+	id="CNT_Title" runat="server" 
+	ContentPlaceHolderID="CPH_Title">
 
 	- User
 </asp:Content>
 <asp:Content
-	id="cnt_Head" runat="server"
-	ContentPlaceHolderID="cph_Head">
+	id="CNT_Head" runat="server"
+	ContentPlaceHolderID="CPH_Head">
 
 </asp:Content>
 <asp:Content
-	id="cnt_Body" runat="server"
-	ContentPlaceHolderID="cph_Body">
+	id="CNT_Body" runat="server"
+	ContentPlaceHolderID="CPH_Body">
 
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tr>
@@ -47,7 +47,7 @@
 						</td>
 						<td>
 							<asp:TextBox
-								ID="txt_Login" runat="server"
+								ID="TXT_LogOn" runat="server"
 								CssClass="textbox_dim2" 
 								Enabled="false" ReadOnly="true" />
 						</td>
@@ -58,7 +58,7 @@
 						</td>
 						<td>
 							<asp:TextBox
-								ID="txt_Email" runat="server"
+								ID="TXT_Email" runat="server"
 								CssClass="textbox_dim4" 
 								Enabled="false" ReadOnly="true" />
 						</td>
@@ -69,7 +69,7 @@
 						</td>
 						<td>
 							<asp:TextBox
-								ID="txt_Name" runat="server"
+								ID="TXT_Name" runat="server"
 								CssClass="textbox_dim4" 
 								Enabled="false" ReadOnly="true" />
 						</td>
@@ -80,7 +80,7 @@
 						</td>
 						<td>
 							<asol:KickCheckBoxList
-								ID="cbl_Profiles" runat="server"
+								ID="CBL_Profiles" runat="server"
 
 								CssClass="checkboxlist"
 								AutoUpdateAfterCallBack="true"
@@ -91,8 +91,8 @@
 						<td></td>
 						<td align="right">
 							<anthem:Button
-								ID="btn_Profile" runat="server"
-								OnClick="btn_Profile_Click"
+								ID="BTN_Profile" runat="server"
+								OnClick="BTN_Profile_Click"
 								AutoUpdateAfterCallBack="true"
 								EnableCallBack="true"
 								CssClass="button"

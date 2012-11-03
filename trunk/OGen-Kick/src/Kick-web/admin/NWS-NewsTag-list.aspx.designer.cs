@@ -13,12 +13,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     public partial class NWS_NewsTag_list {
         
         /// <summary>
-        /// rep_Tags control.
+        /// REP_Tags control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Repeater rep_Tags;
+        protected global::Anthem.Repeater REP_Tags;
     }
 }

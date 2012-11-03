@@ -31,7 +31,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 	public partial class WEB_Defaultprofile : AdminPage {
 		protected void Page_Load(object sender, EventArgs e) {
 			if (!this.Page.IsPostBack) {
-				#region this.cbl_Profile.Kick.Bind__arrayOf<long, string>(...);
+				#region this.CBL_Profile.Kick.Bind__arrayOf<long, string>(...);
 				int[] _errors;
 				long _count;
 				SO_CRD_Profile[] _profiles
@@ -57,7 +57,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					this.cbl_Profile.Kick.Bind__arrayOf<long, string>(
+					this.CBL_Profile.Kick.Bind__arrayOf<long, string>(
 						"",
 						false,
 						_profiles
@@ -68,14 +68,14 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				#endregion
 			}
 		}
-		#region protected void btn_Profile_Click(object sender, EventArgs e);
-		protected void btn_Save_Click(object sender, EventArgs e) {
+		#region protected void BTN_Profile_Click(object sender, EventArgs e);
+		protected void BTN_Save_Click(object sender, EventArgs e) {
 			int[] _errors;
 
 			BusinessInstances.WEB_DefaultProfile.InstanceClient.setObject(
 				utils.User.SessionGuid,
 				utils.ClientIPAddress,
-				this.cbl_Profile.Kick.SelectedValue__get<long>(),
+				this.CBL_Profile.Kick.SelectedValue__get<long>(),
 				out _errors
 			);
 			if (this.Master__base.Error_add(_errors)) {
@@ -95,7 +95,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				out _errors
 			);
 			if (!this.Master__base.Error_add(_errors)) {
-				this.cbl_Profile.Kick.SelectedValues__set_arrayOf<long, string, SO_vNET_Profile>(
+				this.CBL_Profile.Kick.SelectedValues__set_arrayOf<long, string, SO_vNET_Profile>(
 					_profiles,
 					delegate(
 						SO_vNET_Profile item_in

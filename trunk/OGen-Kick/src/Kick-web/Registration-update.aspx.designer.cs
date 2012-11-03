@@ -13,264 +13,264 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     public partial class Registration_update {
         
         /// <summary>
-        /// lbt_RegistrationDataShow control.
+        /// LBT_RegistrationDataShow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.LinkButton lbt_RegistrationDataShow;
+        protected global::Anthem.LinkButton LBT_RegistrationDataShow;
         
         /// <summary>
-        /// lbt_RegistrationDataHide control.
+        /// LBT_RegistrationDataHide control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.LinkButton lbt_RegistrationDataHide;
+        protected global::Anthem.LinkButton LBT_RegistrationDataHide;
         
         /// <summary>
-        /// tbl_RegistrationData control.
+        /// TBL_RegistrationData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Table tbl_RegistrationData;
+        protected global::Anthem.Table TBL_RegistrationData;
         
         /// <summary>
-        /// hfi_Name control.
+        /// HFI_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.HiddenField hfi_Name;
+        protected global::Anthem.HiddenField HFI_Name;
         
         /// <summary>
-        /// txt_Name control.
+        /// TXT_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.TextBox txt_Name;
+        protected global::Anthem.TextBox TXT_Name;
         
         /// <summary>
-        /// lbl_Name control.
+        /// LBL_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Label lbl_Name;
+        protected global::Anthem.Label LBL_Name;
         
         /// <summary>
-        /// hfi_Login control.
+        /// HFI_LogOn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.HiddenField hfi_Login;
+        protected global::Anthem.HiddenField HFI_LogOn;
         
         /// <summary>
-        /// txt_Login control.
+        /// TXT_LogOn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.TextBox txt_Login;
+        protected global::Anthem.TextBox TXT_LogOn;
         
         /// <summary>
-        /// btn_RegistrationDataCancel control.
+        /// BTN_RegistrationDataCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Button btn_RegistrationDataCancel;
+        protected global::Anthem.Button BTN_RegistrationDataCancel;
         
         /// <summary>
-        /// btn_RegistrationDataUpdate control.
+        /// BTN_RegistrationDataUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Button btn_RegistrationDataUpdate;
+        protected global::Anthem.Button BTN_RegistrationDataUpdate;
         
         /// <summary>
-        /// lbt_RegistrationEmailShow control.
+        /// LBT_RegistrationEmailShow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.LinkButton lbt_RegistrationEmailShow;
+        protected global::Anthem.LinkButton LBT_RegistrationEmailShow;
         
         /// <summary>
-        /// lbt_RegistrationEmailHide control.
+        /// LBT_RegistrationEmailHide control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.LinkButton lbt_RegistrationEmailHide;
+        protected global::Anthem.LinkButton LBT_RegistrationEmailHide;
         
         /// <summary>
-        /// tbl_RegistrationEmail control.
+        /// TBL_RegistrationEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Table tbl_RegistrationEmail;
+        protected global::Anthem.Table TBL_RegistrationEmail;
         
         /// <summary>
-        /// hfi_Email control.
+        /// HFI_Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.HiddenField hfi_Email;
+        protected global::Anthem.HiddenField HFI_Email;
         
         /// <summary>
-        /// txt_Email control.
+        /// TXT_Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.TextBox txt_Email;
+        protected global::Anthem.TextBox TXT_Email;
         
         /// <summary>
-        /// lbl_Email control.
+        /// LBL_Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Label lbl_Email;
+        protected global::Anthem.Label LBL_Email;
         
         /// <summary>
-        /// btn_RegistrationEmailCancel control.
+        /// BTN_RegistrationEmailCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Button btn_RegistrationEmailCancel;
+        protected global::Anthem.Button BTN_RegistrationEmailCancel;
         
         /// <summary>
-        /// btn_RegistrationEmailUpdate control.
+        /// BTN_RegistrationEmailUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Button btn_RegistrationEmailUpdate;
+        protected global::Anthem.Button BTN_RegistrationEmailUpdate;
         
         /// <summary>
-        /// lbt_RegistrationPasswordShow control.
+        /// LBT_RegistrationPasswordShow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.LinkButton lbt_RegistrationPasswordShow;
+        protected global::Anthem.LinkButton LBT_RegistrationPasswordShow;
         
         /// <summary>
-        /// lbt_RegistrationPasswordHide control.
+        /// LBT_RegistrationPasswordHide control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.LinkButton lbt_RegistrationPasswordHide;
+        protected global::Anthem.LinkButton LBT_RegistrationPasswordHide;
         
         /// <summary>
-        /// tbl_RegistrationPassword control.
+        /// TBL_RegistrationPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Table tbl_RegistrationPassword;
+        protected global::Anthem.Table TBL_RegistrationPassword;
         
         /// <summary>
-        /// txt_Password control.
+        /// TXT_Password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.TextBox txt_Password;
+        protected global::Anthem.TextBox TXT_Password;
         
         /// <summary>
-        /// lbl_Password control.
+        /// LBL_Password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Label lbl_Password;
+        protected global::Anthem.Label LBL_Password;
         
         /// <summary>
-        /// txt_PasswordNew control.
+        /// TXT_PasswordNew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.TextBox txt_PasswordNew;
+        protected global::Anthem.TextBox TXT_PasswordNew;
         
         /// <summary>
-        /// lbl_PasswordNew control.
+        /// LBL_PasswordNew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Label lbl_PasswordNew;
+        protected global::Anthem.Label LBL_PasswordNew;
         
         /// <summary>
-        /// txt_PasswordConfirm control.
+        /// TXT_PasswordConfirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.TextBox txt_PasswordConfirm;
+        protected global::Anthem.TextBox TXT_PasswordConfirm;
         
         /// <summary>
-        /// lbl_PasswordConfirm control.
+        /// LBL_PasswordConfirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Label lbl_PasswordConfirm;
+        protected global::Anthem.Label LBL_PasswordConfirm;
         
         /// <summary>
-        /// btn_RegistrationPasswordCancel control.
+        /// BTN_RegistrationPasswordCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Button btn_RegistrationPasswordCancel;
+        protected global::Anthem.Button BTN_RegistrationPasswordCancel;
         
         /// <summary>
-        /// btn_RegistrationPasswordUpdate control.
+        /// BTN_RegistrationPasswordUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Button btn_RegistrationPasswordUpdate;
+        protected global::Anthem.Button BTN_RegistrationPasswordUpdate;
     }
 }

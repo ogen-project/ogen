@@ -13,21 +13,21 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     public partial class ServerVariables {
         
         /// <summary>
-        /// form1 control.
+        /// MainForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm MainForm;
         
         /// <summary>
-        /// lit_dump control.
+        /// LIT_Dump control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lit_dump;
+        protected global::System.Web.UI.WebControls.Literal LIT_Dump;
     }
 }

@@ -60,8 +60,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		} 
 		#endregion
 
-		#region public void btn_Save_Click(object sender, EventArgs e);
-		public void btn_Save_Click(object sender, EventArgs e) {
+		#region public void BTN_Save_Click(object sender, EventArgs e);
+		public void BTN_Save_Click(object sender, EventArgs e) {
 			int[] _errors;
 			SO_vNWS_Profile _profile;
 			if (
@@ -82,7 +82,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				!this.Master__base.Error_add(_errors)
 				#endregion
 			) {
-				_profile.Name = this.txt_Name.Text;
+				_profile.Name = this.TXT_Name.Text;
 
 				BusinessInstances.NWS_Profile.InstanceClient.updObject(
 					utils.User.SessionGuid,
@@ -93,7 +93,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			} else {
 				_profile = new SO_vNWS_Profile();
 
-				_profile.Name = this.txt_Name.Text;
+				_profile.Name = this.TXT_Name.Text;
 				_profile.Approved_date_isNull = true;
 				_profile.IFUser__Approved_isNull = true;
 				_profile.IDApplication = utils.IDApplication;
@@ -135,9 +135,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				!this.Master__base.Error_add(_errors)
 				#endregion
 			) {
-				this.txt_Name.Text = _profile.Name;
+				this.TXT_Name.Text = _profile.Name;
 			} else {
-				this.txt_Name.Text = "";
+				this.TXT_Name.Text = "";
 			}
 		} 
 		#endregion

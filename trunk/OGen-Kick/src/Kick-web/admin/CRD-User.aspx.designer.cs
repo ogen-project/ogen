@@ -13,48 +13,48 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     public partial class CRD_User {
         
         /// <summary>
-        /// txt_Login control.
+        /// TXT_LogOn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Login;
+        protected global::System.Web.UI.WebControls.TextBox TXT_LogOn;
         
         /// <summary>
-        /// txt_Email control.
+        /// TXT_Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Email;
+        protected global::System.Web.UI.WebControls.TextBox TXT_Email;
         
         /// <summary>
-        /// txt_Name control.
+        /// TXT_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Name;
+        protected global::System.Web.UI.WebControls.TextBox TXT_Name;
         
         /// <summary>
-        /// cbl_Profiles control.
+        /// CBL_Profiles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-		protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList cbl_Profiles;
+		protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Profiles;
         
         /// <summary>
-        /// btn_Profile control.
+        /// BTN_Profile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Button btn_Profile;
+        protected global::Anthem.Button BTN_Profile;
     }
 }

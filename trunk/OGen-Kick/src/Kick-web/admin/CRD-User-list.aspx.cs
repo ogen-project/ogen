@@ -58,22 +58,22 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						}
 					);
 
-					this.ddl_Profile__in.Kick.Bind__arrayOf<long, string>(
+					this.DDL_Profile__in.Kick.Bind__arrayOf<long, string>(
 						"",
 						true,
 						_profiles
 					);
-					//if (this.ddl_Profile__in.Items.Count > 0) {
-					this.ddl_Profile__in.SelectedIndex = 0;
+					//if (this.DDL_Profile__in.Items.Count > 0) {
+					this.DDL_Profile__in.SelectedIndex = 0;
 					//}
 
-					this.ddl_Profile__out.Kick.Bind__Copy(
-						this.ddl_Profile__in,
+					this.DDL_Profile__out.Kick.Bind__Copy(
+						this.DDL_Profile__in,
 						"",
 						true
 					);
-					//if (this.ddl_Profile__out.Items.Count > 0) {
-					this.ddl_Profile__out.SelectedIndex = 0;
+					//if (this.DDL_Profile__out.Items.Count > 0) {
+					this.DDL_Profile__out.SelectedIndex = 0;
 					//}
 
 					this.Bind();
@@ -81,8 +81,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			}
 		}
 		#endregion
-		#region protected void btn_Search_Click(object sender, EventArgs e);
-		protected void btn_Search_Click(object sender, EventArgs e) {
+		#region protected void BTN_Search_Click(object sender, EventArgs e);
+		protected void BTN_Search_Click(object sender, EventArgs e) {
 			this.Bind();
 		}
 		#endregion
@@ -95,16 +95,16 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				= BusinessInstances.WEB_User.InstanceClient.getRecord_generic(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
-					this.txt_Login.Text.Trim(),
-					this.txt_Email.Text.Trim(),
-					this.txt_Name.Text.Trim(),
-					(string.IsNullOrEmpty(this.ddl_Profile__in.SelectedValue)) ? 0L : long.Parse(
-						this.ddl_Profile__in.SelectedValue,
+					this.TXT_LogOn.Text.Trim(),
+					this.TXT_Email.Text.Trim(),
+					this.TXT_Name.Text.Trim(),
+					(string.IsNullOrEmpty(this.DDL_Profile__in.SelectedValue)) ? 0L : long.Parse(
+						this.DDL_Profile__in.SelectedValue,
 						System.Globalization.NumberStyles.Integer,
 						System.Globalization.CultureInfo.CurrentCulture
 					),
-					(string.IsNullOrEmpty(this.ddl_Profile__out.SelectedValue)) ? 0L : long.Parse(
-						this.ddl_Profile__out.SelectedValue,
+					(string.IsNullOrEmpty(this.DDL_Profile__out.SelectedValue)) ? 0L : long.Parse(
+						this.DDL_Profile__out.SelectedValue,
 						System.Globalization.NumberStyles.Integer,
 						System.Globalization.CultureInfo.CurrentCulture
 					),
@@ -115,7 +115,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				);
 			if (!this.Master__base.Error_add(_errors)) {
 				if (_users.Length > 0) {
-					this.rep_SearchResults.Visible = true;
+					this.REP_SearchResults.Visible = true;
 
 					Array.Sort(
 						_users,
@@ -127,10 +127,10 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						}
 					);
 
-					this.rep_SearchResults.DataSource = _users;
-					this.rep_SearchResults.DataBind();
+					this.REP_SearchResults.DataSource = _users;
+					this.REP_SearchResults.DataBind();
 				} else {
-					this.rep_SearchResults.Visible = false;
+					this.REP_SearchResults.Visible = false;
 
 					this.Master__base.Error_add(
 						false,

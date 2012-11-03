@@ -10,27 +10,27 @@
 	Namespace="Anthem" 
 	Assembly="Anthem" %>
 <asp:Content
-	id="cnt_Title" runat="server" 
-	ContentPlaceHolderID="cph_Title">
+	id="CNT_Title" runat="server" 
+	ContentPlaceHolderID="CPH_Title">
 
 </asp:Content>
 <asp:Content
-	id="cnt_Head" runat="server"
-	ContentPlaceHolderID="cph_Head">
+	id="CNT_Head" runat="server"
+	ContentPlaceHolderID="CPH_Head">
 
 </asp:Content>
 <asp:Content
-	id="cnt_Body" runat="server"
-	ContentPlaceHolderID="cph_Body">
+	id="CNT_Body" runat="server"
+	ContentPlaceHolderID="CPH_Body">
 
 	<table width="100%" border="0" cellpadding="4" cellspacing="0" class="table_thin">
 		<tr class="alternating_item">
 			<td align="left" style="width: 50%;">
 				<anthem:LinkButton
-					ID="lbt_RegistrationDataShow" runat="server"
+					ID="LBT_RegistrationDataShow" runat="server"
 					EnableCallBack="true"
 					EnabledDuringCallBack="false"
-					OnClick="lbt_RegistrationDataShow_Click"
+					OnClick="LBT_RegistrationDataShow_Click"
 					AutoUpdateAfterCallBack="true"
 
 					CssClass="label_small"
@@ -39,10 +39,10 @@
 			</td>
 			<td align="right" style="width: 50%;">
 				<anthem:LinkButton
-					ID="lbt_RegistrationDataHide" runat="server"
+					ID="LBT_RegistrationDataHide" runat="server"
 					EnableCallBack="true"
 					EnabledDuringCallBack="false"
-					OnClick="lbt_RegistrationDataHide_Click"
+					OnClick="LBT_RegistrationDataHide_Click"
 					AutoUpdateAfterCallBack="true"
 
 					Visible="false"
@@ -54,7 +54,7 @@
 		<tr>
 			<td colspan="2">
 				<anthem:Table
-					ID="tbl_RegistrationData" runat="server"
+					ID="TBL_RegistrationData" runat="server"
 					AutoUpdateAfterCallBack="true"
 
 					Visible="false"
@@ -65,14 +65,14 @@
 						</asp:TableCell>
 						<asp:TableCell Width="65%" HorizontalAlign="Left">
 							<anthem:HiddenField
-								ID="hfi_Name" runat="server" 
+								ID="HFI_Name" runat="server" 
 								AutoUpdateAfterCallBack="true" />
 							<anthem:TextBox
-								ID="txt_Name" runat="server" CssClass="textbox_dim25"
+								ID="TXT_Name" runat="server" CssClass="textbox_dim25"
 								AutoUpdateAfterCallBack="true" />
 
 							&nbsp;<anthem:Label
-								ID="lbl_Name" runat="server" 
+								ID="LBL_Name" runat="server" 
 								AutoUpdateAfterCallBack="true"
 
 								CssClass="label_error" />
@@ -84,10 +84,10 @@
 						</asp:TableCell>
 						<asp:TableCell>
 							<anthem:HiddenField
-								ID="hfi_Login" runat="server" 
+								ID="HFI_LogOn" runat="server" 
 								AutoUpdateAfterCallBack="true" />
 							<anthem:TextBox
-								ID="txt_Login" runat="server" CssClass="textbox_dim25"
+								ID="TXT_LogOn" runat="server" CssClass="textbox_dim25"
 								AutoUpdateAfterCallBack="true" 
 
 								Enabled="false"
@@ -102,8 +102,8 @@
 								<tr>
 									<td>
 										<anthem:Button
-											ID="btn_RegistrationDataCancel" runat="server"
-											OnClick="btn_RegistrationDataCancel_Click"
+											ID="BTN_RegistrationDataCancel" runat="server"
+											OnClick="BTN_RegistrationDataCancel_Click"
 											EnableCallBack="true"
 											EnabledDuringCallBack="false"
 
@@ -113,10 +113,10 @@
 									<td>&nbsp;</td>
 									<td>
 										<anthem:Button
-											ID="btn_RegistrationDataUpdate" runat="server"
+											ID="BTN_RegistrationDataUpdate" runat="server"
 											EnableCallBack="true"
 											EnabledDuringCallBack="false"
-											OnClick="btn_RegistrationDataUpdate_Click"
+											OnClick="BTN_RegistrationDataUpdate_Click"
 
 											CssClass="button"
 											Text="Save" />
@@ -136,10 +136,10 @@
 		<tr class="alternating_item">
 			<td align="left" style="width: 50%;">
 				<anthem:LinkButton
-					ID="lbt_RegistrationEmailShow" runat="server"
+					ID="LBT_RegistrationEmailShow" runat="server"
 					EnableCallBack="true"
 					EnabledDuringCallBack="false"
-					OnClick="lbt_RegistrationEmailShow_Click"
+					OnClick="LBT_RegistrationEmailShow_Click"
 					AutoUpdateAfterCallBack="true"
 
 					CssClass="label_small"
@@ -148,10 +148,10 @@
 			</td>
 			<td align="right" style="width: 50%;">
 				<anthem:LinkButton
-					ID="lbt_RegistrationEmailHide" runat="server"
+					ID="LBT_RegistrationEmailHide" runat="server"
 					EnableCallBack="true"
 					EnabledDuringCallBack="false"
-					OnClick="lbt_RegistrationEmailHide_Click"
+					OnClick="LBT_RegistrationEmailHide_Click"
 					AutoUpdateAfterCallBack="true"
 
 					Visible="false"
@@ -163,7 +163,7 @@
 		<tr>
 			<td colspan="2">
 				<anthem:Table
-					ID="tbl_RegistrationEmail" runat="server"
+					ID="TBL_RegistrationEmail" runat="server"
 					AutoUpdateAfterCallBack="true"
 
 					Visible="false"
@@ -174,14 +174,14 @@
 						</asp:TableCell>
 						<asp:TableCell Width="65%" HorizontalAlign="Left">
 							<anthem:HiddenField
-								ID="hfi_Email" runat="server" 
+								ID="HFI_Email" runat="server" 
 								AutoUpdateAfterCallBack="true" />
 							<anthem:TextBox
-								ID="txt_Email" runat="server" CssClass="textbox_dim25"
+								ID="TXT_Email" runat="server" CssClass="textbox_dim25"
 								AutoUpdateAfterCallBack="true" />
 
 							&nbsp;<anthem:Label
-								ID="lbl_Email" runat="server" 
+								ID="LBL_Email" runat="server" 
 								AutoUpdateAfterCallBack="true"
 
 								CssClass="label_error" />
@@ -195,8 +195,8 @@
 								<tr>
 									<td>
 										<anthem:Button
-											ID="btn_RegistrationEmailCancel" runat="server"
-											OnClick="btn_RegistrationEmailCancel_Click"
+											ID="BTN_RegistrationEmailCancel" runat="server"
+											OnClick="BTN_RegistrationEmailCancel_Click"
 											EnableCallBack="true"
 											EnabledDuringCallBack="false"
 
@@ -206,10 +206,10 @@
 									<td>&nbsp;</td>
 									<td>
 										<anthem:Button
-											ID="btn_RegistrationEmailUpdate" runat="server"
+											ID="BTN_RegistrationEmailUpdate" runat="server"
 											EnableCallBack="true"
 											EnabledDuringCallBack="false"
-											OnClick="btn_RegistrationEmailUpdate_Click"
+											OnClick="BTN_RegistrationEmailUpdate_Click"
 
 											CssClass="button"
 											Text="Save" />
@@ -229,10 +229,10 @@
 		<tr class="alternating_item">
 			<td align="left" style="width: 50%;">
 				<anthem:LinkButton
-					ID="lbt_RegistrationPasswordShow" runat="server"
+					ID="LBT_RegistrationPasswordShow" runat="server"
 					EnableCallBack="true"
 					EnabledDuringCallBack="false"
-					OnClick="lbt_RegistrationPasswordShow_Click"
+					OnClick="LBT_RegistrationPasswordShow_Click"
 					AutoUpdateAfterCallBack="true"
 
 					CssClass="label_small"
@@ -241,10 +241,10 @@
 			</td>
 			<td align="right" style="width: 50%;">
 				<anthem:LinkButton
-					ID="lbt_RegistrationPasswordHide" runat="server"
+					ID="LBT_RegistrationPasswordHide" runat="server"
 					EnableCallBack="true"
 					EnabledDuringCallBack="false"
-					OnClick="lbt_RegistrationPasswordHide_Click"
+					OnClick="LBT_RegistrationPasswordHide_Click"
 					AutoUpdateAfterCallBack="true"
 
 					Visible="false"
@@ -256,7 +256,7 @@
 		<tr>
 			<td colspan="2">
 				<anthem:Table
-					ID="tbl_RegistrationPassword" runat="server"
+					ID="TBL_RegistrationPassword" runat="server"
 					AutoUpdateAfterCallBack="true"
 
 					Visible="false"
@@ -267,14 +267,14 @@
 						</asp:TableCell>
 						<asp:TableCell Width="55%" HorizontalAlign="Left">
 							<anthem:TextBox
-								ID="txt_Password" runat="server" 
+								ID="TXT_Password" runat="server" 
 								AutoUpdateAfterCallBack="true" 
 
 								TextMode="Password"
 								CssClass="textbox_dim15" />
 
 							&nbsp;<anthem:Label
-								ID="lbl_Password" runat="server"
+								ID="LBL_Password" runat="server"
 								AutoUpdateAfterCallBack="true"
 
 								CssClass="label_error" />
@@ -286,7 +286,7 @@
 						</asp:TableCell>
 						<asp:TableCell HorizontalAlign="Left">
 							<anthem:TextBox
-								ID="txt_PasswordNew" runat="server" 
+								ID="TXT_PasswordNew" runat="server" 
 								AutoUpdateAfterCallBack="true" 
 
 								TextMode="Password"
@@ -294,7 +294,7 @@
 
 							&nbsp;&nbsp;
 							<anthem:Label
-								ID="lbl_PasswordNew" runat="server"
+								ID="LBL_PasswordNew" runat="server"
 								AutoUpdateAfterCallBack="true"
 
 								CssClass="label_error" />
@@ -306,7 +306,7 @@
 						</asp:TableCell>
 						<asp:TableCell HorizontalAlign="Left">
 							<anthem:TextBox
-								ID="txt_PasswordConfirm" runat="server" 
+								ID="TXT_PasswordConfirm" runat="server" 
 								AutoUpdateAfterCallBack="true" 
 
 								TextMode="Password"
@@ -314,7 +314,7 @@
 
 							&nbsp;&nbsp;
 							<anthem:Label
-								ID="lbl_PasswordConfirm" runat="server"
+								ID="LBL_PasswordConfirm" runat="server"
 								AutoUpdateAfterCallBack="true"
 
 								CssClass="label_error" />
@@ -328,8 +328,8 @@
 								<tr>
 									<td>
 										<anthem:Button
-											ID="btn_RegistrationPasswordCancel" runat="server"
-											OnClick="btn_RegistrationPasswordCancel_Click"
+											ID="BTN_RegistrationPasswordCancel" runat="server"
+											OnClick="BTN_RegistrationPasswordCancel_Click"
 											EnableCallBack="true"
 											EnabledDuringCallBack="false"
 
@@ -339,10 +339,10 @@
 									<td>&nbsp;</td>
 									<td>
 										<anthem:Button
-											ID="btn_RegistrationPasswordUpdate" runat="server"
+											ID="BTN_RegistrationPasswordUpdate" runat="server"
 											EnableCallBack="true"
 											EnabledDuringCallBack="false"
-											OnClick="btn_RegistrationPasswordUpdate_Click"
+											OnClick="BTN_RegistrationPasswordUpdate_Click"
 
 											CssClass="button"
 											Text="Save" />

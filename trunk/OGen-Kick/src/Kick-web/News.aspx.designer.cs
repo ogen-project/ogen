@@ -13,111 +13,111 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     public partial class FE_News {
         
         /// <summary>
-        /// tbl_News control.
+        /// TBL_News control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable tbl_News;
+        protected global::System.Web.UI.HtmlControls.HtmlTable TBL_News;
         
         /// <summary>
-        /// lbl_Title control.
+        /// LBL_Title control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Title;
+        protected global::System.Web.UI.WebControls.Label LBL_Title;
         
         /// <summary>
-        /// lbl_Publish_date control.
+        /// LBL_Publish_date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Publish_date;
+        protected global::System.Web.UI.WebControls.Label LBL_Publish_date;
         
         /// <summary>
-        /// img_News control.
+        /// IMG_News control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image img_News;
+        protected global::System.Web.UI.WebControls.Image IMG_News;
         
         /// <summary>
-        /// lbl_Image_Name control.
+        /// LBL_Image_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Image_Name;
+        protected global::System.Web.UI.WebControls.Label LBL_Image_Name;
         
         /// <summary>
-        /// lbl_Image_Description control.
+        /// LBL_Image_Description control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Image_Description;
+        protected global::System.Web.UI.WebControls.Label LBL_Image_Description;
         
         /// <summary>
-        /// lbl_Content control.
+        /// LBL_Content control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Content;
+        protected global::System.Web.UI.WebControls.Label LBL_Content;
         
         /// <summary>
-        /// tr_Attachments1 control.
+        /// TR_Attachments1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_Attachments1;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow TR_Attachments1;
         
         /// <summary>
-        /// rep_Attachments control.
+        /// REP_Attachments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rep_Attachments;
+        protected global::System.Web.UI.WebControls.Repeater REP_Attachments;
         
         /// <summary>
-        /// tr_Details control.
+        /// TR_Details control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_Details;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow TR_Details;
         
         /// <summary>
-        /// rep_Sources control.
+        /// REP_Sources control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rep_Sources;
+        protected global::System.Web.UI.WebControls.Repeater REP_Sources;
         
         /// <summary>
-        /// rep_Tags control.
+        /// REP_Tags control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rep_Tags;
+        protected global::System.Web.UI.WebControls.Repeater REP_Tags;
     }
 }

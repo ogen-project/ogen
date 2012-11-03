@@ -60,15 +60,15 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							}
 						);
 
-						this.cbl_Languages.Kick.Bind__arrayOf<int, string>(
+						this.CBL_Languages.Kick.Bind__arrayOf<int, string>(
 							"",
 							false,
 							_languages
 						);
 
-						this.cbl_Languages.Visible = true;
+						this.CBL_Languages.Visible = true;
 					} else {
-						this.cbl_Languages.Visible = false;
+						this.CBL_Languages.Visible = false;
 
 						this.Master__base.Error_add(
 							false,
@@ -82,13 +82,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		}
 		#endregion
 
-		#region protected void btn_Save_Click(object sender, EventArgs e);
-		protected void btn_Save_Click(object sender, EventArgs e) {
+		#region protected void BTN_Save_Click(object sender, EventArgs e);
+		protected void BTN_Save_Click(object sender, EventArgs e) {
 			int[] _errors;
 			BusinessInstances.DIC_Dic.InstanceClient.setSupportedLanguages(
 				utils.User.SessionGuid,
 				utils.ClientIPAddress,
-				this.cbl_Languages.Kick.SelectedValue__get<int>(), 
+				this.CBL_Languages.Kick.SelectedValue__get<int>(), 
 				out _errors
 			);
 			if (!this.Master__base.Error_add(_errors)) {
@@ -127,7 +127,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						}
 					);
 
-					this.cbl_Languages.Kick.SelectedValues__set_arrayOf<int, string>(
+					this.CBL_Languages.Kick.SelectedValues__set_arrayOf<int, string>(
 						_languages
 					);
 				}

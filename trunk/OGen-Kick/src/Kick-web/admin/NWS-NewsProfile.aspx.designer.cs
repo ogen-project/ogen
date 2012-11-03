@@ -13,21 +13,21 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     public partial class NWS_NewsProfile {
         
         /// <summary>
-        /// txt_Name control.
+        /// TXT_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Name;
+        protected global::System.Web.UI.WebControls.TextBox TXT_Name;
         
         /// <summary>
-        /// btn_Save control.
+        /// BTN_Save control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Save;
+        protected global::System.Web.UI.WebControls.Button BTN_Save;
     }
 }

@@ -13,12 +13,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     public partial class NWS_NewsSource_list {
         
         /// <summary>
-        /// rep_Sources control.
+        /// REP_Sources control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Repeater rep_Sources;
+        protected global::Anthem.Repeater REP_Sources;
     }
 }

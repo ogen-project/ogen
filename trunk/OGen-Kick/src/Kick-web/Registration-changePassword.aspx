@@ -10,18 +10,18 @@
 	Namespace="Anthem" 
 	Assembly="Anthem" %>
 <asp:Content
-	id="cnt_Title" runat="server" 
-	ContentPlaceHolderID="cph_Title">
+	id="CNT_Title" runat="server" 
+	ContentPlaceHolderID="CPH_Title">
 
 </asp:Content>
 <asp:Content
-	id="cnt_Head" runat="server"
-	ContentPlaceHolderID="cph_Head">
+	id="CNT_Head" runat="server"
+	ContentPlaceHolderID="CPH_Head">
 
 </asp:Content>
 <asp:Content
-	id="cnt_Body" runat="server"
-	ContentPlaceHolderID="cph_Body">
+	id="CNT_Body" runat="server"
+	ContentPlaceHolderID="CPH_Body">
 
 	<table width="100%" border="0" cellpadding="4" cellspacing="0" class="table_thin">
 		<tr class="alternating_item">
@@ -36,7 +36,7 @@
 			</td>
 			<td style="width: 55%;" align="left">
 				<anthem:TextBox
-					ID="txt_PasswordNew" runat="server" 
+					ID="TXT_PasswordNew" runat="server" 
 					AutoUpdateAfterCallBack="true" 
 
 					TextMode="Password"
@@ -44,7 +44,7 @@
 
 				&nbsp;&nbsp;
 				<anthem:Label
-					ID="lbl_PasswordNew" runat="server"
+					ID="LBL_PasswordNew" runat="server"
 					AutoUpdateAfterCallBack="true"
 
 					CssClass="label_error" />
@@ -56,7 +56,7 @@
 			</td>
 			<td align="left">
 				<anthem:TextBox
-					ID="txt_PasswordConfirm" runat="server" 
+					ID="TXT_PasswordConfirm" runat="server" 
 					AutoUpdateAfterCallBack="true" 
 
 					TextMode="Password"
@@ -64,7 +64,7 @@
 
 				&nbsp;&nbsp;
 				<anthem:Label
-					ID="lbl_PasswordConfirm" runat="server"
+					ID="LBL_PasswordConfirm" runat="server"
 					AutoUpdateAfterCallBack="true"
 
 					CssClass="label_error" />
@@ -74,10 +74,10 @@
 			<td></td>
 			<td align="left">
 				<anthem:Button
-					ID="btn_RegistrationPasswordUpdate" runat="server"
+					ID="BTN_RegistrationPasswordUpdate" runat="server"
 					EnableCallBack="true"
 					EnabledDuringCallBack="false"
-					OnClick="lbt_RegistrationPasswordUpdate_Click"
+					OnClick="LBT_RegistrationPasswordUpdate_Click"
 
 					CssClass="button"
 					Text="Save" />

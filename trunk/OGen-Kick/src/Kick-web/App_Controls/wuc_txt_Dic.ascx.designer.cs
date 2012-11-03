@@ -13,12 +13,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     public partial class wuc_txt_Dic {
         
         /// <summary>
-        /// rep_Field control.
+        /// REP_Field control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rep_Field;
+        protected global::System.Web.UI.WebControls.Repeater REP_Field;
     }
 }

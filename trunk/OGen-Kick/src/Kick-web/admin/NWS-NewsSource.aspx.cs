@@ -79,7 +79,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					this.ddl_Source_parent.Kick.Bind__arrayOf<long, string>(
+					this.DDL_Source_parent.Kick.Bind__arrayOf<long, string>(
 						"",
 						true,
 						_sources
@@ -92,18 +92,18 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		} 
 		#endregion
 
-		#region public void btn_Save_Click(object sender, EventArgs e);
+		#region public void BTN_Save_Click(object sender, EventArgs e);
 		private void btn_save_click(
 			ref SO_NWS_Source source_ref
 		) {
-			source_ref.Name = this.txt_Name.Text;
-			#region source_ref.IFSource__parent = long.Parse(this.ddl_Source_parent.SelectedValue);
-			if (string.IsNullOrEmpty(this.ddl_Source_parent.SelectedValue)) {
+			source_ref.Name = this.TXT_Name.Text;
+			#region source_ref.IFSource__parent = long.Parse(this.DDL_Source_parent.SelectedValue);
+			if (string.IsNullOrEmpty(this.DDL_Source_parent.SelectedValue)) {
 				source_ref.IFSource__parent_isNull = true;
 			} else {
-				//source_ref.IFSource__parent = ddl_Source_parent.Kick.SelectedValue__get<long>();
+				//source_ref.IFSource__parent = DDL_Source_parent.Kick.SelectedValue__get<long>();
 				source_ref.IFSource__parent = long.Parse(
-					this.ddl_Source_parent.SelectedValue,
+					this.DDL_Source_parent.SelectedValue,
 					System.Globalization.NumberStyles.Integer,
 					System.Globalization.CultureInfo.CurrentCulture
 				);
@@ -111,7 +111,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			#endregion
 		}
 
-		public void btn_Save_Click(object sender, EventArgs e) {
+		public void BTN_Save_Click(object sender, EventArgs e) {
 			int[] _errors;
 			SO_NWS_Source _source;
 			if (
@@ -192,16 +192,16 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				!this.Master__base.Error_add(_errors)
 				#endregion
 			) {
-				this.txt_Name.Text = _source.Name;
-				#region this.ddl_Source_parent.SelectedValue = _source.IFSource__parent.ToString();
+				this.TXT_Name.Text = _source.Name;
+				#region this.DDL_Source_parent.SelectedValue = _source.IFSource__parent.ToString();
 				if (_source.IFSource__parent_isNull) {
-					this.ddl_Source_parent.SelectedValue = "";
+					this.DDL_Source_parent.SelectedValue = "";
 				} else {
-					this.ddl_Source_parent.SelectedValue = _source.IFSource__parent.ToString(System.Globalization.CultureInfo.CurrentCulture);
+					this.DDL_Source_parent.SelectedValue = _source.IFSource__parent.ToString(System.Globalization.CultureInfo.CurrentCulture);
 				}
 				#endregion
 			} else {
-				this.txt_Name.Text = "";
+				this.TXT_Name.Text = "";
 			}
 		} 
 		#endregion

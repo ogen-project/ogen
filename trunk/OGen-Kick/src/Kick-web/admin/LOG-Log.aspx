@@ -17,14 +17,14 @@
 	Namespace="Anthem" 
 	Assembly="Anthem" %>
 <asp:Content
-	id="cnt_Title" runat="server" 
-	ContentPlaceHolderID="cph_Title">
+	id="CNT_Title" runat="server" 
+	ContentPlaceHolderID="CPH_Title">
 
 	- Log
 </asp:Content>
 <asp:Content
-	id="cnt_Head" runat="server"
-	ContentPlaceHolderID="cph_Head">
+	id="CNT_Head" runat="server"
+	ContentPlaceHolderID="CPH_Head">
 
 	<script src="../include/htmlDatePicker.js" type="text/javascript" language="JavaScript"></script>
 	<link href="../include/htmlDatePicker.css" type="text/css" rel="stylesheet" />
@@ -36,8 +36,8 @@
 
 </asp:Content>
 <asp:Content
-	id="cnt_Body" runat="server"
-	ContentPlaceHolderID="cph_Body">
+	id="CNT_Body" runat="server"
+	ContentPlaceHolderID="CPH_Body">
 
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tr>
@@ -59,7 +59,7 @@
 						</td>
 						<td>
 							<asol:KickListBox
-								ID="ddl_Logtype" runat="server" 
+								ID="DDL_Logtype" runat="server" 
 					
 								CssClass="dropdownlist"
 								Rows="1" SelectionMode="Single" />
@@ -71,7 +71,7 @@
 						</td>
 						<td>
 							<asol:KickListBox
-								ID="ddl_Errortype" runat="server" 
+								ID="DDL_Errortype" runat="server" 
 					
 								CssClass="dropdownlist"
 								Rows="1" SelectionMode="Single" />
@@ -83,7 +83,7 @@
 						</td>
 						<td>
 							<asp:CheckBox
-								ID="cbx_Read" runat="server" 
+								ID="CBX_Read" runat="server" 
 					
 								CssClass="checkboxlist"
 								Text="Read" />
@@ -95,7 +95,7 @@
 						</td>
 						<td>
 							<asol:KickListBox
-								ID="ddl_Coworker" runat="server" 
+								ID="DDL_Coworker" runat="server" 
 					
 								Rows="1" SelectionMode="Single"
 								CssClass="dropdownlist" />
@@ -119,7 +119,7 @@
 											ID="wuc_Date_begin" runat="server" 
 											Title="begin date" />&nbsp;&nbsp;--%>
 										&nbsp;<kick:htmlDatePicker 
-											ID="txt_Date_begin" runat="server" 
+											ID="TXT_Date_begin" runat="server" 
 											AutoUpdateAfterCallBack="true"
 											class="date-pick textbox_date"
 											onclick="javascript:GetDate(this);" />&nbsp;&nbsp;
@@ -135,7 +135,7 @@
 											ID="wuc_Date_end" runat="server" 
 											Title="end date" />&nbsp;&nbsp;--%>
 										&nbsp;<kick:htmlDatePicker 
-											ID="txt_Date_end" runat="server" 
+											ID="TXT_Date_end" runat="server" 
 											AutoUpdateAfterCallBack="true"
 											class="date-pick textbox_date"
 											onclick="javascript:GetDate(this);" />&nbsp;&nbsp;
@@ -147,14 +147,14 @@
 									</td>
 									<td>
 										<anthem:LinkButton
-											ID="lbl_Date_lastDay" runat="server" 
+											ID="LBL_Date_lastDay" runat="server" 
 								
 											EnableCallBack="true"
 											EnabledDuringCallBack="false"
 								
 											CssClass="label_small"
 											CommandArgument="1"
-											OnClick="lbt_Date_Click"
+											OnClick="LBT_Date_Click"
 											Text="Last&nbsp;Day" />
 									</td>
 									<td>
@@ -162,14 +162,14 @@
 									</td>
 									<td>
 										<anthem:LinkButton
-											ID="lbl_Date_lastWeek" runat="server" 
+											ID="LBL_Date_lastWeek" runat="server" 
 								
 											EnableCallBack="true"
 											EnabledDuringCallBack="false"
 								
 											CssClass="label_small"
 											CommandArgument="2"
-											OnClick="lbt_Date_Click"
+											OnClick="LBT_Date_Click"
 											Text="Last&nbsp;Week" />
 									</td>
 									<td>
@@ -177,14 +177,14 @@
 									</td>
 									<td>
 										<anthem:LinkButton
-											ID="lbl_Date_clear" runat="server" 
+											ID="LBL_Date_clear" runat="server" 
 								
 											EnableCallBack="true"
 											EnabledDuringCallBack="false"
 								
 											CssClass="label_small"
 											CommandArgument="0"
-											OnClick="lbt_Date_Click"
+											OnClick="LBT_Date_Click"
 											Text="Clear" />
 									</td>
 								</tr>
@@ -194,14 +194,14 @@
 					<tr>
 						<td colspan="2" align="right">
 							<anthem:Button
-								ID="btn_Search" runat="server"
+								ID="BTN_Search" runat="server"
 					
 								EnableCallBack="true"
 								EnabledDuringCallBack="false"
 								TextDuringCallBack="working..."
 
 								CssClass="button"
-								OnClick="btn_Search_Click"
+								OnClick="BTN_Search_Click"
 								Text="&nbsp;&nbsp;Search&nbsp;&nbsp;" />
 						</td>
 					</tr>
@@ -213,7 +213,7 @@
 	<br />
 
 	<anthem:Repeater
-		ID="rep_Log" runat="server"
+		ID="REP_Log" runat="server"
 					
 		AutoUpdateAfterCallBack="true">
 		<HeaderTemplate>
@@ -274,7 +274,7 @@
 					</td>
 					<td valign="top">
 						<anthem:Button
-							id="btn_MarkRead" runat="server"
+							id="BTN_MarkRead" runat="server"
 										
 							Visible='<%# DataBinder.Eval(Container.DataItem, "Visible")%>'
 
@@ -283,7 +283,7 @@
 										
 							CssClass="button"
 							CommandArgument='<%# DataBinder.Eval(Container.DataItem, "IDLog")%>'
-							OnClick="btn_MarkRead_Click"
+							OnClick="BTN_MarkRead_Click"
 							Text="del" />
 					</td>
 				</tr>

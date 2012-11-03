@@ -37,8 +37,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		} 
 		#endregion
 
-		#region protected void btn_Delete_Click(object sender, EventArgs e);
-		protected void btn_Delete_Click(object sender, EventArgs e) {
+		#region protected void BTN_Delete_Click(object sender, EventArgs e);
+		protected void BTN_Delete_Click(object sender, EventArgs e) {
 			long _idAuthor = long.Parse(
 				((IButtonControl)sender).CommandArgument,
 				System.Globalization.NumberStyles.Integer,
@@ -56,8 +56,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			}
 		}
 		#endregion
-		#region protected void btn_Approve_Click(object sender, EventArgs e);
-		protected void btn_Approve_Click(object sender, EventArgs e) {
+		#region protected void BTN_Approve_Click(object sender, EventArgs e);
+		protected void BTN_Approve_Click(object sender, EventArgs e) {
 			long _idAuthor = long.Parse(
 				((IButtonControl)sender).CommandArgument,
 				System.Globalization.NumberStyles.Integer,
@@ -103,12 +103,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					this.rep_Authors.DataSource = _authors;
-					this.rep_Authors.DataBind();
+					this.REP_Authors.DataSource = _authors;
+					this.REP_Authors.DataBind();
 
-					this.rep_Authors.Visible = true;
+					this.REP_Authors.Visible = true;
 				} else {
-					this.rep_Authors.Visible = false;
+					this.REP_Authors.Visible = false;
 
 					this.Master__base.Error_add(
 						false,

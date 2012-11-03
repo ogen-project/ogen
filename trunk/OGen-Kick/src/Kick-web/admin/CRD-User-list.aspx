@@ -9,19 +9,19 @@
 	Namespace="OGen.lib.presentationlayer.webforms"
 	Assembly="OGen.lib.presentationlayer.webforms-2.0" %>
 <asp:Content
-	id="cnt_Title" runat="server" 
-	ContentPlaceHolderID="cph_Title">
+	id="CNT_Title" runat="server" 
+	ContentPlaceHolderID="CPH_Title">
 
 	- User Search
 </asp:Content>
 <asp:Content
-	id="cnt_Head" runat="server"
-	ContentPlaceHolderID="cph_Head">
+	id="CNT_Head" runat="server"
+	ContentPlaceHolderID="CPH_Head">
 
 </asp:Content>
 <asp:Content
-	id="cnt_Body" runat="server"
-	ContentPlaceHolderID="cph_Body">
+	id="CNT_Body" runat="server"
+	ContentPlaceHolderID="CPH_Body">
 
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tr>
@@ -43,7 +43,7 @@
 						</td>
 						<td>
 							<asp:TextBox
-								ID="txt_Login" runat="server"
+								ID="TXT_LogOn" runat="server"
 								CssClass="textbox_dim2" />
 						</td>
 					</tr>
@@ -53,7 +53,7 @@
 						</td>
 						<td>
 							<asp:TextBox
-								ID="txt_Email" runat="server"
+								ID="TXT_Email" runat="server"
 								CssClass="textbox_dim4" />
 						</td>
 					</tr>
@@ -63,7 +63,7 @@
 						</td>
 						<td>
 							<asp:TextBox
-								ID="txt_Name" runat="server"
+								ID="TXT_Name" runat="server"
 								CssClass="textbox_dim4" />
 						</td>
 					</tr>
@@ -73,7 +73,7 @@
 						</td>
 						<td>
 							<asol:KickListBox
-								id="ddl_Profile__in" runat="server"
+								id="DDL_Profile__in" runat="server"
 
 								CssClass="dropdownlist"
 								Rows="1" 
@@ -86,7 +86,7 @@
 						</td>
 						<td>
 							<asol:KickListBox
-								id="ddl_Profile__out" runat="server"
+								id="DDL_Profile__out" runat="server"
 
 								CssClass="dropdownlist"
 								Rows="1" 
@@ -97,8 +97,8 @@
 						<td></td>
 						<td align="right">
 							<asp:Button
-								ID="btn_Search" runat="server"
-								OnClick="btn_Search_Click"
+								ID="BTN_Search" runat="server"
+								OnClick="BTN_Search_Click"
 								CssClass="button"
 								Text="Search" />
 						</td>
@@ -111,7 +111,7 @@
 	<br />
 
 	<asp:Repeater
-		ID="rep_SearchResults" runat="server">
+		ID="REP_SearchResults" runat="server">
 		<HeaderTemplate>
 			<table 
 				border="0" align="center" cellpadding="2" cellspacing="1" width="100%"

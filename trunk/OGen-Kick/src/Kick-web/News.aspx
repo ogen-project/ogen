@@ -10,30 +10,30 @@
 	Namespace="Anthem" 
 	Assembly="Anthem" %>
 <asp:Content
-	id="cnt_Title" runat="server" 
-	ContentPlaceHolderID="cph_Title">
+	id="CNT_Title" runat="server" 
+	ContentPlaceHolderID="CPH_Title">
 
 </asp:Content>
 <asp:Content
-	id="cnt_Head" runat="server"
-	ContentPlaceHolderID="cph_Head">
+	id="CNT_Head" runat="server"
+	ContentPlaceHolderID="CPH_Head">
 
 </asp:Content>
 <asp:Content
-	id="cnt_Body" runat="server"
-	ContentPlaceHolderID="cph_Body">
+	id="CNT_Body" runat="server"
+	ContentPlaceHolderID="CPH_Body">
 
 
 	<table 
-		id="tbl_News" runat="server"
+		id="TBL_News" runat="server"
 		border="0" cellpadding="4" cellspacing="0" 
 		class="table_thin" width="100%">
 		<tr class="alternating_item">
 			<td>
-				<asp:Label ID="lbl_Title" runat="server" />
+				<asp:Label ID="LBL_Title" runat="server" />
 			</td>
 			<td align="right">
-				<asp:Label ID="lbl_Publish_date" runat="server" /> 
+				<asp:Label ID="LBL_Publish_date" runat="server" /> 
 			</td>
 		</tr>
 
@@ -44,33 +44,33 @@
 					<tr>
 						<td valign="top">
 							<asp:Image 
-								ID="img_News" runat="server"
+								ID="IMG_News" runat="server"
 								style="
 									max-height: 176px; max-width: 300px; 
 									margin: 3px;
 								" />
 							<br />
 							<asp:Label
-								ID="lbl_Image_Name" runat="server"
+								ID="LBL_Image_Name" runat="server"
 								CssClass="label_small" />
 							<asp:Label
-								ID="lbl_Image_Description" runat="server"
+								ID="LBL_Image_Description" runat="server"
 								CssClass="label_small" />
 						</td>
 						<td valign="top" style="
 							width: 100%;
 						">
-							<asp:Label ID="lbl_Content" runat="server" />
+							<asp:Label ID="LBL_Content" runat="server" />
 						</td>
 					</tr>
 				</table>
 			</td>
 		</tr>
-		<tr id="tr_Attachments1" runat="server">
+		<tr id="TR_Attachments1" runat="server">
 			<td></td>
 			<td valign="bottom" class="label_small" align="right">
 				<asp:Repeater
-					ID="rep_Attachments" runat="server">
+					ID="REP_Attachments" runat="server">
 					<HeaderTemplate>
 						<table border="0" cellpadding="0" cellspacing="0">
 					</HeaderTemplate>
@@ -99,10 +99,10 @@
 				</asp:Repeater>
 			</td>
 		</tr>
-		<tr id="tr_Details" runat="server">
+		<tr id="TR_Details" runat="server">
 			<td class="nowrap label_small">
 				<asp:Repeater
-					ID="rep_Sources" runat="server">
+					ID="REP_Sources" runat="server">
 					<HeaderTemplate>(source: </HeaderTemplate>
 					<ItemTemplate><%# 
 						(Container.ItemIndex == 0) ? "" : ", " %>
@@ -117,7 +117,7 @@
 			</td>
 			<td class="nowrap label_small" align="right">
 				<asp:Repeater
-					ID="rep_Tags" runat="server">
+					ID="REP_Tags" runat="server">
 					<ItemTemplate>
 						#<a 
 							href="<%# string.Format(

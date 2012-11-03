@@ -5,16 +5,16 @@
 	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.admin.Default" 
 	MasterPageFile="~/App_Controls/Admin.Master" %>
 <asp:Content
-	id="cnt_Title" runat="server" 
-	ContentPlaceHolderID="cph_Title"> - Default
+	id="CNT_Title" runat="server" 
+	ContentPlaceHolderID="CPH_Title"> - Default
 </asp:Content>
 <asp:Content
-	id="cnt_Head" runat="server"
-	ContentPlaceHolderID="cph_Head">
+	id="CNT_Head" runat="server"
+	ContentPlaceHolderID="CPH_Head">
 
 </asp:Content>
 <asp:Content
-	id="cnt_Body" runat="server"
-	ContentPlaceHolderID="cph_Body">
+	id="CNT_Body" runat="server"
+	ContentPlaceHolderID="CPH_Body">
 
 </asp:Content>

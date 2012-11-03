@@ -13,12 +13,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     public partial class CRD_Profile_list {
         
         /// <summary>
-        /// rep_Profiles control.
+        /// REP_Profiles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Repeater rep_Profiles;
+        protected global::Anthem.Repeater REP_Profiles;
     }
 }

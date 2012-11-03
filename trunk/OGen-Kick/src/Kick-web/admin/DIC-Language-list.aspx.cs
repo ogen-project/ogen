@@ -37,8 +37,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		}
 		#endregion
 
-		#region protected void btn_Delete_Click(object sender, EventArgs e);
-		protected void btn_Delete_Click(object sender, EventArgs e) {
+		#region protected void BTN_Delete_Click(object sender, EventArgs e);
+		protected void BTN_Delete_Click(object sender, EventArgs e) {
 			int _idLanguage = int.Parse(
 				((IButtonControl)sender).CommandArgument,
 				System.Globalization.NumberStyles.Integer,
@@ -87,12 +87,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					this.rep_Languages.DataSource = _languages;
-					this.rep_Languages.DataBind();
+					this.REP_Languages.DataSource = _languages;
+					this.REP_Languages.DataBind();
 
-					this.rep_Languages.Visible = true;
+					this.REP_Languages.Visible = true;
 				} else {
-					this.rep_Languages.Visible = false;
+					this.REP_Languages.Visible = false;
 
 					this.Master__base.Error_add(
 						false,

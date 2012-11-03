@@ -13,19 +13,19 @@
 	Namespace="Anthem" 
 	Assembly="Anthem" %>
 <asp:Content
-	id="cnt_Title" runat="server" 
-	ContentPlaceHolderID="cph_Title">
+	id="CNT_Title" runat="server" 
+	ContentPlaceHolderID="CPH_Title">
 
 	- Profile
 </asp:Content>
 <asp:Content
-	id="cnt_Head" runat="server"
-	ContentPlaceHolderID="cph_Head">
+	id="CNT_Head" runat="server"
+	ContentPlaceHolderID="CPH_Head">
 
 </asp:Content>
 <asp:Content
-	id="cnt_Body" runat="server"
-	ContentPlaceHolderID="cph_Body">
+	id="CNT_Body" runat="server"
+	ContentPlaceHolderID="CPH_Body">
 
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tr>
@@ -47,7 +47,7 @@
 						</td>
 						<td>
 							<asp:TextBox
-								ID="txt_Name" runat="server"
+								ID="TXT_Name" runat="server"
 								CssClass="textbox_dim4" />
 						</td>
 					</tr>
@@ -58,7 +58,7 @@
 						</td>
 						<td>
 							<asol:KickCheckBoxList
-								ID="cbl_ParentProfiles" runat="server"
+								ID="CBL_ParentProfiles" runat="server"
 
 								CssClass="checkboxlist nowrap"
 								AutoUpdateAfterCallBack="true"
@@ -72,7 +72,7 @@
 						</td>
 						<td>
 							<asol:KickCheckBoxList
-								ID="cbl_Permitions" runat="server"
+								ID="CBL_Permissions" runat="server"
 
 								CssClass="checkboxlist nowrap"
 								AutoUpdateAfterCallBack="true"
@@ -90,8 +90,8 @@
 								value="Cancel"
 								class="button" />
 							<asp:Button
-								ID="btn_Save" runat="server"
-								OnClick="btn_Save_Click"
+								ID="BTN_Save" runat="server"
+								OnClick="BTN_Save_Click"
 
 								CssClass="button"
 								Text="Save" />

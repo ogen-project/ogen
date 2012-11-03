@@ -21,14 +21,14 @@
 	tagname="wuc_Dic" 
 	tagprefix="asol" %>
 <asp:Content
-	id="cnt_Title" runat="server" 
-	ContentPlaceHolderID="cph_Title">
+	id="CNT_Title" runat="server" 
+	ContentPlaceHolderID="CPH_Title">
 
 	- Article
 </asp:Content>
 <asp:Content
-	id="cnt_Head" runat="server"
-	ContentPlaceHolderID="cph_Head">
+	id="CNT_Head" runat="server"
+	ContentPlaceHolderID="CPH_Head">
 
 	<link href="../include/tabber.css" rel="stylesheet" type="text/css" />
 	<script src="../include/tabber.js" type="text/javascript"></script>
@@ -41,8 +41,8 @@
 
 </asp:Content>
 <asp:Content
-	id="cnt_Body" runat="server"
-	ContentPlaceHolderID="cph_Body">
+	id="CNT_Body" runat="server"
+	ContentPlaceHolderID="CPH_Body">
 
 	<table
 		border="0" cellpadding="2" cellspacing="0" width="100%">
@@ -66,7 +66,7 @@
 									</td>
 									<td width="100%">
 										<asol:wuc_Dic
-											ID="dic_Title" runat="server" 
+											ID="DIC_Title" runat="server" 
 											Text_CssClass="textbox_dim4"
 											Label_CssClass="label_small"
 											Rows="1" />
@@ -78,7 +78,7 @@
 									</td>
 									<td>
 										<asol:wuc_Dic
-											ID="dic_subtitle" runat="server" 
+											ID="DIC_Subtitle" runat="server" 
 											Text_CssClass="textbox_dim4"
 											Label_CssClass="label_small"
 											Rows="1" />
@@ -90,11 +90,11 @@
 									</td>
 									<td>
 										<asol:wuc_Dic
-											ID="dic_News" runat="server" 
+											ID="DIC_News" runat="server" 
 											Text_CssClass="textbox_dim45"
 											Label_CssClass="label_small"
 											Rows="12" 
-											isHorizontal_notVertial="false" />
+											isHorizontal_notVertical="false" />
 									</td>
 								</tr>
 								<tr>
@@ -103,19 +103,19 @@
 									</td>
 									<td>
 										<asol:wuc_Dic
-											ID="dic_summary" runat="server" 
+											ID="DIC_Summary" runat="server" 
 											Text_CssClass="textbox_dim45"
 											Label_CssClass="label_small"
 											Rows="6" 
-											isHorizontal_notVertial="false" />
+											isHorizontal_notVertical="false" />
 									</td>
 								</tr>
 								<tr>
 									<td height="70" colspan="2" align="right">
 										<asp:Button
-											ID="btn_News" runat="server"
+											ID="BTN_News" runat="server"
 
-											OnClick="btn_News_Click"
+											OnClick="BTN_News_Click"
 											CssClass="button"
 											Text="Save" />
 									</td>
@@ -123,11 +123,11 @@
 							</table>
 						</div>
 					</div>
-					<div id="div_Attachments" runat="server" class="tabbertab">
+					<div id="DIV_Attachments" runat="server" class="tabbertab">
 						<h2>Attachments</h2>
 						<div>
 							<anthem:Repeater
-								ID="rep_Attachments" runat="server"
+								ID="REP_Attachments" runat="server"
 								AutoUpdateAfterCallBack="true">
 								<ItemTemplate>
 									<table width="100%" border="0" cellpadding="2" cellspacing="1">
@@ -137,7 +137,7 @@
 											</td>
 											<td>
 												<asol:wuc_Dic
-													ID="dic_Name" runat="server" 
+													ID="DIC_Name" runat="server" 
 													Text_CssClass="textbox_dim25"
 													Label_CssClass="label_small"
 													Rows="1" />
@@ -186,7 +186,7 @@
 													Text_CssClass="textbox_dim3"
 													Label_CssClass="label_small"
 													Rows="4" 
-													isHorizontal_notVertial="false" />
+													isHorizontal_notVertical="false" />
 											</td>
 										</tr>
 										<tr>
@@ -197,20 +197,20 @@
 										<tr>
 											<td colspan="3" align="right">
 												<anthem:Button
-													ID="btn_AttachmentDelete" runat="server"
+													ID="BTN_AttachmentDelete" runat="server"
 													CssClass="button"
 													Text="Delete"
 															
-													OnClick="btn_AttachmentDelete_Click" 
+													OnClick="BTN_AttachmentDelete_Click" 
 													CommandArgument='<%# DataBinder.Eval(Container.DataItem, "IDAttachment") %>' 
 													EnableCallBack="true"
 													EnabledDuringCallBack="false"/>
 												<anthem:Button
-													ID="btn_AttachmentSave" runat="server"
+													ID="BTN_AttachmentSave" runat="server"
 													CssClass="button"
 													Text="Save"
 															
-													OnClick="btn_AttachmentSave_Click"
+													OnClick="BTN_AttachmentSave_Click"
 													CommandArgument='<%# DataBinder.Eval(Container.DataItem, "IDAttachment") %>' 
 													EnableCallBack="true"
 													EnabledDuringCallBack="false" />
@@ -225,10 +225,10 @@
 								<tr>
 									<td align="right">
 										<asp:FileUpload
-											ID="fup_Attachment" runat="server" />
+											ID="FUP_Attachment" runat="server" />
 										<asp:Button
-											ID="btn_AttachmentUpload" runat="server"
-											OnClick="btn_AttachmentUpload_Click"
+											ID="BTN_AttachmentUpload" runat="server"
+											OnClick="BTN_AttachmentUpload_Click"
 											CssClass="button"
 											Text="Upload" />
 									</td>
@@ -236,14 +236,14 @@
 							</table>
 						</div>
 					</div>
-					<div id="div_Tags" runat="server" class="tabbertab">
+					<div id="DIV_Tags" runat="server" class="tabbertab">
 						<h2>Tags</h2>
 						<div>
 							<table width="100%" border="0" cellpadding="2" cellspacing="1">
 								<tr>
 									<td align="center">
 										<asol:KickCheckBoxList
-											id="cbl_Tags" runat="server"
+											id="CBL_Tags" runat="server"
 
 											CssClass="label_small" 
 											RepeatColumns="1" 
@@ -255,12 +255,12 @@
 								<tr>
 									<td align="right">
 										<anthem:Button
-											ID="btn_Tags" runat="server"
+											ID="BTN_Tags" runat="server"
 
 											CssClass="button"
 											Text="Save"
 
-											OnClick="btn_Tags_Click" 
+											OnClick="BTN_Tags_Click" 
 											EnableCallBack="true" 
 											EnabledDuringCallBack="false" />
 									</td>
@@ -268,14 +268,14 @@
 							</table>
 						</div>
 					</div>
-					<div id="div_Authors" runat="server" class="tabbertab">
+					<div id="DIV_Authors" runat="server" class="tabbertab">
 						<h2>Authors</h2>
 						<div>
 							<table width="100%" border="0" cellpadding="2" cellspacing="1">
 								<tr>
 									<td align="center">
 										<asol:KickCheckBoxList
-											id="cbl_Author" runat="server"
+											id="CBL_Author" runat="server"
 
 											CssClass="label_small" 
 											RepeatColumns="1" 
@@ -287,12 +287,12 @@
 								<tr>
 									<td align="right">
 										<anthem:Button
-											ID="btn_Authors" runat="server"
+											ID="BTN_Authors" runat="server"
 
 											CssClass="button"
 											Text="Save" 
 
-											OnClick="btn_Authors_Click" 
+											OnClick="BTN_Authors_Click" 
 											EnableCallBack="true" 
 											EnabledDuringCallBack="false" />
 									</td>
@@ -300,14 +300,14 @@
 							</table>
 						</div>
 					</div>
-					<div id="div_Sources" runat="server" class="tabbertab">
+					<div id="DIV_Sources" runat="server" class="tabbertab">
 						<h2>Sources</h2>
 						<div>
 							<table width="100%" border="0" cellpadding="2" cellspacing="1">
 								<tr>
 									<td align="center">
 										<asol:KickCheckBoxList
-											id="cbl_Source" runat="server"
+											id="CBL_Source" runat="server"
 
 											CssClass="label_small" 
 											RepeatColumns="1" 
@@ -319,12 +319,12 @@
 								<tr>
 									<td align="right">
 										<anthem:Button
-											ID="btn_Sources" runat="server"
+											ID="BTN_Sources" runat="server"
 
 											CssClass="button"
 											Text="Save" 
 
-											OnClick="btn_Sources_Click"
+											OnClick="BTN_Sources_Click"
 											EnableCallBack="true" 
 											EnabledDuringCallBack="false" />
 									</td>
@@ -332,7 +332,7 @@
 							</table>
 						</div>
 					</div>
-					<div id="div_Highlights" runat="server" class="tabbertab">
+					<div id="DIV_Highlights" runat="server" class="tabbertab">
 						<h2>Highlights</h2>
 						<div>
 <% #if DEBUG %>
@@ -344,7 +344,7 @@
 								<tr>
 									<td align="center">
 										<asol:KickCheckBoxList
-											id="cbl_Highlight" runat="server"
+											id="CBL_Highlight" runat="server"
 
 											CssClass="label_small" 
 											RepeatColumns="1" 
@@ -356,24 +356,24 @@
 								<tr>
 									<td colspan="2" align="right">
 										<anthem:Button
-											ID="btn_Highlights" runat="server"
+											ID="BTN_Highlights" runat="server"
 
 											CssClass="button"
 											Text="Save" 
-											OnClick="btn_Highlights_Click" />
+											OnClick="BTN_Highlights_Click" />
 									</td>
 								</tr>
 							</table>
 						</div>
 					</div>
-					<div id="div_Profiles" runat="server" class="tabbertab">
+					<div id="DIV_Profiles" runat="server" class="tabbertab">
 						<h2>Profiles</h2>
 						<div>
 							<table width="100%" border="0" cellpadding="2" cellspacing="1">
 								<tr>
 									<td align="center">
 										<asol:KickCheckBoxList
-											id="cbl_Profiles" runat="server"
+											id="CBL_Profiles" runat="server"
 
 											CssClass="label_small" 
 											RepeatColumns="1" 
@@ -385,12 +385,12 @@
 								<tr>
 									<td colspan="2" align="right">
 										<anthem:Button
-											ID="btn_Profiles" runat="server"
+											ID="BTN_Profiles" runat="server"
 
 											CssClass="button"
 											Text="Save" 
 
-											OnClick="btn_Profiles_Click"
+											OnClick="BTN_Profiles_Click"
 											EnableCallBack="true" 
 											EnabledDuringCallBack="false" />
 									</td>
@@ -421,7 +421,7 @@
 				<br />
 				<br />
 				<anthem:Repeater
-					ID="rep_Test" runat="server"
+					ID="REP_Test" runat="server"
 					AutoUpdateAfterCallBack="true">
 					<HeaderTemplate>
 						<table border="1" cellpadding="2" cellspacing="2">

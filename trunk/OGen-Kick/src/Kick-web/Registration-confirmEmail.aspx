@@ -10,18 +10,18 @@
 	Namespace="Anthem" 
 	Assembly="Anthem" %>
 <asp:Content
-	id="cnt_Title" runat="server" 
-	ContentPlaceHolderID="cph_Title">
+	id="CNT_Title" runat="server" 
+	ContentPlaceHolderID="CPH_Title">
 
 </asp:Content>
 <asp:Content
-	id="cnt_Head" runat="server"
-	ContentPlaceHolderID="cph_Head">
+	id="CNT_Head" runat="server"
+	ContentPlaceHolderID="CPH_Head">
 
 </asp:Content>
 <asp:Content
-	id="cnt_Body" runat="server"
-	ContentPlaceHolderID="cph_Body">
+	id="CNT_Body" runat="server"
+	ContentPlaceHolderID="CPH_Body">
 
 
 	<table width="100%" border="0" cellpadding="4" cellspacing="0" class="table_thin">
@@ -33,7 +33,7 @@
 		<tr>
 			<td>
 				<asp:Label 
-					ID="lbl_Error" runat="server" />
+					ID="LBL_Error" runat="server" />
 			</td>
 		</tr>
 	</table>

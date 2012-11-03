@@ -13,147 +13,147 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     public partial class FE_News_list {
         
         /// <summary>
-        /// tbl_News control.
+        /// TBL_News control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable tbl_News;
+        protected global::System.Web.UI.HtmlControls.HtmlTable TBL_News;
         
         /// <summary>
-        /// hfi_Source control.
+        /// HFI_Source control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.HiddenField hfi_Source;
+        protected global::Anthem.HiddenField HFI_Source;
         
         /// <summary>
-        /// hfi_IDTag control.
+        /// HFI_IDTag control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.HiddenField hfi_IDTag;
+        protected global::Anthem.HiddenField HFI_IDTag;
         
         /// <summary>
-        /// rep_Tags control.
+        /// REP_Tags control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Repeater rep_Tags;
+        protected global::Anthem.Repeater REP_Tags;
         
         /// <summary>
-        /// a_page_1 control.
+        /// A_Page_1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor a_page_1;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor A_Page_1;
         
         /// <summary>
-        /// lbl_pageSeparator_left control.
+        /// LBL_PageSeparator_left control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_pageSeparator_left;
+        protected global::System.Web.UI.WebControls.Label LBL_PageSeparator_left;
         
         /// <summary>
-        /// lbl_pageSeparator_2 control.
+        /// LBL_PageSeparator_2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_pageSeparator_2;
+        protected global::System.Web.UI.WebControls.Label LBL_PageSeparator_2;
         
         /// <summary>
-        /// a_page_2 control.
+        /// A_Page_2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor a_page_2;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor A_Page_2;
         
         /// <summary>
-        /// lbl_pageSeparator_3 control.
+        /// LBL_PageSeparator_3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_pageSeparator_3;
+        protected global::System.Web.UI.WebControls.Label LBL_PageSeparator_3;
         
         /// <summary>
-        /// a_page_3 control.
+        /// A_Page_3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor a_page_3;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor A_Page_3;
         
         /// <summary>
-        /// lbl_pageSeparator_4 control.
+        /// LBL_PageSeparator_4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_pageSeparator_4;
+        protected global::System.Web.UI.WebControls.Label LBL_PageSeparator_4;
         
         /// <summary>
-        /// a_page_4 control.
+        /// A_Page_4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor a_page_4;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor A_Page_4;
         
         /// <summary>
-        /// lbl_pageSeparator_right control.
+        /// LBL_PageSeparator_right control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_pageSeparator_right;
+        protected global::System.Web.UI.WebControls.Label LBL_PageSeparator_right;
         
         /// <summary>
-        /// lbl_pageSeparator_5 control.
+        /// LBL_PageSeparator_5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_pageSeparator_5;
+        protected global::System.Web.UI.WebControls.Label LBL_PageSeparator_5;
         
         /// <summary>
-        /// a_page_5 control.
+        /// A_Page_5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor a_page_5;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor A_Page_5;
         
         /// <summary>
-        /// rep_News control.
+        /// REP_News control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Repeater rep_News;
+        protected global::Anthem.Repeater REP_News;
     }
 }

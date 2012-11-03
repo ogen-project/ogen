@@ -17,19 +17,19 @@
 	tagname="wuc_Dic" 
 	tagprefix="asol" %>
 <asp:Content
-	id="cnt_Title" runat="server" 
-	ContentPlaceHolderID="cph_Title">
+	id="CNT_Title" runat="server" 
+	ContentPlaceHolderID="CPH_Title">
 
 	- Tag
 </asp:Content>
 <asp:Content
-	id="cnt_Head" runat="server"
-	ContentPlaceHolderID="cph_Head">
+	id="CNT_Head" runat="server"
+	ContentPlaceHolderID="CPH_Head">
 
 </asp:Content>
 <asp:Content
-	id="cnt_Body" runat="server"
-	ContentPlaceHolderID="cph_Body">
+	id="CNT_Body" runat="server"
+	ContentPlaceHolderID="CPH_Body">
 
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tr>
@@ -51,7 +51,7 @@
 						</td>
 						<td>
 							<asol:wuc_Dic
-								ID="dic_Name" runat="server"
+								ID="DIC_Name" runat="server"
 								Text_CssClass="textbox_dim4"
 								Label_CssClass="label_small"
 								Rows="1" />
@@ -63,7 +63,7 @@
 						</td>
 						<td>
 							<asol:KickListBox
-								ID="ddl_Tag_parent" runat="server" 
+								ID="DDL_Tag_parent" runat="server" 
 
 								CssClass="dropdownlist" 
 								Rows="1" 
@@ -79,8 +79,8 @@
 								value="Cancel"
 								class="button" />
 							<asp:Button
-								ID="btn_Save" runat="server"
-								OnClick="btn_Save_Click"
+								ID="BTN_Save" runat="server"
+								OnClick="BTN_Save_Click"
 
 								CssClass="button"
 								Text="Save" />

@@ -13,19 +13,19 @@
 	Namespace="Anthem" 
 	Assembly="Anthem" %>
 <asp:Content
-	id="cnt_Title" runat="server" 
-	ContentPlaceHolderID="cph_Title">
+	id="CNT_Title" runat="server" 
+	ContentPlaceHolderID="CPH_Title">
 
 	- Language Search
 </asp:Content>
 <asp:Content
-	id="cnt_Head" runat="server"
-	ContentPlaceHolderID="cph_Head">
+	id="CNT_Head" runat="server"
+	ContentPlaceHolderID="CPH_Head">
 
 </asp:Content>
 <asp:Content
-	id="cnt_Body" runat="server"
-	ContentPlaceHolderID="cph_Body">
+	id="CNT_Body" runat="server"
+	ContentPlaceHolderID="CPH_Body">
 
 	<table
 		border="0" cellpadding="2" cellspacing="0" width="100%">
@@ -37,7 +37,7 @@
 		<tr><td>&nbsp;</td></tr>
 	</table>
 	<anthem:Repeater
-		ID="rep_Languages" runat="server"
+		ID="REP_Languages" runat="server"
 		AutoUpdateAfterCallBack="true">
 		<HeaderTemplate>
 			<table 
@@ -71,12 +71,12 @@
 					</td>
 					<td class="label_small nowrap" align="center">
 						<anthem:Button
-							ID="btn_Delete" runat="server"
+							ID="BTN_Delete" runat="server"
 							CssClass="button"
 							Text="Delete" 
 
 							CommandArgument='<%# DataBinder.Eval(Container.DataItem, "IDLanguage")%>'
-							OnClick="btn_Delete_Click"
+							OnClick="BTN_Delete_Click"
 							EnableCallBack="true"
 							EnabledDuringCallBack="false" />
 					</td>

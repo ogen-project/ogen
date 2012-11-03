@@ -10,21 +10,21 @@
 	Namespace="Anthem" 
 	Assembly="Anthem" %>
 <asp:Content
-	id="cnt_Title" runat="server" 
-	ContentPlaceHolderID="cph_Title">
+	id="CNT_Title" runat="server" 
+	ContentPlaceHolderID="CPH_Title">
 
 </asp:Content>
 <asp:Content
-	id="cnt_Head" runat="server"
-	ContentPlaceHolderID="cph_Head">
+	id="CNT_Head" runat="server"
+	ContentPlaceHolderID="CPH_Head">
 
 </asp:Content>
 <asp:Content
-	id="cnt_Body" runat="server"
-	ContentPlaceHolderID="cph_Body">
+	id="CNT_Body" runat="server"
+	ContentPlaceHolderID="CPH_Body">
 
 	<table 
-		id="tbl_News" runat="server" visible="false"
+		id="TBL_News" runat="server" visible="false"
 		width="100%" border="0" cellpadding="1" cellspacing="0" class="table_thin">
 		<tr>
 			<td valign="top" 
@@ -32,13 +32,13 @@
 style="height: 100%; width: 0%;">
 
 				<anthem:HiddenField
-					ID="hfi_Source" runat="server" 
+					ID="HFI_Source" runat="server" 
 					AutoUpdateAfterCallBack="true" />
 				<anthem:HiddenField
-					ID="hfi_IDTag" runat="server" 
+					ID="HFI_IDTag" runat="server" 
 					AutoUpdateAfterCallBack="true" />
 				<anthem:Repeater
-					ID="rep_Tags" runat="server"
+					ID="REP_Tags" runat="server"
 					AutoUpdateAfterCallBack="true">
 					<HeaderTemplate>
 						<table 
@@ -86,33 +86,33 @@ style="height: 100%;">
 					<tr>
 						<td align="right">
 							<a 
-								id="a_page_1" runat="server"
+								id="A_Page_1" runat="server"
 								class="label_small" />
 
 							<asp:Label
-								ID="lbl_pageSeparator_left" runat="server" 
+								ID="LBL_PageSeparator_left" runat="server" 
 								CssClass="label_small" />
 
 							<asp:Label
-								ID="lbl_pageSeparator_2" runat="server" /><a 
-								id="a_page_2" runat="server"
+								ID="LBL_PageSeparator_2" runat="server" /><a 
+								id="A_Page_2" runat="server"
 								class="label_small" />
 							<asp:Label
-								ID="lbl_pageSeparator_3" runat="server" /><a 
-								id="a_page_3" runat="server"
+								ID="LBL_PageSeparator_3" runat="server" /><a 
+								id="A_Page_3" runat="server"
 								class="label_small label_bold" />
 							<asp:Label
-								ID="lbl_pageSeparator_4" runat="server" /><a 
-								id="a_page_4" runat="server"
+								ID="LBL_PageSeparator_4" runat="server" /><a 
+								id="A_Page_4" runat="server"
 								class="label_small" />
 
 							<asp:Label
-								ID="lbl_pageSeparator_right" runat="server" 
+								ID="LBL_PageSeparator_right" runat="server" 
 								CssClass="label_small" />
 
 							<asp:Label
-								ID="lbl_pageSeparator_5" runat="server"/><a 
-								id="a_page_5" runat="server"
+								ID="LBL_PageSeparator_5" runat="server"/><a 
+								id="A_Page_5" runat="server"
 								class="label_small" />
 						</td>
 					</tr>
@@ -120,7 +120,7 @@ style="height: 100%;">
 				<br />
 
 				<anthem:Repeater
-					ID="rep_News" runat="server"
+					ID="REP_News" runat="server"
 					AutoUpdateAfterCallBack="true">
 					<ItemTemplate><%# 
 						(Container.ItemIndex == 0) ? "" : "<br />"%>
@@ -140,7 +140,7 @@ style="height: 100%;">
 										<tr>
 											<td valign="top">
 												<anthem:Image
-													ID="img_News" runat="server"
+													ID="IMG_News" runat="server"
 													AutoUpdateAfterCallBack="true"
 													style="
 														vertical-align: top;
@@ -162,7 +162,7 @@ style="height: 100%;">
 								<td align="left" class="label_small nowrap">
 
 									<anthem:Repeater
-										ID="rep_News_Sources" runat="server"
+										ID="REP_News_Sources" runat="server"
 										Visible="false"
 										AutoUpdateAfterCallBack="true">
 										<HeaderTemplate>(source: </HeaderTemplate>
@@ -182,7 +182,7 @@ style="height: 100%;">
 								</td>
 								<td align="right" class="label_small nowrap">
 									<anthem:Repeater
-										ID="rep_News_Tags" runat="server"
+										ID="REP_News_Tags" runat="server"
 										AutoUpdateAfterCallBack="true">
 										<ItemTemplate>
 											&nbsp;#<anthem:LinkButton

@@ -13,39 +13,39 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     public partial class CRD_Profile {
         
         /// <summary>
-        /// txt_Name control.
+        /// TXT_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Name;
+        protected global::System.Web.UI.WebControls.TextBox TXT_Name;
         
         /// <summary>
-        /// cbl_ParentProfiles control.
+        /// CBL_ParentProfiles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList cbl_ParentProfiles;
+        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_ParentProfiles;
         
         /// <summary>
-        /// cbl_Permitions control.
+        /// CBL_Permissions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList cbl_Permitions;
+        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Permissions;
         
         /// <summary>
-        /// btn_Save control.
+        /// BTN_Save control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Save;
+        protected global::System.Web.UI.WebControls.Button BTN_Save;
     }
 }

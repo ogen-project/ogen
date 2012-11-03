@@ -13,21 +13,21 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     public partial class DIC_SupportedLanguages {
         
         /// <summary>
-        /// cbl_Languages control.
+        /// CBL_Languages control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList cbl_Languages;
+        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Languages;
         
         /// <summary>
-        /// btn_Save control.
+        /// BTN_Save control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Button btn_Save;
+        protected global::Anthem.Button BTN_Save;
     }
 }

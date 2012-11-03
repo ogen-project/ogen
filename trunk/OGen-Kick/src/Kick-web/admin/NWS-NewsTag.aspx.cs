@@ -80,7 +80,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					this.ddl_Tag_parent.Kick.Bind__arrayOf<long, string>(
+					this.DDL_Tag_parent.Kick.Bind__arrayOf<long, string>(
 						"",
 						true,
 						_tags
@@ -93,17 +93,17 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		} 
 		#endregion
 
-		#region public void btn_Save_Click(object sender, EventArgs e);
+		#region public void BTN_Save_Click(object sender, EventArgs e);
 		private void btn_save_click(
 			ref SO_NWS_Tag tag_ref
 		) {
-			#region tag_ref.IFTag__parent = long.Parse(this.ddl_Tag_parent.SelectedValue);
-			if (string.IsNullOrEmpty(this.ddl_Tag_parent.SelectedValue)) {
+			#region tag_ref.IFTag__parent = long.Parse(this.DDL_Tag_parent.SelectedValue);
+			if (string.IsNullOrEmpty(this.DDL_Tag_parent.SelectedValue)) {
 				tag_ref.IFTag__parent_isNull = true;
 			} else {
-				//tag_ref.IFTag__parent = ddl_Tag_parent.Kick.SelectedValue__get<long>();
+				//tag_ref.IFTag__parent = DDL_Tag_parent.Kick.SelectedValue__get<long>();
 				tag_ref.IFTag__parent = long.Parse(
-					this.ddl_Tag_parent.SelectedValue, 
+					this.DDL_Tag_parent.SelectedValue, 
 					System.Globalization.NumberStyles.Integer, 
 					System.Globalization.CultureInfo.CurrentCulture
 				);
@@ -111,7 +111,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			#endregion
 		}
 
-		public void btn_Save_Click(object sender, EventArgs e) {
+		public void BTN_Save_Click(object sender, EventArgs e) {
 			int[] _errors;
 			SO_NWS_Tag _tag;
 			if (
@@ -132,7 +132,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				!this.Master__base.Error_add(_errors)
 				#endregion
 			) {
-				#region _tag.IFTag__parent = long.Parse(this.ddl_Tag_parent.SelectedValue);
+				#region _tag.IFTag__parent = long.Parse(this.DDL_Tag_parent.SelectedValue);
 				this.btn_save_click(
 					ref _tag
 				);
@@ -141,12 +141,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
 					_tag,
-					this.dic_Name.Texts, 
+					this.DIC_Name.Texts, 
 					out _errors
 				);
 			} else {
 				_tag = new SO_NWS_Tag();
-				#region _tag.IFTag__parent = long.Parse(this.ddl_Tag_parent.SelectedValue);
+				#region _tag.IFTag__parent = long.Parse(this.DDL_Tag_parent.SelectedValue);
 				this.btn_save_click(
 					ref _tag
 				);
@@ -158,7 +158,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
 					_tag,
-					this.dic_Name.Texts, 
+					this.DIC_Name.Texts, 
 					false,
 					out _errors
 				);
@@ -198,7 +198,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				(_tags.Length != 0)
 				#endregion
 			) {
-				#region this.dic_Name.Texts = ...;
+				#region this.DIC_Name.Texts = ...;
 				List<OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage> _name
 					= new List<OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage>(
 						_tags.Length
@@ -210,18 +210,18 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						_tag.ShortName
 					));
 				}
-				this.dic_Name.Texts = _name.ToArray();
+				this.DIC_Name.Texts = _name.ToArray();
 				#endregion
-				#region this.ddl_Tag_parent.SelectedValue = _tags[0].IFTag__parent.ToString();
+				#region this.DDL_Tag_parent.SelectedValue = _tags[0].IFTag__parent.ToString();
 				if (_tags[0].IFTag__parent_isNull) {
-					this.ddl_Tag_parent.SelectedValue = "";
+					this.DDL_Tag_parent.SelectedValue = "";
 				} else {
-					this.ddl_Tag_parent.SelectedValue = _tags[0].IFTag__parent.ToString(System.Globalization.CultureInfo.CurrentCulture);
+					this.DDL_Tag_parent.SelectedValue = _tags[0].IFTag__parent.ToString(System.Globalization.CultureInfo.CurrentCulture);
 				}
 				#endregion
 			} else {
-				this.dic_Name.Texts = null;
-				this.ddl_Tag_parent.SelectedValue = "";
+				this.DIC_Name.Texts = null;
+				this.DDL_Tag_parent.SelectedValue = "";
 			}
 		} 
 		#endregion

@@ -13,120 +13,120 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     public partial class _base {
         
         /// <summary>
-        /// cph_Title control.
+        /// CPH_Title control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cph_Title;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder CPH_Title;
         
         /// <summary>
-        /// cph_Head control.
+        /// CPH_Head control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cph_Head;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder CPH_Head;
         
         /// <summary>
-        /// form1 control.
+        /// Mainform control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm Mainform;
         
         /// <summary>
-        /// lbt_Registration control.
+        /// LBT_Registration control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbt_Registration;
+        protected global::System.Web.UI.WebControls.LinkButton LBT_Registration;
         
         /// <summary>
-        /// lbl_Email control.
+        /// LBL_Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Email;
+        protected global::System.Web.UI.WebControls.Label LBL_Email;
         
         /// <summary>
-        /// txt_Email control.
+        /// TXT_Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Email;
+        protected global::System.Web.UI.WebControls.TextBox TXT_Email;
         
         /// <summary>
-        /// lbl_Password control.
+        /// LBL_Password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Password;
+        protected global::System.Web.UI.WebControls.Label LBL_Password;
         
         /// <summary>
-        /// txt_Password control.
+        /// TXT_Password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Password;
+        protected global::System.Web.UI.WebControls.TextBox TXT_Password;
         
         /// <summary>
-        /// btn_Login control.
+        /// BTN_LogOn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Login;
+        protected global::System.Web.UI.WebControls.Button BTN_LogOn;
         
         /// <summary>
-        /// btn_Logout control.
+        /// BTN_LogOff control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Logout;
+        protected global::System.Web.UI.WebControls.Button BTN_LogOff;
         
         /// <summary>
-        /// cph_Menu control.
+        /// CPH_Menu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cph_Menu;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder CPH_Menu;
         
         /// <summary>
-        /// cph_Body control.
+        /// CPH_Body control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cph_Body;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder CPH_Body;
         
         /// <summary>
-        /// lit_ClientScript control.
+        /// LIT_ClientScript control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lit_ClientScript;
+        protected global::System.Web.UI.WebControls.Literal LIT_ClientScript;
     }
 }

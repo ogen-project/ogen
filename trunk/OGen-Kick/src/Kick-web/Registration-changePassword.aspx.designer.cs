@@ -13,48 +13,48 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     public partial class Registration_changePassword {
         
         /// <summary>
-        /// txt_PasswordNew control.
+        /// TXT_PasswordNew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.TextBox txt_PasswordNew;
+        protected global::Anthem.TextBox TXT_PasswordNew;
         
         /// <summary>
-        /// lbl_PasswordNew control.
+        /// LBL_PasswordNew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Label lbl_PasswordNew;
+        protected global::Anthem.Label LBL_PasswordNew;
         
         /// <summary>
-        /// txt_PasswordConfirm control.
+        /// TXT_PasswordConfirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.TextBox txt_PasswordConfirm;
+        protected global::Anthem.TextBox TXT_PasswordConfirm;
         
         /// <summary>
-        /// lbl_PasswordConfirm control.
+        /// LBL_PasswordConfirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Label lbl_PasswordConfirm;
+        protected global::Anthem.Label LBL_PasswordConfirm;
         
         /// <summary>
-        /// btn_RegistrationPasswordUpdate control.
+        /// BTN_RegistrationPasswordUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Button btn_RegistrationPasswordUpdate;
+        protected global::Anthem.Button BTN_RegistrationPasswordUpdate;
     }
 }

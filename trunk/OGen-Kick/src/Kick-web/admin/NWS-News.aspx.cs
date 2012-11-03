@@ -95,7 +95,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					this.cbl_Tags.Kick.Bind__arrayOf<long, string>(
+					this.CBL_Tags.Kick.Bind__arrayOf<long, string>(
 						"",
 						_so_tags
 					);
@@ -124,7 +124,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					this.cbl_Source.Kick.Bind__arrayOf<long, string>(
+					this.CBL_Source.Kick.Bind__arrayOf<long, string>(
 						"",
 						_so_sources
 					);
@@ -153,7 +153,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					this.cbl_Author.Kick.Bind__arrayOf<long, string>(
+					this.CBL_Author.Kick.Bind__arrayOf<long, string>(
 						"",
 						_so_authors
 					);
@@ -182,7 +182,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					this.cbl_Highlight.Kick.Bind__arrayOf<long, string>(
+					this.CBL_Highlight.Kick.Bind__arrayOf<long, string>(
 						"",
 						_so_highlights
 					);
@@ -211,7 +211,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					this.cbl_Profiles.Kick.Bind__arrayOf<long, string>(
+					this.CBL_Profiles.Kick.Bind__arrayOf<long, string>(
 						"",
 						_so_profiles
 					);
@@ -228,8 +228,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#endregion
 		//protected void tc_News_ActiveTabChanged(object sender, EventArgs e) {
 		//}
-		#region protected void btn_News_Click(object sender, EventArgs e);
-		protected void btn_News_Click(object sender, EventArgs e) {
+		#region protected void BTN_News_Click(object sender, EventArgs e);
+		protected void BTN_News_Click(object sender, EventArgs e) {
 			int[] _errors = null;
 			if (this.IDContent > 0L) {
 				BusinessInstances.NWS_News.InstanceClient.updObject_Content(
@@ -251,10 +251,10 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						DateTime.MinValue,
 						true
 					),
-					this.dic_Title.Texts,
-					this.dic_News.Texts,
-					this.dic_subtitle.Texts,
-					this.dic_summary.Texts,
+					this.DIC_Title.Texts,
+					this.DIC_News.Texts,
+					this.DIC_Subtitle.Texts,
+					this.DIC_Summary.Texts,
 					out _errors
 				);
 
@@ -279,10 +279,10 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						DateTime.MinValue,
 						true
 					),
-					this.dic_Title.Texts,
-					this.dic_News.Texts,
-					this.dic_subtitle.Texts,
-					this.dic_summary.Texts,
+					this.DIC_Title.Texts,
+					this.DIC_News.Texts,
+					this.DIC_Subtitle.Texts,
+					this.DIC_Summary.Texts,
 					new long[] { },
 					new long[] { },
 					new long[] { },
@@ -301,78 +301,78 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			}
 		} 
 		#endregion
-		#region protected void btn_Tags_Click(object sender, EventArgs e);
-		protected void btn_Tags_Click(object sender, EventArgs e) {
+		#region protected void BTN_Tags_Click(object sender, EventArgs e);
+		protected void BTN_Tags_Click(object sender, EventArgs e) {
 			int[] _errors;
 			BusinessInstances.NWS_News.InstanceClient.updObject_Tags(
 				utils.User.SessionGuid,
 				utils.ClientIPAddress,
 				this.IDContent,
-				this.cbl_Tags.Kick.SelectedValue__get<long>(),
+				this.CBL_Tags.Kick.SelectedValue__get<long>(),
 				out _errors
 			);
 			this.Master__base.Error_add(_errors);
 		} 
 		#endregion
-		#region protected void btn_Authors_Click(object sender, EventArgs e);
-		protected void btn_Authors_Click(object sender, EventArgs e) {
+		#region protected void BTN_Authors_Click(object sender, EventArgs e);
+		protected void BTN_Authors_Click(object sender, EventArgs e) {
 			int[] _errors;
 			BusinessInstances.NWS_News.InstanceClient.updObject_Authors(
 				utils.User.SessionGuid,
 				utils.ClientIPAddress,
 				this.IDContent,
-				this.cbl_Author.Kick.SelectedValue__get<long>(),
+				this.CBL_Author.Kick.SelectedValue__get<long>(),
 				out _errors
 			);
 			this.Master__base.Error_add(_errors);
 		}
 		#endregion
-		#region protected void btn_Sources_Click(object sender, EventArgs e);
-		protected void btn_Sources_Click(object sender, EventArgs e) {
+		#region protected void BTN_Sources_Click(object sender, EventArgs e);
+		protected void BTN_Sources_Click(object sender, EventArgs e) {
 			int[] _errors;
 			BusinessInstances.NWS_News.InstanceClient.updObject_Sources(
 				utils.User.SessionGuid,
 				utils.ClientIPAddress,
 				this.IDContent,
-				this.cbl_Source.Kick.SelectedValue__get<long>(),
+				this.CBL_Source.Kick.SelectedValue__get<long>(),
 				out _errors
 			);
 			this.Master__base.Error_add(_errors);
 		}
 		#endregion
-		#region protected void btn_Highlights_Click(object sender, EventArgs e);
-		protected void btn_Highlights_Click(object sender, EventArgs e) {
+		#region protected void BTN_Highlights_Click(object sender, EventArgs e);
+		protected void BTN_Highlights_Click(object sender, EventArgs e) {
 			int[] _errors;
 			BusinessInstances.NWS_News.InstanceClient.updObject_Highlights(
 				utils.User.SessionGuid,
 				utils.ClientIPAddress,
 				this.IDContent,
-				this.cbl_Highlight.Kick.SelectedValue__get<long>(),
+				this.CBL_Highlight.Kick.SelectedValue__get<long>(),
 				out _errors
 			);
 			this.Master__base.Error_add(_errors);
 		}
 		#endregion
-		#region protected void btn_Profiles_Click(object sender, EventArgs e);
-		protected void btn_Profiles_Click(object sender, EventArgs e) {
+		#region protected void BTN_Profiles_Click(object sender, EventArgs e);
+		protected void BTN_Profiles_Click(object sender, EventArgs e) {
 			int[] _errors;
 			BusinessInstances.NWS_News.InstanceClient.updObject_Profiles(
 				utils.User.SessionGuid,
 				utils.ClientIPAddress,
 				this.IDContent,
-				this.cbl_Profiles.Kick.SelectedValue__get<long>(),
+				this.CBL_Profiles.Kick.SelectedValue__get<long>(),
 				out _errors
 			);
 			this.Master__base.Error_add(_errors);
 		}
 		#endregion
 
-		#region protected void btn_AttachmentUpload_Click(object sender, EventArgs e);
-		protected void btn_AttachmentUpload_Click(object sender, EventArgs e) {
-			if (this.fup_Attachment.HasFile) {
+		#region protected void BTN_AttachmentUpload_Click(object sender, EventArgs e);
+		protected void BTN_AttachmentUpload_Click(object sender, EventArgs e) {
+			if (this.FUP_Attachment.HasFile) {
 				#region bool _isImage = ...;
 				bool _isImage;
-				switch (this.fup_Attachment.PostedFile.ContentType.ToLower(System.Globalization.CultureInfo.CurrentCulture)) {
+				switch (this.FUP_Attachment.PostedFile.ContentType.ToLower(System.Globalization.CultureInfo.CurrentCulture)) {
 					case "image/png":
 					case "image/jpeg":
 					case "image/gif":
@@ -400,7 +400,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						_isImage,
 						-1L,
 						-1L,
-						this.fup_Attachment.FileName
+						this.FUP_Attachment.FileName
 					),
 					null,
 					null,
@@ -441,13 +441,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 #if DEBUG
 					string _filePath;
 #endif
-					this.fup_Attachment.SaveAs(
+					this.FUP_Attachment.SaveAs(
 #if DEBUG
 						_filePath = 
 #endif
 						System.IO.Path.Combine(
 							_uploadPath,
-							this.fup_Attachment.FileName
+							this.FUP_Attachment.FileName
 						)
 					);
 #if DEBUG
@@ -465,8 +465,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			}
 		} 
 		#endregion
-		#region protected void btn_AttachmentDelete_Click(object sender, EventArgs e);
-		protected void btn_AttachmentDelete_Click(object sender, EventArgs e) {
+		#region protected void BTN_AttachmentDelete_Click(object sender, EventArgs e);
+		protected void BTN_AttachmentDelete_Click(object sender, EventArgs e) {
 			long _idattachment = long.Parse(
 				((IButtonControl)sender).CommandArgument,
 				System.Globalization.NumberStyles.Integer,
@@ -484,8 +484,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			}
 		}
 		#endregion
-		#region protected void btn_AttachmentSave_Click(object sender, EventArgs e);
-		protected void btn_AttachmentSave_Click(object sender, EventArgs e) {
+		#region protected void BTN_AttachmentSave_Click(object sender, EventArgs e);
+		protected void BTN_AttachmentSave_Click(object sender, EventArgs e) {
 			long _idattachment = long.Parse(
 				((IButtonControl)sender).CommandArgument,
 				System.Globalization.NumberStyles.Integer,
@@ -494,9 +494,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 			wuc_txt_Dic _dic_name = null;
 			wuc_txt_Dic _dic_description = null;
-			foreach (RepeaterItem _item in this.rep_Attachments.Items) {
+			foreach (RepeaterItem _item in this.REP_Attachments.Items) {
 				if (_item.FindControl(((Button)sender).ID) == sender) {
-					_dic_name = (wuc_txt_Dic)_item.FindControl("dic_Name");
+					_dic_name = (wuc_txt_Dic)_item.FindControl("DIC_Name");
 					_dic_description = (wuc_txt_Dic)_item.FindControl("dic_Description");
 					break;
 				}
@@ -556,12 +556,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					#region Bind . . .
 
 #if !DEBUG
-this.div_Attachments.Visible = true;
-this.div_Tags.Visible = true;
-this.div_Authors.Visible = true;
-this.div_Sources.Visible = true;
-this.div_Highlights.Visible = true;
-this.div_Profiles.Visible = true;
+this.DIV_Attachments.Visible = true;
+this.DIV_Tags.Visible = true;
+this.DIV_Authors.Visible = true;
+this.DIV_Sources.Visible = true;
+this.DIV_Highlights.Visible = true;
+this.DIV_Profiles.Visible = true;
 #endif
 
 					#region Content . . .
@@ -601,13 +601,13 @@ this.div_Profiles.Visible = true;
 						));
 					}
 
-					this.dic_Title.Texts = _title.ToArray();
-					this.dic_subtitle.Texts = _subtitle.ToArray();
-					this.dic_News.Texts = _news.ToArray();
-					this.dic_summary.Texts = _summary.ToArray();
+					this.DIC_Title.Texts = _title.ToArray();
+					this.DIC_Subtitle.Texts = _subtitle.ToArray();
+					this.DIC_News.Texts = _news.ToArray();
+					this.DIC_Summary.Texts = _summary.ToArray();
 					#endregion
 
-					#region this.cbl_Tags.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentTag>(...);
+					#region this.CBL_Tags.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentTag>(...);
 					SO_NWS_ContentTag[] _tags 
 						= BusinessInstances.NWS_Tag.InstanceClient.getRecord_byContent(
 							utils.User.SessionGuid,
@@ -617,7 +617,7 @@ this.div_Profiles.Visible = true;
 							out _errors
 						);
 					if (!this.Master__base.Error_add(_errors)) {
-						this.cbl_Tags.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentTag>(
+						this.CBL_Tags.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentTag>(
 							_tags,
 							delegate(
 								SO_NWS_ContentTag arg1_in
@@ -627,7 +627,7 @@ this.div_Profiles.Visible = true;
 						);
 					} 
 					#endregion
-					#region this.cbl_Author.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentAuthor>(...);
+					#region this.CBL_Author.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentAuthor>(...);
 					SO_NWS_ContentAuthor[] _authors = BusinessInstances.NWS_Author.InstanceClient.getRecord_byContent(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
@@ -636,7 +636,7 @@ this.div_Profiles.Visible = true;
 						out _errors
 					);
 					if (!this.Master__base.Error_add(_errors)) {
-						this.cbl_Author.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentAuthor>(
+						this.CBL_Author.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentAuthor>(
 							_authors,
 							delegate(
 								SO_NWS_ContentAuthor arg1_in
@@ -646,7 +646,7 @@ this.div_Profiles.Visible = true;
 						);
 					}
 					#endregion
-					#region this.cbl_Source.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentSource>(...);
+					#region this.CBL_Source.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentSource>(...);
 					SO_NWS_ContentSource[] _sources = BusinessInstances.NWS_Source.InstanceClient.getRecord_byContent(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
@@ -655,7 +655,7 @@ this.div_Profiles.Visible = true;
 						out _errors
 					);
 					if (!this.Master__base.Error_add(_errors)) {
-						this.cbl_Source.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentSource>(
+						this.CBL_Source.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentSource>(
 							_sources,
 							delegate(
 								SO_NWS_ContentSource arg1_in
@@ -665,7 +665,7 @@ this.div_Profiles.Visible = true;
 						);
 					}
 					#endregion
-					#region this.cbl_Profile.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentProfile>(...);
+					#region this.CBL_Profile.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentProfile>(...);
 					SO_NWS_ContentProfile[] _profiles = BusinessInstances.NWS_Profile.InstanceClient.getRecord_byContent(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
@@ -674,7 +674,7 @@ this.div_Profiles.Visible = true;
 						out _errors
 					);
 					if (!this.Master__base.Error_add(_errors)) {
-						this.cbl_Profiles.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentProfile>(
+						this.CBL_Profiles.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentProfile>(
 							_profiles,
 							delegate(
 								SO_NWS_ContentProfile arg1_in
@@ -684,7 +684,7 @@ this.div_Profiles.Visible = true;
 						);
 					}
 					#endregion
-					#region this.cbl_Highlight.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentHighlight>(...);
+					#region this.CBL_Highlight.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentHighlight>(...);
 					SO_NWS_ContentHighlight[] _highlights = BusinessInstances.NWS_Highlight.InstanceClient.getRecord_byContent(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
@@ -693,7 +693,7 @@ this.div_Profiles.Visible = true;
 						out _errors
 					);
 					if (!this.Master__base.Error_add(_errors)) {
-						this.cbl_Highlight.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentHighlight>(
+						this.CBL_Highlight.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentHighlight>(
 							_highlights,
 							delegate(
 								SO_NWS_ContentHighlight arg1_in
@@ -766,8 +766,8 @@ this.div_Profiles.Visible = true;
 							0
 						); 
 						#endregion
-						this.rep_Attachments.DataSource = _attachments_only;
-						this.rep_Attachments.DataBind();
+						this.REP_Attachments.DataSource = _attachments_only;
+						this.REP_Attachments.DataBind();
 
 
 						System.Web.UI.HtmlControls.HtmlAnchor _a_attachment;
@@ -776,11 +776,11 @@ this.div_Profiles.Visible = true;
 						wuc_txt_Dic _dic_description;
 						List<SO_DIC__TextLanguage> _attachment_name;
 						List<SO_DIC__TextLanguage> _attachment_description;
-						for (int i = 0; i < this.rep_Attachments.Items.Count; i++) {
-							_dic_name = (wuc_txt_Dic)this.rep_Attachments.Items[i].FindControl("dic_Name");
-							_dic_description = (wuc_txt_Dic)this.rep_Attachments.Items[i].FindControl("dic_Description");
-							_a_attachment = (System.Web.UI.HtmlControls.HtmlAnchor)this.rep_Attachments.Items[i].FindControl("a_Attachment");
-							_img_attachment = (System.Web.UI.HtmlControls.HtmlImage)this.rep_Attachments.Items[i].FindControl("img_Attachment");
+						for (int i = 0; i < this.REP_Attachments.Items.Count; i++) {
+							_dic_name = (wuc_txt_Dic)this.REP_Attachments.Items[i].FindControl("DIC_Name");
+							_dic_description = (wuc_txt_Dic)this.REP_Attachments.Items[i].FindControl("dic_Description");
+							_a_attachment = (System.Web.UI.HtmlControls.HtmlAnchor)this.REP_Attachments.Items[i].FindControl("a_Attachment");
+							_img_attachment = (System.Web.UI.HtmlControls.HtmlImage)this.REP_Attachments.Items[i].FindControl("img_Attachment");
 
 							_img_attachment.Src 
 								= _a_attachment.HRef 
@@ -834,18 +834,18 @@ this.div_Profiles.Visible = true;
 		#region public void Bind_empty(...);
 		public void Bind_empty(
 		) {
-			this.dic_Title.Texts = null;
-			this.dic_subtitle.Texts = null;
-			this.dic_News.Texts = null;
-			this.dic_summary.Texts = null;
+			this.DIC_Title.Texts = null;
+			this.DIC_Subtitle.Texts = null;
+			this.DIC_News.Texts = null;
+			this.DIC_Summary.Texts = null;
 
 #if !DEBUG
-this.div_Attachments.Visible = false;
-this.div_Tags.Visible = false;
-this.div_Authors.Visible = false;
-this.div_Sources.Visible = false;
-this.div_Highlights.Visible = false;
-this.div_Profiles.Visible = false;
+this.DIV_Attachments.Visible = false;
+this.DIV_Tags.Visible = false;
+this.DIV_Authors.Visible = false;
+this.DIV_Sources.Visible = false;
+this.DIV_Highlights.Visible = false;
+this.DIV_Profiles.Visible = false;
 #endif
 		}
 		#endregion

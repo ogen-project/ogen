@@ -58,7 +58,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				int[] _errors;
 				long _count;
 
-				#region this.cbl_Permitions.Kick.Bind__arrayOf<long, string>(...);
+				#region this.CBL_Permissions.Kick.Bind__arrayOf<long, string>(...);
 				SO_CRD_Permition[] _permitions
 					= BusinessInstances.CRD_Permition.InstanceClient.getRecord_all(
 						utils.User.SessionGuid,
@@ -82,14 +82,14 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					this.cbl_Permitions.Kick.Bind__arrayOf<long, string>(
+					this.CBL_Permissions.Kick.Bind__arrayOf<long, string>(
 						"",
 						false,
 						_permitions
 					);
 				}
 				#endregion
-				#region this.cbl_Permitions.Kick.Bind__arrayOf<long, string>(...);
+				#region this.CBL_Permissions.Kick.Bind__arrayOf<long, string>(...);
 				SO_CRD_Profile[] _profiles
 					= BusinessInstances.CRD_Profile.InstanceClient.getRecord_all(
 						utils.User.SessionGuid,
@@ -113,7 +113,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					this.cbl_ParentProfiles.Kick.Bind__arrayOf<long, string>(
+					this.CBL_ParentProfiles.Kick.Bind__arrayOf<long, string>(
 						"",
 						false,
 						_profiles
@@ -126,8 +126,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		} 
 		#endregion
 
-		#region public void btn_Save_Click(object sender, EventArgs e);
-		public void btn_Save_Click(object sender, EventArgs e) {
+		#region public void BTN_Save_Click(object sender, EventArgs e);
+		public void BTN_Save_Click(object sender, EventArgs e) {
 			bool _isInsert_notUpdate;
 			int[] _errors;
 			SO_CRD_Profile _profile;
@@ -149,15 +149,15 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				!this.Master__base.Error_add(_errors)
 				#endregion
 			) {
-				_profile.Name = this.txt_Name.Text;
+				_profile.Name = this.TXT_Name.Text;
 
 				BusinessInstances.CRD_Profile.InstanceClient.updObject(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
 					_profile,
 
-					this.cbl_ParentProfiles.Kick.SelectedValue__get<long>(),
-					this.cbl_Permitions.Kick.SelectedValue__get<long>(),
+					this.CBL_ParentProfiles.Kick.SelectedValue__get<long>(),
+					this.CBL_Permissions.Kick.SelectedValue__get<long>(),
 
 					out _errors
 				);
@@ -165,15 +165,15 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				_isInsert_notUpdate = false;
 			} else {
 				_profile = new SO_CRD_Profile();
-				_profile.Name = this.txt_Name.Text;
+				_profile.Name = this.TXT_Name.Text;
 				_profile.IFApplication = utils.IDApplication;
 				BusinessInstances.CRD_Profile.InstanceClient.insObject(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
 					_profile,
 
-					this.cbl_ParentProfiles.Kick.SelectedValue__get<long>(),
-					this.cbl_Permitions.Kick.SelectedValue__get<long>(),
+					this.CBL_ParentProfiles.Kick.SelectedValue__get<long>(),
+					this.CBL_Permissions.Kick.SelectedValue__get<long>(),
 
 					out _errors
 				);
@@ -209,10 +209,10 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				!this.Master__base.Error_add(_errors)
 				#endregion
 			) {
-				this.txt_Name.Text = _profile.Name;
+				this.TXT_Name.Text = _profile.Name;
 
-				#region this.cbl_Permitions.Kick.SelectedValues__set_arrayOf<long, string, SO_vCRD_ProfilePermition>(...);
-				this.cbl_Permitions.Kick.SelectedValues__set_arrayOf<long, string, SO_vCRD_ProfilePermition>(
+				#region this.CBL_Permissions.Kick.SelectedValues__set_arrayOf<long, string, SO_vCRD_ProfilePermition>(...);
+				this.CBL_Permissions.Kick.SelectedValues__set_arrayOf<long, string, SO_vCRD_ProfilePermition>(
 					BusinessInstances.CRD_Profile.InstanceClient.getRecord_ofProfilePermition_byProfile(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
@@ -228,9 +228,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				);
 				this.Master__base.Error_add(_errors);
 				#endregion
-				#region this.cbl_ParentProfiles.Kick.SelectedValues__set_arrayOf<SO_CRD_ProfileProfile>(...);
+				#region this.CBL_ParentProfiles.Kick.SelectedValues__set_arrayOf<SO_CRD_ProfileProfile>(...);
 				if (!this.Master__base.Error_add(_errors)) {
-					this.cbl_ParentProfiles.Kick.SelectedValues__set_arrayOf<SO_CRD_ProfileProfile>(
+					this.CBL_ParentProfiles.Kick.SelectedValues__set_arrayOf<SO_CRD_ProfileProfile>(
 						BusinessInstances.CRD_Profile.InstanceClient.getRecord_byProfile(
 							utils.User.SessionGuid,
 							utils.ClientIPAddress,
@@ -248,7 +248,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				this.Master__base.Error_add(_errors);
 				#endregion
 			} else {
-				this.txt_Name.Text = "";
+				this.TXT_Name.Text = "";
 			}
 		} 
 		#endregion

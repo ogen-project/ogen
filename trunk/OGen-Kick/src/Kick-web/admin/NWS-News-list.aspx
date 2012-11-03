@@ -17,14 +17,14 @@
 	Namespace="Anthem" 
 	Assembly="Anthem" %>
 <asp:Content
-	id="cnt_Title" runat="server" 
-	ContentPlaceHolderID="cph_Title">
+	id="CNT_Title" runat="server" 
+	ContentPlaceHolderID="CPH_Title">
 
 	- Article Search
 </asp:Content>
 <asp:Content
-	id="cnt_Head" runat="server"
-	ContentPlaceHolderID="cph_Head">
+	id="CNT_Head" runat="server"
+	ContentPlaceHolderID="CPH_Head">
 
 	<script src="../include/htmlDatePicker.js" type="text/javascript" language="JavaScript"></script>
 	<link href="../include/htmlDatePicker.css" type="text/css" rel="stylesheet" />
@@ -36,8 +36,8 @@
 
 </asp:Content>
 <asp:Content
-	id="cnt_Body" runat="server"
-	ContentPlaceHolderID="cph_Body">
+	id="CNT_Body" runat="server"
+	ContentPlaceHolderID="CPH_Body">
 
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tr>
@@ -59,7 +59,7 @@
 						</td>
 						<td>
 							<asp:TextBox
-								ID="txt_Text" runat="server"
+								ID="TXT_Text" runat="server"
 								CssClass="textbox_dim4" />
 						</td>
 					</tr>
@@ -69,7 +69,7 @@
 						</td>
 						<td>
 							<asol:KickListBox
-								id="ddl_Approved" runat="server"
+								id="DDL_Approved" runat="server"
 
 								CssClass="dropdownlist" 
 								Rows="1" 
@@ -83,13 +83,13 @@
 						<td class="label_small nowrap">
 							between:
 							<kick:htmlDatePicker
-								ID="txt_Begin_date" runat="server" 
+								ID="TXT_Begin_date" runat="server" 
 								class="date-pick textbox_date"
 								onclick="javascript:GetDate(this);" />
 
 							and:
 							<kick:htmlDatePicker
-								ID="txt_End_date" runat="server" 
+								ID="TXT_End_date" runat="server" 
 								class="date-pick textbox_date"
 								onclick="javascript:GetDate(this);" />
 
@@ -101,7 +101,7 @@
 						</td>
 						<td>
 							<asol:KickCheckBoxList
-								ID="cbl_Tags" runat="server"
+								ID="CBL_Tags" runat="server"
 
 								CssClass="checkboxlist" 
 								RepeatColumns="2" 
@@ -114,7 +114,7 @@
 						</td>
 						<td>
 							<asol:KickCheckBoxList
-								ID="cbl_Author" runat="server"
+								ID="CBL_Author" runat="server"
 
 								CssClass="checkboxlist" 
 								RepeatColumns="2" 
@@ -127,7 +127,7 @@
 						</td>
 						<td>
 							<asol:KickCheckBoxList
-								ID="cbl_Source" runat="server"
+								ID="CBL_Source" runat="server"
 
 								CssClass="checkboxlist" 
 								RepeatColumns="2" 
@@ -140,7 +140,7 @@
 						</td>
 						<td>
 							<asol:KickCheckBoxList
-								ID="cbl_Highlight" runat="server" 
+								ID="CBL_Highlight" runat="server" 
 
 								CssClass="checkboxlist" 
 								RepeatColumns="2" 
@@ -153,7 +153,7 @@
 						</td>
 						<td>
 							<asol:KickCheckBoxList
-								ID="cbl_Profile" runat="server"
+								ID="CBL_Profile" runat="server"
 
 								CssClass="checkboxlist" 
 								RepeatColumns="2" 
@@ -164,8 +164,8 @@
 						<td></td>
 						<td align="right">
 							<asp:Button
-								ID="btn_Search" runat="server"
-								OnClick="btn_Search_Click"
+								ID="BTN_Search" runat="server"
+								OnClick="BTN_Search_Click"
 
 								CssClass="button"
 								Text="Search" />
@@ -179,7 +179,7 @@
 	<br />
 
 	<asp:Repeater
-		ID="rep_SearchResults" runat="server">
+		ID="REP_SearchResults" runat="server">
 		<HeaderTemplate>
 			<table 
 				border="0" align="center" cellpadding="2" cellspacing="1" width="100%"
@@ -248,18 +248,18 @@
 							<tr>
 								<td align="left">
 									<asp:Button
-										ID="btn_Delete" runat="server"
+										ID="BTN_Delete" runat="server"
 										CssClass="button"
 
 										CommandArgument='<%# DataBinder.Eval(Container.DataItem, "IDContent")%>'
-										OnClick="btn_Delete_Click"
+										OnClick="BTN_Delete_Click"
 
 										Text="Delete" />
 								</td>
 								<td>&nbsp;</td>
 								<td align="right">
 									<asp:Button
-										ID="btn_Approve" runat="server"
+										ID="BTN_Approve" runat="server"
 										CssClass="button"
 										Visible='<%#
 											(
@@ -270,7 +270,7 @@
 										%>'
 
 										CommandArgument='<%# DataBinder.Eval(Container.DataItem, "IDContent")%>'
-										OnClick="btn_Approve_Click"
+										OnClick="BTN_Approve_Click"
 
 										Text="Approve" />
 								</td>

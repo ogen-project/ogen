@@ -60,8 +60,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		} 
 		#endregion
 
-		#region public void btn_Save_Click(object sender, EventArgs e);
-		public void btn_Save_Click(object sender, EventArgs e) {
+		#region public void BTN_Save_Click(object sender, EventArgs e);
+		public void BTN_Save_Click(object sender, EventArgs e) {
 			int[] _errors;
 			SO_NWS_Author _author;
 			if (
@@ -82,7 +82,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				!this.Master__base.Error_add(_errors)
 				#endregion
 			) {
-				_author.Name = this.txt_Name.Text;
+				_author.Name = this.TXT_Name.Text;
 
 				BusinessInstances.NWS_Author.InstanceClient.updObject(
 					utils.User.SessionGuid,
@@ -93,7 +93,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			} else {
 				_author = new SO_NWS_Author();
 
-				_author.Name = this.txt_Name.Text;
+				_author.Name = this.TXT_Name.Text;
 				_author.Approved_date_isNull = true;
 				_author.IFUser__Approved_isNull = true;
 				//_author.IFApplication = utils.IDApplication;
@@ -136,9 +136,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				!this.Master__base.Error_add(_errors)
 				#endregion
 			) {
-				this.txt_Name.Text = _author.Name;
+				this.TXT_Name.Text = _author.Name;
 			} else {
-				this.txt_Name.Text = "";
+				this.TXT_Name.Text = "";
 			}
 		} 
 		#endregion

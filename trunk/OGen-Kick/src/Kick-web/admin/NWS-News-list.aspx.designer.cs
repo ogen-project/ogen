@@ -13,102 +13,102 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     public partial class NWS_News_list {
         
         /// <summary>
-        /// txt_Text control.
+        /// TXT_Text control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Text;
+        protected global::System.Web.UI.WebControls.TextBox TXT_Text;
         
         /// <summary>
-        /// ddl_Approved control.
+        /// DDL_Approved control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickListBox ddl_Approved;
+        protected global::OGen.lib.presentationlayer.webforms.KickListBox DDL_Approved;
         
         /// <summary>
-        /// txt_Begin_date control.
+        /// TXT_Begin_date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.NTier.Kick.presentationlayer.weblayer.htmlDatePicker txt_Begin_date;
+        protected global::OGen.NTier.Kick.presentationlayer.weblayer.htmlDatePicker TXT_Begin_date;
         
         /// <summary>
-        /// txt_End_date control.
+        /// TXT_End_date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-		protected global::OGen.NTier.Kick.presentationlayer.weblayer.htmlDatePicker txt_End_date;
+		protected global::OGen.NTier.Kick.presentationlayer.weblayer.htmlDatePicker TXT_End_date;
         
         /// <summary>
-        /// cbl_Tags control.
+        /// CBL_Tags control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList cbl_Tags;
+        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Tags;
         
         /// <summary>
-        /// cbl_Author control.
+        /// CBL_Author control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList cbl_Author;
+        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Author;
         
         /// <summary>
-        /// cbl_Source control.
+        /// CBL_Source control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList cbl_Source;
+        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Source;
         
         /// <summary>
-        /// cbl_Highlight control.
+        /// CBL_Highlight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList cbl_Highlight;
+        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Highlight;
         
         /// <summary>
-        /// cbl_Profile control.
+        /// CBL_Profile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList cbl_Profile;
+        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Profile;
         
         /// <summary>
-        /// btn_Search control.
+        /// BTN_Search control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Search;
+        protected global::System.Web.UI.WebControls.Button BTN_Search;
         
         /// <summary>
-        /// rep_SearchResults control.
+        /// REP_SearchResults control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rep_SearchResults;
+        protected global::System.Web.UI.WebControls.Repeater REP_SearchResults;
     }
 }

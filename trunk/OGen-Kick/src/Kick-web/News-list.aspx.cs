@@ -37,7 +37,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				if (
 					(this.idtag__ == -2L)
 					||
-					!long.TryParse(this.hfi_IDTag.Value, out this.idtag__)
+					!long.TryParse(this.HFI_IDTag.Value, out this.idtag__)
 				) {
 					this.idtag__ = -1L;
 				}
@@ -46,7 +46,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			}
 			set {
 				this.idtag__ = value;
-				this.hfi_IDTag.Value = value.ToString(System.Globalization.CultureInfo.CurrentCulture);
+				this.HFI_IDTag.Value = value.ToString(System.Globalization.CultureInfo.CurrentCulture);
 			}
 		}
 		#endregion
@@ -58,7 +58,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				if (
 					(this.idsource__ == -2L)
 					||
-					!long.TryParse(this.hfi_Source.Value, out this.idsource__)
+					!long.TryParse(this.HFI_Source.Value, out this.idsource__)
 				) {
 					this.idsource__ = -1L;
 				}
@@ -67,7 +67,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			}
 			set {
 				this.idsource__ = value;
-				this.hfi_Source.Value = value.ToString(System.Globalization.CultureInfo.CurrentCulture);
+				this.HFI_Source.Value = value.ToString(System.Globalization.CultureInfo.CurrentCulture);
 			}
 		}
 		#endregion
@@ -116,9 +116,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		public void Bind() {
 			int[] _errors;
 			long _count;
-			this.tbl_News.Visible = false;
+			this.TBL_News.Visible = false;
 
-			#region rep_News.DataSource = ...; rep_News.DataBind();
+			#region REP_News.DataSource = ...; REP_News.DataBind();
 			SO_vNWS_Content[] _news
 				= BusinessInstances.NWS_News.InstanceClient.getRecord_generic(
 					utils.User.SessionGuid,
@@ -153,7 +153,7 @@ new long[] { },
 			) {
 				if (_news.Length <= 0) {
 					this.Master__base.Error_add(false, "no data");
-//					this.rep_News.Visible = false;
+//					this.REP_News.Visible = false;
 					return;
 				}
 
@@ -162,32 +162,32 @@ new long[] { },
 					_content.Content = OGen.lib.presentationlayer.webforms.utils.Replace_RN_BR(_content.Content);
 				}
 
-				this.rep_News.DataSource = _news;
-				this.rep_News.DataBind();
-//				this.rep_News.Visible = true;
-				this.tbl_News.Visible = true;
+				this.REP_News.DataSource = _news;
+				this.REP_News.DataBind();
+//				this.REP_News.Visible = true;
+				this.TBL_News.Visible = true;
 
 
 				OGen.lib.presentationlayer.webforms.utils.Pager.Bind(
 					_count,
-					this.lbl_pageSeparator_left,
-					this.lbl_pageSeparator_2,
-					this.lbl_pageSeparator_3,
-					this.lbl_pageSeparator_4,
-					this.lbl_pageSeparator_right,
-					this.lbl_pageSeparator_5,
-					this.a_page_1,
-					this.a_page_2,
-					this.a_page_3,
-					this.a_page_4,
-					this.a_page_5
+					this.LBL_PageSeparator_left,
+					this.LBL_PageSeparator_2,
+					this.LBL_PageSeparator_3,
+					this.LBL_PageSeparator_4,
+					this.LBL_PageSeparator_right,
+					this.LBL_PageSeparator_5,
+					this.A_Page_1,
+					this.A_Page_2,
+					this.A_Page_3,
+					this.A_Page_4,
+					this.A_Page_5
 				);
 			} else {
 				return;
 			}
 			#endregion
 
-			#region rep_Tags.DataSource = ...; rep_Tags.DataBind();
+			#region REP_Tags.DataSource = ...; REP_Tags.DataBind();
 			SO_vNWS_Tag[] _tags
 				= BusinessInstances.NWS_Tag.InstanceClient.getRecord_Approved_byLang(
 					utils.User.SessionGuid,
@@ -219,8 +219,8 @@ new long[] { },
 					}
 				);
 
-				this.rep_Tags.DataSource = _tags;
-				this.rep_Tags.DataBind();
+				this.REP_Tags.DataSource = _tags;
+				this.REP_Tags.DataBind();
 			}
 			#endregion
 			#region SO_vNWS_Source[] _sources = ...;
@@ -236,11 +236,11 @@ new long[] { },
 			#endregion
 
 //			System.Web.UI.HtmlControls.HtmlTableRow _tr_ImageNews;
-			Anthem.Image _img_News;
-			Anthem.Repeater _rep_News_Tags;
-			Anthem.Repeater _rep_News_Sources;
+			Anthem.Image _img_news;
+			Anthem.Repeater _rep_news_tags;
+			Anthem.Repeater _rep_news_sources;
 			for (int n = 0; n < _news.Length; n++) {
-				#region _rep_News_Tags.DataSource = ...; _rep_News_Tags.DataBind();
+				#region _rep_news_tags.DataSource = ...; _rep_news_tags.DataBind();
 				if (
 					(_tags != null)
 					&&
@@ -271,13 +271,13 @@ new long[] { },
 							}
 						}
 
-						_rep_News_Tags = (Anthem.Repeater)this.rep_News.Items[n].FindControl("rep_News_Tags");
-						_rep_News_Tags.DataSource = _tags2;
-						_rep_News_Tags.DataBind();
+						_rep_news_tags = (Anthem.Repeater)this.REP_News.Items[n].FindControl("REP_News_Tags");
+						_rep_news_tags.DataSource = _tags2;
+						_rep_news_tags.DataBind();
 					}
 				}
 				#endregion
-				#region _rep_News_Sources.DataSource = ...; _rep_News_Sources.DataBind();
+				#region _rep_news_sources.DataSource = ...; _rep_news_sources.DataBind();
 				if (
 					(_sources != null)
 					&&
@@ -308,15 +308,15 @@ new long[] { },
 							}
 						}
 
-						_rep_News_Sources = (Anthem.Repeater)this.rep_News.Items[n].FindControl("rep_News_Sources");
-						_rep_News_Sources.DataSource = _sources2;
-						_rep_News_Sources.DataBind();
+						_rep_news_sources = (Anthem.Repeater)this.REP_News.Items[n].FindControl("REP_News_Sources");
+						_rep_news_sources.DataSource = _sources2;
+						_rep_news_sources.DataBind();
 
-						_rep_News_Sources.Visible = true;
+						_rep_news_sources.Visible = true;
 					}
 				}
 				#endregion
-				#region _img_News = ...;
+				#region _img_news = ...;
 				#region SO_vNWS_Attachment _attachment = ...;
 				SO_vNWS_Attachment _attachment = null;
 				SO_vNWS_Attachment[] _attachments
@@ -352,10 +352,10 @@ new long[] { },
 					}
 				}
 				#endregion
-				_img_News = (Anthem.Image)this.rep_News.Items[n].FindControl("img_News");
-//				_tr_ImageNews = (System.Web.UI.HtmlControls.HtmlTableRow)rep_News.Items[n].FindControl("tr_ImageNews");
+				_img_news = (Anthem.Image)this.REP_News.Items[n].FindControl("IMG_News");
+//				_tr_ImageNews = (System.Web.UI.HtmlControls.HtmlTableRow)REP_News.Items[n].FindControl("tr_ImageNews");
 				if (_attachment != null) {
-					_img_News.ImageUrl = string.Format(
+					_img_news.ImageUrl = string.Format(
 						System.Globalization.CultureInfo.CurrentCulture,
 						"~/public-uploads/news/{0}/{1}-{2}/{3}",
 						_attachment.IFContent,
@@ -363,10 +363,10 @@ new long[] { },
 						_attachment.GUID,
 						_attachment.FileName
 					);
-					_img_News.Visible = true;
+					_img_news.Visible = true;
 //					_tr_ImageNews.Visible = true;
 				} else {
-					_img_News.Visible = false;
+					_img_news.Visible = false;
 //					_tr_ImageNews.Visible = false;
 				}
 				#endregion

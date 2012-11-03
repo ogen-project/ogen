@@ -17,19 +17,19 @@
 	tagname="wuc_Dic" 
 	tagprefix="asol" %>
 <asp:Content
-	id="cnt_Title" runat="server" 
-	ContentPlaceHolderID="cph_Title">
+	id="CNT_Title" runat="server" 
+	ContentPlaceHolderID="CPH_Title">
 
 	- Profile Search
 </asp:Content>
 <asp:Content
-	id="cnt_Head" runat="server"
-	ContentPlaceHolderID="cph_Head">
+	id="CNT_Head" runat="server"
+	ContentPlaceHolderID="CPH_Head">
 
 </asp:Content>
 <asp:Content
-	id="cnt_Body" runat="server"
-	ContentPlaceHolderID="cph_Body">
+	id="CNT_Body" runat="server"
+	ContentPlaceHolderID="CPH_Body">
 
 	<table
 		border="0" cellpadding="2" cellspacing="0" width="100%">
@@ -41,7 +41,7 @@
 		<tr><td>&nbsp;</td></tr>
 	</table>
 	<anthem:Repeater
-		ID="rep_Profiles" runat="server"
+		ID="REP_Profiles" runat="server"
 		AutoUpdateAfterCallBack="true">
 		<HeaderTemplate>
 			<table 
@@ -95,19 +95,19 @@
 						<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
 							<td align="left">
 								<anthem:Button
-									ID="btn_Delete" runat="server"
+									ID="BTN_Delete" runat="server"
 									CssClass="button"
 									Text="Delete" 
 
 									CommandArgument='<%# DataBinder.Eval(Container.DataItem, "IDProfile")%>'
-									OnClick="btn_Delete_Click"
+									OnClick="BTN_Delete_Click"
 									EnableCallBack="true"
 									EnabledDuringCallBack="false" />
 							</td>
 							<td>&nbsp;</td>
 							<td align="right">
 								<anthem:Button
-									ID="btn_Approve" runat="server"
+									ID="BTN_Approve" runat="server"
 									CssClass="button"
 									Visible='<%#
 										(
@@ -119,7 +119,7 @@
 									Text="Approve"
 
 									CommandArgument='<%# DataBinder.Eval(Container.DataItem, "IDProfile")%>'
-									OnClick="btn_Approve_Click"
+									OnClick="BTN_Approve_Click"
 									EnableCallBack="true"
 									EnabledDuringCallBack="false" />
 							</td>

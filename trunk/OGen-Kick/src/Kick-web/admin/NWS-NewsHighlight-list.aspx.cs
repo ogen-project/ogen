@@ -37,8 +37,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		} 
 		#endregion
 
-		#region protected void btn_Delete_Click(object sender, EventArgs e);
-		protected void btn_Delete_Click(object sender, EventArgs e) {
+		#region protected void BTN_Delete_Click(object sender, EventArgs e);
+		protected void BTN_Delete_Click(object sender, EventArgs e) {
 			long _idHighlight = long.Parse(
 				((IButtonControl)sender).CommandArgument,
 				System.Globalization.NumberStyles.Integer,
@@ -56,8 +56,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			}
 		}
 		#endregion
-		#region protected void btn_Approve_Click(object sender, EventArgs e);
-		protected void btn_Approve_Click(object sender, EventArgs e) {
+		#region protected void BTN_Approve_Click(object sender, EventArgs e);
+		protected void BTN_Approve_Click(object sender, EventArgs e) {
 			long _idHighlight = long.Parse(
 				((IButtonControl)sender).CommandArgument,
 				System.Globalization.NumberStyles.Integer,
@@ -103,12 +103,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					this.rep_Highlights.DataSource = _highlights;
-					this.rep_Highlights.DataBind();
+					this.REP_Highlights.DataSource = _highlights;
+					this.REP_Highlights.DataBind();
 
-					this.rep_Highlights.Visible = true;
+					this.REP_Highlights.Visible = true;
 				} else {
-					this.rep_Highlights.Visible = false;
+					this.REP_Highlights.Visible = false;
 
 					this.Master__base.Error_add(
 						false,

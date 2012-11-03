@@ -56,12 +56,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			}
 		}
 		#endregion
-		#region public bool isHorizontal_notVertial { set; }
-		private bool ishorizontal_notvertial_ = true;
+		#region public bool isHorizontal_notVertical { set; }
+		private bool ishorizontal_notvertical_ = true;
 
-		public bool isHorizontal_notVertial {
+		public bool isHorizontal_notVertical {
 			set {
-				this.ishorizontal_notvertial_ = value;
+				this.ishorizontal_notvertical_ = value;
 			}
 		} 
 		#endregion
@@ -82,9 +82,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		) {
 			Label _lbl_language;
 			TextBox _txt_field;
-			foreach (RepeaterItem _item in this.rep_Field.Items) {
-				_txt_field = (TextBox)_item.FindControl("txt_Field");
-				_lbl_language = (Label)_item.FindControl("lbl_Language");
+			foreach (RepeaterItem _item in this.REP_Field.Items) {
+				_txt_field = (TextBox)_item.FindControl("TXT_Field");
+				_lbl_language = (Label)_item.FindControl("LBL_Language");
 
 				_txt_field.CssClass = this.text_cssclass_;
 				_txt_field.Rows = rows_in;
@@ -92,8 +92,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 				_lbl_language.CssClass = label_cssClass_in;
 
-				_item.FindControl("lit_Vertial").Visible = !this.ishorizontal_notvertial_;
-				_item.FindControl("lit_Horizontal").Visible = this.ishorizontal_notvertial_;
+				_item.FindControl("LIT_Vertical").Visible = !this.ishorizontal_notvertical_;
+				_item.FindControl("LIT_Horizontal").Visible = this.ishorizontal_notvertical_;
 			}
 		}
 		#endregion
@@ -113,13 +113,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					return this.texts_;
 				} else {
 					OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] _output
-						= new OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[this.rep_Field.Items.Count];
+						= new OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[this.REP_Field.Items.Count];
 
 					TextBox _txt_field;
 					HiddenField _hfi_idlanguage;
-					for (int i = 0; i < this.rep_Field.Items.Count; i++) {
-						_hfi_idlanguage = (HiddenField)this.rep_Field.Items[i].FindControl("hfi_IDLanguage");
-						_txt_field = (TextBox)this.rep_Field.Items[i].FindControl("txt_Field");
+					for (int i = 0; i < this.REP_Field.Items.Count; i++) {
+						_hfi_idlanguage = (HiddenField)this.REP_Field.Items[i].FindControl("HFI_IDLanguage");
+						_txt_field = (TextBox)this.REP_Field.Items[i].FindControl("TXT_Field");
 
 						_output[i] 
 							= new OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage(
@@ -147,8 +147,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 //Response.Write("</table>");
 
 			// 1st: bind languages
-			this.rep_Field.DataSource = utils.Dic.Languages_get();
-			this.rep_Field.DataBind();
+			this.REP_Field.DataSource = utils.Dic.Languages_get();
+			this.REP_Field.DataBind();
 
 			// 2nd: assign properties to each language control
 			this.properties_set();
@@ -157,22 +157,22 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			if (this.texts_ == null) return;
 
 			bool _showLanguage = (utils.Dic.Languages_get().Length > 1);
-			Label _lbl_Language;
+			Label _lbl_language;
 			TextBox _txt_field;
 			HiddenField _hfi_idlanguage;
-			foreach (RepeaterItem _item in this.rep_Field.Items) {
-				_hfi_idlanguage = (HiddenField)_item.FindControl("hfi_IDLanguage");
+			foreach (RepeaterItem _item in this.REP_Field.Items) {
+				_hfi_idlanguage = (HiddenField)_item.FindControl("HFI_IDLanguage");
 
 				if (!_showLanguage) {
-					_lbl_Language = (Label)_item.FindControl("lbl_Language");
-					_lbl_Language.Visible = false;
+					_lbl_language = (Label)_item.FindControl("LBL_Language");
+					_lbl_language.Visible = false;
 				}
 
 				foreach (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage _text in this.texts_) {
 					if (
 						_hfi_idlanguage.Value == _text.IFLanguage.ToString(System.Globalization.CultureInfo.CurrentCulture)
 					) {
-						_txt_field = (TextBox)_item.FindControl("txt_Field");
+						_txt_field = (TextBox)_item.FindControl("TXT_Field");
 
 						_txt_field.Text = _text.Text;
 

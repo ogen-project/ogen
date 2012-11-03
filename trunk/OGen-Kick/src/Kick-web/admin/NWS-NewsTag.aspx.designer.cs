@@ -13,30 +13,30 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     public partial class NWS_NewsTag {
         
         /// <summary>
-        /// dic_Name control.
+        /// DIC_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic dic_Name;
+        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic DIC_Name;
         
         /// <summary>
-        /// ddl_Tag_parent control.
+        /// DDL_Tag_parent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickListBox ddl_Tag_parent;
+        protected global::OGen.lib.presentationlayer.webforms.KickListBox DDL_Tag_parent;
         
         /// <summary>
-        /// btn_Save control.
+        /// BTN_Save control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Save;
+        protected global::System.Web.UI.WebControls.Button BTN_Save;
     }
 }

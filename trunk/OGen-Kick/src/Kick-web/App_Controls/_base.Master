@@ -10,14 +10,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head runat="server">
-		<title><asp:ContentPlaceHolder ID="cph_Title" runat="server" /></title>
+		<title><asp:ContentPlaceHolder ID="CPH_Title" runat="server" /></title>
 
-		<asp:ContentPlaceHolder ID="cph_Head" runat="server" />
+		<asp:ContentPlaceHolder ID="CPH_Head" runat="server" />
 
 		<link href="~/include/style.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
-		<form id="form1" runat="server">
+		<form id="Mainform" runat="server">
 			<div id="div_main">
 				<table border="0" cellpadding="0" cellspacing="0" style="width: 100%; height: 100%;">
 					<tr>
@@ -35,35 +35,35 @@
 												<td align="left">
 													welcome 
 													<asp:LinkButton
-														ID="lbt_Registration" runat="server" />!
+														ID="LBT_Registration" runat="server" />!
 												</td>
 												<td align="right">
 													<asp:Label 
-														ID="lbl_Email" runat="server" 
+														ID="LBL_Email" runat="server" 
 														CssClass="label_small"
 														Text="Email: " />
 													<asp:TextBox 
-														ID="txt_Email" runat="server" 
+														ID="TXT_Email" runat="server" 
 														CssClass="textbox_dim1" />
 													<asp:Label 
-														ID="lbl_Password" runat="server" 
+														ID="LBL_Password" runat="server" 
 														CssClass="label_small"
 														Text="Password: " />
 													<asp:TextBox 
-														ID="txt_Password" runat="server" 
+														ID="TXT_Password" runat="server" 
 														CssClass="textbox_dim1"
 														TextMode="Password" />
 													<asp:Button
-														ID="btn_Login" runat="server"
+														ID="BTN_LogOn" runat="server"
 														Text="  login  "
 														CssClass="button"
-														OnClick="btn_Login_Click" />
+														OnClick="BTN_LogOn_Click" />
 
 													<asp:Button
-														ID="btn_Logout" runat="server"
+														ID="BTN_LogOff" runat="server"
 														Text="  logout  "
 														CssClass="button"
-														OnClick="btn_Logout_Click" />
+														OnClick="BTN_LogOff_Click" />
 												</td>
 											</tr>
 										</table>
@@ -71,12 +71,12 @@
 								</tr>
 								<tr>
 									<td>
-										<asp:ContentPlaceHolder ID="cph_Menu" runat="server" />
+										<asp:ContentPlaceHolder ID="CPH_Menu" runat="server" />
 									</td>
 								</tr>
 								<tr>
 									<td style="height: 100%;" valign="top" align="center">
-										<asp:ContentPlaceHolder ID="cph_Body" runat="server" />
+										<asp:ContentPlaceHolder ID="CPH_Body" runat="server" />
 									</td>
 								</tr>
 								<tr>
@@ -96,7 +96,7 @@
 
 		<script language="javascript" type="text/javascript">
 			<asp:Literal
-				ID="lit_ClientScript" runat="server" />
+				ID="LIT_ClientScript" runat="server" />
 		</script>
 	</body>
 </html>

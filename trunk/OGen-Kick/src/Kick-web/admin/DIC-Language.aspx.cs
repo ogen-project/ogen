@@ -62,8 +62,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		} 
 		#endregion
 
-		#region public void btn_Save_Click(object sender, EventArgs e);
-		public void btn_Save_Click(object sender, EventArgs e) {
+		#region public void BTN_Save_Click(object sender, EventArgs e);
+		public void BTN_Save_Click(object sender, EventArgs e) {
 			int[] _errors;
 
 			if (this.IDLanguage > 0) {
@@ -71,25 +71,25 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
 					this.IDLanguage,
-					this.dic_LanguageNameIn.Texts, 
+					this.DIC_LanguageNameIn.Texts, 
 					out _errors
 				);
 			} else {
-				SO_DIC__TextLanguage[] _texts = this.dic_LanguageNameIn.Texts;
+				SO_DIC__TextLanguage[] _texts = this.DIC_LanguageNameIn.Texts;
 				SO_DIC__TextLanguage[] _texts_withnew = new SO_DIC__TextLanguage[_texts.Length + 1];
 				for (int i = 0; i < _texts.Length; i++) {
 					_texts_withnew[i] = _texts[i];
 				}
 				_texts_withnew[_texts.Length] = new SO_DIC__TextLanguage(
 					-1,
-					this.txt_Name.Text
+					this.TXT_Name.Text
 				);
 
 				BusinessInstances.DIC_Dic.InstanceClient.insLanguage(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
 					_texts_withnew,
-					this.dic_LanguagesInNewLanguage.Texts,
+					this.DIC_LanguagesInNewLanguage.Texts,
 					out _errors
 				);
 			}
@@ -121,7 +121,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					&&
 					(_language.Length > 0)
 				) {
-					#region this.dic_LanguageNameIn.Texts = ...;
+					#region this.DIC_LanguageNameIn.Texts = ...;
 					List<OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage> _languagename
 						= new List<OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage>(
 							_language.Length
@@ -133,28 +133,28 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							_language[i].Language
 						));
 					}
-					this.dic_LanguageNameIn.Texts = _languagename.ToArray();
+					this.DIC_LanguageNameIn.Texts = _languagename.ToArray();
 					#endregion
-					this.tbl_NewLanguage.Visible = false;
-					this.dic_LanguagesInNewLanguage.Visible = false;
-					this.tr_new1.Visible = false;
-					this.tr_new2.Visible = false;
-					this.tr_new3.Visible = false;
+					this.TBL_NewLanguage.Visible = false;
+					this.DIC_LanguagesInNewLanguage.Visible = false;
+					this.TR_New1.Visible = false;
+					this.TR_New2.Visible = false;
+					this.TR_New3.Visible = false;
 
 					_isNew = false;
 				}
 			}
 
 			if (_isNew) {
-				this.dic_LanguageNameIn.Texts = null;
-				this.dic_LanguagesInNewLanguage.Texts = null;
+				this.DIC_LanguageNameIn.Texts = null;
+				this.DIC_LanguagesInNewLanguage.Texts = null;
 
-				this.tr_new1.Visible = true;
-				this.tr_new2.Visible = true;
-				this.tr_new3.Visible = true;
+				this.TR_New1.Visible = true;
+				this.TR_New2.Visible = true;
+				this.TR_New3.Visible = true;
 
-				this.dic_LanguagesInNewLanguage.Visible = true;
-				this.tbl_NewLanguage.Visible = true;
+				this.DIC_LanguagesInNewLanguage.Visible = true;
+				this.TBL_NewLanguage.Visible = true;
 			}
 		} 
 		#endregion

@@ -9,21 +9,21 @@
 	Namespace="Anthem" 
 	Assembly="Anthem" %>
 <asp:Content
-	id="cnt_Title" runat="server" 
-	ContentPlaceHolderID="cph_Title">
+	id="CNT_Title" runat="server" 
+	ContentPlaceHolderID="CPH_Title">
 
 </asp:Content>
 <asp:Content
-	id="cnt_Head" runat="server"
-	ContentPlaceHolderID="cph_Head">
+	id="CNT_Head" runat="server"
+	ContentPlaceHolderID="CPH_Head">
 
 </asp:Content>
 <asp:Content
-	id="cnt_Body" runat="server"
-	ContentPlaceHolderID="cph_Body">
+	id="CNT_Body" runat="server"
+	ContentPlaceHolderID="CPH_Body">
 
 	<anthem:Repeater
-		ID="rep_News" runat="server"
+		ID="REP_News" runat="server"
 		AutoUpdateAfterCallBack="true">
 		<ItemTemplate>
 			<table width="100%" border="0" cellpadding="4" cellspacing="0" class="table_thin">
@@ -43,7 +43,7 @@
 							<tr>
 								<td valign="top">
 									<anthem:Image
-										ID="img_News" runat="server"
+										ID="IMG_News" runat="server"
 										AutoUpdateAfterCallBack="true"
 										Visible="false"
 										style="
@@ -62,12 +62,12 @@
 					</td>
 				</tr>
 				<tr 
-					id="tr_Details" runat="server" 
+					id="TR_Details" runat="server" 
 					visible="false">
 
 					<td align="left" class="label_small nowrap">
 						<anthem:Repeater
-							ID="rep_News_Sources" runat="server"
+							ID="REP_News_Sources" runat="server"
 							Visible="false"
 							AutoUpdateAfterCallBack="true">
 							<HeaderTemplate>(source: </HeaderTemplate>
@@ -79,7 +79,7 @@
 					</td>
 					<td align="right" class="label_small nowrap">
 						<anthem:Repeater
-							ID="rep_News_Tags" runat="server"
+							ID="REP_News_Tags" runat="server"
 							Visible="false"
 							AutoUpdateAfterCallBack="true">
 							<ItemTemplate>

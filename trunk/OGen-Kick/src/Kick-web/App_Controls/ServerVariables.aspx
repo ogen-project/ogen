@@ -9,10 +9,10 @@
 		<title></title>
 	</head>
 	<body>
-		<form id="form1" runat="server">
+		<form id="MainForm" runat="server">
 			<div style="font-family: Courier New; font-size: small">
 				<asp:Literal
-					ID="lit_dump" runat="server" />
+					ID="LIT_Dump" runat="server" />
 			</div>
 		</form>
 	</body>

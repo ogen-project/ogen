@@ -90,7 +90,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			if (Anthem.Manager.IsCallBack) {
 				Anthem.Manager.AddScriptForClientSideEval(_clientscript);
 			} else {
-				this.lit_ClientScript.Text = _clientscript;
+				this.LIT_ClientScript.Text = _clientscript;
 			}
 		}
 		#endregion
@@ -164,22 +164,22 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		}
 		#endregion
 
-		#region protected void btn_Logout_Click(object sender, EventArgs e);
-		protected void btn_Logout_Click(object sender, EventArgs e) {
-			this.txt_Email.Text = "";
-			this.txt_Password.Text = "";
+		#region protected void BTN_LogOff_Click(object sender, EventArgs e);
+		protected void BTN_LogOff_Click(object sender, EventArgs e) {
+			this.TXT_Email.Text = "";
+			this.TXT_Password.Text = "";
 
 			utils.User.Logout("~/Default.aspx", false);
 
 			this.Bind();
 		}
 		#endregion
-		#region protected void btn_Login_Click(object sender, EventArgs e);
-		protected void btn_Login_Click(object sender, EventArgs e) {
+		#region protected void BTN_LogOn_Click(object sender, EventArgs e);
+		protected void BTN_LogOn_Click(object sender, EventArgs e) {
 			int[] _errors;
 			utils.User.DoLogin(
-				this.txt_Email.Text,
-				this.txt_Password.Text,
+				this.TXT_Email.Text,
+				this.TXT_Password.Text,
 				out _errors
 			);
 
@@ -201,16 +201,16 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		public void Bind() {
 			bool _isloggedin = utils.User.isLoggedIn;
 
-			this.lbt_Registration.Text = (_isloggedin) ? utils.User.Login : "anonynous";
-			this.lbt_Registration.PostBackUrl = (_isloggedin) ? "~/Registration-update.aspx" : "~/Registration.aspx";
+			this.LBT_Registration.Text = (_isloggedin) ? utils.User.Login : "anonynous";
+			this.LBT_Registration.PostBackUrl = (_isloggedin) ? "~/Registration-update.aspx" : "~/Registration.aspx";
 
-			this.lbl_Email.Visible = !_isloggedin;
-			this.txt_Email.Visible = !_isloggedin;
-			this.lbl_Password.Visible = !_isloggedin;
-			this.txt_Password.Visible = !_isloggedin;
-			this.btn_Login.Visible = !_isloggedin;
+			this.LBL_Email.Visible = !_isloggedin;
+			this.TXT_Email.Visible = !_isloggedin;
+			this.LBL_Password.Visible = !_isloggedin;
+			this.TXT_Password.Visible = !_isloggedin;
+			this.BTN_LogOn.Visible = !_isloggedin;
 
-			this.btn_Logout.Visible = _isloggedin;
+			this.BTN_LogOff.Visible = _isloggedin;
 		}
 		#endregion
 	}

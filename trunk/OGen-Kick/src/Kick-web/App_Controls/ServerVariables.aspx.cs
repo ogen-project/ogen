@@ -45,7 +45,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				));
 			}
 
-			this.lit_dump.Text = _sb.ToString();
+			this.LIT_Dump.Text = _sb.ToString();
 #endif
 		}
 	}

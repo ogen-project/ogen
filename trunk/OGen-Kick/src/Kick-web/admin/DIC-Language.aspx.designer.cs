@@ -13,75 +13,75 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     public partial class DIC_Language {
         
         /// <summary>
-        /// tbl_NewLanguage control.
+        /// TBL_NewLanguage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable tbl_NewLanguage;
+        protected global::System.Web.UI.HtmlControls.HtmlTable TBL_NewLanguage;
         
         /// <summary>
-        /// txt_Name control.
+        /// TXT_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Name;
+        protected global::System.Web.UI.WebControls.TextBox TXT_Name;
         
         /// <summary>
-        /// dic_LanguageNameIn control.
+        /// DIC_LanguageNameIn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic dic_LanguageNameIn;
+        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic DIC_LanguageNameIn;
         
         /// <summary>
-        /// tr_new1 control.
+        /// TR_New1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_new1;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow TR_New1;
         
         /// <summary>
-        /// tr_new2 control.
+        /// TR_New2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_new2;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow TR_New2;
         
         /// <summary>
-        /// dic_LanguagesInNewLanguage control.
+        /// DIC_LanguagesInNewLanguage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic dic_LanguagesInNewLanguage;
+        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic DIC_LanguagesInNewLanguage;
         
         /// <summary>
-        /// tr_new3 control.
+        /// TR_New3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_new3;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow TR_New3;
         
         /// <summary>
-        /// btn_Save control.
+        /// BTN_Save control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Save;
+        protected global::System.Web.UI.WebControls.Button BTN_Save;
     }
 }

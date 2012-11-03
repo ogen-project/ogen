@@ -29,13 +29,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 	public partial class Registration_confirmEmail : SitePage {
 
 		protected void Page_Load(object sender, EventArgs e) {
-			this.lbl_Error.Text = "";
+			this.LBL_Error.Text = "";
 
 			int[] _errors;
 			if (utils.User.DoLogin_throughLink(
 				out _errors
 			)) {
-				this.lbl_Error.Text += "- Email updated successfully!";
+				this.LBL_Error.Text += "- Email updated successfully!";
 			} else {
 				this.Master__base.Error_add(_errors);
 			}

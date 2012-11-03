@@ -79,7 +79,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					this.ddl_Highlight_parent.Kick.Bind__arrayOf<long, string>(
+					this.DDL_Highlight_parent.Kick.Bind__arrayOf<long, string>(
 						"",
 						true,
 						_highlights
@@ -92,18 +92,18 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		} 
 		#endregion
 
-		#region public void btn_Save_Click(object sender, EventArgs e);
+		#region public void BTN_Save_Click(object sender, EventArgs e);
 		private void btn_save_click(
 			ref SO_NWS_Highlight highlight_ref
 		) {
-			highlight_ref.Name = this.txt_Name.Text;
-			#region highlight_ref.IFHighlight__parent = long.Parse(ddl_Highlight_parent.SelectedValue);
-			if (string.IsNullOrEmpty(this.ddl_Highlight_parent.SelectedValue)) {
+			highlight_ref.Name = this.TXT_Name.Text;
+			#region highlight_ref.IFHighlight__parent = long.Parse(DDL_Highlight_parent.SelectedValue);
+			if (string.IsNullOrEmpty(this.DDL_Highlight_parent.SelectedValue)) {
 				highlight_ref.IFHighlight__parent_isNull = true;
 			} else {
-				//highlight_ref.IFHighlight__parent = ddl_Highlight_parent.Kick.SelectedValue__get<long>();
+				//highlight_ref.IFHighlight__parent = DDL_Highlight_parent.Kick.SelectedValue__get<long>();
 				highlight_ref.IFHighlight__parent = long.Parse(
-					this.ddl_Highlight_parent.SelectedValue,
+					this.DDL_Highlight_parent.SelectedValue,
 					System.Globalization.NumberStyles.Integer,
 					System.Globalization.CultureInfo.CurrentCulture
 				);
@@ -111,7 +111,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			#endregion
 		}
 
-		public void btn_Save_Click(object sender, EventArgs e) {
+		public void BTN_Save_Click(object sender, EventArgs e) {
 			int[] _errors;
 			SO_NWS_Highlight _highlight;
 			if (
@@ -192,16 +192,16 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				!this.Master__base.Error_add(_errors)
 				#endregion
 			) {
-				this.txt_Name.Text = _highlight.Name;
-				#region this.ddl_Highlight_parent.SelectedValue = _highlight.IFHighlight__parent.ToString();
+				this.TXT_Name.Text = _highlight.Name;
+				#region this.DDL_Highlight_parent.SelectedValue = _highlight.IFHighlight__parent.ToString();
 				if (_highlight.IFHighlight__parent_isNull) {
-					this.ddl_Highlight_parent.SelectedValue = "";
+					this.DDL_Highlight_parent.SelectedValue = "";
 				} else {
-					this.ddl_Highlight_parent.SelectedValue = _highlight.IFHighlight__parent.ToString(System.Globalization.CultureInfo.CurrentCulture);
+					this.DDL_Highlight_parent.SelectedValue = _highlight.IFHighlight__parent.ToString(System.Globalization.CultureInfo.CurrentCulture);
 				}
 				#endregion
 			} else {
-				this.txt_Name.Text = "";
+				this.TXT_Name.Text = "";
 			}
 		} 
 		#endregion

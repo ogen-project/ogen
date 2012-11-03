@@ -13,19 +13,19 @@
 	Namespace="Anthem" 
 	Assembly="Anthem" %>
 <asp:Content
-	id="cnt_Title" runat="server" 
-	ContentPlaceHolderID="cph_Title">
+	id="CNT_Title" runat="server" 
+	ContentPlaceHolderID="CPH_Title">
 
 	- Supported Languages
 </asp:Content>
 <asp:Content
-	id="cnt_Head" runat="server"
-	ContentPlaceHolderID="cph_Head">
+	id="CNT_Head" runat="server"
+	ContentPlaceHolderID="CPH_Head">
 
 </asp:Content>
 <asp:Content
-	id="cnt_Body" runat="server"
-	ContentPlaceHolderID="cph_Body">
+	id="CNT_Body" runat="server"
+	ContentPlaceHolderID="CPH_Body">
 
 	<table
 		border="0" cellpadding="2" cellspacing="0" width="100%">
@@ -46,7 +46,7 @@
 		<tr>
 			<td align="center" class="label_small">
 				<asol:KickCheckBoxList
-					ID="cbl_Languages" runat="server"
+					ID="CBL_Languages" runat="server"
 
 					CssClass="checkboxlist nowrap"
 					AutoUpdateAfterCallBack="true"
@@ -57,11 +57,11 @@
 		<tr>
 			<td class="label_small" align="center">
 				<anthem:Button
-					ID="btn_Save" runat="server"
+					ID="BTN_Save" runat="server"
 					CssClass="button"
 					Text="Save" 
 
-					OnClick="btn_Save_Click"
+					OnClick="BTN_Save_Click"
 					EnableCallBack="true"
 					EnabledDuringCallBack="false" />
 			</td>

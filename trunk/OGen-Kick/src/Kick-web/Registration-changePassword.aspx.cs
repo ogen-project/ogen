@@ -28,30 +28,30 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 	public partial class Registration_changePassword : SitePage {
 		protected void Page_Load(object sender, EventArgs e) {
-			this.lbl_PasswordNew.Text = "";     this.lbl_PasswordNew.Visible = false;
-			this.lbl_PasswordConfirm.Text = ""; this.lbl_PasswordConfirm.Visible = false;
+			this.LBL_PasswordNew.Text = "";     this.LBL_PasswordNew.Visible = false;
+			this.LBL_PasswordConfirm.Text = ""; this.LBL_PasswordConfirm.Visible = false;
 		}
-		protected void lbt_RegistrationPasswordUpdate_Click(object sender, EventArgs e) {
+		protected void LBT_RegistrationPasswordUpdate_Click(object sender, EventArgs e) {
 			int[] _errors;
 
 			#region bool _foundErrors = ...;
 			bool _foundErrors = false;
-			if ((this.txt_PasswordNew.Text = this.txt_PasswordNew.Text.Trim()).Length == 0) {
-				this.lbl_PasswordNew.Text = "invalid";
-				this.lbl_PasswordNew.Visible = true;
+			if ((this.TXT_PasswordNew.Text = this.TXT_PasswordNew.Text.Trim()).Length == 0) {
+				this.LBL_PasswordNew.Text = "invalid";
+				this.LBL_PasswordNew.Visible = true;
 
 				_foundErrors = true;
 			}
-			if (this.txt_PasswordNew.Text != this.txt_PasswordConfirm.Text) {
-				this.lbl_PasswordConfirm.Text = "passwords differ";
-				this.lbl_PasswordConfirm.Visible = true;
+			if (this.TXT_PasswordNew.Text != this.TXT_PasswordConfirm.Text) {
+				this.LBL_PasswordConfirm.Text = "passwords differ";
+				this.LBL_PasswordConfirm.Visible = true;
 
 				_foundErrors = true;
 			}
 			#endregion
 			if (!_foundErrors) {
 				if (utils.User.DoLogin_throughLink_andChangePassword(
-					this.txt_PasswordNew.Text,
+					this.TXT_PasswordNew.Text,
 					out _errors
 				)) {
 					Response.Redirect("~/Default.aspx");

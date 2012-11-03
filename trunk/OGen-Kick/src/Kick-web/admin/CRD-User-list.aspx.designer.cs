@@ -13,66 +13,66 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     public partial class CRD_User_list {
         
         /// <summary>
-        /// txt_Login control.
+        /// TXT_LogOn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Login;
+        protected global::System.Web.UI.WebControls.TextBox TXT_LogOn;
         
         /// <summary>
-        /// txt_Email control.
+        /// TXT_Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Email;
+        protected global::System.Web.UI.WebControls.TextBox TXT_Email;
         
         /// <summary>
-        /// txt_Name control.
+        /// TXT_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Name;
+        protected global::System.Web.UI.WebControls.TextBox TXT_Name;
         
         /// <summary>
-        /// ddl_Profile__in control.
+        /// DDL_Profile__in control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickListBox ddl_Profile__in;
+        protected global::OGen.lib.presentationlayer.webforms.KickListBox DDL_Profile__in;
         
         /// <summary>
-        /// ddl_Profile__out control.
+        /// DDL_Profile__out control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickListBox ddl_Profile__out;
+        protected global::OGen.lib.presentationlayer.webforms.KickListBox DDL_Profile__out;
         
         /// <summary>
-        /// btn_Search control.
+        /// BTN_Search control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Search;
+        protected global::System.Web.UI.WebControls.Button BTN_Search;
         
         /// <summary>
-        /// rep_SearchResults control.
+        /// REP_SearchResults control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rep_SearchResults;
+        protected global::System.Web.UI.WebControls.Repeater REP_SearchResults;
     }
 }

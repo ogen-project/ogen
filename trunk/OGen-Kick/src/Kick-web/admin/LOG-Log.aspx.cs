@@ -35,18 +35,18 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			if (!this.Page.IsPostBack) {
 				//int _error;
 
-				this.txt_Date_begin.Text = "";
-				this.txt_Date_end.Text = "";
+				this.TXT_Date_begin.Text = "";
+				this.TXT_Date_end.Text = "";
 
 				//// TODO: consider removing commented code
 				//utils.KickListControl.Bind__PseudoEnum(
-				//    this.ddl_Logtype.Kick, 
+				//    this.DDL_Logtype.Kick, 
 				//    LogType.error.ToString(),
 				//    true,
 				//    true,
 				//    LogType.Items
 				//);
-				this.ddl_Logtype.Kick.Bind__Dictionary<int, PseudoEnumItem>(
+				this.DDL_Logtype.Kick.Bind__Dictionary<int, PseudoEnumItem>(
 					"",
 					true,
 					true,
@@ -60,13 +60,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 				//// TODO: consider removing commented code
 				//utils.KickListControl.Bind__ErrorItem(
-				//    this.ddl_Errortype.Kick,
+				//    this.DDL_Errortype.Kick,
 				//    "",
 				//    true,
 				//    true,
 				//    ErrorType.Items
 				//);
-				this.ddl_Errortype.Kick.Bind__Dictionary<int, ErrorItem>(
+				this.DDL_Errortype.Kick.Bind__Dictionary<int, ErrorItem>(
 					"",
 					true,
 					true,
@@ -79,14 +79,14 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				);
 
 				//// TODO: consider removing commented code
-				//this.ddl_Coworker.Kick.Bind_Coworker_all(
+				//this.DDL_Coworker.Kick.Bind_Coworker_all(
 				//    "",
 				//    true,
 				//    out _error
 				//);
 
 				//// TODO: consider removing commented code
-				//this.ddl_Coworker.Kick.Bind__arrayOf<long, string>(
+				//this.DDL_Coworker.Kick.Bind__arrayOf<long, string>(
 				//    "",
 				//    true,
 				//    BusinessInstances.Coworker.InstanceClient.getRecord_all(
@@ -102,32 +102,32 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		} 
 		#endregion
 
-		#region protected void lbt_Date_Click(object sender, EventArgs e);
-		protected void lbt_Date_Click(object sender, EventArgs e) {
+		#region protected void LBT_Date_Click(object sender, EventArgs e);
+		protected void LBT_Date_Click(object sender, EventArgs e) {
 			switch (((LinkButton)sender).CommandArgument) {
 				case "0":
-					this.txt_Date_begin.Text = "";
-					this.txt_Date_end.Text = "";
+					this.TXT_Date_begin.Text = "";
+					this.TXT_Date_end.Text = "";
 					break;
 				case "1":
-					this.txt_Date_begin.Date = DateTime.Now.AddDays(-1);
-					this.txt_Date_end.Date = DateTime.Now;
+					this.TXT_Date_begin.Date = DateTime.Now.AddDays(-1);
+					this.TXT_Date_end.Date = DateTime.Now;
 					break;
 				case "2":
-					this.txt_Date_begin.Date = DateTime.Now.AddDays(-7);
-					this.txt_Date_end.Date = DateTime.Now;
+					this.TXT_Date_begin.Date = DateTime.Now.AddDays(-7);
+					this.TXT_Date_end.Date = DateTime.Now;
 					break;
 			}
 		} 
 		#endregion
 
-		#region protected void btn_Search_Click(object sender, EventArgs e);
-		protected void btn_Search_Click(object sender, EventArgs e) {
+		#region protected void BTN_Search_Click(object sender, EventArgs e);
+		protected void BTN_Search_Click(object sender, EventArgs e) {
 			this.Bind();
 		} 
 		#endregion
-		#region protected void btn_MarkRead_Click(object sender, EventArgs e);
-		protected void btn_MarkRead_Click(object sender, EventArgs e) {
+		#region protected void BTN_MarkRead_Click(object sender, EventArgs e);
+		protected void BTN_MarkRead_Click(object sender, EventArgs e) {
 			int _idlog = int.Parse(
 				((Button)sender).CommandArgument,
 				System.Globalization.NumberStyles.Integer,
@@ -220,26 +220,26 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				= BusinessInstances.LOG_Log.InstanceClient.getRecord_generic(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
-					(string.IsNullOrEmpty(this.ddl_Logtype.SelectedValue)) 
+					(string.IsNullOrEmpty(this.DDL_Logtype.SelectedValue)) 
 						? -1
 						: int.Parse(
-							this.ddl_Logtype.SelectedValue,
+							this.DDL_Logtype.SelectedValue,
 							System.Globalization.NumberStyles.Integer,
 							System.Globalization.CultureInfo.CurrentCulture
 						),
-					-1L, // (ddl_Coworker.SelectedValue != "") ? long.Parse(ddl_Coworker.SelectedValue, System.Globalization.NumberStyles.Integer, System.Globalization.CultureInfo.CurrentCulture) : -1,
-					(string.IsNullOrEmpty(this.ddl_Errortype.SelectedValue)) 
+					-1L, // (DDL_Coworker.SelectedValue != "") ? long.Parse(DDL_Coworker.SelectedValue, System.Globalization.NumberStyles.Integer, System.Globalization.CultureInfo.CurrentCulture) : -1,
+					(string.IsNullOrEmpty(this.DDL_Errortype.SelectedValue)) 
 						? -1
 						: int.Parse(
-							this.ddl_Errortype.SelectedValue,
+							this.DDL_Errortype.SelectedValue,
 							System.Globalization.NumberStyles.Integer,
 							System.Globalization.CultureInfo.CurrentCulture
 						),
 					//(this.wuc_Date_begin.SelectedDateTime > datetime_minvalue_) ? wuc_Date_begin.SelectedDateTime : datetime_minvalue_,
 					//(this.wuc_Date_end.SelectedDateTime > datetime_minvalue_) ? wuc_Date_end.SelectedDateTime : datetime_minvalue_,
-					this.txt_Date_begin.Date,
-					this.txt_Date_end.Date,
-this.cbx_Read.Checked, 
+					this.TXT_Date_begin.Date,
+					this.TXT_Date_end.Date,
+this.CBX_Read.Checked, 
 false, 
 					utils.IDApplication,
 					(utils.IDApplication <= 0),
@@ -282,23 +282,23 @@ false,
 						LogType.Items.ContainsKey(_log.IFLogtype) ? LogType.Items[_log.IFLogtype].Name.Replace(" - ", "<br />/") : "---",
 						!ErrorType.Items.ContainsKey(_log.IFErrortype) ? "???" : (_log.IFErrortype_isNull ? "---" : ErrorType.Items[_log.IFErrortype].Name.Replace(" - ", "<br />/")),
 						_log.Stamp.ToString("ddMMMyyyy<br />HH:mm:ss", System.Globalization.CultureInfo.CurrentCulture),
-						!this.cbx_Read.Checked
+						!this.CBX_Read.Checked
 					));
 				}
 
-				this.rep_Log.DataSource = _logdetails;
-				this.rep_Log.DataBind();
+				this.REP_Log.DataSource = _logdetails;
+				this.REP_Log.DataBind();
 
 				//// TODO: consider removing commented code
-				//if (this.cbx_Read.Checked) {
-				//    for (int i = 0; i < rep_Log.Items.Count; i++) {
-				//        ((Anthem.Button)rep_Log.Items[i].FindControl("btn_MarkRead")).Visible = false;
+				//if (this.CBX_Read.Checked) {
+				//    for (int i = 0; i < REP_Log.Items.Count; i++) {
+				//        ((Anthem.Button)REP_Log.Items[i].FindControl("BTN_MarkRead")).Visible = false;
 				//    }
 				//}
 
-				this.rep_Log.Visible = true;
+				this.REP_Log.Visible = true;
 			} else {
-				this.rep_Log.Visible = false;
+				this.REP_Log.Visible = false;
 
 				this.Master__base.Error_add(
 					false,

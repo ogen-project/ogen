@@ -36,55 +36,55 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			}
 		}
 		#endregion
-		#region protected void btn_Registration_Click(object sender, EventArgs e);
-		protected void btn_Registration_Click(object sender, EventArgs e) {
-			this.lbl_Error.Text = "";
-			this.lbl_Email.Text = "";
-			this.lbl_Email_Confirmation.Text = "";
-			this.lbl_Login.Text = "";
-			this.lbl_Name.Text = "";
+		#region protected void BTN_Registration_Click(object sender, EventArgs e);
+		protected void BTN_Registration_Click(object sender, EventArgs e) {
+			this.LBL_Error.Text = "";
+			this.LBL_Email.Text = "";
+			this.LBL_Email_Confirmation.Text = "";
+			this.LBL_LogOn.Text = "";
+			this.LBL_Name.Text = "";
 			//// TODO: consider removing commented code
-			//this.lbl_Password.Text = "";
-			//this.lbl_Password_Confirmation.Text = "";
+			//this.LBL_Password.Text = "";
+			//this.LBL_Password_Confirmation.Text = "";
 
 			#region bool _invalid_email = ...;
 			bool _invalid_email
 				= !OGen.lib.mail.utils.isEmail_valid(
-					(this.txt_Email.Text = this.txt_Email.Text.Trim())
+					(this.TXT_Email.Text = this.TXT_Email.Text.Trim())
 				);
 			#endregion
 			#region bool _invalid_email_missmatch = ...;
 			bool _invalid_email_missmatch
 				= (
-					(this.txt_Email.Text != (this.txt_Email_Confirmation.Text = this.txt_Email_Confirmation.Text.Trim()))
+					(this.TXT_Email.Text != (this.TXT_Email_Confirmation.Text = this.TXT_Email_Confirmation.Text.Trim()))
 				);
 			#endregion
 			#region //bool _invalid_password = ...;
 			//// TODO: consider removing commented code
 			//bool _invalid_password 
 			//    = (
-			//        (this.txt_Password.Text.Length == 0)
+			//        (this.TXT_Password.Text.Length == 0)
 			//    );
 			#endregion
 			#region //bool _invalid_password_missmatch = ...;
 			//// TODO: consider removing commented code
 			//bool _invalid_password_missmatch
 			//    = (
-			//        (this.txt_Password.Text != this.txt_Password_Confirmation.Text)
+			//        (this.TXT_Password.Text != this.TXT_Password_Confirmation.Text)
 			//    );
 			#endregion
 			#region bool _invalid_name = ...;
 			bool _invalid_name
 				= (
-					((this.txt_Name.Text = this.txt_Name.Text.Trim()).Length == 0)
+					((this.TXT_Name.Text = this.TXT_Name.Text.Trim()).Length == 0)
 				);
 			#endregion
 			#region bool _invalid_login = ...;
 			bool _invalid_login
 				= (
-					((this.txt_Login.Text = this.txt_Login.Text.Trim()).Length < 3)
+					((this.TXT_LogOn.Text = this.TXT_LogOn.Text.Trim()).Length < 3)
 					||
-					(this.txt_Login.Text.IndexOf('@') >= 0)
+					(this.TXT_LogOn.Text.IndexOf('@') >= 0)
 				);
 			#endregion
 
@@ -104,9 +104,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				int[] _errors;
 
 				WEB_User.InstanceClient.insObject_Registration(
-					this.txt_Login.Text,
-					this.txt_Email.Text,
-					this.txt_Name.Text, 
+					this.TXT_LogOn.Text,
+					this.TXT_Email.Text,
+					this.TXT_Name.Text, 
 					ConfigurationManager.AppSettings[
 						"Registration_changePassword"
 					],
@@ -121,35 +121,35 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				foreach (int _error in _errors) {
 					switch (_error) {
 						case OGen.NTier.Kick.lib.businesslayer.shared.ErrorType.web__user__constraint_violation:
-							this.lbl_Email.Text = "unavailable";
-							this.lbl_Error.Text += "<li>you can recover this account on the form below</li>";
-							this.txt_LostPassword_Email.Text = this.txt_Email.Text;
-							this.txt_LostPassword_Email_Confirmation.Text = this.txt_Email_Confirmation.Text;
+							this.LBL_Email.Text = "unavailable";
+							this.LBL_Error.Text += "<li>you can recover this account on the form below</li>";
+							this.TXT_LostPassword_Email.Text = this.TXT_Email.Text;
+							this.TXT_LostPassword_Email_Confirmation.Text = this.TXT_Email_Confirmation.Text;
 
 							break;
 						case OGen.NTier.Kick.lib.businesslayer.shared.ErrorType.data__constraint_violation:
-							this.lbl_Login.Text = "unavailable";
+							this.LBL_LogOn.Text = "unavailable";
 							break;
 						case OGen.NTier.Kick.lib.businesslayer.shared.ErrorType.user__successfully_created__WARNING:
-							this.lbl_Error.Text += string.Format(
+							this.LBL_Error.Text += string.Format(
 								System.Globalization.CultureInfo.CurrentCulture, 
 								"<li>welcome {0}! please check your email</li>",
-								this.txt_Login.Text
+								this.TXT_LogOn.Text
 							);
 
-							this.txt_Name.Enabled = false;
-							this.txt_Name.ReadOnly = true;
+							this.TXT_Name.Enabled = false;
+							this.TXT_Name.ReadOnly = true;
 
-							this.txt_Login.Enabled = false;
-							this.txt_Login.ReadOnly = true;
+							this.TXT_LogOn.Enabled = false;
+							this.TXT_LogOn.ReadOnly = true;
 
-							this.txt_Email.Enabled = false;
-							this.txt_Email.ReadOnly = true;
+							this.TXT_Email.Enabled = false;
+							this.TXT_Email.ReadOnly = true;
 
-							this.txt_Email_Confirmation.Enabled = false;
-							this.txt_Email_Confirmation.ReadOnly = true;
+							this.TXT_Email_Confirmation.Enabled = false;
+							this.TXT_Email_Confirmation.ReadOnly = true;
 
-							this.btn_Registration.Enabled = false;
+							this.BTN_Registration.Enabled = false;
 
 							break;
 						default:
@@ -159,50 +159,50 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				}
 			} else {
 				if (_invalid_email) {
-					this.lbl_Email.Text = "invalid";
+					this.LBL_Email.Text = "invalid";
 				}
 				if (_invalid_email_missmatch) {
-					this.lbl_Email_Confirmation.Text = "emails differ";
+					this.LBL_Email_Confirmation.Text = "emails differ";
 				}
 
 				//// TODO: consider removing commented code
 				//if (_invalid_password) {
-				//    this.lbl_Password.Text = "invalid password";
+				//    this.LBL_Password.Text = "invalid password";
 				//}
 				//if (_invalid_password_missmatch) {
-				//    this.lbl_Password_Confirmation.Text = "passwords differ";
+				//    this.LBL_Password_Confirmation.Text = "passwords differ";
 				//}
 
 				if (_invalid_login) {
-					this.lbl_Login.Text = "invalid";
+					this.LBL_LogOn.Text = "invalid";
 				}
 
 				if (_invalid_name) {
-					this.lbl_Name.Text = "invalid";
+					this.LBL_Name.Text = "invalid";
 				}
 			}
 		}
 		#endregion
-		#region protected void btn_LostPassword_Click(object sender, EventArgs e);
-		protected void btn_LostPassword_Click(object sender, EventArgs e) {
-			this.lbl_LostPassword_Error.Text = "";
-			this.lbl_LostPassword_Email.Text = "";
-			this.lbl_LostPassword_Email_Confirmation.Text = "";
+		#region protected void BTN_LostPassword_Click(object sender, EventArgs e);
+		protected void BTN_LostPassword_Click(object sender, EventArgs e) {
+			this.LBL_LostPassword_Error.Text = "";
+			this.LBL_LostPassword_Email.Text = "";
+			this.LBL_LostPassword_Email_Confirmation.Text = "";
 
 			#region bool _invalid_email = ...;
 			bool _invalid_email 
 				= !OGen.lib.mail.utils.isEmail_valid(
-					(this.txt_LostPassword_Email.Text = this.txt_LostPassword_Email.Text.Trim())
+					(this.TXT_LostPassword_Email.Text = this.TXT_LostPassword_Email.Text.Trim())
 				);
 			#endregion
 			#region bool _invalid_email_missmatch = ...;
 			bool _invalid_email_missmatch
 				= (
 					(
-						(this.txt_LostPassword_Email_Confirmation.Text
-							= this.txt_LostPassword_Email_Confirmation.Text.Trim(
+						(this.TXT_LostPassword_Email_Confirmation.Text
+							= this.TXT_LostPassword_Email_Confirmation.Text.Trim(
 							)
-						) != this.txt_LostPassword_Email.Text
+						) != this.TXT_LostPassword_Email.Text
 					)
 				);
 			#endregion
@@ -214,7 +214,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				int[] _errors;
 
 				WEB_User.InstanceClient.LostPassword_Recover(
-					this.txt_LostPassword_Email.Text, 
+					this.TXT_LostPassword_Email.Text, 
 				    ConfigurationManager.AppSettings[
 				        "CompanyName"
 				    ], 
@@ -226,23 +226,23 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				    out _errors
 				);
 				if (!this.Master__base.Error_add(_errors)) {
-					this.lbl_LostPassword_Error.Text
+					this.LBL_LostPassword_Error.Text
 						+= "<li>Please check your email to recover your account</li>";
 
-					this.txt_LostPassword_Email.Enabled = false;
-					this.txt_LostPassword_Email.ReadOnly = true;
+					this.TXT_LostPassword_Email.Enabled = false;
+					this.TXT_LostPassword_Email.ReadOnly = true;
 
-					this.txt_LostPassword_Email_Confirmation.Enabled = false;
-					this.txt_LostPassword_Email_Confirmation.ReadOnly = true;
+					this.TXT_LostPassword_Email_Confirmation.Enabled = false;
+					this.TXT_LostPassword_Email_Confirmation.ReadOnly = true;
 
-					this.btn_LostPassword.Enabled = false;
+					this.BTN_LostPassword.Enabled = false;
 				}
 			} else {
 				if (_invalid_email) {
-					this.lbl_LostPassword_Email.Text = "invalid";
+					this.LBL_LostPassword_Email.Text = "invalid";
 				}
 				if (_invalid_email_missmatch) {
-					this.lbl_LostPassword_Email_Confirmation.Text = "emails differ";
+					this.LBL_LostPassword_Email_Confirmation.Text = "emails differ";
 				}
 			}
 		}

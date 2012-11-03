@@ -39,13 +39,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
 			if (!this.Page.IsPostBack) {
-				//dic_Name.Texts = null;
+				//DIC_Name.Texts = null;
 
-				this.txt_Begin_date.Attributes.Add("readonly", "readonly");
-				this.txt_End_date.Attributes.Add("readonly", "readonly");
+				this.TXT_Begin_date.Attributes.Add("readonly", "readonly");
+				this.TXT_End_date.Attributes.Add("readonly", "readonly");
 
-				#region ddl_Approved . . .
-				this.ddl_Approved.Kick.Bind__Enum(
+				#region DDL_Approved . . .
+				this.DDL_Approved.Kick.Bind__Enum(
 					"",
 					true,
 					true,
@@ -80,7 +80,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					this.cbl_Tags.Kick.Bind__arrayOf<long, string>(
+					this.CBL_Tags.Kick.Bind__arrayOf<long, string>(
 						"",
 						_so_tags
 					);
@@ -109,7 +109,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					this.cbl_Source.Kick.Bind__arrayOf<long, string>(
+					this.CBL_Source.Kick.Bind__arrayOf<long, string>(
 						"",
 						_so_sources
 					);
@@ -138,7 +138,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					this.cbl_Author.Kick.Bind__arrayOf<long, string>(
+					this.CBL_Author.Kick.Bind__arrayOf<long, string>(
 						"",
 						_so_authors
 					);
@@ -167,7 +167,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					this.cbl_Highlight.Kick.Bind__arrayOf<long, string>(
+					this.CBL_Highlight.Kick.Bind__arrayOf<long, string>(
 						"",
 						_so_highlights
 					);
@@ -196,7 +196,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					this.cbl_Profile.Kick.Bind__arrayOf<long, string>(
+					this.CBL_Profile.Kick.Bind__arrayOf<long, string>(
 						"",
 						_so_profiles
 					);
@@ -208,13 +208,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		}
 		#endregion
 
-		#region protected void btn_Search_Click(object sender, EventArgs e);
-		protected void btn_Search_Click(object sender, EventArgs e) {
+		#region protected void BTN_Search_Click(object sender, EventArgs e);
+		protected void BTN_Search_Click(object sender, EventArgs e) {
 			this.Bind();
 		}
 		#endregion
-		#region protected void btn_Delete_Click(object sender, EventArgs e);
-		protected void btn_Delete_Click(object sender, EventArgs e) {
+		#region protected void BTN_Delete_Click(object sender, EventArgs e);
+		protected void BTN_Delete_Click(object sender, EventArgs e) {
 			long _idcontent = long.Parse(
 				((Button)sender).CommandArgument,
 				System.Globalization.NumberStyles.Integer,
@@ -234,8 +234,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			}
 		}
 		#endregion
-		#region protected void btn_Approve_Click(object sender, EventArgs e);
-		protected void btn_Approve_Click(object sender, EventArgs e) {
+		#region protected void BTN_Approve_Click(object sender, EventArgs e);
+		protected void BTN_Approve_Click(object sender, EventArgs e) {
 			int _idcontent = int.Parse(
 				((Button)sender).CommandArgument,
 				System.Globalization.NumberStyles.Integer,
@@ -302,54 +302,54 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 -1L,
 
-				(string.IsNullOrEmpty(this.ddl_Approved.SelectedValue))
+				(string.IsNullOrEmpty(this.DDL_Approved.SelectedValue))
 					? -2L
-					: (this.ddl_Approved.SelectedValue == ((int)ContentstateEnum.approved).ToString(System.Globalization.CultureInfo.CurrentCulture))
+					: (this.DDL_Approved.SelectedValue == ((int)ContentstateEnum.approved).ToString(System.Globalization.CultureInfo.CurrentCulture))
 						? 0L
 						: -1L,
 
 				//// TODO: consider removing commented code
 				//
 				//(
-				//    (this.txt_Begin_date_CalendarExtender.SelectedDate == null)
+				//    (this.TXT_Begin_date_CalendarExtender.SelectedDate == null)
 				//    ||
-				//    (!this.txt_Begin_date_CalendarExtender.SelectedDate.HasValue)
+				//    (!this.TXT_Begin_date_CalendarExtender.SelectedDate.HasValue)
 				//) 
 				//    ? this.datetime_minvalue_ 
-				//    : this.txt_Begin_date_CalendarExtender.SelectedDate.Value,
+				//    : this.TXT_Begin_date_CalendarExtender.SelectedDate.Value,
 				//(
-				//    (this.txt_End_date_CalendarExtender.SelectedDate == null)
+				//    (this.TXT_End_date_CalendarExtender.SelectedDate == null)
 				//    ||
-				//    (!this.txt_End_date_CalendarExtender.SelectedDate.HasValue)
+				//    (!this.TXT_End_date_CalendarExtender.SelectedDate.HasValue)
 				//) 
 				//    ? this.datetime_minvalue_ 
-				//    : this.txt_End_date_CalendarExtender.SelectedDate.Value,
+				//    : this.TXT_End_date_CalendarExtender.SelectedDate.Value,
 				//
-				//DateTime_TryParse(this.txt_Begin_date.Text, out _begin_date) ? _begin_date : this.datetime_minvalue_,
-				//DateTime_TryParse(this.txt_End_date.Text, out _end_date) ? _end_date : this.datetime_minvalue_, 
+				//DateTime_TryParse(this.TXT_Begin_date.Text, out _begin_date) ? _begin_date : this.datetime_minvalue_,
+				//DateTime_TryParse(this.TXT_End_date.Text, out _end_date) ? _end_date : this.datetime_minvalue_, 
 				//
 				DateTime.TryParseExact(
-					this.txt_Begin_date.Text,
+					this.TXT_Begin_date.Text,
 					"dd-MM-yyyy",
 					null,
 					System.Globalization.DateTimeStyles.None,
 					out _begin_date
 				) ? _begin_date : datetime_minvalue_,
 				DateTime.TryParseExact(
-					this.txt_End_date.Text,
+					this.TXT_End_date.Text,
 					"dd-MM-yyyy",
 					null,
 					System.Globalization.DateTimeStyles.None,
 					out _end_date
 				) ? _end_date : datetime_minvalue_,
 
-				this.cbl_Tags.Kick.SelectedValue__get<long>(),
-				this.cbl_Author.Kick.SelectedValue__get<long>(),
-				this.cbl_Source.Kick.SelectedValue__get<long>(),
-				this.cbl_Highlight.Kick.SelectedValue__get<long>(),
-				this.cbl_Profile.Kick.SelectedValue__get<long>(),
+				this.CBL_Tags.Kick.SelectedValue__get<long>(),
+				this.CBL_Author.Kick.SelectedValue__get<long>(),
+				this.CBL_Source.Kick.SelectedValue__get<long>(),
+				this.CBL_Highlight.Kick.SelectedValue__get<long>(),
+				this.CBL_Profile.Kick.SelectedValue__get<long>(),
 
-				this.txt_Text.Text,
+				this.TXT_Text.Text,
 				utils.IDLanguage__default,
 				true,
 				0, 0, 0, out _count, 
@@ -359,12 +359,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			#endregion
 			if (!this.Master__base.Error_add(_errors)) {
 				if (_contents.Length > 0) {
-					this.rep_SearchResults.Visible = true;
+					this.REP_SearchResults.Visible = true;
 
-					this.rep_SearchResults.DataSource = _contents;
-					this.rep_SearchResults.DataBind();
+					this.REP_SearchResults.DataSource = _contents;
+					this.REP_SearchResults.DataBind();
 				} else {
-					this.rep_SearchResults.Visible = false;
+					this.REP_SearchResults.Visible = false;
 
 					this.Master__base.Error_add(
 						false,

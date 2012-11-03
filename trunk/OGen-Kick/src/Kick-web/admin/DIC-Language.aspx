@@ -17,19 +17,19 @@
 	tagname="wuc_Dic" 
 	tagprefix="asol" %>
 <asp:Content
-	id="cnt_Title" runat="server" 
-	ContentPlaceHolderID="cph_Title">
+	id="CNT_Title" runat="server" 
+	ContentPlaceHolderID="CPH_Title">
 
 	- Language
 </asp:Content>
 <asp:Content
-	id="cnt_Head" runat="server"
-	ContentPlaceHolderID="cph_Head">
+	id="CNT_Head" runat="server"
+	ContentPlaceHolderID="CPH_Head">
 
 </asp:Content>
 <asp:Content
-	id="cnt_Body" runat="server"
-	ContentPlaceHolderID="cph_Body">
+	id="CNT_Body" runat="server"
+	ContentPlaceHolderID="CPH_Body">
 
 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tr>
@@ -52,11 +52,11 @@
 						<td>
 							<table 
 								border="0" cellpadding="2" cellspacing="0"
-								id="tbl_NewLanguage" runat="server" visible="false">
+								id="TBL_NewLanguage" runat="server" visible="false">
 								<tr>
 									<td>
 										<asp:TextBox
-											ID="txt_Name" runat="server"
+											ID="TXT_Name" runat="server"
 											CssClass="textbox_dim15" />
 									</td>
 									<td>&nbsp;</td>
@@ -67,28 +67,28 @@
 							</table>
 
 							<asol:wuc_Dic
-								ID="dic_LanguageNameIn" runat="server"
+								ID="DIC_LanguageNameIn" runat="server"
 								Text_CssClass="textbox_dim15"
 								Label_CssClass="label_small"
 								Rows="1" />
 						</td>
 					</tr>
 
-					<tr id="tr_new1" runat="server" visible="false"><td colspan="2">&nbsp;</td></tr>
-					<tr id="tr_new2" runat="server" visible="false">
+					<tr id="TR_New1" runat="server" visible="false"><td colspan="2">&nbsp;</td></tr>
+					<tr id="TR_New2" runat="server" visible="false">
 						<td align="right" class="label_small nowrap">
 							existing Language Names&nbsp;<br />
 							in new language:&nbsp;
 						</td>
 						<td>
 							<asol:wuc_Dic
-								ID="dic_LanguagesInNewLanguage" runat="server"
+								ID="DIC_LanguagesInNewLanguage" runat="server"
 								Text_CssClass="textbox_dim15"
 								Label_CssClass="label_small"
 								Rows="1" />
 						</td>
 					</tr>
-					<tr id="tr_new3" runat="server" visible="false"><td colspan="2">&nbsp;</td></tr>
+					<tr id="TR_New3" runat="server" visible="false"><td colspan="2">&nbsp;</td></tr>
 
 					<tr>
 						<td></td>
@@ -99,8 +99,8 @@
 								value="Cancel"
 								class="button" />
 							<asp:Button
-								ID="btn_Save" runat="server"
-								OnClick="btn_Save_Click"
+								ID="BTN_Save" runat="server"
+								OnClick="BTN_Save_Click"
 
 								CssClass="button"
 								Text="Save" />

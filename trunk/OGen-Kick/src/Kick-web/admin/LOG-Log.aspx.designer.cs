@@ -13,93 +13,102 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
     public partial class LOG_Log {
         
         /// <summary>
-        /// ddl_Logtype control.
+        /// DDL_Logtype control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickListBox ddl_Logtype;
+        protected global::OGen.lib.presentationlayer.webforms.KickListBox DDL_Logtype;
         
         /// <summary>
-        /// ddl_Errortype control.
+        /// DDL_Errortype control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickListBox ddl_Errortype;
+        protected global::OGen.lib.presentationlayer.webforms.KickListBox DDL_Errortype;
         
         /// <summary>
-        /// txt_Date_begin control.
+        /// CBX_Read control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.NTier.Kick.presentationlayer.weblayer.htmlDatePicker txt_Date_begin;
+        protected global::System.Web.UI.WebControls.CheckBox CBX_Read;
         
         /// <summary>
-        /// txt_Date_end control.
+        /// TXT_Date_begin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.NTier.Kick.presentationlayer.weblayer.htmlDatePicker txt_Date_end;
+        protected global::OGen.NTier.Kick.presentationlayer.weblayer.htmlDatePicker TXT_Date_begin;
         
         /// <summary>
-        /// lbl_Date_lastDay control.
+        /// TXT_Date_end control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.LinkButton lbl_Date_lastDay;
+        protected global::OGen.NTier.Kick.presentationlayer.weblayer.htmlDatePicker TXT_Date_end;
         
         /// <summary>
-        /// lbl_Date_lastWeek control.
+        /// LBL_Date_lastDay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.LinkButton lbl_Date_lastWeek;
+        protected global::Anthem.LinkButton LBL_Date_lastDay;
         
         /// <summary>
-        /// lbl_Date_clear control.
+        /// LBL_Date_lastWeek control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.LinkButton lbl_Date_clear;
+        protected global::Anthem.LinkButton LBL_Date_lastWeek;
         
         /// <summary>
-        /// cbx_Read control.
+        /// LBL_Date_clear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbx_Read;
+        protected global::Anthem.LinkButton LBL_Date_clear;
         
         /// <summary>
-        /// btn_Search control.
+        /// BTN_Search control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Button btn_Search;
+        protected global::Anthem.Button BTN_Search;
         
         /// <summary>
-        /// rep_Log control.
+        /// REP_Log control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Repeater rep_Log;
+        protected global::Anthem.Repeater REP_Log;
+        
+        /// <summary>
+        /// BTN_MarkRead control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Anthem.Button BTN_MarkRead;
     }
 }
