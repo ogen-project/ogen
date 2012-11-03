@@ -169,7 +169,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			this.TXT_Email.Text = "";
 			this.TXT_Password.Text = "";
 
-			utils.User.Logout("~/Default.aspx", false);
+			utils.User.LogOff("~/Default.aspx", false);
 
 			this.Bind();
 		}
@@ -177,7 +177,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region protected void BTN_LogOn_Click(object sender, EventArgs e);
 		protected void BTN_LogOn_Click(object sender, EventArgs e) {
 			int[] _errors;
-			utils.User.DoLogin(
+			utils.User.LogOn(
 				this.TXT_Email.Text,
 				this.TXT_Password.Text,
 				out _errors

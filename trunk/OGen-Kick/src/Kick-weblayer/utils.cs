@@ -99,8 +99,8 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 			private const string SESSION_IDPERMITIONS = "OGen_Kick_IDPermitions";
 			private const string SESSION_LOGIN = "OGen_Kick_Login";
 
-			#region public static void Logout();
-			public static void Logout(
+			#region public static void LogOff();
+			public static void LogOff(
 			) {
 				BusinessInstances.CRD_Authentication.InstanceClient.Logout(SessionGuid);
 
@@ -109,11 +109,11 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 				HttpContext.Current.Session.Remove(SESSION_IDPERMITIONS);
 				HttpContext.Current.Session.Remove(SESSION_LOGIN);
 			}
-			public static void Logout(
+			public static void LogOff(
 				string path_in, 
 				bool withReturnParams_in
 			) {
-				Logout();
+				LogOff();
 
 				if (!string.IsNullOrEmpty(path_in)) {
 					HttpContext.Current.Response.Redirect(
@@ -313,8 +313,8 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 			}
 			#endregion
 
-			#region public static void DoLogin(...);
-			private static bool dologin(
+			#region public static void LogOn(...);
+			private static bool logon(
 				string login_in, 
 				string password_in,
 				ErrorType.hasErrors_errorFound errorFound_in, 
@@ -360,7 +360,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 					errors_out,
 					errorFound_in
 				)) {
-					Logout();
+					LogOff();
 
 					return false;
 				} else {
@@ -372,32 +372,32 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 					return true;
 				}
 			}
-			public static bool DoLogin(
+			public static bool LogOn(
 				string login_in,
 				string password_in,
 				out int[] errors_out
 			) {
-				return dologin(
+				return logon(
 					login_in,
 					password_in,
 					null,
 					out errors_out
 				);
 			}
-			public static bool DoLogin(
+			public static bool LogOn(
 				string login_in,
 				string password_in,
 				ErrorType.hasErrors_errorFound errorFound_in
 			) {
 				int[] _errors;
-				return dologin(
+				return logon(
 					login_in,
 					password_in,
 					errorFound_in,
 					out _errors
 				);
 			}
-			public static bool DoLogin_throughLink(
+			public static bool LogOn_throughLink(
 				out int[] _errors_out
 			) {
 				string _email = HttpContext.Current.Request.QueryString["param"];
@@ -447,9 +447,9 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 				}
 			}
 
-			public static bool DoLogin_throughLink_andChangePassword(
-				string newpassword_in, 
-				out int[] _errors_out
+			public static bool LogOn_throughLink_andChangePassword(
+				string newPassword_in, 
+				out int[] errors_out
 			) {
 				string _email = HttpContext.Current.Request.QueryString["param"];
 				if (
@@ -457,7 +457,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 					||
 					((_email = _email.Trim()).Length == 0)
 				) {
-					_errors_out = new int[] {
+					errors_out = new int[] {
 						ErrorType.authentication__invalid_email, 
 						ErrorType.encryption__failled_to_decrypt
 					};
@@ -479,15 +479,15 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 					_email,
 
 					utils.IDApplication,
-					newpassword_in, 
+					newPassword_in, 
 					out _iduser,
 					out _login,
 					out _name,
 					out _idpermitions,
-					out _errors_out
+					out errors_out
 				);
 
-				if (!ErrorType.hasErrors(_errors_out)) {
+				if (!ErrorType.hasErrors(errors_out)) {
 					utils.User.SessionGuid = _sessionguid;
 					utils.User.IDPermitions = _idpermitions;
 					utils.User.IDUser = _iduser;
