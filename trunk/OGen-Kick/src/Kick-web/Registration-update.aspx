@@ -136,22 +136,22 @@
 		<tr class="alternating_item">
 			<td align="left" style="width: 50%;">
 				<anthem:LinkButton
-					ID="lbt_RegistrationEMailShow" runat="server"
+					ID="lbt_RegistrationEmailShow" runat="server"
 					EnableCallBack="true"
 					EnabledDuringCallBack="false"
-					OnClick="lbt_RegistrationEMailShow_Click"
+					OnClick="lbt_RegistrationEmailShow_Click"
 					AutoUpdateAfterCallBack="true"
 
 					CssClass="label_small"
 					style="width: 100%; height: 100%;">
-					<div style="width: 100%; height: 100%;">Update EMail</div></anthem:LinkButton>
+					<div style="width: 100%; height: 100%;">Update Email</div></anthem:LinkButton>
 			</td>
 			<td align="right" style="width: 50%;">
 				<anthem:LinkButton
-					ID="lbt_RegistrationEMailHide" runat="server"
+					ID="lbt_RegistrationEmailHide" runat="server"
 					EnableCallBack="true"
 					EnabledDuringCallBack="false"
-					OnClick="lbt_RegistrationEMailHide_Click"
+					OnClick="lbt_RegistrationEmailHide_Click"
 					AutoUpdateAfterCallBack="true"
 
 					Visible="false"
@@ -163,7 +163,7 @@
 		<tr>
 			<td colspan="2">
 				<anthem:Table
-					ID="tbl_RegistrationEMail" runat="server"
+					ID="tbl_RegistrationEmail" runat="server"
 					AutoUpdateAfterCallBack="true"
 
 					Visible="false"
@@ -174,14 +174,14 @@
 						</asp:TableCell>
 						<asp:TableCell Width="65%" HorizontalAlign="Left">
 							<anthem:HiddenField
-								ID="hfi_EMail" runat="server" 
+								ID="hfi_Email" runat="server" 
 								AutoUpdateAfterCallBack="true" />
 							<anthem:TextBox
-								ID="txt_EMail" runat="server" CssClass="textbox_dim25"
+								ID="txt_Email" runat="server" CssClass="textbox_dim25"
 								AutoUpdateAfterCallBack="true" />
 
 							&nbsp;<anthem:Label
-								ID="lbl_EMail" runat="server" 
+								ID="lbl_Email" runat="server" 
 								AutoUpdateAfterCallBack="true"
 
 								CssClass="label_error" />
@@ -195,8 +195,8 @@
 								<tr>
 									<td>
 										<anthem:Button
-											ID="btn_RegistrationEMailCancel" runat="server"
-											OnClick="btn_RegistrationEMailCancel_Click"
+											ID="btn_RegistrationEmailCancel" runat="server"
+											OnClick="btn_RegistrationEmailCancel_Click"
 											EnableCallBack="true"
 											EnabledDuringCallBack="false"
 
@@ -206,10 +206,10 @@
 									<td>&nbsp;</td>
 									<td>
 										<anthem:Button
-											ID="btn_RegistrationEMailUpdate" runat="server"
+											ID="btn_RegistrationEmailUpdate" runat="server"
 											EnableCallBack="true"
 											EnabledDuringCallBack="false"
-											OnClick="btn_RegistrationEMailUpdate_Click"
+											OnClick="btn_RegistrationEmailUpdate_Click"
 
 											CssClass="button"
 											Text="Save" />

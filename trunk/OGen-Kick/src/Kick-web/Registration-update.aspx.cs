@@ -44,7 +44,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			this.lbl_PasswordNew.Text = "";     this.lbl_PasswordNew.Visible = false;
 			this.lbl_PasswordConfirm.Text = ""; this.lbl_PasswordConfirm.Visible = false;
 			//---
-			this.lbl_EMail.Text = "";           this.lbl_EMail.Visible = false;
+			this.lbl_Email.Text = "";           this.lbl_Email.Visible = false;
 			//---
 			this.lbl_Name.Text = "";            this.lbl_Name.Visible = false;
 
@@ -62,7 +62,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			this.lbt_RegistrationDataHide.Visible = true;
 			this.lbt_RegistrationDataShow.Enabled = false;
 
-			this.btn_RegistrationEMailCancel_Click(null, null);
+			this.btn_RegistrationEmailCancel_Click(null, null);
 			this.btn_RegistrationPasswordCancel_Click(null, null);
 		}
 		#endregion
@@ -122,52 +122,52 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		}
 		#endregion
 
-		#region protected void lbt_RegistrationEMailShow_Click(object sender, EventArgs e);
-		protected void lbt_RegistrationEMailShow_Click(object sender, EventArgs e) {
-			this.tbl_RegistrationEMail.Visible = true;
-			this.lbt_RegistrationEMailHide.Visible = true;
-			this.lbt_RegistrationEMailShow.Enabled = false;
-			//this.lbt_RegistrationEMailShow.CssClass = "vermais";
+		#region protected void lbt_RegistrationEmailShow_Click(object sender, EventArgs e);
+		protected void lbt_RegistrationEmailShow_Click(object sender, EventArgs e) {
+			this.tbl_RegistrationEmail.Visible = true;
+			this.lbt_RegistrationEmailHide.Visible = true;
+			this.lbt_RegistrationEmailShow.Enabled = false;
+			//this.lbt_RegistrationEmailShow.CssClass = "vermais";
 
 			this.btn_RegistrationDataCancel_Click(null, null);
 			this.btn_RegistrationPasswordCancel_Click(null, null);
 		}
 		#endregion
-		#region protected void lbt_RegistrationEMailHide_Click(object sender, EventArgs e);
-		protected void lbt_RegistrationEMailHide_Click(object sender, EventArgs e) {
-			this.txt_EMail.Text = this.hfi_EMail.Value;
+		#region protected void lbt_RegistrationEmailHide_Click(object sender, EventArgs e);
+		protected void lbt_RegistrationEmailHide_Click(object sender, EventArgs e) {
+			this.txt_Email.Text = this.hfi_Email.Value;
 
-			this.tbl_RegistrationEMail.Visible = false;
-			this.lbt_RegistrationEMailHide.Visible = false;
-			this.lbt_RegistrationEMailShow.Enabled = true;
-			//this.lbt_RegistrationEMailShow.CssClass = "titulo_branco";
+			this.tbl_RegistrationEmail.Visible = false;
+			this.lbt_RegistrationEmailHide.Visible = false;
+			this.lbt_RegistrationEmailShow.Enabled = true;
+			//this.lbt_RegistrationEmailShow.CssClass = "titulo_branco";
 		}
 		#endregion
-		#region protected void btn_RegistrationEMailCancel_Click(object sender, EventArgs e);
-		protected void btn_RegistrationEMailCancel_Click(object sender, EventArgs e) {
-			this.lbt_RegistrationEMailHide_Click(null, null);
+		#region protected void btn_RegistrationEmailCancel_Click(object sender, EventArgs e);
+		protected void btn_RegistrationEmailCancel_Click(object sender, EventArgs e) {
+			this.lbt_RegistrationEmailHide_Click(null, null);
 		}
 		#endregion
-		#region protected void btn_RegistrationEMailUpdate_Click(object sender, EventArgs e);
-		protected void btn_RegistrationEMailUpdate_Click(object sender, EventArgs e) {
+		#region protected void btn_RegistrationEmailUpdate_Click(object sender, EventArgs e);
+		protected void btn_RegistrationEmailUpdate_Click(object sender, EventArgs e) {
 			#region bool _foundErrors = ...;
 			bool _foundErrors = false;
 
-			this.txt_EMail.Text = this.txt_EMail.Text.Trim();
+			this.txt_Email.Text = this.txt_Email.Text.Trim();
 
 			if (
-				!OGen.lib.mail.utils.isEMail_valid(
-					this.txt_EMail.Text
+				!OGen.lib.mail.utils.isEmail_valid(
+					this.txt_Email.Text
 				)
 			) {
-				this.lbl_EMail.Text = "invalid";
-				this.lbl_EMail.Visible = true;
+				this.lbl_Email.Text = "invalid";
+				this.lbl_Email.Visible = true;
 				_foundErrors = true;
 			} else if (
-				this.txt_EMail.Text == this.hfi_EMail.Value
+				this.txt_Email.Text == this.hfi_Email.Value
 			) {
-				this.lbl_EMail.Text = "no changes";
-				this.lbl_EMail.Visible = true;
+				this.lbl_Email.Text = "no changes";
+				this.lbl_Email.Visible = true;
 				_foundErrors = true;
 			} 
 			#endregion
@@ -177,12 +177,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				WEB_User.InstanceClient.updObject_EMail(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
-					this.txt_EMail.Text,
+					this.txt_Email.Text,
 					ConfigurationManager.AppSettings[
 						"CompanyName"
 					],
 					ConfigurationManager.AppSettings[
-						"Registration_confirmEMail"
+						"Registration_confirmEmail"
 					],
 
 					out _errors
@@ -190,9 +190,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				if (!this.Master__base.Error_add(_errors)) {
 
 // ToDos: here! // mail hasn't been changed yet, waiting user confirmation, hence comment:
-//this.hfi_EMail.Value = txt_EMail.Text;
+//this.hfi_Email.Value = txt_Email.Text;
 
-					this.lbt_RegistrationEMailHide_Click(null, null);
+					this.lbt_RegistrationEmailHide_Click(null, null);
 				}
 			}
 		}
@@ -205,7 +205,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			this.lbt_RegistrationPasswordShow.Enabled = false;
 
 			this.btn_RegistrationDataCancel_Click(null, null);
-			this.btn_RegistrationEMailCancel_Click(null, null);
+			this.btn_RegistrationEmailCancel_Click(null, null);
 		}
 		#endregion
 		#region protected void lbt_RegistrationPasswordHide_Click(object sender, EventArgs e);
@@ -305,8 +305,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					= this.hfi_Login.Value
 					= utils.User.Login;
 
-				this.txt_EMail.Text
-					= this.hfi_EMail.Value
+				this.txt_Email.Text
+					= this.hfi_Email.Value
 					= _user.EMail;
 			} else {
 				this.txt_Name.Text
@@ -316,8 +316,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					= this.hfi_Login.Value
 					= "";
 
-				this.txt_EMail.Text
-					= this.hfi_EMail.Value
+				this.txt_Email.Text
+					= this.hfi_Email.Value
 					= "";
 			}
 		}

@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 	using OGen.NTier.Kick.lib.datalayer.shared.structures;
 	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
-	public partial class Registration_confirmEMail : SitePage {
+	public partial class Registration_confirmEmail : SitePage {
 
 		protected void Page_Load(object sender, EventArgs e) {
 			this.lbl_Error.Text = "";
@@ -35,7 +35,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			if (utils.User.DoLogin_throughLink(
 				out _errors
 			)) {
-				this.lbl_Error.Text += "- EMail updated successfully!";
+				this.lbl_Error.Text += "- Email updated successfully!";
 			} else {
 				this.Master__base.Error_add(_errors);
 			}

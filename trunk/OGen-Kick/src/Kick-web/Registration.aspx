@@ -48,16 +48,16 @@
 		</tr>
 		<tr>
 			<td align="right" class="label_small">
-				EMail:&nbsp;
+				Email:&nbsp;
 			</td>
 			<td align="left">
 				<anthem:TextBox
-					ID="txt_EMail" runat="server"
+					ID="txt_Email" runat="server"
 					AutoUpdateAfterCallBack="true"
 
 					CssClass="textbox_dim25" />
 				<anthem:Label
-					ID="lbl_EMail" runat="server" 
+					ID="lbl_Email" runat="server" 
 					AutoUpdateAfterCallBack="true"
 
 					CssClass="label_error" />
@@ -65,16 +65,16 @@
 		</tr>
 		<tr>
 			<td align="right" class="label_small">
-				Confirm EMail:&nbsp;
+				Confirm Email:&nbsp;
 			</td>
 			<td align="left">
 				<anthem:TextBox
-					ID="txt_EMail_Confirmation" runat="server"
+					ID="txt_Email_Confirmation" runat="server"
 					AutoUpdateAfterCallBack="true"
 
 					CssClass="textbox_dim25" />
 				<anthem:Label
-					ID="lbl_EMail_Confirmation" runat="server" 
+					ID="lbl_Email_Confirmation" runat="server" 
 					AutoUpdateAfterCallBack="true"
 
 					CssClass="label_error" />
@@ -132,16 +132,16 @@
 		</tr>
 		<tr>
 			<td align="right" class="label_small">
-				EMail:&nbsp;
+				Email:&nbsp;
 			</td>
 			<td align="left">
 				<anthem:TextBox
-					ID="txt_LostPassword_EMail" runat="server"
+					ID="txt_LostPassword_Email" runat="server"
 					AutoUpdateAfterCallBack="true"
 
 					CssClass="textbox_dim25" />
 				<anthem:Label
-					ID="lbl_LostPassword_EMail" runat="server" 
+					ID="lbl_LostPassword_Email" runat="server" 
 					AutoUpdateAfterCallBack="true"
 
 					CssClass="label_error" />
@@ -149,16 +149,16 @@
 		</tr>
 		<tr>
 			<td align="right" class="label_small">
-				Confirm EMail:&nbsp;
+				Confirm Email:&nbsp;
 			</td>
 			<td align="left">
 				<anthem:TextBox
-					ID="txt_LostPassword_EMail_Confirmation" runat="server"
+					ID="txt_LostPassword_Email_Confirmation" runat="server"
 					AutoUpdateAfterCallBack="true"
 
 					CssClass="textbox_dim25" />
 				<anthem:Label
-					ID="lbl_LostPassword_EMail_Confirmation" runat="server" 
+					ID="lbl_LostPassword_Email_Confirmation" runat="server" 
 					AutoUpdateAfterCallBack="true"
 
 					CssClass="label_error" />

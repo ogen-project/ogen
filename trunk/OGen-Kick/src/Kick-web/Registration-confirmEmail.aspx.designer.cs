@@ -10,7 +10,7 @@
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
     
     
-    public partial class Registration_confirmEMail {
+    public partial class Registration_confirmEmail {
         
         /// <summary>
         /// lbl_Error control.

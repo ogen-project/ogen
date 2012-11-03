@@ -55,7 +55,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			List<int> _errors = new List<int>();
 			#region check...
-			if (!OGen.lib.mail.utils.isEMail_valid(email_in)) {
+			if (!OGen.lib.mail.utils.isEmail_valid(email_in)) {
 				_errors.Add(ErrorType.authentication__invalid_email);
 
 				errors_out = _errors.ToArray();
@@ -148,7 +148,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 
 			if (
-				!OGen.lib.mail.utils.isEMail_valid(EMail_verify_in = EMail_verify_in.Trim())
+				!OGen.lib.mail.utils.isEmail_valid(EMail_verify_in = EMail_verify_in.Trim())
 			) {
 				_errorlist.Add(ErrorType.web__user__invalid_email);
 				errors_out = _errorlist.ToArray();
@@ -1046,7 +1046,7 @@ A equipa {2}
 		) {
 			List<int> _errors = new List<int>();
 			#region check . . .
-			if (!OGen.lib.mail.utils.isEMail_valid(EMail_in = EMail_in.Trim())) {
+			if (!OGen.lib.mail.utils.isEmail_valid(EMail_in = EMail_in.Trim())) {
 				_errors.Add(ErrorType.web__user__invalid_email);
 				errors_out = _errors.ToArray();
 				return;
@@ -1166,7 +1166,7 @@ A equipa {2}",
 			#region check . . . (trying to accumulate errors for user)
 			bool _hasErrors = false;
 
-			if (!OGen.lib.mail.utils.isEMail_valid(email_in)) {
+			if (!OGen.lib.mail.utils.isEmail_valid(email_in)) {
 				_errorlist.Add(ErrorType.web__user__invalid_email);
 				_hasErrors = true;
 			}

@@ -83,7 +83,7 @@
     <Content Include="News-list.aspx" />
     <Content Include="News.aspx" />
     <Content Include="Registration-changePassword.aspx" />
-    <Content Include="Registration-confirmEMail.aspx" />
+    <Content Include="Registration-confirmEmail.aspx" />
     <Content Include="Registration-update.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="Web.config" />
@@ -314,12 +314,12 @@
     <Compile Include="Registration-changePassword.aspx.designer.cs">
       <DependentUpon>Registration-changePassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Registration-confirmEMail.aspx.cs">
-      <DependentUpon>Registration-confirmEMail.aspx</DependentUpon>
+    <Compile Include="Registration-confirmEmail.aspx.cs">
+      <DependentUpon>Registration-confirmEmail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registration-confirmEMail.aspx.designer.cs">
-      <DependentUpon>Registration-confirmEMail.aspx</DependentUpon>
+    <Compile Include="Registration-confirmEmail.aspx.designer.cs">
+      <DependentUpon>Registration-confirmEmail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registration-update.aspx.cs">
       <DependentUpon>Registration-update.aspx</DependentUpon>

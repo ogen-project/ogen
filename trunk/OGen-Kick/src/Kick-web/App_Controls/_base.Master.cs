@@ -166,7 +166,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		#region protected void btn_Logout_Click(object sender, EventArgs e);
 		protected void btn_Logout_Click(object sender, EventArgs e) {
-			this.txt_EMail.Text = "";
+			this.txt_Email.Text = "";
 			this.txt_Password.Text = "";
 
 			utils.User.Logout("~/Default.aspx", false);
@@ -178,7 +178,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		protected void btn_Login_Click(object sender, EventArgs e) {
 			int[] _errors;
 			utils.User.DoLogin(
-				this.txt_EMail.Text,
+				this.txt_Email.Text,
 				this.txt_Password.Text,
 				out _errors
 			);
@@ -204,8 +204,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			this.lbt_Registration.Text = (_isloggedin) ? utils.User.Login : "anonynous";
 			this.lbt_Registration.PostBackUrl = (_isloggedin) ? "~/Registration-update.aspx" : "~/Registration.aspx";
 
-			this.lbl_EMail.Visible = !_isloggedin;
-			this.txt_EMail.Visible = !_isloggedin;
+			this.lbl_Email.Visible = !_isloggedin;
+			this.txt_Email.Visible = !_isloggedin;
 			this.lbl_Password.Visible = !_isloggedin;
 			this.txt_Password.Visible = !_isloggedin;
 			this.btn_Login.Visible = !_isloggedin;

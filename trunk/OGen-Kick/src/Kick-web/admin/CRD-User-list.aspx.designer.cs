@@ -22,13 +22,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         protected global::System.Web.UI.WebControls.TextBox txt_Login;
         
         /// <summary>
-        /// txt_EMail control.
+        /// txt_Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_EMail;
+        protected global::System.Web.UI.WebControls.TextBox txt_Email;
         
         /// <summary>
         /// txt_Name control.

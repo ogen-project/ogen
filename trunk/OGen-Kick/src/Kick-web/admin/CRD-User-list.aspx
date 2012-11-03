@@ -49,11 +49,11 @@
 					</tr>
 					<tr>
 						<td align="right" class="label_small nowrap">
-							EMail:&nbsp;
+							Email:&nbsp;
 						</td>
 						<td>
 							<asp:TextBox
-								ID="txt_EMail" runat="server"
+								ID="txt_Email" runat="server"
 								CssClass="textbox_dim4" />
 						</td>
 					</tr>
@@ -126,7 +126,7 @@
 						Login
 					</td>
 					<td valign="bottom" class="label_small">
-						EMail
+						Email
 					</td>
 					<td valign="bottom" class="label_small">
 						Name

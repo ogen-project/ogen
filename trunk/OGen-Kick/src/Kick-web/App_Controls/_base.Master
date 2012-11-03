@@ -39,11 +39,11 @@
 												</td>
 												<td align="right">
 													<asp:Label 
-														ID="lbl_EMail" runat="server" 
+														ID="lbl_Email" runat="server" 
 														CssClass="label_small"
-														Text="EMail: " />
+														Text="Email: " />
 													<asp:TextBox 
-														ID="txt_EMail" runat="server" 
+														ID="txt_Email" runat="server" 
 														CssClass="textbox_dim1" />
 													<asp:Label 
 														ID="lbl_Password" runat="server" 

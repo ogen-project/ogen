@@ -21,7 +21,7 @@ namespace OGen.lib.mail {
 
 	public static class utils {
 
-		#region	public static bool isEMail_valid(...);
+		#region	public static bool isEmail_valid(...);
 		#region private static Regex regex { get; }
 		private static Regex regex__ = null;
 
@@ -44,7 +44,7 @@ namespace OGen.lib.mail {
 		}
 		#endregion
 
-		public static bool isEMail_valid(
+		public static bool isEmail_valid(
 			string email_in
 		) {
 			if ((email_in = email_in.Trim()).Length == 0) {
@@ -76,7 +76,7 @@ namespace OGen.lib.mail {
 				if (from__ == null) {
 					from__ = new MailAddress(
 						System.Configuration.ConfigurationManager.AppSettings[
-							"SMTP_FROM_EMail"
+							"SMTP_FROM_Email"
 						],
 						System.Configuration.ConfigurationManager.AppSettings[
 							"SMTP_FROM_Name"

@@ -96,7 +96,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
 					this.txt_Login.Text.Trim(),
-					this.txt_EMail.Text.Trim(),
+					this.txt_Email.Text.Trim(),
 					this.txt_Name.Text.Trim(),
 					(string.IsNullOrEmpty(this.ddl_Profile__in.SelectedValue)) ? 0L : long.Parse(
 						this.ddl_Profile__in.SelectedValue,

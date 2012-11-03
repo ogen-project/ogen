@@ -1,8 +1,8 @@
 ﻿<%@ Page 
 	Language="C#" 
 	AutoEventWireup="true" 
-	CodeBehind="Registration-confirmEMail.aspx.cs" 
-	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.Registration_confirmEMail" 
+	CodeBehind="Registration-confirmEmail.aspx.cs" 
+	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.Registration_confirmEmail" 
 
 	MasterPageFile="~/App_Controls/Site.Master" %>
 <%@ Register 
@@ -27,7 +27,7 @@
 	<table width="100%" border="0" cellpadding="4" cellspacing="0" class="table_thin">
 		<tr class="alternating_item">
 			<td class="label_small">
-				Updating EMail...
+				Updating Email...
 			</td>
 		</tr>
 		<tr>

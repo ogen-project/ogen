@@ -103,76 +103,76 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         protected global::Anthem.Button btn_RegistrationDataUpdate;
         
         /// <summary>
-        /// lbt_RegistrationEMailShow control.
+        /// lbt_RegistrationEmailShow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.LinkButton lbt_RegistrationEMailShow;
+        protected global::Anthem.LinkButton lbt_RegistrationEmailShow;
         
         /// <summary>
-        /// lbt_RegistrationEMailHide control.
+        /// lbt_RegistrationEmailHide control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.LinkButton lbt_RegistrationEMailHide;
+        protected global::Anthem.LinkButton lbt_RegistrationEmailHide;
         
         /// <summary>
-        /// tbl_RegistrationEMail control.
+        /// tbl_RegistrationEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Table tbl_RegistrationEMail;
+        protected global::Anthem.Table tbl_RegistrationEmail;
         
         /// <summary>
-        /// hfi_EMail control.
+        /// hfi_Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.HiddenField hfi_EMail;
+        protected global::Anthem.HiddenField hfi_Email;
         
         /// <summary>
-        /// txt_EMail control.
+        /// txt_Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.TextBox txt_EMail;
+        protected global::Anthem.TextBox txt_Email;
         
         /// <summary>
-        /// lbl_EMail control.
+        /// lbl_Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Label lbl_EMail;
+        protected global::Anthem.Label lbl_Email;
         
         /// <summary>
-        /// btn_RegistrationEMailCancel control.
+        /// btn_RegistrationEmailCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Button btn_RegistrationEMailCancel;
+        protected global::Anthem.Button btn_RegistrationEmailCancel;
         
         /// <summary>
-        /// btn_RegistrationEMailUpdate control.
+        /// btn_RegistrationEmailUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Anthem.Button btn_RegistrationEMailUpdate;
+        protected global::Anthem.Button btn_RegistrationEmailUpdate;
         
         /// <summary>
         /// lbt_RegistrationPasswordShow control.
