@@ -18,13 +18,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 namespace OGen.lib.collections {
 	using System;
 
-	public interface OGenCollectionInterface<C, K>
-		where K : struct
+	public interface OGenCollectionInterface<TCollectionItem, TKey>
+		where TKey : struct
 	{
-		K[] Keys { get; }
+		TKey[] Keys { get; }
 
-		bool Equals_compareKeysOnly(C collectionItem_in);
-		bool Keys_compare(params K[] keys_in);
+		bool Equals_compareKeysOnly(TCollectionItem collectionItem_in);
+		bool Keys_compare(params TKey[] keys_in);
 	}
 }
 #endif

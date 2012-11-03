@@ -19,12 +19,12 @@ namespace OGen.lib.collections {
 	using System;
 	using System.Collections.Generic;
 
-	public class OGenCollection<C, K> : OGenSimpleCollection<C>
-		where C : class, OGenCollectionInterface<C, K>
-		where K : struct
+	public class OGenCollection<TCollectionItem, TKey> : OGenSimpleCollection<TCollectionItem>
+		where TCollectionItem : class, OGenCollectionInterface<TCollectionItem, TKey>
+		where TKey : struct
 	{
 		#region public C this[...] { get; }
-		public C this[C collectionItem_in] {
+		public TCollectionItem this[TCollectionItem collectionItem_in] {
 			get {
 				int _index = this.Search(collectionItem_in);
 				return (_index == -1)
@@ -32,7 +32,7 @@ namespace OGen.lib.collections {
 					: this.cols_[_index];
 			}
 		}
-		public C this[params K[] keys_in] {
+		public TCollectionItem this[params TKey[] keys_in] {
 			get {
 				int _index = this.Search(keys_in);
 				return (_index == -1)
@@ -43,7 +43,7 @@ namespace OGen.lib.collections {
 		#endregion
 
 		#region public int Search(...);
-		public int Search(C collectionItem_in) {
+		public int Search(TCollectionItem collectionItem_in) {
 			for (int i = 0; i < cols_.Count; i++) {
 				if (cols_[i].Equals_compareKeysOnly(collectionItem_in)) {
 					return i;
@@ -52,7 +52,7 @@ namespace OGen.lib.collections {
 
 			return -1;
 		}
-		public int Search(params K[] keys_in) {
+		public int Search(params TKey[] keys_in) {
 			for (int i = 0; i < cols_.Count; i++) {
 				if (cols_[i].Keys_compare(keys_in)) {
 					return i;
@@ -63,7 +63,7 @@ namespace OGen.lib.collections {
 		}
 		#endregion
 		#region public virtual void Add(...);
-		public virtual void Add(bool ifNotExists_in, params C[] col_in) {
+		public virtual void Add(bool ifNotExists_in, params TCollectionItem[] col_in) {
 			for (int i = 0; i < col_in.Length; i++) {
 				if (ifNotExists_in) {
 					if (this.Search(col_in[i]) == -1) {
@@ -72,7 +72,7 @@ namespace OGen.lib.collections {
 				}
 			}
 		}
-		public virtual void Add(out int returnIndex_out, bool ifNotExists_in, params C[] col_in) {
+		public virtual void Add(out int returnIndex_out, bool ifNotExists_in, params TCollectionItem[] col_in) {
 			returnIndex_out = -1;
 			for (int i = 0; i < col_in.Length; i++) {
 				if (ifNotExists_in) {
@@ -85,7 +85,7 @@ namespace OGen.lib.collections {
 		}
 		#endregion
 		#region public void Remove(params K[] keys_in);
-		public void Remove(params K[] keys_in) {
+		public void Remove(params TKey[] keys_in) {
 			this.RemoveAt(
 				this.Search(keys_in)
 			);

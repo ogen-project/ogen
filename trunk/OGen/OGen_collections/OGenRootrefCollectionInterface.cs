@@ -18,12 +18,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 namespace OGen.lib.collections {
 	using System;
 
-	public interface OGenRootrefCollectionInterface<R> {
+	public interface OGenRootrefCollectionInterface<TRootRef> {
 		object parent_ref {
 			get;
 			set;
 		}
-		R root_ref {
+		TRootRef root_ref {
 			get;
 			set;
 		}

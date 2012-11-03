@@ -19,20 +19,20 @@ namespace OGen.lib.collections {
 	using System;
 	using System.Collections.Generic;
 
-	public class OGenSimpleCollection<C>
-		where C : class 
+	public class OGenSimpleCollection<TCollectionItem>
+		where TCollectionItem : class 
 	{
 		public OGenSimpleCollection(
 		) {
-			this.cols_ = new List<C>();
+			this.cols_ = new List<TCollectionItem>();
 		}
 
 		#region public C[] cols__ { get; set; }
-		protected List<C> cols_;
+		protected List<TCollectionItem> cols_;
 
-		public C[] cols__ {
+		public TCollectionItem[] cols__ {
 			get {
-				C[] _output = new C[this.cols_.Count];
+				TCollectionItem[] _output = new TCollectionItem[this.cols_.Count];
 				this.cols_.CopyTo(_output);
 				return _output;
 			}
@@ -56,7 +56,7 @@ namespace OGen.lib.collections {
 		#endregion
 
 		#region public C this[int index_in] { get; }
-		public C this[int index_in] {
+		public TCollectionItem this[int index_in] {
 			get {
 				return this.cols_[index_in];
 			}
@@ -74,7 +74,7 @@ namespace OGen.lib.collections {
 		/// </summary>
 		/// <param name="returnIndex_out">index position for last added item in the collection </param>
 		/// <param name="col_in">item(s) to be added to the collection</param>
-		public virtual void Add(out int returnIndex_out, params C[] col_in) {
+		public virtual void Add(out int returnIndex_out, params TCollectionItem[] col_in) {
 			returnIndex_out = -1;
 
 			for (int i = 0; i < col_in.Length - 1; i++) {
@@ -94,7 +94,7 @@ namespace OGen.lib.collections {
 		/// adds one or more items to the collection
 		/// </summary>
 		/// <param name="col_in">item(s) to be added to the collection</param>
-		public virtual void Add(params C[] col_in) {
+		public virtual void Add(params TCollectionItem[] col_in) {
 			for (int i = 0; i < col_in.Length; i++) {
 				this.cols_.Add(col_in[i]);
 			}

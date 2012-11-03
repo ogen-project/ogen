@@ -19,11 +19,11 @@ namespace OGen.lib.collections {
 	using System;
 	using System.Collections.Generic;
 
-	public class OGenRootrefSimpleCollection<C, R> : OGenSimpleCollection<C>
-		where C :
+	public class OGenRootrefSimpleCollection<TCollectionItem, TRootRef> : OGenSimpleCollection<TCollectionItem>
+		where TCollectionItem :
 			class,
-			OGenRootrefCollectionInterface<R> 
-		where R : class
+			OGenRootrefCollectionInterface<TRootRef> 
+		where TRootRef : class
 	{
 		#region public object parent_ref { get; }
 		private object parent_ref_;
@@ -35,28 +35,28 @@ namespace OGen.lib.collections {
 			set {
 				this.parent_ref_ = value;
 				for (int i = 0; i < this.cols_.Count; i++) {
-					((C)this.cols_[i]).parent_ref = this;
+					((TCollectionItem)this.cols_[i]).parent_ref = this;
 				}
 			}
 		}
 		#endregion
 		#region public R root_ref { get; }
-		private R root_ref_;
+		private TRootRef root_ref_;
 
-		public R root_ref {
+		public TRootRef root_ref {
 			get {
 				return this.root_ref_;
 			}
 			set {
 				this.root_ref_ = value;
 				for (int i = 0; i < this.cols_.Count; i++) {
-					((C)this.cols_[i]).root_ref = value;
+					((TCollectionItem)this.cols_[i]).root_ref = value;
 				}
 			}
 		}
 		#endregion
 		#region private void refresh_refs(params C[] col_in);
-		private void refresh_refs(params C[] col_in) {
+		private void refresh_refs(params TCollectionItem[] col_in) {
 			for (int i = 0; i < col_in.Length; i++) {
 				col_in[i].parent_ref = this;
 				col_in[i].root_ref = this.root_ref;
@@ -65,11 +65,11 @@ namespace OGen.lib.collections {
 		#endregion
 
 		#region public override void Add(...);
-		public override void Add(out int returnIndex_out, params C[] col_in) {
+		public override void Add(out int returnIndex_out, params TCollectionItem[] col_in) {
 			this.refresh_refs(col_in);
 			base.Add(out returnIndex_out, col_in);
 		}
-		public override void Add(params C[] col_in) {
+		public override void Add(params TCollectionItem[] col_in) {
 			this.refresh_refs(col_in);
 			base.Add(col_in);
 		}
