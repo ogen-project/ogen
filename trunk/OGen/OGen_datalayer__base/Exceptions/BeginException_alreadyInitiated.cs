@@ -23,25 +23,46 @@ namespace OGen.lib.datalayer {
 	/// </summary>
 	[Serializable()]
 	public class BeginException_alreadyInitiated : Exception {
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="BeginException_alreadyInitiated">BeginException_alreadyInitiated</see> class.
+		/// </summary>
 		public BeginException_alreadyInitiated(
-		) : base (
+		) : base(
 			"can't begin, transaction already initiated"
 		) {
 		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="BeginException_alreadyInitiated">BeginException_alreadyInitiated</see> class.
+		/// </summary>
+		/// <param name="message">Error description message.</param>
 		public BeginException_alreadyInitiated(
 			string message
-		) : base (
+		) : base(
 			message
 		) {
 		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="BeginException_alreadyInitiated">BeginException_alreadyInitiated</see> class.
+		/// </summary>
+		/// <param name="message">Error description message.</param>
+		/// <param name="innerException">The exception that is the cause of the current exception.</param>
 		public BeginException_alreadyInitiated(
 			string message,
 			Exception innerException
-		) : base (
+		) : base(
 			message,
 			innerException
 		) {
 		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="BeginException_alreadyInitiated">BeginException_alreadyInitiated</see> class.
+		/// </summary>
+		/// <param name="info">The System.Runtime.Serialization.SerializationInfo that holds the serialized object data about the exception being thrown.</param>
+		/// <param name="context">The System.Runtime.Serialization.StreamingContext that contains contextual information about the source or destination.</param>
 		protected BeginException_alreadyInitiated(
 			System.Runtime.Serialization.SerializationInfo info,
 			System.Runtime.Serialization.StreamingContext context

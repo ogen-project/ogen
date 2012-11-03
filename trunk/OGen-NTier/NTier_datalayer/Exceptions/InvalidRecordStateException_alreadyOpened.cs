@@ -23,17 +23,32 @@ namespace OGen.NTier.lib.datalayer {
 	/// </summary>
 	[Serializable()]
 	public class InvalidRecordStateException_alreadyOpened : Exception {
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="InvalidRecordStateException_alreadyOpened">InvalidRecordStateException_alreadyOpened</see> class.
+		/// </summary>
 		public InvalidRecordStateException_alreadyOpened(
 		) : base (
 			"invalid Record state, Record already opened"
 		) {
 		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="InvalidRecordStateException_alreadyOpened">InvalidRecordStateException_alreadyOpened</see> class.
+		/// </summary>
+		/// <param name="message">Error description message.</param>
 		public InvalidRecordStateException_alreadyOpened(
 			string message
 		) : base (
 			message
 		) {
 		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="InvalidRecordStateException_alreadyOpened">InvalidRecordStateException_alreadyOpened</see> class.
+		/// </summary>
+		/// <param name="message">Error description message.</param>
+		/// <param name="innerException">The exception that is the cause of the current exception.</param>
 		public InvalidRecordStateException_alreadyOpened(
 			string message,
 			Exception innerException
@@ -42,6 +57,12 @@ namespace OGen.NTier.lib.datalayer {
 			innerException
 		) {
 		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="InvalidRecordStateException_alreadyOpened">InvalidRecordStateException_alreadyOpened</see> class.
+		/// </summary>
+		/// <param name="info">The System.Runtime.Serialization.SerializationInfo that holds the serialized object data about the exception being thrown.</param>
+		/// <param name="context">The System.Runtime.Serialization.StreamingContext that contains contextual information about the source or destination.</param>
 		protected InvalidRecordStateException_alreadyOpened(
 			System.Runtime.Serialization.SerializationInfo info,
 			System.Runtime.Serialization.StreamingContext context

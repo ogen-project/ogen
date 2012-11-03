@@ -49,6 +49,7 @@ namespace OGen.lib.datalayer {
 
 		#region public virtual string DBType_inDB_name { get; set; }
 		private string dbtype_indb_name_;
+
 		public virtual string DBType_inDB_name {
 			get { return this.dbtype_indb_name_; }
 			set { this.dbtype_indb_name_ = value; }

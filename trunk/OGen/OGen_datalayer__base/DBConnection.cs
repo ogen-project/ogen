@@ -90,7 +90,8 @@ namespace OGen.lib.datalayer {
 	/// </example>
 	#endregion
 	public abstract class DBConnection : IDisposable {
-		//#region public DBConnection(...);
+
+		#region public DBConnection(...);
 		/// <summary>
 		/// Initializes a new instance of <see cref="DBConnection">DBConnection</see>
 		/// </summary>
@@ -129,17 +130,17 @@ namespace OGen.lib.datalayer {
 			;
 			this.isopen_ = false;
 		}
+
 		~DBConnection() {
 			this.Dispose(false);
 		}
 
-		#region public void Dispose();
-		public void Dispose() {
-			this.Dispose(true);
-			System.GC.SuppressFinalize(this);
-		}
-		#endregion
-		#region private void Dispose(bool disposing_in);
+		#region public void Dispose(...);
+
+		/// <summary>
+		/// Releases all resources used by <see cref="DBConnection">DBConnection</see>.
+		/// </summary>
+		/// <param name="disposing_in"></param>
 		private void Dispose(bool disposing_in) {
 			if (this.transaction__ != null) {
 				this.transaction__.Dispose(); this.transaction__ = null;
@@ -150,11 +151,22 @@ namespace OGen.lib.datalayer {
 				this.connection__.Dispose(); this.connection__ = null;
 			}
 		}
-		#endregion
-		//#endregion
 
-		#region public properties...
+		/// <summary>
+		/// Releases all resources used by <see cref="DBConnection">DBConnection</see>.
+		/// </summary>
+		public void Dispose() {
+			this.Dispose(true);
+			System.GC.SuppressFinalize(this);
+		}
+		#endregion
+		#endregion
+
+		#region public Properties...
 		#region public string Connectionstring { get; }
+		/// <summary>
+		/// Connection String.
+		/// </summary>
 		protected string connectionstring_;
 
 		/// <summary>
@@ -209,6 +221,9 @@ namespace OGen.lib.datalayer {
 		}
 		#endregion
 		#region public bool isOpen { get; }
+		/// <summary>
+		/// Indicates Database Connection state, True if oppened, False if closed.
+		/// </summary>
 		protected bool isopen_;
 
 		/// <summary>
@@ -233,6 +248,7 @@ namespace OGen.lib.datalayer {
 		public abstract IDbConnection exposeConnection { get; }
 		#endregion
 		#region public DBTransaction Transaction { get; }
+
 		/// <summary>
 		/// Database Connection's Transaction access.
 		/// <note type="caution">
@@ -240,7 +256,8 @@ namespace OGen.lib.datalayer {
 		/// </note>
 		/// </summary>
 		protected DBTransaction transaction__;
-		protected object transaction__locker = new object();
+
+		private object transaction__locker = new object();
 
 		/// <summary>
 		/// Database Connection's Transaction access.
@@ -339,7 +356,7 @@ namespace OGen.lib.datalayer {
 			bool isQuery_notProcedure_in
 		);
 		#endregion
-		//#region public Methods...
+		#region public Methods...
 		#region public void Open();
 		/// <summary>
 		/// Opens Database Connection.
@@ -382,7 +399,7 @@ namespace OGen.lib.datalayer {
 			}
 		}
 		#endregion
-		//---
+		// ---
 		#region public abstract IDbDataParameter newDBDataParameter(...);
 		/// <summary>
 		/// Instantiates a new IDbDataParameter for the Connection's taking in consideration the appropriate Database Server Type.
@@ -457,7 +474,7 @@ namespace OGen.lib.datalayer {
 			byte scale_in
 		);
 		#endregion
-		//---
+		// ---
 		#region public void Execute_SQLQuery(...);
 		#region private void Execute_SQLQuery(...);
 		private void Execute_SQLQuery(string query_in, IDbCommand command_in) {
@@ -626,7 +643,7 @@ namespace OGen.lib.datalayer {
 			return _output;
 		}
 		#endregion
-		//---
+		// ---
 		#region public object Execute_SQLFunction(...);
 		#region protected abstract object Execute_SQLFunction(...);
 		protected abstract object Execute_SQLFunction(
@@ -892,7 +909,7 @@ namespace OGen.lib.datalayer {
 		}
 		#endregion
 		#endregion
-		//---
+		// ---
 		#region public bool SQLFunction_exists(...);
 		public abstract string SQLFunction_exists_query(string name_in);
 
@@ -986,7 +1003,7 @@ namespace OGen.lib.datalayer {
 			}
 		}
 		#endregion
-		//---
+		// ---
 		#region public string[] getBDs(...);
 		public abstract string getDBs_query();
 
@@ -1243,6 +1260,6 @@ namespace OGen.lib.datalayer {
 			return _output;
 		}
 		#endregion
-		//#endregion
+		#endregion
 	}
 }

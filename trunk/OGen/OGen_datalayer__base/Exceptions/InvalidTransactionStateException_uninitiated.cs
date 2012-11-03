@@ -23,17 +23,32 @@ namespace OGen.lib.datalayer {
 	/// </summary>
 	[Serializable()]
 	public class InvalidTransactionStateException_uninitiated : Exception {
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="InvalidTransactionStateException_uninitiated">InvalidTransactionStateException_uninitiated</see> class.
+		/// </summary>
 		public InvalidTransactionStateException_uninitiated(
 		) : base (
 			"invalid transaction state (uninitiated)"
 		) {
 		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="InvalidTransactionStateException_uninitiated">InvalidTransactionStateException_uninitiated</see> class.
+		/// </summary>
+		/// <param name="message">Error description message.</param>
 		public InvalidTransactionStateException_uninitiated(
 			string message
 		) : base (
 			message
 		) {
 		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="InvalidTransactionStateException_uninitiated">InvalidTransactionStateException_uninitiated</see> class.
+		/// </summary>
+		/// <param name="message">Error description message.</param>
+		/// <param name="innerException">The exception that is the cause of the current exception.</param>
 		public InvalidTransactionStateException_uninitiated(
 			string message,
 			Exception innerException
@@ -42,6 +57,12 @@ namespace OGen.lib.datalayer {
 			innerException
 		) {
 		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="InvalidTransactionStateException_uninitiated">InvalidTransactionStateException_uninitiated</see> class.
+		/// </summary>
+		/// <param name="info">The System.Runtime.Serialization.SerializationInfo that holds the serialized object data about the exception being thrown.</param>
+		/// <param name="context">The System.Runtime.Serialization.StreamingContext that contains contextual information about the source or destination.</param>
 		protected InvalidTransactionStateException_uninitiated(
 			System.Runtime.Serialization.SerializationInfo info,
 			System.Runtime.Serialization.StreamingContext context

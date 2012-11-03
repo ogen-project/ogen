@@ -24,6 +24,7 @@ namespace OGen.lib.datalayer {
 	/// <threadsafety static="true" instance="false"/>
 	#endregion
 	public sealed class DBTransaction : IDisposable {
+
 		#region internal DBTransaction(...);
 		/// <summary>
 		/// Initializes a new instance of <see cref="DBTransaction">DBTransaction</see>
@@ -38,16 +39,16 @@ namespace OGen.lib.datalayer {
 			this.Dispose(false);
 		}
 
-		#region public void Dispose();
-		public void Dispose() {
-			this.Dispose(true);
-			System.GC.SuppressFinalize(this);
-		}
+		#region public void Dispose(...);
 		private void Dispose(bool disposing_in) {
 			if (this.intransaction_) this.Terminate();
 			if (this.transaction_ != null) {
 				this.transaction_.Dispose(); this.transaction_ = null;
 			}
+		}
+		public void Dispose() {
+			this.Dispose(true);
+			System.GC.SuppressFinalize(this);
 		}
 		#endregion
 		#endregion
@@ -56,7 +57,7 @@ namespace OGen.lib.datalayer {
 		private DBConnection parent_;
 		#endregion
 
-		//#region public Properties...
+		#region public Properties...
 		#region public bool inTransaction { get; }
 		private bool intransaction_;
 
@@ -79,9 +80,9 @@ namespace OGen.lib.datalayer {
 			}
 		}
 		#endregion
-		//#endregion
+		#endregion
 
-		//#region public Methods...
+		#region public Methods...
 		#region public void Begin(...);
 		/// <summary>
 		/// Initiates Transaction.
@@ -159,7 +160,7 @@ namespace OGen.lib.datalayer {
 		}
 		#endregion
 
-// ToDos: later!
+		// ToDos: later!
 		#region //public void Save(...);
 		//public void Save(string savePointName_in) {
 		//	#region Checking...
@@ -170,8 +171,8 @@ namespace OGen.lib.datalayer {
 		//	this.transaction_.Save(savePointName_in);
 		//}
 		#endregion
-//		#region public void Rollback(...);
-// ToDos: later!
+
+		// ToDos: later!
 		#region //public void Rollback(string savePointName_in);
 		//public void Rollback(string savePointName_in) {
 		//	#region Checking...
@@ -185,6 +186,7 @@ namespace OGen.lib.datalayer {
 		//		this.transaction_.Rollback(savePointName_in);
 		//}
 		#endregion
-		//#endregion
+
+		#endregion
 	}
 }

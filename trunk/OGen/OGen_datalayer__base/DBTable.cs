@@ -20,6 +20,10 @@ namespace OGen.lib.datalayer {
 	/// Provides a mean of storing the Database INFORMATION_SCHEMA for some Table.
 	/// </summary>
 	public class DBTable {
+
+		/// <summary>
+		/// Initializes a new instance of <see cref="DBTable">DBTable</see>
+		/// </summary>
 		/// <param name="name_in">Table Name</param>
 		/// <param name="isVirtualTable_in">Indicates if it represents a View or Table. True if it represents a View, False if it represents a Table</param>
 		/// <param name="dbDescription_in">Description</param>
