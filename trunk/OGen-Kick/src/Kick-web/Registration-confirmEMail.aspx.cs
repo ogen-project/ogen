@@ -12,32 +12,32 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Configuration;
-
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-
-using OGen.NTier.Kick.lib.businesslayer.shared.instances;
-using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Configuration;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.instances;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+
 	public partial class Registration_confirmEMail : SitePage {
 
 		protected void Page_Load(object sender, EventArgs e) {
-			lbl_Error.Text = "";
+			this.lbl_Error.Text = "";
 
 			int[] _errors;
 			if (utils.User.DoLogin_throughLink(
 				out _errors
 			)) {
-				lbl_Error.Text += "- EMail updated successfully!";
+				this.lbl_Error.Text += "- EMail updated successfully!";
 			} else {
-				Master__base.Error_add(_errors);
+				this.Master__base.Error_add(_errors);
 			}
 		}
 	}

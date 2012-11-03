@@ -12,26 +12,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
-
-using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.lib.datalayer.shared;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+
+	using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+
 	public partial class Default : SitePage {
 		protected void Page_Load(object sender, EventArgs e) {
-			if (!Page.IsPostBack) {
-				Bind();
+			if (!this.Page.IsPostBack) {
+				this.Bind();
 			}
 		}
 
@@ -45,13 +45,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			//    PermitionType.Forum__Thread__read,
 			//    PermitionType.Forum__Reply__read
 			//)) {
-			//    spn_Forum.Visible = false;
-			//    rep_Threads.Visible = false;
+			//    this.spn_Forum.Visible = false;
+			//    this.rep_Threads.Visible = false;
 			//} else {
-			//    spn_Forum.Visible = true;
-			//    rep_Threads.Visible = true;
+			//    this.spn_Forum.Visible = true;
+			//    this.rep_Threads.Visible = true;
 
-			//    #region rep_Threads.DataSource = ...; rep_Threads.DataBind();
+			//    #region this.rep_Threads.DataSource = ...; this.rep_Threads.DataBind();
 			//    long _count;
 			//    long _idmessage__forum;
 			//    SO_vFOR_Message[] _messages;
@@ -80,8 +80,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			//                return arg2_in.IDMessage.CompareTo(arg1_in.IDMessage);
 			//            }
 			//        );
-			//        rep_Threads.DataSource = _messages;
-			//        rep_Threads.DataBind();
+			//        this.rep_Threads.DataSource = _messages;
+			//        this.rep_Threads.DataBind();
 			//    }
 			//    #endregion
 			//}
@@ -108,13 +108,13 @@ new long[] { }, // ToDos: here!
 					out _errors
 				);
 			if (
-				!Master__base.Error_add(_errors)
+				!this.Master__base.Error_add(_errors)
 				&&
 				(_news != null)
 				&&
 				(_news.Length > 0)
 			) {
-				#region rep_News.DataSource = ...; rep_News.DataBind();
+				#region this.rep_News.DataSource = ...; this.rep_News.DataBind();
 				Array.Sort(
 					_news,
 					delegate(
@@ -130,8 +130,8 @@ new long[] { }, // ToDos: here!
 					_content.Content = OGen.lib.presentationlayer.webforms.utils.Replace_RN_BR(_content.Content);
 				}
 
-				rep_News.DataSource = _news;
-				rep_News.DataBind();
+				this.rep_News.DataSource = _news;
+				this.rep_News.DataBind();
 				#endregion
 
 				#region SO_vNWS_Tag[] _tags = ...;
@@ -143,7 +143,7 @@ new long[] { }, // ToDos: here!
 						0, 0, 0, out _count, 
 						out _errors
 					);
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_tags,
 						delegate(
@@ -171,7 +171,7 @@ new long[] { }, // ToDos: here!
 						0, 0, 0, out _count, 
 						out _errors
 					);
-				Master__base.Error_add(_errors);
+				this.Master__base.Error_add(_errors);
 				#endregion
 
 				bool _show_Details;
@@ -192,7 +192,7 @@ new long[] { }, // ToDos: here!
 							out _errors
 						);
 					if (
-						!Master__base.Error_add(_errors)
+						!this.Master__base.Error_add(_errors)
 						&&
 						(_content_tags != null)
 						&&
@@ -208,7 +208,7 @@ new long[] { }, // ToDos: here!
 							}
 						}
 
-						_rep_News_Tags = (Anthem.Repeater)rep_News.Items[n].FindControl("rep_News_Tags");
+						_rep_News_Tags = (Anthem.Repeater)this.rep_News.Items[n].FindControl("rep_News_Tags");
 						_rep_News_Tags.DataSource = _tags2;
 						_rep_News_Tags.DataBind();
 						_rep_News_Tags.Visible = true;
@@ -226,7 +226,7 @@ new long[] { }, // ToDos: here!
 							out _errors
 						);
 					if (
-						!Master__base.Error_add(_errors)
+						!this.Master__base.Error_add(_errors)
 						&&
 						(_content_sources != null)
 						&&
@@ -242,7 +242,7 @@ new long[] { }, // ToDos: here!
 							}
 						}
 
-						_rep_News_Sources = (Anthem.Repeater)rep_News.Items[n].FindControl("rep_News_Sources");
+						_rep_News_Sources = (Anthem.Repeater)this.rep_News.Items[n].FindControl("rep_News_Sources");
 						_rep_News_Sources.DataSource = _sources2;
 						_rep_News_Sources.DataBind();
 						_rep_News_Sources.Visible = true;
@@ -264,7 +264,7 @@ new long[] { }, // ToDos: here!
 						);
 					#endregion
 					if (
-						!Master__base.Error_add(_errors)
+						!this.Master__base.Error_add(_errors)
 						&&
 						(_attachments != null)
 						&&
@@ -289,7 +289,7 @@ new long[] { }, // ToDos: here!
 							}
 						}
 						if (_attachment != null) {
-							_img_News = (Anthem.Image)rep_News.Items[n].FindControl("img_News");
+							_img_News = (Anthem.Image)this.rep_News.Items[n].FindControl("img_News");
 
 							_img_News.ImageUrl = string.Format(
 								System.Globalization.CultureInfo.CurrentCulture,
@@ -304,7 +304,7 @@ new long[] { }, // ToDos: here!
 					}
 					#endregion
 
-					_tr_Details = (System.Web.UI.HtmlControls.HtmlTableRow)rep_News.Items[n].FindControl("tr_Details");
+					_tr_Details = (System.Web.UI.HtmlControls.HtmlTableRow)this.rep_News.Items[n].FindControl("tr_Details");
 					_tr_Details.Visible = _show_Details;
 				}
 			}

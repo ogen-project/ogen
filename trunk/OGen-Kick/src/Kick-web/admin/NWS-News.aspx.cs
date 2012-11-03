@@ -12,21 +12,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
-
-using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.lib.datalayer.shared;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+
+	using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+
 	public partial class NWS_News : AdminPage {
 		#region public long IDContent { get; }
 		private long idcontent__ = -2L;
@@ -34,19 +35,19 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		public long IDContent {
 			get {
 				if (
-					(idcontent__ == -2L)
+					(this.idcontent__ == -2L)
 					&&
 					(
 						!long.TryParse(
 							Request.QueryString["IDContent"],
-							out idcontent__
+							out this.idcontent__
 						)
 					)
 				) {
-					idcontent__ = -1L;
+					this.idcontent__ = -1L;
 				}
 
-				return idcontent__;
+				return this.idcontent__;
 			}
 		}
 		#endregion
@@ -57,7 +58,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		public string SERVER_MAPPATH_PUBLIC_UPLOADS {
 			get {
 				if (string.IsNullOrEmpty(server_mappath_public_uploads__)) {
-					server_mappath_public_uploads__ = Server.MapPath("~/" + PUBLIC_UPLOADS);
+					server_mappath_public_uploads__ = Server.MapPath(string.Concat("~/", PUBLIC_UPLOADS));
 				}
 				return server_mappath_public_uploads__;
 			}
@@ -66,7 +67,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			if (!Page.IsPostBack) {
+			if (!this.Page.IsPostBack) {
 				int[] _errors;
 				long _count;
 
@@ -79,7 +80,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0, 0, out _count,
 						out _errors
 					);
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_so_tags,
 						delegate(
@@ -94,7 +95,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					cbl_Tags.Kick.Bind__arrayOf<long, string>(
+					this.cbl_Tags.Kick.Bind__arrayOf<long, string>(
 						"",
 						_so_tags
 					);
@@ -108,7 +109,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0, 0, out _count,
 						out _errors
 					);
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_so_sources,
 						delegate(
@@ -123,7 +124,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					cbl_Source.Kick.Bind__arrayOf<long, string>(
+					this.cbl_Source.Kick.Bind__arrayOf<long, string>(
 						"",
 						_so_sources
 					);
@@ -137,7 +138,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0, 0, out _count, 
 						out _errors
 					);
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_so_authors,
 						delegate(
@@ -152,7 +153,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					cbl_Author.Kick.Bind__arrayOf<long, string>(
+					this.cbl_Author.Kick.Bind__arrayOf<long, string>(
 						"",
 						_so_authors
 					);
@@ -166,7 +167,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0, 0, out _count, 
 						out _errors
 					);
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_so_highlights,
 						delegate(
@@ -181,7 +182,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					cbl_Highlight.Kick.Bind__arrayOf<long, string>(
+					this.cbl_Highlight.Kick.Bind__arrayOf<long, string>(
 						"",
 						_so_highlights
 					);
@@ -195,7 +196,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0, 0, out _count, 
 						out _errors
 					);
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_so_profiles,
 						delegate(
@@ -210,17 +211,17 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					cbl_Profiles.Kick.Bind__arrayOf<long, string>(
+					this.cbl_Profiles.Kick.Bind__arrayOf<long, string>(
 						"",
 						_so_profiles
 					);
 				}
 				#endregion
 
-				if (IDContent > 0) {
-					Bind();
+				if (this.IDContent > 0) {
+					this.Bind();
 				} else {
-					Bind_empty();
+					this.Bind_empty();
 				}
 			}
 		}
@@ -230,12 +231,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region protected void btn_News_Click(object sender, EventArgs e);
 		protected void btn_News_Click(object sender, EventArgs e) {
 			int[] _errors = null;
-			if (IDContent > 0L) {
+			if (this.IDContent > 0L) {
 				BusinessInstances.NWS_News.InstanceClient.updObject_Content(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
 					new SO_NWS_Content(
-						IDContent,
+						this.IDContent,
 						utils.IDApplication,
 						-1L,
 						DateTime.Now,
@@ -250,14 +251,14 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						DateTime.MinValue,
 						true
 					),
-					dic_Title.Texts,
-					dic_News.Texts,
-					dic_subtitle.Texts,
-					dic_summary.Texts,
+					this.dic_Title.Texts,
+					this.dic_News.Texts,
+					this.dic_subtitle.Texts,
+					this.dic_summary.Texts,
 					out _errors
 				);
 
-				Master__base.Error_add(_errors);
+				this.Master__base.Error_add(_errors);
 			} else {
 				long _idcontent = BusinessInstances.NWS_News.InstanceClient.insObject(
 					utils.User.SessionGuid,
@@ -278,10 +279,10 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						DateTime.MinValue,
 						true
 					),
-					dic_Title.Texts,
-					dic_News.Texts,
-					dic_subtitle.Texts,
-					dic_summary.Texts,
+					this.dic_Title.Texts,
+					this.dic_News.Texts,
+					this.dic_subtitle.Texts,
+					this.dic_summary.Texts,
 					new long[] { },
 					new long[] { },
 					new long[] { },
@@ -290,7 +291,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					out _errors
 				);
 
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 					Response.Redirect(string.Format(
 						System.Globalization.CultureInfo.CurrentCulture,
 						"NWS-News.aspx?IDContent={0}",
@@ -306,11 +307,11 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			BusinessInstances.NWS_News.InstanceClient.updObject_Tags(
 				utils.User.SessionGuid,
 				utils.ClientIPAddress,
-				IDContent,
-				cbl_Tags.Kick.SelectedValue__get<long>(),
+				this.IDContent,
+				this.cbl_Tags.Kick.SelectedValue__get<long>(),
 				out _errors
 			);
-			Master__base.Error_add(_errors);
+			this.Master__base.Error_add(_errors);
 		} 
 		#endregion
 		#region protected void btn_Authors_Click(object sender, EventArgs e);
@@ -319,11 +320,11 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			BusinessInstances.NWS_News.InstanceClient.updObject_Authors(
 				utils.User.SessionGuid,
 				utils.ClientIPAddress,
-				IDContent,
-				cbl_Author.Kick.SelectedValue__get<long>(),
+				this.IDContent,
+				this.cbl_Author.Kick.SelectedValue__get<long>(),
 				out _errors
 			);
-			Master__base.Error_add(_errors);
+			this.Master__base.Error_add(_errors);
 		}
 		#endregion
 		#region protected void btn_Sources_Click(object sender, EventArgs e);
@@ -332,11 +333,11 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			BusinessInstances.NWS_News.InstanceClient.updObject_Sources(
 				utils.User.SessionGuid,
 				utils.ClientIPAddress,
-				IDContent,
-				cbl_Source.Kick.SelectedValue__get<long>(),
+				this.IDContent,
+				this.cbl_Source.Kick.SelectedValue__get<long>(),
 				out _errors
 			);
-			Master__base.Error_add(_errors);
+			this.Master__base.Error_add(_errors);
 		}
 		#endregion
 		#region protected void btn_Highlights_Click(object sender, EventArgs e);
@@ -345,11 +346,11 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			BusinessInstances.NWS_News.InstanceClient.updObject_Highlights(
 				utils.User.SessionGuid,
 				utils.ClientIPAddress,
-				IDContent,
-				cbl_Highlight.Kick.SelectedValue__get<long>(),
+				this.IDContent,
+				this.cbl_Highlight.Kick.SelectedValue__get<long>(),
 				out _errors
 			);
-			Master__base.Error_add(_errors);
+			this.Master__base.Error_add(_errors);
 		}
 		#endregion
 		#region protected void btn_Profiles_Click(object sender, EventArgs e);
@@ -358,20 +359,20 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			BusinessInstances.NWS_News.InstanceClient.updObject_Profiles(
 				utils.User.SessionGuid,
 				utils.ClientIPAddress,
-				IDContent,
-				cbl_Profiles.Kick.SelectedValue__get<long>(),
+				this.IDContent,
+				this.cbl_Profiles.Kick.SelectedValue__get<long>(),
 				out _errors
 			);
-			Master__base.Error_add(_errors);
+			this.Master__base.Error_add(_errors);
 		}
 		#endregion
 
 		#region protected void btn_AttachmentUpload_Click(object sender, EventArgs e);
 		protected void btn_AttachmentUpload_Click(object sender, EventArgs e) {
-			if (fup_Attachment.HasFile) {
+			if (this.fup_Attachment.HasFile) {
 				#region bool _isImage = ...;
 				bool _isImage;
-				switch (fup_Attachment.PostedFile.ContentType.ToLower(System.Globalization.CultureInfo.CurrentCulture)) {
+				switch (this.fup_Attachment.PostedFile.ContentType.ToLower(System.Globalization.CultureInfo.CurrentCulture)) {
 					case "image/png":
 					case "image/jpeg":
 					case "image/gif":
@@ -393,13 +394,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					utils.ClientIPAddress,
 					new SO_NWS_Attachment(
 						-1L,
-						IDContent,
+						this.IDContent,
 						"", // Guid.NewGuid().ToString("N"),
 						-1L, // DateTime.Now.Ticks,
 						_isImage,
 						-1L,
 						-1L,
-						fup_Attachment.FileName
+						this.fup_Attachment.FileName
 					),
 					null,
 					null,
@@ -407,16 +408,16 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					out _guid,
 					out _errors
 				);
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 					#region string _uploadPath = ...;
 					string _uploadPath
 						= System.IO.Path.Combine(
 							System.IO.Path.Combine(
 								System.IO.Path.Combine(
-									SERVER_MAPPATH_PUBLIC_UPLOADS,
+									this.SERVER_MAPPATH_PUBLIC_UPLOADS,
 									"news"
 								),
-								IDContent.ToString(System.Globalization.CultureInfo.CurrentCulture)
+								this.IDContent.ToString(System.Globalization.CultureInfo.CurrentCulture)
 							),
 							string.Format(
 								System.Globalization.CultureInfo.CurrentCulture,
@@ -440,27 +441,27 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 #if DEBUG
 					string _filePath;
 #endif
-					fup_Attachment.SaveAs(
+					this.fup_Attachment.SaveAs(
 #if DEBUG
 						_filePath = 
 #endif
 						System.IO.Path.Combine(
 							_uploadPath,
-							fup_Attachment.FileName
+							this.fup_Attachment.FileName
 						)
 					);
 #if DEBUG
-					Master__base.Error_add(
+					this.Master__base.Error_add(
 						false, 
 						_filePath
 					);
 #endif
 
 
-					Bind();
+					this.Bind();
 				}
 			} else {
-				Master__base.Error_add(true, "no file!");
+				this.Master__base.Error_add(true, "no file!");
 			}
 		} 
 		#endregion
@@ -478,8 +479,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				_idattachment,
 				out _errors
 			);
-			if (!Master__base.Error_add(_errors)) {
-				Bind();
+			if (!this.Master__base.Error_add(_errors)) {
+				this.Bind();
 			}
 		}
 		#endregion
@@ -493,7 +494,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 			wuc_txt_Dic _dic_name = null;
 			wuc_txt_Dic _dic_description = null;
-			foreach (RepeaterItem _item in rep_Attachments.Items) {
+			foreach (RepeaterItem _item in this.rep_Attachments.Items) {
 				if (_item.FindControl(((Button)sender).ID) == sender) {
 					_dic_name = (wuc_txt_Dic)_item.FindControl("dic_Name");
 					_dic_description = (wuc_txt_Dic)_item.FindControl("dic_Description");
@@ -512,7 +513,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					utils.ClientIPAddress,
 					new SO_NWS_Attachment(
 						_idattachment,
-						IDContent,
+						this.IDContent,
 						"",
 						-1L,
 						true,
@@ -524,7 +525,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					_dic_description.Texts,
 					out _errors
 				);
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 				}
 			}
 		}
@@ -536,17 +537,17 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			int[] _errors;
 			long _count;
 
-			if (IDContent > 0) {
+			if (this.IDContent > 0) {
 				SO_vNWS_Content[] _contents 
 					= BusinessInstances.NWS_News.InstanceClient.getRecord_byContent(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						IDContent,
+						this.IDContent,
 						0, 0, 0, out _count, 
 						out _errors
 					);
 				if (
-					!Master__base.Error_add(_errors)
+					!this.Master__base.Error_add(_errors)
 					&&
 					(_contents != null)
 					&&
@@ -555,12 +556,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					#region Bind . . .
 
 #if !DEBUG
-div_Attachments.Visible = true;
-div_Tags.Visible = true;
-div_Authors.Visible = true;
-div_Sources.Visible = true;
-div_Highlights.Visible = true;
-div_Profiles.Visible = true;
+this.div_Attachments.Visible = true;
+this.div_Tags.Visible = true;
+this.div_Authors.Visible = true;
+this.div_Sources.Visible = true;
+this.div_Highlights.Visible = true;
+this.div_Profiles.Visible = true;
 #endif
 
 					#region Content . . .
@@ -600,23 +601,23 @@ div_Profiles.Visible = true;
 						));
 					}
 
-					dic_Title.Texts = _title.ToArray();
-					dic_subtitle.Texts = _subtitle.ToArray();
-					dic_News.Texts = _news.ToArray();
-					dic_summary.Texts = _summary.ToArray();
+					this.dic_Title.Texts = _title.ToArray();
+					this.dic_subtitle.Texts = _subtitle.ToArray();
+					this.dic_News.Texts = _news.ToArray();
+					this.dic_summary.Texts = _summary.ToArray();
 					#endregion
 
-					#region cbl_Tags.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentTag>(...);
+					#region this.cbl_Tags.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentTag>(...);
 					SO_NWS_ContentTag[] _tags 
 						= BusinessInstances.NWS_Tag.InstanceClient.getRecord_byContent(
 							utils.User.SessionGuid,
 							utils.ClientIPAddress,
-							IDContent,
+							this.IDContent,
 							0, 0, 0, out _count, 
 							out _errors
 						);
-					if (!Master__base.Error_add(_errors)) {
-						cbl_Tags.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentTag>(
+					if (!this.Master__base.Error_add(_errors)) {
+						this.cbl_Tags.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentTag>(
 							_tags,
 							delegate(
 								SO_NWS_ContentTag arg1_in
@@ -626,16 +627,16 @@ div_Profiles.Visible = true;
 						);
 					} 
 					#endregion
-					#region cbl_Author.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentAuthor>(...);
+					#region this.cbl_Author.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentAuthor>(...);
 					SO_NWS_ContentAuthor[] _authors = BusinessInstances.NWS_Author.InstanceClient.getRecord_byContent(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						IDContent,
+						this.IDContent,
 						0, 0, 0, out _count, 
 						out _errors
 					);
-					if (!Master__base.Error_add(_errors)) {
-						cbl_Author.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentAuthor>(
+					if (!this.Master__base.Error_add(_errors)) {
+						this.cbl_Author.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentAuthor>(
 							_authors,
 							delegate(
 								SO_NWS_ContentAuthor arg1_in
@@ -645,16 +646,16 @@ div_Profiles.Visible = true;
 						);
 					}
 					#endregion
-					#region cbl_Source.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentSource>(...);
+					#region this.cbl_Source.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentSource>(...);
 					SO_NWS_ContentSource[] _sources = BusinessInstances.NWS_Source.InstanceClient.getRecord_byContent(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						IDContent,
+						this.IDContent,
 						0, 0, 0, out _count, 
 						out _errors
 					);
-					if (!Master__base.Error_add(_errors)) {
-						cbl_Source.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentSource>(
+					if (!this.Master__base.Error_add(_errors)) {
+						this.cbl_Source.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentSource>(
 							_sources,
 							delegate(
 								SO_NWS_ContentSource arg1_in
@@ -664,16 +665,16 @@ div_Profiles.Visible = true;
 						);
 					}
 					#endregion
-					#region cbl_Profile.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentProfile>(...);
+					#region this.cbl_Profile.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentProfile>(...);
 					SO_NWS_ContentProfile[] _profiles = BusinessInstances.NWS_Profile.InstanceClient.getRecord_byContent(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						IDContent,
+						this.IDContent,
 						0, 0, 0, out _count, 
 						out _errors
 					);
-					if (!Master__base.Error_add(_errors)) {
-						cbl_Profiles.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentProfile>(
+					if (!this.Master__base.Error_add(_errors)) {
+						this.cbl_Profiles.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentProfile>(
 							_profiles,
 							delegate(
 								SO_NWS_ContentProfile arg1_in
@@ -683,16 +684,16 @@ div_Profiles.Visible = true;
 						);
 					}
 					#endregion
-					#region cbl_Highlight.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentHighlight>(...);
+					#region this.cbl_Highlight.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentHighlight>(...);
 					SO_NWS_ContentHighlight[] _highlights = BusinessInstances.NWS_Highlight.InstanceClient.getRecord_byContent(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						IDContent,
+						this.IDContent,
 						0, 0, 0, out _count, 
 						out _errors
 					);
-					if (!Master__base.Error_add(_errors)) {
-						cbl_Highlight.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentHighlight>(
+					if (!this.Master__base.Error_add(_errors)) {
+						this.cbl_Highlight.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentHighlight>(
 							_highlights,
 							delegate(
 								SO_NWS_ContentHighlight arg1_in
@@ -708,11 +709,11 @@ div_Profiles.Visible = true;
 						= BusinessInstances.NWS_Attachment.InstanceClient.getRecord_byContent(
 							utils.User.SessionGuid,
 							utils.ClientIPAddress,
-							IDContent,
+							this.IDContent,
 							0, 0, 0, out _count, 
 							out _errors
 						);
-					if (!Master__base.Error_add(_errors)) {
+					if (!this.Master__base.Error_add(_errors)) {
 						#region Array.Sort(_attachments);
 						Array.Sort(
 							_attachments,
@@ -765,8 +766,8 @@ div_Profiles.Visible = true;
 							0
 						); 
 						#endregion
-						rep_Attachments.DataSource = _attachments_only;
-						rep_Attachments.DataBind();
+						this.rep_Attachments.DataSource = _attachments_only;
+						this.rep_Attachments.DataBind();
 
 
 						System.Web.UI.HtmlControls.HtmlAnchor _a_attachment;
@@ -775,11 +776,11 @@ div_Profiles.Visible = true;
 						wuc_txt_Dic _dic_description;
 						List<SO_DIC__TextLanguage> _attachment_name;
 						List<SO_DIC__TextLanguage> _attachment_description;
-						for (int i = 0; i < rep_Attachments.Items.Count; i++ ) {
-							_dic_name = (wuc_txt_Dic)rep_Attachments.Items[i].FindControl("dic_Name");
-							_dic_description = (wuc_txt_Dic)rep_Attachments.Items[i].FindControl("dic_Description");
-							_a_attachment = (System.Web.UI.HtmlControls.HtmlAnchor)rep_Attachments.Items[i].FindControl("a_Attachment");
-							_img_attachment = (System.Web.UI.HtmlControls.HtmlImage)rep_Attachments.Items[i].FindControl("img_Attachment");
+						for (int i = 0; i < this.rep_Attachments.Items.Count; i++) {
+							_dic_name = (wuc_txt_Dic)this.rep_Attachments.Items[i].FindControl("dic_Name");
+							_dic_description = (wuc_txt_Dic)this.rep_Attachments.Items[i].FindControl("dic_Description");
+							_a_attachment = (System.Web.UI.HtmlControls.HtmlAnchor)this.rep_Attachments.Items[i].FindControl("a_Attachment");
+							_img_attachment = (System.Web.UI.HtmlControls.HtmlImage)this.rep_Attachments.Items[i].FindControl("img_Attachment");
 
 							_img_attachment.Src 
 								= _a_attachment.HRef 
@@ -826,25 +827,25 @@ div_Profiles.Visible = true;
 					return;
 				}
 			}
-				
-			Bind_empty();
+
+			this.Bind_empty();
 		}
 		#endregion
 		#region public void Bind_empty(...);
 		public void Bind_empty(
 		) {
-			dic_Title.Texts = null;
-			dic_subtitle.Texts = null;
-			dic_News.Texts = null;
-			dic_summary.Texts = null;
+			this.dic_Title.Texts = null;
+			this.dic_subtitle.Texts = null;
+			this.dic_News.Texts = null;
+			this.dic_summary.Texts = null;
 
 #if !DEBUG
-div_Attachments.Visible = false;
-div_Tags.Visible = false;
-div_Authors.Visible = false;
-div_Sources.Visible = false;
-div_Highlights.Visible = false;
-div_Profiles.Visible = false;
+this.div_Attachments.Visible = false;
+this.div_Tags.Visible = false;
+this.div_Authors.Visible = false;
+this.div_Sources.Visible = false;
+this.div_Highlights.Visible = false;
+this.div_Profiles.Visible = false;
 #endif
 		}
 		#endregion

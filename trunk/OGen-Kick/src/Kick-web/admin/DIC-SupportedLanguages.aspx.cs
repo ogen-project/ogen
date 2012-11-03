@@ -12,28 +12,29 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
-
-using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.lib.datalayer.shared;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+
+	using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+
 	public partial class DIC_SupportedLanguages : AdminPage {
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
 			int[] _errors;
 			long _count;
 
-			if (!Page.IsPostBack) {
+			if (!this.Page.IsPostBack) {
 				SO_vDIC_Language[] _languages
 					= BusinessInstances.DIC_Dic.InstanceClient.getRecord_byLanguage(
 						utils.User.SessionGuid,
@@ -42,7 +43,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0, 0, out _count, 
 						out _errors
 					);
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 					if (_languages.Length > 0) {
 						Array.Sort(
 							_languages,
@@ -59,24 +60,24 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							}
 						);
 
-						cbl_Languages.Kick.Bind__arrayOf<int, string>(
+						this.cbl_Languages.Kick.Bind__arrayOf<int, string>(
 							"",
 							false,
 							_languages
 						);
 
-						cbl_Languages.Visible = true;
+						this.cbl_Languages.Visible = true;
 					} else {
-						cbl_Languages.Visible = false;
+						this.cbl_Languages.Visible = false;
 
-						Master__base.Error_add(
+						this.Master__base.Error_add(
 							false,
 							"returned no results"
 						);
 					}
 				}
 
-				Bind();
+				this.Bind();
 			}
 		}
 		#endregion
@@ -87,12 +88,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			BusinessInstances.DIC_Dic.InstanceClient.setSupportedLanguages(
 				utils.User.SessionGuid,
 				utils.ClientIPAddress,
-				cbl_Languages.Kick.SelectedValue__get<int>(), 
+				this.cbl_Languages.Kick.SelectedValue__get<int>(), 
 				out _errors
 			);
-			if (!Master__base.Error_add(_errors)) {
+			if (!this.Master__base.Error_add(_errors)) {
 				utils.Dic.Languages_reset();
-				Bind();
+				this.Bind();
 			}
 		}
 		#endregion
@@ -109,7 +110,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					0, 0, 0, out _count, 
 					out _errors
 				);
-			if (!Master__base.Error_add(_errors)) {
+			if (!this.Master__base.Error_add(_errors)) {
 				if (_languages.Length > 0) {
 					Array.Sort(
 						_languages,
@@ -126,7 +127,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						}
 					);
 
-					cbl_Languages.Kick.SelectedValues__set_arrayOf<int, string>(
+					this.cbl_Languages.Kick.SelectedValues__set_arrayOf<int, string>(
 						_languages
 					);
 				}

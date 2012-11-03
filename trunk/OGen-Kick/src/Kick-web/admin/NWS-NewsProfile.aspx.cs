@@ -12,21 +12,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
-
-using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.lib.datalayer.shared;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+
+	using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+
 	public partial class NWS_NewsProfile : AdminPage {
 		#region public long IDProfile { get; }
 		private long idprofile__ = -2L;
@@ -34,27 +35,27 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		public long IDProfile {
 			get {
 				if (
-					(idprofile__ == -2L)
+					(this.idprofile__ == -2L)
 					&&
 					(
 						!long.TryParse(
 							Request.QueryString["IDProfile"],
-							out idprofile__
+							out this.idprofile__
 						)
 					)
 				) {
-					idprofile__ = -1L;
+					this.idprofile__ = -1L;
 				}
 
-				return idprofile__;
+				return this.idprofile__;
 			}
 		}
 		#endregion
 
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			if (!Page.IsPostBack) {
-				Bind();
+			if (!this.Page.IsPostBack) {
+				this.Bind();
 			}
 		} 
 		#endregion
@@ -65,23 +66,23 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			SO_vNWS_Profile _profile;
 			if (
 				#region ((_profile = ...) != null)
-				(IDProfile > 0)
+				(this.IDProfile > 0)
 				&&
 				(
 					(_profile = BusinessInstances.NWS_Profile.InstanceClient.getObject(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						IDProfile,
+						this.IDProfile,
 						out _errors
 					))
 					!=
 					null
 				)
 				&&
-				!Master__base.Error_add(_errors)
+				!this.Master__base.Error_add(_errors)
 				#endregion
 			) {
-				_profile.Name = txt_Name.Text;
+				_profile.Name = this.txt_Name.Text;
 
 				BusinessInstances.NWS_Profile.InstanceClient.updObject(
 					utils.User.SessionGuid,
@@ -92,7 +93,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			} else {
 				_profile = new SO_vNWS_Profile();
 
-				_profile.Name = txt_Name.Text;
+				_profile.Name = this.txt_Name.Text;
 				_profile.Approved_date_isNull = true;
 				_profile.IFUser__Approved_isNull = true;
 				_profile.IDApplication = utils.IDApplication;
@@ -103,7 +104,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					out _errors
 				);
 			}
-			if (!Master__base.Error_add(_errors)) {
+			if (!this.Master__base.Error_add(_errors)) {
 				Response.Redirect(
 					"NWS-NewsProfile-list.aspx",
 					true
@@ -118,25 +119,25 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			SO_vNWS_Profile _profile;
 			if (
 				#region ((_profile = ...) != null)
-				(IDProfile > 0)
+				(this.IDProfile > 0)
 				&&
 				(
 					(_profile = BusinessInstances.NWS_Profile.InstanceClient.getObject(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						IDProfile,
+						this.IDProfile,
 						out _errors
 					))
 					!=
 					null
 				)
 				&&
-				!Master__base.Error_add(_errors)
+				!this.Master__base.Error_add(_errors)
 				#endregion
 			) {
-				txt_Name.Text = _profile.Name;
+				this.txt_Name.Text = _profile.Name;
 			} else {
-				txt_Name.Text = "";
+				this.txt_Name.Text = "";
 			}
 		} 
 		#endregion

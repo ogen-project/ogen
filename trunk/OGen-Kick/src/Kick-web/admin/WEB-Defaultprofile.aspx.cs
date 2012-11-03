@@ -12,25 +12,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
-
-using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.lib.datalayer.shared;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+
+	using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+
 	public partial class WEB_Defaultprofile : AdminPage {
 		protected void Page_Load(object sender, EventArgs e) {
-			if (!Page.IsPostBack) {
-				#region cbl_Profile.Kick.Bind__arrayOf<long, string>(...);
+			if (!this.Page.IsPostBack) {
+				#region this.cbl_Profile.Kick.Bind__arrayOf<long, string>(...);
 				int[] _errors;
 				long _count;
 				SO_CRD_Profile[] _profiles
@@ -41,7 +42,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0, 0, out _count, 
 						out _errors
 					);
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_profiles,
 						delegate(
@@ -56,13 +57,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					cbl_Profile.Kick.Bind__arrayOf<long, string>(
+					this.cbl_Profile.Kick.Bind__arrayOf<long, string>(
 						"",
 						false,
 						_profiles
 					);
 
-					Bind();
+					this.Bind();
 				}
 				#endregion
 			}
@@ -74,11 +75,11 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			BusinessInstances.WEB_DefaultProfile.InstanceClient.setObject(
 				utils.User.SessionGuid,
 				utils.ClientIPAddress,
-				cbl_Profile.Kick.SelectedValue__get<long>(),
+				this.cbl_Profile.Kick.SelectedValue__get<long>(),
 				out _errors
 			);
-			if (Master__base.Error_add(_errors)) {
-				Bind();
+			if (this.Master__base.Error_add(_errors)) {
+				this.Bind();
 			}
 		}
 		#endregion
@@ -93,8 +94,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				0, 0, 0, out _count, 
 				out _errors
 			);
-			if (!Master__base.Error_add(_errors)) {
-				cbl_Profile.Kick.SelectedValues__set_arrayOf<long, string, SO_vNET_Profile>(
+			if (!this.Master__base.Error_add(_errors)) {
+				this.cbl_Profile.Kick.SelectedValues__set_arrayOf<long, string, SO_vNET_Profile>(
 					_profiles,
 					delegate(
 						SO_vNET_Profile item_in

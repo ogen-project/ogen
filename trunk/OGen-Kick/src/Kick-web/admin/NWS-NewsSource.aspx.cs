@@ -12,21 +12,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
-
-using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.lib.datalayer.shared;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+
+	using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+
 	public partial class NWS_NewsSource : AdminPage {
 		#region public long IDSource { get; }
 		private long idsource__ = -2L;
@@ -34,26 +35,26 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		public long IDSource {
 			get {
 				if (
-					(idsource__ == -2L)
+					(this.idsource__ == -2L)
 					&&
 					(
 						!long.TryParse(
 							Request.QueryString["IDSource"],
-							out idsource__
+							out this.idsource__
 						)
 					)
 				) {
-					idsource__ = -1L;
+					this.idsource__ = -1L;
 				}
 
-				return idsource__;
+				return this.idsource__;
 			}
 		}
 		#endregion
 
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			if (!Page.IsPostBack) {
+			if (!this.Page.IsPostBack) {
 				int[] _errors;
 				long _count;
 				SO_vNWS_Source[] _sources
@@ -63,7 +64,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0, 0, out _count, 
 						out _errors
 					);
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_sources,
 						delegate(
@@ -78,7 +79,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					ddl_Source_parent.Kick.Bind__arrayOf<long, string>(
+					this.ddl_Source_parent.Kick.Bind__arrayOf<long, string>(
 						"",
 						true,
 						_sources
@@ -86,7 +87,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				}
 
 
-				Bind();
+				this.Bind();
 			}
 		} 
 		#endregion
@@ -95,14 +96,14 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		private void btn_save_click(
 			ref SO_NWS_Source source_ref
 		) {
-			source_ref.Name = txt_Name.Text;
-			#region source_ref.IFSource__parent = long.Parse(ddl_Source_parent.SelectedValue);
-			if (string.IsNullOrEmpty(ddl_Source_parent.SelectedValue)) {
+			source_ref.Name = this.txt_Name.Text;
+			#region source_ref.IFSource__parent = long.Parse(this.ddl_Source_parent.SelectedValue);
+			if (string.IsNullOrEmpty(this.ddl_Source_parent.SelectedValue)) {
 				source_ref.IFSource__parent_isNull = true;
 			} else {
 				//source_ref.IFSource__parent = ddl_Source_parent.Kick.SelectedValue__get<long>();
 				source_ref.IFSource__parent = long.Parse(
-					ddl_Source_parent.SelectedValue,
+					this.ddl_Source_parent.SelectedValue,
 					System.Globalization.NumberStyles.Integer,
 					System.Globalization.CultureInfo.CurrentCulture
 				);
@@ -115,24 +116,24 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			SO_NWS_Source _source;
 			if (
 				#region ((_source = ...) != null)
-				(IDSource > 0)
+				(this.IDSource > 0)
 				&&
 				(
 					(_source = BusinessInstances.NWS_Source.InstanceClient.getObject(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						IDSource,
+						this.IDSource,
 						out _errors
 					))
 					!=
 					null
 				)
 				&&
-				!Master__base.Error_add(_errors)
+				!this.Master__base.Error_add(_errors)
 				#endregion
 			) {
 
-				btn_save_click(
+				this.btn_save_click(
 					ref _source
 				);
 
@@ -145,7 +146,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			} else {
 				_source = new SO_NWS_Source();
 
-				btn_save_click(
+				this.btn_save_click(
 					ref _source
 				);
 
@@ -160,7 +161,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					out _errors
 				);
 			}
-			if (!Master__base.Error_add(_errors)) {
+			if (!this.Master__base.Error_add(_errors)) {
 				Response.Redirect(
 					"NWS-NewsSource-list.aspx",
 					true
@@ -175,32 +176,32 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			SO_NWS_Source _source;
 			if (
 				#region ((_source = ...) != null)
-				(IDSource > 0)
+				(this.IDSource > 0)
 				&&
 				(
 					(_source = BusinessInstances.NWS_Source.InstanceClient.getObject(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						IDSource,
+						this.IDSource,
 						out _errors
 					))
 					!=
 					null
 				)
 				&&
-				!Master__base.Error_add(_errors)
+				!this.Master__base.Error_add(_errors)
 				#endregion
 			) {
-				txt_Name.Text = _source.Name;
-				#region ddl_Source_parent.SelectedValue = _source.IFSource__parent.ToString();
+				this.txt_Name.Text = _source.Name;
+				#region this.ddl_Source_parent.SelectedValue = _source.IFSource__parent.ToString();
 				if (_source.IFSource__parent_isNull) {
-					ddl_Source_parent.SelectedValue = "";
+					this.ddl_Source_parent.SelectedValue = "";
 				} else {
-					ddl_Source_parent.SelectedValue = _source.IFSource__parent.ToString(System.Globalization.CultureInfo.CurrentCulture);
+					this.ddl_Source_parent.SelectedValue = _source.IFSource__parent.ToString(System.Globalization.CultureInfo.CurrentCulture);
 				}
 				#endregion
 			} else {
-				txt_Name.Text = "";
+				this.txt_Name.Text = "";
 			}
 		} 
 		#endregion

@@ -12,22 +12,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
-
-using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.lib.datalayer.shared;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+
+	using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+
 	public partial class FE_News_list : SitePage {
 		#region public long IDTag { get; set; }
 		private long idtag__ = -2L;
@@ -35,18 +35,18 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		public long IDTag {
 			get {
 				if (
-					(idtag__ == -2L)
+					(this.idtag__ == -2L)
 					||
-					!long.TryParse(hfi_IDTag.Value, out idtag__)
+					!long.TryParse(this.hfi_IDTag.Value, out this.idtag__)
 				) {
-					idtag__ = -1L;
+					this.idtag__ = -1L;
 				}
 
-				return idtag__;
+				return this.idtag__;
 			}
 			set {
-				idtag__ = value;
-				hfi_IDTag.Value = value.ToString(System.Globalization.CultureInfo.CurrentCulture);
+				this.idtag__ = value;
+				this.hfi_IDTag.Value = value.ToString(System.Globalization.CultureInfo.CurrentCulture);
 			}
 		}
 		#endregion
@@ -56,25 +56,25 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		public long IDSource {
 			get {
 				if (
-					(idsource__ == -2L)
+					(this.idsource__ == -2L)
 					||
-					!long.TryParse(hfi_Source.Value, out idsource__)
+					!long.TryParse(this.hfi_Source.Value, out this.idsource__)
 				) {
-					idsource__ = -1L;
+					this.idsource__ = -1L;
 				}
 
-				return idsource__;
+				return this.idsource__;
 			}
 			set {
-				idsource__ = value;
-				hfi_Source.Value = value.ToString(System.Globalization.CultureInfo.CurrentCulture);
+				this.idsource__ = value;
+				this.hfi_Source.Value = value.ToString(System.Globalization.CultureInfo.CurrentCulture);
 			}
 		}
 		#endregion
 
 		protected void Page_Load(object sender, EventArgs e) {
-			if (!Page.IsPostBack) {
-				Bind();
+			if (!this.Page.IsPostBack) {
+				this.Bind();
 			}
 		}
 
@@ -83,32 +83,32 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			#region IDTag = ...;
 			string _idtag = ((LinkButton)sender).CommandArgument;
 			if (string.IsNullOrEmpty(_idtag)) {
-				IDTag = 0L;
+				this.IDTag = 0L;
 			} else {
-				IDTag = long.Parse(
+				this.IDTag = long.Parse(
 					_idtag,
 					System.Globalization.NumberStyles.Integer,
 					System.Globalization.CultureInfo.CurrentCulture
 				);
 			}
 			#endregion
-			IDSource = 0L;
-			Bind();
+			this.IDSource = 0L;
+			this.Bind();
 		}
 		#endregion
 		#region protected void Source_Click(object sender, EventArgs e);
 		protected void Source_Click(object sender, EventArgs e) {
 			string _idsource = ((LinkButton)sender).CommandArgument;
 			if (string.IsNullOrEmpty(_idsource)) {
-				IDSource = 0L;
+				this.IDSource = 0L;
 			} else {
-				IDSource = long.Parse(
+				this.IDSource = long.Parse(
 					_idsource,
 					System.Globalization.NumberStyles.Integer,
 					System.Globalization.CultureInfo.CurrentCulture
 				);
 			}
-			Bind();
+			this.Bind();
 		}
 		#endregion
 
@@ -116,7 +116,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		public void Bind() {
 			int[] _errors;
 			long _count;
-			tbl_News.Visible = false;
+			this.tbl_News.Visible = false;
 
 			#region rep_News.DataSource = ...; rep_News.DataBind();
 			SO_vNWS_Content[] _news
@@ -127,9 +127,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					0L, // 0: Approved; -1: NOT approved; < -1: ignore; >0: ...
 					DateTime.MinValue,
 					DateTime.MinValue,
-					(IDTag <= 0) ? new long[] { } : new long[] { IDTag },
+					(this.IDTag <= 0) ? new long[] { } : new long[] { this.IDTag },
 					new long[] { },
-					(IDSource <= 0) ? new long[] { } : new long[] { IDSource },
+					(this.IDSource <= 0) ? new long[] { } : new long[] { this.IDSource },
 					new long[] { },
 
 // ToDos: here!
@@ -147,13 +147,13 @@ new long[] { },
 					out _errors
 				);
 			if (
-				!Master__base.Error_add(_errors)
+				!this.Master__base.Error_add(_errors)
 				&&
 				(_news != null)
 			) {
 				if (_news.Length <= 0) {
-					Master__base.Error_add(false, "no data");
-//					rep_News.Visible = false;
+					this.Master__base.Error_add(false, "no data");
+//					this.rep_News.Visible = false;
 					return;
 				}
 
@@ -162,25 +162,25 @@ new long[] { },
 					_content.Content = OGen.lib.presentationlayer.webforms.utils.Replace_RN_BR(_content.Content);
 				}
 
-				rep_News.DataSource = _news;
-				rep_News.DataBind();
-//				rep_News.Visible = true;
-				tbl_News.Visible = true;
+				this.rep_News.DataSource = _news;
+				this.rep_News.DataBind();
+//				this.rep_News.Visible = true;
+				this.tbl_News.Visible = true;
 
 
 				OGen.lib.presentationlayer.webforms.utils.Pager.Bind(
 					_count,
-					lbl_pageSeparator_left,
-					lbl_pageSeparator_2,
-					lbl_pageSeparator_3,
-					lbl_pageSeparator_4,
-					lbl_pageSeparator_right,
-					lbl_pageSeparator_5,
-					a_page_1,
-					a_page_2,
-					a_page_3,
-					a_page_4,
-					a_page_5
+					this.lbl_pageSeparator_left,
+					this.lbl_pageSeparator_2,
+					this.lbl_pageSeparator_3,
+					this.lbl_pageSeparator_4,
+					this.lbl_pageSeparator_right,
+					this.lbl_pageSeparator_5,
+					this.a_page_1,
+					this.a_page_2,
+					this.a_page_3,
+					this.a_page_4,
+					this.a_page_5
 				);
 			} else {
 				return;
@@ -197,7 +197,7 @@ new long[] { },
 					out _errors
 				);
 			if (
-				!Master__base.Error_add(_errors)
+				!this.Master__base.Error_add(_errors)
 				&&
 				(_tags != null)
 				&&
@@ -219,8 +219,8 @@ new long[] { },
 					}
 				);
 
-				rep_Tags.DataSource = _tags;
-				rep_Tags.DataBind();
+				this.rep_Tags.DataSource = _tags;
+				this.rep_Tags.DataBind();
 			}
 			#endregion
 			#region SO_vNWS_Source[] _sources = ...;
@@ -232,7 +232,7 @@ new long[] { },
 					out _errors
 				);
 
-			Master__base.Error_add(_errors);
+			this.Master__base.Error_add(_errors);
 			#endregion
 
 //			System.Web.UI.HtmlControls.HtmlTableRow _tr_ImageNews;
@@ -255,7 +255,7 @@ new long[] { },
 							out _errors
 						);
 					if (
-						!Master__base.Error_add(_errors)
+						!this.Master__base.Error_add(_errors)
 						&&
 						(_content_tags != null)
 						&&
@@ -271,7 +271,7 @@ new long[] { },
 							}
 						}
 
-						_rep_News_Tags = (Anthem.Repeater)rep_News.Items[n].FindControl("rep_News_Tags");
+						_rep_News_Tags = (Anthem.Repeater)this.rep_News.Items[n].FindControl("rep_News_Tags");
 						_rep_News_Tags.DataSource = _tags2;
 						_rep_News_Tags.DataBind();
 					}
@@ -292,7 +292,7 @@ new long[] { },
 							out _errors
 						);
 					if (
-						!Master__base.Error_add(_errors)
+						!this.Master__base.Error_add(_errors)
 						&&
 						(_content_sources != null)
 						&&
@@ -308,7 +308,7 @@ new long[] { },
 							}
 						}
 
-						_rep_News_Sources = (Anthem.Repeater)rep_News.Items[n].FindControl("rep_News_Sources");
+						_rep_News_Sources = (Anthem.Repeater)this.rep_News.Items[n].FindControl("rep_News_Sources");
 						_rep_News_Sources.DataSource = _sources2;
 						_rep_News_Sources.DataBind();
 
@@ -329,7 +329,7 @@ new long[] { },
 						out _errors
 					);
 				if (
-					!Master__base.Error_add(_errors)
+					!this.Master__base.Error_add(_errors)
 					&&
 					(_attachments != null)
 					&&
@@ -352,7 +352,7 @@ new long[] { },
 					}
 				}
 				#endregion
-				_img_News = (Anthem.Image)rep_News.Items[n].FindControl("img_News");
+				_img_News = (Anthem.Image)this.rep_News.Items[n].FindControl("img_News");
 //				_tr_ImageNews = (System.Web.UI.HtmlControls.HtmlTableRow)rep_News.Items[n].FindControl("tr_ImageNews");
 				if (_attachment != null) {
 					_img_News.ImageUrl = string.Format(

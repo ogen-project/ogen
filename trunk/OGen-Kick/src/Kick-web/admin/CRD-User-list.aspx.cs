@@ -12,25 +12,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
-
-using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.lib.datalayer.shared;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+
+	using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+
 	public partial class CRD_User_list : AdminPage {
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			if (!Page.IsPostBack) {
+			if (!this.Page.IsPostBack) {
 				int[] _errors;
 				long _count;
 				SO_CRD_Profile[] _profiles
@@ -41,7 +42,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0, 0, out _count, 
 						out _errors
 					);
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_profiles,
 						delegate(
@@ -57,32 +58,32 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						}
 					);
 
-					ddl_Profile__in.Kick.Bind__arrayOf<long, string>(
+					this.ddl_Profile__in.Kick.Bind__arrayOf<long, string>(
 						"",
 						true,
 						_profiles
 					);
-					//if (ddl_Profile__in.Items.Count > 0) {
-					ddl_Profile__in.SelectedIndex = 0;
+					//if (this.ddl_Profile__in.Items.Count > 0) {
+					this.ddl_Profile__in.SelectedIndex = 0;
 					//}
 
-					ddl_Profile__out.Kick.Bind__Copy(
-						ddl_Profile__in,
+					this.ddl_Profile__out.Kick.Bind__Copy(
+						this.ddl_Profile__in,
 						"",
 						true
 					);
-					//if (ddl_Profile__out.Items.Count > 0) {
-					ddl_Profile__out.SelectedIndex = 0;
+					//if (this.ddl_Profile__out.Items.Count > 0) {
+					this.ddl_Profile__out.SelectedIndex = 0;
 					//}
 
-					Bind();
+					this.Bind();
 				}
 			}
 		}
 		#endregion
 		#region protected void btn_Search_Click(object sender, EventArgs e);
 		protected void btn_Search_Click(object sender, EventArgs e) {
-			Bind();
+			this.Bind();
 		}
 		#endregion
 
@@ -94,16 +95,16 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				= BusinessInstances.WEB_User.InstanceClient.getRecord_generic(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
-					txt_Login.Text.Trim(),
-					txt_EMail.Text.Trim(),
-					txt_Name.Text.Trim(),
-					(string.IsNullOrEmpty(ddl_Profile__in.SelectedValue)) ? 0L : long.Parse(
-						ddl_Profile__in.SelectedValue,
+					this.txt_Login.Text.Trim(),
+					this.txt_EMail.Text.Trim(),
+					this.txt_Name.Text.Trim(),
+					(string.IsNullOrEmpty(this.ddl_Profile__in.SelectedValue)) ? 0L : long.Parse(
+						this.ddl_Profile__in.SelectedValue,
 						System.Globalization.NumberStyles.Integer,
 						System.Globalization.CultureInfo.CurrentCulture
 					),
-					(string.IsNullOrEmpty(ddl_Profile__out.SelectedValue)) ? 0L : long.Parse(
-						ddl_Profile__out.SelectedValue,
+					(string.IsNullOrEmpty(this.ddl_Profile__out.SelectedValue)) ? 0L : long.Parse(
+						this.ddl_Profile__out.SelectedValue,
 						System.Globalization.NumberStyles.Integer,
 						System.Globalization.CultureInfo.CurrentCulture
 					),
@@ -112,9 +113,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 					out _errors
 				);
-			if (!Master__base.Error_add(_errors)) {
+			if (!this.Master__base.Error_add(_errors)) {
 				if (_users.Length > 0) {
-					rep_SearchResults.Visible = true;
+					this.rep_SearchResults.Visible = true;
 
 					Array.Sort(
 						_users,
@@ -126,12 +127,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						}
 					);
 
-					rep_SearchResults.DataSource = _users;
-					rep_SearchResults.DataBind();
+					this.rep_SearchResults.DataSource = _users;
+					this.rep_SearchResults.DataBind();
 				} else {
-					rep_SearchResults.Visible = false;
+					this.rep_SearchResults.Visible = false;
 
-					Master__base.Error_add(
+					this.Master__base.Error_add(
 						false,
 						"returned no results"
 					);

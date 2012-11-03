@@ -12,27 +12,29 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-//using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
-using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.lib.datalayer.shared;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+
+	//using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+
 	public partial class wuc_txt_Dic : System.Web.UI.UserControl {
 		#region public int Rows { set; }
 		private int rows_ = 1;
 
 		public int Rows {
 			set {
-				rows_ = value;
+				this.rows_ = value;
 			}
 		} 
 		#endregion
@@ -41,7 +43,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		public string Text_CssClass {
 			set {
-				text_cssclass_ = value;
+				this.text_cssclass_ = value;
 			}
 		}
 		#endregion
@@ -50,7 +52,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		public string Label_CssClass {
 			set {
-				label_cssclass_ = value;
+				this.label_cssclass_ = value;
 			}
 		}
 		#endregion
@@ -59,7 +61,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		public bool isHorizontal_notVertial {
 			set {
-				ishorizontal_notvertial_ = value;
+				this.ishorizontal_notvertial_ = value;
 			}
 		} 
 		#endregion
@@ -67,10 +69,10 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#region private void properties_set(...);
 		private void properties_set(
 		) {
-			properties_set(
-				rows_,
-				text_cssclass_, 
-				label_cssclass_
+			this.properties_set(
+				this.rows_,
+				this.text_cssclass_,
+				this.label_cssclass_
 			);
 		}
 		private void properties_set(
@@ -80,18 +82,18 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		) {
 			Label _lbl_language;
 			TextBox _txt_field;
-			foreach (RepeaterItem _item in rep_Field.Items) {
+			foreach (RepeaterItem _item in this.rep_Field.Items) {
 				_txt_field = (TextBox)_item.FindControl("txt_Field");
 				_lbl_language = (Label)_item.FindControl("lbl_Language");
 
-				_txt_field.CssClass = text_cssclass_;
+				_txt_field.CssClass = this.text_cssclass_;
 				_txt_field.Rows = rows_in;
 				_txt_field.TextMode = (rows_in > 1) ? TextBoxMode.MultiLine : TextBoxMode.SingleLine;
 
 				_lbl_language.CssClass = label_cssClass_in;
 
-				_item.FindControl("lit_Vertial").Visible = !ishorizontal_notvertial_;
-				_item.FindControl("lit_Horizontal").Visible = ishorizontal_notvertial_;
+				_item.FindControl("lit_Vertial").Visible = !this.ishorizontal_notvertial_;
+				_item.FindControl("lit_Horizontal").Visible = this.ishorizontal_notvertial_;
 			}
 		}
 		#endregion
@@ -101,23 +103,23 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] Texts {
 			set {
-				texts_ = value;
+				this.texts_ = value;
 
-				bind();
+				this.bind();
 			}
 			get {
-				if (texts_ != null) {
+				if (this.texts_ != null) {
 					// to avoid strange behaviour
-					return texts_;
+					return this.texts_;
 				} else {
 					OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] _output
-						= new OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[rep_Field.Items.Count];
+						= new OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[this.rep_Field.Items.Count];
 
 					TextBox _txt_field;
 					HiddenField _hfi_idlanguage;
-					for (int i = 0; i < rep_Field.Items.Count; i++) {
-						_hfi_idlanguage = (HiddenField)rep_Field.Items[i].FindControl("hfi_IDLanguage");
-						_txt_field = (TextBox)rep_Field.Items[i].FindControl("txt_Field");
+					for (int i = 0; i < this.rep_Field.Items.Count; i++) {
+						_hfi_idlanguage = (HiddenField)this.rep_Field.Items[i].FindControl("hfi_IDLanguage");
+						_txt_field = (TextBox)this.rep_Field.Items[i].FindControl("txt_Field");
 
 						_output[i] 
 							= new OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage(
@@ -145,20 +147,20 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 //Response.Write("</table>");
 
 			// 1st: bind languages
-			rep_Field.DataSource = utils.Dic.Languages_get();
-			rep_Field.DataBind();
+			this.rep_Field.DataSource = utils.Dic.Languages_get();
+			this.rep_Field.DataBind();
 
 			// 2nd: assign properties to each language control
-			properties_set();
+			this.properties_set();
 
 			// 3rd: finally, bind contents, if any
-			if (texts_ == null) return;
+			if (this.texts_ == null) return;
 
 			bool _showLanguage = (utils.Dic.Languages_get().Length > 1);
 			Label _lbl_Language;
 			TextBox _txt_field;
 			HiddenField _hfi_idlanguage;
-			foreach (RepeaterItem _item in rep_Field.Items) {
+			foreach (RepeaterItem _item in this.rep_Field.Items) {
 				_hfi_idlanguage = (HiddenField)_item.FindControl("hfi_IDLanguage");
 
 				if (!_showLanguage) {
@@ -166,7 +168,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					_lbl_Language.Visible = false;
 				}
 
-				foreach (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage _text in texts_) {
+				foreach (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage _text in this.texts_) {
 					if (
 						_hfi_idlanguage.Value == _text.IFLanguage.ToString(System.Globalization.CultureInfo.CurrentCulture)
 					) {
@@ -183,9 +185,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			if (!Page.IsPostBack) {
-				//bind();
-			}
+			//if (!this.Page.IsPostBack) {
+			//	this.bind();
+			//}
 		}
 		#endregion
 	}

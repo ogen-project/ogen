@@ -12,21 +12,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
-
-using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.lib.datalayer.shared;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+
+	using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+
 	public partial class CRD_Profile : AdminPage {
 		#region public long IDProfile { get; }
 		private long idprofile__ = -2L;
@@ -34,30 +35,30 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		public long IDProfile {
 			get {
 				if (
-					(idprofile__ == -2L)
+					(this.idprofile__ == -2L)
 					&&
 					(
 						!long.TryParse(
 							Request.QueryString["IDProfile"],
-							out idprofile__
+							out this.idprofile__
 						)
 					)
 				) {
-					idprofile__ = -1L;
+					this.idprofile__ = -1L;
 				}
 
-				return idprofile__;
+				return this.idprofile__;
 			}
 		}
 		#endregion
 
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			if (!Page.IsPostBack) {
+			if (!this.Page.IsPostBack) {
 				int[] _errors;
 				long _count;
 
-				#region cbl_Permitions.Kick.Bind__arrayOf<long, string>(...);
+				#region this.cbl_Permitions.Kick.Bind__arrayOf<long, string>(...);
 				SO_CRD_Permition[] _permitions
 					= BusinessInstances.CRD_Permition.InstanceClient.getRecord_all(
 						utils.User.SessionGuid,
@@ -66,7 +67,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0, 0, out _count, 
 						out _errors
 					);
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_permitions,
 						delegate(
@@ -81,14 +82,14 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					cbl_Permitions.Kick.Bind__arrayOf<long, string>(
+					this.cbl_Permitions.Kick.Bind__arrayOf<long, string>(
 						"",
 						false,
 						_permitions
 					);
 				}
 				#endregion
-				#region cbl_Permitions.Kick.Bind__arrayOf<long, string>(...);
+				#region this.cbl_Permitions.Kick.Bind__arrayOf<long, string>(...);
 				SO_CRD_Profile[] _profiles
 					= BusinessInstances.CRD_Profile.InstanceClient.getRecord_all(
 						utils.User.SessionGuid,
@@ -97,7 +98,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0, 0, out _count, 
 						out _errors
 					);
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_profiles,
 						delegate(
@@ -112,7 +113,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					cbl_ParentProfiles.Kick.Bind__arrayOf<long, string>(
+					this.cbl_ParentProfiles.Kick.Bind__arrayOf<long, string>(
 						"",
 						false,
 						_profiles
@@ -120,7 +121,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				}
 				#endregion
 
-				Bind();
+				this.Bind();
 			}
 		} 
 		#endregion
@@ -132,31 +133,31 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			SO_CRD_Profile _profile;
 			if (
 				#region ((_profile = ...) != null)
-				(IDProfile > 0)
+				(this.IDProfile > 0)
 				&&
 				(
 					(_profile = BusinessInstances.CRD_Profile.InstanceClient.getObject(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						IDProfile,
+						this.IDProfile,
 						out _errors
 					))
 					!=
 					null
 				)
 				&&
-				!Master__base.Error_add(_errors)
+				!this.Master__base.Error_add(_errors)
 				#endregion
 			) {
-				_profile.Name = txt_Name.Text;
+				_profile.Name = this.txt_Name.Text;
 
 				BusinessInstances.CRD_Profile.InstanceClient.updObject(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
 					_profile,
 
-					cbl_ParentProfiles.Kick.SelectedValue__get<long>(),
-					cbl_Permitions.Kick.SelectedValue__get<long>(),
+					this.cbl_ParentProfiles.Kick.SelectedValue__get<long>(),
+					this.cbl_Permitions.Kick.SelectedValue__get<long>(),
 
 					out _errors
 				);
@@ -164,22 +165,22 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				_isInsert_notUpdate = false;
 			} else {
 				_profile = new SO_CRD_Profile();
-				_profile.Name = txt_Name.Text;
+				_profile.Name = this.txt_Name.Text;
 				_profile.IFApplication = utils.IDApplication;
 				BusinessInstances.CRD_Profile.InstanceClient.insObject(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
 					_profile,
 
-					cbl_ParentProfiles.Kick.SelectedValue__get<long>(),
-					cbl_Permitions.Kick.SelectedValue__get<long>(),
+					this.cbl_ParentProfiles.Kick.SelectedValue__get<long>(),
+					this.cbl_Permitions.Kick.SelectedValue__get<long>(),
 
 					out _errors
 				);
 
 				_isInsert_notUpdate = true;
 			}
-			if (!Master__base.Error_add(_errors) && _isInsert_notUpdate) {
+			if (!this.Master__base.Error_add(_errors) && _isInsert_notUpdate) {
 				Response.Redirect("~/admin/CRD-Profile-list.aspx");
 			}
 		}
@@ -192,30 +193,30 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			SO_CRD_Profile _profile;
 			if (
 				#region ((_profile = ...) != null)
-				(IDProfile > 0)
+				(this.IDProfile > 0)
 				&&
 				(
 					(_profile = BusinessInstances.CRD_Profile.InstanceClient.getObject(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						IDProfile,
+						this.IDProfile,
 						out _errors
 					))
 					!=
 					null
 				)
 				&&
-				!Master__base.Error_add(_errors)
+				!this.Master__base.Error_add(_errors)
 				#endregion
 			) {
-				txt_Name.Text = _profile.Name;
+				this.txt_Name.Text = _profile.Name;
 
-				#region cbl_Permitions.Kick.SelectedValues__set_arrayOf<long, string, SO_vCRD_ProfilePermition>(...);
-				cbl_Permitions.Kick.SelectedValues__set_arrayOf<long, string, SO_vCRD_ProfilePermition>(
+				#region this.cbl_Permitions.Kick.SelectedValues__set_arrayOf<long, string, SO_vCRD_ProfilePermition>(...);
+				this.cbl_Permitions.Kick.SelectedValues__set_arrayOf<long, string, SO_vCRD_ProfilePermition>(
 					BusinessInstances.CRD_Profile.InstanceClient.getRecord_ofProfilePermition_byProfile(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						IDProfile,
+						this.IDProfile,
 						0, 0, 0, out _count, 
 						out _errors
 					),
@@ -225,15 +226,15 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						return item_in.hasPermition;
 					}
 				);
-				Master__base.Error_add(_errors);
+				this.Master__base.Error_add(_errors);
 				#endregion
-				#region cbl_ParentProfiles.Kick.SelectedValues__set_arrayOf<SO_CRD_ProfileProfile>(...);
-				if (!Master__base.Error_add(_errors)) {
-					cbl_ParentProfiles.Kick.SelectedValues__set_arrayOf<SO_CRD_ProfileProfile>(
+				#region this.cbl_ParentProfiles.Kick.SelectedValues__set_arrayOf<SO_CRD_ProfileProfile>(...);
+				if (!this.Master__base.Error_add(_errors)) {
+					this.cbl_ParentProfiles.Kick.SelectedValues__set_arrayOf<SO_CRD_ProfileProfile>(
 						BusinessInstances.CRD_Profile.InstanceClient.getRecord_byProfile(
 							utils.User.SessionGuid,
 							utils.ClientIPAddress,
-							IDProfile,
+							this.IDProfile,
 							0, 0, 0, out _count, 
 							out _errors
 						), 
@@ -244,10 +245,10 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						}
 					);
 				}
-				Master__base.Error_add(_errors);
+				this.Master__base.Error_add(_errors);
 				#endregion
 			} else {
-				txt_Name.Text = "";
+				this.txt_Name.Text = "";
 			}
 		} 
 		#endregion

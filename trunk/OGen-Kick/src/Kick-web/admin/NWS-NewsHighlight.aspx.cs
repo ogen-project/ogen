@@ -12,21 +12,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
-
-using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.lib.datalayer.shared;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+
+	using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+
 	public partial class NWS_NewsHighlight : AdminPage {
 		#region public long IDHighlight { get; }
 		private long idhighlight__ = -2L;
@@ -34,26 +35,26 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		public long IDHighlight {
 			get {
 				if (
-					(idhighlight__ == -2L)
+					(this.idhighlight__ == -2L)
 					&&
 					(
 						!long.TryParse(
 							Request.QueryString["IDHighlight"],
-							out idhighlight__
+							out this.idhighlight__
 						)
 					)
 				) {
-					idhighlight__ = -1L;
+					this.idhighlight__ = -1L;
 				}
 
-				return idhighlight__;
+				return this.idhighlight__;
 			}
 		}
 		#endregion
 
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			if (!Page.IsPostBack) {
+			if (!this.Page.IsPostBack) {
 				int[] _errors;
 				long _count;
 				SO_vNWS_Highlight[] _highlights
@@ -63,7 +64,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0, 0, out _count, 
 						out _errors
 					);
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_highlights,
 						delegate(
@@ -78,7 +79,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					ddl_Highlight_parent.Kick.Bind__arrayOf<long, string>(
+					this.ddl_Highlight_parent.Kick.Bind__arrayOf<long, string>(
 						"",
 						true,
 						_highlights
@@ -86,7 +87,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				}
 
 
-				Bind();
+				this.Bind();
 			}
 		} 
 		#endregion
@@ -95,14 +96,14 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		private void btn_save_click(
 			ref SO_NWS_Highlight highlight_ref
 		) {
-			highlight_ref.Name = txt_Name.Text;
+			highlight_ref.Name = this.txt_Name.Text;
 			#region highlight_ref.IFHighlight__parent = long.Parse(ddl_Highlight_parent.SelectedValue);
-			if (string.IsNullOrEmpty(ddl_Highlight_parent.SelectedValue)) {
+			if (string.IsNullOrEmpty(this.ddl_Highlight_parent.SelectedValue)) {
 				highlight_ref.IFHighlight__parent_isNull = true;
 			} else {
 				//highlight_ref.IFHighlight__parent = ddl_Highlight_parent.Kick.SelectedValue__get<long>();
 				highlight_ref.IFHighlight__parent = long.Parse(
-					ddl_Highlight_parent.SelectedValue,
+					this.ddl_Highlight_parent.SelectedValue,
 					System.Globalization.NumberStyles.Integer,
 					System.Globalization.CultureInfo.CurrentCulture
 				);
@@ -115,24 +116,24 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			SO_NWS_Highlight _highlight;
 			if (
 				#region ((_highlight = ...) != null)
-				(IDHighlight > 0)
+				(this.IDHighlight > 0)
 				&&
 				(
 					(_highlight = BusinessInstances.NWS_Highlight.InstanceClient.getObject(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						IDHighlight,
+						this.IDHighlight,
 						out _errors
 					))
 					!=
 					null
 				)
 				&&
-				!Master__base.Error_add(_errors)
+				!this.Master__base.Error_add(_errors)
 				#endregion
 			) {
 
-				btn_save_click(
+				this.btn_save_click(
 					ref _highlight
 				);
 
@@ -145,7 +146,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			} else {
 				_highlight = new SO_NWS_Highlight();
 
-				btn_save_click(
+				this.btn_save_click(
 					ref _highlight
 				);
 
@@ -160,7 +161,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					out _errors
 				);
 			}
-			if (!Master__base.Error_add(_errors)) {
+			if (!this.Master__base.Error_add(_errors)) {
 				Response.Redirect(
 					"NWS-NewsHighlight-list.aspx",
 					true
@@ -175,32 +176,32 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			SO_NWS_Highlight _highlight;
 			if (
 				#region ((_highlight = ...) != null)
-				(IDHighlight > 0)
+				(this.IDHighlight > 0)
 				&&
 				(
 					(_highlight = BusinessInstances.NWS_Highlight.InstanceClient.getObject(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						IDHighlight,
+						this.IDHighlight,
 						out _errors
 					))
 					!=
 					null
 				)
 				&&
-				!Master__base.Error_add(_errors)
+				!this.Master__base.Error_add(_errors)
 				#endregion
 			) {
-				txt_Name.Text = _highlight.Name;
-				#region ddl_Highlight_parent.SelectedValue = _highlight.IFHighlight__parent.ToString();
+				this.txt_Name.Text = _highlight.Name;
+				#region this.ddl_Highlight_parent.SelectedValue = _highlight.IFHighlight__parent.ToString();
 				if (_highlight.IFHighlight__parent_isNull) {
-					ddl_Highlight_parent.SelectedValue = "";
+					this.ddl_Highlight_parent.SelectedValue = "";
 				} else {
-					ddl_Highlight_parent.SelectedValue = _highlight.IFHighlight__parent.ToString(System.Globalization.CultureInfo.CurrentCulture);
+					this.ddl_Highlight_parent.SelectedValue = _highlight.IFHighlight__parent.ToString(System.Globalization.CultureInfo.CurrentCulture);
 				}
 				#endregion
 			} else {
-				txt_Name.Text = "";
+				this.txt_Name.Text = "";
 			}
 		} 
 		#endregion

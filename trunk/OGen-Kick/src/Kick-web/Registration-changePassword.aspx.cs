@@ -12,51 +12,51 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Configuration;
-
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-
-using OGen.NTier.Kick.lib.businesslayer.shared.instances;
-using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Configuration;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.instances;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+
 	public partial class Registration_changePassword : SitePage {
 		protected void Page_Load(object sender, EventArgs e) {
-			lbl_PasswordNew.Text = "";					lbl_PasswordNew.Visible = false;
-			lbl_PasswordConfirm.Text = "";				lbl_PasswordConfirm.Visible = false;
+			this.lbl_PasswordNew.Text = "";     this.lbl_PasswordNew.Visible = false;
+			this.lbl_PasswordConfirm.Text = ""; this.lbl_PasswordConfirm.Visible = false;
 		}
 		protected void lbt_RegistrationPasswordUpdate_Click(object sender, EventArgs e) {
 			int[] _errors;
 
 			#region bool _foundErrors = ...;
 			bool _foundErrors = false;
-			if ((txt_PasswordNew.Text = txt_PasswordNew.Text.Trim()).Length == 0) {
-				lbl_PasswordNew.Text = "invalid";
-				lbl_PasswordNew.Visible = true;
+			if ((this.txt_PasswordNew.Text = this.txt_PasswordNew.Text.Trim()).Length == 0) {
+				this.lbl_PasswordNew.Text = "invalid";
+				this.lbl_PasswordNew.Visible = true;
 
 				_foundErrors = true;
 			}
-			if (txt_PasswordNew.Text != txt_PasswordConfirm.Text) {
-				lbl_PasswordConfirm.Text = "passwords differ";
-				lbl_PasswordConfirm.Visible = true;
+			if (this.txt_PasswordNew.Text != this.txt_PasswordConfirm.Text) {
+				this.lbl_PasswordConfirm.Text = "passwords differ";
+				this.lbl_PasswordConfirm.Visible = true;
 
 				_foundErrors = true;
 			}
 			#endregion
 			if (!_foundErrors) {
 				if (utils.User.DoLogin_throughLink_andChangePassword(
-					txt_PasswordNew.Text,
+					this.txt_PasswordNew.Text,
 					out _errors
 				)) {
 					Response.Redirect("~/Default.aspx");
 				} else {
-					Master__base.Error_add(_errors);
+					this.Master__base.Error_add(_errors);
 				}
 			}
 		}

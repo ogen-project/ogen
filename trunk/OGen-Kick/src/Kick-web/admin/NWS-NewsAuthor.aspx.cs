@@ -12,21 +12,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
-
-using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.lib.datalayer.shared;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+
+	using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+
 	public partial class NWS_NewsAuthor : AdminPage {
 		#region public long IDAuthor { get; }
 		private long idauthor__ = -2L;
@@ -34,27 +35,27 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		public long IDAuthor {
 			get {
 				if (
-					(idauthor__ == -2L)
+					(this.idauthor__ == -2L)
 					&&
 					(
 						!long.TryParse(
 							Request.QueryString["IDAuthor"],
-							out idauthor__
+							out this.idauthor__
 						)
 					)
 				) {
-					idauthor__ = -1L;
+					this.idauthor__ = -1L;
 				}
 
-				return idauthor__;
+				return this.idauthor__;
 			}
 		}
 		#endregion
 
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			if (!Page.IsPostBack) {
-				Bind();
+			if (!this.Page.IsPostBack) {
+				this.Bind();
 			}
 		} 
 		#endregion
@@ -65,23 +66,23 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			SO_NWS_Author _author;
 			if (
 				#region ((_author = ...) != null)
-				(IDAuthor > 0)
+				(this.IDAuthor > 0)
 				&&
 				(
 					(_author = BusinessInstances.NWS_Author.InstanceClient.getObject(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						IDAuthor,
+						this.IDAuthor,
 						out _errors
 					))
 					!=
 					null
 				)
 				&&
-				!Master__base.Error_add(_errors)
+				!this.Master__base.Error_add(_errors)
 				#endregion
 			) {
-				_author.Name = txt_Name.Text;
+				_author.Name = this.txt_Name.Text;
 
 				BusinessInstances.NWS_Author.InstanceClient.updObject(
 					utils.User.SessionGuid,
@@ -92,7 +93,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			} else {
 				_author = new SO_NWS_Author();
 
-				_author.Name = txt_Name.Text;
+				_author.Name = this.txt_Name.Text;
 				_author.Approved_date_isNull = true;
 				_author.IFUser__Approved_isNull = true;
 				//_author.IFApplication = utils.IDApplication;
@@ -104,7 +105,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					out _errors
 				);
 			}
-			if (!Master__base.Error_add(_errors)) {
+			if (!this.Master__base.Error_add(_errors)) {
 				Response.Redirect(
 					"NWS-NewsAuthor-list.aspx",
 					true
@@ -119,25 +120,25 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			SO_NWS_Author _author;
 			if (
 				#region ((_author = ...) != null)
-				(IDAuthor > 0)
+				(this.IDAuthor > 0)
 				&&
 				(
 					(_author = BusinessInstances.NWS_Author.InstanceClient.getObject(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						IDAuthor,
+						this.IDAuthor,
 						out _errors
 					))
 					!=
 					null
 				)
 				&&
-				!Master__base.Error_add(_errors)
+				!this.Master__base.Error_add(_errors)
 				#endregion
 			) {
-				txt_Name.Text = _author.Name;
+				this.txt_Name.Text = _author.Name;
 			} else {
-				txt_Name.Text = "";
+				this.txt_Name.Text = "";
 			}
 		} 
 		#endregion

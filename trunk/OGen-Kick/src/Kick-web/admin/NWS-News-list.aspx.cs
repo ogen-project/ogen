@@ -12,21 +12,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
-
-using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.lib.datalayer.shared;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+
+	using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+
 	public partial class NWS_News_list : AdminPage {
 		#region public enum ContentstateEnum { ... }
 		public enum ContentstateEnum : int {
@@ -37,14 +38,14 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			if (!Page.IsPostBack) {
+			if (!this.Page.IsPostBack) {
 				//dic_Name.Texts = null;
 
-				txt_Begin_date.Attributes.Add("readonly", "readonly");
-				txt_End_date.Attributes.Add("readonly", "readonly");
+				this.txt_Begin_date.Attributes.Add("readonly", "readonly");
+				this.txt_End_date.Attributes.Add("readonly", "readonly");
 
 				#region ddl_Approved . . .
-				ddl_Approved.Kick.Bind__Enum(
+				this.ddl_Approved.Kick.Bind__Enum(
 					"",
 					true,
 					true,
@@ -64,7 +65,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0, 0, out _count, 
 						out _errors
 					);
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_so_tags,
 						delegate(
@@ -79,7 +80,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					cbl_Tags.Kick.Bind__arrayOf<long, string>(
+					this.cbl_Tags.Kick.Bind__arrayOf<long, string>(
 						"",
 						_so_tags
 					);
@@ -93,7 +94,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0, 0, out _count, 
 						out _errors
 					);
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_so_sources,
 						delegate(
@@ -108,7 +109,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					cbl_Source.Kick.Bind__arrayOf<long, string>(
+					this.cbl_Source.Kick.Bind__arrayOf<long, string>(
 						"",
 						_so_sources
 					);
@@ -122,7 +123,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0, 0, out _count, 
 						out _errors
 					);
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_so_authors,
 						delegate(
@@ -137,7 +138,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					cbl_Author.Kick.Bind__arrayOf<long, string>(
+					this.cbl_Author.Kick.Bind__arrayOf<long, string>(
 						"",
 						_so_authors
 					);
@@ -151,7 +152,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0, 0, out _count, 
 						out _errors
 					);
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_so_highlights,
 						delegate(
@@ -166,7 +167,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					cbl_Highlight.Kick.Bind__arrayOf<long, string>(
+					this.cbl_Highlight.Kick.Bind__arrayOf<long, string>(
 						"",
 						_so_highlights
 					);
@@ -180,7 +181,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0, 0, out _count, 
 						out _errors
 					);
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_so_profiles,
 						delegate(
@@ -195,21 +196,21 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					cbl_Profile.Kick.Bind__arrayOf<long, string>(
+					this.cbl_Profile.Kick.Bind__arrayOf<long, string>(
 						"",
 						_so_profiles
 					);
 				}
 				#endregion
 
-				Bind();
+				this.Bind();
 			}
 		}
 		#endregion
 
 		#region protected void btn_Search_Click(object sender, EventArgs e);
 		protected void btn_Search_Click(object sender, EventArgs e) {
-			Bind();
+			this.Bind();
 		}
 		#endregion
 		#region protected void btn_Delete_Click(object sender, EventArgs e);
@@ -228,8 +229,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				_idcontent,
 				out _errors
 			);
-			if (!Master__base.Error_add(_errors)) {
-				Bind();
+			if (!this.Master__base.Error_add(_errors)) {
+				this.Bind();
 			}
 		}
 		#endregion
@@ -248,8 +249,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				_idcontent, 
 				out _errors
 			);
-			if (!Master__base.Error_add(_errors)) {
-				Bind();
+			if (!this.Master__base.Error_add(_errors)) {
+				this.Bind();
 			}
 		}
 		#endregion
@@ -301,53 +302,54 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 -1L,
 
-				(string.IsNullOrEmpty(ddl_Approved.SelectedValue))
+				(string.IsNullOrEmpty(this.ddl_Approved.SelectedValue))
 					? -2L
-					: (ddl_Approved.SelectedValue == ((int)ContentstateEnum.approved).ToString(System.Globalization.CultureInfo.CurrentCulture))
+					: (this.ddl_Approved.SelectedValue == ((int)ContentstateEnum.approved).ToString(System.Globalization.CultureInfo.CurrentCulture))
 						? 0L
 						: -1L,
 
+				//// TODO: consider removing commented code
 				//
 				//(
-				//    (txt_Begin_date_CalendarExtender.SelectedDate == null)
+				//    (this.txt_Begin_date_CalendarExtender.SelectedDate == null)
 				//    ||
-				//    (!txt_Begin_date_CalendarExtender.SelectedDate.HasValue)
+				//    (!this.txt_Begin_date_CalendarExtender.SelectedDate.HasValue)
 				//) 
-				//    ? datetime_minvalue_ 
-				//    : txt_Begin_date_CalendarExtender.SelectedDate.Value,
+				//    ? this.datetime_minvalue_ 
+				//    : this.txt_Begin_date_CalendarExtender.SelectedDate.Value,
 				//(
-				//    (txt_End_date_CalendarExtender.SelectedDate == null)
+				//    (this.txt_End_date_CalendarExtender.SelectedDate == null)
 				//    ||
-				//    (!txt_End_date_CalendarExtender.SelectedDate.HasValue)
+				//    (!this.txt_End_date_CalendarExtender.SelectedDate.HasValue)
 				//) 
-				//    ? datetime_minvalue_ 
-				//    : txt_End_date_CalendarExtender.SelectedDate.Value,
+				//    ? this.datetime_minvalue_ 
+				//    : this.txt_End_date_CalendarExtender.SelectedDate.Value,
 				//
-				//DateTime_TryParse(txt_Begin_date.Text, out _begin_date) ? _begin_date : datetime_minvalue_,
-				//DateTime_TryParse(txt_End_date.Text, out _end_date) ? _end_date : datetime_minvalue_, 
+				//DateTime_TryParse(this.txt_Begin_date.Text, out _begin_date) ? _begin_date : this.datetime_minvalue_,
+				//DateTime_TryParse(this.txt_End_date.Text, out _end_date) ? _end_date : this.datetime_minvalue_, 
 				//
 				DateTime.TryParseExact(
-					txt_Begin_date.Text,
+					this.txt_Begin_date.Text,
 					"dd-MM-yyyy",
 					null,
 					System.Globalization.DateTimeStyles.None,
 					out _begin_date
 				) ? _begin_date : datetime_minvalue_,
 				DateTime.TryParseExact(
-					txt_End_date.Text,
+					this.txt_End_date.Text,
 					"dd-MM-yyyy",
 					null,
 					System.Globalization.DateTimeStyles.None,
 					out _end_date
 				) ? _end_date : datetime_minvalue_,
 
-				cbl_Tags.Kick.SelectedValue__get<long>(),
-				cbl_Author.Kick.SelectedValue__get<long>(),
-				cbl_Source.Kick.SelectedValue__get<long>(),
-				cbl_Highlight.Kick.SelectedValue__get<long>(),
-				cbl_Profile.Kick.SelectedValue__get<long>(),
+				this.cbl_Tags.Kick.SelectedValue__get<long>(),
+				this.cbl_Author.Kick.SelectedValue__get<long>(),
+				this.cbl_Source.Kick.SelectedValue__get<long>(),
+				this.cbl_Highlight.Kick.SelectedValue__get<long>(),
+				this.cbl_Profile.Kick.SelectedValue__get<long>(),
 
-				txt_Text.Text,
+				this.txt_Text.Text,
 				utils.IDLanguage__default,
 				true,
 				0, 0, 0, out _count, 
@@ -355,16 +357,16 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				out _errors
 			);
 			#endregion
-			if (!Master__base.Error_add(_errors)) {
+			if (!this.Master__base.Error_add(_errors)) {
 				if (_contents.Length > 0) {
-					rep_SearchResults.Visible = true;
+					this.rep_SearchResults.Visible = true;
 
-					rep_SearchResults.DataSource = _contents;
-					rep_SearchResults.DataBind();
+					this.rep_SearchResults.DataSource = _contents;
+					this.rep_SearchResults.DataBind();
 				} else {
-					rep_SearchResults.Visible = false;
+					this.rep_SearchResults.Visible = false;
 
-					Master__base.Error_add(
+					this.Master__base.Error_add(
 						false,
 						"returned no results"
 					);

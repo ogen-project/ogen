@@ -12,27 +12,28 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Text;
-
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Text;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+
 	public partial class _base : System.Web.UI.MasterPage {
 		protected void Page_Load(object sender, EventArgs e) {
 			Anthem.Manager.Register(this);
 
-			if (!Page.IsPostBack) {
-				Bind();
+			if (!this.Page.IsPostBack) {
+				this.Bind();
 			}
 		}
 		protected override void OnPreRender(EventArgs e) {
-			error_show();
+			this.error_show();
 
 			base.OnPreRender(e);
 		}
@@ -43,10 +44,10 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		private StringBuilder errors {
 			get {
-				if (errors__ == null) {
-					errors__ = new StringBuilder();
+				if (this.errors__ == null) {
+					this.errors__ = new StringBuilder();
 				}
-				return errors__;
+				return this.errors__;
 			}
 		}
 		#endregion
@@ -55,19 +56,19 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		private StringBuilder warnings {
 			get {
-				if (warnings__ == null) {
-					warnings__ = new StringBuilder();
+				if (this.warnings__ == null) {
+					this.warnings__ = new StringBuilder();
 				}
-				return warnings__;
+				return this.warnings__;
 			}
 		}
 		#endregion
 
 		private void error_show() {
 			if (
-				(errors__ == null)
+				(this.errors__ == null)
 				&&
-				(warnings__ == null)
+				(this.warnings__ == null)
 			) {
 				return;
 			}
@@ -75,21 +76,21 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			string _clientscript = string.Format(
 				System.Globalization.CultureInfo.CurrentCulture,
 				"alert('{0}{1}');",
-				(errors__ != null) ? string.Format(
+				(this.errors__ != null) ? string.Format(
 					System.Globalization.CultureInfo.CurrentCulture,
 					"--- Errors:\\n{0}\\n",
-					errors__.ToString()
-				) : "", 
-				(warnings__ != null) ? string.Format(
+					this.errors__.ToString()
+				) : "",
+				(this.warnings__ != null) ? string.Format(
 					System.Globalization.CultureInfo.CurrentCulture,
 					"--- Warnings:\\n{0}",
-					warnings__.ToString()
+					this.warnings__.ToString()
 				) : ""
 			);
 			if (Anthem.Manager.IsCallBack) {
 				Anthem.Manager.AddScriptForClientSideEval(_clientscript);
 			} else {
-				lit_ClientScript.Text = _clientscript;
+				this.lit_ClientScript.Text = _clientscript;
 			}
 		}
 		#endregion
@@ -130,11 +131,11 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					bool isError_in
 				) {
 					if (isError_in) {
-						errors.Append(error_formatmessage(
+						this.errors.Append(this.error_formatmessage(
 							message_in
 						));
 					} else {
-						warnings.Append(error_formatmessage(
+						this.warnings.Append(this.error_formatmessage(
 							message_in
 						));
 					}
@@ -150,12 +151,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			params object[] args_in
 		) {
 			if (isError_in) {
-				errors.Append(error_formatmessage(
+				this.errors.Append(this.error_formatmessage(
 					format_in,
 					args_in
 				));
 			} else {
-				warnings.Append(error_formatmessage(
+				this.warnings.Append(this.error_formatmessage(
 					format_in,
 					args_in
 				));
@@ -165,24 +166,24 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		#region protected void btn_Logout_Click(object sender, EventArgs e);
 		protected void btn_Logout_Click(object sender, EventArgs e) {
-			txt_EMail.Text = "";
-			txt_Password.Text = "";
+			this.txt_EMail.Text = "";
+			this.txt_Password.Text = "";
 
 			utils.User.Logout("~/Default.aspx", false);
 
-			Bind();
+			this.Bind();
 		}
 		#endregion
 		#region protected void btn_Login_Click(object sender, EventArgs e);
 		protected void btn_Login_Click(object sender, EventArgs e) {
 			int[] _errors;
 			utils.User.DoLogin(
-				txt_EMail.Text,
-				txt_Password.Text,
+				this.txt_EMail.Text,
+				this.txt_Password.Text,
 				out _errors
 			);
 
-			if (!Error_add(_errors)) {
+			if (!this.Error_add(_errors)) {
 				string _query = HttpContext.Current.Request.QueryString.ToString();
 				Response.Redirect(string.Format(
 					System.Globalization.CultureInfo.CurrentCulture,
@@ -193,23 +194,23 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				));
 			}
 
-			Bind();
+			this.Bind();
 		}
 		#endregion
 		#region public void Bind();
 		public void Bind() {
 			bool _isloggedin = utils.User.isLoggedIn;
 
-			lbt_Registration.Text = (_isloggedin) ? utils.User.Login : "anonynous";
-			lbt_Registration.PostBackUrl = (_isloggedin) ? "~/Registration-update.aspx" : "~/Registration.aspx";
+			this.lbt_Registration.Text = (_isloggedin) ? utils.User.Login : "anonynous";
+			this.lbt_Registration.PostBackUrl = (_isloggedin) ? "~/Registration-update.aspx" : "~/Registration.aspx";
 
-			lbl_EMail.Visible = !_isloggedin;
-			txt_EMail.Visible = !_isloggedin;
-			lbl_Password.Visible = !_isloggedin;
-			txt_Password.Visible = !_isloggedin;
-			btn_Login.Visible = !_isloggedin;
+			this.lbl_EMail.Visible = !_isloggedin;
+			this.txt_EMail.Visible = !_isloggedin;
+			this.lbl_Password.Visible = !_isloggedin;
+			this.txt_Password.Visible = !_isloggedin;
+			this.btn_Login.Visible = !_isloggedin;
 
-			btn_Logout.Visible = _isloggedin;
+			this.btn_Logout.Visible = _isloggedin;
 		}
 		#endregion
 	}

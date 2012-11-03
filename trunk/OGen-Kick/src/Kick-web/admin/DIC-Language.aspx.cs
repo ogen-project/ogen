@@ -12,21 +12,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
-
-using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.lib.datalayer.shared;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+
+	using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+
 	public partial class DIC_Language : AdminPage {
 		#region public int IDLanguage { get; }
 		private int idlanguage__ = -2;
@@ -34,29 +35,29 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		public int IDLanguage {
 			get {
 				if (
-					(idlanguage__ == -2)
+					(this.idlanguage__ == -2)
 					&&
 					(
 						!int.TryParse(
 							Request.QueryString["IDLanguage"],
-							out idlanguage__
+							out this.idlanguage__
 						)
 					)
 				) {
-					idlanguage__ = -1;
+					this.idlanguage__ = -1;
 				}
 
-				return idlanguage__;
+				return this.idlanguage__;
 			}
 		}
 		#endregion
 
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			if (!Page.IsPostBack) {
+			if (!this.Page.IsPostBack) {
 				//int[] _errors;
 
-				Bind();
+				this.Bind();
 			}
 		} 
 		#endregion
@@ -65,34 +66,34 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		public void btn_Save_Click(object sender, EventArgs e) {
 			int[] _errors;
 
-			if (IDLanguage > 0) {
+			if (this.IDLanguage > 0) {
 				BusinessInstances.DIC_Dic.InstanceClient.updLanguage(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
-					IDLanguage,
-					dic_LanguageNameIn.Texts, 
+					this.IDLanguage,
+					this.dic_LanguageNameIn.Texts, 
 					out _errors
 				);
 			} else {
-				SO_DIC__TextLanguage[] _texts = dic_LanguageNameIn.Texts;
+				SO_DIC__TextLanguage[] _texts = this.dic_LanguageNameIn.Texts;
 				SO_DIC__TextLanguage[] _texts_withnew = new SO_DIC__TextLanguage[_texts.Length + 1];
 				for (int i = 0; i < _texts.Length; i++) {
 					_texts_withnew[i] = _texts[i];
 				}
 				_texts_withnew[_texts.Length] = new SO_DIC__TextLanguage(
 					-1,
-					txt_Name.Text
+					this.txt_Name.Text
 				);
 
 				BusinessInstances.DIC_Dic.InstanceClient.insLanguage(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
 					_texts_withnew,
-					dic_LanguagesInNewLanguage.Texts,
+					this.dic_LanguagesInNewLanguage.Texts,
 					out _errors
 				);
 			}
-			if (!Master__base.Error_add(_errors)) {
+			if (!this.Master__base.Error_add(_errors)) {
 				utils.Dic.Languages_reset();
 
 				Response.Redirect("~/admin/DIC-Language-list.aspx");
@@ -107,20 +108,20 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			long _count;
 			SO_vDIC_Language[] _language;
 
-			if (IDLanguage > 0) {
+			if (this.IDLanguage > 0) {
 				_language = BusinessInstances.DIC_Dic.InstanceClient.getRecord_Language(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
-					IDLanguage,
+					this.IDLanguage,
 					0, 0, 0, out _count, 
 					out _errors
 				);
 				if (
-					!Master__base.Error_add(_errors)
+					!this.Master__base.Error_add(_errors)
 					&&
 					(_language.Length > 0)
 				) {
-					#region dic_LanguageNameIn.Texts = ...;
+					#region this.dic_LanguageNameIn.Texts = ...;
 					List<OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage> _languagename
 						= new List<OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage>(
 							_language.Length
@@ -132,28 +133,28 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							_language[i].Language
 						));
 					}
-					dic_LanguageNameIn.Texts = _languagename.ToArray();
+					this.dic_LanguageNameIn.Texts = _languagename.ToArray();
 					#endregion
-					tbl_NewLanguage.Visible = false;
-					dic_LanguagesInNewLanguage.Visible = false;
-					tr_new1.Visible = false;
-					tr_new2.Visible = false;
-					tr_new3.Visible = false;
+					this.tbl_NewLanguage.Visible = false;
+					this.dic_LanguagesInNewLanguage.Visible = false;
+					this.tr_new1.Visible = false;
+					this.tr_new2.Visible = false;
+					this.tr_new3.Visible = false;
 
 					_isNew = false;
 				}
 			}
 
 			if (_isNew) {
-				dic_LanguageNameIn.Texts = null;
-				dic_LanguagesInNewLanguage.Texts = null;
+				this.dic_LanguageNameIn.Texts = null;
+				this.dic_LanguagesInNewLanguage.Texts = null;
 
-				tr_new1.Visible = true;
-				tr_new2.Visible = true;
-				tr_new3.Visible = true;
+				this.tr_new1.Visible = true;
+				this.tr_new2.Visible = true;
+				this.tr_new3.Visible = true;
 
-				dic_LanguagesInNewLanguage.Visible = true;
-				tbl_NewLanguage.Visible = true;
+				this.dic_LanguagesInNewLanguage.Visible = true;
+				this.tbl_NewLanguage.Visible = true;
 			}
 		} 
 		#endregion

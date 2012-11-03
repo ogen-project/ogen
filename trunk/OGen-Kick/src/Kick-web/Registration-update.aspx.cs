@@ -12,19 +12,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Configuration;
-
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.instances;
-using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Configuration;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.instances;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+
 	public partial class Registration_update : SitePage {
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
@@ -39,45 +40,45 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 
 
-			lbl_Password.Text = "";							lbl_Password.Visible = false;
-			lbl_PasswordNew.Text = "";						lbl_PasswordNew.Visible = false;
-			lbl_PasswordConfirm.Text = "";					lbl_PasswordConfirm.Visible = false;
+			this.lbl_Password.Text = "";        this.lbl_Password.Visible = false;
+			this.lbl_PasswordNew.Text = "";     this.lbl_PasswordNew.Visible = false;
+			this.lbl_PasswordConfirm.Text = ""; this.lbl_PasswordConfirm.Visible = false;
 			//---
-			lbl_EMail.Text = "";							lbl_EMail.Visible = false;
+			this.lbl_EMail.Text = "";           this.lbl_EMail.Visible = false;
 			//---
-			lbl_Name.Text = "";								lbl_Name.Visible = false;
+			this.lbl_Name.Text = "";            this.lbl_Name.Visible = false;
 
 
 
-			if (!Page.IsPostBack) {
-				Bind();
+			if (!this.Page.IsPostBack) {
+				this.Bind();
 			}
 		}
 		#endregion
 
 		#region protected void lbt_RegistrationDataShow_Click(object sender, EventArgs e);
 		protected void lbt_RegistrationDataShow_Click(object sender, EventArgs e) {
-			tbl_RegistrationData.Visible = true;
-			lbt_RegistrationDataHide.Visible = true;
-			lbt_RegistrationDataShow.Enabled = false;
+			this.tbl_RegistrationData.Visible = true;
+			this.lbt_RegistrationDataHide.Visible = true;
+			this.lbt_RegistrationDataShow.Enabled = false;
 
-			btn_RegistrationEMailCancel_Click(null, null);
-			btn_RegistrationPasswordCancel_Click(null, null);
+			this.btn_RegistrationEMailCancel_Click(null, null);
+			this.btn_RegistrationPasswordCancel_Click(null, null);
 		}
 		#endregion
 		#region protected void lbt_RegistrationDataHide_Click(object sender, EventArgs e);
 		protected void lbt_RegistrationDataHide_Click(object sender, EventArgs e) {
-			txt_Name.Text = hfi_Name.Value;
-			//txt_Login.Text = hfi_Login.Value;
+			this.txt_Name.Text = this.hfi_Name.Value;
+			//this.txt_Login.Text = this.hfi_Login.Value;
 
-			tbl_RegistrationData.Visible = false;
-			lbt_RegistrationDataHide.Visible = false;
-			lbt_RegistrationDataShow.Enabled = true;
+			this.tbl_RegistrationData.Visible = false;
+			this.lbt_RegistrationDataHide.Visible = false;
+			this.lbt_RegistrationDataShow.Enabled = true;
 		}
 		#endregion
 		#region protected void btn_RegistrationDataCancel_Click(object sender, EventArgs e);
 		protected void btn_RegistrationDataCancel_Click(object sender, EventArgs e) {
-			lbt_RegistrationDataHide_Click(null, null);
+			this.lbt_RegistrationDataHide_Click(null, null);
 		}
 		#endregion
 		#region protected void btn_RegistrationDataUpdate_Click(object sender, EventArgs e);
@@ -85,17 +86,17 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			#region bool _foundErrors = ...;
 			bool _foundErrors = false;
 
-			txt_Name.Text = txt_Name.Text.Trim();
+			this.txt_Name.Text = this.txt_Name.Text.Trim();
 
-			if (string.IsNullOrEmpty(txt_Name.Text)) {
-				lbl_Name.Text = "invalid";
-				lbl_Name.Visible = true;
+			if (string.IsNullOrEmpty(this.txt_Name.Text)) {
+				this.lbl_Name.Text = "invalid";
+				this.lbl_Name.Visible = true;
 				_foundErrors = true;
 			} else if (
-				txt_Name.Text == hfi_Name.Value
+				this.txt_Name.Text == this.hfi_Name.Value
 			) {
-				lbl_Name.Text = "no changes";
-				lbl_Name.Visible = true;
+				this.lbl_Name.Text = "no changes";
+				this.lbl_Name.Visible = true;
 				_foundErrors = true;
 			} 
 			#endregion
@@ -107,15 +108,15 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					utils.ClientIPAddress,
 					utils.User.IDUser, 
 
-					true, 
-					txt_Name.Text, 
+					true,
+					this.txt_Name.Text, 
 
 					out _errors
 				);
 
-				if (!Master__base.Error_add(_errors)) {
-					hfi_Name.Value = txt_Name.Text;
-					lbt_RegistrationDataHide_Click(null, null);
+				if (!this.Master__base.Error_add(_errors)) {
+					this.hfi_Name.Value = this.txt_Name.Text;
+					this.lbt_RegistrationDataHide_Click(null, null);
 				}
 			}
 		}
@@ -123,28 +124,28 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		#region protected void lbt_RegistrationEMailShow_Click(object sender, EventArgs e);
 		protected void lbt_RegistrationEMailShow_Click(object sender, EventArgs e) {
-			tbl_RegistrationEMail.Visible = true;
-			lbt_RegistrationEMailHide.Visible = true;
-			lbt_RegistrationEMailShow.Enabled = false;
-			//lbt_RegistrationEMailShow.CssClass = "vermais";
+			this.tbl_RegistrationEMail.Visible = true;
+			this.lbt_RegistrationEMailHide.Visible = true;
+			this.lbt_RegistrationEMailShow.Enabled = false;
+			//this.lbt_RegistrationEMailShow.CssClass = "vermais";
 
-			btn_RegistrationDataCancel_Click(null, null);
-			btn_RegistrationPasswordCancel_Click(null, null);
+			this.btn_RegistrationDataCancel_Click(null, null);
+			this.btn_RegistrationPasswordCancel_Click(null, null);
 		}
 		#endregion
 		#region protected void lbt_RegistrationEMailHide_Click(object sender, EventArgs e);
 		protected void lbt_RegistrationEMailHide_Click(object sender, EventArgs e) {
-			txt_EMail.Text = hfi_EMail.Value;
+			this.txt_EMail.Text = this.hfi_EMail.Value;
 
-			tbl_RegistrationEMail.Visible = false;
-			lbt_RegistrationEMailHide.Visible = false;
-			lbt_RegistrationEMailShow.Enabled = true;
-			//lbt_RegistrationEMailShow.CssClass = "titulo_branco";
+			this.tbl_RegistrationEMail.Visible = false;
+			this.lbt_RegistrationEMailHide.Visible = false;
+			this.lbt_RegistrationEMailShow.Enabled = true;
+			//this.lbt_RegistrationEMailShow.CssClass = "titulo_branco";
 		}
 		#endregion
 		#region protected void btn_RegistrationEMailCancel_Click(object sender, EventArgs e);
 		protected void btn_RegistrationEMailCancel_Click(object sender, EventArgs e) {
-			lbt_RegistrationEMailHide_Click(null, null);
+			this.lbt_RegistrationEMailHide_Click(null, null);
 		}
 		#endregion
 		#region protected void btn_RegistrationEMailUpdate_Click(object sender, EventArgs e);
@@ -152,21 +153,21 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			#region bool _foundErrors = ...;
 			bool _foundErrors = false;
 
-			txt_EMail.Text = txt_EMail.Text.Trim();
+			this.txt_EMail.Text = this.txt_EMail.Text.Trim();
 
 			if (
 				!OGen.lib.mail.utils.isEMail_valid(
-					txt_EMail.Text
+					this.txt_EMail.Text
 				)
 			) {
-				lbl_EMail.Text = "invalid";
-				lbl_EMail.Visible = true;
+				this.lbl_EMail.Text = "invalid";
+				this.lbl_EMail.Visible = true;
 				_foundErrors = true;
 			} else if (
-				txt_EMail.Text == hfi_EMail.Value
+				this.txt_EMail.Text == this.hfi_EMail.Value
 			) {
-				lbl_EMail.Text = "no changes";
-				lbl_EMail.Visible = true;
+				this.lbl_EMail.Text = "no changes";
+				this.lbl_EMail.Visible = true;
 				_foundErrors = true;
 			} 
 			#endregion
@@ -176,7 +177,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				WEB_User.InstanceClient.updObject_EMail(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
-					txt_EMail.Text,
+					this.txt_EMail.Text,
 					ConfigurationManager.AppSettings[
 						"CompanyName"
 					],
@@ -186,12 +187,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 					out _errors
 				);
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 
 // ToDos: here! // mail hasn't been changed yet, waiting user confirmation, hence comment:
-//hfi_EMail.Value = txt_EMail.Text;
+//this.hfi_EMail.Value = txt_EMail.Text;
 
-					lbt_RegistrationEMailHide_Click(null, null);
+					this.lbt_RegistrationEMailHide_Click(null, null);
 				}
 			}
 		}
@@ -199,52 +200,52 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		#region protected void lbt_RegistrationPasswordShow_Click(object sender, EventArgs e);
 		protected void lbt_RegistrationPasswordShow_Click(object sender, EventArgs e) {
-			tbl_RegistrationPassword.Visible = true;
-			lbt_RegistrationPasswordHide.Visible = true;
-			lbt_RegistrationPasswordShow.Enabled = false;
+			this.tbl_RegistrationPassword.Visible = true;
+			this.lbt_RegistrationPasswordHide.Visible = true;
+			this.lbt_RegistrationPasswordShow.Enabled = false;
 
-			btn_RegistrationDataCancel_Click(null, null);
-			btn_RegistrationEMailCancel_Click(null, null);
+			this.btn_RegistrationDataCancel_Click(null, null);
+			this.btn_RegistrationEMailCancel_Click(null, null);
 		}
 		#endregion
 		#region protected void lbt_RegistrationPasswordHide_Click(object sender, EventArgs e);
 		protected void lbt_RegistrationPasswordHide_Click(object sender, EventArgs e) {
-			txt_Password.Text = ""; // hfi_Password.Value;
+			this.txt_Password.Text = ""; // this.hfi_Password.Value;
 
-			tbl_RegistrationPassword.Visible = false;
-			lbt_RegistrationPasswordHide.Visible = false;
-			lbt_RegistrationPasswordShow.Enabled = true;
+			this.tbl_RegistrationPassword.Visible = false;
+			this.lbt_RegistrationPasswordHide.Visible = false;
+			this.lbt_RegistrationPasswordShow.Enabled = true;
 		}
 		#endregion
 		#region protected void btn_RegistrationPasswordCancel_Click(object sender, EventArgs e);
 		protected void btn_RegistrationPasswordCancel_Click(object sender, EventArgs e) {
-			lbt_RegistrationPasswordHide_Click(null, null);
+			this.lbt_RegistrationPasswordHide_Click(null, null);
 		}
 		#endregion
 		#region protected void btn_RegistrationPasswordUpdate_Click(object sender, EventArgs e);
 		protected void btn_RegistrationPasswordUpdate_Click(object sender, EventArgs e) {
 			#region bool _foundErrors = ...;
 			bool _foundErrors = false;
-			if ((txt_Password.Text = txt_Password.Text.Trim()).Length == 0) {
-				lbl_Password.Text = "invalid";
-				lbl_Password.Visible = true;
+			if ((this.txt_Password.Text = this.txt_Password.Text.Trim()).Length == 0) {
+				this.lbl_Password.Text = "invalid";
+				this.lbl_Password.Visible = true;
 
 				_foundErrors = true;
 			}
-			if ((txt_PasswordNew.Text = txt_PasswordNew.Text.Trim()).Length == 0) {
-				lbl_PasswordNew.Text = "invalid";
-				lbl_PasswordNew.Visible = true;
+			if ((this.txt_PasswordNew.Text = this.txt_PasswordNew.Text.Trim()).Length == 0) {
+				this.lbl_PasswordNew.Text = "invalid";
+				this.lbl_PasswordNew.Visible = true;
 
 				_foundErrors = true;
-			} else if (txt_Password.Text == txt_PasswordNew.Text) {
-				lbl_PasswordNew.Text = "no changes";
-				lbl_PasswordNew.Visible = true;
+			} else if (this.txt_Password.Text == this.txt_PasswordNew.Text) {
+				this.lbl_PasswordNew.Text = "no changes";
+				this.lbl_PasswordNew.Visible = true;
 
 				_foundErrors = true;
 			}
-			if (txt_PasswordNew.Text != txt_PasswordConfirm.Text) {
-				lbl_PasswordConfirm.Text = "passwords differ";
-				lbl_PasswordConfirm.Visible = true;
+			if (this.txt_PasswordNew.Text != this.txt_PasswordConfirm.Text) {
+				this.lbl_PasswordConfirm.Text = "passwords differ";
+				this.lbl_PasswordConfirm.Visible = true;
 
 				_foundErrors = true;
 			}
@@ -254,8 +255,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				CRD_Authentication.InstanceClient.ChangePassword(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
-					txt_Password.Text,
-					txt_PasswordNew.Text,
+					this.txt_Password.Text,
+					this.txt_PasswordNew.Text,
 					out _errors
 				);
 
@@ -265,11 +266,11 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						_errors
 					)
 				) {
-					lbl_Password.Text = "wrong password";
-					lbl_Password.Visible = true;
+					this.lbl_Password.Text = "wrong password";
+					this.lbl_Password.Visible = true;
 				} else {
-					if (!Master__base.Error_add(_errors)) {
-						lbt_RegistrationPasswordHide_Click(null, null);
+					if (!this.Master__base.Error_add(_errors)) {
+						this.lbt_RegistrationPasswordHide_Click(null, null);
 					}
 				}
 			}
@@ -296,27 +297,27 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 					out _errors
 				);
-			if (!Master__base.Error_add(_errors)) {
-				txt_Name.Text
-					= hfi_Name.Value
+			if (!this.Master__base.Error_add(_errors)) {
+				this.txt_Name.Text
+					= this.hfi_Name.Value
 					= _user.Name;
-				txt_Login.Text
-					= hfi_Login.Value
+				this.txt_Login.Text
+					= this.hfi_Login.Value
 					= utils.User.Login;
 
-				txt_EMail.Text
-					= hfi_EMail.Value
+				this.txt_EMail.Text
+					= this.hfi_EMail.Value
 					= _user.EMail;
 			} else {
-				txt_Name.Text
-					= hfi_Name.Value
+				this.txt_Name.Text
+					= this.hfi_Name.Value
 					= "";
-				txt_Login.Text
-					= hfi_Login.Value
+				this.txt_Login.Text
+					= this.hfi_Login.Value
 					= "";
 
-				txt_EMail.Text
-					= hfi_EMail.Value
+				this.txt_EMail.Text
+					= this.hfi_EMail.Value
 					= "";
 			}
 		}

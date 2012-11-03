@@ -12,26 +12,27 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
-
-using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.lib.datalayer.shared;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+
+	using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+
 	public partial class CRD_Profile_list : AdminPage {
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			if (!Page.IsPostBack) {
-				Bind();
+			if (!this.Page.IsPostBack) {
+				this.Bind();
 			}
 		}
 		#endregion
@@ -50,8 +51,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				_idProfile,
 				out _errors
 			);
-			if (!Master__base.Error_add(_errors)) {
-				Bind();
+			if (!this.Master__base.Error_add(_errors)) {
+				this.Bind();
 			}
 		}
 		#endregion
@@ -68,7 +69,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					0, 0, 0, out _count, 
 					out _errors
 				);
-			if (!Master__base.Error_add(_errors)) {
+			if (!this.Master__base.Error_add(_errors)) {
 				if (_authors.Length > 0) {
 					Array.Sort(
 						_authors,
@@ -84,14 +85,14 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					rep_Profiles.DataSource = _authors;
-					rep_Profiles.DataBind();
+					this.rep_Profiles.DataSource = _authors;
+					this.rep_Profiles.DataBind();
 
-					rep_Profiles.Visible = true;
+					this.rep_Profiles.Visible = true;
 				} else {
-					rep_Profiles.Visible = false;
+					this.rep_Profiles.Visible = false;
 
-					Master__base.Error_add(
+					this.Master__base.Error_add(
 						false,
 						"returned no results"
 					);

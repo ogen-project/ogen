@@ -12,21 +12,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
-
-using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.lib.datalayer.shared;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+
+	using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+
 	public partial class CRD_User : AdminPage {
 		#region public long IDUser { get; }
 		private long iduser__ = -2L;
@@ -34,27 +35,27 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		public long IDUser {
 			get {
 				if (
-					(iduser__ == -2L)
+					(this.iduser__ == -2L)
 					&&
 					(
 						!long.TryParse(
 							Request.QueryString["IDUser"],
-							out iduser__
+							out this.iduser__
 						)
 					)
 				) {
-					iduser__ = -1L;
+					this.iduser__ = -1L;
 				}
 
-				return iduser__;
+				return this.iduser__;
 			}
 		}
 		#endregion
 
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			if (!Page.IsPostBack) {
-				Bind();
+			if (!this.Page.IsPostBack) {
+				this.Bind();
 			}
 		}
 		#endregion
@@ -66,12 +67,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			BusinessInstances.CRD_Profile.InstanceClient.setUserProfiles(
 				utils.User.SessionGuid,
 				utils.ClientIPAddress,
-				IDUser, 
-				cbl_Profiles.Kick.SelectedValue__get<long>(), 
+				this.IDUser,
+				this.cbl_Profiles.Kick.SelectedValue__get<long>(), 
 				out _errors
 			);
-			if (!Master__base.Error_add(_errors)) {
-				Bind();
+			if (!this.Master__base.Error_add(_errors)) {
+				this.Bind();
 			}
 		} 
 		#endregion
@@ -84,11 +85,11 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			SO_vNET_User _user 
 				= BusinessInstances.WEB_User.InstanceClient.getObject_details(
 					utils.User.SessionGuid, 
-					utils.ClientIPAddress, 
-					IDUser,
+					utils.ClientIPAddress,
+					this.IDUser,
 					out _errors
 				);
-			if (!Master__base.Error_add(_errors)) {
+			if (!this.Master__base.Error_add(_errors)) {
 				if (_user == null) {
 					Response.Redirect(
 						"CRD_User-list.aspx", 
@@ -98,20 +99,20 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					return;
 				}
 
-				txt_Name.Text = _user.Name;
-				txt_Login.Text = _user.Login;
-				txt_EMail.Text = _user.EMail;
+				this.txt_Name.Text = _user.Name;
+				this.txt_Login.Text = _user.Login;
+				this.txt_EMail.Text = _user.EMail;
 			}
 
 			SO_vCRD_UserProfile[] _profiles
 				= BusinessInstances.CRD_Profile.InstanceClient.getRecord_ofUserProfile_byUser(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
-					IDUser,
+					this.IDUser,
 					0, 0, 0, out _count, 
 					out _errors
 				);
-			if (!Master__base.Error_add(_errors)) {
+			if (!this.Master__base.Error_add(_errors)) {
 				Array.Sort(
 					_profiles,
 					delegate(
@@ -126,13 +127,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						);
 					}
 				);
-				cbl_Profiles.Kick.Bind__arrayOf<long, string>(
+				this.cbl_Profiles.Kick.Bind__arrayOf<long, string>(
 					"",
 					false,
 					_profiles
 				);
 
-				cbl_Profiles.Kick.SelectedValues__set_arrayOf<long, string, SO_vCRD_UserProfile>(
+				this.cbl_Profiles.Kick.SelectedValues__set_arrayOf<long, string, SO_vCRD_UserProfile>(
 					_profiles, 
 					delegate(
 						SO_vCRD_UserProfile item_in

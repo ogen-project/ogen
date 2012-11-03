@@ -12,22 +12,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
-
-using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.lib.datalayer.shared;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+
+	using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+
 	public partial class FE_News : SitePage {
 		#region public long IDNews { get; }
 		private long idnews__ = -2;
@@ -35,38 +35,38 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		public long IDNews {
 			get {
 				if (
-					(idnews__ == -2)
+					(this.idnews__ == -2)
 					&&
 					(
 						!long.TryParse(
 							Request.QueryString["IDNews"],
-							out idnews__
+							out this.idnews__
 						)
 					)
 				) {
-					idnews__ = -1;
+					this.idnews__ = -1;
 				}
 
-				return idnews__;
+				return this.idnews__;
 			}
 		}
 		#endregion
 
 		protected void Page_Load(object sender, EventArgs e) {
-			if (!Page.IsPostBack) {
-				Bind();
+			if (!this.Page.IsPostBack) {
+				this.Bind();
 			}
 		}
 
 		public void Bind() {
-			rep_Tags.Visible = false;
-			rep_Sources.Visible = false;
-			rep_Attachments.Visible = false;
-			tr_Attachments1.Visible = false;
-			tr_Details.Visible = false;
-			tbl_News.Visible = false;
+			this.rep_Tags.Visible = false;
+			this.rep_Sources.Visible = false;
+			this.rep_Attachments.Visible = false;
+			this.tr_Attachments1.Visible = false;
+			this.tr_Details.Visible = false;
+			this.tbl_News.Visible = false;
 
-			if (IDNews <= 0) {
+			if (this.IDNews <= 0) {
 				return;
 			}
 
@@ -86,23 +86,23 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			SO_vNWS_Content _content = BusinessInstances.NWS_News.InstanceClient.getObject(
 				utils.User.SessionGuid,
 				utils.ClientIPAddress,
-				IDNews, 
+				this.IDNews, 
 				utils.IDLanguage__default, 
 				out _errors
 			);
-			if (!Master__base.Error_add(_errors)) {
+			if (!this.Master__base.Error_add(_errors)) {
 				if (_content != null) {
 					#region rep_Attachments.DataSource = ...; rep_Attachments.DataBind();
 					_attachments = BusinessInstances.NWS_Attachment.InstanceClient.getRecord_byContent_andLanguage(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						IDNews,
+						this.IDNews,
 						utils.IDLanguage__default,
 						0, 0, 0, out _count, 
 						out _errors
 					);
 					if (
-						!Master__base.Error_add(_errors)
+						!this.Master__base.Error_add(_errors)
 						&&
 						(_attachments != null)
 						&&
@@ -146,9 +146,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						}
 						#endregion
 
-						#region img_News.ImageUrl = ...;
+						#region this.img_News.ImageUrl = ...;
 						if (_attachment != null) {
-							img_News.ImageUrl = string.Format(
+							this.img_News.ImageUrl = string.Format(
 								System.Globalization.CultureInfo.CurrentCulture,
 								"~/public-uploads/news/{0}/{1}-{2}/{3}",
 								_attachment.IFContent,
@@ -162,14 +162,14 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 								&&
 								(!string.IsNullOrEmpty(_attachment.Name))
 							) {
-								lbl_Image_Name.Text = _attachment.Name;
+								this.lbl_Image_Name.Text = _attachment.Name;
 							}
 							if (
 								!_attachment.Description_isNull
 								&&
 								(!string.IsNullOrEmpty(_attachment.Description))
 							) {
-								lbl_Image_Description.Text = string.Format(
+								this.lbl_Image_Description.Text = string.Format(
 									System.Globalization.CultureInfo.CurrentCulture,
 									"({0})",
 									_attachment.Description
@@ -183,11 +183,11 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							&&
 							(_attachments_final.Count > 0)
 						) {
-							rep_Attachments.DataSource = _attachments_final;
-							rep_Attachments.DataBind();
-							rep_Attachments.Visible = true;
+							this.rep_Attachments.DataSource = _attachments_final;
+							this.rep_Attachments.DataBind();
+							this.rep_Attachments.Visible = true;
 
-							tr_Attachments1.Visible = true;
+							this.tr_Attachments1.Visible = true;
 						}
 						#endregion
 					}
@@ -197,12 +197,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					_contentsources = BusinessInstances.NWS_Source.InstanceClient.getRecord_byContent(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						IDNews,
+						this.IDNews,
 						0, 0, 0, out _count, 
 						out _errors
 					);
 					if (
-						!Master__base.Error_add(_errors)
+						!this.Master__base.Error_add(_errors)
 						&&
 						(_contentsources != null)
 						&&
@@ -215,7 +215,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 								0, 0, 0, out _count, 
 								out _errors
 							);
-						if (!Master__base.Error_add(_errors)) {
+						if (!this.Master__base.Error_add(_errors)) {
 							SO_vNWS_Source[] _sources2 = new SO_vNWS_Source[_contentsources.Length];
 							for (int s1 = 0; s1 < _contentsources.Length; s1++) {
 								for (int s2 = 0; s2 < _sources.Length; s2++) {
@@ -226,10 +226,10 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 								}
 							}
 
-							rep_Sources.DataSource = _sources2;
-							rep_Sources.DataBind();
+							this.rep_Sources.DataSource = _sources2;
+							this.rep_Sources.DataBind();
 
-							rep_Sources.Visible = true;
+							this.rep_Sources.Visible = true;
 							_showDetails = true;
 						}
 					}
@@ -238,12 +238,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					_contenttags = BusinessInstances.NWS_Tag.InstanceClient.getRecord_byContent(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						IDNews,
+						this.IDNews,
 						0, 0, 0, out _count, 
 						out _errors
 					);
 					if (
-						!Master__base.Error_add(_errors)
+						!this.Master__base.Error_add(_errors)
 						&&
 						(_contenttags != null)
 						&&
@@ -257,7 +257,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 								0, 0, 0, out _count, 
 								out _errors
 							);
-						if (!Master__base.Error_add(_errors)) {
+						if (!this.Master__base.Error_add(_errors)) {
 							SO_vNWS_Tag[] _tags2 = new SO_vNWS_Tag[_contenttags.Length];
 							for (int t1 = 0; t1 < _contenttags.Length; t1++) {
 								for (int t2 = 0; t2 < _tags.Length; t2++) {
@@ -268,17 +268,17 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 								}
 							}
 
-							rep_Tags.DataSource = _tags2;
-							rep_Tags.DataBind();
+							this.rep_Tags.DataSource = _tags2;
+							this.rep_Tags.DataBind();
 
-							rep_Tags.Visible = true;
+							this.rep_Tags.Visible = true;
 							_showDetails = true;
 						}
 					}
 					#endregion
-					tr_Details.Visible = _showDetails;
+					this.tr_Details.Visible = _showDetails;
 
-					lbl_Publish_date.Text = string.Format(
+					this.lbl_Publish_date.Text = string.Format(
 						System.Globalization.CultureInfo.CurrentCulture,
 						"{0}.{1}.{2} | {3}h{4}",
 						_content.Publish_date.Day.ToString(System.Globalization.CultureInfo.CurrentCulture).PadLeft(2, '0'),
@@ -287,12 +287,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						_content.Publish_date.Hour.ToString(System.Globalization.CultureInfo.CurrentCulture).PadLeft(2, '0'),
 						_content.Publish_date.Minute.ToString(System.Globalization.CultureInfo.CurrentCulture).PadLeft(2, '0')
 					);
-					lbl_Title.Text = _content.Title;
-					lbl_Content.Text = OGen.lib.presentationlayer.webforms.utils.Replace_RN_BR(_content.Content);
+					this.lbl_Title.Text = _content.Title;
+					this.lbl_Content.Text = OGen.lib.presentationlayer.webforms.utils.Replace_RN_BR(_content.Content);
 
-					tbl_News.Visible = true;
+					this.tbl_News.Visible = true;
 				} else {
-					Master__base.Error_add(false, "no data");
+					this.Master__base.Error_add(false, "no data");
 				}
 			}
 		}

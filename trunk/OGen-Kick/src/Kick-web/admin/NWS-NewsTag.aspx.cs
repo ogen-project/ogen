@@ -12,21 +12,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
-
-using OGen.NTier.Kick.lib.presentationlayer.weblayer;
 
 namespace OGen.NTier.Kick.presentationlayer.weblayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.lib.datalayer.shared;
+	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+
+	using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+
 	public partial class NWS_NewsTag : AdminPage {
 		#region public long IDTag { get; }
 		private long idtag__ = -2L;
@@ -34,26 +35,26 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		public long IDTag {
 			get {
 				if (
-					(idtag__ == -2L)
+					(this.idtag__ == -2L)
 					&&
 					(
 						!long.TryParse(
 							Request.QueryString["IDTag"],
-							out idtag__
+							out this.idtag__
 						)
 					)
 				) {
-					idtag__ = -1L;
+					this.idtag__ = -1L;
 				}
 
-				return idtag__;
+				return this.idtag__;
 			}
 		}
 		#endregion
 
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			if (!Page.IsPostBack) {
+			if (!this.Page.IsPostBack) {
 				int[] _errors;
 				long _count;
 				SO_vNWS_Tag[] _tags
@@ -64,7 +65,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						0, 0, 0, out _count, 
 						out _errors
 					);
-				if (!Master__base.Error_add(_errors)) {
+				if (!this.Master__base.Error_add(_errors)) {
 					Array.Sort(
 						_tags,
 						delegate(
@@ -79,7 +80,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							);
 						}
 					);
-					ddl_Tag_parent.Kick.Bind__arrayOf<long, string>(
+					this.ddl_Tag_parent.Kick.Bind__arrayOf<long, string>(
 						"",
 						true,
 						_tags
@@ -87,7 +88,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				}
 
 
-				Bind();
+				this.Bind();
 			}
 		} 
 		#endregion
@@ -96,13 +97,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		private void btn_save_click(
 			ref SO_NWS_Tag tag_ref
 		) {
-			#region tag_ref.IFTag__parent = long.Parse(ddl_Tag_parent.SelectedValue);
-			if (string.IsNullOrEmpty(ddl_Tag_parent.SelectedValue)) {
+			#region tag_ref.IFTag__parent = long.Parse(this.ddl_Tag_parent.SelectedValue);
+			if (string.IsNullOrEmpty(this.ddl_Tag_parent.SelectedValue)) {
 				tag_ref.IFTag__parent_isNull = true;
 			} else {
 				//tag_ref.IFTag__parent = ddl_Tag_parent.Kick.SelectedValue__get<long>();
 				tag_ref.IFTag__parent = long.Parse(
-					ddl_Tag_parent.SelectedValue, 
+					this.ddl_Tag_parent.SelectedValue, 
 					System.Globalization.NumberStyles.Integer, 
 					System.Globalization.CultureInfo.CurrentCulture
 				);
@@ -115,24 +116,24 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			SO_NWS_Tag _tag;
 			if (
 				#region ((_tag = ...) != null)
-				(IDTag > 0)
+				(this.IDTag > 0)
 				&&
 				(
 					(_tag = BusinessInstances.NWS_Tag.InstanceClient.getObject(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						IDTag, 
+						this.IDTag, 
 						out _errors
 					))
 					!=
 					null
 				)
 				&&
-				!Master__base.Error_add(_errors)
+				!this.Master__base.Error_add(_errors)
 				#endregion
 			) {
-				#region _tag.IFTag__parent = long.Parse(ddl_Tag_parent.SelectedValue);
-				btn_save_click(
+				#region _tag.IFTag__parent = long.Parse(this.ddl_Tag_parent.SelectedValue);
+				this.btn_save_click(
 					ref _tag
 				);
 				#endregion
@@ -140,13 +141,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
 					_tag,
-					dic_Name.Texts, 
+					this.dic_Name.Texts, 
 					out _errors
 				);
 			} else {
 				_tag = new SO_NWS_Tag();
-				#region _tag.IFTag__parent = long.Parse(ddl_Tag_parent.SelectedValue);
-				btn_save_click(
+				#region _tag.IFTag__parent = long.Parse(this.ddl_Tag_parent.SelectedValue);
+				this.btn_save_click(
 					ref _tag
 				);
 				#endregion
@@ -156,13 +157,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				BusinessInstances.NWS_Tag.InstanceClient.insObject(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
-					_tag, 
-					dic_Name.Texts, 
+					_tag,
+					this.dic_Name.Texts, 
 					false,
 					out _errors
 				);
 			}
-			if (!Master__base.Error_add(_errors)) {
+			if (!this.Master__base.Error_add(_errors)) {
 				Response.Redirect(
 					"NWS-NewsTag-list.aspx",
 					true
@@ -178,13 +179,13 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			SO_vNWS_Tag[] _tags;
 			if (
 				#region ((_tags = ...) != null)
-				(IDTag > 0)
+				(this.IDTag > 0)
 				&&
 				(
 					(_tags = BusinessInstances.NWS_Tag.InstanceClient.getRecord_byTag(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
-						IDTag,
+						this.IDTag,
 						0, 0, 0, out _count, 
 						out _errors
 					))
@@ -192,12 +193,12 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					null
 				)
 				&&
-				!Master__base.Error_add(_errors)
+				!this.Master__base.Error_add(_errors)
 				&&
 				(_tags.Length != 0)
 				#endregion
 			) {
-				#region dic_Name.Texts = ...;
+				#region this.dic_Name.Texts = ...;
 				List<OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage> _name
 					= new List<OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage>(
 						_tags.Length
@@ -209,18 +210,18 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						_tag.ShortName
 					));
 				}
-				dic_Name.Texts = _name.ToArray();
+				this.dic_Name.Texts = _name.ToArray();
 				#endregion
-				#region ddl_Tag_parent.SelectedValue = _tags[0].IFTag__parent.ToString();
+				#region this.ddl_Tag_parent.SelectedValue = _tags[0].IFTag__parent.ToString();
 				if (_tags[0].IFTag__parent_isNull) {
-					ddl_Tag_parent.SelectedValue = "";
+					this.ddl_Tag_parent.SelectedValue = "";
 				} else {
-					ddl_Tag_parent.SelectedValue = _tags[0].IFTag__parent.ToString(System.Globalization.CultureInfo.CurrentCulture);
+					this.ddl_Tag_parent.SelectedValue = _tags[0].IFTag__parent.ToString(System.Globalization.CultureInfo.CurrentCulture);
 				}
 				#endregion
 			} else {
-				dic_Name.Texts = null;
-				ddl_Tag_parent.SelectedValue = "";
+				this.dic_Name.Texts = null;
+				this.ddl_Tag_parent.SelectedValue = "";
 			}
 		} 
 		#endregion
