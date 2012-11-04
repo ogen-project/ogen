@@ -57,13 +57,13 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return _output;
 			}
 			#endregion
-			#region check Permitions . . .
+			#region check Permissions . . .
 			if (
-				!_sessionuser.hasPermition(
-					PermitionType.Source__select
+				!_sessionuser.hasPermission(
+					PermissionType.Source__select
 				)
 			) {
-				_errorlist.Add(ErrorType.source__lack_of_permitions_to_read);
+				_errorlist.Add(ErrorType.source__lack_of_permissions_to_read);
 				errors_out = _errorlist.ToArray();
 				return _output;
 			}
@@ -102,20 +102,20 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return false;
 			}
 			#endregion
-			#region check Permitions . . .
+			#region check Permissions . . .
 			if (
-				!sessionUser_out.hasPermition(
+				!sessionUser_out.hasPermission(
 					false, 
-					PermitionType.Source__insert,
-					PermitionType.Source__update
+					PermissionType.Source__insert,
+					PermissionType.Source__update
 				)
 			) {
-				errorlist_out.Add(ErrorType.source__lack_of_permitions_to_write);
+				errorlist_out.Add(ErrorType.source__lack_of_permissions_to_write);
 				return false;
 			}
 
 			if (
-				!sessionUser_out.hasPermition(PermitionType.Source__approve)
+				!sessionUser_out.hasPermission(PermissionType.Source__approve)
 				&&
 				(
 					!source_ref.Approved_date_isNull
@@ -123,7 +123,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					!source_ref.IFUser__Approved_isNull
 				)
 			) {
-				errorlist_out.Add(ErrorType.source__lack_of_permitions_to_approve);
+				errorlist_out.Add(ErrorType.source__lack_of_permissions_to_approve);
 				return false;
 			}
 			#endregion
@@ -180,7 +180,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			} 
 			#endregion
 
-			if (_sessionuser.hasPermition(PermitionType.Source__approve)) {
+			if (_sessionuser.hasPermission(PermissionType.Source__approve)) {
 				source_in.Approved_date = DateTime.Now;
 				source_in.IFUser__Approved = _sessionuser.IDUser;
 			} else {
@@ -251,7 +251,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				||
 				_source.Approved_date_isNull
 			) {
-				if (_sessionuser.hasPermition(PermitionType.Source__approve)) {
+				if (_sessionuser.hasPermission(PermissionType.Source__approve)) {
 					source_in.Approved_date = DateTime.Now;
 					source_in.IFUser__Approved = _sessionuser.IDUser;
 				} else {
@@ -305,13 +305,13 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return;
 			}
 			#endregion
-			#region check Permitions . . .
+			#region check Permissions . . .
 			if (
-				!_sessionuser.hasPermition(
-					PermitionType.Source__approve
+				!_sessionuser.hasPermission(
+					PermissionType.Source__approve
 				)
 			) {
-				_errorlist.Add(ErrorType.source__lack_of_permitions_to_approve);
+				_errorlist.Add(ErrorType.source__lack_of_permissions_to_approve);
 				errors_out = _errorlist.ToArray();
 				return;
 			}
@@ -378,13 +378,13 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return;
 			}
 			#endregion
-			#region check Permitions . . .
+			#region check Permissions . . .
 			if (
-				!_sessionuser.hasPermition(
-					PermitionType.Source__delete
+				!_sessionuser.hasPermission(
+					PermissionType.Source__delete
 				)
 			) {
-				_errorlist.Add(ErrorType.source__lack_of_permitions_to_delete);
+				_errorlist.Add(ErrorType.source__lack_of_permissions_to_delete);
 				errors_out = _errorlist.ToArray();
 				return;
 			}
@@ -405,7 +405,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return;
 			}
 			#endregion
-			#region check Permitions . . . (more)
+			#region check Permissions . . . (more)
 			if (
 				// is approved
 				(
@@ -414,12 +414,12 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					!_source.Approved_date_isNull
 				)
 				&&
-				// and no permition to approve
-				!_sessionuser.hasPermition(
-					PermitionType.Source__approve
+				// and no permission to approve
+				!_sessionuser.hasPermission(
+					PermissionType.Source__approve
 				)
 			) {
-				_errorlist.Add(ErrorType.source__lack_of_permitions_to_delete_approved);
+				_errorlist.Add(ErrorType.source__lack_of_permissions_to_delete_approved);
 				errors_out = _errorlist.ToArray();
 				return;
 			}
@@ -548,13 +548,13 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return _output;
 			}
 			#endregion
-			#region check Permitions . . .
+			#region check Permissions . . .
 			if (
-				!_sessionuser.hasPermition(
-					PermitionType.Source__select
+				!_sessionuser.hasPermission(
+					PermissionType.Source__select
 				)
 			) {
-				_errorlist.Add(ErrorType.source__lack_of_permitions_to_read);
+				_errorlist.Add(ErrorType.source__lack_of_permissions_to_read);
 				errors_out = _errorlist.ToArray();
 				return _output;
 			}
@@ -612,13 +612,13 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return _output;
 			}
 			#endregion
-			#region check Permitions . . .
+			#region check Permissions . . .
 			if (
-				!_sessionuser.hasPermition(
-					PermitionType.Source__select_notApproved
+				!_sessionuser.hasPermission(
+					PermissionType.Source__select_notApproved
 				)
 			) {
-				_errorlist.Add(ErrorType.source__lack_of_permitions_to_read__not_approved);
+				_errorlist.Add(ErrorType.source__lack_of_permissions_to_read__not_approved);
 				errors_out = _errorlist.ToArray();
 				return _output;
 			}
@@ -679,15 +679,15 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return _output;
 			}
 			#endregion
-			#region check Permitions . . .
+			#region check Permissions . . .
 			if (
-				!_sessionuser.hasPermition(
+				!_sessionuser.hasPermission(
 					false,
-					PermitionType.News__select_OffSchedule,
-					PermitionType.News__select_OnSchedule
+					PermissionType.News__select_OffSchedule,
+					PermissionType.News__select_OnSchedule
 				)
 			) {
-				_errorlist.Add(ErrorType.news__lack_of_permitions_to_read);
+				_errorlist.Add(ErrorType.news__lack_of_permissions_to_read);
 				errors_out = _errorlist.ToArray();
 				return _output;
 			}

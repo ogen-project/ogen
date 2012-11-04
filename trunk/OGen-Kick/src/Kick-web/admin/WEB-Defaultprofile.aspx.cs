@@ -100,7 +100,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					delegate(
 						SO_vNET_Profile item_in
 					) {
-						return item_in.isDefaultprofile;
+						return item_in.IsDefault;
 					}
 				);
 			}

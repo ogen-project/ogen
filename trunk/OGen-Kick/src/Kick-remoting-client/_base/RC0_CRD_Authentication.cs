@@ -81,7 +81,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string ip_forLogPurposes_in, 
 			int idApplication_in, 
 			out long idUser_out, 
-			out long[] idPermitions_out, 
+			out long[] idPermissions_out, 
 			out int[] errors_out
 		) {
 			bo_.Login(
@@ -91,7 +91,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 				ip_forLogPurposes_in, 
 				idApplication_in, 
 				out idUser_out, 
-				out idPermitions_out, 
+				out idPermissions_out, 
 				out errors_out
 			);
 		}

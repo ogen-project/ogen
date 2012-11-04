@@ -4,10 +4,10 @@ ALTER TABLE "CRD_User"
   )
 ;
 
-ALTER TABLE "CRD_ProfilePermition"
-  ADD CONSTRAINT "CRD_ProfilePermition_pkey" PRIMARY KEY (
+ALTER TABLE "CRD_ProfilePermission"
+  ADD CONSTRAINT "CRD_ProfilePermission_pkey" PRIMARY KEY (
     "IFProfile",
-    "IFPermition"
+    "IFPermission"
   )
 ;
 
@@ -127,15 +127,15 @@ ALTER TABLE "NWS_UserTag"
   )
 ;
 
-ALTER TABLE "LOG_Logtype"
-  ADD CONSTRAINT "LOG_Logtype_pkey" PRIMARY KEY (
-    "IDLogtype"
+ALTER TABLE "LOG_Type"
+  ADD CONSTRAINT "LOG_Type_pkey" PRIMARY KEY (
+    "IDType"
   )
 ;
 
-ALTER TABLE "LOG_Errortype"
-  ADD CONSTRAINT "LOG_Errortype_pkey" PRIMARY KEY (
-    "IDErrortype"
+ALTER TABLE "LOG_Error"
+  ADD CONSTRAINT "LOG_Error_pkey" PRIMARY KEY (
+    "IDError"
   )
 ;
 
@@ -145,15 +145,15 @@ ALTER TABLE "LOG_Log"
   )
 ;
 
-ALTER TABLE "CRD_Permition"
-  ADD CONSTRAINT "CRD_Permition_pkey" PRIMARY KEY (
-    "IDPermition"
+ALTER TABLE "CRD_Permission"
+  ADD CONSTRAINT "CRD_Permission_pkey" PRIMARY KEY (
+    "IDPermission"
   )
 ;
 
-ALTER TABLE "NET_Defaultprofile"
-  ADD CONSTRAINT "NET_Defaultprofile_pkey" PRIMARY KEY (
-    "IDDefaultprofile"
+ALTER TABLE "NET_Profile__default"
+  ADD CONSTRAINT "NET_Profile__default_pkey" PRIMARY KEY (
+    "IFProfile"
   )
 ;
 
@@ -205,6 +205,18 @@ ALTER TABLE "APP_Application"
 ALTER TABLE "NET_User"
   ADD CONSTRAINT "NET_User_pkey" PRIMARY KEY (
     "IFUser"
+  )
+;
+
+ALTER TABLE "CRD_Table"
+  ADD CONSTRAINT "CRD_Table_pkey" PRIMARY KEY (
+    "IDTable"
+  )
+;
+
+ALTER TABLE "CRD_Action"
+  ADD CONSTRAINT "CRD_Action_pkey" PRIMARY KEY (
+    "IDAction"
   )
 ;
 

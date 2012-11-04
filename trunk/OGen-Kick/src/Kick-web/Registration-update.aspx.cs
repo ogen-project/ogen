@@ -29,7 +29,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 	public partial class Registration_update : SitePage {
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			if (!utils.User.isLoggedIn) {
+			if (!utils.User.IsLoggedIn) {
 				Response.Redirect(
 					"~/Registration.aspx",
 					true
@@ -174,7 +174,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 			if (!_foundErrors) {
 				int[] _errors;
-				WEB_User.InstanceClient.updObject_EMail(
+				WEB_User.InstanceClient.updObject_Email(
 					utils.User.SessionGuid,
 					utils.ClientIPAddress,
 					this.TXT_Email.Text,
@@ -279,7 +279,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 		#region public void Bind();
 		public void Bind() {
-			if (!utils.User.isLoggedIn) {
+			if (!utils.User.IsLoggedIn) {
 				Response.Redirect(
 					"~/Registration.aspx",
 					true
@@ -307,7 +307,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 				this.TXT_Email.Text
 					= this.HFI_Email.Value
-					= _user.EMail;
+					= _user.Email;
 			} else {
 				this.TXT_Name.Text
 					= this.HFI_Name.Value

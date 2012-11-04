@@ -2,7 +2,7 @@
 	"IFApplication_search_" integer, 
 	"IFUser__Publisher_search_" bigint, 
 
-	"IFUser__Aproved_search_" bigint, ----------------------- = 0  - Approved
+	"IFUser__Approved_search_" bigint, ----------------------- = 0  - Approved
 	--------------------------------------------------------- = -1 - Not Approved
 	--------------------------------------------------------- < -1 - ignore
 
@@ -111,11 +111,11 @@ $BODY$
 				("DIC_TextLanguage"."IFText" in (
 					"NWS_Content"."TX_Title", 
 					"NWS_Content"."TX_Content", 
-					"NWS_Content"."tx_subtitle"
+					"NWS_Content"."TX_Subtitle"
 				))
 			)
 			WHERE
-				("NWS_Content"."isNews_notForum")
+				("NWS_Content"."IsNews_notForum")
 				and
 				(
 					("IFApplication_search_" is null)
@@ -132,28 +132,28 @@ $BODY$
 				) 
 				and
 				(
-					("IFUser__Aproved_search_" < -1) -- < -1 !!! have in consideration argument comments
+					("IFUser__Approved_search_" < -1) -- < -1 !!! have in consideration argument comments
 					or 
 					(
 						(
-							("IFUser__Aproved_search_" is null)
+							("IFUser__Approved_search_" is null)
 							or
-							("IFUser__Aproved_search_" = -1)
+							("IFUser__Approved_search_" = -1)
 						)
 						and
-						("NWS_Content"."IFUser__Aproved" is null)
+						("NWS_Content"."IFUser__Approved" is null)
 					) 
 					or
 					(
-						("IFUser__Aproved_search_" = 0)
+						("IFUser__Approved_search_" = 0)
 						and
-						(not "NWS_Content"."IFUser__Aproved" is null)
+						(not "NWS_Content"."IFUser__Approved" is null)
 					)
 					or
 					(
-						not ("IFUser__Aproved_search_" is null)
+						not ("IFUser__Approved_search_" is null)
 						and
-						("NWS_Content"."IFUser__Aproved" = "IFUser__Aproved_search_")
+						("NWS_Content"."IFUser__Approved" = "IFUser__Approved_search_")
 					)
 				) 
 				and
@@ -172,10 +172,10 @@ $BODY$
 						select "OGen_fnc0__Like"(
 							(
 								case 
-									when (not "DIC_TextLanguage"."CharVar8000" is null) 
-										then "DIC_TextLanguage"."CharVar8000"
-									when (not "DIC_TextLanguage"."Text" is null) 
-										then "DIC_TextLanguage"."Text"
+									when (not "DIC_TextLanguage"."Text__small" is null) 
+										then "DIC_TextLanguage"."Text__small"
+									when (not "DIC_TextLanguage"."Text__large" is null) 
+										then "DIC_TextLanguage"."Text__large"
 									else
 										''
 								end
@@ -309,7 +309,7 @@ where
 		from "fnc_NWS_Content_Record_open_generic"(
 			null,		-- "IFApplication_search_" integer, 
 			null,		-- "IFUser__Publisher_search_" bigint, 
-			null,		-- "IFUser__Aproved_search_" bigint, 
+			null,		-- "IFUser__Approved_search_" bigint, 
 			null,		-- "Begin_date_search_" timestamp with time zone, 
 			null,		-- "End_date_search_" timestamp with time zone, 
 

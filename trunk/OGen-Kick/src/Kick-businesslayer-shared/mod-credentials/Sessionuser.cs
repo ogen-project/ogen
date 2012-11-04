@@ -20,36 +20,36 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 	public class Sessionuser {
 		public Sessionuser(
 			long idUser_in,
-			long[] idPermitions_in
+			long[] idPermissions_in
 		) {
 			this.IDUser = idUser_in;
-			this.IDPermitions = idPermitions_in;
+			this.IDPermissions = idPermissions_in;
 		}
 
 		public long IDUser;
-		public long[] IDPermitions;
+		public long[] IDPermissions;
 
-		#region public bool hasPermition(...);
-		public bool hasPermition(
-			long idPermition_in
+		#region public bool hasPermission(...);
+		public bool hasPermission(
+			long idPermission_in
 		) {
-			return this.hasPermition(
+			return this.hasPermission(
 				false,
-				idPermition_in
+				idPermission_in
 			);
 		}
 
-		public bool hasPermition(
+		public bool hasPermission(
 			bool forAll_notJustOne_in,
-			params long[] idPermitions_in
+			params long[] idPermissions_in
 		) {
 			int _total = 0;
-			for (int j = 0; j < idPermitions_in.Length; j++) {
-				for (int i = 0; i < this.IDPermitions.Length; i++) {
+			for (int j = 0; j < idPermissions_in.Length; j++) {
+				for (int i = 0; i < this.IDPermissions.Length; i++) {
 					if (
-						this.IDPermitions[i]
+						this.IDPermissions[i]
 						==
-						idPermitions_in[j]
+						idPermissions_in[j]
 					) {
 						if (!forAll_notJustOne_in)
 							return true;
@@ -57,7 +57,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 						break;
 					}
 				}
-				if (_total == idPermitions_in.Length)
+				if (_total == idPermissions_in.Length)
 					return true;
 			}
 

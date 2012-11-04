@@ -1,7 +1,7 @@
 ﻿CREATE OR REPLACE FUNCTION "sp_vNWS_Content_Record_open_generic"(
 	"IFApplication_search_" integer, 
 	"IFUser__Publisher_search_" bigint, 
-	"IFUser__Aproved_search_" bigint, 
+	"IFUser__Approved_search_" bigint, 
 	"Begin_date_search_" timestamp with time zone, 
 	"End_date_search_" timestamp with time zone, 
 	"IDTag_search_" character varying, 
@@ -26,7 +26,7 @@ $BODY$
 			INNER JOIN "fnc_vNWS_Content_Record_open_generic"(
 				"IFApplication_search_", 
 				"IFUser__Publisher_search_", 
-				"IFUser__Aproved_search_", 
+				"IFUser__Approved_search_", 
 				"Begin_date_search_", 
 				"End_date_search_", 
 				"IDTag_search_", 

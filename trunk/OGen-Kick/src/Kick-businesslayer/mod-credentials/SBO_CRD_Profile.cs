@@ -59,13 +59,13 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return _output;
 			}
 			#endregion
-			#region check Permitions . . .
+			#region check Permissions . . .
 			if (
-				!_sessionuser.hasPermition(
-					PermitionType.Profile__select
+				!_sessionuser.hasPermission(
+					PermissionType.Profile__select
 				)
 			) {
-				_errorlist.Add(ErrorType.profile__lack_of_permitions_to_read);
+				_errorlist.Add(ErrorType.profile__lack_of_permissions_to_read);
 				errors_out = _errorlist.ToArray();
 				return _output;
 			}
@@ -111,15 +111,15 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return false;
 			}
 			#endregion
-			#region check Permitions...
+			#region check Permissions...
 			if (
-				!sessionUser_out.hasPermition(
+				!sessionUser_out.hasPermission(
 					false, 
-					PermitionType.Profile__insert,
-					PermitionType.Profile__update
+					PermissionType.Profile__insert,
+					PermissionType.Profile__update
 				)
 			) {
-				errorlist_out.Add(ErrorType.profile__lack_of_permitions_to_write);
+				errorlist_out.Add(ErrorType.profile__lack_of_permissions_to_write);
 				return false;
 			}
 			#endregion
@@ -147,7 +147,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			long[] idProfile_parent_in, 
 //			long[] idUser_in, 
-			long[] idPermition_in, 
+			long[] idPermission_in, 
 
 			out int[] errors_out
 		) {
@@ -175,7 +175,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return _output;
 			}
 			if (profile_in.IFApplication != _sessionuser.IDApplication) {
-				_errorlist.Add(ErrorType.lack_of_permitions);
+				_errorlist.Add(ErrorType.lack_of_permissions);
 				errors_out = _errorlist.ToArray();
 				return _output;
 			}
@@ -204,9 +204,9 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 //					)
 //					||
 					(
-						(idPermition_in != null)
+						(idPermission_in != null)
 						&&
-						(idPermition_in.Length > 0)
+						(idPermission_in.Length > 0)
 					)
 				) {
 					_con.Open();
@@ -247,12 +247,12 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 //                    );
 //                }
 //                }
-				if (idPermition_in != null) {
-					for (int i = 0; i < idPermition_in.Length; i++) {
-						DO_CRD_ProfilePermition.setObject(
-							new SO_CRD_ProfilePermition(
+				if (idPermission_in != null) {
+					for (int i = 0; i < idPermission_in.Length; i++) {
+						DO_CRD_ProfilePermission.setObject(
+							new SO_CRD_ProfilePermission(
 								_output,
-								idPermition_in[i]
+								idPermission_in[i]
 							),
 							true,
 							_con
@@ -326,7 +326,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			long[] idProfile_parent_in,
 //			long[] idUser_in,
-			long[] idPermition_in,
+			long[] idPermission_in,
 			
 			out int[] errors_out
 		) {
@@ -342,7 +342,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			//			and new ones are set
 			//		}
 			// }
-			// SAME WITH idUser_in and idPermition_in
+			// SAME WITH idUser_in and idPermission_in
 
 
 			#region check...
@@ -373,7 +373,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				||
 				(_profile.IFApplication != _sessionuser.IDApplication)
 			) {
-				_errorlist.Add(ErrorType.lack_of_permitions);
+				_errorlist.Add(ErrorType.lack_of_permissions);
 				errors_out = _errorlist.ToArray();
 				return;
 			}
@@ -393,7 +393,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					||
 //					(idUser_in != null)
 //					||
-					(idPermition_in != null)
+					(idPermission_in != null)
 				) {
 					_con.Open();
 					_con.Transaction.Begin();
@@ -441,17 +441,17 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 //                        );
 //                    }
 //                }
-				if (idPermition_in != null) {
-					DO_CRD_ProfilePermition.delRecord_byProfile(
+				if (idPermission_in != null) {
+					DO_CRD_ProfilePermission.delRecord_byProfile(
 						profile_in.IDProfile,
 						_con
 					);
 
-					for (int i = 0; i < idPermition_in.Length; i++) {
-						DO_CRD_ProfilePermition.setObject(
-							new SO_CRD_ProfilePermition(
+					for (int i = 0; i < idPermission_in.Length; i++) {
+						DO_CRD_ProfilePermission.setObject(
+							new SO_CRD_ProfilePermission(
 								profile_in.IDProfile,
-								idPermition_in[i]
+								idPermission_in[i]
 							),
 							true,
 							_con
@@ -521,7 +521,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			long[] idProfile_parent_in,
 //			long[] idUser_in,
-			long[] idPermition_in,
+			long[] idPermission_in,
 			
 			out int[] errors_out
 		) {
@@ -534,7 +534,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 				idProfile_parent_in,
 //				idUser_in,
-				idPermition_in,
+				idPermission_in,
 			
 				out errors_out
 			);
@@ -550,7 +550,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			long[] idProfile_parent_in,
 //			long[] idUser_in,
-			long[] idPermition_in,
+			long[] idPermission_in,
 
 			out int[] errors_out
 		) {
@@ -567,7 +567,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 				idProfile_parent_in,
 //				idUser_in,
-				idPermition_in,
+				idPermission_in,
 
 				out errors_out
 			);
@@ -603,13 +603,13 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return;
 			}
 			#endregion
-			#region check Permitions...
+			#region check Permissions...
 			if (
-				!_sessionuser.hasPermition(
-					PermitionType.Profile__delete
+				!_sessionuser.hasPermission(
+					PermissionType.Profile__delete
 				)
 			) {
-				_errorlist.Add(ErrorType.profile__lack_of_permitions_to_delete);
+				_errorlist.Add(ErrorType.profile__lack_of_permissions_to_delete);
 				errors_out = _errorlist.ToArray();
 				return;
 			}
@@ -628,7 +628,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				_con.Transaction.Begin();
 
 #if MOD_WEB
-				DO_NET_Defaultprofile.delObject_byProfile(
+				DO_NET_Profile__default.delObject(
 					idProfile_in,
 
 					_con
@@ -646,7 +646,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 					_con
 				);
-				DO_CRD_ProfilePermition.delRecord_byProfile(
+				DO_CRD_ProfilePermission.delRecord_byProfile(
 					idProfile_in,
 
 					_con
@@ -745,11 +745,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return _output;
 			}
 			#endregion
-			#region check Permitions...
+			#region check Permissions...
 			if (
-				!_sessionuser.hasPermition(PermitionType.Profile__select)
+				!_sessionuser.hasPermission(PermissionType.Profile__select)
 			) {
-				_errorlist.Add(ErrorType.profile__lack_of_permitions_to_read);
+				_errorlist.Add(ErrorType.profile__lack_of_permissions_to_read);
 				errors_out = _errorlist.ToArray();
 				return _output;
 			}
@@ -809,11 +809,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return _output;
 			}
 			#endregion
-			#region check Permitions...
+			#region check Permissions...
 			if (
-				!_sessionuser.hasPermition(PermitionType.Profile__select)
+				!_sessionuser.hasPermission(PermissionType.Profile__select)
 			) {
-				_errorlist.Add(ErrorType.profile__lack_of_permitions_to_read);
+				_errorlist.Add(ErrorType.profile__lack_of_permissions_to_read);
 				errors_out = _errorlist.ToArray();
 				return _output;
 			}
@@ -866,13 +866,13 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return;
 			}
 			#endregion
-			#region check permitions...
+			#region check permissions...
 			if (
-				!_sessionuser.hasPermition(PermitionType.User__insert)
+				!_sessionuser.hasPermission(PermissionType.User__insert)
 				&&
-				!_sessionuser.hasPermition(PermitionType.User__update)
+				!_sessionuser.hasPermission(PermissionType.User__update)
 			) {
-				_errorlist.Add(ErrorType.lack_of_permitions);
+				_errorlist.Add(ErrorType.lack_of_permissions);
 				errors_out = _errorlist.ToArray();
 				return;
 			}
@@ -990,13 +990,13 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return _output;
 			}
 			#endregion
-			#region check Permitions...
+			#region check Permissions...
 			if (
 				(IDUser_search_in != _sessionuser.IDUser)
 				&&
-				!_sessionuser.hasPermition(PermitionType.User__select)
+				!_sessionuser.hasPermission(PermissionType.User__select)
 			) {
-				_errorlist.Add(ErrorType.user__lack_of_permitions_to_read);
+				_errorlist.Add(ErrorType.user__lack_of_permissions_to_read);
 				errors_out = _errorlist.ToArray();
 				return _output;
 			}
@@ -1018,9 +1018,9 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			return _output;
 		}
 		#endregion
-		#region public static SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(...);
-		[BOMethodAttribute("getRecord_ofProfilePermition_byProfile", true, false, 1)]
-		public static SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(
+		#region public static SO_vCRD_ProfilePermission[] getRecord_ofProfilePermission_byProfile(...);
+		[BOMethodAttribute("getRecord_ofProfilePermission_byProfile", true, false, 1)]
+		public static SO_vCRD_ProfilePermission[] getRecord_ofProfilePermission_byProfile(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
@@ -1034,7 +1034,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out int[] errors_out
 		) {
 			page_itemsCount_out = -1L;
-			SO_vCRD_ProfilePermition[] _output = null;
+			SO_vCRD_ProfilePermission[] _output = null;
 			List<int> _errorlist;
 			Guid _sessionguid;
 			Sessionuser _sessionuser;
@@ -1056,16 +1056,16 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			#endregion
 			#region check Admin . . .
 			if (
-				!_sessionuser.hasPermition(PermitionType.Profile__select)
+				!_sessionuser.hasPermission(PermissionType.Profile__select)
 			) {
-				_errorlist.Add(ErrorType.profile__lack_of_permitions_to_read);
+				_errorlist.Add(ErrorType.profile__lack_of_permissions_to_read);
 				errors_out = _errorlist.ToArray();
 				return _output;
 			}
 			#endregion
 
 			_output
-				= DO_vCRD_ProfilePermition.getRecord_byProfile(
+				= DO_vCRD_ProfilePermission.getRecord_byProfile(
 					IDProfile_search_in,
 
 					page_orderBy_in,

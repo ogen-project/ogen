@@ -8,24 +8,24 @@ GO
 ALTER TABLE "CRD_User" CHECK CONSTRAINT "CRD_User_IFApplication_fkey"
 GO
 
-ALTER TABLE "CRD_ProfilePermition" WITH CHECK 
-	ADD CONSTRAINT "CRD_ProfilePermition_IFProfile_fkey" FOREIGN KEY (
+ALTER TABLE "CRD_ProfilePermission" WITH CHECK 
+	ADD CONSTRAINT "CRD_ProfilePermission_IFProfile_fkey" FOREIGN KEY (
 		"IFProfile"
 	) REFERENCES "CRD_Profile" (
 		"IDProfile"
 	)
 GO
-ALTER TABLE "CRD_ProfilePermition" CHECK CONSTRAINT "CRD_ProfilePermition_IFProfile_fkey"
+ALTER TABLE "CRD_ProfilePermission" CHECK CONSTRAINT "CRD_ProfilePermission_IFProfile_fkey"
 GO
 
-ALTER TABLE "CRD_ProfilePermition" WITH CHECK 
-	ADD CONSTRAINT "CRD_ProfilePermition_IFPermition_fkey" FOREIGN KEY (
-		"IFPermition"
-	) REFERENCES "CRD_Permition" (
-		"IDPermition"
+ALTER TABLE "CRD_ProfilePermission" WITH CHECK 
+	ADD CONSTRAINT "CRD_ProfilePermission_IFPermission_fkey" FOREIGN KEY (
+		"IFPermission"
+	) REFERENCES "CRD_Permission" (
+		"IDPermission"
 	)
 GO
-ALTER TABLE "CRD_ProfilePermition" CHECK CONSTRAINT "CRD_ProfilePermition_IFPermition_fkey"
+ALTER TABLE "CRD_ProfilePermission" CHECK CONSTRAINT "CRD_ProfilePermission_IFPermission_fkey"
 GO
 
 ALTER TABLE "DIC_Language" WITH CHECK 
@@ -219,23 +219,23 @@ ALTER TABLE "NWS_Content" CHECK CONSTRAINT "NWS_Content_IFUser__Publisher_fkey"
 GO
 
 ALTER TABLE "NWS_Content" WITH CHECK 
-	ADD CONSTRAINT "NWS_Content_tx_summary_fkey" FOREIGN KEY (
-		"tx_summary"
+	ADD CONSTRAINT "NWS_Content_TX_Summary_fkey" FOREIGN KEY (
+		"TX_Summary"
 	) REFERENCES "DIC_Text" (
 		"IDText"
 	)
 GO
-ALTER TABLE "NWS_Content" CHECK CONSTRAINT "NWS_Content_tx_summary_fkey"
+ALTER TABLE "NWS_Content" CHECK CONSTRAINT "NWS_Content_TX_Summary_fkey"
 GO
 
 ALTER TABLE "NWS_Content" WITH CHECK 
-	ADD CONSTRAINT "NWS_Content_tx_subtitle_fkey" FOREIGN KEY (
-		"tx_subtitle"
+	ADD CONSTRAINT "NWS_Content_TX_Subtitle_fkey" FOREIGN KEY (
+		"TX_Subtitle"
 	) REFERENCES "DIC_Text" (
 		"IDText"
 	)
 GO
-ALTER TABLE "NWS_Content" CHECK CONSTRAINT "NWS_Content_tx_subtitle_fkey"
+ALTER TABLE "NWS_Content" CHECK CONSTRAINT "NWS_Content_TX_Subtitle_fkey"
 GO
 
 ALTER TABLE "NWS_Content" WITH CHECK 
@@ -259,13 +259,13 @@ ALTER TABLE "NWS_Content" CHECK CONSTRAINT "NWS_Content_TX_Title_fkey"
 GO
 
 ALTER TABLE "NWS_Content" WITH CHECK 
-	ADD CONSTRAINT "NWS_Content_IFUser__Aproved_fkey" FOREIGN KEY (
-		"IFUser__Aproved"
+	ADD CONSTRAINT "NWS_Content_IFUser__Approved_fkey" FOREIGN KEY (
+		"IFUser__Approved"
 	) REFERENCES "NET_User" (
 		"IFUser"
 	)
 GO
-ALTER TABLE "NWS_Content" CHECK CONSTRAINT "NWS_Content_IFUser__Aproved_fkey"
+ALTER TABLE "NWS_Content" CHECK CONSTRAINT "NWS_Content_IFUser__Approved_fkey"
 GO
 
 ALTER TABLE "FOR_Message" WITH CHECK 
@@ -478,34 +478,34 @@ GO
 ALTER TABLE "NWS_UserTag" CHECK CONSTRAINT "NWS_UserTag_IFTag_fkey"
 GO
 
-ALTER TABLE "LOG_Logtype" WITH CHECK 
-	ADD CONSTRAINT "LOG_Logtype_IFApplication_fkey" FOREIGN KEY (
+ALTER TABLE "LOG_Type" WITH CHECK 
+	ADD CONSTRAINT "LOG_Type_IFApplication_fkey" FOREIGN KEY (
 		"IFApplication"
 	) REFERENCES "APP_Application" (
 		"IDApplication"
 	)
 GO
-ALTER TABLE "LOG_Logtype" CHECK CONSTRAINT "LOG_Logtype_IFApplication_fkey"
+ALTER TABLE "LOG_Type" CHECK CONSTRAINT "LOG_Type_IFApplication_fkey"
 GO
 
-ALTER TABLE "LOG_Logtype" WITH CHECK 
-	ADD CONSTRAINT "LOG_Logtype_IFLogtype_parent_fkey" FOREIGN KEY (
-		"IFLogtype_parent"
-	) REFERENCES "LOG_Logtype" (
-		"IDLogtype"
+ALTER TABLE "LOG_Type" WITH CHECK 
+	ADD CONSTRAINT "LOG_Type_IFType_parent_fkey" FOREIGN KEY (
+		"IFType_parent"
+	) REFERENCES "LOG_Type" (
+		"IDType"
 	)
 GO
-ALTER TABLE "LOG_Logtype" CHECK CONSTRAINT "LOG_Logtype_IFLogtype_parent_fkey"
+ALTER TABLE "LOG_Type" CHECK CONSTRAINT "LOG_Type_IFType_parent_fkey"
 GO
 
-ALTER TABLE "LOG_Errortype" WITH CHECK 
-	ADD CONSTRAINT "LOG_Errortype_IFApplication_fkey" FOREIGN KEY (
+ALTER TABLE "LOG_Error" WITH CHECK 
+	ADD CONSTRAINT "LOG_Error_IFApplication_fkey" FOREIGN KEY (
 		"IFApplication"
 	) REFERENCES "APP_Application" (
 		"IDApplication"
 	)
 GO
-ALTER TABLE "LOG_Errortype" CHECK CONSTRAINT "LOG_Errortype_IFApplication_fkey"
+ALTER TABLE "LOG_Error" CHECK CONSTRAINT "LOG_Error_IFApplication_fkey"
 GO
 
 ALTER TABLE "LOG_Log" WITH CHECK 
@@ -529,13 +529,13 @@ ALTER TABLE "LOG_Log" CHECK CONSTRAINT "LOG_Log_IFUser__read_fkey"
 GO
 
 ALTER TABLE "LOG_Log" WITH CHECK 
-	ADD CONSTRAINT "LOG_Log_IFPermition_fkey" FOREIGN KEY (
-		"IFPermition"
-	) REFERENCES "CRD_Permition" (
-		"IDPermition"
+	ADD CONSTRAINT "LOG_Log_IFPermission_fkey" FOREIGN KEY (
+		"IFPermission"
+	) REFERENCES "CRD_Permission" (
+		"IDPermission"
 	)
 GO
-ALTER TABLE "LOG_Log" CHECK CONSTRAINT "LOG_Log_IFPermition_fkey"
+ALTER TABLE "LOG_Log" CHECK CONSTRAINT "LOG_Log_IFPermission_fkey"
 GO
 
 ALTER TABLE "LOG_Log" WITH CHECK 
@@ -549,43 +549,63 @@ ALTER TABLE "LOG_Log" CHECK CONSTRAINT "LOG_Log_IFApplication_fkey"
 GO
 
 ALTER TABLE "LOG_Log" WITH CHECK 
-	ADD CONSTRAINT "LOG_Log_IFLogtype_fkey" FOREIGN KEY (
-		"IFLogtype"
-	) REFERENCES "LOG_Logtype" (
-		"IDLogtype"
+	ADD CONSTRAINT "LOG_Log_IFType_fkey" FOREIGN KEY (
+		"IFType"
+	) REFERENCES "LOG_Type" (
+		"IDType"
 	)
 GO
-ALTER TABLE "LOG_Log" CHECK CONSTRAINT "LOG_Log_IFLogtype_fkey"
+ALTER TABLE "LOG_Log" CHECK CONSTRAINT "LOG_Log_IFType_fkey"
 GO
 
 ALTER TABLE "LOG_Log" WITH CHECK 
-	ADD CONSTRAINT "LOG_Log_IFErrortype_fkey" FOREIGN KEY (
-		"IFErrortype"
-	) REFERENCES "LOG_Errortype" (
-		"IDErrortype"
+	ADD CONSTRAINT "LOG_Log_IFError_fkey" FOREIGN KEY (
+		"IFError"
+	) REFERENCES "LOG_Error" (
+		"IDError"
 	)
 GO
-ALTER TABLE "LOG_Log" CHECK CONSTRAINT "LOG_Log_IFErrortype_fkey"
+ALTER TABLE "LOG_Log" CHECK CONSTRAINT "LOG_Log_IFError_fkey"
 GO
 
-ALTER TABLE "CRD_Permition" WITH CHECK 
-	ADD CONSTRAINT "CRD_Permition_IFApplication_fkey" FOREIGN KEY (
+ALTER TABLE "CRD_Permission" WITH CHECK 
+	ADD CONSTRAINT "CRD_Permission_IFApplication_fkey" FOREIGN KEY (
 		"IFApplication"
 	) REFERENCES "APP_Application" (
 		"IDApplication"
 	)
 GO
-ALTER TABLE "CRD_Permition" CHECK CONSTRAINT "CRD_Permition_IFApplication_fkey"
+ALTER TABLE "CRD_Permission" CHECK CONSTRAINT "CRD_Permission_IFApplication_fkey"
 GO
 
-ALTER TABLE "NET_Defaultprofile" WITH CHECK 
-	ADD CONSTRAINT "NET_Defaultprofile_IFProfile_fkey" FOREIGN KEY (
+ALTER TABLE "CRD_Permission" WITH CHECK 
+	ADD CONSTRAINT "CRD_Permission_IFTable_fkey" FOREIGN KEY (
+		"IFTable"
+	) REFERENCES "CRD_Table" (
+		"IDTable"
+	)
+GO
+ALTER TABLE "CRD_Permission" CHECK CONSTRAINT "CRD_Permission_IFTable_fkey"
+GO
+
+ALTER TABLE "CRD_Permission" WITH CHECK 
+	ADD CONSTRAINT "CRD_Permission_IFAction_fkey" FOREIGN KEY (
+		"IFAction"
+	) REFERENCES "CRD_Action" (
+		"IDAction"
+	)
+GO
+ALTER TABLE "CRD_Permission" CHECK CONSTRAINT "CRD_Permission_IFAction_fkey"
+GO
+
+ALTER TABLE "NET_Profile__default" WITH CHECK 
+	ADD CONSTRAINT "NET_Profile__default_IFProfile_fkey" FOREIGN KEY (
 		"IFProfile"
 	) REFERENCES "CRD_Profile" (
 		"IDProfile"
 	)
 GO
-ALTER TABLE "NET_Defaultprofile" CHECK CONSTRAINT "NET_Defaultprofile_IFProfile_fkey"
+ALTER TABLE "NET_Profile__default" CHECK CONSTRAINT "NET_Profile__default_IFProfile_fkey"
 GO
 
 ALTER TABLE "NET_BrowserUser" WITH CHECK 

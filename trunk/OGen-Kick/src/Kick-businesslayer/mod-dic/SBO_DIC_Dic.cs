@@ -57,9 +57,9 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return;
 			}
 			#endregion
-			#region check permitions...
-			if (!_sessionuser.hasPermition(PermitionType.Language__insert)) {
-				_errorlist.Add(ErrorType.language__lack_of_permitions_to_write);
+			#region check permissions...
+			if (!_sessionuser.hasPermission(PermissionType.Language__insert)) {
+				_errorlist.Add(ErrorType.language__lack_of_permissions_to_write);
 				errors_out = _errorlist.ToArray();
 				return;
 			}
@@ -134,11 +134,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					).TX_Name;
 					_textlanguage.IFLanguage = _idlanguage;
 					if (existingLanguagesInNewLanguage_in[i].Text.Length > 8000) {
-						_textlanguage.Text = existingLanguagesInNewLanguage_in[i].Text;
-						_textlanguage.CharVar8000_isNull = true;
+						_textlanguage.Text__large = existingLanguagesInNewLanguage_in[i].Text;
+						_textlanguage.Text__small_isNull = true;
 					} else {
-						_textlanguage.Text_isNull = true;
-						_textlanguage.CharVar8000 = existingLanguagesInNewLanguage_in[i].Text;
+						_textlanguage.Text__large_isNull = true;
+						_textlanguage.Text__small = existingLanguagesInNewLanguage_in[i].Text;
 					}
 
 					DO_DIC_TextLanguage.setObject(
@@ -228,9 +228,9 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return;
 			}
 			#endregion
-			#region check permitions...
-			if (!_sessionuser.hasPermition(PermitionType.Language__update)) {
-				_errorlist.Add(ErrorType.language__lack_of_permitions_to_write);
+			#region check permissions...
+			if (!_sessionuser.hasPermission(PermissionType.Language__update)) {
+				_errorlist.Add(ErrorType.language__lack_of_permissions_to_write);
 				errors_out = _errorlist.ToArray();
 				return;
 			}
@@ -341,9 +341,9 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return;
 			}
 			#endregion
-			#region check permitions...
-			if (!_sessionuser.hasPermition(PermitionType.Language__delete)) {
-				_errorlist.Add(ErrorType.language__lack_of_permitions_to_delete);
+			#region check permissions...
+			if (!_sessionuser.hasPermission(PermissionType.Language__delete)) {
+				_errorlist.Add(ErrorType.language__lack_of_permissions_to_delete);
 				errors_out = _errorlist.ToArray();
 				return;
 			}
@@ -476,9 +476,9 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return;
 			}
 			#endregion
-			#region check permitions...
-			if (!_sessionuser.hasPermition(PermitionType.Language__set_supported)) {
-				_errorlist.Add(ErrorType.language__lack_of_permitions_to_set);
+			#region check permissions...
+			if (!_sessionuser.hasPermission(PermissionType.Language__set_supported)) {
+				_errorlist.Add(ErrorType.language__lack_of_permissions_to_set);
 				errors_out = _errorlist.ToArray();
 				return;
 			}
@@ -637,11 +637,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 						""
 					);
 				if (_text.Text.Length > 8000) {
-					_textlanguage.Text = _text.Text;
-					_textlanguage.CharVar8000_isNull = true;
+					_textlanguage.Text__large = _text.Text;
+					_textlanguage.Text__small_isNull = true;
 				} else {
-					_textlanguage.Text_isNull = true;
-					_textlanguage.CharVar8000 = _text.Text;
+					_textlanguage.Text__large_isNull = true;
+					_textlanguage.Text__small = _text.Text;
 				}
 				#endregion
 				DO_DIC_TextLanguage.setObject(
@@ -775,7 +775,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 			#endregion
 
-			// ToDos: here! check permitions... not very important
+			// ToDos: here! check permissions... not very important
 
 			return DO_vDIC_Language.getRecord_byLanguage(
 				idLanguage_in,
@@ -826,7 +826,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 			#endregion
 
-			// ToDos: here! check permitions... not very important
+			// ToDos: here! check permissions... not very important
 
 			return DO_vDIC_Language.getRecord_Language(
 				idLanguage_in,

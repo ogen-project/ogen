@@ -3,16 +3,16 @@ CREATE TABLE "NWS_Content" (
 	"IFApplication" "int" NULL, 
 	"IFUser__Publisher" "bigint" NOT NULL, 
 	"Publish_date" "datetime" NOT NULL, 
-	"IFUser__Aproved" "bigint" NULL, 
-	"Aproved_date" "datetime" NULL, 
+	"IFUser__Approved" "bigint" NULL, 
+	"Approved_date" "datetime" NULL, 
 	"Begin_date" "datetime" NULL, 
 	"End_date" "datetime" NULL, 
 	"TX_Title" "bigint" NULL, 
 	"TX_Content" "bigint" NULL, 
-	"tx_subtitle" "bigint" NULL, 
-	"tx_summary" "bigint" NULL, 
+	"TX_Subtitle" "bigint" NULL, 
+	"TX_Summary" "bigint" NULL, 
 	"Newslettersent_date" "datetime" NULL, 
-	"isNews_notForum" "bit" NULL, 
+	"IsNews_notForum" "bit" NULL, 
 
 	CONSTRAINT "PK_NWS_Content" PRIMARY KEY CLUSTERED (
 		"IDContent" ASC
@@ -98,7 +98,7 @@ GO
 		@level1name = 'NWS_Content', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'IFUser__Aproved';
+		@level2name = 'IFUser__Approved';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -111,7 +111,7 @@ GO
 		@level1name = 'NWS_Content', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'Aproved_date';
+		@level2name = 'Approved_date';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -176,7 +176,7 @@ GO
 		@level1name = 'NWS_Content', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'tx_subtitle';
+		@level2name = 'TX_Subtitle';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -189,7 +189,7 @@ GO
 		@level1name = 'NWS_Content', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'tx_summary';
+		@level2name = 'TX_Summary';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -215,6 +215,6 @@ GO
 		@level1name = 'NWS_Content', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'isNews_notForum';
+		@level2name = 'IsNews_notForum';
 	GO
 

@@ -94,7 +94,7 @@
 											Text_CssClass="textbox_dim45"
 											Label_CssClass="label_small"
 											Rows="12" 
-											isHorizontal_notVertical="false" />
+											IsHorizontal_notVertical="false" />
 									</td>
 								</tr>
 								<tr>
@@ -107,7 +107,7 @@
 											Text_CssClass="textbox_dim45"
 											Label_CssClass="label_small"
 											Rows="6" 
-											isHorizontal_notVertical="false" />
+											IsHorizontal_notVertical="false" />
 									</td>
 								</tr>
 								<tr>
@@ -156,7 +156,7 @@
 													class="label_small">
 														<span 
 															runat="server"
-															visible='<%# !(bool)DataBinder.Eval(Container.DataItem, "isImage") %>'>
+															visible='<%# !(bool)DataBinder.Eval(Container.DataItem, "IsImage") %>'>
 															download
 														</span>
 														<img 
@@ -165,7 +165,7 @@
 															src=""
 
 															alt='<%# DataBinder.Eval(Container.DataItem, "FileName") %>'
-															visible='<%# (bool)DataBinder.Eval(Container.DataItem, "isImage") %>'
+															visible='<%# (bool)DataBinder.Eval(Container.DataItem, "IsImage") %>'
 															style="
 																min-widthXXX: 120px;
 																min-heightXXX: 120px;
@@ -186,7 +186,7 @@
 													Text_CssClass="textbox_dim3"
 													Label_CssClass="label_small"
 													Rows="4" 
-													isHorizontal_notVertical="false" />
+													IsHorizontal_notVertical="false" />
 											</td>
 										</tr>
 										<tr>

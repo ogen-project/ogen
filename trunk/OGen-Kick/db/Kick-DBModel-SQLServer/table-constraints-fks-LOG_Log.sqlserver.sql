@@ -19,13 +19,13 @@ ALTER TABLE "LOG_Log" CHECK CONSTRAINT "LOG_Log_IFUser__read_fkey"
 GO
 
 ALTER TABLE "LOG_Log" WITH CHECK 
-	ADD CONSTRAINT "LOG_Log_IFPermition_fkey" FOREIGN KEY (
-		"IFPermition"
-	) REFERENCES "CRD_Permition" (
-		"IDPermition"
+	ADD CONSTRAINT "LOG_Log_IFPermission_fkey" FOREIGN KEY (
+		"IFPermission"
+	) REFERENCES "CRD_Permission" (
+		"IDPermission"
 	)
 GO
-ALTER TABLE "LOG_Log" CHECK CONSTRAINT "LOG_Log_IFPermition_fkey"
+ALTER TABLE "LOG_Log" CHECK CONSTRAINT "LOG_Log_IFPermission_fkey"
 GO
 
 ALTER TABLE "LOG_Log" WITH CHECK 
@@ -39,22 +39,22 @@ ALTER TABLE "LOG_Log" CHECK CONSTRAINT "LOG_Log_IFApplication_fkey"
 GO
 
 ALTER TABLE "LOG_Log" WITH CHECK 
-	ADD CONSTRAINT "LOG_Log_IFLogtype_fkey" FOREIGN KEY (
-		"IFLogtype"
-	) REFERENCES "LOG_Logtype" (
-		"IDLogtype"
+	ADD CONSTRAINT "LOG_Log_IFType_fkey" FOREIGN KEY (
+		"IFType"
+	) REFERENCES "LOG_Type" (
+		"IDType"
 	)
 GO
-ALTER TABLE "LOG_Log" CHECK CONSTRAINT "LOG_Log_IFLogtype_fkey"
+ALTER TABLE "LOG_Log" CHECK CONSTRAINT "LOG_Log_IFType_fkey"
 GO
 
 ALTER TABLE "LOG_Log" WITH CHECK 
-	ADD CONSTRAINT "LOG_Log_IFErrortype_fkey" FOREIGN KEY (
-		"IFErrortype"
-	) REFERENCES "LOG_Errortype" (
-		"IDErrortype"
+	ADD CONSTRAINT "LOG_Log_IFError_fkey" FOREIGN KEY (
+		"IFError"
+	) REFERENCES "LOG_Error" (
+		"IDError"
 	)
 GO
-ALTER TABLE "LOG_Log" CHECK CONSTRAINT "LOG_Log_IFErrortype_fkey"
+ALTER TABLE "LOG_Log" CHECK CONSTRAINT "LOG_Log_IFError_fkey"
 GO
 

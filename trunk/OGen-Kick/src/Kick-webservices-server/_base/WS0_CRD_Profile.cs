@@ -118,9 +118,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(...);
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermission[] getRecord_ofProfilePermission_byProfile(...);
 		[WebMethod]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermission[] getRecord_ofProfilePermission_byProfile(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long IDProfile_search_in, 
@@ -130,7 +130,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.getRecord_ofProfilePermition_byProfile(
+			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.getRecord_ofProfilePermission_byProfile(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -177,7 +177,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
 			long[] idProfile_parent_in, 
-			long[] idPermition_in, 
+			long[] idPermission_in, 
 			out int[] errors_out
 		) {
 			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.insObject(
@@ -187,7 +187,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 					: ip_forLogPurposes_in, 
 				profile_in, 
 				idProfile_parent_in, 
-				idPermition_in, 
+				idPermission_in, 
 				out errors_out
 			);
 		}
@@ -219,7 +219,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
 			long[] idProfile_parent_in, 
-			long[] idPermition_in, 
+			long[] idPermission_in, 
 			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.updObject(
@@ -229,7 +229,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 					: ip_forLogPurposes_in, 
 				profile_in, 
 				idProfile_parent_in, 
-				idPermition_in, 
+				idPermission_in, 
 				out errors_out
 			);
 		}
@@ -241,7 +241,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
 			long[] idProfile_parent_in, 
-			long[] idPermition_in, 
+			long[] idPermission_in, 
 			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.updObject_relationsOnly(
@@ -251,7 +251,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 					: ip_forLogPurposes_in, 
 				idProfile_in, 
 				idProfile_parent_in, 
-				idPermition_in, 
+				idPermission_in, 
 				out errors_out
 			);
 		}

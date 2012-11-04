@@ -1,8 +1,8 @@
 CREATE TABLE "NET_User" (
 	"IFUser" "bigint" NOT NULL, 
 	"Name" "varchar"(255) NULL, 
-	"EMail" "varchar"(255) NOT NULL, 
-	"EMail_verify" "varchar"(255) NULL, 
+	"Email" "varchar"(255) NOT NULL, 
+	"Email_verify" "varchar"(255) NULL, 
 	"IFApplication" "int" NULL, 
 
 	CONSTRAINT "PK_NET_User" PRIMARY KEY CLUSTERED (
@@ -63,7 +63,7 @@ GO
 		@level1name = 'NET_User', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'EMail';
+		@level2name = 'Email';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -76,7 +76,7 @@ GO
 		@level1name = 'NET_User', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'EMail_verify';
+		@level2name = 'Email_verify';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 

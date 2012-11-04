@@ -122,7 +122,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string ip_forLogPurposes_in, 
 			int idApplication_in, 
 			out long idUser_out, 
-			out long[] idPermitions_out, 
+			out long[] idPermissions_out, 
 			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -136,7 +136,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				}
 			);
 			idUser_out = (long)results[0];
-			idPermitions_out = (long[])results[1];
+			idPermissions_out = (long[])results[1];
 			errors_out = (int[])results[2];
 		}
 		#endregion

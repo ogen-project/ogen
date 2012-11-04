@@ -101,7 +101,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 				this.TXT_Name.Text = _user.Name;
 				this.TXT_LogOn.Text = _user.Login;
-				this.TXT_Email.Text = _user.EMail;
+				this.TXT_Email.Text = _user.Email;
 			}
 
 			SO_vCRD_UserProfile[] _profiles

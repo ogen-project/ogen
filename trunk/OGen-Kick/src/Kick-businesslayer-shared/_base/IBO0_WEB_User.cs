@@ -66,7 +66,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			int idApplication_in, 
 			out long idUser_out, 
 			out string login_out, 
-			out long[] idPermitions_out, 
+			out long[] idPermissions_out, 
 			out int[] errors_out
 		);
 		void Login_throughLink(
@@ -77,7 +77,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			out long idUser_out, 
 			out string login_out, 
 			out string name_out, 
-			out long[] idPermitions_out, 
+			out long[] idPermissions_out, 
 			out int[] errors_out
 		);
 		void Login_throughLink_andChangePassword(
@@ -89,11 +89,11 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			out long idUser_out, 
 			out string login_out, 
 			out string name_out, 
-			out long[] idPermitions_out, 
+			out long[] idPermissions_out, 
 			out int[] errors_out
 		);
 		void LostPassword_Recover(
-			string EMail_in, 
+			string Email_in, 
 			string companyName_in, 
 			string recoverLostPasswordURL_in, 
 			int idApplication_in, 
@@ -107,10 +107,10 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string name_in, 
 			out int[] errors_out
 		);
-		void updObject_EMail(
+		void updObject_Email(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			string EMail_verify_in, 
+			string Email_verify_in, 
 			string companyName_in, 
 			string verifyMailURL_in, 
 			out int[] errors_out

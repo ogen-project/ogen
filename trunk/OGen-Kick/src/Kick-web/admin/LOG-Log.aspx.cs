@@ -269,18 +269,18 @@ false,
 				foreach (SO_LOG_Log _log in _logs) {
 					_logdetails.Add(new LogDetails(
 						_log.IDLog,
-						_log.IFLogtype,
+						_log.IFType,
 						_log.Stamp,
 						_log.Message.Replace("\n", "<br />"),
 						_log.IFUser,
-						_log.IFErrortype,
+						_log.IFError,
 						_log.IFUser__read, 
 						_log.Stamp__read,
 						_log.IFApplication, 
 						_log.IFBrowser__OPT, 
 
-						LogType.Items.ContainsKey(_log.IFLogtype) ? LogType.Items[_log.IFLogtype].Name.Replace(" - ", "<br />/") : "---",
-						!ErrorType.Items.ContainsKey(_log.IFErrortype) ? "???" : (_log.IFErrortype_isNull ? "---" : ErrorType.Items[_log.IFErrortype].Name.Replace(" - ", "<br />/")),
+						LogType.Items.ContainsKey(_log.IFType) ? LogType.Items[_log.IFType].Name.Replace(" - ", "<br />/") : "---",
+						!ErrorType.Items.ContainsKey(_log.IFError) ? "???" : (_log.IFError_isNull ? "---" : ErrorType.Items[_log.IFError].Name.Replace(" - ", "<br />/")),
 						_log.Stamp.ToString("ddMMMyyyy<br />HH:mm:ss", System.Globalization.CultureInfo.CurrentCulture),
 						!this.CBX_Read.Checked
 					));

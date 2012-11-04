@@ -14,10 +14,10 @@ as
 		"NET_User"."Name" as "ManagerName", 
 
 		case 
-			when not _tx_name."CharVar8000" is null 
-				then _tx_name."CharVar8000"
-			when not _tx_name."Text" is null 
-				then _tx_name."Text"
+			when not _tx_name."Text__small" is null 
+				then _tx_name."Text__small"
+			when not _tx_name."Text__large" is null 
+				then _tx_name."Text__large"
 			else ''
 		end as "ShortName"
 

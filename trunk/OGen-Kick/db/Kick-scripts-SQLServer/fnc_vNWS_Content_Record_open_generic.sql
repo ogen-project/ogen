@@ -5,7 +5,7 @@
 alter FUNCTION [dbo].[fnc_vNWS_Content_Record_open_generic](
 	@IFApplication_search_ int, 
 	@IFUser__Publisher_search_ bigint, 
-	@IFUser__Aproved_search_ bigint, 
+	@IFUser__Approved_search_ bigint, 
 	@Begin_date_search_ datetime, 
 	@End_date_search_ datetime, 
 	@IDTag_search_ varchar (8000), 
@@ -26,7 +26,7 @@ RETURN
 	FROM "fnc_NWS_Content_Record_open_generic"(
 		@IFApplication_search_, 
 		@IFUser__Publisher_search_, 
-		@IFUser__Aproved_search_, 
+		@IFUser__Approved_search_, 
 		@Begin_date_search_, 
 		@End_date_search_, 
 		@IDTag_search_, 

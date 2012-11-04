@@ -113,7 +113,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			int idApplication_in, 
 			out long idUser_out, 
 			out string login_out, 
-			out long[] idPermitions_out, 
+			out long[] idPermissions_out, 
 			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_WEB_User.Login(
@@ -124,7 +124,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				idApplication_in, 
 				out idUser_out, 
 				out login_out, 
-				out idPermitions_out, 
+				out idPermissions_out, 
 				out errors_out
 			);
 		}
@@ -138,7 +138,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out long idUser_out, 
 			out string login_out, 
 			out string name_out, 
-			out long[] idPermitions_out, 
+			out long[] idPermissions_out, 
 			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_WEB_User.Login_throughLink(
@@ -149,7 +149,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				out idUser_out, 
 				out login_out, 
 				out name_out, 
-				out idPermitions_out, 
+				out idPermissions_out, 
 				out errors_out
 			);
 		}
@@ -164,7 +164,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out long idUser_out, 
 			out string login_out, 
 			out string name_out, 
-			out long[] idPermitions_out, 
+			out long[] idPermissions_out, 
 			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_WEB_User.Login_throughLink_andChangePassword(
@@ -176,21 +176,21 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				out idUser_out, 
 				out login_out, 
 				out name_out, 
-				out idPermitions_out, 
+				out idPermissions_out, 
 				out errors_out
 			);
 		}
 		#endregion
 		#region public void LostPassword_Recover(...);
 		public void LostPassword_Recover(
-			string EMail_in, 
+			string Email_in, 
 			string companyName_in, 
 			string recoverLostPasswordURL_in, 
 			int idApplication_in, 
 			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_WEB_User.LostPassword_Recover(
-				EMail_in, 
+				Email_in, 
 				companyName_in, 
 				recoverLostPasswordURL_in, 
 				idApplication_in, 
@@ -217,19 +217,19 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			);
 		}
 		#endregion
-		#region public void updObject_EMail(...);
-		public void updObject_EMail(
+		#region public void updObject_Email(...);
+		public void updObject_Email(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			string EMail_verify_in, 
+			string Email_verify_in, 
 			string companyName_in, 
 			string verifyMailURL_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_WEB_User.updObject_EMail(
+			OGen.NTier.Kick.lib.businesslayer.SBO_WEB_User.updObject_Email(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
-				EMail_verify_in, 
+				Email_verify_in, 
 				companyName_in, 
 				verifyMailURL_in, 
 				out errors_out

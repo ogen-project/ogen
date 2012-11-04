@@ -1,8 +1,8 @@
 CREATE TABLE "DIC_TextLanguage" (
 	"IFText" "bigint" NOT NULL, 
 	"IFLanguage" "int" NOT NULL, 
-	"CharVar8000" "varchar"(8000) NULL, 
-	"Text" "text" NULL, 
+	"Text__small" "varchar"(8000) NULL, 
+	"Text__large" "text" NULL, 
 
 	CONSTRAINT "PK_DIC_TextLanguage" PRIMARY KEY CLUSTERED (
 		"IFText" ASC, 
@@ -63,7 +63,7 @@ GO
 		@level1name = 'DIC_TextLanguage', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'CharVar8000';
+		@level2name = 'Text__small';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -76,6 +76,6 @@ GO
 		@level1name = 'DIC_TextLanguage', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'Text';
+		@level2name = 'Text__large';
 	GO
 

@@ -61,11 +61,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return;
 			}
 			#endregion
-			#region check Permitions...
+			#region check Permissions...
 			if (
-				!_sessionuser.hasPermition(PermitionType.Profile__insert)
+				!_sessionuser.hasPermission(PermissionType.Profile__insert)
 			) {
-				_errorlist.Add(ErrorType.profile__lack_of_permitions_to_write);
+				_errorlist.Add(ErrorType.profile__lack_of_permissions_to_write);
 				errors_out = _errorlist.ToArray();
 				return;
 			}
@@ -84,7 +84,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				_con.Open();
 				_con.Transaction.Begin();
 
-				DO_NET_Defaultprofile.delRecord_all(
+				DO_NET_Profile__default.delRecord_all(
 					_sessionuser.IDApplication,
 					_con
 				);
@@ -93,9 +93,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					//	idProfile_in[i],
 					//	_sessionuser.IDApplication
 					//)) {
-					DO_NET_Defaultprofile.insObject(
-						new SO_NET_Defaultprofile(
-							-1L,
+					DO_NET_Profile__default.setObject(
+						new SO_NET_Profile__default(
 							idProfile_in[i]
 						),
 						false,
@@ -186,18 +185,18 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		//        return;
 		//    }
 		//    #endregion
-		//    #region check Permitions...
+		//    #region check Permissions...
 		//    if (
-		//        !_sessionuser.hasPermition(PermitionType.Profile__delete)
+		//        !_sessionuser.hasPermission(PermissionType.Profile__delete)
 		//    ) {
-		//        _errorlist.Add(ErrorType.profile__lack_of_permitions_to_delete);
+		//        _errorlist.Add(ErrorType.profile__lack_of_permissions_to_delete);
 		//        errors_out = _errorlist.ToArray();
 		//        return;
 		//    }
 		//    #endregion
 
 		//    for (int i = 0; i < idProfile_in.Length; i++) {
-		//        DO_NET_Defaultprofile.delObject_byProfile(
+		//        DO_NET_Profile__default.delObject_byProfile(
 		//            idProfile_in[i],
 
 		//            null
@@ -245,11 +244,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return _output;
 			}
 			#endregion
-			#region check Permitions...
+			#region check Permissions...
 			if (
-				!_sessionuser.hasPermition(PermitionType.Profile__select)
+				!_sessionuser.hasPermission(PermissionType.Profile__select)
 			) {
-				_errorlist.Add(ErrorType.profile__lack_of_permitions_to_read);
+				_errorlist.Add(ErrorType.profile__lack_of_permissions_to_read);
 				errors_out = _errorlist.ToArray();
 				return _output;
 			}

@@ -2,8 +2,8 @@ CREATE TABLE "NWS_Attachment" (
 	"IDAttachment" "bigint" IDENTITY(1, 1) NOT NULL, 
 	"IFContent" "bigint" NOT NULL, 
 	"GUID" "varchar"(50) NOT NULL, 
-	"OrderNum" "bigint" NULL, 
-	"isImage" "bit" NOT NULL, 
+	"Order" "bigint" NULL, 
+	"IsImage" "bit" NOT NULL, 
 	"TX_Name" "bigint" NULL, 
 	"TX_Description" "bigint" NULL, 
 	"FileName" "varchar"(255) NOT NULL, 
@@ -79,7 +79,7 @@ GO
 		@level1name = 'NWS_Attachment', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'OrderNum';
+		@level2name = 'Order';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -92,7 +92,7 @@ GO
 		@level1name = 'NWS_Attachment', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'isImage';
+		@level2name = 'IsImage';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 

@@ -126,34 +126,23 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 -->
 			</tableUpdates>
 		</table>
-		<table name="CRD_Permition" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
+		<table name="CRD_Action" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
-				<tableField name="IDPermition" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="true" isListItemText="false" />
-				<tableField name="Name" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="true" />
-				<tableField name="IFApplication" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IDAction" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="Name" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
 			<tableSearches>
-				<tableSearch name="all" isRange="true" isExplicitUniqueIndex="false">
-					<tableSearchParameters>
-						<tableFieldRef tableName="CRD_Permition" tableFieldName="IFApplication" paramName="IFApplication" />
-					</tableSearchParameters>
-				</tableSearch>
-				<tableSearch name="byUser" isRange="true" isExplicitUniqueIndex="false">
-					<tableSearchParameters>
-						<tableFieldRef tableName="CRD_User" tableFieldName="IDUser" paramName="IDUser" />
-					</tableSearchParameters>
-				</tableSearch>
 <!--
 				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="CRD_Permition" tableFieldName="IDPermition" paramName="IDPermition" />
-						<tableFieldRef tableName="CRD_Permition" tableFieldName="IDPermition" paramName="IDPermition" />
+						<tableFieldRef tableName="CRD_Action" tableFieldName="IDAction" paramName="IDAction" />
+						<tableFieldRef tableName="CRD_Action" tableFieldName="IDAction" paramName="IDAction" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="CRD_Permition" tableFieldName="IDPermition" paramName="IDPermition" />
-								<tableFieldRef tableName="CRD_Permition" tableFieldName="IDPermition" paramName="IDPermition" />
+								<tableFieldRef tableName="CRD_Action" tableFieldName="IDAction" paramName="IDAction" />
+								<tableFieldRef tableName="CRD_Action" tableFieldName="IDAction" paramName="IDAction" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
@@ -164,7 +153,53 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <!--
 				<tableUpdate name="SomeUpdateTest">
 					<tableUpdateParameters>
-						<tableFieldRef tableName="CRD_Permition" tableFieldName="IDPermition" paramName="IDPermition" />
+						<tableFieldRef tableName="CRD_Action" tableFieldName="IDAction" paramName="IDAction" />
+					</tableUpdateParameters>
+				</tableUpdate>
+-->
+			</tableUpdates>
+		</table>
+		<table name="CRD_Permission" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
+			<tableFields>
+				<tableField name="IDPermission" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="true" isListItemText="false" />
+				<tableField name="Name" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="true" />
+				<tableField name="IFApplication" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IFTable" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IFAction" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+			</tableFields>
+			<tableSearches>
+				<tableSearch name="all" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="CRD_Permission" tableFieldName="IFApplication" paramName="IFApplication" />
+					</tableSearchParameters>
+				</tableSearch>
+				<tableSearch name="byUser" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="CRD_User" tableFieldName="IDUser" paramName="IDUser" />
+					</tableSearchParameters>
+				</tableSearch>
+<!--
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="CRD_Permission" tableFieldName="IDPermission" paramName="IDPermission" />
+						<tableFieldRef tableName="CRD_Permission" tableFieldName="IDPermission" paramName="IDPermission" />
+					</tableSearchParameters>
+					<tableSearchUpdates>
+						<tableSearchUpdate name="SomeUpdateTest">
+							<tableSearchUpdateParameters>
+								<tableFieldRef tableName="CRD_Permission" tableFieldName="IDPermission" paramName="IDPermission" />
+								<tableFieldRef tableName="CRD_Permission" tableFieldName="IDPermission" paramName="IDPermission" />
+							</tableSearchUpdateParameters>
+						</tableSearchUpdate>
+					</tableSearchUpdates>
+				</tableSearch>
+-->
+			</tableSearches>
+			<tableUpdates>
+<!--
+				<tableUpdate name="SomeUpdateTest">
+					<tableUpdateParameters>
+						<tableFieldRef tableName="CRD_Permission" tableFieldName="IDPermission" paramName="IDPermission" />
 					</tableUpdateParameters>
 				</tableUpdate>
 -->
@@ -209,28 +244,28 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 -->
 			</tableUpdates>
 		</table>
-		<table name="CRD_ProfilePermition" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
+		<table name="CRD_ProfilePermission" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
 				<tableField name="IFProfile" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="IFPermition" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IFPermission" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
 			<tableSearches>
 				<tableSearch name="byProfile" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="CRD_ProfilePermition" tableFieldName="IFProfile" paramName="IDProfile" />
+						<tableFieldRef tableName="CRD_ProfilePermission" tableFieldName="IFProfile" paramName="IDProfile" />
 					</tableSearchParameters>
 				</tableSearch>
 <!--
 				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="CRD_ProfilePermition" tableFieldName="IFProfile" paramName="IFProfile" />
-						<tableFieldRef tableName="CRD_ProfilePermition" tableFieldName="IFProfile" paramName="IFProfile" />
+						<tableFieldRef tableName="CRD_ProfilePermission" tableFieldName="IFProfile" paramName="IFProfile" />
+						<tableFieldRef tableName="CRD_ProfilePermission" tableFieldName="IFProfile" paramName="IFProfile" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="CRD_ProfilePermition" tableFieldName="IFProfile" paramName="IFProfile" />
-								<tableFieldRef tableName="CRD_ProfilePermition" tableFieldName="IFProfile" paramName="IFProfile" />
+								<tableFieldRef tableName="CRD_ProfilePermission" tableFieldName="IFProfile" paramName="IFProfile" />
+								<tableFieldRef tableName="CRD_ProfilePermission" tableFieldName="IFProfile" paramName="IFProfile" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
@@ -241,7 +276,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <!--
 				<tableUpdate name="SomeUpdateTest">
 					<tableUpdateParameters>
-						<tableFieldRef tableName="CRD_ProfilePermition" tableFieldName="IFProfile" paramName="IFProfile" />
+						<tableFieldRef tableName="CRD_ProfilePermission" tableFieldName="IFProfile" paramName="IFProfile" />
 					</tableUpdateParameters>
 				</tableUpdate>
 -->
@@ -280,6 +315,39 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				<tableUpdate name="SomeUpdateTest">
 					<tableUpdateParameters>
 						<tableFieldRef tableName="CRD_ProfileProfile" tableFieldName="IFProfile" paramName="IFProfile" />
+					</tableUpdateParameters>
+				</tableUpdate>
+-->
+			</tableUpdates>
+		</table>
+		<table name="CRD_Table" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
+			<tableFields>
+				<tableField name="IDTable" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="Name" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+			</tableFields>
+			<tableSearches>
+<!--
+				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
+					<tableSearchParameters>
+						<tableFieldRef tableName="CRD_Table" tableFieldName="IDTable" paramName="IDTable" />
+						<tableFieldRef tableName="CRD_Table" tableFieldName="IDTable" paramName="IDTable" />
+					</tableSearchParameters>
+					<tableSearchUpdates>
+						<tableSearchUpdate name="SomeUpdateTest">
+							<tableSearchUpdateParameters>
+								<tableFieldRef tableName="CRD_Table" tableFieldName="IDTable" paramName="IDTable" />
+								<tableFieldRef tableName="CRD_Table" tableFieldName="IDTable" paramName="IDTable" />
+							</tableSearchUpdateParameters>
+						</tableSearchUpdate>
+					</tableSearchUpdates>
+				</tableSearch>
+-->
+			</tableSearches>
+			<tableUpdates>
+<!--
+				<tableUpdate name="SomeUpdateTest">
+					<tableUpdateParameters>
+						<tableFieldRef tableName="CRD_Table" tableFieldName="IDTable" paramName="IDTable" />
 					</tableUpdateParameters>
 				</tableUpdate>
 -->
@@ -483,8 +551,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<tableFields>
 				<tableField name="IFText" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="IFLanguage" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="CharVar8000" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Text" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="Text__small" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="Text__large" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
 			<tableSearches>
 				<tableSearch name="byText" isRange="true" isExplicitUniqueIndex="false">
@@ -566,10 +634,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<tableFields>
 				<tableField name="IDMessage" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="IFMessage__parent" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="isSticky" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IsSticky" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Subject" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Message__charvar8000" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Message__text" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="Message__small" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="Message__large" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="IFUser__Publisher" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Publish_date" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="IFApplication" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
@@ -579,7 +647,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				<tableSearch name="generic" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
 						<tableFieldRef tableName="FOR_Message" tableFieldName="IFContent__parent" paramName="IFContent__parent" />
-						<tableFieldRef tableName="FOR_Message" tableFieldName="isSticky" paramName="isSticky" />
+						<tableFieldRef tableName="FOR_Message" tableFieldName="IsSticky" paramName="IsSticky" />
 					</tableSearchParameters>
 				</tableSearch>
 -->
@@ -610,9 +678,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 -->
 			</tableUpdates>
 		</table>
-		<table name="LOG_Errortype" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
+		<table name="LOG_Error" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
-				<tableField name="IDErrortype" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="true" isListItemText="false" />
+				<tableField name="IDError" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="true" isListItemText="false" />
 				<tableField name="Name" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="true" />
 				<tableField name="Description" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="IFApplication" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
@@ -621,14 +689,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <!--
 				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="LOG_Errortype" tableFieldName="IDErrortype" paramName="IDErrortype" />
-						<tableFieldRef tableName="LOG_Errortype" tableFieldName="IDErrortype" paramName="IDErrortype" />
+						<tableFieldRef tableName="LOG_Error" tableFieldName="IDError" paramName="IDError" />
+						<tableFieldRef tableName="LOG_Error" tableFieldName="IDError" paramName="IDError" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="LOG_Errortype" tableFieldName="IDErrortype" paramName="IDErrortype" />
-								<tableFieldRef tableName="LOG_Errortype" tableFieldName="IDErrortype" paramName="IDErrortype" />
+								<tableFieldRef tableName="LOG_Error" tableFieldName="IDError" paramName="IDError" />
+								<tableFieldRef tableName="LOG_Error" tableFieldName="IDError" paramName="IDError" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
@@ -639,7 +707,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <!--
 				<tableUpdate name="SomeUpdateTest">
 					<tableUpdateParameters>
-						<tableFieldRef tableName="LOG_Errortype" tableFieldName="IDErrortype" paramName="IDErrortype" />
+						<tableFieldRef tableName="LOG_Error" tableFieldName="IDError" paramName="IDError" />
 					</tableUpdateParameters>
 				</tableUpdate>
 -->
@@ -648,34 +716,34 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		<table name="LOG_Log" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
 				<tableField name="IDLog" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="IFLogtype" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IFType" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="IFUser" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="IFUser__read" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="IFErrortype" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IFError" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Stamp" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Stamp__read" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Message" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="IFPermition" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IFPermission" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="IFApplication" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="IFBrowser__OPT" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
 			<tableSearches>
 <!--
-				<tableSearch name="byLogtype_andUser" isRange="true" isExplicitUniqueIndex="false">
+				<tableSearch name="byType_andUser" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="LOG_Log" tableFieldName="IDLogtype" paramName="IDLogtype" />
+						<tableFieldRef tableName="LOG_Log" tableFieldName="IDType" paramName="IDType" />
 						<tableFieldRef tableName="LOG_Log" tableFieldName="IFUser" paramName="IDUser" />
 					</tableSearchParameters>
 				</tableSearch>
 -->
 				<tableSearch name="generic" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="LOG_Log" tableFieldName="IFLogtype" paramName="IDLogtype" />
+						<tableFieldRef tableName="LOG_Log" tableFieldName="IFType" paramName="IDType" />
 						<tableFieldRef tableName="LOG_Log" tableFieldName="IFUser" paramName="IDUser" />
-						<tableFieldRef tableName="LOG_Log" tableFieldName="IFErrortype" paramName="IDErrortype" />
+						<tableFieldRef tableName="LOG_Log" tableFieldName="IFError" paramName="IDError" />
 						<tableFieldRef tableName="LOG_Log" tableFieldName="Stamp" paramName="Stamp_begin" />
 						<tableFieldRef tableName="LOG_Log" tableFieldName="Stamp" paramName="Stamp_end" />
-						<tableFieldRef tableName="vCRD_UserProfile" tableFieldName="hasProfile" paramName="Read" />
+						<tableFieldRef tableName="NWS_Content" tableFieldName="IsNews_notForum" paramName="Read" />
 						<tableFieldRef tableName="LOG_Log" tableFieldName="IFApplication" paramName="IFApplication" />
 					</tableSearchParameters>
 				</tableSearch>
@@ -706,10 +774,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 -->
 			</tableUpdates>
 		</table>
-		<table name="LOG_Logtype" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
+		<table name="LOG_Type" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
-				<tableField name="IDLogtype" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="true" isListItemText="false" />
-				<tableField name="IFLogtype_parent" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IDType" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="true" isListItemText="false" />
+				<tableField name="IFType_parent" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Name" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="true" />
 				<tableField name="IFApplication" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
@@ -717,14 +785,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <!--
 				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="LOG_Logtype" tableFieldName="IDLogtype" paramName="IDLogtype" />
-						<tableFieldRef tableName="LOG_Logtype" tableFieldName="IDLogtype" paramName="IDLogtype" />
+						<tableFieldRef tableName="LOG_Type" tableFieldName="IDType" paramName="IDType" />
+						<tableFieldRef tableName="LOG_Type" tableFieldName="IDType" paramName="IDType" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="LOG_Logtype" tableFieldName="IDLogtype" paramName="IDLogtype" />
-								<tableFieldRef tableName="LOG_Logtype" tableFieldName="IDLogtype" paramName="IDLogtype" />
+								<tableFieldRef tableName="LOG_Type" tableFieldName="IDType" paramName="IDType" />
+								<tableFieldRef tableName="LOG_Type" tableFieldName="IDType" paramName="IDType" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
@@ -735,7 +803,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <!--
 				<tableUpdate name="SomeUpdateTest">
 					<tableUpdateParameters>
-						<tableFieldRef tableName="LOG_Logtype" tableFieldName="IDLogtype" paramName="IDLogtype" />
+						<tableFieldRef tableName="LOG_Type" tableFieldName="IDType" paramName="IDType" />
 					</tableUpdateParameters>
 				</tableUpdate>
 -->
@@ -818,9 +886,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 -->
 			</tableUpdates>
 		</table>
-		<table name="NET_Defaultprofile" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
+		<table name="NET_Profile__default" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
-				<tableField name="IDDefaultprofile" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="IFProfile" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
 			<tableSearches>
@@ -829,22 +896,24 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<tableFieldRef tableName="NET_User" tableFieldName="IFApplication" paramName="IDApplication" />
 					</tableSearchParameters>
 				</tableSearch>
+<!--
 				<tableSearch name="byProfile" isRange="false" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="NET_Defaultprofile" tableFieldName="IFProfile" paramName="IDProfile" />
+						<tableFieldRef tableName="NET_Profile__default" tableFieldName="IFProfile" paramName="IDProfile" />
 					</tableSearchParameters>
 				</tableSearch>
+-->
 <!--
 				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="NET_Defaultprofile" tableFieldName="IDDefaultprofile" paramName="IDDefaultprofile" />
-						<tableFieldRef tableName="NET_Defaultprofile" tableFieldName="IDDefaultprofile" paramName="IDDefaultprofile" />
+						<tableFieldRef tableName="NET_Profile__default" tableFieldName="IFProfile" paramName="IFProfile" />
+						<tableFieldRef tableName="NET_Profile__default" tableFieldName="IFProfile" paramName="IFProfile" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="NET_Defaultprofile" tableFieldName="IDDefaultprofile" paramName="IDDefaultprofile" />
-								<tableFieldRef tableName="NET_Defaultprofile" tableFieldName="IDDefaultprofile" paramName="IDDefaultprofile" />
+								<tableFieldRef tableName="NET_Profile__default" tableFieldName="IFProfile" paramName="IFProfile" />
+								<tableFieldRef tableName="NET_Profile__default" tableFieldName="IFProfile" paramName="IFProfile" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
@@ -855,7 +924,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <!--
 				<tableUpdate name="SomeUpdateTest">
 					<tableUpdateParameters>
-						<tableFieldRef tableName="NET_Defaultprofile" tableFieldName="IDDefaultprofile" paramName="IDDefaultprofile" />
+						<tableFieldRef tableName="NET_Profile__default" tableFieldName="IFProfile" paramName="IFProfile" />
 					</tableUpdateParameters>
 				</tableUpdate>
 -->
@@ -865,8 +934,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<tableFields>
 				<tableField name="IFUser" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="true" isListItemText="false" />
 				<tableField name="Name" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="true" />
-				<tableField name="EMail" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="EMail_verify" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="Email" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="Email_verify" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="IFApplication" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
 			<tableSearches>
@@ -875,15 +944,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 						<tableFieldRef tableName="CRD_User" tableFieldName="IFApplication" paramName="IDApplication" />
 					</tableSearchParameters>
 				</tableSearch>
-				<tableSearch name="byEMail" isRange="false" isExplicitUniqueIndex="true">
+				<tableSearch name="byEmail" isRange="false" isExplicitUniqueIndex="true">
 					<tableSearchParameters>
-						<tableFieldRef tableName="NET_User" tableFieldName="EMail" paramName="EMail" />
+						<tableFieldRef tableName="NET_User" tableFieldName="Email" paramName="Email" />
 						<tableFieldRef tableName="NET_User" tableFieldName="IFApplication" paramName="IDApplication" />
 					</tableSearchParameters>
 				</tableSearch>
-				<tableSearch name="byEMail_verify" isRange="false" isExplicitUniqueIndex="false">
+				<tableSearch name="byEmail_verify" isRange="false" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="NET_User" tableFieldName="EMail_verify" paramName="EMail_verify" />
+						<tableFieldRef tableName="NET_User" tableFieldName="Email_verify" paramName="Email_verify" />
 						<tableFieldRef tableName="NET_User" tableFieldName="IFApplication" paramName="IDApplication" />
 					</tableSearchParameters>
 				</tableSearch>
@@ -919,8 +988,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				<tableField name="IDAttachment" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="IFContent" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="GUID" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="OrderNum" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="isImage" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="Order" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IsImage" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="TX_Name" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="TX_Description" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="FileName" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
@@ -1010,33 +1079,33 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				<tableField name="IFApplication" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="IFUser__Publisher" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Publish_date" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="IFUser__Aproved" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Aproved_date" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IFUser__Approved" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="Approved_date" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Begin_date" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="End_date" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="TX_Title" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="TX_Content" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="tx_subtitle" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="tx_summary" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="TX_Subtitle" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="TX_Summary" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Newslettersent_date" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="isNews_notForum" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IsNews_notForum" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
 			<tableSearches>
 				<tableSearch name="generic" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
 						<tableFieldRef tableName="NWS_Content" tableFieldName="IFApplication" paramName="IFApplication" />
 						<tableFieldRef tableName="NWS_Content" tableFieldName="IFUser__Publisher" paramName="IFUser__Publisher" />
-						<tableFieldRef tableName="NWS_Content" tableFieldName="IFUser__Aproved" paramName="IFUser__Aproved" />
+						<tableFieldRef tableName="NWS_Content" tableFieldName="IFUser__Approved" paramName="IFUser__Approved" />
 						<tableFieldRef tableName="NWS_Content" tableFieldName="Begin_date" paramName="Begin_date" />
 						<tableFieldRef tableName="NWS_Content" tableFieldName="End_date" paramName="End_date" />
-						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="CharVar8000" paramName="IDTag" />
-						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="CharVar8000" paramName="IDAuthor" />
-						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="CharVar8000" paramName="IDSource" />
-						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="CharVar8000" paramName="IDHighlight" />
-						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="CharVar8000" paramName="IDProfile" />
-						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="CharVar8000" paramName="Keywords" />
+						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="Text__small" paramName="IDTag" />
+						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="Text__small" paramName="IDAuthor" />
+						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="Text__small" paramName="IDSource" />
+						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="Text__small" paramName="IDHighlight" />
+						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="Text__small" paramName="IDProfile" />
+						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="Text__small" paramName="Keywords" />
 						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="IFLanguage" paramName="IDLanguage" />
-						<tableFieldRef tableName="NWS_Content" tableFieldName="isNews_notForum" paramName="isAND_notOR" />
+						<tableFieldRef tableName="NWS_Content" tableFieldName="IsNews_notForum" paramName="isAND_notOR" />
 					</tableSearchParameters>
 				</tableSearch>
 <!--
@@ -1477,30 +1546,30 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 -->
 			</tableUpdates>
 		</table>
-		<table name="vCRD_ProfilePermition" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
+		<table name="vCRD_ProfilePermission" friendlyName="" extendedDescription="" isConfig="false" configName="" configConfig="" configDatatype="">
 			<tableFields>
-				<tableField name="IDPermition" isViewPK="true" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="true" isListItemText="false" />
-				<tableField name="PermitionName" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="true" />
+				<tableField name="IDPermission" isViewPK="true" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="true" isListItemText="false" />
+				<tableField name="PermissionName" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="true" />
 				<tableField name="IDProfile" isViewPK="true" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="hasPermition" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="hasPermission" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
 			<tableSearches>
 				<tableSearch name="byProfile" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="vCRD_ProfilePermition" tableFieldName="IDProfile" paramName="IDProfile" />
+						<tableFieldRef tableName="vCRD_ProfilePermission" tableFieldName="IDProfile" paramName="IDProfile" />
 					</tableSearchParameters>
 				</tableSearch>
 <!--
 				<tableSearch name="bySomeCriteria" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
-						<tableFieldRef tableName="vCRD_ProfilePermition" tableFieldName="IDPermition" paramName="IDPermition" />
-						<tableFieldRef tableName="vCRD_ProfilePermition" tableFieldName="IDPermition" paramName="IDPermition" />
+						<tableFieldRef tableName="vCRD_ProfilePermission" tableFieldName="IDPermission" paramName="IDPermission" />
+						<tableFieldRef tableName="vCRD_ProfilePermission" tableFieldName="IDPermission" paramName="IDPermission" />
 					</tableSearchParameters>
 					<tableSearchUpdates>
 						<tableSearchUpdate name="SomeUpdateTest">
 							<tableSearchUpdateParameters>
-								<tableFieldRef tableName="vCRD_ProfilePermition" tableFieldName="IDPermition" paramName="IDPermition" />
-								<tableFieldRef tableName="vCRD_ProfilePermition" tableFieldName="IDPermition" paramName="IDPermition" />
+								<tableFieldRef tableName="vCRD_ProfilePermission" tableFieldName="IDPermission" paramName="IDPermission" />
+								<tableFieldRef tableName="vCRD_ProfilePermission" tableFieldName="IDPermission" paramName="IDPermission" />
 							</tableSearchUpdateParameters>
 						</tableSearchUpdate>
 					</tableSearchUpdates>
@@ -1511,7 +1580,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <!--
 				<tableUpdate name="SomeUpdateTest">
 					<tableUpdateParameters>
-						<tableFieldRef tableName="vCRD_ProfilePermition" tableFieldName="IDPermition" paramName="IDPermition" />
+						<tableFieldRef tableName="vCRD_ProfilePermission" tableFieldName="IDPermission" paramName="IDPermission" />
 					</tableUpdateParameters>
 				</tableUpdate>
 -->
@@ -1645,10 +1714,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				<tableField name="IDMessage" isViewPK="true" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="true" isListItemText="false" />
 				<tableField name="IDMessage__parent" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="isThread" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="isSticky" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IsSticky" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Subject" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="true" />
-				<tableField name="Message__charvar8000" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Message__text" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="Message__small" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="Message__large" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="IDUser" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Name" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Publish_date" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
@@ -1713,7 +1782,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				<tableField name="IDProfile" isViewPK="true" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="true" isListItemText="false" />
 				<tableField name="Name" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="true" />
 				<tableField name="IFApplication" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="isDefaultprofile" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IsDefault" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
 			<tableSearches>
 				<tableSearch name="all" isRange="true" isExplicitUniqueIndex="false">
@@ -1754,14 +1823,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				<tableField name="IFApplication" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Login" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="true" />
 				<tableField name="Name" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="EMail" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="Email" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 			</tableFields>
 			<tableSearches>
 				<tableSearch name="generic" isRange="true" isExplicitUniqueIndex="false">
 					<tableSearchParameters>
 						<tableFieldRef tableName="vNET_User" tableFieldName="Login" paramName="Login" />
 						<tableFieldRef tableName="vNET_User" tableFieldName="Name" paramName="Name" />
-						<tableFieldRef tableName="vNET_User" tableFieldName="EMail" paramName="EMail" />
+						<tableFieldRef tableName="vNET_User" tableFieldName="Email" paramName="Email" />
 						<tableFieldRef tableName="vNET_User" tableFieldName="IFApplication" paramName="IFApplication" />
 						<tableFieldRef tableName="CRD_Profile" tableFieldName="IDProfile" paramName="IDProfile__in" />
 						<tableFieldRef tableName="CRD_Profile" tableFieldName="IDProfile" paramName="IDProfile__out" />
@@ -1809,8 +1878,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				<tableField name="IDLanguage" isViewPK="true" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="IFContent" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="GUID" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="OrderNum" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="isImage" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="Order" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IsImage" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Name" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Description" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="FileName" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
@@ -1908,8 +1977,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				<tableField name="IFUser__Publisher" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="PublisherName" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Publish_date" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="IFUser__Aproved" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
-				<tableField name="Aproved_date" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="IFUser__Approved" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
+				<tableField name="Approved_date" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Title" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="Content" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
 				<tableField name="subtitle" isViewPK="false" defaultValue="" friendlyName="" extendedDescription="" isListItemValue="false" isListItemText="false" />
@@ -1931,17 +2000,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 					<tableSearchParameters>
 						<tableFieldRef tableName="NWS_Content" tableFieldName="IFApplication" paramName="IFApplication" />
 						<tableFieldRef tableName="NWS_Content" tableFieldName="IFUser__Publisher" paramName="IFUser__Publisher" />
-						<tableFieldRef tableName="NWS_Content" tableFieldName="IFUser__Aproved" paramName="IFUser__Aproved" />
+						<tableFieldRef tableName="NWS_Content" tableFieldName="IFUser__Approved" paramName="IFUser__Approved" />
 						<tableFieldRef tableName="NWS_Content" tableFieldName="Begin_date" paramName="Begin_date" />
 						<tableFieldRef tableName="NWS_Content" tableFieldName="End_date" paramName="End_date" />
-						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="CharVar8000" paramName="IDTag" />
-						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="CharVar8000" paramName="IDAuthor" />
-						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="CharVar8000" paramName="IDSource" />
-						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="CharVar8000" paramName="IDHighlight" />
-						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="CharVar8000" paramName="IDProfile" />
-						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="CharVar8000" paramName="Keywords" />
+						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="Text__small" paramName="IDTag" />
+						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="Text__small" paramName="IDAuthor" />
+						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="Text__small" paramName="IDSource" />
+						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="Text__small" paramName="IDHighlight" />
+						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="Text__small" paramName="IDProfile" />
+						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="Text__small" paramName="Keywords" />
 						<tableFieldRef tableName="DIC_TextLanguage" tableFieldName="IFLanguage" paramName="IDLanguage" />
-						<tableFieldRef tableName="NWS_Content" tableFieldName="isNews_notForum" paramName="isAND_notOR" />
+						<tableFieldRef tableName="NWS_Content" tableFieldName="IsNews_notForum" paramName="isAND_notOR" />
 					</tableSearchParameters>
 				</tableSearch>
 <!--

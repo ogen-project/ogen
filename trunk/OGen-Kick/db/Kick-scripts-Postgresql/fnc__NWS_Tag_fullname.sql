@@ -17,9 +17,9 @@ $BODY$
 				) || ' / '
 			end
 			|| case 
-				when not "DIC_TextLanguage"."CharVar8000" is null 
-					then "DIC_TextLanguage"."CharVar8000"
-				when not "DIC_TextLanguage"."Text" is null 
+				when not "DIC_TextLanguage"."Text__small" is null 
+					then "DIC_TextLanguage"."Text__small"
+				when not "DIC_TextLanguage"."Text__large" is null 
 					then 'ERROR!'
 				else ''
 			end

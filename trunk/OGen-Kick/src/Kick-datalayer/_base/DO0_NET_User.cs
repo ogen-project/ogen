@@ -76,8 +76,8 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
 				_connection.newDBDataParameter("IFUser_", DbType.Int64, ParameterDirection.InputOutput, IFUser_in, 0), 
 				_connection.newDBDataParameter("Name_", DbType.AnsiString, ParameterDirection.Output, null, 255), 
-				_connection.newDBDataParameter("EMail_", DbType.AnsiString, ParameterDirection.Output, null, 255), 
-				_connection.newDBDataParameter("EMail_verify_", DbType.AnsiString, ParameterDirection.Output, null, 255), 
+				_connection.newDBDataParameter("Email_", DbType.AnsiString, ParameterDirection.Output, null, 255), 
+				_connection.newDBDataParameter("Email_verify_", DbType.AnsiString, ParameterDirection.Output, null, 255), 
 				_connection.newDBDataParameter("IFApplication_", DbType.Int32, ParameterDirection.Output, null, 0)
 			};
 			_connection.Execute_SQLFunction("sp0_NET_User_getObject", _dataparameters);
@@ -97,14 +97,14 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.Name = (string)_dataparameters[1].Value;
 				}
 				if (_dataparameters[2].Value == System.DBNull.Value) {
-					_output.EMail = string.Empty;
+					_output.Email = string.Empty;
 				} else {
-					_output.EMail = (string)_dataparameters[2].Value;
+					_output.Email = (string)_dataparameters[2].Value;
 				}
 				if (_dataparameters[3].Value == System.DBNull.Value) {
-					_output.EMail_verify_isNull = true;
+					_output.Email_verify_isNull = true;
 				} else {
-					_output.EMail_verify = (string)_dataparameters[3].Value;
+					_output.Email_verify = (string)_dataparameters[3].Value;
 				}
 				if (_dataparameters[4].Value == System.DBNull.Value) {
 					_output.IFApplication_isNull = true;
@@ -246,8 +246,8 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
 					_connection.newDBDataParameter("IFUser_", DbType.Int64, ParameterDirection.Input, NET_User_in.IFUser, 0), 
 					_connection.newDBDataParameter("Name_", DbType.AnsiString, ParameterDirection.Input, NET_User_in.Name_isNull ? null : (object)NET_User_in.Name, 255), 
-					_connection.newDBDataParameter("EMail_", DbType.AnsiString, ParameterDirection.Input, NET_User_in.EMail, 255), 
-					_connection.newDBDataParameter("EMail_verify_", DbType.AnsiString, ParameterDirection.Input, NET_User_in.EMail_verify_isNull ? null : (object)NET_User_in.EMail_verify, 255), 
+					_connection.newDBDataParameter("Email_", DbType.AnsiString, ParameterDirection.Input, NET_User_in.Email, 255), 
+					_connection.newDBDataParameter("Email_verify_", DbType.AnsiString, ParameterDirection.Input, NET_User_in.Email_verify_isNull ? null : (object)NET_User_in.Email_verify, 255), 
 					_connection.newDBDataParameter("IFApplication_", DbType.Int32, ParameterDirection.Input, NET_User_in.IFApplication_isNull ? null : (object)NET_User_in.IFApplication, 0), 
 
 					//_connection.newDBDataParameter("Exists", DbType.Boolean, ParameterDirection.Output, 0, 1), 
@@ -275,20 +275,20 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		#endregion
 		#endregion
 		#region Methods - Object Searches...
-		#region ???Object_byEMail...
-		#region public static SO_NET_User getObject_byEMail(...);
+		#region ???Object_byEmail...
+		#region public static SO_NET_User getObject_byEmail(...);
 		/// <summary>
 		/// Selects NET_User values from Database (based on the search condition) and assigns them to the appropriate DO0_NET_User property.
 		/// </summary>
-		/// <param name="EMail_search_in">EMail search condition</param>
+		/// <param name="Email_search_in">Email search condition</param>
 		/// <param name="IDApplication_search_in">IDApplication search condition</param>
 		/// <returns>null if NET_User doesn't exists at Database</returns>
-		public static SO_NET_User getObject_byEMail(
-			string EMail_search_in, 
+		public static SO_NET_User getObject_byEmail(
+			string Email_search_in, 
 			int IDApplication_search_in
 		) {
-			return getObject_byEMail(
-				EMail_search_in, 
+			return getObject_byEmail(
+				Email_search_in, 
 				IDApplication_search_in, 
 				null
 			);
@@ -297,12 +297,12 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <summary>
 		/// Selects NET_User values from Database (based on the search condition) and assigns them to the appropriate DO0_NET_User property.
 		/// </summary>
-		/// <param name="EMail_search_in">EMail search condition</param>
+		/// <param name="Email_search_in">Email search condition</param>
 		/// <param name="IDApplication_search_in">IDApplication search condition</param>
 		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
 		/// <returns>null if NET_User doesn't exists at Database</returns>
-		public static SO_NET_User getObject_byEMail(
-			string EMail_search_in, 
+		public static SO_NET_User getObject_byEmail(
+			string Email_search_in, 
 			int IDApplication_search_in, 
 			DBConnection dbConnection_in
 		) {
@@ -315,16 +315,16 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
-				_connection.newDBDataParameter("EMail_search_", DbType.AnsiString, ParameterDirection.Input, EMail_search_in, 255), 
+				_connection.newDBDataParameter("Email_search_", DbType.AnsiString, ParameterDirection.Input, Email_search_in, 255), 
 				_connection.newDBDataParameter("IDApplication_search_", DbType.Int32, ParameterDirection.Input, IDApplication_search_in, 0), 
 				_connection.newDBDataParameter("IFUser", DbType.Int64, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("Name", DbType.AnsiString, ParameterDirection.Output, null, 255), 
-				_connection.newDBDataParameter("EMail", DbType.AnsiString, ParameterDirection.Output, null, 255), 
-				_connection.newDBDataParameter("EMail_verify", DbType.AnsiString, ParameterDirection.Output, null, 255), 
+				_connection.newDBDataParameter("Email", DbType.AnsiString, ParameterDirection.Output, null, 255), 
+				_connection.newDBDataParameter("Email_verify", DbType.AnsiString, ParameterDirection.Output, null, 255), 
 				_connection.newDBDataParameter("IFApplication", DbType.Int32, ParameterDirection.Output, null, 0)
 			};
 			_connection.Execute_SQLFunction(
-				"sp0_NET_User_getObject_byEMail", 
+				"sp0_NET_User_getObject_byEmail", 
 				_dataparameters
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
@@ -342,14 +342,14 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.Name = (string)_dataparameters[3].Value;
 				}
 				if (_dataparameters[4].Value == System.DBNull.Value) {
-					_output.EMail = string.Empty;
+					_output.Email = string.Empty;
 				} else {
-					_output.EMail = (string)_dataparameters[4].Value;
+					_output.Email = (string)_dataparameters[4].Value;
 				}
 				if (_dataparameters[5].Value == System.DBNull.Value) {
-					_output.EMail_verify_isNull = true;
+					_output.Email_verify_isNull = true;
 				} else {
-					_output.EMail_verify = (string)_dataparameters[5].Value;
+					_output.Email_verify = (string)_dataparameters[5].Value;
 				}
 				if (_dataparameters[6].Value == System.DBNull.Value) {
 					_output.IFApplication_isNull = true;
@@ -363,19 +363,19 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			return null;
 		}
 		#endregion
-		#region public static bool delObject_byEMail(...);
+		#region public static bool delObject_byEmail(...);
 		/// <summary>
 		/// Deletes NET_User from Database (based on the search condition).
 		/// </summary>
-		/// <param name="EMail_search_in"> EMail search condition</param>
+		/// <param name="Email_search_in"> Email search condition</param>
 		/// <param name="IDApplication_search_in"> IDApplication search condition</param>
 		/// <returns>True if NET_User existed and was Deleted at Database, False if it didn't exist</returns>
-		public static bool delObject_byEMail(
-			string EMail_search_in, 
+		public static bool delObject_byEmail(
+			string Email_search_in, 
 			int IDApplication_search_in
 		) {
-			return delObject_byEMail(
-				EMail_search_in, 
+			return delObject_byEmail(
+				Email_search_in, 
 				IDApplication_search_in, 
 				null
 			);
@@ -384,12 +384,12 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <summary>
 		/// Deletes NET_User from Database (based on the search condition).
 		/// </summary>
-		/// <param name="EMail_search_in"> EMail search condition</param>
+		/// <param name="Email_search_in"> Email search condition</param>
 		/// <param name="IDApplication_search_in"> IDApplication search condition</param>
 		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
 		/// <returns>True if NET_User existed and was Deleted at Database, False if it didn't exist</returns>
-		public static bool delObject_byEMail(
-			string EMail_search_in, 
+		public static bool delObject_byEmail(
+			string Email_search_in, 
 			int IDApplication_search_in, 
 			DBConnection dbConnection_in
 		) {
@@ -401,30 +401,30 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
-				_connection.newDBDataParameter("EMail_search_", DbType.AnsiString, ParameterDirection.Input, EMail_search_in, 255), 
+				_connection.newDBDataParameter("Email_search_", DbType.AnsiString, ParameterDirection.Input, Email_search_in, 255), 
 				_connection.newDBDataParameter("IDApplication_search_", DbType.Int32, ParameterDirection.Input, IDApplication_search_in, 0), 
 
 				_connection.newDBDataParameter("Exists_", DbType.Boolean, ParameterDirection.Output, null, 1)
 			};
-			_connection.Execute_SQLFunction("sp0_NET_User_delObject_byEMail", _dataparameters);
+			_connection.Execute_SQLFunction("sp0_NET_User_delObject_byEmail", _dataparameters);
 			if (dbConnection_in == null) { _connection.Dispose(); }
 
 			return ((bool)_dataparameters[2].Value);
 		}
 		#endregion
-		#region public static bool isObject_byEMail(...);
+		#region public static bool isObject_byEmail(...);
 		/// <summary>
 		/// Checks to see if NET_User exists at Database (based on the search condition).
 		/// </summary>
-		/// <param name="EMail_search_in">EMail search condition</param>
+		/// <param name="Email_search_in">Email search condition</param>
 		/// <param name="IDApplication_search_in">IDApplication search condition</param>
 		/// <returns>True if NET_User exists at Database, False if not</returns>
-		public static bool isObject_byEMail(
-			string EMail_search_in, 
+		public static bool isObject_byEmail(
+			string Email_search_in, 
 			int IDApplication_search_in
 		) {
-			return isObject_byEMail(
-				EMail_search_in, 
+			return isObject_byEmail(
+				Email_search_in, 
 				IDApplication_search_in, 
 				null
 			);
@@ -433,12 +433,12 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <summary>
 		/// Checks to see if NET_User exists at Database (based on the search condition).
 		/// </summary>
-		/// <param name="EMail_search_in">EMail search condition</param>
+		/// <param name="Email_search_in">Email search condition</param>
 		/// <param name="IDApplication_search_in">IDApplication search condition</param>
 		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
 		/// <returns>True if NET_User exists at Database, False if not</returns>
-		public static bool isObject_byEMail(
-			string EMail_search_in, 
+		public static bool isObject_byEmail(
+			string Email_search_in, 
 			int IDApplication_search_in, 
 			DBConnection dbConnection_in
 		) {
@@ -451,11 +451,11 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
-				_connection.newDBDataParameter("EMail_search_", DbType.AnsiString, ParameterDirection.Input, EMail_search_in, 255), 
+				_connection.newDBDataParameter("Email_search_", DbType.AnsiString, ParameterDirection.Input, Email_search_in, 255), 
 				_connection.newDBDataParameter("IDApplication_search_", DbType.Int32, ParameterDirection.Input, IDApplication_search_in, 0)
 			};
 			_output = (bool)_connection.Execute_SQLFunction(
-				"fnc0_NET_User_isObject_byEMail", 
+				"fnc0_NET_User_isObject_byEmail", 
 				_dataparameters, 
 				DbType.Boolean, 
 				0
@@ -466,20 +466,20 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		}
 		#endregion
 		#endregion
-		#region ???Object_byEMail_verify...
-		#region public static SO_NET_User getObject_byEMail_verify(...);
+		#region ???Object_byEmail_verify...
+		#region public static SO_NET_User getObject_byEmail_verify(...);
 		/// <summary>
 		/// Selects NET_User values from Database (based on the search condition) and assigns them to the appropriate DO0_NET_User property.
 		/// </summary>
-		/// <param name="EMail_verify_search_in">EMail_verify search condition</param>
+		/// <param name="Email_verify_search_in">Email_verify search condition</param>
 		/// <param name="IDApplication_search_in">IDApplication search condition</param>
 		/// <returns>null if NET_User doesn't exists at Database</returns>
-		public static SO_NET_User getObject_byEMail_verify(
-			string EMail_verify_search_in, 
+		public static SO_NET_User getObject_byEmail_verify(
+			string Email_verify_search_in, 
 			int IDApplication_search_in
 		) {
-			return getObject_byEMail_verify(
-				EMail_verify_search_in, 
+			return getObject_byEmail_verify(
+				Email_verify_search_in, 
 				IDApplication_search_in, 
 				null
 			);
@@ -488,12 +488,12 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <summary>
 		/// Selects NET_User values from Database (based on the search condition) and assigns them to the appropriate DO0_NET_User property.
 		/// </summary>
-		/// <param name="EMail_verify_search_in">EMail_verify search condition</param>
+		/// <param name="Email_verify_search_in">Email_verify search condition</param>
 		/// <param name="IDApplication_search_in">IDApplication search condition</param>
 		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
 		/// <returns>null if NET_User doesn't exists at Database</returns>
-		public static SO_NET_User getObject_byEMail_verify(
-			string EMail_verify_search_in, 
+		public static SO_NET_User getObject_byEmail_verify(
+			string Email_verify_search_in, 
 			int IDApplication_search_in, 
 			DBConnection dbConnection_in
 		) {
@@ -506,16 +506,16 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
-				_connection.newDBDataParameter("EMail_verify_search_", DbType.AnsiString, ParameterDirection.Input, EMail_verify_search_in, 255), 
+				_connection.newDBDataParameter("Email_verify_search_", DbType.AnsiString, ParameterDirection.Input, Email_verify_search_in, 255), 
 				_connection.newDBDataParameter("IDApplication_search_", DbType.Int32, ParameterDirection.Input, IDApplication_search_in, 0), 
 				_connection.newDBDataParameter("IFUser", DbType.Int64, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("Name", DbType.AnsiString, ParameterDirection.Output, null, 255), 
-				_connection.newDBDataParameter("EMail", DbType.AnsiString, ParameterDirection.Output, null, 255), 
-				_connection.newDBDataParameter("EMail_verify", DbType.AnsiString, ParameterDirection.Output, null, 255), 
+				_connection.newDBDataParameter("Email", DbType.AnsiString, ParameterDirection.Output, null, 255), 
+				_connection.newDBDataParameter("Email_verify", DbType.AnsiString, ParameterDirection.Output, null, 255), 
 				_connection.newDBDataParameter("IFApplication", DbType.Int32, ParameterDirection.Output, null, 0)
 			};
 			_connection.Execute_SQLFunction(
-				"sp0_NET_User_getObject_byEMail_verify", 
+				"sp0_NET_User_getObject_byEmail_verify", 
 				_dataparameters
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
@@ -533,14 +533,14 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.Name = (string)_dataparameters[3].Value;
 				}
 				if (_dataparameters[4].Value == System.DBNull.Value) {
-					_output.EMail = string.Empty;
+					_output.Email = string.Empty;
 				} else {
-					_output.EMail = (string)_dataparameters[4].Value;
+					_output.Email = (string)_dataparameters[4].Value;
 				}
 				if (_dataparameters[5].Value == System.DBNull.Value) {
-					_output.EMail_verify_isNull = true;
+					_output.Email_verify_isNull = true;
 				} else {
-					_output.EMail_verify = (string)_dataparameters[5].Value;
+					_output.Email_verify = (string)_dataparameters[5].Value;
 				}
 				if (_dataparameters[6].Value == System.DBNull.Value) {
 					_output.IFApplication_isNull = true;
@@ -554,19 +554,19 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			return null;
 		}
 		#endregion
-		#region public static bool delObject_byEMail_verify(...);
+		#region public static bool delObject_byEmail_verify(...);
 		/// <summary>
 		/// Deletes NET_User from Database (based on the search condition).
 		/// </summary>
-		/// <param name="EMail_verify_search_in"> EMail_verify search condition</param>
+		/// <param name="Email_verify_search_in"> Email_verify search condition</param>
 		/// <param name="IDApplication_search_in"> IDApplication search condition</param>
 		/// <returns>True if NET_User existed and was Deleted at Database, False if it didn't exist</returns>
-		public static bool delObject_byEMail_verify(
-			string EMail_verify_search_in, 
+		public static bool delObject_byEmail_verify(
+			string Email_verify_search_in, 
 			int IDApplication_search_in
 		) {
-			return delObject_byEMail_verify(
-				EMail_verify_search_in, 
+			return delObject_byEmail_verify(
+				Email_verify_search_in, 
 				IDApplication_search_in, 
 				null
 			);
@@ -575,12 +575,12 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <summary>
 		/// Deletes NET_User from Database (based on the search condition).
 		/// </summary>
-		/// <param name="EMail_verify_search_in"> EMail_verify search condition</param>
+		/// <param name="Email_verify_search_in"> Email_verify search condition</param>
 		/// <param name="IDApplication_search_in"> IDApplication search condition</param>
 		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
 		/// <returns>True if NET_User existed and was Deleted at Database, False if it didn't exist</returns>
-		public static bool delObject_byEMail_verify(
-			string EMail_verify_search_in, 
+		public static bool delObject_byEmail_verify(
+			string Email_verify_search_in, 
 			int IDApplication_search_in, 
 			DBConnection dbConnection_in
 		) {
@@ -592,30 +592,30 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
-				_connection.newDBDataParameter("EMail_verify_search_", DbType.AnsiString, ParameterDirection.Input, EMail_verify_search_in, 255), 
+				_connection.newDBDataParameter("Email_verify_search_", DbType.AnsiString, ParameterDirection.Input, Email_verify_search_in, 255), 
 				_connection.newDBDataParameter("IDApplication_search_", DbType.Int32, ParameterDirection.Input, IDApplication_search_in, 0), 
 
 				_connection.newDBDataParameter("Exists_", DbType.Boolean, ParameterDirection.Output, null, 1)
 			};
-			_connection.Execute_SQLFunction("sp0_NET_User_delObject_byEMail_verify", _dataparameters);
+			_connection.Execute_SQLFunction("sp0_NET_User_delObject_byEmail_verify", _dataparameters);
 			if (dbConnection_in == null) { _connection.Dispose(); }
 
 			return ((bool)_dataparameters[2].Value);
 		}
 		#endregion
-		#region public static bool isObject_byEMail_verify(...);
+		#region public static bool isObject_byEmail_verify(...);
 		/// <summary>
 		/// Checks to see if NET_User exists at Database (based on the search condition).
 		/// </summary>
-		/// <param name="EMail_verify_search_in">EMail_verify search condition</param>
+		/// <param name="Email_verify_search_in">Email_verify search condition</param>
 		/// <param name="IDApplication_search_in">IDApplication search condition</param>
 		/// <returns>True if NET_User exists at Database, False if not</returns>
-		public static bool isObject_byEMail_verify(
-			string EMail_verify_search_in, 
+		public static bool isObject_byEmail_verify(
+			string Email_verify_search_in, 
 			int IDApplication_search_in
 		) {
-			return isObject_byEMail_verify(
-				EMail_verify_search_in, 
+			return isObject_byEmail_verify(
+				Email_verify_search_in, 
 				IDApplication_search_in, 
 				null
 			);
@@ -624,12 +624,12 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <summary>
 		/// Checks to see if NET_User exists at Database (based on the search condition).
 		/// </summary>
-		/// <param name="EMail_verify_search_in">EMail_verify search condition</param>
+		/// <param name="Email_verify_search_in">Email_verify search condition</param>
 		/// <param name="IDApplication_search_in">IDApplication search condition</param>
 		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
 		/// <returns>True if NET_User exists at Database, False if not</returns>
-		public static bool isObject_byEMail_verify(
-			string EMail_verify_search_in, 
+		public static bool isObject_byEmail_verify(
+			string Email_verify_search_in, 
 			int IDApplication_search_in, 
 			DBConnection dbConnection_in
 		) {
@@ -642,11 +642,11 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
-				_connection.newDBDataParameter("EMail_verify_search_", DbType.AnsiString, ParameterDirection.Input, EMail_verify_search_in, 255), 
+				_connection.newDBDataParameter("Email_verify_search_", DbType.AnsiString, ParameterDirection.Input, Email_verify_search_in, 255), 
 				_connection.newDBDataParameter("IDApplication_search_", DbType.Int32, ParameterDirection.Input, IDApplication_search_in, 0)
 			};
 			_output = (bool)_connection.Execute_SQLFunction(
-				"fnc0_NET_User_isObject_byEMail_verify", 
+				"fnc0_NET_User_isObject_byEmail_verify", 
 				_dataparameters, 
 				DbType.Boolean, 
 				0
@@ -678,8 +678,8 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				if (r == 0) {
 					_dc_ifuser = dataTable_in.Columns["IFUser"];
 					_dc_name = dataTable_in.Columns["Name"];
-					_dc_email = dataTable_in.Columns["EMail"];
-					_dc_email_verify = dataTable_in.Columns["EMail_verify"];
+					_dc_email = dataTable_in.Columns["Email"];
+					_dc_email_verify = dataTable_in.Columns["Email_verify"];
 					_dc_ifapplication = dataTable_in.Columns["IFApplication"];
 				}
 
@@ -695,14 +695,14 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output[r].Name = (string)dataTable_in.Rows[r][_dc_name];
 				}
 				if (dataTable_in.Rows[r][_dc_email] == System.DBNull.Value) {
-					_output[r].EMail = string.Empty;
+					_output[r].Email = string.Empty;
 				} else {
-					_output[r].EMail = (string)dataTable_in.Rows[r][_dc_email];
+					_output[r].Email = (string)dataTable_in.Rows[r][_dc_email];
 				}
 				if (dataTable_in.Rows[r][_dc_email_verify] == System.DBNull.Value) {
-					_output[r].EMail_verify_isNull = true;
+					_output[r].Email_verify_isNull = true;
 				} else {
-					_output[r].EMail_verify = (string)dataTable_in.Rows[r][_dc_email_verify];
+					_output[r].Email_verify = (string)dataTable_in.Rows[r][_dc_email_verify];
 				}
 				if (dataTable_in.Rows[r][_dc_ifapplication] == System.DBNull.Value) {
 					_output[r].IFApplication_isNull = true;

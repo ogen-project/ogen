@@ -197,7 +197,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			int idApplication_in, 
 			out long idUser_out, 
 			out string login_out, 
-			out long[] idPermitions_out, 
+			out long[] idPermissions_out, 
 			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -212,7 +212,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			);
 			idUser_out = (long)results[0];
 			login_out = (string)results[1];
-			idPermitions_out = (long[])results[2];
+			idPermissions_out = (long[])results[2];
 			errors_out = (int[])results[3];
 		}
 		#endregion
@@ -232,7 +232,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			out long idUser_out, 
 			out string login_out, 
 			out string name_out, 
-			out long[] idPermitions_out, 
+			out long[] idPermissions_out, 
 			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -247,7 +247,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			idUser_out = (long)results[0];
 			login_out = (string)results[1];
 			name_out = (string)results[2];
-			idPermitions_out = (long[])results[3];
+			idPermissions_out = (long[])results[3];
 			errors_out = (int[])results[4];
 		}
 		#endregion
@@ -268,7 +268,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			out long idUser_out, 
 			out string login_out, 
 			out string name_out, 
-			out long[] idPermitions_out, 
+			out long[] idPermissions_out, 
 			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -284,7 +284,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			idUser_out = (long)results[0];
 			login_out = (string)results[1];
 			name_out = (string)results[2];
-			idPermitions_out = (long[])results[3];
+			idPermissions_out = (long[])results[3];
 			errors_out = (int[])results[4];
 		}
 		#endregion
@@ -297,7 +297,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
 		public void LostPassword_Recover(
-			string EMail_in, 
+			string Email_in, 
 			string companyName_in, 
 			string recoverLostPasswordURL_in, 
 			int idApplication_in, 
@@ -306,7 +306,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			object[] results = this.Invoke(
 				"LostPassword_Recover", 
 				new object[] {
-					EMail_in,
+					Email_in,
 					companyName_in,
 					recoverLostPasswordURL_in,
 					idApplication_in
@@ -344,28 +344,28 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			errors_out = (int[])results[0];
 		}
 		#endregion
-		#region public void updObject_EMail(...);
+		#region public void updObject_Email(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/updObject_EMail",
+			"http://OGen.NTier.Kick.distributedlayer.webservices.server/updObject_Email",
 			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
 			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
-		public void updObject_EMail(
+		public void updObject_Email(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			string EMail_verify_in, 
+			string Email_verify_in, 
 			string companyName_in, 
 			string verifyMailURL_in, 
 			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
-				"updObject_EMail", 
+				"updObject_Email", 
 				new object[] {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
-					EMail_verify_in,
+					Email_verify_in,
 					companyName_in,
 					verifyMailURL_in
 				}

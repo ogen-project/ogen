@@ -81,7 +81,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_base\BO0_CRD_Authentication.cs" />
-    <Compile Include="_base\BO0_CRD_Permition.cs" />
+    <Compile Include="_base\BO0_CRD_Permission.cs" />
     <Compile Include="_base\BO0_CRD_Profile.cs" />
     <Compile Include="_base\BO0_CRD_User.cs" />
     <Compile Include="_base\BO0_DIC_Dic.cs" />

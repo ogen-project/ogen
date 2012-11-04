@@ -55,7 +55,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string ip_forLogPurposes_in, 
 			int logtype_in, 
 			int errortype_in, 
-			long idPermition_in, 
+			long idPermission_in, 
 			int idApplication_in, 
 			string format_in, 
 			string[] args_in

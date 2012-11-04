@@ -56,10 +56,10 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			}
 		}
 		#endregion
-		#region public bool isHorizontal_notVertical { set; }
+		#region public bool IsHorizontal_notVertical { set; }
 		private bool ishorizontal_notvertical_ = true;
 
-		public bool isHorizontal_notVertical {
+		public bool IsHorizontal_notVertical {
 			set {
 				this.ishorizontal_notvertical_ = value;
 			}

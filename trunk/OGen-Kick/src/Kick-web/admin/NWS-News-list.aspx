@@ -230,15 +230,15 @@
 							(
 								(
 									(
-										(long)DataBinder.Eval(Container.DataItem, "IFUser__Aproved")
+										(long)DataBinder.Eval(Container.DataItem, "IFUser__Approved")
 									) > 0
 								) 
 									? string.Format(
 										//por: {1}, <br />
 										"<a href='CRD-User.aspx?IDUser={0}'>{1}</a>, <br />{2}",
-										((long)DataBinder.Eval(Container.DataItem, "IFUser__Aproved")).ToString(System.Globalization.CultureInfo.CurrentCulture), 				
+										((long)DataBinder.Eval(Container.DataItem, "IFUser__Approved")).ToString(System.Globalization.CultureInfo.CurrentCulture), 				
 										OGen.NTier.Kick.presentationlayer.weblayer.NWS_News_list.ContentstateEnum.approved.ToString(),
-										((DateTime)DataBinder.Eval(Container.DataItem, "Aproved_date")).ToString("dd-MMM-yyyy HH:mm", System.Globalization.CultureInfo.CurrentCulture)
+										((DateTime)DataBinder.Eval(Container.DataItem, "Approved_date")).ToString("dd-MMM-yyyy HH:mm", System.Globalization.CultureInfo.CurrentCulture)
 									)				
 									: OGen.NTier.Kick.presentationlayer.weblayer.NWS_News_list.ContentstateEnum.pending.ToString().Replace('_', ' ')
 							) %>
@@ -264,7 +264,7 @@
 										Visible='<%#
 											(
 												(
-													(long)DataBinder.Eval(Container.DataItem, "IFUser__Aproved")
+													(long)DataBinder.Eval(Container.DataItem, "IFUser__Approved")
 												) <= 0
 											)
 										%>'
@@ -281,7 +281,7 @@
 						|
 						<%# DataBinder.Eval(Container.DataItem, "Publish_date")%>
 						|
-						<%# DataBinder.Eval(Container.DataItem, "Aproved_date")%>
+						<%# DataBinder.Eval(Container.DataItem, "Approved_date")%>
 --%>
 					</td>
 				</tr>

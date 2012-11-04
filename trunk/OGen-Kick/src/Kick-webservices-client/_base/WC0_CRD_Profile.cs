@@ -175,15 +175,15 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_ProfileProfile[])results[0];
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(...);
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermission[] getRecord_ofProfilePermission_byProfile(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/getRecord_ofProfilePermition_byProfile",
+			"http://OGen.NTier.Kick.distributedlayer.webservices.server/getRecord_ofProfilePermission_byProfile",
 			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
 			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermission[] getRecord_ofProfilePermission_byProfile(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long IDProfile_search_in, 
@@ -194,7 +194,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
-				"getRecord_ofProfilePermition_byProfile", 
+				"getRecord_ofProfilePermission_byProfile", 
 				new object[] {
 					sessionGuid_in,
 					ip_forLogPurposes_in,
@@ -206,7 +206,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			);
 			page_itemsCount_out = (long)results[1];
 			errors_out = (int[])results[2];
-			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[])results[0];
+			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermission[])results[0];
 		}
 		#endregion
 		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_UserProfile[] getRecord_ofUserProfile_byUser(...);
@@ -256,7 +256,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
 			long[] idProfile_parent_in, 
-			long[] idPermition_in, 
+			long[] idPermission_in, 
 			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -266,7 +266,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					ip_forLogPurposes_in,
 					profile_in,
 					idProfile_parent_in,
-					idPermition_in
+					idPermission_in
 				}
 			);
 			errors_out = (int[])results[1];
@@ -313,7 +313,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
 			long[] idProfile_parent_in, 
-			long[] idPermition_in, 
+			long[] idPermission_in, 
 			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -323,7 +323,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					ip_forLogPurposes_in,
 					profile_in,
 					idProfile_parent_in,
-					idPermition_in
+					idPermission_in
 				}
 			);
 			errors_out = (int[])results[0];
@@ -342,7 +342,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
 			long[] idProfile_parent_in, 
-			long[] idPermition_in, 
+			long[] idPermission_in, 
 			out int[] errors_out
 		) {
 			object[] results = this.Invoke(
@@ -352,7 +352,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 					ip_forLogPurposes_in,
 					idProfile_in,
 					idProfile_parent_in,
-					idPermition_in
+					idPermission_in
 				}
 			);
 			errors_out = (int[])results[0];

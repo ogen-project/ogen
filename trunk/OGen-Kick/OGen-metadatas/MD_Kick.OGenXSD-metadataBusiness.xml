@@ -27,7 +27,7 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="idUser_out" type="long" isParams="false" isOut="true" isRef="false" />
-            <parameter name="idPermitions_out" type="long[]" isParams="false" isOut="true" isRef="false" />
+            <parameter name="idPermissions_out" type="long[]" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -38,9 +38,9 @@
         </method>
       </methods>
     </class>
-    <class name="CRD_Permition" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+    <class name="CRD_Permission" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
       <methods>
-        <method name="getRecord_all" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permition[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_all" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permission[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -96,7 +96,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_ofProfilePermition_byProfile" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_ofProfilePermission_byProfile" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermission[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -126,7 +126,7 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="profile_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile" isParams="false" isOut="false" isRef="false" />
             <parameter name="idProfile_parent_in" type="long[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idPermition_in" type="long[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idPermission_in" type="long[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -145,7 +145,7 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="profile_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile" isParams="false" isOut="false" isRef="false" />
             <parameter name="idProfile_parent_in" type="long[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idPermition_in" type="long[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idPermission_in" type="long[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -155,7 +155,7 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idProfile_in" type="long" isParams="false" isOut="false" isRef="false" />
             <parameter name="idProfile_parent_in" type="long[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idPermition_in" type="long[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idPermission_in" type="long[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -282,7 +282,7 @@
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="logtype_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="errortype_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="idPermition_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="idPermission_in" type="long" isParams="false" isOut="false" isRef="false" />
             <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="format_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="args_in" type="string[]" isParams="false" isOut="false" isRef="false" />
@@ -559,7 +559,7 @@
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="IDUser__Publisher_search_in" type="long" isParams="false" isOut="false" isRef="false" />
-            <parameter name="IDUser__Aproved_search_in" type="long" isParams="false" isOut="false" isRef="false" />
+            <parameter name="IDUser__Approved_search_in" type="long" isParams="false" isOut="false" isRef="false" />
             <parameter name="Begin_date_search_in" type="System.DateTime" isParams="false" isOut="false" isRef="false" />
             <parameter name="End_date_search_in" type="System.DateTime" isParams="false" isOut="false" isRef="false" />
             <parameter name="idTags_search_in" type="long[]" isParams="false" isOut="false" isRef="false" />
@@ -567,7 +567,7 @@
             <parameter name="idSources_search_in" type="long[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="idHighlights_search_in" type="long[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="idProfiles_search_in" type="long[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="charVar8000_search_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="text__small_search_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="IDLanguage_search_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="isAND_notOR_search_in" type="bool" isParams="false" isOut="false" isRef="false" />
             <parameter name="page_orderBy_in" type="int" isParams="false" isOut="false" isRef="false" />
@@ -584,8 +584,8 @@
             <parameter name="content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Content" isParams="false" isOut="false" isRef="false" />
             <parameter name="tx_Title_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="tx_Content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_subtitle_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_summary_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Subtitle_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Summary_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="idTags_in" type="long[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="idAuthors_in" type="long[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="idSources_in" type="long[]" isParams="false" isOut="false" isRef="false" />
@@ -601,8 +601,8 @@
             <parameter name="content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Content" isParams="false" isOut="false" isRef="false" />
             <parameter name="tx_Title_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="tx_Content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_subtitle_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_summary_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Subtitle_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Summary_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="idTags_in" type="long[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="idAuthors_in" type="long[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="idSources_in" type="long[]" isParams="false" isOut="false" isRef="false" />
@@ -635,8 +635,8 @@
             <parameter name="content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Content" isParams="false" isOut="false" isRef="false" />
             <parameter name="tx_Title_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="tx_Content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_subtitle_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_summary_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Subtitle_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Summary_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -1016,7 +1016,7 @@
             <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
             <parameter name="idUser_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="login_out" type="string" isParams="false" isOut="true" isRef="false" />
-            <parameter name="idPermitions_out" type="long[]" isParams="false" isOut="true" isRef="false" />
+            <parameter name="idPermissions_out" type="long[]" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -1029,7 +1029,7 @@
             <parameter name="idUser_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="login_out" type="string" isParams="false" isOut="true" isRef="false" />
             <parameter name="name_out" type="string" isParams="false" isOut="true" isRef="false" />
-            <parameter name="idPermitions_out" type="long[]" isParams="false" isOut="true" isRef="false" />
+            <parameter name="idPermissions_out" type="long[]" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -1043,13 +1043,13 @@
             <parameter name="idUser_out" type="long" isParams="false" isOut="true" isRef="false" />
             <parameter name="login_out" type="string" isParams="false" isOut="true" isRef="false" />
             <parameter name="name_out" type="string" isParams="false" isOut="true" isRef="false" />
-            <parameter name="idPermitions_out" type="long[]" isParams="false" isOut="true" isRef="false" />
+            <parameter name="idPermissions_out" type="long[]" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
         <method name="LostPassword_Recover" outputType="void" distribute="true" isSearch="false" ipParamNum="-1">
           <parameters>
-            <parameter name="EMail_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="Email_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="companyName_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="recoverLostPasswordURL_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idApplication_in" type="int" isParams="false" isOut="false" isRef="false" />
@@ -1066,11 +1066,11 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="updObject_EMail" outputType="void" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="updObject_Email" outputType="void" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="EMail_verify_in" type="string" isParams="false" isOut="false" isRef="false" />
+            <parameter name="Email_verify_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="companyName_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="verifyMailURL_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />

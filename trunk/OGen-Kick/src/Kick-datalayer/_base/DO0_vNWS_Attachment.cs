@@ -54,7 +54,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			DataColumn _dc_idlanguage = null;
 			DataColumn _dc_ifcontent = null;
 			DataColumn _dc_guid = null;
-			DataColumn _dc_ordernum = null;
+			DataColumn _dc_order = null;
 			DataColumn _dc_isimage = null;
 			DataColumn _dc_name = null;
 			DataColumn _dc_description = null;
@@ -68,8 +68,8 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_dc_idlanguage = dataTable_in.Columns["IDLanguage"];
 					_dc_ifcontent = dataTable_in.Columns["IFContent"];
 					_dc_guid = dataTable_in.Columns["GUID"];
-					_dc_ordernum = dataTable_in.Columns["OrderNum"];
-					_dc_isimage = dataTable_in.Columns["isImage"];
+					_dc_order = dataTable_in.Columns["Order"];
+					_dc_isimage = dataTable_in.Columns["IsImage"];
 					_dc_name = dataTable_in.Columns["Name"];
 					_dc_description = dataTable_in.Columns["Description"];
 					_dc_filename = dataTable_in.Columns["FileName"];
@@ -96,15 +96,15 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				} else {
 					_output[r].GUID = (string)dataTable_in.Rows[r][_dc_guid];
 				}
-				if (dataTable_in.Rows[r][_dc_ordernum] == System.DBNull.Value) {
-					_output[r].OrderNum_isNull = true;
+				if (dataTable_in.Rows[r][_dc_order] == System.DBNull.Value) {
+					_output[r].Order_isNull = true;
 				} else {
-					_output[r].OrderNum = (long)dataTable_in.Rows[r][_dc_ordernum];
+					_output[r].Order = (long)dataTable_in.Rows[r][_dc_order];
 				}
 				if (dataTable_in.Rows[r][_dc_isimage] == System.DBNull.Value) {
-					_output[r].isImage = false;
+					_output[r].IsImage = false;
 				} else {
-					_output[r].isImage = (bool)dataTable_in.Rows[r][_dc_isimage];
+					_output[r].IsImage = (bool)dataTable_in.Rows[r][_dc_isimage];
 				}
 				if (dataTable_in.Rows[r][_dc_name] == System.DBNull.Value) {
 					_output[r].Name_isNull = true;

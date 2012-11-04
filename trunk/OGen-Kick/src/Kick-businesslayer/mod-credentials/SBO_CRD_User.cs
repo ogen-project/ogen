@@ -46,11 +46,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		) {
 			long _output = -1L;
 
-			// ToDos: here! must have permition to create user
-			if (!sessionUser_in.hasPermition(
-				PermitionType.User__insert
+			// ToDos: here! must have permission to create user
+			if (!sessionUser_in.hasPermission(
+				PermissionType.User__insert
 			)) {
-				errorlist_in.Add(ErrorType.user__lack_of_permitions_to_write);
+				errorlist_in.Add(ErrorType.user__lack_of_permissions_to_write);
 				return _output;
 			}
 
@@ -118,7 +118,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 			#endregion
 
-			// must have permition to create user
+			// must have permission to create user
 			// ...
 			// password = login
 

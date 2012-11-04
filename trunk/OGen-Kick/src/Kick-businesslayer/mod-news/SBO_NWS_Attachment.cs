@@ -57,15 +57,15 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return _output;
 			}
 			#endregion
-			#region check Permitions...
+			#region check Permissions...
 			if (
-				!_sessionuser.hasPermition(
+				!_sessionuser.hasPermission(
 					false, 
-					PermitionType.News__select_OnSchedule, 
-					PermitionType.News__select_OffSchedule
+					PermissionType.News__select_OnSchedule, 
+					PermissionType.News__select_OffSchedule
 				)
 			) {
-				_errorlist.Add(ErrorType.news__lack_of_permitions_to_read);
+				_errorlist.Add(ErrorType.news__lack_of_permissions_to_read);
 				errors_out = _errorlist.ToArray();
 				return _output;
 			}
@@ -104,16 +104,16 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return false;
 			}
 			#endregion
-			#region check Permitions . . .
+			#region check Permissions . . .
 			if (
-				!sessionUser_out.hasPermition(
+				!sessionUser_out.hasPermission(
 					false, 
-					PermitionType.News__insert,
-					PermitionType.News__update_Approved,
-					PermitionType.News__update_Mine_notApproved
+					PermissionType.News__insert,
+					PermissionType.News__update_Approved,
+					PermissionType.News__update_Mine_notApproved
 				)
 			) {
-				errorlist_out.Add(ErrorType.news__lack_of_permitions_to_write);
+				errorlist_out.Add(ErrorType.news__lack_of_permissions_to_write);
 				return false;
 			}
 			#endregion
@@ -175,12 +175,12 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			#endregion
 
 			// ToDos: here! should mark Content to be re-Approved!
-			// ToDos: here! or not allow if no approve permition
+			// ToDos: here! or not allow if no approve permission
 
 			attachment_in.GUID
 				= guid_out
 				= Guid.NewGuid().ToString("N");
-			attachment_in.OrderNum = DateTime.Now.Ticks;
+			attachment_in.Order = DateTime.Now.Ticks;
 
 			Exception _exception = null;
 			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
@@ -356,7 +356,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			#endregion
 
 			// ToDos: here! should mark Content to be re-Approved!
-			// ToDos: here! or not allow if no approve permition
+			// ToDos: here! or not allow if no approve permission
 
 			Exception _exception = null;
 			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
@@ -501,15 +501,15 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return;
 			}
 			#endregion
-			#region check Permitions...
+			#region check Permissions...
 			if (
-				!_sessionuser.hasPermition(
+				!_sessionuser.hasPermission(
 					false, 
-					PermitionType.News__delete_Approved,
-					PermitionType.News__delete_Mine_notApproved
+					PermissionType.News__delete_Approved,
+					PermissionType.News__delete_Mine_notApproved
 				)
 			) {
-				_errorlist.Add(ErrorType.news__lack_of_permitions_to_delete);
+				_errorlist.Add(ErrorType.news__lack_of_permissions_to_delete);
 				errors_out = _errorlist.ToArray();
 				return;
 			}
@@ -671,15 +671,15 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return _output;
 			}
 			#endregion
-			#region check Permitions...
+			#region check Permissions...
 			if (
-				!_sessionuser.hasPermition(
+				!_sessionuser.hasPermission(
 					false, 
-					PermitionType.News__select_OnSchedule, 
-					PermitionType.News__select_OffSchedule
+					PermissionType.News__select_OnSchedule, 
+					PermissionType.News__select_OffSchedule
 				)
 			) {
-				_errorlist.Add(ErrorType.news__lack_of_permitions_to_read);
+				_errorlist.Add(ErrorType.news__lack_of_permissions_to_read);
 				errors_out = _errorlist.ToArray();
 				return _output;
 			}
@@ -738,15 +738,15 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return _output;
 			}
 			#endregion
-			#region check Permitions...
+			#region check Permissions...
 			if (
-				!_sessionuser.hasPermition(
+				!_sessionuser.hasPermission(
 					false,
-					PermitionType.News__select_OnSchedule,
-					PermitionType.News__select_OffSchedule
+					PermissionType.News__select_OnSchedule,
+					PermissionType.News__select_OffSchedule
 				)
 			) {
-				_errorlist.Add(ErrorType.news__lack_of_permitions_to_read);
+				_errorlist.Add(ErrorType.news__lack_of_permissions_to_read);
 				errors_out = _errorlist.ToArray();
 				return _output;
 			}

@@ -37,8 +37,8 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			long IDAttachment_in, 
 			long IFContent_in, 
 			string GUID_in, 
-			long OrderNum_in, 
-			bool isImage_in, 
+			long Order_in, 
+			bool IsImage_in, 
 			long TX_Name_in, 
 			long TX_Description_in, 
 			string FileName_in
@@ -46,8 +46,8 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			this.idattachment_ = IDAttachment_in;
 			this.ifcontent_ = IFContent_in;
 			this.guid_ = GUID_in;
-			this.ordernum_ = OrderNum_in;
-			this.isimage_ = isImage_in;
+			this.order_ = Order_in;
+			this.isimage_ = IsImage_in;
 			this.tx_name_ = TX_Name_in;
 			this.tx_description_ = TX_Description_in;
 			this.filename_ = FileName_in;
@@ -61,12 +61,12 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			this.idattachment_ = (long)info.GetValue("IDAttachment", typeof(long));
 			this.ifcontent_ = (long)info.GetValue("IFContent", typeof(long));
 			this.guid_ = (string)info.GetValue("GUID", typeof(string));
-			this.ordernum_ 
-				= (info.GetValue("OrderNum", typeof(long)) == null)
+			this.order_ 
+				= (info.GetValue("Order", typeof(long)) == null)
 					? 0L
-					: (long)info.GetValue("OrderNum", typeof(long));
-			this.OrderNum_isNull = (bool)info.GetValue("OrderNum_isNull", typeof(bool));
-			this.isimage_ = (bool)info.GetValue("isImage", typeof(bool));
+					: (long)info.GetValue("Order", typeof(long));
+			this.Order_isNull = (bool)info.GetValue("Order_isNull", typeof(bool));
+			this.isimage_ = (bool)info.GetValue("IsImage", typeof(bool));
 			this.tx_name_ 
 				= (info.GetValue("TX_Name", typeof(long)) == null)
 					? 0L
@@ -247,19 +247,19 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			}
 		}
 		#endregion
-		#region public long OrderNum { get; set; }
+		#region public long Order { get; set; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		private object ordernum_;// = 0L;
+		private object order_;// = 0L;
 		
 		/// <summary>
-		/// NWS_Attachment's OrderNum.
+		/// NWS_Attachment's Order.
 		/// </summary>
-		[XmlElement("OrderNum")]
-		[SoapElement("OrderNum")]
+		[XmlElement("Order")]
+		[SoapElement("Order")]
 		[DOPropertyAttribute(
-			"OrderNum", 
+			"Order", 
 			"", 
 			"", 
 			false, 
@@ -281,51 +281,51 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			0, 
 			""
 		)]
-		public long OrderNum {
+		public long Order {
 			get {
-				return (long)((this.ordernum_ == null) ? 0L : this.ordernum_);
+				return (long)((this.order_ == null) ? 0L : this.order_);
 			}
 			set {
 				if (
-					(!value.Equals(this.ordernum_))
+					(!value.Equals(this.order_))
 				) {
-					this.ordernum_ = value;
+					this.order_ = value;
 					this.haschanges_ = true;
 				}
 			}
 		}
 		#endregion
-		#region public bool OrderNum_isNull { get; set; }
+		#region public bool Order_isNull { get; set; }
 		/// <summary>
-		/// Allows assignement of null and check if null at NWS_Attachment's OrderNum.
+		/// Allows assignement of null and check if null at NWS_Attachment's Order.
 		/// </summary>
-		[XmlElement("OrderNum_isNull")]
-		[SoapElement("OrderNum_isNull")]
-		public bool OrderNum_isNull {
-			get { return (this.ordernum_ == null); }
+		[XmlElement("Order_isNull")]
+		[SoapElement("Order_isNull")]
+		public bool Order_isNull {
+			get { return (this.order_ == null); }
 			set {
-				//if (value) this.ordernum_ = null;
+				//if (value) this.order_ = null;
 
-				if ((value) && (this.ordernum_ != null)) {
-					this.ordernum_ = null;
+				if ((value) && (this.order_ != null)) {
+					this.order_ = null;
 					this.haschanges_ = true;
 				}
 			}
 		}
 		#endregion
-		#region public bool isImage { get; set; }
+		#region public bool IsImage { get; set; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
 		private bool isimage_;// = false;
 		
 		/// <summary>
-		/// NWS_Attachment's isImage.
+		/// NWS_Attachment's IsImage.
 		/// </summary>
-		[XmlElement("isImage")]
-		[SoapElement("isImage")]
+		[XmlElement("IsImage")]
+		[SoapElement("IsImage")]
 		[DOPropertyAttribute(
-			"isImage", 
+			"IsImage", 
 			"", 
 			"", 
 			false, 
@@ -347,7 +347,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			0, 
 			""
 		)]
-		public bool isImage {
+		public bool IsImage {
 			get {
 				return this.isimage_;
 			}
@@ -560,9 +560,9 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			_output.Columns.Add(_dc_ifcontent);
 			DataColumn _dc_guid = new DataColumn("GUID", typeof(string));
 			_output.Columns.Add(_dc_guid);
-			DataColumn _dc_ordernum = new DataColumn("OrderNum", typeof(long));
-			_output.Columns.Add(_dc_ordernum);
-			DataColumn _dc_isimage = new DataColumn("isImage", typeof(bool));
+			DataColumn _dc_order = new DataColumn("Order", typeof(long));
+			_output.Columns.Add(_dc_order);
+			DataColumn _dc_isimage = new DataColumn("IsImage", typeof(bool));
 			_output.Columns.Add(_dc_isimage);
 			DataColumn _dc_tx_name = new DataColumn("TX_Name", typeof(long));
 			_output.Columns.Add(_dc_tx_name);
@@ -577,8 +577,8 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 				_dr[_dc_idattachment] = _serializableObject.IDAttachment;
 				_dr[_dc_ifcontent] = _serializableObject.IFContent;
 				_dr[_dc_guid] = _serializableObject.GUID;
-				_dr[_dc_ordernum] = _serializableObject.OrderNum;
-				_dr[_dc_isimage] = _serializableObject.isImage;
+				_dr[_dc_order] = _serializableObject.Order;
+				_dr[_dc_isimage] = _serializableObject.IsImage;
 				_dr[_dc_tx_name] = _serializableObject.TX_Name;
 				_dr[_dc_tx_description] = _serializableObject.TX_Description;
 				_dr[_dc_filename] = _serializableObject.FileName;
@@ -597,7 +597,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			this.idattachment_ = 0L;
 			this.ifcontent_ = 0L;
 			this.guid_ = string.Empty;
-			this.ordernum_ = 0L;
+			this.order_ = 0L;
 			this.isimage_ = false;
 			this.tx_name_ = 0L;
 			this.tx_description_ = 0L;
@@ -615,9 +615,9 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			info.AddValue("IDAttachment", this.idattachment_);
 			info.AddValue("IFContent", this.ifcontent_);
 			info.AddValue("GUID", this.guid_);
-			info.AddValue("OrderNum", this.ordernum_);
-			info.AddValue("OrderNum_isNull", this.OrderNum_isNull);
-			info.AddValue("isImage", this.isimage_);
+			info.AddValue("Order", this.order_);
+			info.AddValue("Order_isNull", this.Order_isNull);
+			info.AddValue("IsImage", this.isimage_);
 			info.AddValue("TX_Name", this.tx_name_);
 			info.AddValue("TX_Name_isNull", this.TX_Name_isNull);
 			info.AddValue("TX_Description", this.tx_description_);

@@ -199,7 +199,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		#endregion
 		#region public void Bind();
 		public void Bind() {
-			bool _isloggedin = utils.User.isLoggedIn;
+			bool _isloggedin = utils.User.IsLoggedIn;
 
 			this.LBT_Registration.Text = (_isloggedin) ? utils.User.Login : "anonynous";
 			this.LBT_Registration.PostBackUrl = (_isloggedin) ? "~/Registration-update.aspx" : "~/Registration.aspx";

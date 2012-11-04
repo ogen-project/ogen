@@ -119,8 +119,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(
+		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermission[] getRecord_ofProfilePermission_byProfile(...);
+		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermission[] getRecord_ofProfilePermission_byProfile(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long IDProfile_search_in, 
@@ -130,7 +130,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return bo_.getRecord_ofProfilePermition_byProfile(
+			return bo_.getRecord_ofProfilePermission_byProfile(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				IDProfile_search_in, 
@@ -171,7 +171,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
 			long[] idProfile_parent_in, 
-			long[] idPermition_in, 
+			long[] idPermission_in, 
 			out int[] errors_out
 		) {
 			return bo_.insObject(
@@ -179,7 +179,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 				ip_forLogPurposes_in, 
 				profile_in, 
 				idProfile_parent_in, 
-				idPermition_in, 
+				idPermission_in, 
 				out errors_out
 			);
 		}
@@ -207,7 +207,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
 			long[] idProfile_parent_in, 
-			long[] idPermition_in, 
+			long[] idPermission_in, 
 			out int[] errors_out
 		) {
 			bo_.updObject(
@@ -215,7 +215,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 				ip_forLogPurposes_in, 
 				profile_in, 
 				idProfile_parent_in, 
-				idPermition_in, 
+				idPermission_in, 
 				out errors_out
 			);
 		}
@@ -226,7 +226,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
 			long[] idProfile_parent_in, 
-			long[] idPermition_in, 
+			long[] idPermission_in, 
 			out int[] errors_out
 		) {
 			bo_.updObject_relationsOnly(
@@ -234,7 +234,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 				ip_forLogPurposes_in, 
 				idProfile_in, 
 				idProfile_parent_in, 
-				idPermition_in, 
+				idPermission_in, 
 				out errors_out
 			);
 		}

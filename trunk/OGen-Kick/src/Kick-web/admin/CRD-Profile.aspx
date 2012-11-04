@@ -68,7 +68,7 @@
 					</tr>
 					<tr>
 						<td align="right" class="label_small nowrap">
-							Permitions:&nbsp;
+							Permissions:&nbsp;
 						</td>
 						<td>
 							<asol:KickCheckBoxList

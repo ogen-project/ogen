@@ -290,7 +290,7 @@
         <dia:enum val="2"/>
       </dia:attribute>
       <dia:attribute name="role_a">
-        <dia:string>#IFPermition#</dia:string>
+        <dia:string>#IFPermission#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_a">
         <dia:string>##</dia:string>
@@ -302,7 +302,7 @@
         <dia:boolean val="false"/>
       </dia:attribute>
       <dia:attribute name="role_b">
-        <dia:string>#IDPermition#</dia:string>
+        <dia:string>#IDPermission#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_b">
         <dia:string>##</dia:string>
@@ -317,7 +317,7 @@
         <dia:point val="32,6.2"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="26.165,5.4;32.75,9.2"/>
+        <dia:rectangle val="25.78,5.4;32.75,9.2"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -499,7 +499,7 @@
         <dia:enum val="2"/>
       </dia:attribute>
       <dia:attribute name="role_a">
-        <dia:string>#IDPermition#</dia:string>
+        <dia:string>#IDPermission#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_a">
         <dia:string>##</dia:string>
@@ -511,7 +511,7 @@
         <dia:boolean val="true"/>
       </dia:attribute>
       <dia:attribute name="role_b">
-        <dia:string>#IFPermition#</dia:string>
+        <dia:string>#IFPermission#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_b">
         <dia:string>##</dia:string>
@@ -526,7 +526,7 @@
         <dia:point val="38.305,8.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="38.255,7.6;49.525,32.6"/>
+        <dia:rectangle val="38.255,7.6;49.91,32.6"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -2418,7 +2418,7 @@
         <dia:boolean val="true"/>
       </dia:attribute>
       <dia:attribute name="role_b">
-        <dia:string>#tx_summary#</dia:string>
+        <dia:string>#TX_Summary#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_b">
         <dia:string>##</dia:string>
@@ -2487,7 +2487,7 @@
         <dia:boolean val="true"/>
       </dia:attribute>
       <dia:attribute name="role_b">
-        <dia:string>#tx_subtitle#</dia:string>
+        <dia:string>#TX_Subtitle#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_b">
         <dia:string>##</dia:string>
@@ -2694,7 +2694,7 @@
         <dia:boolean val="true"/>
       </dia:attribute>
       <dia:attribute name="role_b">
-        <dia:string>#IFUser__Aproved#</dia:string>
+        <dia:string>#IFUser__Approved#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_b">
         <dia:string>##</dia:string>
@@ -2709,7 +2709,7 @@
         <dia:point val="3,12.2"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-0.31,11.4;15.8973,42.3754"/>
+        <dia:rectangle val="-0.31,11.4;16.2823,42.3754"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -3631,20 +3631,20 @@
         <dia:boolean val="true"/>
       </dia:attribute>
       <dia:attribute name="obj_pos">
-        <dia:point val="-21.6963,36.5576"/>
+        <dia:point val="-22.8513,36.5576"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-24.7463,32.5576;-13.5513,37.3576"/>
+        <dia:rectangle val="-25.6126,32.5576;-14.7063,37.3576"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
-        <dia:point val="-21.6963,36.5576"/>
-        <dia:point val="-20.6963,36.5576"/>
-        <dia:point val="-20.6963,33.3576"/>
-        <dia:point val="-23.9463,33.3576"/>
-        <dia:point val="-23.9463,34.3576"/>
+        <dia:point val="-22.8513,36.5576"/>
+        <dia:point val="-21.8513,36.5576"/>
+        <dia:point val="-21.8513,33.3576"/>
+        <dia:point val="-24.8126,33.3576"/>
+        <dia:point val="-24.8126,34.3576"/>
       </dia:attribute>
       <dia:attribute name="orth_orient">
         <dia:enum val="0"/>
@@ -4140,7 +4140,7 @@ Newsletter#</dia:string>
         <dia:enum val="2"/>
       </dia:attribute>
       <dia:attribute name="role_a">
-        <dia:string>#IDLogtype#</dia:string>
+        <dia:string>#IDType#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_a">
         <dia:string>##</dia:string>
@@ -4152,7 +4152,7 @@ Newsletter#</dia:string>
         <dia:boolean val="true"/>
       </dia:attribute>
       <dia:attribute name="role_b">
-        <dia:string>#IFLogtype#</dia:string>
+        <dia:string>#IFType#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_b">
         <dia:string>##</dia:string>
@@ -4167,7 +4167,7 @@ Newsletter#</dia:string>
         <dia:point val="47,22.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="42.535,21.6;48.755,27"/>
+        <dia:rectangle val="42.94,21.6;47.6,27"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -4211,7 +4211,7 @@ Newsletter#</dia:string>
         <dia:enum val="2"/>
       </dia:attribute>
       <dia:attribute name="role_a">
-        <dia:string>#IFLogtype_parent#</dia:string>
+        <dia:string>#IFType_parent#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_a">
         <dia:string>##</dia:string>
@@ -4223,7 +4223,7 @@ Newsletter#</dia:string>
         <dia:boolean val="false"/>
       </dia:attribute>
       <dia:attribute name="role_b">
-        <dia:string>#IDLogtype#</dia:string>
+        <dia:string>#IDType#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_b">
         <dia:string>##</dia:string>
@@ -4235,20 +4235,20 @@ Newsletter#</dia:string>
         <dia:boolean val="true"/>
       </dia:attribute>
       <dia:attribute name="obj_pos">
-        <dia:point val="52.595,21"/>
+        <dia:point val="51.7287,21"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="51.845,19.2;59.305,23.2"/>
+        <dia:rectangle val="50.9787,19.2;57.2838,23.2"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
-        <dia:point val="52.595,21"/>
-        <dia:point val="52.595,20"/>
-        <dia:point val="55.46,20"/>
-        <dia:point val="55.46,22.4"/>
-        <dia:point val="54.46,22.4"/>
+        <dia:point val="51.7287,21"/>
+        <dia:point val="51.7287,20"/>
+        <dia:point val="54.305,20"/>
+        <dia:point val="54.305,22.4"/>
+        <dia:point val="53.305,22.4"/>
       </dia:attribute>
       <dia:attribute name="orth_orient">
         <dia:enum val="1"/>
@@ -4284,7 +4284,7 @@ Newsletter#</dia:string>
         <dia:enum val="2"/>
       </dia:attribute>
       <dia:attribute name="role_a">
-        <dia:string>#IDErrortype#</dia:string>
+        <dia:string>#IDError#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_a">
         <dia:string>##</dia:string>
@@ -4296,7 +4296,7 @@ Newsletter#</dia:string>
         <dia:boolean val="true"/>
       </dia:attribute>
       <dia:attribute name="role_b">
-        <dia:string>#IFErrortype#</dia:string>
+        <dia:string>#IFError#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_b">
         <dia:string>##</dia:string>
@@ -4382,16 +4382,16 @@ Newsletter#</dia:string>
         <dia:point val="3,11.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-22.4463,10.6;3.05,41.3576"/>
+        <dia:rectangle val="-23.6013,10.6;3.05,41.3576"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
         <dia:point val="3,11.4"/>
-        <dia:point val="-9.34815,11.4"/>
-        <dia:point val="-9.34815,40.5576"/>
-        <dia:point val="-21.6963,40.5576"/>
+        <dia:point val="-9.92565,11.4"/>
+        <dia:point val="-9.92565,40.5576"/>
+        <dia:point val="-22.8513,40.5576"/>
       </dia:attribute>
       <dia:attribute name="orth_orient">
         <dia:enum val="0"/>
@@ -4453,7 +4453,7 @@ Newsletter#</dia:string>
         <dia:point val="-18.151,13.3001"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-22.4463,13.2501;-12.596,42.9576"/>
+        <dia:rectangle val="-23.6013,13.2501;-12.596,42.9576"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -4461,7 +4461,7 @@ Newsletter#</dia:string>
       <dia:attribute name="orth_points">
         <dia:point val="-18.151,13.3001"/>
         <dia:point val="-18.151,42.1576"/>
-        <dia:point val="-21.6963,42.1576"/>
+        <dia:point val="-22.8513,42.1576"/>
       </dia:attribute>
       <dia:attribute name="orth_orient">
         <dia:enum val="1"/>
@@ -4565,7 +4565,7 @@ Newsletter#</dia:string>
             <dia:string>#IFApplication (replicated here) 
 is needed to be able to define 
 the constraint pair: 
-EMail - IFApplication#</dia:string>
+Email - IFApplication#</dia:string>
           </dia:attribute>
           <dia:attribute name="font">
             <dia:font family="sans" style="0" name="Helvetica"/>
@@ -4632,17 +4632,17 @@ EMail - IFApplication#</dia:string>
         <dia:boolean val="true"/>
       </dia:attribute>
       <dia:attribute name="obj_pos">
-        <dia:point val="14,14.2"/>
+        <dia:point val="14,13.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="8.935,4.6;15.05,15"/>
+        <dia:rectangle val="8.935,4.6;15.05,14.2"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
-        <dia:point val="14,14.2"/>
-        <dia:point val="13,14.2"/>
+        <dia:point val="14,13.4"/>
+        <dia:point val="13,13.4"/>
         <dia:point val="13,5.4"/>
         <dia:point val="15,5.4"/>
       </dia:attribute>
@@ -4661,7 +4661,7 @@ EMail - IFApplication#</dia:string>
         <dia:color val="#ff0000"/>
       </dia:attribute>
       <dia:connections>
-        <dia:connection handle="0" to="O94" connection="14"/>
+        <dia:connection handle="0" to="O94" connection="12"/>
         <dia:connection handle="1" to="O98" connection="12"/>
       </dia:connections>
     </dia:object>
@@ -5104,7 +5104,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="32,4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="32,4;38.66,6.7"/>
+        <dia:rectangle val="32,4;39.0025,6.7"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -5113,7 +5113,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="32,4"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="6.6600000000000001"/>
+        <dia:real val="7.0025000000000004"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="2.7000000000000002"/>
@@ -5131,7 +5131,7 @@ EMail - IFApplication#</dia:string>
         <dia:real val="0.10000000000000001"/>
       </dia:attribute>
       <dia:attribute name="name">
-        <dia:string>#CRD_ProfilePermition#</dia:string>
+        <dia:string>#CRD_ProfilePermission#</dia:string>
       </dia:attribute>
       <dia:attribute name="comment">
         <dia:string>##</dia:string>
@@ -5189,7 +5189,7 @@ EMail - IFApplication#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#IFPermition#</dia:string>
+            <dia:string>#IFPermission#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -5559,7 +5559,7 @@ EMail - IFApplication#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#CharVar8000#</dia:string>
+            <dia:string>#Text__small#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -5579,7 +5579,7 @@ EMail - IFApplication#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#Text#</dia:string>
+            <dia:string>#Text__large#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -5839,7 +5839,7 @@ EMail - IFApplication#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#OrderNum#</dia:string>
+            <dia:string>#Order#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -5859,7 +5859,7 @@ EMail - IFApplication#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#isImage#</dia:string>
+            <dia:string>#IsImage#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -6569,7 +6569,7 @@ EMail - IFApplication#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#IFUser__Aproved#</dia:string>
+            <dia:string>#IFUser__Approved#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -6589,7 +6589,7 @@ EMail - IFApplication#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#Aproved_date#</dia:string>
+            <dia:string>#Approved_date#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -6689,7 +6689,7 @@ EMail - IFApplication#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#tx_subtitle#</dia:string>
+            <dia:string>#TX_Subtitle#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -6709,7 +6709,7 @@ EMail - IFApplication#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#tx_summary#</dia:string>
+            <dia:string>#TX_Summary#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -6749,7 +6749,7 @@ EMail - IFApplication#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#isNews_notForum#</dia:string>
+            <dia:string>#IsNews_notForum#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -6774,7 +6774,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="-30.6963,34.3576"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-30.6963,34.3576;-21.6963,42.6576"/>
+        <dia:rectangle val="-30.6963,34.3576;-22.8513,42.6576"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -6783,7 +6783,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="-30.6963,34.3576"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="9"/>
+        <dia:real val="7.8449999999999998"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="8.2999999999999989"/>
@@ -6879,7 +6879,7 @@ EMail - IFApplication#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#isSticky#</dia:string>
+            <dia:string>#IsSticky#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -6919,7 +6919,7 @@ EMail - IFApplication#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#Message__charvar8000#</dia:string>
+            <dia:string>#Message__small#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -6939,7 +6939,7 @@ EMail - IFApplication#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#Message__text#</dia:string>
+            <dia:string>#Message__large#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -8114,7 +8114,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="47,21"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="47,21;54.46,25.3"/>
+        <dia:rectangle val="47,21;53.305,25.3"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -8123,7 +8123,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="47,21"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="7.46"/>
+        <dia:real val="6.3049999999999997"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="4.3000000000000007"/>
@@ -8141,7 +8141,7 @@ EMail - IFApplication#</dia:string>
         <dia:real val="0.10000000000000001"/>
       </dia:attribute>
       <dia:attribute name="name">
-        <dia:string>#LOG_Logtype#</dia:string>
+        <dia:string>#LOG_Type#</dia:string>
       </dia:attribute>
       <dia:attribute name="comment">
         <dia:string>##</dia:string>
@@ -8179,7 +8179,7 @@ EMail - IFApplication#</dia:string>
       <dia:attribute name="attributes">
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#IDLogtype#</dia:string>
+            <dia:string>#IDType#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -8199,7 +8199,7 @@ EMail - IFApplication#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#IFLogtype_parent#</dia:string>
+            <dia:string>#IFType_parent#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -8291,7 +8291,7 @@ EMail - IFApplication#</dia:string>
         <dia:real val="0.10000000000000001"/>
       </dia:attribute>
       <dia:attribute name="name">
-        <dia:string>#LOG_Errortype#</dia:string>
+        <dia:string>#LOG_Error#</dia:string>
       </dia:attribute>
       <dia:attribute name="comment">
         <dia:string>##</dia:string>
@@ -8329,7 +8329,7 @@ EMail - IFApplication#</dia:string>
       <dia:attribute name="attributes">
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#IDErrortype#</dia:string>
+            <dia:string>#IDError#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -8499,7 +8499,7 @@ EMail - IFApplication#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#IFLogtype#</dia:string>
+            <dia:string>#IFType#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -8559,7 +8559,7 @@ EMail - IFApplication#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#IFErrortype#</dia:string>
+            <dia:string>#IFError#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -8639,7 +8639,7 @@ EMail - IFApplication#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#IFPermition#</dia:string>
+            <dia:string>#IFPermission#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -8704,7 +8704,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="32,7"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="32,7;38.305,10.5"/>
+        <dia:rectangle val="32,7;38.305,12.1"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -8716,7 +8716,7 @@ EMail - IFApplication#</dia:string>
         <dia:real val="6.3049999999999997"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
-        <dia:real val="3.5"/>
+        <dia:real val="5.0999999999999996"/>
       </dia:attribute>
       <dia:attribute name="text_colour">
         <dia:color val="#000000"/>
@@ -8731,7 +8731,7 @@ EMail - IFApplication#</dia:string>
         <dia:real val="0.10000000000000001"/>
       </dia:attribute>
       <dia:attribute name="name">
-        <dia:string>#CRD_Permition#</dia:string>
+        <dia:string>#CRD_Permission#</dia:string>
       </dia:attribute>
       <dia:attribute name="comment">
         <dia:string>##</dia:string>
@@ -8769,7 +8769,7 @@ EMail - IFApplication#</dia:string>
       <dia:attribute name="attributes">
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#IDPermition#</dia:string>
+            <dia:string>#IDPermission#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -8827,6 +8827,46 @@ EMail - IFApplication#</dia:string>
             <dia:boolean val="false"/>
           </dia:attribute>
         </dia:composite>
+        <dia:composite type="table_attribute">
+          <dia:attribute name="name">
+            <dia:string>#IFTable#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="type">
+            <dia:string>##</dia:string>
+          </dia:attribute>
+          <dia:attribute name="comment">
+            <dia:string>#psql:bigint;sqlserver:bigint;#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="primary_key">
+            <dia:boolean val="false"/>
+          </dia:attribute>
+          <dia:attribute name="nullable">
+            <dia:boolean val="true"/>
+          </dia:attribute>
+          <dia:attribute name="unique">
+            <dia:boolean val="false"/>
+          </dia:attribute>
+        </dia:composite>
+        <dia:composite type="table_attribute">
+          <dia:attribute name="name">
+            <dia:string>#IFAction#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="type">
+            <dia:string>##</dia:string>
+          </dia:attribute>
+          <dia:attribute name="comment">
+            <dia:string>#psql:bigint;sqlserver:bigint;#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="primary_key">
+            <dia:boolean val="false"/>
+          </dia:attribute>
+          <dia:attribute name="nullable">
+            <dia:boolean val="true"/>
+          </dia:attribute>
+          <dia:attribute name="unique">
+            <dia:boolean val="false"/>
+          </dia:attribute>
+        </dia:composite>
       </dia:attribute>
     </dia:object>
     <dia:object type="Database - Table" version="0" id="O94">
@@ -8834,7 +8874,7 @@ EMail - IFApplication#</dia:string>
         <dia:point val="14,12"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="14,12;21.46,14.7"/>
+        <dia:rectangle val="14,12;20.53,13.9"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -8843,10 +8883,10 @@ EMail - IFApplication#</dia:string>
         <dia:point val="14,12"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="7.46"/>
+        <dia:real val="6.5299999999999994"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
-        <dia:real val="2.7000000000000002"/>
+        <dia:real val="1.8999999999999999"/>
       </dia:attribute>
       <dia:attribute name="text_colour">
         <dia:color val="#ff0000"/>
@@ -8861,7 +8901,7 @@ EMail - IFApplication#</dia:string>
         <dia:real val="0.10000000000000001"/>
       </dia:attribute>
       <dia:attribute name="name">
-        <dia:string>#NET_Defaultprofile#</dia:string>
+        <dia:string>#NET_Profile__default#</dia:string>
       </dia:attribute>
       <dia:attribute name="comment">
         <dia:string>##</dia:string>
@@ -8899,26 +8939,6 @@ EMail - IFApplication#</dia:string>
       <dia:attribute name="attributes">
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#IDDefaultprofile#</dia:string>
-          </dia:attribute>
-          <dia:attribute name="type">
-            <dia:string>##</dia:string>
-          </dia:attribute>
-          <dia:attribute name="comment">
-            <dia:string>#psql:bigserial;sqlserver:bigint;identity:True;#</dia:string>
-          </dia:attribute>
-          <dia:attribute name="primary_key">
-            <dia:boolean val="true"/>
-          </dia:attribute>
-          <dia:attribute name="nullable">
-            <dia:boolean val="false"/>
-          </dia:attribute>
-          <dia:attribute name="unique">
-            <dia:boolean val="true"/>
-          </dia:attribute>
-        </dia:composite>
-        <dia:composite type="table_attribute">
-          <dia:attribute name="name">
             <dia:string>#IFProfile#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
@@ -8928,13 +8948,13 @@ EMail - IFApplication#</dia:string>
             <dia:string>#psql:bigint;sqlserver:bigint;#</dia:string>
           </dia:attribute>
           <dia:attribute name="primary_key">
-            <dia:boolean val="false"/>
+            <dia:boolean val="true"/>
           </dia:attribute>
           <dia:attribute name="nullable">
             <dia:boolean val="false"/>
           </dia:attribute>
           <dia:attribute name="unique">
-            <dia:boolean val="false"/>
+            <dia:boolean val="true"/>
           </dia:attribute>
         </dia:composite>
       </dia:attribute>
@@ -10201,7 +10221,7 @@ EMail - IFApplication#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#EMail#</dia:string>
+            <dia:string>#Email#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -10221,7 +10241,7 @@ EMail - IFApplication#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#EMail_verify#</dia:string>
+            <dia:string>#Email_verify#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -10263,10 +10283,10 @@ EMail - IFApplication#</dia:string>
     </dia:object>
     <dia:object type="Standard - Text" version="1" id="O105">
       <dia:attribute name="obj_pos">
-        <dia:point val="14.15,15.55"/>
+        <dia:point val="14.1,14.7"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="14.15,14.91;23.9775,18.0825"/>
+        <dia:rectangle val="14.1,14.06;23.9275,17.2325"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
@@ -10283,7 +10303,7 @@ suitable for new registered users#</dia:string>
             <dia:real val="0.80000000000000004"/>
           </dia:attribute>
           <dia:attribute name="pos">
-            <dia:point val="14.15,15.55"/>
+            <dia:point val="14.1,14.7"/>
           </dia:attribute>
           <dia:attribute name="color">
             <dia:color val="#000000"/>
@@ -10302,6 +10322,368 @@ suitable for new registered users#</dia:string>
       <dia:attribute name="show_background">
         <dia:boolean val="true"/>
       </dia:attribute>
+    </dia:object>
+    <dia:object type="Database - Table" version="0" id="O106">
+      <dia:attribute name="obj_pos">
+        <dia:point val="47,4"/>
+      </dia:attribute>
+      <dia:attribute name="obj_bb">
+        <dia:rectangle val="47,4;50.995,6.7"/>
+      </dia:attribute>
+      <dia:attribute name="meta">
+        <dia:composite type="dict"/>
+      </dia:attribute>
+      <dia:attribute name="elem_corner">
+        <dia:point val="47,4"/>
+      </dia:attribute>
+      <dia:attribute name="elem_width">
+        <dia:real val="3.9949999999999997"/>
+      </dia:attribute>
+      <dia:attribute name="elem_height">
+        <dia:real val="2.7000000000000002"/>
+      </dia:attribute>
+      <dia:attribute name="text_colour">
+        <dia:color val="#000000"/>
+      </dia:attribute>
+      <dia:attribute name="line_colour">
+        <dia:color val="#a020f0"/>
+      </dia:attribute>
+      <dia:attribute name="fill_colour">
+        <dia:color val="#ffffff"/>
+      </dia:attribute>
+      <dia:attribute name="line_width">
+        <dia:real val="0.10000000000000001"/>
+      </dia:attribute>
+      <dia:attribute name="name">
+        <dia:string>#CRD_Table#</dia:string>
+      </dia:attribute>
+      <dia:attribute name="comment">
+        <dia:string>##</dia:string>
+      </dia:attribute>
+      <dia:attribute name="visible_comment">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="tagging_comment">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="underline_primary_key">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="bold_primary_keys">
+        <dia:boolean val="true"/>
+      </dia:attribute>
+      <dia:attribute name="normal_font">
+        <dia:font family="monospace" style="0" name="Courier"/>
+      </dia:attribute>
+      <dia:attribute name="name_font">
+        <dia:font family="sans" style="80" name="Helvetica-Bold"/>
+      </dia:attribute>
+      <dia:attribute name="comment_font">
+        <dia:font family="sans" style="0" name="Helvetica"/>
+      </dia:attribute>
+      <dia:attribute name="normal_font_height">
+        <dia:real val="0.80000000000000004"/>
+      </dia:attribute>
+      <dia:attribute name="name_font_height">
+        <dia:real val="0.69999999999999996"/>
+      </dia:attribute>
+      <dia:attribute name="comment_font_height">
+        <dia:real val="0.69999999999999996"/>
+      </dia:attribute>
+      <dia:attribute name="attributes">
+        <dia:composite type="table_attribute">
+          <dia:attribute name="name">
+            <dia:string>#IDTable#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="type">
+            <dia:string>##</dia:string>
+          </dia:attribute>
+          <dia:attribute name="comment">
+            <dia:string>#psql:bigint;sqlserver:bigint;identity:False;#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="primary_key">
+            <dia:boolean val="true"/>
+          </dia:attribute>
+          <dia:attribute name="nullable">
+            <dia:boolean val="false"/>
+          </dia:attribute>
+          <dia:attribute name="unique">
+            <dia:boolean val="true"/>
+          </dia:attribute>
+        </dia:composite>
+        <dia:composite type="table_attribute">
+          <dia:attribute name="name">
+            <dia:string>#Name#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="type">
+            <dia:string>##</dia:string>
+          </dia:attribute>
+          <dia:attribute name="comment">
+            <dia:string>#length:255;psql:character varying;sqlserver:varchar;#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="primary_key">
+            <dia:boolean val="false"/>
+          </dia:attribute>
+          <dia:attribute name="nullable">
+            <dia:boolean val="false"/>
+          </dia:attribute>
+          <dia:attribute name="unique">
+            <dia:boolean val="true"/>
+          </dia:attribute>
+        </dia:composite>
+      </dia:attribute>
+    </dia:object>
+    <dia:object type="Database - Table" version="0" id="O107">
+      <dia:attribute name="obj_pos">
+        <dia:point val="47,7"/>
+      </dia:attribute>
+      <dia:attribute name="obj_bb">
+        <dia:rectangle val="47,7;51.38,9.7"/>
+      </dia:attribute>
+      <dia:attribute name="meta">
+        <dia:composite type="dict"/>
+      </dia:attribute>
+      <dia:attribute name="elem_corner">
+        <dia:point val="47,7"/>
+      </dia:attribute>
+      <dia:attribute name="elem_width">
+        <dia:real val="4.3799999999999999"/>
+      </dia:attribute>
+      <dia:attribute name="elem_height">
+        <dia:real val="2.7000000000000002"/>
+      </dia:attribute>
+      <dia:attribute name="text_colour">
+        <dia:color val="#000000"/>
+      </dia:attribute>
+      <dia:attribute name="line_colour">
+        <dia:color val="#a020f0"/>
+      </dia:attribute>
+      <dia:attribute name="fill_colour">
+        <dia:color val="#ffffff"/>
+      </dia:attribute>
+      <dia:attribute name="line_width">
+        <dia:real val="0.10000000000000001"/>
+      </dia:attribute>
+      <dia:attribute name="name">
+        <dia:string>#CRD_Action#</dia:string>
+      </dia:attribute>
+      <dia:attribute name="comment">
+        <dia:string>##</dia:string>
+      </dia:attribute>
+      <dia:attribute name="visible_comment">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="tagging_comment">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="underline_primary_key">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="bold_primary_keys">
+        <dia:boolean val="true"/>
+      </dia:attribute>
+      <dia:attribute name="normal_font">
+        <dia:font family="monospace" style="0" name="Courier"/>
+      </dia:attribute>
+      <dia:attribute name="name_font">
+        <dia:font family="sans" style="80" name="Helvetica-Bold"/>
+      </dia:attribute>
+      <dia:attribute name="comment_font">
+        <dia:font family="sans" style="0" name="Helvetica"/>
+      </dia:attribute>
+      <dia:attribute name="normal_font_height">
+        <dia:real val="0.80000000000000004"/>
+      </dia:attribute>
+      <dia:attribute name="name_font_height">
+        <dia:real val="0.69999999999999996"/>
+      </dia:attribute>
+      <dia:attribute name="comment_font_height">
+        <dia:real val="0.69999999999999996"/>
+      </dia:attribute>
+      <dia:attribute name="attributes">
+        <dia:composite type="table_attribute">
+          <dia:attribute name="name">
+            <dia:string>#IDAction#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="type">
+            <dia:string>##</dia:string>
+          </dia:attribute>
+          <dia:attribute name="comment">
+            <dia:string>#psql:bigint;sqlserver:bigint;identity:False;#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="primary_key">
+            <dia:boolean val="true"/>
+          </dia:attribute>
+          <dia:attribute name="nullable">
+            <dia:boolean val="false"/>
+          </dia:attribute>
+          <dia:attribute name="unique">
+            <dia:boolean val="true"/>
+          </dia:attribute>
+        </dia:composite>
+        <dia:composite type="table_attribute">
+          <dia:attribute name="name">
+            <dia:string>#Name#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="type">
+            <dia:string>##</dia:string>
+          </dia:attribute>
+          <dia:attribute name="comment">
+            <dia:string>#length:255;psql:character varying;sqlserver:varchar;#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="primary_key">
+            <dia:boolean val="false"/>
+          </dia:attribute>
+          <dia:attribute name="nullable">
+            <dia:boolean val="false"/>
+          </dia:attribute>
+          <dia:attribute name="unique">
+            <dia:boolean val="true"/>
+          </dia:attribute>
+        </dia:composite>
+      </dia:attribute>
+    </dia:object>
+    <dia:object type="UML - Association" version="2" id="O108">
+      <dia:attribute name="name">
+        <dia:string>##</dia:string>
+      </dia:attribute>
+      <dia:attribute name="direction">
+        <dia:enum val="1"/>
+      </dia:attribute>
+      <dia:attribute name="show_direction">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="assoc_type">
+        <dia:enum val="2"/>
+      </dia:attribute>
+      <dia:attribute name="role_a">
+        <dia:string>#IFTable#</dia:string>
+      </dia:attribute>
+      <dia:attribute name="multipicity_a">
+        <dia:string>##</dia:string>
+      </dia:attribute>
+      <dia:attribute name="visibility_a">
+        <dia:enum val="0"/>
+      </dia:attribute>
+      <dia:attribute name="show_arrow_a">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="role_b">
+        <dia:string>#IDTable#</dia:string>
+      </dia:attribute>
+      <dia:attribute name="multipicity_b">
+        <dia:string>##</dia:string>
+      </dia:attribute>
+      <dia:attribute name="visibility_b">
+        <dia:enum val="0"/>
+      </dia:attribute>
+      <dia:attribute name="show_arrow_b">
+        <dia:boolean val="true"/>
+      </dia:attribute>
+      <dia:attribute name="obj_pos">
+        <dia:point val="38.305,10.8"/>
+      </dia:attribute>
+      <dia:attribute name="obj_bb">
+        <dia:rectangle val="37.555,4.6;47.05,11.6"/>
+      </dia:attribute>
+      <dia:attribute name="meta">
+        <dia:composite type="dict"/>
+      </dia:attribute>
+      <dia:attribute name="orth_points">
+        <dia:point val="38.305,10.8"/>
+        <dia:point val="42.6525,10.8"/>
+        <dia:point val="42.6525,5.4"/>
+        <dia:point val="47,5.4"/>
+      </dia:attribute>
+      <dia:attribute name="orth_orient">
+        <dia:enum val="0"/>
+        <dia:enum val="1"/>
+        <dia:enum val="0"/>
+      </dia:attribute>
+      <dia:attribute name="orth_autoroute">
+        <dia:boolean val="true"/>
+      </dia:attribute>
+      <dia:attribute name="text_colour">
+        <dia:color val="#ffa500"/>
+      </dia:attribute>
+      <dia:attribute name="line_colour">
+        <dia:color val="#000099"/>
+      </dia:attribute>
+      <dia:connections>
+        <dia:connection handle="0" to="O93" connection="19"/>
+        <dia:connection handle="1" to="O106" connection="12"/>
+      </dia:connections>
+    </dia:object>
+    <dia:object type="UML - Association" version="2" id="O109">
+      <dia:attribute name="name">
+        <dia:string>##</dia:string>
+      </dia:attribute>
+      <dia:attribute name="direction">
+        <dia:enum val="1"/>
+      </dia:attribute>
+      <dia:attribute name="show_direction">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="assoc_type">
+        <dia:enum val="2"/>
+      </dia:attribute>
+      <dia:attribute name="role_a">
+        <dia:string>#IFAction#</dia:string>
+      </dia:attribute>
+      <dia:attribute name="multipicity_a">
+        <dia:string>##</dia:string>
+      </dia:attribute>
+      <dia:attribute name="visibility_a">
+        <dia:enum val="0"/>
+      </dia:attribute>
+      <dia:attribute name="show_arrow_a">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="role_b">
+        <dia:string>#IDAction#</dia:string>
+      </dia:attribute>
+      <dia:attribute name="multipicity_b">
+        <dia:string>##</dia:string>
+      </dia:attribute>
+      <dia:attribute name="visibility_b">
+        <dia:enum val="0"/>
+      </dia:attribute>
+      <dia:attribute name="show_arrow_b">
+        <dia:boolean val="true"/>
+      </dia:attribute>
+      <dia:attribute name="obj_pos">
+        <dia:point val="38.305,11.6"/>
+      </dia:attribute>
+      <dia:attribute name="obj_bb">
+        <dia:rectangle val="37.555,7.6;47.05,12.4"/>
+      </dia:attribute>
+      <dia:attribute name="meta">
+        <dia:composite type="dict"/>
+      </dia:attribute>
+      <dia:attribute name="orth_points">
+        <dia:point val="38.305,11.6"/>
+        <dia:point val="42.6525,11.6"/>
+        <dia:point val="42.6525,8.4"/>
+        <dia:point val="47,8.4"/>
+      </dia:attribute>
+      <dia:attribute name="orth_orient">
+        <dia:enum val="0"/>
+        <dia:enum val="1"/>
+        <dia:enum val="0"/>
+      </dia:attribute>
+      <dia:attribute name="orth_autoroute">
+        <dia:boolean val="true"/>
+      </dia:attribute>
+      <dia:attribute name="text_colour">
+        <dia:color val="#ffa500"/>
+      </dia:attribute>
+      <dia:attribute name="line_colour">
+        <dia:color val="#000099"/>
+      </dia:attribute>
+      <dia:connections>
+        <dia:connection handle="0" to="O93" connection="21"/>
+        <dia:connection handle="1" to="O107" connection="12"/>
+      </dia:connections>
     </dia:object>
   </dia:layer>
 </dia:diagram>

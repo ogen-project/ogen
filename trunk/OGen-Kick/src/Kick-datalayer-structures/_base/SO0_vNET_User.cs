@@ -38,13 +38,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			int IFApplication_in, 
 			string Login_in, 
 			string Name_in, 
-			string EMail_in
+			string Email_in
 		) {
 			this.iduser_ = IDUser_in;
 			this.ifapplication_ = IFApplication_in;
 			this.login_ = Login_in;
 			this.name_ = Name_in;
-			this.email_ = EMail_in;
+			this.email_ = Email_in;
 
 			this.haschanges_ = false;
 		}
@@ -65,10 +65,10 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 					: (string)info.GetValue("Name", typeof(string));
 			this.Name_isNull = (bool)info.GetValue("Name_isNull", typeof(bool));
 			this.email_ 
-				= (info.GetValue("EMail", typeof(string)) == null)
+				= (info.GetValue("Email", typeof(string)) == null)
 					? string.Empty
-					: (string)info.GetValue("EMail", typeof(string));
-			this.EMail_isNull = (bool)info.GetValue("EMail_isNull", typeof(bool));
+					: (string)info.GetValue("Email", typeof(string));
+			this.Email_isNull = (bool)info.GetValue("Email_isNull", typeof(bool));
 
 			this.haschanges_ = false;
 		}
@@ -339,19 +339,19 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			}
 		}
 		#endregion
-		#region public string EMail { get; set; }
+		#region public string Email { get; set; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
 		private object email_;// = string.Empty;
 		
 		/// <summary>
-		/// vNET_User's EMail.
+		/// vNET_User's Email.
 		/// </summary>
-		[XmlElement("EMail")]
-		[SoapElement("EMail")]
+		[XmlElement("Email")]
+		[SoapElement("Email")]
 		[DOPropertyAttribute(
-			"EMail", 
+			"Email", 
 			"", 
 			"", 
 			false, 
@@ -373,7 +373,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			255, 
 			""
 		)]
-		public string EMail {
+		public string Email {
 			get {
 				return (string)((this.email_ == null) ? string.Empty : this.email_);
 			}
@@ -389,13 +389,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			}
 		}
 		#endregion
-		#region public bool EMail_isNull { get; set; }
+		#region public bool Email_isNull { get; set; }
 		/// <summary>
-		/// Allows assignement of null and check if null at vNET_User's EMail.
+		/// Allows assignement of null and check if null at vNET_User's Email.
 		/// </summary>
-		[XmlElement("EMail_isNull")]
-		[SoapElement("EMail_isNull")]
-		public bool EMail_isNull {
+		[XmlElement("Email_isNull")]
+		[SoapElement("Email_isNull")]
+		public bool Email_isNull {
 			get { return (this.email_ == null); }
 			set {
 				//if (value) this.email_ = null;
@@ -426,7 +426,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			_output.Columns.Add(_dc_login);
 			DataColumn _dc_name = new DataColumn("Name", typeof(string));
 			_output.Columns.Add(_dc_name);
-			DataColumn _dc_email = new DataColumn("EMail", typeof(string));
+			DataColumn _dc_email = new DataColumn("Email", typeof(string));
 			_output.Columns.Add(_dc_email);
 
 			foreach (SO_vNET_User _serializableObject in serializableObjects_in) {
@@ -436,7 +436,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 				_dr[_dc_ifapplication] = _serializableObject.IFApplication;
 				_dr[_dc_login] = _serializableObject.Login;
 				_dr[_dc_name] = _serializableObject.Name;
-				_dr[_dc_email] = _serializableObject.EMail;
+				_dr[_dc_email] = _serializableObject.Email;
 
 				_output.Rows.Add(_dr);
 			}
@@ -470,8 +470,8 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			info.AddValue("Login", this.login_);
 			info.AddValue("Name", this.name_);
 			info.AddValue("Name_isNull", this.Name_isNull);
-			info.AddValue("EMail", this.email_);
-			info.AddValue("EMail_isNull", this.EMail_isNull);
+			info.AddValue("Email", this.email_);
+			info.AddValue("Email_isNull", this.Email_isNull);
 		}
 		#endregion
 		#endregion

@@ -87,7 +87,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			int idApplication_in, 
 			out long idUser_out, 
 			out string login_out, 
-			out long[] idPermitions_out, 
+			out long[] idPermissions_out, 
 			out int[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
@@ -102,7 +102,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			out long idUser_out, 
 			out string login_out, 
 			out string name_out, 
-			out long[] idPermitions_out, 
+			out long[] idPermissions_out, 
 			out int[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
@@ -118,7 +118,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			out long idUser_out, 
 			out string login_out, 
 			out string name_out, 
-			out long[] idPermitions_out, 
+			out long[] idPermissions_out, 
 			out int[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
@@ -126,7 +126,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		#endregion
 		#region public void LostPassword_Recover(...);
 		public void LostPassword_Recover(
-			string EMail_in, 
+			string Email_in, 
 			string companyName_in, 
 			string recoverLostPasswordURL_in, 
 			int idApplication_in, 
@@ -147,11 +147,11 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
 		#endregion
-		#region public void updObject_EMail(...);
-		public void updObject_EMail(
+		#region public void updObject_Email(...);
+		public void updObject_Email(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			string EMail_verify_in, 
+			string Email_verify_in, 
 			string companyName_in, 
 			string verifyMailURL_in, 
 			out int[] errors_out

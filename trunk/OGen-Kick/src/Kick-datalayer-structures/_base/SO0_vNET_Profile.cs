@@ -37,12 +37,12 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			long IDProfile_in, 
 			string Name_in, 
 			int IFApplication_in, 
-			bool isDefaultprofile_in
+			bool IsDefault_in
 		) {
 			this.idprofile_ = IDProfile_in;
 			this.name_ = Name_in;
 			this.ifapplication_ = IFApplication_in;
-			this.isdefaultprofile_ = isDefaultprofile_in;
+			this.isdefault_ = IsDefault_in;
 
 			this.haschanges_ = false;
 		}
@@ -57,11 +57,11 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 					? 0
 					: (int)info.GetValue("IFApplication", typeof(int));
 			this.IFApplication_isNull = (bool)info.GetValue("IFApplication_isNull", typeof(bool));
-			this.isdefaultprofile_ 
-				= (info.GetValue("isDefaultprofile", typeof(bool)) == null)
+			this.isdefault_ 
+				= (info.GetValue("IsDefault", typeof(bool)) == null)
 					? false
-					: (bool)info.GetValue("isDefaultprofile", typeof(bool));
-			this.isDefaultprofile_isNull = (bool)info.GetValue("isDefaultprofile_isNull", typeof(bool));
+					: (bool)info.GetValue("IsDefault", typeof(bool));
+			this.IsDefault_isNull = (bool)info.GetValue("IsDefault_isNull", typeof(bool));
 
 			this.haschanges_ = false;
 		}
@@ -264,19 +264,19 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			}
 		}
 		#endregion
-		#region public bool isDefaultprofile { get; set; }
+		#region public bool IsDefault { get; set; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		private object isdefaultprofile_;// = false;
+		private object isdefault_;// = false;
 		
 		/// <summary>
-		/// vNET_Profile's isDefaultprofile.
+		/// vNET_Profile's IsDefault.
 		/// </summary>
-		[XmlElement("isDefaultprofile")]
-		[SoapElement("isDefaultprofile")]
+		[XmlElement("IsDefault")]
+		[SoapElement("IsDefault")]
 		[DOPropertyAttribute(
-			"isDefaultprofile", 
+			"IsDefault", 
 			"", 
 			"", 
 			false, 
@@ -298,33 +298,33 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			0, 
 			""
 		)]
-		public bool isDefaultprofile {
+		public bool IsDefault {
 			get {
-				return (bool)((this.isdefaultprofile_ == null) ? false : this.isdefaultprofile_);
+				return (bool)((this.isdefault_ == null) ? false : this.isdefault_);
 			}
 			set {
 				if (
-					(!value.Equals(this.isdefaultprofile_))
+					(!value.Equals(this.isdefault_))
 				) {
-					this.isdefaultprofile_ = value;
+					this.isdefault_ = value;
 					this.haschanges_ = true;
 				}
 			}
 		}
 		#endregion
-		#region public bool isDefaultprofile_isNull { get; set; }
+		#region public bool IsDefault_isNull { get; set; }
 		/// <summary>
-		/// Allows assignement of null and check if null at vNET_Profile's isDefaultprofile.
+		/// Allows assignement of null and check if null at vNET_Profile's IsDefault.
 		/// </summary>
-		[XmlElement("isDefaultprofile_isNull")]
-		[SoapElement("isDefaultprofile_isNull")]
-		public bool isDefaultprofile_isNull {
-			get { return (this.isdefaultprofile_ == null); }
+		[XmlElement("IsDefault_isNull")]
+		[SoapElement("IsDefault_isNull")]
+		public bool IsDefault_isNull {
+			get { return (this.isdefault_ == null); }
 			set {
-				//if (value) this.isdefaultprofile_ = null;
+				//if (value) this.isdefault_ = null;
 
-				if ((value) && (this.isdefaultprofile_ != null)) {
-					this.isdefaultprofile_ = null;
+				if ((value) && (this.isdefault_ != null)) {
+					this.isdefault_ = null;
 					this.haschanges_ = true;
 				}
 			}
@@ -347,8 +347,8 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			_output.Columns.Add(_dc_name);
 			DataColumn _dc_ifapplication = new DataColumn("IFApplication", typeof(int));
 			_output.Columns.Add(_dc_ifapplication);
-			DataColumn _dc_isdefaultprofile = new DataColumn("isDefaultprofile", typeof(bool));
-			_output.Columns.Add(_dc_isdefaultprofile);
+			DataColumn _dc_isdefault = new DataColumn("IsDefault", typeof(bool));
+			_output.Columns.Add(_dc_isdefault);
 
 			foreach (SO_vNET_Profile _serializableObject in serializableObjects_in) {
 				_dr = _output.NewRow();
@@ -356,7 +356,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 				_dr[_dc_idprofile] = _serializableObject.IDProfile;
 				_dr[_dc_name] = _serializableObject.Name;
 				_dr[_dc_ifapplication] = _serializableObject.IFApplication;
-				_dr[_dc_isdefaultprofile] = _serializableObject.isDefaultprofile;
+				_dr[_dc_isdefault] = _serializableObject.IsDefault;
 
 				_output.Rows.Add(_dr);
 			}
@@ -372,7 +372,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			this.idprofile_ = 0L;
 			this.name_ = string.Empty;
 			this.ifapplication_ = 0;
-			this.isdefaultprofile_ = false;
+			this.isdefault_ = false;
 
 			this.haschanges_ = false;
 		}
@@ -387,8 +387,8 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			info.AddValue("Name", this.name_);
 			info.AddValue("IFApplication", this.ifapplication_);
 			info.AddValue("IFApplication_isNull", this.IFApplication_isNull);
-			info.AddValue("isDefaultprofile", this.isdefaultprofile_);
-			info.AddValue("isDefaultprofile_isNull", this.isDefaultprofile_isNull);
+			info.AddValue("IsDefault", this.isdefault_);
+			info.AddValue("IsDefault_isNull", this.IsDefault_isNull);
 		}
 		#endregion
 		#endregion

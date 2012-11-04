@@ -1,7 +1,7 @@
 CREATE OR REPLACE FUNCTION "fnc_LOG_Log_Record_open_generic"(
-	"IDLogtype_search_" integer, 
+	"IDType_search_" integer, 
 	"IDUser_search_" bigint, 
-	"IDErrortype_search_" integer, 
+	"IDError_search_" integer, 
 	"Stamp_begin_search_" timestamp with time zone, 
 	"Stamp_end_search_" timestamp with time zone, 
 	"Read_search_" boolean, 
@@ -26,11 +26,11 @@ $BODY$
 				)
 				and
 				(
-					("IDLogtype_search_" is null)
+					("IDType_search_" is null)
 					or
-					("IDLogtype_search_" <= 0)
+					("IDType_search_" <= 0)
 					or
-					("IDLogtype_search_" = "IFLogtype") 
+					("IDType_search_" = "IFType") 
 				)
 				and
 				(
@@ -42,11 +42,11 @@ $BODY$
 				)
 				and
 				(
-					("IDErrortype_search_" is null)
+					("IDError_search_" is null)
 					or
-					("IDErrortype_search_" <= 0)
+					("IDError_search_" <= 0)
 					or
-					("IDErrortype_search_" = "IFErrortype")
+					("IDError_search_" = "IFError")
 				)
 				and
 				(
@@ -89,9 +89,9 @@ $BODY$
 
 select *
 from "fnc_LOG_Log_Record_open_generic"(
-	-1, -- "IDLogtype_search_" integer, 
+	-1, -- "IDType_search_" integer, 
 	-1, -- "IDUser_search_" bigint, 
-	-1, -- "IDErrortype_search_" integer, 
+	-1, -- "IDError_search_" integer, 
 
 	--date '1900-01-01', 
 	--date '1900-01-01', 

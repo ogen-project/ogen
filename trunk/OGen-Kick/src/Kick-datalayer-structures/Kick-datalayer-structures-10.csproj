@@ -77,9 +77,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_base\SO0_APP_Application.cs" />
-    <Compile Include="_base\SO0_CRD_Permition.cs" />
+    <Compile Include="_base\SO0_CRD_Permission.cs" />
     <Compile Include="_base\SO0_CRD_Profile.cs" />
-    <Compile Include="_base\SO0_CRD_ProfilePermition.cs" />
+    <Compile Include="_base\SO0_CRD_ProfilePermission.cs" />
     <Compile Include="_base\SO0_CRD_User.cs" />
     <Compile Include="_base\SO0_CRD_UserProfile.cs" />
     <Compile Include="_base\SO0_DIC_Language.cs" />
@@ -87,12 +87,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Compile Include="_base\SO0_DIC_Text.cs" />
     <Compile Include="_base\SO0_DIC_TextLanguage.cs" />
     <Compile Include="_base\SO0_FOR_Message.cs" />
-    <Compile Include="_base\SO0_LOG_Errortype.cs" />
+    <Compile Include="_base\SO0_LOG_Error.cs" />
     <Compile Include="_base\SO0_LOG_Log.cs" />
-    <Compile Include="_base\SO0_LOG_Logtype.cs" />
+    <Compile Include="_base\SO0_LOG_Type.cs" />
     <Compile Include="_base\SO0_NET_Browser.cs" />
     <Compile Include="_base\SO0_NET_BrowserUser.cs" />
-    <Compile Include="_base\SO0_NET_Defaultprofile.cs" />
+    <Compile Include="_base\SO0_NET_Profile__default.cs" />
     <Compile Include="_base\SO0_NET_User.cs" />
     <Compile Include="_base\SO0_NWS_Attachment.cs" />
     <Compile Include="_base\SO0_NWS_Author.cs" />
@@ -107,7 +107,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Compile Include="_base\SO0_NWS_Source.cs" />
     <Compile Include="_base\SO0_NWS_Tag.cs" />
     <Compile Include="_base\SO0_NWS_UserTag.cs" />
-    <Compile Include="_base\SO0_vCRD_ProfilePermition.cs" />
+    <Compile Include="_base\SO0_vCRD_ProfilePermission.cs" />
     <Compile Include="_base\SO0_vCRD_UserProfile.cs" />
     <Compile Include="_base\SO0_vDIC_ApplicationLanguage.cs" />
     <Compile Include="_base\SO0_vFOR_Message.cs" />

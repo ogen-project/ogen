@@ -141,7 +141,7 @@
 						<%# DataBinder.Eval(Container.DataItem, "Login") %></a>
 					</td>
 					<td class="label_small wrap">
-						<%# DataBinder.Eval(Container.DataItem, "EMail") %>
+						<%# DataBinder.Eval(Container.DataItem, "Email") %>
 					</td>
 					<td class="label_small wrap">
 						<%# DataBinder.Eval(Container.DataItem, "Name") %>

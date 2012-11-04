@@ -345,7 +345,7 @@ new long[] { },
 						}
 					);
 					foreach (SO_vNWS_Attachment _attachment2 in _attachments) {
-						if (_attachment2.isImage) {
+						if (_attachment2.IsImage) {
 							_attachment = _attachment2;
 							break;
 						}

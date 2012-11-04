@@ -36,14 +36,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		public SO_NET_User(
 			long IFUser_in, 
 			string Name_in, 
-			string EMail_in, 
-			string EMail_verify_in, 
+			string Email_in, 
+			string Email_verify_in, 
 			int IFApplication_in
 		) {
 			this.ifuser_ = IFUser_in;
 			this.name_ = Name_in;
-			this.email_ = EMail_in;
-			this.email_verify_ = EMail_verify_in;
+			this.email_ = Email_in;
+			this.email_verify_ = Email_verify_in;
 			this.ifapplication_ = IFApplication_in;
 
 			this.haschanges_ = false;
@@ -58,12 +58,12 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 					? string.Empty
 					: (string)info.GetValue("Name", typeof(string));
 			this.Name_isNull = (bool)info.GetValue("Name_isNull", typeof(bool));
-			this.email_ = (string)info.GetValue("EMail", typeof(string));
+			this.email_ = (string)info.GetValue("Email", typeof(string));
 			this.email_verify_ 
-				= (info.GetValue("EMail_verify", typeof(string)) == null)
+				= (info.GetValue("Email_verify", typeof(string)) == null)
 					? string.Empty
-					: (string)info.GetValue("EMail_verify", typeof(string));
-			this.EMail_verify_isNull = (bool)info.GetValue("EMail_verify_isNull", typeof(bool));
+					: (string)info.GetValue("Email_verify", typeof(string));
+			this.Email_verify_isNull = (bool)info.GetValue("Email_verify_isNull", typeof(bool));
 			this.ifapplication_ 
 				= (info.GetValue("IFApplication", typeof(int)) == null)
 					? 0
@@ -223,19 +223,19 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			}
 		}
 		#endregion
-		#region public string EMail { get; set; }
+		#region public string Email { get; set; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
 		private string email_;// = string.Empty;
 		
 		/// <summary>
-		/// NET_User's EMail.
+		/// NET_User's Email.
 		/// </summary>
-		[XmlElement("EMail")]
-		[SoapElement("EMail")]
+		[XmlElement("Email")]
+		[SoapElement("Email")]
 		[DOPropertyAttribute(
-			"EMail", 
+			"Email", 
 			"", 
 			"", 
 			false, 
@@ -257,7 +257,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			255, 
 			""
 		)]
-		public string EMail {
+		public string Email {
 			get {
 				return this.email_;
 			}
@@ -273,19 +273,19 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			}
 		}
 		#endregion
-		#region public string EMail_verify { get; set; }
+		#region public string Email_verify { get; set; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
 		private object email_verify_;// = string.Empty;
 		
 		/// <summary>
-		/// NET_User's EMail_verify.
+		/// NET_User's Email_verify.
 		/// </summary>
-		[XmlElement("EMail_verify")]
-		[SoapElement("EMail_verify")]
+		[XmlElement("Email_verify")]
+		[SoapElement("Email_verify")]
 		[DOPropertyAttribute(
-			"EMail_verify", 
+			"Email_verify", 
 			"", 
 			"", 
 			false, 
@@ -307,7 +307,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			255, 
 			""
 		)]
-		public string EMail_verify {
+		public string Email_verify {
 			get {
 				return (string)((this.email_verify_ == null) ? string.Empty : this.email_verify_);
 			}
@@ -323,13 +323,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			}
 		}
 		#endregion
-		#region public bool EMail_verify_isNull { get; set; }
+		#region public bool Email_verify_isNull { get; set; }
 		/// <summary>
-		/// Allows assignement of null and check if null at NET_User's EMail_verify.
+		/// Allows assignement of null and check if null at NET_User's Email_verify.
 		/// </summary>
-		[XmlElement("EMail_verify_isNull")]
-		[SoapElement("EMail_verify_isNull")]
-		public bool EMail_verify_isNull {
+		[XmlElement("Email_verify_isNull")]
+		[SoapElement("Email_verify_isNull")]
+		public bool Email_verify_isNull {
 			get { return (this.email_verify_ == null); }
 			set {
 				//if (value) this.email_verify_ = null;
@@ -422,9 +422,9 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			_output.Columns.Add(_dc_ifuser);
 			DataColumn _dc_name = new DataColumn("Name", typeof(string));
 			_output.Columns.Add(_dc_name);
-			DataColumn _dc_email = new DataColumn("EMail", typeof(string));
+			DataColumn _dc_email = new DataColumn("Email", typeof(string));
 			_output.Columns.Add(_dc_email);
-			DataColumn _dc_email_verify = new DataColumn("EMail_verify", typeof(string));
+			DataColumn _dc_email_verify = new DataColumn("Email_verify", typeof(string));
 			_output.Columns.Add(_dc_email_verify);
 			DataColumn _dc_ifapplication = new DataColumn("IFApplication", typeof(int));
 			_output.Columns.Add(_dc_ifapplication);
@@ -434,8 +434,8 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 
 				_dr[_dc_ifuser] = _serializableObject.IFUser;
 				_dr[_dc_name] = _serializableObject.Name;
-				_dr[_dc_email] = _serializableObject.EMail;
-				_dr[_dc_email_verify] = _serializableObject.EMail_verify;
+				_dr[_dc_email] = _serializableObject.Email;
+				_dr[_dc_email_verify] = _serializableObject.Email_verify;
 				_dr[_dc_ifapplication] = _serializableObject.IFApplication;
 
 				_output.Rows.Add(_dr);
@@ -467,9 +467,9 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			info.AddValue("IFUser", this.ifuser_);
 			info.AddValue("Name", this.name_);
 			info.AddValue("Name_isNull", this.Name_isNull);
-			info.AddValue("EMail", this.email_);
-			info.AddValue("EMail_verify", this.email_verify_);
-			info.AddValue("EMail_verify_isNull", this.EMail_verify_isNull);
+			info.AddValue("Email", this.email_);
+			info.AddValue("Email_verify", this.email_verify_);
+			info.AddValue("Email_verify_isNull", this.Email_verify_isNull);
 			info.AddValue("IFApplication", this.ifapplication_);
 			info.AddValue("IFApplication_isNull", this.IFApplication_isNull);
 		}

@@ -81,8 +81,8 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
 				_connection.newDBDataParameter("IFText_", DbType.Int64, ParameterDirection.InputOutput, IFText_in, 0), 
 				_connection.newDBDataParameter("IFLanguage_", DbType.Int32, ParameterDirection.InputOutput, IFLanguage_in, 0), 
-				_connection.newDBDataParameter("CharVar8000_", DbType.AnsiString, ParameterDirection.Output, null, 8000), 
-				_connection.newDBDataParameter("Text_", DbType.AnsiString, ParameterDirection.Output, null, 0)
+				_connection.newDBDataParameter("Text__small_", DbType.AnsiString, ParameterDirection.Output, null, 8000), 
+				_connection.newDBDataParameter("Text__large_", DbType.AnsiString, ParameterDirection.Output, null, 0)
 			};
 			_connection.Execute_SQLFunction("sp0_DIC_TextLanguage_getObject", _dataparameters);
 			if (dbConnection_in == null) { _connection.Dispose(); }
@@ -101,14 +101,14 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.IFLanguage = (int)_dataparameters[1].Value;
 				}
 				if (_dataparameters[2].Value == System.DBNull.Value) {
-					_output.CharVar8000_isNull = true;
+					_output.Text__small_isNull = true;
 				} else {
-					_output.CharVar8000 = (string)_dataparameters[2].Value;
+					_output.Text__small = (string)_dataparameters[2].Value;
 				}
 				if (_dataparameters[3].Value == System.DBNull.Value) {
-					_output.Text_isNull = true;
+					_output.Text__large_isNull = true;
 				} else {
-					_output.Text = (string)_dataparameters[3].Value;
+					_output.Text__large = (string)_dataparameters[3].Value;
 				}
 
 				_output.hasChanges = false;
@@ -255,8 +255,8 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
 					_connection.newDBDataParameter("IFText_", DbType.Int64, ParameterDirection.Input, DIC_TextLanguage_in.IFText, 0), 
 					_connection.newDBDataParameter("IFLanguage_", DbType.Int32, ParameterDirection.Input, DIC_TextLanguage_in.IFLanguage, 0), 
-					_connection.newDBDataParameter("CharVar8000_", DbType.AnsiString, ParameterDirection.Input, DIC_TextLanguage_in.CharVar8000_isNull ? null : (object)DIC_TextLanguage_in.CharVar8000, 8000), 
-					_connection.newDBDataParameter("Text_", DbType.AnsiString, ParameterDirection.Input, DIC_TextLanguage_in.Text_isNull ? null : (object)DIC_TextLanguage_in.Text, 0), 
+					_connection.newDBDataParameter("Text__small_", DbType.AnsiString, ParameterDirection.Input, DIC_TextLanguage_in.Text__small_isNull ? null : (object)DIC_TextLanguage_in.Text__small, 8000), 
+					_connection.newDBDataParameter("Text__large_", DbType.AnsiString, ParameterDirection.Input, DIC_TextLanguage_in.Text__large_isNull ? null : (object)DIC_TextLanguage_in.Text__large, 0), 
 
 					//_connection.newDBDataParameter("Exists", DbType.Boolean, ParameterDirection.Output, 0, 1)
 					_connection.newDBDataParameter("Output_", DbType.Int32, ParameterDirection.Output, null, 0)
@@ -293,8 +293,8 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		) {
 			DataColumn _dc_iftext = null;
 			DataColumn _dc_iflanguage = null;
-			DataColumn _dc_charvar8000 = null;
-			DataColumn _dc_text = null;
+			DataColumn _dc_text__small = null;
+			DataColumn _dc_text__large = null;
 
 			SO_DIC_TextLanguage[] _output 
 				= new SO_DIC_TextLanguage[dataTable_in.Rows.Count];
@@ -302,8 +302,8 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				if (r == 0) {
 					_dc_iftext = dataTable_in.Columns["IFText"];
 					_dc_iflanguage = dataTable_in.Columns["IFLanguage"];
-					_dc_charvar8000 = dataTable_in.Columns["CharVar8000"];
-					_dc_text = dataTable_in.Columns["Text"];
+					_dc_text__small = dataTable_in.Columns["Text__small"];
+					_dc_text__large = dataTable_in.Columns["Text__large"];
 				}
 
 				_output[r] = new SO_DIC_TextLanguage();
@@ -317,15 +317,15 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				} else {
 					_output[r].IFLanguage = (int)dataTable_in.Rows[r][_dc_iflanguage];
 				}
-				if (dataTable_in.Rows[r][_dc_charvar8000] == System.DBNull.Value) {
-					_output[r].CharVar8000_isNull = true;
+				if (dataTable_in.Rows[r][_dc_text__small] == System.DBNull.Value) {
+					_output[r].Text__small_isNull = true;
 				} else {
-					_output[r].CharVar8000 = (string)dataTable_in.Rows[r][_dc_charvar8000];
+					_output[r].Text__small = (string)dataTable_in.Rows[r][_dc_text__small];
 				}
-				if (dataTable_in.Rows[r][_dc_text] == System.DBNull.Value) {
-					_output[r].Text_isNull = true;
+				if (dataTable_in.Rows[r][_dc_text__large] == System.DBNull.Value) {
+					_output[r].Text__large_isNull = true;
 				} else {
-					_output[r].Text = (string)dataTable_in.Rows[r][_dc_text];
+					_output[r].Text__large = (string)dataTable_in.Rows[r][_dc_text__large];
 				}
 
 				_output[r].hasChanges = false;

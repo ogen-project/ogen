@@ -11,14 +11,14 @@ COMMENT ON TABLE "CRD_User" IS NULL;
 	COMMENT ON COLUMN "CRD_User"."Password" IS 'length:255;psql:character varying;sqlserver:varchar;';
 	COMMENT ON COLUMN "CRD_User"."IFApplication" IS 'psql:integer;sqlserver:int;';
 
-CREATE TABLE "CRD_ProfilePermition" (
+CREATE TABLE "CRD_ProfilePermission" (
 	"IFProfile" bigint NOT NULL,
-	"IFPermition" bigint NOT NULL
+	"IFPermission" bigint NOT NULL
 )
 WITH (OIDS=FALSE);
-COMMENT ON TABLE "CRD_ProfilePermition" IS NULL;
-	COMMENT ON COLUMN "CRD_ProfilePermition"."IFProfile" IS 'psql:bigint;sqlserver:bigint;';
-	COMMENT ON COLUMN "CRD_ProfilePermition"."IFPermition" IS 'psql:bigint;sqlserver:bigint;';
+COMMENT ON TABLE "CRD_ProfilePermission" IS NULL;
+	COMMENT ON COLUMN "CRD_ProfilePermission"."IFProfile" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "CRD_ProfilePermission"."IFPermission" IS 'psql:bigint;sqlserver:bigint;';
 
 CREATE TABLE "DIC_Language" (
 	"IDLanguage" serial NOT NULL,
@@ -43,15 +43,15 @@ COMMENT ON TABLE "DIC_Text" IS NULL;
 CREATE TABLE "DIC_TextLanguage" (
 	"IFText" bigint NOT NULL,
 	"IFLanguage" integer NOT NULL,
-	"CharVar8000" character varying(8000) NULL,
-	"Text" text NULL
+	"Text__small" character varying(8000) NULL,
+	"Text__large" text NULL
 )
 WITH (OIDS=FALSE);
 COMMENT ON TABLE "DIC_TextLanguage" IS NULL;
 	COMMENT ON COLUMN "DIC_TextLanguage"."IFText" IS 'psql:bigint;sqlserver:bigint;';
 	COMMENT ON COLUMN "DIC_TextLanguage"."IFLanguage" IS 'psql:integer;sqlserver:int;';
-	COMMENT ON COLUMN "DIC_TextLanguage"."CharVar8000" IS 'length:8000;psql:character varying;sqlserver:varchar;';
-	COMMENT ON COLUMN "DIC_TextLanguage"."Text" IS 'psql:text;sqlserver:text;';
+	COMMENT ON COLUMN "DIC_TextLanguage"."Text__small" IS 'length:8000;psql:character varying;sqlserver:varchar;';
+	COMMENT ON COLUMN "DIC_TextLanguage"."Text__large" IS 'psql:text;sqlserver:text;';
 
 CREATE TABLE "DIC_LanguageApplication" (
 	"IFLanguage" integer NOT NULL,
@@ -66,8 +66,8 @@ CREATE TABLE "NWS_Attachment" (
 	"IDAttachment" bigserial NOT NULL,
 	"IFContent" bigint NOT NULL,
 	"GUID" character varying(50) NOT NULL,
-	"OrderNum" bigint NULL,
-	"isImage" boolean NOT NULL,
+	"Order" bigint NULL,
+	"IsImage" boolean NOT NULL,
 	"TX_Name" bigint NULL,
 	"TX_Description" bigint NULL,
 	"FileName" character varying(255) NOT NULL
@@ -77,8 +77,8 @@ COMMENT ON TABLE "NWS_Attachment" IS NULL;
 	COMMENT ON COLUMN "NWS_Attachment"."IDAttachment" IS 'psql:bigserial;sqlserver:bigint;identity:True;';
 	COMMENT ON COLUMN "NWS_Attachment"."IFContent" IS 'psql:bigint;sqlserver:bigint;';
 	COMMENT ON COLUMN "NWS_Attachment"."GUID" IS 'length:50;psql:character varying;sqlserver:varchar;';
-	COMMENT ON COLUMN "NWS_Attachment"."OrderNum" IS 'psql:bigint;sqlserver:bigint;';
-	COMMENT ON COLUMN "NWS_Attachment"."isImage" IS 'psql:boolean;sqlserver:bit;';
+	COMMENT ON COLUMN "NWS_Attachment"."Order" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "NWS_Attachment"."IsImage" IS 'psql:boolean;sqlserver:bit;';
 	COMMENT ON COLUMN "NWS_Attachment"."TX_Name" IS 'psql:bigint;sqlserver:bigint;';
 	COMMENT ON COLUMN "NWS_Attachment"."TX_Description" IS 'psql:bigint;sqlserver:bigint;';
 	COMMENT ON COLUMN "NWS_Attachment"."FileName" IS 'length:255;psql:character varying;sqlserver:varchar;';
@@ -128,16 +128,16 @@ CREATE TABLE "NWS_Content" (
 	"IFApplication" integer NULL,
 	"IFUser__Publisher" bigint NOT NULL,
 	"Publish_date" timestamp with time zone NOT NULL,
-	"IFUser__Aproved" bigint NULL,
-	"Aproved_date" timestamp with time zone NULL,
+	"IFUser__Approved" bigint NULL,
+	"Approved_date" timestamp with time zone NULL,
 	"Begin_date" timestamp with time zone NULL,
 	"End_date" timestamp with time zone NULL,
 	"TX_Title" bigint NULL,
 	"TX_Content" bigint NULL,
-	"tx_subtitle" bigint NULL,
-	"tx_summary" bigint NULL,
+	"TX_Subtitle" bigint NULL,
+	"TX_Summary" bigint NULL,
 	"Newslettersent_date" timestamp with time zone NULL,
-	"isNews_notForum" boolean NULL
+	"IsNews_notForum" boolean NULL
 )
 WITH (OIDS=FALSE);
 COMMENT ON TABLE "NWS_Content" IS NULL;
@@ -145,24 +145,24 @@ COMMENT ON TABLE "NWS_Content" IS NULL;
 	COMMENT ON COLUMN "NWS_Content"."IFApplication" IS 'psql:integer;sqlserver:int;';
 	COMMENT ON COLUMN "NWS_Content"."IFUser__Publisher" IS 'psql:bigint;sqlserver:bigint;';
 	COMMENT ON COLUMN "NWS_Content"."Publish_date" IS 'psql:timestamp with time zone;sqlserver:datetime;';
-	COMMENT ON COLUMN "NWS_Content"."IFUser__Aproved" IS 'psql:bigint;sqlserver:bigint;';
-	COMMENT ON COLUMN "NWS_Content"."Aproved_date" IS 'psql:timestamp with time zone;sqlserver:datetime;';
+	COMMENT ON COLUMN "NWS_Content"."IFUser__Approved" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "NWS_Content"."Approved_date" IS 'psql:timestamp with time zone;sqlserver:datetime;';
 	COMMENT ON COLUMN "NWS_Content"."Begin_date" IS 'psql:timestamp with time zone;sqlserver:datetime;';
 	COMMENT ON COLUMN "NWS_Content"."End_date" IS 'psql:timestamp with time zone;sqlserver:datetime;';
 	COMMENT ON COLUMN "NWS_Content"."TX_Title" IS 'psql:bigint;sqlserver:bigint;';
 	COMMENT ON COLUMN "NWS_Content"."TX_Content" IS 'psql:bigint;sqlserver:bigint;';
-	COMMENT ON COLUMN "NWS_Content"."tx_subtitle" IS 'psql:bigint;sqlserver:bigint;';
-	COMMENT ON COLUMN "NWS_Content"."tx_summary" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "NWS_Content"."TX_Subtitle" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "NWS_Content"."TX_Summary" IS 'psql:bigint;sqlserver:bigint;';
 	COMMENT ON COLUMN "NWS_Content"."Newslettersent_date" IS 'psql:timestamp with time zone;sqlserver:datetime;';
-	COMMENT ON COLUMN "NWS_Content"."isNews_notForum" IS 'psql:boolean;sqlserver:bit;';
+	COMMENT ON COLUMN "NWS_Content"."IsNews_notForum" IS 'psql:boolean;sqlserver:bit;';
 
 CREATE TABLE "FOR_Message" (
 	"IDMessage" bigserial NOT NULL,
 	"IFMessage__parent" bigint NULL,
-	"isSticky" boolean NOT NULL,
+	"IsSticky" boolean NOT NULL,
 	"Subject" character varying(255) NULL,
-	"Message__charvar8000" character varying(8000) NULL,
-	"Message__text" text NULL,
+	"Message__small" character varying(8000) NULL,
+	"Message__large" text NULL,
 	"IFUser__Publisher" bigint NULL,
 	"Publish_date" timestamp with time zone NOT NULL,
 	"IFApplication" integer NULL
@@ -171,10 +171,10 @@ WITH (OIDS=FALSE);
 COMMENT ON TABLE "FOR_Message" IS NULL;
 	COMMENT ON COLUMN "FOR_Message"."IDMessage" IS 'psql:bigserial;sqlserver:bigint;identity:True;';
 	COMMENT ON COLUMN "FOR_Message"."IFMessage__parent" IS 'psql:bigint;sqlserver:bigint;';
-	COMMENT ON COLUMN "FOR_Message"."isSticky" IS 'psql:boolean;sqlserver:bit;';
+	COMMENT ON COLUMN "FOR_Message"."IsSticky" IS 'psql:boolean;sqlserver:bit;';
 	COMMENT ON COLUMN "FOR_Message"."Subject" IS 'length:255;psql:character varying;sqlserver:varchar;';
-	COMMENT ON COLUMN "FOR_Message"."Message__charvar8000" IS 'length:8000;psql:character varying;sqlserver:varchar;';
-	COMMENT ON COLUMN "FOR_Message"."Message__text" IS 'psql:text;sqlserver:text;';
+	COMMENT ON COLUMN "FOR_Message"."Message__small" IS 'length:8000;psql:character varying;sqlserver:varchar;';
+	COMMENT ON COLUMN "FOR_Message"."Message__large" IS 'psql:text;sqlserver:text;';
 	COMMENT ON COLUMN "FOR_Message"."IFUser__Publisher" IS 'psql:bigint;sqlserver:bigint;';
 	COMMENT ON COLUMN "FOR_Message"."Publish_date" IS 'psql:timestamp with time zone;sqlserver:datetime;';
 	COMMENT ON COLUMN "FOR_Message"."IFApplication" IS 'psql:integer;sqlserver:int;';
@@ -274,78 +274,80 @@ COMMENT ON TABLE "NWS_UserTag" IS NULL;
 	COMMENT ON COLUMN "NWS_UserTag"."IFUser" IS 'psql:bigint;sqlserver:bigint;';
 	COMMENT ON COLUMN "NWS_UserTag"."IFTag" IS 'psql:bigint;sqlserver:bigint;';
 
-CREATE TABLE "LOG_Logtype" (
-	"IDLogtype" integer NOT NULL,
-	"IFLogtype_parent" integer NULL,
+CREATE TABLE "LOG_Type" (
+	"IDType" integer NOT NULL,
+	"IFType_parent" integer NULL,
 	"Name" character varying(20) NOT NULL,
 	"IFApplication" integer NULL
 )
 WITH (OIDS=FALSE);
-COMMENT ON TABLE "LOG_Logtype" IS NULL;
-	COMMENT ON COLUMN "LOG_Logtype"."IDLogtype" IS 'psql:integer;sqlserver:int;identity:False;';
-	COMMENT ON COLUMN "LOG_Logtype"."IFLogtype_parent" IS 'psql:integer;sqlserver:int;';
-	COMMENT ON COLUMN "LOG_Logtype"."Name" IS 'length:20;psql:character varying;sqlserver:varchar;';
-	COMMENT ON COLUMN "LOG_Logtype"."IFApplication" IS 'psql:integer;sqlserver:int;';
+COMMENT ON TABLE "LOG_Type" IS NULL;
+	COMMENT ON COLUMN "LOG_Type"."IDType" IS 'psql:integer;sqlserver:int;identity:False;';
+	COMMENT ON COLUMN "LOG_Type"."IFType_parent" IS 'psql:integer;sqlserver:int;';
+	COMMENT ON COLUMN "LOG_Type"."Name" IS 'length:20;psql:character varying;sqlserver:varchar;';
+	COMMENT ON COLUMN "LOG_Type"."IFApplication" IS 'psql:integer;sqlserver:int;';
 
-CREATE TABLE "LOG_Errortype" (
-	"IDErrortype" integer NOT NULL,
+CREATE TABLE "LOG_Error" (
+	"IDError" integer NOT NULL,
 	"Name" character varying(255) NOT NULL,
 	"Description" character varying(2048) NULL,
 	"IFApplication" integer NULL
 )
 WITH (OIDS=FALSE);
-COMMENT ON TABLE "LOG_Errortype" IS NULL;
-	COMMENT ON COLUMN "LOG_Errortype"."IDErrortype" IS 'psql:integer;sqlserver:int;identity:False;';
-	COMMENT ON COLUMN "LOG_Errortype"."Name" IS 'length:255;psql:character varying;sqlserver:varchar;';
-	COMMENT ON COLUMN "LOG_Errortype"."Description" IS 'length:2048;psql:character varying;sqlserver:varchar;';
-	COMMENT ON COLUMN "LOG_Errortype"."IFApplication" IS 'psql:integer;sqlserver:int;';
+COMMENT ON TABLE "LOG_Error" IS NULL;
+	COMMENT ON COLUMN "LOG_Error"."IDError" IS 'psql:integer;sqlserver:int;identity:False;';
+	COMMENT ON COLUMN "LOG_Error"."Name" IS 'length:255;psql:character varying;sqlserver:varchar;';
+	COMMENT ON COLUMN "LOG_Error"."Description" IS 'length:2048;psql:character varying;sqlserver:varchar;';
+	COMMENT ON COLUMN "LOG_Error"."IFApplication" IS 'psql:integer;sqlserver:int;';
 
 CREATE TABLE "LOG_Log" (
 	"IDLog" bigserial NOT NULL,
-	"IFLogtype" integer NOT NULL,
+	"IFType" integer NOT NULL,
 	"IFUser" bigint NULL,
 	"IFUser__read" bigint NULL,
-	"IFErrortype" integer NULL,
+	"IFError" integer NULL,
 	"Stamp" timestamp with time zone NOT NULL,
 	"Stamp__read" timestamp with time zone NULL,
 	"Message" character varying(4000) NOT NULL,
-	"IFPermition" bigint NULL,
+	"IFPermission" bigint NULL,
 	"IFApplication" integer NULL,
 	"IFBrowser__OPT" bigint NULL
 )
 WITH (OIDS=FALSE);
 COMMENT ON TABLE "LOG_Log" IS NULL;
 	COMMENT ON COLUMN "LOG_Log"."IDLog" IS 'psql:bigserial;sqlserver:bigint;identity:True;';
-	COMMENT ON COLUMN "LOG_Log"."IFLogtype" IS 'psql:integer;sqlserver:int;';
+	COMMENT ON COLUMN "LOG_Log"."IFType" IS 'psql:integer;sqlserver:int;';
 	COMMENT ON COLUMN "LOG_Log"."IFUser" IS 'psql:bigint;sqlserver:bigint;';
 	COMMENT ON COLUMN "LOG_Log"."IFUser__read" IS 'psql:bigint;sqlserver:bigint;';
-	COMMENT ON COLUMN "LOG_Log"."IFErrortype" IS 'psql:integer;sqlserver:int;';
+	COMMENT ON COLUMN "LOG_Log"."IFError" IS 'psql:integer;sqlserver:int;';
 	COMMENT ON COLUMN "LOG_Log"."Stamp" IS 'psql:timestamp with time zone;sqlserver:datetime;';
 	COMMENT ON COLUMN "LOG_Log"."Stamp__read" IS 'psql:timestamp with time zone;sqlserver:datetime;';
 	COMMENT ON COLUMN "LOG_Log"."Message" IS 'length:4000;psql:character varying;sqlserver:varchar;';
-	COMMENT ON COLUMN "LOG_Log"."IFPermition" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "LOG_Log"."IFPermission" IS 'psql:bigint;sqlserver:bigint;';
 	COMMENT ON COLUMN "LOG_Log"."IFApplication" IS 'psql:integer;sqlserver:int;';
 	COMMENT ON COLUMN "LOG_Log"."IFBrowser__OPT" IS 'psql:bigint;sqlserver:bigint;';
 
-CREATE TABLE "CRD_Permition" (
-	"IDPermition" bigint NOT NULL,
+CREATE TABLE "CRD_Permission" (
+	"IDPermission" bigint NOT NULL,
 	"Name" character varying(255) NOT NULL,
-	"IFApplication" integer NULL
+	"IFApplication" integer NULL,
+	"IFTable" bigint NULL,
+	"IFAction" bigint NULL
 )
 WITH (OIDS=FALSE);
-COMMENT ON TABLE "CRD_Permition" IS NULL;
-	COMMENT ON COLUMN "CRD_Permition"."IDPermition" IS 'psql:bigint;sqlserver:bigint;identity:False;';
-	COMMENT ON COLUMN "CRD_Permition"."Name" IS 'length:255;psql:character varying;sqlserver:varchar;';
-	COMMENT ON COLUMN "CRD_Permition"."IFApplication" IS 'psql:integer;sqlserver:int;';
+COMMENT ON TABLE "CRD_Permission" IS NULL;
+	COMMENT ON COLUMN "CRD_Permission"."IDPermission" IS 'psql:bigint;sqlserver:bigint;identity:False;';
+	COMMENT ON COLUMN "CRD_Permission"."Name" IS 'length:255;psql:character varying;sqlserver:varchar;';
+	COMMENT ON COLUMN "CRD_Permission"."IFApplication" IS 'psql:integer;sqlserver:int;';
+	COMMENT ON COLUMN "CRD_Permission"."IFTable" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "CRD_Permission"."IFAction" IS 'psql:bigint;sqlserver:bigint;';
 
-CREATE TABLE "NET_Defaultprofile" (
-	"IDDefaultprofile" bigserial NOT NULL,
+CREATE TABLE "NET_Profile__default" (
 	"IFProfile" bigint NOT NULL
 )
 WITH (OIDS=FALSE);
-COMMENT ON TABLE "NET_Defaultprofile" IS NULL;
-	COMMENT ON COLUMN "NET_Defaultprofile"."IDDefaultprofile" IS 'psql:bigserial;sqlserver:bigint;identity:True;';
-	COMMENT ON COLUMN "NET_Defaultprofile"."IFProfile" IS 'psql:bigint;sqlserver:bigint;';
+COMMENT ON TABLE "NET_Profile__default" IS NULL;
+	COMMENT ON COLUMN "NET_Profile__default"."IFProfile" IS 'psql:bigint;sqlserver:bigint;';
 
 CREATE TABLE "NET_Browser" (
 	"IDBrowser" bigserial NOT NULL,
@@ -437,15 +439,33 @@ COMMENT ON TABLE "APP_Application" IS NULL;
 CREATE TABLE "NET_User" (
 	"IFUser" bigint NOT NULL,
 	"Name" character varying(255) NULL,
-	"EMail" character varying(255) NOT NULL,
-	"EMail_verify" character varying(255) NULL,
+	"Email" character varying(255) NOT NULL,
+	"Email_verify" character varying(255) NULL,
 	"IFApplication" integer NULL
 )
 WITH (OIDS=FALSE);
 COMMENT ON TABLE "NET_User" IS NULL;
 	COMMENT ON COLUMN "NET_User"."IFUser" IS 'psql:bigint;sqlserver:bigint;';
 	COMMENT ON COLUMN "NET_User"."Name" IS 'length:255;psql:character varying;sqlserver:varchar;';
-	COMMENT ON COLUMN "NET_User"."EMail" IS 'length:255;psql:character varying;sqlserver:varchar;';
-	COMMENT ON COLUMN "NET_User"."EMail_verify" IS 'length:255;psql:character varying;sqlserver:varchar;';
+	COMMENT ON COLUMN "NET_User"."Email" IS 'length:255;psql:character varying;sqlserver:varchar;';
+	COMMENT ON COLUMN "NET_User"."Email_verify" IS 'length:255;psql:character varying;sqlserver:varchar;';
 	COMMENT ON COLUMN "NET_User"."IFApplication" IS 'psql:integer;sqlserver:int;';
+
+CREATE TABLE "CRD_Table" (
+	"IDTable" bigint NOT NULL,
+	"Name" character varying(255) NOT NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "CRD_Table" IS NULL;
+	COMMENT ON COLUMN "CRD_Table"."IDTable" IS 'psql:bigint;sqlserver:bigint;identity:False;';
+	COMMENT ON COLUMN "CRD_Table"."Name" IS 'length:255;psql:character varying;sqlserver:varchar;';
+
+CREATE TABLE "CRD_Action" (
+	"IDAction" bigint NOT NULL,
+	"Name" character varying(255) NOT NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "CRD_Action" IS NULL;
+	COMMENT ON COLUMN "CRD_Action"."IDAction" IS 'psql:bigint;sqlserver:bigint;identity:False;';
+	COMMENT ON COLUMN "CRD_Action"."Name" IS 'length:255;psql:character varying;sqlserver:varchar;';
 

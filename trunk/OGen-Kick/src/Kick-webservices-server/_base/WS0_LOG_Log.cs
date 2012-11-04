@@ -79,7 +79,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string ip_forLogPurposes_in, 
 			int logtype_in, 
 			int errortype_in, 
-			long idPermition_in, 
+			long idPermission_in, 
 			int idApplication_in, 
 			string format_in, 
 			string[] args_in
@@ -91,7 +91,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 					: ip_forLogPurposes_in, 
 				logtype_in, 
 				errortype_in, 
-				idPermition_in, 
+				idPermission_in, 
 				idApplication_in, 
 				format_in, 
 				args_in

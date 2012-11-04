@@ -1,10 +1,10 @@
 CREATE TABLE "FOR_Message" (
 	"IDMessage" "bigint" IDENTITY(1, 1) NOT NULL, 
 	"IFMessage__parent" "bigint" NULL, 
-	"isSticky" "bit" NOT NULL, 
+	"IsSticky" "bit" NOT NULL, 
 	"Subject" "varchar"(255) NULL, 
-	"Message__charvar8000" "varchar"(8000) NULL, 
-	"Message__text" "text" NULL, 
+	"Message__small" "varchar"(8000) NULL, 
+	"Message__large" "text" NULL, 
 	"IFUser__Publisher" "bigint" NULL, 
 	"Publish_date" "datetime" NOT NULL, 
 	"IFApplication" "int" NULL, 
@@ -67,7 +67,7 @@ GO
 		@level1name = 'FOR_Message', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'isSticky';
+		@level2name = 'IsSticky';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -93,7 +93,7 @@ GO
 		@level1name = 'FOR_Message', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'Message__charvar8000';
+		@level2name = 'Message__small';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -106,7 +106,7 @@ GO
 		@level1name = 'FOR_Message', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'Message__text';
+		@level2name = 'Message__large';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 

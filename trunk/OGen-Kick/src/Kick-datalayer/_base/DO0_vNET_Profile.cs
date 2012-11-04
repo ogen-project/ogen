@@ -53,7 +53,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			DataColumn _dc_idprofile = null;
 			DataColumn _dc_name = null;
 			DataColumn _dc_ifapplication = null;
-			DataColumn _dc_isdefaultprofile = null;
+			DataColumn _dc_isdefault = null;
 
 			SO_vNET_Profile[] _output 
 				= new SO_vNET_Profile[dataTable_in.Rows.Count];
@@ -62,7 +62,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_dc_idprofile = dataTable_in.Columns["IDProfile"];
 					_dc_name = dataTable_in.Columns["Name"];
 					_dc_ifapplication = dataTable_in.Columns["IFApplication"];
-					_dc_isdefaultprofile = dataTable_in.Columns["isDefaultprofile"];
+					_dc_isdefault = dataTable_in.Columns["IsDefault"];
 				}
 
 				_output[r] = new SO_vNET_Profile();
@@ -81,10 +81,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				} else {
 					_output[r].IFApplication = (int)dataTable_in.Rows[r][_dc_ifapplication];
 				}
-				if (dataTable_in.Rows[r][_dc_isdefaultprofile] == System.DBNull.Value) {
-					_output[r].isDefaultprofile_isNull = true;
+				if (dataTable_in.Rows[r][_dc_isdefault] == System.DBNull.Value) {
+					_output[r].IsDefault_isNull = true;
 				} else {
-					_output[r].isDefaultprofile = (bool)dataTable_in.Rows[r][_dc_isdefaultprofile];
+					_output[r].IsDefault = (bool)dataTable_in.Rows[r][_dc_isdefault];
 				}
 
 				_output[r].hasChanges = false;

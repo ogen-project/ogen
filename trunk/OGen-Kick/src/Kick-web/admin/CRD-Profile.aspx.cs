@@ -59,8 +59,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				long _count;
 
 				#region this.CBL_Permissions.Kick.Bind__arrayOf<long, string>(...);
-				SO_CRD_Permition[] _permitions
-					= BusinessInstances.CRD_Permition.InstanceClient.getRecord_all(
+				SO_CRD_Permission[] _permissions
+					= BusinessInstances.CRD_Permission.InstanceClient.getRecord_all(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
 						false,
@@ -69,10 +69,10 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					);
 				if (!this.Master__base.Error_add(_errors)) {
 					Array.Sort(
-						_permitions,
+						_permissions,
 						delegate(
-							SO_CRD_Permition arg1_in,
-							SO_CRD_Permition arg2_in
+							SO_CRD_Permission arg1_in,
+							SO_CRD_Permission arg2_in
 						) {
 							return string.Compare(
 								arg1_in.Name,
@@ -85,7 +85,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					this.CBL_Permissions.Kick.Bind__arrayOf<long, string>(
 						"",
 						false,
-						_permitions
+						_permissions
 					);
 				}
 				#endregion
@@ -211,9 +211,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			) {
 				this.TXT_Name.Text = _profile.Name;
 
-				#region this.CBL_Permissions.Kick.SelectedValues__set_arrayOf<long, string, SO_vCRD_ProfilePermition>(...);
-				this.CBL_Permissions.Kick.SelectedValues__set_arrayOf<long, string, SO_vCRD_ProfilePermition>(
-					BusinessInstances.CRD_Profile.InstanceClient.getRecord_ofProfilePermition_byProfile(
+				#region this.CBL_Permissions.Kick.SelectedValues__set_arrayOf<long, string, SO_vCRD_ProfilePermission>(...);
+				this.CBL_Permissions.Kick.SelectedValues__set_arrayOf<long, string, SO_vCRD_ProfilePermission>(
+					BusinessInstances.CRD_Profile.InstanceClient.getRecord_ofProfilePermission_byProfile(
 						utils.User.SessionGuid,
 						utils.ClientIPAddress,
 						this.IDProfile,
@@ -221,9 +221,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						out _errors
 					),
 					delegate(
-						SO_vCRD_ProfilePermition item_in
+						SO_vCRD_ProfilePermission item_in
 					) {
-						return item_in.hasPermition;
+						return item_in.hasPermission;
 					}
 				);
 				this.Master__base.Error_add(_errors);

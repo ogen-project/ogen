@@ -11,21 +11,21 @@ as
 		"DIC_Language"."IDLanguage", 
 		"NWS_Attachment"."IFContent", 
 		"NWS_Attachment"."GUID", 
-		"NWS_Attachment"."OrderNum", 
-		"NWS_Attachment"."isImage", 
+		"NWS_Attachment"."Order", 
+		"NWS_Attachment"."IsImage", 
 
 		case 
-			when not _tx_name."CharVar8000" is null 
-				then _tx_name."CharVar8000"
-			when not _tx_name."Text" is null 
-				then _tx_name."Text"
+			when not _tx_name."Text__small" is null 
+				then _tx_name."Text__small"
+			when not _tx_name."Text__large" is null 
+				then _tx_name."Text__large"
 			else ''
 		end as "Name", 
 		case 
-			when not _tx_description."CharVar8000" is null 
-				then _tx_description."CharVar8000"
-			when not _tx_description."Text" is null 
-				then _tx_description."Text"
+			when not _tx_description."Text__small" is null 
+				then _tx_description."Text__small"
+			when not _tx_description."Text__large" is null 
+				then _tx_description."Text__large"
 			else ''
 		end as "Description", 
 		

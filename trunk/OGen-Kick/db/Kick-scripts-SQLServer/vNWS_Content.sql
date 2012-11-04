@@ -14,36 +14,36 @@ as
 		"NWS_Content"."IFUser__Publisher", 
 		"NET_User"."Name" as "PublisherName", 
 		"NWS_Content"."Publish_date", 
-		"NWS_Content"."IFUser__Aproved", 
-		"NWS_Content"."Aproved_date", 
+		"NWS_Content"."IFUser__Approved", 
+		"NWS_Content"."Approved_date", 
 
 
 		case 
-			when not _tx_title."CharVar8000" is null 
-				then _tx_title."CharVar8000"
-			when not _tx_title."Text" is null 
-				then _tx_title."Text"
+			when not _tx_title."Text__small" is null 
+				then _tx_title."Text__small"
+			when not _tx_title."Text__large" is null 
+				then _tx_title."Text__large"
 			else ''
 		end as "Title", 
 		case 
-			when not _tx_content."CharVar8000" is null 
-				then _tx_content."CharVar8000"
-			when not _tx_content."Text" is null 
-				then _tx_content."Text"
+			when not _tx_content."Text__small" is null 
+				then _tx_content."Text__small"
+			when not _tx_content."Text__large" is null 
+				then _tx_content."Text__large"
 			else ''
 		end as "Content", 
 		case 
-			when not _tx_subtitle."CharVar8000" is null 
-				then _tx_subtitle."CharVar8000"
-			when not _tx_subtitle."Text" is null 
-				then _tx_subtitle."Text"
+			when not _tx_subtitle."Text__small" is null 
+				then _tx_subtitle."Text__small"
+			when not _tx_subtitle."Text__large" is null 
+				then _tx_subtitle."Text__large"
 			else ''
 		end as "subtitle", 
 		case 
-			when not _tx_summary."CharVar8000" is null 
-				then _tx_summary."CharVar8000"
-			when not _tx_summary."Text" is null 
-				then _tx_summary."Text"
+			when not _tx_summary."Text__small" is null 
+				then _tx_summary."Text__small"
+			when not _tx_summary."Text__large" is null 
+				then _tx_summary."Text__large"
 			else ''
 		end as "summary"
 
@@ -131,12 +131,12 @@ as
 	left join "DIC_TextLanguage" as _tx_subtitle on (
 		("DIC_Language"."IDLanguage" = _tx_subtitle."IFLanguage")
 		and
-		("NWS_Content"."tx_subtitle" = _tx_subtitle."IFText")
+		("NWS_Content"."TX_Subtitle" = _tx_subtitle."IFText")
 	)
 	left join "DIC_TextLanguage" as _tx_summary on (
 		("DIC_Language"."IDLanguage" = _tx_summary."IFLanguage")
 		and
-		("NWS_Content"."tx_summary" = _tx_summary."IFText")
+		("NWS_Content"."TX_Summary" = _tx_summary."IFText")
 	)
 go
 

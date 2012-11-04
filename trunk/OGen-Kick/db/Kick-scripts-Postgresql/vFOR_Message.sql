@@ -16,18 +16,18 @@ as
 		end as "isThread", 
 		--case when (m1."IFMessage__parent" is null) then cast(1 as bit) else cast(0 as bit) end as "isReply", 
 		
-		m3."isSticky", 
+		m3."IsSticky", 
 		m3."Subject", 
 
 		/*
 		case 
-			when (not m3."Message__charvar8000" is null) then m3."Message__charvar8000"
-			when (not m3."Message__text" is null) then m3."Message__text" 
+			when (not m3."Message__small" is null) then m3."Message__small"
+			when (not m3."Message__large" is null) then m3."Message__large" 
 			else ''
 		end as "Message", 
 		*/
-		m3."Message__charvar8000", 
-		m3."Message__text", 
+		m3."Message__small", 
+		m3."Message__large", 
 
 		m3."IFUser__Publisher" as "IDUser", 
 		u1."Name", 

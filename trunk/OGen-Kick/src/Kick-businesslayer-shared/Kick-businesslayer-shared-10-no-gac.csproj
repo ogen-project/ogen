@@ -75,10 +75,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Compile Include="enums\ErrorItem.cs" />
     <Compile Include="enums\ErrorType.cs" />
     <Compile Include="enums\Logtype.cs" />
-    <Compile Include="enums\PermitionType.cs" />
+    <Compile Include="enums\PermissionType.cs" />
     <Compile Include="enums\TablefieldSource.cs" />
     <Compile Include="IBO_CRD_Authentication.cs" />
-    <Compile Include="IBO_CRD_Permition.cs" />
+    <Compile Include="IBO_CRD_Permission.cs" />
     <Compile Include="IBO_CRD_Profile.cs" />
     <Compile Include="IBO_CRD_User.cs" />
     <Compile Include="IBO_DIC_Dic.cs" />
@@ -95,7 +95,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="mod-credentials\Sessionuser.cs" />
     <Compile Include="_base\IBO0_CRD_Authentication.cs" />
-    <Compile Include="_base\IBO0_CRD_Permition.cs" />
+    <Compile Include="_base\IBO0_CRD_Permission.cs" />
     <Compile Include="_base\IBO0_CRD_Profile.cs" />
     <Compile Include="_base\IBO0_CRD_User.cs" />
     <Compile Include="_base\IBO0_DIC_Dic.cs" />

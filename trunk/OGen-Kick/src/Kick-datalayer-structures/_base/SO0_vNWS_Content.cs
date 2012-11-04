@@ -39,8 +39,8 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			long IFUser__Publisher_in, 
 			string PublisherName_in, 
 			DateTime Publish_date_in, 
-			long IFUser__Aproved_in, 
-			DateTime Aproved_date_in, 
+			long IFUser__Approved_in, 
+			DateTime Approved_date_in, 
 			string Title_in, 
 			string Content_in, 
 			string subtitle_in, 
@@ -51,8 +51,8 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			this.ifuser__publisher_ = IFUser__Publisher_in;
 			this.publishername_ = PublisherName_in;
 			this.publish_date_ = Publish_date_in;
-			this.ifuser__aproved_ = IFUser__Aproved_in;
-			this.aproved_date_ = Aproved_date_in;
+			this.ifuser__approved_ = IFUser__Approved_in;
+			this.approved_date_ = Approved_date_in;
 			this.title_ = Title_in;
 			this.content_ = Content_in;
 			this.subtitle_ = subtitle_in;
@@ -73,16 +73,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 					: (string)info.GetValue("PublisherName", typeof(string));
 			this.PublisherName_isNull = (bool)info.GetValue("PublisherName_isNull", typeof(bool));
 			this.publish_date_ = (DateTime)info.GetValue("Publish_date", typeof(DateTime));
-			this.ifuser__aproved_ 
-				= (info.GetValue("IFUser__Aproved", typeof(long)) == null)
+			this.ifuser__approved_ 
+				= (info.GetValue("IFUser__Approved", typeof(long)) == null)
 					? 0L
-					: (long)info.GetValue("IFUser__Aproved", typeof(long));
-			this.IFUser__Aproved_isNull = (bool)info.GetValue("IFUser__Aproved_isNull", typeof(bool));
-			this.aproved_date_ 
-				= (info.GetValue("Aproved_date", typeof(DateTime)) == null)
+					: (long)info.GetValue("IFUser__Approved", typeof(long));
+			this.IFUser__Approved_isNull = (bool)info.GetValue("IFUser__Approved_isNull", typeof(bool));
+			this.approved_date_ 
+				= (info.GetValue("Approved_date", typeof(DateTime)) == null)
 					? new DateTime(1900, 1, 1)
-					: (DateTime)info.GetValue("Aproved_date", typeof(DateTime));
-			this.Aproved_date_isNull = (bool)info.GetValue("Aproved_date_isNull", typeof(bool));
+					: (DateTime)info.GetValue("Approved_date", typeof(DateTime));
+			this.Approved_date_isNull = (bool)info.GetValue("Approved_date_isNull", typeof(bool));
 			this.title_ 
 				= (info.GetValue("Title", typeof(string)) == null)
 					? string.Empty
@@ -386,19 +386,19 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			}
 		}
 		#endregion
-		#region public long IFUser__Aproved { get; set; }
+		#region public long IFUser__Approved { get; set; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		private object ifuser__aproved_;// = 0L;
+		private object ifuser__approved_;// = 0L;
 		
 		/// <summary>
-		/// vNWS_Content's IFUser__Aproved.
+		/// vNWS_Content's IFUser__Approved.
 		/// </summary>
-		[XmlElement("IFUser__Aproved")]
-		[SoapElement("IFUser__Aproved")]
+		[XmlElement("IFUser__Approved")]
+		[SoapElement("IFUser__Approved")]
 		[DOPropertyAttribute(
-			"IFUser__Aproved", 
+			"IFUser__Approved", 
 			"", 
 			"", 
 			false, 
@@ -420,51 +420,51 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			0, 
 			""
 		)]
-		public long IFUser__Aproved {
+		public long IFUser__Approved {
 			get {
-				return (long)((this.ifuser__aproved_ == null) ? 0L : this.ifuser__aproved_);
+				return (long)((this.ifuser__approved_ == null) ? 0L : this.ifuser__approved_);
 			}
 			set {
 				if (
-					(!value.Equals(this.ifuser__aproved_))
+					(!value.Equals(this.ifuser__approved_))
 				) {
-					this.ifuser__aproved_ = value;
+					this.ifuser__approved_ = value;
 					this.haschanges_ = true;
 				}
 			}
 		}
 		#endregion
-		#region public bool IFUser__Aproved_isNull { get; set; }
+		#region public bool IFUser__Approved_isNull { get; set; }
 		/// <summary>
-		/// Allows assignement of null and check if null at vNWS_Content's IFUser__Aproved.
+		/// Allows assignement of null and check if null at vNWS_Content's IFUser__Approved.
 		/// </summary>
-		[XmlElement("IFUser__Aproved_isNull")]
-		[SoapElement("IFUser__Aproved_isNull")]
-		public bool IFUser__Aproved_isNull {
-			get { return (this.ifuser__aproved_ == null); }
+		[XmlElement("IFUser__Approved_isNull")]
+		[SoapElement("IFUser__Approved_isNull")]
+		public bool IFUser__Approved_isNull {
+			get { return (this.ifuser__approved_ == null); }
 			set {
-				//if (value) this.ifuser__aproved_ = null;
+				//if (value) this.ifuser__approved_ = null;
 
-				if ((value) && (this.ifuser__aproved_ != null)) {
-					this.ifuser__aproved_ = null;
+				if ((value) && (this.ifuser__approved_ != null)) {
+					this.ifuser__approved_ = null;
 					this.haschanges_ = true;
 				}
 			}
 		}
 		#endregion
-		#region public DateTime Aproved_date { get; set; }
+		#region public DateTime Approved_date { get; set; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		private object aproved_date_;// = new DateTime(1900, 1, 1);
+		private object approved_date_;// = new DateTime(1900, 1, 1);
 		
 		/// <summary>
-		/// vNWS_Content's Aproved_date.
+		/// vNWS_Content's Approved_date.
 		/// </summary>
-		[XmlElement("Aproved_date")]
-		[SoapElement("Aproved_date")]
+		[XmlElement("Approved_date")]
+		[SoapElement("Approved_date")]
 		[DOPropertyAttribute(
-			"Aproved_date", 
+			"Approved_date", 
 			"", 
 			"", 
 			false, 
@@ -486,33 +486,33 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			0, 
 			""
 		)]
-		public DateTime Aproved_date {
+		public DateTime Approved_date {
 			get {
-				return (DateTime)((this.aproved_date_ == null) ? new DateTime(1900, 1, 1) : this.aproved_date_);
+				return (DateTime)((this.approved_date_ == null) ? new DateTime(1900, 1, 1) : this.approved_date_);
 			}
 			set {
 				if (
-					(!value.Equals(this.aproved_date_))
+					(!value.Equals(this.approved_date_))
 				) {
-					this.aproved_date_ = value;
+					this.approved_date_ = value;
 					this.haschanges_ = true;
 				}
 			}
 		}
 		#endregion
-		#region public bool Aproved_date_isNull { get; set; }
+		#region public bool Approved_date_isNull { get; set; }
 		/// <summary>
-		/// Allows assignement of null and check if null at vNWS_Content's Aproved_date.
+		/// Allows assignement of null and check if null at vNWS_Content's Approved_date.
 		/// </summary>
-		[XmlElement("Aproved_date_isNull")]
-		[SoapElement("Aproved_date_isNull")]
-		public bool Aproved_date_isNull {
-			get { return (this.aproved_date_ == null); }
+		[XmlElement("Approved_date_isNull")]
+		[SoapElement("Approved_date_isNull")]
+		public bool Approved_date_isNull {
+			get { return (this.approved_date_ == null); }
 			set {
-				//if (value) this.aproved_date_ = null;
+				//if (value) this.approved_date_ = null;
 
-				if ((value) && (this.aproved_date_ != null)) {
-					this.aproved_date_ = null;
+				if ((value) && (this.approved_date_ != null)) {
+					this.approved_date_ = null;
 					this.haschanges_ = true;
 				}
 			}
@@ -811,10 +811,10 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			_output.Columns.Add(_dc_publishername);
 			DataColumn _dc_publish_date = new DataColumn("Publish_date", typeof(DateTime));
 			_output.Columns.Add(_dc_publish_date);
-			DataColumn _dc_ifuser__aproved = new DataColumn("IFUser__Aproved", typeof(long));
-			_output.Columns.Add(_dc_ifuser__aproved);
-			DataColumn _dc_aproved_date = new DataColumn("Aproved_date", typeof(DateTime));
-			_output.Columns.Add(_dc_aproved_date);
+			DataColumn _dc_ifuser__approved = new DataColumn("IFUser__Approved", typeof(long));
+			_output.Columns.Add(_dc_ifuser__approved);
+			DataColumn _dc_approved_date = new DataColumn("Approved_date", typeof(DateTime));
+			_output.Columns.Add(_dc_approved_date);
 			DataColumn _dc_title = new DataColumn("Title", typeof(string));
 			_output.Columns.Add(_dc_title);
 			DataColumn _dc_content = new DataColumn("Content", typeof(string));
@@ -832,8 +832,8 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 				_dr[_dc_ifuser__publisher] = _serializableObject.IFUser__Publisher;
 				_dr[_dc_publishername] = _serializableObject.PublisherName;
 				_dr[_dc_publish_date] = _serializableObject.Publish_date;
-				_dr[_dc_ifuser__aproved] = _serializableObject.IFUser__Aproved;
-				_dr[_dc_aproved_date] = _serializableObject.Aproved_date;
+				_dr[_dc_ifuser__approved] = _serializableObject.IFUser__Approved;
+				_dr[_dc_approved_date] = _serializableObject.Approved_date;
 				_dr[_dc_title] = _serializableObject.Title;
 				_dr[_dc_content] = _serializableObject.Content;
 				_dr[_dc_subtitle] = _serializableObject.subtitle;
@@ -855,8 +855,8 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			this.ifuser__publisher_ = 0L;
 			this.publishername_ = string.Empty;
 			this.publish_date_ = new DateTime(1900, 1, 1);
-			this.ifuser__aproved_ = 0L;
-			this.aproved_date_ = new DateTime(1900, 1, 1);
+			this.ifuser__approved_ = 0L;
+			this.approved_date_ = new DateTime(1900, 1, 1);
 			this.title_ = string.Empty;
 			this.content_ = string.Empty;
 			this.subtitle_ = string.Empty;
@@ -877,10 +877,10 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			info.AddValue("PublisherName", this.publishername_);
 			info.AddValue("PublisherName_isNull", this.PublisherName_isNull);
 			info.AddValue("Publish_date", this.publish_date_);
-			info.AddValue("IFUser__Aproved", this.ifuser__aproved_);
-			info.AddValue("IFUser__Aproved_isNull", this.IFUser__Aproved_isNull);
-			info.AddValue("Aproved_date", this.aproved_date_);
-			info.AddValue("Aproved_date_isNull", this.Aproved_date_isNull);
+			info.AddValue("IFUser__Approved", this.ifuser__approved_);
+			info.AddValue("IFUser__Approved_isNull", this.IFUser__Approved_isNull);
+			info.AddValue("Approved_date", this.approved_date_);
+			info.AddValue("Approved_date_isNull", this.Approved_date_isNull);
 			info.AddValue("Title", this.title_);
 			info.AddValue("Title_isNull", this.Title_isNull);
 			info.AddValue("Content", this.content_);

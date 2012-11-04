@@ -211,7 +211,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 				_dr = _output.NewRow();
 
 				_dr[_dc_iflanguage] = _serializableobject.IFLanguage;
-				_dr[_dc_text] = _serializableobject.Text;
+				_dr[_dc_text] = _serializableobject.Text__large;
 
 				_output.Rows.Add(_dr);
 			}

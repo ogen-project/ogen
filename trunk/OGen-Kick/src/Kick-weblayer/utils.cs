@@ -96,7 +96,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 		public static class User {
 			private const string SESSION_GUID = "OGen_Kick_Guid";
 			private const string SESSION_IDUSER = "OGen_Kick_IDUser";
-			private const string SESSION_IDPERMITIONS = "OGen_Kick_IDPermitions";
+			private const string SESSION_IDPERMISSIONS = "OGen_Kick_IDPermissions";
 			private const string SESSION_LOGIN = "OGen_Kick_Login";
 
 			#region public static void LogOff();
@@ -106,7 +106,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 
 				HttpContext.Current.Session.Remove(SESSION_GUID);
 				HttpContext.Current.Session.Remove(SESSION_IDUSER);
-				HttpContext.Current.Session.Remove(SESSION_IDPERMITIONS);
+				HttpContext.Current.Session.Remove(SESSION_IDPERMISSIONS);
 				HttpContext.Current.Session.Remove(SESSION_LOGIN);
 			}
 			public static void LogOff(
@@ -221,19 +221,19 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 				}
 			}
 			#endregion
-			#region public static long[] IDPermitions { get; set; }
-			public static long[] IDPermitions {
+			#region public static long[] IDPermissions { get; set; }
+			public static long[] IDPermissions {
 				get {
 					if (
-						(!HttpContext_Current_Session_Keys_Contains(SESSION_IDPERMITIONS))
+						(!HttpContext_Current_Session_Keys_Contains(SESSION_IDPERMISSIONS))
 						||
-						(HttpContext.Current.Session[SESSION_IDPERMITIONS] == null)
+						(HttpContext.Current.Session[SESSION_IDPERMISSIONS] == null)
 						||
-						(((long[])HttpContext.Current.Session[SESSION_IDPERMITIONS]).Length == 0)
+						(((long[])HttpContext.Current.Session[SESSION_IDPERMISSIONS]).Length == 0)
 					) {
 						return null;
 					} else {
-						return (long[])HttpContext.Current.Session[SESSION_IDPERMITIONS];
+						return (long[])HttpContext.Current.Session[SESSION_IDPERMISSIONS];
 					}
 				}
 				set {
@@ -243,17 +243,17 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 						(value.Length > 0)
 					) {
 						if (
-							(!HttpContext_Current_Session_Keys_Contains(SESSION_IDPERMITIONS))
+							(!HttpContext_Current_Session_Keys_Contains(SESSION_IDPERMISSIONS))
 							//||
-							//(HttpContext.Current.Session[SESSION_IDPERMITIONS] == null)
+							//(HttpContext.Current.Session[SESSION_IDPERMISSIONS] == null)
 						) {
-							HttpContext.Current.Session.Remove(SESSION_IDPERMITIONS);
-							HttpContext.Current.Session.Add(SESSION_IDPERMITIONS, value);
+							HttpContext.Current.Session.Remove(SESSION_IDPERMISSIONS);
+							HttpContext.Current.Session.Add(SESSION_IDPERMISSIONS, value);
 						} else {
-							HttpContext.Current.Session[SESSION_IDPERMITIONS] = value;
+							HttpContext.Current.Session[SESSION_IDPERMISSIONS] = value;
 						}
 					} else {
-						HttpContext.Current.Session.Remove(SESSION_IDPERMITIONS);
+						HttpContext.Current.Session.Remove(SESSION_IDPERMISSIONS);
 					}
 				}
 			}
@@ -292,8 +292,8 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 			}
 			#endregion
 
-			#region public static bool isLoggedIn { get; }
-			public static bool isLoggedIn {
+			#region public static bool IsLoggedIn { get; }
+			public static bool IsLoggedIn {
 				get {
 					int[] _errors;
 					return (
@@ -321,7 +321,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 				out int[] errors_out
 			) {
 				long _iduser;
-				long[] _idpermitions;
+				long[] _idpermissions;
 				string _login = login_in;
 				string _sessionguid = Guid.NewGuid().ToString("N");
 
@@ -337,7 +337,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 
 						out _iduser,
 						out _login,
-						out _idpermitions,
+						out _idpermissions,
 						out errors_out
 					);
 				} else {
@@ -351,7 +351,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 						utils.IDApplication,
 
 						out _iduser,
-						out _idpermitions,
+						out _idpermissions,
 						out errors_out
 					);
 				}
@@ -366,7 +366,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 				} else {
 					SessionGuid = _sessionguid;
 					IDUser = _iduser;
-					IDPermitions = _idpermitions;
+					IDPermissions = _idpermissions;
 					Login = login_in;
 
 					return true;
@@ -415,7 +415,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 
 
 				long _iduser;
-				long[] _idpermitions;
+				long[] _idpermissions;
 				string _login;
 				string _name;
 
@@ -431,13 +431,13 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 					out _iduser,
 					out _login,
 					out _name,
-					out _idpermitions,
+					out _idpermissions,
 					out _errors_out
 				);
 
 				if (!ErrorType.hasErrors(_errors_out)) {
 					utils.User.SessionGuid = _sessionguid;
-					utils.User.IDPermitions = _idpermitions;
+					utils.User.IDPermissions = _idpermissions;
 					utils.User.IDUser = _iduser;
 					utils.User.Login = _login;
 
@@ -466,7 +466,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 
 
 				long _iduser;
-				long[] _idpermitions;
+				long[] _idpermissions;
 				string _login;
 				string _name;
 
@@ -483,13 +483,13 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 					out _iduser,
 					out _login,
 					out _name,
-					out _idpermitions,
+					out _idpermissions,
 					out errors_out
 				);
 
 				if (!ErrorType.hasErrors(errors_out)) {
 					utils.User.SessionGuid = _sessionguid;
-					utils.User.IDPermitions = _idpermitions;
+					utils.User.IDPermissions = _idpermissions;
 					utils.User.IDUser = _iduser;
 					utils.User.Login = _login;
 
@@ -536,12 +536,12 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 					}
 				}
 				#endregion
-				#region public static long[] IDPermitions { get; }
-				private static long[] idpermitions_;
+				#region public static long[] IDPermissions { get; }
+				private static long[] idpermissions_;
 
-				public static long[] IDPermitions {
+				public static long[] IDPermissions {
 					get {
-						return idpermitions_;
+						return idpermissions_;
 					}
 				}
 				#endregion
@@ -574,7 +574,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 								utils.IDApplication, 
 
 								out iduser_,
-								out idpermitions_, 
+								out idpermissions_, 
 								out _errors
 							);
 

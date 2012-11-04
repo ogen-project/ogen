@@ -45,10 +45,10 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			out long idUser_out,
 			out string login_out, 
-			out long[] idPermitions_out, 
+			out long[] idPermissions_out, 
 			out int[] errors_out
 		) {
-			idPermitions_out = null;
+			idPermissions_out = null;
 			idUser_out = -1L;
 			login_out = "";
 			Guid _guid;
@@ -72,7 +72,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			SO_NET_User _user;
 			if (
-				((_user = DO_NET_User.getObject_byEMail(
+				((_user = DO_NET_User.getObject_byEmail(
 					email_in,
 					idApplication_in
 				)) != null)
@@ -89,7 +89,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 					out idUser_out,
 					out login_out, 
-					out idPermitions_out, 
+					out idPermissions_out, 
 					ref _errors
 				);
 			} else {
@@ -101,7 +101,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				//    ErrorType.authentication, 
 				//    -1L, 
 				//    idApplication_in,
-				//    "EMail:{0};password:{1}**********;whoAmI:{2};",
+				//    "Email:{0};password:{1}**********;whoAmI:{2};",
 				//    new string[] { 
 				//        email_in, 
 				//        password_in.Length > 0 ? password_in.Substring(0, 1) : "", 
@@ -115,13 +115,13 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		}
 		#endregion
 
-		#region public static void updObject_EMail(...);
-		[BOMethodAttribute("updObject_EMail", true, false, 1)]
-		public static void updObject_EMail(
+		#region public static void updObject_Email(...);
+		[BOMethodAttribute("updObject_Email", true, false, 1)]
+		public static void updObject_Email(
 			string sessionGuid_in,
 			string ip_forLogPurposes_in, 
 
-			string EMail_verify_in,
+			string Email_verify_in,
 
 			string companyName_in,
 			string verifyMailURL_in,
@@ -148,7 +148,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 
 			if (
-				!OGen.lib.mail.utils.isEmail_valid(EMail_verify_in = EMail_verify_in.Trim())
+				!OGen.lib.mail.utils.isEmail_valid(Email_verify_in = Email_verify_in.Trim())
 			) {
 				_errorlist.Add(ErrorType.web__user__invalid_email);
 				errors_out = _errorlist.ToArray();
@@ -156,8 +156,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 
 			if (
-				DO_NET_User.isObject_byEMail(
-					EMail_verify_in,
+				DO_NET_User.isObject_byEmail(
+					Email_verify_in,
 					_sessionuser.IDApplication
 				)
 			) {
@@ -172,8 +172,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				_sessionuser.IDApplication,
 				_errorlist, 
 
-				EMail_verify_in, 
-				"1" // Verify EMail
+				Email_verify_in, 
+				"1" // Verify Email
 			);
 			if (string.IsNullOrEmpty(_message)) {
 				errors_out = _errorlist.ToArray();
@@ -206,7 +206,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					);
 
 				bool _constraintExist;
-				_user.EMail_verify = EMail_verify_in;
+				_user.Email_verify = Email_verify_in;
 				DO_NET_User.setObject(
 					_user,
 					false,
@@ -215,12 +215,12 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					_con
 				);
 				if (!_constraintExist) {
-					#region MyMail.Send(EMail_verify_in, ...);
+					#region MyMail.Send(Email_verify_in, ...);
 					try {
 						OGen.lib.mail.utils.MailSend(
 							new System.Net.Mail.MailAddress[] {
 								new System.Net.Mail.MailAddress(
-									EMail_verify_in, 
+									Email_verify_in, 
 									_user.Name
 								)
 							},
@@ -351,13 +351,13 @@ A equipa {2}
 				return null;
 			}
 			#endregion
-			#region check Permitions . . .
+			#region check Permissions . . .
 			if (
-				!_sessionuser.hasPermition(
-					PermitionType.User__select
+				!_sessionuser.hasPermission(
+					PermissionType.User__select
 				)
 			) {
-				_errorlist.Add(ErrorType.user__lack_of_permitions_to_read);
+				_errorlist.Add(ErrorType.user__lack_of_permissions_to_read);
 				errors_out = _errorlist.ToArray();
 				return null;
 			}
@@ -414,15 +414,15 @@ A equipa {2}
 				return null;
 			}
 			#endregion
-			#region check Permitions...
+			#region check Permissions...
 			if (
 				(_sessionuser.IDUser != idUser_in)
 				&&
-				!_sessionuser.hasPermition(
-					PermitionType.User__select
+				!_sessionuser.hasPermission(
+					PermissionType.User__select
 				)
 			) {
-				_errorlist.Add(ErrorType.user__lack_of_permitions_to_read);
+				_errorlist.Add(ErrorType.user__lack_of_permissions_to_read);
 				errors_out = _errorlist.ToArray();
 				return null;
 			}
@@ -469,15 +469,15 @@ A equipa {2}
 				return null;
 			}
 			#endregion
-			#region check Permitions . . .
+			#region check Permissions . . .
 			if (
 				(_sessionuser.IDUser != idUser_in)
 				&&
-				!_sessionuser.hasPermition(
-					PermitionType.User__select
+				!_sessionuser.hasPermission(
+					PermissionType.User__select
 				)
 			) {
-				_errorlist.Add(ErrorType.user__lack_of_permitions_to_read);
+				_errorlist.Add(ErrorType.user__lack_of_permissions_to_read);
 				errors_out = _errorlist.ToArray();
 				return null;
 			}
@@ -543,24 +543,24 @@ A equipa {2}
 				return;
 			}
 			#endregion
-			#region check Permitions . . .
+			#region check Permissions . . .
 			if (_sessionuser.IDUser != idUser_in) {
-				_errorlist.Add(ErrorType.user__lack_of_permitions_to_write);
+				_errorlist.Add(ErrorType.user__lack_of_permissions_to_write);
 				errors_out = _errorlist.ToArray();
 				return;
 			}
 
 			//bool _forum__forum__select 
-			//    = _credentials.hasPermition(
-			//        PermitionType.Forum__Forum__read
+			//    = _credentials.hasPermission(
+			//        PermissionType.Forum__Forum__read
 			//    );
 			//bool _forum__thread__select
-			//    = _credentials.hasPermition(
-			//        PermitionType.Forum__Thread__read
+			//    = _credentials.hasPermission(
+			//        PermissionType.Forum__Thread__read
 			//    );
 			//bool _forum__reply__select
-			//    = _credentials.hasPermition(
-			//        PermitionType.Forum__Reply__read
+			//    = _credentials.hasPermission(
+			//        PermissionType.Forum__Reply__read
 			//    );
 
 			//if (
@@ -572,7 +572,7 @@ A equipa {2}
 			//        _forum__reply__select
 			//    )
 			//) {
-			//    _errors.Add(ErrorType.forum__lack_of_permitions_to_read);
+			//    _errors.Add(ErrorType.forum__lack_of_permissions_to_read);
 			//    errors_out = _errors.ToArray();
 			//    return null;
 			//}
@@ -626,7 +626,7 @@ A equipa {2}
 		//    out int[] errors_out
 		//) {
 		//    if (IDUser_loggedIn <= 0) {
-		//        throw BusinessExceptions.NoPermitionException;
+		//        throw BusinessExceptions.NoPermissionException;
 		//    }
 
 		//    string _email 
@@ -634,7 +634,7 @@ A equipa {2}
 		//            email_check_in
 		//        );
 		//    if (
-		//        mainAggregate.getObject_byEMail(_email)
+		//        mainAggregate.getObject_byEmail(_email)
 		//        &&
 		//        (mainAggregate.Fields.IDUser == IDUser_loggedIn)
 		//    ) {
@@ -663,7 +663,7 @@ A equipa {2}
 			string email_verify_in, 
 			int idApplication_in, 
 
-//			bool andVerifyEMail_in, 
+//			bool andVerifyEmail_in, 
 			bool andChangePassword_in, 
 			string password_in, 
 
@@ -671,15 +671,15 @@ A equipa {2}
 			out string login_out,
 			out string name_out,
 
-			out long[] idPermitions_out, 
+			out long[] idPermissions_out, 
 			out int[] errors_out
 		) {
 			// this method will eventually be fallowed by any of the fallowing:
 			// - insObject_Registration (WILL change password AND verify email)
-			// - updObject_EMail (will NOT change password AND verify email)
+			// - updObject_Email (will NOT change password AND verify email)
 			// - LostPassword_Recover (WILL change password and NOT verify email)
 
-			idPermitions_out = null;
+			idPermissions_out = null;
 			idUser_out = -1L;
 			login_out = "";
 			name_out = "";
@@ -701,7 +701,7 @@ A equipa {2}
 			}
 			#endregion
 
-			#region string _email_verify = ...; bool _andVerifyEMail = ...;
+			#region string _email_verify = ...; bool _andVerifyEmail = ...;
 			string[] _params = decrypt_mail(
 				email_verify_in,
 				_errorlist
@@ -716,13 +716,13 @@ A equipa {2}
 			}
 
 			string _email_verify = _params[0];
-			bool _andVerifyEMail = (
+			bool _andVerifyEmail = (
 				(_params.Length > 1) 
 				&& 
 				(_params[1] == "1")
 			);
 			#endregion
-			if (!andChangePassword_in && !_andVerifyEMail) {
+			if (!andChangePassword_in && !_andVerifyEmail) {
 #if DEBUG
 				throw new Exception("(nothing to do) what are you doing?");
 #else
@@ -734,13 +734,13 @@ A equipa {2}
 			SO_NET_User _user = null;
 			if (
 				(_user
-					= (_andVerifyEMail) 
-						? DO_NET_User.getObject_byEMail_verify(
+					= (_andVerifyEmail) 
+						? DO_NET_User.getObject_byEmail_verify(
 							_email_verify,
 							idApplication_in, 
 							null
 						)
-						: DO_NET_User.getObject_byEMail(
+						: DO_NET_User.getObject_byEmail(
 							_email_verify,
 							idApplication_in,
 							null
@@ -763,7 +763,7 @@ A equipa {2}
 				_exception = null;
 				try {
 
-					if (andChangePassword_in && _andVerifyEMail) {
+					if (andChangePassword_in && _andVerifyEmail) {
 						_con.Open();
 						_con.Transaction.Begin();
 					}
@@ -790,10 +790,10 @@ A equipa {2}
 						);
 						#endregion
 					}
-					if (_andVerifyEMail) {
+					if (_andVerifyEmail) {
 						#region DO_NET_User.setObject(...); _commit = ...;
-						_user.EMail = _user.EMail_verify;
-						_user.EMail_verify_isNull = true;
+						_user.Email = _user.Email_verify;
+						_user.Email_verify_isNull = true;
 						DO_NET_User.setObject(
 							_user,
 							true,
@@ -895,7 +895,7 @@ A equipa {2}
 
 						out idUser_out,
 						out login_out,
-						out idPermitions_out, 
+						out idPermissions_out, 
 						ref _errorlist
 					);
 					#endregion
@@ -927,7 +927,7 @@ A equipa {2}
 			out string login_out,
 			out string name_out,
 
-			out long[] idPermitions_out, 
+			out long[] idPermissions_out, 
 			out int[] errors_out
 		) {
 			login_throughlink(
@@ -943,7 +943,7 @@ A equipa {2}
 				out login_out,
 				out name_out, 
 
-				out idPermitions_out, 
+				out idPermissions_out, 
 				out errors_out
 			);
 		}
@@ -962,7 +962,7 @@ A equipa {2}
 			out string login_out,
 			out string name_out,
 
-			out long[] idPermitions_out, 
+			out long[] idPermissions_out, 
 			out int[] errors_out
 		) {
 			login_throughlink(
@@ -978,7 +978,7 @@ A equipa {2}
 				out login_out,
 				out name_out,
 
-				out idPermitions_out,
+				out idPermissions_out,
 				out errors_out
 			);
 		}
@@ -992,7 +992,7 @@ A equipa {2}
 
 		////    DO_TML_GC_User _user = new DO_TML_GC_User();
 		////    if (
-		////        _user.getObject_byEMail(
+		////        _user.getObject_byEmail(
 		////            email_in
 		////        )
 		////        && 
@@ -1020,7 +1020,7 @@ A equipa {2}
 
 
 		////    DO_TML_GC_User _user = new DO_TML_GC_User();
-		////    if (_user.getObject_byEMail(
+		////    if (_user.getObject_byEmail(
 		////        _email
 		////    )) {
 		////        _iduser_out = _user.Fields.IDUser;
@@ -1035,7 +1035,7 @@ A equipa {2}
 		public static void LostPassword_Recover(
 			//string credentials_in,
 
-			string EMail_in,
+			string Email_in,
 
 			string companyName_in,
 			string recoverLostPasswordURL_in,
@@ -1046,7 +1046,7 @@ A equipa {2}
 		) {
 			List<int> _errors = new List<int>();
 			#region check . . .
-			if (!OGen.lib.mail.utils.isEmail_valid(EMail_in = EMail_in.Trim())) {
+			if (!OGen.lib.mail.utils.isEmail_valid(Email_in = Email_in.Trim())) {
 				_errors.Add(ErrorType.web__user__invalid_email);
 				errors_out = _errors.ToArray();
 				return;
@@ -1055,8 +1055,8 @@ A equipa {2}
 			#region check Existence . . . SO_NET_User _user = ...;
 			SO_NET_User _user;
 			if (
-				((_user = DO_NET_User.getObject_byEMail(
-					EMail_in,
+				((_user = DO_NET_User.getObject_byEmail(
+					Email_in,
 					idApplication_in
 				)) == null)
 			) {
@@ -1071,8 +1071,8 @@ A equipa {2}
 				idApplication_in,
 				_errors, 
 
-				_user.EMail,
-				"0" // NOT Verify EMail
+				_user.Email,
+				"0" // NOT Verify Email
 			);
 			if (string.IsNullOrEmpty(_message)) {
 				errors_out = _errors.ToArray();
@@ -1085,7 +1085,7 @@ A equipa {2}
 				OGen.lib.mail.utils.MailSend(
 					new System.Net.Mail.MailAddress[] {
 						new System.Net.Mail.MailAddress(
-							_user.EMail, 
+							_user.Email, 
 							_user.Name
 						)
 					},
@@ -1172,7 +1172,7 @@ A equipa {2}",
 			}
 
 			if (
-				DO_NET_User.getObject_byEMail(
+				DO_NET_User.getObject_byEmail(
 					email_in,
 					idApplication_in
 				) != null
@@ -1211,7 +1211,7 @@ A equipa {2}",
 				_errorlist, 
 
 				email_in,
-				"1" // Verify EMail
+				"1" // Verify Email
 			);
 			if (string.IsNullOrEmpty(_message)) {
 				errors_out = _errorlist.ToArray();
@@ -1273,8 +1273,8 @@ A equipa {2}",
 					} else {
 						#region // STEP 3: DO_CRD_UserProfile.setObject(...);
 						long _count;
-						SO_NET_Defaultprofile[] _profiles
-							= DO_NET_Defaultprofile.getRecord_all(
+						SO_NET_Profile__default[] _profiles
+							= DO_NET_Profile__default.getRecord_all(
 								idApplication_in,
 								0, 0, 0, out _count, 
 								_con

@@ -53,7 +53,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			int logtype_in,
 			int errortype_in,
-			long idPermition_in, 
+			long idPermission_in, 
 
 			int idApplication_in,
 
@@ -83,19 +83,19 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				_log.IFUser = usersession_in.IDUser;
 			}
 			#endregion
-			_log.IFLogtype = logtype_in;
-			#region _log.IDErrortype = ...;
+			_log.IFType = logtype_in;
+			#region _log.IDError = ...;
 			if (errortype_in == ErrorType.no_error) {
-				_log.IFErrortype_isNull = true;
+				_log.IFError_isNull = true;
 			} else {
-				_log.IFErrortype = errortype_in;
+				_log.IFError = errortype_in;
 			} 
 			#endregion
-			#region _log.IFPermition = ...;
-			if (idPermition_in <= 0) {
-				_log.IFPermition_isNull = true;
+			#region _log.IFPermission = ...;
+			if (idPermission_in <= 0) {
+				_log.IFPermission_isNull = true;
 			} else {
-				_log.IFPermition = idPermition_in;
+				_log.IFPermission = idPermission_in;
 			}
 			#endregion
 			_log.Stamp = DateTime.Now;
@@ -147,7 +147,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			int logtype_in,
 			int errortype_in,
-			long idPermition_in, 
+			long idPermission_in, 
 
 			int idApplication_in,
 
@@ -176,7 +176,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 					logtype_in,
 					errortype_in,
-					idPermition_in,
+					idPermission_in,
 
 					_sessionuser.IDApplication,
 
@@ -189,7 +189,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 					logtype_in,
 					errortype_in,
-					idPermition_in, 
+					idPermission_in, 
 
 					idApplication_in,
 
@@ -229,11 +229,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return;
 			}
 			#endregion
-			#region check permitions...
+			#region check permissions...
 			if (
-				!_sessionuser.hasPermition(PermitionType.Log__mark_read)
+				!_sessionuser.hasPermission(PermissionType.Log__mark_read)
 			) {
-				_errorlist.Add(ErrorType.lack_of_permitions);
+				_errorlist.Add(ErrorType.lack_of_permissions);
 				errors_out = _errorlist.ToArray();
 				return;
 			}
@@ -339,9 +339,9 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		//        ((_credentials = new ServerCredentials(credentials_in)).IDUser > 0)
 		//    ) {
 		//        if (
-		//            !_credentials.hasPermition(PermitionType.Admin)
+		//            !_credentials.hasPermission(PermissionType.Admin)
 		//        ) {
-		//            error_out = ErrorType.lack_of_permitions;
+		//            error_out = ErrorType.lack_of_permissions;
 		//            return null;
 		//        }
 
@@ -354,7 +354,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		//        );
 
 		//    } else {
-		//        error_out = ErrorType.lack_of_permitions__not_logged_in;
+		//        error_out = ErrorType.lack_of_permissions__not_logged_in;
 		//        return null;
 		//    }
 		//} 
@@ -405,11 +405,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return null;
 			}
 			#endregion
-			#region check Permitions...
+			#region check Permissions...
 			if (
-				!_sessionuser.hasPermition(PermitionType.Log__read)
+				!_sessionuser.hasPermission(PermissionType.Log__read)
 			) {
-				_errorlist.Add(ErrorType.log__lack_of_permitions_to_read);
+				_errorlist.Add(ErrorType.log__lack_of_permissions_to_read);
 				errors_out = _errorlist.ToArray();
 				return null;
 			}

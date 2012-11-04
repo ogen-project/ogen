@@ -36,13 +36,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		public SO_DIC_TextLanguage(
 			long IFText_in, 
 			int IFLanguage_in, 
-			string CharVar8000_in, 
-			string Text_in
+			string Text__small_in, 
+			string Text__large_in
 		) {
 			this.iftext_ = IFText_in;
 			this.iflanguage_ = IFLanguage_in;
-			this.charvar8000_ = CharVar8000_in;
-			this.text_ = Text_in;
+			this.text__small_ = Text__small_in;
+			this.text__large_ = Text__large_in;
 
 			this.haschanges_ = false;
 		}
@@ -52,16 +52,16 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		) {
 			this.iftext_ = (long)info.GetValue("IFText", typeof(long));
 			this.iflanguage_ = (int)info.GetValue("IFLanguage", typeof(int));
-			this.charvar8000_ 
-				= (info.GetValue("CharVar8000", typeof(string)) == null)
+			this.text__small_ 
+				= (info.GetValue("Text__small", typeof(string)) == null)
 					? string.Empty
-					: (string)info.GetValue("CharVar8000", typeof(string));
-			this.CharVar8000_isNull = (bool)info.GetValue("CharVar8000_isNull", typeof(bool));
-			this.text_ 
-				= (info.GetValue("Text", typeof(string)) == null)
+					: (string)info.GetValue("Text__small", typeof(string));
+			this.Text__small_isNull = (bool)info.GetValue("Text__small_isNull", typeof(bool));
+			this.text__large_ 
+				= (info.GetValue("Text__large", typeof(string)) == null)
 					? string.Empty
-					: (string)info.GetValue("Text", typeof(string));
-			this.Text_isNull = (bool)info.GetValue("Text_isNull", typeof(bool));
+					: (string)info.GetValue("Text__large", typeof(string));
+			this.Text__large_isNull = (bool)info.GetValue("Text__large_isNull", typeof(bool));
 
 			this.haschanges_ = false;
 		}
@@ -181,19 +181,19 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			}
 		}
 		#endregion
-		#region public string CharVar8000 { get; set; }
+		#region public string Text__small { get; set; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		private object charvar8000_;// = string.Empty;
+		private object text__small_;// = string.Empty;
 		
 		/// <summary>
-		/// DIC_TextLanguage's CharVar8000.
+		/// DIC_TextLanguage's Text__small.
 		/// </summary>
-		[XmlElement("CharVar8000")]
-		[SoapElement("CharVar8000")]
+		[XmlElement("Text__small")]
+		[SoapElement("Text__small")]
 		[DOPropertyAttribute(
-			"CharVar8000", 
+			"Text__small", 
 			"", 
 			"", 
 			false, 
@@ -215,53 +215,53 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			8000, 
 			""
 		)]
-		public string CharVar8000 {
+		public string Text__small {
 			get {
-				return (string)((this.charvar8000_ == null) ? string.Empty : this.charvar8000_);
+				return (string)((this.text__small_ == null) ? string.Empty : this.text__small_);
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(this.charvar8000_))
+					(!value.Equals(this.text__small_))
 				) {
-					this.charvar8000_ = value;
+					this.text__small_ = value;
 					this.haschanges_ = true;
 				}
 			}
 		}
 		#endregion
-		#region public bool CharVar8000_isNull { get; set; }
+		#region public bool Text__small_isNull { get; set; }
 		/// <summary>
-		/// Allows assignement of null and check if null at DIC_TextLanguage's CharVar8000.
+		/// Allows assignement of null and check if null at DIC_TextLanguage's Text__small.
 		/// </summary>
-		[XmlElement("CharVar8000_isNull")]
-		[SoapElement("CharVar8000_isNull")]
-		public bool CharVar8000_isNull {
-			get { return (this.charvar8000_ == null); }
+		[XmlElement("Text__small_isNull")]
+		[SoapElement("Text__small_isNull")]
+		public bool Text__small_isNull {
+			get { return (this.text__small_ == null); }
 			set {
-				//if (value) this.charvar8000_ = null;
+				//if (value) this.text__small_ = null;
 
-				if ((value) && (this.charvar8000_ != null)) {
-					this.charvar8000_ = null;
+				if ((value) && (this.text__small_ != null)) {
+					this.text__small_ = null;
 					this.haschanges_ = true;
 				}
 			}
 		}
 		#endregion
-		#region public string Text { get; set; }
+		#region public string Text__large { get; set; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		private object text_;// = string.Empty;
+		private object text__large_;// = string.Empty;
 		
 		/// <summary>
-		/// DIC_TextLanguage's Text.
+		/// DIC_TextLanguage's Text__large.
 		/// </summary>
-		[XmlElement("Text")]
-		[SoapElement("Text")]
+		[XmlElement("Text__large")]
+		[SoapElement("Text__large")]
 		[DOPropertyAttribute(
-			"Text", 
+			"Text__large", 
 			"", 
 			"", 
 			false, 
@@ -283,35 +283,35 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			2147483647, 
 			""
 		)]
-		public string Text {
+		public string Text__large {
 			get {
-				return (string)((this.text_ == null) ? string.Empty : this.text_);
+				return (string)((this.text__large_ == null) ? string.Empty : this.text__large_);
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(this.text_))
+					(!value.Equals(this.text__large_))
 				) {
-					this.text_ = value;
+					this.text__large_ = value;
 					this.haschanges_ = true;
 				}
 			}
 		}
 		#endregion
-		#region public bool Text_isNull { get; set; }
+		#region public bool Text__large_isNull { get; set; }
 		/// <summary>
-		/// Allows assignement of null and check if null at DIC_TextLanguage's Text.
+		/// Allows assignement of null and check if null at DIC_TextLanguage's Text__large.
 		/// </summary>
-		[XmlElement("Text_isNull")]
-		[SoapElement("Text_isNull")]
-		public bool Text_isNull {
-			get { return (this.text_ == null); }
+		[XmlElement("Text__large_isNull")]
+		[SoapElement("Text__large_isNull")]
+		public bool Text__large_isNull {
+			get { return (this.text__large_ == null); }
 			set {
-				//if (value) this.text_ = null;
+				//if (value) this.text__large_ = null;
 
-				if ((value) && (this.text_ != null)) {
-					this.text_ = null;
+				if ((value) && (this.text__large_ != null)) {
+					this.text__large_ = null;
 					this.haschanges_ = true;
 				}
 			}
@@ -332,18 +332,18 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			_output.Columns.Add(_dc_iftext);
 			DataColumn _dc_iflanguage = new DataColumn("IFLanguage", typeof(int));
 			_output.Columns.Add(_dc_iflanguage);
-			DataColumn _dc_charvar8000 = new DataColumn("CharVar8000", typeof(string));
-			_output.Columns.Add(_dc_charvar8000);
-			DataColumn _dc_text = new DataColumn("Text", typeof(string));
-			_output.Columns.Add(_dc_text);
+			DataColumn _dc_text__small = new DataColumn("Text__small", typeof(string));
+			_output.Columns.Add(_dc_text__small);
+			DataColumn _dc_text__large = new DataColumn("Text__large", typeof(string));
+			_output.Columns.Add(_dc_text__large);
 
 			foreach (SO_DIC_TextLanguage _serializableObject in serializableObjects_in) {
 				_dr = _output.NewRow();
 
 				_dr[_dc_iftext] = _serializableObject.IFText;
 				_dr[_dc_iflanguage] = _serializableObject.IFLanguage;
-				_dr[_dc_charvar8000] = _serializableObject.CharVar8000;
-				_dr[_dc_text] = _serializableObject.Text;
+				_dr[_dc_text__small] = _serializableObject.Text__small;
+				_dr[_dc_text__large] = _serializableObject.Text__large;
 
 				_output.Rows.Add(_dr);
 			}
@@ -358,8 +358,8 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		public void Clear() {
 			this.iftext_ = 0L;
 			this.iflanguage_ = 0;
-			this.charvar8000_ = string.Empty;
-			this.text_ = string.Empty;
+			this.text__small_ = string.Empty;
+			this.text__large_ = string.Empty;
 
 			this.haschanges_ = false;
 		}
@@ -372,10 +372,10 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 		public virtual void GetObjectData(SerializationInfo info, StreamingContext context) {
 			info.AddValue("IFText", this.iftext_);
 			info.AddValue("IFLanguage", this.iflanguage_);
-			info.AddValue("CharVar8000", this.charvar8000_);
-			info.AddValue("CharVar8000_isNull", this.CharVar8000_isNull);
-			info.AddValue("Text", this.text_);
-			info.AddValue("Text_isNull", this.Text_isNull);
+			info.AddValue("Text__small", this.text__small_);
+			info.AddValue("Text__small_isNull", this.Text__small_isNull);
+			info.AddValue("Text__large", this.text__large_);
+			info.AddValue("Text__large_isNull", this.Text__large_isNull);
 		}
 		#endregion
 		#endregion

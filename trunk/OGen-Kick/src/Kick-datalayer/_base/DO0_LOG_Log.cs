@@ -75,14 +75,14 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
 				_connection.newDBDataParameter("IDLog_", DbType.Int64, ParameterDirection.InputOutput, IDLog_in, 0), 
-				_connection.newDBDataParameter("IFLogtype_", DbType.Int32, ParameterDirection.Output, null, 0), 
+				_connection.newDBDataParameter("IFType_", DbType.Int32, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("IFUser_", DbType.Int64, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("IFUser__read_", DbType.Int64, ParameterDirection.Output, null, 0), 
-				_connection.newDBDataParameter("IFErrortype_", DbType.Int32, ParameterDirection.Output, null, 0), 
+				_connection.newDBDataParameter("IFError_", DbType.Int32, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("Stamp_", DbType.DateTime, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("Stamp__read_", DbType.DateTime, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("Message_", DbType.AnsiString, ParameterDirection.Output, null, 4000), 
-				_connection.newDBDataParameter("IFPermition_", DbType.Int64, ParameterDirection.Output, null, 0), 
+				_connection.newDBDataParameter("IFPermission_", DbType.Int64, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("IFApplication_", DbType.Int32, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("IFBrowser__OPT_", DbType.Int64, ParameterDirection.Output, null, 0)
 			};
@@ -98,9 +98,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.IDLog = (long)_dataparameters[0].Value;
 				}
 				if (_dataparameters[1].Value == System.DBNull.Value) {
-					_output.IFLogtype = 0;
+					_output.IFType = 0;
 				} else {
-					_output.IFLogtype = (int)_dataparameters[1].Value;
+					_output.IFType = (int)_dataparameters[1].Value;
 				}
 				if (_dataparameters[2].Value == System.DBNull.Value) {
 					_output.IFUser_isNull = true;
@@ -113,9 +113,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.IFUser__read = (long)_dataparameters[3].Value;
 				}
 				if (_dataparameters[4].Value == System.DBNull.Value) {
-					_output.IFErrortype_isNull = true;
+					_output.IFError_isNull = true;
 				} else {
-					_output.IFErrortype = (int)_dataparameters[4].Value;
+					_output.IFError = (int)_dataparameters[4].Value;
 				}
 				if (_dataparameters[5].Value == System.DBNull.Value) {
 					_output.Stamp = new DateTime(1900, 1, 1);
@@ -133,9 +133,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.Message = (string)_dataparameters[7].Value;
 				}
 				if (_dataparameters[8].Value == System.DBNull.Value) {
-					_output.IFPermition_isNull = true;
+					_output.IFPermission_isNull = true;
 				} else {
-					_output.IFPermition = (long)_dataparameters[8].Value;
+					_output.IFPermission = (long)_dataparameters[8].Value;
 				}
 				if (_dataparameters[9].Value == System.DBNull.Value) {
 					_output.IFApplication_isNull = true;
@@ -277,14 +277,14 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
 				_connection.newDBDataParameter("IDLog_", DbType.Int64, ParameterDirection.Output, null, 0), 
-				_connection.newDBDataParameter("IFLogtype_", DbType.Int32, ParameterDirection.Input, LOG_Log_in.IFLogtype, 0), 
+				_connection.newDBDataParameter("IFType_", DbType.Int32, ParameterDirection.Input, LOG_Log_in.IFType, 0), 
 				_connection.newDBDataParameter("IFUser_", DbType.Int64, ParameterDirection.Input, LOG_Log_in.IFUser_isNull ? null : (object)LOG_Log_in.IFUser, 0), 
 				_connection.newDBDataParameter("IFUser__read_", DbType.Int64, ParameterDirection.Input, LOG_Log_in.IFUser__read_isNull ? null : (object)LOG_Log_in.IFUser__read, 0), 
-				_connection.newDBDataParameter("IFErrortype_", DbType.Int32, ParameterDirection.Input, LOG_Log_in.IFErrortype_isNull ? null : (object)LOG_Log_in.IFErrortype, 0), 
+				_connection.newDBDataParameter("IFError_", DbType.Int32, ParameterDirection.Input, LOG_Log_in.IFError_isNull ? null : (object)LOG_Log_in.IFError, 0), 
 				_connection.newDBDataParameter("Stamp_", DbType.DateTime, ParameterDirection.Input, LOG_Log_in.Stamp, 0), 
 				_connection.newDBDataParameter("Stamp__read_", DbType.DateTime, ParameterDirection.Input, LOG_Log_in.Stamp__read_isNull ? null : (object)LOG_Log_in.Stamp__read, 0), 
 				_connection.newDBDataParameter("Message_", DbType.AnsiString, ParameterDirection.Input, LOG_Log_in.Message, 4000), 
-				_connection.newDBDataParameter("IFPermition_", DbType.Int64, ParameterDirection.Input, LOG_Log_in.IFPermition_isNull ? null : (object)LOG_Log_in.IFPermition, 0), 
+				_connection.newDBDataParameter("IFPermission_", DbType.Int64, ParameterDirection.Input, LOG_Log_in.IFPermission_isNull ? null : (object)LOG_Log_in.IFPermission, 0), 
 				_connection.newDBDataParameter("IFApplication_", DbType.Int32, ParameterDirection.Input, LOG_Log_in.IFApplication_isNull ? null : (object)LOG_Log_in.IFApplication, 0), 
 				_connection.newDBDataParameter("IFBrowser__OPT_", DbType.Int64, ParameterDirection.Input, LOG_Log_in.IFBrowser__OPT_isNull ? null : (object)LOG_Log_in.IFBrowser__OPT, 0), 
 
@@ -339,14 +339,14 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
 					_connection.newDBDataParameter("IDLog_", DbType.Int64, ParameterDirection.Input, LOG_Log_in.IDLog, 0), 
-					_connection.newDBDataParameter("IFLogtype_", DbType.Int32, ParameterDirection.Input, LOG_Log_in.IFLogtype, 0), 
+					_connection.newDBDataParameter("IFType_", DbType.Int32, ParameterDirection.Input, LOG_Log_in.IFType, 0), 
 					_connection.newDBDataParameter("IFUser_", DbType.Int64, ParameterDirection.Input, LOG_Log_in.IFUser_isNull ? null : (object)LOG_Log_in.IFUser, 0), 
 					_connection.newDBDataParameter("IFUser__read_", DbType.Int64, ParameterDirection.Input, LOG_Log_in.IFUser__read_isNull ? null : (object)LOG_Log_in.IFUser__read, 0), 
-					_connection.newDBDataParameter("IFErrortype_", DbType.Int32, ParameterDirection.Input, LOG_Log_in.IFErrortype_isNull ? null : (object)LOG_Log_in.IFErrortype, 0), 
+					_connection.newDBDataParameter("IFError_", DbType.Int32, ParameterDirection.Input, LOG_Log_in.IFError_isNull ? null : (object)LOG_Log_in.IFError, 0), 
 					_connection.newDBDataParameter("Stamp_", DbType.DateTime, ParameterDirection.Input, LOG_Log_in.Stamp, 0), 
 					_connection.newDBDataParameter("Stamp__read_", DbType.DateTime, ParameterDirection.Input, LOG_Log_in.Stamp__read_isNull ? null : (object)LOG_Log_in.Stamp__read, 0), 
 					_connection.newDBDataParameter("Message_", DbType.AnsiString, ParameterDirection.Input, LOG_Log_in.Message, 4000), 
-					_connection.newDBDataParameter("IFPermition_", DbType.Int64, ParameterDirection.Input, LOG_Log_in.IFPermition_isNull ? null : (object)LOG_Log_in.IFPermition, 0), 
+					_connection.newDBDataParameter("IFPermission_", DbType.Int64, ParameterDirection.Input, LOG_Log_in.IFPermission_isNull ? null : (object)LOG_Log_in.IFPermission, 0), 
 					_connection.newDBDataParameter("IFApplication_", DbType.Int32, ParameterDirection.Input, LOG_Log_in.IFApplication_isNull ? null : (object)LOG_Log_in.IFApplication, 0), 
 					_connection.newDBDataParameter("IFBrowser__OPT_", DbType.Int64, ParameterDirection.Input, LOG_Log_in.IFBrowser__OPT_isNull ? null : (object)LOG_Log_in.IFBrowser__OPT, 0)
 				};
@@ -371,14 +371,14 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			DataTable dataTable_in
 		) {
 			DataColumn _dc_idlog = null;
-			DataColumn _dc_iflogtype = null;
+			DataColumn _dc_iftype = null;
 			DataColumn _dc_ifuser = null;
 			DataColumn _dc_ifuser__read = null;
-			DataColumn _dc_iferrortype = null;
+			DataColumn _dc_iferror = null;
 			DataColumn _dc_stamp = null;
 			DataColumn _dc_stamp__read = null;
 			DataColumn _dc_message = null;
-			DataColumn _dc_ifpermition = null;
+			DataColumn _dc_ifpermission = null;
 			DataColumn _dc_ifapplication = null;
 			DataColumn _dc_ifbrowser__opt = null;
 
@@ -387,14 +387,14 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			for (int r = 0; r < dataTable_in.Rows.Count; r++) {
 				if (r == 0) {
 					_dc_idlog = dataTable_in.Columns["IDLog"];
-					_dc_iflogtype = dataTable_in.Columns["IFLogtype"];
+					_dc_iftype = dataTable_in.Columns["IFType"];
 					_dc_ifuser = dataTable_in.Columns["IFUser"];
 					_dc_ifuser__read = dataTable_in.Columns["IFUser__read"];
-					_dc_iferrortype = dataTable_in.Columns["IFErrortype"];
+					_dc_iferror = dataTable_in.Columns["IFError"];
 					_dc_stamp = dataTable_in.Columns["Stamp"];
 					_dc_stamp__read = dataTable_in.Columns["Stamp__read"];
 					_dc_message = dataTable_in.Columns["Message"];
-					_dc_ifpermition = dataTable_in.Columns["IFPermition"];
+					_dc_ifpermission = dataTable_in.Columns["IFPermission"];
 					_dc_ifapplication = dataTable_in.Columns["IFApplication"];
 					_dc_ifbrowser__opt = dataTable_in.Columns["IFBrowser__OPT"];
 				}
@@ -405,10 +405,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				} else {
 					_output[r].IDLog = (long)dataTable_in.Rows[r][_dc_idlog];
 				}
-				if (dataTable_in.Rows[r][_dc_iflogtype] == System.DBNull.Value) {
-					_output[r].IFLogtype = 0;
+				if (dataTable_in.Rows[r][_dc_iftype] == System.DBNull.Value) {
+					_output[r].IFType = 0;
 				} else {
-					_output[r].IFLogtype = (int)dataTable_in.Rows[r][_dc_iflogtype];
+					_output[r].IFType = (int)dataTable_in.Rows[r][_dc_iftype];
 				}
 				if (dataTable_in.Rows[r][_dc_ifuser] == System.DBNull.Value) {
 					_output[r].IFUser_isNull = true;
@@ -420,10 +420,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				} else {
 					_output[r].IFUser__read = (long)dataTable_in.Rows[r][_dc_ifuser__read];
 				}
-				if (dataTable_in.Rows[r][_dc_iferrortype] == System.DBNull.Value) {
-					_output[r].IFErrortype_isNull = true;
+				if (dataTable_in.Rows[r][_dc_iferror] == System.DBNull.Value) {
+					_output[r].IFError_isNull = true;
 				} else {
-					_output[r].IFErrortype = (int)dataTable_in.Rows[r][_dc_iferrortype];
+					_output[r].IFError = (int)dataTable_in.Rows[r][_dc_iferror];
 				}
 				if (dataTable_in.Rows[r][_dc_stamp] == System.DBNull.Value) {
 					_output[r].Stamp = new DateTime(1900, 1, 1);
@@ -440,10 +440,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				} else {
 					_output[r].Message = (string)dataTable_in.Rows[r][_dc_message];
 				}
-				if (dataTable_in.Rows[r][_dc_ifpermition] == System.DBNull.Value) {
-					_output[r].IFPermition_isNull = true;
+				if (dataTable_in.Rows[r][_dc_ifpermission] == System.DBNull.Value) {
+					_output[r].IFPermission_isNull = true;
 				} else {
-					_output[r].IFPermition = (long)dataTable_in.Rows[r][_dc_ifpermition];
+					_output[r].IFPermission = (long)dataTable_in.Rows[r][_dc_ifpermission];
 				}
 				if (dataTable_in.Rows[r][_dc_ifapplication] == System.DBNull.Value) {
 					_output[r].IFApplication_isNull = true;
@@ -467,9 +467,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <summary>
 		/// Gets Record, based on 'generic' search. It selects LOG_Log values from Database based on the 'generic' search.
 		/// </summary>
-		/// <param name="IDLogtype_search_in">IDLogtype search condition</param>
+		/// <param name="IDType_search_in">IDType search condition</param>
 		/// <param name="IDUser_search_in">IDUser search condition</param>
-		/// <param name="IDErrortype_search_in">IDErrortype search condition</param>
+		/// <param name="IDError_search_in">IDError search condition</param>
 		/// <param name="Stamp_begin_search_in">Stamp_begin search condition</param>
 		/// <param name="Stamp_end_search_in">Stamp_end search condition</param>
 		/// <param name="Read_search_in">Read search condition</param>
@@ -479,9 +479,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="page_itemsPerPage_in">number of records per page</param>
 		/// <param name="page_itemsCount_out">total number of items</param>
 		public static SO_LOG_Log[] getRecord_generic(
-			int IDLogtype_search_in, 
+			int IDType_search_in, 
 			object IDUser_search_in, 
-			object IDErrortype_search_in, 
+			object IDError_search_in, 
 			DateTime Stamp_begin_search_in, 
 			DateTime Stamp_end_search_in, 
 			object Read_search_in, 
@@ -492,9 +492,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			out long page_itemsCount_out
 		) {
 			return getRecord_generic(
-				IDLogtype_search_in, 
+				IDType_search_in, 
 				IDUser_search_in, 
-				IDErrortype_search_in, 
+				IDError_search_in, 
 				Stamp_begin_search_in, 
 				Stamp_end_search_in, 
 				Read_search_in, 
@@ -510,9 +510,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <summary>
 		/// Gets Record, based on 'generic' search. It selects LOG_Log values from Database based on the 'generic' search.
 		/// </summary>
-		/// <param name="IDLogtype_search_in">IDLogtype search condition</param>
+		/// <param name="IDType_search_in">IDType search condition</param>
 		/// <param name="IDUser_search_in">IDUser search condition</param>
-		/// <param name="IDErrortype_search_in">IDErrortype search condition</param>
+		/// <param name="IDError_search_in">IDError search condition</param>
 		/// <param name="Stamp_begin_search_in">Stamp_begin search condition</param>
 		/// <param name="Stamp_end_search_in">Stamp_end search condition</param>
 		/// <param name="Read_search_in">Read search condition</param>
@@ -523,9 +523,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="page_itemsCount_out">total number of items</param>
 		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
 		public static SO_LOG_Log[] getRecord_generic(
-			int IDLogtype_search_in, 
+			int IDType_search_in, 
 			object IDUser_search_in, 
-			object IDErrortype_search_in, 
+			object IDError_search_in, 
 			DateTime Stamp_begin_search_in, 
 			DateTime Stamp_end_search_in, 
 			object Read_search_in, 
@@ -548,9 +548,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			IDbDataParameter[] _dataparameters = 
 				((page_in > 0) && (page_itemsPerPage_in > 0))
 					? new IDbDataParameter[] {
-						_connection.newDBDataParameter("IDLogtype_search_", DbType.Int32, ParameterDirection.Input, IDLogtype_search_in, 0), 
+						_connection.newDBDataParameter("IDType_search_", DbType.Int32, ParameterDirection.Input, IDType_search_in, 0), 
 						_connection.newDBDataParameter("IDUser_search_", DbType.Int64, ParameterDirection.Input, IDUser_search_in, 0), 
-						_connection.newDBDataParameter("IDErrortype_search_", DbType.Int32, ParameterDirection.Input, IDErrortype_search_in, 0), 
+						_connection.newDBDataParameter("IDError_search_", DbType.Int32, ParameterDirection.Input, IDError_search_in, 0), 
 						_connection.newDBDataParameter("Stamp_begin_search_", DbType.DateTime, ParameterDirection.Input, Stamp_begin_search_in, 0), 
 						_connection.newDBDataParameter("Stamp_end_search_", DbType.DateTime, ParameterDirection.Input, Stamp_end_search_in, 0), 
 						_connection.newDBDataParameter("Read_search_", DbType.Boolean, ParameterDirection.Input, Read_search_in, 0), 
@@ -563,9 +563,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 
 					}
 					: new IDbDataParameter[] {
-						_connection.newDBDataParameter("IDLogtype_search_", DbType.Int32, ParameterDirection.Input, IDLogtype_search_in, 0), 
+						_connection.newDBDataParameter("IDType_search_", DbType.Int32, ParameterDirection.Input, IDType_search_in, 0), 
 						_connection.newDBDataParameter("IDUser_search_", DbType.Int64, ParameterDirection.Input, IDUser_search_in, 0), 
-						_connection.newDBDataParameter("IDErrortype_search_", DbType.Int32, ParameterDirection.Input, IDErrortype_search_in, 0), 
+						_connection.newDBDataParameter("IDError_search_", DbType.Int32, ParameterDirection.Input, IDError_search_in, 0), 
 						_connection.newDBDataParameter("Stamp_begin_search_", DbType.DateTime, ParameterDirection.Input, Stamp_begin_search_in, 0), 
 						_connection.newDBDataParameter("Stamp_end_search_", DbType.DateTime, ParameterDirection.Input, Stamp_end_search_in, 0), 
 						_connection.newDBDataParameter("Read_search_", DbType.Boolean, ParameterDirection.Input, Read_search_in, 0), 
@@ -585,9 +585,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				//page_itemsCount_out = (int)_dataparameters[_dataparameters.Length - 1].Value;
 
 				page_itemsCount_out = getCount_inRecord_generic(
-					IDLogtype_search_in, 
+					IDType_search_in, 
 					IDUser_search_in, 
-					IDErrortype_search_in, 
+					IDError_search_in, 
 					Stamp_begin_search_in, 
 					Stamp_end_search_in, 
 					Read_search_in, 
@@ -607,9 +607,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// It selects LOG_Log values from Database based on the 'generic' search and checks to see if LOG_Log Keys(passed as parameters) are met.
 		/// </summary>
 		/// <param name="IDLog_in">LOG_Log's IDLog Key used for checking</param>
-		/// <param name="IDLogtype_search_in">IDLogtype search condition</param>
+		/// <param name="IDType_search_in">IDType search condition</param>
 		/// <param name="IDUser_search_in">IDUser search condition</param>
-		/// <param name="IDErrortype_search_in">IDErrortype search condition</param>
+		/// <param name="IDError_search_in">IDError search condition</param>
 		/// <param name="Stamp_begin_search_in">Stamp_begin search condition</param>
 		/// <param name="Stamp_end_search_in">Stamp_end search condition</param>
 		/// <param name="Read_search_in">Read search condition</param>
@@ -617,16 +617,16 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <returns>True if LOG_Log Keys are met in the 'generic' search, False if not</returns>
 		public static bool isObject_inRecord_generic(
 			long IDLog_in, 
-			int IDLogtype_search_in, 
+			int IDType_search_in, 
 			object IDUser_search_in, 
-			object IDErrortype_search_in, 
+			object IDError_search_in, 
 			DateTime Stamp_begin_search_in, 
 			DateTime Stamp_end_search_in, 
 			object Read_search_in, 
 			object IFApplication_search_in
 		) {
 			return isObject_inRecord_generic(
-				IDLog_in, IDLogtype_search_in, IDUser_search_in, IDErrortype_search_in, Stamp_begin_search_in, Stamp_end_search_in, Read_search_in, IFApplication_search_in, 
+				IDLog_in, IDType_search_in, IDUser_search_in, IDError_search_in, Stamp_begin_search_in, Stamp_end_search_in, Read_search_in, IFApplication_search_in, 
 				null
 			);
 		}
@@ -635,9 +635,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// It selects LOG_Log values from Database based on the 'generic' search and checks to see if LOG_Log Keys(passed as parameters) are met.
 		/// </summary>
 		/// <param name="IDLog_in">LOG_Log's IDLog Key used for checking</param>
-		/// <param name="IDLogtype_search_in">IDLogtype search condition</param>
+		/// <param name="IDType_search_in">IDType search condition</param>
 		/// <param name="IDUser_search_in">IDUser search condition</param>
-		/// <param name="IDErrortype_search_in">IDErrortype search condition</param>
+		/// <param name="IDError_search_in">IDError search condition</param>
 		/// <param name="Stamp_begin_search_in">Stamp_begin search condition</param>
 		/// <param name="Stamp_end_search_in">Stamp_end search condition</param>
 		/// <param name="Read_search_in">Read search condition</param>
@@ -646,9 +646,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <returns>True if LOG_Log Keys are met in the 'generic' search, False if not</returns>
 		public static bool isObject_inRecord_generic(
 			long IDLog_in, 
-			int IDLogtype_search_in, 
+			int IDType_search_in, 
 			object IDUser_search_in, 
-			object IDErrortype_search_in, 
+			object IDError_search_in, 
 			DateTime Stamp_begin_search_in, 
 			DateTime Stamp_end_search_in, 
 			object Read_search_in, 
@@ -666,9 +666,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
 				_connection.newDBDataParameter("IDLog_", DbType.Int64, ParameterDirection.Input, IDLog_in, 0), 
-				_connection.newDBDataParameter("IDLogtype_search_", DbType.Int32, ParameterDirection.Input, IDLogtype_search_in, 0), 
+				_connection.newDBDataParameter("IDType_search_", DbType.Int32, ParameterDirection.Input, IDType_search_in, 0), 
 				_connection.newDBDataParameter("IDUser_search_", DbType.Int64, ParameterDirection.Input, IDUser_search_in, 0), 
-				_connection.newDBDataParameter("IDErrortype_search_", DbType.Int32, ParameterDirection.Input, IDErrortype_search_in, 0), 
+				_connection.newDBDataParameter("IDError_search_", DbType.Int32, ParameterDirection.Input, IDError_search_in, 0), 
 				_connection.newDBDataParameter("Stamp_begin_search_", DbType.DateTime, ParameterDirection.Input, Stamp_begin_search_in, 0), 
 				_connection.newDBDataParameter("Stamp_end_search_", DbType.DateTime, ParameterDirection.Input, Stamp_end_search_in, 0), 
 				_connection.newDBDataParameter("Read_search_", DbType.Boolean, ParameterDirection.Input, Read_search_in, 0), 
@@ -689,27 +689,27 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <summary>
 		/// Count's number of search results from LOG_Log at Database based on the 'generic' search.
 		/// </summary>
-		/// <param name="IDLogtype_search_in">IDLogtype search condition</param>
+		/// <param name="IDType_search_in">IDType search condition</param>
 		/// <param name="IDUser_search_in">IDUser search condition</param>
-		/// <param name="IDErrortype_search_in">IDErrortype search condition</param>
+		/// <param name="IDError_search_in">IDError search condition</param>
 		/// <param name="Stamp_begin_search_in">Stamp_begin search condition</param>
 		/// <param name="Stamp_end_search_in">Stamp_end search condition</param>
 		/// <param name="Read_search_in">Read search condition</param>
 		/// <param name="IFApplication_search_in">IFApplication search condition</param>
 		/// <returns>number of existing Records for the 'generic' search</returns>
 		public static long getCount_inRecord_generic(
-			int IDLogtype_search_in, 
+			int IDType_search_in, 
 			object IDUser_search_in, 
-			object IDErrortype_search_in, 
+			object IDError_search_in, 
 			DateTime Stamp_begin_search_in, 
 			DateTime Stamp_end_search_in, 
 			object Read_search_in, 
 			object IFApplication_search_in
 		) {
 			return getCount_inRecord_generic(
-				IDLogtype_search_in, 
+				IDType_search_in, 
 				IDUser_search_in, 
-				IDErrortype_search_in, 
+				IDError_search_in, 
 				Stamp_begin_search_in, 
 				Stamp_end_search_in, 
 				Read_search_in, 
@@ -721,9 +721,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <summary>
 		/// Count's number of search results from LOG_Log at Database based on the 'generic' search.
 		/// </summary>
-		/// <param name="IDLogtype_search_in">IDLogtype search condition</param>
+		/// <param name="IDType_search_in">IDType search condition</param>
 		/// <param name="IDUser_search_in">IDUser search condition</param>
-		/// <param name="IDErrortype_search_in">IDErrortype search condition</param>
+		/// <param name="IDError_search_in">IDError search condition</param>
 		/// <param name="Stamp_begin_search_in">Stamp_begin search condition</param>
 		/// <param name="Stamp_end_search_in">Stamp_end search condition</param>
 		/// <param name="Read_search_in">Read search condition</param>
@@ -731,9 +731,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
 		/// <returns>number of existing Records for the 'generic' search</returns>
 		public static long getCount_inRecord_generic(
-			int IDLogtype_search_in, 
+			int IDType_search_in, 
 			object IDUser_search_in, 
-			object IDErrortype_search_in, 
+			object IDError_search_in, 
 			DateTime Stamp_begin_search_in, 
 			DateTime Stamp_end_search_in, 
 			object Read_search_in, 
@@ -750,9 +750,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
-				_connection.newDBDataParameter("IDLogtype_search_", DbType.Int32, ParameterDirection.Input, IDLogtype_search_in, 0), 
+				_connection.newDBDataParameter("IDType_search_", DbType.Int32, ParameterDirection.Input, IDType_search_in, 0), 
 				_connection.newDBDataParameter("IDUser_search_", DbType.Int64, ParameterDirection.Input, IDUser_search_in, 0), 
-				_connection.newDBDataParameter("IDErrortype_search_", DbType.Int32, ParameterDirection.Input, IDErrortype_search_in, 0), 
+				_connection.newDBDataParameter("IDError_search_", DbType.Int32, ParameterDirection.Input, IDError_search_in, 0), 
 				_connection.newDBDataParameter("Stamp_begin_search_", DbType.DateTime, ParameterDirection.Input, Stamp_begin_search_in, 0), 
 				_connection.newDBDataParameter("Stamp_end_search_", DbType.DateTime, ParameterDirection.Input, Stamp_end_search_in, 0), 
 				_connection.newDBDataParameter("Read_search_", DbType.Boolean, ParameterDirection.Input, Read_search_in, 0), 
@@ -773,26 +773,26 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <summary>
 		/// Deletes LOG_Log values from Database based on the 'generic' search.
 		/// </summary>
-		/// <param name="IDLogtype_search_in">IDLogtype search condition</param>
+		/// <param name="IDType_search_in">IDType search condition</param>
 		/// <param name="IDUser_search_in">IDUser search condition</param>
-		/// <param name="IDErrortype_search_in">IDErrortype search condition</param>
+		/// <param name="IDError_search_in">IDError search condition</param>
 		/// <param name="Stamp_begin_search_in">Stamp_begin search condition</param>
 		/// <param name="Stamp_end_search_in">Stamp_end search condition</param>
 		/// <param name="Read_search_in">Read search condition</param>
 		/// <param name="IFApplication_search_in">IFApplication search condition</param>
 		public static void delRecord_generic(
-			int IDLogtype_search_in, 
+			int IDType_search_in, 
 			object IDUser_search_in, 
-			object IDErrortype_search_in, 
+			object IDError_search_in, 
 			DateTime Stamp_begin_search_in, 
 			DateTime Stamp_end_search_in, 
 			object Read_search_in, 
 			object IFApplication_search_in
 		) {
 			delRecord_generic(
-				IDLogtype_search_in, 
+				IDType_search_in, 
 				IDUser_search_in, 
-				IDErrortype_search_in, 
+				IDError_search_in, 
 				Stamp_begin_search_in, 
 				Stamp_end_search_in, 
 				Read_search_in, 
@@ -804,18 +804,18 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <summary>
 		/// Deletes LOG_Log values from Database based on the 'generic' search.
 		/// </summary>
-		/// <param name="IDLogtype_search_in">IDLogtype search condition</param>
+		/// <param name="IDType_search_in">IDType search condition</param>
 		/// <param name="IDUser_search_in">IDUser search condition</param>
-		/// <param name="IDErrortype_search_in">IDErrortype search condition</param>
+		/// <param name="IDError_search_in">IDError search condition</param>
 		/// <param name="Stamp_begin_search_in">Stamp_begin search condition</param>
 		/// <param name="Stamp_end_search_in">Stamp_end search condition</param>
 		/// <param name="Read_search_in">Read search condition</param>
 		/// <param name="IFApplication_search_in">IFApplication search condition</param>
 		/// <param name="dbConnection_in">Database connection, making the use of Database Transactions possible on a sequence of operations across the same or multiple DataObjects</param>
 		public static void delRecord_generic(
-			int IDLogtype_search_in, 
+			int IDType_search_in, 
 			object IDUser_search_in, 
-			object IDErrortype_search_in, 
+			object IDError_search_in, 
 			DateTime Stamp_begin_search_in, 
 			DateTime Stamp_end_search_in, 
 			object Read_search_in, 
@@ -830,9 +830,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
-				_connection.newDBDataParameter("IDLogtype_search_", DbType.Int32, ParameterDirection.Input, IDLogtype_search_in, 0), 
+				_connection.newDBDataParameter("IDType_search_", DbType.Int32, ParameterDirection.Input, IDType_search_in, 0), 
 				_connection.newDBDataParameter("IDUser_search_", DbType.Int64, ParameterDirection.Input, IDUser_search_in, 0), 
-				_connection.newDBDataParameter("IDErrortype_search_", DbType.Int32, ParameterDirection.Input, IDErrortype_search_in, 0), 
+				_connection.newDBDataParameter("IDError_search_", DbType.Int32, ParameterDirection.Input, IDError_search_in, 0), 
 				_connection.newDBDataParameter("Stamp_begin_search_", DbType.DateTime, ParameterDirection.Input, Stamp_begin_search_in, 0), 
 				_connection.newDBDataParameter("Stamp_end_search_", DbType.DateTime, ParameterDirection.Input, Stamp_end_search_in, 0), 
 				_connection.newDBDataParameter("Read_search_", DbType.Boolean, ParameterDirection.Input, Read_search_in, 0), 

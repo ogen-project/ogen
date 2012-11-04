@@ -77,8 +77,8 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				_connection.newDBDataParameter("IDAttachment_", DbType.Int64, ParameterDirection.InputOutput, IDAttachment_in, 0), 
 				_connection.newDBDataParameter("IFContent_", DbType.Int64, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("GUID_", DbType.AnsiString, ParameterDirection.Output, null, 50), 
-				_connection.newDBDataParameter("OrderNum_", DbType.Int64, ParameterDirection.Output, null, 0), 
-				_connection.newDBDataParameter("isImage_", DbType.Boolean, ParameterDirection.Output, null, 0), 
+				_connection.newDBDataParameter("Order_", DbType.Int64, ParameterDirection.Output, null, 0), 
+				_connection.newDBDataParameter("IsImage_", DbType.Boolean, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("TX_Name_", DbType.Int64, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("TX_Description_", DbType.Int64, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("FileName_", DbType.AnsiString, ParameterDirection.Output, null, 255)
@@ -105,14 +105,14 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.GUID = (string)_dataparameters[2].Value;
 				}
 				if (_dataparameters[3].Value == System.DBNull.Value) {
-					_output.OrderNum_isNull = true;
+					_output.Order_isNull = true;
 				} else {
-					_output.OrderNum = (long)_dataparameters[3].Value;
+					_output.Order = (long)_dataparameters[3].Value;
 				}
 				if (_dataparameters[4].Value == System.DBNull.Value) {
-					_output.isImage = false;
+					_output.IsImage = false;
 				} else {
-					_output.isImage = (bool)_dataparameters[4].Value;
+					_output.IsImage = (bool)_dataparameters[4].Value;
 				}
 				if (_dataparameters[5].Value == System.DBNull.Value) {
 					_output.TX_Name_isNull = true;
@@ -261,8 +261,8 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				_connection.newDBDataParameter("IDAttachment_", DbType.Int64, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("IFContent_", DbType.Int64, ParameterDirection.Input, NWS_Attachment_in.IFContent, 0), 
 				_connection.newDBDataParameter("GUID_", DbType.AnsiString, ParameterDirection.Input, NWS_Attachment_in.GUID, 50), 
-				_connection.newDBDataParameter("OrderNum_", DbType.Int64, ParameterDirection.Input, NWS_Attachment_in.OrderNum_isNull ? null : (object)NWS_Attachment_in.OrderNum, 0), 
-				_connection.newDBDataParameter("isImage_", DbType.Boolean, ParameterDirection.Input, NWS_Attachment_in.isImage, 0), 
+				_connection.newDBDataParameter("Order_", DbType.Int64, ParameterDirection.Input, NWS_Attachment_in.Order_isNull ? null : (object)NWS_Attachment_in.Order, 0), 
+				_connection.newDBDataParameter("IsImage_", DbType.Boolean, ParameterDirection.Input, NWS_Attachment_in.IsImage, 0), 
 				_connection.newDBDataParameter("TX_Name_", DbType.Int64, ParameterDirection.Input, NWS_Attachment_in.TX_Name_isNull ? null : (object)NWS_Attachment_in.TX_Name, 0), 
 				_connection.newDBDataParameter("TX_Description_", DbType.Int64, ParameterDirection.Input, NWS_Attachment_in.TX_Description_isNull ? null : (object)NWS_Attachment_in.TX_Description, 0), 
 				_connection.newDBDataParameter("FileName_", DbType.AnsiString, ParameterDirection.Input, NWS_Attachment_in.FileName, 255), 
@@ -320,8 +320,8 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_connection.newDBDataParameter("IDAttachment_", DbType.Int64, ParameterDirection.Input, NWS_Attachment_in.IDAttachment, 0), 
 					_connection.newDBDataParameter("IFContent_", DbType.Int64, ParameterDirection.Input, NWS_Attachment_in.IFContent, 0), 
 					_connection.newDBDataParameter("GUID_", DbType.AnsiString, ParameterDirection.Input, NWS_Attachment_in.GUID, 50), 
-					_connection.newDBDataParameter("OrderNum_", DbType.Int64, ParameterDirection.Input, NWS_Attachment_in.OrderNum_isNull ? null : (object)NWS_Attachment_in.OrderNum, 0), 
-					_connection.newDBDataParameter("isImage_", DbType.Boolean, ParameterDirection.Input, NWS_Attachment_in.isImage, 0), 
+					_connection.newDBDataParameter("Order_", DbType.Int64, ParameterDirection.Input, NWS_Attachment_in.Order_isNull ? null : (object)NWS_Attachment_in.Order, 0), 
+					_connection.newDBDataParameter("IsImage_", DbType.Boolean, ParameterDirection.Input, NWS_Attachment_in.IsImage, 0), 
 					_connection.newDBDataParameter("TX_Name_", DbType.Int64, ParameterDirection.Input, NWS_Attachment_in.TX_Name_isNull ? null : (object)NWS_Attachment_in.TX_Name, 0), 
 					_connection.newDBDataParameter("TX_Description_", DbType.Int64, ParameterDirection.Input, NWS_Attachment_in.TX_Description_isNull ? null : (object)NWS_Attachment_in.TX_Description, 0), 
 					_connection.newDBDataParameter("FileName_", DbType.AnsiString, ParameterDirection.Input, NWS_Attachment_in.FileName, 255)
@@ -349,7 +349,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			DataColumn _dc_idattachment = null;
 			DataColumn _dc_ifcontent = null;
 			DataColumn _dc_guid = null;
-			DataColumn _dc_ordernum = null;
+			DataColumn _dc_order = null;
 			DataColumn _dc_isimage = null;
 			DataColumn _dc_tx_name = null;
 			DataColumn _dc_tx_description = null;
@@ -362,8 +362,8 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_dc_idattachment = dataTable_in.Columns["IDAttachment"];
 					_dc_ifcontent = dataTable_in.Columns["IFContent"];
 					_dc_guid = dataTable_in.Columns["GUID"];
-					_dc_ordernum = dataTable_in.Columns["OrderNum"];
-					_dc_isimage = dataTable_in.Columns["isImage"];
+					_dc_order = dataTable_in.Columns["Order"];
+					_dc_isimage = dataTable_in.Columns["IsImage"];
 					_dc_tx_name = dataTable_in.Columns["TX_Name"];
 					_dc_tx_description = dataTable_in.Columns["TX_Description"];
 					_dc_filename = dataTable_in.Columns["FileName"];
@@ -385,15 +385,15 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				} else {
 					_output[r].GUID = (string)dataTable_in.Rows[r][_dc_guid];
 				}
-				if (dataTable_in.Rows[r][_dc_ordernum] == System.DBNull.Value) {
-					_output[r].OrderNum_isNull = true;
+				if (dataTable_in.Rows[r][_dc_order] == System.DBNull.Value) {
+					_output[r].Order_isNull = true;
 				} else {
-					_output[r].OrderNum = (long)dataTable_in.Rows[r][_dc_ordernum];
+					_output[r].Order = (long)dataTable_in.Rows[r][_dc_order];
 				}
 				if (dataTable_in.Rows[r][_dc_isimage] == System.DBNull.Value) {
-					_output[r].isImage = false;
+					_output[r].IsImage = false;
 				} else {
-					_output[r].isImage = (bool)dataTable_in.Rows[r][_dc_isimage];
+					_output[r].IsImage = (bool)dataTable_in.Rows[r][_dc_isimage];
 				}
 				if (dataTable_in.Rows[r][_dc_tx_name] == System.DBNull.Value) {
 					_output[r].TX_Name_isNull = true;

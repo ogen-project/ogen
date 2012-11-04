@@ -78,13 +78,13 @@ GO
 		@level2name = 'IFApplication';
 	GO
 
-CREATE TABLE "CRD_ProfilePermition" (
+CREATE TABLE "CRD_ProfilePermission" (
 	"IFProfile" "bigint" NOT NULL, 
-	"IFPermition" "bigint" NOT NULL, 
+	"IFPermission" "bigint" NOT NULL, 
 
-	CONSTRAINT "PK_CRD_ProfilePermition" PRIMARY KEY CLUSTERED (
+	CONSTRAINT "PK_CRD_ProfilePermission" PRIMARY KEY CLUSTERED (
 		"IFProfile" ASC, 
-		"IFPermition" ASC
+		"IFPermission" ASC
 	) WITH (
 		PAD_INDEX = OFF, 
 		STATISTICS_NORECOMPUTE = OFF, 
@@ -102,7 +102,7 @@ EXEC sys.sp_addextendedproperty
 	@level0name = 'dbo', 
 
 	@level1type = N'TABLE',  
-	@level1name = 'CRD_ProfilePermition';
+	@level1name = 'CRD_ProfilePermission';
 GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -112,7 +112,7 @@ GO
 		@level0name = 'dbo', 
 
 		@level1type = N'TABLE',  
-		@level1name = 'CRD_ProfilePermition', 
+		@level1name = 'CRD_ProfilePermission', 
 
 		@level2type = N'COLUMN', 
 		@level2name = 'IFProfile';
@@ -125,10 +125,10 @@ GO
 		@level0name = 'dbo', 
 
 		@level1type = N'TABLE',  
-		@level1name = 'CRD_ProfilePermition', 
+		@level1name = 'CRD_ProfilePermission', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'IFPermition';
+		@level2name = 'IFPermission';
 	GO
 
 CREATE TABLE "DIC_Language" (
@@ -252,8 +252,8 @@ GO
 CREATE TABLE "DIC_TextLanguage" (
 	"IFText" "bigint" NOT NULL, 
 	"IFLanguage" "int" NOT NULL, 
-	"CharVar8000" "varchar"(8000) NULL, 
-	"Text" "text" NULL, 
+	"Text__small" "varchar"(8000) NULL, 
+	"Text__large" "text" NULL, 
 
 	CONSTRAINT "PK_DIC_TextLanguage" PRIMARY KEY CLUSTERED (
 		"IFText" ASC, 
@@ -314,7 +314,7 @@ GO
 		@level1name = 'DIC_TextLanguage', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'CharVar8000';
+		@level2name = 'Text__small';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -327,7 +327,7 @@ GO
 		@level1name = 'DIC_TextLanguage', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'Text';
+		@level2name = 'Text__large';
 	GO
 
 CREATE TABLE "DIC_LanguageApplication" (
@@ -387,8 +387,8 @@ CREATE TABLE "NWS_Attachment" (
 	"IDAttachment" "bigint" IDENTITY(1, 1) NOT NULL, 
 	"IFContent" "bigint" NOT NULL, 
 	"GUID" "varchar"(50) NOT NULL, 
-	"OrderNum" "bigint" NULL, 
-	"isImage" "bit" NOT NULL, 
+	"Order" "bigint" NULL, 
+	"IsImage" "bit" NOT NULL, 
 	"TX_Name" "bigint" NULL, 
 	"TX_Description" "bigint" NULL, 
 	"FileName" "varchar"(255) NOT NULL, 
@@ -464,7 +464,7 @@ GO
 		@level1name = 'NWS_Attachment', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'OrderNum';
+		@level2name = 'Order';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -477,7 +477,7 @@ GO
 		@level1name = 'NWS_Attachment', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'isImage';
+		@level2name = 'IsImage';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -764,16 +764,16 @@ CREATE TABLE "NWS_Content" (
 	"IFApplication" "int" NULL, 
 	"IFUser__Publisher" "bigint" NOT NULL, 
 	"Publish_date" "datetime" NOT NULL, 
-	"IFUser__Aproved" "bigint" NULL, 
-	"Aproved_date" "datetime" NULL, 
+	"IFUser__Approved" "bigint" NULL, 
+	"Approved_date" "datetime" NULL, 
 	"Begin_date" "datetime" NULL, 
 	"End_date" "datetime" NULL, 
 	"TX_Title" "bigint" NULL, 
 	"TX_Content" "bigint" NULL, 
-	"tx_subtitle" "bigint" NULL, 
-	"tx_summary" "bigint" NULL, 
+	"TX_Subtitle" "bigint" NULL, 
+	"TX_Summary" "bigint" NULL, 
 	"Newslettersent_date" "datetime" NULL, 
-	"isNews_notForum" "bit" NULL, 
+	"IsNews_notForum" "bit" NULL, 
 
 	CONSTRAINT "PK_NWS_Content" PRIMARY KEY CLUSTERED (
 		"IDContent" ASC
@@ -859,7 +859,7 @@ GO
 		@level1name = 'NWS_Content', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'IFUser__Aproved';
+		@level2name = 'IFUser__Approved';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -872,7 +872,7 @@ GO
 		@level1name = 'NWS_Content', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'Aproved_date';
+		@level2name = 'Approved_date';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -937,7 +937,7 @@ GO
 		@level1name = 'NWS_Content', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'tx_subtitle';
+		@level2name = 'TX_Subtitle';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -950,7 +950,7 @@ GO
 		@level1name = 'NWS_Content', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'tx_summary';
+		@level2name = 'TX_Summary';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -976,16 +976,16 @@ GO
 		@level1name = 'NWS_Content', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'isNews_notForum';
+		@level2name = 'IsNews_notForum';
 	GO
 
 CREATE TABLE "FOR_Message" (
 	"IDMessage" "bigint" IDENTITY(1, 1) NOT NULL, 
 	"IFMessage__parent" "bigint" NULL, 
-	"isSticky" "bit" NOT NULL, 
+	"IsSticky" "bit" NOT NULL, 
 	"Subject" "varchar"(255) NULL, 
-	"Message__charvar8000" "varchar"(8000) NULL, 
-	"Message__text" "text" NULL, 
+	"Message__small" "varchar"(8000) NULL, 
+	"Message__large" "text" NULL, 
 	"IFUser__Publisher" "bigint" NULL, 
 	"Publish_date" "datetime" NOT NULL, 
 	"IFApplication" "int" NULL, 
@@ -1048,7 +1048,7 @@ GO
 		@level1name = 'FOR_Message', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'isSticky';
+		@level2name = 'IsSticky';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -1074,7 +1074,7 @@ GO
 		@level1name = 'FOR_Message', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'Message__charvar8000';
+		@level2name = 'Message__small';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -1087,7 +1087,7 @@ GO
 		@level1name = 'FOR_Message', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'Message__text';
+		@level2name = 'Message__large';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -1719,14 +1719,14 @@ GO
 		@level2name = 'IFTag';
 	GO
 
-CREATE TABLE "LOG_Logtype" (
-	"IDLogtype" "int" NOT NULL, 
-	"IFLogtype_parent" "int" NULL, 
+CREATE TABLE "LOG_Type" (
+	"IDType" "int" NOT NULL, 
+	"IFType_parent" "int" NULL, 
 	"Name" "varchar"(20) NOT NULL, 
 	"IFApplication" "int" NULL, 
 
-	CONSTRAINT "PK_LOG_Logtype" PRIMARY KEY CLUSTERED (
-		"IDLogtype" ASC
+	CONSTRAINT "PK_LOG_Type" PRIMARY KEY CLUSTERED (
+		"IDType" ASC
 	) WITH (
 		PAD_INDEX = OFF, 
 		STATISTICS_NORECOMPUTE = OFF, 
@@ -1744,7 +1744,7 @@ EXEC sys.sp_addextendedproperty
 	@level0name = 'dbo', 
 
 	@level1type = N'TABLE',  
-	@level1name = 'LOG_Logtype';
+	@level1name = 'LOG_Type';
 GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -1754,10 +1754,10 @@ GO
 		@level0name = 'dbo', 
 
 		@level1type = N'TABLE',  
-		@level1name = 'LOG_Logtype', 
+		@level1name = 'LOG_Type', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'IDLogtype';
+		@level2name = 'IDType';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -1767,10 +1767,10 @@ GO
 		@level0name = 'dbo', 
 
 		@level1type = N'TABLE',  
-		@level1name = 'LOG_Logtype', 
+		@level1name = 'LOG_Type', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'IFLogtype_parent';
+		@level2name = 'IFType_parent';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -1780,7 +1780,7 @@ GO
 		@level0name = 'dbo', 
 
 		@level1type = N'TABLE',  
-		@level1name = 'LOG_Logtype', 
+		@level1name = 'LOG_Type', 
 
 		@level2type = N'COLUMN', 
 		@level2name = 'Name';
@@ -1793,20 +1793,20 @@ GO
 		@level0name = 'dbo', 
 
 		@level1type = N'TABLE',  
-		@level1name = 'LOG_Logtype', 
+		@level1name = 'LOG_Type', 
 
 		@level2type = N'COLUMN', 
 		@level2name = 'IFApplication';
 	GO
 
-CREATE TABLE "LOG_Errortype" (
-	"IDErrortype" "int" NOT NULL, 
+CREATE TABLE "LOG_Error" (
+	"IDError" "int" NOT NULL, 
 	"Name" "varchar"(255) NOT NULL, 
 	"Description" "varchar"(2048) NULL, 
 	"IFApplication" "int" NULL, 
 
-	CONSTRAINT "PK_LOG_Errortype" PRIMARY KEY CLUSTERED (
-		"IDErrortype" ASC
+	CONSTRAINT "PK_LOG_Error" PRIMARY KEY CLUSTERED (
+		"IDError" ASC
 	) WITH (
 		PAD_INDEX = OFF, 
 		STATISTICS_NORECOMPUTE = OFF, 
@@ -1824,7 +1824,7 @@ EXEC sys.sp_addextendedproperty
 	@level0name = 'dbo', 
 
 	@level1type = N'TABLE',  
-	@level1name = 'LOG_Errortype';
+	@level1name = 'LOG_Error';
 GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -1834,10 +1834,10 @@ GO
 		@level0name = 'dbo', 
 
 		@level1type = N'TABLE',  
-		@level1name = 'LOG_Errortype', 
+		@level1name = 'LOG_Error', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'IDErrortype';
+		@level2name = 'IDError';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -1847,7 +1847,7 @@ GO
 		@level0name = 'dbo', 
 
 		@level1type = N'TABLE',  
-		@level1name = 'LOG_Errortype', 
+		@level1name = 'LOG_Error', 
 
 		@level2type = N'COLUMN', 
 		@level2name = 'Name';
@@ -1860,7 +1860,7 @@ GO
 		@level0name = 'dbo', 
 
 		@level1type = N'TABLE',  
-		@level1name = 'LOG_Errortype', 
+		@level1name = 'LOG_Error', 
 
 		@level2type = N'COLUMN', 
 		@level2name = 'Description';
@@ -1873,7 +1873,7 @@ GO
 		@level0name = 'dbo', 
 
 		@level1type = N'TABLE',  
-		@level1name = 'LOG_Errortype', 
+		@level1name = 'LOG_Error', 
 
 		@level2type = N'COLUMN', 
 		@level2name = 'IFApplication';
@@ -1881,14 +1881,14 @@ GO
 
 CREATE TABLE "LOG_Log" (
 	"IDLog" "bigint" IDENTITY(1, 1) NOT NULL, 
-	"IFLogtype" "int" NOT NULL, 
+	"IFType" "int" NOT NULL, 
 	"IFUser" "bigint" NULL, 
 	"IFUser__read" "bigint" NULL, 
-	"IFErrortype" "int" NULL, 
+	"IFError" "int" NULL, 
 	"Stamp" "datetime" NOT NULL, 
 	"Stamp__read" "datetime" NULL, 
 	"Message" "varchar"(4000) NOT NULL, 
-	"IFPermition" "bigint" NULL, 
+	"IFPermission" "bigint" NULL, 
 	"IFApplication" "int" NULL, 
 	"IFBrowser__OPT" "bigint" NULL, 
 
@@ -1937,7 +1937,7 @@ GO
 		@level1name = 'LOG_Log', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'IFLogtype';
+		@level2name = 'IFType';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -1976,7 +1976,7 @@ GO
 		@level1name = 'LOG_Log', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'IFErrortype';
+		@level2name = 'IFError';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -2028,7 +2028,7 @@ GO
 		@level1name = 'LOG_Log', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'IFPermition';
+		@level2name = 'IFPermission';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -2057,13 +2057,15 @@ GO
 		@level2name = 'IFBrowser__OPT';
 	GO
 
-CREATE TABLE "CRD_Permition" (
-	"IDPermition" "bigint" NOT NULL, 
+CREATE TABLE "CRD_Permission" (
+	"IDPermission" "bigint" NOT NULL, 
 	"Name" "varchar"(255) NOT NULL, 
 	"IFApplication" "int" NULL, 
+	"IFTable" "bigint" NULL, 
+	"IFAction" "bigint" NULL, 
 
-	CONSTRAINT "PK_CRD_Permition" PRIMARY KEY CLUSTERED (
-		"IDPermition" ASC
+	CONSTRAINT "PK_CRD_Permission" PRIMARY KEY CLUSTERED (
+		"IDPermission" ASC
 	) WITH (
 		PAD_INDEX = OFF, 
 		STATISTICS_NORECOMPUTE = OFF, 
@@ -2081,7 +2083,7 @@ EXEC sys.sp_addextendedproperty
 	@level0name = 'dbo', 
 
 	@level1type = N'TABLE',  
-	@level1name = 'CRD_Permition';
+	@level1name = 'CRD_Permission';
 GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -2091,10 +2093,10 @@ GO
 		@level0name = 'dbo', 
 
 		@level1type = N'TABLE',  
-		@level1name = 'CRD_Permition', 
+		@level1name = 'CRD_Permission', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'IDPermition';
+		@level2name = 'IDPermission';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -2104,7 +2106,7 @@ GO
 		@level0name = 'dbo', 
 
 		@level1type = N'TABLE',  
-		@level1name = 'CRD_Permition', 
+		@level1name = 'CRD_Permission', 
 
 		@level2type = N'COLUMN', 
 		@level2name = 'Name';
@@ -2117,18 +2119,43 @@ GO
 		@level0name = 'dbo', 
 
 		@level1type = N'TABLE',  
-		@level1name = 'CRD_Permition', 
+		@level1name = 'CRD_Permission', 
 
 		@level2type = N'COLUMN', 
 		@level2name = 'IFApplication';
 	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
 
-CREATE TABLE "NET_Defaultprofile" (
-	"IDDefaultprofile" "bigint" IDENTITY(1, 1) NOT NULL, 
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'CRD_Permission', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFTable';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'CRD_Permission', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFAction';
+	GO
+
+CREATE TABLE "NET_Profile__default" (
 	"IFProfile" "bigint" NOT NULL, 
 
-	CONSTRAINT "PK_NET_Defaultprofile" PRIMARY KEY CLUSTERED (
-		"IDDefaultprofile" ASC
+	CONSTRAINT "PK_NET_Profile__default" PRIMARY KEY CLUSTERED (
+		"IFProfile" ASC
 	) WITH (
 		PAD_INDEX = OFF, 
 		STATISTICS_NORECOMPUTE = OFF, 
@@ -2146,21 +2173,8 @@ EXEC sys.sp_addextendedproperty
 	@level0name = 'dbo', 
 
 	@level1type = N'TABLE',  
-	@level1name = 'NET_Defaultprofile';
+	@level1name = 'NET_Profile__default';
 GO
-	EXEC sys.sp_addextendedproperty 
-		@name = N'MS_Description', 
-		@value = N'psql:bigserial;sqlserver:bigint;identity:True;', 
-
-		@level0type = N'SCHEMA', 
-		@level0name = 'dbo', 
-
-		@level1type = N'TABLE',  
-		@level1name = 'NET_Defaultprofile', 
-
-		@level2type = N'COLUMN', 
-		@level2name = 'IDDefaultprofile';
-	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
 		@value = N'psql:bigint;sqlserver:bigint;', 
@@ -2169,7 +2183,7 @@ GO
 		@level0name = 'dbo', 
 
 		@level1type = N'TABLE',  
-		@level1name = 'NET_Defaultprofile', 
+		@level1name = 'NET_Profile__default', 
 
 		@level2type = N'COLUMN', 
 		@level2name = 'IFProfile';
@@ -2713,8 +2727,8 @@ GO
 CREATE TABLE "NET_User" (
 	"IFUser" "bigint" NOT NULL, 
 	"Name" "varchar"(255) NULL, 
-	"EMail" "varchar"(255) NOT NULL, 
-	"EMail_verify" "varchar"(255) NULL, 
+	"Email" "varchar"(255) NOT NULL, 
+	"Email_verify" "varchar"(255) NULL, 
 	"IFApplication" "int" NULL, 
 
 	CONSTRAINT "PK_NET_User" PRIMARY KEY CLUSTERED (
@@ -2775,7 +2789,7 @@ GO
 		@level1name = 'NET_User', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'EMail';
+		@level2name = 'Email';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -2788,7 +2802,7 @@ GO
 		@level1name = 'NET_User', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'EMail_verify';
+		@level2name = 'Email_verify';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -2802,5 +2816,109 @@ GO
 
 		@level2type = N'COLUMN', 
 		@level2name = 'IFApplication';
+	GO
+
+CREATE TABLE "CRD_Table" (
+	"IDTable" "bigint" NOT NULL, 
+	"Name" "varchar"(255) NOT NULL, 
+
+	CONSTRAINT "PK_CRD_Table" PRIMARY KEY CLUSTERED (
+		"IDTable" ASC
+	) WITH (
+		PAD_INDEX = OFF, 
+		STATISTICS_NORECOMPUTE = OFF, 
+		IGNORE_DUP_KEY = OFF, 
+		ALLOW_ROW_LOCKS = ON, 
+		ALLOW_PAGE_LOCKS = ON
+	) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+EXEC sys.sp_addextendedproperty 
+	@name = N'MS_Description', 
+	@value = N'', 
+
+	@level0type = N'SCHEMA', 
+	@level0name = 'dbo', 
+
+	@level1type = N'TABLE',  
+	@level1name = 'CRD_Table';
+GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;identity:False;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'CRD_Table', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IDTable';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'length:255;psql:character varying;sqlserver:varchar;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'CRD_Table', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'Name';
+	GO
+
+CREATE TABLE "CRD_Action" (
+	"IDAction" "bigint" NOT NULL, 
+	"Name" "varchar"(255) NOT NULL, 
+
+	CONSTRAINT "PK_CRD_Action" PRIMARY KEY CLUSTERED (
+		"IDAction" ASC
+	) WITH (
+		PAD_INDEX = OFF, 
+		STATISTICS_NORECOMPUTE = OFF, 
+		IGNORE_DUP_KEY = OFF, 
+		ALLOW_ROW_LOCKS = ON, 
+		ALLOW_PAGE_LOCKS = ON
+	) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+EXEC sys.sp_addextendedproperty 
+	@name = N'MS_Description', 
+	@value = N'', 
+
+	@level0type = N'SCHEMA', 
+	@level0name = 'dbo', 
+
+	@level1type = N'TABLE',  
+	@level1name = 'CRD_Action';
+GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;identity:False;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'CRD_Action', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IDAction';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'length:255;psql:character varying;sqlserver:varchar;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'CRD_Action', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'Name';
 	GO
 

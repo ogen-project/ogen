@@ -80,10 +80,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				_connection.newDBDataParameter("IDMessage", DbType.Int64, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("IDMessage__parent", DbType.Int64, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("isThread", DbType.Boolean, ParameterDirection.Output, null, 0), 
-				_connection.newDBDataParameter("isSticky", DbType.Boolean, ParameterDirection.Output, null, 0), 
+				_connection.newDBDataParameter("IsSticky", DbType.Boolean, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("Subject", DbType.AnsiString, ParameterDirection.Output, null, 255), 
-				_connection.newDBDataParameter("Message__charvar8000", DbType.AnsiString, ParameterDirection.Output, null, 8000), 
-				_connection.newDBDataParameter("Message__text", DbType.AnsiString, ParameterDirection.Output, null, 0), 
+				_connection.newDBDataParameter("Message__small", DbType.AnsiString, ParameterDirection.Output, null, 8000), 
+				_connection.newDBDataParameter("Message__large", DbType.AnsiString, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("IDUser", DbType.Int64, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("Name", DbType.AnsiString, ParameterDirection.Output, null, 255), 
 				_connection.newDBDataParameter("Publish_date", DbType.DateTime, ParameterDirection.Output, null, 0), 
@@ -114,9 +114,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.isThread = (bool)_dataparameters[3].Value;
 				}
 				if (_dataparameters[4].Value == System.DBNull.Value) {
-					_output.isSticky = false;
+					_output.IsSticky = false;
 				} else {
-					_output.isSticky = (bool)_dataparameters[4].Value;
+					_output.IsSticky = (bool)_dataparameters[4].Value;
 				}
 				if (_dataparameters[5].Value == System.DBNull.Value) {
 					_output.Subject_isNull = true;
@@ -124,14 +124,14 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.Subject = (string)_dataparameters[5].Value;
 				}
 				if (_dataparameters[6].Value == System.DBNull.Value) {
-					_output.Message__charvar8000_isNull = true;
+					_output.Message__small_isNull = true;
 				} else {
-					_output.Message__charvar8000 = (string)_dataparameters[6].Value;
+					_output.Message__small = (string)_dataparameters[6].Value;
 				}
 				if (_dataparameters[7].Value == System.DBNull.Value) {
-					_output.Message__text_isNull = true;
+					_output.Message__large_isNull = true;
 				} else {
-					_output.Message__text = (string)_dataparameters[7].Value;
+					_output.Message__large = (string)_dataparameters[7].Value;
 				}
 				if (_dataparameters[8].Value == System.DBNull.Value) {
 					_output.IDUser_isNull = true;
@@ -227,8 +227,8 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			DataColumn _dc_isthread = null;
 			DataColumn _dc_issticky = null;
 			DataColumn _dc_subject = null;
-			DataColumn _dc_message__charvar8000 = null;
-			DataColumn _dc_message__text = null;
+			DataColumn _dc_message__small = null;
+			DataColumn _dc_message__large = null;
 			DataColumn _dc_iduser = null;
 			DataColumn _dc_name = null;
 			DataColumn _dc_publish_date = null;
@@ -242,10 +242,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_dc_idmessage = dataTable_in.Columns["IDMessage"];
 					_dc_idmessage__parent = dataTable_in.Columns["IDMessage__parent"];
 					_dc_isthread = dataTable_in.Columns["isThread"];
-					_dc_issticky = dataTable_in.Columns["isSticky"];
+					_dc_issticky = dataTable_in.Columns["IsSticky"];
 					_dc_subject = dataTable_in.Columns["Subject"];
-					_dc_message__charvar8000 = dataTable_in.Columns["Message__charvar8000"];
-					_dc_message__text = dataTable_in.Columns["Message__text"];
+					_dc_message__small = dataTable_in.Columns["Message__small"];
+					_dc_message__large = dataTable_in.Columns["Message__large"];
 					_dc_iduser = dataTable_in.Columns["IDUser"];
 					_dc_name = dataTable_in.Columns["Name"];
 					_dc_publish_date = dataTable_in.Columns["Publish_date"];
@@ -270,24 +270,24 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output[r].isThread = (bool)dataTable_in.Rows[r][_dc_isthread];
 				}
 				if (dataTable_in.Rows[r][_dc_issticky] == System.DBNull.Value) {
-					_output[r].isSticky = false;
+					_output[r].IsSticky = false;
 				} else {
-					_output[r].isSticky = (bool)dataTable_in.Rows[r][_dc_issticky];
+					_output[r].IsSticky = (bool)dataTable_in.Rows[r][_dc_issticky];
 				}
 				if (dataTable_in.Rows[r][_dc_subject] == System.DBNull.Value) {
 					_output[r].Subject_isNull = true;
 				} else {
 					_output[r].Subject = (string)dataTable_in.Rows[r][_dc_subject];
 				}
-				if (dataTable_in.Rows[r][_dc_message__charvar8000] == System.DBNull.Value) {
-					_output[r].Message__charvar8000_isNull = true;
+				if (dataTable_in.Rows[r][_dc_message__small] == System.DBNull.Value) {
+					_output[r].Message__small_isNull = true;
 				} else {
-					_output[r].Message__charvar8000 = (string)dataTable_in.Rows[r][_dc_message__charvar8000];
+					_output[r].Message__small = (string)dataTable_in.Rows[r][_dc_message__small];
 				}
-				if (dataTable_in.Rows[r][_dc_message__text] == System.DBNull.Value) {
-					_output[r].Message__text_isNull = true;
+				if (dataTable_in.Rows[r][_dc_message__large] == System.DBNull.Value) {
+					_output[r].Message__large_isNull = true;
 				} else {
-					_output[r].Message__text = (string)dataTable_in.Rows[r][_dc_message__text];
+					_output[r].Message__large = (string)dataTable_in.Rows[r][_dc_message__large];
 				}
 				if (dataTable_in.Rows[r][_dc_iduser] == System.DBNull.Value) {
 					_output[r].IDUser_isNull = true;

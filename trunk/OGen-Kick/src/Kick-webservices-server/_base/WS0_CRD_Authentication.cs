@@ -75,7 +75,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string ip_forLogPurposes_in, 
 			int idApplication_in, 
 			out long idUser_out, 
-			out long[] idPermitions_out, 
+			out long[] idPermissions_out, 
 			out int[] errors_out
 		) {
 			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.Login(
@@ -87,7 +87,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 					: ip_forLogPurposes_in, 
 				idApplication_in, 
 				out idUser_out, 
-				out idPermitions_out, 
+				out idPermissions_out, 
 				out errors_out
 			);
 		}

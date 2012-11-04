@@ -40,11 +40,11 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 			long _count;
 
 			//// TODO: consider removing commented code
-			//if (!Master_Site.Master__base.Creds.hasPermition(
+			//if (!Master_Site.Master__base.Creds.hasPermission(
 			//    true,
-			//    PermitionType.Forum__Forum__read,
-			//    PermitionType.Forum__Thread__read,
-			//    PermitionType.Forum__Reply__read
+			//    PermissionType.Forum__Forum__read,
+			//    PermissionType.Forum__Thread__read,
+			//    PermissionType.Forum__Reply__read
 			//)) {
 			//    this.spn_Forum.Visible = false;
 			//    this.REP_Threads.Visible = false;
@@ -284,7 +284,7 @@ new long[] { }, // ToDos: here!
 
 						_attachment = null;
 						foreach (SO_vNWS_Attachment _attachment2 in _attachments) {
-							if (_attachment2.isImage) {
+							if (_attachment2.IsImage) {
 								_attachment = _attachment2;
 								break;
 							}

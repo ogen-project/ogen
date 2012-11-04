@@ -721,14 +721,14 @@ this.DIV_Profiles.Visible = true;
 								SO_vNWS_Attachment arg1_in,
 								SO_vNWS_Attachment arg2_in
 							) {
-								if (arg1_in.OrderNum_isNull && !arg2_in.OrderNum_isNull) {
+								if (arg1_in.Order_isNull && !arg2_in.Order_isNull) {
 									return 1;
 								}
-								if (!arg1_in.OrderNum_isNull && arg2_in.OrderNum_isNull) {
+								if (!arg1_in.Order_isNull && arg2_in.Order_isNull) {
 									return -1;
 								}
 								if (
-									arg1_in.OrderNum_isNull || arg2_in.OrderNum_isNull
+									arg1_in.Order_isNull || arg2_in.Order_isNull
 								) {
 									return string.Compare(
 										arg1_in.Name,
@@ -737,7 +737,7 @@ this.DIV_Profiles.Visible = true;
 										System.Globalization.CultureInfo.CurrentCulture
 									);
 								} else {
-									return arg1_in.OrderNum.CompareTo(arg2_in.OrderNum);
+									return arg1_in.Order.CompareTo(arg2_in.Order);
 								}
 							}
 						);

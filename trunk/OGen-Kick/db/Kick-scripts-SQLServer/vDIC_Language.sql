@@ -4,10 +4,10 @@ as
 		"DIC_Language"."IDLanguage", 
 		"DIC_TextLanguage"."IFLanguage" as "IDLanguage_translation", 
 		case 
-			when not "DIC_TextLanguage"."CharVar8000" is null 
-				then "DIC_TextLanguage"."CharVar8000"
-			when not "DIC_TextLanguage"."Text" is null 
-				then "DIC_TextLanguage"."Text"
+			when not "DIC_TextLanguage"."Text__small" is null 
+				then "DIC_TextLanguage"."Text__small"
+			when not "DIC_TextLanguage"."Text__large" is null 
+				then "DIC_TextLanguage"."Text__large"
 			else ''
 		end as "Language"
 	from "DIC_Language"

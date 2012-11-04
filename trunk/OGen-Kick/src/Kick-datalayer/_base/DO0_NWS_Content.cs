@@ -78,16 +78,16 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				_connection.newDBDataParameter("IFApplication_", DbType.Int32, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("IFUser__Publisher_", DbType.Int64, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("Publish_date_", DbType.DateTime, ParameterDirection.Output, null, 0), 
-				_connection.newDBDataParameter("IFUser__Aproved_", DbType.Int64, ParameterDirection.Output, null, 0), 
-				_connection.newDBDataParameter("Aproved_date_", DbType.DateTime, ParameterDirection.Output, null, 0), 
+				_connection.newDBDataParameter("IFUser__Approved_", DbType.Int64, ParameterDirection.Output, null, 0), 
+				_connection.newDBDataParameter("Approved_date_", DbType.DateTime, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("Begin_date_", DbType.DateTime, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("End_date_", DbType.DateTime, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("TX_Title_", DbType.Int64, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("TX_Content_", DbType.Int64, ParameterDirection.Output, null, 0), 
-				_connection.newDBDataParameter("tx_subtitle_", DbType.Int64, ParameterDirection.Output, null, 0), 
-				_connection.newDBDataParameter("tx_summary_", DbType.Int64, ParameterDirection.Output, null, 0), 
+				_connection.newDBDataParameter("TX_Subtitle_", DbType.Int64, ParameterDirection.Output, null, 0), 
+				_connection.newDBDataParameter("TX_Summary_", DbType.Int64, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("Newslettersent_date_", DbType.DateTime, ParameterDirection.Output, null, 0), 
-				_connection.newDBDataParameter("isNews_notForum_", DbType.Boolean, ParameterDirection.Output, null, 0)
+				_connection.newDBDataParameter("IsNews_notForum_", DbType.Boolean, ParameterDirection.Output, null, 0)
 			};
 			_connection.Execute_SQLFunction("sp0_NWS_Content_getObject", _dataparameters);
 			if (dbConnection_in == null) { _connection.Dispose(); }
@@ -116,14 +116,14 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.Publish_date = (DateTime)_dataparameters[3].Value;
 				}
 				if (_dataparameters[4].Value == System.DBNull.Value) {
-					_output.IFUser__Aproved_isNull = true;
+					_output.IFUser__Approved_isNull = true;
 				} else {
-					_output.IFUser__Aproved = (long)_dataparameters[4].Value;
+					_output.IFUser__Approved = (long)_dataparameters[4].Value;
 				}
 				if (_dataparameters[5].Value == System.DBNull.Value) {
-					_output.Aproved_date_isNull = true;
+					_output.Approved_date_isNull = true;
 				} else {
-					_output.Aproved_date = (DateTime)_dataparameters[5].Value;
+					_output.Approved_date = (DateTime)_dataparameters[5].Value;
 				}
 				if (_dataparameters[6].Value == System.DBNull.Value) {
 					_output.Begin_date_isNull = true;
@@ -146,14 +146,14 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.TX_Content = (long)_dataparameters[9].Value;
 				}
 				if (_dataparameters[10].Value == System.DBNull.Value) {
-					_output.tx_subtitle_isNull = true;
+					_output.TX_Subtitle_isNull = true;
 				} else {
-					_output.tx_subtitle = (long)_dataparameters[10].Value;
+					_output.TX_Subtitle = (long)_dataparameters[10].Value;
 				}
 				if (_dataparameters[11].Value == System.DBNull.Value) {
-					_output.tx_summary_isNull = true;
+					_output.TX_Summary_isNull = true;
 				} else {
-					_output.tx_summary = (long)_dataparameters[11].Value;
+					_output.TX_Summary = (long)_dataparameters[11].Value;
 				}
 				if (_dataparameters[12].Value == System.DBNull.Value) {
 					_output.Newslettersent_date_isNull = true;
@@ -161,9 +161,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.Newslettersent_date = (DateTime)_dataparameters[12].Value;
 				}
 				if (_dataparameters[13].Value == System.DBNull.Value) {
-					_output.isNews_notForum_isNull = true;
+					_output.IsNews_notForum_isNull = true;
 				} else {
-					_output.isNews_notForum = (bool)_dataparameters[13].Value;
+					_output.IsNews_notForum = (bool)_dataparameters[13].Value;
 				}
 
 				_output.hasChanges = false;
@@ -298,16 +298,16 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				_connection.newDBDataParameter("IFApplication_", DbType.Int32, ParameterDirection.Input, NWS_Content_in.IFApplication_isNull ? null : (object)NWS_Content_in.IFApplication, 0), 
 				_connection.newDBDataParameter("IFUser__Publisher_", DbType.Int64, ParameterDirection.Input, NWS_Content_in.IFUser__Publisher, 0), 
 				_connection.newDBDataParameter("Publish_date_", DbType.DateTime, ParameterDirection.Input, NWS_Content_in.Publish_date, 0), 
-				_connection.newDBDataParameter("IFUser__Aproved_", DbType.Int64, ParameterDirection.Input, NWS_Content_in.IFUser__Aproved_isNull ? null : (object)NWS_Content_in.IFUser__Aproved, 0), 
-				_connection.newDBDataParameter("Aproved_date_", DbType.DateTime, ParameterDirection.Input, NWS_Content_in.Aproved_date_isNull ? null : (object)NWS_Content_in.Aproved_date, 0), 
+				_connection.newDBDataParameter("IFUser__Approved_", DbType.Int64, ParameterDirection.Input, NWS_Content_in.IFUser__Approved_isNull ? null : (object)NWS_Content_in.IFUser__Approved, 0), 
+				_connection.newDBDataParameter("Approved_date_", DbType.DateTime, ParameterDirection.Input, NWS_Content_in.Approved_date_isNull ? null : (object)NWS_Content_in.Approved_date, 0), 
 				_connection.newDBDataParameter("Begin_date_", DbType.DateTime, ParameterDirection.Input, NWS_Content_in.Begin_date_isNull ? null : (object)NWS_Content_in.Begin_date, 0), 
 				_connection.newDBDataParameter("End_date_", DbType.DateTime, ParameterDirection.Input, NWS_Content_in.End_date_isNull ? null : (object)NWS_Content_in.End_date, 0), 
 				_connection.newDBDataParameter("TX_Title_", DbType.Int64, ParameterDirection.Input, NWS_Content_in.TX_Title_isNull ? null : (object)NWS_Content_in.TX_Title, 0), 
 				_connection.newDBDataParameter("TX_Content_", DbType.Int64, ParameterDirection.Input, NWS_Content_in.TX_Content_isNull ? null : (object)NWS_Content_in.TX_Content, 0), 
-				_connection.newDBDataParameter("tx_subtitle_", DbType.Int64, ParameterDirection.Input, NWS_Content_in.tx_subtitle_isNull ? null : (object)NWS_Content_in.tx_subtitle, 0), 
-				_connection.newDBDataParameter("tx_summary_", DbType.Int64, ParameterDirection.Input, NWS_Content_in.tx_summary_isNull ? null : (object)NWS_Content_in.tx_summary, 0), 
+				_connection.newDBDataParameter("TX_Subtitle_", DbType.Int64, ParameterDirection.Input, NWS_Content_in.TX_Subtitle_isNull ? null : (object)NWS_Content_in.TX_Subtitle, 0), 
+				_connection.newDBDataParameter("TX_Summary_", DbType.Int64, ParameterDirection.Input, NWS_Content_in.TX_Summary_isNull ? null : (object)NWS_Content_in.TX_Summary, 0), 
 				_connection.newDBDataParameter("Newslettersent_date_", DbType.DateTime, ParameterDirection.Input, NWS_Content_in.Newslettersent_date_isNull ? null : (object)NWS_Content_in.Newslettersent_date, 0), 
-				_connection.newDBDataParameter("isNews_notForum_", DbType.Boolean, ParameterDirection.Input, NWS_Content_in.isNews_notForum_isNull ? null : (object)NWS_Content_in.isNews_notForum, 0), 
+				_connection.newDBDataParameter("IsNews_notForum_", DbType.Boolean, ParameterDirection.Input, NWS_Content_in.IsNews_notForum_isNull ? null : (object)NWS_Content_in.IsNews_notForum, 0), 
 
 				_connection.newDBDataParameter("SelectIdentity_", DbType.Boolean, ParameterDirection.Input, selectIdentity_in, 1)
 			};
@@ -363,16 +363,16 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_connection.newDBDataParameter("IFApplication_", DbType.Int32, ParameterDirection.Input, NWS_Content_in.IFApplication_isNull ? null : (object)NWS_Content_in.IFApplication, 0), 
 					_connection.newDBDataParameter("IFUser__Publisher_", DbType.Int64, ParameterDirection.Input, NWS_Content_in.IFUser__Publisher, 0), 
 					_connection.newDBDataParameter("Publish_date_", DbType.DateTime, ParameterDirection.Input, NWS_Content_in.Publish_date, 0), 
-					_connection.newDBDataParameter("IFUser__Aproved_", DbType.Int64, ParameterDirection.Input, NWS_Content_in.IFUser__Aproved_isNull ? null : (object)NWS_Content_in.IFUser__Aproved, 0), 
-					_connection.newDBDataParameter("Aproved_date_", DbType.DateTime, ParameterDirection.Input, NWS_Content_in.Aproved_date_isNull ? null : (object)NWS_Content_in.Aproved_date, 0), 
+					_connection.newDBDataParameter("IFUser__Approved_", DbType.Int64, ParameterDirection.Input, NWS_Content_in.IFUser__Approved_isNull ? null : (object)NWS_Content_in.IFUser__Approved, 0), 
+					_connection.newDBDataParameter("Approved_date_", DbType.DateTime, ParameterDirection.Input, NWS_Content_in.Approved_date_isNull ? null : (object)NWS_Content_in.Approved_date, 0), 
 					_connection.newDBDataParameter("Begin_date_", DbType.DateTime, ParameterDirection.Input, NWS_Content_in.Begin_date_isNull ? null : (object)NWS_Content_in.Begin_date, 0), 
 					_connection.newDBDataParameter("End_date_", DbType.DateTime, ParameterDirection.Input, NWS_Content_in.End_date_isNull ? null : (object)NWS_Content_in.End_date, 0), 
 					_connection.newDBDataParameter("TX_Title_", DbType.Int64, ParameterDirection.Input, NWS_Content_in.TX_Title_isNull ? null : (object)NWS_Content_in.TX_Title, 0), 
 					_connection.newDBDataParameter("TX_Content_", DbType.Int64, ParameterDirection.Input, NWS_Content_in.TX_Content_isNull ? null : (object)NWS_Content_in.TX_Content, 0), 
-					_connection.newDBDataParameter("tx_subtitle_", DbType.Int64, ParameterDirection.Input, NWS_Content_in.tx_subtitle_isNull ? null : (object)NWS_Content_in.tx_subtitle, 0), 
-					_connection.newDBDataParameter("tx_summary_", DbType.Int64, ParameterDirection.Input, NWS_Content_in.tx_summary_isNull ? null : (object)NWS_Content_in.tx_summary, 0), 
+					_connection.newDBDataParameter("TX_Subtitle_", DbType.Int64, ParameterDirection.Input, NWS_Content_in.TX_Subtitle_isNull ? null : (object)NWS_Content_in.TX_Subtitle, 0), 
+					_connection.newDBDataParameter("TX_Summary_", DbType.Int64, ParameterDirection.Input, NWS_Content_in.TX_Summary_isNull ? null : (object)NWS_Content_in.TX_Summary, 0), 
 					_connection.newDBDataParameter("Newslettersent_date_", DbType.DateTime, ParameterDirection.Input, NWS_Content_in.Newslettersent_date_isNull ? null : (object)NWS_Content_in.Newslettersent_date, 0), 
-					_connection.newDBDataParameter("isNews_notForum_", DbType.Boolean, ParameterDirection.Input, NWS_Content_in.isNews_notForum_isNull ? null : (object)NWS_Content_in.isNews_notForum, 0)
+					_connection.newDBDataParameter("IsNews_notForum_", DbType.Boolean, ParameterDirection.Input, NWS_Content_in.IsNews_notForum_isNull ? null : (object)NWS_Content_in.IsNews_notForum, 0)
 				};
 				_connection.Execute_SQLFunction(
 					"sp0_NWS_Content_updObject", 
@@ -398,8 +398,8 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			DataColumn _dc_ifapplication = null;
 			DataColumn _dc_ifuser__publisher = null;
 			DataColumn _dc_publish_date = null;
-			DataColumn _dc_ifuser__aproved = null;
-			DataColumn _dc_aproved_date = null;
+			DataColumn _dc_ifuser__approved = null;
+			DataColumn _dc_approved_date = null;
 			DataColumn _dc_begin_date = null;
 			DataColumn _dc_end_date = null;
 			DataColumn _dc_tx_title = null;
@@ -417,16 +417,16 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_dc_ifapplication = dataTable_in.Columns["IFApplication"];
 					_dc_ifuser__publisher = dataTable_in.Columns["IFUser__Publisher"];
 					_dc_publish_date = dataTable_in.Columns["Publish_date"];
-					_dc_ifuser__aproved = dataTable_in.Columns["IFUser__Aproved"];
-					_dc_aproved_date = dataTable_in.Columns["Aproved_date"];
+					_dc_ifuser__approved = dataTable_in.Columns["IFUser__Approved"];
+					_dc_approved_date = dataTable_in.Columns["Approved_date"];
 					_dc_begin_date = dataTable_in.Columns["Begin_date"];
 					_dc_end_date = dataTable_in.Columns["End_date"];
 					_dc_tx_title = dataTable_in.Columns["TX_Title"];
 					_dc_tx_content = dataTable_in.Columns["TX_Content"];
-					_dc_tx_subtitle = dataTable_in.Columns["tx_subtitle"];
-					_dc_tx_summary = dataTable_in.Columns["tx_summary"];
+					_dc_tx_subtitle = dataTable_in.Columns["TX_Subtitle"];
+					_dc_tx_summary = dataTable_in.Columns["TX_Summary"];
 					_dc_newslettersent_date = dataTable_in.Columns["Newslettersent_date"];
-					_dc_isnews_notforum = dataTable_in.Columns["isNews_notForum"];
+					_dc_isnews_notforum = dataTable_in.Columns["IsNews_notForum"];
 				}
 
 				_output[r] = new SO_NWS_Content();
@@ -450,15 +450,15 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				} else {
 					_output[r].Publish_date = (DateTime)dataTable_in.Rows[r][_dc_publish_date];
 				}
-				if (dataTable_in.Rows[r][_dc_ifuser__aproved] == System.DBNull.Value) {
-					_output[r].IFUser__Aproved_isNull = true;
+				if (dataTable_in.Rows[r][_dc_ifuser__approved] == System.DBNull.Value) {
+					_output[r].IFUser__Approved_isNull = true;
 				} else {
-					_output[r].IFUser__Aproved = (long)dataTable_in.Rows[r][_dc_ifuser__aproved];
+					_output[r].IFUser__Approved = (long)dataTable_in.Rows[r][_dc_ifuser__approved];
 				}
-				if (dataTable_in.Rows[r][_dc_aproved_date] == System.DBNull.Value) {
-					_output[r].Aproved_date_isNull = true;
+				if (dataTable_in.Rows[r][_dc_approved_date] == System.DBNull.Value) {
+					_output[r].Approved_date_isNull = true;
 				} else {
-					_output[r].Aproved_date = (DateTime)dataTable_in.Rows[r][_dc_aproved_date];
+					_output[r].Approved_date = (DateTime)dataTable_in.Rows[r][_dc_approved_date];
 				}
 				if (dataTable_in.Rows[r][_dc_begin_date] == System.DBNull.Value) {
 					_output[r].Begin_date_isNull = true;
@@ -481,14 +481,14 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output[r].TX_Content = (long)dataTable_in.Rows[r][_dc_tx_content];
 				}
 				if (dataTable_in.Rows[r][_dc_tx_subtitle] == System.DBNull.Value) {
-					_output[r].tx_subtitle_isNull = true;
+					_output[r].TX_Subtitle_isNull = true;
 				} else {
-					_output[r].tx_subtitle = (long)dataTable_in.Rows[r][_dc_tx_subtitle];
+					_output[r].TX_Subtitle = (long)dataTable_in.Rows[r][_dc_tx_subtitle];
 				}
 				if (dataTable_in.Rows[r][_dc_tx_summary] == System.DBNull.Value) {
-					_output[r].tx_summary_isNull = true;
+					_output[r].TX_Summary_isNull = true;
 				} else {
-					_output[r].tx_summary = (long)dataTable_in.Rows[r][_dc_tx_summary];
+					_output[r].TX_Summary = (long)dataTable_in.Rows[r][_dc_tx_summary];
 				}
 				if (dataTable_in.Rows[r][_dc_newslettersent_date] == System.DBNull.Value) {
 					_output[r].Newslettersent_date_isNull = true;
@@ -496,9 +496,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output[r].Newslettersent_date = (DateTime)dataTable_in.Rows[r][_dc_newslettersent_date];
 				}
 				if (dataTable_in.Rows[r][_dc_isnews_notforum] == System.DBNull.Value) {
-					_output[r].isNews_notForum_isNull = true;
+					_output[r].IsNews_notForum_isNull = true;
 				} else {
-					_output[r].isNews_notForum = (bool)dataTable_in.Rows[r][_dc_isnews_notforum];
+					_output[r].IsNews_notForum = (bool)dataTable_in.Rows[r][_dc_isnews_notforum];
 				}
 
 				_output[r].hasChanges = false;
@@ -514,7 +514,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// </summary>
 		/// <param name="IFApplication_search_in">IFApplication search condition</param>
 		/// <param name="IFUser__Publisher_search_in">IFUser__Publisher search condition</param>
-		/// <param name="IFUser__Aproved_search_in">IFUser__Aproved search condition</param>
+		/// <param name="IFUser__Approved_search_in">IFUser__Approved search condition</param>
 		/// <param name="Begin_date_search_in">Begin_date search condition</param>
 		/// <param name="End_date_search_in">End_date search condition</param>
 		/// <param name="IDTag_search_in">IDTag search condition</param>
@@ -532,7 +532,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		public static SO_NWS_Content[] getRecord_generic(
 			object IFApplication_search_in, 
 			long IFUser__Publisher_search_in, 
-			object IFUser__Aproved_search_in, 
+			object IFUser__Approved_search_in, 
 			object Begin_date_search_in, 
 			object End_date_search_in, 
 			object IDTag_search_in, 
@@ -551,7 +551,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			return getRecord_generic(
 				IFApplication_search_in, 
 				IFUser__Publisher_search_in, 
-				IFUser__Aproved_search_in, 
+				IFUser__Approved_search_in, 
 				Begin_date_search_in, 
 				End_date_search_in, 
 				IDTag_search_in, 
@@ -575,7 +575,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// </summary>
 		/// <param name="IFApplication_search_in">IFApplication search condition</param>
 		/// <param name="IFUser__Publisher_search_in">IFUser__Publisher search condition</param>
-		/// <param name="IFUser__Aproved_search_in">IFUser__Aproved search condition</param>
+		/// <param name="IFUser__Approved_search_in">IFUser__Approved search condition</param>
 		/// <param name="Begin_date_search_in">Begin_date search condition</param>
 		/// <param name="End_date_search_in">End_date search condition</param>
 		/// <param name="IDTag_search_in">IDTag search condition</param>
@@ -594,7 +594,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		public static SO_NWS_Content[] getRecord_generic(
 			object IFApplication_search_in, 
 			long IFUser__Publisher_search_in, 
-			object IFUser__Aproved_search_in, 
+			object IFUser__Approved_search_in, 
 			object Begin_date_search_in, 
 			object End_date_search_in, 
 			object IDTag_search_in, 
@@ -625,7 +625,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					? new IDbDataParameter[] {
 						_connection.newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, IFApplication_search_in, 0), 
 						_connection.newDBDataParameter("IFUser__Publisher_search_", DbType.Int64, ParameterDirection.Input, IFUser__Publisher_search_in, 0), 
-						_connection.newDBDataParameter("IFUser__Aproved_search_", DbType.Int64, ParameterDirection.Input, IFUser__Aproved_search_in, 0), 
+						_connection.newDBDataParameter("IFUser__Approved_search_", DbType.Int64, ParameterDirection.Input, IFUser__Approved_search_in, 0), 
 						_connection.newDBDataParameter("Begin_date_search_", DbType.DateTime, ParameterDirection.Input, Begin_date_search_in, 0), 
 						_connection.newDBDataParameter("End_date_search_", DbType.DateTime, ParameterDirection.Input, End_date_search_in, 0), 
 						_connection.newDBDataParameter("IDTag_search_", DbType.AnsiString, ParameterDirection.Input, IDTag_search_in, 8000), 
@@ -646,7 +646,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					: new IDbDataParameter[] {
 						_connection.newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, IFApplication_search_in, 0), 
 						_connection.newDBDataParameter("IFUser__Publisher_search_", DbType.Int64, ParameterDirection.Input, IFUser__Publisher_search_in, 0), 
-						_connection.newDBDataParameter("IFUser__Aproved_search_", DbType.Int64, ParameterDirection.Input, IFUser__Aproved_search_in, 0), 
+						_connection.newDBDataParameter("IFUser__Approved_search_", DbType.Int64, ParameterDirection.Input, IFUser__Approved_search_in, 0), 
 						_connection.newDBDataParameter("Begin_date_search_", DbType.DateTime, ParameterDirection.Input, Begin_date_search_in, 0), 
 						_connection.newDBDataParameter("End_date_search_", DbType.DateTime, ParameterDirection.Input, End_date_search_in, 0), 
 						_connection.newDBDataParameter("IDTag_search_", DbType.AnsiString, ParameterDirection.Input, IDTag_search_in, 8000), 
@@ -674,7 +674,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				page_itemsCount_out = getCount_inRecord_generic(
 					IFApplication_search_in, 
 					IFUser__Publisher_search_in, 
-					IFUser__Aproved_search_in, 
+					IFUser__Approved_search_in, 
 					Begin_date_search_in, 
 					End_date_search_in, 
 					IDTag_search_in, 
@@ -702,7 +702,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="IDContent_in">NWS_Content's IDContent Key used for checking</param>
 		/// <param name="IFApplication_search_in">IFApplication search condition</param>
 		/// <param name="IFUser__Publisher_search_in">IFUser__Publisher search condition</param>
-		/// <param name="IFUser__Aproved_search_in">IFUser__Aproved search condition</param>
+		/// <param name="IFUser__Approved_search_in">IFUser__Approved search condition</param>
 		/// <param name="Begin_date_search_in">Begin_date search condition</param>
 		/// <param name="End_date_search_in">End_date search condition</param>
 		/// <param name="IDTag_search_in">IDTag search condition</param>
@@ -718,7 +718,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			long IDContent_in, 
 			object IFApplication_search_in, 
 			long IFUser__Publisher_search_in, 
-			object IFUser__Aproved_search_in, 
+			object IFUser__Approved_search_in, 
 			object Begin_date_search_in, 
 			object End_date_search_in, 
 			object IDTag_search_in, 
@@ -731,7 +731,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			object isAND_notOR_search_in
 		) {
 			return isObject_inRecord_generic(
-				IDContent_in, IFApplication_search_in, IFUser__Publisher_search_in, IFUser__Aproved_search_in, Begin_date_search_in, End_date_search_in, IDTag_search_in, IDAuthor_search_in, IDSource_search_in, IDHighlight_search_in, IDProfile_search_in, Keywords_search_in, IDLanguage_search_in, isAND_notOR_search_in, 
+				IDContent_in, IFApplication_search_in, IFUser__Publisher_search_in, IFUser__Approved_search_in, Begin_date_search_in, End_date_search_in, IDTag_search_in, IDAuthor_search_in, IDSource_search_in, IDHighlight_search_in, IDProfile_search_in, Keywords_search_in, IDLanguage_search_in, isAND_notOR_search_in, 
 				null
 			);
 		}
@@ -742,7 +742,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="IDContent_in">NWS_Content's IDContent Key used for checking</param>
 		/// <param name="IFApplication_search_in">IFApplication search condition</param>
 		/// <param name="IFUser__Publisher_search_in">IFUser__Publisher search condition</param>
-		/// <param name="IFUser__Aproved_search_in">IFUser__Aproved search condition</param>
+		/// <param name="IFUser__Approved_search_in">IFUser__Approved search condition</param>
 		/// <param name="Begin_date_search_in">Begin_date search condition</param>
 		/// <param name="End_date_search_in">End_date search condition</param>
 		/// <param name="IDTag_search_in">IDTag search condition</param>
@@ -759,7 +759,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			long IDContent_in, 
 			object IFApplication_search_in, 
 			long IFUser__Publisher_search_in, 
-			object IFUser__Aproved_search_in, 
+			object IFUser__Approved_search_in, 
 			object Begin_date_search_in, 
 			object End_date_search_in, 
 			object IDTag_search_in, 
@@ -785,7 +785,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				_connection.newDBDataParameter("IDContent_", DbType.Int64, ParameterDirection.Input, IDContent_in, 0), 
 				_connection.newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, IFApplication_search_in, 0), 
 				_connection.newDBDataParameter("IFUser__Publisher_search_", DbType.Int64, ParameterDirection.Input, IFUser__Publisher_search_in, 0), 
-				_connection.newDBDataParameter("IFUser__Aproved_search_", DbType.Int64, ParameterDirection.Input, IFUser__Aproved_search_in, 0), 
+				_connection.newDBDataParameter("IFUser__Approved_search_", DbType.Int64, ParameterDirection.Input, IFUser__Approved_search_in, 0), 
 				_connection.newDBDataParameter("Begin_date_search_", DbType.DateTime, ParameterDirection.Input, Begin_date_search_in, 0), 
 				_connection.newDBDataParameter("End_date_search_", DbType.DateTime, ParameterDirection.Input, End_date_search_in, 0), 
 				_connection.newDBDataParameter("IDTag_search_", DbType.AnsiString, ParameterDirection.Input, IDTag_search_in, 8000), 
@@ -814,7 +814,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// </summary>
 		/// <param name="IFApplication_search_in">IFApplication search condition</param>
 		/// <param name="IFUser__Publisher_search_in">IFUser__Publisher search condition</param>
-		/// <param name="IFUser__Aproved_search_in">IFUser__Aproved search condition</param>
+		/// <param name="IFUser__Approved_search_in">IFUser__Approved search condition</param>
 		/// <param name="Begin_date_search_in">Begin_date search condition</param>
 		/// <param name="End_date_search_in">End_date search condition</param>
 		/// <param name="IDTag_search_in">IDTag search condition</param>
@@ -829,7 +829,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		public static long getCount_inRecord_generic(
 			object IFApplication_search_in, 
 			long IFUser__Publisher_search_in, 
-			object IFUser__Aproved_search_in, 
+			object IFUser__Approved_search_in, 
 			object Begin_date_search_in, 
 			object End_date_search_in, 
 			object IDTag_search_in, 
@@ -844,7 +844,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			return getCount_inRecord_generic(
 				IFApplication_search_in, 
 				IFUser__Publisher_search_in, 
-				IFUser__Aproved_search_in, 
+				IFUser__Approved_search_in, 
 				Begin_date_search_in, 
 				End_date_search_in, 
 				IDTag_search_in, 
@@ -864,7 +864,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// </summary>
 		/// <param name="IFApplication_search_in">IFApplication search condition</param>
 		/// <param name="IFUser__Publisher_search_in">IFUser__Publisher search condition</param>
-		/// <param name="IFUser__Aproved_search_in">IFUser__Aproved search condition</param>
+		/// <param name="IFUser__Approved_search_in">IFUser__Approved search condition</param>
 		/// <param name="Begin_date_search_in">Begin_date search condition</param>
 		/// <param name="End_date_search_in">End_date search condition</param>
 		/// <param name="IDTag_search_in">IDTag search condition</param>
@@ -880,7 +880,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		public static long getCount_inRecord_generic(
 			object IFApplication_search_in, 
 			long IFUser__Publisher_search_in, 
-			object IFUser__Aproved_search_in, 
+			object IFUser__Approved_search_in, 
 			object Begin_date_search_in, 
 			object End_date_search_in, 
 			object IDTag_search_in, 
@@ -905,7 +905,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
 				_connection.newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, IFApplication_search_in, 0), 
 				_connection.newDBDataParameter("IFUser__Publisher_search_", DbType.Int64, ParameterDirection.Input, IFUser__Publisher_search_in, 0), 
-				_connection.newDBDataParameter("IFUser__Aproved_search_", DbType.Int64, ParameterDirection.Input, IFUser__Aproved_search_in, 0), 
+				_connection.newDBDataParameter("IFUser__Approved_search_", DbType.Int64, ParameterDirection.Input, IFUser__Approved_search_in, 0), 
 				_connection.newDBDataParameter("Begin_date_search_", DbType.DateTime, ParameterDirection.Input, Begin_date_search_in, 0), 
 				_connection.newDBDataParameter("End_date_search_", DbType.DateTime, ParameterDirection.Input, End_date_search_in, 0), 
 				_connection.newDBDataParameter("IDTag_search_", DbType.AnsiString, ParameterDirection.Input, IDTag_search_in, 8000), 
@@ -934,7 +934,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// </summary>
 		/// <param name="IFApplication_search_in">IFApplication search condition</param>
 		/// <param name="IFUser__Publisher_search_in">IFUser__Publisher search condition</param>
-		/// <param name="IFUser__Aproved_search_in">IFUser__Aproved search condition</param>
+		/// <param name="IFUser__Approved_search_in">IFUser__Approved search condition</param>
 		/// <param name="Begin_date_search_in">Begin_date search condition</param>
 		/// <param name="End_date_search_in">End_date search condition</param>
 		/// <param name="IDTag_search_in">IDTag search condition</param>
@@ -948,7 +948,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		public static void delRecord_generic(
 			object IFApplication_search_in, 
 			long IFUser__Publisher_search_in, 
-			object IFUser__Aproved_search_in, 
+			object IFUser__Approved_search_in, 
 			object Begin_date_search_in, 
 			object End_date_search_in, 
 			object IDTag_search_in, 
@@ -963,7 +963,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			delRecord_generic(
 				IFApplication_search_in, 
 				IFUser__Publisher_search_in, 
-				IFUser__Aproved_search_in, 
+				IFUser__Approved_search_in, 
 				Begin_date_search_in, 
 				End_date_search_in, 
 				IDTag_search_in, 
@@ -983,7 +983,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// </summary>
 		/// <param name="IFApplication_search_in">IFApplication search condition</param>
 		/// <param name="IFUser__Publisher_search_in">IFUser__Publisher search condition</param>
-		/// <param name="IFUser__Aproved_search_in">IFUser__Aproved search condition</param>
+		/// <param name="IFUser__Approved_search_in">IFUser__Approved search condition</param>
 		/// <param name="Begin_date_search_in">Begin_date search condition</param>
 		/// <param name="End_date_search_in">End_date search condition</param>
 		/// <param name="IDTag_search_in">IDTag search condition</param>
@@ -998,7 +998,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		public static void delRecord_generic(
 			object IFApplication_search_in, 
 			long IFUser__Publisher_search_in, 
-			object IFUser__Aproved_search_in, 
+			object IFUser__Approved_search_in, 
 			object Begin_date_search_in, 
 			object End_date_search_in, 
 			object IDTag_search_in, 
@@ -1021,7 +1021,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
 				_connection.newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, IFApplication_search_in, 0), 
 				_connection.newDBDataParameter("IFUser__Publisher_search_", DbType.Int64, ParameterDirection.Input, IFUser__Publisher_search_in, 0), 
-				_connection.newDBDataParameter("IFUser__Aproved_search_", DbType.Int64, ParameterDirection.Input, IFUser__Aproved_search_in, 0), 
+				_connection.newDBDataParameter("IFUser__Approved_search_", DbType.Int64, ParameterDirection.Input, IFUser__Approved_search_in, 0), 
 				_connection.newDBDataParameter("Begin_date_search_", DbType.DateTime, ParameterDirection.Input, Begin_date_search_in, 0), 
 				_connection.newDBDataParameter("End_date_search_", DbType.DateTime, ParameterDirection.Input, End_date_search_in, 0), 
 				_connection.newDBDataParameter("IDTag_search_", DbType.AnsiString, ParameterDirection.Input, IDTag_search_in, 8000), 

@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared.instances.utils {
 
 		public static void ReConfig() {
 			CRD_Authentication.ReConfig();
-			CRD_Permition.ReConfig();
+			CRD_Permission.ReConfig();
 			CRD_Profile.ReConfig();
 			CRD_User.ReConfig();
 			DIC_Dic.ReConfig();

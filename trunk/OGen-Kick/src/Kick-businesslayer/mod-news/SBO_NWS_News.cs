@@ -63,9 +63,9 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return _output;
 			}
 			#endregion
-			#region check Permitions . . .
-			bool _news__select_OnSchedule = _sessionuser.hasPermition(PermitionType.News__select_OnSchedule);
-			bool _news__select_OffSchedule = _sessionuser.hasPermition(PermitionType.News__select_OffSchedule);
+			#region check Permissions . . .
+			bool _news__select_OnSchedule = _sessionuser.hasPermission(PermissionType.News__select_OnSchedule);
+			bool _news__select_OffSchedule = _sessionuser.hasPermission(PermissionType.News__select_OffSchedule);
 			if (
 				!(
 					_news__select_OnSchedule
@@ -73,7 +73,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					_news__select_OffSchedule
 				)
 			) {
-				_errorlist.Add(ErrorType.news__lack_of_permitions_to_read);
+				_errorlist.Add(ErrorType.news__lack_of_permissions_to_read);
 				errors_out = _errorlist.ToArray();
 				return _output;
 			}
@@ -210,8 +210,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return;
 			}
 			#endregion
-			#region check Permitions . . .
-			bool _content__approve = _sessionuser.hasPermition(PermitionType.News__approve);
+			#region check Permissions . . .
+			bool _content__approve = _sessionuser.hasPermission(PermissionType.News__approve);
 			if (
 				!(
 					_content__approve
@@ -219,7 +219,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				// ...
 				)
 			) {
-				_errorlist.Add(ErrorType.news__lack_of_permitions_to_approve);
+				_errorlist.Add(ErrorType.news__lack_of_permissions_to_approve);
 				errors_out = _errorlist.ToArray();
 				return;
 			}
@@ -241,8 +241,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 			#endregion
 
-			_content.Aproved_date = DateTime.Now;
-			_content.IFUser__Aproved = _sessionuser.IDUser;
+			_content.Approved_date = DateTime.Now;
+			_content.IFUser__Approved = _sessionuser.IDUser;
 			DO_NWS_Content.updObject(
 				_content,
 				true
@@ -263,8 +263,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			ref SO_NWS_Content content_ref,
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Title_in,
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_subtitle_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_summary_in,
+			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Subtitle_in,
+			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Summary_in,
 
 			//bool andApprove_in, 
 
@@ -284,10 +284,10 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				return false;
 			}
 			#endregion
-			#region check Permitions . . .
-			bool _news__insert = sessionUser_out.hasPermition(PermitionType.News__insert);
-			bool _news__update_Approved = sessionUser_out.hasPermition(PermitionType.News__update_Approved);
-			bool _news__update_Mine_notApproved = sessionUser_out.hasPermition(PermitionType.News__update_Mine_notApproved);
+			#region check Permissions . . .
+			bool _news__insert = sessionUser_out.hasPermission(PermissionType.News__insert);
+			bool _news__update_Approved = sessionUser_out.hasPermission(PermissionType.News__update_Approved);
+			bool _news__update_Mine_notApproved = sessionUser_out.hasPermission(PermissionType.News__update_Mine_notApproved);
 			if (
 				!(
 					_news__insert
@@ -297,7 +297,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					_news__update_Mine_notApproved
 				)
 			) {
-				errorlist_out.Add(ErrorType.news__lack_of_permitions_to_write);
+				errorlist_out.Add(ErrorType.news__lack_of_permissions_to_write);
 				return false;
 			}
 			#endregion
@@ -322,18 +322,18 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			//    ) {
 			//        errors_out.Add(ErrorType.news__invalid_date);
 			//        return false;
-			//    } else if (credentials_out.hasPermition(PermitionType.News__approve)) {
-			//        errors_out.Add(ErrorType.news__lack_of_permitions_to_approve);
+			//    } else if (credentials_out.hasPermission(PermissionType.News__approve)) {
+			//        errors_out.Add(ErrorType.news__lack_of_permissions_to_approve);
 			//        return false;
 			//    } else {
-			//        content_ref.IFUser__Aproved = credentials_out.IDUser;
-			//        content_ref.Aproved_date = DateTime.Now;
+			//        content_ref.IFUser__Approved = credentials_out.IDUser;
+			//        content_ref.Approved_date = DateTime.Now;
 			//        //content_in.Begin_date
 			//        //content_in.End_date
 			//    }
 			//} else {
-			//    content_ref.IFUser__Aproved_isNull = true;
-			//    content_ref.Aproved_date_isNull = true;
+			//    content_ref.IFUser__Approved_isNull = true;
+			//    content_ref.Approved_date_isNull = true;
 			//    content_ref.Begin_date
 			//        = content_ref.End_date
 			//        = datetime_minvalue_;
@@ -439,8 +439,8 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			SO_NWS_Content content_in,
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Title_in,
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_subtitle_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_summary_in,
+			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Subtitle_in,
+			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Summary_in,
 
 			long[] idTags_in,
 			long[] idAuthors_in,
@@ -467,8 +467,8 @@ errors_out.Add(ErrorType.profile__invalid_name);
 				ref content_in,
 				tx_Title_in,
 				tx_Content_in,
-				tx_subtitle_in,
-				tx_summary_in, 
+				tx_Subtitle_in,
+				tx_Summary_in, 
 
 				//andApprove_in, 
 
@@ -529,45 +529,45 @@ errors_out.Add(ErrorType.profile__invalid_name);
 					);
 				}
 				#endregion
-				#region content_in.tx_subtitle = ...;
+				#region content_in.TX_Subtitle = ...;
 				if (
-					(tx_subtitle_in == null)
+					(tx_Subtitle_in == null)
 					||
-					(tx_subtitle_in.Length == 0)
+					(tx_Subtitle_in.Length == 0)
 				) {
-					content_in.tx_subtitle_isNull = true;
+					content_in.TX_Subtitle_isNull = true;
 				} else {
-					content_in.tx_subtitle = SBO_DIC_Dic.insObject(
+					content_in.TX_Subtitle = SBO_DIC_Dic.insObject(
 						_con,
 
 						_sessionuser.IDApplication,
 						OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_CONTENT__TX_SUBTITLE,
 
-						tx_subtitle_in
+						tx_Subtitle_in
 					);
 				}
 				#endregion
-				#region content_in.tx_summary = ...;
+				#region content_in.TX_Summary = ...;
 				if (
-					(tx_summary_in == null)
+					(tx_Summary_in == null)
 					||
-					(tx_summary_in.Length == 0)
+					(tx_Summary_in.Length == 0)
 				) {
-					content_in.tx_summary_isNull = true;
+					content_in.TX_Summary_isNull = true;
 				} else {
-					content_in.tx_summary = SBO_DIC_Dic.insObject(
+					content_in.TX_Summary = SBO_DIC_Dic.insObject(
 						_con,
 
 						_sessionuser.IDApplication,
 						OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_CONTENT__TX_SUMMARY,
 
-						tx_summary_in
+						tx_Summary_in
 					);
 				}
 				#endregion
 
-				content_in.IFUser__Aproved_isNull = true;
-				content_in.Aproved_date_isNull = true;
+				content_in.IFUser__Approved_isNull = true;
+				content_in.Approved_date_isNull = true;
 				content_in.Begin_date
 					= content_in.End_date
 					= datetime_minvalue_;
@@ -576,7 +576,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 				content_in.IFUser__Publisher = _sessionuser.IDUser;
 				content_in.Publish_date = DateTime.Now;
 				content_in.Newslettersent_date_isNull = true;
-				content_in.isNews_notForum = true;
+				content_in.IsNews_notForum = true;
 
 				_output = DO_NWS_Content.insObject(
 					content_in,
@@ -653,8 +653,8 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			SO_NWS_Content content_in,
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Title_in,
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_subtitle_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_summary_in,
+			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Subtitle_in,
+			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Summary_in,
 
 			bool updateTags_in, 
 			long[] idTags_in,
@@ -688,8 +688,8 @@ errors_out.Add(ErrorType.profile__invalid_name);
 				ref content_in,
 				tx_Title_in,
 				tx_Content_in,
-				tx_subtitle_in,
-				tx_summary_in, 
+				tx_Subtitle_in,
+				tx_Summary_in, 
 
 				//andApprove_in, 
 
@@ -724,9 +724,9 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			if (
 				(_content.IFUser__Publisher != content_in.IFUser__Publisher)
 				&&
-				!_sessionuser.hasPermition(PermitionType.Content__update_????????)
+				!_sessionuser.hasPermission(PermissionType.Content__update_????????)
 			) {
-				_errorlist.Add(ErrorType.content__lack_of_permitions_to_write_?????????????);
+				_errorlist.Add(ErrorType.content__lack_of_permissions_to_write_?????????????);
 				errors_out = _errorlist.ToArray();
 				return;
 			}
@@ -782,56 +782,56 @@ errors_out.Add(ErrorType.profile__invalid_name);
 						}
 					}
 					#endregion
-					#region tx_subtitle . . .
-					if ((tx_subtitle_in != null) && (tx_subtitle_in.Length != 0)) {
-						if (_content.tx_subtitle_isNull) {
-							_content.tx_subtitle = SBO_DIC_Dic.insObject(
+					#region TX_Subtitle . . .
+					if ((tx_Subtitle_in != null) && (tx_Subtitle_in.Length != 0)) {
+						if (_content.TX_Subtitle_isNull) {
+							_content.TX_Subtitle = SBO_DIC_Dic.insObject(
 								_con,
 								_sessionuser.IDApplication,
 								OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_CONTENT__TX_SUBTITLE,
-								tx_subtitle_in
+								tx_Subtitle_in
 							);
 						} else {
 							SBO_DIC_Dic.updObject(
 								_con,
-								_content.tx_subtitle,
-								tx_subtitle_in
+								_content.TX_Subtitle,
+								tx_Subtitle_in
 							);
 						}
 					}
 					#endregion
-					#region tx_summary . . .
-					if ((tx_summary_in != null) && (tx_summary_in.Length != 0)) {
-						if (_content.tx_summary_isNull) {
-							_content.tx_summary = SBO_DIC_Dic.insObject(
+					#region TX_Summary . . .
+					if ((tx_Summary_in != null) && (tx_Summary_in.Length != 0)) {
+						if (_content.TX_Summary_isNull) {
+							_content.TX_Summary = SBO_DIC_Dic.insObject(
 								_con,
 								_sessionuser.IDApplication,
 								OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_CONTENT__TX_SUMMARY,
-								tx_summary_in
+								tx_Summary_in
 							);
 						} else {
 							SBO_DIC_Dic.updObject(
 								_con,
-								_content.tx_summary,
-								tx_summary_in
+								_content.TX_Summary,
+								tx_Summary_in
 							);
 						}
 					}
 					#endregion
 
 					// preserve these:
-					#region //content_in.IFUser__Aproved = _content.IFUser__Aproved;
-					//if (_content.IFUser__Aproved_isNull) {
-					//    content_in.IFUser__Aproved_isNull = true;
+					#region //content_in.IFUser__Approved = _content.IFUser__Approved;
+					//if (_content.IFUser__Approved_isNull) {
+					//    content_in.IFUser__Approved_isNull = true;
 					//} else {
-					//    content_in.IFUser__Aproved = _content.IFUser__Aproved;
+					//    content_in.IFUser__Approved = _content.IFUser__Approved;
 					//} 
 					#endregion
-					#region //content_in.Aproved_date = _content.Aproved_date;
-					//if (_content.Aproved_date_isNull) {
-					//    content_in.Aproved_date_isNull = true;
+					#region //content_in.Approved_date = _content.Approved_date;
+					//if (_content.Approved_date_isNull) {
+					//    content_in.Approved_date_isNull = true;
 					//} else {
-					//    content_in.Aproved_date = _content.Aproved_date;
+					//    content_in.Approved_date = _content.Approved_date;
 					//} 
 					#endregion
 					#region //content_in.Begin_date = _content.Begin_date;
@@ -859,7 +859,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 					//    content_in.Newslettersent_date = _content.Newslettersent_date;
 					//} 
 					#endregion
-					//content_in.isNews_notForum = true;
+					//content_in.IsNews_notForum = true;
 
 					DO_NWS_Content.updObject(
 						_content,
@@ -942,8 +942,8 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			SO_NWS_Content content_in,
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Title_in,
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_subtitle_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_summary_in,
+			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Subtitle_in,
+			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Summary_in,
 
 			long[] idTags_in,
 			long[] idAuthors_in,
@@ -964,8 +964,8 @@ errors_out.Add(ErrorType.profile__invalid_name);
 				content_in,
 				tx_Title_in,
 				tx_Content_in,
-				tx_subtitle_in,
-				tx_summary_in,
+				tx_Subtitle_in,
+				tx_Summary_in,
 
 				true,
 				idTags_in,
@@ -998,8 +998,8 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			SO_NWS_Content content_in,
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Title_in,
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_subtitle_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_summary_in,
+			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Subtitle_in,
+			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Summary_in,
 
 			//bool andApprove_in,
 
@@ -1014,8 +1014,8 @@ errors_out.Add(ErrorType.profile__invalid_name);
 				content_in,
 				tx_Title_in,
 				tx_Content_in,
-				tx_subtitle_in,
-				tx_summary_in,
+				tx_Subtitle_in,
+				tx_Summary_in,
 
 				false,
 				new long[] { },
@@ -1390,12 +1390,12 @@ errors_out.Add(ErrorType.profile__invalid_name);
 		//    ) {
 		//        errors_out.Add(ErrorType.news__invalid_date);
 		//        return false;
-		//    } else if (credentials_out.hasPermition(PermitionType.News__approve)) {
-		//        errors_out.Add(ErrorType.news__lack_of_permitions_to_approve);
+		//    } else if (credentials_out.hasPermission(PermissionType.News__approve)) {
+		//        errors_out.Add(ErrorType.news__lack_of_permissions_to_approve);
 		//        return false;
 		//    } else {
-		//        content_ref.IFUser__Aproved = credentials_out.IDUser;
-		//        content_ref.Aproved_date = DateTime.Now;
+		//        content_ref.IFUser__Approved = credentials_out.IDUser;
+		//        content_ref.Approved_date = DateTime.Now;
 		//        //content_in.Begin_date
 		//        //content_in.End_date
 		//    }
@@ -1431,9 +1431,9 @@ errors_out.Add(ErrorType.profile__invalid_name);
 				return;
 			}
 			#endregion
-			#region check Permitions . . .
-			bool _content__delete_Approved = _sessionuser.hasPermition(PermitionType.News__delete_Approved);
-			bool _content__delete_Mine_notApproved = _sessionuser.hasPermition(PermitionType.News__delete_Mine_notApproved);
+			#region check Permissions . . .
+			bool _content__delete_Approved = _sessionuser.hasPermission(PermissionType.News__delete_Approved);
+			bool _content__delete_Mine_notApproved = _sessionuser.hasPermission(PermissionType.News__delete_Mine_notApproved);
 			if (
 				!(
 					_content__delete_Approved
@@ -1441,7 +1441,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 					_content__delete_Mine_notApproved
 				)
 			) {
-				_errorlist.Add(ErrorType.news__lack_of_permitions_to_delete);
+				_errorlist.Add(ErrorType.news__lack_of_permissions_to_delete);
 				errors_out = _errorlist.ToArray();
 				return;
 			}
@@ -1462,15 +1462,15 @@ errors_out.Add(ErrorType.profile__invalid_name);
 				return;
 			}
 			#endregion
-			#region check Permitions . . . (more)
+			#region check Permissions . . . (more)
 			if (
 				// been approved
-				!_content.IFUser__Aproved_isNull
+				!_content.IFUser__Approved_isNull
 				&&
-				// no permition to delete approved
+				// no permission to delete approved
 				!_content__delete_Approved
 			) {
-				_errorlist.Add(ErrorType.news__lack_of_permitions_to_delete);
+				_errorlist.Add(ErrorType.news__lack_of_permissions_to_delete);
 				errors_out = _errorlist.ToArray();
 				return;
 			}
@@ -1587,27 +1587,27 @@ errors_out.Add(ErrorType.profile__invalid_name);
 					);
 				}
 				#endregion
-				#region SBO_DIC_Dic.delObject(_con, _content.tx_subtitle);
+				#region SBO_DIC_Dic.delObject(_con, _content.TX_Subtitle);
 				if (
-					(_content.tx_subtitle > 0)
+					(_content.TX_Subtitle > 0)
 					&&
-					(!_content.tx_subtitle_isNull)
+					(!_content.TX_Subtitle_isNull)
 				) {
 					SBO_DIC_Dic.delObject(
 						_con,
-						_content.tx_subtitle
+						_content.TX_Subtitle
 					);
 				}
 				#endregion
-				#region SBO_DIC_Dic.delObject(_con, _content.tx_summary);
+				#region SBO_DIC_Dic.delObject(_con, _content.TX_Summary);
 				if (
-					(_content.tx_summary > 0)
+					(_content.TX_Summary > 0)
 					&&
-					(!_content.tx_summary_isNull)
+					(!_content.TX_Summary_isNull)
 				) {
 					SBO_DIC_Dic.delObject(
 						_con,
-						_content.tx_summary
+						_content.TX_Summary
 					);
 				}
 				#endregion
@@ -1668,7 +1668,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 
 			long IDUser__Publisher_search_in,
 
-			long IDUser__Aproved_search_in,
+			long IDUser__Approved_search_in,
 
 			DateTime Begin_date_search_in,
 			DateTime End_date_search_in,
@@ -1679,7 +1679,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			long[] idHighlights_search_in,
 			long[] idProfiles_search_in,
 
-			string charVar8000_search_in,
+			string text__small_search_in,
 			int IDLanguage_search_in,
 			bool isAND_notOR_search_in,
 
@@ -1711,15 +1711,15 @@ errors_out.Add(ErrorType.profile__invalid_name);
 				return _output;
 			}
 			#endregion
-			#region check Permitions . . .
+			#region check Permissions . . .
 			if (
-				!_sessionuser.hasPermition(
+				!_sessionuser.hasPermission(
 					false, 
-					PermitionType.News__select_OffSchedule,
-					PermitionType.News__select_OnSchedule
+					PermissionType.News__select_OffSchedule,
+					PermissionType.News__select_OnSchedule
 				)
 			) {
-				_errorlist.Add(ErrorType.news__lack_of_permitions_to_read);
+				_errorlist.Add(ErrorType.news__lack_of_permissions_to_read);
 				errors_out = _errorlist.ToArray();
 				return _output;
 			}
@@ -1729,15 +1729,15 @@ errors_out.Add(ErrorType.profile__invalid_name);
 				= DO_vNWS_Content.getRecord_generic(
 					_sessionuser.IDApplication, 
 					IDUser__Publisher_search_in,
-					IDUser__Aproved_search_in, 
+					IDUser__Approved_search_in, 
 					(Begin_date_search_in <= datetime_minvalue_) ? null : (object)Begin_date_search_in,
 					(End_date_search_in <= datetime_minvalue_) ? null : (object)End_date_search_in,
 					(idTags_search_in == null) ? "" : OGen.lib.utils.Array_Join<long>(",", idTags_search_in),
 					(idAuthors_search_in == null) ? "" : OGen.lib.utils.Array_Join<long>(",", idAuthors_search_in),
 					(idSources_search_in == null) ? "" : OGen.lib.utils.Array_Join<long>(",", idSources_search_in),
 					(idHighlights_search_in == null) ? "" : OGen.lib.utils.Array_Join<long>(",", idHighlights_search_in),
-					(idProfiles_search_in == null) ? "" : OGen.lib.utils.Array_Join<long>(",", idProfiles_search_in), 
-					charVar8000_search_in, 
+					(idProfiles_search_in == null) ? "" : OGen.lib.utils.Array_Join<long>(",", idProfiles_search_in),
+					text__small_search_in, 
 					IDLanguage_search_in, 
 					isAND_notOR_search_in,
 

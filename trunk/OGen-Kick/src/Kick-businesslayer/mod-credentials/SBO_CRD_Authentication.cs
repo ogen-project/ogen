@@ -138,7 +138,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			out long idUser_out, 
 			out string login_out, 
-			out long[] idPermitions_out, 
+			out long[] idPermissions_out, 
 			ref List<int> errorlist_ref
 		) {
 			login(
@@ -155,7 +155,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 				out idUser_out,
 				out login_out, 
-				out idPermitions_out, 
+				out idPermissions_out, 
 				ref	errorlist_ref
 			);
 		}
@@ -173,14 +173,14 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			out long idUser_out,
 			out  string login_out, 
-			out long[] idPermitions_out, 
+			out long[] idPermissions_out, 
 			ref List<int> errorlist_ref
 		) {
 			//// NOTES: 
 			//// - this method allows login without password (if andCheckPassword_in == false), 
 			//// hence MUST NEVER be distributed (at least not directly)
 
-			idPermitions_out = null;
+			idPermissions_out = null;
 			idUser_out = -1L;
 			login_out = "";
 
@@ -200,18 +200,18 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				login_out = user_in.Login;
 
 				#region login...
-				#region idPermitions_out = ...;
+				#region idPermissions_out = ...;
 				long _count;
-				SO_CRD_Permition[] _so_permitions
-					= DO_CRD_Permition.getRecord_byUser(
+				SO_CRD_Permission[] _so_permissions
+					= DO_CRD_Permission.getRecord_byUser(
 						user_in.IDUser,
 						-1, -1, -1, out _count, 
 						null
 					);
 
-				idPermitions_out = new long[_so_permitions.Length];
-				for (int i = 0; i < _so_permitions.Length; i++) {
-					idPermitions_out[i] = _so_permitions[i].IDPermition;
+				idPermissions_out = new long[_so_permissions.Length];
+				for (int i = 0; i < _so_permissions.Length; i++) {
+					idPermissions_out[i] = _so_permissions[i].IDPermission;
 				}
 				#endregion
 
@@ -220,7 +220,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					if (_usersession.IDUser == user_in.IDUser) {
 						_usersession.Sessionstart = DateTime.Now;
 						_usersession.IDUser = user_in.IDUser;
-						_usersession.IDPermitions = idPermitions_out;
+						_usersession.IDPermissions = idPermissions_out;
 					} else {
 						errorlist_ref.Add(ErrorType.authentication__guid_not_yours);
 						UserSession.Remove(sessionGuid_in);
@@ -232,7 +232,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 						sessionGuid_in,
 						new Sessionuser(
 							user_in.IDUser,
-							idPermitions_out,
+							idPermissions_out,
 
 							user_in.IFApplication,
 							DateTime.Now
@@ -274,10 +274,10 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			int idApplication_in,
 
 			out long idUser_out,
-			out long[] idPermitions_out, 
+			out long[] idPermissions_out, 
 			out int[] errors_out
 		) {
-			idPermitions_out = null;
+			idPermissions_out = null;
 			idUser_out = -1L;
 			Guid _sessionguid;
 
@@ -319,7 +319,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 				out idUser_out,
 				out _login, 
-				out idPermitions_out, 
+				out idPermissions_out, 
 				ref _errorlist
 			);
 

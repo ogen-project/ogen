@@ -20,13 +20,13 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 	public class Sessionuser : OGen.NTier.Kick.lib.businesslayer.shared.Sessionuser {
 		public Sessionuser(
 			long idUser_in,
-			long[] idPermitions_in, 
+			long[] idPermissions_in, 
 
 			int idApplication_in,
 			DateTime sessionstart_in
 		) : base (
 			idUser_in,
-			idPermitions_in
+			idPermissions_in
 		) {
 			this.IDApplication = idApplication_in;
 			this.Sessionstart = sessionstart_in;

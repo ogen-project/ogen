@@ -124,7 +124,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						_attachment = null;
 						int _image_count = 0;
 						foreach (SO_vNWS_Attachment _attachment2 in _attachments) {
-							if (_attachment2.isImage) {
+							if (_attachment2.IsImage) {
 								_image_count++;
 								if (
 									(_image_count != 0)
@@ -136,7 +136,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 							}
 
 							if (
-								!_attachment2.isImage
+								!_attachment2.IsImage
 								||
 								(_image_count > 2)
 							) {

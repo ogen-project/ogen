@@ -1,7 +1,7 @@
 CREATE OR REPLACE FUNCTION "sp_LOG_Log_Record_open_generic"(
-	"IDLogtype_search_" integer, 
+	"IDType_search_" integer, 
 	"IDUser_search_" bigint, 
-	"IDErrortype_search_" integer, 
+	"IDError_search_" integer, 
 	"Stamp_begin_search_" timestamp with time zone, 
 	"Stamp_end_search_" timestamp with time zone, 
 	"Read_search_" boolean, 
@@ -17,9 +17,9 @@ $BODY$
 				t1."IDLog"
 			FROM "LOG_Log" t1
 			INNER JOIN "fnc_LOG_Log_Record_open_generic"(
-				"IDLogtype_search_", 
+				"IDType_search_", 
 				"IDUser_search_", 
-				"IDErrortype_search_", 
+				"IDError_search_", 
 				"Stamp_begin_search_", 
 				"Stamp_end_search_", 
 				"Read_search_", 

@@ -37,10 +37,10 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			long IDMessage_in, 
 			long IDMessage__parent_in, 
 			bool isThread_in, 
-			bool isSticky_in, 
+			bool IsSticky_in, 
 			string Subject_in, 
-			string Message__charvar8000_in, 
-			string Message__text_in, 
+			string Message__small_in, 
+			string Message__large_in, 
 			long IDUser_in, 
 			string Name_in, 
 			DateTime Publish_date_in, 
@@ -50,10 +50,10 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			this.idmessage_ = IDMessage_in;
 			this.idmessage__parent_ = IDMessage__parent_in;
 			this.isthread_ = isThread_in;
-			this.issticky_ = isSticky_in;
+			this.issticky_ = IsSticky_in;
 			this.subject_ = Subject_in;
-			this.message__charvar8000_ = Message__charvar8000_in;
-			this.message__text_ = Message__text_in;
+			this.message__small_ = Message__small_in;
+			this.message__large_ = Message__large_in;
 			this.iduser_ = IDUser_in;
 			this.name_ = Name_in;
 			this.publish_date_ = Publish_date_in;
@@ -77,22 +77,22 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 					? false
 					: (bool)info.GetValue("isThread", typeof(bool));
 			this.isThread_isNull = (bool)info.GetValue("isThread_isNull", typeof(bool));
-			this.issticky_ = (bool)info.GetValue("isSticky", typeof(bool));
+			this.issticky_ = (bool)info.GetValue("IsSticky", typeof(bool));
 			this.subject_ 
 				= (info.GetValue("Subject", typeof(string)) == null)
 					? string.Empty
 					: (string)info.GetValue("Subject", typeof(string));
 			this.Subject_isNull = (bool)info.GetValue("Subject_isNull", typeof(bool));
-			this.message__charvar8000_ 
-				= (info.GetValue("Message__charvar8000", typeof(string)) == null)
+			this.message__small_ 
+				= (info.GetValue("Message__small", typeof(string)) == null)
 					? string.Empty
-					: (string)info.GetValue("Message__charvar8000", typeof(string));
-			this.Message__charvar8000_isNull = (bool)info.GetValue("Message__charvar8000_isNull", typeof(bool));
-			this.message__text_ 
-				= (info.GetValue("Message__text", typeof(string)) == null)
+					: (string)info.GetValue("Message__small", typeof(string));
+			this.Message__small_isNull = (bool)info.GetValue("Message__small_isNull", typeof(bool));
+			this.message__large_ 
+				= (info.GetValue("Message__large", typeof(string)) == null)
 					? string.Empty
-					: (string)info.GetValue("Message__text", typeof(string));
-			this.Message__text_isNull = (bool)info.GetValue("Message__text_isNull", typeof(bool));
+					: (string)info.GetValue("Message__large", typeof(string));
+			this.Message__large_isNull = (bool)info.GetValue("Message__large_isNull", typeof(bool));
 			this.iduser_ 
 				= (info.GetValue("IDUser", typeof(long)) == null)
 					? 0L
@@ -328,19 +328,19 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			}
 		}
 		#endregion
-		#region public bool isSticky { get; set; }
+		#region public bool IsSticky { get; set; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
 		private bool issticky_;// = false;
 		
 		/// <summary>
-		/// vFOR_Message's isSticky.
+		/// vFOR_Message's IsSticky.
 		/// </summary>
-		[XmlElement("isSticky")]
-		[SoapElement("isSticky")]
+		[XmlElement("IsSticky")]
+		[SoapElement("IsSticky")]
 		[DOPropertyAttribute(
-			"isSticky", 
+			"IsSticky", 
 			"", 
 			"", 
 			false, 
@@ -362,7 +362,7 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			0, 
 			""
 		)]
-		public bool isSticky {
+		public bool IsSticky {
 			get {
 				return this.issticky_;
 			}
@@ -444,19 +444,19 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			}
 		}
 		#endregion
-		#region public string Message__charvar8000 { get; set; }
+		#region public string Message__small { get; set; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		private object message__charvar8000_;// = string.Empty;
+		private object message__small_;// = string.Empty;
 		
 		/// <summary>
-		/// vFOR_Message's Message__charvar8000.
+		/// vFOR_Message's Message__small.
 		/// </summary>
-		[XmlElement("Message__charvar8000")]
-		[SoapElement("Message__charvar8000")]
+		[XmlElement("Message__small")]
+		[SoapElement("Message__small")]
 		[DOPropertyAttribute(
-			"Message__charvar8000", 
+			"Message__small", 
 			"", 
 			"", 
 			false, 
@@ -478,53 +478,53 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			8000, 
 			""
 		)]
-		public string Message__charvar8000 {
+		public string Message__small {
 			get {
-				return (string)((this.message__charvar8000_ == null) ? string.Empty : this.message__charvar8000_);
+				return (string)((this.message__small_ == null) ? string.Empty : this.message__small_);
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(this.message__charvar8000_))
+					(!value.Equals(this.message__small_))
 				) {
-					this.message__charvar8000_ = value;
+					this.message__small_ = value;
 					this.haschanges_ = true;
 				}
 			}
 		}
 		#endregion
-		#region public bool Message__charvar8000_isNull { get; set; }
+		#region public bool Message__small_isNull { get; set; }
 		/// <summary>
-		/// Allows assignement of null and check if null at vFOR_Message's Message__charvar8000.
+		/// Allows assignement of null and check if null at vFOR_Message's Message__small.
 		/// </summary>
-		[XmlElement("Message__charvar8000_isNull")]
-		[SoapElement("Message__charvar8000_isNull")]
-		public bool Message__charvar8000_isNull {
-			get { return (this.message__charvar8000_ == null); }
+		[XmlElement("Message__small_isNull")]
+		[SoapElement("Message__small_isNull")]
+		public bool Message__small_isNull {
+			get { return (this.message__small_ == null); }
 			set {
-				//if (value) this.message__charvar8000_ = null;
+				//if (value) this.message__small_ = null;
 
-				if ((value) && (this.message__charvar8000_ != null)) {
-					this.message__charvar8000_ = null;
+				if ((value) && (this.message__small_ != null)) {
+					this.message__small_ = null;
 					this.haschanges_ = true;
 				}
 			}
 		}
 		#endregion
-		#region public string Message__text { get; set; }
+		#region public string Message__large { get; set; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		private object message__text_;// = string.Empty;
+		private object message__large_;// = string.Empty;
 		
 		/// <summary>
-		/// vFOR_Message's Message__text.
+		/// vFOR_Message's Message__large.
 		/// </summary>
-		[XmlElement("Message__text")]
-		[SoapElement("Message__text")]
+		[XmlElement("Message__large")]
+		[SoapElement("Message__large")]
 		[DOPropertyAttribute(
-			"Message__text", 
+			"Message__large", 
 			"", 
 			"", 
 			false, 
@@ -546,35 +546,35 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			2147483647, 
 			""
 		)]
-		public string Message__text {
+		public string Message__large {
 			get {
-				return (string)((this.message__text_ == null) ? string.Empty : this.message__text_);
+				return (string)((this.message__large_ == null) ? string.Empty : this.message__large_);
 			}
 			set {
 				if (
 					(value != null)
 					&&
-					(!value.Equals(this.message__text_))
+					(!value.Equals(this.message__large_))
 				) {
-					this.message__text_ = value;
+					this.message__large_ = value;
 					this.haschanges_ = true;
 				}
 			}
 		}
 		#endregion
-		#region public bool Message__text_isNull { get; set; }
+		#region public bool Message__large_isNull { get; set; }
 		/// <summary>
-		/// Allows assignement of null and check if null at vFOR_Message's Message__text.
+		/// Allows assignement of null and check if null at vFOR_Message's Message__large.
 		/// </summary>
-		[XmlElement("Message__text_isNull")]
-		[SoapElement("Message__text_isNull")]
-		public bool Message__text_isNull {
-			get { return (this.message__text_ == null); }
+		[XmlElement("Message__large_isNull")]
+		[SoapElement("Message__large_isNull")]
+		public bool Message__large_isNull {
+			get { return (this.message__large_ == null); }
 			set {
-				//if (value) this.message__text_ = null;
+				//if (value) this.message__large_ = null;
 
-				if ((value) && (this.message__text_ != null)) {
-					this.message__text_ = null;
+				if ((value) && (this.message__large_ != null)) {
+					this.message__large_ = null;
 					this.haschanges_ = true;
 				}
 			}
@@ -895,14 +895,14 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			_output.Columns.Add(_dc_idmessage__parent);
 			DataColumn _dc_isthread = new DataColumn("isThread", typeof(bool));
 			_output.Columns.Add(_dc_isthread);
-			DataColumn _dc_issticky = new DataColumn("isSticky", typeof(bool));
+			DataColumn _dc_issticky = new DataColumn("IsSticky", typeof(bool));
 			_output.Columns.Add(_dc_issticky);
 			DataColumn _dc_subject = new DataColumn("Subject", typeof(string));
 			_output.Columns.Add(_dc_subject);
-			DataColumn _dc_message__charvar8000 = new DataColumn("Message__charvar8000", typeof(string));
-			_output.Columns.Add(_dc_message__charvar8000);
-			DataColumn _dc_message__text = new DataColumn("Message__text", typeof(string));
-			_output.Columns.Add(_dc_message__text);
+			DataColumn _dc_message__small = new DataColumn("Message__small", typeof(string));
+			_output.Columns.Add(_dc_message__small);
+			DataColumn _dc_message__large = new DataColumn("Message__large", typeof(string));
+			_output.Columns.Add(_dc_message__large);
 			DataColumn _dc_iduser = new DataColumn("IDUser", typeof(long));
 			_output.Columns.Add(_dc_iduser);
 			DataColumn _dc_name = new DataColumn("Name", typeof(string));
@@ -920,10 +920,10 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 				_dr[_dc_idmessage] = _serializableObject.IDMessage;
 				_dr[_dc_idmessage__parent] = _serializableObject.IDMessage__parent;
 				_dr[_dc_isthread] = _serializableObject.isThread;
-				_dr[_dc_issticky] = _serializableObject.isSticky;
+				_dr[_dc_issticky] = _serializableObject.IsSticky;
 				_dr[_dc_subject] = _serializableObject.Subject;
-				_dr[_dc_message__charvar8000] = _serializableObject.Message__charvar8000;
-				_dr[_dc_message__text] = _serializableObject.Message__text;
+				_dr[_dc_message__small] = _serializableObject.Message__small;
+				_dr[_dc_message__large] = _serializableObject.Message__large;
 				_dr[_dc_iduser] = _serializableObject.IDUser;
 				_dr[_dc_name] = _serializableObject.Name;
 				_dr[_dc_publish_date] = _serializableObject.Publish_date;
@@ -946,8 +946,8 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			this.isthread_ = false;
 			this.issticky_ = false;
 			this.subject_ = string.Empty;
-			this.message__charvar8000_ = string.Empty;
-			this.message__text_ = string.Empty;
+			this.message__small_ = string.Empty;
+			this.message__large_ = string.Empty;
 			this.iduser_ = 0L;
 			this.name_ = string.Empty;
 			this.publish_date_ = new DateTime(1900, 1, 1);
@@ -968,13 +968,13 @@ namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
 			info.AddValue("IDMessage__parent_isNull", this.IDMessage__parent_isNull);
 			info.AddValue("isThread", this.isthread_);
 			info.AddValue("isThread_isNull", this.isThread_isNull);
-			info.AddValue("isSticky", this.issticky_);
+			info.AddValue("IsSticky", this.issticky_);
 			info.AddValue("Subject", this.subject_);
 			info.AddValue("Subject_isNull", this.Subject_isNull);
-			info.AddValue("Message__charvar8000", this.message__charvar8000_);
-			info.AddValue("Message__charvar8000_isNull", this.Message__charvar8000_isNull);
-			info.AddValue("Message__text", this.message__text_);
-			info.AddValue("Message__text_isNull", this.Message__text_isNull);
+			info.AddValue("Message__small", this.message__small_);
+			info.AddValue("Message__small_isNull", this.Message__small_isNull);
+			info.AddValue("Message__large", this.message__large_);
+			info.AddValue("Message__large_isNull", this.Message__large_isNull);
 			info.AddValue("IDUser", this.iduser_);
 			info.AddValue("IDUser_isNull", this.IDUser_isNull);
 			info.AddValue("Name", this.name_);

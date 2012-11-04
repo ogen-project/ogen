@@ -55,7 +55,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		);
-		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermition[] getRecord_ofProfilePermition_byProfile(
+		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermission[] getRecord_ofProfilePermission_byProfile(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long IDProfile_search_in, 
@@ -80,7 +80,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
 			long[] idProfile_parent_in, 
-			long[] idPermition_in, 
+			long[] idPermission_in, 
 			out int[] errors_out
 		);
 		void setUserProfiles(
@@ -95,7 +95,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string ip_forLogPurposes_in, 
 			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
 			long[] idProfile_parent_in, 
-			long[] idPermition_in, 
+			long[] idPermission_in, 
 			out int[] errors_out
 		);
 		void updObject_relationsOnly(
@@ -103,7 +103,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
 			long[] idProfile_parent_in, 
-			long[] idPermition_in, 
+			long[] idPermission_in, 
 			out int[] errors_out
 		);
 	}

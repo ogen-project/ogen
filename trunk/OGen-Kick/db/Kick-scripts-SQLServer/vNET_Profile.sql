@@ -4,12 +4,12 @@ as
 	select 
 		"CRD_Profile".*, 
 		case 
-			when ("NET_Defaultprofile"."IFProfile" is null) then cast(0 as bit)
+			when ("NET_Profile__default"."IFProfile" is null) then cast(0 as bit)
 			else cast(1 as bit)
-		end as "isDefaultprofile"
+		end as "IsDefault"
 	from "CRD_Profile"
-	left join "NET_Defaultprofile" on (
-		"NET_Defaultprofile"."IFProfile" = "CRD_Profile"."IDProfile"
+	left join "NET_Profile__default" on (
+		"NET_Profile__default"."IFProfile" = "CRD_Profile"."IDProfile"
 	)
 go
 

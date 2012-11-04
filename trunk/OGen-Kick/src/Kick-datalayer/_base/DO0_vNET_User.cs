@@ -81,7 +81,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				_connection.newDBDataParameter("IFApplication", DbType.Int32, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("Login", DbType.AnsiString, ParameterDirection.Output, null, 255), 
 				_connection.newDBDataParameter("Name", DbType.AnsiString, ParameterDirection.Output, null, 255), 
-				_connection.newDBDataParameter("EMail", DbType.AnsiString, ParameterDirection.Output, null, 255)
+				_connection.newDBDataParameter("Email", DbType.AnsiString, ParameterDirection.Output, null, 255)
 			};
 			_connection.Execute_SQLFunction(
 				"sp0_vNET_User_getObject_byUser", 
@@ -112,9 +112,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.Name = (string)_dataparameters[4].Value;
 				}
 				if (_dataparameters[5].Value == System.DBNull.Value) {
-					_output.EMail_isNull = true;
+					_output.Email_isNull = true;
 				} else {
-					_output.EMail = (string)_dataparameters[5].Value;
+					_output.Email = (string)_dataparameters[5].Value;
 				}
 
 				return _output;
@@ -194,7 +194,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_dc_ifapplication = dataTable_in.Columns["IFApplication"];
 					_dc_login = dataTable_in.Columns["Login"];
 					_dc_name = dataTable_in.Columns["Name"];
-					_dc_email = dataTable_in.Columns["EMail"];
+					_dc_email = dataTable_in.Columns["Email"];
 				}
 
 				_output[r] = new SO_vNET_User();
@@ -219,9 +219,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output[r].Name = (string)dataTable_in.Rows[r][_dc_name];
 				}
 				if (dataTable_in.Rows[r][_dc_email] == System.DBNull.Value) {
-					_output[r].EMail_isNull = true;
+					_output[r].Email_isNull = true;
 				} else {
-					_output[r].EMail = (string)dataTable_in.Rows[r][_dc_email];
+					_output[r].Email = (string)dataTable_in.Rows[r][_dc_email];
 				}
 
 				_output[r].hasChanges = false;
@@ -237,7 +237,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// </summary>
 		/// <param name="Login_search_in">Login search condition</param>
 		/// <param name="Name_search_in">Name search condition</param>
-		/// <param name="EMail_search_in">EMail search condition</param>
+		/// <param name="Email_search_in">Email search condition</param>
 		/// <param name="IFApplication_search_in">IFApplication search condition</param>
 		/// <param name="IDProfile__in_search_in">IDProfile__in search condition</param>
 		/// <param name="IDProfile__out_search_in">IDProfile__out search condition</param>
@@ -248,7 +248,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		public static SO_vNET_User[] getRecord_generic(
 			string Login_search_in, 
 			object Name_search_in, 
-			object EMail_search_in, 
+			object Email_search_in, 
 			object IFApplication_search_in, 
 			long IDProfile__in_search_in, 
 			long IDProfile__out_search_in, 
@@ -260,7 +260,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			return getRecord_generic(
 				Login_search_in, 
 				Name_search_in, 
-				EMail_search_in, 
+				Email_search_in, 
 				IFApplication_search_in, 
 				IDProfile__in_search_in, 
 				IDProfile__out_search_in, 
@@ -277,7 +277,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// </summary>
 		/// <param name="Login_search_in">Login search condition</param>
 		/// <param name="Name_search_in">Name search condition</param>
-		/// <param name="EMail_search_in">EMail search condition</param>
+		/// <param name="Email_search_in">Email search condition</param>
 		/// <param name="IFApplication_search_in">IFApplication search condition</param>
 		/// <param name="IDProfile__in_search_in">IDProfile__in search condition</param>
 		/// <param name="IDProfile__out_search_in">IDProfile__out search condition</param>
@@ -289,7 +289,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		public static SO_vNET_User[] getRecord_generic(
 			string Login_search_in, 
 			object Name_search_in, 
-			object EMail_search_in, 
+			object Email_search_in, 
 			object IFApplication_search_in, 
 			long IDProfile__in_search_in, 
 			long IDProfile__out_search_in, 
@@ -313,7 +313,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					? new IDbDataParameter[] {
 						_connection.newDBDataParameter("Login_search_", DbType.AnsiString, ParameterDirection.Input, Login_search_in, 255), 
 						_connection.newDBDataParameter("Name_search_", DbType.AnsiString, ParameterDirection.Input, Name_search_in, 255), 
-						_connection.newDBDataParameter("EMail_search_", DbType.AnsiString, ParameterDirection.Input, EMail_search_in, 255), 
+						_connection.newDBDataParameter("Email_search_", DbType.AnsiString, ParameterDirection.Input, Email_search_in, 255), 
 						_connection.newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, IFApplication_search_in, 0), 
 						_connection.newDBDataParameter("IDProfile__in_search_", DbType.Int64, ParameterDirection.Input, IDProfile__in_search_in, 0), 
 						_connection.newDBDataParameter("IDProfile__out_search_", DbType.Int64, ParameterDirection.Input, IDProfile__out_search_in, 0), 
@@ -327,7 +327,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					: new IDbDataParameter[] {
 						_connection.newDBDataParameter("Login_search_", DbType.AnsiString, ParameterDirection.Input, Login_search_in, 255), 
 						_connection.newDBDataParameter("Name_search_", DbType.AnsiString, ParameterDirection.Input, Name_search_in, 255), 
-						_connection.newDBDataParameter("EMail_search_", DbType.AnsiString, ParameterDirection.Input, EMail_search_in, 255), 
+						_connection.newDBDataParameter("Email_search_", DbType.AnsiString, ParameterDirection.Input, Email_search_in, 255), 
 						_connection.newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, IFApplication_search_in, 0), 
 						_connection.newDBDataParameter("IDProfile__in_search_", DbType.Int64, ParameterDirection.Input, IDProfile__in_search_in, 0), 
 						_connection.newDBDataParameter("IDProfile__out_search_", DbType.Int64, ParameterDirection.Input, IDProfile__out_search_in, 0)
@@ -348,7 +348,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				page_itemsCount_out = getCount_inRecord_generic(
 					Login_search_in, 
 					Name_search_in, 
-					EMail_search_in, 
+					Email_search_in, 
 					IFApplication_search_in, 
 					IDProfile__in_search_in, 
 					IDProfile__out_search_in, 
@@ -369,7 +369,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="IDUser_in">vNET_User's IDUser Key used for checking</param>
 		/// <param name="Login_search_in">Login search condition</param>
 		/// <param name="Name_search_in">Name search condition</param>
-		/// <param name="EMail_search_in">EMail search condition</param>
+		/// <param name="Email_search_in">Email search condition</param>
 		/// <param name="IFApplication_search_in">IFApplication search condition</param>
 		/// <param name="IDProfile__in_search_in">IDProfile__in search condition</param>
 		/// <param name="IDProfile__out_search_in">IDProfile__out search condition</param>
@@ -378,13 +378,13 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			long IDUser_in, 
 			string Login_search_in, 
 			object Name_search_in, 
-			object EMail_search_in, 
+			object Email_search_in, 
 			object IFApplication_search_in, 
 			long IDProfile__in_search_in, 
 			long IDProfile__out_search_in
 		) {
 			return isObject_inRecord_generic(
-				IDUser_in, Login_search_in, Name_search_in, EMail_search_in, IFApplication_search_in, IDProfile__in_search_in, IDProfile__out_search_in, 
+				IDUser_in, Login_search_in, Name_search_in, Email_search_in, IFApplication_search_in, IDProfile__in_search_in, IDProfile__out_search_in, 
 				null
 			);
 		}
@@ -395,7 +395,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// <param name="IDUser_in">vNET_User's IDUser Key used for checking</param>
 		/// <param name="Login_search_in">Login search condition</param>
 		/// <param name="Name_search_in">Name search condition</param>
-		/// <param name="EMail_search_in">EMail search condition</param>
+		/// <param name="Email_search_in">Email search condition</param>
 		/// <param name="IFApplication_search_in">IFApplication search condition</param>
 		/// <param name="IDProfile__in_search_in">IDProfile__in search condition</param>
 		/// <param name="IDProfile__out_search_in">IDProfile__out search condition</param>
@@ -405,7 +405,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			long IDUser_in, 
 			string Login_search_in, 
 			object Name_search_in, 
-			object EMail_search_in, 
+			object Email_search_in, 
 			object IFApplication_search_in, 
 			long IDProfile__in_search_in, 
 			long IDProfile__out_search_in, 
@@ -424,7 +424,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				_connection.newDBDataParameter("IDUser_", DbType.Int64, ParameterDirection.Input, IDUser_in, 0), 
 				_connection.newDBDataParameter("Login_search_", DbType.AnsiString, ParameterDirection.Input, Login_search_in, 255), 
 				_connection.newDBDataParameter("Name_search_", DbType.AnsiString, ParameterDirection.Input, Name_search_in, 255), 
-				_connection.newDBDataParameter("EMail_search_", DbType.AnsiString, ParameterDirection.Input, EMail_search_in, 255), 
+				_connection.newDBDataParameter("Email_search_", DbType.AnsiString, ParameterDirection.Input, Email_search_in, 255), 
 				_connection.newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, IFApplication_search_in, 0), 
 				_connection.newDBDataParameter("IDProfile__in_search_", DbType.Int64, ParameterDirection.Input, IDProfile__in_search_in, 0), 
 				_connection.newDBDataParameter("IDProfile__out_search_", DbType.Int64, ParameterDirection.Input, IDProfile__out_search_in, 0)
@@ -446,7 +446,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// </summary>
 		/// <param name="Login_search_in">Login search condition</param>
 		/// <param name="Name_search_in">Name search condition</param>
-		/// <param name="EMail_search_in">EMail search condition</param>
+		/// <param name="Email_search_in">Email search condition</param>
 		/// <param name="IFApplication_search_in">IFApplication search condition</param>
 		/// <param name="IDProfile__in_search_in">IDProfile__in search condition</param>
 		/// <param name="IDProfile__out_search_in">IDProfile__out search condition</param>
@@ -454,7 +454,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		public static long getCount_inRecord_generic(
 			string Login_search_in, 
 			object Name_search_in, 
-			object EMail_search_in, 
+			object Email_search_in, 
 			object IFApplication_search_in, 
 			long IDProfile__in_search_in, 
 			long IDProfile__out_search_in
@@ -462,7 +462,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			return getCount_inRecord_generic(
 				Login_search_in, 
 				Name_search_in, 
-				EMail_search_in, 
+				Email_search_in, 
 				IFApplication_search_in, 
 				IDProfile__in_search_in, 
 				IDProfile__out_search_in, 
@@ -475,7 +475,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		/// </summary>
 		/// <param name="Login_search_in">Login search condition</param>
 		/// <param name="Name_search_in">Name search condition</param>
-		/// <param name="EMail_search_in">EMail search condition</param>
+		/// <param name="Email_search_in">Email search condition</param>
 		/// <param name="IFApplication_search_in">IFApplication search condition</param>
 		/// <param name="IDProfile__in_search_in">IDProfile__in search condition</param>
 		/// <param name="IDProfile__out_search_in">IDProfile__out search condition</param>
@@ -484,7 +484,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 		public static long getCount_inRecord_generic(
 			string Login_search_in, 
 			object Name_search_in, 
-			object EMail_search_in, 
+			object Email_search_in, 
 			object IFApplication_search_in, 
 			long IDProfile__in_search_in, 
 			long IDProfile__out_search_in, 
@@ -502,7 +502,7 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
 				_connection.newDBDataParameter("Login_search_", DbType.AnsiString, ParameterDirection.Input, Login_search_in, 255), 
 				_connection.newDBDataParameter("Name_search_", DbType.AnsiString, ParameterDirection.Input, Name_search_in, 255), 
-				_connection.newDBDataParameter("EMail_search_", DbType.AnsiString, ParameterDirection.Input, EMail_search_in, 255), 
+				_connection.newDBDataParameter("Email_search_", DbType.AnsiString, ParameterDirection.Input, Email_search_in, 255), 
 				_connection.newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, IFApplication_search_in, 0), 
 				_connection.newDBDataParameter("IDProfile__in_search_", DbType.Int64, ParameterDirection.Input, IDProfile__in_search_in, 0), 
 				_connection.newDBDataParameter("IDProfile__out_search_", DbType.Int64, ParameterDirection.Input, IDProfile__out_search_in, 0)

@@ -1,13 +1,13 @@
 CREATE TABLE "LOG_Log" (
 	"IDLog" "bigint" IDENTITY(1, 1) NOT NULL, 
-	"IFLogtype" "int" NOT NULL, 
+	"IFType" "int" NOT NULL, 
 	"IFUser" "bigint" NULL, 
 	"IFUser__read" "bigint" NULL, 
-	"IFErrortype" "int" NULL, 
+	"IFError" "int" NULL, 
 	"Stamp" "datetime" NOT NULL, 
 	"Stamp__read" "datetime" NULL, 
 	"Message" "varchar"(4000) NOT NULL, 
-	"IFPermition" "bigint" NULL, 
+	"IFPermission" "bigint" NULL, 
 	"IFApplication" "int" NULL, 
 	"IFBrowser__OPT" "bigint" NULL, 
 
@@ -56,7 +56,7 @@ GO
 		@level1name = 'LOG_Log', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'IFLogtype';
+		@level2name = 'IFType';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -95,7 +95,7 @@ GO
 		@level1name = 'LOG_Log', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'IFErrortype';
+		@level2name = 'IFError';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 
@@ -147,7 +147,7 @@ GO
 		@level1name = 'LOG_Log', 
 
 		@level2type = N'COLUMN', 
-		@level2name = 'IFPermition';
+		@level2name = 'IFPermission';
 	GO
 	EXEC sys.sp_addextendedproperty 
 		@name = N'MS_Description', 

@@ -76,10 +76,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
 				_connection.newDBDataParameter("IDMessage_", DbType.Int64, ParameterDirection.InputOutput, IDMessage_in, 0), 
 				_connection.newDBDataParameter("IFMessage__parent_", DbType.Int64, ParameterDirection.Output, null, 0), 
-				_connection.newDBDataParameter("isSticky_", DbType.Boolean, ParameterDirection.Output, null, 0), 
+				_connection.newDBDataParameter("IsSticky_", DbType.Boolean, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("Subject_", DbType.AnsiString, ParameterDirection.Output, null, 255), 
-				_connection.newDBDataParameter("Message__charvar8000_", DbType.AnsiString, ParameterDirection.Output, null, 8000), 
-				_connection.newDBDataParameter("Message__text_", DbType.AnsiString, ParameterDirection.Output, null, 0), 
+				_connection.newDBDataParameter("Message__small_", DbType.AnsiString, ParameterDirection.Output, null, 8000), 
+				_connection.newDBDataParameter("Message__large_", DbType.AnsiString, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("IFUser__Publisher_", DbType.Int64, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("Publish_date_", DbType.DateTime, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("IFApplication_", DbType.Int32, ParameterDirection.Output, null, 0)
@@ -101,9 +101,9 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.IFMessage__parent = (long)_dataparameters[1].Value;
 				}
 				if (_dataparameters[2].Value == System.DBNull.Value) {
-					_output.isSticky = false;
+					_output.IsSticky = false;
 				} else {
-					_output.isSticky = (bool)_dataparameters[2].Value;
+					_output.IsSticky = (bool)_dataparameters[2].Value;
 				}
 				if (_dataparameters[3].Value == System.DBNull.Value) {
 					_output.Subject_isNull = true;
@@ -111,14 +111,14 @@ namespace OGen.NTier.Kick.lib.datalayer {
 					_output.Subject = (string)_dataparameters[3].Value;
 				}
 				if (_dataparameters[4].Value == System.DBNull.Value) {
-					_output.Message__charvar8000_isNull = true;
+					_output.Message__small_isNull = true;
 				} else {
-					_output.Message__charvar8000 = (string)_dataparameters[4].Value;
+					_output.Message__small = (string)_dataparameters[4].Value;
 				}
 				if (_dataparameters[5].Value == System.DBNull.Value) {
-					_output.Message__text_isNull = true;
+					_output.Message__large_isNull = true;
 				} else {
-					_output.Message__text = (string)_dataparameters[5].Value;
+					_output.Message__large = (string)_dataparameters[5].Value;
 				}
 				if (_dataparameters[6].Value == System.DBNull.Value) {
 					_output.IFUser__Publisher_isNull = true;
@@ -266,10 +266,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
 				_connection.newDBDataParameter("IDMessage_", DbType.Int64, ParameterDirection.Output, null, 0), 
 				_connection.newDBDataParameter("IFMessage__parent_", DbType.Int64, ParameterDirection.Input, FOR_Message_in.IFMessage__parent_isNull ? null : (object)FOR_Message_in.IFMessage__parent, 0), 
-				_connection.newDBDataParameter("isSticky_", DbType.Boolean, ParameterDirection.Input, FOR_Message_in.isSticky, 0), 
+				_connection.newDBDataParameter("IsSticky_", DbType.Boolean, ParameterDirection.Input, FOR_Message_in.IsSticky, 0), 
 				_connection.newDBDataParameter("Subject_", DbType.AnsiString, ParameterDirection.Input, FOR_Message_in.Subject_isNull ? null : (object)FOR_Message_in.Subject, 255), 
-				_connection.newDBDataParameter("Message__charvar8000_", DbType.AnsiString, ParameterDirection.Input, FOR_Message_in.Message__charvar8000_isNull ? null : (object)FOR_Message_in.Message__charvar8000, 8000), 
-				_connection.newDBDataParameter("Message__text_", DbType.AnsiString, ParameterDirection.Input, FOR_Message_in.Message__text_isNull ? null : (object)FOR_Message_in.Message__text, 0), 
+				_connection.newDBDataParameter("Message__small_", DbType.AnsiString, ParameterDirection.Input, FOR_Message_in.Message__small_isNull ? null : (object)FOR_Message_in.Message__small, 8000), 
+				_connection.newDBDataParameter("Message__large_", DbType.AnsiString, ParameterDirection.Input, FOR_Message_in.Message__large_isNull ? null : (object)FOR_Message_in.Message__large, 0), 
 				_connection.newDBDataParameter("IFUser__Publisher_", DbType.Int64, ParameterDirection.Input, FOR_Message_in.IFUser__Publisher_isNull ? null : (object)FOR_Message_in.IFUser__Publisher, 0), 
 				_connection.newDBDataParameter("Publish_date_", DbType.DateTime, ParameterDirection.Input, FOR_Message_in.Publish_date, 0), 
 				_connection.newDBDataParameter("IFApplication_", DbType.Int32, ParameterDirection.Input, FOR_Message_in.IFApplication_isNull ? null : (object)FOR_Message_in.IFApplication, 0), 
@@ -326,10 +326,10 @@ namespace OGen.NTier.Kick.lib.datalayer {
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
 					_connection.newDBDataParameter("IDMessage_", DbType.Int64, ParameterDirection.Input, FOR_Message_in.IDMessage, 0), 
 					_connection.newDBDataParameter("IFMessage__parent_", DbType.Int64, ParameterDirection.Input, FOR_Message_in.IFMessage__parent_isNull ? null : (object)FOR_Message_in.IFMessage__parent, 0), 
-					_connection.newDBDataParameter("isSticky_", DbType.Boolean, ParameterDirection.Input, FOR_Message_in.isSticky, 0), 
+					_connection.newDBDataParameter("IsSticky_", DbType.Boolean, ParameterDirection.Input, FOR_Message_in.IsSticky, 0), 
 					_connection.newDBDataParameter("Subject_", DbType.AnsiString, ParameterDirection.Input, FOR_Message_in.Subject_isNull ? null : (object)FOR_Message_in.Subject, 255), 
-					_connection.newDBDataParameter("Message__charvar8000_", DbType.AnsiString, ParameterDirection.Input, FOR_Message_in.Message__charvar8000_isNull ? null : (object)FOR_Message_in.Message__charvar8000, 8000), 
-					_connection.newDBDataParameter("Message__text_", DbType.AnsiString, ParameterDirection.Input, FOR_Message_in.Message__text_isNull ? null : (object)FOR_Message_in.Message__text, 0), 
+					_connection.newDBDataParameter("Message__small_", DbType.AnsiString, ParameterDirection.Input, FOR_Message_in.Message__small_isNull ? null : (object)FOR_Message_in.Message__small, 8000), 
+					_connection.newDBDataParameter("Message__large_", DbType.AnsiString, ParameterDirection.Input, FOR_Message_in.Message__large_isNull ? null : (object)FOR_Message_in.Message__large, 0), 
 					_connection.newDBDataParameter("IFUser__Publisher_", DbType.Int64, ParameterDirection.Input, FOR_Message_in.IFUser__Publisher_isNull ? null : (object)FOR_Message_in.IFUser__Publisher, 0), 
 					_connection.newDBDataParameter("Publish_date_", DbType.DateTime, ParameterDirection.Input, FOR_Message_in.Publish_date, 0), 
 					_connection.newDBDataParameter("IFApplication_", DbType.Int32, ParameterDirection.Input, FOR_Message_in.IFApplication_isNull ? null : (object)FOR_Message_in.IFApplication, 0)

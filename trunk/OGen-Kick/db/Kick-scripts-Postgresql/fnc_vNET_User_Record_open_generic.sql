@@ -1,7 +1,7 @@
 ﻿CREATE OR REPLACE FUNCTION "fnc_vNET_User_Record_open_generic"(
 	"Login_search_" character varying, 
 	"Name_search_" character varying, 
-	"EMail_search_" character varying, 
+	"Email_search_" character varying, 
 	"IFApplication_search_" integer, 
 	"IDProfile__in_search_" bigint, 
 	"IDProfile__out_search_" bigint
@@ -41,11 +41,11 @@ $BODY$
 				)
 				AND
 				(
-					("EMail_search_" is null)
+					("Email_search_" is null)
 					or
-					("EMail_search_" = '')
+					("Email_search_" = '')
 					or
-					("EMail" LIKE '%' || "EMail_search_" || '%')
+					("Email" LIKE '%' || "Email_search_" || '%')
 				)
 				AND
 				(
@@ -104,7 +104,7 @@ select *
 from "fnc_vNET_User_Record_open_generic"(
 	'f', -- @Login_search_ varchar (255), 
 	'onteiro rancisco', -- @Name_search_ varchar (255), 
-	'rancisco', --@EMail_search_ varchar (255), 
+	'rancisco', --@Email_search_ varchar (255), 
 	1, -- @IFApplication_search_ int, 
 	1, -- @IDProfile__in_search_ bigint, 
 	2 -- @IDProfile__out_search_ bigint

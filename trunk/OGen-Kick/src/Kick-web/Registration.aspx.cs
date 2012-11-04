@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 	public partial class Registration : SitePage {
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			if (utils.User.isLoggedIn) {
+			if (utils.User.IsLoggedIn) {
 				Response.Redirect(
 					"~/Registration-update.aspx",
 					true
