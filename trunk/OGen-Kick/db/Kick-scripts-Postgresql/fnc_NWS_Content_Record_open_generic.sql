@@ -14,8 +14,8 @@
 	"IDHighlight_search_" character varying, 
 	"IDProfile_search_" character varying, 
 	"Keywords_search_" character varying, 
-	"IDLanguage_" integer, 
-	"isAND_notOR_" boolean
+	"IDLanguage_search_" integer, 
+	"isAND_notOR_search_" boolean
 )
 	RETURNS SETOF "v0_NWS_Content__onlyKeys" AS
 $BODY$
@@ -106,7 +106,7 @@ $BODY$
 			left join "DIC_TextLanguage" on (
 				_conditional_join_DIC_TextLanguage
 				and
-				("DIC_TextLanguage"."IFLanguage" = "IDLanguage_")
+				("DIC_TextLanguage"."IFLanguage" = "IDLanguage_search_")
 				and
 				("DIC_TextLanguage"."IFText" in (
 					"NWS_Content"."TX_Title", 
@@ -320,8 +320,8 @@ where
 			'12,34',	-- "IDProfile_search_" text, 
 			null,		-- "Keywords_search_" character varying, 
 
-			null,		-- "IDLanguage_" integer, 
-			true		-- "isAND_notOR_" boolean
+			null,		-- "IDLanguage_search_" integer, 
+			true		-- "isAND_notOR_search_" boolean
 		)
 	))
 ;

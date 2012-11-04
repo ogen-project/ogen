@@ -1,5 +1,5 @@
 ﻿--drop function "fnc_vFOR_Message_Record_open_byIDUser"(
---	"IFTag__parent_search_" bigint
+--	"IDUser_search_" bigint
 --)
 
 CREATE OR REPLACE FUNCTION "fnc_vFOR_Message_Record_open_byIDUser"(
