@@ -39,16 +39,16 @@ namespace OGen.Libraries.Generator {
 
 		void IterateThrough_fromRoot(
 			string iteration_in,
-			OGen.Libraries.Generator.utils.IterationFoundDelegate iteration_found_in,
+			OGen.Libraries.Generator.Utilities.IterationFoundDelegate iteration_found_in,
 			ref bool valueHasBeenFound_out
 		);
 	}
 	#endregion
 
 #if NET_1_1
-	public class utils { private utils() {}
+	public class Utilities { private Utilities() {}
 #else
-	public static class utils {
+	public static class Utilities {
 #endif
 
 		public delegate void IterationFoundDelegate(string message_in);
@@ -539,8 +539,8 @@ _usePerformance5 &&
 						string _ex_message = string.Format(
 							System.Globalization.CultureInfo.CurrentCulture,
 							"\n---\n{0}.{1}.ReflectThrough(\n\tsomeClass_in:\"{2}.{3}\",\n\tpath_in:\"{4}\",\n\titeration_in:\"{5}\",\n\tpathTranslated_in:\"{6}\"\n)\n---\n{7}",
-							typeof(utils).Namespace,
-							typeof(utils).Name,
+							typeof(Utilities).Namespace,
+							typeof(Utilities).Name,
 							someClass_in.GetType().Namespace,
 							someClass_in.GetType().Name,
 							path_in,

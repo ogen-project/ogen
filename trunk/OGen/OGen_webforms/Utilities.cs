@@ -21,9 +21,9 @@ namespace OGen.Libraries.PresentationLayer.WebForms {
 	using System.Web;
 
 #if NET_1_1
-	public class utils { private utils() { }
+	public class Utilities { private Utilities() { }
 #else
-	public static class utils {
+	public static class Utilities {
 #endif
 
 		#region public static string ConcatenateURLParams(Hashtable parameters_in);

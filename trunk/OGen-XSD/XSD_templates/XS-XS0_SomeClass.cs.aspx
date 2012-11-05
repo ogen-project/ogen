@@ -15,14 +15,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <%@ import namespace="OGen.XSD.Libraries.Metadata.Schema" %>
 <%@ import namespace="OGen.XSD.Libraries.Metadata.Metadata" %><%
 #region arguments...
-string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
+string _arg_MetadataFilePath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilePath"]);
 string _arg_SchemaName = System.Web.HttpUtility.UrlDecode(Request.QueryString["SchemaName"]);
 string _arg_ComplexTypeName = System.Web.HttpUtility.UrlDecode(Request.QueryString["ComplexTypeName"]);
 #endregion
 
 #region varaux...
 XS__RootMetadata _aux_rootmetadata = XS__RootMetadata.Load_fromFile(
-	_arg_MetadataFilepath,
+	_arg_MetadataFilePath,
 	true,
 	false
 );
@@ -85,7 +85,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 				this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_.parent_ref = this;<%
 
 					} else {
-						_aux_ntype = OGen.XSD.Libraries.Metadata.Schema.utils.Convert_NType(
+						_aux_ntype = OGen.XSD.Libraries.Metadata.Schema.Utilities.Convert_NType(
 							_aux_rootmetadata,
 							_aux_elements[e].Type,
 							_arg_SchemaName,
@@ -113,7 +113,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 				this.<%=_aux_elements[e].Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_.root_ref = value;<%
 
 					} else {
-						_aux_ntype = OGen.XSD.Libraries.Metadata.Schema.utils.Convert_NType(
+						_aux_ntype = OGen.XSD.Libraries.Metadata.Schema.Utilities.Convert_NType(
 							_aux_rootmetadata,
 							_aux_elements[e].Type,
 							_arg_SchemaName,
@@ -168,7 +168,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 		//////////////////////////////////////////////////////////////
 
 			} else {
-				_aux_ntype = OGen.XSD.Libraries.Metadata.Schema.utils.Convert_NType(
+				_aux_ntype = OGen.XSD.Libraries.Metadata.Schema.Utilities.Convert_NType(
 					_aux_rootmetadata,
 					_aux_elements[e].Type,
 					_arg_SchemaName,
@@ -268,7 +268,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%><%=""%>
 		//////////////////////////////////////////////////////////////
 
 			} else {
-				_aux_ntype = OGen.XSD.Libraries.Metadata.Schema.utils.Convert_NType(
+				_aux_ntype = OGen.XSD.Libraries.Metadata.Schema.Utilities.Convert_NType(
 					_aux_rootmetadata,
 					_aux_elements[e].Type,
 					_arg_SchemaName,

@@ -14,7 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <%@ import namespace="OGen.Doc.Libraries.Metadata" %>
 <%@ import namespace="OGen.Doc.Libraries.Metadata.Documentation" %><%
 #region arguments...
-string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
+string _arg_MetadataFilePath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilePath"]);
 string _arg_DocumentationName = System.Web.HttpUtility.UrlDecode(Request.QueryString["DocumentationName"]);
 
 bool _arg_all = bool.Parse(System.Web.HttpUtility.UrlDecode(Request.QueryString["all"]));
@@ -22,7 +22,7 @@ bool _arg_all = bool.Parse(System.Web.HttpUtility.UrlDecode(Request.QueryString[
 
 #region varaux...
 XS__RootMetadata _aux_rootmetadata = XS__RootMetadata.Load_fromFile(
-	_arg_MetadataFilepath,
+	_arg_MetadataFilePath,
 	true
 );
 XS__documentation _aux_doc
@@ -76,7 +76,7 @@ string _aux_chapter_link_next =
 		)
 		: "";
 	
-string _aux_path = Path.GetDirectoryName(_arg_MetadataFilepath);
+string _aux_path = Path.GetDirectoryName(_arg_MetadataFilePath);
 string _aux_path_directoryname = Path.GetFileName(_aux_path);
 
 bool _aux_showtitle = false;

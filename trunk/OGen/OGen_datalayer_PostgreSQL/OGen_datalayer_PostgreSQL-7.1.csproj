@@ -109,7 +109,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "DBUtils_PostgreSQL.cs"
+                    RelPath = "DBUtilities_PostgreSQL.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

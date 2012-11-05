@@ -16,14 +16,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataDB" %>
 <%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataBusiness" %><%
 #region arguments...
-string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
+string _arg_MetadataFilePath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilePath"]);
 bool _arg_gac = bool.Parse(System.Web.HttpUtility.UrlDecode(Request.QueryString["GAC"]));
 string _arg_ogenpath = System.Web.HttpUtility.UrlDecode(Request.QueryString["OGenPath"]);
 #endregion
 
 #region varaux...
 XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
-	_arg_MetadataFilepath,
+	_arg_MetadataFilePath,
 	true,
 	false
 );
@@ -132,8 +132,8 @@ if (_arg_gac) {%>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="_base\DO0__utils.cs" />
-    <Compile Include="DO__utils.cs" /><%
+    <Compile Include="_base\DO0__Utilities.cs" />
+    <Compile Include="DO__Utilities.cs" /><%
 for (int i = 0; i < _aux_db_metadata.Tables.TableCollection.Count; i++) {
 	_aux_db_table = _aux_db_metadata.Tables.TableCollection[i];%>
     <Compile Include="_base\DO0_<%=_aux_db_table.Name%>.cs" />

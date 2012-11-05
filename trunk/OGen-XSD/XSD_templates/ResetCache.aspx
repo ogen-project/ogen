@@ -14,11 +14,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <%@ import namespace="OGen.XSD.Libraries.Metadata.Schema" %>
 <%@ import namespace="OGen.XSD.Libraries.Metadata.Metadata" %><%
 #region arguments...
-string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
+string _arg_MetadataFilePath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilePath"]);
 #endregion
 
 XS__RootMetadata.Load_fromFile(
-	_arg_MetadataFilepath,
+	_arg_MetadataFilePath,
 	true,
 	true
 );

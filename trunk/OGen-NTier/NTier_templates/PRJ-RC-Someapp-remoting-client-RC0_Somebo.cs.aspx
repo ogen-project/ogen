@@ -16,13 +16,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataDB" %>
 <%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataBusiness" %><%
 #region arguments...
-string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
+string _arg_MetadataFilePath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilePath"]);
 string _arg_ClassName = System.Web.HttpUtility.UrlDecode(Request.QueryString["ClassName"]);
 #endregion
 
 #region varaux...
 XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
-	_arg_MetadataFilepath,
+	_arg_MetadataFilePath,
 	true,
 	false
 );
@@ -79,7 +79,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DistributedLayer.
 		#endregion
 		#region public static void ReConfig();
 		public static void ReConfig() {
-			utils.Config.ReConfig();
+			Utilities.Config.ReConfig();
 
 			bo_ = new <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DistributedLayer.Remoting.Server.RS_<%=_aux_class.Name%>();<%--
 			bo_ = (IBO_<%=_aux_class.Name%>)RemotingServices.Connect(

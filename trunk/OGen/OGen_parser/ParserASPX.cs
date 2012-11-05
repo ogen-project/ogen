@@ -116,7 +116,7 @@ namespace OGen.Libraries.Parser {
 		) {
 string appVirtualPath_in = "/";
 string hostingVirtualPath_in = "/";
-			string _parameters = OGen.Libraries.PresentationLayer.WebForms.utils.ConcatenateURLParams(parameters_in);
+			string _parameters = OGen.Libraries.PresentationLayer.WebForms.Utilities.ConcatenateURLParams(parameters_in);
 			string _domainId = "ParserASPX_" +  DateTime.Now.ToString().GetHashCode().ToString("x");
 			string _applicationName = "ParserASPX";
 			#region Checking...

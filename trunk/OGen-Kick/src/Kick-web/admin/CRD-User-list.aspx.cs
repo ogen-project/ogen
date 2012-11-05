@@ -36,8 +36,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				long _count;
 				SO_CRD_Profile[] _profiles
 					= BusinessInstances.CRD_Profile.InstanceClient.getRecord_all(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						false,
 						0, 0, 0, out _count, 
 						out _errors
@@ -93,8 +93,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			long _count;
 			SO_vNET_User[] _users
 				= BusinessInstances.WEB_User.InstanceClient.getRecord_generic(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					this.TXT_LogOn.Text.Trim(),
 					this.TXT_Email.Text.Trim(),
 					this.TXT_Name.Text.Trim(),

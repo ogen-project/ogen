@@ -29,7 +29,7 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 	public partial class Registration_update : SitePage {
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			if (!utils.User.IsLoggedIn) {
+			if (!Utilities.User.IsLoggedIn) {
 				Response.Redirect(
 					"~/Registration.aspx",
 					true
@@ -104,9 +104,9 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			if (!_foundErrors) {
 				int[] _errors;
 				WEB_User.InstanceClient.setObject(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
-					utils.User.IDUser, 
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
+					Utilities.User.IDUser, 
 
 					true,
 					this.TXT_Name.Text, 
@@ -156,7 +156,7 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			this.TXT_Email.Text = this.TXT_Email.Text.Trim();
 
 			if (
-				!OGen.Libraries.Mail.utils.isEmail_valid(
+				!OGen.Libraries.Mail.Utilities.isEmail_valid(
 					this.TXT_Email.Text
 				)
 			) {
@@ -175,8 +175,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			if (!_foundErrors) {
 				int[] _errors;
 				WEB_User.InstanceClient.updObject_Email(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					this.TXT_Email.Text,
 					ConfigurationManager.AppSettings[
 						"CompanyName"
@@ -253,8 +253,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			if (!_foundErrors) {
 				int[] _errors;
 				CRD_Authentication.InstanceClient.ChangePassword(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					this.TXT_Password.Text,
 					this.TXT_PasswordNew.Text,
 					out _errors
@@ -279,7 +279,7 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 
 		#region public void Bind();
 		public void Bind() {
-			if (!utils.User.IsLoggedIn) {
+			if (!Utilities.User.IsLoggedIn) {
 				Response.Redirect(
 					"~/Registration.aspx",
 					true
@@ -291,9 +291,9 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			int[] _errors;
 			SO_NET_User _user
 				= WEB_User.InstanceClient.getObject(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
-					utils.User.IDUser, 
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
+					Utilities.User.IDUser, 
 
 					out _errors
 				);
@@ -303,7 +303,7 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 					= _user.Name;
 				this.TXT_LogOn.Text
 					= this.HFI_LogOn.Value
-					= utils.User.Login;
+					= Utilities.User.Login;
 
 				this.TXT_Email.Text
 					= this.HFI_Email.Value

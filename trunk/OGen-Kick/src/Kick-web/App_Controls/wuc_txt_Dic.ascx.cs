@@ -147,7 +147,7 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 //Response.Write("</table>");
 
 			// 1st: bind languages
-			this.REP_Field.DataSource = utils.Dic.Languages_get();
+			this.REP_Field.DataSource = Utilities.Dic.Languages_get();
 			this.REP_Field.DataBind();
 
 			// 2nd: assign properties to each language control
@@ -156,7 +156,7 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			// 3rd: finally, bind contents, if any
 			if (this.texts_ == null) return;
 
-			bool _showLanguage = (utils.Dic.Languages_get().Length > 1);
+			bool _showLanguage = (Utilities.Dic.Languages_get().Length > 1);
 			Label _lbl_language;
 			TextBox _txt_field;
 			HiddenField _hfi_idlanguage;

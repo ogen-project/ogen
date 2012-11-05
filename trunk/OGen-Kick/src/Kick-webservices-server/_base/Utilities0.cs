@@ -1,4 +1,4 @@
-﻿#region Copyright (C) 2002 Francisco Monteiro
+#region Copyright (C) 2002 Francisco Monteiro
 /*
 
 OGen
@@ -12,25 +12,32 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace OGen.NTier.Kick.Libraries.BusinessLayer {
-	public static class utils {
+namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
+	using System;
 
-		#region public static string RandomText(...);
-		public static string RandomText(
-			int length_in
-		) {
-			StringBuilder _sb = new StringBuilder(length_in);
+	public static partial class Utilities {
+		#region public static bool ResetClientIP { get; }
+		private static bool resetclientip_beenread = false;
+		private static bool resetclientip__ = false;
 
-			Random _rnd = new Random();
-			for (int i = 0; i < length_in; i++) {
-				_sb.Append((char)_rnd.Next(256));
+		public static bool ResetClientIP {
+			get {
+				if (!resetclientip_beenread) {
+					if (!bool.TryParse(
+						System.Configuration.ConfigurationManager.AppSettings[
+							"Webservices_ResetClientIP"
+						], 
+						out resetclientip__
+					)) {
+						resetclientip__ = false;
+					}
+
+					resetclientip_beenread = true;
+				}
+
+				return resetclientip__;
 			}
-
-			return _sb.ToString();
 		}
 		#endregion
 	}

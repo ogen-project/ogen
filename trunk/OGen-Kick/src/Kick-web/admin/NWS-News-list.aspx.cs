@@ -59,9 +59,9 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				#region Tags . . .
 				SO_vNWS_Tag[] _so_tags
 					= BusinessInstances.NWS_Tag.InstanceClient.getRecord_byLang(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
-						utils.IDLanguage__default,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
+						Utilities.IDLanguage__default,
 						0, 0, 0, out _count, 
 						out _errors
 					);
@@ -89,8 +89,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				#region Source . . .
 				SO_vNWS_Source[] _so_sources
 					= BusinessInstances.NWS_Source.InstanceClient.getRecord_all(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						0, 0, 0, out _count, 
 						out _errors
 					);
@@ -118,8 +118,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				#region Author . . .
 				SO_vNWS_Author[] _so_authors
 					= BusinessInstances.NWS_Author.InstanceClient.getRecord_all(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						0, 0, 0, out _count, 
 						out _errors
 					);
@@ -147,8 +147,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				#region Highlight . . .
 				SO_vNWS_Highlight[] _so_highlights
 					= BusinessInstances.NWS_Highlight.InstanceClient.getRecord_all(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						0, 0, 0, out _count, 
 						out _errors
 					);
@@ -176,8 +176,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				#region Profile . . .
 				SO_vNWS_Profile[] _so_profiles
 					= BusinessInstances.NWS_Profile.InstanceClient.getRecord_all(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						0, 0, 0, out _count, 
 						out _errors
 					);
@@ -223,8 +223,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 
 			int[] _errors;
 			BusinessInstances.NWS_News.InstanceClient.delObject(
-				utils.User.SessionGuid,
-				utils.ClientIPAddress, 
+				Utilities.User.SessionGuid,
+				Utilities.ClientIPAddress, 
 
 				_idcontent,
 				out _errors
@@ -244,8 +244,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 
 			int[] _errors;
 			BusinessInstances.NWS_News.InstanceClient.updObject_Approve(
-				utils.User.SessionGuid,
-				utils.ClientIPAddress,
+				Utilities.User.SessionGuid,
+				Utilities.ClientIPAddress,
 				_idcontent, 
 				out _errors
 			);
@@ -297,8 +297,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 
 			SO_vNWS_Content[] _contents;
 			_contents = BusinessInstances.NWS_News.InstanceClient.getRecord_generic(
-				utils.User.SessionGuid,
-				utils.ClientIPAddress,
+				Utilities.User.SessionGuid,
+				Utilities.ClientIPAddress,
 
 -1L,
 
@@ -350,7 +350,7 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				this.CBL_Profile.Kick.SelectedValue__get<long>(),
 
 				this.TXT_Text.Text,
-				utils.IDLanguage__default,
+				Utilities.IDLanguage__default,
 				true,
 				0, 0, 0, out _count, 
 

@@ -18,12 +18,12 @@ namespace OGen.Libraries.DataLayer.PostgreSQL {
 	using System.Data;
 	using NpgsqlTypes;
 
-	public sealed class DBUtils_PostgreSQL : DBUtils {
-		#region public override DBUtils_convert Convert { get; }
-		private static DBUtils_convert_Postgresql convert__;
+	public sealed class DBUtilities_PostgreSQL : DBUtilities {
+		#region public override DBUtilities_convert Convert { get; }
+		private static DBUtilities_convert_Postgresql convert__;
 		private static object convert__locker = new object();
 
-		public override DBUtils_convert Convert {
+		public override DBUtilities_convert Convert {
 			get {
 
 				// check before lock
@@ -36,7 +36,7 @@ namespace OGen.Libraries.DataLayer.PostgreSQL {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							convert__ = new DBUtils_convert_Postgresql();
+							convert__ = new DBUtilities_convert_Postgresql();
 						}
 					}
 				}
@@ -45,11 +45,11 @@ namespace OGen.Libraries.DataLayer.PostgreSQL {
 			}
 		}
 		#endregion
-		#region public override DBUtils_connectionString ConnectionString { get; }
-		private static DBUtils_connectionString_PostgreSQL connectionstring__;
+		#region public override DBUtilities_connectionString ConnectionString { get; }
+		private static DBUtilities_connectionString_PostgreSQL connectionstring__;
 		private static object connectionstring__locker = new object();
 
-		public override DBUtils_connectionString ConnectionString {
+		public override DBUtilities_connectionString ConnectionString {
 			get {
 
 				// check before lock
@@ -62,7 +62,7 @@ namespace OGen.Libraries.DataLayer.PostgreSQL {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							connectionstring__ = new DBUtils_connectionString_PostgreSQL();
+							connectionstring__ = new DBUtilities_connectionString_PostgreSQL();
 						}
 					}
 				}
@@ -72,7 +72,7 @@ namespace OGen.Libraries.DataLayer.PostgreSQL {
 		}
 		#endregion
 	}
-	public sealed class DBUtils_convert_Postgresql : DBUtils_convert {
+	public sealed class DBUtilities_convert_Postgresql : DBUtilities_convert {
 		#region public override string object2SQLobject(...);
 		public override string object2SQLobject(
 			object object_in
@@ -271,7 +271,7 @@ namespace OGen.Libraries.DataLayer.PostgreSQL {
 		}
 		#endregion
 	}
-	public sealed class DBUtils_connectionString_PostgreSQL : DBUtils_connectionString {
+	public sealed class DBUtilities_connectionString_PostgreSQL : DBUtilities_connectionString {
 		#region public override string ParseParameter(...);
 		public override string ParseParameter(
 			string connectionstring_in, 
@@ -279,20 +279,20 @@ namespace OGen.Libraries.DataLayer.PostgreSQL {
 		) {
 			switch (parameter_in) {
 				case eParameter.DBName:
-					return DBUtils_connectionString.ParseParameter(connectionstring_in, "database");
+					return DBUtilities_connectionString.ParseParameter(connectionstring_in, "database");
 
 				case eParameter.Server:
-					return DBUtils_connectionString.ParseParameter(connectionstring_in, "server");
+					return DBUtilities_connectionString.ParseParameter(connectionstring_in, "server");
 
 				case eParameter.User:
-					return DBUtils_connectionString.ParseParameter(connectionstring_in, "User ID");
+					return DBUtilities_connectionString.ParseParameter(connectionstring_in, "User ID");
 			}
 			throw new Exception(
 				string.Format(
 					System.Globalization.CultureInfo.CurrentCulture,
 					"{0}.{1}.ParseParameter(): - error parsing db connectionstring: 'PostgreSQL|{2}'",
-					typeof(DBUtils_connectionString_PostgreSQL).Namespace,
-					typeof(DBUtils_connectionString_PostgreSQL).Name,
+					typeof(DBUtilities_connectionString_PostgreSQL).Namespace,
+					typeof(DBUtilities_connectionString_PostgreSQL).Name,
 #if DEBUG
 					connectionstring_in
 #else

@@ -163,7 +163,7 @@
     <Compile Include="templates\_base\XS0_templateType.cs" />
     <Compile Include="templates\_base\XS0_templateTypeCollection.cs" />
     <Compile Include="templates\_base\XS0__templates.cs" />
-    <Compile Include="utils.cs">
+    <Compile Include="Utilities.cs">
       <SubType>Code</SubType>
     </Compile>
     <None Include="COPYING.MIT" />

@@ -21,7 +21,7 @@ using OGen.Libraries.PresentationLayer.WebForms;
 
 namespace OGen.Libraries.PresentationLayer.WebForms.UnitTests {
 	[TestFixture]
-	public class UT_utils { public UT_utils() {}
+	public class UT_Utilities { public UT_Utilities() {}
 		Hashtable _hash;
 
 		#region public void TestFixtureSetUp();
@@ -42,7 +42,7 @@ namespace OGen.Libraries.PresentationLayer.WebForms.UnitTests {
 
 		[Test]
 		public void UT_CheckParamValue() {
-			string _urlparam = utils.ConcatenateURLParams(_hash, false);
+			string _urlparam = Utilities.ConcatenateURLParams(_hash, false);
 			string[] _paramvalue = _urlparam.Split('&');
 			string[] _params;
 
@@ -63,8 +63,8 @@ namespace OGen.Libraries.PresentationLayer.WebForms.UnitTests {
 
 		[Test]
 		public void UT_CheckQuestionMark() {
-			string _urlparam1 = utils.ConcatenateURLParams(_hash, true);
-			string _urlparam2 = utils.ConcatenateURLParams(_hash, false);
+			string _urlparam1 = Utilities.ConcatenateURLParams(_hash, true);
+			string _urlparam2 = Utilities.ConcatenateURLParams(_hash, false);
 			Assert.IsTrue(
 				(
 					_urlparam1 

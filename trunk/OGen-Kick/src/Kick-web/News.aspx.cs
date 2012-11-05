@@ -84,20 +84,20 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			SO_vNWS_Attachment[] _attachments;
 			SO_vNWS_Attachment _attachment;
 			SO_vNWS_Content _content = BusinessInstances.NWS_News.InstanceClient.getObject(
-				utils.User.SessionGuid,
-				utils.ClientIPAddress,
+				Utilities.User.SessionGuid,
+				Utilities.ClientIPAddress,
 				this.IDNews, 
-				utils.IDLanguage__default, 
+				Utilities.IDLanguage__default, 
 				out _errors
 			);
 			if (!this.Master__base.Error_add(_errors)) {
 				if (_content != null) {
 					#region REP_Attachments.DataSource = ...; REP_Attachments.DataBind();
 					_attachments = BusinessInstances.NWS_Attachment.InstanceClient.getRecord_byContent_andLanguage(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						this.IDNews,
-						utils.IDLanguage__default,
+						Utilities.IDLanguage__default,
 						0, 0, 0, out _count, 
 						out _errors
 					);
@@ -195,8 +195,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 
 					#region REP_Sources.DataSource = ...; REP_Sources.DataBind();
 					_contentsources = BusinessInstances.NWS_Source.InstanceClient.getRecord_byContent(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						this.IDNews,
 						0, 0, 0, out _count, 
 						out _errors
@@ -210,8 +210,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 					) {
 						_sources
 							= BusinessInstances.NWS_Source.InstanceClient.getRecord_Approved(
-								utils.User.SessionGuid,
-								utils.ClientIPAddress,
+								Utilities.User.SessionGuid,
+								Utilities.ClientIPAddress,
 								0, 0, 0, out _count, 
 								out _errors
 							);
@@ -236,8 +236,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 					#endregion
 					#region REP_Tags.DataSource = ...; REP_Tags.DataBind();
 					_contenttags = BusinessInstances.NWS_Tag.InstanceClient.getRecord_byContent(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						this.IDNews,
 						0, 0, 0, out _count, 
 						out _errors
@@ -251,9 +251,9 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 					) {
 						_tags
 							= BusinessInstances.NWS_Tag.InstanceClient.getRecord_Approved_byLang(
-								utils.User.SessionGuid,
-								utils.ClientIPAddress,
-								utils.IDLanguage__default,
+								Utilities.User.SessionGuid,
+								Utilities.ClientIPAddress,
+								Utilities.IDLanguage__default,
 								0, 0, 0, out _count, 
 								out _errors
 							);
@@ -288,7 +288,7 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 						_content.Publish_date.Minute.ToString(System.Globalization.CultureInfo.CurrentCulture).PadLeft(2, '0')
 					);
 					this.LBL_Title.Text = _content.Title;
-					this.LBL_Content.Text = OGen.Libraries.PresentationLayer.WebForms.utils.Replace_RN_BR(_content.Content);
+					this.LBL_Content.Text = OGen.Libraries.PresentationLayer.WebForms.Utilities.Replace_RN_BR(_content.Content);
 
 					this.TBL_News.Visible = true;
 				} else {

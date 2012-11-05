@@ -33,7 +33,7 @@ namespace OGen.XSD.Libraries.Metadata.Schema {
 
 		#region public string NType(...);
 		public string NType(string schemaName_in) {
-			return utils.Convert_NType(
+			return Utilities.Convert_NType(
 				this.root_ref,
 				this.type_, 
 				schemaName_in

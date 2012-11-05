@@ -20,9 +20,9 @@ namespace OGen.Doc.Libraries.Metadata {
 	using OGen.Doc.Libraries.Metadata.Documentation;
 
 #if NET_1_1
-	public class utils { private utils() {}
+	public class Utilities { private Utilities() {}
 #else
-	public static class utils {
+	public static class Utilities {
 #endif
 
 		#region public static string ReadFile(...);

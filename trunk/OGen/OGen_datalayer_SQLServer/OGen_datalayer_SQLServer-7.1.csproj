@@ -103,7 +103,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "DBUtils_SQLServer.cs"
+                    RelPath = "DBUtilities_SQLServer.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

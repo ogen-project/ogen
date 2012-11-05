@@ -16,12 +16,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataDB" %>
 <%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataBusiness" %><%
 #region arguments...
-string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
+string _arg_MetadataFilePath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilePath"]);
 #endregion
 
 #region varaux...
 XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
-	_arg_MetadataFilepath,
+	_arg_MetadataFilePath,
 	true,
 	false
 );
@@ -46,32 +46,33 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 <%
 	}
 }%>
-namespace <%=_aux_ex_metadata.ApplicationNamespace%>.DistributedLayer.WebServices.Server {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer {
 	using System;
 
-	public static partial class utils {
-		#region public static bool ResetClientIP { get; }
-		private static bool resetclientip_beenread = false;
-		private static bool resetclientip__ = false;
+	using OGen.Libraries.DataLayer;<%
+	for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
+		string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();%>
+	#if <%=_dbservertype%>
+	using OGen.Libraries.DataLayer.<%=_dbservertype%>;
+	#endif
+	<%
+	}%>
+	using OGen.NTier.Libraries.DataLayer;
 
-		public static bool ResetClientIP {
-			get {
-				if (!resetclientip_beenread) {
-					if (!bool.TryParse(
-						System.Configuration.ConfigurationManager.AppSettings[
-							"Webservices_ResetClientIP"
-						], 
-						out resetclientip__
-					)) {
-						resetclientip__ = false;
-					}
+	/// <summary>
+	/// Utilities DataObject which works as a repository of useful Properties and Methods for DataObjects at <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer namespace.
+	/// </summary>
+	public sealed 
+#if USE_PARTIAL_CLASSES && !NET_1_1
+		partial 
+#endif
+		class DO__Utilities 
+#if !USE_PARTIAL_CLASSES || NET_1_1
+		: DO0__Utilities
+#endif
+	{
 
-					resetclientip_beenread = true;
-				}
+		// add your code here!
 
-				return resetclientip__;
-			}
-		}
-		#endregion
 	}
 }

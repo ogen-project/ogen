@@ -56,7 +56,7 @@
     <Compile Include="DBTableField.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="DBTransaction.cs" />
-    <Compile Include="DBUtils.cs" />
+    <Compile Include="DBUtilities.cs" />
     <None Include="COPYING.MIT" />
     <None Include="LICENSE.MIT.txt" />
     <None Include="LICENSE.txt" />

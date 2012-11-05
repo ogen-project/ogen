@@ -37,7 +37,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Client {
 		#endregion
 		#region public static void ReConfig();
 		public static void ReConfig() {
-			utils.Config.ReConfig();
+			Utilities.Config.ReConfig();
 
 			bo_ = new OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server.RS_CRD_Permission();
 		}

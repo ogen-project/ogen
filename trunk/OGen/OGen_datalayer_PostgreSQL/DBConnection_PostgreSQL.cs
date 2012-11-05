@@ -41,11 +41,11 @@ namespace OGen.Libraries.DataLayer.PostgreSQL {
 		//#endregion
 
 		//#region public static properties...
-#region public static DBUtils Utils { get; }
-		private static DBUtils utils__ = null;
+#region public static DBUtilities Utils { get; }
+		private static DBUtilities utils__ = null;
 		private static object utils__locker = new object();
 
-		public static DBUtils Utils {
+		public static DBUtilities Utils {
 			get {
 
 				// check before lock
@@ -58,7 +58,7 @@ namespace OGen.Libraries.DataLayer.PostgreSQL {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							utils__ = new DBUtils_PostgreSQL();
+							utils__ = new DBUtilities_PostgreSQL();
 						}
 					}
 				}
@@ -78,8 +78,8 @@ namespace OGen.Libraries.DataLayer.PostgreSQL {
 			}
 		}
 		#endregion
-		#region public override DBUtils utils { get; }
-		public override DBUtils utils {
+		#region public override DBUtilities Utilities { get; }
+		public override DBUtilities Utilities {
 			get {
 				return Utils;
 			}
@@ -250,7 +250,7 @@ namespace OGen.Libraries.DataLayer.PostgreSQL {
 						_ex.Message, 
 						_ex.InnerException,
 
-						DBUtils.IDbDataParameter2String(dataParameters_in)
+						DBUtilities.IDbDataParameter2String(dataParameters_in)
 					)
 				);
 			}

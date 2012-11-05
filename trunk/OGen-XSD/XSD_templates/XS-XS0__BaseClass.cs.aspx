@@ -15,13 +15,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <%@ import namespace="OGen.XSD.Libraries.Metadata.Schema" %>
 <%@ import namespace="OGen.XSD.Libraries.Metadata.Metadata" %><%
 #region arguments...
-string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
+string _arg_MetadataFilePath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilePath"]);
 string _arg_SchemaName = System.Web.HttpUtility.UrlDecode(Request.QueryString["SchemaName"]);
 #endregion
 
 #region varaux...
 XS__RootMetadata _aux_rootmetadata = XS__RootMetadata.Load_fromFile(
-	_arg_MetadataFilepath,
+	_arg_MetadataFilePath,
 	true,
 	false
 );
@@ -180,7 +180,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 				} else {
 					try {
 						_output[i] = (<%=XS__%><%=_aux_schema.Element.Name%>)new XmlSerializer(typeof(<%=XS__%><%=_aux_schema.Element.Name%>)).Deserialize(
-							OGen.Libraries.PresentationLayer.WebForms.utils.ReadURL(
+							OGen.Libraries.PresentationLayer.WebForms.Utilities.ReadURL(
 								filePath_in[i].ToString()
 							)
 						);
@@ -229,7 +229,7 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 		#endregion
 		#region public string Read_fromRoot(string what_in);
 		public string Read_fromRoot(string what_in) {
-			return OGen.Libraries.Generator.utils.ReflectThrough(
+			return OGen.Libraries.Generator.Utilities.ReflectThrough(
 				this, <%--
 				// ROOT_<%=_aux_schema.Element.Name.ToUpper()%>,
 				--%>
@@ -247,10 +247,10 @@ if (!_aux_rootmetadata.MetadataCollection[0].isSimple) {%>
 		#region public void IterateThrough_fromRoot(...);
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
-			OGen.Libraries.Generator.utils.IterationFoundDelegate iteration_found_in,
+			OGen.Libraries.Generator.Utilities.IterationFoundDelegate iteration_found_in,
 			ref bool valueHasBeenFound_out
 		) {
-			OGen.Libraries.Generator.utils.ReflectThrough(
+			OGen.Libraries.Generator.Utilities.ReflectThrough(
 				this, <%--
 				// ROOT_<%=_aux_schema.Element.Name.ToUpper()%>,
 				--%>

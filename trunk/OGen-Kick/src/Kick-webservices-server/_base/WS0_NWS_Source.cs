@@ -40,7 +40,7 @@ namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 		) {
 			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Source.delObject(
 				sessionGuid_in, 
-				(utils.ResetClientIP) 
+				(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				idSource_in, 
@@ -58,7 +58,7 @@ namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Source.getObject(
 				sessionGuid_in, 
-				(utils.ResetClientIP) 
+				(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				idSource_in, 
@@ -79,7 +79,7 @@ namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Source.getRecord_all(
 				sessionGuid_in, 
-				(utils.ResetClientIP) 
+				(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				page_orderBy_in, 
@@ -103,7 +103,7 @@ namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Source.getRecord_Approved(
 				sessionGuid_in, 
-				(utils.ResetClientIP) 
+				(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				page_orderBy_in, 
@@ -128,7 +128,7 @@ namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Source.getRecord_byContent(
 				sessionGuid_in, 
-				(utils.ResetClientIP) 
+				(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				idContent_search_in, 
@@ -151,7 +151,7 @@ namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Source.insObject(
 				sessionGuid_in, 
-				(utils.ResetClientIP) 
+				(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				source_in, 
@@ -170,7 +170,7 @@ namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 		) {
 			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Source.updObject(
 				sessionGuid_in, 
-				(utils.ResetClientIP) 
+				(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				source_in, 
@@ -188,7 +188,7 @@ namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 		) {
 			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Source.updObject_Approve(
 				sessionGuid_in, 
-				(utils.ResetClientIP) 
+				(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				idSource_in, 

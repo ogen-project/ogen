@@ -106,7 +106,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "utils.cs"
+                    RelPath = "Utilities.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

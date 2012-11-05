@@ -72,10 +72,10 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			SO_DIC_TextLanguage _output = null;
 
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
@@ -147,10 +147,10 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			DBConnection dbConnection_in
 		) {
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
@@ -194,10 +194,10 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			bool _output;
 
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
@@ -246,10 +246,10 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			bool ConstraintExist_out;
 			if (forceUpdate_in || DIC_TextLanguage_in.hasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
-					? DO__utils.DBConnection_createInstance(
-						DO__utils.DBServerType,
-						DO__utils.DBConnectionstring,
-						DO__utils.DBLogfile
+					? DO__Utilities.DBConnection_createInstance(
+						DO__Utilities.DBServerType,
+						DO__Utilities.DBConnectionstring,
+						DO__Utilities.DBLogfile
 					) 
 					: dbConnection_in;
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
@@ -381,10 +381,10 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			SO_DIC_TextLanguage[] _output;
 
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = 
@@ -463,10 +463,10 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			bool _output;
 
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
@@ -513,10 +513,10 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			long _output;
 
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
@@ -557,10 +557,10 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			DBConnection dbConnection_in
 		) {
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
@@ -621,10 +621,10 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			SO_DIC_TextLanguage[] _output;
 
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = 
@@ -703,10 +703,10 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			bool _output;
 
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
@@ -753,10 +753,10 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			long _output;
 
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
@@ -797,10 +797,10 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			DBConnection dbConnection_in
 		) {
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
@@ -861,10 +861,10 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			SO_DIC_TextLanguage[] _output;
 
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = 
@@ -943,10 +943,10 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			bool _output;
 
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
@@ -993,10 +993,10 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			long _output;
 
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {
@@ -1037,10 +1037,10 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			DBConnection dbConnection_in
 		) {
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {

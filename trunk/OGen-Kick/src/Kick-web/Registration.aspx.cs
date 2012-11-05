@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 	public partial class Registration : SitePage {
 		#region protected void Page_Load(object sender, EventArgs e);
 		protected void Page_Load(object sender, EventArgs e) {
-			if (utils.User.IsLoggedIn) {
+			if (Utilities.User.IsLoggedIn) {
 				Response.Redirect(
 					"~/Registration-update.aspx",
 					true
@@ -49,7 +49,7 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 
 			#region bool _invalid_email = ...;
 			bool _invalid_email
-				= !OGen.Libraries.Mail.utils.isEmail_valid(
+				= !OGen.Libraries.Mail.Utilities.isEmail_valid(
 					(this.TXT_Email.Text = this.TXT_Email.Text.Trim())
 				);
 			#endregion
@@ -113,7 +113,7 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 					ConfigurationManager.AppSettings[
 						"CompanyName"
 					],
-					utils.IDApplication,
+					Utilities.IDApplication,
 					out _errors
 				);
 
@@ -191,7 +191,7 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 
 			#region bool _invalid_email = ...;
 			bool _invalid_email 
-				= !OGen.Libraries.Mail.utils.isEmail_valid(
+				= !OGen.Libraries.Mail.Utilities.isEmail_valid(
 					(this.TXT_LostPassword_Email.Text = this.TXT_LostPassword_Email.Text.Trim())
 				);
 			#endregion
@@ -221,7 +221,7 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				    ConfigurationManager.AppSettings[
 				        "Registration_changePassword"
 				    ], 
-				    utils.IDApplication,
+				    Utilities.IDApplication,
 
 				    out _errors
 				);

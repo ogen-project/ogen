@@ -53,7 +53,7 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="DBConnection_SQLServer.cs" />
-    <Compile Include="DBUtils_SQLServer.cs" />
+    <Compile Include="DBUtilities_SQLServer.cs" />
     <None Include="COPYING.MIT" />
     <None Include="LICENSE.MIT.txt" />
     <None Include="LICENSE.txt" />

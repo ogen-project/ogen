@@ -16,13 +16,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataDB" %>
 <%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataBusiness" %><%
 #region arguments...
-string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
+string _arg_MetadataFilePath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilePath"]);
 string _arg_ClassName = System.Web.HttpUtility.UrlDecode(Request.QueryString["ClassName"]);
 #endregion
 
 #region varaux...
 XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
-	_arg_MetadataFilepath,
+	_arg_MetadataFilePath,
 	true,
 	false
 );
@@ -86,7 +86,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.DistributedLayer.WebService
 				for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 					_aux_parameter = _aux_method.Parameters.ParameterCollection[p];
 					if (_aux_method.IPParamNum == p) {%><%=""%>
-				<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%>(utils.ResetClientIP) 
+				<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%>(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: <%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
 					} else {%><%=""%>

@@ -121,8 +121,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			#region REP_News.DataSource = ...; REP_News.DataBind();
 			SO_vNWS_Content[] _news
 				= BusinessInstances.NWS_News.InstanceClient.getRecord_generic(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress, 
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress, 
 					-1L,
 					0L, // 0: Approved; -1: NOT approved; < -1: ignore; >0: ...
 					DateTime.MinValue,
@@ -136,12 +136,12 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 new long[] { }, 
 
 					"",
-					utils.IDLanguage__default,
+					Utilities.IDLanguage__default,
 					true,
 
 1,
-					OGen.Libraries.PresentationLayer.WebForms.utils.Pager.PageNum,
-					OGen.Libraries.PresentationLayer.WebForms.utils.Pager.ITEMSPERPAGE_DEFAULT, 
+					OGen.Libraries.PresentationLayer.WebForms.Utilities.Pager.PageNum,
+					OGen.Libraries.PresentationLayer.WebForms.Utilities.Pager.ITEMSPERPAGE_DEFAULT, 
 					out _count, 
 
 					out _errors
@@ -158,8 +158,8 @@ new long[] { },
 				}
 
 				foreach (SO_vNWS_Content _content in _news) {
-					_content.summary = OGen.Libraries.PresentationLayer.WebForms.utils.Replace_RN_BR(_content.summary);
-					_content.Content = OGen.Libraries.PresentationLayer.WebForms.utils.Replace_RN_BR(_content.Content);
+					_content.summary = OGen.Libraries.PresentationLayer.WebForms.Utilities.Replace_RN_BR(_content.summary);
+					_content.Content = OGen.Libraries.PresentationLayer.WebForms.Utilities.Replace_RN_BR(_content.Content);
 				}
 
 				this.REP_News.DataSource = _news;
@@ -168,7 +168,7 @@ new long[] { },
 				this.TBL_News.Visible = true;
 
 
-				OGen.Libraries.PresentationLayer.WebForms.utils.Pager.Bind(
+				OGen.Libraries.PresentationLayer.WebForms.Utilities.Pager.Bind(
 					_count,
 					this.LBL_PageSeparator_left,
 					this.LBL_PageSeparator_2,
@@ -190,9 +190,9 @@ new long[] { },
 			#region REP_Tags.DataSource = ...; REP_Tags.DataBind();
 			SO_vNWS_Tag[] _tags
 				= BusinessInstances.NWS_Tag.InstanceClient.getRecord_Approved_byLang(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
-					utils.IDLanguage__default,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
+					Utilities.IDLanguage__default,
 					0, 0, 0, out _count, 
 					out _errors
 				);
@@ -226,8 +226,8 @@ new long[] { },
 			#region SO_vNWS_Source[] _sources = ...;
 			SO_vNWS_Source[] _sources
 				= BusinessInstances.NWS_Source.InstanceClient.getRecord_Approved(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					0, 0, 0, out _count, 
 					out _errors
 				);
@@ -248,8 +248,8 @@ new long[] { },
 				) {
 					SO_NWS_ContentTag[] _content_tags 
 						= BusinessInstances.NWS_Tag.InstanceClient.getRecord_byContent(
-							utils.User.SessionGuid,
-							utils.ClientIPAddress,
+							Utilities.User.SessionGuid,
+							Utilities.ClientIPAddress,
 							_news[n].IDContent,
 							0, 0, 0, out _count, 
 							out _errors
@@ -285,8 +285,8 @@ new long[] { },
 				) {
 					SO_NWS_ContentSource[] _content_sources 
 						= BusinessInstances.NWS_Source.InstanceClient.getRecord_byContent(
-							utils.User.SessionGuid,
-							utils.ClientIPAddress,
+							Utilities.User.SessionGuid,
+							Utilities.ClientIPAddress,
 							_news[n].IDContent,
 							0, 0, 0, out _count, 
 							out _errors
@@ -321,10 +321,10 @@ new long[] { },
 				SO_vNWS_Attachment _attachment = null;
 				SO_vNWS_Attachment[] _attachments
 					= BusinessInstances.NWS_Attachment.InstanceClient.getRecord_byContent_andLanguage(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						_news[n].IDContent,
-						utils.IDLanguage__default,
+						Utilities.IDLanguage__default,
 						0, 0, 0, out _count, 
 						out _errors
 					);

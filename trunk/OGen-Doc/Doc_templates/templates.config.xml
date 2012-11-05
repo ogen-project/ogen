@@ -40,7 +40,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			parserType="aspx"
 			iterationType="ROOT.documentation[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-Doc-metadatas/MD_${ROOT.documentation[n].documentationName}.OGenDoc-metadata.xml" />
+			<argument name="MetadataFilePath" value="${CONFIG.outputPath}/OGen-Doc-metadatas/MD_${ROOT.documentation[n].documentationName}.OGenDoc-metadata.xml" />
 			<argument name="DocumentationName" value="${ROOT.documentation[n].documentationName}" />
 			<argument name="all" value="false" />
 		</arguments>
@@ -56,7 +56,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			parserType="aspx"
 			iterationType="ROOT.documentation[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-Doc-metadatas/MD_${ROOT.documentation[n].documentationName}.OGenDoc-metadata.xml" />
+			<argument name="MetadataFilePath" value="${CONFIG.outputPath}/OGen-Doc-metadatas/MD_${ROOT.documentation[n].documentationName}.OGenDoc-metadata.xml" />
 			<argument name="DocumentationName" value="${ROOT.documentation[n].documentationName}" />
 			<argument name="all" value="true" />
 		</arguments>
@@ -72,7 +72,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			parserType="aspx"
 			iterationType="ROOT.documentation[n].chapters.chapter[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-Doc-metadatas/MD_${ROOT.documentation[n].documentationName}.OGenDoc-metadata.xml" />
+			<argument name="MetadataFilePath" value="${CONFIG.outputPath}/OGen-Doc-metadatas/MD_${ROOT.documentation[n].documentationName}.OGenDoc-metadata.xml" />
 			<argument name="DocumentationName" value="${ROOT.documentation[n].documentationName}" />
 			<argument name="ChapterTitle" value="${ROOT.documentation[n].chapters.chapter[n].title}" />
 		</arguments>
@@ -88,7 +88,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			parserType="aspx"
 			iterationType="ROOT.documentation[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGen-Doc-metadatas/MD_${ROOT.documentation[n].documentationName}.OGenDoc-metadata.xml" />
+			<argument name="MetadataFilePath" value="${CONFIG.outputPath}/OGen-Doc-metadatas/MD_${ROOT.documentation[n].documentationName}.OGenDoc-metadata.xml" />
 			<argument name="DocumentationName" value="${ROOT.documentation[n].documentationName}" />
 			<argument name="ChapterTitle" value="" />
 		</arguments>

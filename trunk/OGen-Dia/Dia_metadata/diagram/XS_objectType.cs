@@ -91,7 +91,7 @@ namespace OGen.Dia.Libraries.Metadata.Diagram {
 												break;
 											case "comment":
 												_tableField.DBDescription = this.AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String.Replace("#", "");
-												string[] _comment = OGen.Libraries.utils.ParameterNameValuePairList_Split(
+												string[] _comment = OGen.Libraries.Utilities.ParameterNameValuePairList_Split(
 													//AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String.Replace("#", ""),
 													_tableField.DBDescription, 
 													";",

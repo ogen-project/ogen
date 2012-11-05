@@ -150,7 +150,7 @@
     <Compile Include="UT_DBConnection.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="UT_utils.cs" />
+    <Compile Include="UT_Utilities.cs" />
     <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
   </ItemGroup>

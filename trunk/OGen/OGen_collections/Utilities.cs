@@ -2,7 +2,7 @@
 /*
 
 OGen
-Copyright (c) 2002 Francisco Monteiro
+Copyright (C) 2002 Francisco Monteiro
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -13,32 +13,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
+namespace OGen.Libraries.Collections {
 	using System;
 
-	public static partial class utils {
-		#region public static bool ResetClientIP { get; }
-		private static bool resetclientip_beenread = false;
-		private static bool resetclientip__ = false;
+#if NET_1_1
+	public class Utilities { private Utilities() {}
+#else
+	public static class Utilities {
+#endif
 
-		public static bool ResetClientIP {
-			get {
-				if (!resetclientip_beenread) {
-					if (!bool.TryParse(
-						System.Configuration.ConfigurationManager.AppSettings[
-							"Remoting_ResetClientIP"
-						], 
-						out resetclientip__
-					)) {
-						resetclientip__ = false;
-					}
-
-					resetclientip_beenread = true;
-				}
-
-				return resetclientip__;
-			}
-		}
-		#endregion
+		//public class convert { private convert() {}
+		//
+		//	// ...
+		//}
 	}
 }

@@ -16,7 +16,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			parserType="aspx"
 			iterationType="ROOT.schema[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilePath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
 		</arguments>
 		<conditions />
 		<outputs>
@@ -33,7 +33,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			parserType="aspx" 
 			iterationType="ROOT.schema[n].simpleType[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilePath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="SchemaName" value="${ROOT.schema[n].element.name}" />
 			<argument name="SimpleTypeName" value="${ROOT.schema[n].simpleType[n].name}" />
 		</arguments>
@@ -51,7 +51,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			parserType="aspx" 
 			iterationType="ROOT.schema[n].complexType[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilePath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="SchemaName" value="${ROOT.schema[n].element.name}" />
 			<argument name="ComplexTypeName" value="${ROOT.schema[n].complexType[n].name}" />
 		</arguments>
@@ -69,7 +69,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			parserType="aspx" 
 			iterationType="ROOT.schema[n].complexType[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilePath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="SchemaName" value="${ROOT.schema[n].element.name}" />
 			<argument name="ComplexTypeName" value="${ROOT.schema[n].complexType[n].name}" />
 		</arguments>
@@ -91,7 +91,7 @@ type="File" mode="Replace" />
 			parserType="aspx" 
 			iterationType="ROOT.schema[n].complexType[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilePath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="SchemaName" value="${ROOT.schema[n].element.name}" />
 			<argument name="ComplexTypeName" value="${ROOT.schema[n].complexType[n].name}" />
 		</arguments>
@@ -109,7 +109,7 @@ type="File" mode="Replace" />
 			parserType="aspx" 
 			iterationType="ROOT.schema[n].complexType[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilePath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="SchemaName" value="${ROOT.schema[n].element.name}" />
 			<argument name="ComplexTypeName" value="${ROOT.schema[n].complexType[n].name}" />
 		</arguments>
@@ -132,7 +132,7 @@ type="File" mode="Replace" />
 			parserType="aspx" 
 			iterationType="ROOT.schema[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilePath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="SchemaName" value="${ROOT.schema[n].element.name}" />
 		</arguments>
 		<conditions>
@@ -151,7 +151,7 @@ type="File" mode="Replace" />
 			parserType="aspx" 
 			iterationType="ROOT.schema[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilePath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="SchemaName" value="${ROOT.schema[n].element.name}" />
 		</arguments>
 		<conditions>
@@ -174,7 +174,7 @@ type="File" mode="Replace" />
 			parserType="aspx" 
 			iterationType="ROOT.schema[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilePath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="SchemaName" value="${ROOT.schema[n].element.name}" />
 		</arguments>
 		<conditions />
@@ -191,7 +191,7 @@ type="File" mode="Replace" />
 			parserType="aspx" 
 			iterationType="ROOT.schema[n]">
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilePath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="SchemaName" value="${ROOT.schema[n].element.name}" />
 		</arguments>
 		<conditions />
@@ -224,7 +224,7 @@ iterationType="ROOT.schema">
 
 
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilePath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
 			<argument name="SchemaName" value="${ROOT.schema[n].element.name}" />
 		</arguments>
 		<conditions>
@@ -254,7 +254,7 @@ iterationType="ROOT.schema">
 
 
 		<arguments>
-			<argument name="MetadataFilepath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
+			<argument name="MetadataFilePath" value="${CONFIG.outputPath}/OGenXSD-metadatas/MD_${ROOT.metadata[0].applicationName}.OGenXSD-metadata.xml" />
 		</arguments>
 		<conditions>
 			<condition eval="ROOT.metadata[0].isSimple" to="False" />

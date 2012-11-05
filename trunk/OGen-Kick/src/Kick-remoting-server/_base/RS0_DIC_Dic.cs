@@ -37,7 +37,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 		) {
 			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_DIC_Dic.delLanguage(
 				sessionGuid_in, 
-				(utils.ResetClientIP)
+				(Utilities.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				idLanguage_in, 
@@ -57,7 +57,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_DIC_Dic.getRecord_byApplication(
 				sessionGuid_in, 
-				(utils.ResetClientIP)
+				(Utilities.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				page_orderBy_in, 
@@ -81,7 +81,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_DIC_Dic.getRecord_byLanguage(
 				sessionGuid_in, 
-				(utils.ResetClientIP)
+				(Utilities.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				idLanguage_in, 
@@ -106,7 +106,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_DIC_Dic.getRecord_Language(
 				sessionGuid_in, 
-				(utils.ResetClientIP)
+				(Utilities.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				idLanguage_in, 
@@ -128,7 +128,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 		) {
 			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_DIC_Dic.insLanguage(
 				sessionGuid_in, 
-				(utils.ResetClientIP)
+				(Utilities.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				languageName_in, 
@@ -146,7 +146,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 		) {
 			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_DIC_Dic.setSupportedLanguages(
 				sessionGuid_in, 
-				(utils.ResetClientIP)
+				(Utilities.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				idLanguages_in, 
@@ -164,7 +164,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 		) {
 			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_DIC_Dic.updLanguage(
 				sessionGuid_in, 
-				(utils.ResetClientIP)
+				(Utilities.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				idLanguage_in, 

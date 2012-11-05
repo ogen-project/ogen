@@ -119,7 +119,7 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata.SpreadSheet {
 				} else {
 					try {
 						_output[i] = (XS__spreadsheet)new XmlSerializer(typeof(XS__spreadsheet)).Deserialize(
-							OGen.Libraries.PresentationLayer.WebForms.utils.ReadURL(
+							OGen.Libraries.PresentationLayer.WebForms.Utilities.ReadURL(
 								filePath_in[i].ToString()
 							)
 						);
@@ -166,7 +166,7 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata.SpreadSheet {
 		#endregion
 		#region public string Read_fromRoot(string what_in);
 		public string Read_fromRoot(string what_in) {
-			return OGen.Libraries.Generator.utils.ReflectThrough(
+			return OGen.Libraries.Generator.Utilities.ReflectThrough(
 				this, 
 				this.Root_Spreadsheet, 
 				null, 
@@ -180,10 +180,10 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata.SpreadSheet {
 		#region public void IterateThrough_fromRoot(...);
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
-			OGen.Libraries.Generator.utils.IterationFoundDelegate iteration_found_in,
+			OGen.Libraries.Generator.Utilities.IterationFoundDelegate iteration_found_in,
 			ref bool valueHasBeenFound_out
 		) {
-			OGen.Libraries.Generator.utils.ReflectThrough(
+			OGen.Libraries.Generator.Utilities.ReflectThrough(
 				this, 
 				this.Root_Spreadsheet, 
 				iteration_found_in, 

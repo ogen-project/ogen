@@ -33,7 +33,7 @@ namespace OGen.Libraries.DataLayer {
 	/// <code>
 	/// DBConnection _connection = new DBConnection(
 	///		DBServerTypes.PostgreSQL, 
-	///		OGen.Libraries.DataLayer.utils.Connectionstring.Buildwith.Parameters(
+	///		OGen.Libraries.DataLayer.Utilities.Connectionstring.Buildwith.Parameters(
 	///			"127.0.0.1", 
 	///			"postgres", 
 	///			"password", 
@@ -52,7 +52,7 @@ namespace OGen.Libraries.DataLayer {
 	///	<code>
 	/// DBConnection _connection = new DBConnection(
 	///		DBServerTypes.PostgreSQL, 
-	///		OGen.Libraries.DataLayer.utils.Connectionstring.Buildwith.Parameters(
+	///		OGen.Libraries.DataLayer.Utilities.Connectionstring.Buildwith.Parameters(
 	///			"127.0.0.1", 
 	///			"postgres", 
 	///			"password", 
@@ -193,9 +193,9 @@ namespace OGen.Libraries.DataLayer {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							this.connectionstring_dbname__ = this.utils.ConnectionString.ParseParameter(
+							this.connectionstring_dbname__ = this.Utilities.ConnectionString.ParseParameter(
 								this.Connectionstring,
-								DBUtils_connectionString.eParameter.DBName
+								DBUtilities_connectionString.eParameter.DBName
 							);
 						}
 					}
@@ -288,7 +288,7 @@ namespace OGen.Libraries.DataLayer {
 			}
 		}
 		#endregion
-		public abstract DBUtils utils { get; }
+		public abstract DBUtilities Utilities { get; }
 		#endregion
 
 		#region public static Methods...
@@ -803,7 +803,7 @@ namespace OGen.Libraries.DataLayer {
 						this.connectionstring_,
 						_ex.Message,
 						_ex.InnerException,
-						DBUtils.IDbDataParameter2String(dataParameters_in)
+						DBUtilities.IDbDataParameter2String(dataParameters_in)
 					)
 				);
 			}

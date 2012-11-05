@@ -95,7 +95,7 @@
     <Compile Include="DBTableField.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="DBTransaction.cs" />
-    <Compile Include="DBUtils.cs" />
+    <Compile Include="DBUtilities.cs" />
     <Compile Include="Exceptions\BeginException_alreadyInitiated.cs" />
     <Compile Include="Exceptions\BeginException_closedConnection.cs" />
     <Compile Include="Exceptions\CloseException_alreadyClosed.cs" />

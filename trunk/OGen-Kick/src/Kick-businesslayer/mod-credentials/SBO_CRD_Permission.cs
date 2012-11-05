@@ -136,11 +136,11 @@ namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 		//    #endregion
 
 		//    Exception _exception = null;
-		//    #region DBConnection _con = DO__utils.DBConnection_createInstance(...);
-		//    DBConnection _con = DO__utils.DBConnection_createInstance(
-		//        DO__utils.DBServerType,
-		//        DO__utils.DBConnectionstring,
-		//        DO__utils.DBLogfile
+		//    #region DBConnection _con = DO__Utilities.DBConnection_createInstance(...);
+		//    DBConnection _con = DO__Utilities.DBConnection_createInstance(
+		//        DO__Utilities.DBServerType,
+		//        DO__Utilities.DBConnectionstring,
+		//        DO__Utilities.DBLogfile
 		//    );
 		//    #endregion
 		//    try {

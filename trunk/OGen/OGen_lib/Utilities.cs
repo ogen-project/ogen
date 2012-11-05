@@ -17,9 +17,9 @@ namespace OGen.Libraries {
 	using System;
 
 #if NET_1_1
-	public class utils { private utils() {}
+	public class Utilities { private Utilities() {}
 #else
-	public static class utils {
+	public static class Utilities {
 #endif
 
 		#region public static string Type_ToString(Type what_in);

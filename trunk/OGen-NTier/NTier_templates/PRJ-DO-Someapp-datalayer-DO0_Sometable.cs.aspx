@@ -16,13 +16,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataDB" %>
 <%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataBusiness" %><%
 #region arguments...
-string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
+string _arg_MetadataFilePath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilePath"]);
 string _arg_TableName = System.Web.HttpUtility.UrlDecode(Request.QueryString["TableName"]);
 #endregion
 
 #region varaux...
 XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
-	_arg_MetadataFilepath,
+	_arg_MetadataFilePath,
 	true,
 	false
 );
@@ -135,10 +135,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 			SO_<%=_aux_db_table.Name%> _output = null;
 
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
@@ -217,10 +217,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 			DBConnection dbConnection_in
 		) {
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
@@ -280,10 +280,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 			bool _output;
 
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
@@ -341,10 +341,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 			<%}
 			%>if (forceUpdate_in || <%=_aux_db_table.Name%>_in.hasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
-					? DO__utils.DBConnection_createInstance(
-						DO__utils.DBServerType,
-						DO__utils.DBConnectionstring,
-						DO__utils.DBLogfile
+					? DO__Utilities.DBConnection_createInstance(
+						DO__Utilities.DBServerType,
+						DO__Utilities.DBConnectionstring,
+						DO__Utilities.DBLogfile
 					) 
 					: dbConnection_in;
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
@@ -380,7 +380,7 @@ if (!_aux_db_table.isVirtualTable) {%>
 
 					if (_aux_ex_table.isConfig) { %>
 
-					#region DO__utils...._reset();<%
+					#region DO__Utilities...._reset();<%
 						string NameField;
 						string ConfigField;
 						string DatatypeField;
@@ -434,9 +434,9 @@ if (!_aux_db_table.isVirtualTable) {%>
 								for (int r = 0; r < ConfigTable.Rows.Count; r++) {%>
 						case "<%=ConfigTable.Rows[r][NameField]%>": {
 #if USE_PARTIAL_CLASSES && !NET_1_1
-							DO__utils
+							DO__Utilities
 #else
-							DO0__utils
+							DO0__Utilities
 #endif
 							.<%=ConfigTable.Rows[r][NameField]%>_reset();
 							break;
@@ -505,10 +505,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 			DBConnection dbConnection_in
 		) {
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
@@ -588,10 +588,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 		) {
 			if (forceUpdate_in || <%=_aux_db_table.Name%>_in.hasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
-					? DO__utils.DBConnection_createInstance(
-						DO__utils.DBServerType,
-						DO__utils.DBConnectionstring,
-						DO__utils.DBLogfile
+					? DO__Utilities.DBConnection_createInstance(
+						DO__Utilities.DBServerType,
+						DO__Utilities.DBConnectionstring,
+						DO__Utilities.DBLogfile
 					) 
 					: dbConnection_in;
 
@@ -696,10 +696,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 		) {
 			SO_<%=_aux_db_table.Name%> _output = null;
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
@@ -794,10 +794,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 			DBConnection dbConnection_in
 		) {
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
@@ -867,10 +867,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 		) {
 			bool _output;
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
@@ -1083,10 +1083,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 			SO_<%=_aux_db_table.Name%>[] _output;
 
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = 
@@ -1220,10 +1220,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 			DBConnection dbConnection_in
 		) {
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
@@ -1325,10 +1325,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 			bool _output;
 
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
@@ -1408,10 +1408,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 			long _output;
 
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
@@ -1483,10 +1483,10 @@ if (!_aux_db_table.isVirtualTable) {%>
 			DBConnection dbConnection_in
 		) {
 			DBConnection _connection = (dbConnection_in == null)
-				? DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				? DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				) 
 				: dbConnection_in;
 			IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%

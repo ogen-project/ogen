@@ -22,7 +22,7 @@
 //#if PostgreSQL
 //namespace OGen.lib.datalayer.UTs {
 //    [TestFixture]
-//    public class UT_utils { public UT_utils() {}
+//    public class UT_Utilities { public UT_Utilities() {}
 //        #region public void TestFixtureSetUp();
 //        [TestFixtureSetUp]
 //        public void TestFixtureSetUp() {
@@ -44,11 +44,11 @@
 
 //            DBServerTypes[] _dbtypes = (DBServerTypes[])Enum.GetValues(typeof(DBServerTypes));
 //            for (int i = 0; i < _dbtypes.Length; i++) {
-//                _constring = utils.Connectionstring.Buildwith.Parameters(
-//                    (string)hash_in[utils.Connectionstring.eParameter.Server],
-//                    (string)hash_in[utils.Connectionstring.eParameter.User], 
+//                _constring = Utilities.Connectionstring.Buildwith.Parameters(
+//                    (string)hash_in[Utilities.Connectionstring.eParameter.Server],
+//                    (string)hash_in[Utilities.Connectionstring.eParameter.User], 
 //                    "somepassword",
-//                    (string)hash_in[utils.Connectionstring.eParameter.Database], 
+//                    (string)hash_in[Utilities.Connectionstring.eParameter.Database], 
 //                    (eDBServerTypes)i
 //                );
 
@@ -58,10 +58,10 @@
 ////						Console.WriteLine(
 ////"'{0}'\n'{1}'\n{2}\n",
 //                        (string)_enumerator.Value, 
-//                        utils.Connectionstring.ParseParameter(
+//                        Utilities.Connectionstring.ParseParameter(
 //                            _constring,
 //                            (eDBServerTypes)i,
-//                            (utils.Connectionstring.eParameter)_enumerator.Key
+//                            (Utilities.Connectionstring.eParameter)_enumerator.Key
 //                        )
 ////, _constring
 //                    );
@@ -75,47 +75,47 @@
 //            Hashtable _hash;
 
 //            _hash  = new Hashtable();
-//            _hash.Add(utils.Connectionstring.eParameter.Database, "somedb");
-//            _hash.Add(utils.Connectionstring.eParameter.Server, "someserver");
-//            _hash.Add(utils.Connectionstring.eParameter.User, "someuser");
+//            _hash.Add(Utilities.Connectionstring.eParameter.Database, "somedb");
+//            _hash.Add(Utilities.Connectionstring.eParameter.Server, "someserver");
+//            _hash.Add(Utilities.Connectionstring.eParameter.User, "someuser");
 //            UT_Connectionstring_ParseParameter_auxiliar(_hash);
 
 //            _hash = new Hashtable();
-//            _hash.Add(utils.Connectionstring.eParameter.Database, "database");
-//            _hash.Add(utils.Connectionstring.eParameter.Server, "server");
-//            _hash.Add(utils.Connectionstring.eParameter.User, "uid");
+//            _hash.Add(Utilities.Connectionstring.eParameter.Database, "database");
+//            _hash.Add(Utilities.Connectionstring.eParameter.Server, "server");
+//            _hash.Add(Utilities.Connectionstring.eParameter.User, "uid");
 //            UT_Connectionstring_ParseParameter_auxiliar(_hash);
 
 //            Assert.AreEqual(
 //                "somedatabase", 
-//                utils.Connectionstring.ParseParameter(
+//                Utilities.Connectionstring.ParseParameter(
 //                    "Server=someserver;User ID=someuser;Password=somepassword;Database=somedatabase",
 //                    eDBServerTypes.PostgreSQL,
-//                    utils.Connectionstring.eParameter.Database
+//                    Utilities.Connectionstring.eParameter.Database
 //                )
 //            );
 //            Assert.AreEqual(
 //                "somedatabase",
-//                utils.Connectionstring.ParseParameter(
+//                Utilities.Connectionstring.ParseParameter(
 //                    "Database=somedatabase;Server=someserver;User ID=someuser;Password=somepassword",
 //                    eDBServerTypes.PostgreSQL,
-//                    utils.Connectionstring.eParameter.Database
+//                    Utilities.Connectionstring.eParameter.Database
 //                )
 //            );
 //            Assert.AreEqual(
 //                "somedatabase",
-//                utils.Connectionstring.ParseParameter(
+//                Utilities.Connectionstring.ParseParameter(
 //                    "Database=somedatabase",
 //                    eDBServerTypes.PostgreSQL,
-//                    utils.Connectionstring.eParameter.Database
+//                    Utilities.Connectionstring.eParameter.Database
 //                )
 //            );
 //            Assert.AreEqual(
 //                "somedatabase",
-//                utils.Connectionstring.ParseParameter(
+//                Utilities.Connectionstring.ParseParameter(
 //                    "Database=somedatabase;",
 //                    eDBServerTypes.PostgreSQL,
-//                    utils.Connectionstring.eParameter.Database
+//                    Utilities.Connectionstring.eParameter.Database
 //                )
 //            );
 //        }
@@ -131,7 +131,7 @@
 
 //            Assert.AreEqual(
 //                "new DateTime(2341, 12, 12)", 
-//                    OGen.lib.datalayer.utils.convert.DBType2NUnitTestValue(
+//                    OGen.lib.datalayer.Utilities.convert.DBType2NUnitTestValue(
 //                    DbType.DateTime
 //                )
 //            );

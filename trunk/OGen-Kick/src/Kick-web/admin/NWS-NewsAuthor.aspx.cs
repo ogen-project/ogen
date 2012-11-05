@@ -70,8 +70,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				&&
 				(
 					(_author = BusinessInstances.NWS_Author.InstanceClient.getObject(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						this.IDAuthor,
 						out _errors
 					))
@@ -85,8 +85,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				_author.Name = this.TXT_Name.Text;
 
 				BusinessInstances.NWS_Author.InstanceClient.updObject(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					_author,
 					out _errors
 				);
@@ -96,10 +96,10 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				_author.Name = this.TXT_Name.Text;
 				_author.Approved_date_isNull = true;
 				_author.IFUser__Approved_isNull = true;
-				//_author.IFApplication = utils.IDApplication;
+				//_author.IFApplication = Utilities.IDApplication;
 				BusinessInstances.NWS_Author.InstanceClient.insObject(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					_author,
 					false,
 					out _errors
@@ -124,8 +124,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				&&
 				(
 					(_author = BusinessInstances.NWS_Author.InstanceClient.getObject(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						this.IDAuthor,
 						out _errors
 					))

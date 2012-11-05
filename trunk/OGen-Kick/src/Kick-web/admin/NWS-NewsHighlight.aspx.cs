@@ -59,8 +59,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				long _count;
 				SO_vNWS_Highlight[] _highlights
 					= BusinessInstances.NWS_Highlight.InstanceClient.getRecord_all(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						0, 0, 0, out _count, 
 						out _errors
 					);
@@ -120,8 +120,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				&&
 				(
 					(_highlight = BusinessInstances.NWS_Highlight.InstanceClient.getObject(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						this.IDHighlight,
 						out _errors
 					))
@@ -138,8 +138,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				);
 
 				BusinessInstances.NWS_Highlight.InstanceClient.updObject(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					_highlight,
 					out _errors
 				);
@@ -152,10 +152,10 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 
 				_highlight.Approved_date_isNull = true;
 				_highlight.IFUser__Approved_isNull = true;
-				_highlight.IFApplication = utils.IDApplication;
+				_highlight.IFApplication = Utilities.IDApplication;
 				BusinessInstances.NWS_Highlight.InstanceClient.insObject(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					_highlight,
 					false,
 					out _errors
@@ -180,8 +180,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				&&
 				(
 					(_highlight = BusinessInstances.NWS_Highlight.InstanceClient.getObject(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						this.IDHighlight,
 						out _errors
 					))

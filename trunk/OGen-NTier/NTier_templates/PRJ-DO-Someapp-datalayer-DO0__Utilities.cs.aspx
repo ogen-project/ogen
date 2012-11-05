@@ -16,12 +16,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataDB" %>
 <%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataBusiness" %><%
 #region arguments...
-string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
+string _arg_MetadataFilePath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilePath"]);
 #endregion
 
 #region varaux...
 XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
-	_arg_MetadataFilepath,
+	_arg_MetadataFilePath,
 	true,
 	false
 );
@@ -77,13 +77,13 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer {
 	using OGen.NTier.Libraries.DataLayer;
 
 	/// <summary>
-	/// utils DataObject which works as a repository of useful Properties and Methods for DataObjects at <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer namespace.
+	/// Utilities DataObject which works as a repository of useful Properties and Methods for DataObjects at <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer namespace.
 	/// </summary>
 	public 
 #if USE_PARTIAL_CLASSES && !NET_1_1
-		partial class DO__utils 
+		partial class DO__Utilities 
 #else
-		abstract class DO0__utils 
+		abstract class DO0__Utilities 
 #endif
 	{
 

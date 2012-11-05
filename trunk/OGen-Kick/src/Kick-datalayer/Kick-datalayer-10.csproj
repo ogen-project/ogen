@@ -89,8 +89,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="_base\DO0__utils.cs" />
-    <Compile Include="DO__utils.cs" />
+    <Compile Include="_base\DO0__Utilities.cs" />
+    <Compile Include="DO__Utilities.cs" />
     <Compile Include="_base\DO0_APP_Application.cs" />
     <Compile Include="DO_APP_Application.cs" />
     <Compile Include="_base\DO0_CRD_Permission.cs" />

@@ -26,7 +26,7 @@ namespace OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer {
 	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 	using BusinessInstances = OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances;
 
-	public static class utils {
+	public static class Utilities {
 		#region public static int IDApplication { get; }
 		private static int idapplication__ = -2;
 
@@ -333,7 +333,7 @@ namespace OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer {
 						_sessionguid,
 						ClientIPAddress,
 
-						utils.IDApplication,
+						Utilities.IDApplication,
 
 						out _iduser,
 						out _login,
@@ -348,7 +348,7 @@ namespace OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer {
 						_sessionguid,
 						ClientIPAddress,
 
-						utils.IDApplication,
+						Utilities.IDApplication,
 
 						out _iduser,
 						out _idpermissions,
@@ -423,11 +423,11 @@ namespace OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer {
 
 				BusinessInstances.WEB_User.InstanceClient.Login_throughLink(
 					_sessionguid,
-					utils.ClientIPAddress,
+					Utilities.ClientIPAddress,
 
 					_email,
 
-					utils.IDApplication,
+					Utilities.IDApplication,
 					out _iduser,
 					out _login,
 					out _name,
@@ -436,10 +436,10 @@ namespace OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer {
 				);
 
 				if (!ErrorType.hasErrors(_errors_out)) {
-					utils.User.SessionGuid = _sessionguid;
-					utils.User.IDPermissions = _idpermissions;
-					utils.User.IDUser = _iduser;
-					utils.User.Login = _login;
+					Utilities.User.SessionGuid = _sessionguid;
+					Utilities.User.IDPermissions = _idpermissions;
+					Utilities.User.IDUser = _iduser;
+					Utilities.User.Login = _login;
 
 					return true;
 				} else {
@@ -474,11 +474,11 @@ namespace OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer {
 
 				BusinessInstances.WEB_User.InstanceClient.Login_throughLink_andChangePassword(
 					_sessionguid,
-					utils.ClientIPAddress,
+					Utilities.ClientIPAddress,
 
 					_email,
 
-					utils.IDApplication,
+					Utilities.IDApplication,
 					newPassword_in, 
 					out _iduser,
 					out _login,
@@ -488,10 +488,10 @@ namespace OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer {
 				);
 
 				if (!ErrorType.hasErrors(errors_out)) {
-					utils.User.SessionGuid = _sessionguid;
-					utils.User.IDPermissions = _idpermissions;
-					utils.User.IDUser = _iduser;
-					utils.User.Login = _login;
+					Utilities.User.SessionGuid = _sessionguid;
+					Utilities.User.IDPermissions = _idpermissions;
+					Utilities.User.IDUser = _iduser;
+					Utilities.User.Login = _login;
 
 					return true;
 				} else {
@@ -561,7 +561,7 @@ namespace OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer {
 							||
 							!BusinessInstances.CRD_Authentication.InstanceClient.CheckCredentials(
 								sessionguid__,
-								utils.ClientIPAddress,
+								Utilities.ClientIPAddress,
 								out _errors
 							)
 						) {
@@ -569,9 +569,9 @@ namespace OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer {
 								Login,
 								Password,
 								sessionguid__ = Guid.NewGuid().ToString("N"), 
-								utils.ClientIPAddress, 
+								Utilities.ClientIPAddress, 
 
-								utils.IDApplication, 
+								Utilities.IDApplication, 
 
 								out iduser_,
 								out idpermissions_, 
@@ -581,11 +581,11 @@ namespace OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer {
 							if (ErrorType.hasErrors(_errors)) {
 								BusinessInstances.LOG_Log.InstanceClient.Log(
 									"",
-									utils.ClientIPAddress,
+									Utilities.ClientIPAddress,
 									LogType.error,
 									ErrorType.authentication,
 									-1L,
-									utils.IDApplication,
+									Utilities.IDApplication,
 									"anonymous login error: {0}", 
 									new string[] {
 										ErrorType.ErrorMessage("|", _errors)
@@ -614,8 +614,8 @@ namespace OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer {
 					long _count;
 					SO_vDIC_ApplicationLanguage[] _languages 
 						= BusinessInstances.DIC_Dic.InstanceClient.getRecord_byApplication(
-							utils.User.SessionGuid,
-							utils.ClientIPAddress,
+							Utilities.User.SessionGuid,
+							Utilities.ClientIPAddress,
 
 							-1, 0, 0, out _count, 
 

@@ -482,11 +482,11 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			#endregion
 
 			Exception _exception = null;
-			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
-			DBConnection _con = DO__utils.DBConnection_createInstance(
-				DO__utils.DBServerType,
-				DO__utils.DBConnectionstring,
-				DO__utils.DBLogfile
+			#region DBConnection _con = DO__Utilities.DBConnection_createInstance(...);
+			DBConnection _con = DO__Utilities.DBConnection_createInstance(
+				DO__Utilities.DBServerType,
+				DO__Utilities.DBConnectionstring,
+				DO__Utilities.DBLogfile
 			); 
 			#endregion
 			try {
@@ -733,11 +733,11 @@ errors_out.Add(ErrorType.profile__invalid_name);
 #endif
 
 			Exception _exception = null;
-			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
-			DBConnection _con = DO__utils.DBConnection_createInstance(
-				DO__utils.DBServerType,
-				DO__utils.DBConnectionstring,
-				DO__utils.DBLogfile
+			#region DBConnection _con = DO__Utilities.DBConnection_createInstance(...);
+			DBConnection _con = DO__Utilities.DBConnection_createInstance(
+				DO__Utilities.DBServerType,
+				DO__Utilities.DBConnectionstring,
+				DO__Utilities.DBLogfile
 			); 
 			#endregion
 			try {
@@ -1493,11 +1493,11 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			#endregion
 
 			Exception _exception = null;
-			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
-			DBConnection _con = DO__utils.DBConnection_createInstance(
-				DO__utils.DBServerType,
-				DO__utils.DBConnectionstring,
-				DO__utils.DBLogfile
+			#region DBConnection _con = DO__Utilities.DBConnection_createInstance(...);
+			DBConnection _con = DO__Utilities.DBConnection_createInstance(
+				DO__Utilities.DBServerType,
+				DO__Utilities.DBConnectionstring,
+				DO__Utilities.DBLogfile
 			); 
 			#endregion
 			try {
@@ -1732,11 +1732,11 @@ errors_out.Add(ErrorType.profile__invalid_name);
 					IDUser__Approved_search_in, 
 					(Begin_date_search_in <= datetime_minvalue_) ? null : (object)Begin_date_search_in,
 					(End_date_search_in <= datetime_minvalue_) ? null : (object)End_date_search_in,
-					(idTags_search_in == null) ? "" : OGen.Libraries.utils.Array_Join<long>(",", idTags_search_in),
-					(idAuthors_search_in == null) ? "" : OGen.Libraries.utils.Array_Join<long>(",", idAuthors_search_in),
-					(idSources_search_in == null) ? "" : OGen.Libraries.utils.Array_Join<long>(",", idSources_search_in),
-					(idHighlights_search_in == null) ? "" : OGen.Libraries.utils.Array_Join<long>(",", idHighlights_search_in),
-					(idProfiles_search_in == null) ? "" : OGen.Libraries.utils.Array_Join<long>(",", idProfiles_search_in),
+					(idTags_search_in == null) ? "" : OGen.Libraries.Utilities.Array_Join<long>(",", idTags_search_in),
+					(idAuthors_search_in == null) ? "" : OGen.Libraries.Utilities.Array_Join<long>(",", idAuthors_search_in),
+					(idSources_search_in == null) ? "" : OGen.Libraries.Utilities.Array_Join<long>(",", idSources_search_in),
+					(idHighlights_search_in == null) ? "" : OGen.Libraries.Utilities.Array_Join<long>(",", idHighlights_search_in),
+					(idProfiles_search_in == null) ? "" : OGen.Libraries.Utilities.Array_Join<long>(",", idProfiles_search_in),
 					text__small_search_in, 
 					IDLanguage_search_in, 
 					isAND_notOR_search_in,

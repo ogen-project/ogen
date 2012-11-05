@@ -18,12 +18,12 @@ namespace OGen.Libraries.DataLayer.SQLServer {
 	using System;
 	using System.Data;
 
-	public sealed class DBUtils_SQLServer : DBUtils {
-		#region public override DBUtils_convert Convert { get; }
-		private static DBUtils_convert_SQLServer convert__;
+	public sealed class DBUtilities_SQLServer : DBUtilities {
+		#region public override DBUtilities_convert Convert { get; }
+		private static DBUtilities_convert_SQLServer convert__;
 		private static object convert__locker = new object();
 
-		public override DBUtils_convert Convert {
+		public override DBUtilities_convert Convert {
 			get {
 
 				// check before lock
@@ -36,7 +36,7 @@ namespace OGen.Libraries.DataLayer.SQLServer {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							convert__ = new DBUtils_convert_SQLServer();
+							convert__ = new DBUtilities_convert_SQLServer();
 						}
 					}
 				}
@@ -45,11 +45,11 @@ namespace OGen.Libraries.DataLayer.SQLServer {
 			}
 		}
 		#endregion
-		#region public override DBUtils_connectionString ConnectionString { get; }
-		private static DBUtils_connectionString_SQLServer connectionstring__;
+		#region public override DBUtilities_connectionString ConnectionString { get; }
+		private static DBUtilities_connectionString_SQLServer connectionstring__;
 		private static object connectionstring__locker = new object();
 
-		public override DBUtils_connectionString ConnectionString {
+		public override DBUtilities_connectionString ConnectionString {
 			get {
 
 				// check before lock
@@ -62,7 +62,7 @@ namespace OGen.Libraries.DataLayer.SQLServer {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							connectionstring__ = new DBUtils_connectionString_SQLServer();
+							connectionstring__ = new DBUtilities_connectionString_SQLServer();
 						}
 					}
 				}
@@ -72,7 +72,7 @@ namespace OGen.Libraries.DataLayer.SQLServer {
 		}
 		#endregion
 	}
-	public sealed class DBUtils_convert_SQLServer : DBUtils_convert {
+	public sealed class DBUtilities_convert_SQLServer : DBUtilities_convert {
 		#region public override string object2SQLobject(...);
 		public override string object2SQLobject(
 			object object_in
@@ -261,7 +261,7 @@ namespace OGen.Libraries.DataLayer.SQLServer {
 		}
 		#endregion
 	}
-	public sealed class DBUtils_connectionString_SQLServer : DBUtils_connectionString {
+	public sealed class DBUtilities_connectionString_SQLServer : DBUtilities_connectionString {
 		#region public override string ParseParameter(...);
 		public override string ParseParameter(
 			string connectionstring_in, 
@@ -269,20 +269,20 @@ namespace OGen.Libraries.DataLayer.SQLServer {
 		) {
 			switch (parameter_in) {
 				case eParameter.DBName:
-					return DBUtils_connectionString.ParseParameter(connectionstring_in, "database");
+					return DBUtilities_connectionString.ParseParameter(connectionstring_in, "database");
 
 				case eParameter.Server:
-					return DBUtils_connectionString.ParseParameter(connectionstring_in, "server");
+					return DBUtilities_connectionString.ParseParameter(connectionstring_in, "server");
 
 				case eParameter.User:
-					return DBUtils_connectionString.ParseParameter(connectionstring_in, "uid");
+					return DBUtilities_connectionString.ParseParameter(connectionstring_in, "uid");
 			}
 			throw new Exception(
 				string.Format(
 					System.Globalization.CultureInfo.CurrentCulture,
 					"{0}.{1}.ParseParameter(): - error parsing db connectionstring: 'SQLServer|{2}'",
-					typeof(DBUtils_connectionString_SQLServer).Namespace,
-					typeof(DBUtils_connectionString_SQLServer).Name,
+					typeof(DBUtilities_connectionString_SQLServer).Namespace,
+					typeof(DBUtilities_connectionString_SQLServer).Name,
 #if DEBUG
 					connectionstring_in
 #else

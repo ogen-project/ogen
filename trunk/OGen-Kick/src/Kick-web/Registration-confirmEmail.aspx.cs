@@ -32,7 +32,7 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			this.LBL_Error.Text = "";
 
 			int[] _errors;
-			if (utils.User.LogOn_throughLink(
+			if (Utilities.User.LogOn_throughLink(
 				out _errors
 			)) {
 				this.LBL_Error.Text += "- Email updated successfully!";

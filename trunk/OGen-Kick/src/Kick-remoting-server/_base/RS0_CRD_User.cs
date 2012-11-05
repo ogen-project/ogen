@@ -37,7 +37,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 		) {
 			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_User.insObject_CreateUser(
 				sessionGuid_in, 
-				(utils.ResetClientIP)
+				(Utilities.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				login_in, 

@@ -70,8 +70,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				&&
 				(
 					(_profile = BusinessInstances.NWS_Profile.InstanceClient.getObject(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						this.IDProfile,
 						out _errors
 					))
@@ -85,8 +85,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				_profile.Name = this.TXT_Name.Text;
 
 				BusinessInstances.NWS_Profile.InstanceClient.updObject(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					_profile, 
 					out _errors
 				);
@@ -96,10 +96,10 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				_profile.Name = this.TXT_Name.Text;
 				_profile.Approved_date_isNull = true;
 				_profile.IFUser__Approved_isNull = true;
-				_profile.IDApplication = utils.IDApplication;
+				_profile.IDApplication = Utilities.IDApplication;
 				BusinessInstances.NWS_Profile.InstanceClient.insObject(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					_profile,
 					out _errors
 				);
@@ -123,8 +123,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				&&
 				(
 					(_profile = BusinessInstances.NWS_Profile.InstanceClient.getObject(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						this.IDProfile,
 						out _errors
 					))

@@ -5,8 +5,8 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <OutputType>Library</OutputType>
-    <RootNamespace>OGen.XSD.lib.templates</RootNamespace>
-    <AssemblyName>OGen.XSD.lib.templates-2.0</AssemblyName>
+    <RootNamespace>OGen.XSD.Libraries.Templates</RootNamespace>
+    <AssemblyName>OGen.XSD.Libraries.Templates-2.0</AssemblyName>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
     <NoStdLib>False</NoStdLib>
     <WarningLevel>4</WarningLevel>
@@ -93,25 +93,15 @@
     <None Include="LICENSE.MIT.txt" />
     <None Include="LICENSE.txt" />
     <None Include="templates.config.xml" />
-    <None Include="XS-XS0_SomeClassCollection.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </None>
-    <None Include="XS-XS0_SomeEnumeration.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </None>
+    <None Include="XS-XS0_SomeClassCollection.cs.aspx" />
+    <None Include="XS-XS0_SomeEnumeration.cs.aspx" />
     <None Include="XS-XS0_SomeClass.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </None>
     <None Include="Web.config" />
-    <None Include="XS-XS0__BaseClassCollection.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </None>
-    <None Include="XS-XS_SomeClass.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </None>
-    <None Include="XS-XS__BaseClassCollection.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </None>
+    <None Include="XS-XS0__BaseClassCollection.cs.aspx" />
+    <None Include="XS-XS_SomeClass.cs.aspx" />
+    <None Include="XS-XS__BaseClassCollection.cs.aspx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\OGen\OGen_collections\OGen_collections-10.csproj">
@@ -132,24 +122,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ResetCache.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
+    <Content Include="ResetCache.aspx" />
     <Content Include="XS-XS0__BaseClass.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="XS-XS0__RootMetadata.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="XS-XS_SomeClassCollection.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="XS-XS__BaseClass.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="XS-XS__RootMetadata.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
+    <Content Include="XS-XS_SomeClassCollection.cs.aspx" />
+    <Content Include="XS-XS__BaseClass.cs.aspx" />
+    <Content Include="XS-XS__RootMetadata.cs.aspx" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

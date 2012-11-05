@@ -224,13 +224,13 @@
     <Content Include="PRJ-DO-Someapp-datalayer-DO0_Sometable.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="PRJ-DO-Someapp-datalayer-DO0__utils.cs.aspx">
+    <Content Include="PRJ-DO-Someapp-datalayer-DO0__Utilities.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="PRJ-DO-Someapp-datalayer-DO_Sometable.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="PRJ-DO-Someapp-datalayer-DO__utils.cs.aspx">
+    <Content Include="PRJ-DO-Someapp-datalayer-DO__Utilities.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="PRJ-DO-Someapp-datalayer-structures-9.csproj.aspx">

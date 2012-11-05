@@ -41,7 +41,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Permission.getRecord_all(
 				sessionGuid_in, 
-				(utils.ResetClientIP)
+				(Utilities.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				allProfiles_notJustApplication_in, 

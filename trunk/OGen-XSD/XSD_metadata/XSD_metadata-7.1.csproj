@@ -306,7 +306,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "schema\utils.cs"
+                    RelPath = "schema\Utilities.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -496,7 +496,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "xsdMetadatas\utils.cs"
+                    RelPath = "xsdMetadatas\Utilities.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

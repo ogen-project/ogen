@@ -2,7 +2,7 @@
 /*
 
 OGen
-Copyright (C) 2002 Francisco Monteiro
+Copyright (c) 2002 Francisco Monteiro
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -12,19 +12,30 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
+using System;
 
-namespace OGen.Libraries.Collections {
-	using System;
-
-#if NET_1_1
-	public class utils { private utils() {}
-#else
-	public static class utils {
+using OGen.Libraries.DataLayer;
+#if PostgreSQL
+using OGen.Libraries.DataLayer.PostgreSQL;
 #endif
 
-		//public class convert { private convert() {}
-		//
-		//	// ...
-		//}
+using OGen.NTier.Libraries.DataLayer;
+
+namespace OGen.NTier.Kick.Libraries.DataLayer {
+	/// <summary>
+	/// Utilities DataObject which works as a repository of useful Properties and Methods for DataObjects at OGen.NTier.Kick.Libraries.DataLayer namespace.
+	/// </summary>
+	public sealed 
+#if USE_PARTIAL_CLASSES && !NET_1_1
+		partial 
+#endif
+		class DO__Utilities 
+#if !USE_PARTIAL_CLASSES || NET_1_1
+		: DO0__Utilities
+#endif
+	{
+
+		// add your code here!
+
 	}
 }

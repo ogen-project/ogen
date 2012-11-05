@@ -28,13 +28,13 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 	using OGen.NTier.Libraries.DataLayer;
 
 	/// <summary>
-	/// utils DataObject which works as a repository of useful Properties and Methods for DataObjects at OGen.NTier.Kick.Libraries.DataLayer namespace.
+	/// Utilities DataObject which works as a repository of useful Properties and Methods for DataObjects at OGen.NTier.Kick.Libraries.DataLayer namespace.
 	/// </summary>
 	public 
 #if USE_PARTIAL_CLASSES && !NET_1_1
-		partial class DO__utils 
+		partial class DO__Utilities 
 #else
-		abstract class DO0__utils 
+		abstract class DO0__Utilities 
 #endif
 	{
 

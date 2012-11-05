@@ -19,7 +19,7 @@ namespace OGen.Libraries.Mail {
 	using System.Net.Mail;
 	using System.Text.RegularExpressions;
 
-	public static class utils {
+	public static class Utilities {
 
 		#region	public static bool isEmail_valid(...);
 		#region private static Regex regex { get; }

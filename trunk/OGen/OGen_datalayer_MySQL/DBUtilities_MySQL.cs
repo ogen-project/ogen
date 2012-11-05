@@ -17,12 +17,12 @@ using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace OGen.lib.datalayer.MySQL {
-	public sealed class DBUtils_MySQL : DBUtils {
-		#region public override DBUtils_convert Convert { get; }
-		private static DBUtils_convert_MySQL convert__;
+	public sealed class DBUtilities_MySQL : DBUtilities {
+		#region public override DBUtilities_convert Convert { get; }
+		private static DBUtilities_convert_MySQL convert__;
 		private static object convert__locker = new object();
 
-		public override DBUtils_convert Convert {
+		public override DBUtilities_convert Convert {
 			get {
 
 				// check before lock
@@ -33,7 +33,7 @@ namespace OGen.lib.datalayer.MySQL {
 						// double check, thread safer!
 						if (convert__ == null) {
 
-							convert__ = new DBUtils_convert_MySQL();
+							convert__ = new DBUtilities_convert_MySQL();
 						}
 					}
 				}
@@ -42,11 +42,11 @@ namespace OGen.lib.datalayer.MySQL {
 			}
 		}
 		#endregion
-		#region public override DBUtils_connectionString ConnectionString { get; }
-		private static DBUtils_connectionString_MySQL connectionstring__;
+		#region public override DBUtilities_connectionString ConnectionString { get; }
+		private static DBUtilities_connectionString_MySQL connectionstring__;
 		private static object connectionstring__locker = new object();
 
-		public override DBUtils_connectionString ConnectionString {
+		public override DBUtilities_connectionString ConnectionString {
 			get {
 
 				// check before lock
@@ -57,7 +57,7 @@ namespace OGen.lib.datalayer.MySQL {
 						// double check, thread safer!
 						if (connectionstring__ == null) {
 
-							connectionstring__ = new DBUtils_connectionString_MySQL();
+							connectionstring__ = new DBUtilities_connectionString_MySQL();
 						}
 					}
 				}
@@ -67,7 +67,7 @@ namespace OGen.lib.datalayer.MySQL {
 		}
 		#endregion
 	}
-	public sealed class DBUtils_convert_MySQL : DBUtils_convert {
+	public sealed class DBUtilities_convert_MySQL : DBUtilities_convert {
 		#region public override string object2SQLobject(...);
 		public override string object2SQLobject(
 			object object_in
@@ -212,7 +212,7 @@ namespace OGen.lib.datalayer.MySQL {
 		}
 		#endregion
 	}
-	public sealed class DBUtils_connectionString_MySQL : DBUtils_connectionString {
+	public sealed class DBUtilities_connectionString_MySQL : DBUtilities_connectionString {
 		#region public override string ParseParameter(...);
 		public override string ParseParameter(
 			string connectionstring_in, 
@@ -231,8 +231,8 @@ namespace OGen.lib.datalayer.MySQL {
 			throw new Exception(
 				string.Format(
 					"{0}.{1}.ParseParameter(): - error parsing db connectionstring: 'MySQL|{2}'",
-					typeof(DBUtils_connectionString_MySQL).Namespace,
-					typeof(DBUtils_connectionString_MySQL).Name,
+					typeof(DBUtilities_connectionString_MySQL).Namespace,
+					typeof(DBUtilities_connectionString_MySQL).Name,
 #if DEBUG
 					connectionstring_in
 #else

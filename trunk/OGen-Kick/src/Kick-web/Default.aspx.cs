@@ -59,9 +59,9 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 
 			//    _messages
 			//        = FOR_Forum.InstanceClient.getRecord_Forum(
-			//            utils.User.Credentials_ENC,
+			//            Utilities.User.Credentials_ENC,
 
-			//            utils.IDApplication,
+			//            Utilities.IDApplication,
 			//            out _idmessage__forum,
 
 			//            1,
@@ -89,8 +89,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 
 			SO_vNWS_Content[] _news
 				= BusinessInstances.NWS_News.InstanceClient.getRecord_generic(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					-1L,
 					0L, // 0: Approved; -1: NOT approved; < -1: ignore; >0: ...
 					DateTime.MinValue,
@@ -98,12 +98,12 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 					new long[] { },
 					new long[] { },
 					new long[] { },
-					(utils.News_Highlight_for_Default <= 0) ? new long[] { } : new long[] { utils.News_Highlight_for_Default },
+					(Utilities.News_Highlight_for_Default <= 0) ? new long[] { } : new long[] { Utilities.News_Highlight_for_Default },
 
 new long[] { }, // ToDos: here!
 
 					"",
-					utils.IDLanguage__default,
+					Utilities.IDLanguage__default,
 					true,
 					0, 0, 0, out _count, 
 					out _errors
@@ -127,8 +127,8 @@ new long[] { }, // ToDos: here!
 				);
 
 				foreach (SO_vNWS_Content _content in _news) {
-					_content.summary = OGen.Libraries.PresentationLayer.WebForms.utils.Replace_RN_BR(_content.summary);
-					_content.Content = OGen.Libraries.PresentationLayer.WebForms.utils.Replace_RN_BR(_content.Content);
+					_content.summary = OGen.Libraries.PresentationLayer.WebForms.Utilities.Replace_RN_BR(_content.summary);
+					_content.Content = OGen.Libraries.PresentationLayer.WebForms.Utilities.Replace_RN_BR(_content.Content);
 				}
 
 				this.REP_News.DataSource = _news;
@@ -138,9 +138,9 @@ new long[] { }, // ToDos: here!
 				#region SO_vNWS_Tag[] _tags = ...;
 				SO_vNWS_Tag[] _tags
 					= BusinessInstances.NWS_Tag.InstanceClient.getRecord_Approved_byLang(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
-						utils.IDLanguage__default,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
+						Utilities.IDLanguage__default,
 						0, 0, 0, out _count, 
 						out _errors
 					);
@@ -167,8 +167,8 @@ new long[] { }, // ToDos: here!
 				#region SO_vNWS_Source[] _sources = ...;
 				SO_vNWS_Source[] _sources
 					= BusinessInstances.NWS_Source.InstanceClient.getRecord_Approved(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						0, 0, 0, out _count, 
 						out _errors
 					);
@@ -186,8 +186,8 @@ new long[] { }, // ToDos: here!
 					#region _rep_news_tags.DataSource = ...; _rep_news_tags.DataBind();
 					SO_NWS_ContentTag[] _content_tags
 						= BusinessInstances.NWS_Tag.InstanceClient.getRecord_byContent(
-							utils.User.SessionGuid,
-							utils.ClientIPAddress,
+							Utilities.User.SessionGuid,
+							Utilities.ClientIPAddress,
 							_news[n].IDContent,
 							0, 0, 0, out _count, 
 							out _errors
@@ -220,8 +220,8 @@ new long[] { }, // ToDos: here!
 					#region _rep_news_sources.DataSource = ...; _rep_news_sources.DataBind();
 					SO_NWS_ContentSource[] _content_sources
 						= BusinessInstances.NWS_Source.InstanceClient.getRecord_byContent(
-							utils.User.SessionGuid,
-							utils.ClientIPAddress,
+							Utilities.User.SessionGuid,
+							Utilities.ClientIPAddress,
 							_news[n].IDContent,
 							0, 0, 0, out _count, 
 							out _errors
@@ -256,10 +256,10 @@ new long[] { }, // ToDos: here!
 					SO_vNWS_Attachment _attachment;
 					SO_vNWS_Attachment[] _attachments
 						= BusinessInstances.NWS_Attachment.InstanceClient.getRecord_byContent_andLanguage(
-							utils.User.SessionGuid,
-							utils.ClientIPAddress,
+							Utilities.User.SessionGuid,
+							Utilities.ClientIPAddress,
 							_news[n].IDContent,
-							utils.IDLanguage__default,
+							Utilities.IDLanguage__default,
 							0, 0, 0, out _count, 
 							out _errors
 						);

@@ -46,8 +46,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			);
 			int[] _errors;
 			BusinessInstances.NWS_Tag.InstanceClient.delObject(
-				utils.User.SessionGuid,
-				utils.ClientIPAddress,
+				Utilities.User.SessionGuid,
+				Utilities.ClientIPAddress,
 				_idTag,
 				out _errors
 			);
@@ -65,8 +65,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			);
 			int[] _errors;
 			BusinessInstances.NWS_Tag.InstanceClient.updObject_Approve(
-				utils.User.SessionGuid,
-				utils.ClientIPAddress,
+				Utilities.User.SessionGuid,
+				Utilities.ClientIPAddress,
 				_idTag,
 				out _errors
 			);
@@ -82,9 +82,9 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			long _count;
 			SO_vNWS_Tag[] _tags
 				= BusinessInstances.NWS_Tag.InstanceClient.getRecord_byLang(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
-					utils.IDLanguage__default,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
+					Utilities.IDLanguage__default,
 					0, 0, 0, out _count, 
 					out _errors
 				);

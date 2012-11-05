@@ -50,7 +50,7 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			}
 			#endregion
 			if (!_foundErrors) {
-				if (utils.User.LogOn_throughLink_andChangePassword(
+				if (Utilities.User.LogOn_throughLink_andChangePassword(
 					this.TXT_PasswordNew.Text,
 					out _errors
 				)) {

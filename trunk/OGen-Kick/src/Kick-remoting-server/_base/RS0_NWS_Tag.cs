@@ -37,7 +37,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 		) {
 			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Tag.delObject(
 				sessionGuid_in, 
-				(utils.ResetClientIP)
+				(Utilities.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				idTag_in, 
@@ -54,7 +54,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Tag.getObject(
 				sessionGuid_in, 
-				(utils.ResetClientIP)
+				(Utilities.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				idTag_in, 
@@ -72,7 +72,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Tag.getObject_byTag_andLanguage(
 				sessionGuid_in, 
-				(utils.ResetClientIP)
+				(Utilities.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				idTag_in, 
@@ -94,7 +94,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Tag.getRecord_Approved_byLang(
 				sessionGuid_in, 
-				(utils.ResetClientIP)
+				(Utilities.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				idLanguage_search_in, 
@@ -119,7 +119,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Tag.getRecord_byContent(
 				sessionGuid_in, 
-				(utils.ResetClientIP)
+				(Utilities.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				idContent_search_in, 
@@ -144,7 +144,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Tag.getRecord_byLang(
 				sessionGuid_in, 
-				(utils.ResetClientIP)
+				(Utilities.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				idLanguage_search_in, 
@@ -169,7 +169,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Tag.getRecord_byTag(
 				sessionGuid_in, 
-				(utils.ResetClientIP)
+				(Utilities.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				idTag_in, 
@@ -192,7 +192,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Tag.insObject(
 				sessionGuid_in, 
-				(utils.ResetClientIP)
+				(Utilities.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				tag_in, 
@@ -212,7 +212,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 		) {
 			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Tag.updObject(
 				sessionGuid_in, 
-				(utils.ResetClientIP)
+				(Utilities.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				tag_in, 
@@ -230,7 +230,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 		) {
 			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Tag.updObject_Approve(
 				sessionGuid_in, 
-				(utils.ResetClientIP)
+				(Utilities.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				idTag_in, 

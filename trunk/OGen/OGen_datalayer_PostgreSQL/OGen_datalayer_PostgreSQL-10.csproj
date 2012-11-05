@@ -93,7 +93,7 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="DBConnection_PostgreSQL.cs" />
-    <Compile Include="DBUtils_PostgreSQL.cs" />
+    <Compile Include="DBUtilities_PostgreSQL.cs" />
     <None Include="COPYING.MIT" />
     <None Include="LICENSE.MIT.txt" />
     <None Include="LICENSE.txt" />

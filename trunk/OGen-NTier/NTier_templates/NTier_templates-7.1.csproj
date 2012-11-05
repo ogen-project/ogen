@@ -473,7 +473,7 @@
                     BuildAction = "Content"
                 />
                 <File
-                    RelPath = "DO-DO__utils.cs.aspx"
+                    RelPath = "DO-DO__Utilities.cs.aspx"
                     BuildAction = "Content"
                 />
                 <File
@@ -481,7 +481,7 @@
                     BuildAction = "Content"
                 />
                 <File
-                    RelPath = "DO-DO0__utils.cs.aspx"
+                    RelPath = "DO-DO0__Utilities.cs.aspx"
                     BuildAction = "Content"
                 />
                 <File
@@ -533,7 +533,7 @@
                     BuildAction = "Content"
                 />
                 <File
-                    RelPath = "DO-UT-UT0__utils.cs.aspx"
+                    RelPath = "DO-UT-UT0__Utilities.cs.aspx"
                     BuildAction = "Content"
                 />
                 <File

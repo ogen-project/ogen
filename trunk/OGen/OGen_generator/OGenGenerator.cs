@@ -374,7 +374,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 							ParserXSLT.Parse(
 //xmlmetadatafile_, 
 this.metafiles_[
-	utils.MetaFile_find(
+	Utilities.MetaFile_find(
 		this.metafiles_, 
 		message_in.Split('.')[1]
 	)
@@ -428,7 +428,7 @@ if (template_in.Outputs.OutputCollection[o].Type == XS_OutputEnumeration.File) {
 								switch (template_in.ParserType) {
 									case XS_ParserEnumeration.aspx:
 									case XS_ParserEnumeration.none: {
-										_parsedOutput = OGen.Libraries.PresentationLayer.WebForms.utils.ReadURL_ToString(
+										_parsedOutput = OGen.Libraries.PresentationLayer.WebForms.Utilities.ReadURL_ToString(
 											this.xmltemplatesdir_ + "/" + template_in.Name, 
 											_args
 										);
@@ -725,7 +725,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 					&&
 					!string.IsNullOrEmpty(this.templates_.TemplateCollection[i].TemplateType)
 					&&
-					!OGen.Libraries.utils.StringArrayContains(
+					!OGen.Libraries.Utilities.StringArrayContains(
 						templateTypes_in,
 						this.templates_.TemplateCollection[i].TemplateType
 					)
@@ -845,7 +845,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 							bool _valuehasbeenfound_out = false;
 							this.metadata_.IterateThrough_fromRoot(
 								_template.IterationType,
-								new utils.IterationFoundDelegate(
+								new Utilities.IterationFoundDelegate(
 									delegate(string message_in) {
 										this.notifyme(
 											message_in,

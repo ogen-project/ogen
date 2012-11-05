@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances.utils {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances.Utilities {
 	using System;
 
 	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances;

@@ -106,7 +106,7 @@ namespace OGen.Libraries.Metadata {
 		#endregion
 
 		public string Read_fromRoot(string what_in) {
-			return OGen.Libraries.Generator.utils.ReflectThrough(
+			return OGen.Libraries.Generator.Utilities.ReflectThrough(
 				this, 
 				ROOT_METADATA, 
 				null, 
@@ -119,10 +119,10 @@ namespace OGen.Libraries.Metadata {
 
 		public void IterateThrough_fromRoot(
 			string iteration_in,
-			OGen.Libraries.Generator.utils.IterationFoundDelegate iteration_found_in,
+			OGen.Libraries.Generator.Utilities.IterationFoundDelegate iteration_found_in,
 			ref bool valueHasBeenFound_out
 		) {
-			OGen.Libraries.Generator.utils.ReflectThrough(
+			OGen.Libraries.Generator.Utilities.ReflectThrough(
 				this,
 				ROOT_METADATA,
 				iteration_found_in,

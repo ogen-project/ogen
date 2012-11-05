@@ -21,9 +21,9 @@ namespace OGen.Libraries.DataLayer {
 	/// <summary>
 	/// Provides a number of classes with static auxiliar methods for the OGen.Libraries.DataLayer namespace.
 	/// </summary>
-	public abstract class DBUtils {
-		public abstract DBUtils_convert Convert { get; }
-		public abstract DBUtils_connectionString ConnectionString { get; }
+	public abstract class DBUtilities {
+		public abstract DBUtilities_convert Convert { get; }
+		public abstract DBUtilities_connectionString ConnectionString { get; }
 		#region public static bool isBool(...);
 		/// <summary>
 		/// Determines if a specific DbType is a valid Boolean type.
@@ -149,7 +149,7 @@ namespace OGen.Libraries.DataLayer {
 	/// <summary>
 	/// Provides a number of static methods to play conversions on: - .Net System Types; - System.DbType; - NpgsqlTypes.NpgsqlDbType; - System.Data.SqlTypes.
 	/// </summary>
-	public abstract class DBUtils_convert {
+	public abstract class DBUtilities_convert {
 		#region public abstract string object2SQLobject(...);
 		/// <summary>
 		/// Converts any .net framework object value to a string that can be used to buil an SQL Query.
@@ -446,7 +446,7 @@ namespace OGen.Libraries.DataLayer {
 	/// <summary>
 	/// Provides means of manipulating ConnectionsStrings.
 	/// </summary>
-	public abstract class DBUtils_connectionString {
+	public abstract class DBUtilities_connectionString {
 		#region public abstract string ParseParameter(...);
 		public enum eParameter {
 			Server = 0, 
@@ -474,8 +474,8 @@ namespace OGen.Libraries.DataLayer {
 					string.Format(
 						System.Globalization.CultureInfo.CurrentCulture,
 						"{0}.{1}.ParseParameter(): - error parsing db connectionstring: '{2}'",
-						typeof(DBUtils_connectionString).Namespace,
-						typeof(DBUtils_connectionString).Name,
+						typeof(DBUtilities_connectionString).Namespace,
+						typeof(DBUtilities_connectionString).Name,
 						connectionstring_in
 					)
 				);

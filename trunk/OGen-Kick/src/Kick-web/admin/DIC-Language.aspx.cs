@@ -68,8 +68,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 
 			if (this.IDLanguage > 0) {
 				BusinessInstances.DIC_Dic.InstanceClient.updLanguage(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					this.IDLanguage,
 					this.DIC_LanguageNameIn.Texts, 
 					out _errors
@@ -86,15 +86,15 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				);
 
 				BusinessInstances.DIC_Dic.InstanceClient.insLanguage(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					_texts_withnew,
 					this.DIC_LanguagesInNewLanguage.Texts,
 					out _errors
 				);
 			}
 			if (!this.Master__base.Error_add(_errors)) {
-				utils.Dic.Languages_reset();
+				Utilities.Dic.Languages_reset();
 
 				Response.Redirect("~/admin/DIC-Language-list.aspx");
 			}
@@ -110,8 +110,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 
 			if (this.IDLanguage > 0) {
 				_language = BusinessInstances.DIC_Dic.InstanceClient.getRecord_Language(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					this.IDLanguage,
 					0, 0, 0, out _count, 
 					out _errors

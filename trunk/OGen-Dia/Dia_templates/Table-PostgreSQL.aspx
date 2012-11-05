@@ -14,19 +14,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <%@ import namespace="OGen.Dia.Libraries.Metadata" %>
 <%@ import namespace="OGen.Dia.Libraries.Metadata.Diagram" %><%
 #region arguments...
-string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
+string _arg_MetadataFilePath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilePath"]);
 string _arg_tableId = System.Web.HttpUtility.UrlDecode(Request.QueryString["tableId"]);
 #endregion
 
 #region varaux...
 XS__diagram _aux_diagram = XS__diagram.Load_fromFile(
-	_arg_MetadataFilepath
+	_arg_MetadataFilePath
 )[0];
 XS_objectType _aux_table = _aux_diagram.Table_search(_arg_tableId);
 
 DBTableField[] _tablefields = _aux_table.TableFields();
                                             	
-//string _aux_path = Path.GetDirectoryName(_arg_MetadataFilepath);
+//string _aux_path = Path.GetDirectoryName(_arg_MetadataFilePath);
 //string _aux_path_directoryname = Path.GetFileName(_aux_path);
 #endregion
 //-----------------------------------------------------------------------------------------

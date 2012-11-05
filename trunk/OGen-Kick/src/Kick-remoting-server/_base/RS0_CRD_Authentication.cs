@@ -38,7 +38,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 		) {
 			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Authentication.ChangePassword(
 				sessionGuid_in, 
-				(utils.ResetClientIP)
+				(Utilities.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				password_old_in, 
@@ -55,7 +55,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Authentication.CheckCredentials(
 				sessionGuid_in, 
-				(utils.ResetClientIP)
+				(Utilities.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				out errors_out
@@ -77,7 +77,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 				login_in, 
 				password_in, 
 				sessionGuid_in, 
-				(utils.ResetClientIP)
+				(Utilities.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
 					: ip_forLogPurposes_in, 
 				idApplication_in, 

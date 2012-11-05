@@ -46,8 +46,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			);
 			int[] _errors;
 			BusinessInstances.CRD_Profile.InstanceClient.delObject(
-				utils.User.SessionGuid,
-				utils.ClientIPAddress,
+				Utilities.User.SessionGuid,
+				Utilities.ClientIPAddress,
 				_idProfile,
 				out _errors
 			);
@@ -63,8 +63,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			long _count;
 			SO_CRD_Profile[] _authors
 				= BusinessInstances.CRD_Profile.InstanceClient.getRecord_all(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					false,
 					0, 0, 0, out _count, 
 					out _errors

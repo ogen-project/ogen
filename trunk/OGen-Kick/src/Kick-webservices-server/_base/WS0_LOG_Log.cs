@@ -52,7 +52,7 @@ namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.getRecord_generic(
 				sessionGuid_in, 
-				(utils.ResetClientIP) 
+				(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				IDLogtype_search_in, 
@@ -86,7 +86,7 @@ namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 		) {
 			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.Log(
 				sessionGuid_in, 
-				(utils.ResetClientIP) 
+				(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				logtype_in, 
@@ -108,7 +108,7 @@ namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 		) {
 			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.MarkRead(
 				sessionGuid_in, 
-				(utils.ResetClientIP) 
+				(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				idLog_in, 

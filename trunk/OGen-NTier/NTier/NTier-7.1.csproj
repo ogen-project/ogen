@@ -194,7 +194,7 @@
                     BuildAction = "Content"
                 />
                 <File
-                    RelPath = "_utils\eInsUpdDel.cs"
+                    RelPath = "_Utilities\eInsUpdDel.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

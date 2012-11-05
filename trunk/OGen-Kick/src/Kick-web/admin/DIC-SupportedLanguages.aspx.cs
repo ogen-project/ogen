@@ -37,9 +37,9 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			if (!this.Page.IsPostBack) {
 				SO_vDIC_Language[] _languages
 					= BusinessInstances.DIC_Dic.InstanceClient.getRecord_byLanguage(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
-						utils.IDLanguage__default,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
+						Utilities.IDLanguage__default,
 						0, 0, 0, out _count, 
 						out _errors
 					);
@@ -86,13 +86,13 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 		protected void BTN_Save_Click(object sender, EventArgs e) {
 			int[] _errors;
 			BusinessInstances.DIC_Dic.InstanceClient.setSupportedLanguages(
-				utils.User.SessionGuid,
-				utils.ClientIPAddress,
+				Utilities.User.SessionGuid,
+				Utilities.ClientIPAddress,
 				this.CBL_Languages.Kick.SelectedValue__get<int>(), 
 				out _errors
 			);
 			if (!this.Master__base.Error_add(_errors)) {
-				utils.Dic.Languages_reset();
+				Utilities.Dic.Languages_reset();
 				this.Bind();
 			}
 		}
@@ -105,8 +105,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 
 			SO_vDIC_ApplicationLanguage[] _languages
 				= BusinessInstances.DIC_Dic.InstanceClient.getRecord_byApplication(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					0, 0, 0, out _count, 
 					out _errors
 				);

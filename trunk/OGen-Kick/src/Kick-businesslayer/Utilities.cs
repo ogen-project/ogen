@@ -1,4 +1,4 @@
-#region Copyright (C) 2002 Francisco Monteiro
+﻿#region Copyright (C) 2002 Francisco Monteiro
 /*
 
 OGen
@@ -13,29 +13,25 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 using System;
+using System.Collections.Generic;
+using System.Text;
 
-using OGen.Libraries.DataLayer;
-#if PostgreSQL
-using OGen.Libraries.DataLayer.PostgreSQL;
-#endif
+namespace OGen.NTier.Kick.Libraries.BusinessLayer {
+	public static class Utilities {
 
-using OGen.NTier.Libraries.DataLayer;
+		#region public static string RandomText(...);
+		public static string RandomText(
+			int length_in
+		) {
+			StringBuilder _sb = new StringBuilder(length_in);
 
-namespace OGen.NTier.Kick.Libraries.DataLayer {
-	/// <summary>
-	/// utils DataObject which works as a repository of useful Properties and Methods for DataObjects at OGen.NTier.Kick.Libraries.DataLayer namespace.
-	/// </summary>
-	public sealed 
-#if USE_PARTIAL_CLASSES && !NET_1_1
-		partial 
-#endif
-		class DO__utils 
-#if !USE_PARTIAL_CLASSES || NET_1_1
-		: DO0__utils
-#endif
-	{
+			Random _rnd = new Random();
+			for (int i = 0; i < length_in; i++) {
+				_sb.Append((char)_rnd.Next(256));
+			}
 
-		// add your code here!
-
+			return _sb.ToString();
+		}
+		#endregion
 	}
 }

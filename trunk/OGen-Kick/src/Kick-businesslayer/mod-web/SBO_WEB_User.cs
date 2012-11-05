@@ -55,7 +55,7 @@ namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 
 			List<int> _errors = new List<int>();
 			#region check...
-			if (!OGen.Libraries.Mail.utils.isEmail_valid(email_in)) {
+			if (!OGen.Libraries.Mail.Utilities.isEmail_valid(email_in)) {
 				_errors.Add(ErrorType.authentication__invalid_email);
 
 				errors_out = _errors.ToArray();
@@ -148,7 +148,7 @@ namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 			}
 
 			if (
-				!OGen.Libraries.Mail.utils.isEmail_valid(Email_verify_in = Email_verify_in.Trim())
+				!OGen.Libraries.Mail.Utilities.isEmail_valid(Email_verify_in = Email_verify_in.Trim())
 			) {
 				_errorlist.Add(ErrorType.web__user__invalid_email);
 				errors_out = _errorlist.ToArray();
@@ -182,11 +182,11 @@ namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 			#endregion
 
 			Exception _exception = null;
-			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
-			DBConnection _con = DO__utils.DBConnection_createInstance(
-				DO__utils.DBServerType,
-				DO__utils.DBConnectionstring,
-				DO__utils.DBLogfile
+			#region DBConnection _con = DO__Utilities.DBConnection_createInstance(...);
+			DBConnection _con = DO__Utilities.DBConnection_createInstance(
+				DO__Utilities.DBServerType,
+				DO__Utilities.DBConnectionstring,
+				DO__Utilities.DBLogfile
 			);
 			#endregion
 			try {
@@ -217,7 +217,7 @@ namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 				if (!_constraintExist) {
 					#region MyMail.Send(Email_verify_in, ...);
 					try {
-						OGen.Libraries.Mail.utils.MailSend(
+						OGen.Libraries.Mail.Utilities.MailSend(
 							new System.Net.Mail.MailAddress[] {
 								new System.Net.Mail.MailAddress(
 									Email_verify_in, 
@@ -630,7 +630,7 @@ A equipa {2}
 		//    }
 
 		//    string _email 
-		//        = OGen.Libraries.Crypt.utils.Server.RSA_Server_private_Decrypt64(
+		//        = OGen.Libraries.Crypt.Utilities.Server.RSA_Server_private_Decrypt64(
 		//            email_check_in
 		//        );
 		//    if (
@@ -753,11 +753,11 @@ A equipa {2}
 			} else {
 				bool _commit = false;
 
-				#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
-				DBConnection _con = DO__utils.DBConnection_createInstance(
-					DO__utils.DBServerType,
-					DO__utils.DBConnectionstring,
-					DO__utils.DBLogfile
+				#region DBConnection _con = DO__Utilities.DBConnection_createInstance(...);
+				DBConnection _con = DO__Utilities.DBConnection_createInstance(
+					DO__Utilities.DBServerType,
+					DO__Utilities.DBConnectionstring,
+					DO__Utilities.DBLogfile
 				); 
 				#endregion
 				_exception = null;
@@ -1014,7 +1014,7 @@ A equipa {2}
 		////) {
 		////    int _iduser_out = -1;
 		////    string _email
-		////        = OGen.Libraries.Crypt.utils.Server.RSA_Server_private_Decrypt64(
+		////        = OGen.Libraries.Crypt.Utilities.Server.RSA_Server_private_Decrypt64(
 		////            email_in
 		////        );
 
@@ -1046,7 +1046,7 @@ A equipa {2}
 		) {
 			List<int> _errors = new List<int>();
 			#region check . . .
-			if (!OGen.Libraries.Mail.utils.isEmail_valid(Email_in = Email_in.Trim())) {
+			if (!OGen.Libraries.Mail.Utilities.isEmail_valid(Email_in = Email_in.Trim())) {
 				_errors.Add(ErrorType.web__user__invalid_email);
 				errors_out = _errors.ToArray();
 				return;
@@ -1081,8 +1081,8 @@ A equipa {2}
 			#endregion
 
 			try {
-				#region OGen.Libraries.Mail.utils.MailSend(...);
-				OGen.Libraries.Mail.utils.MailSend(
+				#region OGen.Libraries.Mail.Utilities.MailSend(...);
+				OGen.Libraries.Mail.Utilities.MailSend(
 					new System.Net.Mail.MailAddress[] {
 						new System.Net.Mail.MailAddress(
 							_user.Email, 
@@ -1139,7 +1139,7 @@ A equipa {2}",
 				if (string.IsNullOrEmpty(randompassword__)) {
 					randompassword__ = 
 						SimpleHash.ComputeHash(
-						utils.RandomText(20),
+						Utilities.RandomText(20),
 						SimpleHash.HashAlgotithm.SHA256,
 						null
 					);
@@ -1166,7 +1166,7 @@ A equipa {2}",
 			#region check . . . (trying to accumulate errors for user)
 			bool _hasErrors = false;
 
-			if (!OGen.Libraries.Mail.utils.isEmail_valid(email_in)) {
+			if (!OGen.Libraries.Mail.Utilities.isEmail_valid(email_in)) {
 				_errorlist.Add(ErrorType.web__user__invalid_email);
 				_hasErrors = true;
 			}
@@ -1220,11 +1220,11 @@ A equipa {2}",
 			#endregion
 
 			Exception _exception = null;
-			#region DBConnection _con = DO__utils.DBConnection_createInstance(...);
-			DBConnection _con = DO__utils.DBConnection_createInstance(
-				DO__utils.DBServerType,
-				DO__utils.DBConnectionstring,
-				DO__utils.DBLogfile
+			#region DBConnection _con = DO__Utilities.DBConnection_createInstance(...);
+			DBConnection _con = DO__Utilities.DBConnection_createInstance(
+				DO__Utilities.DBServerType,
+				DO__Utilities.DBConnectionstring,
+				DO__Utilities.DBLogfile
 			); 
 			#endregion
 			try {
@@ -1301,7 +1301,7 @@ A equipa {2}",
 // and multi language support must be implemented
 
 							#region MyMail.Send(email_in, ...);
-							OGen.Libraries.Mail.utils.MailSend(
+							OGen.Libraries.Mail.Utilities.MailSend(
 								new System.Net.Mail.MailAddress[] {
 									new System.Net.Mail.MailAddress(
 										email_in, 
@@ -1433,7 +1433,7 @@ A equipa {2}",
 		) {
 			try {
 				return System.Web.HttpUtility.UrlEncode(
-					OGen.Libraries.Crypt.utils.Server.RSA_Server_public_Encrypt64(
+					OGen.Libraries.Crypt.Utilities.Server.RSA_Server_public_Encrypt64(
 						string.Format(
 							System.Globalization.CultureInfo.CurrentCulture,
 							"{0}|{1}",
@@ -1484,7 +1484,7 @@ A equipa {2}",
 			Exception _exception = null;
 			try {
 				_message
-					= OGen.Libraries.Crypt.utils.Server.RSA_Server_private_Decrypt64(
+					= OGen.Libraries.Crypt.Utilities.Server.RSA_Server_private_Decrypt64(
 						enc_message_in
 					);
 			} catch (Exception _ex) {

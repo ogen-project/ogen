@@ -28,9 +28,9 @@ namespace OGen.NTier.Libraries.Metadata {
 	#endif
 		#if NET_1_1
 		public XS__RootMetadata (
-			string metadataFilepath_in
+			string metadataFilePath_in
 		) : base (
-			metadataFilepath_in
+			metadataFilePath_in
 		) {
 		}
 		#endif

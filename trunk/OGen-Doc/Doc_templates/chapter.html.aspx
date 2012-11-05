@@ -14,7 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <%@ import namespace="OGen.Doc.Libraries.Metadata" %>
 <%@ import namespace="OGen.Doc.Libraries.Metadata.Documentation" %><%
 #region arguments...
-string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
+string _arg_MetadataFilePath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilePath"]);
 string _arg_DocumentationName = System.Web.HttpUtility.UrlDecode(Request.QueryString["DocumentationName"]);
 string _arg_ChapterTitle = System.Web.HttpUtility.UrlDecode(Request.QueryString["ChapterTitle"]);
 bool _arg_all = (_arg_ChapterTitle == string.Empty);
@@ -22,7 +22,7 @@ bool _arg_all = (_arg_ChapterTitle == string.Empty);
 
 #region varaux...
 XS__RootMetadata _aux_rootmetadata = XS__RootMetadata.Load_fromFile(
-	_arg_MetadataFilepath,
+	_arg_MetadataFilePath,
 	true
 );
 XS__documentation _aux_doc
@@ -84,7 +84,7 @@ string _aux_chapter_link_next =
 		)
 		: "";
 	
-string _aux_path = Path.GetDirectoryName(_arg_MetadataFilepath);
+string _aux_path = Path.GetDirectoryName(_arg_MetadataFilePath);
 string _aux_path_directoryname = Path.GetFileName(_aux_path);
 
 bool _aux_showtitle = false;
@@ -288,7 +288,7 @@ for (int c = 0; c < _aux_doc.Chapters.ChapterCollection.Count; c++) {
 								case XS_SourceContentTypeEnumeration.tip:
 								case XS_SourceContentTypeEnumeration.warning:
 									_aux_attachment_source
-										= utils.ReadFile(
+										= Utilities.ReadFile(
 											_aux_path,
 											_aux_attachment.Source
 										);
@@ -309,7 +309,7 @@ for (int c = 0; c < _aux_doc.Chapters.ChapterCollection.Count; c++) {
 // </html> /////////////////////////////////////////////////////////////////////////////
 // <code> //////////////////////////////////////////////////////////////////////////////
 								case XS_SourceContentTypeEnumeration.code:
-									_aux_attachment_source = utils.ReadDocument_part(
+									_aux_attachment_source = Utilities.ReadDocument_part(
 										_aux_attachment_source
 									);%>
 									<table cellpadding="0" cellspacing="0" border="0" width="100%">

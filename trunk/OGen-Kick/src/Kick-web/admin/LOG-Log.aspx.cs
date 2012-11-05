@@ -39,7 +39,7 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				this.TXT_Date_end.Text = "";
 
 				//// TODO: consider removing commented code
-				//utils.KickListControl.Bind__PseudoEnum(
+				//Utilities.KickListControl.Bind__PseudoEnum(
 				//    this.DDL_Logtype.Kick, 
 				//    LogType.error.ToString(),
 				//    true,
@@ -59,7 +59,7 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				);
 
 				//// TODO: consider removing commented code
-				//utils.KickListControl.Bind__ErrorItem(
+				//Utilities.KickListControl.Bind__ErrorItem(
 				//    this.DDL_Errortype.Kick,
 				//    "",
 				//    true,
@@ -90,7 +90,7 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				//    "",
 				//    true,
 				//    BusinessInstances.Coworker.InstanceClient.getRecord_all(
-				//        utils.User.Credentials_ENC,
+				//        Utilities.User.Credentials_ENC,
 				//        0, 0,
 				//        out _error
 				//    )
@@ -135,8 +135,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			);
 			int[] _errors;
 			BusinessInstances.LOG_Log.InstanceClient.MarkRead(
-				utils.User.SessionGuid,
-				utils.ClientIPAddress,
+				Utilities.User.SessionGuid,
+				Utilities.ClientIPAddress,
 				_idlog,
 				out _errors
 			);
@@ -218,8 +218,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			long _count;
 			SO_LOG_Log[] _logs 
 				= BusinessInstances.LOG_Log.InstanceClient.getRecord_generic(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					(string.IsNullOrEmpty(this.DDL_Logtype.SelectedValue)) 
 						? -1
 						: int.Parse(
@@ -241,8 +241,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 					this.TXT_Date_end.Date,
 this.CBX_Read.Checked, 
 false, 
-					utils.IDApplication,
-					(utils.IDApplication <= 0),
+					Utilities.IDApplication,
+					(Utilities.IDApplication <= 0),
 
 					0, 0, 0, out _count, 
 

@@ -119,7 +119,7 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 				} else {
 					try {
 						_output[i] = (XS__metadataDB)new XmlSerializer(typeof(XS__metadataDB)).Deserialize(
-							OGen.Libraries.PresentationLayer.WebForms.utils.ReadURL(
+							OGen.Libraries.PresentationLayer.WebForms.Utilities.ReadURL(
 								filePath_in[i].ToString()
 							)
 						);
@@ -166,7 +166,7 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 		#endregion
 		#region public string Read_fromRoot(string what_in);
 		public string Read_fromRoot(string what_in) {
-			return OGen.Libraries.Generator.utils.ReflectThrough(
+			return OGen.Libraries.Generator.Utilities.ReflectThrough(
 				this, 
 				this.Root_MetadataDB, 
 				null, 
@@ -180,10 +180,10 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 		#region public void IterateThrough_fromRoot(...);
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
-			OGen.Libraries.Generator.utils.IterationFoundDelegate iteration_found_in,
+			OGen.Libraries.Generator.Utilities.IterationFoundDelegate iteration_found_in,
 			ref bool valueHasBeenFound_out
 		) {
-			OGen.Libraries.Generator.utils.ReflectThrough(
+			OGen.Libraries.Generator.Utilities.ReflectThrough(
 				this, 
 				this.Root_MetadataDB, 
 				iteration_found_in, 

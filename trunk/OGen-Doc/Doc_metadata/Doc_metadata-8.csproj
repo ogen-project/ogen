@@ -162,7 +162,7 @@
     <Compile Include="documentation\_base\XS0__documentationCollection.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="utils.cs">
+    <Compile Include="Utilities.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="XS__RootMetadata.cs" />

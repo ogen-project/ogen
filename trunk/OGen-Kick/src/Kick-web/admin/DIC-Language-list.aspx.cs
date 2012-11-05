@@ -47,8 +47,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 
 			int[] _errors;
 			BusinessInstances.DIC_Dic.InstanceClient.delLanguage(
-			    utils.User.SessionGuid,
-			    utils.ClientIPAddress,
+			    Utilities.User.SessionGuid,
+			    Utilities.ClientIPAddress,
 			    _idLanguage,
 			    out _errors
 			);
@@ -65,9 +65,9 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 
 			SO_vDIC_Language[] _languages
 				= BusinessInstances.DIC_Dic.InstanceClient.getRecord_byLanguage(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
-					utils.IDLanguage__default,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
+					Utilities.IDLanguage__default,
 					0, 0, 0, out _count, 
 					out _errors
 				);

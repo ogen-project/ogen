@@ -34,11 +34,11 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata {
 		#else
 		public XS__RootMetadata(
 		#endif
-			string metadataFilepath_in
+			string metadataFilePath_in
 		) {
-			string _metadataPath = System.IO.Path.GetDirectoryName(metadataFilepath_in);
+			string _metadataPath = System.IO.Path.GetDirectoryName(metadataFilePath_in);
 
-			this.metadatafiles_ = Metadatas.Load_fromFile(metadataFilepath_in);
+			this.metadatafiles_ = Metadatas.Load_fromFile(metadataFilePath_in);
 
 			#region int _total_xxx = ...;
 			int _total_spreadsheet = 0;
@@ -50,8 +50,8 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata {
 				}
 			}
 			#endregion
-			#region string[] _xxxFilepath = new string[_total_xxx];
-			string[] _spreadsheetFilepath = new string[
+			#region string[] _xxxFilePath = new string[_total_xxx];
+			string[] _spreadsheetFilePath = new string[
 				_total_spreadsheet
 			];
 			#endregion
@@ -60,7 +60,7 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata {
 			for (int f = 0; f < this.metadatafiles_.MetadataFiles.Count; f++) {
 				switch (this.metadatafiles_.MetadataFiles[f].XMLFileType) {
 					case XS__spreadsheet.SPREADSHEET:
-						_spreadsheetFilepath[_total_spreadsheet] = System.IO.Path.Combine(
+						_spreadsheetFilePath[_total_spreadsheet] = System.IO.Path.Combine(
 							_metadataPath,
 							this.metadatafiles_.MetadataFiles[f].XMLFilename
 						);
@@ -72,62 +72,62 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata {
 			this.spreadsheetcollection_ = new XS__spreadsheetCollection(
 				XS__spreadsheet.Load_fromFile(
 					(XS__RootMetadata)this, 
-					_spreadsheetFilepath
+					_spreadsheetFilePath
 				)
 			);
 		}
 		#endregion
 
-		#region public static Hashtable Metacache { get; }
-		private static Hashtable metacache_ = new Hashtable();
-		private static object metacache_locker = new object();
+		#region public static Hashtable MetadataCache { get; }
+		private static Hashtable metadatacache_ = new Hashtable();
+		private static object metadatacache_locker = new object();
 
-		public static Hashtable Metacache {
+		public static Hashtable MetadataCache {
 			get {
-				return metacache_;
+				return metadatacache_;
 			}
 		}
 		#endregion
 		#region public static XS__RootMetadata Load_fromFile(...);
 		public static XS__RootMetadata Load_fromFile(
-			string metadataFilepath_in, 
-			bool useMetacache_in,
+			string metadataFilePath_in, 
+			bool useMetadataCache_in,
 			bool reinitializeCache_in
 		) {
 			XS__RootMetadata _output;
 
-			if (!useMetacache_in || reinitializeCache_in) {
-				XS__RootMetadata.Metacache.Clear();
-				OGen.Libraries.Generator.utils.ReflectThrough_Cache_Clear();
+			if (!useMetadataCache_in || reinitializeCache_in) {
+				XS__RootMetadata.MetadataCache.Clear();
+				OGen.Libraries.Generator.Utilities.ReflectThrough_Cache_Clear();
 			}
 
-			if (useMetacache_in) {
+			if (useMetadataCache_in) {
 
 				// check before lock
-				if (!Metacache.Contains(metadataFilepath_in)) {
+				if (!MetadataCache.Contains(metadataFilePath_in)) {
 
-					lock (metacache_locker) {
+					lock (metadatacache_locker) {
 
 						// double check, thread safer!
-						if (!Metacache.Contains(metadataFilepath_in)) {
+						if (!MetadataCache.Contains(metadataFilePath_in)) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							XS__RootMetadata.Metacache.Add(
-								metadataFilepath_in,
+							XS__RootMetadata.MetadataCache.Add(
+								metadataFilePath_in,
 								new XS__RootMetadata(
-									metadataFilepath_in
+									metadataFilePath_in
 								)
 							);
 						}
 					}
 				}
 
-				_output = (XS__RootMetadata)XS__RootMetadata.Metacache[metadataFilepath_in];
+				_output = (XS__RootMetadata)XS__RootMetadata.MetadataCache[metadataFilePath_in];
 				return _output;
 			} else {
 				_output = new XS__RootMetadata(
-					metadataFilepath_in
+					metadataFilePath_in
 				);
 				return _output;
 			}
@@ -186,7 +186,7 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata {
 			string _indexstring;
 			string _end;
 
-			if (OGen.Libraries.Generator.utils.rootExpression_TryParse(
+			if (OGen.Libraries.Generator.Utilities.rootExpression_TryParse(
 				what_in, 
 				ROOT_SPREADSHEET, 
 				out _begin, 
@@ -253,7 +253,7 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata {
 
 		public void IterateThrough_fromRoot(
 			string iteration_in,
-			OGen.Libraries.Generator.utils.IterationFoundDelegate iteration_found_in,
+			OGen.Libraries.Generator.Utilities.IterationFoundDelegate iteration_found_in,
 			ref bool valueHasBeenFound_out
 		) {
 			this.IterateThrough_fromRoot(
@@ -265,7 +265,7 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata {
 		}
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
-			OGen.Libraries.Generator.utils.IterationFoundDelegate iteration_found_in,
+			OGen.Libraries.Generator.Utilities.IterationFoundDelegate iteration_found_in,
 			ref bool valueHasBeenFound_out,
 			bool useCache_in
 		) {
@@ -304,7 +304,7 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata {
 			string _indexstring;
 			string _end;
 			
-			if (OGen.Libraries.Generator.utils.rootExpression_TryParse(
+			if (OGen.Libraries.Generator.Utilities.rootExpression_TryParse(
 				iteration_in,
 				ROOT_SPREADSHEET,
 				out _begin, 

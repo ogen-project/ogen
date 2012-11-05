@@ -125,18 +125,10 @@
     <Content Include="emptyfile.txt" />
     <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
-    <Content Include="Table-Constraint-FKs-PostgreSQL.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="Table-Constraint-FKs-SQLServer.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="Table-Constraint-PKs-PostgreSQL.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="Table-PostgreSQL.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
+    <Content Include="Table-Constraint-FKs-PostgreSQL.aspx" />
+    <Content Include="Table-Constraint-FKs-SQLServer.aspx" />
+    <Content Include="Table-Constraint-PKs-PostgreSQL.aspx" />
+    <Content Include="Table-PostgreSQL.aspx" />
     <Content Include="Table-SQLServer.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>

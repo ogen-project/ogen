@@ -44,7 +44,7 @@ namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Permission.getRecord_all(
 				sessionGuid_in, 
-				(utils.ResetClientIP) 
+				(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				allProfiles_notJustApplication_in, 

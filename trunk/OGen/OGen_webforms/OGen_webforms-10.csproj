@@ -134,7 +134,7 @@
     <Compile Include="KickRadioButtonList.cs" />
     <Compile Include="ogen_CheckBox.cs" />
     <Compile Include="ogen_RadioButton.cs" />
-    <Compile Include="utils.cs">
+    <Compile Include="Utilities.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Web_XXXListControl.cs" />

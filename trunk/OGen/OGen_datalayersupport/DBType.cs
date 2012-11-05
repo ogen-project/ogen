@@ -37,10 +37,10 @@ namespace OGen.Libraries.DataLayer {
 			get { return this.value_; }
 			set {
 				this.value_ = value;
-				this.fwtype_ = DBUtils_convert.DbType2NSysType(value);
-				this.fwemptyvalue_ = DBUtils_convert.DBType2NSysEmptyValue(value);
-				this.fwunittestvalue_ = DBUtils_convert.DBType2NUnitTestValue(value);
-//				this.dbemptyvalue_ = DBUtils_convert.DBType2DBEmptyValue(value, dbservertype_);
+				this.fwtype_ = DBUtilities_convert.DbType2NSysType(value);
+				this.fwemptyvalue_ = DBUtilities_convert.DBType2NSysEmptyValue(value);
+				this.fwunittestvalue_ = DBUtilities_convert.DBType2NUnitTestValue(value);
+//				this.dbemptyvalue_ = DBUtilities_convert.DBType2DBEmptyValue(value, dbservertype_);
 			}
 		}
 //		#endregion

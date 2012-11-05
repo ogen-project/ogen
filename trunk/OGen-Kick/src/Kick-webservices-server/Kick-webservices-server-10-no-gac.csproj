@@ -137,7 +137,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       <DependentUpon>WS_WEB_DefaultProfile.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="_base\utils0.cs" />
+    <Compile Include="_base\Utilities0.cs" />
     <Compile Include="_base\WS0_CRD_Authentication.cs">
       <SubType>Component</SubType>
     </Compile>

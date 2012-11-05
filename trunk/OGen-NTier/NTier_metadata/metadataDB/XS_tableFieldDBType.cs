@@ -37,7 +37,7 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 		[XmlIgnore()]
 		public int DBType_inDB {
 			get {
-				return DBUtilssupport.GetInstance(
+				return DBUtilitiesSupport.GetInstance(
 					(DBServerTypes)Enum.Parse(typeof(DBServerTypes), this.DBServerType)
 				).Convert.XDbType_Parse(
 					this.DBType, 
@@ -54,7 +54,7 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 //					dbservertype_
 				);
 				DBType_generic_out.Value 
-					=  DBUtilssupport.GetInstance(
+					=  DBUtilitiesSupport.GetInstance(
 						(DBServerTypes)Enum.Parse(typeof(DBServerTypes), this.DBServerType)
 					).Convert.XDbType2DbType(
 						this.DBType_inDB
@@ -67,31 +67,31 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 		#region public bool isBool { get; }
 		[XmlIgnore()]
 		public bool isBool {
-			get { return DBUtils.isBool(this.DBType_generic.Value); }
+			get { return DBUtilities.isBool(this.DBType_generic.Value); }
 		}
 		#endregion
 		#region public bool isDateTime { get; }
 		[XmlIgnore()]
 		public bool isDateTime {
-			get { return DBUtils.isDateTime(this.DBType_generic.Value); }
+			get { return DBUtilities.isDateTime(this.DBType_generic.Value); }
 		}
 		#endregion
 		#region public bool isInt { get; }
 		[XmlIgnore()]
 		public bool isInt {
-			get { return DBUtils.isInt(this.DBType_generic.Value); }
+			get { return DBUtilities.isInt(this.DBType_generic.Value); }
 		}
 		#endregion
 		#region public bool isDecimal { get; }
 		[XmlIgnore()]
 		public bool isDecimal {
-			get { return DBUtils.isDecimal(this.DBType_generic.Value); }
+			get { return DBUtilities.isDecimal(this.DBType_generic.Value); }
 		}
 		#endregion
 		#region public bool isText { get; }
 		[XmlIgnore()]
 		public bool isText {
-			get { return DBUtils.isText(this.DBType_generic.Value); }
+			get { return DBUtilities.isText(this.DBType_generic.Value); }
 		}
 		#endregion
 	}

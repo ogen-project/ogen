@@ -46,8 +46,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			);
 			int[] _errors;
 			BusinessInstances.NWS_Author.InstanceClient.delObject(
-				utils.User.SessionGuid,
-				utils.ClientIPAddress,
+				Utilities.User.SessionGuid,
+				Utilities.ClientIPAddress,
 				_idAuthor,
 				out _errors
 			);
@@ -65,8 +65,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			);
 			int[] _errors;
 			BusinessInstances.NWS_Author.InstanceClient.updObject_Approve(
-				utils.User.SessionGuid,
-				utils.ClientIPAddress,
+				Utilities.User.SessionGuid,
+				Utilities.ClientIPAddress,
 				_idAuthor,
 				out _errors
 			);
@@ -82,8 +82,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			long _count;
 			SO_vNWS_Author[] _authors
 				= BusinessInstances.NWS_Author.InstanceClient.getRecord_all(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					0, 0, 0, out _count, 
 					out _errors
 				);

@@ -166,7 +166,7 @@ _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[
 	_method_index
 ].OutputType
-	= OGen.Libraries.utils.Type_ToString(_methods[m].ReturnType);
+	= OGen.Libraries.Utilities.Type_ToString(_methods[m].ReturnType);
 
 									}
 								}
@@ -183,7 +183,7 @@ _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_i
 ].isOut = _parameterinfo[p].IsOut;
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection[
 	_property_index
-].Type = OGen.Libraries.utils.Type_ToString(_parameterinfo[p].ParameterType);
+].Type = OGen.Libraries.Utilities.Type_ToString(_parameterinfo[p].ParameterType);
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection[
 	_property_index
 ].isRef = (_parameterinfo[p].ParameterType.IsByRef && !_parameterinfo[p].IsOut);

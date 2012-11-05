@@ -118,7 +118,7 @@ namespace OGen.Libraries.Generator {
 		#endregion
 		#region public string Bytes_ToString();
 		public string Bytes_ToString(bool readableBytes_in) {
-			return OGen.Libraries.utils.Bytes_ToString(
+			return OGen.Libraries.Utilities.Bytes_ToString(
 				this.bytes_,
 				readableBytes_in
 			);

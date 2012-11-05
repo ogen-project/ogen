@@ -59,8 +59,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				long _count;
 				SO_vNWS_Source[] _sources
 					= BusinessInstances.NWS_Source.InstanceClient.getRecord_all(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						0, 0, 0, out _count, 
 						out _errors
 					);
@@ -120,8 +120,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				&&
 				(
 					(_source = BusinessInstances.NWS_Source.InstanceClient.getObject(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						this.IDSource,
 						out _errors
 					))
@@ -138,8 +138,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				);
 
 				BusinessInstances.NWS_Source.InstanceClient.updObject(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					_source,
 					out _errors
 				);
@@ -152,10 +152,10 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 
 				_source.Approved_date_isNull = true;
 				_source.IFUser__Approved_isNull = true;
-				_source.IFApplication = utils.IDApplication;
+				_source.IFApplication = Utilities.IDApplication;
 				BusinessInstances.NWS_Source.InstanceClient.insObject(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					_source,
 					false,
 					out _errors
@@ -180,8 +180,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				&&
 				(
 					(_source = BusinessInstances.NWS_Source.InstanceClient.getObject(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						this.IDSource,
 						out _errors
 					))

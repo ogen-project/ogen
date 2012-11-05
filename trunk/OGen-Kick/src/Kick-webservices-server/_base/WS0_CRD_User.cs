@@ -40,7 +40,7 @@ namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 		) {
 			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_User.insObject_CreateUser(
 				sessionGuid_in, 
-				(utils.ResetClientIP) 
+				(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				login_in, 

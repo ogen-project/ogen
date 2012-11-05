@@ -25,118 +25,118 @@ namespace OGen.Libraries.DataLayer {
 	using OGen.Libraries.DataLayer.SQLServer;
 
 #if NET_1_1
-	public class DBUtilssupport {
-		private DBUtilssupport() {}
+	public class DBUtilitiesSupport {
+		private DBUtilitiesSupport() {}
 #else
-	public static class DBUtilssupport {
+	public static class DBUtilitiesSupport {
 #endif
 
-		#region public static DBUtils GetInstance(...);
+		#region public static DBUtilities GetInstance(...);
 #if PostgreSQL
-		#region private static DBUtils_PostgreSQL dbUtils_PostgreSQL { get; }
-		private static DBUtils_PostgreSQL dbutils_postgresql__;
-		private static object dbutils_postgresql__locker = new object();
+		#region private static DBUtilities_PostgreSQL dbUtilities_PostgreSQL { get; }
+		private static DBUtilities_PostgreSQL dbutilities_postgresql__;
+		private static object dbutilities_postgresql__locker = new object();
 
-		private static DBUtils_PostgreSQL dbUtils_PostgreSQL {
+		private static DBUtilities_PostgreSQL dbUtilities_PostgreSQL {
 			get{
 
 				// check before lock
-				if (dbutils_postgresql__ == null) {
+				if (dbutilities_postgresql__ == null) {
 
-					lock (dbutils_postgresql__locker) {
+					lock (dbutilities_postgresql__locker) {
 
 						// double check, thread safer!
-						if (dbutils_postgresql__ == null) {
+						if (dbutilities_postgresql__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							dbutils_postgresql__ = new DBUtils_PostgreSQL();
+							dbutilities_postgresql__ = new DBUtilities_PostgreSQL();
 						}
 					}
 				}
 
-				return dbutils_postgresql__;
+				return dbutilities_postgresql__;
 			}
 		}
 		#endregion
 #endif
-		#region private static DBUtils_SQLServer dbUtils_SQLServer { get; }
-		private static DBUtils_SQLServer dbutils_sqlserver__;
-		private static object dbutils_sqlserver__locker = new object();
+		#region private static DBUtilities_SQLServer dbUtilities_SQLServer { get; }
+		private static DBUtilities_SQLServer dbutilities_sqlserver__;
+		private static object dbutilities_sqlserver__locker = new object();
 
-		private static DBUtils_SQLServer dbUtils_SQLServer {
+		private static DBUtilities_SQLServer dbUtilities_SQLServer {
 			get{
 
 				// check before lock
-				if (dbutils_sqlserver__ == null) {
+				if (dbutilities_sqlserver__ == null) {
 
-					lock (dbutils_sqlserver__locker) {
+					lock (dbutilities_sqlserver__locker) {
 
 						// double check, thread safer!
-						if (dbutils_sqlserver__ == null) {
+						if (dbutilities_sqlserver__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							dbutils_sqlserver__ = new DBUtils_SQLServer();
+							dbutilities_sqlserver__ = new DBUtilities_SQLServer();
 						}
 					}
 				}
 
-				return dbutils_sqlserver__;
+				return dbutilities_sqlserver__;
 			}
 		}
 		#endregion
 #if MySQL
-		#region private static DBUtils_MySQL dbUtils_MySQL { get; }
-		private static DBUtils_MySQL dbutils_mysql__;
-		private static object dbutils_mysql__locker = new object();
+		#region private static DBUtilities_MySQL dbUtilities_MySQL { get; }
+		private static DBUtilities_MySQL dbutilities_mysql__;
+		private static object dbutilities_mysql__locker = new object();
 
-		private static DBUtils_MySQL dbUtils_MySQL {
+		private static DBUtilities_MySQL dbUtilities_MySQL {
 			get{
 
 				// check before lock
-				if (dbutils_mysql__ == null) {
+				if (dbutilities_mysql__ == null) {
 
-					lock (dbutils_mysql__locker) {
+					lock (dbutilities_mysql__locker) {
 
 						// double check, thread safer!
-						if (dbutils_mysql__ == null) {
+						if (dbutilities_mysql__ == null) {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							dbutils_mysql__ = new DBUtils_MySQL();
+							dbutilities_mysql__ = new DBUtilities_MySQL();
 						}
 					}
 				}
 
-				return dbutils_mysql__;
+				return dbutilities_mysql__;
 			}
 		}
 		#endregion
 #endif
 
-		#region public static DBUtils GetInstance(...);
-//		public static DBUtils GetInstance(
+		#region public static DBUtilities GetInstance(...);
+//		public static DBUtilities GetInstance(
 //			string dbServerType_in
 //		) {
 //			return GetInstance(
 //				(DBServerTypes)Enum.Parse(typeof(DBServerTypes), dbServerType_in)
 //			);
 //		}
-		public static DBUtils GetInstance(
+		public static DBUtilities GetInstance(
 			DBServerTypes dbServerType_in
 		) {
 			switch (dbServerType_in) {
 #if PostgreSQL
 				case DBServerTypes.PostgreSQL:
-					return dbUtils_PostgreSQL;
+					return dbUtilities_PostgreSQL;
 #endif
 #if MySQL
 				case DBServerTypes.MySQL:
-					return dbUtils_MySQL;
+					return dbUtilities_MySQL;
 #endif
 				case DBServerTypes.SQLServer:
-					return dbUtils_SQLServer;
+					return dbUtilities_SQLServer;
 			}
 			
 			throw new Exception(

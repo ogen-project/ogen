@@ -65,8 +65,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			int[] _errors;
 
 			BusinessInstances.CRD_Profile.InstanceClient.setUserProfiles(
-				utils.User.SessionGuid,
-				utils.ClientIPAddress,
+				Utilities.User.SessionGuid,
+				Utilities.ClientIPAddress,
 				this.IDUser,
 				this.CBL_Profiles.Kick.SelectedValue__get<long>(), 
 				out _errors
@@ -84,8 +84,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 
 			SO_vNET_User _user 
 				= BusinessInstances.WEB_User.InstanceClient.getObject_details(
-					utils.User.SessionGuid, 
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid, 
+					Utilities.ClientIPAddress,
 					this.IDUser,
 					out _errors
 				);
@@ -106,8 +106,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 
 			SO_vCRD_UserProfile[] _profiles
 				= BusinessInstances.CRD_Profile.InstanceClient.getRecord_ofUserProfile_byUser(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					this.IDUser,
 					0, 0, 0, out _count, 
 					out _errors

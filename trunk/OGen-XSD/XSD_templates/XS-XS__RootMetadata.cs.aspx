@@ -15,12 +15,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <%@ import namespace="OGen.XSD.Libraries.Metadata.Schema" %>
 <%@ import namespace="OGen.XSD.Libraries.Metadata.Metadata" %><%
 #region arguments...
-string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
+string _arg_MetadataFilePath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilePath"]);
 #endregion
 
 #region varaux...
 XS__RootMetadata _aux_rootmetadata = XS__RootMetadata.Load_fromFile(
-	_arg_MetadataFilepath,
+	_arg_MetadataFilePath,
 	true,
 	false
 );
@@ -57,9 +57,9 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 	#endif
 		#if NET_1_1
 		public <%=XS__%>RootMetadata (
-			string metadataFilepath_in
+			string metadataFilePath_in
 		) : base (
-			metadataFilepath_in
+			metadataFilePath_in
 		) {
 		}
 		#endif

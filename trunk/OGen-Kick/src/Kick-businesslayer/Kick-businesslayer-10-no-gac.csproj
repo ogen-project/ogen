@@ -93,7 +93,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Compile Include="mod-web\SBO_WEB_DefaultProfile.cs" />
     <Compile Include="mod-web\SBO_WEB_User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="utils.cs" />
+    <Compile Include="Utilities.cs" />
     <Compile Include="_base\BO0_CRD_Authentication.cs" />
     <Compile Include="_base\BO0_CRD_Permission.cs" />
     <Compile Include="_base\BO0_CRD_Profile.cs" />

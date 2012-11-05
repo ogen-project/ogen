@@ -41,11 +41,11 @@ namespace OGen.Libraries.DataLayer.SQLServer {
 		//#endregion
 
 		//#region public static properties...
-		#region public static DBUtils Utils { get; }
-		private static DBUtils utils__ = null;
+		#region public static DBUtilities Utils { get; }
+		private static DBUtilities utils__ = null;
 		private static object utils__locker = new object();
 
-		public static DBUtils Utils {
+		public static DBUtilities Utils {
 			get {
 
 				// check before lock
@@ -58,7 +58,7 @@ namespace OGen.Libraries.DataLayer.SQLServer {
 
 							// initialization...
 							// ...attribution (last thing before unlock)
-							utils__ = new DBUtils_SQLServer();
+							utils__ = new DBUtilities_SQLServer();
 						}
 					}
 				}
@@ -77,8 +77,8 @@ namespace OGen.Libraries.DataLayer.SQLServer {
 			}
 		}
 		#endregion
-		#region public override DBUtils utils { get; }
-		public override DBUtils utils {
+		#region public override DBUtilities Utilities { get; }
+		public override DBUtilities Utilities {
 			get {
 				return Utils;
 			}
@@ -260,7 +260,7 @@ namespace OGen.Libraries.DataLayer.SQLServer {
 						_ex.Message,
 						_ex.InnerException,
 
-						DBUtils.IDbDataParameter2String(dataParameters_in)
+						DBUtilities.IDbDataParameter2String(dataParameters_in)
 					)
 				);
 			}

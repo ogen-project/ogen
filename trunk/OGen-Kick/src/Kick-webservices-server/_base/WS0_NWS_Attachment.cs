@@ -40,7 +40,7 @@ namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 		) {
 			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Attachment.delObject(
 				sessionGuid_in, 
-				(utils.ResetClientIP) 
+				(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				idAttachment_in, 
@@ -58,7 +58,7 @@ namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Attachment.getObject(
 				sessionGuid_in, 
-				(utils.ResetClientIP) 
+				(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				idAttachment_in, 
@@ -80,7 +80,7 @@ namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Attachment.getRecord_byContent(
 				sessionGuid_in, 
-				(utils.ResetClientIP) 
+				(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				idContent_search_in, 
@@ -107,7 +107,7 @@ namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Attachment.getRecord_byContent_andLanguage(
 				sessionGuid_in, 
-				(utils.ResetClientIP) 
+				(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				IDContent_search_in, 
@@ -134,7 +134,7 @@ namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Attachment.insObject(
 				sessionGuid_in, 
-				(utils.ResetClientIP) 
+				(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				attachment_in, 
@@ -158,7 +158,7 @@ namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 		) {
 			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Attachment.updObject(
 				sessionGuid_in, 
-				(utils.ResetClientIP) 
+				(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				attachment_in, 

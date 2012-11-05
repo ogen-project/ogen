@@ -131,7 +131,7 @@
     <Compile Include="SHashtable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="utils.cs">
+    <Compile Include="Utilities.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="OGenCollection.cs" />

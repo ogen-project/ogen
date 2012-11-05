@@ -254,7 +254,7 @@
     <Compile Include="UserControls\ucPick_Tables.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="_utils\eInsUpdDel.cs">
+    <Compile Include="_Utilities\eInsUpdDel.cs">
       <SubType>Code</SubType>
     </Compile>
     <EmbeddedResource Include="FlowForms\Forms-generic\frmManage_Configuration_Project_s000.resx">

@@ -74,9 +74,9 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				#region Tags . . .
 				SO_vNWS_Tag[] _so_tags
 					= BusinessInstances.NWS_Tag.InstanceClient.getRecord_byLang(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress, 
-						utils.IDLanguage__default,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress, 
+						Utilities.IDLanguage__default,
 						0, 0, 0, out _count,
 						out _errors
 					);
@@ -104,8 +104,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				#region Source . . .
 				SO_vNWS_Source[] _so_sources
 					= BusinessInstances.NWS_Source.InstanceClient.getRecord_all(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						0, 0, 0, out _count,
 						out _errors
 					);
@@ -133,8 +133,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				#region Author . . .
 				SO_vNWS_Author[] _so_authors
 					= BusinessInstances.NWS_Author.InstanceClient.getRecord_all(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						0, 0, 0, out _count, 
 						out _errors
 					);
@@ -162,8 +162,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				#region Highlight . . .
 				SO_vNWS_Highlight[] _so_highlights
 					= BusinessInstances.NWS_Highlight.InstanceClient.getRecord_all(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						0, 0, 0, out _count, 
 						out _errors
 					);
@@ -191,8 +191,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				#region Profile . . .
 				SO_vNWS_Profile[] _so_profiles
 					= BusinessInstances.NWS_Profile.InstanceClient.getRecord_all(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						0, 0, 0, out _count, 
 						out _errors
 					);
@@ -233,11 +233,11 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			int[] _errors = null;
 			if (this.IDContent > 0L) {
 				BusinessInstances.NWS_News.InstanceClient.updObject_Content(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					new SO_NWS_Content(
 						this.IDContent,
-						utils.IDApplication,
+						Utilities.IDApplication,
 						-1L,
 						DateTime.Now,
 						-1,
@@ -261,11 +261,11 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				this.Master__base.Error_add(_errors);
 			} else {
 				long _idcontent = BusinessInstances.NWS_News.InstanceClient.insObject(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					new SO_NWS_Content(
 						-1L,
-						utils.IDApplication,
+						Utilities.IDApplication,
 						-1L,
 						DateTime.Now,
 						-1,
@@ -305,8 +305,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 		protected void BTN_Tags_Click(object sender, EventArgs e) {
 			int[] _errors;
 			BusinessInstances.NWS_News.InstanceClient.updObject_Tags(
-				utils.User.SessionGuid,
-				utils.ClientIPAddress,
+				Utilities.User.SessionGuid,
+				Utilities.ClientIPAddress,
 				this.IDContent,
 				this.CBL_Tags.Kick.SelectedValue__get<long>(),
 				out _errors
@@ -318,8 +318,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 		protected void BTN_Authors_Click(object sender, EventArgs e) {
 			int[] _errors;
 			BusinessInstances.NWS_News.InstanceClient.updObject_Authors(
-				utils.User.SessionGuid,
-				utils.ClientIPAddress,
+				Utilities.User.SessionGuid,
+				Utilities.ClientIPAddress,
 				this.IDContent,
 				this.CBL_Author.Kick.SelectedValue__get<long>(),
 				out _errors
@@ -331,8 +331,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 		protected void BTN_Sources_Click(object sender, EventArgs e) {
 			int[] _errors;
 			BusinessInstances.NWS_News.InstanceClient.updObject_Sources(
-				utils.User.SessionGuid,
-				utils.ClientIPAddress,
+				Utilities.User.SessionGuid,
+				Utilities.ClientIPAddress,
 				this.IDContent,
 				this.CBL_Source.Kick.SelectedValue__get<long>(),
 				out _errors
@@ -344,8 +344,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 		protected void BTN_Highlights_Click(object sender, EventArgs e) {
 			int[] _errors;
 			BusinessInstances.NWS_News.InstanceClient.updObject_Highlights(
-				utils.User.SessionGuid,
-				utils.ClientIPAddress,
+				Utilities.User.SessionGuid,
+				Utilities.ClientIPAddress,
 				this.IDContent,
 				this.CBL_Highlight.Kick.SelectedValue__get<long>(),
 				out _errors
@@ -357,8 +357,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 		protected void BTN_Profiles_Click(object sender, EventArgs e) {
 			int[] _errors;
 			BusinessInstances.NWS_News.InstanceClient.updObject_Profiles(
-				utils.User.SessionGuid,
-				utils.ClientIPAddress,
+				Utilities.User.SessionGuid,
+				Utilities.ClientIPAddress,
 				this.IDContent,
 				this.CBL_Profiles.Kick.SelectedValue__get<long>(),
 				out _errors
@@ -390,8 +390,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				int[] _errors;
 				string _guid;
 				long _idattachment = BusinessInstances.NWS_Attachment.InstanceClient.insObject(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					new SO_NWS_Attachment(
 						-1L,
 						this.IDContent,
@@ -474,8 +474,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			);
 			int[] _errors;
 			BusinessInstances.NWS_Attachment.InstanceClient.delObject(
-				utils.User.SessionGuid,
-				utils.ClientIPAddress,
+				Utilities.User.SessionGuid,
+				Utilities.ClientIPAddress,
 				_idattachment,
 				out _errors
 			);
@@ -509,8 +509,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			) {
 				int[] _errors;
 				BusinessInstances.NWS_Attachment.InstanceClient.updObject(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					new SO_NWS_Attachment(
 						_idattachment,
 						this.IDContent,
@@ -540,8 +540,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			if (this.IDContent > 0) {
 				SO_vNWS_Content[] _contents 
 					= BusinessInstances.NWS_News.InstanceClient.getRecord_byContent(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						this.IDContent,
 						0, 0, 0, out _count, 
 						out _errors
@@ -610,8 +610,8 @@ this.DIV_Profiles.Visible = true;
 					#region this.CBL_Tags.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentTag>(...);
 					SO_NWS_ContentTag[] _tags 
 						= BusinessInstances.NWS_Tag.InstanceClient.getRecord_byContent(
-							utils.User.SessionGuid,
-							utils.ClientIPAddress,
+							Utilities.User.SessionGuid,
+							Utilities.ClientIPAddress,
 							this.IDContent,
 							0, 0, 0, out _count, 
 							out _errors
@@ -629,8 +629,8 @@ this.DIV_Profiles.Visible = true;
 					#endregion
 					#region this.CBL_Author.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentAuthor>(...);
 					SO_NWS_ContentAuthor[] _authors = BusinessInstances.NWS_Author.InstanceClient.getRecord_byContent(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						this.IDContent,
 						0, 0, 0, out _count, 
 						out _errors
@@ -648,8 +648,8 @@ this.DIV_Profiles.Visible = true;
 					#endregion
 					#region this.CBL_Source.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentSource>(...);
 					SO_NWS_ContentSource[] _sources = BusinessInstances.NWS_Source.InstanceClient.getRecord_byContent(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						this.IDContent,
 						0, 0, 0, out _count, 
 						out _errors
@@ -667,8 +667,8 @@ this.DIV_Profiles.Visible = true;
 					#endregion
 					#region this.CBL_Profile.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentProfile>(...);
 					SO_NWS_ContentProfile[] _profiles = BusinessInstances.NWS_Profile.InstanceClient.getRecord_byContent(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						this.IDContent,
 						0, 0, 0, out _count, 
 						out _errors
@@ -686,8 +686,8 @@ this.DIV_Profiles.Visible = true;
 					#endregion
 					#region this.CBL_Highlight.Kick.SelectedValues__set_arrayOf<SO_NWS_ContentHighlight>(...);
 					SO_NWS_ContentHighlight[] _highlights = BusinessInstances.NWS_Highlight.InstanceClient.getRecord_byContent(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						this.IDContent,
 						0, 0, 0, out _count, 
 						out _errors
@@ -707,8 +707,8 @@ this.DIV_Profiles.Visible = true;
 					#region Attachments . . .
 					SO_vNWS_Attachment[] _attachments
 						= BusinessInstances.NWS_Attachment.InstanceClient.getRecord_byContent(
-							utils.User.SessionGuid,
-							utils.ClientIPAddress,
+							Utilities.User.SessionGuid,
+							Utilities.ClientIPAddress,
 							this.IDContent,
 							0, 0, 0, out _count, 
 							out _errors

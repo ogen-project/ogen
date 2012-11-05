@@ -16,12 +16,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataDB" %>
 <%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataBusiness" %><%
 #region arguments...
-string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
+string _arg_MetadataFilePath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilePath"]);
 #endregion
 
 #region varaux...
 XS__RootMetadata _aux_root_metadata = XS__RootMetadata.Load_fromFile(
-	_arg_MetadataFilepath,
+	_arg_MetadataFilePath,
 	true,
 	false
 );
@@ -51,7 +51,7 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 <%
 	}
 }%>
-namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.BusinessLayer.Shared.Instances.utils {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.BusinessLayer.Shared.Instances.Utilities {
 	using System;
 
 	using <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.BusinessLayer.Shared.Instances;

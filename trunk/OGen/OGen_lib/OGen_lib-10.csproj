@@ -80,7 +80,7 @@
     <Compile Include="datalayer\ISO__ListItem.cs" />
     <Compile Include="datalayer\SO__base.cs" />
     <Compile Include="datalayer\SO__ListItem.cs" />
-    <Compile Include="utils.cs" />
+    <Compile Include="Utilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

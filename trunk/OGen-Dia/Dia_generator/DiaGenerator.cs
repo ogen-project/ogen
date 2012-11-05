@@ -128,8 +128,8 @@ namespace OGen.Dia.Libraries.Generator {
 			#region more Checking...
 			if (notifyBack_in != null) notifyBack_in("checking...", true);
 
-			OGen.Libraries.DataLayer.PostgreSQL.DBUtils_convert_Postgresql _utils_pgsql = new OGen.Libraries.DataLayer.PostgreSQL.DBUtils_convert_Postgresql();
-			OGen.Libraries.DataLayer.SQLServer.DBUtils_convert_SQLServer _utils_sqls = new OGen.Libraries.DataLayer.SQLServer.DBUtils_convert_SQLServer();
+			OGen.Libraries.DataLayer.PostgreSQL.DBUtilities_convert_Postgresql _utilities_pgsql = new OGen.Libraries.DataLayer.PostgreSQL.DBUtilities_convert_Postgresql();
+			OGen.Libraries.DataLayer.SQLServer.DBUtilities_convert_SQLServer _utilities_sqls = new OGen.Libraries.DataLayer.SQLServer.DBUtilities_convert_SQLServer();
 			System.Data.DbType? _dbtype_psql;
 			System.Data.DbType? _dbtype_sqls;
 			bool _isUsingPostgreSQL = false;
@@ -211,8 +211,8 @@ namespace OGen.Dia.Libraries.Generator {
 								));
 							}
 
-							_dbtype_psql = _utils_pgsql.XDbType2DbType(
-								_utils_pgsql.XDbType_Parse(
+							_dbtype_psql = _utilities_pgsql.XDbType2DbType(
+								_utilities_pgsql.XDbType_Parse(
 									_dbtablefields[f].PostgreSQLTypeName,
 									false
 								)
@@ -234,8 +234,8 @@ namespace OGen.Dia.Libraries.Generator {
 								));
 							}
 
-							_dbtype_sqls = _utils_sqls.XDbType2DbType(
-								_utils_sqls.XDbType_Parse(
+							_dbtype_sqls = _utilities_sqls.XDbType2DbType(
+								_utilities_sqls.XDbType_Parse(
 									_dbtablefields[f].SQLServerTypeName,
 									false
 								)

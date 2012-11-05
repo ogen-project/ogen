@@ -302,7 +302,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			get {
 				return rbtConnectionstring.Checked 
 					? txtConnectionString.Text 
-					: DBUtilssupport.GetInstance(DBServerType).ConnectionString.Build(
+					: DBUtilitiesSupport.GetInstance(DBServerType).ConnectionString.Build(
 						txtServer.Text, 
 						txtUserName.Text, 
 						txtPassword.Text, 

@@ -43,7 +43,7 @@ namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 		) {
 			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_WEB_DefaultProfile.getRecord_all(
 				sessionGuid_in, 
-				(utils.ResetClientIP) 
+				(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				page_orderBy_in, 
@@ -64,7 +64,7 @@ namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 		) {
 			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_WEB_DefaultProfile.setObject(
 				sessionGuid_in, 
-				(utils.ResetClientIP) 
+				(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: ip_forLogPurposes_in, 
 				idProfile_in, 

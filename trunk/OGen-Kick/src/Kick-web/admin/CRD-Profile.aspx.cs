@@ -61,8 +61,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				#region this.CBL_Permissions.Kick.Bind__arrayOf<long, string>(...);
 				SO_CRD_Permission[] _permissions
 					= BusinessInstances.CRD_Permission.InstanceClient.getRecord_all(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						false,
 						0, 0, 0, out _count, 
 						out _errors
@@ -92,8 +92,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				#region this.CBL_Permissions.Kick.Bind__arrayOf<long, string>(...);
 				SO_CRD_Profile[] _profiles
 					= BusinessInstances.CRD_Profile.InstanceClient.getRecord_all(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						false,
 						0, 0, 0, out _count, 
 						out _errors
@@ -137,8 +137,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				&&
 				(
 					(_profile = BusinessInstances.CRD_Profile.InstanceClient.getObject(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						this.IDProfile,
 						out _errors
 					))
@@ -152,8 +152,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				_profile.Name = this.TXT_Name.Text;
 
 				BusinessInstances.CRD_Profile.InstanceClient.updObject(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					_profile,
 
 					this.CBL_ParentProfiles.Kick.SelectedValue__get<long>(),
@@ -166,10 +166,10 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			} else {
 				_profile = new SO_CRD_Profile();
 				_profile.Name = this.TXT_Name.Text;
-				_profile.IFApplication = utils.IDApplication;
+				_profile.IFApplication = Utilities.IDApplication;
 				BusinessInstances.CRD_Profile.InstanceClient.insObject(
-					utils.User.SessionGuid,
-					utils.ClientIPAddress,
+					Utilities.User.SessionGuid,
+					Utilities.ClientIPAddress,
 					_profile,
 
 					this.CBL_ParentProfiles.Kick.SelectedValue__get<long>(),
@@ -197,8 +197,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				&&
 				(
 					(_profile = BusinessInstances.CRD_Profile.InstanceClient.getObject(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						this.IDProfile,
 						out _errors
 					))
@@ -214,8 +214,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				#region this.CBL_Permissions.Kick.SelectedValues__set_arrayOf<long, string, SO_vCRD_ProfilePermission>(...);
 				this.CBL_Permissions.Kick.SelectedValues__set_arrayOf<long, string, SO_vCRD_ProfilePermission>(
 					BusinessInstances.CRD_Profile.InstanceClient.getRecord_ofProfilePermission_byProfile(
-						utils.User.SessionGuid,
-						utils.ClientIPAddress,
+						Utilities.User.SessionGuid,
+						Utilities.ClientIPAddress,
 						this.IDProfile,
 						0, 0, 0, out _count, 
 						out _errors
@@ -232,8 +232,8 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 				if (!this.Master__base.Error_add(_errors)) {
 					this.CBL_ParentProfiles.Kick.SelectedValues__set_arrayOf<SO_CRD_ProfileProfile>(
 						BusinessInstances.CRD_Profile.InstanceClient.getRecord_byProfile(
-							utils.User.SessionGuid,
-							utils.ClientIPAddress,
+							Utilities.User.SessionGuid,
+							Utilities.ClientIPAddress,
 							this.IDProfile,
 							0, 0, 0, out _count, 
 							out _errors

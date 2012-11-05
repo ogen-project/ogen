@@ -169,7 +169,7 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 			this.TXT_Email.Text = "";
 			this.TXT_Password.Text = "";
 
-			utils.User.LogOff("~/Default.aspx", false);
+			Utilities.User.LogOff("~/Default.aspx", false);
 
 			this.Bind();
 		}
@@ -177,7 +177,7 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 		#region protected void BTN_LogOn_Click(object sender, EventArgs e);
 		protected void BTN_LogOn_Click(object sender, EventArgs e) {
 			int[] _errors;
-			utils.User.LogOn(
+			Utilities.User.LogOn(
 				this.TXT_Email.Text,
 				this.TXT_Password.Text,
 				out _errors
@@ -199,9 +199,9 @@ namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 		#endregion
 		#region public void Bind();
 		public void Bind() {
-			bool _isloggedin = utils.User.IsLoggedIn;
+			bool _isloggedin = Utilities.User.IsLoggedIn;
 
-			this.LBT_Registration.Text = (_isloggedin) ? utils.User.Login : "anonynous";
+			this.LBT_Registration.Text = (_isloggedin) ? Utilities.User.Login : "anonynous";
 			this.LBT_Registration.PostBackUrl = (_isloggedin) ? "~/Registration-update.aspx" : "~/Registration.aspx";
 
 			this.LBL_Email.Visible = !_isloggedin;
