@@ -11,8 +11,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */%><%@ Page language="c#" contenttype="text/html" %>
 <%@ import namespace="System.IO" %>
-<%@ import namespace="OGen.Dia.lib.metadata" %>
-<%@ import namespace="OGen.Dia.lib.metadata.diagram" %><%
+<%@ import namespace="OGen.Dia.Libraries.Metadata" %>
+<%@ import namespace="OGen.Dia.Libraries.Metadata.Diagram" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 string _arg_tableId = System.Web.HttpUtility.UrlDecode(Request.QueryString["tableId"]);
@@ -24,7 +24,7 @@ XS__diagram _aux_diagram = XS__diagram.Load_fromFile(
 )[0];
 XS_objectType _aux_table = _aux_diagram.Table_search(_arg_tableId);
 DBTableField[] _tablefields = _aux_table.TableFields();
-OGen.Dia.lib.metadata.diagram.ForeignKey[] _aux_fks = _aux_table.TableFKs();
+OGen.Dia.Libraries.Metadata.Diagram.ForeignKey[] _aux_fks = _aux_table.TableFKs();
 
 bool _aux_first;
 bool _aux_hasUnique = false;

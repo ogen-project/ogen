@@ -13,13 +13,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.Dia.presentationlayer.console {
+namespace OGen.Dia.PresentationLayer.ConsoleApplication {
 	using System;
 	using System.IO;
 
-	using OGen.Dia.lib.generator;
-	using OGen.Dia.lib.metadata;
-	using OGen.lib.generator;
+	using OGen.Dia.Libraries.Generator;
+	using OGen.Dia.Libraries.Metadata;
+	using OGen.Libraries.Generator;
 
 	class Program {
 		static void Main(string[] args_in) {

@@ -13,11 +13,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.Dia.lib.metadata {
+namespace OGen.Dia.Libraries.Metadata {
 	using System;
 	using System.Xml.Serialization;
 
-	using OGen.Dia.lib.metadata.diagram;
+	using OGen.Dia.Libraries.Metadata.Diagram;
 
 	#if NET_1_1
 	public class XS__RootMetadata : XS0__RootMetadata {

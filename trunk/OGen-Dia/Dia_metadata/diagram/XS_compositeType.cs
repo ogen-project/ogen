@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.Dia.lib.metadata.diagram {
+namespace OGen.Dia.Libraries.Metadata.Diagram {
 	using System;
 	using System.Xml.Serialization;
 

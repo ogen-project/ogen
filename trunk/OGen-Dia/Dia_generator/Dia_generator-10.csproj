@@ -8,8 +8,8 @@
     <ProjectGuid>{BE3E31C9-69AA-4F21-B945-225E78D62D03}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OGen.Dia.lib.generator</RootNamespace>
-    <AssemblyName>OGen.Dia.lib.generator-2.0</AssemblyName>
+    <RootNamespace>OGen.Dia.Libraries.Generator</RootNamespace>
+    <AssemblyName>OGen.Dia.Libraries.Generator-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SignAssembly>true</SignAssembly>
@@ -42,7 +42,7 @@
     <DefineConstants>TRACE;DEBUG;NET_2_0</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\OGen.Dia.lib.generator-2.0.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\OGen.Dia.Libraries.Generator-2.0.XML</DocumentationFile>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -52,7 +52,7 @@
     <DefineConstants>TRACE;NET_2_0</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\OGen.Dia.lib.generator-2.0.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\OGen.Dia.Libraries.Generator-2.0.XML</DocumentationFile>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug .Net 1.1|AnyCPU'">

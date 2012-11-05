@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.Dia.lib.metadata.diagram {
+namespace OGen.Dia.Libraries.Metadata.Diagram {
 	using System;
 	using System.Xml.Serialization;
 
@@ -91,7 +91,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 												break;
 											case "comment":
 												_tableField.DBDescription = this.AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String.Replace("#", "");
-												string[] _comment = OGen.lib.utils.ParameterNameValuePairList_Split(
+												string[] _comment = OGen.Libraries.utils.ParameterNameValuePairList_Split(
 													//AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String.Replace("#", ""),
 													_tableField.DBDescription, 
 													";",
@@ -141,10 +141,10 @@ namespace OGen.Dia.lib.metadata.diagram {
 			return _list.ToArray();
 		}
 		#endregion
-		#region public OGen.Dia.lib.metadata.diagram.ForeignKey[] TableFKs();
-		public OGen.Dia.lib.metadata.diagram.ForeignKey[] TableFKs() {
-			OGen.Dia.lib.metadata.diagram.ForeignKey[] _output;
-			System.Collections.Generic.Dictionary<string, OGen.Dia.lib.metadata.diagram.ForeignKey> _output2;
+		#region public OGen.Dia.Libraries.Metadata.Diagram.ForeignKey[] TableFKs();
+		public OGen.Dia.Libraries.Metadata.Diagram.ForeignKey[] TableFKs() {
+			OGen.Dia.Libraries.Metadata.Diagram.ForeignKey[] _output;
+			System.Collections.Generic.Dictionary<string, OGen.Dia.Libraries.Metadata.Diagram.ForeignKey> _output2;
 
 			this.TableFKs(
 				out _output, 
@@ -154,13 +154,13 @@ namespace OGen.Dia.lib.metadata.diagram {
 			return _output;
 		}
 		public void TableFKs(
-			out OGen.Dia.lib.metadata.diagram.ForeignKey[] fks_out,
-			out System.Collections.Generic.Dictionary<string, OGen.Dia.lib.metadata.diagram.ForeignKey> fks_dic_out
+			out OGen.Dia.Libraries.Metadata.Diagram.ForeignKey[] fks_out,
+			out System.Collections.Generic.Dictionary<string, OGen.Dia.Libraries.Metadata.Diagram.ForeignKey> fks_dic_out
 		) {
-			System.Collections.Generic.List<OGen.Dia.lib.metadata.diagram.ForeignKey> _output 
-				= new System.Collections.Generic.List<OGen.Dia.lib.metadata.diagram.ForeignKey>();
-			System.Collections.Generic.Dictionary<string, OGen.Dia.lib.metadata.diagram.ForeignKey> _output2
-				= new System.Collections.Generic.Dictionary<string, OGen.Dia.lib.metadata.diagram.ForeignKey>();
+			System.Collections.Generic.List<OGen.Dia.Libraries.Metadata.Diagram.ForeignKey> _output 
+				= new System.Collections.Generic.List<OGen.Dia.Libraries.Metadata.Diagram.ForeignKey>();
+			System.Collections.Generic.Dictionary<string, OGen.Dia.Libraries.Metadata.Diagram.ForeignKey> _output2
+				= new System.Collections.Generic.Dictionary<string, OGen.Dia.Libraries.Metadata.Diagram.ForeignKey>();
 
 			XS_objectType _table_a;
 			string _tableName_a;
@@ -176,7 +176,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 			XS_layerType _layertype = (XS_layerType)_objecttypecollection.parent_ref;
 			XS_layerTypeCollection _layertypecollection = (XS_layerTypeCollection)_layertype.parent_ref;
 			XS__diagram _root_ref = (XS__diagram)_layertypecollection.parent_ref;
-			OGen.Dia.lib.metadata.diagram.ForeignKey _aux;
+			OGen.Dia.Libraries.Metadata.Diagram.ForeignKey _aux;
 
 			for (int l = 0; l < _root_ref.LayerCollection.Count; l++) {
 				for (int o = 0; o < _root_ref.LayerCollection[l].ObjectCollection.Count; o++) {
@@ -224,7 +224,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 							) {
 								_output2.Add(
 									_tableFieldName_a,
-									_aux = new OGen.Dia.lib.metadata.diagram.ForeignKey(
+									_aux = new OGen.Dia.Libraries.Metadata.Diagram.ForeignKey(
 										_tableFieldName_a,
 										_tableName_b,
 										_tableFieldName_b
@@ -239,7 +239,7 @@ namespace OGen.Dia.lib.metadata.diagram {
 							) {
 								_output2.Add(
 									_tableFieldName_b,
-									_aux = new OGen.Dia.lib.metadata.diagram.ForeignKey(
+									_aux = new OGen.Dia.Libraries.Metadata.Diagram.ForeignKey(
 										_tableFieldName_b,
 										_tableName_a,
 										_tableFieldName_a

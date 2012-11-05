@@ -13,12 +13,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.Dia.lib.metadata.diagram {
+namespace OGen.Dia.Libraries.Metadata.Diagram {
 	using System;
 
-	using OGen.lib.datalayer;
+	using OGen.Libraries.DataLayer;
 
-	public class DBTableField : OGen.lib.datalayer.DBTableField {
+	public class DBTableField : OGen.Libraries.DataLayer.DBTableField {
 		public bool isUnique;
 
 		public string SQLServerTypeName;

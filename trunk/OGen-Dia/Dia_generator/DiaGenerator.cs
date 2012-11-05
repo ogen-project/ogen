@@ -13,13 +13,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.Dia.lib.generator {
+namespace OGen.Dia.Libraries.Generator {
 	using System;
 	using System.IO;
-	using OGen.Dia.lib.metadata;
-	using OGen.Dia.lib.metadata.diagram;
-	using OGen.lib.generator;
-	using OGen.lib.templates;
+	using OGen.Dia.Libraries.Metadata;
+	using OGen.Dia.Libraries.Metadata.Diagram;
+	using OGen.Libraries.Generator;
+	using OGen.Libraries.Templates;
 
 	public class DiaGenerator {
 		#region	public DiaGenerator();
@@ -97,12 +97,12 @@ namespace OGen.Dia.lib.generator {
 		#region public void Open(...);
 		public void Open(
 			string filename_in, 
-			bool force_doNOTsave_in, 
+			bool force_doNOTSave_in, 
 			dNotifyBack notifyBack_in
 		) {
 			#region Checking...
 			if (this.hasChanges) {
-				if (!force_doNOTsave_in) {
+				if (!force_doNOTSave_in) {
 					throw new Exception(string.Format(
 						System.Globalization.CultureInfo.CurrentCulture,
 						"{0}.{1}.Open(): - must save before open", 
@@ -128,16 +128,16 @@ namespace OGen.Dia.lib.generator {
 			#region more Checking...
 			if (notifyBack_in != null) notifyBack_in("checking...", true);
 
-			OGen.lib.datalayer.PostgreSQL.DBUtils_convert_Postgresql _utils_pgsql = new OGen.lib.datalayer.PostgreSQL.DBUtils_convert_Postgresql();
-			OGen.lib.datalayer.SQLServer.DBUtils_convert_SQLServer _utils_sqls = new OGen.lib.datalayer.SQLServer.DBUtils_convert_SQLServer();
+			OGen.Libraries.DataLayer.PostgreSQL.DBUtils_convert_Postgresql _utils_pgsql = new OGen.Libraries.DataLayer.PostgreSQL.DBUtils_convert_Postgresql();
+			OGen.Libraries.DataLayer.SQLServer.DBUtils_convert_SQLServer _utils_sqls = new OGen.Libraries.DataLayer.SQLServer.DBUtils_convert_SQLServer();
 			System.Data.DbType? _dbtype_psql;
 			System.Data.DbType? _dbtype_sqls;
 			bool _isUsingPostgreSQL = false;
 			bool _isUsingSQLServer = false;
 			DBTableField[] _dbtablefields;
 			DBTableField[] _dbtablefields2;
-			OGen.Dia.lib.metadata.diagram.ForeignKey[] __fks;
-			System.Collections.Generic.Dictionary<string, OGen.Dia.lib.metadata.diagram.ForeignKey> _fks;
+			OGen.Dia.Libraries.Metadata.Diagram.ForeignKey[] __fks;
+			System.Collections.Generic.Dictionary<string, OGen.Dia.Libraries.Metadata.Diagram.ForeignKey> _fks;
 			bool _foundFKTable;
 			bool _foundFKField;
 			for (int l = 0; l < this.diagram_.LayerCollection.Count; l++) {
@@ -495,10 +495,10 @@ namespace OGen.Dia.lib.generator {
 		}
 		#endregion
 		#region public void Close(...);
-		public void Close(bool force_doNOTsave_in) {
+		public void Close(bool force_doNOTSave_in) {
 			if (
 				(this.hasChanges) && 
-				(!force_doNOTsave_in)
+				(!force_doNOTSave_in)
 			) {
 				throw new Exception(string.Format(
 					System.Globalization.CultureInfo.CurrentCulture,
