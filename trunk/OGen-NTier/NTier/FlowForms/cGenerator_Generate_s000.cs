@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using OGen.lib.presentationlayer.winforms.Flowforms;
 
-namespace OGen.NTier.presentationlayer.winforms {
+namespace OGen.NTier.PresentationLayer.WinForms {
+	using System;
+	using OGen.Libraries.PresentationLayer.WinForms.FlowForms;
+
 	public class cGenerator_Generate_s000 : cFlowform {
 		#region public cGenerator_Generate_s000(...);
 		public cGenerator_Generate_s000(
@@ -64,7 +65,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 					frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].SQLScriptOption = MyForm.SQLscriptOptions;
 //					frm_Main.NTierProject.Metadata.PseudoReflectionable = MyForm.pReflection;
 					frm_Main.NTierProject.Build(
-						new OGen.lib.generator.OGenGenerator.dBuild(
+						new OGen.Libraries.Generator.OGenGenerator.dBuild(
 							output.DisplayMessage
 						)
 					);

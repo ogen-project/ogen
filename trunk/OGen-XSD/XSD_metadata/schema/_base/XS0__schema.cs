@@ -14,12 +14,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 
 
-namespace OGen.XSD.lib.metadata.schema {
+namespace OGen.XSD.Libraries.Metadata.Schema {
 	using System;
 	using System.IO;
 	using System.Xml.Serialization;
 
-	using OGen.lib.generator;
+	using OGen.Libraries.Generator;
 
 	#if NET_1_1
 	public class XS0__schema : XS_schemaType, MetadataInterface {
@@ -119,7 +119,7 @@ namespace OGen.XSD.lib.metadata.schema {
 				} else {
 					try {
 						_output[i] = (XS__schema)new XmlSerializer(typeof(XS__schema)).Deserialize(
-							OGen.lib.presentationlayer.webforms.utils.ReadURL(
+							OGen.Libraries.PresentationLayer.WebForms.utils.ReadURL(
 								filePath_in[i].ToString()
 							)
 						);
@@ -166,7 +166,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		#endregion
 		#region public string Read_fromRoot(string what_in);
 		public string Read_fromRoot(string what_in) {
-			return OGen.lib.generator.utils.ReflectThrough(
+			return OGen.Libraries.Generator.utils.ReflectThrough(
 				this, 
 				this.Root_Schema, 
 				null, 
@@ -180,10 +180,10 @@ namespace OGen.XSD.lib.metadata.schema {
 		#region public void IterateThrough_fromRoot(...);
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
-			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in,
+			OGen.Libraries.Generator.utils.IterationFoundDelegate iteration_found_in,
 			ref bool valueHasBeenFound_out
 		) {
-			OGen.lib.generator.utils.ReflectThrough(
+			OGen.Libraries.Generator.utils.ReflectThrough(
 				this, 
 				this.Root_Schema, 
 				iteration_found_in, 

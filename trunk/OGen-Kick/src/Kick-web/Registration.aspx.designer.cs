@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OGen.NTier.Kick.presentationlayer.weblayer {
+namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
     
     
     public partial class Registration {

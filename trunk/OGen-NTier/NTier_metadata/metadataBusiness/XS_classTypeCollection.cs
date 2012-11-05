@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.lib.metadata.metadataBusiness {
+namespace OGen.NTier.Libraries.Metadata.MetadataBusiness {
 	using System;
 	using System.Collections;
 	#if !NET_1_1

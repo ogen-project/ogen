@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.lib.datalayer.PostgreSQL {
+namespace OGen.Libraries.DataLayer.PostgreSQL {
 	using System;
 	using System.Data;
 	using System.Text;

@@ -8,8 +8,8 @@
     <ProjectGuid>{4F32A87A-8C41-4FEA-B683-4E6310E04CCF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OGen.SpreadsheetXML.lib.metadata</RootNamespace>
-    <AssemblyName>OGen.SpreadsheetXML.lib.metadata-2.0</AssemblyName>
+    <RootNamespace>OGen.SpreadsheetXML.Libraries.Metadata</RootNamespace>
+    <AssemblyName>OGen.SpreadsheetXML.Libraries.Metadata-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

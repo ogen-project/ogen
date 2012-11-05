@@ -5,8 +5,8 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <OutputType>Library</OutputType>
-    <RootNamespace>OGen.XSD.lib.generator</RootNamespace>
-    <AssemblyName>OGen.XSD.lib.generator-2.0</AssemblyName>
+    <RootNamespace>OGen.XSD.Libraries.Generator</RootNamespace>
+    <AssemblyName>OGen.XSD.Libraries.Generator-2.0</AssemblyName>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
     <NoStdLib>False</NoStdLib>
     <WarningLevel>4</WarningLevel>

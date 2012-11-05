@@ -8,8 +8,8 @@
     <ProjectGuid>{C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OGen.lib</RootNamespace>
-    <AssemblyName>OGen.lib-2.0</AssemblyName>
+    <RootNamespace>OGen.Libraries</RootNamespace>
+    <AssemblyName>OGen.Libraries-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SignAssembly>true</SignAssembly>
@@ -23,7 +23,7 @@
     <DefineConstants>TRACE;DEBUG;NET_2_0</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\OGen.lib-2.0.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\OGen.Libraries-2.0.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,7 +32,7 @@
     <DefineConstants>TRACE;NET_2_0</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\OGen.lib-2.0.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\OGen.Libraries-2.0.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

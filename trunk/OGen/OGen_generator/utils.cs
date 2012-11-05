@@ -13,11 +13,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.lib.generator {
+namespace OGen.Libraries.Generator {
 	using System;
 	using System.Reflection;
 
-	using OGen.lib.collections;
+	using OGen.Libraries.Collections;
 
 	#region public struct MetaFile { ... }
 	public struct MetaFile {
@@ -39,7 +39,7 @@ namespace OGen.lib.generator {
 
 		void IterateThrough_fromRoot(
 			string iteration_in,
-			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in,
+			OGen.Libraries.Generator.utils.IterationFoundDelegate iteration_found_in,
 			ref bool valueHasBeenFound_out
 		);
 	}

@@ -13,17 +13,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.businesslayer.shared {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer.Shared {
 	using System;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
 #if NET_1_1
 	public interface IBO0_LOG_Log {
 #else
 	public partial interface IBO_LOG_Log {
 #endif
-		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_LOG_Log[] getRecord_generic(
+		OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_LOG_Log[] getRecord_generic(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int IDLogtype_search_in, 

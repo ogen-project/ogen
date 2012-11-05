@@ -15,9 +15,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using NUnit.Framework;
 
-using OGen.NTier.lib.businesslayer;
+using OGen.NTier.Libraries.BusinessLayer;
 
-namespace OGen.NTier.lib.businesslayer.UTs {
+namespace OGen.NTier.Libraries.BusinessLayer.UnitTests {
 	[TestFixture]
 	public class UT__base { public UT__base() {}
 		#region public void TestFixtureSetUp();

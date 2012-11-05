@@ -13,14 +13,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.lib.metadata {
+namespace OGen.Libraries.Metadata {
 	using System;
 	using System.Collections;
 	using System.IO;
 	using System.Xml.Serialization;
 
-	using OGen.lib.collections;
-	using OGen.lib.generator;
+	using OGen.Libraries.Collections;
+	using OGen.Libraries.Generator;
 
 	[System.Xml.Serialization.XmlRootAttribute("metadatas")]
 	public class Metadatas : MetadataInterface {
@@ -106,7 +106,7 @@ namespace OGen.lib.metadata {
 		#endregion
 
 		public string Read_fromRoot(string what_in) {
-			return OGen.lib.generator.utils.ReflectThrough(
+			return OGen.Libraries.Generator.utils.ReflectThrough(
 				this, 
 				ROOT_METADATA, 
 				null, 
@@ -119,10 +119,10 @@ namespace OGen.lib.metadata {
 
 		public void IterateThrough_fromRoot(
 			string iteration_in,
-			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in,
+			OGen.Libraries.Generator.utils.IterationFoundDelegate iteration_found_in,
 			ref bool valueHasBeenFound_out
 		) {
-			OGen.lib.generator.utils.ReflectThrough(
+			OGen.Libraries.Generator.utils.ReflectThrough(
 				this,
 				ROOT_METADATA,
 				iteration_found_in,

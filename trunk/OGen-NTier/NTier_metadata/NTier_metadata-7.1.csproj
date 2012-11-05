@@ -9,7 +9,7 @@
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "OGen.NTier.lib.metadata-1.1"
+                AssemblyName = "OGen.NTier.Libraries.Metadata-1.1"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "OGen.NTier.lib.metadata"
+                RootNamespace = "OGen.NTier.Libraries.Metadata"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >

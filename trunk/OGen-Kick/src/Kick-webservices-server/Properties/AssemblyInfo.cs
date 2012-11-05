@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OGen.NTier.Kick.distributedlayer.webservices.server")]
+[assembly: AssemblyTitle("OGen.NTier.Kick.DistributedLayer.WebServices.Server")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("OGen")]

@@ -17,19 +17,19 @@ using System.Configuration;
 using System.Collections.Generic;
 using System.Text;
 
-using OGen.lib.datalayer;
-using OGen.NTier.lib.businesslayer;
+using OGen.Libraries.DataLayer;
+using OGen.NTier.Libraries.BusinessLayer;
 
-using OGen.lib.crypt;
+using OGen.Libraries.Crypt;
 
-using OGen.NTier.Kick.lib.datalayer;
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
+using OGen.NTier.Kick.Libraries.DataLayer;
+using OGen.NTier.Kick.Libraries.DataLayer.Shared;
+using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
-using OGen.NTier.Kick.lib.businesslayer.shared;
-//using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+//using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
-namespace OGen.NTier.Kick.lib.businesslayer {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 	[BOClassAttribute("BO_WEB_DefaultProfile", "")]
 	public static class SBO_WEB_DefaultProfile {
 		#region public static void setObject(...);
@@ -136,7 +136,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 			if (_exception != null) {
 				#region SBO_LOG_Log.log(ErrorType.data);
-				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+				OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.log(
 					_sessionuser,
 					LogType.error,
 					ErrorType.data,

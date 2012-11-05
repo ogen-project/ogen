@@ -13,14 +13,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.datalayer {
+namespace OGen.NTier.Kick.Libraries.DataLayer {
 	using System;
 	using System.Data;
 
-	using OGen.lib.datalayer;
-	using OGen.NTier.lib.datalayer;
+	using OGen.Libraries.DataLayer;
+	using OGen.NTier.Libraries.DataLayer;
 
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// vNWS_Profile DataObject which provides access to vNWS_Profile's Database table.

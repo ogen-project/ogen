@@ -7,8 +7,8 @@
     <ProjectGuid>{2AAFDEA0-0EC3-4757-AEA9-C142BEDAA545}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OGen.NTier.presentationlayer.test</RootNamespace>
-    <AssemblyName>OGen.NTier.presentationlayer.test-2.0</AssemblyName>
+    <RootNamespace>OGen.NTier.PresentationLayer.Test</RootNamespace>
+    <AssemblyName>OGen.NTier.PresentationLayer.Test-2.0</AssemblyName>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
     <NoStdLib>False</NoStdLib>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>

@@ -13,13 +13,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.datalayer.shared.structures {
+namespace OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures {
 	using System;
 	using System.Data;
 	using System.Runtime.Serialization;
 	using System.Xml.Serialization;
 
-	using OGen.NTier.lib.datalayer;
+	using OGen.NTier.Libraries.DataLayer;
 
 	/// <summary>
 	/// vNET_User SerializableObject which provides fields access at vNET_User view at Database.

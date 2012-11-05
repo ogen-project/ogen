@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.lib.mail {
+namespace OGen.Libraries.Mail {
 	using System;
 	using System.Configuration;
 	using System.Net.Mail;

@@ -18,7 +18,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace OGen.NTier.presentationlayer.winforms {
+namespace OGen.NTier.PresentationLayer.WinForms {
 	public class frm_about : System.Windows.Forms.Form {
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Button btnOK;

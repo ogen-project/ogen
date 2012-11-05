@@ -14,10 +14,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 
-namespace OGen.NTier.Kick.distributedlayer.remoting.simpleserver {
+namespace OGen.NTier.Kick.DistributedLayer.Remoting.SimpleServer {
 	class Program {
 		static void Main(string[] args) {
-			OGen.NTier.Kick.lib.distributedlayer.remoting.server.RS__server.Start();
+			OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server.RS__server.Start();
 			Console.ReadLine();
 		}
 	}

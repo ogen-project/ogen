@@ -14,7 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 
 //// TODO: consider removing commented code
-//namespace OGen.NTier.lib.datalayer {
+//namespace OGen.NTier.Libraries.DataLayer {
 //    using System;
 //    using System.Runtime.Serialization;
 

@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.lib.generator {
+namespace OGen.Libraries.Generator {
 	using System;
 	using System.Collections.Generic;
 	using System.Text;
@@ -118,7 +118,7 @@ namespace OGen.lib.generator {
 		#endregion
 		#region public string Bytes_ToString();
 		public string Bytes_ToString(bool readableBytes_in) {
-			return OGen.lib.utils.Bytes_ToString(
+			return OGen.Libraries.utils.Bytes_ToString(
 				this.bytes_,
 				readableBytes_in
 			);

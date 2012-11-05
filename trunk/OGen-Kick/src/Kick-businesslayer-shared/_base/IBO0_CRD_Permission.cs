@@ -13,17 +13,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.businesslayer.shared {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer.Shared {
 	using System;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
 #if NET_1_1
 	public interface IBO0_CRD_Permission {
 #else
 	public partial interface IBO_CRD_Permission {
 #endif
-		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permission[] getRecord_all(
+		OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Permission[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			bool allProfiles_notJustApplication_in, 

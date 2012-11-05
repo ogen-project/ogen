@@ -25,7 +25,7 @@ using System.Runtime.InteropServices;
 // change them to the information which is associated with the assembly
 // you compile.
 //
-[assembly: AssemblyTitle("OGen.lib.crypt")]
+[assembly: AssemblyTitle("OGen.Libraries.Crypt")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Francisco Monteiro")]

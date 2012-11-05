@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.lib.presentationlayer.webforms {
+namespace OGen.Libraries.PresentationLayer.WebForms {
 	using System;
 	using System.Collections.Generic;
 
@@ -147,7 +147,7 @@ namespace OGen.lib.presentationlayer.webforms {
 		public void Bind__arrayOf<TValue, TText>(
 			string selectedValue_in,
 			bool allowNull_in,
-			OGen.NTier.lib.datalayer.SO__ListItem<TValue, TText>[] items_in
+			OGen.NTier.Libraries.DataLayer.SO__ListItem<TValue, TText>[] items_in
 		) {
 			if (items_in == null) {
 				this.listitemcollection_ref_.Clear();
@@ -170,7 +170,7 @@ namespace OGen.lib.presentationlayer.webforms {
 
 		public void Bind__arrayOf<TValue, TText>(
 			string selectedValue_in,
-			OGen.NTier.lib.datalayer.SO__ListItem<TValue, TText>[] items_in
+			OGen.NTier.Libraries.DataLayer.SO__ListItem<TValue, TText>[] items_in
 		) {
 			if (items_in == null) {
 				this.listitemcollection_ref_.Clear();
@@ -189,9 +189,9 @@ namespace OGen.lib.presentationlayer.webforms {
 
 		private void bind__arrayof<TValue, TText>(
 			string selectedValue_in,
-			OGen.NTier.lib.datalayer.SO__ListItem<TValue, TText>[] items_in
+			OGen.NTier.Libraries.DataLayer.SO__ListItem<TValue, TText>[] items_in
 		) {
-			foreach (OGen.NTier.lib.datalayer.SO__ListItem<TValue, TText> _item in items_in) {
+			foreach (OGen.NTier.Libraries.DataLayer.SO__ListItem<TValue, TText> _item in items_in) {
 				this.listitemcollection_ref_.Add(
 #if DEBUG
 					string.Format(
@@ -259,7 +259,7 @@ namespace OGen.lib.presentationlayer.webforms {
 		#endregion
 		#region public void SelectedValues__set_arrayOf<TValue, TText>(...);
 		public void SelectedValues__set_arrayOf<TValue, TText>(
-			OGen.NTier.lib.datalayer.ISO__ListItem<TValue, TText>[] items_in
+			OGen.NTier.Libraries.DataLayer.ISO__ListItem<TValue, TText>[] items_in
 		) {
 			if (items_in == null) return;
 
@@ -278,12 +278,12 @@ namespace OGen.lib.presentationlayer.webforms {
 			I[] items_in,
 			ListitemConditionalSetDelegate<I> setConditionVerifies_in
 		)
-			where I : OGen.NTier.lib.datalayer.ISO__ListItem<TValue, TText>
+			where I : OGen.NTier.Libraries.DataLayer.ISO__ListItem<TValue, TText>
 		{
 
 			//public void SelectedValues__set_arrayOf<TValue, TText>(
-			//    OGen.NTier.lib.datalayer.ISO__ListItem<TValue, TText>[] items_in,
-			//    ListitemConditionalSetDelegate<OGen.NTier.lib.datalayer.ISO__ListItem<TValue, TText>> setConditionVerifies_in
+			//    OGen.NTier.Libraries.DataLayer.ISO__ListItem<TValue, TText>[] items_in,
+			//    ListitemConditionalSetDelegate<OGen.NTier.Libraries.DataLayer.ISO__ListItem<TValue, TText>> setConditionVerifies_in
 			//) {
 
 			if (items_in == null) return;
@@ -489,18 +489,18 @@ namespace OGen.lib.presentationlayer.webforms {
 
 		//    bool sortByName_in,
 
-		//    Dictionary<int, AddSolutions.Kick.lib.businesslayer.shared.PseudoEnumItem> enums_in
+		//    Dictionary<int, AddSolutions.Kick.Libraries.BusinessLayer.Shared.PseudoEnumItem> enums_in
 		//) {
-		//    List<KeyValuePair<int, AddSolutions.Kick.lib.businesslayer.shared.PseudoEnumItem>> _penums
-		//        = new List<KeyValuePair<int, AddSolutions.Kick.lib.businesslayer.shared.PseudoEnumItem>>(
+		//    List<KeyValuePair<int, AddSolutions.Kick.Libraries.BusinessLayer.Shared.PseudoEnumItem>> _penums
+		//        = new List<KeyValuePair<int, AddSolutions.Kick.Libraries.BusinessLayer.Shared.PseudoEnumItem>>(
 		//            enums_in
 		//        );
 
 		//    if (sortByName_in) {
 		//        _penums.Sort(
 		//            delegate(
-		//                KeyValuePair<int, AddSolutions.Kick.lib.businesslayer.shared.PseudoEnumItem> arg1,
-		//                KeyValuePair<int, AddSolutions.Kick.lib.businesslayer.shared.PseudoEnumItem> arg2
+		//                KeyValuePair<int, AddSolutions.Kick.Libraries.BusinessLayer.Shared.PseudoEnumItem> arg1,
+		//                KeyValuePair<int, AddSolutions.Kick.Libraries.BusinessLayer.Shared.PseudoEnumItem> arg2
 		//            ) {
 		//                return (arg1.Value.Name.CompareTo(arg2.Value.Name));
 		//            }
@@ -511,7 +511,7 @@ namespace OGen.lib.presentationlayer.webforms {
 		//        allowNull_in
 		//    );
 
-		//    foreach (KeyValuePair<int, AddSolutions.Kick.lib.businesslayer.shared.PseudoEnumItem> _penum in _penums) {
+		//    foreach (KeyValuePair<int, AddSolutions.Kick.Libraries.BusinessLayer.Shared.PseudoEnumItem> _penum in _penums) {
 		//        listitemcollection_ref_.Add(
 		//            _penum.Value.Name,
 		//            _penum.Key.ToString()
@@ -530,18 +530,18 @@ namespace OGen.lib.presentationlayer.webforms {
 
 		//    bool sortByName_in,
 
-		//    Dictionary<int, AddSolutions.Kick.lib.businesslayer.shared.ErrorItem> enums_in
+		//    Dictionary<int, AddSolutions.Kick.Libraries.BusinessLayer.Shared.ErrorItem> enums_in
 		//) {
-		//    List<KeyValuePair<int, AddSolutions.Kick.lib.businesslayer.shared.ErrorItem>> _penums
-		//        = new List<KeyValuePair<int, AddSolutions.Kick.lib.businesslayer.shared.ErrorItem>>(
+		//    List<KeyValuePair<int, AddSolutions.Kick.Libraries.BusinessLayer.Shared.ErrorItem>> _penums
+		//        = new List<KeyValuePair<int, AddSolutions.Kick.Libraries.BusinessLayer.Shared.ErrorItem>>(
 		//            enums_in
 		//        );
 
 		//    if (sortByName_in) {
 		//        _penums.Sort(
 		//            delegate(
-		//                KeyValuePair<int, AddSolutions.Kick.lib.businesslayer.shared.ErrorItem> arg1,
-		//                KeyValuePair<int, AddSolutions.Kick.lib.businesslayer.shared.ErrorItem> arg2
+		//                KeyValuePair<int, AddSolutions.Kick.Libraries.BusinessLayer.Shared.ErrorItem> arg1,
+		//                KeyValuePair<int, AddSolutions.Kick.Libraries.BusinessLayer.Shared.ErrorItem> arg2
 		//            ) {
 		//                return (arg1.Value.Name.CompareTo(arg2.Value.Name));
 		//            }
@@ -552,7 +552,7 @@ namespace OGen.lib.presentationlayer.webforms {
 		//        allowNull_in
 		//    );
 
-		//    foreach (KeyValuePair<int, AddSolutions.Kick.lib.businesslayer.shared.ErrorItem> _penum in _penums) {
+		//    foreach (KeyValuePair<int, AddSolutions.Kick.Libraries.BusinessLayer.Shared.ErrorItem> _penum in _penums) {
 		//        listitemcollection_ref_.Add(
 		//            _penum.Value.Name,
 		//            _penum.Key.ToString()

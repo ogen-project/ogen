@@ -24,7 +24,7 @@ using System.Runtime.CompilerServices;
 // change them to the information which is associated with the assembly
 // you compile.
 //
-[assembly: AssemblyTitle("OGen.XSD.presentationlayer.console")]
+[assembly: AssemblyTitle("OGen.XSD.PresentationLayer.ConsoleApplication")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Francisco Monteiro")]

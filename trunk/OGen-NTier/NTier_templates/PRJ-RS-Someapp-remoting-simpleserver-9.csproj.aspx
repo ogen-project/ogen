@@ -10,11 +10,11 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 --%><%@ Page language="c#" contenttype="text/html" %>
-<%@ import namespace="OGen.lib.datalayer" %>
-<%@ import namespace="OGen.NTier.lib.metadata" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataExtended" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataDB" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataBusiness" %><%
+<%@ import namespace="OGen.Libraries.DataLayer" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataExtended" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataDB" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataBusiness" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 bool _arg_gac = bool.Parse(System.Web.HttpUtility.UrlDecode(Request.QueryString["GAC"]));
@@ -69,8 +69,8 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
     <ProjectGuid>{<%=_aux_ex_metadata.GUID_remoting_simpleserver%>}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace><%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.simpleserver</RootNamespace>
-    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.simpleserver-2.0</AssemblyName>
+    <RootNamespace><%=_aux_ex_metadata.ApplicationNamespace%>.DistributedLayer.Remoting.SimpleServer</RootNamespace>
+    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.DistributedLayer.Remoting.SimpleServer-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
 	<ProjectConfigFileName>App.config</ProjectConfigFileName>
@@ -97,8 +97,8 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" /><%
 if (_arg_gac) {%>
-    <Reference Include="OGen.NTier.lib.distributedlayer.remoting.server-2.0">
-      <Name>OGen.NTier.lib.distributedlayer.remoting.server-2.0</Name>
+    <Reference Include="OGen.NTier.Libraries.DistributedLayer.Remoting.Server-2.0">
+      <Name>OGen.NTier.Libraries.DistributedLayer.Remoting.Server-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
     </Reference><%
 }%>

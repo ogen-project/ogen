@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
+namespace OGen.SpreadsheetXML.Libraries.Metadata.SpreadSheet {
 	using System;
 	using System.Xml.Serialization;
 

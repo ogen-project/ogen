@@ -13,15 +13,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.distributedlayer.webservices.server {
+namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 	using System;
 	using System.Web;
 	using System.Web.Services;
 
-	using OGen.NTier.Kick.lib.businesslayer;
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// WEB_DefaultProfile web service.
@@ -30,9 +30,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		WebService,
 		IBO_WEB_DefaultProfile
 	{
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[] getRecord_all(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNET_Profile[] getRecord_all(...);
 		[WebMethod]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[] getRecord_all(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNET_Profile[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int page_orderBy_in, 
@@ -41,7 +41,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_WEB_DefaultProfile.getRecord_all(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_WEB_DefaultProfile.getRecord_all(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -62,7 +62,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			long[] idProfile_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_WEB_DefaultProfile.setObject(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_WEB_DefaultProfile.setObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 

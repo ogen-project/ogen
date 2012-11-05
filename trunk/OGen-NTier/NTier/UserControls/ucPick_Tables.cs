@@ -19,7 +19,7 @@ using System.Drawing;
 using System.Data;
 using System.Windows.Forms;
 
-namespace OGen.NTier.presentationlayer.winforms {
+namespace OGen.NTier.PresentationLayer.WinForms {
 	public class ucPick_Tables : System.Windows.Forms.UserControl {
 		#region Required designer variable
 		/// <summary> 

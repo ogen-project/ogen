@@ -13,29 +13,29 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.businesslayer.shared {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer.Shared {
 	using System;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
 #if NET_1_1
 	public interface IBO0_WEB_User {
 #else
 	public partial interface IBO_WEB_User {
 #endif
-		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NET_User getObject(
+		OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NET_User getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idUser_in, 
 			out int[] errors_out
 		);
-		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User getObject_details(
+		OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNET_User getObject_details(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idUser_in, 
 			out int[] errors_out
 		);
-		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User[] getRecord_generic(
+		OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNET_User[] getRecord_generic(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			string login_in, 

@@ -13,16 +13,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.lib.datalayer {
+namespace OGen.Libraries.DataLayer {
 	using System;
-	using OGen.lib.datalayer;
+	using OGen.Libraries.DataLayer;
 	#if PostgreSQL
-	using OGen.lib.datalayer.PostgreSQL;
+	using OGen.Libraries.DataLayer.PostgreSQL;
 	#endif
 	#if MySQL
-	using OGen.lib.datalayer.MySQL;
+	using OGen.Libraries.DataLayer.MySQL;
 	#endif
-	using OGen.lib.datalayer.SQLServer;
+	using OGen.Libraries.DataLayer.SQLServer;
 
 #if NET_1_1
 	public class DBConnectionsupport { private DBConnectionsupport() {}

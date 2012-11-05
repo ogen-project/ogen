@@ -18,7 +18,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace OGen.NTier.Kick.distributedlayer.webservices.server {
+namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 	public partial class Default : System.Web.UI.Page {
 		protected void Page_Load(object sender, EventArgs e) {
 

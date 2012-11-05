@@ -13,13 +13,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.lib.datalayer {
+namespace OGen.Libraries.DataLayer {
 	using System;
 	using System.Data;
 	using System.Text;
 
 	/// <summary>
-	/// Provides a number of classes with static auxiliar methods for the OGen.lib.datalayer namespace.
+	/// Provides a number of classes with static auxiliar methods for the OGen.Libraries.DataLayer namespace.
 	/// </summary>
 	public abstract class DBUtils {
 		public abstract DBUtils_convert Convert { get; }

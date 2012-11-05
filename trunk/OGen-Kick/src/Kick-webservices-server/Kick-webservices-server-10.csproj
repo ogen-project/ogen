@@ -22,8 +22,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <AssemblyOriginatorKeyFile>..\..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OGen.NTier.Kick.distributedlayer.webservices.server</RootNamespace>
-    <AssemblyName>OGen.NTier.Kick.distributedlayer.webservices.server-2.0</AssemblyName>
+    <RootNamespace>OGen.NTier.Kick.DistributedLayer.WebServices.Server</RootNamespace>
+    <AssemblyName>OGen.NTier.Kick.DistributedLayer.WebServices.Server-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -60,8 +60,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Mobile" />
-    <Reference Include="OGen.NTier.lib.datalayer.proxy-2.0">
-      <Name>OGen.NTier.lib.datalayer.proxy-2.0</Name>
+    <Reference Include="OGen.NTier.Libraries.DataLayer.Shared-2.0">
+      <Name>OGen.NTier.Libraries.DataLayer.Shared-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
     </Reference>
   </ItemGroup>

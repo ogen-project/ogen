@@ -18,7 +18,7 @@
 // Francisco Monteiro, OGen
 // 
 
-namespace OGen.lib.crypt {
+namespace OGen.Libraries.Crypt {
 	using System;
 	using System.Security.Cryptography;
 	using System.Text;

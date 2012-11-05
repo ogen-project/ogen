@@ -13,12 +13,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
+namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 	using System;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// WEB_User remoting server.
@@ -27,8 +27,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		MarshalByRefObject, 
 		IBO_WEB_User 
 	{
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NET_User getObject(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NET_User getObject(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NET_User getObject(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NET_User getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idUser_in, 
@@ -37,8 +37,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User getObject_details(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User getObject_details(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNET_User getObject_details(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNET_User getObject_details(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idUser_in, 
@@ -47,8 +47,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User[] getRecord_generic(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User[] getRecord_generic(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNET_User[] getRecord_generic(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNET_User[] getRecord_generic(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			string login_in, 

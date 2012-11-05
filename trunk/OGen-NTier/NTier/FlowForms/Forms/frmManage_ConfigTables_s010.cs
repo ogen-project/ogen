@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
-using System.Windows.Forms;
-using OGen.lib.presentationlayer.winforms.Flowforms;
 
-namespace OGen.NTier.presentationlayer.winforms {
+namespace OGen.NTier.PresentationLayer.WinForms {
+	using System;
+	using System.Collections;
+	using System.ComponentModel;
+	using System.Drawing;
+	using System.Windows.Forms;
+	using OGen.Libraries.PresentationLayer.WinForms.FlowForms;
+
 	public class frmManage_ConfigTables_CreateOrChange_s010 : System.Windows.Forms.Form {
 		#region Required designer variable...
 		/// <summary>
@@ -28,7 +29,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 		private System.ComponentModel.Container components = null;
 		private System.Windows.Forms.Button btnBack;
 		private System.Windows.Forms.Label label1;
-		private OGen.NTier.presentationlayer.winforms.ucPick_Tables Pick_Tables;
+		private OGen.NTier.PresentationLayer.WinForms.ucPick_Tables Pick_Tables;
 		private System.Windows.Forms.Button btnNext;
 
 		/// <summary>
@@ -52,7 +53,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 			this.btnBack = new System.Windows.Forms.Button();
 			this.btnNext = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
-			this.Pick_Tables = new OGen.NTier.presentationlayer.winforms.ucPick_Tables();
+			this.Pick_Tables = new OGen.NTier.PresentationLayer.WinForms.ucPick_Tables();
 			this.SuspendLayout();
 			// 
 			// btnBack

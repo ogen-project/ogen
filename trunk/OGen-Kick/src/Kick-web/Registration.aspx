@@ -2,7 +2,7 @@
 	Language="C#" 
 	AutoEventWireup="true" 
 	CodeBehind="Registration.aspx.cs" 
-	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.Registration" 
+	Inherits="OGen.NTier.Kick.PresentationLayer.WebLayer.Registration" 
 
 	MasterPageFile="~/App_Controls/Site.Master" %>
 <%@ Register 

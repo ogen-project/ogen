@@ -4,13 +4,13 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <OutputType>Library</OutputType>
-    <RootNamespace>OGen.lib.datalayer</RootNamespace>
-    <AssemblyName>OGen.lib.datalayer-2.0</AssemblyName>
+    <RootNamespace>OGen.Libraries.DataLayer</RootNamespace>
+    <AssemblyName>OGen.Libraries.DataLayer-2.0</AssemblyName>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
     <NoStdLib>False</NoStdLib>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <DocumentationFile>bin\Debug\OGen.lib.datalayer-2.0.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\OGen.Libraries.DataLayer-2.0.xml</DocumentationFile>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
     <DelaySign>False</DelaySign>

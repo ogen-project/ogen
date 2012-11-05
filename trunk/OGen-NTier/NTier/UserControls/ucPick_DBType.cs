@@ -19,9 +19,9 @@ using System.Drawing;
 using System.Data;
 using System.Windows.Forms;
 
-using OGen.lib.datalayer;
+using OGen.Libraries.DataLayer;
 
-namespace OGen.NTier.presentationlayer.winforms.UserControls {
+namespace OGen.NTier.PresentationLayer.WinForms.UserControls {
 	public class ucPick_DBType : System.Windows.Forms.UserControl {
 		#region Required designer variable...
 		/// <summary> 

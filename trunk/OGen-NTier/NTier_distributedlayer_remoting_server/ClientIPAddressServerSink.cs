@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.lib.distributedlayer.remoting.server {
+namespace OGen.NTier.Libraries.DistributedLayer.Remoting.Server {
 	using System;
 	using System.IO;
 	using System.Net;

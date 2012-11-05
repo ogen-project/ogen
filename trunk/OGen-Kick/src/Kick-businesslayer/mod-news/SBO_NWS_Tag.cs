@@ -15,16 +15,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Collections.Generic;
 
-using OGen.lib.datalayer;
-using OGen.NTier.lib.businesslayer;
+using OGen.Libraries.DataLayer;
+using OGen.NTier.Libraries.BusinessLayer;
 
-using OGen.lib.crypt;
-using OGen.NTier.Kick.lib.datalayer;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-//using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+using OGen.Libraries.Crypt;
+using OGen.NTier.Kick.Libraries.DataLayer;
+using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
+using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+//using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
-namespace OGen.NTier.Kick.lib.businesslayer {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 	[BOClassAttribute("BO_NWS_Tag", "")]
 	public static class SBO_NWS_Tag {
 		#region public static SO_NWS_Tag getObject(...);
@@ -204,7 +204,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string ip_forLogPurposes_in, 
 
 			ref SO_NWS_Tag tag_ref,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Name_in,
 
 			out Guid sessionGuid_out,
 			out Sessionuser sessionUser_out,
@@ -284,7 +284,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string ip_forLogPurposes_in, 
 
 			SO_NWS_Tag tag_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Name_in,
 
 			bool selectIdentity_in, 
 
@@ -385,7 +385,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 			if (_exception != null) {
 				#region SBO_LOG_Log.Log(ErrorType.data);
-				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+				OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.log(
 					_sessionuser,
 					LogType.error,
 					ErrorType.data,
@@ -411,7 +411,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string ip_forLogPurposes_in, 
 
 			SO_NWS_Tag tag_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Name_in,
 
 			out int[] errors_out
 		) {
@@ -537,7 +537,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 			if (_exception != null) {
 				#region SBO_LOG_Log.Log(ErrorType.data);
-				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+				OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.log(
 					_sessionuser,
 					LogType.error,
 					ErrorType.data,
@@ -782,7 +782,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 			if (_exception != null) {
 				#region SBO_LOG_Log.Log(ErrorType.data);
-				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+				OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.log(
 					_sessionuser,
 					LogType.error,
 					ErrorType.data,

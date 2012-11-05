@@ -8,8 +8,8 @@
     <ProjectGuid>{0B245CBE-7DF0-424A-A7A7-6BD904262F11}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SpreadsheetXML_Console</RootNamespace>
-    <AssemblyName>OGen.SpreadsheetXML.presentationlayer.console-2.0</AssemblyName>
+    <RootNamespace>OGen.SpreadsheetXML.PresentationLayer.ConsoleApplication</RootNamespace>
+    <AssemblyName>OGen.SpreadsheetXML.PresentationLayer.ConsoleApplication-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

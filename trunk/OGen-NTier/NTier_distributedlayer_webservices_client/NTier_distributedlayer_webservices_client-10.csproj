@@ -8,8 +8,8 @@
     <ProjectGuid>{7A52E316-CA44-4710-AF93-CC495DE77F6C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OGen.NTier.lib.distributedlayer.webservices.client</RootNamespace>
-    <AssemblyName>OGen.NTier.lib.distributedlayer.webservices.client-2.0</AssemblyName>
+    <RootNamespace>OGen.NTier.Libraries.DistributedLayer.WebServices.Client</RootNamespace>
+    <AssemblyName>OGen.NTier.Libraries.DistributedLayer.WebServices.Client-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SignAssembly>true</SignAssembly>
@@ -42,7 +42,7 @@
     <DefineConstants>TRACE;DEBUG;NET_2_0</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\OGen.NTier.lib.distributedlayer.webservices.client-2.0.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\OGen.NTier.Libraries.DistributedLayer.WebServices.Client-2.0.XML</DocumentationFile>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -52,7 +52,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\OGen.NTier.lib.distributedlayer.webservices.client-2.0.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\OGen.NTier.Libraries.DistributedLayer.WebServices.Client-2.0.XML</DocumentationFile>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug .Net 1.1|AnyCPU'">

@@ -13,20 +13,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.presentationlayer.weblayer {
+namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 	using System;
 	using System.Collections.Generic;
 	using System.Web;
 	using System.Web.UI;
 	using System.Web.UI.WebControls;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
-	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer;
 
-	//using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+	//using BusinessInstances = OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances;
 
 	public partial class wuc_txt_Dic : System.Web.UI.UserControl {
 		#region public int Rows { set; }
@@ -98,10 +98,10 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 		}
 		#endregion
 
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] Texts { get; set; }
-		private OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] texts_ = null;
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] Texts { get; set; }
+		private OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] texts_ = null;
 
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] Texts {
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] Texts {
 			set {
 				this.texts_ = value;
 
@@ -112,8 +112,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					// to avoid strange behaviour
 					return this.texts_;
 				} else {
-					OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] _output
-						= new OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[this.REP_Field.Items.Count];
+					OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] _output
+						= new OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[this.REP_Field.Items.Count];
 
 					TextBox _txt_field;
 					HiddenField _hfi_idlanguage;
@@ -122,7 +122,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 						_txt_field = (TextBox)this.REP_Field.Items[i].FindControl("TXT_Field");
 
 						_output[i] 
-							= new OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage(
+							= new OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage(
 								int.Parse(
 									_hfi_idlanguage.Value,
 									System.Globalization.NumberStyles.Integer,
@@ -168,7 +168,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 					_lbl_language.Visible = false;
 				}
 
-				foreach (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage _text in this.texts_) {
+				foreach (OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage _text in this.texts_) {
 					if (
 						_hfi_idlanguage.Value == _text.IFLanguage.ToString(System.Globalization.CultureInfo.CurrentCulture)
 					) {

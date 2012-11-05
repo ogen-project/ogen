@@ -13,15 +13,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.lib.generator {
+namespace OGen.Libraries.Generator {
 	using System;
 	using System.Collections;
 	using System.IO;
 	using System.Web;
-	using OGen.lib.collections;
-	using OGen.lib.datalayer;
-	using OGen.lib.parser;
-	using OGen.lib.templates;
+	using OGen.Libraries.Collections;
+	using OGen.Libraries.DataLayer;
+	using OGen.Libraries.Parser;
+	using OGen.Libraries.Templates;
 
 	public class OGenGenerator {
 		#region public OGenGenerator(...);
@@ -428,7 +428,7 @@ if (template_in.Outputs.OutputCollection[o].Type == XS_OutputEnumeration.File) {
 								switch (template_in.ParserType) {
 									case XS_ParserEnumeration.aspx:
 									case XS_ParserEnumeration.none: {
-										_parsedOutput = OGen.lib.presentationlayer.webforms.utils.ReadURL_ToString(
+										_parsedOutput = OGen.Libraries.PresentationLayer.WebForms.utils.ReadURL_ToString(
 											this.xmltemplatesdir_ + "/" + template_in.Name, 
 											_args
 										);
@@ -704,11 +704,11 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 			#endregion
 
 #if NET_1_1
-			OGen.lib.worker.WorkItem[] _templatesState
-				= new worker.WorkItem[templates_.TemplateCollection.Count];
+			OGen.Libraries.Worker.WorkItem[] _templatesState
+				= new Worker.WorkItem[templates_.TemplateCollection.Count];
 #else
-			OGen.lib.worker.WorkItem<XS_templateType>[] _templatesState
-				= new worker.WorkItem<XS_templateType>[this.templates_.TemplateCollection.Count];
+			OGen.Libraries.Worker.WorkItem<XS_templateType>[] _templatesState
+				= new Worker.WorkItem<XS_templateType>[this.templates_.TemplateCollection.Count];
 #endif
 			int _threadIterarionCounter = 0;
 			object _threadIterarionCounterLocker = new object();
@@ -716,8 +716,8 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 
 				// must check priorities, hence Waiting, otherwise Ready
 				#region WorkItemState _state = (skipping) ? WorkItemState.Done : WorkItemState.Waiting;
-				OGen.lib.worker.WorkItemState _state
-					= OGen.lib.worker.WorkItemState.Waiting;
+				OGen.Libraries.Worker.WorkItemState _state
+					= OGen.Libraries.Worker.WorkItemState.Waiting;
 				if (
 					(templateTypes_in != null)
 					&&
@@ -725,7 +725,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 					&&
 					!string.IsNullOrEmpty(this.templates_.TemplateCollection[i].TemplateType)
 					&&
-					!OGen.lib.utils.StringArrayContains(
+					!OGen.Libraries.utils.StringArrayContains(
 						templateTypes_in,
 						this.templates_.TemplateCollection[i].TemplateType
 					)
@@ -746,21 +746,21 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 						true
 					);
 
-					_state = OGen.lib.worker.WorkItemState.Done;
+					_state = OGen.Libraries.Worker.WorkItemState.Done;
 				}
 				#endregion
 
 #if NET_1_1
-				_templatesState[i] = new OGen.lib.worker.WorkItem(
+				_templatesState[i] = new OGen.Libraries.Worker.WorkItem(
 #else
-				_templatesState[i] = new OGen.lib.worker.WorkItem<XS_templateType>(
+				_templatesState[i] = new OGen.Libraries.Worker.WorkItem<XS_templateType>(
 #endif
 					this.templates_.TemplateCollection[i],
 					_state
 				);
 			}
 
-			OGen.lib.worker.Worker _worker = new worker.Worker();
+			OGen.Libraries.Worker.Worker _worker = new Worker.Worker();
 			int _numthreads = 4;
 			WorkerThread[] _workthreads = new WorkerThread[_numthreads];
 			for (int t = 0; t < _workthreads.Length; t++) {
@@ -813,7 +813,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 										_templatesState[f].Item.ID
 #endif
 									) {
-										if (_templatesState[f].State == worker.WorkItemState.Done) {
+										if (_templatesState[f].State == Worker.WorkItemState.Done) {
 											_finishedDependencies++;
 										}
 										break;

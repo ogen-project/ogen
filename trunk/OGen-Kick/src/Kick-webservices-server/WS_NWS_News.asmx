@@ -12,4 +12,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 --%><%@ WebService 
 	Language="C#" 
 	CodeBehind="WS_NWS_News.asmx.cs" 
-	Class="OGen.NTier.Kick.distributedlayer.webservices.server.WS_NWS_News" %>
+	Class="OGen.NTier.Kick.DistributedLayer.WebServices.Server.WS_NWS_News" %>

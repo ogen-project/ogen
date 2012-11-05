@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OGen.NTier.Kick.lib.businesslayer.shared.instances")]
+[assembly: AssemblyTitle("OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("OGen")]

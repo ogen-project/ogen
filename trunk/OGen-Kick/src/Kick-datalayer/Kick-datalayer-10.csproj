@@ -21,8 +21,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <AssemblyOriginatorKeyFile>..\..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OGen.NTier.Kick.lib.datalayer</RootNamespace>
-    <AssemblyName>OGen.NTier.Kick.lib.datalayer-2.0</AssemblyName>
+    <RootNamespace>OGen.NTier.Kick.Libraries.DataLayer</RootNamespace>
+    <AssemblyName>OGen.NTier.Kick.Libraries.DataLayer-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
@@ -70,20 +70,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="OGen.lib.datalayer-2.0">
-      <Name>OGen.lib.datalayer-2.0</Name>
+    <Reference Include="OGen.Libraries.DataLayer-2.0">
+      <Name>OGen.Libraries.DataLayer-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
     </Reference>
-    <Reference Include="OGen.lib.datalayer.PostgreSQL-2.0">
-      <Name>OGen.lib.datalayer.PostgreSQL-2.0</Name>
+    <Reference Include="OGen.Libraries.DataLayer.PostgreSQL-2.0">
+      <Name>OGen.Libraries.DataLayer.PostgreSQL-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
     </Reference>
-    <Reference Include="OGen.NTier.lib.datalayer-2.0">
-      <Name>OGen.NTier.lib.datalayer-2.0</Name>
+    <Reference Include="OGen.NTier.Libraries.DataLayer-2.0">
+      <Name>OGen.NTier.Libraries.DataLayer-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
     </Reference>
-    <Reference Include="OGen.NTier.lib.datalayer.proxy-2.0">
-      <Name>OGen.NTier.lib.datalayer.proxy-2.0</Name>
+    <Reference Include="OGen.NTier.Libraries.DataLayer.Shared-2.0">
+      <Name>OGen.NTier.Libraries.DataLayer.Shared-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
     </Reference>
   </ItemGroup>

@@ -13,18 +13,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
+namespace OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer {
 	using System;
 	using System.Collections.Generic;
 	using System.IO;
 	using System.Text;
 	using System.Web;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
-	using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
+	using BusinessInstances = OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances;
 
 	public static class utils {
 		#region public static int IDApplication { get; }
@@ -356,7 +356,7 @@ namespace OGen.NTier.Kick.lib.presentationlayer.weblayer {
 					);
 				}
 
-				if (OGen.NTier.Kick.lib.businesslayer.shared.ErrorType.hasErrors(
+				if (OGen.NTier.Kick.Libraries.BusinessLayer.Shared.ErrorType.hasErrors(
 					errors_out,
 					errorFound_in
 				)) {

@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.presentationlayer.weblayer {
+namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 	using System;
 	using System.Collections.Generic;
 	using System.Configuration;
@@ -21,10 +21,10 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 	using System.Web.UI;
 	using System.Web.UI.WebControls;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.instances;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
-	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer;
 
 	public partial class Registration_changePassword : SitePage {
 		protected void Page_Load(object sender, EventArgs e) {

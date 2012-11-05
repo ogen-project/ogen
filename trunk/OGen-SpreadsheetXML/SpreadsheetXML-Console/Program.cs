@@ -18,7 +18,7 @@ namespace SpreadsheetXML_Console {
 	using System.Data;
 	using System.Data.OleDb;
 
-	using OGen.SpreadsheetXML.lib.metadata.spreadsheet;
+	using OGen.SpreadsheetXML.Libraries.Metadata.SpreadSheet;
 
 	class Program {
 		static void Main(string[] args) {

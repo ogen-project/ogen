@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OGen.NTier.Kick.presentationlayer.weblayer {
+namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
     
     
     public partial class CRD_Profile {
@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_ParentProfiles;
+        protected global::OGen.Libraries.PresentationLayer.WebForms.KickCheckBoxList CBL_ParentProfiles;
         
         /// <summary>
         /// CBL_Permissions control.
@@ -37,7 +37,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Permissions;
+        protected global::OGen.Libraries.PresentationLayer.WebForms.KickCheckBoxList CBL_Permissions;
         
         /// <summary>
         /// BTN_Save control.

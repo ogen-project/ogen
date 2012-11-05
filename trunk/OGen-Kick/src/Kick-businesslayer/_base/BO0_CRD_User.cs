@@ -13,11 +13,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.businesslayer {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 	using System;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
 	public class BO_CRD_User :
 		IBO_CRD_User
@@ -29,7 +29,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string login_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_User.insObject_CreateUser(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_User.insObject_CreateUser(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				login_in, 
@@ -44,7 +44,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			int idApplication_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_User.insObject_Registration(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_User.insObject_Registration(
 				login_in, 
 				password_in, 
 				idApplication_in, 

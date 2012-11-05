@@ -24,7 +24,7 @@ using System.Runtime.CompilerServices;
 // change them to the information which is associated with the assembly
 // you compile.
 //
-[assembly: AssemblyTitle("OGen.NTier.lib.distributedlayer.webservices.client")]
+[assembly: AssemblyTitle("OGen.NTier.Libraries.DistributedLayer.WebServices.Client")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Francisco Monteiro")]

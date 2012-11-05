@@ -13,11 +13,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.businesslayer {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 	using System;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
 	public class BO_CRD_Authentication :
 		IBO_CRD_Authentication
@@ -30,7 +30,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string password_new_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.ChangePassword(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Authentication.ChangePassword(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				password_old_in, 
@@ -45,7 +45,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string ip_forLogPurposes_in, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.CheckCredentials(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Authentication.CheckCredentials(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				out errors_out
@@ -63,7 +63,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out long[] idPermissions_out, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.Login(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Authentication.Login(
 				login_in, 
 				password_in, 
 				sessionGuid_in, 
@@ -79,7 +79,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		public void Logout(
 			string sessionGuid_in
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.Logout(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Authentication.Logout(
 				sessionGuid_in
 			);
 		}

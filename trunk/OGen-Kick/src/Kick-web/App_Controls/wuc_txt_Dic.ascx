@@ -2,7 +2,7 @@
 	Language="C#" 
 	AutoEventWireup="true" 
 	CodeBehind="wuc_txt_Dic.ascx.cs" 
-	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic" %>
+	Inherits="OGen.NTier.Kick.PresentationLayer.WebLayer.wuc_txt_Dic" %>
 
 <asp:Repeater
 	ID="REP_Field" runat="server">

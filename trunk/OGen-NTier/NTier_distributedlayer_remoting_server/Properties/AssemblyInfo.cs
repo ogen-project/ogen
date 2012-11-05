@@ -25,7 +25,7 @@ using System.Runtime.InteropServices;
 // change them to the information which is associated with the assembly
 // you compile.
 //
-[assembly: AssemblyTitle("OGen.NTier.lib.distributedlayer.remoting.server")]
+[assembly: AssemblyTitle("OGen.NTier.Libraries.DistributedLayer.Remoting.Server")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Francisco Monteiro")]

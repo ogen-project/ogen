@@ -17,19 +17,19 @@ using System.Configuration;
 using System.Collections.Generic;
 using System.Text;
 
-using OGen.lib.datalayer;
-using OGen.NTier.lib.businesslayer;
+using OGen.Libraries.DataLayer;
+using OGen.NTier.Libraries.BusinessLayer;
 
-using OGen.lib.crypt;
+using OGen.Libraries.Crypt;
 
-using OGen.NTier.Kick.lib.datalayer;
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
+using OGen.NTier.Kick.Libraries.DataLayer;
+using OGen.NTier.Kick.Libraries.DataLayer.Shared;
+using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
-using OGen.NTier.Kick.lib.businesslayer.shared;
-//using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+//using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
-namespace OGen.NTier.Kick.lib.businesslayer {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 	[BOClassAttribute("BO_CRD_User", "")]
 	public static class SBO_CRD_User {
 		#region public static void insObject_CreateUser(string credentials_in, string login_in, ...);

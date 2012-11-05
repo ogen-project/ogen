@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OGen.NTier.Kick.presentationlayer.weblayer {
+namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
     
     
     public partial class LOG_Log {
@@ -19,7 +19,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickListBox DDL_Logtype;
+        protected global::OGen.Libraries.PresentationLayer.WebForms.KickListBox DDL_Logtype;
         
         /// <summary>
         /// DDL_Errortype control.
@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickListBox DDL_Errortype;
+        protected global::OGen.Libraries.PresentationLayer.WebForms.KickListBox DDL_Errortype;
         
         /// <summary>
         /// CBX_Read control.
@@ -46,7 +46,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.NTier.Kick.presentationlayer.weblayer.htmlDatePicker TXT_Date_begin;
+        protected global::OGen.NTier.Kick.PresentationLayer.WebLayer.htmlDatePicker TXT_Date_begin;
         
         /// <summary>
         /// TXT_Date_end control.
@@ -55,7 +55,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.NTier.Kick.presentationlayer.weblayer.htmlDatePicker TXT_Date_end;
+        protected global::OGen.NTier.Kick.PresentationLayer.WebLayer.htmlDatePicker TXT_Date_end;
         
         /// <summary>
         /// LBL_Date_lastDay control.
@@ -101,14 +101,5 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Anthem.Repeater REP_Log;
-        
-        /// <summary>
-        /// BTN_MarkRead control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Anthem.Button BTN_MarkRead;
     }
 }

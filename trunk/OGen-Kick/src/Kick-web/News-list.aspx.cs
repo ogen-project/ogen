@@ -13,20 +13,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.presentationlayer.weblayer {
+namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 	using System;
 	using System.Collections.Generic;
 	using System.Web;
 	using System.Web.UI;
 	using System.Web.UI.WebControls;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
-	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer;
 
-	using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+	using BusinessInstances = OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances;
 
 	public partial class FE_News_list : SitePage {
 		#region public long IDTag { get; set; }
@@ -140,8 +140,8 @@ new long[] { },
 					true,
 
 1,
-					OGen.lib.presentationlayer.webforms.utils.Pager.PageNum,
-					OGen.lib.presentationlayer.webforms.utils.Pager.ITEMSPERPAGE_DEFAULT, 
+					OGen.Libraries.PresentationLayer.WebForms.utils.Pager.PageNum,
+					OGen.Libraries.PresentationLayer.WebForms.utils.Pager.ITEMSPERPAGE_DEFAULT, 
 					out _count, 
 
 					out _errors
@@ -158,8 +158,8 @@ new long[] { },
 				}
 
 				foreach (SO_vNWS_Content _content in _news) {
-					_content.summary = OGen.lib.presentationlayer.webforms.utils.Replace_RN_BR(_content.summary);
-					_content.Content = OGen.lib.presentationlayer.webforms.utils.Replace_RN_BR(_content.Content);
+					_content.summary = OGen.Libraries.PresentationLayer.WebForms.utils.Replace_RN_BR(_content.summary);
+					_content.Content = OGen.Libraries.PresentationLayer.WebForms.utils.Replace_RN_BR(_content.Content);
 				}
 
 				this.REP_News.DataSource = _news;
@@ -168,7 +168,7 @@ new long[] { },
 				this.TBL_News.Visible = true;
 
 
-				OGen.lib.presentationlayer.webforms.utils.Pager.Bind(
+				OGen.Libraries.PresentationLayer.WebForms.utils.Pager.Bind(
 					_count,
 					this.LBL_PageSeparator_left,
 					this.LBL_PageSeparator_2,

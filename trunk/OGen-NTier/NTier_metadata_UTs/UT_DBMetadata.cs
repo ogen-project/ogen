@@ -15,10 +15,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using NUnit.Framework;
 
-using OGen.lib.datalayer;
-using OGen.NTier.lib.metadata;
+using OGen.Libraries.DataLayer;
+using OGen.NTier.Libraries.Metadata;
 
-namespace OGen.NTier.lib.metadata.UTs {
+namespace OGen.NTier.Libraries.Metadata.UnitTests {
 	[TestFixture]
 	public class UT_DBMetadata { public UT_DBMetadata() {}
 		#region public void TestFixtureSetUp();

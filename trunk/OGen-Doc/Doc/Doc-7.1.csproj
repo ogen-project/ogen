@@ -9,7 +9,7 @@
             <Settings
                 ApplicationIcon = "App.ico"
                 AssemblyKeyContainerName = ""
-                AssemblyName = "OGen.Doc.presentationlayer.winforms"
+                AssemblyName = "OGen.Doc.PresentationLayer.WinForms"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "WinExe"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "OGen.Doc.presentationlayer.winforms"
+                RootNamespace = "OGen.Doc.PresentationLayer.WinForms"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >

@@ -4,8 +4,8 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <OutputType>Library</OutputType>
-    <RootNamespace>OGen.XSD.lib.metadata</RootNamespace>
-    <AssemblyName>OGen.XSD.lib.metadata-2.0</AssemblyName>
+    <RootNamespace>OGen.XSD.Libraries.Metadata</RootNamespace>
+    <AssemblyName>OGen.XSD.Libraries.Metadata-2.0</AssemblyName>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
     <NoStdLib>False</NoStdLib>
     <WarningLevel>4</WarningLevel>

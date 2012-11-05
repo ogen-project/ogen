@@ -13,17 +13,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.businesslayer {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 	using System;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
 	public class BO_WEB_DefaultProfile :
 		IBO_WEB_DefaultProfile
 	{
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[] getRecord_all(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[] getRecord_all(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNET_Profile[] getRecord_all(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNET_Profile[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int page_orderBy_in, 
@@ -32,7 +32,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_WEB_DefaultProfile.getRecord_all(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_WEB_DefaultProfile.getRecord_all(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				page_orderBy_in, 
@@ -50,7 +50,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			long[] idProfile_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_WEB_DefaultProfile.setObject(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_WEB_DefaultProfile.setObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idProfile_in, 

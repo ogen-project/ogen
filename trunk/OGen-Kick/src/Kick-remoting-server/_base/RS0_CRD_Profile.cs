@@ -13,13 +13,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
+namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 	using System;
 
-	using OGen.NTier.Kick.lib.businesslayer;
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// CRD_Profile remoting server.
@@ -35,7 +35,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			long idProfile_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.delObject(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Profile.delObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -45,14 +45,14 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile getObject(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile getObject(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile getObject(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.getObject(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Profile.getObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -62,8 +62,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile[] getRecord_all(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile[] getRecord_all(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile[] getRecord_all(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			bool allProfiles_notJustApplication_in, 
@@ -73,7 +73,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.getRecord_all(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Profile.getRecord_all(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -87,8 +87,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_ProfileProfile[] getRecord_byProfile(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_ProfileProfile[] getRecord_byProfile(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_ProfileProfile[] getRecord_byProfile(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_ProfileProfile[] getRecord_byProfile(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
@@ -98,7 +98,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.getRecord_byProfile(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Profile.getRecord_byProfile(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -112,8 +112,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermission[] getRecord_ofProfilePermission_byProfile(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermission[] getRecord_ofProfilePermission_byProfile(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vCRD_ProfilePermission[] getRecord_ofProfilePermission_byProfile(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vCRD_ProfilePermission[] getRecord_ofProfilePermission_byProfile(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long IDProfile_search_in, 
@@ -123,7 +123,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.getRecord_ofProfilePermission_byProfile(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Profile.getRecord_ofProfilePermission_byProfile(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -137,8 +137,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_UserProfile[] getRecord_ofUserProfile_byUser(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_UserProfile[] getRecord_ofUserProfile_byUser(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vCRD_UserProfile[] getRecord_ofUserProfile_byUser(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vCRD_UserProfile[] getRecord_ofUserProfile_byUser(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long IDUser_search_in, 
@@ -148,7 +148,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.getRecord_ofUserProfile_byUser(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Profile.getRecord_ofUserProfile_byUser(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -166,12 +166,12 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		public long insObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile profile_in, 
 			long[] idProfile_parent_in, 
 			long[] idPermission_in, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.insObject(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Profile.insObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -191,7 +191,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			long[] idProfiles_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.setUserProfiles(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Profile.setUserProfiles(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -206,12 +206,12 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		public void updObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile profile_in, 
 			long[] idProfile_parent_in, 
 			long[] idPermission_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.updObject(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Profile.updObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -232,7 +232,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			long[] idPermission_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Profile.updObject_relationsOnly(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Profile.updObject_relationsOnly(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")

@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.XSD.lib.metadata.schema {
+namespace OGen.XSD.Libraries.Metadata.Schema {
 	using System;
 	using System.Xml.Serialization;
 
@@ -38,7 +38,7 @@ namespace OGen.XSD.lib.metadata.schema {
 		) {
 			complexTypeCollection_out = null;
 			int _index = -1;
-			OGen.XSD.lib.metadata.metadata.XS_complexTypeType _complextype;
+			OGen.XSD.Libraries.Metadata.Metadata.XS_complexTypeType _complextype;
 
 			XS__schema _schema = this.root_ref_.SchemaCollection[schemaName_in];
 			for (int c = 0; c < _schema.ComplexTypeCollection.Count; c++) {

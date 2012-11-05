@@ -13,14 +13,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.lib.generator {
+namespace OGen.NTier.Libraries.Generator {
 	using System;
 	using System.Collections;
 	using System.IO;
-	using OGen.lib.datalayer;
-	using OGen.lib.generator;
-	using OGen.lib.templates;
-	using OGen.NTier.lib.metadata;
+	using OGen.Libraries.DataLayer;
+	using OGen.Libraries.Generator;
+	using OGen.Libraries.Templates;
+	using OGen.NTier.Libraries.Metadata;
 
 	public class NTierGenerator {
 		#region	public NTierGenerator();
@@ -96,8 +96,8 @@ namespace OGen.NTier.lib.generator {
 		) {
 			return string.Format(
 				System.Globalization.CultureInfo.CurrentCulture,
-				//"{1}_businesslayer{0}bin{0}{4}{0}{2}.lib.businesslayer-{3}.dll",
-				"src{0}{1}-businesslayer{0}bin{0}{4}{0}{2}.lib.businesslayer-{3}.dll",
+				//"{1}_businesslayer{0}bin{0}{4}{0}{2}.Libraries.BusinessLayer-{3}.dll",
+				"src{0}{1}-businesslayer{0}bin{0}{4}{0}{2}.Libraries.BusinessLayer-{3}.dll",
 				Path.DirectorySeparatorChar, // __________________ 0
 				applicationName_in, // ___________________________ 1
 				applicationNamespace_in, // ______________________ 2
@@ -116,7 +116,7 @@ namespace OGen.NTier.lib.generator {
 			string applicationPath_in, 
 			string applicationName_in, 
 			string namespace_in, 
-			OGen.NTier.lib.metadata.metadataExtended.XS_dbType[] dbs_in,
+			OGen.NTier.Libraries.Metadata.MetadataExtended.XS_dbType[] dbs_in,
 			dNotifyBack notifyBack_in
 		) {
 throw new Exception("// ToDos: not implemented!");
@@ -183,12 +183,12 @@ throw new Exception("// ToDos: not implemented!");
 //		#region public void Open(...);
 		public void Open(
 			string filename_in, 
-			bool force_doNOTsave_in,
+			bool force_doNOTSave_in,
 			dNotifyBack notifyBack_in
 		) {
 			#region Checking...
 			if (this.hasChanges) {
-				if (!force_doNOTsave_in) {
+				if (!force_doNOTSave_in) {
 					throw new Exception(string.Format(
 						System.Globalization.CultureInfo.CurrentCulture,
 						"{0}.{1}.Open(): - must save before open", 
@@ -237,10 +237,10 @@ throw new Exception("// ToDos: not implemented!");
 
 				if (notifyBack_in != null) notifyBack_in("- reading metadata from business assembly", true);
 
-				OGen.NTier.lib.metadata.metadataBusiness.XS__metadataBusiness _metadatabusiness;
+				OGen.NTier.Libraries.Metadata.MetadataBusiness.XS__metadataBusiness _metadatabusiness;
 				try {
 					_metadatabusiness
-						= OGen.NTier.lib.metadata.metadataBusiness.XS__metadataBusiness.Load_fromAssembly(
+						= OGen.NTier.Libraries.Metadata.MetadataBusiness.XS__metadataBusiness.Load_fromAssembly(
 							_assembly,
 							null,
 							0
@@ -277,8 +277,8 @@ throw new Exception("// ToDos: not implemented!");
 
 			#region - reading metadata from db
 			if (notifyBack_in != null) notifyBack_in("- reading metadata from db", true);
-			OGen.NTier.lib.metadata.metadataDB.XS__metadataDB _metadatadb 
-				= OGen.NTier.lib.metadata.metadataDB.XS__metadataDB.Load_fromDB(
+			OGen.NTier.Libraries.Metadata.MetadataDB.XS__metadataDB _metadatadb 
+				= OGen.NTier.Libraries.Metadata.MetadataDB.XS__metadataDB.Load_fromDB(
 					null,
 					this.metadata_.MetadataExtendedCollection[0].SubAppName,
 					this.metadata_,
@@ -320,7 +320,7 @@ throw new Exception("// ToDos: not implemented!");
 				if (
 					this.metadata_.MetadataFiles.MetadataFiles[i].XMLFileType
 					==
-					OGen.NTier.lib.metadata.metadataDB.XS__metadataDB.METADATADB
+					OGen.NTier.Libraries.Metadata.MetadataDB.XS__metadataDB.METADATADB
 				) {
 					if (notifyBack_in != null) notifyBack_in("- saving db metadata to xml file", true);
 
@@ -355,10 +355,10 @@ throw new Exception("// ToDos: not implemented!");
 		}
 //		#endregion
 		#region public void Close(...);
-		public void Close(bool force_doNOTsave_in) {
+		public void Close(bool force_doNOTSave_in) {
 			if (
 				(this.hasChanges) && 
-				(!force_doNOTsave_in)
+				(!force_doNOTSave_in)
 			) {
 				throw new Exception(string.Format(
 					System.Globalization.CultureInfo.CurrentCulture,

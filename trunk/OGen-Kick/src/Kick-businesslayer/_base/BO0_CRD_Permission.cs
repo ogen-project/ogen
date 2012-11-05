@@ -13,17 +13,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.businesslayer {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 	using System;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
 	public class BO_CRD_Permission :
 		IBO_CRD_Permission
 	{
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permission[] getRecord_all(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permission[] getRecord_all(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Permission[] getRecord_all(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Permission[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			bool allProfiles_notJustApplication_in, 
@@ -33,7 +33,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Permission.getRecord_all(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Permission.getRecord_all(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				allProfiles_notJustApplication_in, 

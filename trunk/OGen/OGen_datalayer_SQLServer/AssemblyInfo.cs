@@ -24,7 +24,7 @@ using System.Runtime.CompilerServices;
 // change them to the information which is associated with the assembly
 // you compile.
 //
-[assembly: AssemblyTitle("OGen.lib.datalayer.SQLServer")]
+[assembly: AssemblyTitle("OGen.Libraries.DataLayer.SQLServer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Francisco Monteiro")]

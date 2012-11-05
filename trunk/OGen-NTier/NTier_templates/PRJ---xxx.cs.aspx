@@ -10,11 +10,11 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 --%><%@ Page language="c#" contenttype="text/html" %>
-<%@ import namespace="OGen.lib.datalayer" %>
-<%@ import namespace="OGen.NTier.lib.metadata" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataExtended" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataDB" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataBusiness" %><%
+<%@ import namespace="OGen.Libraries.DataLayer" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataExtended" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataDB" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataBusiness" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 #endregion
@@ -29,7 +29,7 @@ XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusinessCollection[0];
 
-OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
+OGen.NTier.Libraries.Metadata.MetadataBusiness.XS_classType _aux_class;
 
 XS_methodType _aux_method;
 XS_parameterType _aux_parameter;
@@ -62,12 +62,12 @@ using System.Collections.Generic;
 using System.Text;
 using System.Web.UI.WebControls;
 
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures;
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared;
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.structures;
-using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.instances;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer.Shared.Structures;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.BusinessLayer.Shared;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.BusinessLayer.Shared.Structures;
+using <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.BusinessLayer.Shared.Instances;
 
-namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.presentationlayer.weblayer {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.PresentationLayer.WebLayer {
 	public class <%=_aux_ex_metadata.ApplicationName%>ListControl {
 		public <%=_aux_ex_metadata.ApplicationName%>ListControl(
 			IXXXListControl listitemcollection_ref_in
@@ -92,7 +92,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.presentationlayer.webla
 			}%>
 		) {
 			<%=_aux_method.OutputType%> _items 
-				= <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.instances.<%=_aux_class.Name%>.InstanceClient.<%=_aux_method.Name%>(<%
+				= <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.BusinessLayer.Shared.Instances.<%=_aux_class.Name%>.InstanceClient.<%=_aux_method.Name%>(<%
 					for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 						_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
 					<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
@@ -129,7 +129,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.presentationlayer.webla
 			}%>
 		) {
 			<%=_aux_method.OutputType%> _items 
-			= <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.instances.<%=_aux_class.Name%>.InstanceClient.<%=_aux_method.Name%>(<%			
+			= <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.BusinessLayer.Shared.Instances.<%=_aux_class.Name%>.InstanceClient.<%=_aux_method.Name%>(<%
 				for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 					_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
 				<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%

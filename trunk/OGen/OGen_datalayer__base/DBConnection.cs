@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.lib.datalayer {
+namespace OGen.Libraries.DataLayer {
 	using System;
 	using System.Data;
 	using System.IO;
@@ -33,7 +33,7 @@ namespace OGen.lib.datalayer {
 	/// <code>
 	/// DBConnection _connection = new DBConnection(
 	///		DBServerTypes.PostgreSQL, 
-	///		OGen.lib.datalayer.utils.Connectionstring.Buildwith.Parameters(
+	///		OGen.Libraries.DataLayer.utils.Connectionstring.Buildwith.Parameters(
 	///			"127.0.0.1", 
 	///			"postgres", 
 	///			"password", 
@@ -52,7 +52,7 @@ namespace OGen.lib.datalayer {
 	///	<code>
 	/// DBConnection _connection = new DBConnection(
 	///		DBServerTypes.PostgreSQL, 
-	///		OGen.lib.datalayer.utils.Connectionstring.Buildwith.Parameters(
+	///		OGen.Libraries.DataLayer.utils.Connectionstring.Buildwith.Parameters(
 	///			"127.0.0.1", 
 	///			"postgres", 
 	///			"password", 

@@ -13,12 +13,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.presentationlayer.console {
+namespace OGen.NTier.PresentationLayer.ConsoleApplication {
 	using System;
 	using System.IO;
-	using OGen.lib.generator;
-	using OGen.NTier.lib.generator;
-	using OGen.NTier.lib.metadata;
+	using OGen.Libraries.Generator;
+	using OGen.NTier.Libraries.Generator;
+	using OGen.NTier.Libraries.Metadata;
 
 	class MainClass {
 		[STAThread]

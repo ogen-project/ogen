@@ -17,9 +17,9 @@ using System.IO;
 using System.Collections;
 using NUnit.Framework;
 
-using OGen.lib.presentationlayer.webforms;
+using OGen.Libraries.PresentationLayer.WebForms;
 
-namespace OGen.lib.presentationlayer.webforms.UTs {
+namespace OGen.Libraries.PresentationLayer.WebForms.UnitTests {
 	[TestFixture]
 	public class UT_utils { public UT_utils() {}
 		Hashtable _hash;

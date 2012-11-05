@@ -13,15 +13,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.distributedlayer.webservices.server {
+namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 	using System;
 	using System.Web;
 	using System.Web.Services;
 
-	using OGen.NTier.Kick.lib.businesslayer;
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// NWS_Attachment web service.
@@ -38,7 +38,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			long idAttachment_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Attachment.delObject(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Attachment.delObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -48,15 +48,15 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment getObject(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Attachment getObject(...);
 		[WebMethod]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment getObject(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Attachment getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idAttachment_in, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Attachment.getObject(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Attachment.getObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -66,9 +66,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Attachment[] getRecord_byContent(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Attachment[] getRecord_byContent(...);
 		[WebMethod]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Attachment[] getRecord_byContent(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Attachment[] getRecord_byContent(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_search_in, 
@@ -78,7 +78,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Attachment.getRecord_byContent(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Attachment.getRecord_byContent(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -92,9 +92,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Attachment[] getRecord_byContent_andLanguage(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Attachment[] getRecord_byContent_andLanguage(...);
 		[WebMethod]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Attachment[] getRecord_byContent_andLanguage(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Attachment[] getRecord_byContent_andLanguage(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long IDContent_search_in, 
@@ -105,7 +105,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Attachment.getRecord_byContent_andLanguage(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Attachment.getRecord_byContent_andLanguage(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -125,14 +125,14 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		public long insObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment attachment_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Description_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Attachment attachment_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Name_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Description_in, 
 			bool selectIdentity_in, 
 			out string guid_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Attachment.insObject(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Attachment.insObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -151,12 +151,12 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		public void updObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment attachment_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Description_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Attachment attachment_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Name_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Description_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Attachment.updObject(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Attachment.updObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 

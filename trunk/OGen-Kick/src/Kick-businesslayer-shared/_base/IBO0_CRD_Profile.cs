@@ -13,10 +13,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.businesslayer.shared {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer.Shared {
 	using System;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
 #if NET_1_1
 	public interface IBO0_CRD_Profile {
@@ -29,13 +29,13 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			long idProfile_in, 
 			out int[] errors_out
 		);
-		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile getObject(
+		OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
 			out int[] errors_out
 		);
-		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile[] getRecord_all(
+		OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			bool allProfiles_notJustApplication_in, 
@@ -45,7 +45,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		);
-		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_ProfileProfile[] getRecord_byProfile(
+		OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_ProfileProfile[] getRecord_byProfile(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
@@ -55,7 +55,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		);
-		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermission[] getRecord_ofProfilePermission_byProfile(
+		OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vCRD_ProfilePermission[] getRecord_ofProfilePermission_byProfile(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long IDProfile_search_in, 
@@ -65,7 +65,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		);
-		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_UserProfile[] getRecord_ofUserProfile_byUser(
+		OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vCRD_UserProfile[] getRecord_ofUserProfile_byUser(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long IDUser_search_in, 
@@ -78,7 +78,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 		long insObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile profile_in, 
 			long[] idProfile_parent_in, 
 			long[] idPermission_in, 
 			out int[] errors_out
@@ -93,7 +93,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 		void updObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile profile_in, 
 			long[] idProfile_parent_in, 
 			long[] idPermission_in, 
 			out int[] errors_out

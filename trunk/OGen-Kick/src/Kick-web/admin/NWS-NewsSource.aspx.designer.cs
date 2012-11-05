@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OGen.NTier.Kick.presentationlayer.weblayer {
+namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
     
     
     public partial class NWS_NewsSource {
@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickListBox DDL_Source_parent;
+        protected global::OGen.Libraries.PresentationLayer.WebForms.KickListBox DDL_Source_parent;
         
         /// <summary>
         /// BTN_Save control.

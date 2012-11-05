@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OGen.NTier.Kick.presentationlayer.weblayer.admin {
+namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
     
     
-    public partial class Default {
+    public partial class AdminDefault {
     }
 }

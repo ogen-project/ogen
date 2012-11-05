@@ -10,11 +10,11 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 --%><%@ Page language="c#" contenttype="text/html" %>
-<%@ import namespace="OGen.lib.datalayer" %>
-<%@ import namespace="OGen.NTier.lib.metadata" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataExtended" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataDB" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataBusiness" %><%
+<%@ import namespace="OGen.Libraries.DataLayer" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataExtended" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataDB" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataBusiness" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 #endregion
@@ -46,21 +46,21 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 <%
 	}
 }%>
-namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer {
 	using System;
 
-	using OGen.lib.datalayer;<%
+	using OGen.Libraries.DataLayer;<%
 	for (int d = 0; d < _aux_ex_metadata.DBs.DBCollection.Count; d++) {
 		string _dbservertype = _aux_ex_metadata.DBs.DBCollection[d].DBServerType.ToString();%>
 	#if <%=_dbservertype%>
-	using OGen.lib.datalayer.<%=_dbservertype%>;
+	using OGen.Libraries.DataLayer.<%=_dbservertype%>;
 	#endif
 	<%
 	}%>
-	using OGen.NTier.lib.datalayer;
+	using OGen.NTier.Libraries.DataLayer;
 
 	/// <summary>
-	/// utils DataObject which works as a repository of useful Properties and Methods for DataObjects at <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer namespace.
+	/// utils DataObject which works as a repository of useful Properties and Methods for DataObjects at <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer namespace.
 	/// </summary>
 	public sealed 
 #if USE_PARTIAL_CLASSES && !NET_1_1

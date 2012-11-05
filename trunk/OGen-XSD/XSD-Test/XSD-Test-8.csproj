@@ -4,8 +4,8 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <OutputType>Exe</OutputType>
-    <RootNamespace>OGen.XSD.presentationlayer.test</RootNamespace>
-    <AssemblyName>OGen.XSD.presentationlayer.test-2.0</AssemblyName>
+    <RootNamespace>OGen.XSD.PresentationLayer.Test</RootNamespace>
+    <AssemblyName>OGen.XSD.PresentationLayer.Test-2.0</AssemblyName>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
     <NoStdLib>False</NoStdLib>
     <WarningLevel>4</WarningLevel>

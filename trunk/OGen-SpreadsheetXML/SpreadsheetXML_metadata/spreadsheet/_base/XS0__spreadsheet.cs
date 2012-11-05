@@ -14,12 +14,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 
 
-namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
+namespace OGen.SpreadsheetXML.Libraries.Metadata.SpreadSheet {
 	using System;
 	using System.IO;
 	using System.Xml.Serialization;
 
-	using OGen.lib.generator;
+	using OGen.Libraries.Generator;
 
 	#if NET_1_1
 	public class XS0__spreadsheet : XS_spreadsheetType, MetadataInterface {
@@ -119,7 +119,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 				} else {
 					try {
 						_output[i] = (XS__spreadsheet)new XmlSerializer(typeof(XS__spreadsheet)).Deserialize(
-							OGen.lib.presentationlayer.webforms.utils.ReadURL(
+							OGen.Libraries.PresentationLayer.WebForms.utils.ReadURL(
 								filePath_in[i].ToString()
 							)
 						);
@@ -166,7 +166,7 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		#endregion
 		#region public string Read_fromRoot(string what_in);
 		public string Read_fromRoot(string what_in) {
-			return OGen.lib.generator.utils.ReflectThrough(
+			return OGen.Libraries.Generator.utils.ReflectThrough(
 				this, 
 				this.Root_Spreadsheet, 
 				null, 
@@ -180,10 +180,10 @@ namespace OGen.SpreadsheetXML.lib.metadata.spreadsheet {
 		#region public void IterateThrough_fromRoot(...);
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
-			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in,
+			OGen.Libraries.Generator.utils.IterationFoundDelegate iteration_found_in,
 			ref bool valueHasBeenFound_out
 		) {
-			OGen.lib.generator.utils.ReflectThrough(
+			OGen.Libraries.Generator.utils.ReflectThrough(
 				this, 
 				this.Root_Spreadsheet, 
 				iteration_found_in, 

@@ -2,16 +2,16 @@
 	Language="C#" 
 	AutoEventWireup="true" 
 	CodeBehind="LOG-Log.aspx.cs" 
-	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.LOG_Log"
+	Inherits="OGen.NTier.Kick.PresentationLayer.WebLayer.LOG_Log"
 	MasterPageFile="~/App_Controls/Admin.Master" %>
 <%@ Register 
 	TagPrefix="kick" 
-	Namespace="OGen.NTier.Kick.presentationlayer.weblayer"
-	Assembly="OGen.NTier.Kick.presentationlayer.weblayer-2.0" %>
+	Namespace="OGen.NTier.Kick.PresentationLayer.WebLayer"
+	Assembly="OGen.NTier.Kick.PresentationLayer.WebLayer-2.0" %>
 <%@ Register 
 	TagPrefix="asol" 
-	Namespace="OGen.lib.presentationlayer.webforms"
-	Assembly="OGen.lib.presentationlayer.webforms-2.0" %>
+	Namespace="OGen.Libraries.PresentationLayer.WebForms"
+	Assembly="OGen.Libraries.PresentationLayer.WebForms-2.0" %>
 <%@ Register 
 	TagPrefix="anthem" 
 	Namespace="Anthem" 

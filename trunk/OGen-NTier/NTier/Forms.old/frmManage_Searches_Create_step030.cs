@@ -18,7 +18,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace OGen.NTier.presentationlayer.winforms {
+namespace OGen.NTier.PresentationLayer.WinForms {
 	public class frmManage_Searches_Create_step030 : System.Windows.Forms.Form {
 		#region Required designer variable...
 		/// <summary>
@@ -265,7 +265,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 				frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[t].TableSearches.TableSearchCollection.Add(
 					out s, 
 					true, 
-					new OGen.NTier.lib.metadata.metadataExtended.XS_tableSearchType(
+					new OGen.NTier.Libraries.Metadata.MetadataExtended.XS_tableSearchType(
 						txtSearchName.Text
 					)
 				);
@@ -282,7 +282,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 						s
 					].TableSearchParameters.TableFieldRefCollection.Add(
 						out _index, 
-						new OGen.NTier.lib.metadata.metadataExtended.XS_tableFieldRefType(
+						new OGen.NTier.Libraries.Metadata.MetadataExtended.XS_tableFieldRefType(
 							Parent_ref.FieldsName[f, 0]
 						)
 					);

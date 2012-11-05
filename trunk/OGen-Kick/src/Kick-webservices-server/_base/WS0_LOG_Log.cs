@@ -13,15 +13,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.distributedlayer.webservices.server {
+namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 	using System;
 	using System.Web;
 	using System.Web.Services;
 
-	using OGen.NTier.Kick.lib.businesslayer;
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// LOG_Log web service.
@@ -30,9 +30,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		WebService,
 		IBO_LOG_Log
 	{
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_LOG_Log[] getRecord_generic(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_LOG_Log[] getRecord_generic(...);
 		[WebMethod]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_LOG_Log[] getRecord_generic(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_LOG_Log[] getRecord_generic(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int IDLogtype_search_in, 
@@ -50,7 +50,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.getRecord_generic(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.getRecord_generic(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -84,7 +84,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string format_in, 
 			string[] args_in
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.Log(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -106,7 +106,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			int idLog_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.MarkRead(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.MarkRead(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 

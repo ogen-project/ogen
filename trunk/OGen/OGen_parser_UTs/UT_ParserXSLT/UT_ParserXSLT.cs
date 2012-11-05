@@ -17,9 +17,9 @@ using System.IO;
 using System.Collections;
 using NUnit.Framework;
 
-using OGen.lib.parser;
+using OGen.Libraries.Parser;
 
-namespace OGen.lib.parser.UTs {
+namespace OGen.Libraries.Parser.UnitTests {
 	[TestFixture]
 	public class UT_ParserXSLT { public UT_ParserXSLT() {}
 		#region private string resourse_dir { get; }

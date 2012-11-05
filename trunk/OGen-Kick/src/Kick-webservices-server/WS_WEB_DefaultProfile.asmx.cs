@@ -16,11 +16,11 @@ using System;
 using System.Web;
 using System.Web.Services;
 
-namespace OGen.NTier.Kick.distributedlayer.webservices.server {
+namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 	/// <summary>
 	/// WEB_DefaultProfile web service.
 	/// </summary>
-	[WebService(Namespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server")]
+	[WebService(Namespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server")]
 	#if !NET_1_1
 	[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 	[System.ComponentModel.ToolboxItem(false)]

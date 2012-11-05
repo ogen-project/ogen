@@ -9,7 +9,7 @@
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "OGen.XSD.lib.generator-1.1"
+                AssemblyName = "OGen.XSD.Libraries.Generator-1.1"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "OGen.XSD.lib.generator"
+                RootNamespace = "OGen.XSD.Libraries.Generator"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >

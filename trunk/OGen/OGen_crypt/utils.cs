@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.lib.crypt {
+namespace OGen.Libraries.Crypt {
 	using System;
 	using System.Collections.Generic;
 	using System.IO;
@@ -35,7 +35,7 @@ namespace OGen.lib.crypt {
 					//&&
 					//File.Exists(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Server_Private"])
 				) {
-					rsa_server_private_ = OGen.lib.crypt.utils.LoadRSAFile(
+					rsa_server_private_ = OGen.Libraries.Crypt.utils.LoadRSAFile(
 						System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Server_Private"]
 					);
 				} else {
@@ -47,7 +47,7 @@ namespace OGen.lib.crypt {
 					//&&
 					//File.Exists(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Server_Public"])
 				) {
-					rsa_server_public_ = OGen.lib.crypt.utils.LoadRSAFile(
+					rsa_server_public_ = OGen.Libraries.Crypt.utils.LoadRSAFile(
 						System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Server_Public"]
 					);
 				} else {
@@ -120,11 +120,11 @@ namespace OGen.lib.crypt {
 			public static string RSA_Server_private_Decrypt64(
 				string rgb
 			) {
-				//return OGen.lib.crypt.StringHelper.ASCIIBytesToString(
-				//    OGen.lib.crypt.StringHelper.FromBase64(
+				//return OGen.Libraries.Crypt.StringHelper.ASCIIBytesToString(
+				//    OGen.Libraries.Crypt.StringHelper.FromBase64(
 				//        utils.bytes2string(
 				//            RSA_Server_private_Decrypt(
-				//                OGen.lib.crypt.StringHelper.HexStringToBytes(
+				//                OGen.Libraries.Crypt.StringHelper.HexStringToBytes(
 				//                    rgb
 				//                )
 				//            )
@@ -133,7 +133,7 @@ namespace OGen.lib.crypt {
 				//);
 				return utils.bytes2string(
 					RSA_Server_private_Decrypt(
-						OGen.lib.crypt.StringHelper.FromBase64(
+						OGen.Libraries.Crypt.StringHelper.FromBase64(
 							rgb
 						)
 					)
@@ -171,10 +171,10 @@ namespace OGen.lib.crypt {
 			public static string RSA_Server_public_Encrypt64(
 				string rgb
 			) {
-				//return OGen.lib.crypt.StringHelper.BytesToHexString(
+				//return OGen.Libraries.Crypt.StringHelper.BytesToHexString(
 				//    RSA_Server_public_Encrypt(
 				//        string2bytes(
-				//            OGen.lib.crypt.StringHelper.ToBase64(
+				//            OGen.Libraries.Crypt.StringHelper.ToBase64(
 				//                string2bytes(
 				//                    rgb
 				//                )
@@ -182,7 +182,7 @@ namespace OGen.lib.crypt {
 				//        )
 				//    )
 				//);
-				return OGen.lib.crypt.StringHelper.ToBase64(
+				return OGen.Libraries.Crypt.StringHelper.ToBase64(
 					RSA_Server_public_Encrypt(
 						string2bytes(
 							rgb
@@ -277,7 +277,7 @@ namespace OGen.lib.crypt {
 					//File.Exists(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Client_Private"])
 				) {
 					try {
-						rsa_client_private_ = OGen.lib.crypt.utils.LoadRSAFile(
+						rsa_client_private_ = OGen.Libraries.Crypt.utils.LoadRSAFile(
 							System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Client_Private"]
 						);
 					} catch (Exception _ex) {
@@ -299,7 +299,7 @@ namespace OGen.lib.crypt {
 					//File.Exists(System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Client_Public"])
 				) {
 					try {
-						rsa_client_public_ = OGen.lib.crypt.utils.LoadRSAFile(
+						rsa_client_public_ = OGen.Libraries.Crypt.utils.LoadRSAFile(
 							System.Configuration.ConfigurationManager.AppSettings["RSAKeys_Client_Public"]
 						);
 					} catch (Exception _ex) {
@@ -382,11 +382,11 @@ namespace OGen.lib.crypt {
 			public static string RSA_Client_private_Decrypt64(
 				string rgb
 			) {
-				return OGen.lib.crypt.StringHelper.ASCIIBytesToString(
-					OGen.lib.crypt.StringHelper.FromBase64(
+				return OGen.Libraries.Crypt.StringHelper.ASCIIBytesToString(
+					OGen.Libraries.Crypt.StringHelper.FromBase64(
 						utils.bytes2string(
 							RSA_Client_private_Decrypt(
-								OGen.lib.crypt.StringHelper.HexStringToBytes(
+								OGen.Libraries.Crypt.StringHelper.HexStringToBytes(
 									rgb
 								)
 							)
@@ -426,10 +426,10 @@ namespace OGen.lib.crypt {
 			public static string RSA_Client_public_Encrypt64(
 				string rgb
 			) {
-				return OGen.lib.crypt.StringHelper.BytesToHexString(
+				return OGen.Libraries.Crypt.StringHelper.BytesToHexString(
 					RSA_Client_public_Encrypt(
 						string2bytes(
-							OGen.lib.crypt.StringHelper.ToBase64(
+							OGen.Libraries.Crypt.StringHelper.ToBase64(
 								string2bytes(
 									rgb
 								)

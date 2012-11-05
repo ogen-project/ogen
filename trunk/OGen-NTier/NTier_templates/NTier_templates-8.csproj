@@ -10,14 +10,14 @@
     </ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName>OGen.NTier.lib.templates-2.0</AssemblyName>
+    <AssemblyName>OGen.NTier.Libraries.Templates-2.0</AssemblyName>
     <AssemblyOriginatorKeyFile>..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
     <OutputType>Library</OutputType>
-    <RootNamespace>OGen.NTier.lib.templates</RootNamespace>
+    <RootNamespace>OGen.NTier.Libraries.Templates</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <StartupObject>
     </StartupObject>
@@ -135,8 +135,8 @@
     <Content Include="BO-UT-SomeApplication_businesslayer_UTs-7.1.csproj.aspx" />
     <Content Include="BO-UT-SomeApplication_businesslayer_UTs-8.csproj.aspx">
     </Content>
-    <Content Include="BO-UT-SomeNamespace.lib.businesslayer.UTs-1.1.nunit.aspx" />
-    <Content Include="BO-UT-SomeNamespace.lib.businesslayer.UTs-2.0.nunit.aspx" />
+    <Content Include="BO-UT-SomeNamespace.Libraries.BusinessLayer.UTs-1.1.nunit.aspx" />
+    <Content Include="BO-UT-SomeNamespace.Libraries.BusinessLayer.UTs-2.0.nunit.aspx" />
     <Content Include="BO-UT-UT0_SomeTable.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
@@ -155,8 +155,8 @@
     </Content>
     <Content Include="DO-SomeApplication_datalayer_proxy-7.1.csproj.aspx" />
     <Content Include="DO-SomeApplication_datalayer_proxy-8.csproj.aspx" />
-    <Content Include="DO-UT-SomeNamespace.lib.datalayer.UTs-1.1.nunit.aspx" />
-    <Content Include="DO-UT-SomeNamespace.lib.datalayer.UTs-2.0.nunit.aspx" />
+    <Content Include="DO-UT-SomeNamespace.Libraries.DataLayer.UTs-1.1.nunit.aspx" />
+    <Content Include="DO-UT-SomeNamespace.Libraries.DataLayer.UTs-2.0.nunit.aspx" />
     <Content Include="DO-UT-UT0__utils.cs.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>

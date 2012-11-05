@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.lib.templates {
+namespace OGen.Libraries.Templates {
 	using System;
 	using System.Xml.Serialization;
 

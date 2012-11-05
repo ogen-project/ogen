@@ -10,14 +10,14 @@
     </ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName>OGen.NTier.lib.datalayer-2.0</AssemblyName>
+    <AssemblyName>OGen.NTier.Libraries.DataLayer-2.0</AssemblyName>
     <AssemblyOriginatorKeyFile>..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
     <OutputType>Library</OutputType>
-    <RootNamespace>OGen.NTier.lib.datalayer</RootNamespace>
+    <RootNamespace>OGen.NTier.Libraries.DataLayer</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <StartupObject>
     </StartupObject>
@@ -37,7 +37,7 @@
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>DEBUG;TRACE;NET_2_0</DefineConstants>
-    <DocumentationFile>bin\Debug\OGen.NTier.lib.datalayer-2.0.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\OGen.NTier.Libraries.DataLayer-2.0.xml</DocumentationFile>
     <DebugSymbols>true</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
@@ -59,7 +59,7 @@
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;NET_2_0</DefineConstants>
-    <DocumentationFile>bin\Release\OGen.NTier.lib.datalayer-2.0.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\OGen.NTier.Libraries.DataLayer-2.0.xml</DocumentationFile>
     <DebugSymbols>false</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>

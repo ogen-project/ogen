@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.lib.distributedlayer.webservices.client {
+namespace OGen.NTier.Libraries.DistributedLayer.WebServices.Client {
 	using System;
 	using System.Web.Services;
 	using System.Web.Services.Protocols;

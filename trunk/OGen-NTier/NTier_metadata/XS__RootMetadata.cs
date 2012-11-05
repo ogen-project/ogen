@@ -13,13 +13,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.lib.metadata {
+namespace OGen.NTier.Libraries.Metadata {
 	using System;
 	using System.Xml.Serialization;
 
-	using OGen.lib.collections;
-	using OGen.NTier.lib.metadata.metadataDB;
-	using OGen.NTier.lib.metadata.metadataExtended;
+	using OGen.Libraries.Collections;
+	using OGen.NTier.Libraries.Metadata.MetadataDB;
+	using OGen.NTier.Libraries.Metadata.MetadataExtended;
 
 	#if NET_1_1
 	public class XS__RootMetadata : XS0__RootMetadata {

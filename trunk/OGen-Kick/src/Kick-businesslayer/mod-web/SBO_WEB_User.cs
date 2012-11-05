@@ -17,19 +17,19 @@ using System.Configuration;
 using System.Collections.Generic;
 using System.Text;
 
-using OGen.lib.datalayer;
-using OGen.NTier.lib.businesslayer;
+using OGen.Libraries.DataLayer;
+using OGen.NTier.Libraries.BusinessLayer;
 
-using OGen.lib.crypt;
+using OGen.Libraries.Crypt;
 
-using OGen.NTier.Kick.lib.datalayer;
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
+using OGen.NTier.Kick.Libraries.DataLayer;
+using OGen.NTier.Kick.Libraries.DataLayer.Shared;
+using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
-using OGen.NTier.Kick.lib.businesslayer.shared;
-//using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+//using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
-namespace OGen.NTier.Kick.lib.businesslayer {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 	[BOClassAttribute("BO_WEB_User", "")]
 	public static class SBO_WEB_User {
 		#region public static void Login(...);
@@ -55,7 +55,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			List<int> _errors = new List<int>();
 			#region check...
-			if (!OGen.lib.mail.utils.isEmail_valid(email_in)) {
+			if (!OGen.Libraries.Mail.utils.isEmail_valid(email_in)) {
 				_errors.Add(ErrorType.authentication__invalid_email);
 
 				errors_out = _errors.ToArray();
@@ -148,7 +148,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 
 			if (
-				!OGen.lib.mail.utils.isEmail_valid(Email_verify_in = Email_verify_in.Trim())
+				!OGen.Libraries.Mail.utils.isEmail_valid(Email_verify_in = Email_verify_in.Trim())
 			) {
 				_errorlist.Add(ErrorType.web__user__invalid_email);
 				errors_out = _errorlist.ToArray();
@@ -217,7 +217,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 				if (!_constraintExist) {
 					#region MyMail.Send(Email_verify_in, ...);
 					try {
-						OGen.lib.mail.utils.MailSend(
+						OGen.Libraries.Mail.utils.MailSend(
 							new System.Net.Mail.MailAddress[] {
 								new System.Net.Mail.MailAddress(
 									Email_verify_in, 
@@ -293,7 +293,7 @@ A equipa {2}
 			}
 			if (_exception != null) {
 				#region SBO_LOG_Log.log(ErrorType.data);
-				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+				OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.log(
 					_sessionuser,
 					LogType.error, 
 					ErrorType.data,
@@ -630,7 +630,7 @@ A equipa {2}
 		//    }
 
 		//    string _email 
-		//        = OGen.lib.crypt.utils.Server.RSA_Server_private_Decrypt64(
+		//        = OGen.Libraries.Crypt.utils.Server.RSA_Server_private_Decrypt64(
 		//            email_check_in
 		//        );
 		//    if (
@@ -859,7 +859,7 @@ A equipa {2}
 				}
 				if (_exception != null) {
 					#region SBO_LOG_Log.log(ErrorType.data);
-					OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+					OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.log(
 						null,
 						LogType.error,
 						ErrorType.data,
@@ -1014,7 +1014,7 @@ A equipa {2}
 		////) {
 		////    int _iduser_out = -1;
 		////    string _email
-		////        = OGen.lib.crypt.utils.Server.RSA_Server_private_Decrypt64(
+		////        = OGen.Libraries.Crypt.utils.Server.RSA_Server_private_Decrypt64(
 		////            email_in
 		////        );
 
@@ -1046,7 +1046,7 @@ A equipa {2}
 		) {
 			List<int> _errors = new List<int>();
 			#region check . . .
-			if (!OGen.lib.mail.utils.isEmail_valid(Email_in = Email_in.Trim())) {
+			if (!OGen.Libraries.Mail.utils.isEmail_valid(Email_in = Email_in.Trim())) {
 				_errors.Add(ErrorType.web__user__invalid_email);
 				errors_out = _errors.ToArray();
 				return;
@@ -1081,8 +1081,8 @@ A equipa {2}
 			#endregion
 
 			try {
-				#region OGen.lib.mail.utils.MailSend(...);
-				OGen.lib.mail.utils.MailSend(
+				#region OGen.Libraries.Mail.utils.MailSend(...);
+				OGen.Libraries.Mail.utils.MailSend(
 					new System.Net.Mail.MailAddress[] {
 						new System.Net.Mail.MailAddress(
 							_user.Email, 
@@ -1111,7 +1111,7 @@ A equipa {2}",
 				#endregion
 			} catch (Exception _ex) {
 				#region SBO_LOG_Log.log(ErrorType.data);
-				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+				OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.log(
 					null, 
 					LogType.error,
 					ErrorType.web__user__can_not_send_mail,
@@ -1166,7 +1166,7 @@ A equipa {2}",
 			#region check . . . (trying to accumulate errors for user)
 			bool _hasErrors = false;
 
-			if (!OGen.lib.mail.utils.isEmail_valid(email_in)) {
+			if (!OGen.Libraries.Mail.utils.isEmail_valid(email_in)) {
 				_errorlist.Add(ErrorType.web__user__invalid_email);
 				_hasErrors = true;
 			}
@@ -1301,7 +1301,7 @@ A equipa {2}",
 // and multi language support must be implemented
 
 							#region MyMail.Send(email_in, ...);
-							OGen.lib.mail.utils.MailSend(
+							OGen.Libraries.Mail.utils.MailSend(
 								new System.Net.Mail.MailAddress[] {
 									new System.Net.Mail.MailAddress(
 										email_in, 
@@ -1335,7 +1335,7 @@ A equipa {2}",
 							_commit = true;
 						} catch (Exception _ex) {
 							#region SBO_LOG_Log.log(ErrorType.web__user__can_not_send_mail);
-							OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+							OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.log(
 								null,
 								LogType.error,
 								ErrorType.web__user__can_not_send_mail,
@@ -1404,7 +1404,7 @@ A equipa {2}",
 			}
 			if (_exception != null) {
 				#region SBO_LOG_Log.log(ErrorType.data);
-				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+				OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.log(
 					null, 
 					LogType.error,
 					ErrorType.data, 
@@ -1433,7 +1433,7 @@ A equipa {2}",
 		) {
 			try {
 				return System.Web.HttpUtility.UrlEncode(
-					OGen.lib.crypt.utils.Server.RSA_Server_public_Encrypt64(
+					OGen.Libraries.Crypt.utils.Server.RSA_Server_public_Encrypt64(
 						string.Format(
 							System.Globalization.CultureInfo.CurrentCulture,
 							"{0}|{1}",
@@ -1484,7 +1484,7 @@ A equipa {2}",
 			Exception _exception = null;
 			try {
 				_message
-					= OGen.lib.crypt.utils.Server.RSA_Server_private_Decrypt64(
+					= OGen.Libraries.Crypt.utils.Server.RSA_Server_private_Decrypt64(
 						enc_message_in
 					);
 			} catch (Exception _ex) {

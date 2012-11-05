@@ -12,17 +12,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
-using System.Windows.Forms;
-using System.Data;
-using System.IO;
-using OGen.lib.presentationlayer.winforms.Flowforms;
-using OGen.NTier.lib.generator;
 
-namespace OGen.NTier.presentationlayer.winforms {
+namespace OGen.NTier.PresentationLayer.WinForms {
+	using System;
+	using System.Collections;
+	using System.ComponentModel;
+	using System.Data;
+	using System.Drawing;
+	using System.IO;
+	using System.Windows.Forms;
+	using OGen.Libraries.PresentationLayer.WinForms.FlowForms;
+	using OGen.NTier.Libraries.Generator;
+
 	public class frm_Main : System.Windows.Forms.Form {
 		private IContainer components;
 		#region Required designer variable
@@ -465,7 +466,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 							frm_Main.NTierProject.Open(
 								openfile.FileName, 
 								false,
-								new OGen.NTier.lib.generator.NTierGenerator.dNotifyBack(
+								new OGen.NTier.Libraries.Generator.NTierGenerator.dNotifyBack(
 									output.DisplayMessage
 								)
 							);

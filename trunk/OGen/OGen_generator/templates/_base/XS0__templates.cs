@@ -14,12 +14,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 
 
-namespace OGen.lib.templates {
+namespace OGen.Libraries.Templates {
 	using System;
 	using System.IO;
 	using System.Xml.Serialization;
 
-	using OGen.lib.generator;
+	using OGen.Libraries.Generator;
 
 	#if NET_1_1
 	public class XS0__templates : XS_templatesType, MetadataInterface {
@@ -96,7 +96,7 @@ namespace OGen.lib.templates {
 				} else {
 					try {
 						_output[i] = (XS__templates)new XmlSerializer(typeof(XS__templates)).Deserialize(
-							OGen.lib.presentationlayer.webforms.utils.ReadURL(
+							OGen.Libraries.PresentationLayer.WebForms.utils.ReadURL(
 								filePath_in[i].ToString()
 							)
 						);
@@ -141,7 +141,7 @@ namespace OGen.lib.templates {
 		#endregion
 		#region public string Read_fromRoot(string what_in);
 		public string Read_fromRoot(string what_in) {
-			return OGen.lib.generator.utils.ReflectThrough(
+			return OGen.Libraries.Generator.utils.ReflectThrough(
 				this, 
 				this.Root_Templates, 
 				null, 
@@ -155,10 +155,10 @@ namespace OGen.lib.templates {
 		#region public void IterateThrough_fromRoot(...);
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
-			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in,
+			OGen.Libraries.Generator.utils.IterationFoundDelegate iteration_found_in,
 			ref bool valueHasBeenFound_out
 		) {
-			OGen.lib.generator.utils.ReflectThrough(
+			OGen.Libraries.Generator.utils.ReflectThrough(
 				this, 
 				this.Root_Templates, 
 				iteration_found_in, 

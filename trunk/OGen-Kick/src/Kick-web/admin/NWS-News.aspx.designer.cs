@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OGen.NTier.Kick.presentationlayer.weblayer {
+namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
     
     
     public partial class NWS_News {
@@ -19,7 +19,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic DIC_Title;
+        protected global::OGen.NTier.Kick.PresentationLayer.WebLayer.wuc_txt_Dic DIC_Title;
         
         /// <summary>
         /// DIC_Subtitle control.
@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic DIC_Subtitle;
+        protected global::OGen.NTier.Kick.PresentationLayer.WebLayer.wuc_txt_Dic DIC_Subtitle;
         
         /// <summary>
         /// DIC_News control.
@@ -37,7 +37,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic DIC_News;
+        protected global::OGen.NTier.Kick.PresentationLayer.WebLayer.wuc_txt_Dic DIC_News;
         
         /// <summary>
         /// DIC_Summary control.
@@ -46,7 +46,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic DIC_Summary;
+        protected global::OGen.NTier.Kick.PresentationLayer.WebLayer.wuc_txt_Dic DIC_Summary;
         
         /// <summary>
         /// BTN_News control.
@@ -109,7 +109,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Tags;
+        protected global::OGen.Libraries.PresentationLayer.WebForms.KickCheckBoxList CBL_Tags;
         
         /// <summary>
         /// BTN_Tags control.
@@ -136,7 +136,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Author;
+        protected global::OGen.Libraries.PresentationLayer.WebForms.KickCheckBoxList CBL_Author;
         
         /// <summary>
         /// BTN_Authors control.
@@ -163,7 +163,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Source;
+        protected global::OGen.Libraries.PresentationLayer.WebForms.KickCheckBoxList CBL_Source;
         
         /// <summary>
         /// BTN_Sources control.
@@ -190,7 +190,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Highlight;
+        protected global::OGen.Libraries.PresentationLayer.WebForms.KickCheckBoxList CBL_Highlight;
         
         /// <summary>
         /// BTN_Highlights control.
@@ -217,7 +217,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Profiles;
+        protected global::OGen.Libraries.PresentationLayer.WebForms.KickCheckBoxList CBL_Profiles;
         
         /// <summary>
         /// BTN_Profiles control.

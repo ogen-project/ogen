@@ -14,15 +14,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 
 
-namespace OGen.XSD.lib.metadata {
+namespace OGen.XSD.Libraries.Metadata {
 	using System;
 	using System.Collections;
 	using System.Xml.Serialization;
 
-	using OGen.lib.generator;
-	using OGen.lib.metadata;
-	using OGen.XSD.lib.metadata.metadata;
-	using OGen.XSD.lib.metadata.schema;
+	using OGen.Libraries.Generator;
+	using OGen.Libraries.Metadata;
+	using OGen.XSD.Libraries.Metadata.Metadata;
+	using OGen.XSD.Libraries.Metadata.Schema;
 
 	#if NET_1_1
 	public class XS0__RootMetadata : MetadataInterface {
@@ -120,7 +120,7 @@ namespace OGen.XSD.lib.metadata {
 
 			if (!useMetacache_in || reinitializeCache_in) {
 				XS__RootMetadata.Metacache.Clear();
-				OGen.lib.generator.utils.ReflectThrough_Cache_Clear();
+				OGen.Libraries.Generator.utils.ReflectThrough_Cache_Clear();
 			}
 
 			if (useMetacache_in) {
@@ -216,7 +216,7 @@ namespace OGen.XSD.lib.metadata {
 			string _indexstring;
 			string _end;
 
-			if (OGen.lib.generator.utils.rootExpression_TryParse(
+			if (OGen.Libraries.Generator.utils.rootExpression_TryParse(
 				what_in, 
 				ROOT_METADATA, 
 				out _begin, 
@@ -240,7 +240,7 @@ namespace OGen.XSD.lib.metadata {
 						break;
 					}
 				}
-			} else if (OGen.lib.generator.utils.rootExpression_TryParse(
+			} else if (OGen.Libraries.Generator.utils.rootExpression_TryParse(
 				what_in, 
 				ROOT_SCHEMA, 
 				out _begin, 
@@ -307,7 +307,7 @@ namespace OGen.XSD.lib.metadata {
 
 		public void IterateThrough_fromRoot(
 			string iteration_in,
-			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in,
+			OGen.Libraries.Generator.utils.IterationFoundDelegate iteration_found_in,
 			ref bool valueHasBeenFound_out
 		) {
 			this.IterateThrough_fromRoot(
@@ -319,7 +319,7 @@ namespace OGen.XSD.lib.metadata {
 		}
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
-			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in,
+			OGen.Libraries.Generator.utils.IterationFoundDelegate iteration_found_in,
 			ref bool valueHasBeenFound_out,
 			bool useCache_in
 		) {
@@ -358,7 +358,7 @@ namespace OGen.XSD.lib.metadata {
 			string _indexstring;
 			string _end;
 			
-			if (OGen.lib.generator.utils.rootExpression_TryParse(
+			if (OGen.Libraries.Generator.utils.rootExpression_TryParse(
 				iteration_in,
 				ROOT_METADATA,
 				out _begin, 
@@ -406,7 +406,7 @@ namespace OGen.XSD.lib.metadata {
 
 					_didit = true;
 				}
-			} else if (OGen.lib.generator.utils.rootExpression_TryParse(
+			} else if (OGen.Libraries.Generator.utils.rootExpression_TryParse(
 				iteration_in,
 				ROOT_SCHEMA,
 				out _begin, 

@@ -13,14 +13,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
+namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Client {
 	using System;
 	using System.Runtime.Remoting;
 
-	using OGen.NTier.Kick.lib.businesslayer;
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// CRD_Permission remoting client.
@@ -39,12 +39,12 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 		public static void ReConfig() {
 			utils.Config.ReConfig();
 
-			bo_ = new OGen.NTier.Kick.lib.distributedlayer.remoting.server.RS_CRD_Permission();
+			bo_ = new OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server.RS_CRD_Permission();
 		}
 		#endregion
 
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permission[] getRecord_all(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permission[] getRecord_all(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Permission[] getRecord_all(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Permission[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			bool allProfiles_notJustApplication_in, 

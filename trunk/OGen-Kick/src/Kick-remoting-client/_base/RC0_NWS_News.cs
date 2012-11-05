@@ -13,14 +13,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
+namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Client {
 	using System;
 	using System.Runtime.Remoting;
 
-	using OGen.NTier.Kick.lib.businesslayer;
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// NWS_News remoting client.
@@ -39,7 +39,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 		public static void ReConfig() {
 			utils.Config.ReConfig();
 
-			bo_ = new OGen.NTier.Kick.lib.distributedlayer.remoting.server.RS_NWS_News();
+			bo_ = new OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server.RS_NWS_News();
 		}
 		#endregion
 
@@ -58,8 +58,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content getObject(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content getObject(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Content getObject(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Content getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
@@ -75,8 +75,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content[] getRecord_byContent(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content[] getRecord_byContent(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Content[] getRecord_byContent(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Content[] getRecord_byContent(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_in, 
@@ -98,8 +98,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content[] getRecord_generic(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content[] getRecord_generic(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Content[] getRecord_generic(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Content[] getRecord_generic(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long IDUser__Publisher_search_in, 
@@ -147,11 +147,11 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 		public long insObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Content content_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Title_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Subtitle_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Summary_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Content content_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Title_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Content_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Subtitle_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Summary_in, 
 			long[] idTags_in, 
 			long[] idAuthors_in, 
 			long[] idSources_in, 
@@ -180,11 +180,11 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 		public void updObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Content content_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Title_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Subtitle_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Summary_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Content content_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Title_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Content_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Subtitle_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Summary_in, 
 			long[] idTags_in, 
 			long[] idAuthors_in, 
 			long[] idSources_in, 
@@ -245,11 +245,11 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 		public void updObject_Content(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Content content_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Title_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Subtitle_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Summary_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Content content_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Title_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Content_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Subtitle_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Summary_in, 
 			out int[] errors_out
 		) {
 			bo_.updObject_Content(

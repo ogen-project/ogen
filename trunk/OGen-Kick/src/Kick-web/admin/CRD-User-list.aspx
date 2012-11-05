@@ -2,12 +2,12 @@
 	Language="C#" 
 	AutoEventWireup="true" 
 	CodeBehind="CRD-User-list.aspx.cs" 
-	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.CRD_User_list" 
+	Inherits="OGen.NTier.Kick.PresentationLayer.WebLayer.CRD_User_list" 
 	MasterPageFile="~/App_Controls/Admin.Master" %>
 <%@ Register 
 	TagPrefix="asol" 
-	Namespace="OGen.lib.presentationlayer.webforms"
-	Assembly="OGen.lib.presentationlayer.webforms-2.0" %>
+	Namespace="OGen.Libraries.PresentationLayer.WebForms"
+	Assembly="OGen.Libraries.PresentationLayer.WebForms-2.0" %>
 <asp:Content
 	id="CNT_Title" runat="server" 
 	ContentPlaceHolderID="CPH_Title">

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OGen.NTier.Kick.presentationlayer.weblayer {
+namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
     
     
     public partial class CRD_User_list {
@@ -46,7 +46,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickListBox DDL_Profile__in;
+        protected global::OGen.Libraries.PresentationLayer.WebForms.KickListBox DDL_Profile__in;
         
         /// <summary>
         /// DDL_Profile__out control.
@@ -55,7 +55,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickListBox DDL_Profile__out;
+        protected global::OGen.Libraries.PresentationLayer.WebForms.KickListBox DDL_Profile__out;
         
         /// <summary>
         /// BTN_Search control.

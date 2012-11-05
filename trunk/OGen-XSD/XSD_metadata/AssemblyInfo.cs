@@ -24,7 +24,7 @@ using System.Runtime.CompilerServices;
 // change them to the information which is associated with the assembly
 // you compile.
 //
-[assembly: AssemblyTitle("OGen.XSD.lib.metadata")]
+[assembly: AssemblyTitle("OGen.XSD.Libraries.Metadata")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Francisco Monteiro")]

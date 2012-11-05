@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.lib.metadata.metadataExtended {
+namespace OGen.NTier.Libraries.Metadata.MetadataExtended {
 	using System;
 	using System.Xml.Serialization;
 
@@ -64,12 +64,12 @@ namespace OGen.NTier.lib.metadata.metadataExtended {
 		#endregion
 		#region public metadataDB.XS_tableFieldType parallel_ref { get; }
 		private bool parallel_ref__exists = true;
-		private OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType parallel_ref__ = null;
+		private OGen.NTier.Libraries.Metadata.MetadataDB.XS_tableFieldType parallel_ref__ = null;
 		private object parallel_ref__locker = new object();
 
 		[XmlIgnore()]
 //		[XmlElement("parallel_ref")]
-		public OGen.NTier.lib.metadata.metadataDB.XS_tableFieldType parallel_ref {
+		public OGen.NTier.Libraries.Metadata.MetadataDB.XS_tableFieldType parallel_ref {
 			get {
 
 				// check before lock

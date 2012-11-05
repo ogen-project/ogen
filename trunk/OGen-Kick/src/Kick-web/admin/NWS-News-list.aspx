@@ -2,16 +2,16 @@
 	Language="C#" 
 	AutoEventWireup="true" 
 	CodeBehind="NWS-News-list.aspx.cs" 
-	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.NWS_News_list" 
+	Inherits="OGen.NTier.Kick.PresentationLayer.WebLayer.NWS_News_list" 
 	MasterPageFile="~/App_Controls/Admin.Master" %>
 <%@ Register 
 	TagPrefix="kick" 
-	Namespace="OGen.NTier.Kick.presentationlayer.weblayer"
-	Assembly="OGen.NTier.Kick.presentationlayer.weblayer-2.0" %>
+	Namespace="OGen.NTier.Kick.PresentationLayer.WebLayer"
+	Assembly="OGen.NTier.Kick.PresentationLayer.WebLayer-2.0" %>
 <%@ Register 
 	TagPrefix="asol" 
-	Namespace="OGen.lib.presentationlayer.webforms"
-	Assembly="OGen.lib.presentationlayer.webforms-2.0" %>
+	Namespace="OGen.Libraries.PresentationLayer.WebForms"
+	Assembly="OGen.Libraries.PresentationLayer.WebForms-2.0" %>
 <%@ Register 
 	TagPrefix="anthem" 
 	Namespace="Anthem" 
@@ -237,10 +237,10 @@
 										//por: {1}, <br />
 										"<a href='CRD-User.aspx?IDUser={0}'>{1}</a>, <br />{2}",
 										((long)DataBinder.Eval(Container.DataItem, "IFUser__Approved")).ToString(System.Globalization.CultureInfo.CurrentCulture), 				
-										OGen.NTier.Kick.presentationlayer.weblayer.NWS_News_list.ContentstateEnum.approved.ToString(),
+										OGen.NTier.Kick.PresentationLayer.WebLayer.NWS_News_list.ContentstateEnum.approved.ToString(),
 										((DateTime)DataBinder.Eval(Container.DataItem, "Approved_date")).ToString("dd-MMM-yyyy HH:mm", System.Globalization.CultureInfo.CurrentCulture)
 									)				
-									: OGen.NTier.Kick.presentationlayer.weblayer.NWS_News_list.ContentstateEnum.pending.ToString().Replace('_', ' ')
+									: OGen.NTier.Kick.PresentationLayer.WebLayer.NWS_News_list.ContentstateEnum.pending.ToString().Replace('_', ' ')
 							) %>
 					</td>
 					<td class="label_small nowrap" align="center">

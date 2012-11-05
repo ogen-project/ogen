@@ -10,11 +10,11 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 --%><%@ Page language="c#" contenttype="text/html" %>
-<%@ import namespace="OGen.lib.datalayer" %>
-<%@ import namespace="OGen.NTier.lib.metadata" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataExtended" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataDB" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataBusiness" %><%
+<%@ import namespace="OGen.Libraries.DataLayer" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataExtended" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataDB" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataBusiness" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 bool _arg_gac = bool.Parse(System.Web.HttpUtility.UrlDecode(Request.QueryString["GAC"]));
@@ -31,7 +31,7 @@ XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusinessCollection[0];
 
-OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table;
+OGen.NTier.Libraries.Metadata.MetadataDB.XS_tableType _aux_db_table;
 
 //// IMPORTANT: keep in mind this is a microsoft visual studio project file, 
 //// so forget about System.IO.Path.Combine, System.IO.Path.DirectorySeparatorChar, or any other such aproach
@@ -69,8 +69,8 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
     <ProjectGuid>{<%=_aux_ex_metadata.GUID_datalayer_structures%>}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace><%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures</RootNamespace>
-    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures-2.0</AssemblyName>
+    <RootNamespace><%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer.Shared.Structures</RootNamespace>
+    <AssemblyName><%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer.Shared.Structures-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -96,8 +96,8 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" /><%
 if (_arg_gac) {%>
-    <Reference Include="OGen.NTier.lib.datalayer.proxy-2.0">
-      <Name>OGen.NTier.lib.datalayer.proxy-2.0</Name>
+    <Reference Include="OGen.NTier.Libraries.DataLayer.Shared-2.0">
+      <Name>OGen.NTier.Libraries.DataLayer.Shared-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
     </Reference><%
 }%>

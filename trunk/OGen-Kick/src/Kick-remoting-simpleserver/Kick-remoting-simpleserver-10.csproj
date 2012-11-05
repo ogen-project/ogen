@@ -21,8 +21,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <AssemblyOriginatorKeyFile>..\..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OGen.NTier.Kick.distributedlayer.remoting.simpleserver</RootNamespace>
-    <AssemblyName>OGen.NTier.Kick.distributedlayer.remoting.simpleserver-2.0</AssemblyName>
+    <RootNamespace>OGen.NTier.Kick.DistributedLayer.Remoting.SimpleServer</RootNamespace>
+    <AssemblyName>OGen.NTier.Kick.DistributedLayer.Remoting.SimpleServer-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
@@ -70,8 +70,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="OGen.NTier.lib.distributedlayer.remoting.server-2.0">
-      <Name>OGen.NTier.lib.distributedlayer.remoting.server-2.0</Name>
+    <Reference Include="OGen.NTier.Libraries.DistributedLayer.Remoting.Server-2.0">
+      <Name>OGen.NTier.Libraries.DistributedLayer.Remoting.Server-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
     </Reference>
   </ItemGroup>

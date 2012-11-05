@@ -13,12 +13,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.XSD.lib.metadata {
+namespace OGen.XSD.Libraries.Metadata {
 	using System;
 	using System.Xml.Serialization;
 
-	//using OGen.XSD.lib.metadata.metadataExtended;
-	//using OGen.XSD.lib.metadata.schema;
+	//using OGen.XSD.Libraries.Metadata.MetadataExtended;
+	//using OGen.XSD.Libraries.Metadata.Schema;
 
 	#if NET_1_1
 	public class XS__RootMetadata : XS0__RootMetadata {

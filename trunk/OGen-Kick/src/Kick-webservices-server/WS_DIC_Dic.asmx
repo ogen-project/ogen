@@ -12,4 +12,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 --%><%@ WebService 
 	Language="C#" 
 	CodeBehind="WS_DIC_Dic.asmx.cs" 
-	Class="OGen.NTier.Kick.distributedlayer.webservices.server.WS_DIC_Dic" %>
+	Class="OGen.NTier.Kick.DistributedLayer.WebServices.Server.WS_DIC_Dic" %>

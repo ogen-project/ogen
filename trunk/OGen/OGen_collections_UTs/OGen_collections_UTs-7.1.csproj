@@ -9,7 +9,7 @@
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "OGen.lib.collections.UTs-1.1"
+                AssemblyName = "OGen.Libraries.Collections.UTs-1.1"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "OGen.lib.collections.UTs"
+                RootNamespace = "OGen.Libraries.Collections.UTs"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >

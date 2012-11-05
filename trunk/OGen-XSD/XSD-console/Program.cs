@@ -13,12 +13,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.XSD.presentationlayer.console {
+namespace OGen.XSD.PresentationLayer.ConsoleApplication {
 	using System;
 	using System.IO;
-	using OGen.lib.generator;
-	using OGen.XSD.lib.generator;
-	using OGen.XSD.lib.metadata;
+	using OGen.Libraries.Generator;
+	using OGen.XSD.Libraries.Generator;
+	using OGen.XSD.Libraries.Metadata;
 
 	class MainClass {
 		[STAThread]

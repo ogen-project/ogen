@@ -2,7 +2,7 @@
 	Language="C#" 
 	AutoEventWireup="true" 
 	CodeBehind="Registration-confirmEmail.aspx.cs" 
-	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.Registration_confirmEmail" 
+	Inherits="OGen.NTier.Kick.PresentationLayer.WebLayer.Registration_confirmEmail" 
 
 	MasterPageFile="~/App_Controls/Site.Master" %>
 <%@ Register 

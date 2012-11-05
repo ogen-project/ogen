@@ -14,16 +14,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 
-using OGen.lib.datalayer;
+using OGen.Libraries.DataLayer;
 #if PostgreSQL
-using OGen.lib.datalayer.PostgreSQL;
+using OGen.Libraries.DataLayer.PostgreSQL;
 #endif
 
-using OGen.NTier.lib.datalayer;
+using OGen.NTier.Libraries.DataLayer;
 
-namespace OGen.NTier.Kick.lib.datalayer {
+namespace OGen.NTier.Kick.Libraries.DataLayer {
 	/// <summary>
-	/// utils DataObject which works as a repository of useful Properties and Methods for DataObjects at OGen.NTier.Kick.lib.datalayer namespace.
+	/// utils DataObject which works as a repository of useful Properties and Methods for DataObjects at OGen.NTier.Kick.Libraries.DataLayer namespace.
 	/// </summary>
 	public sealed 
 #if USE_PARTIAL_CLASSES && !NET_1_1

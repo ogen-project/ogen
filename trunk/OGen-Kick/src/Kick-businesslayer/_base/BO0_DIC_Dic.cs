@@ -13,11 +13,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.businesslayer {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 	using System;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
 	public class BO_DIC_Dic :
 		IBO_DIC_Dic
@@ -29,7 +29,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			int idLanguage_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_DIC_Dic.delLanguage(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_DIC_Dic.delLanguage(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idLanguage_in, 
@@ -37,8 +37,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int page_orderBy_in, 
@@ -47,7 +47,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_DIC_Dic.getRecord_byApplication(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_DIC_Dic.getRecord_byApplication(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				page_orderBy_in, 
@@ -58,8 +58,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_byLanguage(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_byLanguage(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vDIC_Language[] getRecord_byLanguage(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vDIC_Language[] getRecord_byLanguage(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLanguage_in, 
@@ -69,7 +69,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_DIC_Dic.getRecord_byLanguage(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_DIC_Dic.getRecord_byLanguage(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idLanguage_in, 
@@ -81,8 +81,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_Language(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_Language(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vDIC_Language[] getRecord_Language(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vDIC_Language[] getRecord_Language(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLanguage_in, 
@@ -92,7 +92,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_DIC_Dic.getRecord_Language(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_DIC_Dic.getRecord_Language(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idLanguage_in, 
@@ -108,11 +108,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		public void insLanguage(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] languageName_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] existingLanguagesInNewLanguage_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] languageName_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] existingLanguagesInNewLanguage_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_DIC_Dic.insLanguage(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_DIC_Dic.insLanguage(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				languageName_in, 
@@ -128,7 +128,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			int[] idLanguages_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_DIC_Dic.setSupportedLanguages(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_DIC_Dic.setSupportedLanguages(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idLanguages_in, 
@@ -141,10 +141,10 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLanguage_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] textLanguage_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] textLanguage_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_DIC_Dic.updLanguage(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_DIC_Dic.updLanguage(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idLanguage_in, 

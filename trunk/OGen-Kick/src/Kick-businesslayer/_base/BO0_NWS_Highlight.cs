@@ -13,11 +13,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.businesslayer {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 	using System;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
 	public class BO_NWS_Highlight :
 		IBO_NWS_Highlight
@@ -29,7 +29,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			long idHighlight_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.delObject(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Highlight.delObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idHighlight_in, 
@@ -37,14 +37,14 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight getObject(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight getObject(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Highlight getObject(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Highlight getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idHighlight_in, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.getObject(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Highlight.getObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idHighlight_in, 
@@ -52,8 +52,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Highlight[] getRecord_all(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Highlight[] getRecord_all(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Highlight[] getRecord_all(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Highlight[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int page_orderBy_in, 
@@ -62,7 +62,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.getRecord_all(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Highlight.getRecord_all(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				page_orderBy_in, 
@@ -73,8 +73,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Highlight[] getRecord_Approved(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Highlight[] getRecord_Approved(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Highlight[] getRecord_Approved(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Highlight[] getRecord_Approved(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int page_orderBy_in, 
@@ -83,7 +83,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.getRecord_Approved(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Highlight.getRecord_Approved(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				page_orderBy_in, 
@@ -94,8 +94,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentHighlight[] getRecord_byContent(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentHighlight[] getRecord_byContent(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_ContentHighlight[] getRecord_byContent(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_ContentHighlight[] getRecord_byContent(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_search_in, 
@@ -105,7 +105,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.getRecord_byContent(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Highlight.getRecord_byContent(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idContent_search_in, 
@@ -121,11 +121,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		public long insObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight highlight_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Highlight highlight_in, 
 			bool selectIdentity_in, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.insObject(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Highlight.insObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				highlight_in, 
@@ -138,10 +138,10 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		public void updObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight highlight_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Highlight highlight_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.updObject(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Highlight.updObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				highlight_in, 
@@ -156,7 +156,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			long idHighlight_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.updObject_Approve(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Highlight.updObject_Approve(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idHighlight_in, 

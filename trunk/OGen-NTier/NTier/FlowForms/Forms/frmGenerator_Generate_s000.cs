@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
-using System.Windows.Forms;
-using OGen.lib.presentationlayer.winforms.Flowforms;
 
-namespace OGen.NTier.presentationlayer.winforms {
+namespace OGen.NTier.PresentationLayer.WinForms {
+	using System;
+	using System.Collections;
+	using System.ComponentModel;
+	using System.Drawing;
+	using System.Windows.Forms;
+	using OGen.Libraries.PresentationLayer.WinForms.FlowForms;
+
 	public class frmGenerator_Generate_s000 : System.Windows.Forms.Form {
 		#region Required designer variable...
 		/// <summary>
@@ -161,16 +162,16 @@ namespace OGen.NTier.presentationlayer.winforms {
 		private cFlowformForm FlowformForm;
 		#endregion
 		//#region public Properties...
-		public OGen.NTier.lib.metadata.metadataExtended.XS_SQLScriptOptionEnumeration SQLscriptOptions {
+		public OGen.NTier.Libraries.Metadata.MetadataExtended.XS_SQLScriptOptionEnumeration SQLscriptOptions {
 			get {
 				if (rbtOneScriptFile.Checked)
-					return OGen.NTier.lib.metadata.metadataExtended.XS_SQLScriptOptionEnumeration.OneScriptFile;
+					return OGen.NTier.Libraries.Metadata.MetadataExtended.XS_SQLScriptOptionEnumeration.OneScriptFile;
 				if (rbtSeparateScriptFiles.Checked)
-					return OGen.NTier.lib.metadata.metadataExtended.XS_SQLScriptOptionEnumeration.SeparateScriptFiles;
+					return OGen.NTier.Libraries.Metadata.MetadataExtended.XS_SQLScriptOptionEnumeration.SeparateScriptFiles;
 
 				// make it default:
 				//if (rbtRunImmediately.Checked)
-					return OGen.NTier.lib.metadata.metadataExtended.XS_SQLScriptOptionEnumeration.RunImmediately;
+					return OGen.NTier.Libraries.Metadata.MetadataExtended.XS_SQLScriptOptionEnumeration.RunImmediately;
 			}
 		}
 		public bool pReflection {

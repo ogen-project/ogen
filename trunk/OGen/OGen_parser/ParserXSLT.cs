@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.lib.parser {
+namespace OGen.Libraries.Parser {
 	using System;
 	using System.Collections;
 	using System.IO;

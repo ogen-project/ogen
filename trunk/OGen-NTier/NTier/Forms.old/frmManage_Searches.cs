@@ -18,7 +18,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace OGen.NTier.presentationlayer.winforms {
+namespace OGen.NTier.PresentationLayer.WinForms {
 	public class frmManage_Searches : System.Windows.Forms.Form {
 		#region Required designer variable...
 		/// <summary>

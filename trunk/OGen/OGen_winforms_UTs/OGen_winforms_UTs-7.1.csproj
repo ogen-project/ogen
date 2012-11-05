@@ -9,7 +9,7 @@
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "OGen.lib.presentationlayer.winforms.UTs-1.1"
+                AssemblyName = "OGen.Libraries.PresentationLayer.WinForms.UTs-1.1"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "OGen.lib.presentationlayer.winforms.UTs"
+                RootNamespace = "OGen.Libraries.PresentationLayer.WinForms.UTs"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >

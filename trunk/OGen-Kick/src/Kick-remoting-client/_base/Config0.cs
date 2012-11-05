@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client.utils {
+namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Client.utils {
 	using System;
 	using System.Runtime.Remoting;
 

@@ -18,7 +18,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace OGen.NTier.presentationlayer.winforms {
+namespace OGen.NTier.PresentationLayer.WinForms {
 	public class frmManage_Updates_Create_step020 : System.Windows.Forms.Form {
 		#region Required designer variable...
 		/// <summary>
@@ -28,7 +28,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 		private System.Windows.Forms.Button btnBack;
 		private System.Windows.Forms.Button btnNext;
 		private System.Windows.Forms.Label label1;
-		private OGen.NTier.presentationlayer.winforms.ucPick_Searches Pick_Searches;
+		private OGen.NTier.PresentationLayer.WinForms.ucPick_Searches Pick_Searches;
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -50,7 +50,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 		private void InitializeComponent() {
 			this.btnBack = new System.Windows.Forms.Button();
 			this.btnNext = new System.Windows.Forms.Button();
-			this.Pick_Searches = new OGen.NTier.presentationlayer.winforms.ucPick_Searches();
+			this.Pick_Searches = new OGen.NTier.PresentationLayer.WinForms.ucPick_Searches();
 			this.label1 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 

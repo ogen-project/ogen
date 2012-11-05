@@ -13,20 +13,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.presentationlayer.weblayer {
+namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 	using System;
 	using System.Collections.Generic;
 	using System.Web;
 	using System.Web.UI;
 	using System.Web.UI.WebControls;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
-	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer;
 
-	using BusinessInstances = OGen.NTier.Kick.lib.businesslayer.shared.instances;
+	using BusinessInstances = OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances;
 
 	public partial class NWS_NewsTag : AdminPage {
 		#region public long IDTag { get; }
@@ -199,8 +199,8 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				#endregion
 			) {
 				#region this.DIC_Name.Texts = ...;
-				List<OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage> _name
-					= new List<OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage>(
+				List<OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage> _name
+					= new List<OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage>(
 						_tags.Length
 					);
 

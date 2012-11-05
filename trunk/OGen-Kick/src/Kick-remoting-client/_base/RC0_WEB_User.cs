@@ -13,14 +13,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
+namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Client {
 	using System;
 	using System.Runtime.Remoting;
 
-	using OGen.NTier.Kick.lib.businesslayer;
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// WEB_User remoting client.
@@ -39,12 +39,12 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 		public static void ReConfig() {
 			utils.Config.ReConfig();
 
-			bo_ = new OGen.NTier.Kick.lib.distributedlayer.remoting.server.RS_WEB_User();
+			bo_ = new OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server.RS_WEB_User();
 		}
 		#endregion
 
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NET_User getObject(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NET_User getObject(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NET_User getObject(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NET_User getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idUser_in, 
@@ -58,8 +58,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User getObject_details(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User getObject_details(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNET_User getObject_details(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNET_User getObject_details(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idUser_in, 
@@ -73,8 +73,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User[] getRecord_generic(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User[] getRecord_generic(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNET_User[] getRecord_generic(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNET_User[] getRecord_generic(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			string login_in, 

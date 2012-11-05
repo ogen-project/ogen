@@ -18,7 +18,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace OGen.NTier.presentationlayer.winforms {
+namespace OGen.NTier.PresentationLayer.WinForms {
 	public class frmManage_Updates_Create_step030 : System.Windows.Forms.Form {
 		#region Required designer variable...
 		/// <summary>
@@ -27,7 +27,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 		private System.ComponentModel.Container components = null;
 		private System.Windows.Forms.Button btnBack;
 		private System.Windows.Forms.Button btnNext;
-		private OGen.NTier.presentationlayer.winforms._controls.ucPick_Fields_forCriteria Pick_Fields_forCriteria;
+		private OGen.NTier.PresentationLayer.WinForms._controls.ucPick_Fields_forCriteria Pick_Fields_forCriteria;
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -49,7 +49,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 		private void InitializeComponent() {
 			this.btnBack = new System.Windows.Forms.Button();
 			this.btnNext = new System.Windows.Forms.Button();
-			this.Pick_Fields_forCriteria = new OGen.NTier.presentationlayer.winforms._controls.ucPick_Fields_forCriteria();
+			this.Pick_Fields_forCriteria = new OGen.NTier.PresentationLayer.WinForms._controls.ucPick_Fields_forCriteria();
 			this.SuspendLayout();
 			// 
 			// btnBack

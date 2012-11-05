@@ -11,7 +11,7 @@
     </ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName>OGen.lib.presentationlayer.winforms.UTs-2.0</AssemblyName>
+    <AssemblyName>OGen.Libraries.PresentationLayer.WinForms.UnitTests-2.0</AssemblyName>
     <AssemblyOriginatorKeyFile>
     </AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
@@ -19,7 +19,7 @@
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
     <OutputType>Library</OutputType>
-    <RootNamespace>OGen.lib.presentationlayer.winforms.UTs</RootNamespace>
+    <RootNamespace>OGen.Libraries.PresentationLayer.WinForms.UnitTests</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <StartupObject>
     </StartupObject>

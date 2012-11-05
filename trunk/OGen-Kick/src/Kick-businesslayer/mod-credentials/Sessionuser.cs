@@ -16,8 +16,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OGen.NTier.Kick.lib.businesslayer {
-	public class Sessionuser : OGen.NTier.Kick.lib.businesslayer.shared.Sessionuser {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer {
+	public class Sessionuser : OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Sessionuser {
 		public Sessionuser(
 			long idUser_in,
 			long[] idPermissions_in, 

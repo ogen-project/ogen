@@ -19,9 +19,9 @@ using System.Web.Hosting;
 using System.IO;
 using System.Text;
 using System.Collections;
-using OGen.lib.presentationlayer.webforms;
+using OGen.Libraries.PresentationLayer.WebForms;
 
-namespace OGen.lib.parser {
+namespace OGen.Libraries.Parser {
 	public class ParserASPX { private ParserASPX() {}
 		#region static ParserASPX();
 		static ParserASPX() {
@@ -116,7 +116,7 @@ namespace OGen.lib.parser {
 		) {
 string appVirtualPath_in = "/";
 string hostingVirtualPath_in = "/";
-			string _parameters = OGen.lib.presentationlayer.webforms.utils.ConcatenateURLParams(parameters_in);
+			string _parameters = OGen.Libraries.PresentationLayer.WebForms.utils.ConcatenateURLParams(parameters_in);
 			string _domainId = "ParserASPX_" +  DateTime.Now.ToString().GetHashCode().ToString("x");
 			string _applicationName = "ParserASPX";
 			#region Checking...

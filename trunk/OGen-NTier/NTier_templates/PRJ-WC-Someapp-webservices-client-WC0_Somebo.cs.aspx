@@ -10,11 +10,11 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 --%><%@ Page language="c#" contenttype="text/html" %>
-<%@ import namespace="OGen.lib.datalayer" %>
-<%@ import namespace="OGen.NTier.lib.metadata" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataExtended" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataDB" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataBusiness" %><%
+<%@ import namespace="OGen.Libraries.DataLayer" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataExtended" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataDB" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataBusiness" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 string _arg_ClassName = System.Web.HttpUtility.UrlDecode(Request.QueryString["ClassName"]);
@@ -30,7 +30,7 @@ XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusinessCollection[0];
 
-OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class
+OGen.NTier.Libraries.Metadata.MetadataBusiness.XS_classType _aux_class
 	= _aux_business_metadata.Classes.ClassCollection[
 		_arg_ClassName
 	];
@@ -57,14 +57,14 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 <%
 	}
 }%>
-namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webservices.client {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DistributedLayer.WebServices.Client {
 	using System;
 	using System.Web.Services;
 	using System.Web.Services.Protocols;
 
-	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared;
-	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.structures;
-	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures;
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.BusinessLayer.Shared;
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.BusinessLayer.Shared.Structures;
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// <%=_aux_class.Name%> web service client.
@@ -74,7 +74,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webser
 	//[System.ComponentModel.DesignerCategoryAttribute("code")]
 	[System.Web.Services.WebServiceBindingAttribute(
 		Name = "WS_<%=_aux_class.Name%>Soap",
-		Namespace = "http://<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server"
+		Namespace = "http://<%=_aux_ex_metadata.ApplicationNamespace%>.DistributedLayer.WebServices.Server"
 	)]
 	public class WC_<%=_aux_class.Name%> : 
 		SoapHttpClientProtocol, 
@@ -104,9 +104,9 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.webser
 			_aux_method = _aux_class.Methods.MethodCollection[m];%>
 		#region public <%=_aux_method.OutputType%> <%=_aux_method.Name%>(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server/<%=_aux_method.Name%>",
-			RequestNamespace = "http://<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server",
-			ResponseNamespace = "http://<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.webservices.server",
+			"http://<%=_aux_ex_metadata.ApplicationNamespace%>.DistributedLayer.WebServices.Server/<%=_aux_method.Name%>",
+			RequestNamespace = "http://<%=_aux_ex_metadata.ApplicationNamespace%>.DistributedLayer.WebServices.Server",
+			ResponseNamespace = "http://<%=_aux_ex_metadata.ApplicationNamespace%>.DistributedLayer.WebServices.Server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]

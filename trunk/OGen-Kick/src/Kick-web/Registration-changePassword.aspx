@@ -2,7 +2,7 @@
 	Language="C#" 
 	AutoEventWireup="true" 
 	CodeBehind="Registration-changePassword.aspx.cs" 
-	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.Registration_changePassword" 
+	Inherits="OGen.NTier.Kick.PresentationLayer.WebLayer.Registration_changePassword" 
 
 	MasterPageFile="~/App_Controls/Site.Master" %>
 <%@ Register 

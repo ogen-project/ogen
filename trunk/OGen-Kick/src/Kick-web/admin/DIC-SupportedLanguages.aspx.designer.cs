@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OGen.NTier.Kick.presentationlayer.weblayer {
+namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
     
     
     public partial class DIC_SupportedLanguages {
@@ -19,7 +19,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Languages;
+        protected global::OGen.Libraries.PresentationLayer.WebForms.KickCheckBoxList CBL_Languages;
         
         /// <summary>
         /// BTN_Save control.

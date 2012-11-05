@@ -13,16 +13,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.businesslayer.shared {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer.Shared {
 	using System;
 	using System.Collections.Generic;
 	using System.Text;
 
 	public static class ErrorType {
-		#region public static Dictionary<int, OGen.NTier.Kick.lib.businesslayer.shared.ErrorItem> Items { get; }
+		#region public static Dictionary<int, OGen.NTier.Kick.Libraries.BusinessLayer.Shared.ErrorItem> Items { get; }
 		private static readonly Dictionary<int, ErrorItem> items_;
 
-		public static Dictionary<int, OGen.NTier.Kick.lib.businesslayer.shared.ErrorItem> Items {
+		public static Dictionary<int, OGen.NTier.Kick.Libraries.BusinessLayer.Shared.ErrorItem> Items {
 			get {
 				return items_;
 			}
@@ -90,7 +90,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 		) {
 			aditionalInfo_in = aditionalInfo_in.Trim();
 
-			OGen.NTier.Kick.lib.businesslayer.shared.ErrorItem _erroritem 
+			OGen.NTier.Kick.Libraries.BusinessLayer.Shared.ErrorItem _erroritem 
 				= ErrorType.Items[
 					error_in
 				];

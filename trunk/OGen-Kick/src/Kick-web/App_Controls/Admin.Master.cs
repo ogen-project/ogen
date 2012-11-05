@@ -18,7 +18,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace OGen.NTier.Kick.presentationlayer.weblayer {
+namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 	public partial class AdminPage : System.Web.UI.Page {
 		public Admin Master_Admin {
 			get {

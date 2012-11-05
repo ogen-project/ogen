@@ -2,7 +2,7 @@
 	Language="C#" 
 	AutoEventWireup="true" 
 	CodeBehind="Default.aspx.cs" 
-	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.admin.Default" 
+	Inherits="OGen.NTier.Kick.PresentationLayer.WebLayer.AdminDefault" 
 	MasterPageFile="~/App_Controls/Admin.Master" %>
 <asp:Content
 	id="CNT_Title" runat="server" 

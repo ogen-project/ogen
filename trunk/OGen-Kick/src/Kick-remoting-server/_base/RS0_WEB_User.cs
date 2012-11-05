@@ -13,13 +13,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
+namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 	using System;
 
-	using OGen.NTier.Kick.lib.businesslayer;
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// WEB_User remoting server.
@@ -28,14 +28,14 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		MarshalByRefObject, 
 		IBO_WEB_User 
 	{
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NET_User getObject(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NET_User getObject(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NET_User getObject(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NET_User getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idUser_in, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_WEB_User.getObject(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_WEB_User.getObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -45,14 +45,14 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User getObject_details(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User getObject_details(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNET_User getObject_details(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNET_User getObject_details(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idUser_in, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_WEB_User.getObject_details(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_WEB_User.getObject_details(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -62,8 +62,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User[] getRecord_generic(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User[] getRecord_generic(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNET_User[] getRecord_generic(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNET_User[] getRecord_generic(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			string login_in, 
@@ -77,7 +77,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_WEB_User.getRecord_generic(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_WEB_User.getRecord_generic(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -105,7 +105,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			int idApplication_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_WEB_User.insObject_Registration(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_WEB_User.insObject_Registration(
 				login_in, 
 				email_in, 
 				name_in, 
@@ -128,7 +128,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			out long[] idPermissions_out, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_WEB_User.Login(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_WEB_User.Login(
 				email_in, 
 				password_in, 
 				sessionGuid_in, 
@@ -155,7 +155,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			out long[] idPermissions_out, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_WEB_User.Login_throughLink(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_WEB_User.Login_throughLink(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -183,7 +183,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			out long[] idPermissions_out, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_WEB_User.Login_throughLink_andChangePassword(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_WEB_User.Login_throughLink_andChangePassword(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -207,7 +207,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			int idApplication_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_WEB_User.LostPassword_Recover(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_WEB_User.LostPassword_Recover(
 				Email_in, 
 				companyName_in, 
 				recoverLostPasswordURL_in, 
@@ -225,7 +225,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string name_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_WEB_User.setObject(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_WEB_User.setObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -246,7 +246,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string verifyMailURL_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_WEB_User.updObject_Email(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_WEB_User.updObject_Email(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")

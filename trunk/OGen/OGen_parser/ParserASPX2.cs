@@ -14,7 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 #if !NET_1_1
 
-namespace OGen.lib.parser {
+namespace OGen.Libraries.Parser {
 	using System;
 	using System.Collections;
 	using System.IO;
@@ -91,7 +91,7 @@ namespace OGen.lib.parser {
 
 			myhost_[appPath_in].RunRequest(
 				aspxFile_in,
-				OGen.lib.presentationlayer.webforms.utils.ConcatenateURLParams(parameters_in),
+				OGen.Libraries.PresentationLayer.WebForms.utils.ConcatenateURLParams(parameters_in),
 				ref textwriter_out
 			);
 		}

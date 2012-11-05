@@ -21,8 +21,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <AssemblyOriginatorKeyFile>..\..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OGen.NTier.Kick.lib.businesslayer.shared.instances</RootNamespace>
-    <AssemblyName>OGen.NTier.Kick.lib.businesslayer.shared.instances.webservicesclient-2.0</AssemblyName>
+    <RootNamespace>OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances</RootNamespace>
+    <AssemblyName>OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances.WebServicesClient-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SignAssembly>True</SignAssembly>

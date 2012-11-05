@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
-using System.Windows.Forms;
-using OGen.lib.presentationlayer.winforms.Flowforms;
 
-namespace OGen.NTier.presentationlayer.winforms {
+namespace OGen.NTier.PresentationLayer.WinForms {
+	using System;
+	using System.Collections;
+	using System.ComponentModel;
+	using System.Drawing;
+	using System.Windows.Forms;
+	using OGen.Libraries.PresentationLayer.WinForms.FlowForms;
+
 	public class frmManage_ConfigTables : System.Windows.Forms.Form {
 		#region Required designer variable...
 		/// <summary>

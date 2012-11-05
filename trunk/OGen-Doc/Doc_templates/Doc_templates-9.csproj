@@ -10,14 +10,14 @@
     </ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName>OGen.Doc.lib.templates-2.0</AssemblyName>
+    <AssemblyName>OGen.Doc.Libraries.Templates-2.0</AssemblyName>
     <AssemblyOriginatorKeyFile>..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
     <OutputType>Library</OutputType>
-    <RootNamespace>OGen.Doc.lib.templates</RootNamespace>
+    <RootNamespace>OGen.Doc.Libraries.Templates</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <StartupObject>
     </StartupObject>

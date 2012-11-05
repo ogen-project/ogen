@@ -14,7 +14,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #endregion
 using System;
 
-namespace OGen.NTier.presentationlayer.winforms {
+namespace OGen.NTier.PresentationLayer.WinForms {
 	public class PO_Manage_Views_PK {
 		#region public PO_Manage_Views_PK(...);
 		public PO_Manage_Views_PK(frm_Main MainForm_) {

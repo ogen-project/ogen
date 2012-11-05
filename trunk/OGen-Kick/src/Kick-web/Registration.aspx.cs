@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.presentationlayer.weblayer {
+namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 	using System;
 	using System.Collections.Generic;
 	using System.Configuration;
@@ -21,9 +21,9 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 	using System.Web.UI;
 	using System.Web.UI.WebControls;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared.instances;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
-	using OGen.NTier.Kick.lib.presentationlayer.weblayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer;
 
 	public partial class Registration : SitePage {
 		#region protected void Page_Load(object sender, EventArgs e);
@@ -49,7 +49,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 			#region bool _invalid_email = ...;
 			bool _invalid_email
-				= !OGen.lib.mail.utils.isEmail_valid(
+				= !OGen.Libraries.Mail.utils.isEmail_valid(
 					(this.TXT_Email.Text = this.TXT_Email.Text.Trim())
 				);
 			#endregion
@@ -120,17 +120,17 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 				//bool _isError;
 				foreach (int _error in _errors) {
 					switch (_error) {
-						case OGen.NTier.Kick.lib.businesslayer.shared.ErrorType.web__user__constraint_violation:
+						case OGen.NTier.Kick.Libraries.BusinessLayer.Shared.ErrorType.web__user__constraint_violation:
 							this.LBL_Email.Text = "unavailable";
 							this.LBL_Error.Text += "<li>you can recover this account on the form below</li>";
 							this.TXT_LostPassword_Email.Text = this.TXT_Email.Text;
 							this.TXT_LostPassword_Email_Confirmation.Text = this.TXT_Email_Confirmation.Text;
 
 							break;
-						case OGen.NTier.Kick.lib.businesslayer.shared.ErrorType.data__constraint_violation:
+						case OGen.NTier.Kick.Libraries.BusinessLayer.Shared.ErrorType.data__constraint_violation:
 							this.LBL_LogOn.Text = "unavailable";
 							break;
-						case OGen.NTier.Kick.lib.businesslayer.shared.ErrorType.user__successfully_created__WARNING:
+						case OGen.NTier.Kick.Libraries.BusinessLayer.Shared.ErrorType.user__successfully_created__WARNING:
 							this.LBL_Error.Text += string.Format(
 								System.Globalization.CultureInfo.CurrentCulture, 
 								"<li>welcome {0}! please check your email</li>",
@@ -191,7 +191,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
 
 			#region bool _invalid_email = ...;
 			bool _invalid_email 
-				= !OGen.lib.mail.utils.isEmail_valid(
+				= !OGen.Libraries.Mail.utils.isEmail_valid(
 					(this.TXT_LostPassword_Email.Text = this.TXT_LostPassword_Email.Text.Trim())
 				);
 			#endregion

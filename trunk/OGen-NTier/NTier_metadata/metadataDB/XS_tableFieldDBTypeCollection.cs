@@ -13,14 +13,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.lib.metadata.metadataDB {
+namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 	using System;
 	using System.Collections;
 	#if !NET_1_1
 	using System.Collections.Generic;
 	#endif
 	using System.Xml.Serialization;
-	using OGen.lib.datalayer;
+	using OGen.Libraries.DataLayer;
 
 	#if NET_1_1
 	public class XS_tableFieldDBTypeCollection : XS0_tableFieldDBTypeCollection {

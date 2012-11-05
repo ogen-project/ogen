@@ -8,8 +8,8 @@
     <ProjectGuid>{FA349CD4-2751-4160-9C78-7DFC16A41A17}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OGen.lib.mail</RootNamespace>
-    <AssemblyName>OGen.lib.mail-2.0</AssemblyName>
+    <RootNamespace>OGen.Libraries.Mail</RootNamespace>
+    <AssemblyName>OGen.Libraries.Mail-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -21,7 +21,7 @@
     <DefineConstants>TRACE;DEBUG;NET_2_0</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\OGen.lib.mail-2.0.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\OGen.Libraries.Mail-2.0.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,7 +30,7 @@
     <DefineConstants>TRACE;NET_2_0</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\OGen.lib.mail-2.0.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\OGen.Libraries.Mail-2.0.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>

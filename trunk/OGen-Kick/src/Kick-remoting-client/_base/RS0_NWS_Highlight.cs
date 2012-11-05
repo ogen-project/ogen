@@ -13,12 +13,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
+namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 	using System;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// NWS_Highlight remoting server.
@@ -37,8 +37,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight getObject(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight getObject(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Highlight getObject(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Highlight getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idHighlight_in, 
@@ -47,8 +47,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Highlight[] getRecord_all(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Highlight[] getRecord_all(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Highlight[] getRecord_all(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Highlight[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int page_orderBy_in, 
@@ -60,8 +60,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Highlight[] getRecord_Approved(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Highlight[] getRecord_Approved(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Highlight[] getRecord_Approved(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Highlight[] getRecord_Approved(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int page_orderBy_in, 
@@ -73,8 +73,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentHighlight[] getRecord_byContent(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentHighlight[] getRecord_byContent(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_ContentHighlight[] getRecord_byContent(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_ContentHighlight[] getRecord_byContent(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_search_in, 
@@ -91,7 +91,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		public long insObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight highlight_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Highlight highlight_in, 
 			bool selectIdentity_in, 
 			out int[] errors_out
 		) {
@@ -102,7 +102,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		public void updObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight highlight_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Highlight highlight_in, 
 			out int[] errors_out
 		) {
 			throw new Exception("your not calling the remoting server, but the client's remoting server implementation");

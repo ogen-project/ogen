@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OGen.NTier.Kick.presentationlayer.weblayer {
+namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
     
     
     public partial class NWS_NewsTag {
@@ -19,7 +19,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic DIC_Name;
+        protected global::OGen.NTier.Kick.PresentationLayer.WebLayer.wuc_txt_Dic DIC_Name;
         
         /// <summary>
         /// DDL_Tag_parent control.
@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickListBox DDL_Tag_parent;
+        protected global::OGen.Libraries.PresentationLayer.WebForms.KickListBox DDL_Tag_parent;
         
         /// <summary>
         /// BTN_Save control.

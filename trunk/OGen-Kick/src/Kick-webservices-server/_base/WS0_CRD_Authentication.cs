@@ -13,15 +13,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.distributedlayer.webservices.server {
+namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 	using System;
 	using System.Web;
 	using System.Web.Services;
 
-	using OGen.NTier.Kick.lib.businesslayer;
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// CRD_Authentication web service.
@@ -39,7 +39,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string password_new_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.ChangePassword(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Authentication.ChangePassword(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -57,7 +57,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			string ip_forLogPurposes_in, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.CheckCredentials(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Authentication.CheckCredentials(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -78,7 +78,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			out long[] idPermissions_out, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.Login(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Authentication.Login(
 				login_in, 
 				password_in, 
 				sessionGuid_in, 
@@ -97,7 +97,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		public void Logout(
 			string sessionGuid_in
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_Authentication.Logout(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_Authentication.Logout(
 				sessionGuid_in
 			);
 		}

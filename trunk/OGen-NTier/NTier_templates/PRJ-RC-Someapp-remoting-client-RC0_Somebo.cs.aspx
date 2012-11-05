@@ -10,11 +10,11 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 --%><%@ Page language="c#" contenttype="text/html" %>
-<%@ import namespace="OGen.lib.datalayer" %>
-<%@ import namespace="OGen.NTier.lib.metadata" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataExtended" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataDB" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataBusiness" %><%
+<%@ import namespace="OGen.Libraries.DataLayer" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataExtended" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataDB" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataBusiness" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 string _arg_ClassName = System.Web.HttpUtility.UrlDecode(Request.QueryString["ClassName"]);
@@ -30,7 +30,7 @@ XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusinessCollection[0];
 
-OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class
+OGen.NTier.Libraries.Metadata.MetadataBusiness.XS_classType _aux_class
 	= _aux_business_metadata.Classes.ClassCollection[
 		_arg_ClassName
 	];
@@ -55,14 +55,14 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 <%
 	}
 }%>
-namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DistributedLayer.Remoting.Client {
 	using System;
 	using System.Runtime.Remoting;
 
-	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer;
-	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared;
-	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.businesslayer.shared.structures;
-	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures;
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.BusinessLayer;
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.BusinessLayer.Shared;
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.BusinessLayer.Shared.Structures;
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// <%=_aux_class.Name%> remoting client.
@@ -81,12 +81,12 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoti
 		public static void ReConfig() {
 			utils.Config.ReConfig();
 
-			bo_ = new <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server.RS_<%=_aux_class.Name%>();<%--
+			bo_ = new <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DistributedLayer.Remoting.Server.RS_<%=_aux_class.Name%>();<%--
 			bo_ = (IBO_<%=_aux_class.Name%>)RemotingServices.Connect(
 				typeof(IBO_<%=_aux_class.Name%>),
 				string.Format(
 					System.Globalization.CultureInfo.CurrentCulture,
-					"{0}:{1}/<%=_aux_ex_metadata.ApplicationNamespace%>.distributedlayer.remoting.server.RS_<%=_aux_class.Name%>.remoting",
+					"{0}:{1}/<%=_aux_ex_metadata.ApplicationNamespace%>.DistributedLayer.Remoting.Server.RS_<%=_aux_class.Name%>.remoting",
 					#if NET_1_1
 					System.Configuration.ConfigurationSettings.AppSettings["RemotingServer_ServerURI"], 
 					System.Configuration.ConfigurationSettings.AppSettings["RemotingServer_ServerPort"]

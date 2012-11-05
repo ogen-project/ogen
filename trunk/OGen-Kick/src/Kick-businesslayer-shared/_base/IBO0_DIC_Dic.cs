@@ -13,10 +13,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.businesslayer.shared {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer.Shared {
 	using System;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
 #if NET_1_1
 	public interface IBO0_DIC_Dic {
@@ -29,7 +29,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			int idLanguage_in, 
 			out int[] errors_out
 		);
-		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(
+		OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int page_orderBy_in, 
@@ -38,7 +38,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		);
-		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_byLanguage(
+		OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vDIC_Language[] getRecord_byLanguage(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLanguage_in, 
@@ -48,7 +48,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		);
-		OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_Language(
+		OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vDIC_Language[] getRecord_Language(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLanguage_in, 
@@ -61,8 +61,8 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 		void insLanguage(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] languageName_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] existingLanguagesInNewLanguage_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] languageName_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] existingLanguagesInNewLanguage_in, 
 			out int[] errors_out
 		);
 		void setSupportedLanguages(
@@ -75,7 +75,7 @@ namespace OGen.NTier.Kick.lib.businesslayer.shared {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLanguage_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] textLanguage_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] textLanguage_in, 
 			out int[] errors_out
 		);
 	}

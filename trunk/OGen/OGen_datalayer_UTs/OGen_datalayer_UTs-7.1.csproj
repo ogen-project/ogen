@@ -9,7 +9,7 @@
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "OGen.lib.datalayer.UTs-1.1"
+                AssemblyName = "OGen.Libraries.DataLayer.UTs-1.1"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "OGen.lib.datalayer.UTs"
+                RootNamespace = "OGen.Libraries.DataLayer.UTs"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >

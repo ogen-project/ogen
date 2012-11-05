@@ -13,14 +13,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
+namespace OGen.NTier.Kick.Libraries.DistributedLayer.WebServices.Client {
 	using System;
 	using System.Web.Services;
 	using System.Web.Services.Protocols;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// LOG_Log web service client.
@@ -30,7 +30,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 	//[System.ComponentModel.DesignerCategoryAttribute("code")]
 	[System.Web.Services.WebServiceBindingAttribute(
 		Name = "WS_LOG_LogSoap",
-		Namespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server"
+		Namespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server"
 	)]
 	public class WC_LOG_Log : 
 		SoapHttpClientProtocol, 
@@ -56,15 +56,15 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		}
 		#endregion
 
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_LOG_Log[] getRecord_generic(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_LOG_Log[] getRecord_generic(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/getRecord_generic",
-			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			"http://OGen.NTier.Kick.DistributedLayer.WebServices.Server/getRecord_generic",
+			RequestNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
+			ResponseNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_LOG_Log[] getRecord_generic(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_LOG_Log[] getRecord_generic(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int IDLogtype_search_in, 
@@ -103,14 +103,14 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			);
 			page_itemsCount_out = (long)results[1];
 			errors_out = (int[])results[2];
-			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_LOG_Log[])results[0];
+			return (OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_LOG_Log[])results[0];
 		}
 		#endregion
 		#region public void Log(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/Log",
-			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			"http://OGen.NTier.Kick.DistributedLayer.WebServices.Server/Log",
+			RequestNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
+			ResponseNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
@@ -141,9 +141,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		#endregion
 		#region public void MarkRead(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/MarkRead",
-			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			"http://OGen.NTier.Kick.DistributedLayer.WebServices.Server/MarkRead",
+			RequestNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
+			ResponseNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]

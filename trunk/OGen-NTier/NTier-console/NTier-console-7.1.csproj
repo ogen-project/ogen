@@ -9,7 +9,7 @@
             <Settings
                 ApplicationIcon = "App.ico"
                 AssemblyKeyContainerName = ""
-                AssemblyName = "OGen.NTier.presentationlayer.console-1.1"
+                AssemblyName = "OGen.NTier.PresentationLayer.ConsoleApplication-1.1"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Exe"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "OGen.NTier.presentationlayer.console"
+                RootNamespace = "OGen.NTier.PresentationLayer.ConsoleApplication"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >

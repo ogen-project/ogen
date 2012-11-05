@@ -19,7 +19,7 @@ using System.Drawing;
 using System.Data;
 using System.Windows.Forms;
 
-namespace OGen.NTier.presentationlayer.winforms._controls {
+namespace OGen.NTier.PresentationLayer.WinForms._controls {
 	public class ucPick_Fields_forCriteria : System.Windows.Forms.UserControl {
 		#region Required designer variable...
 		/// <summary> 
@@ -31,7 +31,7 @@ namespace OGen.NTier.presentationlayer.winforms._controls {
 		private System.Windows.Forms.Button btnMove_Down;
 		private System.Windows.Forms.Button btnMove_Up;
 		private System.Windows.Forms.Button btnAdd;
-		private OGen.NTier.presentationlayer.winforms.ucPick_Fields Pick_Fields;
+		private OGen.NTier.PresentationLayer.WinForms.ucPick_Fields Pick_Fields;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button btnEdit;
 		private System.Windows.Forms.CheckBox chkTables;
@@ -64,7 +64,7 @@ namespace OGen.NTier.presentationlayer.winforms._controls {
 			this.btnMove_Down = new System.Windows.Forms.Button();
 			this.btnMove_Up = new System.Windows.Forms.Button();
 			this.btnAdd = new System.Windows.Forms.Button();
-			this.Pick_Fields = new OGen.NTier.presentationlayer.winforms.ucPick_Fields();
+			this.Pick_Fields = new OGen.NTier.PresentationLayer.WinForms.ucPick_Fields();
 			this.lblTitle = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.btnEdit = new System.Windows.Forms.Button();

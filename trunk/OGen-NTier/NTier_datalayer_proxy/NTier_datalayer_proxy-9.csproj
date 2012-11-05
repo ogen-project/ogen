@@ -8,8 +8,8 @@
     <ProjectGuid>{F17F7FA0-920E-4AE1-908F-2798D0124996}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OGen.NTier.lib.datalayer.proxy</RootNamespace>
-    <AssemblyName>OGen.NTier.lib.datalayer.proxy-2.0</AssemblyName>
+    <RootNamespace>OGen.NTier.Libraries.DataLayer.Shared</RootNamespace>
+    <AssemblyName>OGen.NTier.Libraries.DataLayer.Shared-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AssemblyOriginatorKeyFile>..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
@@ -24,7 +24,7 @@
     <DefineConstants>TRACE;DEBUG;NET_2_0</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\OGen.NTier.lib.datalayer.proxy-2.0.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\OGen.NTier.Libraries.DataLayer.Shared-2.0.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,7 +33,7 @@
     <DefineConstants>TRACE;NET_2_0</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\OGen.NTier.lib.datalayer.proxy-2.0.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\OGen.NTier.Libraries.DataLayer.Shared-2.0.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

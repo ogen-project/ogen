@@ -9,7 +9,7 @@
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "OGen.XSD.lib.metadata-1.1"
+                AssemblyName = "OGen.XSD.Libraries.Metadata-1.1"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "OGen.XSD.lib.metadata"
+                RootNamespace = "OGen.XSD.Libraries.Metadata"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >

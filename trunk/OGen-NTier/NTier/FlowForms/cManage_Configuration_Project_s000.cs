@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using OGen.lib.presentationlayer.winforms.Flowforms;
 
-namespace OGen.NTier.presentationlayer.winforms {
+namespace OGen.NTier.PresentationLayer.WinForms {
+	using System;
+	using OGen.Libraries.PresentationLayer.WinForms.FlowForms;
+
 	public class cTweak_Project_s000 : cFlowform {
 		#region public cTweak_Project_s000(...);
 		public cTweak_Project_s000(
@@ -131,7 +132,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 						return;
 					}
 					#endregion
-					OGen.NTier.lib.metadata.metadataExtended.XS_dbType[]
+					OGen.NTier.Libraries.Metadata.MetadataExtended.XS_dbType[]
 						_dbs = MyForm.UnBind_DBConnections();
 					#region More Checking...
 					if (_dbs.Length == 0) {
@@ -152,7 +153,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 							frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].DBs.DBCollection.Add(
 								out _justadded,
 								false, 
-								new OGen.NTier.lib.metadata.metadataExtended.XS_dbType(
+								new OGen.NTier.Libraries.Metadata.MetadataExtended.XS_dbType(
 									_dbs[d].DBServerType.ToString()
 								)
 							);
@@ -188,7 +189,7 @@ namespace OGen.NTier.presentationlayer.winforms {
 							MyForm.ApplicationName, 
 							MyForm.Namespace, 
 							_dbs,
-							new OGen.NTier.lib.generator.NTierGenerator.dNotifyBack(
+							new OGen.NTier.Libraries.Generator.NTierGenerator.dNotifyBack(
 								_output.DisplayMessage
 							)
 						);
@@ -232,8 +233,8 @@ namespace OGen.NTier.presentationlayer.winforms {
 					);
 				#endregion
 				#region XS_dbType[] _dbmetadata_dbs = frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].DBs.DBCollection;
-				OGen.NTier.lib.metadata.metadataExtended.XS_dbType[] _dbmetadata_dbs 
-					= new OGen.NTier.lib.metadata.metadataExtended.XS_dbType[
+				OGen.NTier.Libraries.Metadata.MetadataExtended.XS_dbType[] _dbmetadata_dbs 
+					= new OGen.NTier.Libraries.Metadata.MetadataExtended.XS_dbType[
 						frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].DBs.DBCollection.Count
 					];
 				for (int d = 0; d < frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].DBs.DBCollection.Count; d++) {

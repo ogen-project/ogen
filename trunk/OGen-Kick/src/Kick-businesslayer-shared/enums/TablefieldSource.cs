@@ -16,7 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OGen.NTier.Kick.lib.businesslayer.shared {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer.Shared {
 	public static class TableFieldSource {
 		public const int DIC_LANGUAGE__TX_NAME = 1;
 		public const int NWS_CONTENT__TX_TITLE = 2;

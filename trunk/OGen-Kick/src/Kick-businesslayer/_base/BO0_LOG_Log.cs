@@ -13,17 +13,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.businesslayer {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 	using System;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
 	public class BO_LOG_Log :
 		IBO_LOG_Log
 	{
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_LOG_Log[] getRecord_generic(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_LOG_Log[] getRecord_generic(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_LOG_Log[] getRecord_generic(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_LOG_Log[] getRecord_generic(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int IDLogtype_search_in, 
@@ -41,7 +41,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.getRecord_generic(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.getRecord_generic(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				IDLogtype_search_in, 
@@ -72,7 +72,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string format_in, 
 			string[] args_in
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.Log(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.Log(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				logtype_in, 
@@ -91,7 +91,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			int idLog_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.MarkRead(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.MarkRead(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idLog_in, 

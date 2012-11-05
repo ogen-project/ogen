@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OGen.NTier.Kick.presentationlayer.weblayer {
+namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
     
     
     public partial class NWS_News_list {
@@ -28,7 +28,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickListBox DDL_Approved;
+        protected global::OGen.Libraries.PresentationLayer.WebForms.KickListBox DDL_Approved;
         
         /// <summary>
         /// TXT_Begin_date control.
@@ -37,7 +37,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.NTier.Kick.presentationlayer.weblayer.htmlDatePicker TXT_Begin_date;
+        protected global::OGen.NTier.Kick.PresentationLayer.WebLayer.htmlDatePicker TXT_Begin_date;
         
         /// <summary>
         /// TXT_End_date control.
@@ -46,7 +46,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-		protected global::OGen.NTier.Kick.presentationlayer.weblayer.htmlDatePicker TXT_End_date;
+        protected global::OGen.NTier.Kick.PresentationLayer.WebLayer.htmlDatePicker TXT_End_date;
         
         /// <summary>
         /// CBL_Tags control.
@@ -55,7 +55,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Tags;
+        protected global::OGen.Libraries.PresentationLayer.WebForms.KickCheckBoxList CBL_Tags;
         
         /// <summary>
         /// CBL_Author control.
@@ -64,7 +64,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Author;
+        protected global::OGen.Libraries.PresentationLayer.WebForms.KickCheckBoxList CBL_Author;
         
         /// <summary>
         /// CBL_Source control.
@@ -73,7 +73,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Source;
+        protected global::OGen.Libraries.PresentationLayer.WebForms.KickCheckBoxList CBL_Source;
         
         /// <summary>
         /// CBL_Highlight control.
@@ -82,7 +82,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Highlight;
+        protected global::OGen.Libraries.PresentationLayer.WebForms.KickCheckBoxList CBL_Highlight;
         
         /// <summary>
         /// CBL_Profile control.
@@ -91,7 +91,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.lib.presentationlayer.webforms.KickCheckBoxList CBL_Profile;
+        protected global::OGen.Libraries.PresentationLayer.WebForms.KickCheckBoxList CBL_Profile;
         
         /// <summary>
         /// BTN_Search control.

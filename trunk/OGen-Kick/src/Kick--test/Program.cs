@@ -13,12 +13,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.presentationlayer.console {
+namespace OGen.NTier.Kick.PresentationLayer.ConsoleApplication {
 	using System;
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	//using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.businesslayer.shared.instances;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	//using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
 	class Program {
 		static void Main(string[] args) {
@@ -29,9 +29,9 @@ namespace OGen.NTier.Kick.presentationlayer.console {
 			return;
 
 			Console.WriteLine(
-				OGen.lib.crypt.SimpleHash.ComputeHash(
+				OGen.Libraries.Crypt.SimpleHash.ComputeHash(
 					"passpub",
-					 OGen.lib.crypt.SimpleHash.HashAlgotithm.SHA256,
+					 OGen.Libraries.Crypt.SimpleHash.HashAlgotithm.SHA256,
 					null
 				)
 			);

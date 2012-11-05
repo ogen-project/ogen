@@ -16,7 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OGen.NTier.Kick.lib.businesslayer {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 	public static class utils {
 
 		#region public static string RandomText(...);

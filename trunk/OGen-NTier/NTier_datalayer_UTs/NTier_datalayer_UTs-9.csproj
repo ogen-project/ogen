@@ -10,7 +10,7 @@
     </ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName>OGen.NTier.lib.datalayer.UTs</AssemblyName>
+    <AssemblyName>OGen.NTier.Libraries.DataLayer.UnitTests</AssemblyName>
     <AssemblyOriginatorKeyFile>
     </AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
@@ -18,7 +18,7 @@
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
     <OutputType>Library</OutputType>
-    <RootNamespace>OGen.NTier.lib.datalayer.UTs</RootNamespace>
+    <RootNamespace>OGen.NTier.Libraries.DataLayer.UnitTests</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <StartupObject>
     </StartupObject>

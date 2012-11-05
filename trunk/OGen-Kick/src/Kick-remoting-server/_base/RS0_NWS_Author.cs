@@ -13,13 +13,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
+namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 	using System;
 
-	using OGen.NTier.Kick.lib.businesslayer;
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// NWS_Author remoting server.
@@ -35,7 +35,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			long idAuthor_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Author.delObject(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Author.delObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -45,14 +45,14 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Author getObject(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Author getObject(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Author getObject(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Author getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idAuthor_in, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Author.getObject(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Author.getObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -62,8 +62,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Author[] getRecord_all(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Author[] getRecord_all(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Author[] getRecord_all(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Author[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int page_orderBy_in, 
@@ -72,7 +72,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Author.getRecord_all(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Author.getRecord_all(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -85,8 +85,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Author[] getRecord_Approved(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Author[] getRecord_Approved(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Author[] getRecord_Approved(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Author[] getRecord_Approved(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int page_orderBy_in, 
@@ -95,7 +95,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Author.getRecord_Approved(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Author.getRecord_Approved(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -108,8 +108,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentAuthor[] getRecord_byContent(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentAuthor[] getRecord_byContent(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_ContentAuthor[] getRecord_byContent(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_ContentAuthor[] getRecord_byContent(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_search_in, 
@@ -119,7 +119,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Author.getRecord_byContent(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Author.getRecord_byContent(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -137,11 +137,11 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		public long insObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Author author_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Author author_in, 
 			bool selectIdentity_in, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Author.insObject(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Author.insObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -156,10 +156,10 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 		public void updObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Author author_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Author author_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Author.updObject(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Author.updObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -176,7 +176,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			long idAuthor_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Author.updObject_Approve(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Author.updObject_Approve(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")

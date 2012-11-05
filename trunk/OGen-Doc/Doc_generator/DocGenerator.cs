@@ -13,13 +13,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.Doc.lib.generator {
+namespace OGen.Doc.Libraries.Generator {
 	using System;
 	using System.IO;
-	using OGen.Doc.lib.metadata;
-	using OGen.Doc.lib.metadata.documentation;
-	using OGen.lib.generator;
-	using OGen.lib.templates;
+	using OGen.Doc.Libraries.Metadata;
+	using OGen.Doc.Libraries.Metadata.Documentation;
+	using OGen.Libraries.Generator;
+	using OGen.Libraries.Templates;
 
 	public class DocGenerator {
 		#region	public DocGenerator();
@@ -97,12 +97,12 @@ namespace OGen.Doc.lib.generator {
 		#region public void Open(...);
 		public void Open(
 			string filename_in, 
-			bool force_doNOTsave_in, 
+			bool force_doNOTSave_in, 
 			dNotifyBack notifyBack_in
 		) {
 			#region Checking...
 			if (this.hasChanges) {
-				if (!force_doNOTsave_in) {
+				if (!force_doNOTSave_in) {
 					throw new Exception(string.Format(
 						System.Globalization.CultureInfo.CurrentCulture,
 						"{0}.{1}.Open(): - must save before open", 
@@ -127,10 +127,10 @@ namespace OGen.Doc.lib.generator {
 		}
 		#endregion
 		#region public void Close(...);
-		public void Close(bool force_doNOTsave_in) {
+		public void Close(bool force_doNOTSave_in) {
 			if (
 				(this.hasChanges) && 
-				(!force_doNOTsave_in)
+				(!force_doNOTSave_in)
 			) {
 				throw new Exception(string.Format(
 					System.Globalization.CultureInfo.CurrentCulture,

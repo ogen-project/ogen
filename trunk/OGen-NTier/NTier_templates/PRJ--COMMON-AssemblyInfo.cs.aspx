@@ -10,11 +10,11 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 --%><%@ Page language="c#" contenttype="text/html" %>
-<%@ import namespace="OGen.lib.datalayer" %>
-<%@ import namespace="OGen.NTier.lib.metadata" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataExtended" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataDB" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataBusiness" %><%
+<%@ import namespace="OGen.Libraries.DataLayer" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataExtended" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataDB" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataBusiness" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 string _arg_where = System.Web.HttpUtility.UrlDecode(Request.QueryString["where"]);
@@ -39,7 +39,7 @@ switch (_arg_where) {
 	case "datalayer":
 		_aux_assemblytitle = string.Format(
 			System.Globalization.CultureInfo.CurrentCulture, 
-			"{0}.lib.datalayer", 
+			"{0}.Libraries.DataLayer", 
 			_aux_ex_metadata.ApplicationNamespace
 		);
 		_aux_guid = _aux_ex_metadata.GUID_datalayer;
@@ -47,7 +47,7 @@ switch (_arg_where) {
 	case "datalayer-structures":
 		_aux_assemblytitle = string.Format(
 			System.Globalization.CultureInfo.CurrentCulture, 
-			"{0}.lib.datalayer.shared.structures", 
+			"{0}.Libraries.DataLayer.Shared.Structures", 
 			_aux_ex_metadata.ApplicationNamespace
 		);
 		_aux_guid = _aux_ex_metadata.GUID_datalayer_structures;
@@ -55,7 +55,7 @@ switch (_arg_where) {
 	case "businesslayer":
 		_aux_assemblytitle = string.Format(
 			System.Globalization.CultureInfo.CurrentCulture, 
-			"{0}.lib.businesslayer", 
+			"{0}.Libraries.BusinessLayer", 
 			_aux_ex_metadata.ApplicationNamespace
 		);
 		_aux_guid = _aux_ex_metadata.GUID_businesslayer;
@@ -63,7 +63,7 @@ switch (_arg_where) {
 	case "businesslayer-structures":
 		_aux_assemblytitle = string.Format(
 			System.Globalization.CultureInfo.CurrentCulture, 
-			"{0}.lib.businesslayer.shared.structures", 
+			"{0}.Libraries.BusinessLayer.Shared.Structures", 
 			_aux_ex_metadata.ApplicationNamespace
 		);
 		_aux_guid = _aux_ex_metadata.GUID_businesslayer_structures;
@@ -71,7 +71,7 @@ switch (_arg_where) {
 	case "businesslayer-shared":
 		_aux_assemblytitle = string.Format(
 			System.Globalization.CultureInfo.CurrentCulture, 
-			"{0}.lib.businesslayer.shared", 
+			"{0}.Libraries.BusinessLayer.Shared", 
 			_aux_ex_metadata.ApplicationNamespace
 		);
 		_aux_guid = _aux_ex_metadata.GUID_businesslayer_shared;
@@ -79,7 +79,7 @@ switch (_arg_where) {
 	case "businesslayer-instances":
 		_aux_assemblytitle = string.Format(
 			System.Globalization.CultureInfo.CurrentCulture, 
-			"{0}.lib.businesslayer.shared.instances", 
+			"{0}.Libraries.BusinessLayer.Shared.Instances", 
 			_aux_ex_metadata.ApplicationNamespace
 		);
 		_aux_guid = _aux_ex_metadata.GUID_businesslayer_instances;
@@ -87,7 +87,7 @@ switch (_arg_where) {
 	case "remoting-server":
 		_aux_assemblytitle = string.Format(
 			System.Globalization.CultureInfo.CurrentCulture, 
-			"{0}.lib.distributedlayer.remoting.server", 
+			"{0}.Libraries.DistributedLayer.Remoting.Server", 
 			_aux_ex_metadata.ApplicationNamespace
 		);
 		_aux_guid = _aux_ex_metadata.GUID_remoting_server;
@@ -95,7 +95,7 @@ switch (_arg_where) {
 	case "remoting-simpleserver":
 		_aux_assemblytitle = string.Format(
 			System.Globalization.CultureInfo.CurrentCulture, 
-			"{0}.distributedlayer.remoting.simpleserver", 
+			"{0}.DistributedLayer.Remoting.SimpleServer", 
 			_aux_ex_metadata.ApplicationNamespace
 		);
 		_aux_guid = _aux_ex_metadata.GUID_remoting_simpleserver;
@@ -103,7 +103,7 @@ switch (_arg_where) {
 	case "remoting-client":
 		_aux_assemblytitle = string.Format(
 			System.Globalization.CultureInfo.CurrentCulture, 
-			"{0}.lib.distributedlayer.remoting.client", 
+			"{0}.Libraries.DistributedLayer.Remoting.Client", 
 			_aux_ex_metadata.ApplicationNamespace
 		);
 		_aux_guid = _aux_ex_metadata.GUID_remoting_client;
@@ -111,7 +111,7 @@ switch (_arg_where) {
 	case "webservices-server":
 		_aux_assemblytitle = string.Format(
 			System.Globalization.CultureInfo.CurrentCulture, 
-			"{0}.distributedlayer.webservices.server", 
+			"{0}.DistributedLayer.WebServices.Server", 
 			_aux_ex_metadata.ApplicationNamespace
 		);
 		_aux_guid = _aux_ex_metadata.GUID_webservices_server;
@@ -119,7 +119,7 @@ switch (_arg_where) {
 	case "webservices-client":
 		_aux_assemblytitle = string.Format(
 			System.Globalization.CultureInfo.CurrentCulture, 
-			"{0}.lib.distributedlayer.webservices.client", 
+			"{0}.Libraries.DistributedLayer.WebServices.Client", 
 			_aux_ex_metadata.ApplicationNamespace
 		);
 		_aux_guid = _aux_ex_metadata.GUID_webservices_client;
@@ -127,7 +127,7 @@ switch (_arg_where) {
 	case "test":
 		_aux_assemblytitle = string.Format(
 			System.Globalization.CultureInfo.CurrentCulture, 
-			"{0}.presentationlayer.console", 
+			"{0}.PresentationLayer.ConsoleApplication", 
 			_aux_ex_metadata.ApplicationNamespace
 		);
 		_aux_guid = _aux_ex_metadata.GUID_test;

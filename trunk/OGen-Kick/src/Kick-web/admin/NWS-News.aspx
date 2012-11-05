@@ -2,7 +2,7 @@
 	Language="C#" 
 	AutoEventWireup="true" 
 	CodeBehind="NWS-News.aspx.cs" 
-	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.NWS_News" 
+	Inherits="OGen.NTier.Kick.PresentationLayer.WebLayer.NWS_News" 
 	MasterPageFile="~/App_Controls/Admin.Master" %>
 <%@ Register 
 	TagPrefix="anthem" 
@@ -10,12 +10,12 @@
 	Assembly="Anthem" %>
 <%@ Register 
 	TagPrefix="kick" 
-	Namespace="OGen.NTier.Kick.presentationlayer.weblayer"
-	Assembly="OGen.NTier.Kick.presentationlayer.weblayer-2.0" %>
+	Namespace="OGen.NTier.Kick.PresentationLayer.WebLayer"
+	Assembly="OGen.NTier.Kick.PresentationLayer.WebLayer-2.0" %>
 <%@ Register 
 	TagPrefix="asol" 
-	Namespace="OGen.lib.presentationlayer.webforms"
-	Assembly="OGen.lib.presentationlayer.webforms-2.0" %>
+	Namespace="OGen.Libraries.PresentationLayer.WebForms"
+	Assembly="OGen.Libraries.PresentationLayer.WebForms-2.0" %>
 <%@ Register 
 	src="../App_Controls/wuc_txt_Dic.ascx" 
 	tagname="wuc_Dic" 

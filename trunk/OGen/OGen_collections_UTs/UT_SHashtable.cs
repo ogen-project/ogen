@@ -16,9 +16,9 @@ using System;
 using System.IO;
 using NUnit.Framework;
 
-using OGen.lib.collections;
+using OGen.Libraries.Collections;
 
-namespace OGen.lib.collections.UTs {
+namespace OGen.Libraries.Collections.UnitTests {
 	[TestFixture]
 	public class UT_SHashtable { public UT_SHashtable() {}
 		private SHashtable _hash;

@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.lib.presentationlayer.winforms.Flowforms {
+namespace OGen.Libraries.PresentationLayer.WinForms.FlowForms {
 	using System;
 
 	public abstract class cFlowform {

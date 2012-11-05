@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using OGen.lib.presentationlayer.winforms.Flowforms;
 
-namespace OGen.NTier.presentationlayer.winforms {
+namespace OGen.NTier.PresentationLayer.WinForms {
+	using System;
+	using OGen.Libraries.PresentationLayer.WinForms.FlowForms;
+
 	public class cMODEL_s010 : cFlowform {
 		#region public cMODEL_s010(...);
 		public cMODEL_s010(

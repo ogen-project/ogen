@@ -10,7 +10,7 @@
     </ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName>OGen.lib.presentationlayer.webforms.UTs-2.0</AssemblyName>
+    <AssemblyName>OGen.Libraries.PresentationLayer.WebForms.UTs-2.0</AssemblyName>
     <AssemblyOriginatorKeyFile>
     </AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
@@ -18,7 +18,7 @@
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
     <OutputType>Library</OutputType>
-    <RootNamespace>OGen.lib.presentationlayer.webforms.UTs</RootNamespace>
+    <RootNamespace>OGen.Libraries.PresentationLayer.WebForms.UnitTests</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <StartupObject>
     </StartupObject>

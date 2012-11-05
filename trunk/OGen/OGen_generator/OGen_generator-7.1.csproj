@@ -9,7 +9,7 @@
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "OGen.lib.generator-1.1"
+                AssemblyName = "OGen.Libraries.Generator-1.1"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "OGen.lib.generator"
+                RootNamespace = "OGen.Libraries.Generator"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >

@@ -10,11 +10,11 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 --%><%@ Page language="c#" contenttype="text/html" %>
-<%@ import namespace="OGen.lib.datalayer" %>
-<%@ import namespace="OGen.NTier.lib.metadata" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataExtended" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataDB" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataBusiness" %><%
+<%@ import namespace="OGen.Libraries.DataLayer" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataExtended" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataDB" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataBusiness" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 string _arg_TableName = System.Web.HttpUtility.UrlDecode(Request.QueryString["TableName"]);
@@ -30,11 +30,11 @@ XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusinessCollection[0];
 
-OGen.NTier.lib.metadata.metadataDB.XS_tableType _aux_db_table
+OGen.NTier.Libraries.Metadata.MetadataDB.XS_tableType _aux_db_table
 	= _aux_db_metadata.Tables.TableCollection[
 		_arg_TableName
 	];
-OGen.NTier.lib.metadata.metadataExtended.XS_tableType _aux_ex_table
+OGen.NTier.Libraries.Metadata.MetadataExtended.XS_tableType _aux_ex_table
 	= _aux_db_table.parallel_ref;
 #endregion
 //-----------------------------------------------------------------------------------------
@@ -54,12 +54,12 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 <%
 	}
 }%>
-namespace <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer {
+namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer {
 	using System;
 
-	using OGen.lib.datalayer;
+	using OGen.Libraries.DataLayer;
 
-	using <%=_aux_ex_metadata.ApplicationNamespace%>.lib.datalayer.shared.structures;
+	using <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// <%=_aux_db_table.Name%> DataObject which provides access to <%=_aux_db_table.Name%>'s Database table.

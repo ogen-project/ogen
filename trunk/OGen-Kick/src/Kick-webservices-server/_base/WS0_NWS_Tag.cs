@@ -13,15 +13,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.distributedlayer.webservices.server {
+namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 	using System;
 	using System.Web;
 	using System.Web.Services;
 
-	using OGen.NTier.Kick.lib.businesslayer;
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// NWS_Tag web service.
@@ -38,7 +38,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			long idTag_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.delObject(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Tag.delObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -48,15 +48,15 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag getObject(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Tag getObject(...);
 		[WebMethod]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag getObject(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Tag getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idTag_in, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.getObject(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Tag.getObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -66,16 +66,16 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag getObject_byTag_andLanguage(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Tag getObject_byTag_andLanguage(...);
 		[WebMethod]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag getObject_byTag_andLanguage(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Tag getObject_byTag_andLanguage(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idTag_in, 
 			int idLanguage_in, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.getObject_byTag_andLanguage(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Tag.getObject_byTag_andLanguage(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -86,9 +86,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[] getRecord_Approved_byLang(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Tag[] getRecord_Approved_byLang(...);
 		[WebMethod]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[] getRecord_Approved_byLang(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Tag[] getRecord_Approved_byLang(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLanguage_search_in, 
@@ -98,7 +98,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.getRecord_Approved_byLang(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Tag.getRecord_Approved_byLang(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -112,9 +112,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentTag[] getRecord_byContent(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_ContentTag[] getRecord_byContent(...);
 		[WebMethod]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentTag[] getRecord_byContent(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_ContentTag[] getRecord_byContent(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_search_in, 
@@ -124,7 +124,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.getRecord_byContent(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Tag.getRecord_byContent(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -138,9 +138,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[] getRecord_byLang(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Tag[] getRecord_byLang(...);
 		[WebMethod]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[] getRecord_byLang(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Tag[] getRecord_byLang(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLanguage_search_in, 
@@ -150,7 +150,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.getRecord_byLang(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Tag.getRecord_byLang(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -164,9 +164,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[] getRecord_byTag(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Tag[] getRecord_byTag(...);
 		[WebMethod]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[] getRecord_byTag(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Tag[] getRecord_byTag(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idTag_in, 
@@ -176,7 +176,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.getRecord_byTag(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Tag.getRecord_byTag(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -195,12 +195,12 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		public long insObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag tag_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Tag tag_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Name_in, 
 			bool selectIdentity_in, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.insObject(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Tag.insObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -217,11 +217,11 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		public void updObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag tag_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Tag tag_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Name_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.updObject(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Tag.updObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -240,7 +240,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			long idTag_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Tag.updObject_Approve(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Tag.updObject_Approve(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 

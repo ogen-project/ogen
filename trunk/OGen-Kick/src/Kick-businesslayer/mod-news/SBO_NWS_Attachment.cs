@@ -15,16 +15,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Collections.Generic;
 
-using OGen.lib.datalayer;
-using OGen.NTier.lib.businesslayer;
+using OGen.Libraries.DataLayer;
+using OGen.NTier.Libraries.BusinessLayer;
 
-using OGen.lib.crypt;
-using OGen.NTier.Kick.lib.datalayer;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-//using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+using OGen.Libraries.Crypt;
+using OGen.NTier.Kick.Libraries.DataLayer;
+using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
+using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+//using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
-namespace OGen.NTier.Kick.lib.businesslayer {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 	[BOClassAttribute("BO_NWS_Attachment", "")]
 	public static class SBO_NWS_Attachment {
 		#region public static SO_NWS_Attachment getObject(...);
@@ -219,7 +219,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 						_con,
 
 						_sessionuser.IDApplication,
-						OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_ATTACHMENT__TX_NAME,
+						OGen.NTier.Kick.Libraries.BusinessLayer.Shared.TableFieldSource.NWS_ATTACHMENT__TX_NAME,
 
 						tx_Name_in
 					);
@@ -237,7 +237,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 						_con,
 
 						_sessionuser.IDApplication,
-						OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_ATTACHMENT__TX_DESCRIPTION,
+						OGen.NTier.Kick.Libraries.BusinessLayer.Shared.TableFieldSource.NWS_ATTACHMENT__TX_DESCRIPTION,
 
 						tx_Description_in
 					);
@@ -287,7 +287,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 			if (_exception != null) {
 				#region SBO_LOG_Log.Log(ErrorType.data);
-				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+				OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.log(
 					_sessionuser,
 					LogType.error,
 					ErrorType.data,
@@ -376,7 +376,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 						_attachment.TX_Name = SBO_DIC_Dic.insObject(
 							_con,
 							_sessionuser.IDApplication,
-							OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_ATTACHMENT__TX_NAME,
+							OGen.NTier.Kick.Libraries.BusinessLayer.Shared.TableFieldSource.NWS_ATTACHMENT__TX_NAME,
 							tx_Name_in
 						);
 					} else {
@@ -394,7 +394,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 						_attachment.TX_Description = SBO_DIC_Dic.insObject(
 							_con,
 							_sessionuser.IDApplication,
-							OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_ATTACHMENT__TX_DESCRIPTION,
+							OGen.NTier.Kick.Libraries.BusinessLayer.Shared.TableFieldSource.NWS_ATTACHMENT__TX_DESCRIPTION,
 							tx_Description_in
 						);
 					} else {
@@ -451,7 +451,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 			if (_exception != null) {
 				#region SBO_LOG_Log.Log(ErrorType.data);
-				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+				OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.log(
 					_sessionuser,
 					LogType.error,
 					ErrorType.data,
@@ -459,8 +459,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					_sessionuser.IDApplication,
 					"{0}",
 					new string[] {
-			            _exception.Message
-			        }
+						_exception.Message
+					}
 				);
 				#endregion
 				_errorlist.Add(ErrorType.data);
@@ -615,7 +615,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 			if (_exception != null) {
 				#region SBO_LOG_Log.Log(ErrorType.data);
-				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+				OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.log(
 					_sessionuser,
 					LogType.error,
 					ErrorType.data,
@@ -623,8 +623,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 					_sessionuser.IDApplication,
 					"{0}",
 					new string[] {
-			            _exception.Message
-			        }
+						_exception.Message
+					}
 				);
 				#endregion
 				_errorlist.Add(ErrorType.data);

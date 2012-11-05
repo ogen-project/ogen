@@ -13,13 +13,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
+namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server {
 	using System;
 
-	using OGen.NTier.Kick.lib.businesslayer;
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// CRD_User remoting server.
@@ -35,7 +35,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			string login_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_User.insObject_CreateUser(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_User.insObject_CreateUser(
 				sessionGuid_in, 
 				(utils.ResetClientIP)
 					? (string)System.Runtime.Remoting.Messaging.CallContext.GetData("ClientIPAddress")
@@ -52,7 +52,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.server {
 			int idApplication_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_CRD_User.insObject_Registration(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_CRD_User.insObject_Registration(
 				login_in, 
 				password_in, 
 				idApplication_in, 

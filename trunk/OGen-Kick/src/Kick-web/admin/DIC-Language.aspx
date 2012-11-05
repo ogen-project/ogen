@@ -2,12 +2,12 @@
 	Language="C#" 
 	AutoEventWireup="true" 
 	CodeBehind="DIC-Language.aspx.cs" 
-	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.DIC_Language" 
+	Inherits="OGen.NTier.Kick.PresentationLayer.WebLayer.DIC_Language" 
 	MasterPageFile="~/App_Controls/Admin.Master" %>
 <%@ Register 
 	TagPrefix="asol" 
-	Namespace="OGen.lib.presentationlayer.webforms"
-	Assembly="OGen.lib.presentationlayer.webforms-2.0" %>
+	Namespace="OGen.Libraries.PresentationLayer.WebForms"
+	Assembly="OGen.Libraries.PresentationLayer.WebForms-2.0" %>
 <%@ Register 
 	TagPrefix="anthem" 
 	Namespace="Anthem" 

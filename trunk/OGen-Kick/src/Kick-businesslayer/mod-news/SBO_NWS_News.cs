@@ -15,16 +15,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Collections.Generic;
 
-using OGen.lib.datalayer;
-using OGen.NTier.lib.businesslayer;
+using OGen.Libraries.DataLayer;
+using OGen.NTier.Libraries.BusinessLayer;
 
-using OGen.lib.crypt;
-using OGen.NTier.Kick.lib.datalayer;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-//using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+using OGen.Libraries.Crypt;
+using OGen.NTier.Kick.Libraries.DataLayer;
+using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
+using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+//using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
-namespace OGen.NTier.Kick.lib.businesslayer {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 	[BOClassAttribute("BO_NWS_News", "")]
 	public static class SBO_NWS_News {
 		#region private static SO_vNWS_Content[] getrecord_bycontent_andlanguage(...);
@@ -261,10 +261,10 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string ip_forLogPurposes_in, 
 
 			ref SO_NWS_Content content_ref,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Title_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Subtitle_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Summary_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Title_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Content_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Subtitle_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Summary_in,
 
 			//bool andApprove_in, 
 
@@ -437,10 +437,10 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			string ip_forLogPurposes_in, 
 
 			SO_NWS_Content content_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Title_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Subtitle_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Summary_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Title_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Content_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Subtitle_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Summary_in,
 
 			long[] idTags_in,
 			long[] idAuthors_in,
@@ -505,7 +505,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 						_con,
 
 						_sessionuser.IDApplication,
-						OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_CONTENT__TX_TITLE,
+						OGen.NTier.Kick.Libraries.BusinessLayer.Shared.TableFieldSource.NWS_CONTENT__TX_TITLE,
 
 						tx_Title_in
 					);
@@ -523,7 +523,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 						_con,
 
 						_sessionuser.IDApplication,
-						OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_CONTENT__TX_CONTENT,
+						OGen.NTier.Kick.Libraries.BusinessLayer.Shared.TableFieldSource.NWS_CONTENT__TX_CONTENT,
 
 						tx_Content_in
 					);
@@ -541,7 +541,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 						_con,
 
 						_sessionuser.IDApplication,
-						OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_CONTENT__TX_SUBTITLE,
+						OGen.NTier.Kick.Libraries.BusinessLayer.Shared.TableFieldSource.NWS_CONTENT__TX_SUBTITLE,
 
 						tx_Subtitle_in
 					);
@@ -559,7 +559,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 						_con,
 
 						_sessionuser.IDApplication,
-						OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_CONTENT__TX_SUMMARY,
+						OGen.NTier.Kick.Libraries.BusinessLayer.Shared.TableFieldSource.NWS_CONTENT__TX_SUMMARY,
 
 						tx_Summary_in
 					);
@@ -624,7 +624,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			}
 			if (_exception != null) {
 				#region SBO_LOG_Log.Log(ErrorType.data);
-				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+				OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.log(
 					_sessionuser,
 					LogType.error,
 					ErrorType.data,
@@ -651,10 +651,10 @@ errors_out.Add(ErrorType.profile__invalid_name);
 
 			bool updateContent_in,
 			SO_NWS_Content content_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Title_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Subtitle_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Summary_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Title_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Content_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Subtitle_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Summary_in,
 
 			bool updateTags_in, 
 			long[] idTags_in,
@@ -752,7 +752,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 							_content.TX_Title = SBO_DIC_Dic.insObject(
 								_con,
 								_sessionuser.IDApplication,
-								OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_CONTENT__TX_TITLE,
+								OGen.NTier.Kick.Libraries.BusinessLayer.Shared.TableFieldSource.NWS_CONTENT__TX_TITLE,
 								tx_Title_in
 							);
 						} else {
@@ -770,7 +770,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 							_content.TX_Content = SBO_DIC_Dic.insObject(
 								_con,
 								_sessionuser.IDApplication,
-								OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_CONTENT__TX_CONTENT,
+								OGen.NTier.Kick.Libraries.BusinessLayer.Shared.TableFieldSource.NWS_CONTENT__TX_CONTENT,
 								tx_Content_in
 							);
 						} else {
@@ -788,7 +788,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 							_content.TX_Subtitle = SBO_DIC_Dic.insObject(
 								_con,
 								_sessionuser.IDApplication,
-								OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_CONTENT__TX_SUBTITLE,
+								OGen.NTier.Kick.Libraries.BusinessLayer.Shared.TableFieldSource.NWS_CONTENT__TX_SUBTITLE,
 								tx_Subtitle_in
 							);
 						} else {
@@ -806,7 +806,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 							_content.TX_Summary = SBO_DIC_Dic.insObject(
 								_con,
 								_sessionuser.IDApplication,
-								OGen.NTier.Kick.lib.businesslayer.shared.TableFieldSource.NWS_CONTENT__TX_SUMMARY,
+								OGen.NTier.Kick.Libraries.BusinessLayer.Shared.TableFieldSource.NWS_CONTENT__TX_SUMMARY,
 								tx_Summary_in
 							);
 						} else {
@@ -914,7 +914,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			}
 			if (_exception != null) {
 				#region SBO_LOG_Log.Log(ErrorType.data);
-				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+				OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.log(
 					_sessionuser,
 					LogType.error,
 					ErrorType.data,
@@ -940,10 +940,10 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			string ip_forLogPurposes_in, 
 
 			SO_NWS_Content content_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Title_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Subtitle_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Summary_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Title_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Content_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Subtitle_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Summary_in,
 
 			long[] idTags_in,
 			long[] idAuthors_in,
@@ -996,10 +996,10 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			string ip_forLogPurposes_in, 
 
 			SO_NWS_Content content_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Title_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Content_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Subtitle_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Summary_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Title_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Content_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Subtitle_in,
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Summary_in,
 
 			//bool andApprove_in,
 
@@ -1640,7 +1640,7 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			}
 			if (_exception != null) {
 				#region SBO_LOG_Log.Log(ErrorType.data);
-				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+				OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.log(
 					_sessionuser,
 					LogType.error,
 					ErrorType.data,
@@ -1732,11 +1732,11 @@ errors_out.Add(ErrorType.profile__invalid_name);
 					IDUser__Approved_search_in, 
 					(Begin_date_search_in <= datetime_minvalue_) ? null : (object)Begin_date_search_in,
 					(End_date_search_in <= datetime_minvalue_) ? null : (object)End_date_search_in,
-					(idTags_search_in == null) ? "" : OGen.lib.utils.Array_Join<long>(",", idTags_search_in),
-					(idAuthors_search_in == null) ? "" : OGen.lib.utils.Array_Join<long>(",", idAuthors_search_in),
-					(idSources_search_in == null) ? "" : OGen.lib.utils.Array_Join<long>(",", idSources_search_in),
-					(idHighlights_search_in == null) ? "" : OGen.lib.utils.Array_Join<long>(",", idHighlights_search_in),
-					(idProfiles_search_in == null) ? "" : OGen.lib.utils.Array_Join<long>(",", idProfiles_search_in),
+					(idTags_search_in == null) ? "" : OGen.Libraries.utils.Array_Join<long>(",", idTags_search_in),
+					(idAuthors_search_in == null) ? "" : OGen.Libraries.utils.Array_Join<long>(",", idAuthors_search_in),
+					(idSources_search_in == null) ? "" : OGen.Libraries.utils.Array_Join<long>(",", idSources_search_in),
+					(idHighlights_search_in == null) ? "" : OGen.Libraries.utils.Array_Join<long>(",", idHighlights_search_in),
+					(idProfiles_search_in == null) ? "" : OGen.Libraries.utils.Array_Join<long>(",", idProfiles_search_in),
 					text__small_search_in, 
 					IDLanguage_search_in, 
 					isAND_notOR_search_in,

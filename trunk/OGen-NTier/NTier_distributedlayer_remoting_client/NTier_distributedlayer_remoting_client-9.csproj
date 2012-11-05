@@ -8,8 +8,8 @@
     <ProjectGuid>{A1711840-2FC2-457D-BA6B-0E36B54E395F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OGen.NTier.lib.distributedlayer.remoting.client</RootNamespace>
-    <AssemblyName>OGen.NTier.lib.distributedlayer.remoting.client-2.0</AssemblyName>
+    <RootNamespace>OGen.NTier.Libraries.DistributedLayer.Remoting.Client</RootNamespace>
+    <AssemblyName>OGen.NTier.Libraries.DistributedLayer.Remoting.Client-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SignAssembly>true</SignAssembly>

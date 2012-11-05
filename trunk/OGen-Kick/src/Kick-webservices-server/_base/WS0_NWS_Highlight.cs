@@ -13,15 +13,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.distributedlayer.webservices.server {
+namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
 	using System;
 	using System.Web;
 	using System.Web.Services;
 
-	using OGen.NTier.Kick.lib.businesslayer;
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// NWS_Highlight web service.
@@ -38,7 +38,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			long idHighlight_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.delObject(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Highlight.delObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -48,15 +48,15 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight getObject(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Highlight getObject(...);
 		[WebMethod]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight getObject(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Highlight getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idHighlight_in, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.getObject(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Highlight.getObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -66,9 +66,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Highlight[] getRecord_all(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Highlight[] getRecord_all(...);
 		[WebMethod]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Highlight[] getRecord_all(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Highlight[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int page_orderBy_in, 
@@ -77,7 +77,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.getRecord_all(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Highlight.getRecord_all(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -90,9 +90,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Highlight[] getRecord_Approved(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Highlight[] getRecord_Approved(...);
 		[WebMethod]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Highlight[] getRecord_Approved(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Highlight[] getRecord_Approved(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int page_orderBy_in, 
@@ -101,7 +101,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.getRecord_Approved(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Highlight.getRecord_Approved(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -114,9 +114,9 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentHighlight[] getRecord_byContent(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_ContentHighlight[] getRecord_byContent(...);
 		[WebMethod]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentHighlight[] getRecord_byContent(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_ContentHighlight[] getRecord_byContent(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_search_in, 
@@ -126,7 +126,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.getRecord_byContent(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Highlight.getRecord_byContent(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -145,11 +145,11 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		public long insObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight highlight_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Highlight highlight_in, 
 			bool selectIdentity_in, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.insObject(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Highlight.insObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -165,10 +165,10 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 		public void updObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight highlight_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Highlight highlight_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.updObject(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Highlight.updObject(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
@@ -186,7 +186,7 @@ namespace OGen.NTier.Kick.distributedlayer.webservices.server {
 			long idHighlight_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Highlight.updObject_Approve(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Highlight.updObject_Approve(
 				sessionGuid_in, 
 				(utils.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 

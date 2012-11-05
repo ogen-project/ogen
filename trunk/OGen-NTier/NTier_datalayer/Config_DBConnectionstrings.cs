@@ -13,11 +13,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.lib.datalayer {
+namespace OGen.NTier.Libraries.DataLayer {
 	using System;
 	using System.Collections;
 
-	using OGen.lib.datalayer;
+	using OGen.Libraries.DataLayer;
 
 	public class Config_DBConnectionstrings {
 		#region public Config_DBConnectionstrings();

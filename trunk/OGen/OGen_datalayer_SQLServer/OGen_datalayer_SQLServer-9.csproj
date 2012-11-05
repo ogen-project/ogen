@@ -4,13 +4,13 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <OutputType>Library</OutputType>
-    <RootNamespace>OGen.lib.datalayer.SQLServer</RootNamespace>
-    <AssemblyName>OGen.lib.datalayer.SQLServer-2.0</AssemblyName>
+    <RootNamespace>OGen.Libraries.DataLayer.SQLServer</RootNamespace>
+    <AssemblyName>OGen.Libraries.DataLayer.SQLServer-2.0</AssemblyName>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
     <NoStdLib>False</NoStdLib>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <DocumentationFile>bin\Debug\OGen.lib.datalayer.SQLServer-2.0.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\OGen.Libraries.DataLayer.SQLServer-2.0.xml</DocumentationFile>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
     <DelaySign>False</DelaySign>

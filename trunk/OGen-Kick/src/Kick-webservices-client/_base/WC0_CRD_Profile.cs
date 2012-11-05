@@ -13,14 +13,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
+namespace OGen.NTier.Kick.Libraries.DistributedLayer.WebServices.Client {
 	using System;
 	using System.Web.Services;
 	using System.Web.Services.Protocols;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// CRD_Profile web service client.
@@ -30,7 +30,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 	//[System.ComponentModel.DesignerCategoryAttribute("code")]
 	[System.Web.Services.WebServiceBindingAttribute(
 		Name = "WS_CRD_ProfileSoap",
-		Namespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server"
+		Namespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server"
 	)]
 	public class WC_CRD_Profile : 
 		SoapHttpClientProtocol, 
@@ -58,9 +58,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 
 		#region public void delObject(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/delObject",
-			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			"http://OGen.NTier.Kick.DistributedLayer.WebServices.Server/delObject",
+			RequestNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
+			ResponseNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
@@ -81,15 +81,15 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			errors_out = (int[])results[0];
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile getObject(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile getObject(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/getObject",
-			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			"http://OGen.NTier.Kick.DistributedLayer.WebServices.Server/getObject",
+			RequestNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
+			ResponseNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile getObject(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
@@ -104,18 +104,18 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				}
 			);
 			errors_out = (int[])results[1];
-			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile)results[0];
+			return (OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile)results[0];
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile[] getRecord_all(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile[] getRecord_all(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/getRecord_all",
-			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			"http://OGen.NTier.Kick.DistributedLayer.WebServices.Server/getRecord_all",
+			RequestNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
+			ResponseNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile[] getRecord_all(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			bool allProfiles_notJustApplication_in, 
@@ -138,18 +138,18 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			);
 			page_itemsCount_out = (long)results[1];
 			errors_out = (int[])results[2];
-			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile[])results[0];
+			return (OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile[])results[0];
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_ProfileProfile[] getRecord_byProfile(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_ProfileProfile[] getRecord_byProfile(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/getRecord_byProfile",
-			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			"http://OGen.NTier.Kick.DistributedLayer.WebServices.Server/getRecord_byProfile",
+			RequestNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
+			ResponseNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_ProfileProfile[] getRecord_byProfile(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_ProfileProfile[] getRecord_byProfile(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idProfile_in, 
@@ -172,18 +172,18 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			);
 			page_itemsCount_out = (long)results[1];
 			errors_out = (int[])results[2];
-			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_ProfileProfile[])results[0];
+			return (OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_ProfileProfile[])results[0];
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermission[] getRecord_ofProfilePermission_byProfile(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vCRD_ProfilePermission[] getRecord_ofProfilePermission_byProfile(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/getRecord_ofProfilePermission_byProfile",
-			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			"http://OGen.NTier.Kick.DistributedLayer.WebServices.Server/getRecord_ofProfilePermission_byProfile",
+			RequestNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
+			ResponseNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermission[] getRecord_ofProfilePermission_byProfile(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vCRD_ProfilePermission[] getRecord_ofProfilePermission_byProfile(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long IDProfile_search_in, 
@@ -206,18 +206,18 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			);
 			page_itemsCount_out = (long)results[1];
 			errors_out = (int[])results[2];
-			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermission[])results[0];
+			return (OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vCRD_ProfilePermission[])results[0];
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_UserProfile[] getRecord_ofUserProfile_byUser(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vCRD_UserProfile[] getRecord_ofUserProfile_byUser(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/getRecord_ofUserProfile_byUser",
-			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			"http://OGen.NTier.Kick.DistributedLayer.WebServices.Server/getRecord_ofUserProfile_byUser",
+			RequestNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
+			ResponseNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_UserProfile[] getRecord_ofUserProfile_byUser(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vCRD_UserProfile[] getRecord_ofUserProfile_byUser(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long IDUser_search_in, 
@@ -240,21 +240,21 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			);
 			page_itemsCount_out = (long)results[1];
 			errors_out = (int[])results[2];
-			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_UserProfile[])results[0];
+			return (OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vCRD_UserProfile[])results[0];
 		}
 		#endregion
 		#region public long insObject(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/insObject",
-			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			"http://OGen.NTier.Kick.DistributedLayer.WebServices.Server/insObject",
+			RequestNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
+			ResponseNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
 		public long insObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile profile_in, 
 			long[] idProfile_parent_in, 
 			long[] idPermission_in, 
 			out int[] errors_out
@@ -275,9 +275,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		#endregion
 		#region public void setUserProfiles(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/setUserProfiles",
-			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			"http://OGen.NTier.Kick.DistributedLayer.WebServices.Server/setUserProfiles",
+			RequestNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
+			ResponseNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
@@ -302,16 +302,16 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		#endregion
 		#region public void updObject(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/updObject",
-			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			"http://OGen.NTier.Kick.DistributedLayer.WebServices.Server/updObject",
+			RequestNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
+			ResponseNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
 		public void updObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile profile_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile profile_in, 
 			long[] idProfile_parent_in, 
 			long[] idPermission_in, 
 			out int[] errors_out
@@ -331,9 +331,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		#endregion
 		#region public void updObject_relationsOnly(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/updObject_relationsOnly",
-			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			"http://OGen.NTier.Kick.DistributedLayer.WebServices.Server/updObject_relationsOnly",
+			RequestNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
+			ResponseNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]

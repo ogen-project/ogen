@@ -12,16 +12,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
-using System.Windows.Forms;
 
-using OGen.lib.presentationlayer.winforms.Flowforms;
-using OGen.lib.datalayer;
+namespace OGen.NTier.PresentationLayer.WinForms {
+	using System;
+	using System.Collections;
+	using System.ComponentModel;
+	using System.Drawing;
+	using System.Windows.Forms;
 
-namespace OGen.NTier.presentationlayer.winforms {
+	using OGen.Libraries.DataLayer;
+	using OGen.Libraries.PresentationLayer.WinForms.FlowForms;
+
 	public class frmTweak_Project_s000 : System.Windows.Forms.Form {
 		#region Required designer variable...
 		/// <summary>
@@ -370,8 +371,8 @@ namespace OGen.NTier.presentationlayer.winforms {
 		/// first item in the array, represents default db connection
 		/// </summary>
 		/// <returns></returns>
-		public OGen.NTier.lib.metadata.metadataExtended.XS_dbType[] UnBind_DBConnections() {
-			OGen.NTier.lib.metadata.metadataExtended.XS_dbType[] DBConnections_out;
+		public OGen.NTier.Libraries.Metadata.MetadataExtended.XS_dbType[] UnBind_DBConnections() {
+			OGen.NTier.Libraries.Metadata.MetadataExtended.XS_dbType[] DBConnections_out;
 			ArrayList _dbservertypes;
 			DBServerTypes _dbservertype;
 			int _dbindex;
@@ -415,12 +416,12 @@ namespace OGen.NTier.presentationlayer.winforms {
 			}
 			//---
 			DBConnections_out 
-				= new OGen.NTier.lib.metadata.metadataExtended.XS_dbType[
+				= new OGen.NTier.Libraries.Metadata.MetadataExtended.XS_dbType[
 					_dbservertypes.Count
 				];
 			//---
 			for (int i = 0; i < _dbservertypes.Count; i++) {
-				DBConnections_out[i] = new OGen.NTier.lib.metadata.metadataExtended.XS_dbType(
+				DBConnections_out[i] = new OGen.NTier.Libraries.Metadata.MetadataExtended.XS_dbType(
 					((DBServerTypes)_dbservertypes[i]).ToString()
 				);
 			}
@@ -456,8 +457,8 @@ DBConnections_out[_dbindex].GenerateSQL = true;
 			lvwConnections.Items.Clear();
 		}
 		public void Bind_DBConnections(
-			OGen.NTier.lib.metadata.metadataExtended.XS_dbType[] dbMetadata_DB_in
-			//, OGen.lib.datalayer.DBServerTypes default_DBServerType_in,
+			OGen.NTier.Libraries.Metadata.MetadataExtended.XS_dbType[] dbMetadata_DB_in
+			//, OGen.Libraries.DataLayer.DBServerTypes default_DBServerType_in,
 			//string default_Mode_in
 		) {
 			lvwConnections.Items.Clear();

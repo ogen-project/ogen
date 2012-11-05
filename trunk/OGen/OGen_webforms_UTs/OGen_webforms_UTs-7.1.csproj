@@ -9,7 +9,7 @@
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "OGen.lib.presentationlayer.webforms.UTs-1.1"
+                AssemblyName = "OGen.Libraries.PresentationLayer.WebForms.UTs-1.1"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "OGen.lib.presentationlayer.webforms.UTs"
+                RootNamespace = "OGen.Libraries.PresentationLayer.WebForms.UTs"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >

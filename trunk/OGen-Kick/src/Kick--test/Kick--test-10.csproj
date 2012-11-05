@@ -21,8 +21,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <AssemblyOriginatorKeyFile>..\..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OGen.NTier.Kick.presentationlayer.console</RootNamespace>
-    <AssemblyName>OGen.NTier.Kick.presentationlayer.console-2.0</AssemblyName>
+    <RootNamespace>OGen.NTier.Kick.PresentationLayer.ConsoleApplication</RootNamespace>
+    <AssemblyName>OGen.NTier.Kick.PresentationLayer.ConsoleApplication-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
@@ -71,12 +71,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="OGen.NTier.lib.datalayer.proxy-2.0">
-      <Name>OGen.NTier.lib.datalayer.proxy-2.0</Name>
+    <Reference Include="OGen.NTier.Libraries.DataLayer.Shared-2.0">
+      <Name>OGen.NTier.Libraries.DataLayer.Shared-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
     </Reference>
-    <Reference Include="OGen.NTier.lib.distributedlayer.remoting.client-2.0">
-      <Name>OGen.NTier.lib.distributedlayer.remoting.client-2.0</Name>
+    <Reference Include="OGen.NTier.Libraries.DistributedLayer.Remoting.Client-2.0">
+      <Name>OGen.NTier.Libraries.DistributedLayer.Remoting.Client-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
     </Reference>
   </ItemGroup>

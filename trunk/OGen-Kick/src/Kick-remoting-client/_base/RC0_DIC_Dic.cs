@@ -13,14 +13,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
+namespace OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Client {
 	using System;
 	using System.Runtime.Remoting;
 
-	using OGen.NTier.Kick.lib.businesslayer;
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// DIC_Dic remoting client.
@@ -39,7 +39,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 		public static void ReConfig() {
 			utils.Config.ReConfig();
 
-			bo_ = new OGen.NTier.Kick.lib.distributedlayer.remoting.server.RS_DIC_Dic();
+			bo_ = new OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server.RS_DIC_Dic();
 		}
 		#endregion
 
@@ -58,8 +58,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vDIC_ApplicationLanguage[] getRecord_byApplication(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int page_orderBy_in, 
@@ -79,8 +79,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_byLanguage(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_byLanguage(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vDIC_Language[] getRecord_byLanguage(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vDIC_Language[] getRecord_byLanguage(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLanguage_in, 
@@ -102,8 +102,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_Language(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[] getRecord_Language(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vDIC_Language[] getRecord_Language(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vDIC_Language[] getRecord_Language(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLanguage_in, 
@@ -129,8 +129,8 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 		public void insLanguage(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] languageName_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] existingLanguagesInNewLanguage_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] languageName_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] existingLanguagesInNewLanguage_in, 
 			out int[] errors_out
 		) {
 			bo_.insLanguage(
@@ -162,7 +162,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.remoting.client {
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int idLanguage_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] textLanguage_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] textLanguage_in, 
 			out int[] errors_out
 		) {
 			bo_.updLanguage(

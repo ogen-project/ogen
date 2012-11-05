@@ -9,7 +9,7 @@
             <Settings
                 ApplicationIcon = "App.ico"
                 AssemblyKeyContainerName = ""
-                AssemblyName = "OGen.NTier.presentationlayer.winforms-1.1"
+                AssemblyName = "OGen.NTier.PresentationLayer.WinForms-1.1"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "WinExe"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "OGen.NTier.presentationlayer.winforms"
+                RootNamespace = "OGen.NTier.PresentationLayer.WinForms"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >

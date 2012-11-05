@@ -15,16 +15,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Collections.Generic;
 
-using OGen.lib.datalayer;
-using OGen.NTier.lib.businesslayer;
+using OGen.Libraries.DataLayer;
+using OGen.NTier.Libraries.BusinessLayer;
 
-using OGen.lib.crypt;
-using OGen.NTier.Kick.lib.datalayer;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-//using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+using OGen.Libraries.Crypt;
+using OGen.NTier.Kick.Libraries.DataLayer;
+using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
+using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+//using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
-namespace OGen.NTier.Kick.lib.businesslayer {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 	[BOClassAttribute("BO_DIC_Dic", "")]
 	public static class SBO_DIC_Dic {
 		#region public static void insLanguage(...);
@@ -180,7 +180,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 			if (_exception != null) {
 				#region SBO_LOG_Log.log(ErrorType.data);
-				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+				OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.log(
 					_sessionuser,
 					LogType.error,
 					ErrorType.data,
@@ -206,7 +206,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			string ip_forLogPurposes_in,
 
 			int idLanguage_in,
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] textLanguage_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] textLanguage_in, 
 
 			out int[] errors_out
 		) {
@@ -295,7 +295,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 			if (_exception != null) {
 				#region SBO_LOG_Log.log(ErrorType.data);
-				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+				OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.log(
 					_sessionuser,
 					LogType.error,
 					ErrorType.data,
@@ -429,7 +429,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 			if (_exception != null) {
 				#region SBO_LOG_Log.log(ErrorType.data);
-				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+				OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.log(
 					_sessionuser,
 					LogType.error,
 					ErrorType.data,
@@ -557,7 +557,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			}
 			if (_exception != null) {
 				#region SBO_LOG_Log.log(ErrorType.data);
-				OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+				OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.log(
 					_sessionuser,
 					LogType.error,
 					ErrorType.data,
@@ -583,7 +583,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			int idApplication_in,
 			int sourceTableField_ref_in, 
 
-			params OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] textLanguage_in
+			params OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] textLanguage_in
 		) {
 			if (textLanguage_in.Length == 0) return -1L;
 
@@ -624,10 +624,10 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 
 			long idText_in,
 
-			params OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] textLanguage_in
+			params OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] textLanguage_in
 		) {
 			SO_DIC_TextLanguage _textlanguage;
-			foreach (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage _text in textLanguage_in) {
+			foreach (OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage _text in textLanguage_in) {
 				#region _textlanguage = ...;
 				_textlanguage 
 					= new SO_DIC_TextLanguage(

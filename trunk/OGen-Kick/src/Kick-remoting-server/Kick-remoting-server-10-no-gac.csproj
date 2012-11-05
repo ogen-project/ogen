@@ -21,8 +21,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <AssemblyOriginatorKeyFile>..\..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OGen.NTier.Kick.lib.distributedlayer.remoting.server</RootNamespace>
-    <AssemblyName>OGen.NTier.Kick.lib.distributedlayer.remoting.server-2.0</AssemblyName>
+    <RootNamespace>OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server</RootNamespace>
+    <AssemblyName>OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>

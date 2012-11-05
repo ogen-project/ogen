@@ -13,14 +13,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
+namespace OGen.NTier.Kick.Libraries.DistributedLayer.WebServices.Client {
 	using System;
 	using System.Web.Services;
 	using System.Web.Services.Protocols;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-	using OGen.NTier.Kick.lib.datalayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>
 	/// NWS_Attachment web service client.
@@ -30,7 +30,7 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 	//[System.ComponentModel.DesignerCategoryAttribute("code")]
 	[System.Web.Services.WebServiceBindingAttribute(
 		Name = "WS_NWS_AttachmentSoap",
-		Namespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server"
+		Namespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server"
 	)]
 	public class WC_NWS_Attachment : 
 		SoapHttpClientProtocol, 
@@ -58,9 +58,9 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 
 		#region public void delObject(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/delObject",
-			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			"http://OGen.NTier.Kick.DistributedLayer.WebServices.Server/delObject",
+			RequestNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
+			ResponseNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
@@ -81,15 +81,15 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			errors_out = (int[])results[0];
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment getObject(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Attachment getObject(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/getObject",
-			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			"http://OGen.NTier.Kick.DistributedLayer.WebServices.Server/getObject",
+			RequestNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
+			ResponseNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment getObject(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Attachment getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idAttachment_in, 
@@ -104,18 +104,18 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 				}
 			);
 			errors_out = (int[])results[1];
-			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment)results[0];
+			return (OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Attachment)results[0];
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Attachment[] getRecord_byContent(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Attachment[] getRecord_byContent(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/getRecord_byContent",
-			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			"http://OGen.NTier.Kick.DistributedLayer.WebServices.Server/getRecord_byContent",
+			RequestNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
+			ResponseNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Attachment[] getRecord_byContent(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Attachment[] getRecord_byContent(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_search_in, 
@@ -138,18 +138,18 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			);
 			page_itemsCount_out = (long)results[1];
 			errors_out = (int[])results[2];
-			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Attachment[])results[0];
+			return (OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Attachment[])results[0];
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Attachment[] getRecord_byContent_andLanguage(...);
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Attachment[] getRecord_byContent_andLanguage(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/getRecord_byContent_andLanguage",
-			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			"http://OGen.NTier.Kick.DistributedLayer.WebServices.Server/getRecord_byContent_andLanguage",
+			RequestNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
+			ResponseNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Attachment[] getRecord_byContent_andLanguage(
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Attachment[] getRecord_byContent_andLanguage(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long IDContent_search_in, 
@@ -174,23 +174,23 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 			);
 			page_itemsCount_out = (long)results[1];
 			errors_out = (int[])results[2];
-			return (OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Attachment[])results[0];
+			return (OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Attachment[])results[0];
 		}
 		#endregion
 		#region public long insObject(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/insObject",
-			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			"http://OGen.NTier.Kick.DistributedLayer.WebServices.Server/insObject",
+			RequestNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
+			ResponseNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
 		public long insObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment attachment_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Description_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Attachment attachment_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Name_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Description_in, 
 			bool selectIdentity_in, 
 			out string guid_out, 
 			out int[] errors_out
@@ -213,18 +213,18 @@ namespace OGen.NTier.Kick.lib.distributedlayer.webservices.client {
 		#endregion
 		#region public void updObject(...);
 		[System.Web.Services.Protocols.SoapDocumentMethodAttribute(
-			"http://OGen.NTier.Kick.distributedlayer.webservices.server/updObject",
-			RequestNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
-			ResponseNamespace = "http://OGen.NTier.Kick.distributedlayer.webservices.server",
+			"http://OGen.NTier.Kick.DistributedLayer.WebServices.Server/updObject",
+			RequestNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
+			ResponseNamespace = "http://OGen.NTier.Kick.DistributedLayer.WebServices.Server",
 			Use = System.Web.Services.Description.SoapBindingUse.Literal,
 			ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped
 		)]
 		public void updObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment attachment_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Description_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Attachment attachment_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Name_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Description_in, 
 			out int[] errors_out
 		) {
 			object[] results = this.Invoke(

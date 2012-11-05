@@ -12,4 +12,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 --%><%@ WebService 
 	Language="C#" 
 	CodeBehind="WS_CRD_Profile.asmx.cs" 
-	Class="OGen.NTier.Kick.distributedlayer.webservices.server.WS_CRD_Profile" %>
+	Class="OGen.NTier.Kick.DistributedLayer.WebServices.Server.WS_CRD_Profile" %>

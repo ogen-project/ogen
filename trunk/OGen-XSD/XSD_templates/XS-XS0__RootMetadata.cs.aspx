@@ -10,10 +10,10 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 --%><%@ Page language="c#" contenttype="text/plain" %>
-<%//@ import namespace="OGen.lib.datalayer" %>
-<%@ import namespace="OGen.XSD.lib.metadata" %>
-<%@ import namespace="OGen.XSD.lib.metadata.schema" %>
-<%@ import namespace="OGen.XSD.lib.metadata.metadata" %><%
+<%//@ import namespace="OGen.Libraries.DataLayer" %>
+<%@ import namespace="OGen.XSD.Libraries.Metadata" %>
+<%@ import namespace="OGen.XSD.Libraries.Metadata.Schema" %>
+<%@ import namespace="OGen.XSD.Libraries.Metadata.Metadata" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 string _arg_SchemaName = System.Web.HttpUtility.UrlDecode(Request.QueryString["SchemaName"]);
@@ -48,8 +48,8 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 	using System.Collections;
 	using System.Xml.Serialization;
 
-	using OGen.lib.generator;
-	using OGen.lib.metadata;<%
+	using OGen.Libraries.Generator;
+	using OGen.Libraries.Metadata;<%
 	for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {%>
 	using <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>;<%
 	}%>
@@ -142,7 +142,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 
 			if (!useMetacache_in || reinitializeCache_in) {
 				XS__RootMetadata.Metacache.Clear();
-				OGen.lib.generator.utils.ReflectThrough_Cache_Clear();
+				OGen.Libraries.Generator.utils.ReflectThrough_Cache_Clear();
 			}
 
 			if (useMetacache_in) {
@@ -237,7 +237,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 			string _end;
 
 			<%for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {
-			%><%=(s == 0) ? "" : " else "%>if (OGen.lib.generator.utils.rootExpression_TryParse(
+			%><%=(s == 0) ? "" : " else "%>if (OGen.Libraries.Generator.utils.rootExpression_TryParse(
 				what_in, 
 				ROOT_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToUpper()%>, 
 				out _begin, 
@@ -305,7 +305,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 
 		public void IterateThrough_fromRoot(
 			string iteration_in,
-			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in,
+			OGen.Libraries.Generator.utils.IterationFoundDelegate iteration_found_in,
 			ref bool valueHasBeenFound_out
 		) {
 			this.IterateThrough_fromRoot(
@@ -317,7 +317,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 		}
 		public void IterateThrough_fromRoot(
 			string iteration_in, 
-			OGen.lib.generator.utils.IterationFoundDelegate iteration_found_in,
+			OGen.Libraries.Generator.utils.IterationFoundDelegate iteration_found_in,
 			ref bool valueHasBeenFound_out,
 			bool useCache_in
 		) {
@@ -357,7 +357,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 			string _end;
 			
 			<%for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {
-			%><%=(s == 0) ? "" : " else "%>if (OGen.lib.generator.utils.rootExpression_TryParse(
+			%><%=(s == 0) ? "" : " else "%>if (OGen.Libraries.Generator.utils.rootExpression_TryParse(
 				iteration_in,
 				ROOT_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToUpper()%>,
 				out _begin, 

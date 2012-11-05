@@ -13,10 +13,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.businesslayer.shared.instances.utils {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances.utils {
 	using System;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared.instances;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances;
 
 #if NET_1_1
 	public class Config { private Config() { }

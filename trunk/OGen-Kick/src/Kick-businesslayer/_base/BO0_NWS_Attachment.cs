@@ -13,11 +13,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.businesslayer {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 	using System;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
 	public class BO_NWS_Attachment :
 		IBO_NWS_Attachment
@@ -29,7 +29,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			long idAttachment_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Attachment.delObject(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Attachment.delObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idAttachment_in, 
@@ -37,14 +37,14 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment getObject(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment getObject(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Attachment getObject(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Attachment getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idAttachment_in, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Attachment.getObject(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Attachment.getObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idAttachment_in, 
@@ -52,8 +52,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Attachment[] getRecord_byContent(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Attachment[] getRecord_byContent(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Attachment[] getRecord_byContent(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Attachment[] getRecord_byContent(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_search_in, 
@@ -63,7 +63,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Attachment.getRecord_byContent(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Attachment.getRecord_byContent(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idContent_search_in, 
@@ -75,8 +75,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Attachment[] getRecord_byContent_andLanguage(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Attachment[] getRecord_byContent_andLanguage(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Attachment[] getRecord_byContent_andLanguage(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Attachment[] getRecord_byContent_andLanguage(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long IDContent_search_in, 
@@ -87,7 +87,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Attachment.getRecord_byContent_andLanguage(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Attachment.getRecord_byContent_andLanguage(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				IDContent_search_in, 
@@ -104,14 +104,14 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		public long insObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment attachment_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Description_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Attachment attachment_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Name_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Description_in, 
 			bool selectIdentity_in, 
 			out string guid_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Attachment.insObject(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Attachment.insObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				attachment_in, 
@@ -127,12 +127,12 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		public void updObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment attachment_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Name_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[] tx_Description_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Attachment attachment_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Name_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[] tx_Description_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Attachment.updObject(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Attachment.updObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				attachment_in, 

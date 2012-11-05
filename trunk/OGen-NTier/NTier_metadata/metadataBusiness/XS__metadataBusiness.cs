@@ -13,11 +13,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.lib.metadata.metadataBusiness {
+namespace OGen.NTier.Libraries.Metadata.MetadataBusiness {
 	using System;
 	using System.Reflection;
 	using System.Xml.Serialization;
-	using OGen.NTier.lib.businesslayer;
+	using OGen.NTier.Libraries.BusinessLayer;
 
 	[System.Xml.Serialization.XmlRootAttribute("metadataBusiness")]
 	#if NET_1_1
@@ -166,7 +166,7 @@ _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[
 	_method_index
 ].OutputType
-	= OGen.lib.utils.Type_ToString(_methods[m].ReturnType);
+	= OGen.Libraries.utils.Type_ToString(_methods[m].ReturnType);
 
 									}
 								}
@@ -183,7 +183,7 @@ _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_i
 ].isOut = _parameterinfo[p].IsOut;
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection[
 	_property_index
-].Type = OGen.lib.utils.Type_ToString(_parameterinfo[p].ParameterType);
+].Type = OGen.Libraries.utils.Type_ToString(_parameterinfo[p].ParameterType);
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection[
 	_property_index
 ].isRef = (_parameterinfo[p].ParameterType.IsByRef && !_parameterinfo[p].IsOut);

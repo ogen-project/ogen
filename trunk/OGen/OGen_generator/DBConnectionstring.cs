@@ -13,10 +13,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.lib.generator {
+namespace OGen.Libraries.Generator {
 	using System;
 
-	using OGen.lib.datalayer;
+	using OGen.Libraries.DataLayer;
 
 	public class DBConnectionstring : DBSimpleConnectionstring, IDisposable {
 		#region public DBConnectionstring(...);

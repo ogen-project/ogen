@@ -15,7 +15,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Web.UI.WebControls;
 
-namespace OGen.NTier.Kick.presentationlayer.weblayer {
+namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
 	public class htmlDatePicker : Anthem.TextBox {
 		private static DateTime datetime_minvalue_ = new DateTime(1900, 1, 1);
 

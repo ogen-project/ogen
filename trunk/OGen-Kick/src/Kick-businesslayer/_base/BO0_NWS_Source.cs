@@ -13,11 +13,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.businesslayer {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 	using System;
 
-	using OGen.NTier.Kick.lib.businesslayer.shared;
-	using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
 	public class BO_NWS_Source :
 		IBO_NWS_Source
@@ -29,7 +29,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			long idSource_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Source.delObject(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Source.delObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idSource_in, 
@@ -37,14 +37,14 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Source getObject(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Source getObject(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Source getObject(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Source getObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idSource_in, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Source.getObject(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Source.getObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idSource_in, 
@@ -52,8 +52,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Source[] getRecord_all(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Source[] getRecord_all(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Source[] getRecord_all(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Source[] getRecord_all(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int page_orderBy_in, 
@@ -62,7 +62,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Source.getRecord_all(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Source.getRecord_all(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				page_orderBy_in, 
@@ -73,8 +73,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Source[] getRecord_Approved(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Source[] getRecord_Approved(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Source[] getRecord_Approved(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Source[] getRecord_Approved(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			int page_orderBy_in, 
@@ -83,7 +83,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Source.getRecord_Approved(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Source.getRecord_Approved(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				page_orderBy_in, 
@@ -94,8 +94,8 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			);
 		}
 		#endregion
-		#region public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentSource[] getRecord_byContent(...);
-		public OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentSource[] getRecord_byContent(
+		#region public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_ContentSource[] getRecord_byContent(...);
+		public OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_ContentSource[] getRecord_byContent(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
 			long idContent_search_in, 
@@ -105,7 +105,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			out long page_itemsCount_out, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Source.getRecord_byContent(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Source.getRecord_byContent(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idContent_search_in, 
@@ -121,11 +121,11 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		public long insObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Source source_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Source source_in, 
 			bool selectIdentity_in, 
 			out int[] errors_out
 		) {
-			return OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Source.insObject(
+			return OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Source.insObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				source_in, 
@@ -138,10 +138,10 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		public void updObject(
 			string sessionGuid_in, 
 			string ip_forLogPurposes_in, 
-			OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Source source_in, 
+			OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Source source_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Source.updObject(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Source.updObject(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				source_in, 
@@ -156,7 +156,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 			long idSource_in, 
 			out int[] errors_out
 		) {
-			OGen.NTier.Kick.lib.businesslayer.SBO_NWS_Source.updObject_Approve(
+			OGen.NTier.Kick.Libraries.BusinessLayer.SBO_NWS_Source.updObject_Approve(
 				sessionGuid_in, 
 				ip_forLogPurposes_in, 
 				idSource_in, 

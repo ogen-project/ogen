@@ -2,7 +2,7 @@
 	Language="C#" 
 	AutoEventWireup="true" 
 	CodeBehind="Default.aspx.cs" 
-	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.Default" 
+	Inherits="OGen.NTier.Kick.PresentationLayer.WebLayer.Default" 
 	MasterPageFile="~/App_Controls/Site.Master" %>
 <%@ Register 
 	TagPrefix="anthem" 

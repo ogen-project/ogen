@@ -9,7 +9,7 @@
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "OGen.NTier.lib.businesslayer.UTs-1.1"
+                AssemblyName = "OGen.NTier.Libraries.BusinessLayer.UTs-1.1"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "OGen.NTier.lib.businesslayer.UTs"
+                RootNamespace = "OGen.NTier.Libraries.BusinessLayer.UTs"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >

@@ -11,7 +11,7 @@
     </ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName>OGen.NTier.lib.businesslayer.UTs</AssemblyName>
+    <AssemblyName>OGen.NTier.Libraries.BusinessLayer.UnitTests-2.0</AssemblyName>
     <AssemblyOriginatorKeyFile>
     </AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
@@ -19,7 +19,7 @@
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
     <OutputType>Library</OutputType>
-    <RootNamespace>OGen.NTier.lib.businesslayer.UTs</RootNamespace>
+    <RootNamespace>OGen.NTier.Libraries.BusinessLayer.UnitTests</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <StartupObject>
     </StartupObject>

@@ -13,15 +13,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.XSD.lib.generator {
+namespace OGen.XSD.Libraries.Generator {
 	using System;
 	using System.IO;
 
-	using OGen.lib.generator;
-	using OGen.lib.templates;
-	using OGen.XSD.lib.metadata;
-	using OGen.XSD.lib.metadata.metadata;
-	using OGen.XSD.lib.metadata.schema;
+	using OGen.Libraries.Generator;
+	using OGen.Libraries.Templates;
+	using OGen.XSD.Libraries.Metadata;
+	using OGen.XSD.Libraries.Metadata.Metadata;
+	using OGen.XSD.Libraries.Metadata.Schema;
 
 	public class XSDGenerator {
 		#region	public XSDGenerator();
@@ -102,12 +102,12 @@ namespace OGen.XSD.lib.generator {
 //		#region public void Open(...);
 		public void Open(
 			string filenameextendedmetadata_in,
-			bool force_doNOTsave_in, 
+			bool force_doNOTSave_in, 
 			dNotifyBack notifyBack_in
 		) {
 			#region Checking...
 			if (this.hasChanges) {
-				if (!force_doNOTsave_in) {
+				if (!force_doNOTSave_in) {
 					throw new Exception(string.Format(
 						System.Globalization.CultureInfo.CurrentCulture, 
 						"{0}.{1}.Open(): - must save before open", 
@@ -132,10 +132,10 @@ namespace OGen.XSD.lib.generator {
 		}
 //		#endregion
 		#region public void Close(...);
-		public void Close(bool force_doNOTsave_in) {
+		public void Close(bool force_doNOTSave_in) {
 			if (
 				(this.hasChanges) && 
-				(!force_doNOTsave_in)
+				(!force_doNOTSave_in)
 			) {
 				throw new Exception(string.Format(
 					System.Globalization.CultureInfo.CurrentCulture, 

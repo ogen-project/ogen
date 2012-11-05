@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using OGen.lib.presentationlayer.winforms.Flowforms;
 
-namespace OGen.NTier.presentationlayer.winforms {
+namespace OGen.NTier.PresentationLayer.WinForms {
+	using System;
+	using OGen.Libraries.PresentationLayer.WinForms.FlowForms;
+
 	public class cManage_ConfigTables_CreateOrChange_s010 : cFlowform {
 		#region public cManage_ConfigTables_CreateOrChange_s010(...);
 		public cManage_ConfigTables_CreateOrChange_s010(

@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.lib.metadata.metadataExtended {
+namespace OGen.NTier.Libraries.Metadata.MetadataExtended {
 	using System;
 	using System.IO;
 	using System.Xml.Serialization;

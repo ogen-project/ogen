@@ -17,16 +17,16 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Text;
 
-using OGen.lib.crypt;
-using OGen.lib.datalayer;
-using OGen.NTier.Kick.lib.datalayer;
-using OGen.NTier.Kick.lib.datalayer.shared;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-//using OGen.NTier.Kick.lib.businesslayer.shared.structures;
-using OGen.NTier.lib.businesslayer;
+using OGen.Libraries.Crypt;
+using OGen.Libraries.DataLayer;
+using OGen.NTier.Kick.Libraries.DataLayer;
+using OGen.NTier.Kick.Libraries.DataLayer.Shared;
+using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
+using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+//using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+using OGen.NTier.Libraries.BusinessLayer;
 
-namespace OGen.NTier.Kick.lib.businesslayer {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 	[BOClassAttribute("BO_CRD_Permission", "")]
 	public static class SBO_CRD_Permission {
 		#region public static SO_CRD_Permission[] getRecord_all(...);
@@ -192,7 +192,7 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		//    }
 		//    if (_exception != null) {
 		//        #region SBO_LOG_Log.Log(ErrorType.data);
-		//        OGen.NTier.Kick.lib.businesslayer.SBO_LOG_Log.log(
+		//        OGen.NTier.Kick.Libraries.BusinessLayer.SBO_LOG_Log.log(
 		//            _sessionuser, 
 		//            LogType.error,
 		//            ErrorType.data, 

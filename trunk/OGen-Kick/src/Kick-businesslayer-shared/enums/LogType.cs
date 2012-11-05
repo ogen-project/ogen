@@ -13,16 +13,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.businesslayer.shared {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer.Shared {
 	using System;
 	using System.Collections.Generic;
 	using System.Text;
 
 	public static class LogType {
-		#region public static Dictionary<int, OGen.NTier.Kick.lib.businesslayer.shared.PseudoEnumItem> Items { get; }
+		#region public static Dictionary<int, OGen.NTier.Kick.Libraries.BusinessLayer.Shared.PseudoEnumItem> Items { get; }
 		private static readonly Dictionary<int, PseudoEnumItem> items_;
 
-		public static Dictionary<int, OGen.NTier.Kick.lib.businesslayer.shared.PseudoEnumItem> Items {
+		public static Dictionary<int, OGen.NTier.Kick.Libraries.BusinessLayer.Shared.PseudoEnumItem> Items {
 			get {
 				return items_;
 			}

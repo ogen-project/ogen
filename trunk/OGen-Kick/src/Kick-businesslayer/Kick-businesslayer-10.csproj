@@ -21,8 +21,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <AssemblyOriginatorKeyFile>..\..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OGen.NTier.Kick.lib.businesslayer</RootNamespace>
-    <AssemblyName>OGen.NTier.Kick.lib.businesslayer-2.0</AssemblyName>
+    <RootNamespace>OGen.NTier.Kick.Libraries.BusinessLayer</RootNamespace>
+    <AssemblyName>OGen.NTier.Kick.Libraries.BusinessLayer-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
@@ -69,12 +69,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="OGen.lib.datalayer-2.0">
-      <Name>OGen.lib.datalayer-2.0</Name>
+    <Reference Include="OGen.Libraries.DataLayer-2.0">
+      <Name>OGen.Libraries.DataLayer-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
     </Reference>
-    <Reference Include="OGen.NTier.lib.businesslayer-2.0">
-      <Name>OGen.NTier.lib.businesslayer-2.0</Name>
+    <Reference Include="OGen.NTier.Libraries.BusinessLayer-2.0">
+      <Name>OGen.NTier.Libraries.BusinessLayer-2.0</Name>
       <AssemblyFolderKey>hklm\dn\ogen</AssemblyFolderKey>
     </Reference>
   </ItemGroup>

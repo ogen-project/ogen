@@ -15,16 +15,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 using System.Collections.Generic;
 
-using OGen.lib.datalayer;
-using OGen.NTier.lib.businesslayer;
+using OGen.Libraries.DataLayer;
+using OGen.NTier.Libraries.BusinessLayer;
 
-using OGen.lib.crypt;
-using OGen.NTier.Kick.lib.datalayer;
-using OGen.NTier.Kick.lib.datalayer.shared.structures;
-using OGen.NTier.Kick.lib.businesslayer.shared;
-//using OGen.NTier.Kick.lib.businesslayer.shared.structures;
+using OGen.Libraries.Crypt;
+using OGen.NTier.Kick.Libraries.DataLayer;
+using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
+using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+//using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
-namespace OGen.NTier.Kick.lib.businesslayer {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 	[BOClassAttribute("BO_LOG_Log", "")]
 	public static class SBO_LOG_Log {
 		#region internal static int MessageSize { get; }
@@ -33,9 +33,9 @@ namespace OGen.NTier.Kick.lib.businesslayer {
 		internal static int MessageSize {
 			get {
 				if (messagesize__ == -2) {
-					OGen.NTier.lib.datalayer.DOPropertyAttribute _att = (OGen.NTier.lib.datalayer.DOPropertyAttribute)Attribute.GetCustomAttribute(
+					OGen.NTier.Libraries.DataLayer.DOPropertyAttribute _att = (OGen.NTier.Libraries.DataLayer.DOPropertyAttribute)Attribute.GetCustomAttribute(
 						typeof(SO_LOG_Log).GetProperty("Message"),
-						typeof(OGen.NTier.lib.datalayer.DOPropertyAttribute),
+						typeof(OGen.NTier.Libraries.DataLayer.DOPropertyAttribute),
 						true
 					);
 					messagesize__ = _att.Size;

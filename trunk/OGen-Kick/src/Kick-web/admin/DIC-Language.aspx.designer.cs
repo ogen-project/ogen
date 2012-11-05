@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OGen.NTier.Kick.presentationlayer.weblayer {
+namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
     
     
     public partial class DIC_Language {
@@ -37,7 +37,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic DIC_LanguageNameIn;
+        protected global::OGen.NTier.Kick.PresentationLayer.WebLayer.wuc_txt_Dic DIC_LanguageNameIn;
         
         /// <summary>
         /// TR_New1 control.
@@ -64,7 +64,7 @@ namespace OGen.NTier.Kick.presentationlayer.weblayer {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OGen.NTier.Kick.presentationlayer.weblayer.wuc_txt_Dic DIC_LanguagesInNewLanguage;
+        protected global::OGen.NTier.Kick.PresentationLayer.WebLayer.wuc_txt_Dic DIC_LanguagesInNewLanguage;
         
         /// <summary>
         /// TR_New3 control.

@@ -17,9 +17,9 @@ using System.IO;
 using System.Collections;
 using NUnit.Framework;
 
-using OGen.lib.presentationlayer.winforms;
+using OGen.Libraries.PresentationLayer.WinForms;
 
-namespace OGen.lib.presentationlayer.winforms.UTs {
+namespace OGen.Libraries.PresentationLayer.WinForms.UnitTests {
 	[TestFixture]
 	public class UT_Flowforms { public UT_Flowforms() {}
 		#region public void TestFixtureSetUp();

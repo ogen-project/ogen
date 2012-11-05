@@ -10,11 +10,11 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 --%><%@ Page language="c#" contenttype="text/html" %>
-<%@ import namespace="OGen.lib.datalayer" %>
-<%@ import namespace="OGen.NTier.lib.metadata" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataExtended" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataDB" %>
-<%@ import namespace="OGen.NTier.lib.metadata.metadataBusiness" %><%
+<%@ import namespace="OGen.Libraries.DataLayer" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataExtended" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataDB" %>
+<%@ import namespace="OGen.NTier.Libraries.Metadata.MetadataBusiness" %><%
 #region arguments...
 string _arg_MetadataFilepath = System.Web.HttpUtility.UrlDecode(Request.QueryString["MetadataFilepath"]);
 string _arg_where = System.Web.HttpUtility.UrlDecode(Request.QueryString["where"]);
@@ -35,7 +35,7 @@ XS__metadataDB _aux_db_metadata = _aux_root_metadata.MetadataDBCollection[0];
 XS__metadataExtended _aux_ex_metadata = _aux_root_metadata.MetadataExtendedCollection[0];
 XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusinessCollection[0];
 
-OGen.NTier.lib.metadata.metadataBusiness.XS_classType _aux_class;
+OGen.NTier.Libraries.Metadata.MetadataBusiness.XS_classType _aux_class;
 #endregion
 //-----------------------------------------------------------------------------------------
 %><?xml version="1.0" encoding="utf-8" ?><%
@@ -93,9 +93,9 @@ if (_arg_where == "test") {%>
 							ref="binary" 
 							typeFilterLevel="Full"/>
 						<provider 
-							type="OGen.NTier.lib.distributedlayer.remoting.client.CompressionClientSinkProvider, OGen.NTier.lib.distributedlayer.remoting.client-2.0" />
+							type="OGen.NTier.Libraries.DistributedLayer.Remoting.Client.CompressionClientSinkProvider, OGen.NTier.Libraries.DistributedLayer.Remoting.Client-2.0" />
 						<provider 
-							type="OGen.NTier.lib.distributedlayer.remoting.client.EncryptionClientSinkProvider, OGen.NTier.lib.distributedlayer.remoting.client-2.0"
+							type="OGen.NTier.Libraries.DistributedLayer.Remoting.Client.EncryptionClientSinkProvider, OGen.NTier.Libraries.DistributedLayer.Remoting.Client-2.0"
 							keysPath="<%=System.IO.Path.Combine(_aux_outputPath, "keys-client")%>"
 							clientID=" YOU MUST SET CLIENT KEY FILE HERE! "/>
 					</clientProviders>
@@ -105,7 +105,7 @@ if (_arg_where == "test") {%>
 				for (int c = 0; c < _aux_business_metadata.Classes.ClassCollection.Count; c++) {
 					_aux_class = _aux_business_metadata.Classes.ClassCollection[c];%>
 				<wellknown 
-					type="<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server.RS_<%=_aux_class.Name%>, <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.client-2.0"
+					type="<%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DistributedLayer.Remoting.Server.RS_<%=_aux_class.Name%>, <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DistributedLayer.Remoting.Client-2.0"
 					url="<%=_aux_ex_metadata.RemotingServer_ServerURI%>:<%=_aux_ex_metadata.RemotingServer_ServerPort%>/<%=_aux_class.Name%>.remoting" /><%
 				}%>
 			</client><%
@@ -114,14 +114,14 @@ if (_arg_where == "test") {%>
 				<channel ref="tcp" port="<%=_aux_ex_metadata.RemotingServer_ServerPort%>">
 					<serverProviders>
 						<provider 
-							type="OGen.NTier.lib.distributedlayer.remoting.server.EncryptionServerSinkProvider, OGen.NTier.lib.distributedlayer.remoting.server-2.0"
+							type="OGen.NTier.Libraries.DistributedLayer.Remoting.Server.EncryptionServerSinkProvider, OGen.NTier.Libraries.DistributedLayer.Remoting.Server-2.0"
 							keysPath="<%=System.IO.Path.Combine(_aux_outputPath, "keys-server")%>"
 							mustDo="False" />
 						<provider 
-							type="OGen.NTier.lib.distributedlayer.remoting.server.CompressionServerSinkProvider, OGen.NTier.lib.distributedlayer.remoting.server-2.0"
+							type="OGen.NTier.Libraries.DistributedLayer.Remoting.Server.CompressionServerSinkProvider, OGen.NTier.Libraries.DistributedLayer.Remoting.Server-2.0"
 							mustDo="False" />
 						<provider
-							type="OGen.NTier.lib.distributedlayer.remoting.server.ClientIPAddressServerSinkProvider, OGen.NTier.lib.distributedlayer.remoting.server-2.0" />
+							type="OGen.NTier.Libraries.DistributedLayer.Remoting.Server.ClientIPAddressServerSinkProvider, OGen.NTier.Libraries.DistributedLayer.Remoting.Server-2.0" />
 						<formatter 
 							ref="binary" 
 							typeFilterLevel="Full"/>
@@ -133,7 +133,7 @@ if (_arg_where == "test") {%>
 					_aux_class = _aux_business_metadata.Classes.ClassCollection[c];%>
 				<wellknown 
 					mode="Singleton"
-					type="<%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server.RS_<%=_aux_class.Name%>, <%=_aux_ex_metadata.ApplicationNamespace%>.lib.distributedlayer.remoting.server-2.0"
+					type="<%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DistributedLayer.Remoting.Server.RS_<%=_aux_class.Name%>, <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DistributedLayer.Remoting.Server-2.0"
 					objectUri="<%=_aux_class.Name%>.remoting" /><%
 				}%>
 			</service><%

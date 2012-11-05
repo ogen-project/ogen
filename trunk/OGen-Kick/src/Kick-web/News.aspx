@@ -2,7 +2,7 @@
 	Language="C#" 
 	AutoEventWireup="true" 
 	CodeBehind="News.aspx.cs" 
-	Inherits="OGen.NTier.Kick.presentationlayer.weblayer.FE_News"
+	Inherits="OGen.NTier.Kick.PresentationLayer.WebLayer.FE_News"
 
 	MasterPageFile="~/App_Controls/Site.Master" %>
 <%@ Register 

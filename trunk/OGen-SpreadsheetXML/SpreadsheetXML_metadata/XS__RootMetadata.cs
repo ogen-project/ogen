@@ -13,11 +13,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.SpreadsheetXML.lib.metadata {
+namespace OGen.SpreadsheetXML.Libraries.Metadata {
 	using System;
 	using System.Xml.Serialization;
 
-	using OGen.SpreadsheetXML.lib.metadata.spreadsheet;
+	using OGen.SpreadsheetXML.Libraries.Metadata.SpreadSheet;
 
 	#if NET_1_1
 	public class XS__RootMetadata : XS0__RootMetadata {

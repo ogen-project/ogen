@@ -9,14 +9,14 @@
     <ApplicationIcon>App.ico</ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName>OGen.Doc.presentationlayer.console-2.0</AssemblyName>
+    <AssemblyName>OGen.Doc.PresentationLayer.ConsoleApplication-2.0</AssemblyName>
     <AssemblyOriginatorKeyFile>..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
     <OutputType>Exe</OutputType>
-    <RootNamespace>OGen.Doc.presentationlayer.console</RootNamespace>
+    <RootNamespace>OGen.Doc.PresentationLayer.ConsoleApplication</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <StartupObject>
     </StartupObject>

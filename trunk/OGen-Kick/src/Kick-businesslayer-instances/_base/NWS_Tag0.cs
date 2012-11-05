@@ -13,20 +13,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.NTier.Kick.lib.businesslayer.shared.instances {
+namespace OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances {
 	using System;
 	using System.Collections.Generic;
 	using System.Text;
 
 	#if BUSINESSOBJECT
-	using OGen.NTier.Kick.lib.businesslayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer;
 	#endif
-	using OGen.NTier.Kick.lib.businesslayer.shared;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
 	#if REMOTINGCLIENT
-	using OGen.NTier.Kick.lib.distributedlayer.remoting.client;
+	using OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Client;
 	#endif
 	#if WEBSERVICESCLIENT
-	using OGen.NTier.Kick.lib.distributedlayer.webservices.client;
+	using OGen.NTier.Kick.Libraries.DistributedLayer.WebServices.Client;
 	#endif
 
 #if NET_1_1
