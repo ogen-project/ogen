@@ -44,6 +44,8 @@ string XS0_ = _aux_rootmetadata.MetadataCollection[0].PrefixGenerated;
 string XS_ = _aux_rootmetadata.MetadataCollection[0].Prefix;
 string XS0__ = _aux_rootmetadata.MetadataCollection[0].PrefixBaseGenerated;
 string XS__ = _aux_rootmetadata.MetadataCollection[0].PrefixBase;
+
+string _aux_namespace = _aux_rootmetadata.MetadataCollection[0].FullNamespaceForSchema(_arg_SchemaName);
 #endregion
 //-----------------------------------------------------------------------------------------
 if ((_aux_rootmetadata.MetadataCollection[0].CopyrightText != string.Empty) && (_aux_rootmetadata.MetadataCollection[0].CopyrightTextLong != string.Empty)) {
@@ -57,7 +59,7 @@ if ((_aux_rootmetadata.MetadataCollection[0].CopyrightText != string.Empty) && (
 <%
 }%>
 
-namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_rootmetadata.MetadataCollection[0].MetadataIndexCollection[_arg_SchemaName].Namespace%> {
+namespace <%=_aux_namespace%> {
 	using System;
 	using System.Collections;
 	#if !NET_1_1

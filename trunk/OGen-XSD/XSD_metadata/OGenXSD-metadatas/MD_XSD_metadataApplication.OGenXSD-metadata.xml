@@ -47,7 +47,7 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 		</metadataIndex>
 		<metadataIndex 
 			metadata="schema" 
-			metadata="Schema"
+			namespace="Schema"
 			index="Element.Name">
 
 			<specificCase word="xmlns" translation="xmlNS" />

@@ -21,7 +21,7 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata {
 
 	using OGen.Libraries.Generator;
 	using OGen.Libraries.Metadata;
-	using OGen.SpreadsheetXML.Libraries.Metadata.SpreadSheet;
+	using OGen.SpreadsheetXML.Libraries.Metadata.Spreadsheet;
 
 	#if NET_1_1
 	public class XS0__RootMetadata : MetadataInterface {

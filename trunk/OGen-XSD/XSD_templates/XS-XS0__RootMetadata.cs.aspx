@@ -51,7 +51,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 	using OGen.Libraries.Generator;
 	using OGen.Libraries.Metadata;<%
 	for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {%>
-	using <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>;<%
+	using <%=_aux_rootmetadata.MetadataCollection[0].FullNamespaceForSchema(_aux_rootmetadata.SchemaCollection[s].Element.Name)%>;<%
 	}%>
 
 	#if NET_1_1

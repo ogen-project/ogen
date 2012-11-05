@@ -25,7 +25,7 @@ namespace OGen.XSD.Libraries.Metadata.Metadata {
 	public partial class XS__metadata {
 	#endif
 
-		#region public string CaseTranslate(string word_in);
+		#region public string CaseTranslate(...);
 		private Hashtable casetranslate_cache_ = new Hashtable();
 
 		public string CaseTranslate(
@@ -105,5 +105,21 @@ namespace OGen.XSD.Libraries.Metadata.Metadata {
 			}
 		}
 		#endregion
+
+		public string FullNamespaceForSchema(
+			string schemaName_in
+		) {
+			return string.Format(
+				System.Globalization.CultureInfo.CurrentCulture,
+				"{0}{1}",
+				root_ref.MetadataCollection[0].Namespace,
+				(root_ref.MetadataCollection[0].MetadataIndexCollection.Search(schemaName_in, true) >= 0)
+					? string.Concat(
+						".",
+						root_ref.MetadataCollection[0].MetadataIndexCollection[schemaName_in].Namespace
+					)
+					: ""
+			);
+		}
 	}
 }

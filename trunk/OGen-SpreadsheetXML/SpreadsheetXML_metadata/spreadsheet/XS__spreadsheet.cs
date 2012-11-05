@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.SpreadsheetXML.Libraries.Metadata.SpreadSheet {
+namespace OGen.SpreadsheetXML.Libraries.Metadata.Spreadsheet {
 	using System;
 	using System.Data;
 	using System.Data.OleDb;

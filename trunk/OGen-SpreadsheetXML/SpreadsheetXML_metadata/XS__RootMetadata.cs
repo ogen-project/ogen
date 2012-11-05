@@ -17,7 +17,7 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata {
 	using System;
 	using System.Xml.Serialization;
 
-	using OGen.SpreadsheetXML.Libraries.Metadata.SpreadSheet;
+	using OGen.SpreadsheetXML.Libraries.Metadata.Spreadsheet;
 
 	#if NET_1_1
 	public class XS__RootMetadata : XS0__RootMetadata {
